@@ -3,8 +3,8 @@ title: 포함 파일
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988533"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203631"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -82,18 +82,18 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>옵션 1: 한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
-이 옵션은 *LOB 애플리케이션*의 일반적인 시나리오입니다. 애플리케이션에서 특정 Azure Active Directory 인스턴스에 속한 계정(해당 인스턴스의 *게스트 계정* 포함)의 로그인만 수락하도록 하려면
+이 옵션에 대 한 일반적인 시나리오입니다 *LOB 응용 프로그램*: 응용 프로그램을 특정 Azure Active Directory 인스턴스에 속한 계정 에서만에서 로그인 허용 하려는 경우 (포함 *게스트 계정* 해당 인스턴스의) 다음을 수행 합니다.
 
 1. **web.config** 파일에서 `Tenant` 매개 변수의 값을 `Common`에서 조직의 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 변경합니다.
 2. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 애플리케이션 액세스를 조직의 특정 목록에 포함된 사용자로 제한
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 조직의 특정 목록에서 사용자에 게 응용 프로그램에 대 한 액세스 제한
 
 로그인 액세스를 허용된 조직 목록에 들어 있는 Azure AD 조직에 있는 사용자 계정으로만 국한할 수 있습니다.
 1. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
 2. `ValidIssuers` 매개 변수의 값을 허용된 조직 목록으로 설정합니다.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>옵션 3: 사용자 지정 메서드를 사용하여 발급자의 유효성 검사
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>옵션 3: 사용자 지정 메서드를 사용하여 발급자 유효성 검사
 
 **IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 관한 자세한 내용은 MSDN에서 [TokenValidationParameters 클래스](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx)에 관해 알아보세요.
 

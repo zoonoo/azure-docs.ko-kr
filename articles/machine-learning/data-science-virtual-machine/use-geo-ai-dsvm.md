@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 11026d642a5136ffcf0caa5815934115b6becf89
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880112"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "55238462"
 
 ## <a name="configuration-details"></a>구성 세부 정보
 
-ArcGIS와 연결되는 Python 라이브러리 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm)는 ```c:\anaconda```에 있는 데이터 과학 VM의 전역 루트 conda 환경에 설치됩니다. 
+ArcGIS와 연결되는 Python 라이브러리 [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm)는 ```c:\anaconda```에 있는 데이터 과학 VM의 전역 루트 conda 환경에 설치됩니다. 
 
 - 명령 프롬프트에서 Python을 실행하는 경우 ```activate```를 실행하여 conda 루트 Python 환경을 활성화합니다. 
 - IDE 또는 Jupyter 노트북을 사용하는 경우, 환경 또는 커널을 선택하여 올바른 conda 환경에서 작업하도록 선택할 수 있습니다. 
@@ -43,7 +43,7 @@ ArcGIS에 대한 R 브리지는 ```C:\Program Files\Microsoft\ML Server\R_SERVER
 기본 데이터 과학 VM의 ML 및 심화 학습 프레임워크 기반 샘플 외에도, 지리 공간적 샘플 집합이 지리적 AI 데이터 과학 VM의 일부로 제공됩니다. 이러한 샘플은 지리 공간적 데이터와 ArcGIS 소프트웨어를 사용하여 AI 애플리케이션의 개발을 바로 시작하는 데 도움이 될 수 있습니다. 
 
 
-1. [Python을 사용한 지리 공간적 분석 시작](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ArcGIS에서 제공하는 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 라이브러리에 제공된 ArcGIS에 대한 Python 인터페이스를 사용하여 지리 공간적 데이터를 사용하는 방법을 보여 주는 소개 샘플입니다. 또한 기존의 기계 학습을 지리 공간적 데이터와 결합하고 ArcGIS의 맵에 결과를 시각화하는 방법도 보여 줍니다. 
+1. [Python을 사용한 지리 공간적 분석 시작](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ArcGIS에서 제공하는 [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 라이브러리에 제공된 ArcGIS에 대한 Python 인터페이스를 사용하여 지리 공간적 데이터를 사용하는 방법을 보여 주는 소개 샘플입니다. 또한 기존의 기계 학습을 지리 공간적 데이터와 결합하고 ArcGIS의 맵에 결과를 시각화하는 방법도 보여 줍니다. 
 
 2. [R을 사용한 지리 공간적 분석 시작](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) 라이브러리에 제공된 ArcGIS에 대한 R 인터페이스를 사용하여 지리 공간적 데이터를 사용하는 방법을 보여 주는 소개 샘플입니다. 
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329748"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543732"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow 식 작성기
 
@@ -51,7 +51,7 @@ Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수
 
 ## <a name="regular-expressions"></a>정규식
 
-Azure Data Factory Data Flow 식 언어([여기서 전체 참조 문서](http://aka.ms/dataflowexpressions) 참조)를 통해 정규식 구문을 포함하는 함수를 사용할 수 있습니다. 정규식 함수를 사용하는 경우 식 작성기는 백슬래시(\))를 이스케이프 문자 시퀀스로 해석하려고 합니다. 정규식에 백슬래시를 사용하는 경우 전체 regex를 틱 ` `으로 묶거나 이중 백슬래시를 사용합니다.
+Azure Data Factory Data Flow 식 언어([여기서 전체 참조 문서](https://aka.ms/dataflowexpressions) 참조)를 통해 정규식 구문을 포함하는 함수를 사용할 수 있습니다. 정규식 함수를 사용하는 경우 식 작성기는 백슬래시(\))를 이스케이프 문자 시퀀스로 해석하려고 합니다. 정규식에 백슬래시를 사용하는 경우 전체 regex를 틱 ` `으로 묶거나 이중 백슬래시를 사용합니다.
 
 예제: 틱 사용
 
@@ -65,8 +65,17 @@ regex_replace('100 and 200', `(\d+)`, 'digits')
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>배열 인덱스 처리
+## <a name="addressing-array-indexes"></a>배열 인덱스를 주소 지정
 
 배열을 반환하는 식 함수를 사용하는 경우 대괄호 []를 사용하여 내부에서 배열 개체를 반환하는 특정 인덱스를 처리합니다. 배열은 1부터 시작합니다.
 
 ![식 작성기 배열](media/data-flow/expb2.png "식 데이터 미리 보기")
+
+## <a name="handling-names-with-special-characters"></a>특수 문자를 사용 하 여 이름을 처리합니다.
+
+열 이름은 특수 문자 또는 공백을 포함 하는 경우에 중괄호를 사용 하 여 이름을 묶습니다.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>다음 단계
+
+[데이터 변환 식 작성 시작](data-flow-expression-functions.md)

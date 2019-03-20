@@ -1,5 +1,5 @@
 ---
-title: 사용자를 그룹 기반 라이선스로 마이그레이션 - Azure Active Directory | Microsoft Docs
+title: 개별적으로 사용이 허가 된 사용자를 그룹 기반 라이선스로-마이그레이션 Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 개별 라이선스 사용자를 그룹 기반 라이선스로 전환하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199975"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스에 대해 라이선스 사용자를 그룹에 추가하는 방법
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>추가 하는 방법을 라이선스에 대 한 그룹에 개별 라이선스를 사용 하 여 사용자 마이그레이션
 
-개별 사용자에게 라이선스를 할당하기 위해 "직접 할당"을 통해, 즉 PowerShell 스크립트 또는 기타 도구를 사용하여 조직의 사용자에게 기존 라이선스가 배포되었을 수 있습니다. 조직에서 그룹 기반 라이선스를 사용하여 라이선스를 관리하려는 경우 기존 솔루션을 그룹 기반 라이선스로 원활하게 대체하기 위한 마이그레이션 계획이 필요하게 됩니다.
+개별 사용자에게 라이선스를 할당하기 위해 "직접 할당"을 통해, 즉 PowerShell 스크립트 또는 기타 도구를 사용하여 조직의 사용자에게 기존 라이선스가 배포되었을 수 있습니다. 그룹 기반 라이선스를 사용 하 여 조직의 라이선스 관리를 시작 하기 전에 원활 하 게 그룹 기반 라이선스 사용 하 여 기존 솔루션을 대체 하려면이 마이그레이션 계획을 사용할 수 있습니다.
 
 가장 중요한 고려 사항은 그룹 기반 라이선스로의 마이그레이션으로 인해 사용자에게 현재 할당된 라이선스가 일시적으로 손실되는 상황을 피해야 한다는 것입니다. 사용자가 서비스 및 해당 데이터에 액세스하지 못하는 일이 없도록 라이선스를 제거할 수 있는 프로세스는 피해야 합니다.
 
@@ -69,18 +69,17 @@ ms.locfileid: "58107749"
 
    - 다음은 마이그레이션 중에 예상되는 사용자 상태입니다.
 
-      ![예상되는 사용자 상태](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![마이그레이션 중 예상 되는 사용자 상태](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    이 경우 사용자에게 직접 및 상속된 라이선스가 모두 있는 것입니다. **EMS** 및 **E3**가 둘 다 할당되어 있는 것을 볼 수 있습니다.
 
    - 각 라이선스를 선택하여 사용하도록 설정된 서비스에 대한 세부 정보를 확인합니다. 이를 통해 직접 및 그룹 라이선스가 해당 사용자의 정확히 동일한 서비스 계획을 사용하도록 설정하는지 확인할 수 있습니다.
 
-      ![서비스 계획 확인](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![사용자에 대 한 서비스 계획 확인](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. 직접 및 그룹 라이선스가 동일한 것인지 확인한 후에 사용자에게서 직접 라이선스를 제거할 수 있습니다. 포털에 있는 개별 사용자에게서 라이선스를 제거하여 테스트한 다음 자동화 스크립트를 실행하여 대량으로 제거할 수 있습니다. 포털을 통해 같은 사용자에게서 직접 라이선스를 제거하는 예제는 다음과 같습니다. 라이선스 상태는 변경되지 않지만 직접 할당은 더 이상 표시되지 않습니다.
 
-   ![직접 라이선스 제거](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![직접 라이선스 제거 확인](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>다음 단계
 

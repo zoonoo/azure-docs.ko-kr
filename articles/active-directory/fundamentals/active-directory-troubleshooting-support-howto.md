@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181795"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
 Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원 및 온라인 청구 지원은 여러 언어로 제공됩니다. 
@@ -41,7 +41,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Azure Portal에서 Azure AD에 대한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> 대금 청구 또는 구독 문제의 경우 [Office 365 관리 센터](https://portal.office.com)를 사용해야 합니다.
+> 대금 청구 또는 구독 문제에 대 한 사용 해야 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다.
 > 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory**를 엽니다.
@@ -61,22 +61,21 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 8. 연락처 정보를 입력하고 **만들기**를 선택합니다.
   ![문제 범주 자가 진단 스크린샷](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Office 365 포털에서 Azure AD에 대한 지원 티켓을 여는 방법
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터에서 Azure AD에 대 한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> Office 365 관리 센터의 Azure AD에 대한 지원은 관리자에게만 제공됩니다.
+> Azure AD에 대해 지원 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) 관리자 에게만 제공 됩니다.
 > 
 
-1. EMS(Microsoft Enterprise Mobility + Security) 라이선스가 있는 계정을 사용하여 [Office 365 관리 센터](https://portal.office.com)에 로그인합니다.
+1. 에 로그인 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) Enterprise Mobility + Security (EMS) 라이선스 증명이 있는 계정을 사용 하 여 합니다.
 
-2. **지원** 타일에서 **새 서비스 요청**: ![Office 365 포털 스크린샷](./media/active-directory-troubleshooting-support-howto/office-portal.png)을 선택합니다.
+2. **지원** 타일에서 **새 서비스 요청**:
 
-3. **지원 개요** 페이지에서 **ID 관리** 또는 **사용자 및 도메인 관리**: ![Azure AD 지원 범주 스크린샷](./media/active-directory-troubleshooting-support-howto/select-identity.png)을 선택합니다.
+3. **지원 개요** 페이지에서 **ID 관리** 또는 **사용자 및 도메인 관리**:
 
 4. **기능**에서 지원을 원하는 Azure AD 기능을 선택합니다.
 
 5. **증상**에서 적절한 증상을 선택하고, 문제를 요약하고, 관련 세부 정보를 입력한 후 **다음**을 선택합니다.
-  ![기능 및 증상 자가 진단 스크린샷](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. 제공된 자가 진단 리소스 중 하나를 선택하거나 **예, 계속** 또는 **아니요, 요청 취소**를 선택합니다.
 

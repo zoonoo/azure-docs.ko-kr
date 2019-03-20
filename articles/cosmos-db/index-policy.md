@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고 �
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014505"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 정책
 
@@ -23,9 +23,9 @@ ms.locfileid: "55460236"
 
 * **인덱스 모드 구성**: 컨테이너에서 인덱싱 정책을 사용하면 *일관성* 또는 *없음*과 같은 다른 인덱싱 모드를 구성할 수 있습니다.
 
-## <a name="indexing-modes"></a>인덱싱 모드 
+## <a name="indexing-modes"></a>인덱싱 모드
 
-Azure Cosmos DB는 Azure Cosmos 컨테이너에서 구성할 수 있는 두 가지 인덱싱 모드를 지원합니다. 인덱싱 정책을 통해 다음 두 가지 인덱싱 모드를 구성할 수 있습니다. 
+Azure Cosmos DB는 Azure Cosmos 컨테이너에서 구성할 수 있는 두 가지 인덱싱 모드를 지원합니다. 인덱싱 정책을 통해 다음 두 가지 인덱싱 모드를 구성할 수 있습니다.
 
 * **일관성**: Azure Cosmos 컨테이너의 정책이 일관성으로 설정되어 있는 경우 특정 컨테이너의 쿼리는 지점 읽기(강력, 제한된 부실, 세션 또는 최종)에 대해 지정된 것과 동일한 일관성 수준을 따릅니다. 
 

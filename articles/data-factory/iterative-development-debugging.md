@@ -1,9 +1,6 @@
 ---
 title: Azure Data Factory에서 반복적인 개발 및 디버깅 | Microsoft Docs
 description: Azure Portal에서 Data Factory 파이프라인을 반복적으로 개발하고 디버깅하는 방법을 알아봅니다.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,12 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: c80b67ac5575360a6556befd3fd2a6a5c8e562c0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: a8028fdde93d06f7b25bf9bd8b4ed5a560a35f83
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015766"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575276"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 

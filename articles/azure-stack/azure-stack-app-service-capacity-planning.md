@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852375"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack에서 Azure App Service 서버 역할의 용량 계획
 
@@ -93,9 +93,17 @@ Azure Functions 소비 계획 모델에서 사용자에 게를 제공 하려면 
 
    작업자 인스턴스를 더 추가 하는 방법에 대 한 내용은 [더 많은 작업자 역할 추가](azure-stack-app-service-add-worker-roles.md)합니다.
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>업그레이드 및 유지 관리 중 전용된 작업자에 대 한 추가 고려 사항
+
+업그레이드 및 작업자의 유지 관리 하는 동안 Azure Stack에서 Azure App Service는 한 번에 각 작업자 계층의 20%에 유지 관리를 수행 합니다.  따라서 클라우드 관리자가 테 넌 트 업그레이드 및 유지 관리 하는 동안 서비스의 손실을 발생 하지 않도록 하려면 작업자 계층 당 할당 되지 않은 작업자의 20% 풀을 항상 유지 해야 합니다.  예를 들어 10 명의 작업 자가 작업자 계층에 있는 경우 2 업그레이드 수 있도록 할당 됩니다. 및 유지 관리 하면 전체 10 작업자 할당 될 경우 해야 작업자 계층으로 강화할 할당 되지 않은 작업자 풀을 유지 하는 확인 해야 합니다. 하지만 워크 로드는 워크 로드는 계속 작동 없으면 중 사용 가능한 할당 되지 않은 작업 자가 없습니다 업그레이드 후 있습니다 되도록 할당 되지 않은 작업자를 테 넌 트 워크 로드에 대 한 잠재적인 될 Azure App Service는 이동 하는 업그레이드 및 유지 관리 중 가동 중지 시간이 발생 합니다.  공유 작업자와 관련 하 여 고객에 게 않아도 서비스를 할당 테 넌 트 응용 프로그램 내의 사용 가능한 작업 자가 자동으로 하지만 고가용성을 위해 최소한 두 명의 작업 자가이 대 한 대로 추가 작업자를 프로 비전 계층입니다.
+
+클라우드 관리자는 Azure Stack 관리 포털에서 앱 서비스 관리 영역에서 해당 작업자 계층 할당을 모니터링할 수 있습니다.  App Service로 이동 하 고 왼쪽 창에서 작업자 계층을 선택 합니다.  작업자 계층은 작업자 계층 이름, 크기, 사용 되는 이미지, 사용 가능한 작업자 수 (할당), 각 계층에서 작업자의 총 수 및 작업자 계층의 전반적인 상태를 보여 줍니다.
+
+![App Service 관리-작업자 계층][1]
+
 ## <a name="file-server-role"></a>파일 서버 역할
 
-파일 서버 역할에 대 한 개발 및 테스트에 대 한 독립 실행형 파일 서버를 사용할 수 있습니다. 예를 들어, Azure App Service에는 Azure Stack 개발 키트 ASDK ()를 배포 하는 경우이 템플릿을 사용할 수 있습니다: https://aka.ms/appsvconmasdkfstemplate합니다. 프로덕션 환경에서는 미리 구성 된 Windows 파일 서버 또는 미리 구성 된 비 Windows 파일 서버를 사용 해야 합니다.
+파일 서버 역할에 대 한 개발 및 테스트에 대 한 독립 실행형 파일 서버를 사용할 수 있습니다. 예를 들어, Azure App Service에는 Azure Stack 개발 키트 ASDK ()를 배포할 때 사용할 수 있습니다 [템플릿](https://aka.ms/appsvconmasdkfstemplate)합니다.  프로덕션 환경에서는 미리 구성 된 Windows 파일 서버 또는 미리 구성 된 비 Windows 파일 서버를 사용 해야 합니다.
 
 프로덕션 환경에서는 파일 서버 역할은 집중형 디스크 I/O을 경험 했습니다. 모든 사용자 웹 사이트에 대 한 콘텐츠 및 응용 프로그램 파일을 보관 하기 때문에 미리 구성 해야이 역할에 대 한 다음 리소스 중 하나:
 
@@ -105,10 +113,13 @@ Azure Functions 소비 계획 모델에서 사용자에 게를 제공 하려면 
 - 비 Windows 파일 서버 클러스터
 - NAS (Network Attached Storage) 장치
 
-자세한 내용은 [파일 서버를 프로 비전](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)합니다.
+자세한 내용은 다음 문서를 참조 하세요 [파일 서버를 프로 비전](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조 하세요.
 
 [Azure Stack에서 App Service를 사용 하 여 시작 하기 전에](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

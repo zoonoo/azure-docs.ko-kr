@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327412"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003496"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -66,7 +66,7 @@ Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 �
 
 ### <a name="compute-considerations"></a>컴퓨팅 고려 사항
 
-이 아키텍처는 Azure Virtual Machines에서 애플리케이션, 스토리지 및 데이터 계층을 실행합니다. [배포 설정 스크립트](http://aka.ms/db2onazure)는 다음을 만듭니다.
+이 아키텍처는 Azure Virtual Machines에서 애플리케이션, 스토리지 및 데이터 계층을 실행합니다. [배포 설정 스크립트](https://aka.ms/db2onazure)는 다음을 만듭니다.
 
 -   DB2 pureScale 클러스터 Azure에서 필요한 컴퓨팅 리소스의 유형은 설정에 따라 달라집니다. 일반적으로 다음 두 가지 방법을 사용할 수 있습니다.
 

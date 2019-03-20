@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995147"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 
@@ -60,24 +60,24 @@ Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 ### <a name="details-on-service-health-level-information"></a>서비스 상태 수준 정보에 대한 세부 정보
 
 **작업 필요**(properties.incidentType == ActionRequired)
-    - 정보 - 기존 서비스에 미치는 영향을 방지하는 데 필요한 관리자 작업
+- 정보 - 기존 서비스에 미치는 영향을 방지하는 데 필요한 관리자 작업
     
 **유지 관리**(properties.incidentType == Maintenance)
-    - 경고 - 응급 유지 관리
-    - 정보 - 계획된 표준 유지 관리
+- 경고 - 응급 유지 관리
+- 정보 - 계획된 표준 유지 관리
 
 **정보**(properties.incidentType == Information)
-    - 정보 - 관리자는 기존 서비스에 미치는 영향을 방지해야 할 수 있습니다.
+- 정보 - 관리자는 기존 서비스에 미치는 영향을 방지해야 할 수 있습니다.
 
 **보안**(properties.incidentType == Security)
-    - 오류- 여러 지역의 여러 서비스에 액세스할 때 나타나는 다양한 문제가 광범위한 고객에게 영향을 미치고 있습니다.
-    - 경고 - 특정 서비스 및/또는 특정 지역에 액세스할 때 나타나는 문제가 일부 고객에게 영향을 미치고 있습니다.
-    - 정보 - 서비스 가용성이 아닌, 관리 작업 및/또는 대기 시간에 영향을 미치는 문제
+- 오류- 여러 지역의 여러 서비스에 액세스할 때 나타나는 다양한 문제가 광범위한 고객에게 영향을 미치고 있습니다.
+- 경고 - 특정 서비스 및/또는 특정 지역에 액세스할 때 나타나는 문제가 일부 고객에게 영향을 미치고 있습니다.
+- 정보 - 서비스 가용성이 아닌, 관리 작업 및/또는 대기 시간에 영향을 미치는 문제
 
 **서비스 문제**(properties.incidentType == Incident)
-    - 오류- 여러 지역의 여러 서비스에 액세스할 때 나타나는 다양한 문제가 광범위한 고객에게 영향을 미치고 있습니다.
-    - 경고 - 특정 서비스 및/또는 특정 지역에 액세스할 때 나타나는 문제가 일부 고객에게 영향을 미치고 있습니다.
-    - 정보 - 서비스 가용성이 아닌, 관리 작업 및/또는 대기 시간에 영향을 미치는 문제
+- 오류- 여러 지역의 여러 서비스에 액세스할 때 나타나는 다양한 문제가 광범위한 고객에게 영향을 미치고 있습니다.
+- 경고 - 특정 서비스 및/또는 특정 지역에 액세스할 때 나타나는 문제가 일부 고객에게 영향을 미치고 있습니다.
+- 정보 - 서비스 가용성이 아닌, 관리 작업 및/또는 대기 시간에 영향을 미치는 문제
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Azure Portal에서 서비스 상태 알림 보기

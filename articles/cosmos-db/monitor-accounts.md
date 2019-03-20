@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034304"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448241"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
 
@@ -43,14 +43,14 @@ ms.locfileid: "54034304"
    * 오늘의 총 요청 수
    * 사용된 저장소.
    
-   ![요청 및 저장소 사용량이 표시된 모니터링 렌즈의 스크린샷](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![요청 및 저장소 사용량을 보여 주는 모니터링 렌즈의 스크린샷](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. **요청** 타일의 오른쪽 위에 있는 이중 화살표를 클릭하면 자세한 **메트릭** 페이지가 열립니다.
 4. **메트릭** 페이지에 총 요청에 대한 세부 정보가 표시됩니다. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
 1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스** 및 **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴에서 **경고 규칙**을 클릭하여 경고 규칙 페이지를 엽니다.  
-   ![경고 규칙 부분이 선택된 스크린샷](./media/monitor-accounts/madocdb10.5.png)
+   ![선택한 경고 규칙 파트의 스크린샷](./media/monitor-accounts/madocdb10.5.png)
 3. **경고 규칙** 페이지에서 **경고 추가**를 클릭합니다.  
    ![경고 추가 단추가 강조 표시된 경고 규칙 페이지의 스크린샷](./media/monitor-accounts/madocdb11.png)
 4. **경고 규칙 추가** 페이지에서 다음을 지정합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "54034304"
    * 경고가 활성화되는 시기를 결정하는 조건, 임계값 및 기간. 예를 들어 서버 오류가 지난 15분 동안 5개보다 많습니다.
    * 경고가 발생할 때 서비스 관리자 및 공동 관리자에게 메일을 보낼지 여부
    * 경고 알림에 대한 추가 메일 주소  
-     ![경고 규칙 추가 페이지의 스크린샷](./media/monitor-accounts/madocdb12.png)
+     ![추가 경고 규칙 페이지의 스크린샷](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>프로그래밍 방식으로 Azure Cosmos DB 모니터링
 포털에서 제공되는 계정 수준 메트릭(예: 계정 저장소 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.

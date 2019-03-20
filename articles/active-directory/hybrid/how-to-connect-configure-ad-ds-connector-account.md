@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000877"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>개체의 AD DS 권한 보기 
-아래 cmdlet을 사용하여 DistinguishedName을 제공함으로써 현재 Active Directory 개체에 설정된 권한의 목록을 볼 수 있습니다. 
+현재 해당 DistinguishedName를 제공 하 여 Active Directory 개체를 설정 하는 사용 권한 목록을 보려면 다음 cmdlet을 사용할 수 있습니다. 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -130,7 +130,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
  
 
-|Type |Name |Access |적용 대상| 
+|Type |이름 |Access |적용 대상| 
 |-----|-----|-----|-----|
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 디바이스 개체| 
 |허용 |AD DS 커넥터 계정|모든 속성 읽기 |하위 InetOrgPerson 개체| 
@@ -156,9 +156,9 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
-|허용|AD DS 커넥터 계정|읽기/쓰기 속성|MS-DS-Consistency-Guid|하위 User 개체|
+|허용|AD DS 커넥터 계정|읽기/쓰기 속성|하위 User 개체|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>암호 해시 동기화에 대한 권한 
 암호 해시 동기화를 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
@@ -176,7 +176,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
 |허용 |AD DS 커넥터 계정 |모든 디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
@@ -196,7 +196,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |암호 재설정 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |lockoutTime 속성 쓰기 |하위 User 개체| 
@@ -216,7 +216,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |개체 형식 그룹 및 하위 개체의 모든 특성| 
 |허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |개체 형식 그룹 및 하위 개체의 모든 특성| 
@@ -239,7 +239,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다.  
  
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 InetOrgPerson 개체| 
@@ -261,7 +261,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 PublicFolder 개체| 
 
@@ -271,7 +271,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 - 지정된 개체에서 상속을 사용하지 않도록 설정합니다. 
 - SELF와 관련된 기본 권한을 그대로 유지하려면 SELF와 관련된 ACE를 제외하고는 특정 개체의 ACE를 모두 제거합니다. 
  
- -ADConnectorAccountDN 매개 변수는 권한을 강화해야 하는 AD 계정입니다. 이는 일반적으로 AD DS 커넥터에서 구성된 MSOL_nnnnnnnnnnnn 도메인 계정입니다('AD DS 커넥터 계정 확인' 참조). -Credential 매개 변수는 대상 AD 개체에 대한 Active Directory 권한을 제한하는 데 필요한 권한이 있는 관리자 계정을 지정하는 데 필요합니다. 이는 일반적으로 엔터프라이즈 또는 도메인 관리자입니다.  
+  -ADConnectorAccountDN 매개 변수는 권한을 강화해야 하는 AD 계정입니다. 이는 일반적으로 AD DS 커넥터에서 구성된 MSOL_nnnnnnnnnnnn 도메인 계정입니다('AD DS 커넥터 계정 확인' 참조). -Credential 매개 변수는 대상 AD 개체에 대한 Active Directory 권한을 제한하는 데 필요한 권한이 있는 관리자 계정을 지정하는 데 필요합니다. 이는 일반적으로 엔터프라이즈 또는 도메인 관리자입니다.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
@@ -286,7 +286,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |SYSTEM |모든 권한 |이 개체 
 |허용 |엔터프라이즈 관리자 |모든 권한 |이 개체 

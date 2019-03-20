@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321248"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548646"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54321248"
 
 [Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 엔드포인트의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
-이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
+이 자습서를 완료하려면 [Node.js](https://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
 
 > [!TIP]
 > [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) 는 MSDN에서 다운로드할 수 있습니다.
@@ -363,9 +363,9 @@ function cdnDelete() {
 ## <a name="next-steps"></a>다음 단계
 이 연습에서 작성된 프로젝트를 보려면 [샘플을 다운로드하세요](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/)를 봅니다.
+Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/)를 봅니다.
 
-Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](http://azure.github.io/azure-sdk-for-node/)를 봅니다.
+Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](https://azure.github.io/azure-sdk-for-node/)를 봅니다.
 
 [PowerShell](cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
 

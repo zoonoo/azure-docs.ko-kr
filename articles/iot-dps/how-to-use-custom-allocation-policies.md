@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340058"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542678"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -90,7 +90,7 @@ ms.locfileid: "53340058"
 
 이 섹션에서는 사용자 지정 할당 정책을 사용하는 새 등록 그룹을 만듭니다. 간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-security.md#x509-certificates)을 사용하는 것이 좋습니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
 
 2. **등록 관리** 탭을 선택한 다음, 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
 
@@ -127,7 +127,7 @@ ms.locfileid: "53340058"
 
 6. **등록 그룹 추가**에서 **Azure 함수 선택** 섹션으로 아래로 스크롤하고 **새 함수 앱 만들기**를 클릭합니다.
 
-7. **함수 앱**에서 열리는 페이지를 만들고 새 함수에 대한 다음 설정을 입력한 후 **만들기**를 클릭합니다.
+7. **Function App**에서 열리는 페이지를 만들고 새 함수에 대한 다음 설정을 입력한 후 **만들기**를 클릭합니다.
 
     **앱 이름**: 고유한 함수 앱 이름을 입력합니다. **contoso-function-app-1098**이 예제로 표시됩니다.
 
@@ -555,7 +555,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 ## <a name="next-steps"></a>다음 단계
 
 - 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
-- 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 디바이스를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+- 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
 
 
 

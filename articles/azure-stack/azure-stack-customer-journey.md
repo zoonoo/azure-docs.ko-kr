@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119924"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 데이터 센터 통합
 
@@ -116,32 +116,32 @@ Azure Stack을 배포 하려면 배포를 시작 하는 데 사용할 하드웨�
 
 OEM 파트너에서 수행 해야 하는 동작은 다음과 같습니다.
 
--   [Azurestack 테스트를 실행 합니다.](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Azurestack 테스트를 실행 합니다.](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Azure 사용 하 여 등록](azure-stack-registration.md)
+- [Azure 사용 하 여 등록](azure-stack-registration.md)
 
--   [마켓플레이스 배포](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [마켓플레이스 배포](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   스위치 구성 및 HLH 구성에 대 한 백업 파일
+- 스위치 구성 및 HLH 구성에 대 한 백업 파일
 
--   Dvm이 제거 합니다.
+- Dvm이 제거 합니다.
 
--   요약 고객 배포 준비
+- 요약 고객 배포 준비
 
--   [솔루션 소프트웨어 최신 버전으로 업데이트 되었는지 확인 하는 업데이트를 확인 합니다.](.\azure-stack-updates.md)
+- [솔루션 소프트웨어 최신 버전으로 업데이트 되었는지 확인 하는 업데이트를 확인 합니다.](./azure-stack-updates.md)
 
 필수 또는 설치 유형에 따라 선택 된 몇 가지 단계가 있습니다.
 
--   사용 하 여 배포 완료 되었으면 [AD FS](azure-stack-integrate-identity.md), 다음 스탬프 고객과 통합 해야 하는 Azure Stack의 자체 AD FS 합니다.
+- 사용 하 여 배포 완료 되었으면 [AD FS](azure-stack-integrate-identity.md), 다음 스탬프 고객과 통합 해야 하는 Azure Stack의 자체 AD FS 합니다.
 
   > [!NOTE]
   > 이 단계는 파트너가 작업을 수행 하는 서비스를 제공 하도록 선택할 수 있지만 고객의 책임을 것입니다.
 
--   각 파트너에서 기존 모니터링 시스템과 통합 합니다.
+- 각 파트너에서 기존 모니터링 시스템과 통합 합니다.
 
-    -   [System Center Operations Manager 통합](azure-stack-integrate-monitor.md) 도 fleet 관리 기능을 지원 합니다.
+  -   [System Center Operations Manager 통합](azure-stack-integrate-monitor.md) 도 fleet 관리 기능을 지원 합니다.
 
-    -   [Nagios 통합](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios 통합](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>전체 시간 표시 막대
 

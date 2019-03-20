@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138153"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -38,7 +38,7 @@ Istio를 설치하려면 클러스터에서 [Helm][helm] 버전 *2.10.0* 이상�
 
 ## <a name="download-istio"></a>Istio 다운로드
 
-첫째, 최신 Istio 릴리스를 다운로드하여 압축을 풉니다. 이 단계는 MacOS, Linux, Windows Subsystem for Linux의 Bash 셸, PowerShell 셸에서 약간 다릅니다. 선호하는 환경에 따라 다음 설치 단계 중 하나를 선택합니다.
+첫째, 최신 Istio 릴리스를 다운로드하여 압축을 풉니다. 단계는 MacOS, Linux 또는 PowerShell 셸 및 Linux 용 Windows 하위 시스템에서 bash 셸용 약간 다릅니다. 선호하는 환경에 따라 다음 설치 단계 중 하나를 선택합니다.
 
 * [MacOS, Linux, 또는 Windows Subsystem for Linux의 Bash](#bash)
 * [PowerShell](#powershell)
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 `istioctl` 클라이언트 이진 파일은 클라이언트 머신에서 실행되어 Istio 라우팅 규칙 및 정책을 관리할 수 있습니다. 또 설치 단계는 클라이언트 운영 체제 간에 약간 차이가 납니다. 사용자 환경에 따라 다음 설치 단계 중 하나를 선택 합니다.
 
 > [!IMPORTANT]
-> 이전 섹션에서 다운로드하고 추출한 Istio 릴리스는 최상위 폴더에서 모든 나머지 단계를 실행합니다.
+> 다운로드 및 추출한 Istio 릴리스의 최상위 폴더에서이 섹션의 단계를 실행 하는 것을 확인 합니다.
 
 ### <a name="macos"></a>MacOS
 
@@ -132,7 +132,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 이제 [Istio Kubernetes 구성 요소 설치](#install-the-istio-kubernetes-components) 섹션으로 이동합니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Windows의 Powershell 기반 셸에서 Istio `istioctl` 클라이언트 이진 파일을 설치하려면 다음 명령을 사용합니다. 다음 명령을 사용하여 `istioctl` 클라이언트 이진 파일을 새 사용자 프로그램 위치에 복사하고 `PATH`를 통해 사용할 수 있습니다.
 
@@ -145,6 +145,12 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Istio Kubernetes 구성 요소 설치
+
+> [!IMPORTANT]
+> 다운로드 및 추출한 Istio 릴리스의 최상위 폴더에서이 섹션의 단계를 실행 하는 것을 확인 합니다.
+
+> [!NOTE]
+> 버전 `1.0.6` Istio Helm 차트의 최신 있고 주요 변경 내용입니다. 이 버전을 설치 하려면을 선택 하면 이제 해야 Kiali에 대 한 암호를 수동으로 만들려고 합니다. 수동으로 설정한 경우 Grafana에 대 한 암호를 만들 해야 `grafana.security.enabled=true`합니다. Istio Helm 차트를 볼 [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) 이러한 암호를 만드는 방법에 대 한 자세한 내용은 합니다.
 
 AKS 클러스터에 Istio 구성 요소를 설치하려면 Helm을 사용합니다. Istio 리소스를 `istio-system` 네임스페이스에 설치하고 다음과 같이 보안 및 모니터링에 대한 추가 옵션을 사용하도록 설정합니다.
 

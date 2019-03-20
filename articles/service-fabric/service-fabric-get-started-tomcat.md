@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872983"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223872"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
 Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
@@ -153,12 +153,12 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
 
    ```xml
    <Resources>
-     <Endpoints>
-       <!-- This endpoint is used by the communication listener to obtain the port on which to 
-        listen. Please note that if your service is partitioned, this port is shared with 
-        replicas of different partitions that are placed in your code. -->
-       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-     </Endpoints>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
    </Resources>
    ```
 
@@ -166,10 +166,10 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
 
    ```xml
    <Policies>
-     <ContainerHostPolicies CodePackageRef="Code">
-       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-     </ContainerHostPolicies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
    </Policies>
    ```
 
@@ -183,31 +183,31 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
 
    * 로컬 Service Fabric 클러스터에 연결하려면 다음을 실행합니다.
 
-      ```bash
-      sfctl cluster select --endpoint http://localhost:19080
-      ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
    * 보안 Azure 클러스터에 연결하려면 클라이언트 인증서가 *ServiceFabricTomcat* 디렉터리에 .pem 파일로 있는지 확인하고 다음을 실행합니다. 
 
-      ```bash
-      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-      ```
-      앞의 명령에서 `your-certificate.pem`을 클라이언트 인증서 파일의 이름으로 바꿉니다. 개발 및 테스트 환경에서 클러스터 인증서는 종종 클라이언트 인증서로 사용됩니다. 인증서가 자체 서명되어 있지 않으면 `-no-verify` 매개 변수를 생략합니다. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     앞의 명령에서 `your-certificate.pem`을 클라이언트 인증서 파일의 이름으로 바꿉니다. 개발 및 테스트 환경에서 클러스터 인증서는 종종 클라이언트 인증서로 사용됩니다. 인증서가 자체 서명되어 있지 않으면 `-no-verify` 매개 변수를 생략합니다. 
        
-      클러스터 인증서는 일반적으로 로컬에서 .pfx 파일로 다운로드됩니다. PEM 형식의 인증서가 아직 없으면 다음 명령을 실행하여 .pfx 파일에서 .pem 파일을 만들 수 있습니다.
+     클러스터 인증서는 일반적으로 로컬에서 .pfx 파일로 다운로드됩니다. PEM 형식의 인증서가 아직 없으면 다음 명령을 실행하여 .pfx 파일에서 .pem 파일을 만들 수 있습니다.
 
-      ```bash
-      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-      ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-      .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 `-passin pass:`를 사용합니다.
+     .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 `-passin pass:`를 사용합니다.
 
 
 13. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터에 애플리케이션을 배포합니다. 스크립트는 애플리케이션 패키지를 클러스터의 이미지 저장소에 복사하고, 애플리케이션 유형을 등록하며, 애플리케이션의 인스턴스를 만듭니다.
 
-      ```bash
-      ./install.sh
-      ```
+     ```bash
+     ./install.sh
+     ```
 
    설치 스크립트가 실행되면 브라우저를 열고 Service Fabric Explorer로 이동합니다.
     

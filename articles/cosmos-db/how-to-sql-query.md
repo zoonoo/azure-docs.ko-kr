@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대한 SQL 쿼리
-description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및 SQL 쿼리를 알아봅니다. SQL은 Azure Cosmos DB에서 JSON 쿼리 언어로 사용될 수 있습니다.
+description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및 SQL 쿼리를 알아봅니다. SQL은 Azure Cosmos DB에서 JSON 쿼리 언어로 사용할 수 있습니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013891"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -160,7 +160,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 * 구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 항목에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
 
-* Azure Cosmos DB는 엄격한 JSON 항목만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
+* Azure Cosmos DB는 엄격한 JSON 항목만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](https://www.json.org/)을 참조하세요.  
 
 * Cosmos DB 컬렉션은 JSON 항목의 스키마 없는 컬렉션입니다. 컨테이너의 항목 내 및 항목 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 항목 내 조인과 관련해서 주의할 중요한 측면입니다.
 
@@ -2113,9 +2113,9 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다. 지정된 쿼리에 `COUNT`와 같은 집계 함수가 있는 경우 쿼리 페이지는 결과 페이지에 대해 부분적으로 집계된 값을 반환할 수 있습니다. 클라이언트는 최종 결과(예: 총 개수를 반환하는 개별 페이지에서 반환된 개수에 대한 합계)를 생성하는 이러한 결과에 대해 두 번째 수준 집계를 수행해야 합니다.
 
-쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컨테이너의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컨테이너에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 항목 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [Azure Cosmos DB 일관성 수준][consistency-levels]을 참조하세요.
+쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컨테이너의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컨테이너에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 항목 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 자세한 내용은 [Azure Cosmos DB 일관성 수준][consistency-levels]을 참조하세요.
 
-컨테이너에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 Azure Cosmos DB 서버에서 400 "잘못된 요청"이 반환됩니다. 이 오류 메시지는 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
+컨테이너에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 Azure Cosmos DB 서버에서 400 "잘못된 요청"이 반환됩니다. 이 오류 메시지는 인덱싱에서 명시적으로 제외 된 경로 사용 하 여 쿼리에 대 한 반환 됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
 `x-ms-documentdb-populatequerymetrics` 헤더를 `True`로 설정하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. 자세한 내용은 [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md)(Azure Cosmos DB에 대한 SQL 쿼리 메트릭)를 참조하세요.
 

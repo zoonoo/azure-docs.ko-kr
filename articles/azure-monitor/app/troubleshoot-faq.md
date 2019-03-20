@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905066"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -257,7 +257,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 웹 서버가 엔드포인트에 원격 분석을 전송할 수 있습니다. 
 
-### <a name="proxy-redirect"></a>프록시 리디렉션
+### <a name="gateway-redirect"></a>게이트웨이 리디렉션
 
 구성의 엔드포인트를 덮어쓰는 방식으로 서버에서 인트라넷의 게이트웨이로 트래픽을 라우팅합니다.
 구성에 이러한 "엔드포인트" 설정이 없으면 해당 클래스는 아래의 예제 ApplicationInsights.config에 나와 있는 기본값을 사용합니다. 
@@ -288,7 +288,19 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 _ApplicationIdProvider는 v2.6.0부터 사용 가능합니다._
 
+### <a name="proxy-passthrough"></a>프록시 통과
 
+프록시 통과 컴퓨터 수준 또는 응용 프로그램 수준 구성 하 여 수행할 수 있습니다 프록시입니다.
+자세한 내용은 dotnet의 문서를 참조 [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)합니다.
+ 
+ 예제 Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>인트라넷 서버에서 가용성 웹 테스트를 실행할 수 있나요?

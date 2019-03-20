@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010518"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
@@ -104,7 +104,7 @@ SQL Database에 항상 필요하지 않을 수도 있는데 항상 사용할 수
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>워크로드에 필요한 DTU 수 결정
 
-기존 온-프레미스 또는 SQL Server 가상 머신 워크로드를 Azure SQL Database로 마이그레이션하려는 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU 수를 대략적으로 계산할 수 있습니다. 기존 Azure SQL Database 워크로드의 경우, 워크로드 최적화 방법에 대한 심도 깊은 인사이트를 얻기 위해 [쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 데이터베이스 리소스 사용량(DTU)을 해석할 수 있습니다. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV를 사용하여 지난 1시간 동안의 리소스 사용량을 확인할 수도 있습니다. 또는 카탈로그 뷰 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)에서 지난 14일 동안의 리소스 사용량을 표시하지만 충실도가 평균 5분으로 더 낮습니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크로드를 Azure SQL Database로 마이그레이션하려는 경우 [DTU 계산기](https://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU 수를 대략적으로 계산할 수 있습니다. 기존 Azure SQL Database 워크로드의 경우, 워크로드 최적화 방법에 대한 심도 깊은 인사이트를 얻기 위해 [쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 데이터베이스 리소스 사용량(DTU)을 해석할 수 있습니다. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV를 사용하여 지난 1시간 동안의 리소스 사용량을 확인할 수도 있습니다. 또는 카탈로그 뷰 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)에서 지난 14일 동안의 리소스 사용량을 표시하지만 충실도가 평균 5분으로 더 낮습니다.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>탄력적 리소스 풀의 이점을 활용할 수 있는 워크로드
 

@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460423"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217974"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 리소스 사용률 및 쿼리 작업 모니터링
-Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 이 포털을 통해 OMS(Operations Management Suite)/Log Analytics 및 Azure Monitor와 같은 다른 Azure 모니터링 서비스와 통합하여 데이터 웨어하우스뿐만 아니라 Azure 분석 플랫폼 전체에 대한 전체적인 모니터링 환경을 제공함으로써 통합된 모니터링 환경을 구현할 수 있습니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
+Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 포털 또한 데이터 웨어하우스가 뿐만 아니라 전체 Azure 분석에 대 한 포괄적인 모니터링 환경을 제공 하려면 Operations Management Suite (OMS) 및 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합할 수 있습니다. 통합된 된 모니터링 환경 위한 플랫폼입니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
 
 ## <a name="resource-utilization"></a>리소스 사용률 
 SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
@@ -46,11 +46,8 @@ T-SQL을 통해 SQL Data Warehouse를 모니터링할 때의 프로그래밍 방
 SQL Data Warehouse에서 제공하는 DMV 목록을 보려면 [이 설명서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)를 참조하세요. 
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅
-메트릭과 로그는 모두 Azure Monitor, 특히 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소로 내보낼 수 있으며, [로그 검색](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)을 통해 프로그래밍 방식으로 액세스할 수 있습니다.
+메트릭 및 로그를 모두 내보낼 수 있습니다 Azure Monitor에 특히 합니다 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소를 통해 프로그래밍 방식으로 액세스할 수 있습니다 [로그 검색](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)합니다.
 
-
-> [!NOTE]
-> 2018년 11월 현재, SQL Data Warehouse에 대한 로그가 배포되고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 방법 가이드에서는 데이터 웨어하우스를 모니터링하고 관리할 때의 일반적인 시나리오와 사용 사례에 대해 설명합니다.

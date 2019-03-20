@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856025"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서에서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -83,7 +83,8 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * Storage 큐에 포함된 메시지는 일반적으로 선입선출되지만 예를 들어, 메시지의 가시성 시간 제한 기간이 만료되는 경우(예: 처리 도중 클라이언트 애플리케이션의 충돌)와 같이 때에 따라 순서가 바뀔 수 있습니다. 가시성 시간 제한이 만료되면 다른 작업자가 큐에서 제거할 수 있도록 메시지가 큐에 다시 표시됩니다. 이 시점에서 새로 표시되는 메시지는 원래 그 뒤에 큐에 삽입된 메시지 다음으로 큐에 배치될 수 있습니다(다시 큐에서 제거되기 위해).
 * Service Bus 큐의 보장된 FIFO 패턴에는 메시징 세션을 사용해야 합니다. **보기 및 잠금** 모드에서 수신된 메시지를 처리하는 도중 애플리케이션이 충돌하는 경우, 다음에 큐 수신기가 메시징 세션을 수락할 때 TTL(Time-to-Live) 기간이 만료된 후 실패한 메시지에서 시작합니다.
 * Storage 큐는 확장성과 오류에 대한 허용 오차, 부하 평준화, 빌드 프로세스 워크플로를 향상시키도록 애플리케이션 구성 요소를 분리하는 등과 같은 표준 큐 시나리오를 지원하도록 설계되었습니다.
-* Service Bus 큐는 *최소 1회(At-Least-Once)* 전달 보장을 지원합니다. 또한 세션 상태를 사용하여 애플리케이션 상태를 저장하고 트랜잭션을 사용하여 원자 단위로 메시지를 수신하고 세션 상태를 업데이트함으로써 *최대 1회(At-Most-Once)* 의미 체계도 지원할 수 있습니다.
+* Service Bus 큐는 *최소 1회(At-Least-Once)* 전달 보장을 지원합니다. 
+* 세션의 메시지 시퀀스, 처리의 진행 상태를 기준으로 응용 프로그램의 상태를 저장 하려면 세션 상태를 사용 하 고 트랜잭션을 사용 하 여 Service Bus 세션의 컨텍스트에서 메시지 처리와 관련 하 여 불일치를 방지할 수 있습니다. 확인 메시지 및 세션 상태 업데이트를 받았습니다. 이러한 일관성 기능의 경우에 따라 레이블이 지정 된 *정확 하 게-한 번 처리* 다른 공급 업체의 제품 에서만 트랜잭션 실패 메시지 redeliveried 하면 분명히 이므로 용어 정확 하 게 적합 합니다.
 * Storage 큐는 개발자와 작업 팀 모두에게 큐, 테이블, BLOB에 걸쳐 균일하고 일관적인 프로그래밍 모델을 제공합니다.
 * Service Bus 큐는 단일 큐의 컨텍스트에서 로컬 트랜잭션에 대한 지원을 제공합니다.
 * Service Bus에서 지원하는 **수신 및 삭제** 모드는 전달 보장이 줄어드는 대신 메시징 작업 수(및 관련 비용)를 절감할 수 있는 기능을 제공합니다.
@@ -173,7 +174,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
-| 인증 |**대칭 키** |**대칭 키** |
+| Authentication |**대칭 키** |**대칭 키** |
 | 보안 모델 |SAS 토큰을 통해 위임된 액세스. |SAS |
 | ID 공급자 페더레이션 |**아니요** |**예** |
 
@@ -192,9 +193,9 @@ Service Bus 큐의 경우 세션, 트랜잭션, 중복 검색, 배달 못한 메
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Queue Storage 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](https://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Service Bus에 대한 개발자 가이드](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Azure에서 Queuing Service 사용하기](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
+* [Azure에서 Queuing Service 사용하기](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113234"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 승인된 클라이언트 앱 필요 
 
@@ -97,7 +97,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 - 전자 메일에 액세스할 수 있습니다.
 
-회사 데이터에 액세스하는 시기에 Intune 앱 보호 정책이 활성화되어 있으면 사용자에게 애플리케이션을 다시 시작하고 추가 PIN 등을 사용하라는 메시지가 표시될 수도 있습니다(애플리케이션 및 플랫폼에 대해 구성된 경우).
+Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 고 응용 프로그램을 다시 시작, (응용 프로그램 및 플랫폼에 대해 구성 된) 경우 추가 PIN 등을 사용 하 여 사용자를 묻는 메시지가 나타납니다.
 
 ### <a name="configuration"></a>구성 
 
@@ -292,13 +292,13 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **디바이스를 준수 상태로 표시해야 함**
+   - **디바이스를 준수 상태로 표시해야 함**
 
-    - **승인된 클라이언트 앱(미리 보기) 필요**
+   - **승인된 클라이언트 앱(미리 보기) 필요**
 
-    - **선택된 컨트롤 중 하나가 필요**   
+   - **선택된 컨트롤 중 하나가 필요**   
  
-    ![조건부 액세스](./media/app-based-conditional-access/11.png)
+     ![조건부 액세스](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **디바이스를 준수 상태로 표시해야 함**
+   - **디바이스를 준수 상태로 표시해야 함**
 
-    - **승인된 클라이언트 앱(미리 보기) 필요**
+   - **승인된 클라이언트 앱(미리 보기) 필요**
 
-    - **선택된 컨트롤이 모두 필요**   
+   - **선택된 컨트롤이 모두 필요**   
  
-    ![조건부 액세스](./media/app-based-conditional-access/13.png)
+     ![조건부 액세스](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **디바이스를 준수 상태로 표시해야 함**
+   - **디바이스를 준수 상태로 표시해야 함**
 
-    - **승인된 클라이언트 앱(미리 보기) 필요**
+   - **승인된 클라이언트 앱(미리 보기) 필요**
 
-    - **선택된 컨트롤이 모두 필요**   
+   - **선택된 컨트롤이 모두 필요**   
  
-    ![조건부 액세스](./media/app-based-conditional-access/64.png)
+     ![조건부 액세스](./media/app-based-conditional-access/64.png)
 
 
 

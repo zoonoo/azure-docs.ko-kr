@@ -3,7 +3,7 @@ title: Azure Cloud Shell 제한 사항 | Microsoft Docs
 description: Azure Cloud Shell의 제한 사항 개요
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563884"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245746"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -45,7 +45,7 @@ Cloud Shell은 Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozil
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>지정된 사용자에 대해 셸이 하나만 활성화될 수 있습니다.
 
-사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. PowerShell 또는 Bash 간에 교환이 일어나면 Azure Cloud Shell이 다시 시작되어 기존 세션이 종료됩니다.
+사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. 메뉴를 사용 하 여 PowerShell 또는 Bash 간에 교환이 일어나면 기존 세션을 종료 하는 Cloud Shell 다시 시작 하면 됩니다. 또는 입력 하 여 PowerShell 내에서 bash를 실행할 수 있습니다 `bash`를 입력 하 여 bash 내에서 PowerShell을 실행할 수 있습니다 `pwsh`합니다.
 
 ### <a name="usage-limits"></a>사용 제한
 
@@ -57,9 +57,9 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 
 권한은 sudo 액세스 권한이 없는 일반 사용자로 설정됩니다. 사용자 `$Home` 디렉터리 외부에서의 설치는 유지되지 않습니다.
 
-### <a name="editing-bashrc"></a>.bashrc 편집
+### <a name="editing-bashrc-or-profile"></a>.Bashrc 또는 $PROFILE 편집
 
-.bashrc를 편집할 때는 Cloud Shell에 예기치 않은 오류가 발생할 수 있으니 주의하세요.
+Cloud Shell에 예기치 않은 오류가 발생할 수 있습니다.bashrc 또는 이렇게 PowerShell의 $PROFILE 파일을 편집 하는 경우에 주의 수행 합니다.
 
 ## <a name="powershell-limitations"></a>PowerShell 제한 사항
 
@@ -73,23 +73,15 @@ Cloud Shell에 포함된 `SqlServer` 모듈은 PowerShell Core에 대해 평가�
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치:
 
-PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다. 
+PowerShell cmdlet을 사용 하 여, 사용자가 만들 수 없습니다 azure 파일: 드라이브입니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 애플리케이션은 지원되지 않습니다.
 
-사용자가 Windows 대화 상자(예: `Connect-AzureAD`, `Connect-AzureRmAccount` 또는 `Connect-AzAccount`)를 만드는 명령을 실행하는 경우 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`와 같은 오류 메시지가 표시됩니다.
-
-### <a name="tab-completion-crashes-psreadline"></a>탭 완성 기능이 PSReadline와 충돌합니다.
-
-PSReadline에서 사용자의 EditMode를 Emacs로 설정하고, 해당 사용자가 탭 완성을 통해 가능한 모든 항목을 표시하려고 하는데, 창 크기가 너무 작아서 가능한 모든 항목이 표시되지는 못할 경우 PSReadline 작동이 중단됩니다.
+와 같은 오류 메시지를 볼 사용자가 Windows 대화 상자를 만들 수 있는 명령을 실행 하는 경우: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`합니다.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>진행률 표시줄을 표시한 후 큰 간격이 생깁니다.
 
 사용자가 `Azure:` 드라이브에 있는 동안 탭 완성 기능처럼 진행률 표시줄을 표시하는 작업을 수행할 경우, 커서가 제대로 설정되지 않고, 진행률 표시줄이 이전에 있던 위치에 간격이 나타날 수 있습니다.
-
-### <a name="random-characters-appear-inline"></a>임의의 문자가 인라인으로 표시됩니다.
-
-커서 위치 시퀀스 코드(예: `5;13R`)가 사용자 입력에 나타날 수 있습니다.  문자는 수동으로 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

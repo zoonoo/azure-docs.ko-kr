@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 085b23fe43db4936a0fd459872ec841f2b45e221
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 98134a8fd7609a6f8857d633d2c45251e4c9197b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081579"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 SumoLogic과 Azure Active Directory 로그 통합
 
@@ -40,7 +40,7 @@ ms.locfileid: "56194277"
 2. [Azure Active Directory에 대한 로그를 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)하도록 SumoLogic 인스턴스를 구성합니다.
 3. [Azure AD SumoLogic 앱을 설치](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)하여 환경의 실시간 분석을 제공하는 미리 구성된 대시보드를 사용합니다.
 
- ![대시보드](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
+   ![대시보드](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 

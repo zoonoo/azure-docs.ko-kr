@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898806"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
 
@@ -57,7 +57,7 @@ U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭합
 
 U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usqldbpack`으로 명명된 U-SQL 데이터베이스 배포 패키지입니다. `.usqldbpack` 패키지는 단일 U-SQL 스크립트의 모든 DDL 문을 **DDL** 폴더에 포함하고, 어셈블리에 대한 모든 DLL 및 추가 파일을 **Temp** 폴더에 포함하는 zip 파일입니다.
 
-[MSBuild 명령줄 및 Azure DevOps Service 빌드 작업을 사용하여 U-SQL 데이터베이스 프로젝트를 빌드하는 방법](data-lake-analytics-cicd-overview.md)에 대해 자세히 알아봅니다.
+에 대해 자세히 알아보세요 [MSBuild 사용 하 여 U-SQL 데이터베이스 프로젝트를 빌드하려면 명령줄 Azure DevOps Services 빌드 및 작업 방식](data-lake-analytics-cicd-overview.md)합니다.
 
 ## <a name="deploy-a-u-sql-database"></a>U-SQL 데이터베이스 배포
 
@@ -100,8 +100,8 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 
 U-SQL 프로젝트는 U-SQL 데이터베이스 프로젝트를 참조할 수 있습니다. 이러한 참조는 다음 두 워크로드를 영향을 줍니다.
 
-- *프로젝트 빌드*: 참조된 데이터베이스 환경은 U-SQL 스크립트를 빌드하기 전에 설정됩니다. 
-- *(local-project) 계정에 대한 로컬 실행*: 참조된 데이터베이스 환경은 U-SQL 스크립트 실행 전에 (local-project) 계정에 배포됩니다. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
+- *프로젝트를 빌드하지*: U-SQL 스크립트를 작성 하기 전에 참조 된 데이터베이스 환경을 설정 합니다. 
+- *로컬 (로컬-프로젝트를)에 대 한 실행된 계정*: 참조 된 데이터베이스 환경 (로컬-프로젝트를)에 배포 된 U-SQL 스크립트를 실행 하기 전에 계정. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>U-SQL 데이터베이스 참조를 추가하는 방법
 

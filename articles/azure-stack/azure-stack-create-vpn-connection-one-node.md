@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d66ca49db097eebd4c8fb5663f63e0db7460ad6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e038afe27718dcbd407e83b5c9190606e6b917c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004664"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다른 Azure Stack 개발 키트 환경의 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -52,6 +52,7 @@ ms.locfileid: "57782873"
 다음 표에서 Azure Stack 개발 키트 환경 모두에 대 한 네트워크 구성을 보여 줍니다. 네트워크에 대 한 관련 된 외부 BGPNAT 주소를 추가 하려면 테이블 뒤에 나오는 절차를 따르십시오.
 
 **네트워크 구성 테이블**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |가상 네트워크 이름     |VNET-01|VNET-02 |

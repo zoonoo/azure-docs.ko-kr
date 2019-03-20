@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082066"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731488"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 for Customer Engagement 기술 정보 탭
 
@@ -58,13 +58,13 @@ ms.locfileid: "54082066"
 |  패키지의 파일 이름     |  패키지(.zip)의 파일 이름입니다.  이 이름은 *공개되지 않으며* Dynamics 365 인증 팀에서 내부적으로 사용합니다.  |
 |  Url                          |  업로드된 패키지 파일이 포함된 Azure Storage 계정의 URL입니다. 이 URL에는 팀에서 확인을 위해 패키지를 선택할 수 있게 하는 읽기 전용 SAS 키가 있어야 합니다.  |
 | 둘 이상의 CRM 패키지     | 서로 다른 패키지가 포함된 여러 버전의 CRM을 지원하는 경우에만 [예]를 선택합니다.  각 버전에는 개별적으로 만들어야 하는 해당 패키지 파일이 있습니다.  |
-| 시나리오 및 사용 사례 자산   | Dynamics 365 유효성 검사 팀에서 사용할 수 있도록 애플리케이션에 대한 기능 사양 문서를 업로드할 수 있도록 합니다.  이 사양에 대한 기본 설정 형식은 [E2E 사용자 시나리오 템플릿](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx)입니다.  |
+| 시나리오 및 사용 사례 자산   | Dynamics 365 유효성 검사 팀에서 사용할 수 있도록 애플리케이션에 대한 기능 사양 문서를 업로드할 수 있도록 합니다.  이 사양에 대한 기본 설정 형식은 [E2E 사용자 시나리오 템플릿](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx)입니다.  |
 |  |  |
 
 
 ## <a name="crm-package-availability-section"></a>CRM 패키지 가용성 섹션
 
-이 섹션에서는 고객이 애플리케이션을 사용할 수 있는 지리적 지역을 선택합니다.  [독일](https://docs.microsoft.com/azure/germany/), [US Government 클라우드](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 및 TIP 자치 지역에 배포하려면  인증 프로세스에서 *특별 권한 및 유효성 검사*가 필요합니다.
+이 섹션에서는 고객이 애플리케이션을 사용할 수 있는 지리적 지역을 선택합니다.  다음 자치 지역에 배포 *특별 권한 및 유효성 검사 필요* 인증 프로세스 중: [독일](https://docs.microsoft.com/azure/germany/)하십시오 [미국 정부 클라우드](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), 및 팁입니다.
 
 
 ## <a name="marketing-artifacts-section"></a>마케팅 아티팩트 섹션

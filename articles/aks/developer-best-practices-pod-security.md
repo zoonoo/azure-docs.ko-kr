@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c2c8522e796fa43f08bf8ad2d61e70a8205d77b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183529"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -74,6 +74,8 @@ spec:
 
 * Azure 리소스에 대한 관리 ID 및
 * Azure Key Vault FlexVol 드라이버
+
+Azure 기술 지원에 의해 연결된 AKS 오픈 소스 프로젝트를 사용 하는 것이 없습니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 이러한 프로젝트는 프로덕션 용도로 권장 되지 않습니다.
 
 ### <a name="use-pod-managed-identities"></a>pod 관리 ID 사용
 

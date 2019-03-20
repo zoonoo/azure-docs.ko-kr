@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412571"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309913"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 장치 연결
 
@@ -51,7 +51,7 @@ Windows IoT Core 디바이스를 설정하려면 [Windows IoT Core 디바이스 
 Azure IoT Central 애플리케이션에서 **Windows IoT Core** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID, 기본 키**)를 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
 
  > [!NOTE]
-   > Azure IoT Central은 모든 디바이스 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [디바이스 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
+   > Azure IoT Central 전환 된 후 Azure IoT Hub Device Provisioning service (DPS)를 사용 하 여 모든 장치 연결에 대해, 다음이 지침에 따라 [장치 연결 문자열을 가져올](concepts-connectivity.md#get-a-connection-string) 자습서의 나머지 부분을 사용 하 여 계속 합니다.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core 디바이스 준비
 
@@ -72,10 +72,10 @@ Azure IoT Central과 통신할 수 있는 클라이언트 애플리케이션도 
 복사했으면 아무 브라우저에 http://[device-IP-address]:8080을 입력하여 [Windows 디바이스 포털](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)을 열어야 합니다.
 
 이 포털에서 아래와 같이 다음 작업을 수행합니다.
-1. 왼쪽에서 "앱" 노드를 확장합니다.
-2. "빠른 실행 샘플"을 클릭합니다.
-3. "Azure IoT Hub 클라이언트"를 클릭합니다.
-4. "배포 및 실행"을 클릭합니다.
+1. 확장 된 **앱** 왼쪽에서 노드.
+2. 선택 **빠른 실행 샘플**합니다.
+3. 선택 **Azure IoT Hub 클라이언트**합니다.
+4. 선택 **배포 및 실행**합니다.
 
 ![Windows 디바이스 포털에서 Azure IoT Hub 클라이언트의 Gif](./media/howto-connect-windowsiotcore/iothubapp.gif)
 
@@ -119,7 +119,7 @@ Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 애플리케�
 
 ### <a name="properties"></a>properties
 
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | 해당 없음       |
+| 텍스트            | 위치     | location   | N/A       |

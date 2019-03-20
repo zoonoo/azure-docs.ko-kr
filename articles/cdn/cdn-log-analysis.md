@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091269"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650549"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN 사용 패턴 분석
 
@@ -27,7 +27,7 @@ ms.locfileid: "49091269"
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Azure 진단 로그를 통한 코어 분석
 
-핵심 분석은 모든 가격 책정 계층의 CDN 엔드포인트에 사용할 수 있습니다. Azure 진단 로그를 사용하면 핵심 분석을 Azure Storage, 이벤트 허브 또는 Azure Log Analytics로 내보낼 수 있습니다. Azure Log Analytics는 사용자 구성 및 사용자 지정이 가능한 그래프가 포함된 솔루션을 제공합니다. Azure 진단 로그에 대한 자세한 내용은 [Azure 진단 로그](cdn-azure-diagnostic-logs.md)를 참조하세요.
+핵심 분석은 모든 가격 책정 계층의 CDN 엔드포인트에 사용할 수 있습니다. Azure 진단 로그를 사용 하면 코어 분석을 Azure storage, event hubs로 내보낼 수 또는 Azure Monitor를 기록 합니다. Azure Monitor 로그는 사용자 구성 및 사용자 지정할 수 있는 그래프를 사용 하 여 솔루션을 제공 합니다. Azure 진단 로그에 대한 자세한 내용은 [Azure 진단 로그](cdn-azure-diagnostic-logs.md)를 참조하세요.
 
 ## <a name="verizon-core-reports"></a>Verizon 코어 보고서
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: de905466d47774decf864ace5464bb2a68e5e6bc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888062"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "51612001"
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+* [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
 * Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
@@ -73,4 +73,4 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 
 이 빠른 시작에서는 메시지를 보내고 받는 데 HTTP를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 또한 WebSocket을 사용하여 메시지를 보내고 받을 수 있도록 지원합니다. Azure Relay 하이브리드 연결에 WebSocket을 사용하는 방법에 대한 자세한 내용은 [Websocket 빠른 시작](relay-hybrid-connections-dotnet-get-started.md)을 참조하세요.
 
-이 빠른 시작에서는 클라이언트 및 서버 애플리케이션을 만드는 데 .NET Framework를 사용했습니다. Node.js를 사용하여 클라이언트 및 서버 애플리케이션을 작성하는 방법은 [Node.js WebSocket 빠른 시작](relay-hybrid-connections-node-get-started.md) 또는 [Node.js HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.
+이 빠른 시작에서는 클라이언트 및 서버 애플리케이션을 만드는 데 .NET Framework를 사용했습니다. Node.js를 사용하여 클라이언트 및 서버 애플리케이션을 작성하는 방법은 [Node.js WebSockets 빠른 시작](relay-hybrid-connections-node-get-started.md) 또는 [Node.js HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.

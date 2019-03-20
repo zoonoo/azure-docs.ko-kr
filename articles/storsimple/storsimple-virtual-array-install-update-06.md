@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002785"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.6 설치
 
@@ -42,7 +42,7 @@ ms.locfileid: "51246619"
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
-설치가 완료된 후 StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 선택한 후 방금 업데이트한 장치를 선택하고 클릭합니다. **설정 > 관리 > 장치 업데이트**로 이동합니다. 표시된 소프트웨어 버전은 **10.0.10293.0**이어야 합니다.
+설치가 완료된 후 StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택한 후 방금 업데이트한 디바이스를 선택하고 클릭합니다. **설정 &gt; 관리 &gt; 디바이스 업데이트**로 이동합니다. 표시된 소프트웨어 버전은 **10.0.10293.0**이어야 합니다.
 
 ## <a name="use-the-local-web-ui"></a>로컬 웹 UI 사용
 
@@ -57,7 +57,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
+1. Internet Explorer를 시작하고 [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다.
 

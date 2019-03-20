@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113268"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -50,7 +50,7 @@ ms.locfileid: "56456659"
    예. Azure에서는 주 버전당 하나의 이미지를 유지 관리합니다. 예를 들어 새 SQL Server 서비스 팩이 출시되면 Azure에서는 해당 서비스 팩의 갤러리에 새 이미지를 추가합니다. 이전 서비스 팩의 SQL Server 이미지는 Azure Portal에서 즉시 제거됩니다. 그러나 다음 3개월 동안은 PowerShell에서 프로비전할 수 있습니다. 3개월 후에는 이전 서비스 팩 이미지를 사용할 수 없습니다. 해당 수명 끝에 도달하면 이 제거 정책이 SQL Server 버전이 지원되지 않는 경우에 적용됩니다.
 
 
-1. **Azure Portal에서 표시되지 않는 SQL Server의 이전 이미지를 배포할 수 있나요?**
+1. **Azure portal에 표시 되지 않는 SQL Server의 이전 이미지를 배포할 수는?**
 
    예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
@@ -82,7 +82,7 @@ ms.locfileid: "56456659"
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
-   Virtual Machine 라이선스 FAQ,](https://azure.microsoft.com/pricing/licensing-faq/)에 설명된 대로 Software Assurance가 있고 라이선스 이동을 사용할 경우 HA 배포에서 수동 보조 복제본으로 참여하는 하나의 SQL Server 라이선스에 대해 비용을 지불할 필요가 없습니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
+   Software assurance가 있어야 하 고에 설명 된 대로 라이선스 이동성을 사용 하는 경우 [Virtual Machine 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/), HA 배포에서 수동 보조 복제본으로 참여 하는 하나의 SQL Server 라이선스에 비용을 지불 해야 합니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
@@ -111,31 +111,40 @@ ms.locfileid: "56456659"
  
    예. 모든 고객이 새 SQL VM 리소스 공급자에 등록할 수 있습니다. 단, Software Assurance Benefit 혜택을 받은 사용자만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)(또는 BYOL)를 활성화할 수 있습니다. 
 
-1. **VM 리소스가 이동되거나 삭제되면   _* Microsoft.SqlVirtualMachine_* 리소스는 어떻게 되나요?** 
+1. **어떻게 합니다 _Microsoft.SqlVirtualMachine_ VM 리소스 이동 되거나 삭제 될 경우 리소스?** 
 
    Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
 
-1. **_* Microsoft.SqlVirtualMachine_* 리소스가 삭제되면 VM은 어떻게 되나요??**
+1. **VM에 미치는 합니다 _Microsoft.SqlVirtualMachine_ 리소스 삭제?**
 
-   Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다. 
+    Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다. 
 
 1. **자체 배포된 SQL Server VM을 SQL VM 리소스 공급자에 등록할 수 있나요?**
 
-   예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다. 단, 자체 배포된 SQL VM은 종량제로 변환할 수 없습니다.  
+    예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다. 단, 자체 배포된 SQL VM은 종량제로 변환할 수 없습니다.
 
 ## <a name="administration"></a>관리
 
 1. **같은 VM에 SQL Server의 두 번째 인스턴스를 설치할 수 있나요? 기본 인스턴스의 설치된 기능을 변경할 수 있나요?**
 
-   예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화된 Backup, 자동화된 패치 및 Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스에 대해서만 작동합니다.
+   예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화 된 Backup, 자동화 된 패치 및 Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스에 대해서만 작동 또는 명명 된 인스턴스는 올바르게 구성 된 (질문 3 참조). 
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
-   예, 그러나 몇 가지 고려 사항이 있습니다. 앞의 답변에서 설명한 것처럼, [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하는 기능은 기본 인스턴스에 대해서만 작동합니다. 기본 인스턴스를 제거하면 확장에서 계속 기본 인스턴스를 찾아 이벤트 로그 오류가 발생할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
+   예, 그러나 몇 가지 고려 사항이 있습니다. 이전 응답에서 설명한 것 처럼, 기능이 의존 하는 합니다 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)합니다.  또한 IaaS 확장을 제거 하지 않고 기본 인스턴스를 제거 하는 경우 계속 해 서 해당 찾습니다 확장과 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
       SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)도 제거합니다.
+
+1. **IaaS 확장을 사용 하 여 SQL Server의 명명 된 인스턴스를 사용할 수**?
+   
+   예, SQL server에서 유일한 인스턴스인 명명된 된 인스턴스 및 원래 기본 인스턴스를 제대로 제거 된 경우. 명명된 된 인스턴스를 사용 하려면 다음을 수행 합니다.
+    1. Marketplace에서 SQL Server VM을 배포 합니다. 
+    1. IaaS 확장을 제거 합니다.
+    1. SQL Server를 완전히 제거 합니다.
+    1. 명명된 된 인스턴스를 사용 하 여 SQL Server를 설치 합니다. 
+    1. IaaS 확장을 설치 합니다. 
 
 1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
@@ -143,9 +152,9 @@ ms.locfileid: "56456659"
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
-1. **Azure VM에서 SQL Server의 새 버전을 업그레이드하려면 어떻게 합니까?**
+1. **Azure VM에서 SQL Server의 새 버전/버전으로 변경 하는 방법**
 
-   현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server 버전으로 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+   Software Assurance 고객은 수행의 전체 설치 미디어를 사용 하 여 볼륨 라이선스 포털에서 Azure VM에서 실행 되는 SQL Server의 업그레이드 수 있습니다. 그러나 현재에 SQL Server 인스턴스의 버전을 변경할 수 없습니다. 원하는 SQL Server 버전에서 새 Azure 가상 컴퓨터를 만들고 다음 표준을 사용 하 여 새 서버로 데이터베이스를 마이그레이션합니다 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)합니다.
 
 1. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**
 

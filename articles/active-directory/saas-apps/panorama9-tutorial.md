@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Panorama9와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Panorama9 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -198,18 +198,18 @@ Panorama9의 경우 프로비전은 수동 작업입니다.
 
 1. 위쪽 메뉴에서 **관리**를 클릭한 다음 **사용자**를 클릭합니다.
    
-  ![사용자](./media/panorama9-tutorial/ic790027.png "사용자")
+   ![사용자](./media/panorama9-tutorial/ic790027.png "사용자")
 
 1. [사용자] 섹션에서 **+** 를 클릭하여 새 사용자를 추가합니다.
 
- ![사용자](./media/panorama9-tutorial/ic790028.png "사용자")
+   ![사용자](./media/panorama9-tutorial/ic790028.png "사용자")
 
 1. [사용자 데이터] 섹션으로 이동하고 프로비전할 유효한 Azure Active Directory 사용자의 메일 주소를 **메일** 텍스트 상자에 입력합니다.
 
 1. [사용자] 섹션으로 이동하여 **저장**을 클릭합니다.
    
 > [!NOTE]
-    > Azure Active Directory 계정 보유자는 활성화되기 전에 메일을 받고 링크를 따라 계정을 확인합니다.
+> Azure Active Directory 계정 보유자는 활성화되기 전에 메일을 받고 링크를 따라 계정을 확인합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

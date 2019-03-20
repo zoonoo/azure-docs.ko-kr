@@ -11,33 +11,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990706"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226405"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
+# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack 저장소 계정 관리
 
-찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 하는 Azure Stack에서 저장소 계정을 관리 하는 방법에 알아봅니다.
+Azure Stack 저장소 계정을 관리 하는 방법을 알아봅니다. 찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 합니다.
 
 ## <a name="find-a-storage-account"></a>저장소 계정 찾기
+
 지역에서 저장소 계정 목록에서 Azure Stack에서 볼 수 있습니다.
 
 1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
 
-2. 선택 **모든 서비스** > **저장소 계정**합니다.
+2. 선택 **모든 서비스** > **Storage** > **저장소 계정은**합니다.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack 저장소 계정](media/azure-stack-manage-storage-accounts/image4.png)
 
 기본적으로 처음 10 개의 계정이 표시 됩니다. 자세히 인출 하도록 선택할 수 있습니다를 클릭 하 여는 **로드** 목록의 맨 아래에 링크 합니다.
 
-OR
+또는
 
 수를 특정 저장소 계정에 관심이 있다면 **필터링 하 고 관련 계정 인출** 만 합니다.
 
@@ -46,16 +47,17 @@ OR
 
 1. 선택 **필터** 창의 맨 위에 있는 합니다.
 2. 필터 창에서 해당 지정할 수 있습니다 **계정 이름**를 **구독 ID**, 또는 **상태** 표시할 저장소 계정 목록을 세밀 하 게 합니다. 적절 하 게 사용 합니다.
-3. **업데이트**를 선택합니다. 목록에 따라 새로 고쳐야 합니다.
+3. 입력할 때 목록에 필터를 자동으로 적용 됩니다.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack 저장소 계정 필터링](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. 필터를 다시 설정 하려면: 선택 **필터**, 선택 항목을 지울 및 업데이트 합니다.
 
 (저장소 계정 목록 창) 맨 위에 있는 검색 텍스트 상자에 계정 목록에서 선택한 텍스트를 강조 표시할 수 있습니다. 전체 이름 또는 ID를 쉽게 사용할 수 없을 때이 사용할 수 있습니다.
 
 원하는 계정을 찾을 수 있도록 여기에 자유 텍스트를 사용할 수 있습니다.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack 저장소 계정 찾기](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>계정 정보를 보면
 보기에 관심이 있다면 계정 찾았으면 특정 세부 정보를 보려면 특정 계정을 선택할 수 있습니다. 같은 계정 세부 정보를 사용 하 여 새 창이 열립니다: 계정, 만든 시간, 위치 등의 형식입니다.
@@ -97,9 +99,8 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 
 1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
 2. 선택 **모든 서비스** > **지역 관리** 아래에서 **관리**합니다.
-3. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
-4. 선택 **설정을** 설정 창을 열려면 맨 위에 있는 합니다.
-5. 선택 **구성** 다음 보존 기간 값을 편집 합니다.
+3. 선택 **리소스 공급자** > **Storage** > **설정**합니다. 경로 홈 > *지역* -리소스 공급자 > 저장 합니다.
+4. 선택 **구성** 다음 보존 기간 값을 편집 합니다.
 
    일 수를 설정 하 고 저장 합니다.
    

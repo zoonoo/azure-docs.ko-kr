@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162512"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>자습서: Pega Systems와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Pega Systems와 Azure AD를 통합하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Pega Systems 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -170,7 +170,7 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-On 구성 저장 단추](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. **인증 서비스 만들기** 화면에서 다음을 수행합니다.
+1. 다음을 수행 **인증 서비스 만들기** 화면:
 
     ![Single Sign-On 구성 저장 단추](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

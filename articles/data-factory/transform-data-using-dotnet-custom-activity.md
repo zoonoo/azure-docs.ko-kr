@@ -3,20 +3,20 @@ title: Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 description: 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855872"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,11 +30,13 @@ Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 
 
 Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, Data Factory에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업**을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 * [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet을 통해 Azure Portal을 사용하여 Azure Batch 계정을 만들기 위해 Azure Batch 계정 또는 [Azure Portal](../batch/batch-account-create-portal.md)을 만듭니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
+* [새 AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch 계정을 만드는 cmdlet (또는) [Azure portal](../batch/batch-account-create-portal.md) Azure portal을 사용 하 여 Azure Batch 계정을 만들려면. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
+* [새 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet을 Azure Batch 풀을 만듭니다.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
 다음 JSON은 샘플 Azure Batch 연결된 서비스를 정의합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 계산 환경](compute-linked-services.md)을 참조하세요.
@@ -99,16 +101,20 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | 자산              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | 이름                  | 파이프라인의 작업 이름입니다.     | 예      |
-| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | 예      |
 | command               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
 | folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요 &#42;       |
-| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 아니요       |
-| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 아니요       |
+| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 아닙니다.       |
+| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 아닙니다.       |
+| retentionTimeInDays | 사용자 지정 활동에 대 한 제출 된 파일에 대 한 보존 시간입니다. 기본값은 30 일입니다. | 아닙니다. |
 
 &#42; 속성 `resourceLinkedService` 및 `folderPath`를 둘 다 지정하거나 둘 다 생략해야 합니다.
+
+> [!NOTE]
+> ReferenceObjects 사용자 지정 작업에서으로 연결 된 서비스를 전달 하는 경우 Azure Key Vault에 전달할 좋은 보안 방법 설정 (보안 문자열이 포함 되지 않습니다) 이후 연결 된 서비스 및 fetch 비밀 이름을 직접 키를 사용 하 여 자격 증명 코드에서 자격 증명 모음입니다. 예를 찾을 수 있습니다 [여기](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) AKV 참조에 연결 된 서비스를 사용할 수 있도록 Key Vault에서 자격 증명을 검색 및 코드에서 저장소에 액세스 합니다.  
 
 ## <a name="custom-activity-permissions"></a>사용자 지정 활동 권한
 
@@ -227,13 +233,13 @@ namespace SampleApp
 다음 PowerShell 명령을 사용하여 파이프라인 실행을 시작할 수 있습니다.
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 파이프라인을 실행하는 경우 다음 명령을 사용하여 실행 출력을 확인할 수 있습니다.
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
@@ -318,9 +324,9 @@ Activity Error section:
 
 ## <a name="compare-v2-v1"></a>v2 사용자 지정 활동 및 버전 1(사용자 지정) DotNet 작업 비교
 
-Azure Data Factory 버전 1에서는 `IDotNetActivity` 인터페이스의 `Execute` 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현 때문에, 버전 1 DotNet 활동 코드의 대상이 .Net Framework 4.5.2여야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다.
+Azure Data Factory 버전 1 구현 하는 클래스를 사용 하 여.NET 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현 합니다 `Execute` 메서드는 `IDotNetActivity` 인터페이스입니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현으로 인해 버전 1 DotNet 활동 코드를.NET Framework 4.5.2를 대상으로 해야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다.
 
-Azure Data Factory V2 사용자 지정 작업에서는 .Net 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다.
+Azure Data Factory V2 사용자 지정 작업에서는.NET 인터페이스를 구현할 필요가 하는 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다.
 
 Data Factory v2 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 세트(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다.
 
@@ -331,18 +337,18 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 
 |차이점      | 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
 | ---- | ---- | ---- |
-|사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.Net DLL을 구현하여      |
-|사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
-|스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.Net DLL에서 구현 필요      |
+|사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.NET DLL을 구현 하 여      |
+|사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows (.NET Framework 4.5.2)      |
+|스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.NET DLL에서 구현 필요      |
 |필요한 데이터 세트      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
 |작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 세트) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 세트를 통해      |
-|사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.Net SDK(.Net 프레임 4.5.2)를 통해      |
-|로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
+|사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.NET SDK (.NET 프레임 4.5.2)를 통해      |
+|로깅      |STDOUT에 직접 작성      |.NET DLL에서로 거 구현      |
 
 
-버전 1 (사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 현재 버전의 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.
+1 (사용자 지정) DotNet 작업 버전에 대해 작성 된 기존.NET 코드가 있는 경우에 사용자 지정 활동의 현재 버전을 사용 하도록 코드를 수정 해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.
 
-  - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다.
+  - .NET 클래스 라이브러리에서 콘솔 앱 프로젝트를 변경 합니다.
   - `Main` 메서드를 사용하여 애플리케이션을 시작합니다. `IDotNetActivity` 인터페이스의 `Execute` 메서드는 더 이상 필요하지 않습니다.
   - 연결된 서비스, 데이터 세트 및 작업을 읽고 JSON 직렬 변환기를 사용하여 강력한 형식의 개체가 아닌 다른 방식으로 구문 분석합니다. 주 사용자 지정 코드 논리에 필수 속성의 값을 전달합니다. 앞에 나온 SampleApp.exe 코드 예제를 참조하세요.
   - 로거 개체는 더 이상 지원되지 않습니다. 실행 파일의 출력은 콘솔에 출력될 수 있으며 stdout.txt에 저장됩니다.

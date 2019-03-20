@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110871"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -90,19 +90,19 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 2. **연결 게이트웨이 만들기**에서 이러한 설정을 입력합니다.
 
-    * **이름**: 게이트웨이 리소스의 이름을 입력합니다. 
+   * **이름**: 게이트웨이 리소스의 이름을 입력합니다. 
 
-    * **구독**: 게이트웨이 리소스와 연결할 Azure 구독을 선택합니다. 
+   * **구독**: 게이트웨이 리소스와 연결할 Azure 구독을 선택합니다. 
    
-      기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다.
+     기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다.
 
-    * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
+   * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 
-    * **위치**: 게이트웨이를 등록한 지역을 선택합니다.
+   * **위치**: 게이트웨이를 등록한 지역을 선택합니다.
 
-    * **설치 이름**: 게이트웨이 설치가 선택되어 있지 않으면 등록한 게이트웨이를 선택합니다. 
+   * **설치 이름**: 게이트웨이 설치가 선택되어 있지 않으면 등록한 게이트웨이를 선택합니다. 
 
-    완료하면 **만들기**를 클릭합니다.
+     완료하면 **만들기**를 클릭합니다.
 
 ## <a name="connect-servers"></a>게이트웨이 리소스에 서버 연결
 

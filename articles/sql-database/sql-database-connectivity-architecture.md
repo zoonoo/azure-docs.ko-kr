@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840922"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -28,10 +28,12 @@ ms.locfileid: "55809983"
 > 고객은 연결 아키텍처에 따라 새 서버를 만들고, 연결 유형이 명시적으로 설정된 기존 서버를 리디렉션(선호) 또는 프록시로 설정하는 것이 좋습니다.
 >
 > 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
+>
 > - 변경 이전에 서비스 엔드포인트를 통해 액세스한 것으로 확인된 서버의 경우, 연결 유형을 `Proxy`로 전환합니다.
 > - 다른 모든 서버에서는 연결 유형을 `Redirect`로 전환합니다.
 >
 > 서비스 엔드포인트 사용자는 다음과 같은 시나리오에서 계속 영향을 받을 수 있습니다.
+>
 > - 애플리케이션이 기존 서버에 자주 연결하지 않아 원격 분석을 통해 해당 애플리케이션에 대한 정보를 캡처하지 못했습니다.
 > - 자동화된 배포 논리가 서비스 엔드포인트 연결에 대한 기본 동작을 `Proxy`로 가정하고 SQL Database 서버를 만듭니다.
 >
@@ -106,10 +108,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 북유럽 | 191.235.193.75 | 40.113.93.91 |
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
-| 영국 북부 | 13.87.97.210 | |
-| 영국 남부 1 | 51.140.184.11 | |
-| 영국 남부 2 | 13.87.34.7 | |
-| 영국 서부 | 51.141.8.11 | |
+| 영국 남부 | 51.140.184.11 | |
 | 미국 중서부 | 13.78.145.25 | |
 | 서유럽 | 191.237.232.75 | 40.68.37.158 |
 | 미국 서부 1 | 23.99.34.75 | 104.42.238.205 |
@@ -127,6 +126,10 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-az-ps)이 필요합니다.
 
@@ -134,22 +137,22 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI를 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
+> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
 
 다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 

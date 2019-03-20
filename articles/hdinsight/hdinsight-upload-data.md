@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312177"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201928"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -37,7 +37,7 @@ Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통
 ## <a name="utilities"></a>공공 시설
 Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니다.
 
-| 도구 | Linux | OS X |  Windows |
+| 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -53,10 +53,7 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 ## <a id="commandline"></a>Hadoop 명령줄
 데이터가 클러스터 헤드 노드에 존재하는 경우 Hadoop 명령줄은 Azure Storage Blob에 데이터를 저장하는데만 유용합니다.
 
-Hadoop 명령을 사용하려면 먼저 다음 방법 중 하나를 사용하여 헤드 노드에 연결해야 합니다.
-
-* **Windows 기반 HDInsight**: [원격 데스크톱을 사용하여 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)합니다.
-* **Linux 기반 HDInsight**: [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하여 연결합니다.
+Hadoop 명령을 사용 하려면 먼저 연결 해야 사용 하 여 헤드 노드 [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)합니다.
 
 연결된 후에 저장소에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
 
@@ -82,7 +79,7 @@ HDInsight의 기본 파일 시스템이 Azure Storage에 있으므로 /example/d
 ## <a name="graphical-clients"></a>그래픽 클라이언트
 Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
 
-| 클라이언트 | Linux | OS X |  Windows |
+| 클라이언트 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage 탐색기](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |

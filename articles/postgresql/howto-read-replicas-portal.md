@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b34b103d3b710b90fd7b396f2c8d0e7adc27aaca
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113217"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Azure Portal에서 읽기 복제본을 만들기 및 관리
 
@@ -50,17 +50,17 @@ ms.locfileid: "56454670"
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
 읽기 복제본을 만들려면 다음 단계를 수행합니다.
 
-1.  마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다. 
+1. 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다. 
 
-2.  서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
 
    범용 또는 메모리 최적화 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하지 않으면 알림이 수신됩니다. 복제본을 만들기 전에 이러한 단계를 완료합니다.
 
-3.  **복제본 추가**를 선택합니다.
+3. **복제본 추가**를 선택합니다.
 
    ![복제본 추가](./media/howto-read-replicas-portal/add-replica.png)
 
-4.  읽기 복제본의 이름을 입력합니다. **확인**을 선택하여 복제본 만들기를 확인합니다.
+4. 읽기 복제본의 이름을 입력합니다. **확인**을 선택하여 복제본 만들기를 확인합니다.
 
    ![복제본 이름 지정](./media/howto-read-replicas-portal/name-replica.png) 
 
@@ -82,19 +82,19 @@ ms.locfileid: "56454670"
 
 Azure Portal에서 마스터 서버와 읽기 복제본 간의 복제를 중지하려면 다음 단계를 수행합니다.
 
-1.  Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
+1. Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2.  서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
 
-3.  복제를 중지할 복제본 서버를 선택합니다.
+3. 복제를 중지할 복제본 서버를 선택합니다.
 
    ![복제본 선택](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  **복제 중지**를 선택합니다.
+4. **복제 중지**를 선택합니다.
 
    ![복제 중지 선택](./media/howto-read-replicas-portal/select-stop-replication.png)
  
-5.  **확인**을 선택하여 복제를 중지합니다.
+5. **확인**을 선택하여 복제를 중지합니다.
 
    ![복제 중지 확인](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
@@ -107,13 +107,13 @@ Azure Portal에서 마스터 서버와 읽기 복제본 간의 복제를 중지�
 
 Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
-1.  Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
+1. Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2.  서버의 **개요** 페이지를 엽니다. **삭제**를 선택합니다.
+2. 서버의 **개요** 페이지를 엽니다. **삭제**를 선택합니다.
 
    ![서버 개요 페이지에서 마스터 서버를 선택하여 삭제](./media/howto-read-replicas-portal/delete-server.png)
  
-3.  삭제할 마스터 서버의 이름을 입력합니다. **삭제**를 선택하여 마스터 서버의 삭제를 확인합니다.
+3. 삭제할 마스터 서버의 이름을 입력합니다. **삭제**를 선택하여 마스터 서버의 삭제를 확인합니다.
 
    ![마스터 서버 삭제 확인](./media/howto-read-replicas-portal/confirm-delete.png)
  
@@ -127,19 +127,19 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
  
 다음 단계에 따라 **복제** 창에서 읽기 복제본을 삭제할 수도 있습니다.
 
-1.  Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
+1. Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2.  서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
 
-3.  삭제할 읽기 복제본을 선택합니다.
+3. 삭제할 읽기 복제본을 선택합니다.
 
    ![삭제할 복제본 선택](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  **복제본 삭제**를 선택합니다.
+4. **복제본 삭제**를 선택합니다.
 
    ![복제본 삭제 선택](./media/howto-read-replicas-portal/select-delete-replica.png)
  
-5.  삭제할 복제본의 이름을 입력합니다. **삭제**를 선택하여 복제본 삭제를 확인합니다.
+5. 삭제할 복제본의 이름을 입력합니다. **삭제**를 선택하여 복제본 삭제를 확인합니다.
 
    ![복제본 삭제 확인](./media/howto-read-replicas-portal/confirm-delete-replica.png)
  
@@ -162,13 +162,13 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 ### <a name="replica-lag-metric"></a>복제본 지연 시간 메트릭
 **복제본 지연 시간** 메트릭은 복제본에서 마지막으로 재생된 트랜잭션 이후의 시간을 보여 줍니다. 마스터에서 트랜잭션이 발생하지 않으면 이 메트릭은 이 지연 시간을 반영합니다.
 
-1.  Azure Portal에서 Azure Database for PostgreSQL 읽기 복제본을 선택합니다.
+1. Azure Portal에서 Azure Database for PostgreSQL 읽기 복제본을 선택합니다.
 
-2.  **메트릭**을 선택합니다. **메트릭** 창에서 **복제본 지연 시간**을 선택합니다.
+2. **메트릭**을 선택합니다. **메트릭** 창에서 **복제본 지연 시간**을 선택합니다.
 
    ![복제본 지연 시간 모니터링](./media/howto-read-replicas-portal/select-replica-lag.png)
  
-3.  **집계**에 대해 **최대**를 선택합니다. 
+3. **집계**에 대해 **최대**를 선택합니다. 
  
 ## <a name="next-steps"></a>다음 단계
 [Azure Database for PostgreSQL의 읽기 복제본](concepts-read-replicas.md)에 대해 자세히 알아봅니다.

@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205701"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436666"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -76,7 +76,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
 설치 마법사가 Azure AD 연결에 성공했지만 암호 자체를 확인할 수 없는 경우 이 오류가 표시됩니다.  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 https://login.microsoftonline.com에 로그인하여 계정이 사용 가능한지 확인합니다.
 
@@ -165,8 +165,8 @@ Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않�
 ### <a name="authorization-failure"></a>권한 부여 실패
 Azure AD에서 사용자에게 작업을 수행하도록 권한을 부여하지 못했습니다.
 
-### <a name="authentication-cancelled"></a>인증이 취소되었습니다
-MFA(Multi-Factor Authentication) 시도를 취소했습니다.
+### <a name="authentication-canceled"></a>취소 인증
+Multi-factor authentication (MFA) 챌린지 취소 되었습니다.
 
 <div id="connect-msolservice-failed">
 <!--

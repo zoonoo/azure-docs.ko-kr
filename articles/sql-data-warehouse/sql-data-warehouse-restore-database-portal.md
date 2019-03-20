@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087213"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Azure SQL Data Warehouse 복원(포털)
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243541"
 > * [포털][Portal]
 > * [PowerShell][PowerShell]
 > * [REST (영문)][REST]
->
->
-이 문서에서는 Azure Portal을 사용하여 Azure SQL Data Warehouse를 복원하는 방법을 배웁니다.
+> 
+> 
+> 이 문서에서는 Azure Portal을 사용하여 Azure SQL Data Warehouse를 복원하는 방법을 배웁니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 **DTU 용량을 확인합니다.** SQL Data Warehouse의 각 인스턴스는 기본 DTU(데이터 처리량 단위) 할당량이 있는 SQL Server(예 : myserver.database.windows.net)에 의해 호스트됩니다. SQL Data Warehouse를 복원하기 전에 SQL Server에 복원 중인 데이터베이스에 대해 충분한 DTU 할당량이 남아 있는지 확인합니다. DTU 할당량을 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][Request a DTU quota change]을 참조하세요.

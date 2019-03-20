@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업 초대 전자 메일의 요소 - Azure Active Directory | Microsoft Docs
+title: B2B 초대 전자 메일-Azure Active Directory 요소의 | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업 초대 전자 메일 템플릿
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014907"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
@@ -31,7 +32,7 @@ ms.locfileid: "56163005"
 이메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
-보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해)<invites@microsoft.com>의 &lt;초대자 표시 이름&gt;
+보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: Microsoft 초대 <invites@microsoft.com> 나 &lt;초대자 표시 이름&gt; 에서 &lt;tenantname&gt; (Microsoft)를 통해 <invites@microsoft.com>합니다.
 
 ### <a name="reply-to"></a>회신
 회신 전자 메일은 사용 가능할 때 초대자의 전자 메일로 설정되므로 전자 메일에 회신하면 초대자에게 전자 메일이 다시 전송됩니다.
@@ -55,8 +56,12 @@ ms.locfileid: "56163005"
 ### <a name="body"></a>본문
 본문에는 초대자가 [게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대](add-users-administrator.md)할 때 또는 [초대 API를 사용하여](customize-invitation-api.md) 작성하는 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
 
+  ![전자 메일 본문의 그림](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>바닥글 섹션
-바닥글에는 Microsoft 회사 브랜드가 포함되며, 받는 사람은 이를 통해 전자 메일이 모니터링되지 않은 별칭에서 전송되었는지 여부를 알 수 있습니다. 특수 사례:
+바닥글에는 Microsoft 회사 브랜드가 포함되며, 받는 사람은 이를 통해 전자 메일이 모니터링되지 않은 별칭에서 전송되었는지 여부를 알 수 있습니다. 
+
+특수 사례:
 
 - 초대자에게 초대 테넌시의 전자 메일 주소가 없습니다.
 

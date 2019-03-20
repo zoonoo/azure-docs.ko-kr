@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712350"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593984"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API 사용
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 사용자가 계약 중 하나를 자세히 살펴보기로 결정하면 블록체인 클라이언트는 계약의 상태를 고려하여 사용 가능한 사용자 작업을 표시할 수 있습니다. 이 예제의 사용자는 자신이 만든 새 스마트 계약에 사용 가능한 작업을 살펴봅니다.
 
-* 수정: 사용자가 자산의 설명과 가격을 수정할 수 있게 허용합니다.
-* 종료: 사용자가 자산의 계약을 종료할 수 있게 허용합니다.
+* 수정 합니다. 사용자를가 자산의 가격과 설명을 수정할 수 있습니다.
+* 종료: 사용자를가 자산의 계약 종료 수 있습니다.
 
 [Contract Action GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) 사용:
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 그러면 사용자는 지정된 스마트 계약 인스턴스에 대한 조치를 취할 것인지 결정할 수 있습니다. 이 예제에서는 사용자가 자산의 설명과 가격을 다음 작업과 같이 수정하려 하는 시나리오를 고려해 보세요.
 
-* 설명: "My updated car"
+* 설명: "내 업데이트 car"
 * 가격: 54321
 
 [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) 사용:

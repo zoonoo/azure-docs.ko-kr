@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136549"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Azure Search에서 고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제
 Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)를 좀 더 복잡한 [Azure Search의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)로 바꾸어 특수 및 고급 쿼리 정의를 작성할 수 있습니다. 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
 
 * [.NET SDK를 사용하여 Azure Search 인덱스 쿼리](search-query-dotnet.md)
-* [REST API를 사용하여 Azure Search 인덱스 쿼리](search-query-rest-api.md)
+* [REST API를 사용하여 Azure Search 인덱스 쿼리](search-create-index-rest-api.md)
 
 추가 구문 참조, 쿼리 아키텍처 및 예제는 다음 링크에서 찾을 수 있습니다.
 

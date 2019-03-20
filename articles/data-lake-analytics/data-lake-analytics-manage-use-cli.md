@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088760"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -93,7 +93,7 @@ Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 * [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
-분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
+분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 스토리지 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>기본 데이터 레이크 저장소 계정 찾기
 
@@ -110,7 +110,7 @@ Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
    ```
 
 > [!NOTE]
-> Blob 저장소 짧은 이름만 지원됩니다. FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
+> File Storage FAQ FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
 > 
 
 ### <a name="add-additional-data-lake-store-accounts"></a>데이터 레이크 저장소 계정 추가
@@ -123,7 +123,7 @@ Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 
 ### <a name="update-existing-data-source"></a>기존 데이터 원본 업데이트
 
-기존 Blob 저장소 계정 키를 업데이트하려면:
+Java에서 File Storage를 사용하는 방법
 
    ```azurecli
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
@@ -152,7 +152,7 @@ Blob Storage 계정 나열:
    az dla account data-lake-store delete --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Azure Data Lake Store account name>"
    ```
 
-Blob 저장소 계정을 삭제하려면:
+.NET용 File Storage 시작
 
    ```azurecli
    az dla account blob-storage delete --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
@@ -180,9 +180,9 @@ Blob 저장소 계정을 삭제하려면:
 > [!NOTE]
 > 작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### <a name="cancel-jobs"></a>작업 취소
 list 명령을 사용하여 Job ID를 찾은 후 cancel을 사용하여 작업을 취소합니다.

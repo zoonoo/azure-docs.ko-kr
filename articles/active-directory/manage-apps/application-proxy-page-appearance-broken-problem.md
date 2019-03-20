@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089950"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>애플리케이션 페이지가 애플리케이션 프록시 애플리케이션에 올바르게 표시되지 않음
 
@@ -31,7 +31,7 @@ ms.locfileid: "56170638"
 
 네트워크 추적기를 열고, 페이지를 로드하고, 404 오류를 찾아서 누락된 리소스가 문제인지를 확인할 수 있습니다(예: Internet Explorer/Microsoft Edge의 Fiddler 또는 F12 도구). 현재 찾을 수 없고 게시해야 하는 페이지를 나타냅니다.
 
-이 경우에 예를 들어 내부 URL(http://myapps/expenses)을 사용하여 비용 애플리케이션을 게시했지만 앱에서 스타일 시트(http://myapps/style.css)를 사용한다고 가정합니다. 이 경우에 비용 앱을 로드하면 style.css를 로드하는 동안 404 오류를 throw하므로 스타일 시트는 애플리케이션에서 게시되지 않습니다. 이 예제에서는 내부 URL(http://myapp/)을 사용하여 애플리케이션을 게시하여 문제를 해결합니다.
+이 경우에 예를 들어 내부 URL(`http://myapps/expenses`)을 사용하여 비용 애플리케이션을 게시했지만 앱에서 스타일 시트(`http://myapps/style.css`)를 사용한다고 가정합니다. 이 경우에 비용 앱을 로드하면 style.css를 로드하는 동안 404 오류를 throw하므로 스타일 시트는 애플리케이션에서 게시되지 않습니다. 이 예제에서는 내부 URL(`http://myapp/`)을 사용하여 애플리케이션을 게시하여 문제를 해결합니다.
 
 ## <a name="problems-with-publishing-as-one-application"></a>하나의 애플리케이션으로 게시하는 문제
 

@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5e198dff2dd3cd93455d5cca25428723bf1ce9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171981"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871692"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음
 
@@ -56,7 +56,7 @@ ms.locfileid: "56171981"
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터에 문제가 있음
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
-  * [애플리케이션 프록시 에이전트 커넥터를 설치하는 데 문제가 있음](application-proxy-connector-installation-problem.md)
+  * [응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제가](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>다음 단계
 [온-프레미스 애플리케이션에 보안된 원격 액세스를 제공하는 방법](application-proxy.md)

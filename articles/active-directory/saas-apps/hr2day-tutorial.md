@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -132,8 +132,8 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Single Sign-On 구성](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    SAML 어설션을 구성하기 전에 [HR2day by Merces 클라이언트 지원 팀](mailto:servicedesk@merces.nl)에 문의하여 테넌트에 대한 고유 식별자 특성 값을 요청하세요. 다음 섹션의 단계를 완료하려면 이 값이 필요합니다. 
+   > [!NOTE]
+   >  SAML 어설션을 구성하기 전에 [HR2day by Merces 클라이언트 지원 팀](mailto:servicedesk@merces.nl)에 문의하여 테넌트에 대한 고유 식별자 특성 값을 요청하세요. 다음 섹션의 단계를 완료하려면 이 값이 필요합니다. 
 
 1. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 다음 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성합니다. 다음 단계를 수행합니다.
     
@@ -174,7 +174,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     > [!TIP]
     >이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후 **Single Sign-On** 탭을 선택합니다. 그런 다음 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스합니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: aabb316cf564520e6ea5e8689f1c18c98b94ab3c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111398"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
@@ -35,7 +35,7 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 1. 특정 범주에 대한 권장 사항을 가져오려면 탭 중 하나를 클릭합니다. **고가용성**, **보안**, **성능** 또는 **비용** 
 
-  ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
+   ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-recommendation-details-and-implement-a-solution"></a>권장 사항 세부 정보 가져오기 및 솔루션 구현
 

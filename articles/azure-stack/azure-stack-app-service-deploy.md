@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886833"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -44,13 +44,13 @@ Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 
 
 1 시간 이상는 App Service 리소스 공급자를 설치 합니다. 얼마나 많은 역할 인스턴스 수에 따라 달라 집니다 필요한 시간의 길이 배포 합니다. 배포 하는 동안 설치 관리자는 다음 작업을 실행 합니다.
 
- - 지정된 된 Azure Stack 저장소 계정에서 blob 컨테이너를 만듭니다.
- - App Service에 대 한 DNS 영역 및 항목을 만듭니다.
- - App Service 리소스 공급자를 등록 합니다.
- - App Service 갤러리 항목을 등록 합니다.
+- 지정된 된 Azure Stack 저장소 계정에서 blob 컨테이너를 만듭니다.
+- App Service에 대 한 DNS 영역 및 항목을 만듭니다.
+- App Service 리소스 공급자를 등록 합니다.
+- App Service 갤러리 항목을 등록 합니다.
 
- > [!IMPORTANT]
- > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
+  > [!IMPORTANT]
+  > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
 
 App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 합니다.
 
@@ -74,8 +74,8 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     a. 선택 **Connect** 옆에 **Azure Stack 구독**합니다.
 
-     - Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 선택 **로그인**합니다.
-     - Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 한 다음 선택 **로그인**합니다.
+   - Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 선택 **로그인**합니다.
+   - Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 한 다음 선택 **로그인**합니다.
 
    b. **Azure Stack 구독**를 선택 합니다 **공급자 구독 기본**입니다.
 
@@ -243,7 +243,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
 1. Azure Stack 테 넌 트 포털에서 선택 **+**, Azure Marketplace로 이동, Django 웹 사이트를 배포 하 고 배포가 끝나기를 기다립니다. Django 웹 플랫폼에는 파일 시스템 기반 데이터베이스를 사용합니다. 이 SQL 또는 MySQL 등의 모든 추가 리소스 공급자에 필요 하지 않습니다.
 
-2. 또한 MySQL 리소스 공급자를 배포한 경우 Marketplace에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 사용자 이름으로 입력 *User1@Server1*, 사용자 이름 및 선택한 서버 이름을 사용 하 여 합니다.
+2. 또한 MySQL 리소스 공급자를 배포한 경우 Marketplace에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 사용자 이름으로 입력 *User1\@Server1*, 사용자 이름 및 선택한 서버 이름을 사용 하 여 합니다.
 
 3. 또한 SQL Server 리소스 공급자를 배포한 경우 Marketplace에서 DNN 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 리소스 공급자에 연결 된 SQL Server를 실행 하는 컴퓨터에서 데이터베이스를 선택 합니다.
 

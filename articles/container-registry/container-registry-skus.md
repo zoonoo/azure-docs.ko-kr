@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138085"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -20,10 +20,10 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 
 | SKU | 관리 | 설명 |
 | --- | :-------: | ----------- |
-| **Basic** | yes | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 갖습니다. 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
-| **Standard** | yes | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
-| **Premium** | yes | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. Premium은 많은 이미지 처리량을 제공하는 것 외에도, 여러 지역 전반에서 단일 레지스트리를 관리하기 위한 [지역에서 복제][container-registry-geo-replication] 및 이미지 태그 서명을 위한 [콘텐츠 신뢰(미리 보기)](container-registry-content-trust.md)와 같은 기능을 추가적으로 제공합니다. |
-| 클래식<sup>1</sup> | 아니요 | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
+| **Basic** | 예 | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 갖습니다. 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
+| **Standard** | 예 | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
+| **Premium** | 예 | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. 더 높은 이미지 처리량 뿐만 아니라 프리미엄 추가 기능을 포함 하 여 [함깨 geo-replication] [ container-registry-geo-replication] 여러 지역에서 단일 레지스트리를 관리 하는 것에 대 한 [신뢰 (미리 보기)콘텐츠](container-registry-content-trust.md) 서명에 이미지 태그, 및 [방화벽 및 virtual networks (미리 보기)](container-registry-vnet.md) 레지스트리에 대 한 액세스를 제한 하려면. |
+| 클래식<sup>1</sup> | 아닙니다. | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
 
 <sup>1</sup> 클래식 SKU는 **2019년 3월**부터 **사용되지 않습니다**. 모든 새 컨테이너 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.
 

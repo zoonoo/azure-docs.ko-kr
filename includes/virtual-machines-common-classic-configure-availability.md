@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227021"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58114351"
 ---
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 머신을 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 머신을 배치하면 가상 머신이 실행하는 서비스나 애플리케이션의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 머신의 가용성 관리][Manage the availability of virtual machines]를 참조하세요.
 
@@ -17,15 +17,15 @@ ms.locfileid: "50227021"
 
 다음 두 옵션 중 하나를 사용하여 클래식 가상 머신을 가용성 집합에 추가할 수 있습니다.
 
-* [옵션 1: 동시에 가상 머신 및 가용성 집합 만들기][Option 1: Create a virtual machine and an availability set at the same time]를 참조하세요. 그런 다음 새 가상 머신을 만들 때 집합에 가상 머신을 추가합니다.
-* [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가][Option 2: Add an existing virtual machine to an availability set]
+* [옵션 1: 가상 컴퓨터를 만들고 가용성 집합 동시][Option 1: Create a virtual machine and an availability set at the same time]합니다. 그런 다음 새 가상 머신을 만들 때 집합에 가상 머신을 추가합니다.
+* [옵션 2: 기존 가상 머신을 가용성 집합에 추가][Option 2: Add an existing virtual machine to an availability set]합니다.
 
 > [!NOTE]
 > 클래식 모델에서는 같은 가용성 집합에 배치할 가상 머신은 같은 클라우드 서비스에 속해야 합니다.
 > 
 > 
 
-## <a id="createset"> </a>옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기
+## <a id="createset"> </a>옵션 1: 가상 머신과 가용성 집합을 동시에 만들기
 Azure 포털 또는 Azure PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
 Azure 포털을 사용하려면
@@ -46,7 +46,7 @@ Azure 포털을 사용하려면
 
 Azure PowerShell 명령을 사용하여 Azure 가상 머신을 만들고 새로운 또는 기존 가용성 집합에 추가하려면 [Azure PowerShell을 사용하여 Windows 기반 가상 머신 만들기 및 미리 구성](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가
+## <a id="addmachine"> </a>옵션 2: 기존 가상 머신을 가용성 집합에 추가
 Azure 포털에서 기존 클래식 가상 머신을 기존 가용성 집합에 추가하거나 가상 머신용으로 새 가용성 집합을 만들 수 있습니다. 동일한 가용성 집합의 가상 머신은 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 머신을 추가할 수 있습니다.
 
 1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com)에 로그인합니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313363"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530759"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 
@@ -80,7 +80,7 @@ PowerShell 스크립트는 자격 증명을 입력하라는 메시지를 표시�
 ### <a name="pre-requisites-checking"></a>필수 구성 요소 확인
 Azure 자격 증명을 입력하면 Azure에서는 환경이 다음과 같은 전제 조건을 충족하는지 확인합니다.
 
-- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9083.0이 필요합니다. 항목이 2.0.9083.0보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. 최신 에이전트 버전은 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 다운로드할 수 있습니다.
+- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9083.0이 필요합니다. 항목이 2.0.9083.0보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. 최신 에이전트 버전은 [https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 다운로드할 수 있습니다.
 - **진행 중인 구성 작업**: 누군가가 업그레이드할 Backup 자격 증명 모음에 대한 작업을 구성하거나 항목을 등록하는 경우 필수 구성 요소 검사가 실패합니다. 구성을 완료하거나 항목의 등록을 마치고 자격 증명 모음 업그레이드 프로세스를 시작합니다.
 - **스토리지 기반 청구 모델**: Recovery Services 자격 증명 모음은 인스턴스 기반 청구 모델을 지원합니다. 저장소 기반 청구 모델을 사용하는 Backup 자격 증명 모음에 자격 증명 모음 업그레이드를 실행하면 자격 증명 모음과 함께 요금 청구 모델을 업그레이드하라는 메시지가 표시됩니다. 그렇지 않으면 청구 모델을 먼저 업데이트한 다음 자격 증명 모음 업그레이드를 실행할 수 있습니다.
 - Recovery Services 자격 증명 모음의 리소스 그룹을 식별합니다. Resource Manager 배포 기능을 활용하려면 리소스 그룹에서 Recovery Services 자격 증명 모음을 저장해야 합니다. 사용할 리소스 그룹을 모르는 경우 이름을 지정하고 업그레이드 프로세스에서 리소스 그룹을 만듭니다. 또한 업그레이드 프로세스는 새 리소스 그룹과 자격 증명 모음을 연결합니다.
@@ -113,7 +113,7 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>업그레이드 계획이 진행 중인 백업에 영향을 주나요?
- 아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
+아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
 ### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>자격 증명 모음을 가까운 시일 안에 업그레이드할 계획이 없다면 어떻게 되나요?
 새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 더 이상 Backup 자격 증명 모음을 만들 수 없습니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
@@ -125,16 +125,16 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 업그레이드하는 리소스의 수에 따라 달라집니다. 소규모 배포(보호된 인스턴스가 수십 개)의 경우 전체 업그레이드는 20분이 걸리지 않습니다. 대규모 배포의 경우에 최대 1시간이 걸립니다.
 
 ### <a name="can-i-roll-back-after-upgrading"></a>업그레이드한 후에 롤백할 수 있나요?
- 아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
+아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
 
 ### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>내 구독 또는 리소스에서 업그레이드가 가능한지 확인할 수 있나요?
 예. 업그레이드의 첫 번째 단계는 리소스를 업그레이드할 수 있는지 유효성을 검사합니다. 필수 구성 요소의 유효성 검사 작업이 실패하는 경우, 업그레이드를 완료할 수 없는 모든 원인에 대한 모든 메시지가 나타납니다.
 
 ### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>CSP 기반 백업 자격 증명 모음을 업그레이드할 수 있나요?
- 아니요. CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 Backup 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
+아니요. CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 Backup 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 
 ### <a name="can-i-view-my-classic-vault-post-upgrade"></a>클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?
- 아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
+아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
 
 ### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>내 업그레이드에 실패했지만 업데이트가 필요한 에이전트를 보유한 머신이 더 이상 존재하지 않습니다. 이러한 경우 어떻게 해야 하나요?
 장기 보존을 위해 이 컴퓨터의 백업 저장소를 사용해야 하는 경우 자격 증명 모음을 업그레이드할 수 없습니다. 이후 릴리스에서 이러한 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087536"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -40,47 +40,47 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 1. **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 선택합니다.
 
-  애플리케이션에 이름을 지정하고, 애플리케이션 유형에 대해 **웹앱/API**를 선택하고, **로그온 URL**에 URI 서식 지정된 값을 입력합니다. 완료되면 **만들기**를 선택합니다.
+   애플리케이션에 이름을 지정하고, 애플리케이션 유형에 대해 **웹앱/API**를 선택하고, **로그온 URL**에 URI 서식 지정된 값을 입력합니다. 완료되면 **만들기**를 선택합니다.
 
-  ![Azure AD 등록 만들기](media/aad-integration/app-registration.png)
+   ![Azure AD 등록 만들기](media/aad-integration/app-registration.png)
 
 2. **매니페스트**를 선택하고 `groupMembershipClaims` 값을 `"All"`로 편집합니다.
 
-  완료되면 업데이트를 저장합니다.
+   완료되면 업데이트를 저장합니다.
 
-  ![그룹 멤버 자격을 모두로 업데이트](media/aad-integration/edit-manifest.png)
+   ![그룹 멤버 자격을 모두로 업데이트](media/aad-integration/edit-manifest.png)
 
 3. Azure AD 애플리케이션에서 **설정** > **키**를 선택합니다.
 
-  키 설명을 추가하고, 만료 마감일을 선택하고, **저장**을 선택합니다. 키 값을 적어둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application secret`이라고 합니다.
+   키 설명을 추가하고, 만료 마감일을 선택하고, **저장**을 선택합니다. 키 값을 적어둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application secret`이라고 합니다.
 
-  ![애플리케이션 개인 키 가져오기](media/aad-integration/application-key.png)
+   ![애플리케이션 개인 키 가져오기](media/aad-integration/application-key.png)
 
 4. Azure AD 애플리케이션으로 돌아와서 **설정** > **필요한 권한** > **추가** > **API 선택** > **Microsoft Graph** > **선택**을 선택합니다.
 
-  ![Graph API 선택](media/aad-integration/graph-api.png)
+   ![Graph API 선택](media/aad-integration/graph-api.png)
 
 5. **애플리케이션 사용 권한** 아래에서 **디렉터리 데이터 읽기** 옆을 체크합니다.
 
-  ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/read-directory.png)
+   ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/read-directory.png)
 
 6. **위임된 사용 권한**  아래에서 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기** 옆을 체크합니다. 완료되면 업데이트를 저장합니다.
 
-  ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/delegated-permissions.png)
+   ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/delegated-permissions.png)
 
-  **완료**를 선택합니다.
+   **완료**를 선택합니다.
 
 7. API 목록에서 *Microsoft Graph*를 선택한 다음, **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
 
-  ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/grant-permissions.png)
+   ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/grant-permissions.png)
 
-  권한을 성공적으로 부여 받으면 포털에서 다음 알림이 표시됩니다.
+   권한을 성공적으로 부여 받으면 포털에서 다음 알림이 표시됩니다.
 
-  ![성공적인 권한 부여의 알림](media/aad-integration/permissions-granted.png)
+   ![성공적인 권한 부여의 알림](media/aad-integration/permissions-granted.png)
 
 8. 애플리케이션으로 돌아오고 **애플리케이션 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application ID`이라고 합니다.
 
-  ![애플리케이션 ID 가져오기](media/aad-integration/application-id.png)
+   ![애플리케이션 ID 가져오기](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>클라이언트 애플리케이션 만들기
 
@@ -88,27 +88,27 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 1. **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 선택합니다.
 
-  애플리케이션에 이름을 지정하고, 애플리케이션 유형에 대해 **네이티브**를 선택하고, **리디렉션 URI**에 URI 서식 지정된 값을 입력합니다. 완료되면 **만들기**를 선택합니다.
+   애플리케이션에 이름을 지정하고, 애플리케이션 유형에 대해 **네이티브**를 선택하고, **리디렉션 URI**에 URI 서식 지정된 값을 입력합니다. 완료되면 **만들기**를 선택합니다.
 
-  ![AAD 등록 만들기](media/aad-integration/app-registration-client.png)
+   ![AAD 등록 만들기](media/aad-integration/app-registration-client.png)
 
 2. Azure AD 애플리케이션에서 **설정** > **필요한 권한** > **추가** > **API 선택**을 선택하고 이 문서의 마지막 단계에서 만든 서버 애플리케이션의 이름을 검색합니다.
 
-  ![애플리케이션 사용 권한 구성](media/aad-integration/select-api.png)
+   ![애플리케이션 사용 권한 구성](media/aad-integration/select-api.png)
 
 3. 애플리케이션 옆에 확인 표시를 두고 **선택**을 클릭합니다.
 
-  ![AKS AAD 서버 애플리케이션 엔드포인트 선택](media/aad-integration/select-server-app.png)
+   ![AKS AAD 서버 애플리케이션 엔드포인트 선택](media/aad-integration/select-server-app.png)
 
-  **완료**를 선택합니다.
+   **완료**를 선택합니다.
 
 4. 목록에서 서버 API를 선택한 다음, **권한 부여**를 선택합니다.
 
-  ![권한 부여](media/aad-integration/grant-permissions-client.png)
+   ![권한 부여](media/aad-integration/grant-permissions-client.png)
 
 5. AD 애플리케이션으로 돌아오고, **애플리케이션 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Client application ID`이라고 합니다.
 
-  ![애플리케이션 ID 가져오기](media/aad-integration/application-id-client.png)
+   ![애플리케이션 ID 가져오기](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>테넌트 ID 가져오기
 

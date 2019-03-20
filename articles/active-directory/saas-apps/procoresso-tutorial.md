@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>자습서: Procore SSO와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ Procore SSO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Procore SSO 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -179,7 +179,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
        예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
@@ -204,7 +204,7 @@ Procore SSOc 측에서 Procore 테스트 사용자를 만들려면 다음 단계
 
     b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    다. **전자 메일 주소** 텍스트 상자에 사용자의 전자 메일 주소(예: **BrittaSimon@contoso.com**)를 입력합니다.
+    다. 에 **전자 메일 주소** 텍스트 상자 형식 사용자의 전자 메일 주소와 같은 **BrittaSimon\@contoso.com**합니다.
 
     d. **Permission Template**(권한 템플릿)에 **Apply Permission Template Later**(권한 템플릿 나중에 적용)를 선택합니다.
 
@@ -214,7 +214,7 @@ Procore SSOc 측에서 Procore 테스트 사용자를 만들려면 다음 단계
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. **Save and Send Invitiation**(저장 및 초대 보내기)(메일을 통한 초대가 필요한 경우) 또는 **저장**(바로 저장)을 클릭하여 사용자 등록을 완료합니다.
+5. 클릭할 **저장 및 초대 보내기** (초대 메일을 통해 필요한 경우) 또는 **저장** (바로 저장)을 사용자 등록을 완료 합니다.
     
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
 

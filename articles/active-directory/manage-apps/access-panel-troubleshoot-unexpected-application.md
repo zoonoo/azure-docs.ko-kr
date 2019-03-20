@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122202"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>애플리케이션이 액세스 패널에 표시되는 방식
 
@@ -46,41 +46,41 @@ ms.locfileid: "56167085"
 
 사용자가 애플리케이션에 할당되었는지 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-6.  문제의 애플리케이션 이름을 **검색**합니다.
+6. 문제의 애플리케이션 이름을 **검색**합니다.
 
-7.  **사용자 및 그룹**을 클릭합니다.
+7. **사용자 및 그룹**을 클릭합니다.
 
-8.  사용자가 애플리케이션에 할당되었는지 확인합니다.
+8. 사용자가 애플리케이션에 할당되었는지 확인합니다.
 
-  * 애플리케이션에서 사용자를 제거하려는 경우 사용자의 **행을 클릭**하고 **삭제**를 선택합니다.
+   * 애플리케이션에서 사용자를 제거하려는 경우 사용자의 **행을 클릭**하고 **삭제**를 선택합니다.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>사용자가 애플리케이션과 관련된 라이센스가 있는지 확인
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭합니다.
 
-6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
+6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
+7. **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
 
    * 사용자가 Office 라이선스에 할당된 경우 사용자의 액세스 패널에 나타나도록 자사 Office 애플리케이션을 활성화합니다.
 
@@ -96,45 +96,45 @@ ms.locfileid: "56167085"
 
 그룹의 멤버 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭합니다.
 
-6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
+6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **그룹**을 클릭합니다.
+7. **그룹**을 클릭합니다.
 
-8.  사용자가 애플리케이션에 할당된 그룹에 속하는지 확인합니다.
+8. 사용자가 애플리케이션에 할당된 그룹에 속하는지 확인합니다.
 
    * 그룹에서 사용자를 제거하려는 경우 그룹의 **행을 클릭**하고 삭제를 선택합니다.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>사용자가 라이선스에 할당된 그룹의 멤버인지 확인
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭합니다.
 
-6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
+6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **그룹**을 클릭합니다.
+7. **그룹**을 클릭합니다.
 
-8.  특정 그룹의 행을 클릭합니다.
+8. 특정 그룹의 행을 클릭합니다.
 
-9.  **라이선스**를 클릭하여 그룹이 할당된 라이선스를 봅니다.
+9. **라이선스**를 클릭하여 그룹이 할당된 라이선스를 봅니다.
 
-  * 그룹이 Office 라이선스에 할당된 경우 사용자의 액세스 패널에 나타나도록 특정 자사 Office 애플리케이션을 활성화할 수 있습니다.
+   * 그룹이 Office 라이선스에 할당된 경우 사용자의 액세스 패널에 나타나도록 특정 자사 Office 애플리케이션을 활성화할 수 있습니다.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>이러한 문제 해결 단계가 문제를 해결하지 않는 경우

@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164622"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772177"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
@@ -260,7 +260,7 @@ Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나�
 이러한 작업은 Azure Batch 서비스를 통해 병렬로 실행되어 여러 노드에 배포되고 조정됩니다.
 
 > [!Tip]
-> [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
+> [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
 >
 >
 
@@ -273,7 +273,7 @@ Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나�
 Azure Storage 계정에 스크립트를 업로드하고 해당 스크립트에 액세스하는 SAS URI를 생성할 수 있습니다. Azure Storage Node.js SDK를 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 > [!Tip]
-> 작업에 대한 준비 작업은 특정 작업을 실행해야 하는 VM 노드에서만 실행됩니다. 노드에서 실행되는 태스크와 관계없이 모든 노드에 필수 구성 요소를 설치하도록 하려면 풀을 추가하는 동안 [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하면 됩니다. 다음 준비 작업 정의를 참조에 사용할 수 있습니다.
+> 작업에 대한 준비 작업은 특정 작업을 실행해야 하는 VM 노드에서만 실행됩니다. 노드에서 실행되는 태스크와 관계없이 모든 노드에 필수 구성 요소를 설치하도록 하려면 풀을 추가하는 동안 [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하면 됩니다. 다음 준비 작업 정의를 참조에 사용할 수 있습니다.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 이 코드는 풀에 여러 작업을 추가합니다. 각 작업은 앞에서 만든 VM의 풀에 있는 노드에서 실행됩니다. 작업 수가 풀의 VM 수 또는 maxTasksPerNode 속성을 초과할 경우 노드를 사용할 수 있게 될 때까지 작업이 대기합니다. 이 오케스트레이션은 Azure Batch에서 자동으로 처리됩니다.
 
-포털에 가면 구체적인 작업 상태 보기가 있습니다. Azure Node SDK에서 목록을 사용하여 함수를 가져올 수도 있습니다. 자세한 내용은 설명서 [링크](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)에 제공됩니다.
+포털에 가면 구체적인 작업 상태 보기가 있습니다. Azure Node SDK에서 목록을 사용하여 함수를 가져올 수도 있습니다. 자세한 내용은 설명서 [링크](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)에 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

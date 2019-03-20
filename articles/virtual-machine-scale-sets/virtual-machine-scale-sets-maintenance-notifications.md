@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992429"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -89,7 +89,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 | 값 | 설명 |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
-| 아니요 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
+| 아닙니다. | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
 | - | 가상 머신 확장 집합이 계획된 유지 관리 웨이브에 속하지 않습니다.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 **MaintenanceRedeployStatus**로 반환되는 속성은 다음과 같습니다. 
-| 값 | 설명   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. ||
-| PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. ||
-| PreMaintenanceWindowEndTime           | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 종료 시간입니다. ||
-| MaintenanceWindowStartTime            | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 시작 시간입니다. ||
-| MaintenanceWindowEndTime              | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 종료 시간입니다. ||
-| LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. ||
+
+| 값 | 설명 |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | 이 이번에 유지 관리를 시작할 vm 수 있는지 여부를 나타냅니다. | | PreMaintenanceWindowStartTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 시작 합니다. | | PreMaintenanceWindowEndTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 종료 합니다. | | MaintenanceWindowStartTime | Azure가 VM에서 유지 관리를 시작 하는 예약 된 유지 관리 시작 | | MaintenanceWindowEndTime | Azure가 VM에서 유지 관리를 시작 하는 유지 관리 예약 기간의 종료 합니다. | | LastOperationResultCode | VM에서 유지 관리를 시작 하려면 마지막 시도의 결과입니다. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 **MaintenanceRedeployStatus**로 각 VM 인스턴스에 대해 반환되는 속성은 다음과 같습니다. 
-| 값 | 설명   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. ||
-| PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. ||
-| PreMaintenanceWindowEndTime           | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 종료 시간입니다. ||
-| MaintenanceWindowStartTime            | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 시작 시간입니다. ||
-| MaintenanceWindowEndTime              | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 종료 시간입니다. ||
-| LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. ||
+
+| 값 | 설명 |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | 이 이번에 유지 관리를 시작할 vm 수 있는지 여부를 나타냅니다. | | PreMaintenanceWindowStartTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 시작 합니다. | | PreMaintenanceWindowEndTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 종료 합니다. | | MaintenanceWindowStartTime | Azure가 VM에서 유지 관리를 시작 하는 예약 된 유지 관리 시작 | | MaintenanceWindowEndTime | Azure가 VM에서 유지 관리를 시작 하는 유지 관리 예약 기간의 종료 합니다. | | LastOperationResultCode | VM에서 유지 관리를 시작 하려면 마지막 시도의 결과입니다. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>CLI를 사용하여 VM 인스턴스에서 유지 관리 시작

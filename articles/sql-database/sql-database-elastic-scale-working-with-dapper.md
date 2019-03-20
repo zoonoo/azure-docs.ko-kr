@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002286"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 이 문서는 Dapper를 기반으로 애플리케이션을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 애플리케이션을 만들기 위해 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 애플리케이션에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
@@ -35,7 +35,7 @@ DapperExtensions를 사용할 때는 더 이상 SQL 문을 입력하지 않아�
 
 Dapper 및 DapperExtensions를 사용할 때 또 다른 이점은 애플리케이션의 데이터베이스 연결 작성을 제어한다는 것입니다. 따라서 데이터베이스에 대한 shardlet 매핑을 기준으로 데이터베이스 연결을 조정하는 탄력적 데이터베이스 클라이언트 라이브러리와 상호 작용이 가능합니다.
 
-Dapper 어셈블리를 확인하려면 [Dapper.net](http://www.nuget.org/packages/Dapper/)을 참조하세요. Dapper 확장은 [DapperExtensions](http://www.nuget.org/packages/DapperExtensions)를 참조하세요.
+Dapper 어셈블리를 확인하려면 [Dapper.net](https://www.nuget.org/packages/Dapper/)을 참조하세요. Dapper 확장은 [DapperExtensions](https://www.nuget.org/packages/DapperExtensions)를 참조하세요.
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>탄력적 데이터베이스 클라이언트 라이브러리를 간단히 살펴보기
 탄력적 데이터베이스 클라이언트 라이브러리를 사용하면 *shardlets*라는 애플리케이션 데이터 파티션을 정의하여 데이터베이스에 매핑한 다음, *분할 키*로 식별할 수 있습니다. 데이터베이스는 필요한 수만큼 포함할 수 있으며 이러한 데이터베이스에 대해 shardlet을 배포할 수 있습니다. 라이브러리의 API에서 제공하는 분할된 데이터베이스 맵을 통해 데이터베이스에 대한 분할 키 값의 매핑이 저장됩니다. 이 기능을 **분할된 데이터베이스 맵 관리**라고 합니다. 분할된 데이터베이스 맵은 분할 키를 전송하는 요청에 대한 데이터베이스 연결의 브로커 역할도 합니다. 이 기능을 **데이터 종속 라우팅**이라고 합니다.
@@ -64,8 +64,8 @@ Dapper를 사용하는 경우 대개 애플리케이션에서 기본 데이터�
 함께 제공되는 샘플에 포함된 이 코드 예제에서는 연결을 올바르게 분할된 데이터베이스로 조정하기 위해 애플리케이션에서 라이브러리에 분할 키를 제공하는 방식을 보여 줍니다.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ Dapper를 사용하는 경우 대개 애플리케이션에서 기본 데이터�
 쿼리는 거의 비슷한 방식으로 작동합니다. 즉, 먼저 탄력적인 확장 API에서 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx)를 사용하여 연결을 엽니다. 그런 다음 일반 Dapper 확장 메서드를 사용하여 SQL 쿼리 결과를 .NET 개체에 매핑합니다.
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper에는 데이터베이스 애플리케이션을 개발할 때 데이터베
 애플리케이션에서 DapperExtensions를 사용하더라도 데이터베이스 연결 작성 및 관리 방식은 변경되지 않습니다. 즉, 애플리케이션이 계속 연결을 열며 확장 메서드에는 일반 SQL 클라이언트 연결 개체가 사용됩니다. 위에서 설명한 것처럼 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 를 사용할 수 있습니다. 다음 코드 샘플에서 볼 수 있듯이 유일한 변경 사항은 더 이상 T-SQL 문을 작성할 필요가 없다는 것입니다.
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ Dapper에는 데이터베이스 애플리케이션을 개발할 때 데이터베
 쿼리의 코드 샘플은 다음과 같습니다. 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ Microsoft Patterns &amp; Practices 팀은 애플리케이션 개발자들이 클
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };

@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270269"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410165"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -44,7 +44,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 2. 복제된 이미지를 사용하는 경우:
-   1. Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+   1. Log Analytics 작업 영역의 범위 구성에 대 한 저장된 된 검색에서 VM을 제거할 `MicrosoftDefaultScopeConfig-Updates` 표시 됩니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
    2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` 실행
    3. `Restart-Service HealthService`를 실행하여 `HealthService`를 다시 시작합니다. 그러면 키가 다시 생성되고 새 UUID가 생성됩니다.
    4. 이렇게 작동하지 않는 경우 이미지에 sysprep을 수행한 다음, 팩트 후에 MMA 에이전트를 설치합니다.
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>시나리오: 업데이트 관리 데이터가 컴퓨터에 대한 Log Analytics에서 표시되지 않습니다.
+### <a name="nologs"></a>시나리오: 업데이트 관리 데이터는 컴퓨터에 대 한 Azure Monitor 로그에서 표시 되지 않음
 
 #### <a name="issue"></a>문제
 
-컴퓨터가 **준수** 아래에서 **평가되지 않음**으로 표시되지만 업데이트 관리가 아닌 Hybrid Runbook Worker용 Log Analytics에는 하트비트 데이터가 표시됩니다.
+로 표시 되는 컴퓨터가 **평가 되지 않음** 아래에서 **준수**, Hybrid Runbook Worker 하지만 하지 업데이트 관리에 대 한 Azure Monitor 로그에서 하트 비트 데이터를 표시 하지만 합니다.
 
 #### <a name="cause"></a>원인
 
@@ -92,7 +92,7 @@ Hybrid Runbook Worker를 다시 등록하고 다시 설치해야 할 수 있습�
 
 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치하고, Linux의 경우 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따릅니다.
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 가상 머신에 솔루션을 온보드할 때 문제가 발생한 경우 로컬 컴퓨터에서 이벤트 ID가 **4502**인 이벤트에 대해 **애플리케이션 및 서비스 로그**의 **작업 관리자** 이벤트 로그와, **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하고 있는 이벤트 메시지를 확인합니다.
 

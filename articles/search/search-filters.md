@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079148"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 
@@ -32,17 +32,17 @@ ms.locfileid: "53629600"
 
 1. 인덱스의 데이터 값에 따라 인덱스를 분할하는 필터를 사용합니다. 도시, 주택 유형 및 편의 시설이 포함된 스키마가 제공되면 조건(시애틀, 콘도, 해안가)을 충족하는 문서를 명시적으로 선택하기 위한 필터를 만들 수 있습니다. 
 
-  동일한 입력을 사용하는 전체 텍스트 검색도 종종 비슷한 결과가 나오기는 하지만 필터는 인덱스의 콘텐츠에 대해 필터 용어가 정확하게 일치해야 하기 때문에 더 정확합니다. 
+   동일한 입력을 사용하는 전체 텍스트 검색도 종종 비슷한 결과가 나오기는 하지만 필터는 인덱스의 콘텐츠에 대해 필터 용어가 정확하게 일치해야 하기 때문에 더 정확합니다. 
 
 2. 검색 환경에 필터 요구 사항이 포함된 경우 필터를 사용합니다.
 
- * [패싯 탐색](search-faceted-navigation.md)은 사용자가 선택한 패싯 범주를 다시 전달하는 데 필터를 사용합니다.
- * 지리적 검색은 "내 주변 찾기" 앱에서 현재 위치의 좌표를 전달하는 데 필터를 사용합니다. 
- * 보안 필터는 보안 식별자를 필터 조건으로 전달합니다. 여기서 인덱스의 일치 항목은 문서에 액세스할 수 있는 권한을 위한 프록시 역할을 합니다.
+   * [패싯 탐색](search-faceted-navigation.md)은 사용자가 선택한 패싯 범주를 다시 전달하는 데 필터를 사용합니다.
+   * 지리적 검색은 "내 주변 찾기" 앱에서 현재 위치의 좌표를 전달하는 데 필터를 사용합니다. 
+   * 보안 필터는 보안 식별자를 필터 조건으로 전달합니다. 여기서 인덱스의 일치 항목은 문서에 액세스할 수 있는 권한을 위한 프록시 역할을 합니다.
 
 3. 숫자 필드에서 조건을 검색하려는 경우 필터를 사용합니다. 
 
-  숫자 필드는 문서에서 검색할 수 있고 검색 결과에 표시되기도 하지만, 개별적으로 검색할 수는 없습니다(전체 텍스트 검색에 적용). 숫자 데이터를 기반으로 하는 선택 조건이 필요한 경우 필터를 사용합니다.
+   숫자 필드는 문서에서 검색할 수 있고 검색 결과에 표시되기도 하지만, 개별적으로 검색할 수는 없습니다(전체 텍스트 검색에 적용). 숫자 데이터를 기반으로 하는 선택 조건이 필요한 경우 필터를 사용합니다.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>범위를 줄이기 위한 대체 방법
 
@@ -141,10 +141,8 @@ REST API에서는 필터링 가능이 기본적으로 *설정*되어 있습니�
 
 필드가 필터링 가능이 아니어서 필터링 가능으로 설정하려는 경우 새 필드를 추가하거나 기존 필드를 다시 빌드해야 합니다. 필드 정의를 변경하면 인덱스의 물리적 구조가 변경됩니다. Azure Search에서는 빠른 쿼리 속도를 위해 허용되는 모든 액세스 경로가 인덱싱되므로 필드 정의가 변경될 때 데이터 구조가 다시 빌드되어야 합니다. 
 
-개별 필드를 다시 빌드하면 기존 문서 키와 연관된 값을 인덱스로 전송하는 병합 작업만 필요하고 각 문서의 나머지 부분은 그대로 두기 때문에 작업에 별로 영향을 미치지 않습니다. 다시 빌드 요구 사항이 발생하는 경우 다음 링크의 지침을 참조하세요.
+개별 필드를 다시 빌드하면 기존 문서 키와 연관된 값을 인덱스로 전송하는 병합 작업만 필요하고 각 문서의 나머지 부분은 그대로 두기 때문에 작업에 별로 영향을 미치지 않습니다. 다시 빌드 요구 사항이 발생 하면, 참조 [인덱싱 작업 (업로드, merge, mergeOrUpload 삭제)](search-what-is-data-import.md#indexing-actions) 옵션의 목록에 대 한 합니다.
 
- + [.NET SDK를 사용하여 인덱싱 작업](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [REST API를 사용하여 인덱싱 작업](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>텍스트 필터 기본 사항
 

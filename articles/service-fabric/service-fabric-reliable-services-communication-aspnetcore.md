@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: d74cee712b33f8d8d9924b9b8906ccd97e0b1756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902997"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -333,6 +333,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 이 구성에서 `KestrelCommunicationListener`는 애플리케이션 포트 범위에서 사용되지 않는 포트를 자동으로 선택합니다.
+
+## <a name="service-fabric-configuration-provider"></a>서비스 패브릭 구성 공급자
+읽을 구성 공급자에서 설정 하는 키-값 쌍을 기준으로 하는 ASP.NET Core에서 앱 구성 [ASP.NET Core의 구성](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) 자세한 온 일반적인 ASP.NET Core 구성 지원 알아야 합니다.
+
+이 섹션에서는 ASP.NET Core 구성 가져와서 통합할 서비스 패브릭 구성 공급자를 설명 합니다 `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 패키지.
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration 시작 확장
+가져오기 후 `Microsoft.ServiceFabric.AspNetCore.Configuration` 하 여 ASP.NET Core 구성 API 사용 하 여 Service Fabric 구성 소스를 등록 해야 하는 NuGet 패키지 **AddServiceFabricConfiguration** 확장 `Microsoft.ServiceFabric.AspNetCore.Configuration` 네임 스페이스 에 대해 `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+이제 ASP.NET Core 서비스 다른 응용 프로그램 설정과 마찬가지로 Service Fabric 구성 설정에 액세스할 수 있습니다. 예를 들어, 강력한 형식의 개체로 설정 로드 옵션 패턴을 사용할 수 있습니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>기본 키 매핑
+기본적으로 Service Fabric 구성 공급자는 패키지 이름, 섹션 이름 및 asp.net core 구성을 형성 하는 속성 이름을 다음 함수를 사용 하 여 키:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+예를 들어, 명명 된 구성 패키지를 있다면 `MyConfigPackage` 사용 하 여 아래 콘텐츠를 다음 구성 값에서 사용할 수 ASP.NET Core `IConfiguration` 키를 통해 *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>서비스 패브릭 구성 옵션
+서비스 패브릭 구성 공급자도 지원 합니다. `ServiceFabricConfigurationOptions` 키 매핑의 기본 동작을 변경 합니다.
+
+#### <a name="encrypted-settings"></a>암호화 설정
+이 Service Fabric 구성 공급자도 지원, Service Fabric 설정 암호화를 지원 합니다. 기본 원칙을 ASP.NET core는 기본적으로 암호화 된 설정이 are't descrypted 보안 뒤에 `IConfiguration`, 암호화 된 값 대신 저장 됩니다. 그러나 ASP.NET Core IConfiguration에 저장할 값의 암호를 해독 하려는 경우을 설정할 수 있습니다 DecryptValue 플래그가 false `AddServiceFabricConfiguration` 다음과 같이 확장 합니다.
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>여러 구성 패키지
+Service Fabric은 여러 구성 패키지를 지원 합니다. 기본적으로 패키지 이름은 키 구성에 포함 됩니다. 설정할 수 있습니다는 `IncludePackageName` 기본 동작을 변경 하는 플래그입니다.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>사용자 지정 키 매핑, 값 추출 및 데이터 채우기
+기본 동작을 변경 하려면 2 플래그 위에 Service Fabric 구성 공급자도 지원 외에 더 많은 고급 시나리오 사용자 지정을 통해 키 매핑 `ExtractKeyFunc` 사용자 지정을 통해 값을 추출 하 고 `ExtractValueFunc`입니다. 전체 프로세스를 통해 ASP.NET Core 구성에 Service Fabric 구성에서 데이터를 채우는 데에 변경할 수 있습니다 `ConfigAction`합니다.
+
+사용 하려면 다음 예제는 설명 `ConfigAction` 데이터 채우기를 사용자 지정할 수 있습니다.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>구성 업데이트
+서비스 패브릭 구성 공급자도 구성 업데이트를 지원 하 고 ASP.NET Core를 사용할 수 있습니다 `IOptionsMonitor` 변경 알림을 수신 하도록 아니라와 `IOptionsSnapshot` 구성 데이터를 다시 로드 합니다. 자세한 내용은 [ASP.NET Core 옵션](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)합니다.
+
+이 기본적으로 지원 하 고 더 이상 코딩 하는 데 필요한 구성 업데이트를 사용 하도록 설정 합니다.
 
 ## <a name="scenarios-and-configurations"></a>시나리오 및 구성
 이 섹션에서는 다음 시나리오에 대해 설명하고, 웹 서버, 포트 구성, Service Fabric 통합 옵션 및 기타 설정에 권장되는 조합을 제공하여 적절하게 작동하는 서비스를 달성합니다.

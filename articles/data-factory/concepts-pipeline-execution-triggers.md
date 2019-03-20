@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064375"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453476"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -31,7 +31,7 @@ Azure Data Factory의 _파이프라인 실행_은 파이프라인 실행의 인�
 ## <a name="manual-execution-on-demand"></a>수동 실행(요청 시)
 파이프라인의 수동 실행도 _주문형_ 실행이라고 합니다.
 
-예를 들어 실행하려는 **copyPipeline**이라는 기본 파이프라인이 있다고 가정해 보겠습니다. 이 파이프라인에는 Azure Blob 저장소 원본 폴더에서 동일한 저장소의 대상 폴더에 복사하는 단일 활동이 있습니다. 다음 JSON 정의는 이 샘플 파이프라인을 보여 줍니다.
+예를 들어 실행하려는 **copyPipeline**이라는 기본 파이프라인이 있다고 가정해 보겠습니다. 이 파이프라인에는 Azure Blob Storage 원본 폴더에서 동일한 스토리지의 대상 폴더에 복사하는 단일 활동이 있습니다. 다음 JSON 정의는 이 샘플 파이프라인을 보여 줍니다.
 
 ```json
 {
@@ -94,10 +94,13 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 전체 샘플은 [빠른 시작: REST API를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 다음 샘플 명령은 Azure PowerShell을 사용하여 파이프라인을 수동으로 실행하는 방법을 보여 줍니다.
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 매개 변수는 요청 페이로드의 본문에서 전달합니다. .NET SDK, Azure PowerShell 및 Python SDK에서는 호출에 인수로 전달되는 사전에서 값을 전달합니다.

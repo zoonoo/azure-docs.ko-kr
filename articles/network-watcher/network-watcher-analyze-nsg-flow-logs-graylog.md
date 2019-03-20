@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879942"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -33,7 +33,7 @@ ms.locfileid: "51823047"
 
 ## <a name="scenario"></a>시나리오
 
-네트워크 보안 그룹 흐름 로그는 Network Watcher를 사용하여 활성화됩니다. 흐름 로그는 Azure Blob 저장소로 전달됩니다. Logstash 플러그 인은 Blob 저장소에서 흐름 로그를 연결하고 처리하여 Graylog에 보내는 데 사용됩니다. 흐름 로그가 Graylog에 저장되면 분석되어 사용자 지정된 대시보드에 시각화될 수 있습니다.
+네트워크 보안 그룹 흐름 로그는 Network Watcher를 사용하여 활성화됩니다. 흐름 로그는 Azure Blob Storage로 전달됩니다. Logstash 플러그 인은 Blob Storage에서 흐름 로그를 연결하고 처리하여 Graylog에 보내는 데 사용됩니다. 흐름 로그가 Graylog에 저장되면 분석되어 사용자 지정된 대시보드에 시각화될 수 있습니다.
 
 ![Graylog 워크플로](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
@@ -47,12 +47,12 @@ ms.locfileid: "51823047"
 
 이 예에서 Graylog와 Logstash는 모두 Azure에 배포된 Ubuntu 14.04 서버에서 구성됩니다.
 
-- Ubuntu에 설치하는 방법에 대한 단계별 지침은 Graylog의 [설명서](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)를 참조하세요.
-- [설명서](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)에 따라 Graylog 웹 인터페이스도 구성해야 합니다.
+- Ubuntu에 설치하는 방법에 대한 단계별 지침은 Graylog의 [설명서](https://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)를 참조하세요.
+- [설명서](https://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)에 따라 Graylog 웹 인터페이스도 구성해야 합니다.
 
-이 예에서는 최소 Graylog 설정(즉, Graylog 단일 인스턴스)을 사용하지만, Graylog는 시스템 및 프로덕션 환경 요구 사항에 따라 리소스 전반에 걸쳐 크기 조정하도록 설계될 수 있습니다. 아키텍처 고려 사항 또는 심층적인 아키텍처 가이드에 대한 자세한 내용은 Graylog의 [설명서](http://docs.graylog.org/en/2.2/pages/architecture.html) 및 [아키텍처 가이드](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)를 참조하세요.
+이 예에서는 최소 Graylog 설정(즉, Graylog 단일 인스턴스)을 사용하지만, Graylog는 시스템 및 프로덕션 환경 요구 사항에 따라 리소스 전반에 걸쳐 크기 조정하도록 설계될 수 있습니다. 아키텍처 고려 사항 또는 심층적인 아키텍처 가이드에 대한 자세한 내용은 Graylog의 [설명서](https://docs.graylog.org/en/2.2/pages/architecture.html) 및 [아키텍처 가이드](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)를 참조하세요.
 
-Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](http://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 애플리케이션은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
+Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](https://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 애플리케이션은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
 
 -  Java SE 8 이상 - [Azul Azure JDK 설명서](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
@@ -150,7 +150,7 @@ Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화
         }
     }
     ```
-제공되는 Logstash 구성 파일은 input, filter 및 output의 세 부분으로 구성됩니다. input 섹션은 Logstash에서 처리할 로그의 입력 원본을 지정합니다. 이 경우 Blob 저장소에 저장된 네트워크 보안 그룹 흐름 로그 JSON 파일에 액세스할 수 있게 하는 Azure 블로그 입력 플러그 인(다음 단계에서 설치됨)을 사용합니다.
+   제공되는 Logstash 구성 파일은 input, filter 및 output의 세 부분으로 구성됩니다. input 섹션은 Logstash에서 처리할 로그의 입력 원본을 지정합니다. 이 경우 Blob Storage에 저장된 네트워크 보안 그룹 흐름 로그 JSON 파일에 액세스할 수 있게 하는 Azure 블로그 입력 플러그 인(다음 단계에서 설치됨)을 사용합니다.
 
 그런 후 필터 섹션은 각 개별 흐름 튜플 및 연결된 속성이 별도의 Logstash 이벤트가 되도록 각 흐름 로그 파일을 평면화합니다.
 
@@ -161,9 +161,9 @@ Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화
 
 Logstash 설치에 대한 자세한 지침은 Logstash [설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조하세요.
 
-### <a name="install-the-logstash-input-plug-in-for-azure-blob-storage"></a>Azure Blob 저장소용 Logstash 입력 플러그 인 설치
+### <a name="install-the-logstash-input-plug-in-for-azure-blob-storage"></a>Azure Blob Storage용 Logstash 입력 플러그 인 설치
 
-Logstash 플러그 인을 사용하면 지정된 Blob 저장소 계정에서 흐름 로그에 직접 액세스할 수 있습니다. 플러그 인을 설치하려면 기본 Logstash 설치 디렉터리(이 경우 /usr/share/logstash/bin)에서 다음 명령을 실행합니다.
+Logstash 플러그 인을 사용하면 지정된 Blob Storage 계정에서 흐름 로그에 직접 액세스할 수 있습니다. 플러그 인을 설치하려면 기본 Logstash 설치 디렉터리(이 경우 /usr/share/logstash/bin)에서 다음 명령을 실행합니다.
 
 ```bash
 cd /usr/share/logstash/bin
@@ -183,7 +183,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    ![시작](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. 새 입력을 시작하려면 **입력 선택** 드롭다운에서 *GELF UDP*를 선택한 다음 양식을 작성합니다. GELF는 Graylog Extended Log Format의 약자입니다. GELF 형식은 Graylog에서 개발되었습니다. 이점에 대한 자세한 내용은 Graylog [설명서](http://docs.graylog.org/en/2.2/pages/gelf.html)를 참조하세요.
+3. 새 입력을 시작하려면 **입력 선택** 드롭다운에서 *GELF UDP*를 선택한 다음 양식을 작성합니다. GELF는 Graylog Extended Log Format의 약자입니다. GELF 형식은 Graylog에서 개발되었습니다. 이점에 대한 자세한 내용은 Graylog [설명서](https://docs.graylog.org/en/2.2/pages/gelf.html)를 참조하세요.
 
    Graylog 서버를 구성한 IP에 입력을 바인딩해야 합니다. IP 주소는 Logstash 구성 파일에 지정된 UDP 출력의 **host** 필드와 일치해야 합니다. 기본 포트는 *12201*이어야 합니다. 포트가 Logstash 구성 파일에 지정된 UDP 출력의 **port** 필드와 일치하는지 확인합니다.
 
@@ -193,7 +193,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-   Graylog 메시지 입력에 대한 자세한 내용은 [설명서](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)를 참조하세요.
+   Graylog 메시지 입력에 대한 자세한 내용은 [설명서](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)를 참조하세요.
 
 4. 이러한 구성이 완료되면 Logstash를 시작하여 `sudo systemctl start logstash.service` 명령으로 흐름 로그에서 읽기를 시작할 수 있습니다.
 
@@ -207,7 +207,7 @@ Graylog 서버에서 메시지를 수집하도록 허용된 약간의 시간이 
 
 ![메시지](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-검색할 특정 메시지 필드를 선택하지 않으면 기본적으로 모든 메시지 필드가 검색에 포함됩니다. 특정 메시지(예: 특정 원본 IP의 흐름 튜플)를 검색하려면 Graylog 검색 쿼리 언어를 [문서화](http://docs.graylog.org/en/2.2/pages/queries.html)된 대로 사용할 수 있습니다.
+검색할 특정 메시지 필드를 선택하지 않으면 기본적으로 모든 메시지 필드가 검색에 포함됩니다. 특정 메시지(예: 특정 원본 IP의 흐름 튜플)를 검색하려면 Graylog 검색 쿼리 언어를 [문서화](https://docs.graylog.org/en/2.2/pages/queries.html)된 대로 사용할 수 있습니다.
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Graylog를 사용하여 네트워크 보안 그룹 흐름 로그 분석
 
@@ -241,7 +241,7 @@ Graylog 실행을 설정했으므로 기능 중 일부를 사용하여 흐름 �
 
    ![흐름 로그 대시보드](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
-    대시보드 및 다른 형식의 위젯에 대한 자세한 설명은 Graylog [설명서](http://docs.graylog.org/en/2.2/pages/dashboards.html)를 참조하세요.
+    대시보드 및 다른 형식의 위젯에 대한 자세한 설명은 Graylog [설명서](https://docs.graylog.org/en/2.2/pages/dashboards.html)를 참조하세요.
 
 Network Watcher와 Graylog를 통합함으로써 이제는 네트워크 보안 그룹 흐름 로그를 중앙에서 편리하게 관리하고 시각화할 수 있습니다. Graylog에는 흐름 로그를 자세히 관리하고 네트워크 트래픽을 더 잘 파악하는 데 사용할 수 있는 스트림 및 경고와 같은 강력한 기능이 다양하게 포함되어 있습니다. 이제 Graylog를 설정하고 Azure에 연결했으므로 제공되는 다른 기능들도 자유롭게 계속 탐색해 보세요.
 

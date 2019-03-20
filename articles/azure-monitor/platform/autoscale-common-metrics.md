@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461096"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312055"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메트릭)에 따라 실행 중인 인스턴트 수를 늘리거나 줄일 수 있습니다. 이 문서에서는 사용하고자 하는 공용 메트릭에 대해 설명합니다. Azure Portal에서 크기를 조정할 리소스의 메트릭을 선택할 수 있습니다. 그러나 크기를 조정하기 위해 여러 리소스에서 임의 메트릭을 선택할 수도 있습니다.
 
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
@@ -43,7 +46,7 @@ Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하�
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 다음 메트릭에 대한 경고를 만들 수 있습니다.
@@ -53,10 +56,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \Processor(_Total)\% 프로세서 시간 |백분율 |
 | \Processor(_Total)\% 시스템 시간 |백분율 |
 | \Processor(_Total)\% 사용자 시간 |백분율 |
-| \Processor Information(_Total)\Processor Frequency |개수 |
-| \System\Processes |개수 |
-| \Process(_Total)\Thread Count |개수 |
-| \Process(_Total)\Handle Count |개수 |
+| \Processor Information(_Total)\Processor Frequency |카운트 |
+| \System\Processes |카운트 |
+| \Process(_Total)\Thread Count |카운트 |
+| \Process(_Total)\Handle Count |카운트 |
 | \Memory\% 사용 중인 커밋된 바이트 |백분율 |
 | \Memory\Available Bytes |바이트 |
 | \Memory\Committed Bytes |바이트 |
@@ -72,11 +75,11 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |개수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |카운트 |
+| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |카운트 |
+| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |카운트 |
 | \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
-| \LogicalDisk(_Total)\Free Megabytes |개수 |
+| \LogicalDisk(_Total)\Free Megabytes |카운트 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>게스트 OS 메트릭 Linux VM
 Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
@@ -84,7 +87,7 @@ Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진�
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  다음 메트릭에 대한 경고를 만들 수 있습니다.
@@ -120,15 +123,15 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk\AverageReadTime |초 |
 | \PhysicalDisk\AverageWriteTime |초 |
 | \PhysicalDisk\AverageTransferTime |초 |
-| \PhysicalDisk\AverageDiskQueueLength |개수 |
+| \PhysicalDisk\AverageDiskQueueLength |카운트 |
 | \NetworkInterface\BytesTransmitted |바이트 |
 | \NetworkInterface\BytesReceived |바이트 |
-| \NetworkInterface\PacketsTransmitted |개수 |
-| \NetworkInterface\PacketsReceived |개수 |
+| \NetworkInterface\PacketsTransmitted |카운트 |
+| \NetworkInterface\PacketsReceived |카운트 |
 | \NetworkInterface\BytesTotal |바이트 |
-| \NetworkInterface\TotalRxErrors |개수 |
-| \NetworkInterface\TotalTxErrors |개수 |
-| \NetworkInterface\TotalCollisions |개수 |
+| \NetworkInterface\TotalRxErrors |카운트 |
+| \NetworkInterface\TotalTxErrors |카운트 |
+| \NetworkInterface\TotalCollisions |카운트 |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
 Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(Web Apps) 메트릭이 나열되어 있습니다.
@@ -137,7 +140,7 @@ Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크
 PowerShell에서 다음 명령을 사용하여 Web Apps 메트릭 목록을 생성할 수 있습니다.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 다음 메트릭에 대한 경고를 만들거나 크기를 조정할 수 있습니다.
@@ -146,8 +149,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | --- | --- |
 | CpuPercentage |백분율 |
 | MemoryPercentage |백분율 |
-| DiskQueueLength |개수 |
-| HttpQueueLength |개수 |
+| DiskQueueLength |카운트 |
+| HttpQueueLength |카운트 |
 | BytesReceived |바이트 |
 | BytesSent |바이트 |
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 093685ff2fa48799f0a91ee25727f5124dec6292
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651830"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225793"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -52,13 +52,13 @@ ms.locfileid: "53651830"
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Cognitive 도구 키트 설치
 
-스크립트 동작을 사용하여 Spark 클러스터에 Microsoft Cognitive 도구 키트를 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. HDInsight .NET SDK 또는 Azure PowerShell을 사용하여 Azure Portal에서 사용자 지정 스크립트를 사용할 수 있습니다. 또한 스크립트를 사용하여 클러스터 만들기의 일부로 또는 클러스터가 작동하여 실행된 후에 도구 키트를 설치할 수 있습니다. 
+스크립트 동작을 사용하여 Spark 클러스터에 Microsoft Cognitive 도구 키트를 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. HDInsight.NET SDK 또는 Azure PowerShell을 사용 하 여 Azure portal에서 사용자 지정 스크립트를 사용할 수 있습니다. 또한 스크립트를 사용하여 클러스터 만들기의 일부로 또는 클러스터가 작동하여 실행된 후에 도구 키트를 설치할 수 있습니다. 
 
 이 문서에서는 클러스터를 만든 후에 포털을 사용하여 도구 키트를 설치합니다. 사용자 지정 스크립트를 실행하는 다른 방법은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-Azure Portal을 사용하여 스크립트 동작을 실행하는 방법에 대한 지침은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)을 참조하세요. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다.
+스크립트 작업을 실행 하려면 Azure portal을 사용 하는 방법에 지침은 [사용자 지정 HDInsight 스크립트 동작을 사용 하 여 클러스터](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)합니다. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다.
 
 * 스크립트 동작 이름에 값을 제공합니다.
 
@@ -74,7 +74,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 1. Github 리포지토리 [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)을 복제합니다. 복제 지침은 [리포지토리 복제](https://help.github.com/articles/cloning-a-repository/)를 참조하세요.
 
-2. Azure Portal에서 이미 프로비전한 Spark 클러스터 블레이드를 열고 **클러스터 대시보드**를 클릭한 다음 **Jupyter 노트북**을 클릭합니다.
+2. Azure portal에서 이미 클릭 프로 비전 하는 Spark 클러스터 블레이드를 엽니다 **클러스터 대시보드**를 클릭 하 고 **Jupyter notebook**합니다.
 
     `https://<clustername>.azurehdinsight.net/jupyter/` URL로 이동하여 Jupyter 노트북을 시작할 수도 있습니다. \<clustername>을 HDInsight 클러스터의 이름으로 바꿉니다.
 

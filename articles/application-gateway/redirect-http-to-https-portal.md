@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119635"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -29,7 +29,9 @@ Azure Portal을 사용하여 SSL 종료를 위한 인증서로 [애플리케이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서에서는 인증서를 만들고 IIS를 설치하기 위해 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzureRmAccount`를 실행하여 Azure에 연결해야 합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 또는 나중에 인증서를 만들고 IIS를 설치 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzAccount`를 실행하여 Azure에 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -70,20 +72,20 @@ Export-PfxCertificate `
 3. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 4. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
-    - *myResourceGroupAG* - 새 리소스 그룹의 이름
+   - *myAppGateway* - 애플리케이션 게이트웨이의 이름
+   - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
-    ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
+     ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
 
 5. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 6. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
-    - *myVNet* - 가상 네트워크 이름
-    - *10.0.0.0/16* - 가상 네트워크 주소 공간
-    - *myAGSubnet* - 서브넷 이름
-    - *10.0.1.0/24* - 서브넷 주소 공간
+   - *myVNet* - 가상 네트워크 이름
+   - *10.0.0.0/16* - 가상 네트워크 주소 공간
+   - *myAGSubnet* - 서브넷 이름
+   - *10.0.1.0/24* - 서브넷 주소 공간
 
-    ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 8. **프런트 엔드 IP 구성**에서 **IP 주소 형식**이 **공용**으로 설정되어 있고 **새로 만들기**가 선택되어 있는지 확인합니다. 이름으로 *myAGPublicIPAddress*를 입력합니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -184,14 +186,14 @@ Export-PfxCertificate `
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss

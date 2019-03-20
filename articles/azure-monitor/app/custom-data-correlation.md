@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102063"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -44,7 +44,7 @@ Azure Monitor로 로그 데이터 보내기를 시작하려면 다음과 같은 
 
 - 동기화 메커니즘의 경우 [데이터 수집기 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)를 직접 호출하거나 논리 앱 커넥터를 사용할 수 있습니다. 단순히 "Azure Log Analytics"를 찾아서 "데이터 보내기" 옵션을 선택하면 됩니다.
 
- ![스크린샷 선택 및 작업](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![스크린샷 선택 및 작업](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - 비동기 옵션의 경우 데이터 수집기 API를 사용하여 처리 파이프라인을 빌드합니다. 자세한 내용은 [이 아티클](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api)을 참조하세요.
 

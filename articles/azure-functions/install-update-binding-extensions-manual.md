@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807260"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727114"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>포털에서 Azure Functions 바인딩 확장 수동 설치 또는 업데이트
 
-Azure Functions 버전 2.x 런타임은 바인딩 확장을 사용하여 트리거 및 바인딩용 코드를 구현합니다. 바인딩 확장은 NuGet 패키지에서 제공됩니다. 확장을 등록하려면 패키지를 설치합니다. 함수를 개발할 때 바인딩 확장을 설치하는 방식은 개발 환경에 따라 달라집니다. 자세한 내용은 트리거 및 바인딩 문서의 [바인딩 확장 등록](functions-triggers-bindings.md#register-binding-extensions)을 참조하세요.
+Azure Functions 버전 2.x 런타임은 바인딩 확장을 사용하여 트리거 및 바인딩용 코드를 구현합니다. 바인딩 확장은 NuGet 패키지에서 제공됩니다. 확장을 등록하려면 패키지를 설치합니다. 함수를 개발할 때 바인딩 확장을 설치하는 방식은 개발 환경에 따라 달라집니다. 자세한 내용은 트리거 및 바인딩 문서의 [바인딩 확장 등록](./functions-bindings-register.md)을 참조하세요.
 
 Azure Portal에서 바인딩 확장을 수동으로 설치하거나 업데이트해야 하는 경우도 있습니다. 예를 들어 바인딩 확장을 최신 버전으로 업데이트해야 할 수도 있고, 포털의 **통합** 탭에서 설치할 수 없는 지원되는 바인딩을 등록해야 할 수도 있습니다.
 

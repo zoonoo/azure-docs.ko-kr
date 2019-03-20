@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617811"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243332"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 노드에 보안 및 커널 업데이트 적용
 
@@ -27,7 +27,7 @@ ms.locfileid: "51617811"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.49 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="understand-the-aks-node-update-experience"></a>AKS 노드 업데이트 환경 이해
 
@@ -78,15 +78,15 @@ DaemonSet의 복제본 중 하나가 노드 다시 부팅이 필요한 것을 �
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-업데이트 프로세스가 완료되면 `--output wide` 매개 변수와 함께 [kubectl get nodes][kubectl-get-nodes] 명령을 사용하여 노드의 상태를 볼 수 있습니다. 이 추가 출력을 통해 다음 예제 출력에 표시된 것처럼 기본 노드의 *KERNEL-VERSION*에서 차이점을 확인할 수 있습니다. *aks-nodepool1-79590246-2*는 이전 단계에서 업데이트되었으며 커널 버전 *4.15.0-1025-azure*를 보여줍니다. 업데이트되지 않은 노드 *aks-nodepool1-79590246-1*은 커널 버전 *4.15.0-1023-azure*를 보여줍니다.
+업데이트 프로세스가 완료되면 `--output wide` 매개 변수와 함께 [kubectl get nodes][kubectl-get-nodes] 명령을 사용하여 노드의 상태를 볼 수 있습니다. 이 추가 출력을 통해 다음 예제 출력에 표시된 것처럼 기본 노드의 *KERNEL-VERSION*에서 차이점을 확인할 수 있습니다. 합니다 *nodepool1 28993262 0 aks* 표시 커널 버전을 이전 단계에서 업데이트 되었습니다 *4.15.0-1039-azure*합니다. 노드 *nodepool1 28993262 1 aks* 는 업데이트 된 표시 커널 버전 이야기가 *4.15.0-1037-azure*합니다.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122721"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Azure Portal을 사용하여 Azure Database for MariaDB의 메트릭에 대한 경고를 설정합니다.
 
@@ -60,21 +60,21 @@ ms.locfileid: "55661703"
 
 10. **이메일/SMS/푸시/음성** 작업 유형을 구성합니다.
     
-   "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
+    "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
    
-   필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
+    필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
-   완료되면 **확인**을 선택합니다.
+    완료되면 **확인**을 선택합니다.
 
-   ![작업 그룹](./media/howto-alert-metric/10-action-group-type.png)
+    ![작업 그룹](./media/howto-alert-metric/10-action-group-type.png)
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
-   ![작업 그룹](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![작업 그룹](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
 
-   앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
+    앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
 ## <a name="manage-your-alerts"></a>경고 관리
 경고를 만든 후 해당 경고를 선택하고 다음 작업을 수행할 수 있습니다.

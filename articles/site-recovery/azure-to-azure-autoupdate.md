@@ -1,6 +1,6 @@
 ---
-title: Azure에서 Azure 재해 복구로 Mobility Service 자동 업데이트 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure VM을 복제할 때 Mobility Service의 자동 업데이트에 대한 개요를 제공합니다.
+title: 모바일 서비스에서 Azure로 재해 복구에 대해 자동 업데이트 | Microsoft Docs
+description: Azure Site Recovery를 사용 하 여 Azure Vm을 복제 하는 경우 모바일 서비스의 자동 업데이트의 개요입니다.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,61 +8,61 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 3f0f28ca22321b537ab7e8911c5cbb513a1ade81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2467314a4f131b88fc1baf2233ca8ce74d488cb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818927"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548952"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제의 모바일 서비스의 자동 업데이트
 
-Azure Site Recovery는 매달 릴리스를 출시하여 기존 기능을 개선하고, 새 기능을 추가하고, 알려진 문제를 해결합니다. 즉, 서비스를 최신 상태로 유지하려면 매달 이러한 패치를 배포하도록 계획을 세워야 합니다. 업그레이드와 관련된 오버헤드를 방지하기 위해 사용자는 Site Recovery가 알아서 구성 요소 업데이트를 관리하도록 선택할 수 있습니다. Azure에서 Azure 재해 복구에 대한 [아키텍처 참조](azure-to-azure-architecture.md)에 자세히 설명되어 있듯이, 한 Azure 지역에서 다른 지역으로 가상 머신을 복제할 때 복제를 사용하도록 설정된 모든 Azure 가상 머신에 Mobility Service가 설치됩니다. 자동 업데이트를 사용하도록 설정한 경우 Mobility Service 확장은 모든 새 릴리스로 업데이트됩니다. 이 문서에서는 다음 내용을 자세히 다룹니다.
+Azure Site Recovery는 월별 릴리스 주기를 사용 하 여 문제를 해결 하 고 기존 기능을 향상 하거나 새로 추가. 서비스를 사용 하 여 현재을 유지 하려면 패치 배포의 각 월에 대 한 계획 해야 합니다. 각 업그레이드와 관련 된 오버 헤드를 방지 하려면 Site Recovery 구성 요소 업데이트 관리를 대신 허용할 수 있습니다.
 
-- 자동 업데이트의 작동 원리
-- 자동 업데이트 사용
-- 일반적인 문제 및 문제 해결
+설명 했 듯이 [Azure 간 재해 복구 아키텍처](azure-to-azure-architecture.md), 모든 Azure Vm (가상 머신) 복제를 사용할 수 있는, 다른 Azure 지역 간에 Vm을 복제 하는 동안에 모바일 서비스가 설치 됩니다. 자동 업데이트를 사용 하면 새 릴리스가 나올 때마다 모바일 서비스 확장을 업데이트 합니다.
  
-## <a name="how-does-automatic-update-work"></a>자동 업데이트의 작동 원리
+## <a name="how-automatic-updates-work"></a>어떻게 자동 업데이트 작업
 
-Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 모음과 동일한 구독에 생성된 자동화 계정을 통해 글로벌 Runbook(Azure 서비스에서 사용하는)이 배포됩니다. 한 자동화 계정은 특정 자격 증명 모음에 사용됩니다. Runbook은 자격 증명 모음에서 자동 업데이트가 설정된 각 VM을 확인하여 새 버전이 있으면 Mobility Service 확장의 업그레이드를 시작합니다. Runbook의 기본 일정은 복제된 가상 머신이 있는 지역의 표준 시간대에 따라 매일 오전 12시에 반복됩니다. 필요한 경우 사용자가 자동화 계정을 통해 Runbook 일정을 수정할 수 있습니다. 
+Site Recovery를 사용 하 여 업데이트를 관리할 때 자격 증명 모음과 동일한 구독에서 만든 automation 계정을 통해 (Azure 서비스에서 사용) 글로벌 runbook을 배포 합니다. 각 자격 증명 모음에는 하나의 automation 계정만을 사용합니다. Runbook active 자동 업데이트에 대 한 자격 증명 모음에 각 VM에 대해 확인 하 고 최신 버전을 사용할 수 있는 경우 모바일 서비스 확장을 업그레이드 합니다.
+
+기본 runbook 일정은 오전 12 시의 복제 된 VM의 지역 표준 시간대에서 매일 되풀이 됩니다. 또한 automation 계정을 통해 runbook 일정을 변경할 수 있습니다.
 
 > [!NOTE]
-> 자동 업데이트를 설정해도 Azure VM을 다시 부팅할 필요가 없으며 진행 중인 복제가 영향을 받지도 않습니다.
+> 자동 업데이트 Azure Vm 다시 시작 해야 하거나 진행 중인 복제에 영향을 하지 않습니다.
 
 > [!NOTE]
-> 자동화 계정에서 사용하는 작업에 대한 청구는 그 달에 사용된 작업 실행 시간(분)을 기반으로 하며, 기본적으로 500분은 자동화 계정의 무료 단위로 포함됩니다. 일별 작업 실행은 **몇 초에서 1분** 사이이며, **크레딧으로 충분**합니다.
+> Automation 계정에서 청구 하는 작업은 한 달에 사용 되는 작업 런타임 시간을 분 단위로 기반으로 합니다. 기본적으로 500 분 무료 단위는 automation 계정에 포함 됩니다. 작업 실행에 몇 초 안에 약 1 분 매일 있으며 무료 단위로 포함 됩니다.
 
-포함되는 무료 단위(매월)**   작업 실행 시간 요금 500분 ₹0.14/분
+| 무료 단위 (매월) 포함 | 가격 |
+|---|---|
+| 작업 런타임 시간을 500 분 | ₹0.14 / 분
 
 ## <a name="enable-automatic-updates"></a>자동 업데이트 사용
 
-다음과 같은 방법으로 Site Recovery가 업데이트를 관리하도록 선택할 수 있습니다.
+Site Recovery에서 다음과 같은 방법으로 업데이트 관리를 허용할 수 있습니다.
 
-- [복제 설정 단계의 일부](#as-part-of-the-enable-replication-step)
-- [자격 증명 모음 내에서 확장 업데이트 설정 전환](#toggle-the-extension-update-settings-inside-the-vault)
+### <a name="manage-as-part-of-the-enable-replication-step"></a>사용 복제 단계의 일부분으로 관리
 
-### <a name="as-part-of-the-enable-replication-step"></a>복제 설정 단계의 일부:
+사용 하도록 설정한 경우 VM의 복제를 시작 하거나 [VM 보기에서](azure-to-azure-quickstart.md) 하거나 [recovery services 자격 증명 모음에서](azure-to-azure-how-to-enable-replication.md), Site Recovery는 Site Recovery 확장에 대 한 업데이트를 관리 하거나 관리를 허용 하거나 수동으로.
 
-[가상 머신 보기에서](azure-to-azure-quickstart.md) 또는 [복구 서비스 자격 증명 모음에서](azure-to-azure-how-to-enable-replication.md) 가상 머신에 복제를 사용하도록 설정하면 Site Recovery 확장 업데이트를 Site Recovery에게 맡길 것인지 아니면 수동으로 관리할 것인지 선택하는 옵션이 제공됩니다.
-
-![복제 자동 업데이트 사용](./media/azure-to-azure-autoupdate/enable-rep.png)
+![확장 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>자격 증명 모음 내에서 확장 업데이트 설정 전환
 
-1. 자격 증명 모음 내에서 **관리**-> **Site Recovery 인프라**로 이동
-2. **Azure 가상 머신**-> **확장 업데이트 설정** 아래에서 토글을 클릭하여 *ASR에서 업데이트를 관리하도록 허용*하거나 *수동으로 관리* 중에 선택합니다. **저장**을 클릭합니다.
+1. 자격 증명 모음에 내로 이동 **관리** > **Site Recovery 인프라**합니다.
+2. 아래 **Azure Virtual Machines에 대 한** > **확장 업데이트 설정**를 설정 합니다 **Site Recovery 관리를 허용** 설정/해제 합니다. 수동으로 관리를 해제 합니다. 
+3. **저장**을 선택합니다.
 
-![자격 증명 모음 설정/해제-자동 업데이트](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![확장 업데이트 설정](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
-> [!Important] 
-> *ASR에서 업데이트를 관리하도록 허용*을 선택하면 해당 자격 증명 모음에 있는 모든 가상 머신에 설정이 적용됩니다.
+> [!Important]
+> 선택 하는 경우 **Site Recovery에서 관리 허용**, 해당 자격 증명 모음에서 모든 Vm에 설정이 적용 됩니다.
 
 
-> [!Note] 
-> 두 옵션 모두 업데이트 관리에 사용되는 자동화 계정에 대한 알림을 제공합니다. 자격 증명 모음에서 이 기능을 처음으로 사용하는 경우 새 자동화 계정이 만들어집니다. 동일한 자격 증명 모음에서 이루어지는 모든 후속 복제에는 이전에 생성된 계정이 사용됩니다.
+> [!Note]
+> 두 옵션 중 하나를 사용 하면 업데이트 관리에 사용 되는 automation 계정의 알려줍니다. 처음에 대 한 자격 증명 모음에서이 기능을 사용 중인, 새 automation 계정을 생성 됩니다. 동일한 자격 증명 모음의 모든 후속 활성화 복제 이전에 만든된 것을 사용합니다.
 
-**사용자 지정 자동화 계정을 사용하려는 경우 아래 스크립트를 사용하세요:-**
+사용자 지정 자동화 계정에 대 한 다음 스크립트를 사용 합니다.
 
 ```azurepowershell
 param(
@@ -452,7 +452,7 @@ try
                 $JobsInProgressListInternal += $JobAsyncUrl
             }
 
-            # Rate controlling the get calls to maximum 120 calls per minute.
+            # Rate controlling the get calls to maximum 120 calls each minute.
             # ASR throttling for get calls is 10000 in 60 minutes.
             Start-Sleep -Milliseconds 500
         }
@@ -499,38 +499,35 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
 ```
 
-### <a name="manage-manually"></a>수동으로 관리
+### <a name="manage-updates-manually"></a>업데이트를 수동으로 관리
 
-1. Azure VM에 설치된 모바일 서비스에 사용 가능한 새 업데이트가 있는 경우 "새 사이트 복구 복제 에이전트 업데이트를 사용할 수 있습니다. 설치하려면 클릭하세요.”라는 알림이 표시됩니다.
+1. 모바일 서비스가 Vm에서 설치에 대 한 새 업데이트의 경우 다음 알림이 표시 됩니다. "새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 설치 하려면 클릭 "
 
      ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-3. 이 알림을 선택하여 가상 머신 선택 페이지를 엽니다.
-4. Mobile Service를 업그레이드하려는 가상 머신을 선택하고 **확인**을 선택합니다.
+2. VM 선택 페이지를 열려면 알림을 선택 합니다.
+3. 업그레이드 하 고 선택 하려는 Vm을 선택 **확인**합니다. 선택된 된 각 VM에 대 한 업데이트 모바일 서비스가 시작 됩니다.
 
      ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-선택한 가상 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
 
+## <a name="common-issues-and-troubleshooting"></a>일반적인 문제 및 문제 해결
 
-## <a name="common-issues--troubleshooting"></a>일반적인 문제 및 문제 해결
+자동 업데이트를 사용 하 여 문제가 있으면 아래 오류 알림이 표시 됩니다 **구성 문제** 자격 증명 모음 대시보드에서.
 
-자동 업데이트에는 문제가 있는 경우 자격 증명 모음 대시보드의 '구성 문제'에 동일한 알림이 제공됩니다. 
+자동 업데이트를 사용 하지 못했습니다 다음 일반적인 오류 및 권장된 작업을 참조 하세요.
 
-자동 업데이트를 사용하려고 했으나 실패한 경우 아래를 참조하여 문제를 해결할 수 있습니다.
+- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 기여자 역할을 부여할 수 있는 권한이 없습니다.
 
-**오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 기여자 역할을 부여할 수 있는 권한이 없습니다. 
-- 권장 작업: 로그인한 계정에 ‘기여자’ 역할이 할당되었는지 확인한 후 작업을 다시 시도합니다. 올바른 권한을 할당하는 방법에 대한 자세한 내용은 [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 문서를 참조하세요.
+   **권장 조치**: 참가자로 로그인 계정이 할당 되어 있는지 확인 하 고 다시 시도 하세요. 에 필요한 사용 권한 섹션을 참조 하세요 [포털을 사용 하 여 Azure AD 리소스에 액세스할 수 있는 응용 프로그램 및 서비스 주체를 만들려면](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 합니다.
  
-자동 업데이트가 켜져 있으면 Site Recovery 서비스가 대부분의 문제를 해결하며 사용자는 '**복구**' 단추를 클릭해야 합니다.
+   를 자동 업데이트를 사용 하도록 설정한 후 대부분의 문제를 해결 하려면 선택 **복구**합니다. 복구 단추를 사용할 수 없는 경우 확장 업데이트 설정 창에서 표시 되는 오류 메시지를 참조 하세요.
 
-![복구 단추](./media/azure-to-azure-autoupdate/repair.png)
+   ![확장 업데이트 설정에서 사이트 복구 서비스 복구 단추](./media/azure-to-azure-autoupdate/repair.png)
 
-복구 단추를 사용할 수 없는 경우 확장 설정 창에 표시되는 오류 메시지를 참조하세요.
+- **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
- - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
-
-    **권장 작업**: 실행 계정을 삭제한 다음, [다시 만들거나](https://docs.microsoft.com/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 애플리케이션이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
+    **권장 조치**: 삭제 한 다음 [실행 계정을 다시 만드는](https://docs.microsoft.com/azure/automation/automation-create-runas-account)합니다. 또는 Automation 계정으로 실행 계정의 Azure Active Directory 응용 프로그램에 recovery services 리소스에 액세스할 수 있는지 확인 합니다.
 
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
-    **권장 작업**: 실행 계정을 삭제한 다음, [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **권장 조치**: 삭제 한 다음 [실행 계정을 다시 만드는](https://docs.microsoft.com/azure/automation/automation-create-runas-account)합니다.

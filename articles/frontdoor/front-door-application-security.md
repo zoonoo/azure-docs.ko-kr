@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e5714f60b7fdd790f3af8e31250c41038110fd08
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046726"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984402"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door와 애플리케이션 계층 보안
 Azure Front Door Service는 SQL 주입 또는 교차 사이트 스크립팅(XSS)과 같은 일반적인 웹 취약점 악용과 네트워크 공격으로부터 웹 애플리케이션을 보호하는 웹 애플리케이션 보호 기능을 제공합니다. http(s) 프런트 엔드를 사용할 수 있게 설정된 Front Door의 애플리케이션 계층 보안은 전역적으로 배포되며, 항상 켜져 있으므로 백 엔드와 멀리 떨어진 Azure의 네트워크 에지에서 악의적인 공격을 막아줍니다. 보안 및 성능이 더욱 최적화된 Front Door는 최종 사용자에게 빠르고 안전한 웹 환경을 제공합니다.
 
 ## <a name="application-protection"></a>애플리케이션 보호
-Front Door의 애플리케이션 보호는 전 세계 각 에지 환경에서 애플리케이션과 함께 구성되어 있으며, http(s) 이외의 트래픽이 웹 애플리케이션에 도달하지 못하게 자동으로 차단합니다. 다중 테넌트 분산 아키텍처는 성능 희생 없이 대규모로 전역 보호를 지원합니다. http(s) 워크로드의 경우 Front Door의 웹 애플리케이션 보호 서비스가 사용자 지정 규칙, 일반적인 공격에 대해 미리 구성된 규칙 집합, 규칙과 일치하는 모든 요청에 대한 세부적인 로깅을 위한 풍부한 규칙 엔진을 제공합니다. 허용, 차단 또는 기록만 같은 유연한 작업이 지원됩니다.
+Front Door의 애플리케이션 보호는 전 세계 각 에지 환경에서 애플리케이션과 함께 구성되어 있으며, http(s) 이외의 트래픽이 웹 애플리케이션에 도달하지 못하게 자동으로 차단합니다. 다중 테넌트 분산 아키텍처는 성능 저하 없이 대규모로 글로벌 보호를 가능하게 합니다. http(s) 워크로드의 경우 Front Door의 웹 애플리케이션 보호 서비스가 사용자 지정 규칙, 일반적인 공격에 대해 미리 구성된 규칙 집합, 규칙과 일치하는 모든 요청에 대한 세부적인 로깅을 위한 풍부한 규칙 엔진을 제공합니다. 허용, 차단 또는 기록만 포함된 유연한 작업이 지원됩니다.
 
 ## <a name="custom-access-control-rules"></a>사용자 지정 액세스 제어 규칙
-- **IP 차단 목록 및 허용 목록:** 클라이언트 IP 주소 목록에 따라 웹 응용 프로그램에 대한 액세스를 제어하도록 사용자 지정 규칙을 구성할 수 있습니다. IP v4 및 IP v6이 모두 지원됨
-- **지리적 기반 액세스 제어:** 클라이언트 IP가 수신된 국가 코드에 따라 웹 응용 프로그램에 대한 액세스를 제어하도록 사용자 지정 규칙을 구성할 수 있습니다
-- **HTTP 매개 변수 필터링:** 헤더, URL 및 쿼리 문자열 등 일치하는 http(s) 요청 매개 변수에 따라 사용자 지정 액세스 규칙을 구성할 수 있습니다.
+- **IP 허용 목록과 차단 목록:** 클라이언트 IP 주소 목록을 기반으로 웹 응용 프로그램에 대 한 액세스를 제어 하는 사용자 지정 규칙을 구성할 수 있습니다. IP v4 및 IP v6이 모두 지원됨
+- **지리적 기반된 액세스 제어:** 클라이언트 IP는 국가 코드를 기반으로 웹 응용 프로그램에 대 한 액세스를 제어 하는 사용자 지정 규칙을 구성할 수 있습니다.
+- **HTTP 매개 변수를 필터링 합니다.** Http (s) 요청 매개 변수 헤더, URL 및 쿼리 문자열을 포함 하 여 일치를 기준으로 하는 사용자 지정 액세스 규칙을 구성할 수 있습니다.
 
 ## <a name="azure-managed-rules"></a>Azure 관리 규칙
 - 일반적인 주요 OWASP 취약점에 대해 미리 구성된 규칙 집합이 기본적으로 활성화되어 있습니다. 미리 보기에서 규칙 집합에는 sqli 및 xss 요청 검사가 포함됩니다. 추가 규칙이 추가됩니다. 미리 구성된 규칙이 응용 프로그램에서 올바르게 작동하는지 확인하는 기록만 작업으로 시작할 수 있습니다. 
@@ -51,5 +51,5 @@ Front Door의 애플리케이션 계층 보안은 미리 보기 기간 동안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- [Front Door 작동 방식](front-door-routing-architecture.md)에 대해 알아보세요.
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

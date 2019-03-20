@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075717"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Azure Logic Apps에서 값을 저장 및 관리하기 위한 변수 만들기
 
@@ -72,11 +72,11 @@ ms.locfileid: "54063219"
 
 4. 변수에 대한 다음 정보를 입력합니다.
 
-   | 자산 | 필수 | Value |  설명 |
+   | 자산 | 필수 | Value |  Description |
    |----------|----------|-------|--------------|
    | Name | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
    | Type | 예 | <*variable-type*> | 변수의 데이터 형식입니다. | 
-   | Value | 아니요 | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+   | Value | 아닙니다. | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    ||||| 
 
    ![변수 초기화](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,10 +208,10 @@ ms.locfileid: "54063219"
 
 3. 변수 증가에 대한 다음 정보를 입력합니다.
 
-   | 자산 | 필수 | Value |  설명 |
+   | 자산 | 필수 | Value |  Description |
    |----------|----------|-------|--------------|
    | Name | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
-   | Value | 아니요 | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+   | Value | 아닙니다. | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    |||| 
 
    예:  
@@ -328,10 +328,10 @@ ms.locfileid: "54063219"
 
 다음은 **변수 감소** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 |
+| 자산 | 필수 | Value |  Description |
 |----------|----------|-------|--------------|
 | Name | 예 | <*variable-name*> | 감소할 변수의 이름입니다. | 
-| Value | 아니요 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소시키기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+| Value | 아닙니다. | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소시키기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
 ||||| 
 
 디자이너에서 코드 보기 편집기로 전환하는 경우, **변수 감소** 작업은 논리 앱 정의 내에서 다음과 같이 JSON 형식으로 표시됩니다.
@@ -363,7 +363,7 @@ ms.locfileid: "54063219"
 
 다음은 **변수 설정** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 | 
+| 자산 | 필수 | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
 | Value | 예 | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. | 
@@ -414,14 +414,15 @@ ms.locfileid: "54063219"
 
 1. 변수가 문자열인지 또는 배열인지에 따라 다음 작업 중 하나를 찾아서 선택합니다. 
 
-  * **변수 - 문자열 변수에 추가**
-  * **변수 - 배열 변수에 추가** 
+   * **변수 - 문자열 변수에 추가**
+   * **변수 - 배열 변수에 추가** 
 
-2. 문자열 또는 배열의 마지막 항목으로 추가할 값을 입력합니다. 이 값은 필수입니다. 
+2. 문자열 또는 배열의 마지막 항목으로 추가할 값을 입력합니다. 
+   이 값은 필수입니다. 
 
 다음은 **추가...** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 | 
+| 자산 | 필수 | Value |  Description | 
 |----------|----------|-------|--------------| 
 | Name | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
 | Value | 예 | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. | 

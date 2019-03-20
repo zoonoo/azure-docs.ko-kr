@@ -1,6 +1,6 @@
 ---
-title: Log Analytics를 사용하여 B2B 메시지 모니터링 - Azure Logic Apps | Microsoft Docs
-description: 통합 계정 및 Azure Logic Apps에 대한 AS2, X12 및 EDIFACT 메시지를 모니터링하고 Azure Log Analytics를 사용하여 진단 로깅 설정
+title: Azure Monitor 로그-Azure Logic Apps를 사용 하 여 B2B 메시지 모니터링 | Microsoft Docs
+description: AS2, x12 및 EDIFACT 메시지 통합 계정 및 Azure Logic Apps에 대 한 모니터링 및 Azure Monitor 로그를 사용 하 여 진단 로깅 설정
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,25 +9,27 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818297"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195169"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Logic Apps의 Azure Log Analytics를 사용하여 B2B 메시지 모니터링
+# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure Logic Apps에서 Azure Monitor 로그를 사용 하 여 B2B 메시지 모니터링
 
-통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하려면 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 모니터링하고 통합 계정에 대한 진단 로깅을 설정할 수 있습니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 기타 서비스를 통해 이 데이터를 사용할 수도 있습니다.
+통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상 대로 작동, AS2, X12를 모니터링할 수 있습니다 및 EDIFACT 메시지를 사용 하 여 통합 계정에 대해 진단 로깅을 설정 검사할 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)합니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 기타 서비스를 통해 이 데이터를 사용할 수도 있습니다.
 
 > [!NOTE]
 > 이 페이지는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되지만 가능한 경우 Azure Log Analytics로 이러한 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 아직 참조할 수 있습니다. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
-* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 모니터링 및 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
+* 이전 요구 사항을 충족 하면, Log Analytics 작업 영역을 모니터링 하 고 Azure Monitor 로그를 통해 B2B 통신 추적에 사용할 수 있는 해야 합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 * 논리 앱에 연결된 통합 계정. [논리 앱에 대한 링크와 함께 통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 알아봅니다.
 
@@ -71,9 +73,9 @@ ms.locfileid: "55818297"
 
    예:  
 
-   ![로그에 진단 데이터를 보낼 수 있도록 Log Analytics 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![진단 데이터 로그를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. 이제 [Log Analytics에서 B2B 메시지에 대한 추적을 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
+1. 이제 [Azure Monitor 로그에서 B2B 메시지에 대 한 추적 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
 <a name="azure-monitor-service"></a>
 
@@ -113,13 +115,13 @@ ms.locfileid: "55818297"
 
    예:  
 
-   ![로그에 진단 데이터를 보낼 수 있도록 Log Analytics 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![진단 데이터 로그를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. 이제 [Log Analytics에서 B2B 메시지에 대한 추적을 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
+1. 이제 [Azure Monitor 로그에서 B2B 메시지에 대 한 추적 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
 ## <a name="use-diagnostic-data-with-other-services"></a>다른 서비스를 통해 진단 데이터 사용
 
-Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 앱의 진단 데이터를 사용하는 방법을 다음과 같이 확장할 수 있습니다. 
+Azure Monitor 로그와 함께 사용법 논리 앱의 진단 데이터의 다른 Azure 서비스를 사용 하 여 예를 들어 확장할 수 있습니다. 
 
 * [Azure Storage에 Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -144,6 +146,6 @@ Azure는 이러한 추적 스키마 형식을 지원하며 사용자 지정 유�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure Log Analytics에서 B2B 메시지 추적")
+* [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure Monitor 로그에서 B2B 메시지 추적")
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 

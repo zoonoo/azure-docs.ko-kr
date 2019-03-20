@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842144"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
 
@@ -36,9 +36,10 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1. [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 
 
-2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.  
+2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 
+   검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.  
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
    ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. **개요**를 선택한 다음 **규약** 타일을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다. 
+4. **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
+   규약 타일이 없는 경우 먼저 타일을 추가합니다. 
 
    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,13 +59,16 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. **추가** 아래에서 규약의 **이름**을 입력합니다. 규약 유형에 **X12**를 선택합니다. 규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID**를 선택합니다. 속성에 대한 자세한 내용은 이 단계에서 테이블을 참조하세요.
+6. **추가** 아래에서 규약의 **이름**을 입력합니다. 
+   규약 유형에 **X12**를 선택합니다. 
+   규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID**를 선택합니다. 
+   속성에 대한 자세한 내용은 이 단계에서 테이블을 참조하세요.
 
     ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
     | 자산 | 설명 |
     | --- | --- |
-    | Name |규약 이름 |
+    | 이름 |규약 이름 |
     | 규약 유형 | X12여야 합니다. |
     | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
     | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -72,8 +77,8 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
     | 수신 설정 |규약에서 받은 모든 메시지에 이러한 속성을 적용합니다. |
     | 송신 설정 |규약에서 보낸 모든 메시지에 이러한 속성을 적용합니다. |  
 
-  > [!NOTE]
-  > X12 규약 확인은 파트너와 들어오는 메시지에 정의된 보낸 사람 한정자와 식별자 및 받은 사람 한정자와 식별자를 일치시키는 방법에 따라 달라집니다. 이러한 값이 파트너에 따라 변경되는 경우 규약도 업데이트합니다.
+   > [!NOTE]
+   > X12 규약 확인은 파트너와 들어오는 메시지에 정의된 보낸 사람 한정자와 식별자 및 받은 사람 한정자와 식별자를 일치시키는 방법에 따라 달라집니다. 이러한 값이 파트너에 따라 변경되는 경우 규약도 업데이트합니다.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>규약에서 수신된 메시지를 처리하는 방법 구성
 
@@ -82,7 +87,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 1.  **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    **수신 설정**은 식별자, 승인, 스키마, 봉투, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
+    **수신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 봉투, 컨트롤 번호, 유효성 검사 및 내부 설정
 
 2. 작업을 마친 후에 **확인**을 선택하여 설정을 저장해야 합니다.
 
@@ -178,7 +183,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    **송신 설정**은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
+    **송신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 봉투 (envelope), 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사 합니다.
 
 2. 작업을 마친 후에 **확인**을 선택하여 설정을 저장해야 합니다.
 

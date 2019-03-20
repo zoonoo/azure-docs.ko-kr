@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: abdce8b63a035fe55f4bd37acc5012237bd499da
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178138"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 기본 스케줄러 기능 모범 사례
 
@@ -122,9 +122,9 @@ Pod 중단 예산 사용에 대한 자세한 내용은 [애플리케이션의 �
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>kube-advisor를 사용하여 클러스터 문제를 정기적으로 확인
 
-**모범 사례 가이드** - 최신 버전의 `kube-advisor`를 정기적으로 실행하여 클러스터에서 문제를 검색합니다. 기존 AKS 클러스터에서 리소스 할당량을 적용하는 경우 먼저 `kube-advisor`를 실행하여 리소스 요청 및 한도가 정의되지 않은 Pod를 찾습니다.
+**모범 사례 지침** -최신 버전의를 실행 하는 정기적으로 `kube-advisor` 클러스터의 문제를 감지 하는 오픈 소스 도구입니다. 기존 AKS 클러스터에서 리소스 할당량을 적용하는 경우 먼저 `kube-advisor`를 실행하여 리소스 요청 및 한도가 정의되지 않은 Pod를 찾습니다.
 
-[kube-advisor][kube-advisor] 도구는 Kubernetes 클러스터를 검사하고 찾은 문제를 보고합니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
+합니다 [kube advisor] [ kube-advisor] 도구는 Kubernetes 클러스터를 검색 하 고 발견 된 문제를 보고 하는 연결된 된 AKS 오픈 소스 프로젝트입니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
 
 여러 개발 팀과 애플리케이션을 호스트하는 AKS 클러스터에서는 이러한 리소스 요청 및 한도가 설정되지 않은 Pod를 추적하기 어려울 수 있습니다. 특히 리소스 할당량을 네임스페이스에 할당하지 않는 경우 AKS 클러스터에서 `kube-advisor`를 정기적으로 실행하는 것이 좋습니다.
 

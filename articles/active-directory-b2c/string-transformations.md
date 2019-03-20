@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9504a710711ba10d72c3f87045f498b652cfea44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113030"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -29,9 +29,9 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 첫 번째 클레임의 형식입니다. |
-| inputClaim | inputClaim2 | string | 비교할 두 번째 클레임의 형식입니다. |
-| InputParameter | stringComparison | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
+| inputClaim | inputClaim1 | 문자열 | 비교할 첫 번째 클레임의 형식입니다. |
+| inputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임의 형식입니다. |
+| InputParameter | stringComparison | 문자열 | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 
 **AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
 
@@ -78,10 +78,10 @@ ms.locfileid: "55193440"
 ### <a name="example"></a>예
 
 - 입력 클레임:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - 입력 매개 변수:
-    - **stringComparison**:  ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - 입력 매개 변수:
+  - **stringComparison**:  ordinalIgnoreCase
 - 결과: 오류가 throw됨
 
 ## <a name="changecase"></a>ChangeCase 
@@ -90,9 +90,9 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | 변경할 ClaimType입니다. |
-| InputParameter | toCase | string | `LOWER` 또는 `UPPER` 값 중 하나입니다. |
-| OutputClaim | outputClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+| InputClaim | inputClaim1 | 문자열 | 변경할 ClaimType입니다. |
+| InputParameter | toCase | 문자열 | `LOWER` 또는 `UPPER` 값 중 하나입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 모든 문자열 ClaimType을 소문자나 대문자로 변경하려면 다음 클레임 변환을 사용합니다.  
 
@@ -113,11 +113,11 @@ ms.locfileid: "55193440"
 ### <a name="example"></a>예
 
 - 입력 클레임:
-    - **email**: SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - 입력 매개 변수:
     - **toCase**: LOWER
 - 출력 클레임:
-    - **email**: someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim 
 
@@ -125,8 +125,8 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | 값 | string | 설정할 문자열입니다. |
-| OutputClaim | createdClaim | string | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+| InputParameter | 값 | 문자열 | 설정할 문자열입니다. |
+| OutputClaim | createdClaim | 문자열 | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 문자열 ClaimType 값을 설정하려면 다음 클레임 변환을 사용합니다.
 
@@ -154,9 +154,9 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 첫 번째 클레임 형식입니다. |
-| inputClaim | inputClaim2 | string | 비교할 두 번째 클레임 형식입니다. |
-| InputParameter | operator | string | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| inputClaim | inputClaim1 | 문자열 | 비교할 첫 번째 클레임 형식입니다. |
+| inputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임 형식입니다. |
+| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | ignoreCase | 부울 | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | 부울 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -181,8 +181,8 @@ ms.locfileid: "55193440"
 ### <a name="example"></a>예
 
 - 입력 클레임:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - 입력 매개 변수:
     - **operator**:  NOT EQUAL
     - **ignoreCase**: true
@@ -195,9 +195,9 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 클레임의 형식입니다. |
-| InputParameter | operator | string | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
-| InputParameter | compareTo | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
+| inputClaim | inputClaim1 | 문자열 | 비교할 클레임의 형식입니다. |
+| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| InputParameter | compareTo | 문자열 | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 | InputParameter | ignoreCase | 부울 | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | 부울 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -235,12 +235,12 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | string | 생성할 임의 값을 지정합니다. `GUID`(Globally Unique ID) 또는 `INTEGER`(숫자)입니다. |
-| InputParameter | stringFormat | string | [선택 사항] 임의 값의 서식을 지정합니다. |
+| InputParameter | randomGeneratorType | 문자열 | 생성할 임의 값을 지정합니다. `GUID`(Globally Unique ID) 또는 `INTEGER`(숫자)입니다. |
+| InputParameter | stringFormat | 문자열 | [선택 사항] 임의 값의 서식을 지정합니다. |
 | InputParameter | base64 | 부울 | [선택 사항] 임의 값을 base64로 변환합니다. 문자열 형식을 적용하는 경우에는 문자열 형식 뒤의 값이 base64로 인코딩됩니다. |
 | InputParameter | maximumNumber | int | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 최대 수를 지정합니다. |
 | InputParameter | seed  | int | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 임의 값의 초기값을 지정합니다. 참고: 초기값이 같으면 동일 난수 시퀀스가 생성됩니다. |
-| OutputClaim | outputClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 임의 값입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 임의 값입니다. |
 
 다음 예제에서는 GUID(Global Unique ID)를 생성합니다. 이 클레임은 임의 UPN(사용자 계정 이름)을 만드는 데 사용됩니다.
 
@@ -294,9 +294,9 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string |문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
-| InputParameter | stringFormat | string | {0} 매개 변수를 포함하는 문자열 형식입니다. |
-| OutputClaim | outputClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+| InputClaim | inputClaim |문자열 |문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
+| InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName**을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName**을 호출하여 **userPrincipalName**을 생성합니다.   
 
@@ -321,7 +321,7 @@ ms.locfileid: "55193440"
 - 입력 매개 변수:
     - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - 출력 클레임:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -329,10 +329,10 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | 문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
-| InputClaim | inputClaim | string | 문자열 형식 {1} 매개 변수로 사용되는 ClaimType입니다. |
-| InputParameter | stringFormat | string | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. |
-| OutputClaim | outputClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+| InputClaim | inputClaim |문자열 | 문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
+| InputClaim | inputClaim | 문자열 | 문자열 형식 {1} 매개 변수로 사용되는 ClaimType입니다. |
+| InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName**을 만듭니다.
 
@@ -367,8 +367,8 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | mapFromClaim | string | **Restriction** 컬렉션이 포함된 **restrictionValueClaim** 클레임에서 조회할 텍스트가 들어 있는 클레임입니다.  |
-| OutputClaim | restrictionValueClaim | string | **Restriction** 컬렉션이 포함된 클레임입니다. 클레임 변환을 호출하고 나면 이 클레임의 값에는 선택한 항목의 값이 포함됩니다. |
+| InputClaim | mapFromClaim | 문자열 | **Restriction** 컬렉션이 포함된 **restrictionValueClaim** 클레임에서 조회할 텍스트가 들어 있는 클레임입니다.  |
+| OutputClaim | restrictionValueClaim | 문자열 | **Restriction** 컬렉션이 포함된 클레임입니다. 클레임 변환을 호출하고 나면 이 클레임의 값에는 선택한 항목의 값이 포함됩니다. |
 
 다음 예제에서는 오류 키를 기준으로 오류 메시지 설명을 조회합니다. **responseMsg** 클레임은 최종 사용자에게 표시하거나 신뢰 당사자에게 보낼 오류 메시지 컬렉션을 포함합니다.
 
@@ -410,10 +410,10 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputParameterId | string | 조회 값을 포함하는 클레임입니다. |
-| InputParameter | |string | InputParameters 컬렉션입니다. |
+| InputClaim | inputParameterId | 문자열 | 조회 값을 포함하는 클레임입니다. |
+| InputParameter | |문자열 | InputParameters 컬렉션입니다. |
 | InputParameter | errorOnFailedLookup | 부울 | 조회에서 일치하는 항목이 없으면 오류가 반환되는지 여부를 제어합니다. |
-| OutputClaim | inputParameterId | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 일치하는 ID의 값입니다. |
+| OutputClaim | inputParameterId | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 일치하는 ID의 값입니다. |
 
 다음 예제에서는 inputParameters 컬렉션 중 하나에서 도메인 이름을 조회합니다. 클레임 변환은 식별자에서 도메인 이름을 조회한 다음, 해당 값(애플리케이션 ID)을 반환합니다.
 
@@ -452,7 +452,7 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | 값을 NULL로 설정할 클레임입니다. |
+| OutputClaim | claim_to_null | 문자열 | 값을 NULL로 설정할 클레임입니다. |
 
 클레임 속성 모음에서 불필요한 데이터를 제거하려면 이 클레임 변환을 사용합니다. 그러면 세션 쿠키의 크기가 작아집니다. 다음 예제에서는 `TermsOfService` 클레임 형식의 값을 제거합니다.
 
@@ -475,8 +475,8 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | emailAddress | string | 전자 메일 주소를 포함하는 ClaimType입니다. |
-| OutputClaim | 도메인 | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType(도메인)입니다. |
+| InputClaim | emailAddress | 문자열 | 전자 메일 주소를 포함하는 ClaimType입니다. |
+| OutputClaim | 도메인 | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType(도메인)입니다. |
 
 사용자의 @ 기호 뒤에 붙은 도메인 이름을 구문 분석하려면 이 클레임 변환을 사용합니다. 그러면 감사 데이터에서 PII(개인 식별이 가능한 정보)를 제거할 수 있습니다. 다음 클레임 변환은 **email** 클레임에서 도메인 이름을 구문 분석하는 방법을 보여 줍니다.
 
@@ -494,7 +494,7 @@ ms.locfileid: "55193440"
 ### <a name="example"></a>예
 
 - 입력 클레임:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - 출력 클레임:
     - **domain**: outlook.com
 
@@ -504,13 +504,13 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | 비교할 클레임 형식입니다. |
-| InputParameter | matchTo | string | `inputClaim`과 비교할 문자열입니다. |
-| InputParameter | stringComparison | string | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
-| InputParameter | stringMatchMsg | string | 문자열이 같으면 설정할 첫 번째 값입니다. |
-| InputParameter | stringMatchMsgCode | string | 문자열이 같으면 설정할 두 번째 값입니다. |
-| OutputClaim | outputClaim1 | string | 문자열이 같으면 이 출력 클레임에는 `stringMatchMsg` 입력 매개 변수의 값이 포함됩니다. |
-| OutputClaim | outputClaim2 | string | 문자열이 같으면 이 출력 클레임에는 `stringMatchMsgCode` 입력 매개 변수의 값이 포함됩니다. |
+| inputClaim | inputClaim | 문자열 | 비교할 클레임 형식입니다. |
+| InputParameter | matchTo | 문자열 | `inputClaim`과 비교할 문자열입니다. |
+| InputParameter | stringComparison | 문자열 | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
+| InputParameter | stringMatchMsg | 문자열 | 문자열이 같으면 설정할 첫 번째 값입니다. |
+| InputParameter | stringMatchMsgCode | 문자열 | 문자열이 같으면 설정할 두 번째 값입니다. |
+| OutputClaim | outputClaim1 | 문자열 | 문자열이 같으면 이 출력 클레임에는 `stringMatchMsg` 입력 매개 변수의 값이 포함됩니다. |
+| OutputClaim | outputClaim2 | 문자열 | 문자열이 같으면 이 출력 클레임에는 `stringMatchMsgCode` 입력 매개 변수의 값이 포함됩니다. |
 | OutputClaim | stringCompareResultClaim | 부울 | 비교 결과 출력 클레임 형식입니다. 비교 결과에 따라 `true` 또는 `false`로 설정됩니다. |
 
 이 클레임 변환을 사용하면 특정 클레임이 지정한 값과 같은지를 확인할 수 있습니다. 예를 들어 다음 클레임 변환에서는 **termsOfUseConsentVersion** 클레임의 값이 `v1`과 같은지를 확인합니다. 두 값이 같은 경우 값을 `v2`로 변경합니다. 
@@ -553,11 +553,11 @@ ms.locfileid: "55193440"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | 비교할 클레임 형식입니다. |
-| InputParameter | matchTo | string | inputClaim과 비교할 문자열입니다. |
-| InputParameter | stringComparison | string | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
-| InputParameter | outputClaimIfMatched | string | 문자열이 같으면 설정할 값입니다. |
-| OutputClaim | outputClaim | string | 문자열이 같으면 이 출력 클레임에는 `outputClaimIfMatched` 입력 매개 변수의 값이 포함됩니다. 문자열이 일치하지 않는 경우에는 null입니다. |
+| inputClaim | claimToMatch | 문자열 | 비교할 클레임 형식입니다. |
+| InputParameter | matchTo | 문자열 | inputClaim과 비교할 문자열입니다. |
+| InputParameter | stringComparison | 문자열 | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
+| InputParameter | outputClaimIfMatched | 문자열 | 문자열이 같으면 설정할 값입니다. |
+| OutputClaim | outputClaim | 문자열 | 문자열이 같으면 이 출력 클레임에는 `outputClaimIfMatched` 입력 매개 변수의 값이 포함됩니다. 문자열이 일치하지 않는 경우에는 null입니다. |
 | OutputClaim | stringCompareResultClaim | 부울 | 비교 결과 출력 클레임 형식입니다. 비교 결과에 따라 `true` 또는 `false`로 설정됩니다. |
 
 예를 들어 다음 클레임 변환에서는 **ageGroup** 클레임의 값이 `Minor`와 같은지를 확인합니다. 두 값이 같으면 값을 `B2C_V1_90001`로 반환합니다. 

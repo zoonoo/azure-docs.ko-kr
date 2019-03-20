@@ -3,7 +3,7 @@ title: SQL Server 가용성 그룹 - Azure Virtual Machines - 자습서 | Micros
 description: 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003440"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>자습서: 수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다. 전체 자습서는 두 개의 SQL Server의 데이터베이스 복제본으로 가용성 그룹을 만듭니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "54359717"
 자습서를 시작하기 전에 [Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 조건을 완료](virtual-machines-windows-portal-sql-availability-group-prereq.md)해야 합니다. 이러한 필수 구성 요소를 이미 완료한 경우 [클러스터 만들기](#CreateCluster)로 이동할 수 있습니다.
 
   >[!NOTE]
-  > 이 자습서의 많은 단계는 Azure 빠른 시작 템플릿을 사용하여 자동화할 수 있습니다. 자세한 내용은 [Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성](virtual-machines-windows-sql-availability-group-quickstart-template.md)을 참조하세요.
+  > 이 자습서에 나와 있는 단계 많은로 이제 자동화할 수 [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) 하 고 [Azure 빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md)합니다.
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -415,6 +415,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 1. 부하 분산 장치를 클릭하고 **부하 분산 규칙**, **+추가**를 차례로 클릭합니다.
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
+
    | 설정 | 설명 | 예
    | --- | --- |---
    | **Name** | 텍스트 | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**을 클릭하고 **+추가**를 클릭합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
+
    | 설정 | 설명 | 예
    | --- | --- |---
    | **Name** | 텍스트 | WSFCEndPoint |
@@ -505,15 +507,15 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 
 1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다.
+   수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다.
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다.
 

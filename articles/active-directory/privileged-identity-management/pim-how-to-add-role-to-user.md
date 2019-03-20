@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure AD 디렉터리 역할 할당 | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 디렉터리 역할을 할당하는 방법을 알아봅니다.
+title: Privileged Identity Management-Azure AD 관리자 역할 할당 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure Active Directory 관리자 역할을 할당 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4acabd4b583766ac730558fd07c424ce97a1299a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000637"
 ---
-# <a name="assign-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 할당
+# <a name="assign-azure-ad-administrator-roles-in-pim"></a>PIM에서 Azure AD 관리자 역할 할당
 
-Azure AD(Azure Active Directory)를 사용할 경우 전역 관리자는 **영구** 디렉터리 역할을 할당할 수 있습니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
+Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 수 있습니다 **영구** Azure AD 관리자 역할 할당 합니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
 
-Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 있는 역할 관리자는 영구 디렉터리 역할을 할당할 수도 있습니다. 또한 권한이 있는 역할 관리자는 사용자를 디렉터리 역할에 **적격** 사용자로 만들 수 있습니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다.
+또한 Azure AD Privileged Identity Management (PIM) 서비스에는 권한 있는 역할 관리자가 영구 관리자 역할 할당을 확인 수 있습니다. 또한 권한 있는 역할 관리자가 사용자가 가능 **적격** Azure AD 관리자 역할에 대 한 합니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>사용자를 역할에 적격 사용자로 지정
 
-사용자를 Azure AD 디렉터리 역할에 대해 적격 사용자로 지정하려면 다음 단계를 따릅니다.
+사용자를 Azure AD 관리자 역할에 대 한 적격 상태로 설정 하려면 다음이 단계를 따릅니다.
 
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -68,7 +68,7 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 ## <a name="make-a-role-assignment-permanent"></a>역할 할당을 영구적으로 지정
 
-기본적으로 새 사용자만 디렉터리 역할에 적격입니다. 역할 할당을 영구적으로 지정하려면 다음 단계를 수행합니다.
+기본적으로 새 자격이 있는 사용자만 Azure AD 관리자 역할을 합니다. 역할 할당을 영구적으로 지정하려면 다음 단계를 수행합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -92,7 +92,7 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 역할 할당에서 사용자를 제거할 수 있지만 영구 전역 관리자인 사용자가 최소 한 명은 항상 있어야 합니다. 사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 액세스 권한을 검토하기 시작](pim-how-to-start-security-review.md)할 수 있습니다.
 
-특정 사용자를 디렉터리 역할에서 제거하려면 다음 단계를 수행합니다.
+특정 사용자를 Azure AD 관리자 역할을 제거 하려면 다음이 단계를 수행 합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -116,7 +116,7 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 ## <a name="authorization-error-when-assigning-roles"></a>역할을 할당할 때 권한 부여 오류
 
-최근에 구독에 대해 PIM을 활성화하고 사용자를 디렉터리 역할에 대해 적격 상태로 설정하려고 할 때 권한 부여 오류가 발생하는 경우 MS-PIM 서비스 주체에 아직 적절한 권한이 없기 때문일 수 있습니다. MS-PIM 서비스 주체에는 다른 사용자에게 역할을 할당하는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할이 있어야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
+최근에 구독에 대 한 PIM을 설정 하 고 사용자를 Azure AD 관리자 역할에 대 한 적격 상태로 설정 하려고 할 때 권한 부여 오류가 발생 하는 경우 MS PIM 서비스 주체에 아직 적절 한 권한이 없기 때문에 수 있습니다. MS-PIM 서비스 주체에는 다른 사용자에게 역할을 할당하는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할이 있어야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
 
 다음의 단계를 따라 구독의 MS-PIM 서비스 주체에 사용자 액세스 관리자 역할을 할당합니다.
 
@@ -151,5 +151,5 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [PIM에서 Azure AD 관리 역할 설정 구성](pim-how-to-change-default-settings.md)
 - [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)

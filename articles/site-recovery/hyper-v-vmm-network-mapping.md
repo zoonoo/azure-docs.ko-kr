@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009958"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
 
@@ -24,8 +24,8 @@ ms.locfileid: "53789945"
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Azure로의 복제를 위한 네트워크 매핑 준비
 
 Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워크와 대상 Azure 가상 네트워크 사이를 매핑합니다. 매핑은 다음을 수행합니다.
-    -  **네트워크 연결** - 복제된 Azure VM이 매핑된 네트워크에 연결되도록 합니다. 동일한 네트워크에서 장애 조치되는 모든 컴퓨터가 서로 연결될 수 있으며, 이는 서로 다른 복구 계획에서 장애 조치된 경우에도 마찬가지입니다.
-    - **네트워크 게이트웨이**- 네트워크 게이트웨이가 대상 Azure 네트워크에서 설정된 경우 VM이 다른 온-프레미스 가상 머신에 연결할 수 있습니다.
+-  **네트워크 연결** - 복제된 Azure VM이 매핑된 네트워크에 연결되도록 합니다. 동일한 네트워크에서 장애 조치되는 모든 컴퓨터가 서로 연결될 수 있으며, 이는 서로 다른 복구 계획에서 장애 조치된 경우에도 마찬가지입니다.
+- **네트워크 게이트웨이**- 네트워크 게이트웨이가 대상 Azure 네트워크에서 설정된 경우 VM이 다른 온-프레미스 가상 머신에 연결할 수 있습니다.
 
 네트워크 매핑은 다음과 같이 작동합니다.
 

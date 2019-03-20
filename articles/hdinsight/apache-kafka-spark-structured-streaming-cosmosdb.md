@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099157"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -52,19 +52,19 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     이 템플릿은 다음과 같은 리소스를 만듭니다.
 
-    * HDInsight 3.6 클러스터의 Kafka
+   * HDInsight 3.6 클러스터의 Kafka
 
-    * HDInsight 3.6 클러스터의 Spark
+   * HDInsight 3.6 클러스터의 Spark
 
-    * HDInsight 클러스터를 포함하는 Azure Virtual Network
+   * HDInsight 클러스터를 포함하는 Azure Virtual Network
 
-        > [!NOTE]  
-        > 템플릿에서 만든 가상 네트워크는 10.0.0.0/16 주소 공간을 사용합니다.
+       > [!NOTE]  
+       > 템플릿에서 만든 가상 네트워크는 10.0.0.0/16 주소 공간을 사용합니다.
 
-    * Azure Cosmos DB SQL API 데이터베이스
+   * Azure Cosmos DB SQL API 데이터베이스
 
-    > [!IMPORTANT]  
-    > 이 예에서 사용된 구조적 스트림 Notebook은 HDInsight 3.6의 Spark가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
+     > [!IMPORTANT]  
+     > 이 예에서 사용된 구조적 스트림 Notebook은 HDInsight 3.6의 Spark가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
 
 2. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
    

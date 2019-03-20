@@ -1,5 +1,5 @@
 ---
-title: 2단계 인증을 통한 Azure MFA 로그인 | Microsoft Docs
+title: Azure MFA 로그인 2 단계 인증-Azure Active Directory를 사용 하 여 | Microsoft Docs
 description: 이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다.
 keywords: 사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840881"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 로그인 환경
 > [!NOTE]
@@ -32,7 +33,7 @@ ms.locfileid: "56177317"
 | --- |
 | [내 휴대폰 또는 사무실 전화로 통화](#signing-in-with-a-phone-call) |
 | [내 휴대폰으로 문자 발송](#signing-in-with-a-text-message)
-| Microsoft Authenticator 앱의 알림 사용 |
+| [ 앱의 알림 사용](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | Microsoft Authenticator 앱의 확인 코드 사용 |
 | [원하는 방법이 없으므로 다른 방법 사용](#signing-in-with-an-alternate-method) |
 
@@ -57,7 +58,7 @@ ms.locfileid: "56177317"
 1. 사용자 이름 및 암호를 사용하여 Office 365와 같은 애플리케이션 또는 서비스에 로그인합니다.
 2. Microsoft는 사용자 디바이스의 Microsoft Authenticator 앱에 알림을 보냅니다.
 
-  ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. 휴대폰에서 알림을 열고 **확인** 키를 선택합니다. 회사에서 PIN을 요구하는 경우 여기에 입력합니다.
 4. 사용자가 로그인됩니다.
@@ -69,7 +70,7 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 1. 사용자 이름 및 암호를 사용하여 Office 365와 같은 애플리케이션 또는 서비스에 로그인합니다.
 2. Microsoft가 확인 코드를 요구합니다.
 
-  ![확인 코드 입력](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![확인 코드 입력](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. 휴대폰에서 Microsoft Authenticator 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
 
@@ -80,12 +81,11 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 2. **다른 확인 옵션 사용**을 선택합니다. 설정한 수에 따라 다른 확인 옵션이 표시됩니다.
 3. 대체 방법을 선택하고 로그인합니다.
 
-  ![대체 방법 사용](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![대체 방법 사용](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>다음 단계
+- 2단계 확인을 사용하여 로그인하는 동안 문제가 발생하면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)에서 자세한 정보를 확인하세요.
 
-2단계 확인을 사용하여 로그인하는 동안 문제가 발생하면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)에서 자세한 정보를 확인하세요.
+- [2단계 확인 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 방법 알아보기
 
-[2단계 확인 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 방법 알아보기
-
-문자 메시지 및 전화 대신 알림을 사용하여 로그인할 수 있도록 [Microsoft Authenticator 앱 시작](user-help-auth-app-download-install.md) 방법을 알아보세요.
+- 문자 메시지 및 전화 대신 알림을 사용하여 로그인할 수 있도록 [Microsoft Authenticator 앱 시작](user-help-auth-app-download-install.md) 방법을 알아보세요.

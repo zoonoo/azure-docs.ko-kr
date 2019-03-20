@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003130"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
@@ -42,12 +42,12 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 다음 방법 중 하나를 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 
-* [StorSimple 장치 직렬 콘솔에 연결](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
+* [StorSimple 디바이스 직렬 콘솔에 연결](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 * [Windows PowerShell을 사용하여 StorSimple에 원격으로 연결](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>디바이스 직렬 콘솔을 통해 StorSimple용 Windows PowerShell에 연결
 
-[PuTTY](http://www.putty.org/) 또는 유사한 터미널 에뮬레이션 소프트웨어를 다운로드하여 StorSimple용 Windows PowerShell에 연결할 수 있습니다. Microsoft Azure StorSimple 디바이스에 액세스하도록 PuTTY를 구성해야 합니다. 다음 항목에는 PuTTy를 구성하고 디바이스에 연결하는 방법에 대한 자세한 단계가 포함되어 있습니다. 직렬 콘솔의 다양한 메뉴 옵션에 대해서도 설명합니다.
+[PuTTY](https://www.putty.org/) 또는 유사한 터미널 에뮬레이션 소프트웨어를 다운로드하여 StorSimple용 Windows PowerShell에 연결할 수 있습니다. Microsoft Azure StorSimple 디바이스에 액세스하도록 PuTTY를 구성해야 합니다. 다음 항목에는 PuTTy를 구성하고 디바이스에 연결하는 방법에 대한 자세한 단계가 포함되어 있습니다. 직렬 콘솔의 다양한 메뉴 옵션에 대해서도 설명합니다.
 
 ### <a name="putty-settings"></a>PuTTY 설정
 
@@ -110,8 +110,8 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
    * 업데이트 적용
    * 핫픽스 설치
 
-    > [!NOTE]
-    > 디바이스 관리자 암호를 잊어버렸으며 옵션 1 또는 2를 통해 연결할 수 없는 경우의 기본 옵션입니다.
+     > [!NOTE]
+     > 디바이스 관리자 암호를 잊어버렸으며 옵션 1 또는 2를 통해 연결할 수 없는 경우의 기본 옵션입니다.
 
 4. **언어 변경** 이 옵션을 사용하면 Windows PowerShell 인터페이스의 표시 언어를 변경할 수 있습니다. 지원되는 언어는 영어, 일본어, 러시아어, 프랑스어, 한국어, 스페인어, 이탈리아어, 독일어, 중국어 및 포르투갈어(브라질)입니다.
 
@@ -146,12 +146,12 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 
 | 수행하려는 작업 ... | 이 절차를 사용합니다. |
 | --- | --- |
-| 디바이스 등록 |[StorSimple용 Windows PowerShell을 사용하여 장치 구성 및 등록](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| 웹 프록시 구성</br>웹 프록시 설정 보기 |[StorSimple 장치에 대한 웹 프록시 구성](storsimple-8000-configure-web-proxy.md) |
-| 디바이스에서 DATA 0 네트워크 인터페이스 설정 수정 |[StorSimple 장치에 대한 DATA 0 네트워크 인터페이스 수정](storsimple-8000-modify-data-0.md) |
-| 컨트롤러 중지  </br> 컨트롤러 다시 시작 또는 종료 </br> 디바이스 종료</br>디바이스를 공장 기본 설정으로 재설정 |[장치 컨트롤러 관리](storsimple-8000-manage-device-controller.md) |
-| 유지 관리 모드 업데이트 및 핫픽스 설치 |[장치 업데이트](storsimple-update-device.md) |
-| 유지 관리 모드 시작  </br>유지 관리 모드 종료 |[StorSimple 장치 모드](storsimple-8000-device-modes.md) |
+| 디바이스 등록 |[StorSimple용 Windows PowerShell을 사용하여 디바이스 구성 및 등록](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
+| 웹 프록시 구성</br>웹 프록시 설정 보기 |[StorSimple 디바이스에 대한 웹 프록시 구성](storsimple-8000-configure-web-proxy.md) |
+| 디바이스에서 DATA 0 네트워크 인터페이스 설정 수정 |[StorSimple 디바이스에 대한 DATA 0 네트워크 인터페이스 수정](storsimple-8000-modify-data-0.md) |
+| 컨트롤러 중지  </br> 컨트롤러 다시 시작 또는 종료 </br> 디바이스 종료</br>디바이스를 공장 기본 설정으로 재설정 |[디바이스 컨트롤러 관리](storsimple-8000-manage-device-controller.md) |
+| 유지 관리 모드 업데이트 및 핫픽스 설치 |[디바이스 업데이트](storsimple-update-device.md) |
+| 유지 관리 모드 시작  </br>유지 관리 모드 종료 |[StorSimple 디바이스 모드](storsimple-8000-device-modes.md) |
 | 지원 패키지 만들기</br>지원 패키지 암호 해독 및 편집 |[지원 패키지 만들기 및 관리](storsimple-8000-create-manage-support-package.md) |
 | 지원 세션 시작</br> |[StorSimple용 Windows PowerShell에서 지원 세션 시작](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
@@ -159,7 +159,7 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 
 StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습니다. 시스템의 도움말을 업데이트하는 데 사용할 수 있는 이 도움말의 온라인 최신 버전도 제공됩니다.
 
-이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. TechNet 라이브러리: [Windows PowerShell을 사용한 스크립팅](https://go.microsoft.com/fwlink/?LinkID=108518)에서 온라인으로 Windows PowerShell에 대한 도움말을 확인할 수 있습니다.
+이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. 에 대 한 Windows PowerShell 도움말 온라인 TechNet 라이브러리에서 찾을 수 있습니다. [Windows PowerShell을 사용한 스크립팅](https://go.microsoft.com/fwlink/?LinkID=108518)합니다.
 
 다음은 도움말을 업데이트하는 방법을 포함하여 이 Windows PowerShell 인터페이스의 도움말 형식에 대한 간략한 설명입니다.
 

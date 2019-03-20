@@ -1,6 +1,6 @@
 ---
 title: Azure Windows VM 크기 - 이전 세대 | Microsoft Docs
-description: Azure에서 Windows 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+description: Azure에서 Windows 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
-ms.service: windows-machines-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 4f0397acaa39ca91280285d9bd5135b0f0d3cf7c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.openlocfilehash: c39a744a5ef57efa6486460ab84998d6600e7bc5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902563"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405609"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810383"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983475"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -58,8 +58,14 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+      
       "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+
+      "EncryptionOperation": "[encryptionOperation]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
@@ -74,18 +80,20 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| 형식 | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 2.2(VMSS) | int |
+| publisher | Microsoft.Azure.Security | 문자열 |
+| 형식 | AzureDiskEncryptionForWindows| 문자열 |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (선택 사항) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (선택 사항) AADClientSecret | 암호 | string |
-| (선택 사항) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP | string |
-| KeyEncryptionKeyURL | URL | string |
-| KeyVaultURL | URL | string |
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| (선택 사항) AADClientSecret | 암호 | 문자열 |
+| (선택 사항) AADClientCertificate | thumbprint | 문자열 |
+| EncryptionOperation | EnableEncryption | 문자열 | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 문자열 |
+| KeyEncryptionKeyURL | URL | 문자열 |
+| KeyVaultResourceId | 리소스 uri | 문자열 |
+| KekVaultResourceId | 리소스 uri | 문자열 |
+| KeyVaultURL | URL | 문자열 |
+| SequenceVersion | uniqueidentifier | 문자열 |
+| VolumeType | OS, Data, All | 문자열 |
 
 ## <a name="template-deployment"></a>템플릿 배포
 템플릿 배포에 대한 예제는 [갤러리 이미지에서 암호화된 새 Windows VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)를 참조하세요.

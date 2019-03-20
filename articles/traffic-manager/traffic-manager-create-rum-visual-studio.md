@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079720"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
 
@@ -28,27 +28,27 @@ Visual Studio Mobile Center를 사용하여 개발한 모바일 애플리케이�
 
 실제 사용자 측정을 구성하려면 RUM 패키지로 키를 가져오고 앱을 계측해야 합니다.
 
-## <a name="step-1-obtain-a-key"></a>1단계: 키 가져오기
+## <a name="step-1-obtain-a-key"></a>1단계: 키를 얻으려면
     
 클라이언트 애플리케이션에서 Traffic Manager로 보낸 측정값은 RUM(실제 사용자 측정) 키라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API 또는 PowerShell/CLI 인터페이스를 사용하여 RUM 키를 가져올 수 있습니다.
 
 Azure Portal을 사용하여 RUM Key를 얻으려면 다음 절차를 수행합니다.
-   1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.
-   2. 포털의 검색 창에서 수정하려는 Traffic Manager 프로필 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
-   3. Traffic Manager 프로필 페이지에서 **설정** 아래의 **실제 사용자 측정**을 클릭합니다.
-   4. **키 생성**을 클릭하여 새 RUM 키를 만듭니다.
+1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.
+2. 포털의 검색 창에서 수정하려는 Traffic Manager 프로필 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+3. Traffic Manager 프로필 페이지에서 **설정** 아래의 **실제 사용자 측정**을 클릭합니다.
+4. **키 생성**을 클릭하여 새 RUM 키를 만듭니다.
         
    ![실제 사용자 측정 키 생성](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **그림 1: 실제 사용자 측정 키 생성**
 
-   5.   페이지에는 생성된 RUM 키와 HTML 페이지에 포함되어야 하는 JavaScript 코드 조각이 표시됩니다.
+5. 페이지에는 생성된 RUM 키와 HTML 페이지에 포함되어야 하는 JavaScript 코드 조각이 표시됩니다.
  
    ![실제 사용자 측정 키에 대한 Javascript 코드](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **그림 2: 실제 사용자 측정 키 및 측정 JavaScript**
  
-   6. **복사** 단추를 클릭하여 RUM 키를 복사합니다. 
+6. **복사** 단추를 클릭하여 RUM 키를 복사합니다. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>2단계: Mobile Center SDK의 RUM 패키지로 앱 계측
 
@@ -72,7 +72,7 @@ Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트]
     **app/build.gradle** 파일에 다음 줄을 추가합니다.
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

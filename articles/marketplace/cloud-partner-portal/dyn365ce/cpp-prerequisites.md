@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 4b4859c41e7a3903de68b62e8587f1c85805a782
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007384"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 for Customer Engagement 필수 구성 요소
 
-이 문서에서는 AppSource Marketplace에서 Dynamics 365 for Customer Engagement 애플리케이션 제안을 게시하기 위한 기술 및 비즈니스 필수 구성 요소에 대해 설명합니다.
+이 문서에서는 AppSource Marketplace에서 Dynamics 365 for Customer Engagement 애플리케이션 제안을 게시하기 위한 기술 및 비즈니스 필수 구성 요소에 대해 설명합니다.  아직 수행 하는 경우 검토 합니다 [Office 365, Dynamics 365, PowerApps 및 Power BI 제품 게시 가이드](../../appsource-offer-publishing-guide.md)합니다.
 
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항

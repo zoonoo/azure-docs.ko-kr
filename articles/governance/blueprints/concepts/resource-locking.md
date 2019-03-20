@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855414"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
-일관성 있는 환경을 원하는 규모로 만든다고 해도 해당 일관성을 유지할 수 있는 메커니즘이 있어야 환경을 적절하게 활용할 수 있습니다. 이 문서에서는 Azure Blueprints에서 리소스 잠금이 작동하는 방식에 대해 설명합니다.
+일관성 있는 환경을 원하는 규모로 만든다고 해도 해당 일관성을 유지할 수 있는 메커니즘이 있어야 환경을 적절하게 활용할 수 있습니다. 이 문서에서는 Azure Blueprints에서 리소스 잠금이 작동하는 방식에 대해 설명합니다. 리소스 잠금 및 응용 프로그램의 예제를 보려면 _할당이 거부_를 참조 합니다 [새 리소스를 보호](../tutorials/protect-new-resources.md) 자습서입니다.
 
 ## <a name="locking-modes-and-states"></a>잠금 모드 및 상태
 
@@ -58,6 +58,7 @@ ms.locfileid: "55696995"
 
 ## <a name="next-steps"></a>다음 단계
 
+- 수행 합니다 [새 리소스를 보호](../tutorials/protect-new-resources.md) 자습서입니다.
 - [청사진 수명 주기](lifecycle.md)에 대해 알아보기
 - [정적 및 동적 매개 변수](parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](sequencing-order.md)를 사용자 지정하는 방법 알아보기

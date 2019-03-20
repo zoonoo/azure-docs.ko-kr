@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892150"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure에서 Aspera Server On Demand 서비스를 사용하여 Media Services 계정에 파일 업로드 
 
@@ -89,44 +89,44 @@ Azure Marketplace에 로그인하고 나서 다음 기본 단계를 따라 Azure
 
     다음 스크린샷은 액세스 권한 생성 방법을 보여 줍니다. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     다음 스크린샷은 포털의 사용 현황 보고 인터페이스를 보여 줍니다. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Aspera를 사용하여 파일 업로드
 
 1. Aspera 클라이언트 소프트웨어 다운로드 및 설치:
     
-    * [브라우저 플러그 인](http://downloads.asperasoft.com/connect2/)
-    * [리치 클라이언트](http://downloads.asperasoft.com/en/downloads/2)
+    * [브라우저 플러그 인](https://downloads.asperasoft.com/connect2/)
+    * [리치 클라이언트](https://downloads.asperasoft.com/en/downloads/2)
 
 2. 첫 번째 전송을 수행하세요. Aspera 전송 서비스로 전송할 때 Aspera 클라이언트를 사용하려면 다음을 완료해야 합니다. 
 
-    1. Aspera 포털을 사용하여 선택키를 만듭니다.  
-    2. Aspera 클라이언트(Aspera 포털에 있는 소프트웨어)를 다운로드하고, 설치하고, 라이선스를 부여합니다.  
+   1. Aspera 포털을 사용하여 선택키를 만듭니다.  
+   2. Aspera 클라이언트(Aspera 포털에 있는 소프트웨어)를 다운로드하고, 설치하고, 라이선스를 부여합니다.  
 
-    >[!NOTE]
-    >Aspera 클라이언트 가이드에서 구성 정보를 읽습니다.
+      >[!NOTE]
+      >Aspera 클라이언트 가이드에서 구성 정보를 읽습니다.
     
-    3. [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 미디어 계정과 연결된 저장소 계정의 일부 정보를 검색합니다. 구체적으로, 이름과 키, 그리고 콘텐츠를 배치할 저장소 BLOB 컨테이너 이름 등이 있습니다. 
+   3. [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 미디어 계정과 연결된 저장소 계정의 일부 정보를 검색합니다. 구체적으로, 이름과 키, 그리고 콘텐츠를 배치할 저장소 BLOB 컨테이너 이름 등이 있습니다. 
 
-        * 포털에서 저장소 정보를 가져오려면 저장소 계정을 찾고, 선택키를 클릭하고, 계정의 이름 및 키를 복사합니다.
-        * 컨테이너 이름을 가져오려면 저장소 계정을 찾고 **BLOB**을 선택하고 콘텐츠를 업로드하려는 컨테이너의 이름을 선택합니다. 
+       * 포털에서 저장소 정보를 가져오려면 저장소 계정을 찾고, 선택키를 클릭하고, 계정의 이름 및 키를 복사합니다.
+       * 컨테이너 이름을 가져오려면 저장소 계정을 찾고 **BLOB**을 선택하고 콘텐츠를 업로드하려는 컨테이너의 이름을 선택합니다. 
 
-    다음은 Aspera 클라이언트 **연결 관리자**의 스크린샷입니다. 여기서 'Azure' 저장소 유형 및 자격 증명과 BLOB 컨테이너를 지정해야 합니다.
+      다음은 Aspera 클라이언트 **연결 관리자**의 스크린샷입니다. 여기서 'Azure' 저장소 유형 및 자격 증명과 BLOB 컨테이너를 지정해야 합니다.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>리소스
 
 다음 리소스는 이 문서에서 설명했습니다. 
 
-* [브라우저 플러그 인 연결](http://downloads.asperasoft.com/connect2/)
-* [가이드 연결](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera 클라이언트](http://downloads.asperasoft.com/en/downloads/2)
-* [클라이언트 가이드](http://downloads.asperasoft.com/en/documentation/2)
+* [브라우저 플러그 인 연결](https://downloads.asperasoft.com/connect2/)
+* [가이드 연결](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera 클라이언트](https://downloads.asperasoft.com/en/downloads/2)
+* [클라이언트 가이드](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>다음 단계
 

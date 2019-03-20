@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860587"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -135,7 +135,7 @@ Azure 구독 및 Azure Stack 설치는 필요 합니다.
 
 1. **Azure 파이프라인 로그인** 빌드 정의를 만들 수 있는 기능을 확인 합니다.
 
-2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한입니다.
+2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한 경우
 
     ![대체 텍스트](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 
 ![대체 텍스트](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  선택 합니다 **plus** 아래에서 새 릴리스를 추가 하려면 단추를 **릴리스 탭** 빌드 및 릴리스 페이지의 온라인 VSO (Visual Studio)에서.
+1. 선택 합니다 **plus** 아래에서 새 릴리스를 추가 하려면 단추를 **릴리스 탭** 빌드 및 릴리스 페이지의 온라인 VSO (Visual Studio)에서.
 
-    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image6.png)
+   ![대체 텍스트](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 적용 된 **Azure App Service 배포** 템플릿.
 
@@ -210,7 +210,7 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 
 14. 선택 된 **구독** Azure Stack 끝점에 대 한 합니다.
 
-  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image20.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Azure Stack 웹 앱 이름으로 설정 합니다 **App service 이름**합니다.
 
@@ -299,11 +299,11 @@ DNS 레코드 페이지를 볼 수 있습니다 **내 도메인**합니다. 명�
 
 ![DNS 레코드 페이지 예](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  도메인 이름 등록자에서 선택 **추가 또는 만들기** 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 공급자의 설명서를 참조 하세요.
+1. 도메인 이름 등록자에서 선택 **추가 또는 만들기** 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 공급자의 설명서를 참조 하세요.
 
-2.  하위 도메인을 앱의 기본 호스트 이름에 매핑할 CNAME 레코드를 추가 합니다.
+2. 하위 도메인을 앱의 기본 호스트 이름에 매핑할 CNAME 레코드를 추가 합니다.
 
-  Www.northwindcloud.com 도메인 예제의 경우 이름을 매핑하는 CNAME 레코드를 추가 < 앱\_이름 >. azurewebsites.net입니다.
+   Www.northwindcloud.com 도메인 예제의 경우 이름을 매핑하는 CNAME 레코드를 추가 < 앱\_이름 >. azurewebsites.net입니다.
 
 CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시 됩니다.
 
@@ -311,47 +311,47 @@ CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure에서 CNAME 레코드 매핑 사용
 
-1.  새 탭에서 Azure portal에 로그인
+1. 새 탭에서 Azure portal에 로그인
 
-2.  App Services로 이동 합니다.
+2. App Services로 이동 합니다.
 
-3.  웹 앱을 선택 합니다.
+3. 웹 앱을 선택 합니다.
 
-4.  Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
+4. Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
-5.  **호스트 이름 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+5. **호스트 이름 추가** 옆에 있는 **+** 아이콘을 선택합니다.
 
-1.  같은 정규화 된 도메인 이름을 입력 `www.northwindcloud.com`합니다.
+1. 같은 정규화 된 도메인 이름을 입력 `www.northwindcloud.com`합니다.
 
-2.  **유효성 검사**를 선택합니다.
+2. **유효성 검사**를 선택합니다.
 
-3.  지정 된 경우, 다른 유형의 레코드를 더 추가 (`A` 또는 `TXT`) 도메인 이름 등록 기관 DNS 레코드를 합니다. Azure는 이러한 레코드의 형식 및 값을 제공 합니다.
+3. 지정 된 경우, 다른 유형의 레코드를 더 추가 (`A` 또는 `TXT`) 도메인 이름 등록 기관 DNS 레코드를 합니다. Azure는 이러한 레코드의 형식 및 값을 제공 합니다.
 
-    a.  앱의 IP 주소에 매핑할 **A** 레코드
+   a.  앱의 IP 주소에 매핑할 **A** 레코드
 
-    b.  A **TXT** 앱의 기본 호스트 이름 < app_name >에 매핑할 레코드. azurewebsites.net입니다. App Service 구성 시만이 레코드를 사용 하 여 사용자 지정 도메인 소유권을 확인 합니다. 확인 후 TXT 레코드를 삭제 합니다.
+   b.  A **TXT** 앱의 기본 호스트 이름 < app_name >에 매핑할 레코드. azurewebsites.net입니다. App Service 구성 시만이 레코드를 사용 하 여 사용자 지정 도메인 소유권을 확인 합니다. 확인 후 TXT 레코드를 삭제 합니다.
 
-4.  도메인 등록 기관 탭에서이 작업을 완료 하 고 될 때까지 다시 유효성을 검사 합니다 **호스트 이름 추가** 단추가 활성화 됩니다.
+4. 도메인 등록 기관 탭에서이 작업을 완료 하 고 될 때까지 다시 유효성을 검사 합니다 **호스트 이름 추가** 단추가 활성화 됩니다.
 
-5.  확인 * * 호스트 이름 레코드 유형이 설정 되어 **CNAME (www.example.com 또는 하위 도메인)** 합니다.
+5. 확인 * * 호스트 이름 레코드 유형이 설정 되어 **CNAME (www.example.com 또는 하위 도메인)** 합니다.
 
-6.  **호스트 이름 추가**를 선택합니다.
+6. **호스트 이름 추가**를 선택합니다.
 
-7.  같은 정규화 된 도메인 이름을 입력 `northwindcloud.com`합니다.
+7. 같은 정규화 된 도메인 이름을 입력 `northwindcloud.com`합니다.
 
-8.  **유효성 검사**를 선택합니다.
+8. **유효성 검사**를 선택합니다.
 
-9.  합니다 **추가** 활성화 됩니다.
+9. 합니다 **추가** 활성화 됩니다.
 
 10. 확인 * * 호스트 이름 레코드 유형이 설정 되어 **A 레코드 (example.com)** 합니다.
 
 11. **호스트 이름 추가**합니다.
 
-  새 호스트 이름 앱에 반영 되려면 약간의 시간이 걸릴 수 있습니다 **사용자 지정 도메인** 페이지입니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+    새 호스트 이름 앱에 반영 되려면 약간의 시간이 걸릴 수 있습니다 **사용자 지정 도메인** 페이지입니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
   
-  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  오류 발생 시 확인 오류 알림 페이지의 맨 아래에 표시 됩니다. ![확인 오류](media/azure-stack-solution-geo-distributed/image32.png)
+    오류 발생 시 확인 오류 알림 페이지의 맨 아래에 표시 됩니다. ![확인 오류](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  와일드 카드 도메인을 매핑할 위의 단계를 반복 될 수 있습니다 (\*. northwindcloud.com)... 따라서 각각에 대해 별도 CNAME 레코드를 만들 필요 없이이 app service에 추가 하위 도메인 추가. 이 설정을 구성 하려면 등록 기관 지침을 따릅니다.
@@ -482,15 +482,15 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 #### <a name="upload-the-ssl-certificate"></a>SSL 인증서 업로드
 
-1.  선택 **SSL 설정** 웹 앱의 왼쪽된 탐색 영역에서 합니다.
+1. 선택 **SSL 설정** 웹 앱의 왼쪽된 탐색 영역에서 합니다.
 
-2.  선택 **인증서 업로드**합니다.
+2. 선택 **인증서 업로드**합니다.
 
-3.  **PFX 인증서 파일**선택, PFX 파일입니다.
+3. **PFX 인증서 파일**선택, PFX 파일입니다.
 
-4.  4. **인증서 암호**, PFX 파일을 내보낼 때 만든 암호를 입력 합니다.
+4. 1. **인증서 암호**, PFX 파일을 내보낼 때 만든 암호를 입력 합니다.
 
-5.  **업로드**를 선택합니다.
+5. **업로드**를 선택합니다.
 
 ![인증서 업로드](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
-1.  포털 검색 표시줄에서 검색 된 * * Traffic Manager 프로필 * * 선택 결과에서 traffic manager 프로필에 고 이전 섹션에서 만든 이름은 표시 합니다.
+1. 포털 검색 표시줄에서 검색 된 * * Traffic Manager 프로필 * * 선택 결과에서 traffic manager 프로필에 고 이전 섹션에서 만든 이름은 표시 합니다.
 
-2.  **Traffic Manager 프로필**를 **설정** 섹션에서 **끝점**합니다.
+2. **Traffic Manager 프로필**를 **설정** 섹션에서 **끝점**합니다.
 
-3.  **추가**를 선택합니다.
+3. **추가**를 선택합니다.
 
-4.  Azure Stack 끝점을 추가합니다.
+4. Azure Stack 끝점을 추가합니다.
 
-5.  에 대 한 **형식**를 선택 **외부 끝점**합니다.
+5. 에 대 한 **형식**를 선택 **외부 끝점**합니다.
 
-6.  제공 된 **이름을** Azure Stack의 이름 이상적으로이 끝점에 대 한 합니다.
+6. 제공 된 **이름을** Azure Stack의 이름 이상적으로이 끝점에 대 한 합니다.
 
-7.  정규화 된 도메인 이름 (**FQDN**), Azure Stack Web App에 대 한 사용 하 여 외부 URL입니다.
+7. 정규화 된 도메인 이름 (**FQDN**), Azure Stack Web App에 대 한 사용 하 여 외부 URL입니다.
 
-8.  지역 매핑 선택 리소스 위치한 예를 들어, 영역/대륙 **유럽입니다.**
+8. 지역 매핑 선택 리소스 위치한 예를 들어, 영역/대륙 **유럽입니다.**
 
-9.  국가/지역 드롭다운 표시 되는, 예를 들어,이 끝점에 적용 되는 국가 선택 **독일**합니다.
+9. 국가/지역 드롭다운 표시 되는, 예를 들어,이 끝점에 적용 되는 국가 선택 **독일**합니다.
 
 10. **사용 안 함으로 추가**를 선택 취소 상태로 유지합니다.
 
@@ -628,12 +628,12 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 16. **확인**을 선택합니다.
 
-  > [!Note]  
-  >  리소스에 대 한 기본 끝점으로 사용할 모든 (세계) 지리적 범위를 사용 하 여 하나 이상의 끝점을 만듭니다.
+    > [!Note]  
+    >  리소스에 대 한 기본 끝점으로 사용할 모든 (세계) 지리적 범위를 사용 하 여 하나 이상의 끝점을 만듭니다.
 
-1.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
+1. 두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
 
-  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image46.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image46.png)
 
 **글로벌 엔터프라이즈 Azure 지역 배포 기능에 의존**
 

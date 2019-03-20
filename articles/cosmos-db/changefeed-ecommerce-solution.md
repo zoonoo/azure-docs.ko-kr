@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120519"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -105,7 +105,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 3. 다음으로, 변경 피드 처리를 위해 **leases**(임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
 
-4.  **데이터 탐색기** 창으로 돌아가서 **새 컬렉션**을 선택하고, 다음 세부 정보로 양식을 채웁니다.
+4. **데이터 탐색기** 창으로 돌아가서 **새 컬렉션**을 선택하고, 다음 세부 정보로 양식을 채웁니다.
 
    * **데이터베이스 ID** 필드에 대해 **기존 항목 사용**을 선택한 다음, **changefeedlabdatabase**를 입력합니다.  
    * **컬렉션 ID** 필드에 대해 **leases**를 입력합니다.  

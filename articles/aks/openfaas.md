@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: dc0f4bd1e5b07e30f3c89807fbbbc908b3149810
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: HT
+ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542534"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571221"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
-[OpenFaaS][open-faas]는 컨테이너에서 서버가 없는 함수를 빌드하는 프레임워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
+[OpenFaaS] [ open-faas] 는 컨테이너를 사용 하 여 서버 리스 functions를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,43 +29,48 @@ ms.locfileid: "45542534"
 * 개발 시스템에 설치된 Azure CLI.
 * 시스템에 설치된 Git 명령줄 도구
 
-## <a name="get-openfaas"></a>OpenFaaS 가져오기
+## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS helm 차트 리포지토리 추가
 
-개발 시스템에 OpenFaaS 프로젝트 리포지토리를 복제합니다.
-
-```azurecli-interactive
-git clone https://github.com/openfaas/faas-netes
-```
-
-복제된 리포지토리의 디렉터리로 변경합니다.
+OpenFaaS 모든 최신 변경 내용으로 최신 상태로 유지 하는 자체 helm 차트를 유지 관리 합니다.
 
 ```azurecli-interactive
-cd faas-netes
+helm repo add openfaas https://openfaas.github.io/faas-netes/
+helm repo update
 ```
 
 ## <a name="deploy-openfaas"></a>OpenFaaS 배포
 
 좋은 방법은 OpenFaaS 및 OpenFaaS 함수를 고유한 Kubernetes 네임스페이스에 저장하는 것입니다.
 
-OpenFaaS 시스템에 대한 네임스페이스를 만듭니다.
+OpenFaaS 시스템 및 함수에 대 한 네임 스페이스를 만듭니다.
 
 ```azurecli-interactive
-kubectl create namespace openfaas
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-OpenFaaS 함수에 대한 두 번째 네임스페이스를 만듭니다.
+OpenFaaS UI 포털 및 REST API에 대 한 암호를 생성 합니다.
 
 ```azurecli-interactive
-kubectl create namespace openfaas-fn
+# generate a random password
+PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
+
+kubectl -n openfaas create secret generic basic-auth \
+--from-literal=basic-auth-user=admin \
+--from-literal=basic-auth-password="$PASSWORD"
 ```
+
+사용 하 여 비밀의 값을 가져올 수 있습니다 `echo $PASSWORD`합니다.
+
+여기에서 우리가 만든 암호를 OpenFaaS 게이트웨이의 클라우드 LoadBalancer 통해 인터넷에 노출 되는 기본 인증을 사용 하도록 설정 하려면 helm 차트에서 사용 됩니다.
 
 OpenFaaS에 대한 Helm 차트는 복제된 리포지토리에 포함됩니다. 이 차트를 사용하여 OpenFaaS를 AKS 클러스터에 배포합니다.
 
 ```azurecli-interactive
-helm install --namespace openfaas -n openfaas \
-  --set functionNamespace=openfaas-fn, \
-  --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/
+helm upgrade openfaas --install openfaas/openfaas \
+    --namespace openfaas  \
+    --set basic_auth=true \
+    --set functionNamespace=openfaas-fn \
+    --set serviceType=LoadBalancer
 ```
 
 출력:
@@ -104,7 +109,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`).
+OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면 입력 `echo $PASSWORD`합니다.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -112,6 +117,15 @@ OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이�
 
 ```console
 brew install faas-cli
+```
+
+설정 `$OPENFAAS_URL` 위에서 찾은 공용 ip입니다.
+
+Azure CLI를 사용 하 여 로그인 합니다.
+
+```azurecli-interactive
+export OPENFAAS_URL=http://52.186.64.52:8080
+echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
 ## <a name="create-first-function"></a>첫 번째 함수 만들기
@@ -233,10 +247,11 @@ OpenFaaS UI 내에서 함수를 테스트할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-OpenFaas의 기본 배포는 OpenFaaS 게이트웨이 및 함수 모두에 대해 잠겨 있어야 합니다. [Alex Ellis 블로그 게시물](https://blog.alexellis.io/lock-down-openfaas/)에는 보안 구성 옵션에 대한 더 많은 세부 정보가 포함됩니다.
+암호를 사용 하 여 자동 크기 조정 및 메트릭 보기 집합을 사용자 고유의 GitHub 봇, 만드는 방법 등을 다루는 실습을 통해 OpenFaaS 워크샵을 알아볼 계속할 수 있습니다.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [open-faas]: https://www.openfaas.com/
 [open-faas-cli]: https://github.com/openfaas/faas-cli
+[openfaas-workshop]: https://github.com/openfaas/workshop

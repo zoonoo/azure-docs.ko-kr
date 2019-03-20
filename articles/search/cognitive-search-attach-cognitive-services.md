@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880418"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
@@ -60,21 +60,7 @@ Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구�
 
 1. **새 Cognitive Services 리소스 만들기**에는 리소스를 만들 수 있는 새 탭이 열립니다. 리소스에 고유한 이름을 지정합니다.
 
-1. Azure Search와 같은 위치를 선택합니다. 현재 인지 기술 인덱싱은 다음 지역에서 사용할 수 있습니다.
-
-  * 미국 중서부
-  * 미국 중남부
-  * 미국 동부
-  * 미국 동부 2
-  * 미국 서부 2
-  * 캐나다 중부
-  * 서유럽
-  * 영국 남부
-  * 북유럽
-  * 브라질 남부
-  * 동남아시아
-  * 인도 중부
-  * 오스트레일리아 동부
+1. 새 Cognitive Services 리소스를 만들면 **동일한 지역을 선택** Azure Search 리소스와 합니다.
 
 1. 올인원 가격 책정 계층, **S0**을 선택합니다. 이 계층은 인지 검색에 미리 정의된 기술을 지원하는 Vision 및 Language 기능을 제공합니다.
 

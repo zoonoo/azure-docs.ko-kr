@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 64470a1497a287f4cc2c3ef3ed29986382aeac9b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9657cda8b0f3a19d02ebf1907116235b88f4cb82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111517"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -48,8 +48,8 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 개발 환경을 준비하려면 다음 작업을 완료합니다.
 
 * 디바이스 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
-* 저장소 어댑터 마이크로 서비스에 대한 소스를 다운로드합니다.
-* 저장소 어댑터 마이크로 서비스를 로컬로 실행합니다.
+* 저장소 어댑터 마이크로 서비스에 대한 소스 다운로드
+* 저장소 어댑터 마이크로 서비스를 로컬로 실행
 
 이 문서의 지침에서는 Windows를 사용한다고 가정합니다. 다른 운영 체제를 사용하는 경우 일부 파일 경로 및 명령을 사용자 환경에 맞게 조정해야 합니다.
 
@@ -70,7 +70,7 @@ Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adap
 
 스토리지 어댑터 마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작**을 차례로 클릭합니다.
 
-Visual Studio Code의 **터미널** 창에서 웹 서비스 상태 확인에 대한 URL(<http://127.0.0.1:9022/v1/status>)을 포함하여 실행 중인 마이크로 서비스의 출력을 표시합니다. 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
+Visual Studio Code의 **터미널** 창에서 웹 서비스 상태 확인에 대한 URL(<http://127.0.0.1:9022/v1/status>)을 포함하여 실행 중인 마이크로 서비스의 출력을 표시합니다. 이 주소로 이동 하면 상태가 이어야 합니다 "확인: 활성 및 양호 "입니다.
 
 다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 스토리지 어댑터 마이크로 서비스는 그대로 유지합니다.
 
@@ -84,58 +84,58 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. **assettracker-01.json** 디바이스 모델 파일에서 디바이스 기능을 정의합니다. Protobuf 디바이스 모델의 원격 분석 섹션에서 다음을 수행해야 합니다.
 
-    * 디바이스에 대해 생성하는 Protobuf 클래스의 이름을 포함합니다. 다음 섹션에서는 이 클래스를 생성하는 방법을 보여 줍니다.
-    * Protobuf를 메시지 형식으로 지정합니다.
+   * 디바이스에 대해 생성하는 Protobuf 클래스의 이름을 포함합니다. 다음 섹션에서는 이 클래스를 생성하는 방법을 보여 줍니다.
+   * Protobuf를 메시지 형식으로 지정합니다.
 
-    ```json
-    {
-      "SchemaVersion": "1.0.0",
-      "Id": "assettracker-01",
-      "Version": "0.0.1",
-      "Name": "Asset Tracker",
-      "Description": "An asset tracker with location, temperature, and humidity",
-      "Protocol": "AMQP",
-      "Simulation": {
-        "InitialState": {
-          "online": true,
-          "latitude": 47.445301,
-          "longitude": -122.296307,
-          "temperature": 38.0,
-          "humidity": 62.0
-        },
-        "Interval": "00:01:00",
-        "Scripts": [
-          {
-            "Type": "javascript",
-            "Path": "assettracker-01-state.js"
-          }
-        ]
-      },
-      "Properties": {
-        "Type": "AssetTracker",
-        "Location": "Field",
-        "Latitude": 47.445301,
-        "Longitude": -122.296307
-      },
-      "Telemetry": [
-        {
-          "Interval": "00:00:10",
-          "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
-          "MessageSchema": {
-            "Name": "assettracker-sensors;v1",
-            "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
-            "Format": "Protobuf",
-            "Fields": {
-              "latitude": "double",
-              "longitude": "double",
-              "temperature": "double",
-              "humidity": "double"
-            }
-          }
-        }
-      ]
-    }
-    ```
+     ```json
+     {
+     "SchemaVersion": "1.0.0",
+     "Id": "assettracker-01",
+     "Version": "0.0.1",
+     "Name": "Asset Tracker",
+     "Description": "An asset tracker with location, temperature, and humidity",
+     "Protocol": "AMQP",
+     "Simulation": {
+       "InitialState": {
+         "online": true,
+         "latitude": 47.445301,
+         "longitude": -122.296307,
+         "temperature": 38.0,
+         "humidity": 62.0
+       },
+       "Interval": "00:01:00",
+       "Scripts": [
+         {
+           "Type": "javascript",
+           "Path": "assettracker-01-state.js"
+         }
+       ]
+     },
+     "Properties": {
+       "Type": "AssetTracker",
+       "Location": "Field",
+       "Latitude": 47.445301,
+       "Longitude": -122.296307
+     },
+     "Telemetry": [
+       {
+         "Interval": "00:00:10",
+         "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
+         "MessageSchema": {
+           "Name": "assettracker-sensors;v1",
+           "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
+           "Format": "Protobuf",
+           "Fields": {
+             "latitude": "double",
+             "longitude": "double",
+             "temperature": "double",
+             "humidity": "double"
+           }
+         }
+       }
+     ]
+     }
+     ```
 
 ### <a name="create-device-behaviors-script"></a>디바이스 동작 스크립트 만들기
 

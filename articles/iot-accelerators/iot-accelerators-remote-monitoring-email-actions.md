@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 08e80a9baa4c6841b6d88d1c5f2ba69992ffa7ef
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108106"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "51977066"
 
 1. **대시보드**에서 **규칙** 페이지로 이동합니다.
 
-    ![규칙 페이지](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![규칙 페이지](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. 수정할 기존 규칙 옆에 있는 확인란을 클릭하고 맨 위에 있는 **편집**을 클릭합니다. 편집 가능한 **규칙** 패널이 나타납니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "51977066"
 
 1. 솔루션 가속기에서 이메일 작업을 사용하도록 처음으로 설정하는 경우 먼저 [Outlook에 로그인](#outlook)해야 합니다.
 
-1. 받는 사람 상자에 이메일 주소를 입력하고 추가할 각 이메일 주소에 대해 **Enter** 키를 누릅니다.
+1. 받는 사람 상자에 이메일 주소를 입력하고 **Enter** 키를 눌러 각 이메일을 추가합니다.
 
-    ![주소 항목](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![주소 항목](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. 이메일의 제목을 입력합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "51977066"
 
 1. **대시보드**에서 **규칙** 페이지로 이동합니다.
 
-    ![규칙 페이지](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![규칙 페이지](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. [규칙 섹션 만들기](iot-accelerators-remote-monitoring-automate.md#create-a-rule)의 단계를 따릅니다. [고급 규칙 만들기](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) 섹션에서 **심각도 수준**을 설정하는 단계까지 진행합니다. 아직 **적용**을 클릭하지 마세요.
 
@@ -69,7 +69,7 @@ ms.locfileid: "51977066"
 
 1. 받는 사람 상자에 이메일 주소를 입력하고 **Enter** 키를 눌러 각 이메일을 추가합니다.
 
-    ![주소 항목](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![주소 항목](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. 이메일의 제목을 입력합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "51977066"
 
 1. 클릭하여 Outlook에 로그인합니다. 로그인하면 Azure Portal로 페이지가 이동합니다.
 
-  ![Outlook에 로그인](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![Outlook에 로그인](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. **권한 부여**를 클릭합니다. 로그인하라는 메시지가 나타납니다. 로그인하는 데 사용하는 계정은 애플리케이션이 이메일 알림을 보내는 데 사용하는 이메일 주소여야 합니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "51977066"
 
 1. 이메일 알림을 성공적으로 구성한 경우 다음 메시지가 표시됩니다.
 
-  ![Outlook 로그인 성공](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Outlook 로그인 성공](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## 이메일 HTML 사용자 지정 <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ ms.locfileid: "51977066"
 
 원격 모니터링 솔루션 가속기는 Outlook을 사용하여 이메일 알림을 보냅니다. Outlook에서 전송되는 이메일 수가 [분당 30개 이메일](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)로 제한됩니다. 이메일을 수신하는 이메일 클라이언트에서 분당 수신되는 이메일의 수를 제한할 수도 있습니다. 제한 사항은 특정 이메일 클라이언트에 문의하세요. 규칙에 대해 이메일 알림을 설정할 때 규칙은 적어도 1분 동안의 평균 값을 계산하고 아주 짧은 기간의 값은 사용하지 않아야 합니다.
 
-![평균 계산](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![평균 계산](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>다음 단계
 

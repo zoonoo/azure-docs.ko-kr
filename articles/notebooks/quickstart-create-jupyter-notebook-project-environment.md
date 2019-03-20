@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085334"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771393"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>빠른 시작: 사용자 지정 환경을 사용하여 프로젝트 만들기
 
@@ -26,15 +26,15 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작-Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md) 참조하세요)
+1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
-1. 공개 프로필 페이지에서 페이지의 맨 위에 있는 **내 프로젝트**를 선택합니다.
+1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
-1. **내 프로젝트** 페이지에서 **+ 새 프로젝트** (바로 가기 키: n)를 선택합니다. 브라우저 창이 좁은 경우 이 단추는 **+** 로만 나타날 수 있습니다.
+1. **내 프로젝트** 페이지에서 **+ 새 프로젝트**(바로 가기 키: n)를 선택합니다. 브라우저 창이 좁은 경우 이 단추가 **+** 기호로만 표시될 수 있습니다.
 
-    ![내 프로젝트 페이지에서 새 프로젝트 명령](media/quickstarts/new-project-command.png)
+    ![내 프로젝트 페이지의 새 프로젝트 명령](media/quickstarts/new-project-command.png)
 
 1. **새 프로젝트 만들기** 팝업이 나타나면 다음 세부 정보를 입력하거나 설정한 다음, **만들기**를 선택합니다.
 

@@ -3,21 +3,20 @@ title: Azure Data Factory용 템플릿 개요 | Microsoft Docs
 description: 미리 정의된 템플릿을 사용하여 Azure Data Factory를 빠르게 시작하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
-ms.openlocfilehash: c3571aec55d5050df01f740a163db18e9c6c1095
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003556"
 ---
 # <a name="templates"></a>템플릿
 
@@ -41,11 +40,13 @@ ms.locfileid: "55967085"
 
 ### <a name="out-of-the-box-data-factory-templates"></a>기본 제공 Data Factory 템플릿
 
-Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 위해 Azure Resource Manager 템플릿을 사용합니다. [공식적인 Azure Data Factory Github 리포지토리](https://github.com/Azure/Azure-DataFactory/tree/master/templates)에서 기본 제공 Data Factory 템플릿에 사용되는 매니페스트 파일과 함께 모든 Resource Manager 템플릿을 확인할 수 있습니다. Microsoft에서 제공하는 미리 정의된 템플릿에는 다음 항목이 포함되지만 이에만 제한되지는 않습니다.
+Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 위해 Azure Resource Manager 템플릿을 사용합니다. 초과 하 여 사용에 대 한 상자 데이터 팩터리 템플릿에서 매니페스트 파일과 함께 모든 Resource Manager 템플릿을 확인할 수 있습니다 합니다 [공식 Azure 데이터 팩터리 GitHub 리포지토리의](https://github.com/Azure/Azure-DataFactory/tree/master/templates)합니다. Microsoft에서 제공하는 미리 정의된 템플릿에는 다음 항목이 포함되지만 이에만 제한되지는 않습니다.
 
 -   템플릿 복사:
 
     -   [데이터베이스에서 대량 복사](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [LastModifiedDate 하 여 새 파일 복사](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [파일 기반 저장소 간에 여러 파일 컨테이너 복사](solution-template-copy-files-multiple-containers.md)
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341542"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404776"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
 
@@ -37,21 +37,20 @@ Azure Data Factory에서 삭제 작업을 사용하여 온-프레미스 스토�
 
 -   쓰고 있는 파일을 동시에 삭제하지 않아야 합니다. 
 
--   온-프레미스 시스템에서 파일 또는 폴더를 삭제하려는 경우 자체 호스팅 통합 런타임 3.13 이후 버전을 사용하고 있는지 확인 합니다.
+-   온-프레미스 시스템에서 파일 또는 폴더를 삭제 하려는 경우 3.14 보다 큰 버전을 사용 하 여 자체 호스팅된 integration runtime을 사용 하 고 있는지 확인 합니다.
 
 ## <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
-### <a name="azure-data-stores"></a>Azure 데이터 저장소
-
 -   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2(미리 보기)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>파일 시스템 데이터 저장소
 
 -   [파일 시스템](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>구문
 
@@ -61,7 +60,7 @@ Azure Data Factory에서 삭제 작업을 사용하여 온-프레미스 스토�
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -83,12 +82,12 @@ Azure Data Factory에서 삭제 작업을 사용하여 온-프레미스 스토�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | 예 |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  |  아니요. 기본값은 `false`입니다. |
-| maxConcurrentConnections | 폴더 또는 파일 삭제를 위해 동시에 스토리지 저장소에 연결할 수 있는 연결 수입니다.   |   아니요. 기본값은 `1`입니다. |
-| enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 아니요 |
-| logStorageSettings | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장할 위치를 지정할 수 있는 스토리지 속성 그룹입니다. | 아니요 |
-| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장하기 위한 연결된 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) 서비스입니다. | 아니요 |
-| 경로 | enablelogging = true일 때만 해당됩니다.<br/><br/>스토리지 계정에 로그 파일을 저장할 경로입니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요 |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  | 아니요. 기본값은 `false`입니다. |
+| maxConcurrentConnections | 폴더 또는 파일 삭제를 위해 동시에 스토리지 저장소에 연결할 수 있는 연결 수입니다.   |  아니요. 기본값은 `1`입니다. |
+| enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 아닙니다. |
+| logStorageSettings | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장할 위치를 지정할 수 있는 스토리지 속성 그룹입니다. | 아닙니다. |
+| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>연결된 된 서비스 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties)를 [Azure Data Lake 저장소 Gen1](connector-azure-data-lake-store.md#linked-service-properties), 또는 [Azure Data Lake 저장소 Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 폴더 포함 된 로그 파일을 저장 하거나 파일 이름을 지정 하는 삭제 작업에 의해 삭제 되었습니다. | 아닙니다. |
+| 경로 | enablelogging = true일 때만 해당됩니다.<br/><br/>스토리지 계정에 로그 파일을 저장할 경로입니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아닙니다. |
 
 ## <a name="monitoring"></a>모니터링
 
@@ -100,13 +99,15 @@ Azure Data Factory에서 삭제 작업을 사용하여 온-프레미스 스토�
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Azure Data Factory에서 삭제 작업을 사용하여 온-프레미스 스토�
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>샘플 로그 샘플 로그 파일
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| 이름 | Category | 상태 | 오류 |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | 파일 | Deleted |  |
+| test2/hello789.txt | 파일 | Deleted |  |
+| test2/test3/hello000.txt | 파일 | Deleted |  |
+| test2/test3/zzz.json | 파일 | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>삭제 작업 사용 예제
 
@@ -322,7 +313,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -332,7 +323,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>복사 작업 및 삭제 작업을 연결하여 파일 이동
 
-복사 작업을 통해 파일을 복사하고 삭제 작업을 통해 파이프라인에서 파일을 삭제함으로써 파일을 이동할 수 있습니다.  여러 파일을 이동하려는 경우 다음 샘플과 같이 GetMetadata 작업 + 필터 작업 + Foreach 작업 + 복사 작업 + 삭제 작업을 사용할 수 있습니다.
+파일을 복사 하려면 복사 작업 및 다음 파이프라인에서 파일을 삭제 하려면 삭제 작업을 사용 하 여 파일을 이동할 수 있습니다.  여러 파일을 이동하려는 경우 다음 샘플과 같이 GetMetadata 작업 + 필터 작업 + Foreach 작업 + 복사 작업 + 삭제 작업을 사용할 수 있습니다.
 
 > [!NOTE]
 > 폴더 경로만 포함된 데이터 세트를 정의한 후 복사 작업과 삭제 작업을 사용하여 폴더를 나타내는 동일한 데이터 집합을 참조하는 방식으로 전체 폴더를 이동할 때에는 매우 조심해야 합니다. 복사 작업과 삭제 작업 중간에 새 파일이 폴더에 들어오지 않는지를 확인해야 하기 때문입니다.  복사 작업이 방금 복사 작업을 완료했지만 삭제 작업이 시작되지 않은 순간에 새 파일에 폴더에 도착하면 삭제 작업은 전체 폴더를 삭제하여 대상으로 아직 복사되지 않은 이러한 새로 도착한 파일을 삭제할 수 있습니다. 
@@ -572,12 +563,14 @@ GetMetadata 작업에서 파일 목록을 열거하는 데 사용하는 데이�
     }
 }
 ```
+## <a name="known-limitation"></a>알려진 제한 사항
+
+-   삭제 작업 삭제 목록을 와일드 카드에서 설명 하는 폴더를 지원 하지 않습니다.
+
+-   파일 특성 필터를 사용 하는 경우: modifiedDatetimeStart modifiedDatetimeEnd 삭제할 파일을 선택 하 고 설정 해야 "fileName": "*" 데이터 집합에서.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory에서 파일을 복사하는 방법을 자세히 알아봅니다.
-
--   [Azure Data Factory의 복사 작업](copy-activity-overview.md)
+Azure Data Factory의 파일을 이동 하는 방법에 대 한 자세히 알아봅니다.
 
 -   [Azure Data Factory의 데이터 복사 도구](copy-data-tool.md)
-- 

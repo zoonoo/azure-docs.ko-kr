@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975630"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -47,7 +47,7 @@ ASDK 루트 인증서를 PEM 형식으로 내보내려면:
 
 2. 컴퓨터에 로그인 하 고 관리자 권한 PowerShell 프롬프트를 연 후 다음 스크립트를 실행 합니다.
 
-      ```powershell  
+    ```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -56,13 +56,13 @@ ASDK 루트 인증서를 PEM 형식으로 내보내려면:
           Write-Error "Certificate with subject CN=$label not found"
           return
       }
-      
+
     Write-Host "Exporting certificate"
     Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-```
+    ```
 
 3. 로컬 컴퓨터에 인증서를 복사 합니다.
 
@@ -75,15 +75,15 @@ ASDK 루트 인증서를 PEM 형식으로 내보내려면:
 
 2. 다운로드 합니다 [샘플 파일](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) GitHub에서.
 
-4. Azure Stack에서 저장소 계정을 만듭니다. 완료 되 면 blob 컨테이너를 만듭니다. 액세스 정책을 "공용"를 설정 합니다.  
+3. Azure Stack에서 저장소 계정을 만듭니다. 완료 되 면 blob 컨테이너를 만듭니다. 액세스 정책을 "공용"를 설정 합니다.  
 
-3. 새 컨테이너에 JSON 파일을 업로드 합니다. 완료 되 면 blob의 URL을 볼 수 있습니다. Blob 이름을 선택한 다음 URL에서 blob 속성을 선택 합니다.
+4. 새 컨테이너에 JSON 파일을 업로드 합니다. 완료 되 면 blob의 URL을 볼 수 있습니다. Blob 이름을 선택한 다음 URL에서 blob 속성을 선택 합니다.
 
-### <a name="install-or-ugrade-cli"></a>설치 또는 CLI
+### <a name="install-or-upgrade-cli"></a>설치 또는 업그레이드 CLI
 
 개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack에는 버전의 Azure CLI 2.0 이상이 필요합니다. 최신 버전의 API 프로필에는 현재 버전의 CLI 필요합니다.  에 설명 된 단계를 사용 하 여 CLI를 설치할 수는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
-```azurecli
+```shell
 az --version
 ```
 
@@ -151,7 +151,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
 
 Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
 
@@ -206,11 +206,12 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
     ```
 
 2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+
     | 값 | 예 | 설명 |
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
-    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -235,24 +236,24 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
  
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)합니다. 
 
-  - 으로 로그인을 *사용자*: 
+   - 으로 로그인을 *사용자*: 
 
-    Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
+     Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
 
-    ```azurecli
-    az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-    ```
+     ```azurecli
+     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
+     > [!NOTE]
+     > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
 
-  - 으로 로그인을 *서비스 주체*: 
+   - 으로 로그인을 *서비스 주체*: 
     
-    로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
+     로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
-    ```azurecli  
-    az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-    ```
+     ```azurecli  
+     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>연결 테스트
 
@@ -272,7 +273,7 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
@@ -325,11 +326,12 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
     ```
 
 2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+
     | 값 | 예 | 설명 |
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
-    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -354,34 +356,34 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)합니다. 
 
-  - 으로 로그인을 *사용자*:
+   - 으로 로그인을 *사용자*:
 
-    Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
+     Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
 
-    ```azurecli
-    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ```
+     ```azurecli
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     ```
 
-    > [!NOTE]
-    > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
+     > [!NOTE]
+     > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
 
-  - 으로 로그인을 *서비스 주체*: 
+   - 으로 로그인을 *서비스 주체*: 
     
-    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
+     서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
 
-    보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서에 개인 키를 사용 하 여 pfx 있는 내보내기 `cert:\CurrentUser\My`, 이름을 주 서버는 같은 이름을 가진 인증서입니다.
+     보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서에 개인 키를 사용 하 여 pfx 있는 내보내기 `cert:\CurrentUser\My`, 이름을 주 서버는 같은 이름을 가진 인증서입니다.
 
-    Pfx에서 pem (사용 하 여 OpenSSL 유틸리티를) 변환 합니다.
+     Pfx에서 pem (사용 하 여 OpenSSL 유틸리티를) 변환 합니다.
 
-    CLI에 로그인 합니다.
+     CLI에 로그인 합니다.
   
-    ```azurecli  
-    az login --service-principal \
+     ```azurecli  
+     az login --service-principal \
       -u <Client ID from the Service Principal details> \
       -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
       --tenant <Tenant ID> \
       --debug 
-    ```
+     ```
 
 ### <a name="test-the-connectivity"></a>연결 테스트
 
@@ -402,7 +404,7 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
 
 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
@@ -416,17 +418,17 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 2. 인증서 경로 사용 하 여 다음 bash 명령은 실행 합니다.
 
-  - 원격 Linux 컴퓨터:
+   - 원격 Linux 컴퓨터:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Azure Stack 환경 내에서 Linux 컴퓨터:
+   - Azure Stack 환경 내에서 Linux 컴퓨터:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
@@ -440,11 +442,12 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
    ```
 
 2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+
     | 값 | 예 | 설명 |
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
-    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -469,30 +472,30 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 5. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)합니다. 
 
-    * 으로 로그인을 *사용자*:
+   * 으로 로그인을 *사용자*:
 
-    Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
+     Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
 
-      ```azurecli
-      az login \
-        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-      ```
+     ```azurecli
+     az login \
+       -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
+     > [!NOTE]
+     > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
    
-    * 으로 로그인을 *서비스 주체*
+   * 으로 로그인을 *서비스 주체*
     
-    로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
+     로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
-      ```azurecli  
-      az login \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-        --service-principal \
-        -u <Application Id of the Service Principal> \
-        -p <Key generated for the Service Principal>
-      ```
+     ```azurecli  
+     az login \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+       --service-principal \
+       -u <Application Id of the Service Principal> \
+       -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>연결 테스트
 
@@ -512,7 +515,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
 
 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
@@ -526,17 +529,17 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 2. 인증서 경로 사용 하 여 다음 bash 명령은 실행 합니다.
 
-  - 원격 Linux 컴퓨터:
+   - 원격 Linux 컴퓨터:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Azure Stack 환경 내에서 Linux 컴퓨터:
+   - Azure Stack 환경 내에서 Linux 컴퓨터:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
@@ -550,11 +553,12 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
    ```
 
 2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+
     | 값 | 예 | 설명 |
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
-    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -581,24 +585,24 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 6. 서명하세요: 
 
-  *  로 **사용자** 장치 코드를 사용 하 여 웹 브라우저를 사용 하 여:  
+   *  로 **사용자** 장치 코드를 사용 하 여 웹 브라우저를 사용 하 여:  
 
-  ```azurecli  
+   ```azurecli  
     az login --use-device-code
-  ```
+   ```
 
-  > [!NOTE]  
-  >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
+   > [!NOTE]  
+   >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
 
-  * 서비스 주체로:
+   * 서비스 주체로:
         
-    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
+     서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
 
       * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서에 개인 키를 사용 하 여 pfx 있는 내보내기 `cert:\CurrentUser\My`, 이름을 주 서버는 같은 이름을 가진 인증서입니다.
   
       * Pfx에서 pem (사용 하 여 OpenSSL 유틸리티를) 변환 합니다.
 
-    CLI에 로그인 합니다.
+     CLI에 로그인 합니다.
 
       ```azurecli  
       az login --service-principal \

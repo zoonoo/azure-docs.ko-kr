@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>자습서: Workteam과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Workteam과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Workteam 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -200,7 +200,7 @@ Azure AD 사용자가 Workteam에 로그인할 수 있도록 하려면 Workteam�
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **Brittasimon**)을 입력합니다.
 
-    b. **이메일** 텍스트 상자에 사용자의 이메일(예: **Brittasimon@contoso.com**)을 입력합니다.
+    b. **전자 메일** 텍스트 상자에 같은 사용자의 전자 메일을 입력 합니다 **Brittasimon\@contoso.com**합니다.
 
     다. **확인**을 클릭합니다.
 

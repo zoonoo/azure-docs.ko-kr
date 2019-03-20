@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109140"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -110,33 +110,33 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ![플러그 인 구성 화면](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오는 URL입니다.
+* **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오는 URL입니다.
 
-*   **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/로 이 URL을 자동으로 파생합니다.
+* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/로 이 URL을 자동으로 파생합니다.
 
-*   **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
+* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
 
-*   **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
+* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
 
-*   **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
+* **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
 
-*   **로그인 URL**: IdP의 로그인 URL입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
+* **로그인 URL**: IdP의 로그인 URL입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
 
-*   **로그아웃 URL**: IdP의 로그아웃 URL입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
+* **로그아웃 URL**: IdP의 로그아웃 URL입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
 
-*   **X.509 인증서**: IdP의 X.509 인증서입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
+* **X.509 인증서**: IdP의 X.509 인증서입니다. 이 상자는 메타데이터 URL을 확인할 때 Azure AD에서 채워집니다.
 
-*   **로그인 단추 이름**: 조직이 사용자에게 로그인 페이지에 표시하려는 로그인 단추의 이름입니다.
+* **로그인 단추 이름**: 조직이 사용자에게 로그인 페이지에 표시하려는 로그인 단추의 이름입니다.
 
-*   **SAML 사용자 ID 위치**: SAML 응답에서 Jira 또는 Confluence 사용자 ID가 필요한 위치입니다. **NameID**에 있을 수도 있고 사용자 지정 특성 이름에 있을 수도 있습니다.
+* **SAML 사용자 ID 위치**: SAML 응답에서 Jira 또는 Confluence 사용자 ID가 필요한 위치입니다. **NameID**에 있을 수도 있고 사용자 지정 특성 이름에 있을 수도 있습니다.
 
-*   **특성 이름**: 사용자 ID가 필요한 특성 이름입니다.
+* **특성 이름**: 사용자 ID가 필요한 특성 이름입니다.
 
-*   **홈 영역 검색 사용**: 회사에서 AD FS(Active Directory Federation Services) 기반 로그인을 사용하는 경우 선택합니다.
+* **홈 영역 검색 사용**: 회사에서 AD FS(Active Directory Federation Services) 기반 로그인을 사용하는 경우 선택합니다.
 
-*   **도메인 이름**: 로그인이 AD FS 기반인 경우 도메인 이름입니다.
+* **도메인 이름**: 로그인이 AD FS 기반인 경우 도메인 이름입니다.
 
-*   **Single Sign-On 사용**: 사용자가 Jira 또는 Confluence에서 로그아웃할 때 Azure AD에서 로그아웃하려는 경우 선택합니다.
+* **Single Sign-On 사용**: 사용자가 Jira 또는 Confluence에서 로그아웃할 때 Azure AD에서 로그아웃하려는 경우 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -180,7 +180,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>플러그 인은 클라우드 버전에서 작동하나요?
 
- 아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
+아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
@@ -224,7 +224,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>플러그 인은 Azure AD 이외에 IdP와 함께 작동하나요?
 
- 아니요. Azure AD와만 함께 작동합니다.
+아니요. Azure AD와만 함께 작동합니다.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>플러그 인과 함께 작동하는 SAML 버전은 무엇인가요?
 
@@ -232,12 +232,12 @@ SAML 2.0과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
- 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
+아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
- 아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
+아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>플러그 인은 Jira 및 Confluence의 HTTP 버전과 함께 작동하나요?
 
- 아니요. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.
+아니요. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.

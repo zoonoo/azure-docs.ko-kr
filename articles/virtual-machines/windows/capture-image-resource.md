@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 48aa634ad28236564223c1a78a2e190cd2a0e668
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107467"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341768"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -143,7 +143,6 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
-    $snapshotName = "mySnapshot"
     $imageName = "myImage"
     ```
 

@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004213"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -106,7 +106,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
              "https://localhost:3000"
          ],
 
-    URL을 서비스의 URL로 바꿉니다.  예를 들면 " http://localhost:3000"(Node.js 샘플 서비스) 또는 "http://localhost:4400"(Ripple 서비스)이 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
+    URL을 서비스의 URL로 바꿉니다.  예를 들면 `http://localhost:3000` (Node.js 샘플 서비스)에 대해 또는 `http://localhost:4400` (Ripple 서비스)에 대 한 합니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
 8. 화면 오른쪽 위에 있는 **읽기/쓰기** 단추를 클릭합니다.
 9. 녹색 **배치** 단추를 클릭합니다.
 

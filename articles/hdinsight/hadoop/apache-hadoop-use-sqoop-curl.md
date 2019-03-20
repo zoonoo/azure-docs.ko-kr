@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834560"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Hadoop과 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HT
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 
-* [HDInsight에서 Hadoop과 Apache Sqoop 사용](hdinsight-use-sqoop.md#create-cluster-and-sql-database)을 완료하여 HDInsight 클러스터 및 Azure SQL Database로 환경을 구성합니다.
+* 전체 [HDInsight에서 Hadoop과 Apache Sqoop을 사용 하 여](hdinsight-use-sqoop.md#create-cluster-and-sql-database) HDInsight 클러스터 및 Azure SQL database를 사용 하 여 환경을 구성 하 합니다.
 * [Curl](https://curl.haxx.se/). Curl은 HDInsight 클러스터에서(로) 데이터를 전송하는 도구입니다.
 * [jq](https://stedolan.github.io/jq/). jq 유틸리티는 REST 요청에서 반환된 JSON 데이터를 처리하는 데 사용합니다.
 
@@ -68,19 +68,19 @@ Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HT
 
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-d** - `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
+   * **-d** - `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
 
-        * **user.name** - 명령을 실행하는 사용자입니다.
+       * **user.name** - 명령을 실행하는 사용자입니다.
 
-        * **명령** - 실행할 Sqoop 명령입니다.
+       * **명령** - 실행할 Sqoop 명령입니다.
 
-        * **statusdir** - 이 작업의 상태를 기록할 디렉터리입니다.
+       * **statusdir** - 이 작업의 상태를 기록할 디렉터리입니다.
 
-    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
+     이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. 작업 상태를 확인하려면 다음 명령을 사용합니다. **JOBID** 를 이전 단계에서 반환된 값으로 바꿉니다. 예를 들어 반환 값이 `{"id":"job_1415651640909_0026"}`인 경우 **JOBID**는 `job_1415651640909_0026`이 됩니다.
 

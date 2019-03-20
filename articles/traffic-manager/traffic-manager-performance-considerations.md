@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007954"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
 
@@ -28,7 +28,7 @@ WestUS 및 EastAsia 지역에 웹 사이트 인스턴스가 있습니다. 인스
 
 Traffic Manager가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회입니다. Traffic Manager 프로필의 이름에 대한 DNS 요청은 trafficmanager.net 영역을 호스팅하는 Microsoft DNS 루트 서버에서 처리됩니다. Traffic Manager는 Traffic Manager 정책 및 검색 결과에 기반하여 Microsoft DNS 루트 서버에 정보를 표시하고 정기적으로 업데이트합니다. 따라서 초기 DNS 조회 중에도 DNS 쿼리가 Traffic Manager에 전송되지 않습니다.
 
-Traffic Manager는 DNS 이름 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 엔드포인트 등 여러 구성 요소로 이루어져 있습니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 엔드포인트 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
+Traffic Manager는 여러 구성 요소 구성 됩니다. DNS 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 끝점 이름을 지정 합니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 엔드포인트 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
 
 DNS 이름 확인은 신속하고 결과는 캐시됩니다. 초기 DNS 조회 속도는 클라이언트가 이름 확인을 위해 사용하는 DNS 서버에 따라 다릅니다. 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 완료할 수 있습니다. 조회 결과는 DNS TTL(Time-to-Live)기간 동안 캐시됩니다. Traffic Manager에 대한 기본 TTL은 300 초입니다.
 
@@ -42,11 +42,11 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>DNS 성능을 측정하는 샘플 도구
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS는 많은 성능 도구를 제공합니다. DNS 비교 도구를 사용하면 DNS 이름을 확인하는 데 걸리는 시간 및 다른 DNS 서비스 공급자들과 비교할 때 어떤지 확인할 수 있습니다.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     가장 간단한 도구 중 하나는 WebSitePulse입니다. DNS 확인 시간, 첫 번째 바이트, 마지막 바이트 및 기타 성능 통계를 보려면 URL을 입력하십시오. 3개의 서로 다른 테스트 위치를 선택할 수 있습니다. 이 예에서는 첫 번째 실행에서 DNS 조회에 0.204초가 소요됨을 보여줍니다.
 
@@ -58,19 +58,19 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 * [CA 앱 가상 모니터](https://asm.ca.com/en/checkit.php)
 
-    이전에 Watchmouse Check Website 도구로 알려진 이 사이트는 여러 지리적 지역의 DNS 확인 시간을 동시에 보여줍니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
+    조사식 마우스 Check Website 도구로 알려진 이전,이 사이트 볼 DNS 확인 시간 여러 지리적 지역에서 동시에 있습니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     이 도구는 웹 페이지의 각 요소에 대한 성능 통계를 제공합니다. Page Analysis 탭은 DNS 조회에 소요된 시간의 백분율을 보여줍니다.
 
-* [Azure DNS란?](http://www.whatsmydns.net/)
+* [Azure DNS란?](https://www.whatsmydns.net/)
 
     이 사이트는 20곳의 서로 다른 위치에서 DNS 조회를 수행하여 지도에 결과를 표시합니다.
 
-* [Dig 웹 인터페이스](http://www.digwebinterface.com)
+* [Dig 웹 인터페이스](https://www.digwebinterface.com)
 
     이 사이트에서는 CNAME 및 A 기록을 포함한 보다 자세한 DNS 정보를 보여줍니다. 'Colorize output' 및 'Stats' 옵션을 확인하고 네임서버에서 ‘All’을 선택합니다.
 

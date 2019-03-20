@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075069"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -31,7 +31,7 @@ ms.locfileid: "55988088"
 
 **인지 인사이트** 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인사이트 위젯에서 지원하는 선택적 URL 매개 변수는 다음과 같습니다.
 
-|Name|정의|설명|
+|이름|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
 |버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 Embed URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
@@ -40,12 +40,12 @@ ms.locfileid: "55988088"
 
 **플레이어** 위젯을 사용하면 적응 비트 전송률을 사용하여 비디오를 스트림할 수 있습니다. 플레이어 위젯에서 지원하는 선택적 URL 매개 변수는 다음과 같습니다.
 
-|Name|정의|설명|
+|이름|정의|설명|
 |---|---|---|
 |t|시작 시간(초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: t=60|
 |captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: captions=en-US|
 |showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: showCaptions=true|
-|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|"
+|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|
 |autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: autoplay=false|
 |언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: language=de-DE|
 

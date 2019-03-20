@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903626"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -50,7 +50,7 @@ ms.locfileid: "54027455"
 * 행을 선택하면 [해당 세부 정보가 오른쪽](#details-of-the-selected-telemetry)에 표시됩니다. 
 
 > [!NOTE]
-다른 구성 요소에 대한 호출에는 두 행이 있습니다. 한 행은 호출자 구성 요소의 아웃바운드 호출(종속성)을 나타내고, 다른 한 행은 호출된 구성 요소의 인바운드 요청에 해당합니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다.
+> 다른 구성 요소에 대한 호출에는 두 행이 있습니다. 한 행은 호출자 구성 요소의 아웃바운드 호출(종속성)을 나타내고, 다른 한 행은 호출된 구성 요소의 인바운드 요청에 해당합니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>이 작업 ID를 사용한 모든 원격 분석
 
@@ -74,9 +74,9 @@ ms.locfileid: "54027455"
 
 [Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅숏 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅숏을 볼 수 있습니다.
 
-Profiler를 작동시키지 못한 경우 **serviceprofilerhelp@microsoft.com**에 문의하세요.
+Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microsoft.com**
 
-스냅숏 디버거를 작동시키지 못한 경우 **snapshothelp@microsoft.com**에 문의하세요.
+스냅숏 디버거 작업 못한 경우에 문의 하세요 **snapshothelp\@microsoft.com**
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 

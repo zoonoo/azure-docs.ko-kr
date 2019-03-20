@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106052"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
@@ -51,13 +51,13 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 
 VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 되었습니다.
 
-2.  **새로 만들기**를 클릭하고, **템플릿 배포**를 검색한 다음, **편집기에서 사용자 고유의 템플릿 작성**을 선택합니다.  <br/>
-  ![Azure Portal에서 VHD 배포 템플릿 작성](./media/publishvm_021.png)
+1. **새로 만들기**를 클릭하고, **템플릿 배포**를 검색한 다음, **편집기에서 사용자 고유의 템플릿 작성**을 선택합니다.  <br/>
+   ![Azure Portal에서 VHD 배포 템플릿 작성](./media/publishvm_021.png)
 
-3. 이 [JSON 템플릿](./cpp-deploy-json-template.md)을 복사하여 편집기에 붙여넣고, **저장**을 클릭합니다. <br/>
-  ![Azure Portal에서 VHD 배포 템플릿 저장](./media/publishvm_022.png)
+1. 이 [JSON 템플릿](./cpp-deploy-json-template.md)을 복사하여 편집기에 붙여넣고, **저장**을 클릭합니다. <br/>
+   ![Azure Portal에서 VHD 배포 템플릿 저장](./media/publishvm_022.png)
 
-4. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
+1. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    | VHD URL                     | 완전한 OS 디스크 VHD URL                                                     |
    |  |  |
             
-5. 이러한 값을 제공한 후 **구매**를 클릭합니다. 
+1. 이러한 값을 제공한 후 **구매**를 클릭합니다. 
 
 Azure에서 배포를 시작합니다. 지정된 관리되지 않는 VHD가 있는 새 VM을 지정된 저장소 계정 경로에 만듭니다.  포털의 왼쪽에 있는 **Virtual Machines**를 클릭하여 Azure Portal에서 진행 상황을 추적할 수 있습니다.  VM이 만들어지면 상태가 `Starting`에서 `Running`으로 변경됩니다. 
 

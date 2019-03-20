@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116676"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -38,7 +38,7 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 
 테넌트 환경에 배포하는 경우 다음과 같은 한 가지 설정 방법이 있습니다.
 
-1.  테넌트당 1명의 사용자를 만들고 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 특정 테넌트에 속하는 모든 VM에 읽기 전용 권한을 할당합니다. 그런 다음, 해당 자격 증명으로 검색을 수행합니다. RBAC는 해당 vCenter 사용자가 테넌트 특정 VM에만 액세스할 수 있도록 합니다.
+1. 테넌트당 1명의 사용자를 만들고 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 특정 테넌트에 속하는 모든 VM에 읽기 전용 권한을 할당합니다. 그런 다음, 해당 자격 증명으로 검색을 수행합니다. RBAC는 해당 vCenter 사용자가 테넌트 특정 VM에만 액세스할 수 있도록 합니다.
 2. 다음 예제에 설명된 대로 다른 테넌트 사용자인 User #1 및 User #2에 대해 RBAC를 설정합니다.
 
     - **사용자 이름** 및 **암호**에서, 수집기가 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.

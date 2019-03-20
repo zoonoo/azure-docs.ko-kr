@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992464"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[Java용 Azure Storage 클라이언트 라이브러리](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
+[Java용 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호화 및 암호 해독
 암호화 및 암호 해독 프로세스는봉투(Envelope) 기법을 따릅니다.  
@@ -43,7 +43,7 @@ ms.locfileid: "55471898"
 4. 그리고 콘텐츠 암호화 키 (CEK)는  암호화 된 사용자 데이터의 암호를 해독 하는데 사용 됩니다.
 
 ## <a name="encryption-mechanism"></a>암호화 메커니즘
-저장소 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
+저장소 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
 클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **upload*** 메서드 또는 **openOutputStream** 메서드를 사용할 때 암호화가 지원됩니다. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.  
@@ -55,9 +55,9 @@ ms.locfileid: "55471898"
 > 
 > 
 
-암호화된 BLOB 다운로드에는 **download*/openInputStream** 편의 메서드를 사용한 전체 BLOB의 콘텐츠 검색이 포함됩니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+사용한 전체 blob의 콘텐츠 검색을 포함 하는 암호화 된 blob을 다운로드 합니다 **다운로드**/**openInputStream** 편의 메서드. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
-암호화된 BLOB 내에서 임의의 범위를 다운로드할 경우(**DownloadRange*** 메서드) 요청된 범위를 성공적으로 암호를 해독하는 데 사용되는 소량의 추가 데이터를 얻기 위해 사용자가 제공하는 범위가 조정됩니다.  
+임의의 범위를 다운로드 (**downloadRange** 메서드) 암호화 된 blob에 성공적으로 요청 된 암호 해독에 사용할 수 있는 추가 데이터의 작은 용량을 얻기 위해 사용자가 제공한는 범위가 조정 됩니다 범위입니다.  
 
 이 스키마를 사용하여 모든 blob 유형(블록 blob, 페이지 blob 및 추가 blob)을 암호화/암호 해독할 수 있습니다.
 
@@ -98,8 +98,8 @@ ms.locfileid: "55471898"
 > [!NOTE]
 > 엔터티는 암호화되므로 암호화된 속성을 필터링하는 쿼리를 실행할 수 없습니다.  시도하면 암호화되지 않은 데이터와 암호화된 데이터를 비교하려고 하기 때문에 결과가 잘못됩니다.
 > 
->
-쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
+> 
+> 쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Java Maven 패키지에 대한 Azure Storage 클라이언트 라이브러리](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* [Java Maven 패키지에 대한 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * [GitHub에서 Java 소스 코드용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-java)   
 * Java Maven 패키지에 대한 Azure Key Vault Maven 라이브러리 다운로드
-  * [코어](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 패키지
-  * [클라이언트](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 패키지
+  * [코어](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 패키지
+  * [클라이언트](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 패키지
 * [Azure Key Vault 설명서](../../key-vault/key-vault-whatis.md)

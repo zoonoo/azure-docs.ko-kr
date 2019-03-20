@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f8234424d5f684577833f34d89ac3da9d4d16fa
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826024"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736534"
 ---
 # <a name="publishing-checklist-for-appsource"></a>AppSource에 대한 게시 검사 목록  
 게시 프로세스를 시작하기 전에 필수 구성 요소를 검토합니다.  
@@ -35,4 +35,4 @@ AppSource에서 앱을 게시하려면 다음과 같은 아티팩트가 필요�
 ## <a name="next-steps"></a>다음 단계
 *   [Azure Marketplace 및 AppSource 게시자 가이드](./marketplace-publishers-guide.md) 페이지를 방문합니다.  
 
----  
+---

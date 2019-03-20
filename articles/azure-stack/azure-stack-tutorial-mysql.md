@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116795"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>자습서: 항상 사용 가능한 MySQL 데이터베이스를 제공 합니다.
 
@@ -67,7 +67,7 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 - MySQL 클러스터를 호스트 하는 3 개의 Linux Vm
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **계산**를 차례로 **복제를 사용 하 여 MySQL**합니다.
 
@@ -168,7 +168,7 @@ MySQL Server 데이터베이스 기능을 포함 하 여 구독을 사용 하 �
 > MySQL 서버 (Microsoft.MySQLAdapter 서비스) 기능을 제공 하는 구독을 사용 하 여 테 넌 트 사용자로 Azure Stack 사용자 포털에서 이러한 단계를 실행 합니다.
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **Data \+ Storage**를 차례로 **MySQL 데이터베이스** .<br><br>이름, 데이터 정렬를 사용 하려면 구독 및 배포에 사용할 위치를 포함 하 여 필요한 데이터베이스 속성 정보를 제공 합니다. 
 

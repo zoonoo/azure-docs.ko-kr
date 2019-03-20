@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848901"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service에서 Azure Stack 업데이트 2 릴리스 정보
 
@@ -64,7 +64,7 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
     - NodeJS 8.11.1
   - 추가 **NPM** 버전:
     - 5.6.0
-  - .NET Core 업데이트 공용 클라우드에서 Azure App Service를 사용 하 여 일관 되도록 구성 합니다.
+  - 공용 클라우드에서 Azure App Service를 사용 하 여 일치 하도록 업데이트 된.NET Core 구성 요소입니다.
   - 업데이트 된 Kudu
 
 - 배포의 자동 교환 슬롯 기능 사용- [자동 교환 구성](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)

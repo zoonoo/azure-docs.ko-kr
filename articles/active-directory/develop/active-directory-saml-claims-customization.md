@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188752"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444041"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -59,7 +59,7 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| Name | 설명 |
+| 이름 | 설명 |
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN(사용자 계정 이름)입니다. |
@@ -82,7 +82,7 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 
 ## <a name="adding-claims"></a>클레임 추가
 
-클레임을 추가할 때 특성 이름(SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없음)을 지정할 수 있습니다. 값을 디렉터리에 저장된 사용자 특성으로 설정하거나 상수 값을 조직의 모든 사용자의 정적 입력으로 사용합니다.
+클레임을 추가할 때 특성 이름(SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없음)을 지정할 수 있습니다. 디렉터리에 저장 된 모든 사용자 특성 값을 설정 하거나 조직에서 모든 사용자에 대 한 상수 값을 정적 진입점으로 사용 합니다.
 
 ![사용자 특성 추가][7]
 

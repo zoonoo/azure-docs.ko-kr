@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078799"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213163"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리형 애플리케이션 제품 게시 가이드
 
@@ -46,6 +46,8 @@ BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 �
 >[!NOTE]
 > 관리되는 앱은 마켓플레이스를 통해 배포 가능해야 합니다. 고객 커뮤니케이션이 중요한 경우, 잠재 고객 공유를 사용하도록 설정한 후 관심 있는 고객에게 연결해야 합니다.  
 
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](./cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
 
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않았다면 

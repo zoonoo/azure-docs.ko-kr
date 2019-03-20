@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188342"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기에서 데이터베이스 또는 테이블을 만들거나 삭제하지 못함
 
@@ -37,7 +37,7 @@ Azure 데이터 탐색기에서는 정기적으로 데이터베이스와 테이�
 
     권한에 대한 자세한 내용은 [데이터베이스 권한 관리](manage-database-permissions.md)를 참조하세요.
 
-1. 동일한 이름의 테이블이 아직 없는지 확인합니다. 있는 경우 다른 이름으로 테이블 만들기, 기존 테이블 이름 바꾸기(*테이블 관리자* 역할 필요) 또는 기존 테이블 삭제(*데이터베이스 관리자* 역할 필요)를 수행할 수 있습니다. 다음 명령을 사용합니다.
+1. 동일한 이름의 테이블이 아직 없는지 확인합니다. 존재 하는 경우 다음을 수행할 수 있습니다. 다른 이름을;를 사용 하 여 테이블 만들기 기존 테이블의 이름을 바꾸고 (필요 *테이블 관리* 역할); 기존 테이블을 삭제 하거나 (필요 *데이터베이스 관리자* 역할). 다음 명령을 사용합니다.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Azure 데이터 탐색기에서는 정기적으로 데이터베이스와 테이�
 
 ## <a name="general-guidance"></a>일반 지침
 
-1. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/>)를 확인하세요. 데이터베이스 또는 테이블을 사용하려는 지역의 Azure 데이터 탐색기 상태를 확인합니다.
+1. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)를 확인하세요. 데이터베이스 또는 테이블을 사용하려는 지역의 Azure 데이터 탐색기 상태를 확인합니다.
 
     **양호**(녹색 확인 표시) 상태가 아닌 경우 해당 상태가 개선된 후에 다시 시도하세요.
 

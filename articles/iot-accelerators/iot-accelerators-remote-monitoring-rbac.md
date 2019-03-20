@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180758"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -21,26 +21,26 @@ ms.locfileid: "51820225"
 
 ## <a name="default-settings"></a>기본 설정
 
-원격 모니터링 솔루션을 처음 배포하는 경우 **관리자** 및 **읽기 전용**이라는 두 가지 역할이 있습니다.
+원격 모니터링 솔루션을 처음 배포할 때에 두 가지 역할이 있습니다. **Admin** 하 고 **읽기 전용**합니다.
 
 **관리자** 역할의 모든 사용자는 아래의 다음 권한을 포함하여 솔루션에 대한 전체 액세스 권한이 있습니다. **읽기 전용** 역할의 사용자는 솔루션을 보는 액세스만을 갖습니다.
 
 | 사용 권한            | 관리자 | 읽기 전용 |
 |----------------       |-------|-----------|
-| 솔루션 보기         | yes   | yes       |
-| 알람 업데이트         | yes   | 아니요        |
-| 알람 삭제         | yes   | 아니요        |
-| 디바이스 만들기        | yes   | 아니요        |
-| 디바이스 업데이트        | yes   | 아니요        |
-| 디바이스 삭제        | yes   | 아니요        |
-| 디바이스 그룹 만들기  | yes   | 아니요        |
-| 디바이스 그룹 업데이트  | yes   | 아니요        |
-| 디바이스 그룹 삭제  | yes   | 아니요        |
-| 규칙 만들기          | yes   | 아니요        |
-| 규칙 업데이트          | yes   | 아니요        |
-| 규칙 삭제          | yes   | 아니요        |
-| 작업 만들기           | yes   | 아니요        |
-| SIM 관리 업데이트 | yes   | 아니요        |
+| 솔루션 보기         | 예   | 예       |
+| 알람 업데이트         | 예   | 아닙니다.        |
+| 알람 삭제         | 예   | 아닙니다.        |
+| 디바이스 만들기        | 예   | 아닙니다.        |
+| 디바이스 업데이트        | 예   | 아닙니다.        |
+| 디바이스 삭제        | 예   | 아닙니다.        |
+| 디바이스 그룹 만들기  | 예   | 아닙니다.        |
+| 디바이스 그룹 업데이트  | 예   | 아닙니다.        |
+| 디바이스 그룹 삭제  | 예   | 아닙니다.        |
+| 규칙 만들기          | 예   | 아닙니다.        |
+| 규칙 업데이트          | 예   | 아닙니다.        |
+| 규칙 삭제          | 예   | 아닙니다.        |
+| 작업 만들기           | 예   | 아닙니다.        |
+| SIM 관리 업데이트 | 예   | 아닙니다.        |
 
 기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 애플리케이션 소유자로 설정해야 합니다.
 
@@ -197,7 +197,7 @@ X-Source: true
 Authorization: Bearer <JWT Token from ADAL>
 ```
 
-**ManageDevices** 역할의 **장치 관리자**라는 사용자는 응답의 본문에 다음 JSON이 포함됩니다.
+**ManageDevices** 역할의 **디바이스 관리자**라는 사용자는 응답의 본문에 다음 JSON이 포함됩니다.
 
 ```json
 {
@@ -212,7 +212,7 @@ Authorization: Bearer <JWT Token from ADAL>
 }
 ```
 
-[웹 UI](https://github.com/Azure/pcs-remote-monitoring-webui/)의 [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js)에서 가져온 다음, 코드 조각은 권한을 선언적으로 적용하는 방법을 보여줍니다.
+[웹 UI](https://github.com/Azure/pcs-remote-monitoring-webui/)의 [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js)에서 가져온 다음, 코드 조각은 권한을 선언적으로 적용하는 방법을 보여 줍니다.
 
 ```json
 <FlyoutContent>
@@ -230,7 +230,7 @@ Authorization: Bearer <JWT Token from ADAL>
 
 마이크로 서비스는 인증되지 않은 API 요청으로부터 보호하기 위해 권한을 확인합니다. 마이크로 서비스가 API 요청을 받으면 JWT 토큰을 디코딩하여 유효성을 검사하고 사용자의 역할과 관련된 사용자 ID 및 권한을 가져옵니다.
 
-[IoTHub 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)의 [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) 파일의 다음 코드 조각은 권한이 적용되는 방법을 보여줍니다.
+[IoTHub 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)의 [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) 파일의 다음 코드 조각은 권한이 적용되는 방법을 보여 줍니다.
 
 ```csharp
 [HttpDelete("{id}")]
@@ -249,5 +249,5 @@ public async Task DeleteAsync(string id)
 
 원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
 
-원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->를 참조하세요.
+원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
+<!-- Next tutorials in the sequence -->

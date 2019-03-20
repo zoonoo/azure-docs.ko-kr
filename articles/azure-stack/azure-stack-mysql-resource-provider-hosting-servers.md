@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101876"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -44,9 +44,9 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
 4. MySQL Server 인스턴스의 연결 세부 정보를 제공 합니다.
 
    * 에 대 한 **MySQL 호스팅 서버 이름**, 정규화 된 도메인 이름 (FQDN) 또는 유효한 IPv4 주소를 제공 합니다. 짧은 VM 이름을 사용 하지 마세요.
-   - 기본 관리자 **사용자 이름** Bitnami MySQL Azure Stack marketplace에서 사용할 수 있는 이미지에 대 한 됩니다 *루트*입니다. 
-   - 루트 알 수 없는 경우 **암호**를 참조 합니다 [Bitnami 설명서](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) 되도록 하는 방법을 알아보려면. 
-   - 기본 MySQL 인스턴스를이 제공 되지 않습니다 지정 해야 합니다 **의 호스팅 서버의 크기 (GB)** 합니다. 데이터베이스 서버의 용량에 가까운 크기를 입력 합니다.
+   * 기본 관리자 **사용자 이름** Bitnami MySQL Azure Stack marketplace에서 사용할 수 있는 이미지에 대 한 됩니다 *루트*입니다. 
+   * 루트 알 수 없는 경우 **암호**를 참조 합니다 [Bitnami 설명서](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) 되도록 하는 방법을 알아보려면. 
+   * 기본 MySQL 인스턴스를이 제공 되지 않습니다 지정 해야 합니다 **의 호스팅 서버의 크기 (GB)** 합니다. 데이터베이스 서버의 용량에 가까운 크기를 입력 합니다.
    * 에 대 한 기본 설정을 유지 **구독**합니다.
    * 에 대 한 **리소스 그룹**새 대시보드를 만들거나 기존 그룹을 사용 합니다.
 
@@ -60,8 +60,8 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
    SKU **이름을** 사용자가 적절 한 SKU를 해당 데이터베이스를 배포할 수 있도록 SKU의 속성을 반영 해야 합니다.
 
 6. 선택 **확인** 는 SKU를 만듭니다.
-> [!NOTE]
-> Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. SKU 배포 되어 실행 될 때까지 데이터베이스를 만들 수 없습니다.
+   > [!NOTE]
+   > Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. SKU 배포 되어 실행 될 때까지 데이터베이스를 만들 수 없습니다.
 
 7. 아래 **MySQL 호스팅 서버 추가**를 선택 **만들기**합니다.
 

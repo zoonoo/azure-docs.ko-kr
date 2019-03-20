@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171060"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -45,29 +45,60 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`가 나타나면 배포에 사용한 VM의 SKU를 메모리가 더 많은 SKU로 변경하세요.
 
 ## <a name="fpgas"></a>FPGA
+
 요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.
 
 ## <a name="databricks"></a>Databricks
 
 Databricks 및 Azure Machine Learning 문제.
 
-1. 더 많은 패키지가 설치된 Databricks에서 Azure Machine Learning SDK 설치 실패.
+### <a name="failure-when-installing-packages"></a>패키지를 설치 하는 동안 오류가 발생 했습니다
 
-   `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 라이브러리 버전을 동결하여 패키지를 설치하면 설치 오류를 방지할 수 있습니다. 이 문제는 Databricks 관련 문제이며 Azure Machine Learning Service SDK와는 관련이 없습니다. 이 문제는 기타 라이브러리에서도 발생할 수 있습니다. 예제:
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+자세한 패키지를 설치할 때 Azure Databricks에서 azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 동결 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning 서비스 SDK 아니라 Databricks에 관련 되어 있습니다. 다른 라이브러리를 사용 하 여이 문제는 너무 발생할 수 있습니다. 예제:
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+또는 Python 라이브러리를 사용 하 여 설치 문제가 유지 하는 경우 초기화 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)합니다.
+
+### <a name="cancel-an-automated-machine-learning-run"></a>실행을 학습 하는 자동화 된 컴퓨터의 취소
+
+실행을 취소 하 고 새 실험을 실행을 시작의 자동화 된 기계 학습 Azure Databricks에서 기능을 사용 하면 Azure Databricks 클러스터 다시 시작 합니다.
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 자동화 된 machine learning 위한 10 번 반복
+
+자동화 된 컴퓨터에서 10 개 반복 해야 하는 경우 설정을 학습 집합 `show_output` 에 `False` 실행을 제출할 때.
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/자동화 된 machine learning에 대 한 위젯
+
+Notebook에는 HTML 위젯이 구문 분석할 수 없습니다 때문에 Azure Machine Learning SDK 위젯 Databricks 전자 필기장에서 지원 되지 않습니다. Azure Databricks notebook 셀에서이 Python 코드를 사용 하 여 포털에서 위젯을 볼 수 있습니다.
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>가져오기 오류: 모듈이 없는 'pandas.core.indexes' 라는
+
+이 오류를 표시 하는 경우 자동으로 기계 학습 사용 하는 경우:
+
+1. Azure Databricks 클러스터에서 두 개의 패키지를 설치 하려면이 명령을 실행 합니다. 
+
    ```
-   또는 설치 문제가 계속되는 경우 Python 라이브러리를 사용하여 초기화 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원되지는 않습니다. [이 문서](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)를 참조할 수 있습니다.
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-2. Databricks에서 자동화된 Machine Learning을 사용할 때 실행을 취소하고 새 실험 실행을 시작하려는 경우에는 Azure Databricks 클러스터를 다시 시작하세요.
+1. 분리 및 노트북을 클러스터 다시 연결 합니다. 
 
-3. 자동화된 ml 설정에서 반복 횟수가 10회를 초과하는 경우 실행을 제출할 때 `show_output`을 `False`로 설정하세요.
-
+이 문제가 해결 되지 않으면, 클러스터를 다시 시작 하십시오.
 
 ## <a name="azure-portal"></a>Azure portal
+
 SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인해야 하는 경우 해결 방법은 [Azure Portal](https://portal.azure.com)로 직접 이동하여 작업 영역 이름을 검색하는 것입니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
+
 도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다.
 로그 파일 위치는 다음과 같습니다.
 

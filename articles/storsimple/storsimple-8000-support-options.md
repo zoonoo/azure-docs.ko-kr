@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 9137e52af16f63efe7f0b8169f2693a354564968
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875892"
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 솔루션 지원
 
@@ -42,7 +42,7 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
 | Azure Portal 티켓 제출                                                                          | ✓                                                                               | ✓                                                                              |
 | 온라인 지원 포털 액세스                                                                            | ✓                                                                               | ✓                                                                              |
 | 경고 프로비저닝 및 관리                                                                       | ✓                                                                               | ✓                                                                              |
-| 지원 센터 초기 응답 시간 연중무휴 지원 티켓 제출 <br> 심각도 기반의 초기 응답 시간 <sup>2 | 심각도 A: 2시간 이내 <br> 심각도 B: 4시간 이내 <br> 심각도 C: 8시간 이내 | 심각도 A: 60분 내 <br> 심각도 B: 2시간 이내 <br> 심각도 C: 4시간 이내 |
+| 지원 센터 초기 응답 시간 연중무휴 지원 티켓 제출 <br> 심각도 기반의 초기 응답 시간 <sup>2 | 심각도 a: 2 시간 이내 <br> 심각도 b: 4시간 이내 <br> 심각도 c: 8 시간 이내 | 심각도 a: 60 분 내 <br> 심각도 b: 2 시간 이내 <br> 심각도 c: 4시간 이내 |
 | 전화 지원(콜백)                                                                               | ✓                                                                               | ✓                                                                              |
 | 고급 부품 교체(StorSimple 8000 시리즈만 해당) <sup>3</sup>                                              | 다음 영업일 <sup>4                                                              | 4시간 이내                                                                 |
 | 현장 서비스 엔지니어(StorSimple 8000 시리즈만 해당) <sup>3</sup>                                         | 사용할 수 없음                                                                   | 4시간 이내                                                                 |
@@ -60,13 +60,13 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
 
 <sup>2</sup> 다음과 같이 정의된 심각도입니다. 
 
-* 심각도 A: 심각한 수준의 서비스 손실 또는 저하
+* 심각도 a: 심각한 손실 또는 서비스 저하
 
 
-* 심각도 B: 보통 수준의 서비스 손실 또는 저하가 발생하지만 저하된 상태에서도 업무를 지속할 수 있음
+* 심각도 b: 지속할에서 보통 수준의 손실 또는 저하가 발생 하지만 작업을 계속할 수 있습니다.
 
 
-* 심각도 C: 시스템 기능 손상이 거의 또는 전혀 없는 상태로 업무를 지속할 수 있음
+* 심각도 c: 부 버전이 나 시스템 기능에 없는 장애 요소 있음
 
     Microsoft에서 문제 해결을 지속하는 데 필요한 적절한 리소스 또는 응답을 고객이 제공할 수 없는 경우 Microsoft는 심각도 A 사례의 심각도 수준을 다운그레이드할 수 있습니다. 예상 응답 시간은 심각도 A의 경우 영어 연중무휴 지원, 심각도 B 및 C의 경우 현지 업무 시간 지원을 기반으로 합니다. 
 
@@ -81,7 +81,7 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
 지원 계약이 만료된 경우, 지원 계약이 만료된 기간에 따라 갱신 처리가 완료된 후 부품이 배달되기까지 최대 3주가 소요될 수 있습니다. 계약이 처리될 때까지 계약의 로컬 재고 위치에 교체용 부품이 보충되지 않기 때문입니다.
 
 ## <a name="local-language-support"></a>현지 언어 지원
-영어 외에도 업무 시간 중 일본어, 한국어, 대만어 및 중국어 번체로 현지 언어 지원이 제공됩니다.
+영어 외에도 업무 시간 동안 현지 언어 지원은 다음 언어로 제공 됩니다. 일본어, 한국어, 대만, 및 중국어 번체 합니다.
 
 ## <a name="support-scope"></a>지원 범위 
 청구 및 구독 관리 관련 문제에 대한 지원은 모든 지원 수준에서 제공됩니다. StorSimple 지원을 받으려면 고객이 StorSimple 표준 또는 프리미엄 지원 계획에 등록해야 합니다. StorSimple 지원 팀은 StorSimple 솔루션에 영향을 주는 모든 문제를 해결할 책임이 있습니다. StorSimple과 직접적으로 관련되지 않은 Azure 관련 문제에 대한 지원을 받으려면 고객은 적절한 Azure 지원 계획에 등록해야 합니다. 자세한 내용은 [여기](https://azure.microsoft.com/support/plans/)를 참조하세요. 지원 팀은 고객의 Azure 지원에 대한 자격에 따라 StorSimple 이외의 지원 사례는 Azure 팀에 안내하여 후속 조치합니다. 
@@ -95,7 +95,7 @@ Microsoft는 StorSimple 엔터프라이즈 저장소 고객에게 유연한 지�
  
 <sup>1</sup> Microsoft에서 문제 해결을 지속하는 데 필요한 적절한 리소스 또는 응답을 고객이 제공할 수 없는 경우 Microsoft는 심각도 A 사례의 심각도 수준을 다운그레이드할 수 있습니다.
 
-<sup>2</sup> 예상 응답 시간은 심각도 A의 경우 영어 연중무휴 지원, 심각도 B 및 C의 경우 현지 업무 시간 지원을 기반으로 합니다. 현지 언어 지원은 업무 시간 중 일본어, 대만어, 중국어 번체 및 한국어로 제공됩니다.
+<sup>2</sup> 예상 응답 시간 연중 무휴 지원을 영어로 심각도 A 및 지역 업무 시간에 대 한 심각도 B 및 C에 기반한 및 나머지 지역 언어에서 지 원하는 지역 업무 시간: Japanese, 대만, 기존의 중국어 및 일본어입니다.
 
 ## <a name="cancellation-policy"></a>취소 정책
 StorSimple 지원을 받으려면 고객이 구독 기간에 대한 표준 또는 프리미엄 지원 계획을 구입해야 합니다. 취소 시 비례 배분된 환불이 적용되지 않습니다. StorSimple 지원 계획은 EA 연주기일에 축소할 수 있습니다. 그러나 Microsoft는 유효한 지원 계약이 없는 StorSimple 고객에게 지원을 제공할 수 없습니다.
@@ -119,9 +119,9 @@ StorSimple 배열을 구입한 방법에 따라 StorSimple 8000 시리즈 저장
 
 
 
-*<text> * 프리미엄 적용 범위는 일부 위치에서 사용할 수 없습니다. StorSimple 프리미엄 지원을 구입하기 전에 지역별 적용 범위에 대해 Microsoft(SSSupOps@microsoft.com)에 문의하세요.*
+*<text> * 프리미엄 적용 범위는 일부 위치에서 사용할 수 없습니다. SSSupOps에서 Microsoft로 문의\@microsoft.com StorSimple 프리미엄 지원을 구입 하기 전에 지역별 적용 범위에 대 한 합니다.*
 
-***프리미엄 StorSimple 지원으로 무료 업그레이드를 받으려면 고객에게 프리미어 지원이 적용되는 지역에 StorSimple 어플라이언스를 배포해야 합니다.*
+**\*프리미엄 StorSimple 지원으로 무료 업그레이드를 받으려면 고객에게 프리미어 지원이 적용되는 지역에 StorSimple 어플라이언스를 배포해야 합니다.*
 
 
 ASAP+ 고객은 표준 지원이 포함된 구독 모델로 전환할 수 있습니다. 구독 가격 책정에 StorSimple 가격 계산기를 사용하고, 궁금한 점이 있으면 SSSupOps@microsoft.com에 문의하세요. 전환은 ASAP+에서 구독으로만 진행되는 단방향입니다.

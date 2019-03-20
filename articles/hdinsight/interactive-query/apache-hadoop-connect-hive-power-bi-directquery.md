@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 5f4053888cc8402ab0196e40c33f1acc3e7eef44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.date: 02/25/2018
+ms.openlocfilehash: d9639a4a116e06e17005ebddbb26379882491b33
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651134"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867833"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Azure HDInsight에서 직접 쿼리를 사용하여 Microsoft Power BI에서 대화형 쿼리 Apache Hive 데이터 시각화
 
-이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공된 예제는 hivesampletable Hive 테이블의 데이터를 Power BI에 로드합니다. hivesampletable Hive 테이블에는 일부 휴대폰 사용 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
+이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공 된 예제 데이터를 로드 한 `hivesampletable` Power BI로 Hive 테이블. `hivesampletable` Hive 테이블에 일부 휴대폰 사용 현황 데이터가 포함 되어 있습니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -32,35 +32,35 @@ ms.locfileid: "53651134"
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight에서 데이터 로드
 
-hivesampletable Hive 테이블은 모든 HDInsight 클러스터와 함께 제공됩니다.
+`hivesampletable` Hive 테이블 모든 HDInsight 클러스터와 함께 제공 합니다.
 
-1. Power BI Desktop에 로그인합니다.
+1. Power BI Desktop을 시작 합니다.
 
-2. **홈** 탭을 클릭하고 **외부 데이터** 리본에서 **데이터 가져오기**를 선택한 후 **자세히...** 를 선택합니다.
+2. 메뉴 모음에서로 이동 **Home** > **데이터 가져오기** > **더...** .
 
     ![HDInsight Power BI 데이터 열기](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
-    
-3. **데이터 가져오기** 창에서 검색 상자에 **hdinsight**를 입력합니다. **HDInsight 대화형 쿼리(베타)** 가 표시되지 않으면 Power BI Desktop을 최신 버전으로 업데이트해야 합니다.
 
-4. **HDInsight 대화형 쿼리(베타)** 를 선택하고 **연결**을 선택합니다.
+3. **데이터 가져오기** 창에서 입력 **hdinsight** 검색 상자에 있습니다.  
 
-5. **계속**을 선택하여 **커넥터 미리 보기** 경고 대화 상자를 닫습니다.
+4. 검색 결과에서 선택 **HDInsight 대화형 쿼리**를 선택한 후 **Connect**합니다.  찾을 수 없으면 **HDInsight 대화형 쿼리**, Power BI Desktop을 최신 버전으로 업데이트 해야 합니다.
 
-6. **HDInsight 대화형 쿼리**에서 다음 정보를 선택하거나 입력합니다.
+5. 선택 **계속** 닫으려면를 **타사 서비스에 연결할** 대화 합니다.
 
-    - **서버**: 대화형 쿼리 클러스터 이름을 입력합니다(예: *myiqcluster.azurehdinsight.net*).
+6. 에 **HDInsight 대화형 쿼리** 창에서 다음 정보를 입력 한 다음 선택 **확인**:
 
-    - **데이터베이스**: 이 자습서에서는 **default**를 입력합니다.
-    
-    - **데이터 연결 모드**: 이 자습서에서는 **DirectQuery**를 선택합니다.
+    |자산 | 값 |
+    |---|---|
+    |서버 |예를 들어 클러스터 이름을 입력 *myiqcluster.azurehdinsight.net*합니다.|
+    |데이터베이스 |입력 **기본** 이 문서에 대 한 합니다.|
+    |데이터 연결 모드 |선택 **DirectQuery** 이 문서에 대 한 합니다.|
 
     ![HDInsight 대화형 쿼리 Power BI DirectQuery 연결](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
-7. **확인**을 클릭합니다.
+7. HTTP 자격 증명을 입력 한 다음 선택 **Connect**합니다. 기본 사용자 이름은 **admin**입니다.
 
-8. HTTP 사용자 자격 증명을 입력한 다음 **확인**을 클릭합니다. 기본 사용자 이름은 **admin**입니다.
+8. **Navigator** 의 왼쪽된 창에서 창 **hivesampletale**합니다.
 
-9. 왼쪽 창에서 **hivesampletale**을 선택하고 **로드**를 클릭합니다.
+9. 선택 **부하** 주 창에서.
 
     ![HDInsight 대화형 쿼리 Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
@@ -68,11 +68,11 @@ hivesampletable Hive 테이블은 모든 HDInsight 클러스터와 함께 제공
 
 마지막 절차에서 계속 진행합니다.
 
-1. 시각화 창에서 **맵**을 선택합니다.  지구 아이콘입니다.
+1. 시각화 창에서 선택 **맵**, 구형 아이콘입니다. 그런 다음 일반 맵 주 창에 나타납니다.
 
     ![HDInsight Power BI 보고서 사용자 지정](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
-    
-2. 필드 창에서 **country** 및 **devicemake**를 선택합니다. 맵에 표시된 데이터를 볼 수 있습니다.
+
+2. 필드 창에서 **country** 및 **devicemake**를 선택합니다. 데이터 요소를 사용 하 여 전 세계 맵에 잠시 후 주 창에 나타납니다.
 
 3. 맵을 확장합니다.
 

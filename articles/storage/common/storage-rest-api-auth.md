@@ -4,16 +4,16 @@ description: 인증을 포함하여 Azure Storage Services REST API 작업 호�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012783"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
 
@@ -46,7 +46,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="what-is-rest"></a>REST란 무엇인가요?
 
-REST는 *Representational State Transfer*를 말합니다. 구체적인 정의는 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
+REST는 *Representational State Transfer*를 말합니다. 구체적인 정의는 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
 
 기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 어떤 일이 발생하든, REST 호출을 보내거나 받을 때 어떤 소프트웨어가 사용되든 아무 관계 없습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 애플리케이션을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
 
@@ -80,7 +80,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 
 [요청 본문](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers에 대한 요청 본문이 없습니다. 요청 본문은 BLOB을 업로드할 때 모든 PUT 작업에 사용되며, 적용하려는 저장된 액세스 정책 XML 목록을 보낼 수 있는 SetContainerAccessPolicy에도 사용됩니다. 저장된 액세스 정책은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 문서에서 다룹니다.
 
-[응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code)**:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
+[응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code)**:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
 
 [응답 헤더](/rest/api/storageservices/List-Containers2#response-headers)**:** 여기에는 ‘콘텐츠 형식’, *x-ms-request-id*(해당하는 경우 개발자가 전달한 요청 ID), *x-ms-version*(사용되는 Blob service 버전을 나타냄) 및 ‘날짜’(UTC, 요청이 수행된 시간을 알려줌)가 포함됩니다.
 
@@ -88,7 +88,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 
 ## <a name="creating-the-rest-request"></a>REST 요청 만들기
 
-시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](http://www.telerik.com/fiddler) 또는 유사한 애플리케이션을 다운로드합니다. Visual Studio 솔루션에서 저장소 계정 이름과 키는 클래스에 하드 코딩되고, ListContainersAsyncREST 메서드는 저장소 계정 이름과 저장소 계정 키를 다양한 REST 요청 구성 요소를 만드는 데 사용되는 메서드에 전달합니다. 실제 애플리케이션에서 스토리지 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
+시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](https://www.telerik.com/fiddler) 또는 유사한 애플리케이션을 다운로드합니다. Visual Studio 솔루션에서 저장소 계정 이름과 키는 클래스에 하드 코딩되고, ListContainersAsyncREST 메서드는 저장소 계정 이름과 저장소 계정 키를 다양한 REST 요청 구성 요소를 만드는 데 사용되는 메서드에 전달합니다. 실제 애플리케이션에서 스토리지 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
 
 우리가 사용하는 샘플 프로젝트의 경우 개발자가 클래스 전체를 가져와서 솔루션에 "있는 그대로" 추가할 수 있다는 생각으로 인증 헤더를 만드는 코드가 별도의 클래스에 있습니다. 인증 헤더 코드는 Azure Storage에 대한 대부분의 REST API 호출에 사용할 수 있습니다.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 대부분의 이러한 필드는 거의 사용되지 않습니다. Blob Storage의 경우 VERB, md5, 콘텐츠 길이, 정식화 헤더 및 정식화 리소스를 지정합니다. 다른 항목은 비워 두어도 됩니다(하지만 비어 있다는 것을 알 수 있도록 `\n` 삽입).
 
-CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정규화에 대한 Wikipedia의 설명에 대한 Wikipedia의 설명](http://en.wikipedia.org/wiki/Canonicalization)은 다음과 같습니다. ‘컴퓨터 공학에서 말하는 정규화(경우에 따라 표준화 또는 일반화라고 부르기도 함)는 둘 이상의 가능한 표현이 있는 데이터를 하나의 “표준”, “일반” 또는 정규 양식으로 변환하는 프로세스를 의미합니다.’ 다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
+CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정규화에 대한 Wikipedia의 설명에 대한 Wikipedia의 설명](https://en.wikipedia.org/wiki/Canonicalization)은 다음과 같습니다. ‘컴퓨터 공학에서 말하는 정규화(경우에 따라 표준화 또는 일반화라고 부르기도 함)는 둘 이상의 가능한 표현이 있는 데이터를 하나의 “표준”, “일반” 또는 정규 양식으로 변환하는 프로세스를 의미합니다.’ 다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
 
 인증 헤더를 만드는 데 필요한 두 정식화 필드부터 알아보겠습니다.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-다음 값은 [Fiddler](http://www.telerik.com/fiddler)에서 얻습니다.
+다음 값은 [Fiddler](https://www.telerik.com/fiddler)에서 얻습니다.
 
 **요청:**
 

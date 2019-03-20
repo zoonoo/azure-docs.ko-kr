@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118278"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245049"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure Log Integration 소개
 
@@ -61,7 +61,7 @@ Azure Log Integration은 ArcSight, QRadar 및 Splunk를 지원합니다. SIEM �
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | [Splunk용 Azure Monitor 추가 기능](https://splunkbase.splunk.com/app/3534/)으로 마이그레이션을 시작합니다. | [Splunk 커넥터](https://splunkbase.splunk.com/app/3534/)를 사용합니다. |
 |**QRadar** | [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)의 마지막 섹션에 문서화된 QRadar 커넥터로 마이그레이션하거나 사용을 시작합니다. | [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)의 마지막 섹션에 문서화된 QRadar 커넥터를 사용합니다. |
-|**ArcSight** | 커넥터를 사용할 수 있을 때까지 Azure 로그 통합자를 계속 사용한 다음, 커넥터 기반 솔루션으로 마이그레이션합니다.  | Azure Log Analytics는 대안으로 사용하는 것이 좋습니다. 커넥터가 제공될 때 마이그레이션 프로세스를 수행할 의향이 없다면 Azure Log Integration을 사용하지 마세요. |
+|**ArcSight** | 커넥터를 사용할 수 있을 때까지 Azure 로그 통합자를 계속 사용한 다음, 커넥터 기반 솔루션으로 마이그레이션합니다.  | 대 안으로 Azure Monitor 로그를 사용 하는 것이 좋습니다. 커넥터가 제공될 때 마이그레이션 프로세스를 수행할 의향이 없다면 Azure Log Integration을 사용하지 마세요. |
 
 > [!NOTE]
 > Azure Log Integration은 무료 솔루션이지만 로그 파일 정보 스토리지와 관련된 Azure Storage 비용이 발생합니다.

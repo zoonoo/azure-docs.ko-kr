@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9eca22f5a594bf3d61b1d68882c4853f4bfc499d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100754"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack의 업데이트 적용
 
@@ -30,7 +30,7 @@ ms.locfileid: "56099295"
 
 통합된 시스템 버전 1807을 사용 하는 경우 업데이트 패키지를 다운로드 해야 하는 이전에 Azure Stack에 패키지 파일을 가져올 하 고 업데이트 패키지를 설치 합니다. 자세한 내용은 [패키지를 다운로드 하 여 Azure Stack 업데이트](#update-azure-stack-by-downloading-the-package)
 
-이러한 지침은 작업 Azure Stack 통합 시스템을 업그레이드합니다. Azure Stack 개발 시스템을 사용 하는 경우 최신 버전은 설치 패키지를 다운로드 해야 합니다. 자세한 내용은 [Azure Stack 개발 키트를 설치 합니다.](.\asdk\asdk-install.md)
+이러한 지침은 작업 Azure Stack 통합 시스템을 업그레이드합니다. Azure Stack 개발 시스템을 사용 하는 경우 최신 버전은 설치 패키지를 다운로드 해야 합니다. 자세한 내용은 [Azure Stack 개발 키트를 설치 합니다.](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>Azure Stack을 업데이트 합니다.
 

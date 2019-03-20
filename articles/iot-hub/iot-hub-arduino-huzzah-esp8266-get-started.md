@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085102"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515474"
 사용자가 만든 IoT Hub에 Adafruit Feather HUZZAH ESP8266을 연결합니다. 그런 다음 ESP8266에서 샘플 애플리케이션을 실행하여 DHT22 센서로부터 온도 및 습도 데이터를 수집합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
 
 > [!NOTE]
-> 다른 ESP8266 보드를 사용하는 경우에도 이러한 단계에 따라 IoT Hub에 계속 연결할 수 있습니다. 사용하는 ESP8266 보드에 따라 `LED_PIN`을 다시 구성해야 할 수도 있습니다. 예를 들어 AI-Thinker의 ESP8266을 사용하는 경우 `0`을 `2`로 변경할 수 있습니다. 아직 키트가 없으세요? [Azure 웹 사이트에서 가져오기](http://azure.com/iotstarterkits)
+> 다른 ESP8266 보드를 사용하는 경우에도 이러한 단계에 따라 IoT Hub에 계속 연결할 수 있습니다. 사용하는 ESP8266 보드에 따라 `LED_PIN`을 다시 구성해야 할 수도 있습니다. 예를 들어 AI-Thinker의 ESP8266을 사용하는 경우 `0`을 `2`로 변경할 수 있습니다. 아직 키트가 없으세요? [Azure 웹 사이트에서 가져오기](https://azure.com/iotstarterkits)
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -66,7 +66,7 @@ ms.locfileid: "51515474"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -160,7 +160,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 6. Visual Studio Code에서 `F1`을 입력합니다.
 
-7. **Arduino**를 입력하고 **Arduino: 보드 관리자**를 선택합니다.
+7. 형식 **Arduino** 선택한 **Arduino: 보드 관리자**를 입력하고 선택합니다.
 
 8. **Arduino: 보드 관리자** 탭에서 **추가 URL**을 클릭합니다.
 
@@ -180,19 +180,19 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 12. esp8266에 대한 **설치** 단추를 클릭합니다.
 
-   [보드 관리자]에서 ESP8266 2.2.0 이상 버전으로 설치되었음을 나타냅니다.
+    [보드 관리자]에서 ESP8266 2.2.0 이상 버전으로 설치되었음을 나타냅니다.
 
-   ![esp8266 패키지가 설치됨](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![esp8266 패키지가 설치됨](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. `F1` 및 **Arduino**를 차례로 입력하고 **Arduino: 보드 구성**을 선택합니다.
+13. 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 보드 구성**합니다.
 
 14. **선택한 보드:** 에 대한 상자를 클릭하고 **esp8266**을 선택한 후 **Adafruit HUZZAH ESP8266(esp8266)** 을 선택합니다.
 
-   ![esp8266 보드 선택](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![esp8266 보드 선택](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>필요한 라이브러리 설치
 
-1. Visual Studio Code에서 `F1`을 입력하고 **Arduino**를 입력한 후 **Arduino: 라이브러리 관리자**를 선택합니다.
+1. Visual Studio Code에서 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 라이브러리 관리자**합니다.
 
 2. 다음 라이브러리 이름을 하나씩 검색합니다. 찾은 각 라이브러리에 대해 **설치**를 클릭합니다.
    * `AzureIoTHub`
@@ -222,7 +222,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 1. Visual Studio Code의 상태 표시줄에서 **<Select Serial Port>** 를 클릭한 후 Feather HUZZAH ESP8266에 대한 직렬 포트를 클릭합니다.
 
-2. `F1`을 입력하고 **Arduino**를 입력한 후 **Arduino: 업로드**를 선택하여 샘플 응용 프로그램을 빌드하고 Feather HUZZAH ESP8266에 배포합니다.
+2. 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 업로드** 을 빌드하고 Feather HUZZAH ESP8266에 샘플 응용 프로그램을 배포 합니다.
 
 ### <a name="enter-your-credentials"></a>자격 증명 입력
 

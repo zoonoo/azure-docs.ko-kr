@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904374"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩
 
@@ -71,7 +71,7 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
 
     > [!TIP]
     > 
-    > [jsonschema.net](http://jsonschema.net/) 같은 도구에서, 또는 **샘플 페이로드를 사용하여 스키마 생성**을 선택하여 **요청** 트리거에서 샘플 JSON 페이로드에 대한 스키마를 생성할 수 있습니다. 
+    > [jsonschema.net](https://jsonschema.net/) 같은 도구에서, 또는 **샘플 페이로드를 사용하여 스키마 생성**을 선택하여 **요청** 트리거에서 샘플 JSON 페이로드에 대한 스키마를 생성할 수 있습니다. 
     > 샘플 페이로드를 입력하고 **완료**를 선택합니다.
 
     예를 들어 다음 샘플 페이로드는:
@@ -275,9 +275,9 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 ## <a name="q--a"></a>질문과 대답
 
-#### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
+#### <a name="q-what-about-url-security"></a>Q: URL 보안의 경우는 어떨까요?
 
-A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL을 안전하게 생성합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+A: Azure는 공유 액세스 서명 (SAS)을 사용 하 여 논리 앱 콜백 Url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
    > [!IMPORTANT]
    > 프로덕션 및 보안 시스템의 경우 다음과 같은 이유로 논리 앱을 브라우저에서 직접 호출하는 것을 권장하지 않습니다.
@@ -285,18 +285,18 @@ A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL�
    > * URL에 공유 액세스 키가 나타납니다.
    > * 논리 앱 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 엔드포인트를 추가로 구성할 수 있습니까?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 끝점을 추가로 구성할 수 있나요?
 
-A: 예, HTTP 엔드포인트는 [**API Management**](../api-management/api-management-key-concepts.md)를 통해 고급 구성을 지원합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
+A: HTTP 끝점을 통해 고급 구성을 지원 예 [ **API Management**](../api-management/api-management-key-concepts.md)합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
 
 * [요청 메서드 변경](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [요청의 URL 세그먼트 변경](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * [Azure Portal](https://portal.azure.com/ "Azure Portal")에서 API Management 도메인 설정
 * 기본 인증을 확인하는 정책 설정
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 스키마가 2014년 12월 1일 마이그레이션되었을 때 미리 보기가 어떻게 변경되었습니까?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 2014 년 12 월 1 일, 미리 보기에서 스키마를 마이그레이션할 때 변경 기능
 
-A: 다음은 이러한 변경 내용에 대한 요약입니다.
+A: 이러한 변경에 대 한 요약 정보는 다음과 같습니다.
 
 | 2014 년 12 월 1 일 미리 보기 | 2016년 6월 1일 |
 | --- | --- |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248064"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550108"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -60,9 +60,9 @@ ms.locfileid: "51248064"
 
 1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제안 및 계획 게시자를 입력할 수도 있습니다.
 
-   - **계획 이름:** 이 사용자 지정 이미지를 만들 Marketplace 이미지(SKU)의 이름을 입력합니다. 
-   - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품(제안)을 입력합니다. 
-   - **계획 게시자:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 게시자를 입력합니다.
+   - **계획 이름:** 이 사용자 지정 이미지 생성은 Marketplace 이미지 (SKU)의 이름 입력 
+   - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품 (제안)를 입력 합니다. 
+   - **계획 게시자:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 게시자를 입력 합니다.
 
    > [!NOTE]
    > 사용자 지정 이미지를 만드는 데 사용되는 이미지가 **라이선스 이미지가 아닌 경우** 이러한 필드는 비어 있으며, 해당 필드를 선택하면 채울 수 있습니다. **라이선스 이미지인 경우** 계획 정보가 자동으로 필드에 채워집니다. 이 경우 변경하려고 하면 경고 메시지가 표시됩니다.
@@ -81,7 +81,7 @@ ms.locfileid: "51248064"
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
 - [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Azure DevTest Labs 간의 사용자 지정 이미지 복사](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Azure DevTest Labs 간의 사용자 지정 이미지 복사](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>다음 단계
 

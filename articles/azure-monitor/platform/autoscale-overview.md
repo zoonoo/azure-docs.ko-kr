@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085646"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -66,15 +66,15 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 
 - **자동 크기 조정 설정** 은 자동 크기 조정 엔진에서 크기를 조정할지 여부를 결정하는 데 사용됩니다. 여기에는 하나 이상의 프로필, 대상 리소스에 대한 정보 및 알림 설정이 포함됩니다.
 
-    - **자동 크기 조정 프로필**은 다음 항목의 조합입니다.
+  - **자동 크기 조정 프로필**은 다음 항목의 조합입니다.
 
-        - **용량 설정**은 인스턴스 수의 최소값, 최대값 및 기본값을 나타냅니다.
-        - **일련의 집합**은 각 트리거(시간 또는 미터법) 및 크기 조정 작업(위쪽 또는 아래쪽)을 포함합니다.
-        - **되풀이**는 자동 크기 조정에서 이 프로필을 적용할 시기를 지정합니다.
+    - **용량 설정**은 인스턴스 수의 최소값, 최대값 및 기본값을 나타냅니다.
+    - **일련의 집합**은 각 트리거(시간 또는 미터법) 및 크기 조정 작업(위쪽 또는 아래쪽)을 포함합니다.
+    - **되풀이**는 자동 크기 조정에서 이 프로필을 적용할 시기를 지정합니다.
 
-        여러 프로필을 설정하여 겹치는 다양한 요구 사항을 해결할 수 있습니다. 예를 들어 서로 다른 날짜 또는 요일에 대해 서로 다른 자동 크기 조정 프로필을 적용할 수 있습니다.
+      여러 프로필을 설정하여 겹치는 다양한 요구 사항을 해결할 수 있습니다. 예를 들어 서로 다른 날짜 또는 요일에 대해 서로 다른 자동 크기 조정 프로필을 적용할 수 있습니다.
 
-    - **알림 설정** 은 자동 크기 조정 설정의 한 프로필에 대한 조건을 만족하여 자동 크기 조정 이벤트가 발생할 때 발생하는 알림을 정의합니다. 자동 크기 조정은 하나 이상의 메일 주소에 알리거나 하나 이상의 웹후크를 호출할 수 있습니다.
+  - **알림 설정** 은 자동 크기 조정 설정의 한 프로필에 대한 조건을 만족하여 자동 크기 조정 이벤트가 발생할 때 발생하는 알림을 정의합니다. 자동 크기 조정은 하나 이상의 메일 주소에 알리거나 하나 이상의 웹후크를 호출할 수 있습니다.
 
 
 ![Azure 자동 크기 조정 설정, 프로필 및 규칙 구조](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)

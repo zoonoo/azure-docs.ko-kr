@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113251"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -49,7 +49,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![Key Vault의 이름 변경 및 리소스 그룹 선택](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. 기존 리소스 그룹을 선택하거나 자동으로 생성된 고유한 이름으로 새 레코드를 만듭니다.  다른 이름으로 새 그룹을 만들려는 경우 [Azure Portal](https://portal.azure.com)을 사용한 다음, 페이지를 닫고 리소스 그룹의 목록을 다시 로드할 수 있습니다.
+1. 기존 리소스 그룹을 선택 하거나를 자동으로 생성 된 고유한 이름으로 새 레코드를 만들려면 선택 합니다.  다른 이름으로 새 그룹을 만들려는 경우 [Azure Portal](https://portal.azure.com)을 사용한 다음, 페이지를 닫고 리소스 그룹의 목록을 다시 로드할 수 있습니다.
 1. Key Vault를 만들 지역을 선택합니다. 웹 애플리케이션이 Azure에서 호스트되는 경우 최적의 성능을 위해 웹 애플리케이션을 호스팅하는 지역을 선택합니다.
 1. 가격 책정 모델을 선택합니다. 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조하세요.
 1. 확인을 선택하여 구성 선택을 수락합니다.
@@ -78,7 +78,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 1. 이러한 두 NuGet 패키지 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 라이브러리를 설치합니다.
 
 2. Program.cs 파일을 열고 해당 코드를 다음 코드로 업데이트합니다. 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -106,27 +106,27 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. 그런 후 About.cshtml.cs 파일을 열고 다음 코드 작성
-    1. 이 using 문을 사용하여 Microsoft.Extensions.Configuration에 대한 참조 포함    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. 이 생성자 추가
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. OnGet 메서드를 업데이트합니다. 위의 명령에서 만든 비밀 이름으로 여기에 표시된 자리 표시자 값을 업데이트합니다.
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. 이 using 문을 사용하여 Microsoft.Extensions.Configuration에 대한 참조 포함    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. 이 생성자 추가
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. OnGet 메서드를 업데이트합니다. 위의 명령에서 만든 비밀 이름으로 여기에 표시된 자리 표시자 값을 업데이트합니다.
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 정보 페이지로 이동하여 앱을 로컬로 실행합니다. 비밀 값을 검색해야 합니다.
 
