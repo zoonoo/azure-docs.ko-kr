@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136364"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
@@ -35,16 +35,16 @@ ms.locfileid: "53338110"
 * [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)를 설치합니다.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 설치하거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용합니다.
 
-## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 Event Grid 토픽 만들기
+## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 event grid 항목 만들기
 
-Durable Functions에서 이벤트를 보내기 위한 Event Grid 토픽을 만듭니다. 다음 지침에서는 Azure CLI를 사용하여 토픽을 만드는 방법을 보여 줍니다. PowerShell 또는 Azure Portal을 사용하여 수행하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+Durable Functions에서 이벤트를 보내기 위한 event grid 토픽을 만듭니다. 다음 지침에서는 Azure CLI를 사용하여 토픽을 만드는 방법을 보여 줍니다. PowerShell 또는 Azure Portal을 사용하여 수행하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [EventGrid 빠른 시작: 사용자 지정 이벤트 만들기 - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid 빠른 시작: 사용자 지정 이벤트 만들기 - Azure Portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-`az group create` 명령을 사용하여 리소스 그룹을 만듭니다. 현재 Event Grid는 일부 지역을 지원하지 않습니다. 지원되는 지역에 대한 정보는 [Event Grid 개요](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
+`az group create` 명령을 사용하여 리소스 그룹을 만듭니다. 현재 Azure Event Grid는 모든 영역을 지원 하지 않습니다. 지원 되는 지역에 대 한 내용은 참조 하세요. 합니다 [Azure Event Grid 개요](https://docs.microsoft.com/azure/event-grid/overview)합니다.
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>사용자 지정 토픽 만들기
 
-Event Grid 토픽은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. `<topic_name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목이 되므로 고유해야 합니다.
+Event grid 토픽에 이벤트를 게시할 사용자 정의 엔드포인트를 제공 합니다. `<topic_name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목이 되므로 고유해야 합니다.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -78,25 +78,18 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
-`durableTask` 속성에 `EventGridTopicEndpoint` 및 `EventGridKeySettingName`을 추가합니다.
+`durableTask` 속성에 `eventGridTopicEndpoint` 및 `eventGridKeySettingName`을 추가합니다.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-Azure Event Grid 구성 가능한 속성은 다음과 같습니다.
-
-* **EventGridTopicEndpoint** - Event Grid 토픽의 엔드포인트입니다. *AppSettingName %* 구문을 사용하여 응용 프로그램 설정이나 환경 변수에서 이 값을 확인할 수 있습니다.
-* **EventGridKeySettingName** - Durable Functions의 응용 프로그램 설정 키입니다. Durable Functions는 값에서 Event Grid 토픽 키를 가져옵니다.
-* **EventGridPublishRetryCount** - [선택 사항] Event Grid 항목에 게시가 실패하는 경우 다시 시도 횟수입니다.
-* **EventGridPublishRetryInterval** -[선택 사항] *hh:mm:ss* 형식의 Event Grid 게시 다시 시도 간격입니다. 지정하지 않으면 기본 다시 시도 간격은 5분입니다.
-
-`host.json` 파일이 구성되면 Durable Functions 프로젝트에서 수명 주기 이벤트를 Event Grid 토픽에 보내기 시작합니다. 이는 Function App에서 실행하고 로컬로 실행할 때 작동합니다.
+Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다 [host.json 설명서](../functions-host-json.md#durabletask)합니다. 구성한 후의 `host.json` 파일을 함수 앱 수명 주기 이벤트를 event grid 토픽을 보냅니다. 로컬 및 Azure에서 함수 앱을 실행할 때 작동 합니다. ' '
 
 Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
@@ -115,9 +108,9 @@ Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 �
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 
-Function App을 만듭니다. Event Grid 토픽과 동일한 지역에서 찾는 것이 가장 좋습니다.
+Function App을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
 
-### <a name="create-an-event-grid-trigger-function"></a>Event Grid 트리거 함수 만들기
+### <a name="create-an-event-grid-trigger-function"></a>Event grid 트리거 함수 만들기
 
 수명 주기 이벤트를 받는 함수를 만듭니다. **사용자 지정 함수**를 선택합니다.
 
@@ -145,11 +138,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-`Add Event Grid Subscription`를 선택합니다. 이 작업은 사용자가 만든 Event Grid 토픽에 대한 Event Grid 구독을 추가합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
+`Add Event Grid Subscription`을(를) 선택합니다. 이 작업에는 사용자가 만든 event grid 토픽에 대 한 event grid 구독을 추가 합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
 
 ![Event Grid 트리거 링크 선택](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-**토픽 종류**에 대해 `Event Grid Topics`를 선택합니다. Event Grid 토픽에 대해 만든 리소스 그룹을 선택합니다. 그런 다음, Event Grid 토픽의 인스턴스를 선택합니다. `Create`를 누릅니다.
+**토픽 종류**에 대해 `Event Grid Topics`를 선택합니다. Event grid 토픽에 대해 만든 리소스 그룹을 선택 합니다. Event grid 토픽의 인스턴스를 선택 합니다. `Create`를 누릅니다.
 
 ![Event Grid 구독을 만듭니다.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -171,7 +164,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -258,19 +250,19 @@ Azure Portal에서 만든 함수의 로그를 봅니다.
 
 다음 목록에서는 수명 주기 이벤트 스키마를 설명합니다.
 
-* **id**: Event Grid 이벤트에 대한 고유 식별자입니다.
-* **subject**: 이벤트 주체에 대한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
-* **data**: Durable Functions 특정 매개 변수입니다.
-  * **hubName**: [TaskHub](durable-functions-task-hubs.md) 이름입니다.
-  * **functionName**: 오케스트레이터 함수 이름입니다.
-  * **instanceId**: Durable Functions instanceId입니다.
-  * **reason**: 추적 이벤트와 관련된 추가 데이터입니다. 자세한 내용은 [Durable Functions의 진단(Azure Functions)](durable-functions-diagnostics.md)을 참조하세요.
-  * **runtimeStatus**: 오케스트레이션 런타임 상태입니다. 실행 중, 완료됨, 실패, 취소됨입니다.
-* **eventType**: "orchestratorEvent"
-* **eventTime**: 이벤트 시간(UTC)입니다.
-* **dataVersion**: 수명 주기 이벤트 스키마의 버전입니다.
-* **metadataVersion**:  메타데이터의 버전입니다.
-* **topic**: Event Grid 토픽 리소스입니다.
+* **`id`**: Event grid 이벤트에 대 한 고유 식별자입니다.
+* **`subject`**: 이벤트 주체에 대한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
+* **`data`**: Durable Functions 특정 매개 변수입니다.
+  * **`hubName`**: TaskHub](durable-functions-task-hubs.md) 이름입니다.
+  * **`functionName`**: 오케스트레이터 함수 이름입니다.
+  * **`instanceId`**: Durable Functions instanceId입니다.
+  * **`reason`**: 추적 이벤트와 관련된 추가 데이터입니다. 자세한 내용은 [Durable Functions의 진단(Azure Functions)](durable-functions-diagnostics.md)을 참조하세요.
+  * **`runtimeStatus`**: 오케스트레이션 런타임 상태입니다. 실행 중, 완료됨, 실패, 취소됨입니다.
+* **`eventType`**: "orchestratorEvent"
+* **`eventTime`**: 이벤트 시간(UTC)입니다.
+* **`dataVersion`**: 수명 주기 이벤트 스키마의 버전입니다.
+* **`metadataVersion`**:  메타데이터의 버전입니다.
+* **`topic`**: Event grid 토픽 리소스입니다.
 
 ## <a name="how-to-test-locally"></a>로컬로 테스트하는 방법
 

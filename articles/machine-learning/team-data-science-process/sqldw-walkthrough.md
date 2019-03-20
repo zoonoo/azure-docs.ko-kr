@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838887"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
-이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
+이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
 이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
@@ -65,9 +65,9 @@ trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음
 ## <a name="setup"></a>고급 분석을 위한 Azure 데이터 과학 환경 설정
 Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니다.
 
-A: 모든 지역에서 Blob 및 File Storage에 고객 관리 키 및 SSE를 사용할 수 있습니다.
+**A: 모든 지역에서 Blob 및 File Storage에 고객 관리 키 및 SSE를 사용할 수 있습니다.**
 
-* 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
+* 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다 **.** Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
 * 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
 
   * **Storage 계정 이름**
@@ -881,7 +881,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
 
 ## <a name="references"></a>참조
-•    [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) •    [Chris Whong의 FOILing NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) •    [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Andrés Monroy NYC Taxi Trips 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/) •    [Chris Whong의 FOILing NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) •    [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

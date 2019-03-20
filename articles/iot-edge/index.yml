@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862797"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/30/2019
+  ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge는 IoT Hub을 기반으로 빌드하는 IoT(사물 인터넷) 서비스입니다. 이 서비스는 클라우드가 아닌 디바이스에서 ("에지에서"라고 함) 데이터를 분석하려는 사용자를 위해 제공됩니다. 디바이스는 워크로드의 일부를 에지로 이동하여 클라우드로 메시지를 보내는 데 소요되는 시간을 줄이고 상태 변화에 더 빠르게 반응할 수 있습니다.
@@ -32,7 +32,7 @@ sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 시뮬레이션된 디바이스에 첫 번째 IoT Edge 모듈 및 프로세스 데이터를 배포합니다.
+    text: Azure 가상 머신을 생성하고, IoT Edge 디바이스로 실행되도록 구성하여, 코드를 배포합니다.
   - type: list
     style: icon48
     items:

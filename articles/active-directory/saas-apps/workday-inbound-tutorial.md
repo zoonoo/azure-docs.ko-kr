@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897625"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -152,8 +152,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+| 번호 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 번호 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 번호 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -214,7 +214,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
   
 * **일치하는 논리가 작동하기 위해 필요한 사용자 ID가 Active Directory 포리스트에 포함되었는지 여부**
 
-  * *예제: 이 설치가 새로운 Workday 배포인 경우 Active Directory를 올바른 Workday Worker_ID 값(또는 선택한 고유 ID 값)으로 미리 채워서 일치하는 논리를 최대한 단순하게 유지하는 것이 좋습니다.
+  * *예제: 이 설치가 새로운 Workday 배포인 경우 Active Directory를 올바른 Workday Worker_ID 값(또는 선택한 고유 ID 값)으로 미리 채워서 일치하는 논리를 최대한 단순하게 유지하는 것이 좋습니다.*
 
 이러한 특수 프로비전 커넥터 앱을 설정하고 구성하는 방법은 본 자습서의 나머지 섹션에서 다루겠습니다. 구성을 위해 선택할 앱은 프로비전해야 하는 시스템, 환경에 있는 Active Directory 도메인 및 Azure AD 테넌트 수에 따라 결정됩니다.
 
@@ -257,13 +257,13 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
     ![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_03.png "보안 그룹 만들기")
 2. **보안 그룹 만들기** 작업을 완료합니다. 
 
-  * Workday에 있는 두 가지 유형의 보안 그룹은 다음과 같습니다.
-    * **비제한형:** 보안 그룹의 모든 구성원이 보안 그룹으로 보호되는 모든 데이터 인스턴스에 액세스할 수 있습니다.
-    * **제한형:** 모든 보안 그룹 구성원에게 보안 그룹이 액세스할 수 있는 데이터 인스턴스(행) 하위 세트의 컨텍스트 액세스 권한이 있습니다.
-  * 통합에 적합한 보안 그룹 유형을 선택하려면 Workday 통합 파트너에게 문의하세요.
-  * 그룹 유형을 알고 있으면 **** 드롭다운에서 **통합 시스템 보안 그룹(비제한형)** 또는 **통합 시스템 보안 그룹(제한형)** 을 선택합니다.
+   * Workday에 있는 두 가지 유형의 보안 그룹은 다음과 같습니다.
+     * **비제한형:** 보안 그룹의 모든 구성원이 보안 그룹으로 보호되는 모든 데이터 인스턴스에 액세스할 수 있습니다.
+     * **제한형:** 모든 보안 그룹 구성원에게 보안 그룹이 액세스할 수 있는 데이터 인스턴스(행) 하위 세트의 컨텍스트 액세스 권한이 있습니다.
+   * 통합에 적합한 보안 그룹 유형을 선택하려면 Workday 통합 파트너에게 문의하세요.
+   * 그룹 유형을 알고 있으면 드롭다운에서 **통합 시스템 보안 그룹(비제한형)** 또는 **통합 시스템 보안 그룹(제한형)** 을 선택합니다 **.**
 
-    ![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png "보안 그룹 만들기")
+     ![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png "보안 그룹 만들기")
 
 3. 보안 그룹 생성이 완료되면 멤버를 보안 그룹에 할당할 수 있는 페이지가 표시됩니다. 이전 단계에서 만든 새 통합 시스템 사용자를 이 보안 그룹에 추가합니다. ‘제한형’ 보안 그룹을 사용하는 경우 적절한 조직 범위도 선택해야 합니다.
 
@@ -286,11 +286,11 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    * *작업자 데이터: 현재 직원 충원 정보*
    * *작업자 데이터: 작업자 프로필 직함*
 
-    ![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_07.png "도메인 보안 정책")  
+     ![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_07.png "도메인 보안 정책")  
 
-    ![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_08.png "도메인 보안 정책") 
+     ![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_08.png "도메인 보안 정책") 
 
-    **확인**을 클릭합니다.
+     **확인**을 클릭합니다.
 
 3. 표시되는 보고서에서 **외부 계정 프로비저닝** 옆에 나타나는 줄임표(...)를 선택하고 메뉴 옵션 **도메인 -> 보안 정책 권한 편집**을 클릭합니다.
 
@@ -306,7 +306,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 6. 이러한 나머지 보안 정책 각각에 대해 위의 3-5단계를 반복합니다.
 
-   | 작업(Operation) | 도메인 보안 정책 |
+   | 작업 | 도메인 보안 정책 |
    | ---------- | ---------- |
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
    | 가져오기 및 넣기 | 사용자 데이터: 회사 연락처 정보 |
@@ -358,7 +358,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 * [특성 매핑 구성](#part-3-configure-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>1부: 온-프레미스 프로비전 에이전트 설치 및 구성
+### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>1단계: 온-프레미스 프로비전 에이전트 설치 및 구성
 
 Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Framework가 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 에이전트를 설치해야 합니다.
 
@@ -428,7 +428,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같이 표시됩니다. **username@tenant_name**
+   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 와 같이 표시 됩니다. **username\@테**
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -437,9 +437,9 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
    * **Active Directory 컨테이너 -** 에이전트가 기본적으로 사용자 계정을 만드는 컨테이너 DN을 입력합니다.
-        예제: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
-> [!NOTE]
-> 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
+        예: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+     > [!NOTE]
+     > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -448,11 +448,11 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
-     ![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
-### <a name="part-3-configure-attribute-mappings"></a>3부. 특성 매핑 구성
+### <a name="part-3-configure-attribute-mappings"></a>3부: 특성 매핑 구성
 
 이 섹션에서는 사용자 데이터가 Workday에서 Active Directory로 흐르는 방식을 구성하겠습니다.
 
@@ -460,7 +460,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
-   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
@@ -468,7 +468,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
+   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
 
       * 특성: EmployeeID
 
@@ -477,11 +477,11 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 > [!TIP]
 > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. Workday의 몇몇 테스트 사용자로 매핑을 테스트하려면 **원본 개체 범위** 아래에 있는 범위 지정 필터를 사용하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
-3. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
+1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
-4. **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
+1. **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
 
-5. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
+1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 
       * **매핑 유형**
 
@@ -508,9 +508,9 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
          * **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
 
-6. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
+1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-   ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
@@ -524,18 +524,18 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **예** | 만들기 작업 시에만 기록 |
 | **PreferredNameData**    |  cn    |   |   만들기 작업 시에만 기록 |
-| **SelectUniqueValue( Join("@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
+| **SelectUniqueValue (조인 ("\@"를 조인 (".", \[FirstName\], \[LastName\]), "contoso.com"), 조인 ("\@"를 조인 (".", Mid (\[FirstName\], 1, 1 () \[LastName\]), "contoso.com"), 조인 ("\@"를 조인 (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 만들기 + 업데이트 |
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
 | **Company**         | company   |     |  만들기 + 업데이트 |
 | **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
-| **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
-| **BusinessTitle**   |  title     |     |  만들기 + 업데이트 | 
+| **ManagerReference**   | 관리자  |     |  만들기 + 업데이트 |
+| **BusinessTitle**   |  제목     |     |  만들기 + 업데이트 | 
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
-| **Municipality**   |   l   |     | 만들기 + 업데이트 |
+| **Municipality**   |   L   |     | 만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
@@ -560,7 +560,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 > [!IMPORTANT]
 > Azure AD에만 프로비전해야 하고 온-프레미스 Active Directory에는 프로비전하면 안 되는 클라우드 전용 사용자가 있는 경우 아래 절차만 수행합니다.
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: Azure AD 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1단계: Azure AD 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
@@ -600,7 +600,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 “Workday의 모든 사용자”입니다. 예제 필터:
 
-   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
@@ -608,7 +608,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예제: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
+   * 예: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
 
       * 특성: ContingentID
 
@@ -657,7 +657,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 * [쓰기 저장 특성 매핑 구성](#part-2-configure-writeback-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>1부: 쓰기 저장 커넥터 앱 추가 및 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>1단계: 쓰기 저장 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
@@ -677,7 +677,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. *username@contoso4*
+   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 비슷합니다: *username\@contoso4*
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -718,7 +718,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-   ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -820,7 +820,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
-  ![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft에서 프로비전 에이전트 업데이트를 자동으로 푸시하나요?
 
@@ -853,12 +853,12 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>프로비전 에이전트가 Azure AD 테넌트와 통신할 수 있고 에이전트에 필요한 포트를 차단하는 방화벽이 없는지 확인하려면 어떻게 할까요?
 
-또한 온-프레미스 네트워크에서 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 열어 필요한 모든 포트가 열려 있는지 확인할 수 있습니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다.
+모든 필요한 포트를 열어서 있는지 확인할 수도 있습니다는 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/) 온-프레미스 네트워크에서 합니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다.
 
 이 도구로 올바른 결과를 얻을 수 있는지 확인하려면 다음을 수행합니다.
 
 * 프로비전 에이전트를 설치한 서버의 브라우저에서 도구를 엽니다.
-* 프로비전 에이전트에 적용할 수 있는 프록시 또는 방화벽이 이 페이지에도 적용되었는지 확인합니다. 이 작업은 Internet Explorer의 **설정 -> 인터넷 옵션 -> 연결 -> LAN 설정**으로 이동하여 수행할 수 있습니다. 이 페이지에 “LAN에 사용자 프록시 서버 사용” 필드가 표시됩니다. 이 확인란을 선택하고 “주소” 필드에 프록시 주소를 입력합니다.
+* 프로비전 에이전트에 적용할 수 있는 프록시 또는 방화벽이 이 페이지에도 적용되었는지 확인합니다. 이로 이동 하 여 Internet Explorer에서 수행할 수 있습니다 **설정-> 인터넷 옵션-> 연결-> LAN 설정**합니다. 이 페이지에 “LAN에 사용자 프록시 서버 사용” 필드가 표시됩니다. 이 확인란을 선택하고 “주소” 필드에 프록시 주소를 입력합니다.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>단일 프로비전 에이전트가 여러 AD 도메인을 프로비전하도록 구성할 수 있나요?
 
@@ -1064,7 +1064,7 @@ SelectUniqueValue(
 
 Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정) Azure AD 프로비전 서비스는 작업자의 새 AD 사용자 계정을 만들려고 시도하고 그 과정에서 아래 설명된 대로 4개 감사 로그 레코드를 만듭니다.
 
-  [ ![감사 로그 만들기 작업](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![감사 로그 만들기 작업](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 감사 로그 레코드를 클릭하면 **활동 세부 정보** 페이지가 열립니다. 각 로그 레코드 유형에 대해 **활동 세부 정보** 페이지에 표시되는 내용은 다음과 같습니다.
 
@@ -1132,7 +1132,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 관리자 특성은 AD의 참조 특성입니다. 프로비전 서비스가 관리자 특성을 사용자 생성 작업의 일부로 설정하지 않습니다. 오히려 관리자 특성은 해당 사용자의 AD 계정이 만들어진 후 ‘업데이트’ 작업의 일부로 설정됩니다. 위의 예제를 확장하여 직원 ID “21451”을 가진 신규 채용자가 Workday에서 활성화되고 신규 채용자의 관리자(*21023*)에게 이미 AD 계정이 있다고 가정하겠습니다. 이 시나리오에서 사용자 21451에 해당하는 감사 로그를 검색하면 5개의 항목이 표시됩니다.
 
-  [ ![관리자 업데이트](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![관리자 업데이트](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 처음 네 개의 레코드는 사용자 생성 작업의 일부로 검색한 것과 비슷합니다. 5번째 레코드는 관리자 특성 업데이트와 연결된 내보내기입니다. 로그 레코드는 관리자의 *objectGuid* 특성을 사용하여 수행되는 AD 계정 관리자 업데이트 작업의 결과를 표시합니다.
 
@@ -1163,7 +1163,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| 다음 오류 메시지와 함께 프로비전 에이전트를 설치하는 중 오류가 발생했습니다.  ‘서비스 ‘Microsoft Azure AD Connect Provisioning Agent’(AADConnectProvisioningAgent)를 시작하지 못했습니다. 시스템을 시작할 권한이 있는지 확인하세요.’ | 이 오류는 일반적으로 도메인 컨트롤러에 프로비전 에이전트를 설치할 때 그룹 정책이 서비스 시작을 차단하는 경우 나타납니다.  이전 버전의 에이전트가 실행 중이고 새 설치를 시작하기 전에 해당 에이전트를 제거하지 않은 경우에도 나타납니다.| DC가 아닌 서버에 프로비전 에이전트를 설치합니다. 새 에이전트를 설치하기 전에 이전 버전의 에이전트가 제거되었는지 확인합니다.|
+|1.| 다음 오류 메시지와 함께 프로비전 에이전트를 설치하는 중 오류가 발생했습니다.  ‘서비스 ‘Microsoft Azure AD Connect Provisioning Agent’(AADConnectProvisioningAgent)를 시작하지 못했습니다. 시스템을 시작할 권한이 있는지 확인하세요.’* | 이 오류는 일반적으로 도메인 컨트롤러에 프로비전 에이전트를 설치할 때 그룹 정책이 서비스 시작을 차단하는 경우 나타납니다.  이전 버전의 에이전트가 실행 중이고 새 설치를 시작하기 전에 해당 에이전트를 제거하지 않은 경우에도 나타납니다.| DC가 아닌 서버에 프로비전 에이전트를 설치합니다. 새 에이전트를 설치하기 전에 이전 버전의 에이전트가 제거되었는지 확인합니다.|
 |2.| Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’가 ‘시작하는 중’ 상태이고 ‘실행 중’ 상태로 전환되지 않습니다. | 설치의 일부로 에이전트 마법사는 서버에 로컬 계정(**NT 서비스\\AADConnectProvisioningAgent**)을 만들고 이 계정은 서비스를 시작하는 데 사용되는 **로그온** 계정입니다. Windows Server의 보안 정책이 로컬 계정의 서비스 실행을 차단하면 이 오류가 발생합니다. | ‘서비스 콘솔’을 엽니다. Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’를 마우스 오른쪽 단추로 클릭하고 [로그온] 탭에서 서비스를 실행할 도메인 관리자의 계정을 지정합니다. 서비스를 다시 시작합니다. |
 |3.| ‘Active Directory 연결’ 단계에서 AD 도메인을 사용하여 프로비전 에이전트를 구성할 때 마법사는 AD 스키마를 로드하는 데 시간이 오래 걸리고 결국 시간이 초과됩니다. | 일반적으로 이 오류는 방화벽 문제로 인해 마법사가 AD 도메인 컨트롤러 서버에 연결할 수 없는 경우에 나타납니다. | ‘Active Directory 연결’ 마법사 화면에서 AD 도메인의 자격 증명을 제공하는 동안 ‘도메인 컨트롤러 우선 순위 선택’ 옵션이 제공됩니다. 이 옵션을 사용하여 에이전트 서버와 동일한 사이트에 있는 도메인 컨트롤러를 선택하고 통신을 차단하는 방화벽 규칙이 없는지 확인합니다. |
 
@@ -1173,7 +1173,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| **연결 테스트**를 클릭하면 오류 메시지가 표시됩니다. ‘Active Directory에 연결하는 중 오류가 발생했습니다. 온-프레미스 프로비전 에이전트가 실행 중이고 올바른 Active Directory 도메인으로 구성되었는지 확인하세요.’ | 일반적으로 이 오류는 프로비전 에이전트가 실행되고 있지 않거나 Azure AD와 프로비전 에이전트 사이의 통신을 차단하는 방화벽이 있는 경우 나타납니다. 도메인이 에이전트 마법사에 구성되지 않은 경우에도 이 오류가 표시될 수 있습니다. | Windows Server에서 ‘서비스’ 콘솔을 열어 에이전트가 실행 중인지 확인합니다. 프로비전 에이전트 마법사를 열고 적합한 도메인이 에이전트에 등록되었는지 확인합니다.  |
+|1.| **연결 테스트**를 클릭하면 오류 메시지가 표시됩니다. ‘Active Directory에 연결하는 중 오류가 발생했습니다. 온-프레미스 프로비전 에이전트가 실행 중이고 올바른 Active Directory 도메인으로 구성되었는지 확인하세요.’* | 일반적으로 이 오류는 프로비전 에이전트가 실행되고 있지 않거나 Azure AD와 프로비전 에이전트 사이의 통신을 차단하는 방화벽이 있는 경우 나타납니다. 도메인이 에이전트 마법사에 구성되지 않은 경우에도 이 오류가 표시될 수 있습니다. | Windows Server에서 ‘서비스’ 콘솔을 열어 에이전트가 실행 중인지 확인합니다. 프로비전 에이전트 마법사를 열고 적합한 도메인이 에이전트에 등록되었는지 확인합니다.  |
 |2.| 프로비전 작업이 주말(금-토) 동안 격리 상태로 전환되고 동기화 관련 오류가 있다는 메일 알림을 받게 됩니다. | 이 오류의 일반적인 원인 중 하나는 계획된 Workday 가동 중지 시간입니다. Workday 구현 테넌트를 사용하는 경우 Workday에는 주말(보통 금요일 저녁부터 토요일 아침까지) 동안 구현 테넌트의 가동 중지 시간이 예약되고 해당 기간에는 Workday 프로비전 앱이 격리 상태로 전환되어 Workday에 연결할 수 없다는 점에 유의하세요. Workday 구현 테넌트가 다시 온라인 상태가 되면 정상 상태로 돌아갑니다. 드문 경우지만 통합 시스템 사용자의 암호가 테넌트 새로 고침으로 인해 변경된 경우 또는 계정이 잠김 또는 만료됨 상태인 경우에도 이 오류가 표시될 수 있습니다. | Workday 관리자 또는 통합 파트너에게 문의하여 Workday에서 가동 중지 시간 동안 경고 메시지를 무시하는 가동 중지 시간이 언제 예약되는지 확인하고 Workday 인스턴스가 다시 온라인 상태가 된 후 가용성을 확인합니다.  |
 
 
@@ -1181,8 +1181,8 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’ | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 ‘내보내기’ 이벤트에서 생성된 값을 확인합니다. |
-|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 ‘내보내기’ 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
+|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’* | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 ‘내보내기’ 이벤트에서 생성된 값을 확인합니다. |
+|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 ‘내보내기’ 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD 사용자 계정 업데이트 오류
 
@@ -1226,7 +1226,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 7. **작업**을 **Get_Workers**로 설정합니다.
 
-8.  요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 사용자 이름 형식을 name@tenant로 지정하고 **WS-Security UsernameToken** 옵션을 선택된 상태로 둡니다.
+8.  요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 이름으로 사용자 이름 형식을\@테 넌 트를 두고 합니다 **Ws-security UsernameToken** 옵션을 선택 합니다.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
