@@ -1,5 +1,5 @@
 ---
-title: Google을 Azure Active Directory B2B에 대한 ID 공급자로 추가 | Microsoft Docs
+title: Google을 id 공급자로 B2B-Azure Active Directory에 대 한 추가 | Microsoft Docs
 description: 게스트 사용자가 자신의 Gmail 계정을 사용하여 Azure AD 앱에 로그인할 수 있도록 Google과 페더레이션
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d565d2215ac84d42b6682f4c4a52dd87278a70a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088318"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -62,8 +62,8 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(여기서 `<directory id>`는 디렉터리 ID입니다.)
    
-    > [!NOTE]
-    > 디렉터리 ID를 찾으려면 https://portal.azure.com으로 이동하고, **Azure Active Directory**에서 **속성**을 선택하고 **디렉터리 ID**를 복사합니다.
+     > [!NOTE]
+     > 디렉터리 ID를 찾으려면 https://portal.azure.com으로 이동하고, **Azure Active Directory**에서 **속성**을 선택하고 **디렉터리 ID**를 복사합니다.
 
    ![OAuth 클라이언트 ID 만들기](media/google-federation/google-create-oauth-client-id.png)
 
@@ -99,8 +99,8 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Google 페더레이션을 삭제하려면 다음을 수행합니다. 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
 2. **조직 관계**를 선택합니다.
-3. **ID 공급자**를 선택한 다음, **Google** 단추를 클릭합니다.
-4. **Google**을 선택한 다음, **삭제**를 선택합니다. 
+3. 선택 **Id 공급자**합니다.
+4. 에 **Google** 상황에 맞는 메뉴를 선택 (**...** )를 선택한 **삭제**합니다. 
    
    ![소셜 ID 공급자 삭제됨](media/google-federation/google-social-identity-providers.png)
 

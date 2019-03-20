@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107647"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 등록 방법  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 이 문서에서는 컨테이너용 Azure Monitor를 설정하여 Kubernetes 환경에 배포되고 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)에서 호스트되는 워크로드의 성능을 모니터링하는 방법을 설명합니다.
 
 컨테이너용 Azure Monitor는 다음과 같은 지원되는 방법을 사용하여 AKS의 새 배포 또는 하나 이상의 기존 배포에 사용할 수 있습니다.
@@ -31,8 +34,8 @@ ms.locfileid: "55567301"
 ## <a name="prerequisites"></a>필수 조건 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
-- Log Analytics 작업 영역. 새 AKS 클러스터 모니터링을 사용하도록 설정할 때 만들거나 온보드 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 직접 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)를 통해 만들거나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 만들 수 있습니다.
-- 컨테이너 모니터링을 사용하도록 설정하기 위한 Log Analytics 참가자 역할의 멤버입니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../../azure-monitor/platform/manage-access.md)를 참조하세요.
+- **Log Analytics 작업 영역입니다.** 새 AKS 클러스터 모니터링을 사용하도록 설정할 때 만들거나 온보드 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 직접 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)를 통해 만들거나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 만들 수 있습니다.
+- 한 **Log Analytics 참가자 역할의 멤버** 컨테이너 모니터링을 사용 하도록 설정 합니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../../azure-monitor/platform/manage-access.md)를 참조하세요.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -76,7 +79,7 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>관리되는 기존 클러스터에 대해 모니터링 사용
-이미 배포된 AKS 클러스터의 모니터링은 Azure CLI를 사용하여 사용하도록 설정하거나 포털에서 사용하도록 설정하거나 제공된 Azure Resource Manager 템플릿으로 PowerShell cmdlet `New-AzureRmResourceGroupDeployment`를 사용하여 사용하도록 설정할 수 있습니다. 
+이미 배포된 AKS 클러스터의 모니터링은 Azure CLI를 사용하여 사용하도록 설정하거나 포털에서 사용하도록 설정하거나 제공된 Azure Resource Manager 템플릿으로 PowerShell cmdlet `New-AzResourceGroupDeployment`를 사용하여 사용하도록 설정할 수 있습니다. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Azure CLI를 사용하여 모니터링을 사용하도록 설정
 다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예제에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *DefaultWorkspace-\<GUID>-\<Region>* 형식과 비슷합니다.  
@@ -117,7 +120,7 @@ provisioningState       : Succeeded
 
 2. Terraform 설명서의 단계에 따라 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)을 추가합니다.
 
-### <a name="enable-monitoring-from-azure-monitor"></a>Azure Monitor에서 모니터링 사용
+### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>포털에서 Azure Monitor의 모니터링을 사용 하도록 설정 
 Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 **모니터**를 선택합니다. 
@@ -294,31 +297,31 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 5. 이 파일을 **existingClusterParam.json**으로 로컬 폴더에 저장합니다.
 6. 이제 이 템플릿을 배포할 수 있습니다. 
 
-    * 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 사용합니다.
+   * 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 사용합니다.
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * Azure CLI를 사용하여 다음 명령을 실행하려면:
+   * Azure CLI를 사용하여 다음 명령을 실행하려면:
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+       구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>에이전트 및 솔루션 배포 확인
 에이전트 *06072018* 또는 이후 버전을 사용하여 에이전트 및 솔루션이 모두 성공적으로 배포되었는지 확인할 수 있습니다. 이전 버전의 에이전트를 사용하면 에이전트 배포만 확인할 수 있습니다.

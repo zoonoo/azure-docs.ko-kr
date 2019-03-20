@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109783"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
@@ -30,10 +30,10 @@ ms.locfileid: "56181612"
 사용자가 앱을 시작하면 기본적으로 게시된 앱의 루트 도메인 URL로 이동됩니다. 방문 페이지는 일반적으로 홈페이지 URL로 설정됩니다. 앱 사용자가 앱 내의 특정 페이지를 방문하게 하려는 경우 Azure AD PowerShell 모듈을 사용하여 사용자 지정 홈 페이지 URL을 정의합니다. 
 
 회사가 사용자 지정 홈 페이지를 설정하는 이유의 한 예는 다음과 같습니다.
-- 사용자가 회사 네트워크 내에서 *https://ExpenseApp/login/login.aspx*로 이동하여 로그인하고 앱에 액세스합니다.
-- 애플리케이션 프록시가 폴더 구조의 최상위 수준에서 액세스해야 하는 이미지와 같은 다른 자산이 있으므로 *https://ExpenseApp*을 내부 URL로 사용하여 앱을 게시합니다.
-- 기본 외부 URL은 *https://ExpenseApp-contoso.msappproxy.net*이며, 사용자를 로그인 페이지로 이동하지 않습니다.  
-- *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx*를 홈페이지 URL로 설정합니다. 
+- 사용자가 회사 네트워크 내부로 이동 `https://ExpenseApp/login/login.aspx` 에 로그인 하 여 앱에 액세스 합니다.
+- 사용 하 여 앱을 게시 하면 응용 프로그램 프록시가 폴더 구조의 최상위 수준에서 액세스 해야 하는 이미지와 같은 기타 자산이 있으므로 `https://ExpenseApp` 내부 URL로 합니다.
+- 기본 외부 URL은 `https://ExpenseApp-contoso.msappproxy.net`는 사용자가 로그인 페이지를 사용 하지 않습니다.  
+- 설정 `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` 홈페이지 URL로 합니다. 
 
 >[!NOTE]
 >사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md) 및 [Office 365 앱 시작 관리자](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)에 앱이 표시됩니다.
@@ -113,7 +113,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- 이제 앱을 확인했으므로 다음과 같이 홈 페이지를 업데이트할 준비가 되었습니다.
+   이제 앱을 확인했으므로 다음과 같이 홈 페이지를 업데이트할 준비가 되었습니다.
 
 2. 변경 내용을 저장하기 위해 비어 있는 애플리케이션 개체를 만듭니다. 이 변수는 업데이트하려는 값을 보유합니다. 이 단계에서는 아무 것도 만들어지지 않습니다.
 

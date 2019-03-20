@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 9dc2facbcae5ced1328d5488e533239a6a5627cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f41f5cf4e2775e3c300a2e83794e35d7328965
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776481"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104236"
 ---
 # <a name="validate-azure-registration"></a>Azure 등록 유효성 검사
  
@@ -67,8 +67,8 @@ Azure Stack 등록에 대 한 자세한 내용은 참조 하세요. [Azure 사�
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
-> [!NOTE]
-  > CSP로, IUR 또는 공유 서비스 구독을 사용 하는 경우에 해당 AAD에서 사용자의 자격 증명을 제공 해야 합니다. 일반적으로이 것과 비슷하지만 `subscriptionowner@iurcontoso.onmicrosoft.com`합니다. 해당 사용자는 위에서 설명한 대로 적절 한 자격 증명 수 있어야 필요 합니다.
+   > [!NOTE]
+   > CSP로, IUR 또는 공유 서비스 구독을 사용 하는 경우에 해당 AAD에서 사용자의 자격 증명을 제공 해야 합니다. 일반적으로이 것과 비슷하지만 `subscriptionowner@iurcontoso.onmicrosoft.com`합니다. 해당 사용자는 위에서 설명한 대로 적절 한 자격 증명 수 있어야 필요 합니다.
 
 3. PowerShell 프롬프트에서 설정 하려면 다음을 실행 `$subscriptionID` 사용 하 여 Azure 구독으로 합니다. 대체 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 사용자 고유의 구독 id:
    ```powershell

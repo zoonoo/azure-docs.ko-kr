@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076999"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 
@@ -90,7 +90,7 @@ Time Series Insights는 Azure 지역 수준에서 중복성을 사용하는 고�
 BCDR(비즈니스 연속성 및 재해 복구)에 대한 Azure의 기본 제공 기능에 대한 자세한 내용은 [Azure 비즈니스 연속성 기술 지침](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance)을 참조하세요. Azure 애플리케이션에서 고가용성 및 재해 복구를 수행하는 전략에 대한 아키텍처 지침은 [Azure 애플리케이션에 대한 재해 복구 및 고가용성](https://docs.microsoft.com/azure/architecture/resiliency/index) 문서를 참조하세요.
 
 > [!NOTE]
-
+> 
 >  Time Series Insights에는 기본 제공 BCDR이 없습니다.
 > 기본적으로 Azure Storage, Azure IoT Hub 및 Azure Event Hubs에서는 복구 기능이 기본 제공됩니다.
 

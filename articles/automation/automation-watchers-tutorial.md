@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002162"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>로컬 컴퓨터에서 파일 변경 내용을 추적하는 Azure Automation 감시자 태스크 만들기
 
@@ -89,8 +89,8 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
 1. **작업 구성**을 선택하고 "Process-NewFile" Runbook을 선택합니다.
 1. 매개 변수에 대해 다음 값을 입력합니다.
 
-   ***EVENTDATA** - 비워 둡니다. 데이터는 감시자 Runbook에서 제공됩니다.  
-   ***실행 설정** - 이 Runbook은 Automation 서비스에서 실행되므로 Azure로 유지합니다.
+   * **EVENTDATA** - 비워 둡니다. 데이터는 감시자 Runbook에서 제공됩니다.  
+   * **실행 설정** - 이 Runbook은 Automation 서비스에서 실행되므로 Azure로 유지합니다.
 
 1. **확인**을 클릭하고 선택을 클릭하여 감시자 페이지로 돌아갑니다.
 1. **확인**을 클릭하여 감시자 태스크를 만듭니다.

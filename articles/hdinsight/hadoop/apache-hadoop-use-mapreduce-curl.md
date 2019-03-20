@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011925"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
-HDInsight 클러스터의 Apache Hadoop에서 Apache Hive WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법을 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
+Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터에는 Apache Hadoop에서 MapReduce 작업을 실행 하는 방법을 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
 
 > [!NOTE]  
-> Linux 기반 Apache Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Apache Hadoop에 대해 알아야 할 정보](../hdinsight-hadoop-linux-information.md) 문서를 참조하세요.
+> 하면 이미 익숙한 Linux 기반 Hadoop 서버를 사용 하지만 HDInsight는 처음인 경우 참조를 [Linux 기반 HDInsight에서 Apache Hadoop에 알아야 할 해야](../hdinsight-hadoop-linux-information.md) 문서.
 
 
 ## <a id="prereq"></a>필수 조건
@@ -107,10 +107,10 @@ HDInsight 클러스터의 Apache Hadoop에서 Apache Hive WebHCat REST API를 �
     URI(/mapreduce/jar)의 끝부분은 WebHCat에 이 요청이 jar 파일의 클래스에서 MapReduce 작업을 시작함을 알려줍니다. 이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
    * **-d**: `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
-    * **user.name**: 명령을 실행하는 사용자입니다.
-    * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
-    * **class**: MapReduce 논리가 포함된 클래스입니다.
-    * **arg**: MapReduce 작업에 전달할 인수입니다. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
+     * **user.name**: 명령을 실행하는 사용자입니다.
+     * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
+     * **class**: MapReduce 논리가 포함된 클래스입니다.
+     * **arg**: MapReduce 작업에 전달할 인수입니다. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
 

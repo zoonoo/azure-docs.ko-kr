@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roiyz
-ms.openlocfilehash: 455ca0ed1de5df3a184d900aeae286dfd5233a60
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
-ms.translationtype: HT
+ms.openlocfilehash: 65b52c88741e618e8048451370918b06db73a651
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014414"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 문서에서는 Windows Server가 실행되는 기존 VM(가상 머신)에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 설명합니다. 이 전체 클라이언트는 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함합니다. 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다.
 
@@ -71,14 +71,14 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 [Azure VM 확장 및 기능][Ext]
 
 <!--Link references-->
-[Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
+[Symantec]: https://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Create]:../windows/classic/tutorial.md
 
 [PS]: /powershell/azureps-cmdlets-docs
 
-[Agent]: http://go.microsoft.com/fwlink/p/?LinkId=403947
+[Agent]: https://go.microsoft.com/fwlink/p/?LinkId=403947
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493

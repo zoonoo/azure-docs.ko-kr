@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856133"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -62,7 +62,7 @@ ms.locfileid: "54199139"
 
 가상 네트워크의 각 VM에 대해 보조 NIC에 대한 IP 구성을 추가합니다.  
 
-1. Azure Portal http://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 위에 있는 **리소스 그룹** 아이콘을 선택합니다. 그런 다음 VM이 있는 리소스 그룹(예: **contosofabrikam**)을 선택합니다. **리소스 그룹** 창에 VM의 모든 리소스와 NIC가 표시됩니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "54199139"
 
 구성에 대한 부하 분산 장치를 만듭니다.
 
-1. Azure Portal http://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다. 다음 **만들기**를 선택합니다.
 
@@ -106,15 +106,15 @@ ms.locfileid: "54199139"
 
 2. 두 웹 사이트(contoso.com 및 fabrikam.com)에 대해 두 개의 공용 IP 주소(**PublicIP1** 및 **PublicIP2**)를 구성합니다.
 
-    1. 프런트 엔드 IP 주소의 이름을 입력합니다.
+   1. 프런트 엔드 IP 주소의 이름을 입력합니다.
 
-    2. **리소스 그룹**에서 VM의 기존 리소스 그룹(예: **contosofabrikam**)을 선택합니다.
+   2. **리소스 그룹**에서 VM의 기존 리소스 그룹(예: **contosofabrikam**)을 선택합니다.
 
-    3. **위치**에서 VM과 같은 위치를 선택합니다.
+   3. **위치**에서 VM과 같은 위치를 선택합니다.
 
-    4. **확인**을 선택합니다.
+   4. **확인**을 선택합니다.
 
-    공용 IP 주소가 만들어 지면 **공용 IP** 주소에 표시됩니다.
+      공용 IP 주소가 만들어 지면 **공용 IP** 주소에 표시됩니다.
 
 3. <a name="step3-3"></a>포털에서 **추가 서비스**를 선택합니다. 필터 상자에 **부하 분산 장치**를 입력한 다음 **Load Balancer**를 선택합니다. 
 
@@ -194,4 +194,4 @@ ms.locfileid: "54199139"
 
 ## <a name="next-steps"></a>다음 단계
 - Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
-- [Azure Load Balancer에 대한 Log Analytics](../load-balancer/load-balancer-monitor-log.md)에서 여러 유형의 로그를 사용하여 부하 분산 장치를 관리하고 문제를 해결하는 방법을 알아봅니다.
+- 다양 한 유형의 로그를 사용 하 여 부하 분산 장치에서 문제를 해결 하는 방법을 알아봅니다 [Azure Monitor는 Azure Load Balancer에 대 한 로그](../load-balancer/load-balancer-monitor-log.md)합니다.

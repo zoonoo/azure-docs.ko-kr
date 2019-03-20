@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121539"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -102,7 +102,7 @@ Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가�
 ### <a name="configure-the-domain-purchase"></a>도메인 구매 구성
 
 **App Service 도메인** 페이지의 **도메인 검색** 상자에 구입할 도메인 이름을 입력하고 `Enter`를 입력합니다. 사용 가능한 도메인이 텍스트 상자 아래에 나타납니다. 구입하려는 도메인을 하나 이상 선택합니다.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,22 +111,22 @@ Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가�
 >
 
 **연락처 정보**를 클릭하고 도메인의 연락처 정보 양식을 작성합니다. 완료한 후 **확인**을 클릭하면 App Service 도메인 페이지로 돌아갑니다.
-   
-모든 필수 필드를 가능한 한 정확하게 기입해야 합니다. 잘못된 연락처 정보 데이터로 인해 도메인을 구입하지 못할 수 있습니다. 
+
+모든 필수 필드를 가능한 한 정확하게 기입해야 합니다. 잘못된 연락처 정보 데이터로 인해 도메인을 구입하지 못할 수 있습니다.
 
 그런 다음 도메인에 대해 원하는 옵션을 선택합니다. 설명은 다음 표를 참조하세요.
 
 | 설정 | 제안 값 | 설명 |
 |-|-|-|
 |개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
-| 기본 호스트 이름 할당 | **www** 및 **@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
+| 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
 
 ### <a name="accept-terms-and-purchase"></a>조건에 동의하고 구매
 
 **약관**을 클릭하여 조건 및 요금을 검토한 후 **구입**을 클릭합니다.
 
 > [!NOTE]
-> App Service 도메인은 도메인을 호스트하는 데 Azure DNS를 사용합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
+> App Service 도메인은 도메인을 호스트 하려면 GoDaddy 도메인 등록 및 Azure DNS를 사용 합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 >
 >
 
@@ -146,7 +146,7 @@ Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 _kontoso.net_ 및 _www.kontoso.net_으로 이동해 봅니다.
+호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 탐색 하 려 _kontoso.net_ 하 고 _www\.kontoso.net_합니다.
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
@@ -177,7 +177,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예: 
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 완료되면 **유효성 검사**를 선택합니다. 호스트 이름 레코드 형식이 자동으로 선택됩니다.

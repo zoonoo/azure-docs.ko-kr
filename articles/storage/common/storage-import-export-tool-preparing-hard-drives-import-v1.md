@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086720"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 가져오기 작업을 위해 하드 드라이브를 하나 이상 준비하려면 다음 단계를 수행합니다.
 
--   Blob service로 가져올 데이터 식별
+- Blob service로 가져올 데이터 식별
 
--   Blob service에서 대상 가상 디렉터리 및 Blob 식별
+- Blob service에서 대상 가상 디렉터리 및 Blob 식별
 
--   필요한 드라이브 수 결정
+- 필요한 드라이브 수 결정
 
--   각 하드 드라이브에 데이터 복사
+- 각 하드 드라이브에 데이터 복사
 
- 샘플 워크플로는 [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)(영문)를 참조하세요.
+  샘플 워크플로는 [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)(영문)를 참조하세요.
 
 ## <a name="identify-the-data-to-be-imported"></a>가져올 데이터 식별
  가져오기 작업을 만드는 첫 번째 단계는 가져올 디렉터리와 파일을 결정하는 것입니다. 디렉터리 목록, 고유한 파일 목록 또는 그 둘의 조합일 수 있습니다. 디렉터리가 포함되는 경우 디렉터리 및 하위 디렉터리의 모든 파일이 가져오기 작업의 일부가 됩니다.
@@ -51,11 +51,11 @@ ms.locfileid: "55454677"
 ## <a name="determine-how-many-drives-are-needed"></a>필요한 드라이브 수 결정
  여기서는 다음을 결정해야 합니다.
 
--   데이터를 저장하는 데 필요한 하드 드라이브의 수
+- 데이터를 저장하는 데 필요한 하드 드라이브의 수
 
--   각 하드 드라이브에 복사될 디렉터리 및/또는 독립 실행형 파일
+- 각 하드 드라이브에 복사될 디렉터리 및/또는 독립 실행형 파일
 
- 전송할 데이터를 저장하는 데 필요한 하드 드라이브 수를 확인합니다.
+  전송할 데이터를 저장하는 데 필요한 하드 드라이브 수를 확인합니다.
 
 ## <a name="copy-data-to-your-hard-drive"></a>하드 드라이브에 데이터 복사
  이 섹션에서는 Azure Import/Export 도구를 호출하여 데이터를 하나 이상의 하드 드라이브에 복사하는 방법에 대해 설명합니다. Azure Import/Export 도구를 호출할 때마다 새 *복사 세션*을 만듭니다. 데이터를 복사할 각 드라이브에 대해 복사 세션을 하나 이상 만듭니다. 어떤 경우에는 모든 데이터를 단일 드라이브에 복사하기 위해 둘 이상의 복사 세션이 필요할 수 있습니다. 여러 개의 복사 세션이 필요할 수 있는 몇 가지 이유는 다음과 같습니다.
@@ -108,7 +108,7 @@ ms.locfileid: "55454677"
 |**/csas:**<ContainerSas\>|`Optional`. 저장소 계정에 데이터를 가져오는 데 사용할 컨테이너 SAS입니다. 명령에 **/sk:**<StorageAccountKey\> 또는 **/csas:**<ContainerSas\> 중 하나를 포함해야 합니다.<br /><br /> 이 매개 변수의 값은 컨테이너 이름, 물음표(?) 및 SAS 토큰으로 시작해야 합니다. 예: <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> URL 또는 저장된 액세스 정책에 지정되어 있는지 여부에 관계없이 권한은 가져오기 작업의 경우 읽기(Read), 쓰기(Write) 및 삭제(Delete), 내보내기 작업의 경우 읽기, 쓰기 및 목록 작성(List)을 포함해야 합니다.<br /><br /> 이 매개 변수를 지정하면 가져오거나 내보낼 모든 Blob은 공유 액세스 서명에 지정된 컨테이너 내에 있어야 합니다.|
 |**/t:**<TargetDriveLetter\>|`Required.` 현재 복사 세션의 대상 하드 드라이브 문자입니다(후행 콜론 없음).|
 |**/format**|`Optional.` 드라이브를 포맷해야 하는 경우 이 매개 변수를 지정합니다. 그렇지 않으면 생략합니다. 이 도구는 드라이브를 포맷하기 전에 콘솔에서 확인 메시지를 표시합니다. 확인을 하지 않으려면 /silentmode 매개 변수를 지정합니다.|
-|**/silentmode**|`Optional.` 대상 드라이브 포맷에 대한 확인 메시지를 표시하지 않으려면 이 매개 변수를 지정합니다.|
+|**/silentmode**|`Optional.` 대상 드라이브에 대 한 확인 하지 않으려면이 매개 변수를 지정 합니다.|
 |**/encrypt**|`Optional.` 아직 BitLocker로 드라이브를 암호화하지 않았고 도구를 통해 암호화해야 하는 경우 이 매개 변수를 지정합니다. 이미 BitLocker로 드라이브를 암호화했으면 이 매개 변수를 생략하고 `/bk` 매개 변수를 지정하여 기존 BitLocker 키를 제공합니다.<br /><br /> `/format` 매개 변수를 지정하는 경우 `/encrypt` 매개 변수도 지정해야 합니다.|
 |**/bk:**<BitLockerKey\>|`Optional.` `/encrypt`를 지정하는 경우 이 매개 변수를 생략합니다. `/encrypt`를 생략하면 이미 BitLocker로 드라이브를 암호화했어야 합니다. 이 매개 변수를 사용하여 BitLocker 키를 지정합니다. 가져오기 작업을 위한 모든 하드 드라이브에는 BitLocker 암호화가 필요합니다.|
 |**/logdir:**<LogDirectory\>|`Optional.` 로그 디렉터리는 자세한 로그와 임시 매니페스트 파일을 저장하는 데 사용할 디렉터리를 지정합니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|

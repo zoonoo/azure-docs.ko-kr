@@ -3,7 +3,7 @@ title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버깅 | Mi
 description: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너를 디버그하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: twhitney, mikhegn
-ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.author: aljo, mikhegn
+ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113574"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버그
 
@@ -35,19 +35,19 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 애플리�
 1. 다음 단계로 계속 진행하기 전에 Window용 Docker 서비스가 실행되고 있는지 확인합니다.
 
 1. 컨테이너 간에 DNS 확인을 지원하려면 컴퓨터 이름을 사용하여 로컬 개발 클러스터를 설정해야 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
-    1. PowerShell을 관리자 권한으로 엽니다.
-    2. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
-    3. 스크립트 실행`DevClusterSetup.ps1`
+   1. PowerShell을 관리자 권한으로 엽니다.
+   2. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
+   3. 스크립트 실행`DevClusterSetup.ps1`
 
-       ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
-       ```
+      ``` PowerShell
+        C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
+      ```
 
-    > [!NOTE]
-    > `-CreateOneNodeCluster`를 사용하여 단일 노드 클러스터를 설정할 수 있습니다. 기본적으로 5개 로컬 노드 클러스터를 만듭니다.
-    >
+      > [!NOTE]
+      > `-CreateOneNodeCluster`를 사용하여 단일 노드 클러스터를 설정할 수 있습니다. 기본적으로 5개 로컬 노드 클러스터를 만듭니다.
+      >
 
-    Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)를 참조하세요. 컨테이너에서 실행되는 서비스에서 Service Fabric 역방향 프록시 사용 방법에 대한 자세한 정보는 [컨테이너에서 실행되는 서비스에 대한 역방향 프록시 특별 처리](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)를 참조하세요.
+      Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)를 참조하세요. 컨테이너에서 실행되는 서비스에서 Service Fabric 역방향 프록시 사용 방법에 대한 자세한 정보는 [컨테이너에서 실행되는 서비스에 대한 역방향 프록시 특별 처리](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)를 참조하세요.
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Service Fabric에서 컨테이너를 디버그할 때 알려진 제한 사항
 

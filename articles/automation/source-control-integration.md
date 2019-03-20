@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169156"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -140,6 +140,10 @@ Source Control Sync Summary:
 소스 제어 리포지토리에서 연결을 해제하려면 Automation 계정의 **계정 설정**에서 **소스 제어(미리 보기)** 를 엽니다.
 
 제거하려는 소스 제어를 선택합니다. **소스 제어 요약** 페이지에서 **삭제**를 클릭합니다.
+
+## <a name="encoding"></a>Encoding
+
+다른 편집기를 사용 하 여 여러 사용자 runbook 원본 제어 리포지토리에 편집 하는 경우 인코딩 문제 직면할 가능성이 있습니다. Runbook에서 잘못 된 문자가 삽입 수 있습니다. 이 대 한 자세한 내용은를 참조 하세요. [일반적인 원인은 인코딩 문제](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>다음 단계
 

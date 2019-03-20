@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: ce2b9811baffea85cfa9a542fb5f93652daf39c8
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 6ef0a9f6efbf5f8398ba242150b2eb6102875f7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000333"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 ## <a name="prerequisites"></a>필수 조건
@@ -34,7 +34,7 @@ ms.locfileid: "51976453"
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Azure-Manage를 사용하여 Debian VHD를 만듭니다.
-[redativ](http://www.credativ.com/)의 [azure-manage](https://github.com/credativ/azure-manage) 스크립트처럼 Azure용 Debian VHD를 생성하는 데 사용할 수 있는 도구가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 `azure-manage`(및 종속성)를 다운로드하고 `azure_build_image` 스크립트를 실행합니다.
+[redativ](https://www.credativ.com/)의 [azure-manage](https://github.com/credativ/azure-manage) 스크립트처럼 Azure용 Debian VHD를 생성하는 데 사용할 수 있는 도구가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 `azure-manage`(및 종속성)를 다운로드하고 `azure_build_image` 스크립트를 실행합니다.
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap

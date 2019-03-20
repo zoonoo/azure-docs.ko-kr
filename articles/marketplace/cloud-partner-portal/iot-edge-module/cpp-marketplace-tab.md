@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010959"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge 모듈 Marketplace 탭
 
 
-**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 양식은 **개요**, **마케팅 아티팩트**, **잠재 고객 관리** 및 **법적 정보**의 4개 섹션으로 나뉩니다.
+**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 형식 4 개의 섹션으로 구분 됩니다. **개요**, **아티팩트 마케팅**합니다 **잠재 고객 관리**, 및 **법적**합니다.
 
 ## <a name="overview"></a>개요
 
@@ -39,9 +39,9 @@ ms.locfileid: "49433255"
 | **제목**                 | 제품의 제목입니다. 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. <!--ADD PICTURE IN ACTION-->|
 | **요약**               | 제품의 간단한 요약입니다. 최대 길이는 100자입니다. <!--ADD PICTURE IN ACTION-->|
 | **긴 요약**          | 제품의 더 긴 요약입니다(**요약**과 동일할 수 있지만).  최대 길이는 256자입니다. <!--ADD PICTURE IN ACTION-->|
-| **설명**           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS, 1GB의 RAM, 500Mb의 저장소</p>
-| **마케팅 식별자**  | 이 제품과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제품이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제품에 액세스할 수 있습니다. |
+| **설명**           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS에 1GB 이상의 RAM, 500mb의 저장소</p>
+| **마케팅 식별자**  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 10개가 허용됩니다. [Azure IoT 장치 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 장치에 하나의 링크를 추가해야 합니다. |
 | **권장 범주** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|
 
@@ -78,12 +78,12 @@ ms.locfileid: "49433255"
 
 ## <a name="marketing-artifacts"></a>마케팅 아티팩트
 
-이 섹션에는 다음 하위 섹션: **로고**, **스크린샷** 및 **비디오**가 있습니다. 
+이 섹션에는 다음 하위 섹션에 있습니다. **로고**하십시오 **스크린 샷**, 및 **비디오**합니다. 
 
 >[!Note]
 >로고는 유일하게 필요한 마케팅 아티팩트이지만, 모든 아티팩트가 고객에게 가장 적절하게 호소하는 데 권장됩니다.
 
-![가상 머신에 대한 새 제품 양식에 있는 Marketplace 탭의 마케팅 아티팩트 섹션](./media/publishvm_009.png)
+![가상 머신에 대한 새 제안 양식에 있는 Marketplace 탭의 마케팅 아티팩트 섹션](./media/publishvm_009.png)
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
@@ -104,7 +104,7 @@ ms.locfileid: "49433255"
 
 ### <a name="logo-guidelines"></a>로고 지침
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따라야 합니다.
@@ -160,7 +160,7 @@ As an example, the following hero icon is for the Azure Container Service.
 
 ## <a name="legal"></a>법적 정보
 
-이 섹션에서는 각 제품에 필요한 두 가지 법적 문서, 즉 개인정보처리방침 및 사용 약관을 제공할 수 있습니다.
+이 섹션에서는 각 제품에 필요한 두 법률 문서를 제공할 수 있습니다. 개인정보처리방침 및 사용 약관을 제공할 수 있습니다.
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |

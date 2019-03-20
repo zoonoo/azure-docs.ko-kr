@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100448"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
 
@@ -55,14 +55,14 @@ ms.locfileid: "55470165"
 
 4. **새 지원 요청**에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보**에서 다음 단계를 수행합니다.
 
-    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-    2. **연락처 정보**에서 이름, 이메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장**을 선택합니다.
-    3. **만들기**를 클릭합니다.
+   1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
+   2. **연락처 정보**에서 이름, 이메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장**을 선택합니다.
+   3. **만들기**를 클릭합니다.
    
-        ![연락처 정보](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![연락처 정보](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Microsoft 지원에서 이 정보를 사용하여 사용자에게 자세한 정보, 진단 및 해결 방법을 알려줍니다.
-요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
+      Microsoft 지원에서 이 정보를 사용하여 사용자에게 자세한 정보, 진단 및 해결 방법을 알려줍니다.
+      요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
 
 ## <a name="manage-a-support-request"></a>지원 요청 관리
 

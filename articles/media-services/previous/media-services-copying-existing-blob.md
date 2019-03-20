@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f34f7fe4fcdb79c6c01422f3248144fb000c2575
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182033"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
 이 문서에서는 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)를 사용하여 저장소 계정에서 새로운 AMS(Azure Media Services) 자산으로 Blob을 복사하는 방법을 보여줍니다.

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117271"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 
@@ -34,7 +34,7 @@ Azure Portal을 사용하여 RUM 키를 가져오려면:
 3. Traffic Manager 프로필 블레이드에서 **설정** 아래의 **실제 사용자 측정**을 클릭합니다.
 4. **키 생성**을 클릭하여 새 RUM 키를 만듭니다.
  
-  ![실제 사용자 측정 키 생성](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![실제 사용자 측정 키 생성](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **그림 1: 실제 사용자 측정 키 생성**
 
@@ -44,7 +44,7 @@ Azure Portal을 사용하여 RUM 키를 가져오려면:
 
     **그림 2: 실제 사용자 측정 키 및 측정 JavaScript**
  
-6.  **복사** 단추를 클릭하여 JavaScript 코드를 복사합니다. 
+6. **복사** 단추를 클릭하여 JavaScript 코드를 복사합니다. 
 
 >[!IMPORTANT]
 > 실제 사용자 측정 기능에 생성된 JavaScript를 사용하여 제대로 작동시킵니다. 이 스크립트 또는 실제 사용자 측정에서 사용한 스크립트에 대한 변경으로 인해 예기치 않은 동작이 발생할 수 있습니다.

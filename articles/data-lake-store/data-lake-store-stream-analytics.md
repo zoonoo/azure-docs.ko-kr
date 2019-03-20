@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101114"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
 이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake Storage Gen1을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
@@ -25,7 +25,7 @@ ms.locfileid: "46294036"
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 스토리지 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
   
@@ -54,17 +54,17 @@ ms.locfileid: "46294036"
 
     ![작업에 입력 추가](./media/data-lake-store-stream-analytics/create.input.2.png "작업에 입력 추가")
 
-    * **입력 별칭**에 작업 입력에 대한 고유한 이름을 입력합니다.
-    * **원본 형식**으로 **데이터 스트림**을 선택합니다.
-    * **원본**으로 **Blob Storage**를 선택합니다.
-    * **구독**에 대해 **현재 구독의 Blob Storage 사용**을 선택합니다.
-    * **Storage 계정**에서 필수 조건의 일부로 만든 Storage 계정을 선택합니다. 
-    * **컨테이너**에 대해 선택한 저장소 계정에서 만든 컨테이너를 선택합니다.
-    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
-    * **구분 기호**로 **탭**을 선택합니다.
-    * **Encoding**으로 **UTF-8**을 선택합니다.
+   * **입력 별칭**에 작업 입력에 대한 고유한 이름을 입력합니다.
+   * **원본 형식**으로 **데이터 스트림**을 선택합니다.
+   * **원본**으로 **Blob Storage**를 선택합니다.
+   * **구독**에 대해 **현재 구독의 Blob Storage 사용**을 선택합니다.
+   * **Storage 계정**에서 필수 조건의 일부로 만든 Storage 계정을 선택합니다. 
+   * **컨테이너**에 대해 선택한 저장소 계정에서 만든 컨테이너를 선택합니다.
+   * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
+   * **구분 기호**로 **탭**을 선택합니다.
+   * **Encoding**으로 **UTF-8**을 선택합니다.
 
-    **만들기**를 클릭합니다. 이제 포털에 입력이 추가되고 연결을 테스트합니다.
+     **만들기**를 클릭합니다. 이제 포털에 입력이 추가되고 연결을 테스트합니다.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>작업에 대한 Data Lake Storage Gen1 출력 만들기
@@ -84,15 +84,15 @@ ms.locfileid: "46294036"
 
     ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.3.png "작업에 출력 추가")
 
-    * **계정 이름**에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Storage Gen1 계정을 선택합니다.
-    * **경로 접두사 패턴**에는 지정된 Data Lake Storage Gen1 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
-    * **날짜 형식**의 경우, 접두사 경로에 날짜 토큰을 사용한 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다.
-    * **시간 형식**의 경우, 접두사 경로에 시간 토큰을 사용한 경우 파일을 구성하는 시간 형식을 지정합니다.
-    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
-    * **구분 기호**로 **탭**을 선택합니다.
-    * **Encoding**으로 **UTF-8**을 선택합니다.
+   * **계정 이름**에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Storage Gen1 계정을 선택합니다.
+   * **경로 접두사 패턴**에는 지정된 Data Lake Storage Gen1 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
+   * **날짜 형식**의 경우, 접두사 경로에 날짜 토큰을 사용한 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다.
+   * **시간 형식**의 경우, 접두사 경로에 시간 토큰을 사용한 경우 파일을 구성하는 시간 형식을 지정합니다.
+   * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
+   * **구분 기호**로 **탭**을 선택합니다.
+   * **Encoding**으로 **UTF-8**을 선택합니다.
     
-    **만들기**를 클릭합니다. 이제 포털에 출력이 추가되고 연결을 테스트합니다.
+     **만들기**를 클릭합니다. 이제 포털에 출력이 추가되고 연결을 테스트합니다.
     
 ## <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
@@ -106,7 +106,7 @@ ms.locfileid: "46294036"
 
     **시작**을 클릭하여 작업을 시작합니다. 작업을 시작하는 데 최대 몇 분이 걸릴 수 있습니다.
 
-3. Blob에서 데이터를 선택하는 작업을 트리거하려면 샘플 데이터 파일을 Blob 컨테이너에 복사합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. 이 자습서에서는 **vehicle1_09142014.csv** 파일을 복사하겠습니다. [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
+3. Blob에서 데이터를 선택하는 작업을 트리거하려면 샘플 데이터 파일을 Blob 컨테이너에 복사합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. 이 자습서에서는 **vehicle1_09142014.csv** 파일을 복사하겠습니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 
 4. **개요** 탭의 **모니터링** 아래에서 데이터가 처리된 방식을 확인합니다.
 

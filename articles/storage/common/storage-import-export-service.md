@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164929"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
@@ -76,7 +76,7 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 > [!NOTE]
 > 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
 >
-> 해외(데이터 센터 국가 외) 배송의 경우 국제 운송업체 계정 공유
+> (외부 데이터 센터 국가) abroad 배송에 대 한 공유는 국제 운송 업체 계정
 
  ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
@@ -106,7 +106,7 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 > [!NOTE]
 > 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
 >
-> 해외(데이터 센터 국가 외) 배송의 경우 국제 운송업체 계정 공유
+> (외부 데이터 센터 국가) abroad 배송에 대 한 공유는 국제 운송 업체 계정
   
  ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 

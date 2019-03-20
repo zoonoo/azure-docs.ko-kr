@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111636"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -30,8 +30,8 @@ ms.locfileid: "54910651"
  
         ![Python pip 버전](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > MacOS 기본 버전을 사용하는 대신 Python을 수동으로 설치하는 것이 좋습니다.
+     > [!NOTE]
+     > MacOS 기본 버전을 사용하는 대신 Python을 수동으로 설치하는 것이 좋습니다.
 
 
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
@@ -71,4 +71,4 @@ ms.locfileid: "54910651"
 * [Jupyter 노트북에서 외부 패키지 사용](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](hdinsight-connect-hive-zeppelin.md)
+* [Apache Zeppelin을 사용 하 여 Azure HDInsight에서 Apache Hive 쿼리를 실행 하려면](hdinsight-connect-hive-zeppelin.md)

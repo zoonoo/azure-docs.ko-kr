@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0edf9ebcde2df7e639666f8fe7472baacdeb8640
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 9b8bfe2a4b9b7a8432f14fb53b3e7a4cae49a3b4
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212185"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189974"
 ---
 # <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기에서 클러스터를 만들지 못함
 
@@ -23,7 +23,7 @@ ms.locfileid: "50212185"
 
 1. Azure Portal의 **클러스터 만들기** 아래에 입력한 클러스터 이름과 관련된 유효성 검사 오류가 없는지 확인합니다.
 
-1. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/>)를 확인합니다. 클러스터를 만들려는 지역에서 Azure 데이터 탐색기의 상태를 검색합니다.
+1. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)를 확인합니다. 클러스터를 만들려는 지역에서 Azure 데이터 탐색기의 상태를 검색합니다.
 
     상태가 **양호**(녹색 확인 표시)가 아닌 경우 상태가 개선된 후 클러스터를 만들어 보세요.
 

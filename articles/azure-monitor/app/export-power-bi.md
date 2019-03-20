@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086397"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -96,7 +96,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 1. Azure Portal에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.
 2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.
 
- 액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
+   액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
 
 ### <a name="bad-gateway-502"></a>잘못된 게이트웨이(502)
 일반적으로 너무 많은 데이터를 반환하는 분석 쿼리가 원인입니다. 쿼리에 대해 시간 범위를 좁혀서 사용합니다. 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888402"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 
@@ -52,7 +52,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 * **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 관리](../../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
-* **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database 새 인스턴스를 프로비저닝하는 방법에 대해 알아보십시오.
+* **Azure SQL Database**에 대한 액세스. Azure SQL Database에 항목을 설정 해야 합니다 [Getting Started with Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대해 설명 합니다.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 >
 
 ## <a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
-[NYC Taxi 데이터 세트](http://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
+[NYC Taxi 데이터 세트](https://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](https://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
 자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
@@ -71,7 +71,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Azure Data Factory 통합 런타임 설치 및 구성
 통합 런타임은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 고객 관리형 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
 
-설정하려면 [파이프라인 생성 지침을 따르세요](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
+설정할 [파이프라인을 만드는 방법에 대 한 지침](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
@@ -99,7 +99,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
 
 1. [SQL 온-프레미스 테이블](#adf-table-onprem-sql)
-2. [Blob 테이블 ](#adf-table-blob-store)
+2. [Blob 테이블](#adf-table-blob-store)
 3. [SQL Azure 테이블](#adf-table-azure-sql)
 
 > [!NOTE]

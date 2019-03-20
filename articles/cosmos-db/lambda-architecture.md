@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100346"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB는 Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -258,14 +258,14 @@ var streamingQuery = streamingQueryWriter.start()
 
 ### <a name="resources"></a>리소스
 
- * **새 데이터**: 새 데이터를 Azure Cosmos DB로 푸시하는 메커니즘인 [Twitter에서 CosmosDB로의 스트림 피드](https://github.com/tknandu/TwitterCosmosDBFeed)입니다.
- * **일괄 처리 계층:** 일괄 처리 계층은 *마스터 데이터 세트*(변경 불가능한 추가 전용 원시 데이터 세트) 및 **서비스 계층**에 푸시된 데이터의 일괄 처리 보기를 미리 컴퓨팅할 수 있는 기능으로 구성됩니다.
-    * **람다 아키텍처 재개발 - 일괄 처리 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html)은 일괄 처리 보기의 *마스터 데이터 세트*를 쿼리합니다.
- * **서비스 계층:** **서비스 계층**은 미리 컴퓨팅된 데이터로 구성되어 빠른 쿼리에 대한 일괄 처리 보기(예: 집계, 특정 슬라이서 등)를 생성합니다.
-    * **람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html)은 일괄 처리 데이터를 서비스 계층으로 푸시합니다. 즉 Spark에서 트윗의 일괄 처리 컬렉션을 쿼리하고, 처리하고, 다른 컬렉션(계산된 일괄 처리)에 저장합니다.
-* **속도 계층:** **속도 계층**은 Azure Cosmos DB 변경 피드를 활용하여 즉시 읽고 작업을 수행하는 Spark로 구성됩니다. 또한 데이터가 *계산된 RT*에 저장되어 다른 시스템에서 실시간 쿼리를 실행하는 것과 달리 처리된 실시간 데이터를 쿼리할 수 있습니다.
-    * [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 간격 수를 계산합니다.
-    * [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 태그 간격 수를 계산합니다.
+* **새 데이터**: 새 데이터를 Azure Cosmos DB로 푸시하는 메커니즘인 [Twitter에서 CosmosDB로의 스트림 피드](https://github.com/tknandu/TwitterCosmosDBFeed)입니다.
+* **일괄 처리 계층:** 일괄 처리 계층은 *마스터 데이터 세트*(변경 불가능한 추가 전용 원시 데이터 세트) 및 **서비스 계층**에 푸시된 데이터의 일괄 처리 보기를 미리 컴퓨팅할 수 있는 기능으로 구성됩니다.
+   * **람다 아키텍처 재개발 - 일괄 처리 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html)은 일괄 처리 보기의 *마스터 데이터 세트*를 쿼리합니다.
+* **서비스 계층:** **서비스 계층**은 미리 컴퓨팅된 데이터로 구성되어 빠른 쿼리에 대한 일괄 처리 보기(예: 집계, 특정 슬라이서 등)를 생성합니다.
+  * **람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html)은 일괄 처리 데이터를 서비스 계층으로 푸시합니다. 즉 Spark에서 트윗의 일괄 처리 컬렉션을 쿼리하고, 처리하고, 다른 컬렉션(계산된 일괄 처리)에 저장합니다.
+    * **속도 계층:** **속도 계층**은 Azure Cosmos DB 변경 피드를 활용하여 즉시 읽고 작업을 수행하는 Spark로 구성됩니다. 또한 데이터가 *계산된 RT*에 저장되어 다른 시스템에서 실시간 쿼리를 실행하는 것과 달리 처리된 실시간 데이터를 쿼리할 수 있습니다.
+  * [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 간격 수를 계산합니다.
+  * [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 태그 간격 수를 계산합니다.
   
 ## <a name="next-steps"></a>다음 단계
 Cosmos DB와 Spark를 아직 연결하지 않았으면 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub 리포지토리에서 Spark-Azure Cosmos DB 커넥터를 다운로드하고 다음 리포지토리에서 추가 리소스를 탐색합니다.

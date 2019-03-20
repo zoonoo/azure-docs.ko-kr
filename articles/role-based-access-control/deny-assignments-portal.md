@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005794"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기
 
-[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 고유한 거부 할당을 만들 수 없는 경우에도, 거부 할당이 사용자의 전체적인 권한에 영향을 줄 수 있으므로 거부 할당을 볼 수는 있습니다. 거부 할당에 대한 정보를 가져오려면 `Microsoft.Authorization/denyAssignments/read` 권한이 있어야 합니다. 이 권한은 [Azure 리소스에 대한 대부분의 기본 제공 역할](built-in-roles.md)에 포함되어 있습니다.
-
-이 문서에서는 Azure Portal을 사용하여 거부 할당을 보는 방법에 대해 설명합니다.
+[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 Azure Portal을 사용하여 거부 할당을 보는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> 현재, 거부 할당은 읽기 전용이며 Azure를 통해서만 설정할 수 있습니다.
+> 이때 사용자가 직접 추가할 수는 유일한 방법은 할당은 Azure Blueprint를 사용 하 여 거부 합니다. 자세한 내용은 [Azure 청사진 리소스 잠금 사용 하 여 새 리소스를 보호](../governance/blueprints/tutorials/protect-new-resources.md)합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
+
+- `Microsoft.Authorization/denyAssignments/read` 대부분의 포함 된 사용 권한 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)입니다.
 
 ## <a name="view-deny-assignments"></a>거부 할당 보기
 

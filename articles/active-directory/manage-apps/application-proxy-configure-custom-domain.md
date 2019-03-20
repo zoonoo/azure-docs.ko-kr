@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106800"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
-Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션을 게시할 때 사용자가 원격으로 작업 중일 때 이동하도록 외부 URL을 만듭니다. 이 URL은 기본 도메인 *yourtenant.msappproxy.net*을 가져옵니다. 예를 들어 Expenses라는 앱을 게시하고 Contoso라는 테넌트를 지정하는 경우 외부 URL은 https://expenses-contoso.msappproxy.net이 됩니다. 자신의 도메인 이름을 사용하려는 경우 애플리케이션에 대한 사용자 지정 도메인을 구성합니다. 
+Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션을 게시할 때 사용자가 원격으로 작업 중일 때 이동하도록 외부 URL을 만듭니다. 이 URL은 기본 도메인 *yourtenant.msappproxy.net*을 가져옵니다. 예를 들어 Expenses라는 앱을 게시하고 Contoso라는 테넌트를 지정하는 경우 외부 URL은 `https://expenses-contoso.msappproxy.net`이 됩니다. 자신의 도메인 이름을 사용하려는 경우 애플리케이션에 대한 사용자 지정 도메인을 구성합니다. 
 
 언제나 가능한 애플리케이션에 대한 사용자 지정 도메인을 설정하는 것이 좋습니다. 사용자 지정 도메인의 이점 중 일부는 다음과 같습니다.
 

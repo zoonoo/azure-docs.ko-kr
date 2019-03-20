@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109868"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -218,11 +218,11 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-    > [!NOTE]  
-    >인터넷 연결 없이 컴퓨터에서 원격 분석 데이터 수집을 사용 하지 않도록 설정 하는 다음 cmdlet을 실행 하는 것이 좋습니다. 원격 분석 데이터 수집을 사용 하지 않도록 설정 하지 않고는 cmldets의 성능 저하를 발생할 수 있습니다. 이 인터넷에 연결 되지 않은 컴퓨터에만 적용 됩니다.
-    ```PowerShell
-    Disable-AzureRmDataCollection
-    ```
+    > [!NOTE]
+    > 인터넷 연결 없이 컴퓨터에서 원격 분석 데이터 수집을 사용 하지 않도록 설정 하는 다음 cmdlet을 실행 하는 것이 좋습니다. 원격 분석 데이터 수집을 사용 하지 않도록 설정 하지 않고는 cmldets의 성능 저하를 발생할 수 있습니다. 이 인터넷에 연결 되지 않은 컴퓨터에만 적용 됩니다.
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>추가 저장소 기능을 사용 하도록 설정
 

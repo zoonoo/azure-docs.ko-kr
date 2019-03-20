@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 인덱스 경로 사용
 description: Azure Cosmos DB의 인덱스 경로 개요
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992830"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 경로
 
@@ -25,12 +25,12 @@ Azure Cosmos DB의 인덱스 경로를 사용하면 인덱싱에서 특정 경�
 
 | **Path** | **설명/사용 사례** |
 | ---------- | ------- |
-| /   | 컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.|
-| /prop/?  | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop  |
-| /prop/*  | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
-| /props/[]/?  | ["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5  |
+| /          | 컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.|
+| /prop/?    | 다음과 같은 쿼리를 처리 하는 데 필요한 인덱스 경로 (범위 형식과 각각). <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5 <br><br>SELECT FROM collection c ORDER BY c.prop  |
+| /prop/*    | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동 <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
+| /props/[]/?| ["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 |
 | /props/[]/subprop/? | [{subprop: "a"}, {subprop: "b"}]와 같은 개체의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" |
-| /prop/subprop/? | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
+| /prop/subprop/? | 쿼리를 처리 하는 데 필요한 인덱스 경로 (범위 형식과 각각).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
 
 사용자 지정 인덱스 경로를 설정하는 경우 `/*` 특수 경로로 지정된 전체 항목에 대한 기본 인덱싱 규칙을 지정해야 합니다.
 

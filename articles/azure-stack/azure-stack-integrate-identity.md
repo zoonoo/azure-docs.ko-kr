@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5174723e7c9566fe90eb8bf49a1f353a5d9ae9ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083974"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. 연결 된 시나리오에서는 Azure를 선택할 수 있습니다 AD 또는 AD FS 합니다. 연결이 끊긴된 시나리오에서 AD FS만 지원 됩니다.
@@ -122,7 +122,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 |매개 변수|설명|예|
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다.<br>이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|페더레이션 메타 데이터 링크|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|페더레이션 메타 데이터 링크| https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Azure Stack에서 클레임 공급자 트러스트를 구성 하는 트리거 자동화

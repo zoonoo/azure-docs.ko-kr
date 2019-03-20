@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 07e598d6fd4ed2937d86f31593a220c0c28ba328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074661"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>사이트 간 VPN 연결에 대 한 IPsec/IKE 정책 구성
 
@@ -76,7 +76,7 @@ IPsec 및 IKE 프로토콜 표준은 다양 한 조합에 다양 한 암호화 �
 | IPsec 암호화                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음 |
 | IPsec 무결성                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | PFS 그룹                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                         |
-| QM SA 수명                                       | (선택 사항: 기본값은 사용을 지정 하지 않으면)<br />                         초 (정수, 최소 300/기본값 27,000 초)<br />                         사용량 (kb) (정수, 최소 1024/기본 102400000 사용량 (kb)) |                                                                          |
+| QM SA 수명                                       | (선택 사항: 기본값은 사용을 지정 하지 않으면)<br />                         초 (정수, 최소 300/기본값 27,000 초)<br />                         사용량 (kb) (정수, 최소 1024/기본 102400000 사용량 (kb)) |
 | 트래픽 선택기                                     | Azure Stack에서 정책 기반 트래픽 선택기를 사용 하는 것이 없습니다.         |
 
 - 온-프레미스 VPN 디바이스 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.

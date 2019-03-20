@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105059"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -58,7 +58,7 @@ DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 �
 
 이러한 문제는 별칭 레코드를 사용하여 해결할 수 있습니다. CNAME 레코드와 달리, 별칭 레코드는 영역 루트에서 만들 수 있으며 애플리케이션 소유자는 이것을 사용하여 영역 루트 레코드를 외부 엔드포인트가 있는 Traffic Manager 프로필로 가리킬 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
 
-예를 들어 contoso.com 및 www.contoso.com은 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. Azure Traffic Manager 프로필을 사용하여 별칭 레코드를 사용하는 방법에 대한 자세한 내용을 보려면 다음 단계 섹션을 참조하세요.
+예를 들어 contoso.com 및 www\.contoso.com은 동일한 Traffic Manager 프로필에 가리킬 수 있습니다. Azure Traffic Manager 프로필을 사용하여 별칭 레코드를 사용하는 방법에 대한 자세한 내용을 보려면 다음 단계 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010985"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux용 가상 머신 직렬 콘솔
 
@@ -82,6 +82,7 @@ Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>직렬 콘솔에 액세스하는 일반적인 시나리오
+
 시나리오          | 직렬 콘솔의 작업
 :------------------|:-----------------------------------------
 *FSTAB* 파일 손상 | **Enter** 키를 눌러 계속하고 텍스트 편집기를 사용하여 *FSTAB* 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드여야 합니다. 자세한 내용은 [fstab 문제 해결 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 및 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
@@ -143,14 +144,14 @@ SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니�
 ### <a name="audit-logs"></a>감사 로그
 직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
 
->[!CAUTION]
-콘솔에 대한 액세스 암호는 기록되지 않습니다. 그러나 콘솔 내에서 실행되는 명령이 암호, 비밀, 사용자 이름 또는 기타 형태의 PII(개인 식별 정보)를 포함하거나 출력하는 경우 해당 정보는 VM 부트 진단 로그에 작성됩니다. 또한 직렬 콘솔의 스크롤 백 기능을 구현하는 일부로 모든 다른 표시되는 텍스트와 함께 작성됩니다. 이러한 로그는 순환되며 진단 저장소 계정에 대한 읽기 권한이 있는 사용자만 액세스할 수 있습니다. 그러나 비밀 및/또는 PII가 포함될 수 있는 항목에 대해 원격 데스크톱을 사용하는 모범 사례를 따르는 것이 좋습니다.
+> [!CAUTION]
+> 콘솔에 대한 액세스 암호는 기록되지 않습니다. 그러나 콘솔 내에서 실행되는 명령이 암호, 비밀, 사용자 이름 또는 기타 형태의 PII(개인 식별 정보)를 포함하거나 출력하는 경우 해당 정보는 VM 부트 진단 로그에 작성됩니다. 또한 직렬 콘솔의 스크롤 백 기능을 구현하는 일부로 모든 다른 표시되는 텍스트와 함께 작성됩니다. 이러한 로그는 순환되며 진단 저장소 계정에 대한 읽기 권한이 있는 사용자만 액세스할 수 있습니다. 그러나 비밀 및/또는 PII가 포함될 수 있는 항목에 대해 원격 데스크톱을 사용하는 모범 사례를 따르는 것이 좋습니다.
 
 ### <a name="concurrent-usage"></a>동시 사용
 한 사용자가 직렬 콘솔에 연결되어 있을 때 다른 사용자가 같은 가상 머신에 대한 액세스를 성공적으로 요청한 경우 첫 번째 사용자의 연결이 끊기고 두 번째 사용자가 동일한 세션에 연결됩니다.
 
->[!CAUTION]
-그렇다고 연결이 끊어진 사용자가 로그아웃되지는 않습니다. SIGHUP 또는 유사한 메커니즘을 사용하여 연결 해제 시 로그아웃을 강제 적용하는 기능은 아직 계획 중입니다. Windows의 경우 SAC(특별 관리 콘솔)에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 사용자 콘솔에 로그인하는 데 사용하는 사용자에게 *.bash_profile* 또는 *.profile* 파일에서 `export TMOUT=600`을 추가합니다. 이 설정으로 인해 10분 후에 세션이 시간 초과하게 됩니다.
+> [!CAUTION]
+> 그렇다고 연결이 끊어진 사용자가 로그아웃되지는 않습니다. SIGHUP 또는 유사한 메커니즘을 사용하여 연결 해제 시 로그아웃을 강제 적용하는 기능은 아직 계획 중입니다. Windows의 경우 SAC(특별 관리 콘솔)에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 사용자 콘솔에 로그인하는 데 사용하는 사용자에게 *.bash_profile* 또는 *.profile* 파일에서 `export TMOUT=600`을 추가합니다. 이 설정으로 인해 10분 후에 세션이 시간 초과하게 됩니다.
 
 ## <a name="accessibility"></a>접근성
 접근성은 Azure 직렬 콘솔의 핵심 기능입니다. 이를 위해 직렬 콘솔에 완전히 액세스할 수 있는지 확인했습니다.
@@ -188,7 +189,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. https://aka.ms/serialconsolefeedback에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보낼 수 있습니다.
+a. https://aka.ms/serialconsolefeedback에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com의 가상 머신 범주에 피드백을 보낼 수 있습니다.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 

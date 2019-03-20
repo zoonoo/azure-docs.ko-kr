@@ -14,12 +14,12 @@ ms.topic: article
 ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002070"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
@@ -151,6 +151,7 @@ Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에�
     ```
 
 4. 매개 변수를 검토 하 고 사용자 환경에 따라 값을 설정 합니다.
+
     | 매개 변수           | 설명                                                                                                      | 예                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
@@ -174,7 +175,7 @@ Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에�
     ![생성 된 로그](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. 명령에 의해 생성 된 폴더에 로그를 검색 합니다. 명령은 새 폴더를 만듭니다 및 타임 스탬프에 지정 합니다.
+1. 명령에 의해 생성 된 폴더에 로그를 검색 합니다. 명령은 새 폴더를 만듭니다 및 타임 스탬프에 지정 합니다.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

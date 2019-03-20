@@ -6,40 +6,40 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104406"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>빠른 시작: Notebook 만들기 및 공유
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작-Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md) 참조하세요)
+1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
-1. 공개 프로필 페이지에서 페이지의 맨 위에 있는 **내 프로젝트**를 선택합니다.
+1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
-1. **내 프로젝트** 페이지에서 **+ 새 프로젝트** (바로 가기 키: n)를 선택합니다. 브라우저 창이 좁은 경우 이 단추는 **+** 로만 나타날 수 있습니다.
+1. **내 프로젝트** 페이지에서 **+ 새 프로젝트**(바로 가기 키: n)를 선택합니다. 브라우저 창이 좁은 경우 이 단추가 **+** 기호로만 표시될 수 있습니다.
 
-    ![내 프로젝트 페이지에서 새 프로젝트 명령](media/quickstarts/new-project-command.png)
+    ![내 프로젝트 페이지의 새 프로젝트 명령](media/quickstarts/new-project-command.png)
 
 1. **새 프로젝트 만들기** 팝업이 나타나면 다음 세부 정보를 입력하거나 설정한 다음, **만들기**를 선택합니다.
 
-    - **프로젝트 이름**: Hello World in Python
-    - **프로젝트 ID**: hello-world-python
-    - **공용 프로젝트**: (지워짐)
-    - **README.md 만들기**: (지워짐)
+   - **프로젝트 이름**: Hello World in Python
+   - **프로젝트 ID**: hello-world-python
+   - **공용 프로젝트**: (지워짐)
+   - **README.md 만들기**: (지워짐)
 
-    ![세부 내용이 채워진 새 프로젝트 팝업](media/quickstarts/new-project-popup.png)
+     ![세부 내용이 채워진 새 프로젝트 팝업](media/quickstarts/new-project-popup.png)
 
 1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록 (**+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096276"
 
     ![Jupyter Notebook 도구 모음의 저장 아이콘](media/quickstarts/hello-results-save-icon.png)
 
-1. **파일** > **중지를 선택하여**메뉴 명령을 닫아 서버를 중지하고 브라우저 창을 닫습니다.
+1. 선택 된 **파일** > **닫기 및 중지** 메뉴 명령을 브라우저 창을 닫고 서버를 중지 합니다.
 
 ## <a name="share-the-notebook"></a>Notebook 공유
 
@@ -106,4 +106,4 @@ Notebook을 공유하려면 필요한 경우 프로젝트 페이지로 다시 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter Notebook 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: kasinh
-ms.openlocfilehash: 0ebf1bae023115a268547e5c64e3a2681438092a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880571"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -104,4 +104,4 @@ ms.locfileid: "56340674"
 
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 작업:**<ol><li> 가장 먼저 Exchange에서 DPM 서버에 대해 “Allow Anonymous Relay on a Receive Connector”(수신 커넥터에서 익명 릴레이 허용)가 설정되어 있는지 확인해야 합니다. 구성 방법에 대한 자세한 내용은 TechNet의 [수신 커넥터에서 익명 릴레이 허용](https://technet.microsoft.com/library/bb232021.aspx)을 참조하세요.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용하여 O365에 SMTP를 릴레이](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)하도록 DPM 서버를 구성합니다.<br><br> **중요:** domain\user가 *아닌* user@domain.com 형식을 사용하세요.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> **참고**: SMTP 서버 주소를 변경할 경우 새 설정을 변경하고 설정 상자를 닫은 후 다시 열어 새 값이 적용되었는지 확인하세요.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 프로세스 중 언제라도 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 정리할 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. 다시 시작할 때 UI에 다시 추가할 수 있습니다.
+| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 작업:**<ol><li> 가장 먼저 Exchange에서 DPM 서버에 대해 “Allow Anonymous Relay on a Receive Connector”(수신 커넥터에서 익명 릴레이 허용)가 설정되어 있는지 확인해야 합니다. 구성 방법에 대한 자세한 내용은 TechNet의 [수신 커넥터에서 익명 릴레이 허용](https://technet.microsoft.com/library/bb232021.aspx)을 참조하세요.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용하여 O365에 SMTP를 릴레이](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)하도록 DPM 서버를 구성합니다.<br><br> **중요:** 사용자를 사용 해야\@domain.com 형식 및 *하지* 도메인 \ 사용자입니다.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> **참고**: SMTP 서버 주소를 변경할 경우 새 설정을 변경하고 설정 상자를 닫은 후 다시 열어 새 값이 적용되었는지 확인하세요.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 프로세스 중 언제라도 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 정리할 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. 다시 시작할 때 UI에 다시 추가할 수 있습니다.

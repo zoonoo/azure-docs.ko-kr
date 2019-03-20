@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084415"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 푸시
 
@@ -54,7 +54,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
 2. `Main.storyboard` 파일에서 개체 라이브러리에서 스크린샷에 표시된 구성 요소를 추가합니다.
 
-    ![Xcode Interface Builder에서 스토리보드 편집][1]
+    ![스토리 보드 Xcode 인터페이스 작성기에서 편집][1]
 
    * **사용자 이름**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 결과 레이블 보내기를 지정하고 왼쪽 및 오른쪽 여백 및 보내기 결과 레이블 아래로 제한됩니다.
    * **암호**: 자리 표시자 텍스트가 있는 UITextField, *암호 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안*옵션을 선택합니다.
@@ -64,7 +64,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
    * **APNS**: Apple 플랫폼 알림 서비스로 알림을 보낼 수 있는 레이블 및 스위치입니다.
    * **받는 사람 사용자 이름**: 자리 표시자 텍스트가 있는 UITextField, *받는 사람 사용자 이름 태그*, GCM 레이블 바로 아래이며 왼쪽 및 오른쪽 여백으로 제한되고 GCM 레이블 아래입니다.
 
-    일부 구성 요소는 [Notification Hubs(iOS) 시작](notification-hubs-ios-apple-push-notification-apns-get-started.md) 자습서에 추가됩니다.
+     일부 구성 요소는 [Notification Hubs(iOS) 시작](notification-hubs-ios-apple-push-notification-apns-get-started.md) 자습서에 추가됩니다.
 
 3. 보기의 구성 요소에서 **Ctrl** 키를 누른 채로 `ViewController.h`로 끌어서 이 새 콘센트를 추가합니다.
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: a11a72bf2121bb36203002b69f06c74ca3e8a2d0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110429"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
-Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
+Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. 데이터는 다양 한 보안 관련 구성 및 이벤트 로그에서 컴퓨터를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log analytics 작업 영역에 크래시 덤프 파일을 복사합니다.
 
 누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 사용, 상태 및 위협 검색에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 
 
-이 문서에서는 Microsoft Monitoring Agent를 설치하고 수집된 데이터를 저장할 Log Analytics 작업 영역을 설정하는 방법을 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
+이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법에 지침을 제공 합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
 
 > [!NOTE]
 > - 데이터 컬렉션은 계산 리소스(VM 및 비 Azure 컴퓨터)에만 필요합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
@@ -34,33 +34,33 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 > - 가상 머신 확장 집합에 대한 데이터 컬렉션은 현재 지원되지 않습니다.
 
 
-## Microsoft Monitoring Agent 자동 프로비저닝 사용 <a name="auto-provision-mma"></a>
+## Log Analytics 에이전트의 자동 프로 비전 사용 <a name="auto-provision-mma"></a>
 
-머신에서 데이터를 수집하려면 Microsoft Monitoring Agent가 설치되어 있어야 합니다.  에이전트를 자동으로 설치할 수도 있고(권장) 에이전트를 수동으로 설치하도록 선택할 수도 있습니다.  
+컴퓨터에서 데이터를 수집 하도록 Log Analytics로 에이전트를 설치 해야 합니다.  에이전트를 자동으로 설치할 수도 있고(권장) 에이전트를 수동으로 설치하도록 선택할 수도 있습니다.  
 
 >[!NOTE]
 > 자동 프로비전은 기본적으로 해제되어 있습니다. 기본적으로 자동 프로비전을 설치하도록 Security Center를 설정하려면 **켜기**로 설정합니다.
 >
 
-자동 프로비전을 켜면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](#manualagent).
+자동 프로 비전를 설정 하면 Security Center에서 지원 되는 모든 Azure Vm 및 새로 만든 Log Analytics 에이전트를 프로 비전 합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Log Analytics 에이전트 확장을 설치 하는 방법을 알아봅니다](#manualagent)합니다.
 
 
 
-Microsoft Monitoring Agent의 자동 프로비저닝을 사용하도록 설정하려면 다음을 수행합니다.
+사용할 수 있도록 Log Analytics 에이전트의 자동 프로 비전 합니다.
 1. Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
 2. 목록의 원하는 구독에 대한 설정 열에서 **설정 편집**을 클릭합니다.
 
-  ![구독 선택][7]
+   ![구독 선택][7]
 
 3. **보안 정책** 아래에서 **데이터 수집**을 선택합니다.
 4. **자동 프로비저닝** 아래에서 **설정**을 선택하여 자동 프로비저닝을 사용하도록 설정합니다.
 5. **저장**을 선택합니다.
 
-  ![자동 프로비저닝 사용][1]
+   ![자동 프로비저닝 사용][1]
 
 >[!NOTE]
 > - 기존 설치를 프로비전하는 방법은 [기존 에이전트 설치 시 자동 프로비전](#preexisting)을 참조하세요.
-> - 수동으로 프로비전하는 방법은 [수동으로 Microsoft Monitoring Agent 확장 설치](#manualagent)를 참조하세요.
+> - 수동 프로 비전에 대 한 자세한 내용은 참조 하세요. [Log Analytics 에이전트 확장을 수동으로 설치](#manualagent)합니다.
 > - 자동 프로비전을 해제하는 방법은 [자동 프로비전 해제](#offprovisioning)를 참조하세요.
 > - PowerShell을 사용하여 Security Center를 온보드하는 방법에 대한 지침은 [PowerShell을 사용하여 Azure Security Center의 온보딩 자동화](security-center-powershell-onboarding.md)를 참조하세요.
 >
@@ -76,22 +76,22 @@ Security Center는 데이터를 저장할 기본 작업 영역을 자동으로 �
 
 Security Center가 만든 작업 영역을 선택하려면:
 
-1.  **기본 작업 영역 구성** 아래에서 [Security Center가 만든 작업 영역 사용]을 선택합니다.
+1. **기본 작업 영역 구성** 아래에서 [Security Center가 만든 작업 영역 사용]을 선택합니다.
    ![가격 책정 계층 선택][10] 
 
-2. **저장**을 클릭합니다.<br>
+1. **저장**을 클릭합니다.<br>
     Security Center는 해당 지리적 위치에 새 리소스 그룹 및 기본 작업 영역을 만들고 에이전트를 해당 작업 영역에 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.<br>
-**작업 영역: DefaultWorkspace-[subscription-ID]-[geo]<br> 리소스 그룹: DefaultResourceGroup-[geo]**
+   **작업 영역: DefaultWorkspace-[subscription-ID]-[geo]<br> 리소스 그룹: DefaultResourceGroup-[geo]**
 
    구독에 여러 지리적 위치의 VM이 포함된 경우에는 Security Center에서 여러 작업 영역을 만듭니다. 여러 작업 영역은 데이터 프라이버시 규칙을 유지하기 위해 만들어집니다.
--   Security Center는 구독에 설정된 가격 책정 계층에 따라 작업 영역에서 자동으로 Security Center 솔루션을 사용합니다. 
+1. Security Center는 구독에 설정된 가격 책정 계층에 따라 작업 영역에서 자동으로 Security Center 솔루션을 사용합니다. 
 
 > [!NOTE]
-> Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. 체험 계층의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. 표준 계층의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
+> Log analytics 가격 책정 계층은 Security Center에서 만든 작업 영역에는 Security Center 청구 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. 체험 계층의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. 표준 계층의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
-기존 Log Analytics 계정에 대한 자세한 내용은 [기존 Log Analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조하세요.
+기존 log analytics 계정에 대 한 자세한 내용은 참조 하세요. [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)합니다.
 
 ### <a name="using-an-existing-workspace"></a>기존 작업 영역 사용
 
@@ -111,10 +111,10 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 2. 풀다운 메뉴에서 수집된 데이터를 저장할 작업 영역을 선택합니다.
 
-  > [!NOTE]
-  > 풀 다운 메뉴의 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 자세한 내용은 [구독 간 작업 영역 선택](security-center-enable-data-collection.md#cross-subscription-workspace-selection)을 참조하세요. 작업 영역에 액세스할 수 있는 권한이 있어야 합니다.
-  >
-  >
+   > [!NOTE]
+   > 풀 다운 메뉴의 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 자세한 내용은 [구독 간 작업 영역 선택](security-center-enable-data-collection.md#cross-subscription-workspace-selection)을 참조하세요. 작업 영역에 액세스할 수 있는 권한이 있어야 합니다.
+   >
+   >
 
 3. **저장**을 선택합니다.
 4. **저장**을 선택하면 이전에 기본 작업 영역에 연결된 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
@@ -147,11 +147,11 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 
 ## <a name="data-collection-tier"></a>데이터 수집 계층
-Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 저장소에만 영향을 미칩니다. Microsoft Monitoring Agent는 Log Analytics 작업 영역에 저장하도록 선택하는 보안 이벤트 계층에 관계없이, Azure Security Center의 위협 감지에 필요한 보안 이벤트를 계속 수집 및 분석합니다. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
+Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 저장소에만 영향을 미칩니다. Log Analytics 에이전트는 계속 수집 하 고 (있는 경우) Log Analytics 작업 영역에 저장 하도록 선택 하면 보안 이벤트의 계층에 관계 없이, Azure Security Center의 위협 검색에 필요한 보안 이벤트를 분석. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
 > [!NOTE]
-> Log Analytics에 데이터를 저장하면 데이터 저장소 요금이 추가로 발생합니다. 자세한 내용은 가격 책정 페이지를 참조하세요.
->
-작업 영역에 저장할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다. 
+> Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생에 대 한 자세한 가격 책정 페이지를 참조 하세요. 수도 있습니다.
+> 
+> 작업 영역에 저장할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다. 
 
 - **없음** – 보안 이벤트 저장소를 사용하지 않도록 설정합니다. 기본 설정입니다.
 - **최소** – 이벤트의 양을 최소화하려는 고객을 위한 더 작은 이벤트 집합입니다.
@@ -202,8 +202,8 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 
 다음 사용 사례는 이미 에이전트 또는 확장이 설치된 경우에 자동 프로비전의 작동 방식을 지정합니다. 
 
-- 머신에 Microsoft Monitoring Agent가 설치되어 있지만 확장이 아님<br>
-Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Microsoft Monitoring Agent를 설치하지 않습니다. 자동 프로비전을 켜고 Security Center의 자동 프로비전 구성에서 적절한 사용자 작업 영역을 선택할 수 있습니다. 동일한 작업 영역을 선택하면 이미 기존 에이전트에 연결된 VM이 Microsoft Monitoring Agent 확장을 사용하여 래핑됩니다. 
+- Log Analytics 에이전트 컴퓨터에는 아니지만 확장 되어<br>
+Log Analytics 에이전트 (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center는 Log Analytics 에이전트를 설치 하지 않습니다. 자동 프로비전을 켜고 Security Center의 자동 프로비전 구성에서 적절한 사용자 작업 영역을 선택할 수 있습니다. 원하는 경우 동일한 작업 영역에서 VM 이미 기존 에이전트에 연결 된 Log Analytics 에이전트 확장을 사용 하 여 래핑됩니다. 
 
 > [!NOTE]
 > SCOM 에이전트 2012 버전이 설치된 경우 자동 프로비전을 켜지 **마세요**. 
@@ -212,8 +212,8 @@ Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 V
 
 -   기존 VM 확장이 있음<br>
     - Security Center는 기존 확장 설치를 지원하며 기존 연결을 재정의하지 않습니다. Security Center는 VM의 보안 데이터를 이미 연결된 작업 영역에 저장하고, 작업 영역에서 사용되는 솔루션에 따라 보호를 제공합니다.   
-    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log analytics를 열고, 작업 영역을 선택하고, VM을 선택하고, Microsoft Monitoring Agent 연결을 확인하는 방법도 있습니다. 
-    - Microsoft Monitoring Agent가 클라이언트 워크스테이션에 설치되어 있고 기존 Log Analytics 작업 영역에 보고하는 환경을 갖고 있는 경우 [Azure Security Center에서 지원하는 운영 체제](security-center-os-coverage.md) 목록을 검토하여 현재 운영 체제가 지원되는지 확인하고 [기존 Log Analytics 고객](security-center-faq.md#existingloganalyticscust)에서 자세한 내용을 확인하세요.
+    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고 하 고 작업 영역을 선택 하 고 VM을 선택한 후 수 있으며 Log Analytics 에이전트 연결 확인 수 있습니다. 
+    - Environment가 있는 경우 Log Analytics 에이전트는 클라이언트 워크스테이션에 설치 되어 않았고 목록을 검토 기존 Log Analytics 작업 영역에 보고 [Azure Security Center에서 지원 되는 운영 체제](security-center-os-coverage.md) 되도록 운영 체제는 지원 및 참조 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust) 자세한 내용은 합니다.
  
 ### 자동 프로비전 끄기 <a name="offprovisioning"></a>
 언제든지 보안 정책에서 이 설정을 해제하여 리소스 자동 프로비전을 끌 수 있습니다. 
@@ -224,7 +224,7 @@ Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 V
 3. **보안 정책 - 데이터 수집** 블레이드의 **자동 프로비저닝** 아래에서 **해제**를 선택합니다.
 4. **저장**을 선택합니다.
 
-  ![자동 프로비저닝 사용 안 함][6]
+   ![자동 프로비저닝 사용 안 함][6]
 
 자동 프로비전을 해제하면(끄면) 기본 작업 영역 구성 섹션이 표시되지 않습니다.
 
@@ -243,56 +243,57 @@ Microsoft Monitoring Agent를 수동으로 설치하는 여러 가지 방법이 
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Operations Management Suite VM 확장 배포 
 
 Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Microsoft Monitoring Agent를 수동으로 설치할 수 있습니다.
-1.  [자동 프로비전 – 끄기]를 선택합니다.
-2.  작업 영역을 만들고 Microsoft Monitoring Agent를 설정할 작업 영역의 가격 책정 계층을 설정합니다.
+1. [자동 프로비전 – 끄기]를 선택합니다.
+2. 작업 영역을 만들고 Microsoft Monitoring Agent를 설정할 작업 영역의 가격 책정 계층을 설정합니다.
 
-    a.  Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
+   a.  Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
      
-    b.  에이전트를 연결하려는 작업 영역을 선택합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
-        ![작업 영역 선택][8]
+   b.  에이전트를 연결하려는 작업 영역을 선택합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
+       ![작업 영역 선택][8]
 3. 가격 책정 계층을 설정합니다.
    ![가격 책정 계층 선택][9] 
    >[!NOTE]
    >작업 영역에서 **보안** 또는 **SecurityCenterFree** 솔루션이 이미 설정된 경우 가격 책정이 자동으로 설정됩니다. 
    > 
 
-4.  Resource Manager 템플릿을 사용하여 새 VM에 에이전트를 배포하려면 OMS 가상 머신 확장을 설치합니다.
+4. Resource Manager 템플릿을 사용하여 새 VM에 에이전트를 배포하려면 OMS 가상 머신 확장을 설치합니다.
 
-    a.  [Windows용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
+   a.  [Windows용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
     
-    b.  [Linux용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
-5.  기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
+   b.  [Linux용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
+5. 기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
 
-  > [!NOTE]
-  > **이벤트 및 성능 데이터 수집**은 선택 사항입니다.
-  >
-6. PowerShell을 사용하여 확장을 배포하려면 다음 PowerShell 예제를 사용합니다.
-    1.  **Log Analytics**로 이동하여 **고급 설정**을 클릭합니다.
+   > [!NOTE]
+   > **이벤트 및 성능 데이터 수집**은 선택 사항입니다.
+   >
+6. 확장을 배포 하려면 PowerShell을 사용 하려면 다음 PowerShell 예제를 사용 합니다.  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   
+   1. **Log Analytics**로 이동하여 **고급 설정**을 클릭합니다.
     
-        ![Log Analytics 설정][11]
+      ![Log Analytics 설정][11]
 
-    2. **WorkspaceID** 및 **기본 키** 값을 복사합니다.
+   2. **WorkspaceID** 및 **기본 키** 값을 복사합니다.
   
-       ![값 복사][12]
+      ![값 복사][12]
 
-    3. 공용 구성 및 개인 구성을 다음 값으로 채웁니다.
+   3. 공용 구성 및 개인 구성을 다음 값으로 채웁니다.
      
-            $PublicConf = '{
-                "workspaceId": "WorkspaceID value",
-                "MultipleConnections": true
-            }' 
+           $PublicConf = '{
+               "workspaceId": "WorkspaceID value",
+               "MultipleConnections": true
+           }' 
  
-            $PrivateConf = '{
-                "workspaceKey": "<Primary key value>”
-            }' 
+           $PrivateConf = '{
+               "workspaceKey": "<Primary key value>”
+           }' 
 
       - Windows VM에 설치하는 경우:
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
-       - Linux VM에 설치하는 경우:
+      - Linux VM에 설치하는 경우:
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > PowerShell을 사용하여 Security Center를 온보드하는 방법에 대한 지침은 [PowerShell을 사용하여 Azure Security Center의 온보딩 자동화](security-center-powershell-onboarding.md)를 참조하세요.

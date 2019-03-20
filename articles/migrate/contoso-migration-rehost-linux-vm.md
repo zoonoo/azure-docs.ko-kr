@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103488"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso 마이그레이션: Azure VM에 온-프레미스 Linux 앱 다시 호스트
 
@@ -314,17 +314,17 @@ Contoso 관리자는 다음 단계를 수행합니다.
 
 3. 복제할 **OSTICKETWEB** VM을 선택합니다. 
 
-    - Contoso는 이 단계에서 **OSTICKETWEB**만 선택합니다. VNet 및 서브넷을 모두 선택해야 하고 VM이 동일한 서브넷에 있지 않기 때문입니다.
-    - VM에 대해 복제를 사용하도록 설정하면 Site Recovery에서 자동으로 모바일 서비스를 설치합니다.
+   - Contoso는 이 단계에서 **OSTICKETWEB**만 선택합니다. VNet 및 서브넷을 모두 선택해야 하고 VM이 동일한 서브넷에 있지 않기 때문입니다.
+   - VM에 대해 복제를 사용하도록 설정하면 Site Recovery에서 자동으로 모바일 서비스를 설치합니다.
 
-    ![복제 사용](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![복제 사용](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. VM 속성에서 Contoso는 프로세스 서버가 자동으로 머신에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 
      ![모바일 서비스](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 적용되었는지 확인하고 **복제 사용**을 선택합니다.
-6.  **작업**에서 복제 진행 상황을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+6. **작업**에서 복제 진행 상황을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 
 
@@ -408,7 +408,7 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 ### <a name="connect-the-vm-to-the-database"></a>데이터베이스에 VM 연결
 
-마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 **OSTICKETMYSQL** VM에서 실행 중인 앱 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다. 
+마이그레이션 프로세스의 마지막 단계로, Contoso 관리자에서 실행 중인 응용 프로그램 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 업데이트 합니다 **OSTICKETMYSQL** VM. 
 
 1. Putty 또는 다른 SSH 클라이언트를 사용하여 **OSTICKETWEB** VM에 대한 SSH 연결을 만듭니다. VM은 개인 VM이므로 개인 IP 주소를 사용하여 연결합니다.
 

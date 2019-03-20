@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106783"
 ---
 # <a name="alert-confidence-score"></a>경고 신뢰도 점수 
 
@@ -45,7 +45,7 @@ Security Center의 신뢰도 점수를 사용하면 팀에서 경고를 심사�
 경고에 대한 보안 센터의 확신에 영향을 준 데이터를 보려면:
 - 보안 경고 블레이드의 **신뢰**에서 신뢰로 점수에 영향을 준 관찰 내용을 확인하고 경보와 관련된 인사이트를 얻으십시오. 이렇게 하면 경고를 유발한 활동의 본질에 대해 더 많은 인사이트를 얻을 수 있습니다.
 
- ![의심스러운 신뢰도 점수][2]
+  ![의심스러운 신뢰도 점수][2]
 
 Security Center의 신뢰도 점수를 사용하여 환경에서 경고 심사의 우선 순위를 정합니다. 신뢰도 점수가 있으면 자동으로 경고를 조사하고, 업계 모범 사례와 지능형 알고리즘을 적용하고, 가상의 분석가 역할을 수행하여 어떤 위협이 실제인지, 어디에 관심을 집중해야 하는지 판단해 주기 때문에 시간과 노력이 절약됩니다.
 

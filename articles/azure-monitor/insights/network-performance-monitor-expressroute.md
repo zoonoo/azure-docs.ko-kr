@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103590"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -55,7 +55,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
     ![ExpressRoute 모니터 구성](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- 검색이 완료된 후에 검색된 개인 피어링 연결이 표에 나열됩니다. 이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 
+   검색이 완료된 후에 검색된 개인 피어링 연결이 표에 나열됩니다. 이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>ExpressRoute 피어링 연결 모니터링 사용 
 

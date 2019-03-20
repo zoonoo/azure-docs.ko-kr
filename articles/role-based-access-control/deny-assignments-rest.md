@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998415"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열
 
-현재 거부 할당은**읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자신의 거부 할당을 만들 수는 없지만, 할당이 사용자의 유효한 권한에 영향을 줄 수 있으므로 거부 할당을 나열할 수 있습니다. 이 문서에서는 RBAC 및 REST API를 사용하여 거부 할당을 나열하는 방법을 설명합니다.
+[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 목록에 REST API를 사용 하는 방법을 설명 할당을 거부 합니다.
+
+> [!NOTE]
+> 이때 사용자가 직접 추가할 수는 유일한 방법은 할당은 Azure Blueprint를 사용 하 여 거부 합니다. 자세한 내용은 [Azure 청사진 리소스 잠금 사용 하 여 새 리소스를 보호](../governance/blueprints/tutorials/protect-new-resources.md)합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
+
+- `Microsoft.Authorization/denyAssignments/read` 대부분의 포함 된 사용 권한 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)입니다.
 
 ## <a name="list-a-single-deny-assignment"></a>단일 거부 할당 나열
 

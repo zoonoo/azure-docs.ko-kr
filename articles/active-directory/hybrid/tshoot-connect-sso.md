@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095903"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -120,8 +120,8 @@ ms.locfileid: "56415649"
 
 1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
-    >[!NOTE]
-    >의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+   > [!NOTE]
+   > 의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
 
 2. `Disable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
 3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
@@ -130,8 +130,8 @@ ms.locfileid: "56415649"
 
 1. `Enable-AzureADSSOForest`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
-   >[!NOTE]
-   >의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+   > [!NOTE]
+   > 의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
 
 2. 기능을 설정하려는 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 

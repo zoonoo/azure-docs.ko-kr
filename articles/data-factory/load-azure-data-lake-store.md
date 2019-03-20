@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119740"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
 
@@ -26,10 +26,10 @@ Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통�
 
 Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로드하면 다음과 같은 이점이 있습니다.
 
-* **간편한 설정**: 스크립팅이 필요 없는 직관적인 5단계 마법사.
-* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소 집합에 대한 기본 제공 지원. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-* **보안 및 규정 준수**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
-* **고성능**: 데이터를 Data Lake Storage Gen1에 최대 1GBps 속도로 로드합니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
+* **간편한 설정**: 스크립팅이 필요 없는 직관적인 5 단계 마법사.
+* **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소에 대 한 기본 제공 지원 합니다. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터가는 HTTPS 또는 ExpressRoute를 통해 전송 됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **고성능**: 최대 데이터 레이크 저장소 Gen1에 1-g B/s 데이터 로드 속도입니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
 
 이 문서에서는 Data Factory 복사 데이터 도구를 사용하여 _Amazon S3의 데이터를 Data Lake Storage Gen1으로 로드_하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
@@ -38,9 +38,9 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* Data Lake Storage Gen1 계정: Data Lake Storage Gen1 계정이 없는 경우 [Data Lake Storage Gen1 계정 만들기](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account)의 지침을 참조하세요.
-* Amazon S3: 이 문서는 Amazon S3에서 데이터를 복사하는 방법을 보여줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* 데이터 레이크 저장소 Gen1 계정: 지침을 참조 하는 Data Lake 저장소 Gen1 계정이 없으면 [Data Lake 저장소 Gen1 계정을 만들려면](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account)합니다.
+* Amazon S3: 이 문서는 Amazon S3에서 데이터를 복사하는 방법을 보여 줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -51,7 +51,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
       
    ![새 데이터 팩터리 페이지](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSG1Demo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSG1Demo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
@@ -62,7 +62,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
    
    ![데이터 팩터리 홈페이지](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
-   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 응용 프로그램을 시작합니다.
+   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="load-data-into-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 데이터 로드
 
@@ -85,7 +85,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
    2. **비밀 액세스 키** 값을 지정합니다.
    3. **마침**을 선택합니다.
    
-     ![Amazon S3 계정 지정](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Amazon S3 계정 지정](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. 새 연결이 표시됩니다. **다음**을 선택합니다.
    

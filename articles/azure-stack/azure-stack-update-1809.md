@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124204"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -63,12 +63,12 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 다음과 같은 관리 디스크 문제가 1809에서 고정 되어 있으며는 1808에도 수정 되어 [Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.  *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다. 요청한 VM 크기에 대 한 저장소 계정 유형 'Premium_LRS' 지원 되지 않으므로 작업을 수행할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
+  - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.  *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다. 요청한 VM 크기에 대 한 저장소 계정 유형 'Premium_LRS' 지원 되지 않으므로 작업을 수행할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
    
-   - 사용 하 여 관리 디스크 VM을 만드는 **createOption**: **연결** 다음 오류로 인해 실패 합니다. *장기 실행 작업 상태 '실패'를 사용 하 여 실패 했습니다. 추가 정보: '내부 실행 오류가 발생 했습니다.'*
-   ErrorCode: InternalExecutionError ErrorMessage: 내부 실행 오류가 발생했습니다.
+  - 사용 하 여 관리 디스크 VM을 만드는 **createOption**: **연결** 다음 오류로 인해 실패 합니다. *장기 실행 작업 상태 '실패'를 사용 하 여 실패 했습니다. 추가 정보: '내부 실행 오류가 발생 했습니다.'*
+    ErrorCode: InternalExecutionError ErrorMessage: 내부 실행 오류가 발생했습니다.
    
-   이제이 문제가 해결 되었습니다.
+    이제이 문제가 해결 되었습니다.
 
 - <!-- 2702741 -  IS, ASDK --> 동적 할당을 사용 하 여 배포 된 공용 Ip는 메서드가 없습니다. 문제 해결된 실행 중지-할당 취소 후에 유지 되도록 보장 합니다. 이제 보존 됩니다.
 
@@ -297,10 +297,10 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 <!-- TBD - IS ASDK --> 
 - 업데이트 된 1809를 적용 한 후, Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
 
-   - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
-      1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
-      2. 로 동일한 구독에서 **액세스 제어 (IAM)**, 하 고 있는지 확인 합니다 **AzureStack DiskRP 클라이언트** 역할 나열 됩니다.
-   2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+  - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
+     1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
+     2. 로 동일한 구독에서 **액세스 제어 (IAM)**, 하 고 있는지 확인 합니다 **AzureStack DiskRP 클라이언트** 역할 나열 됩니다.
+  - 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM은 SSH 키를 사용 하 여 로그인 할 수 없습니다. 대 안으로 Linux 확장에 대 한 VM 액세스를 사용 하 여 프로 비전 한 후 SSH 키를 구현 하거나 암호 기반 인증을 사용 하세요.
 

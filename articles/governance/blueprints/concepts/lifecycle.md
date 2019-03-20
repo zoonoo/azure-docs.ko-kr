@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001563"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
@@ -35,7 +35,7 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 청사진을 만들 때 아티팩트를 추가하고, 관리 그룹 또는 구독에 저장하고, 고유 이름과 고유 버전을 제공합니다. 청사진은 이제 **초안** 모드에 있으며 아직 할당될 수 없습니다. **초안** 모드에 있는 동안 계속해서 업데이트 및 변경될 수 있습니다.
 
-절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. **최신 버전**도 이러한 게시되지 않은 청사진에 대해 **초안**으로 표시됩니다.
+절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. 합니다 **최신 버전** 으로 표시 됩니다 **초안** 청사진을 게시 되지는이 대 한 합니다.
 
 [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) 또는 [REST API](../create-blueprint-rest-api.md#create-a-blueprint)를 사용하여 청사진을 만들고 편집합니다.
 
@@ -68,13 +68,13 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 > [!NOTE]
 > 활성 할당이 있는 청사진을 삭제하는 것은 불가능합니다. 먼저 할당을 삭제한 다음, 제거하려는 버전을 삭제합니다.
 
-1. **모든 서비스**를 클릭하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. 왼쪽의 페이지에서 **청사진 정의**를 선택하고 필터 옵션을 사용하여 삭제하려는 버전의 청사진을 찾습니다. 편집 페이지를 열려면 클릭합니다.
+1. 선택 **Blueprint 정의** 페이지에서 왼쪽 및 버전을 삭제 하려는 청사진을 찾으려고 필터 옵션을 사용 합니다. 편집 페이지를 열려면 클릭합니다.
 
 1. **게시된 버전** 탭을 클릭하고 삭제하려는 버전을 찾습니다.
 
-1. 삭제하려는 버전을 마우스 오른쪽 단추로 클릭하고 **이 버전 삭제**를 선택합니다.
+1. 삭제 및 선택 버전을 마우스 오른쪽 단추로 클릭 **이 버전을 삭제**합니다.
 
 ## <a name="deleting-the-blueprint"></a>청사진 삭제
 
@@ -103,8 +103,8 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [정적 및 동적 매개 변수](parameters.md) 사용 방법 이해
-- [청사진 시퀀싱 순서](sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](resource-locking.md)을 활용하는 방법 알아보기
-- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
-- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+- 사용 하는 방법 이해 [정적 및 동적 매개 변수](parameters.md)합니다.
+- 사용자 지정 하는 방법을 알아봅니다 합니다 [시퀀싱 순서 blueprint](sequencing-order.md)합니다.
+- 확인 하는 방법을 알아봅니다 이용 [리소스 잠금 blueprint](resource-locking.md)합니다.
+- 설명 하는 방법 [기존 할당을 업데이트할](../how-to/update-existing-assignments.md)합니다.
+- 사용 하 여 청사진의 할당 하는 동안 문제를 해결 [일반 문제 해결](../troubleshoot/general.md)합니다.

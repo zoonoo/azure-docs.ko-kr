@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094163"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -30,17 +30,17 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
-
-Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 리포지토리에 있습니다.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
 Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
+
+Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 리포지토리에 있습니다.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>예
 
@@ -53,31 +53,6 @@ Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세
 * [Python](#python-example)
 
 HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP 트리거 사용 방법](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
-
-### <a name="c-version-1x"></a>C#(버전 1.x)
-
-다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C#(2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
+### <a name="c-version-1x"></a>C#(버전 1.x)
+
+다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>C# 스크립트 예제
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
@@ -124,22 +124,6 @@ namespace Company.Function
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C# 스크립트(버전 1.x)
-
-`JObject`에 바인딩하는 Functions 1.x C# 스크립트 코드는 다음과 같습니다.
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C# 스크립트(버전 2.x)
 
 `EventGridEvent`에 바인딩하는 Functions 2.x C# 스크립트 코드는 다음과 같습니다.
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
+
+#### <a name="c-script-version-1x"></a>C# 스크립트(버전 1.x)
+
+`JObject`에 바인딩하는 Functions 1.x C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>JavaScript 예제
 
@@ -321,7 +321,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. `EventGridTrigger` 특성에서 설정할 생성자 매개 변수 또는 속성은 없습니다.
 
 |function.json 속성 |설명|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | 필수 - `eventGridTrigger`으로 설정해야 합니다. |
 | **direction** | 필수 - `in`으로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
@@ -484,10 +484,10 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에서 로컬 컴퓨터로 전달된 Event Grid HTTP 요청을 가져와야 합니다. 이 작업을 수행하는 한 가지 방법은 온라인으로 요청을 캡처하고 로컬 컴퓨터에서 수동으로 다시 전송하는 것입니다.
 
-2. 이벤트 메시지를 캡처하는 [뷰어 웹앱을 만듭니다](#create-a-viewer-web-app).
-3. 뷰어 앱에 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-an-event-grid-subscription).
-4. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
-5. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
+1. 이벤트 메시지를 캡처하는 [뷰어 웹앱을 만듭니다](#create-a-viewer-web-app).
+1. 뷰어 앱에 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-an-event-grid-subscription).
+1. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
+1. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
 테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
@@ -528,11 +528,18 @@ Event Grid 함수를 로컬로 실행합니다.
 * `Content-Type: application/json` 헤더를 설정합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
 * 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
-* 다음 패턴을 사용하여 Event Grid 트리거 함수의 URL에 게시합니다.
+* Event Grid 트리거 함수의 URL에 게시 합니다.
+  * 2.x에 대 한 패턴을 사용 합니다.
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * 1.x 사용:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 `functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
@@ -550,10 +557,10 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [ngrok](https://ngrok.com/)이라는 오픈 소스 도구를 사용하여 이 작업을 수행할 수 있습니다.
 
-3. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
-4. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.
-5. ngrok 엔드포인트로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
-6. [이벤트를 트리거](#trigger-an-event)합니다.
+1. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
+1. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.
+1. ngrok 엔드포인트로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
+1. [이벤트를 트리거](#trigger-an-event)합니다.
 
 테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
@@ -591,19 +598,19 @@ ngrok URL은 Event Grid에서 특수하게 처리되지 않으므로, 구독이 
 
 테스트하려는 유형의 Event Grid 구독을 만들고 ngrok 엔드포인트에 제공합니다.
 
-Functions 1.x에 대해 이 엔드포인트 패턴을 사용합니다.
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Functions 2.x에 대해 이 엔드포인트 패턴을 사용합니다.
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-`functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
+Functions 1.x에 대해 이 엔드포인트 패턴을 사용합니다.
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+`{FUNCTION_NAME}` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
 다음은 Azure CLI 사용 예입니다.
 

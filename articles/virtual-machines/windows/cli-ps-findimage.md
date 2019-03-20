@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: 394cd1d7f6b806a49c2de471647fd16ba4451d5c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081851"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
 
@@ -37,7 +37,7 @@ ms.locfileid: "55978513"
 다음 표에는 지정된 게시자 및 제안에 사용할 수 있는 SKU의 하위 집합이 나와 있습니다.
 
 | 게시자 | 제안 | SKU |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
@@ -173,7 +173,7 @@ Skus
 다음으로, *2019-Datacenter* SKU의 경우:
 
 ```powershell
-$skuName="2016-Datacenter"
+$skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 

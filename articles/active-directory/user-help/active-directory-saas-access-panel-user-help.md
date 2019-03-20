@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 MyApps 포털 액세스 및 사용에 대한 지원 | Microsoft Docs
+title: MyApps 포털-Azure Active Directory 액세스 및 사용에 대 한 도움 받기 | Microsoft Docs
 description: 액세스 패널에서 로그인하고 일반적인 작업을 수행할 수 있도록 도움을 받습니다.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64090e67c7bdc019498d35d7e9f5dfc8402ea57e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105474"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>MyApps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -95,8 +96,8 @@ MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 
 
 ## <a name="how-do-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 할까요?
 
-1.  **앱** 페이지에서 **앱 추가**를 선택합니다.
-2.  추가하려는 앱을 검색한 다음, **추가**를 선택합니다.
+1. **앱** 페이지에서 **앱 추가**를 선택합니다.
+2. 추가하려는 앱을 검색한 다음, **추가**를 선택합니다.
 
    > [!NOTE]
    > * 이 옵션은 관리자가 계정에 대해 사용하도록 설정한 경우에만 액세스할 수 있습니다.

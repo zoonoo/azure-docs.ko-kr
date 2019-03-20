@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012485"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -63,6 +63,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 `compute_target`| 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상입니다. AmlCompute 클러스터가 일반적으로 사용되는 대상이기는 하지만 Azure VM 또는 로컬 컴퓨터와 같은 다른 컴퓨팅 대상 유형을 선택할 수도 있습니다.
 `entry_script`| 원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages`| conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다.  
+
 생성자에는 필요한 모든 pip 패키지에 사용하는 `pip_packages`라는 매개 변수도 있습니다.
 
 `Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiment) 개체`experiment`의 `submit` 함수 호출을 통해 원격 계산에서 실행할 학습 작업을 제출합니다. 

@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183155"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
@@ -49,7 +49,7 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Office 365 제품, Enterprise Mobility + Security 및 Dynamics 365가 포함됩니다.
 
-- 그룹 기반 라이선스는 현재 [Azure Portal](https://portal.azure.com)을 통해서만 사용할 수 있습니다. Office 365 포털과 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용하는 경우에 이 작업을 계속 수행할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
+- 그룹 기반 라이선스는 현재를 통해서만 사용할 수는 [Azure portal](https://portal.azure.com)합니다. 기본적으로 사용 하는 경우 다른 관리 포털 사용자 및 그룹 관리에 대 한 예는 [Microsoft 365 관리 센터](https://admin.microsoft.com), 이렇게 할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
 
 - Azure AD는 그룹 멤버 자격 변경으로 인해 발생하는 라이선스 수정을 자동으로 관리합니다. 일반적으로 라이선스 수정은 멤버 자격 변경 후 수분 내에 효과가 발생합니다.
 

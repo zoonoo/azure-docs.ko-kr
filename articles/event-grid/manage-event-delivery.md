@@ -7,20 +7,25 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731770"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181965"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 
 이벤트 구독을 만들 때 이벤트 전송 설정을 사용자 지정할 수 있습니다. 이 문서에서는 배달 못한 편지 위치를 설정하고 재시도 설정을 사용자 지정하는 방법을 보여 줍니다. 이 기능에 대한 자세한 내용은 [Event Grid 메시지 전송 및 재시도](delivery-and-retry.md)를 참조하세요.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="set-dead-letter-location"></a>배달 못한 편지 위치 설정
 
 배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 저장소 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
+
+> [!NOTE]
+> 이 문서의 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -47,10 +52,10 @@ az eventgrid event-subscription create \
 ```azurepowershell-interactive
 $containername = "testcontainer"
 
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
-$storageid = (Get-AzureRmStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$storageid = (Get-AzStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -99,9 +104,9 @@ az eventgrid event-subscription create \
 이벤트 TTL(Time to Live)을 1440분 이외의 값으로 설정하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -111,9 +116,9 @@ New-AzureRmEventGridSubscription `
 최대 재시도 값을 30 이외의 값으로 설정하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `

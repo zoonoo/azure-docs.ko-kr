@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110497"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -35,12 +35,12 @@ ms.locfileid: "52839962"
 
 1. **자격 증명 모음** > **복제된 항목**에서 장애 조치(failover)된 VM을 마우스 오른쪽 단추로 클릭하고 **다시 보호**를 선택합니다. 다시 보호 방향이 보조에서 주로 표시됩니다.
 
-  ![다시 보호](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![다시 보호](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. 리소스 그룹, 네트워크, 저장소 및 가용성 집합을 검토합니다. 그런 후 **OK**를 클릭합니다. 신규로 표시된 리소스가 있는 경우 이러한 리소스는 다시 보호 프로세스의 일부로 만들어집니다.
 3. 다시 보호 작업은 최신 데이터로 대상 사이트를 시드합니다. 완료되면 델타 복제가 수행됩니다. 그런 다음 주 사이트로 다시 장애 조치(failover)할 수 있습니다. 사용자 지정 옵션을 사용하여 다시 보호 중에 사용할 네트워크나 저장소 계정을 선택할 수 있습니다.
 
-  ![옵션 사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![옵션 사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>다시 보호 설정 사용자 지정
 

@@ -4,16 +4,16 @@ description: 사용자 환경의 네트워크 대역폭이 낮음-보통 수준�
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124306"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>낮음-보통 네트워크 대역폭에서 작은 데이터 세트의 데이터 전송
  
@@ -34,7 +34,7 @@ ms.locfileid: "53263658"
 
 - Azure Portal의 Azure Storage 탐색기 및 Azure Storage와 같은 **그래픽 인터페이스 도구**. 이러한 도구를 통해 데이터를 쉽게 확인하고 몇 개의 파일을 빠르게 전송할 수 있습니다.
 
-    - **Azure Storage 탐색기** - 이 플랫폼 간 도구를 통해 Azure Storage 계정의 내용을 관리할 수 있습니다. BLOB, 파일, 큐, 테이블 및 Azure Cosmos DB 엔터티를 업로드, 다운로드 및 관리할 수 있습니다. Blob 저장소에서 사용하여 Blob 및 폴더를 관리하고, 로컬 파일 시스템과 Blob 저장소 간에 또는 저장소 계정 간에 Blob을 업로드 및 다운로드할 수 있습니다.
+    - **Azure Storage 탐색기** - 이 플랫폼 간 도구를 통해 Azure Storage 계정의 내용을 관리할 수 있습니다. BLOB, 파일, 큐, 테이블 및 Azure Cosmos DB 엔터티를 업로드, 다운로드 및 관리할 수 있습니다. Blob Storage에서 사용하여 Blob 및 폴더를 관리하고, 로컬 파일 시스템과 Blob Storage 간에 또는 스토리지 계정 간에 Blob을 업로드 및 다운로드할 수 있습니다.
     - **Azure Portal** - Azure Portal의 Azure Storage는 파일을 검색하고 새 파일을 한 번에 하나씩 업로드하는 웹 기반 인터페이스를 제공합니다. 파일을 빠르게 탐색하거나 많은 새 파일을 간편하게 업로드하기 위해 도구를 설치하거나 명령을 실행하는 방식을 원치 않을 경우에 유용한 옵션입니다.
 
 - AzCopy/PowerShell/Azure CLI 및 Azure Storage REST API와 같은 **스크립팅/프로그래밍 방식 도구**.
@@ -49,16 +49,16 @@ ms.locfileid: "53263658"
 
 다음 표에서는 주요 기능의 차이점을 요약해서 보여 줍니다.
 
-| 기능                                                            | Azure Storage 탐색기                    | Azure portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST API 또는 SDK |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| 가용성                                                       | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구           | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스                                                         |
-| 그래픽 인터페이스                                              | yes                                       | yes                                                     | 아니요                | 아니요                                                      |
-| 지원되는 플랫폼                                              | Windows, Mac, Linux                       | 웹 기반     |Windows, Mac, Linux     |모든 플랫폼                                                         |
-| Blob 및 폴더에 대해 허용되는 Blob<br>스토리지 작업            | 업로드<br>다운로드<br>관리    | 업로드<br>다운로드<br>관리  |업로드<br>다운로드<br>관리             | 예, 사용자 지정 가능                                                        |
-| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업  | 업로드<br>다운로드<br>관리                | 아니요 |업로드<br>다운로드<br>관리                   |      아니요                                                   |
-| 파일 및 디렉터리에 대해 허용되는 File<br>Storage 작업        | 업로드<br>다운로드<br>관리       | 업로드<br>다운로드<br>관리   |업로드<br>다운로드<br>관리 |                                                         |예, 사용자 지정 가능
-| 테이블에 대해 허용되는 Table<br>Storage 작업                      |관리                            | 아니요            |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
-| 허용되는 Queue Storage                                              | 관리                                    | 아니요  |아니요 | 예, 사용자 지정 가능|
+| 기능 | Azure Storage 탐색기 | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| 가용성 | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구 | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스 |
+| 그래픽 인터페이스 | 예 | 예 | 아니오 | 아닙니다. |
+| 지원되는 플랫폼 | Windows, Mac, Linux | 웹 기반 |Windows, Mac, Linux |모든 플랫폼 |
+| Blob 및 폴더에 대해 허용되는 Blob<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리 |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
+| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 아닙니다. |업로드<br>다운로드<br>관리                   | 아닙니다. |
+| 파일 및 디렉터리에 대해 허용되는 File<br>Storage 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리   |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
+| 테이블에 대해 허용되는 Table<br>Storage 작업 |관리 | 아닙니다. |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
+| 허용되는 Queue Storage | 관리 | 아닙니다.  |아닙니다. | 예, 사용자 지정 가능|
 
 
 ## <a name="next-steps"></a>다음 단계

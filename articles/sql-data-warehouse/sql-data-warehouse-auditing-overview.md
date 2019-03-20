@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898485"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -131,11 +131,11 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
     4. 병합된 파일이 SSMS에서 열립니다. 여기에서 파일을 보고 분석할 수 있을 뿐만 아니라 XEL 또는 CSV 파일이나 테이블로 내보낼 수 있습니다.
 
-* Microsoft에서 만든 [동기화 애플리케이션](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. 이 응용 프로그램은 Azure에서 실행되며 Log Analytics 공용 API를 활용하여 SQL 감사 로그를 Log Analytics에 푸시합니다. 동기화 애플리케이션은 Log Analytics 대시보드를 통해 사용할 수 있도록 Log Analytics에 SQL 감사 로그를 푸시합니다.
+* Microsoft에서 만든 [동기화 애플리케이션](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. Azure에서 실행 되 고 log analytics를 활용 합니다. Azure Monitor 로그로 감사 로그에 SQL 푸시 공용 Api. 동기화 응용 프로그램은 log analytics 대시보드를 통해 소비에 대 한 Azure Monitor 로그로 SQL 감사 로그를 푸시합니다.
 
-* Power BI를 사용합니다. Power BI에서 감사 로그 데이터를 보고 분석할 수 있습니다. 자세한 내용은 [Power BI 및 다운로드 가능한 템플릿 액세스](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)를 참조하세요.
+* Power BI를 사용합니다. Power BI에서 감사 로그 데이터를 보고 분석할 수 있습니다. 자세한 내용은 [Power BI 및 다운로드 가능한 템플릿 액세스](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/)를 참조하세요.
 
-* 포털을 통해 또는 [Azure Storage 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Storage Blob 컨테이너에서 로그 파일을 다운로드합니다.
+* 포털을 통해 또는 [Azure Storage 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Storage Blob 컨테이너에서 로그 파일을 다운로드합니다.
     * 로그 파일을 로컬에 다운로드한 후에는 해당 파일을 두 번 클릭하여 열고, SSMS에서 로그를 살펴보고 분석할 수 있습니다.
     * 또한 Azure Storage 탐색기를 통해 동시에 여러 파일을 다운로드할 수 있습니다. 특정 하위 폴더를 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장**을 선택하여 로컬 폴더에 저장합니다.
 
@@ -144,14 +144,15 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
    * 프로그래밍 방식으로 Blob 감사 로그를 확인합니다.
 
-     * [확장 이벤트 판독기](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# 라이브러리를 사용합니다.
-     * PowerShell을 사용하여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/)합니다.
+     * [확장 이벤트 판독기](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 라이브러리를 사용합니다.
+     * PowerShell을 사용하여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)합니다.
 
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
-데이터베이스 수준 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
+데이터베이스 수준 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
 미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](https://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](https://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
 
@@ -169,18 +170,26 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 4. 저장소 UI로 돌아와서 **보조 선택키** 를 *다시 생성* 합니다(다음 키 새로 고침 주기를 위한 준비).
 
 ## <a id="subheading-5"></a>Automation(PowerShell/REST API)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 또한 다음 자동화 도구를 사용하여 Azure SQL Data Warehouse에서 감사를 구성할 수도 있습니다.
 
 * **PowerShell cmdlet**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+<!-- None of the following links exist anymore 3-12-2019
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원
 감사는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 작동합니다.

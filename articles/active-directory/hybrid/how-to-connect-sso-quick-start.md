@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086822"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -74,8 +74,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ![Azure AD Connect: 사용자 로그인 변경](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 **Single Sign-On 사용** 페이지에 도달할 때까지 마법사를 계속 진행합니다. 각 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 제공합니다.
-    * Azure AD Connect를 통해 Azure AD에 동기화합니다.
-    * Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
+
+* Azure AD Connect를 통해 Azure AD에 동기화합니다.
+* Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
 
 마법사를 완료하면 테넌트에서 SSO Seamless를 사용하도록 설정됩니다.
 
@@ -120,17 +121,17 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
-3. **사용자 구성** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지**를 찾아봅니다. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
+3. 이동할 **사용자 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지**. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 정책을 사용하도록 설정한 다음, 대화 상자에서 다음 값을 입력합니다.
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
    - **값**(데이터): **1**은 인트라넷 영역을 나타냅니다.
 
-    결과는 다음과 유사하게 표시됩니다.
+     결과는 다음과 유사하게 표시됩니다.
 
-    값 이름: `https://autologon.microsoftazuread-sso.com`
+     값 이름: `https://autologon.microsoftazuread-sso.com`
   
-    값(데이터): 1
+     값(데이터): 1
 
    >[!NOTE]
    > 일부 사용자가 공유 키오스크에 로그인하는 경우와 같이 이러한 사용자가 Seamless SSO를 사용하지 못하게 하려면 이전 값을 **4**로 설정합니다. 이 작업에서는 Azure AD URL이 제한된 영역에 추가되고 Seamless SSO가 항상 실패하게 됩니다.
@@ -140,7 +141,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. **사용자 구성** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지** > **인트라넷 영역**을 찾아봅니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
+6. 이동할 **사용자 구성** > **관리 템플릿** **정책** > * * > **Windows 구성 요소**  >  **Internet Explorer** > **인터넷 제어판** > **보안 페이지**  >   **인트라넷 영역**합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
 
     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -162,9 +163,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 형식**: ***REG_DWORD***.
    - **값 데이터**: ***00000001***.
  
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3bc42bf5b83f9ff983c3d8d88a9a496cc395096c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084381"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 
@@ -27,7 +27,7 @@ ms.locfileid: "55992588"
 ## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 
 | 파일 형식(파일 확장명) | 지원됨 |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV(H.264 및 AAC 코덱 포함)(.flv) |예 |
 | MXF(.mxf) |예 |
 | GXF(.gxf) |예 |
@@ -56,7 +56,7 @@ ms.locfileid: "55992588"
 
 ## <a name="input-video-codecs"></a>입력 비디오 코덱
 | 입력 비디오 코덱 | 지원됨 |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |
 | Avid DNxHD(MXF) |예 |
 | DVCPro/DVCProHD(MXF) |예 |
@@ -65,7 +65,7 @@ ms.locfileid: "55992588"
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |아니요 |
+| Canopus HQ/HQX |아닙니다. |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -79,7 +79,7 @@ ms.locfileid: "55992588"
 
 ## <a name="input-audio-codecs"></a>입력 오디오 코덱
 | 입력 오디오 코덱 | 지원됨 |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |
 | MPEG Layer 2 |예 |
 | MP3(MPEG-1 Audio Layer 3) |예 |
@@ -89,10 +89,10 @@ ms.locfileid: "55992588"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
-| Dolby® E |아니요 |
-| Dolby® Digital(AC3) |아니요 |
-| Dolby® Digital Plus(E-AC3) |아니요 |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아닙니다. |
+| Dolby® E |아닙니다. |
+| Dolby® Digital(AC3) |아닙니다. |
+| Dolby® Digital Plus(E-AC3) |아닙니다. |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.

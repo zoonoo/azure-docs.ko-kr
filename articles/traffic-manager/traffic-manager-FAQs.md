@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009937"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -59,14 +59,7 @@ Traffic Manager는 DNS 수준에서 애플리케이션과 통합하므로 추가
 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 Traffic Manager를 통해서가 아닌 애플리케이션 엔드포인트에 직접 연결됩니다. 따라서 이 연결에서는 모든 애플리케이션 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 애플리케이션 프로토콜을 사용하지 않고 Traffic Manager의 엔드포인트 상태 모니터링을 수행할 수 있습니다. 애플리케이션 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 엔드포인트가 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
-
-아니요. DNS 표준은 CNAME이 동일한 이름의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 apex(또는 루트)는 항상 SOA 및 권한이 있는 NS 레코드라는 두 개의 기존 DNS 레코드를 포함합니다. 즉, DNS 표준을 위반하지 않고 영역 apex에 CNAME 레코드를 만들 수 없습니다.
-
-Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드가 필요합니다. 예를 들어 Traffic Manager 프로필 DNS 이름 `contoso.trafficmanager.net`에 `www.contoso.com`을 매핑합니다. 또한 Traffic Manager 프로필은 클라이언트가 연결해야 하는 엔드포인트를 나타내는 보조 DNS CNAME을 반환합니다.
-
-이 문제를 해결하려면 naked 도메인 이름에서 다른 URL로 트래픽을 연결하는 HTTP 리디렉션을 사용하는 것이 좋습니다. 그런 다음 Traffic Manager를 사용할 수 있습니다. 예를 들어 naked 도메인 'contoso.com'에서는 사용자를 Traffic Manager DNS 이름을 가리키는 'www.contoso.com'으로 리디렉션할 수 있습니다.
-
-Traffic Manager에서 naked 도메인에 대한 전체 지원은 기능 백로그에서 추적됩니다. [커뮤니티 피드백 사이트에서 투표](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)하여 이 기능 요청에 지원을 등록할 수 있습니다.
+예. Azure Traffic Manager 프로필을 참조 하 여 도메인 이름 apex에 대 한 별칭 레코드를 만드는 방법에 알아보려면 참조 [구성에 루트 도메인 이름을 Traffic Manager와 함께 지원 별칭 레코드](../dns/tutorial-alias-tm.md)합니다.
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요? 
 예, Traffic Manager는 수신한 DNS 쿼리의 원본 IP 주소(일반적으로 DNS 확인자의 IP 주소) 외에도 최종 사용자를 대신하여 요청하는 확인자에 의한 쿼리에 포함되는 경우 지리 및 성능 및 서브넷 라우팅 방법에 대한 조회를 수행할 때 클라이언트 서브넷 주소를 고려합니다.  
@@ -347,6 +340,7 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 쿼리가 프로필에 대해 수신되면 Traffic Manager는 먼저 지정된 라우팅 방법을 기준으로 반환해야 하는 엔드포인트와 엔드포인트의 상태를 찾습니다. 그런 다음, 아래 테이블을 기반으로 응답을 반환하기 전에 들어오는 쿼리에서 요청된 레코드 형식 및 엔드포인트와 연결된 레코드 형식을 조회합니다.
 
 다중값 이외의 모든 라우팅 방법을 사용한 프로필의 경우:
+
 |들어오는 쿼리 요청|    엔드포인트 유형|  제공된 응답|
 |--|--|--|
 |모두 |  A / AAAA / CNAME |  대상 엔드포인트| 
@@ -357,6 +351,7 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |CNAME |    CNAME | 대상 엔드포인트|
 |CNAME  |A / AAAA | NODATA |
 |
+
 다중값으로 설정된 라우팅 방법을 사용한 프로필의 경우:
 
 |들어오는 쿼리 요청|    엔드포인트 유형 | 제공된 응답|
