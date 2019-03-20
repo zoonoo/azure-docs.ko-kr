@@ -3,23 +3,23 @@ title: 포함 파일
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988257"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203511"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>iOS 애플리케이션에서 Microsoft Graph API 호출
 
@@ -34,7 +34,7 @@ ms.locfileid: "49988257"
 
 ## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 
-![이 가이드의 작동 방식](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![이 자습서 작동 하 여 샘플 앱을 생성 하는 방법을 보여 줍니다.](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 이 가이드의 애플리케이션 예제에서는 iOS 애플리케이션이 Azure AD v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하도록 합니다. 이 시나리오에서는 토큰이 **인증** 헤더를 사용하여 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 MSAL(Microsoft 인증 라이브러리)에서 처리합니다.
 

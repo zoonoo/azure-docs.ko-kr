@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning service
 description: Azure Resource Manager 템플릿을 사용하여 새 Azure Machine Learning Service 작업 영역을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850080"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>템플릿을 사용하여 Azure Machine Learning Service 작업 영역 만들기
 
@@ -25,7 +24,7 @@ ms.locfileid: "56105708"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
@@ -193,12 +192,12 @@ Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소�
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.
 
-    * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
-    * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
-    * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
-    * 위치: 리소스가 생성될 위치를 선택합니다.
+   * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
+   * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
+   * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
+   * 위치: 리소스가 생성될 위치를 선택합니다.
 
-    ![Azure Portal의 템플릿 매개 변수](media/how-to-create-workspace-template/template-parameters.png)
+     ![Azure Portal의 템플릿 매개 변수](media/how-to-create-workspace-template/template-parameters.png)
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 

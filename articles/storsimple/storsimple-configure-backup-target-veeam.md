@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012003"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
 
@@ -68,7 +68,7 @@ StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작�
 
 StorSimple은 온-프레미스 및 클라우드 저장소에 대한 원활한 액세스를 활용하여 Microsoft Azure와 원활하게 통합된 온-프레미스 솔루션을 제공합니다.
 
-StorSimple은 SSD(Solid-State Device) 및 SAS(Serial-Attached SCSI) 저장소가 있는 온-프레미스 디바이스와 Azure Storage 간에 자동 계층화를 사용합니다. 자동 계층화는 자주 액세스하는 데이터를 SSD 및 SAS 계층에서 로컬로 유지하지만, 그렇지 않은 데이터는 Azure Storage로 이동합니다.
+StorSimple은 SSD(Solid-State Device) 및 SAS(Serial-Attached SCSI) 스토리지가 있는 온-프레미스 장치와 Azure Storage 간에 자동 계층화를 사용합니다. 자동 계층화는 자주 액세스하는 데이터를 SSD 및 SAS 계층에서 로컬로 유지하지만, 그렇지 않은 데이터는 Azure Storage로 이동합니다.
 
 StorSimple은 다음과 같은 이점을 제공합니다.
 
@@ -81,7 +81,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 
 StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
-StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
+StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
 > [!IMPORTANT]
 > StorSimple 디바이스를 백업 대상으로 사용하는 것은 StorSimple 8000 업데이트 3 이상 버전에서만 지원됩니다.
@@ -104,7 +104,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 | Backup 시나리오  | 로컬 저장소 용량  | 클라우드 저장소 용량  |
 |---|---|---|
 | 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 저장소에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
-| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | 해당 없음  |
+| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
@@ -168,7 +168,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 솔루션을 최적으로 수행하려면 다음과 같은 네트워킹 모범 사례를 따르는 것이 좋습니다.
 
 -   StorSimple 계층화를 Azure에 연결하는 링크는 대역폭 요구 사항을 충족해야 합니다. 이렇게 하려면 RPO 및 RTO(복구 시간 목표) SLA와 일치하도록 인프라 스위치에 필요한 QoS(서비스 품질) 수준을 적용합니다.
--   최대 Azure Blob 저장소 액세스 대기 시간은 약 80ms여야 합니다.
+-   최대 Azure Blob Storage 액세스 대기 시간은 약 80ms여야 합니다.
 
 ### <a name="deploy-storsimple"></a>StorSimple 배포
 
@@ -186,7 +186,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
 | StorSimple 배포 작업  | 추가 설명 |
 |---|---|
-| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전 |
+| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전. |
 | 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](storsimple-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
 | 백업 데이터를 저장하는 볼륨에 대한 일반적인 볼륨 컨테이너를 만듭니다. 볼륨 컨테이너에 있는 모든 데이터의 중복을 제거합니다. | StorSimple 볼륨 컨테이너는 중복 제거 도메인을 정의합니다.  |
 | StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅숏 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
@@ -209,16 +209,16 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
 ### <a name="operating-system-best-practices"></a>운영 체제 모범 사례
 
--   NTFS 파일 시스템에 대한 Windows Server 암호화 및 중복 제거를 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에 Windows Server 조각 모음을 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
--   [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
-    - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
-    - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Windows PowerShell을 실행하고 다음을 입력합니다.
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- NTFS 파일 시스템에 대한 Windows Server 암호화 및 중복 제거를 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에 Windows Server 조각 모음을 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
+- [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
+  - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
+  - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Windows PowerShell을 실행하고 다음을 입력합니다.
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple 모범 사례
 
@@ -265,6 +265,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 | 매년 전체 | 1  | 10 | 10 |
 | GFS 요구 사항 |   | 38 |   |
 | 추가 할당량  | 4  |   | 42개의 총 GFS 요구 사항  |
+
 \* GFS 승수는 백업 정책 요구 사항을 충족하기 위해 보호하고 유지해야 하는 복사본의 수입니다.
 
 ## <a name="set-up-veeam-storage"></a>Veeam 저장소 설정
@@ -319,7 +320,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
 | 매월  | 토요일  |   |
-| 매년 | 토요일  |   |   |
+| 매년 | 토요일  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Veeam 백업 작업에 StorSimple 볼륨 할당
@@ -354,7 +355,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
     Veeam 중복 제거 및 압축 설정에 대한 자세한 내용은 [데이터 압축 및 중복 제거](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)(영문)를 참조하세요.
 
-7.  **Backup 작업 편집** 대화 상자에서 **응용 프로그램 인식 처리 사용**(선택 사항) 확인란을 선택할 수 있습니다.
+7.  **Backup 작업 편집** 대화 상자에서 **애플리케이션 인식 처리 사용**(선택 사항) 확인란을 선택할 수 있습니다.
 
     ![Veeam 관리 콘솔 - 새 백업 작업 게스트 처리 페이지](./media/storsimple-configure-backup-target-using-veeam/veeamimage14.png)
 
@@ -384,6 +385,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 | 매월 전체 |StorSimple 디스크(장기) | 1 | 12 | 12 |
 | 매년 전체 |StorSimple 디스크(장기) | 1 | 1 | 1 |
 |GFS 볼륨 크기 요구 사항 |  |  |  | 18*|
+
 \* 총 용량에는 17TiB의 StorSimple 디스크 및 1TiB 로컬 RAID 볼륨이 포함됩니다.
 
 
@@ -398,7 +400,7 @@ GFS 회전 매주, 매월 및 매년 일정
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 매월 | StorSimple 매월 |   |   |   |   |   |
-| 매년 | StorSimple 매년  |   |   |   |   |   |   |
+| 매년 | StorSimple 매년  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Veeam 복사 작업에 StorSimple 볼륨 할당
 
@@ -469,9 +471,9 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
 1. [Azure PowerShell 설치](/powershell/azure/overview)
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
 3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. 백업 작업에 스크립트를 추가하려면 Veeam 작업 고급 옵션을 편집합니다.
 
     ![Veeam 백업 고급 설정 스크립트 탭](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -510,11 +512,11 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 이 문서에서는 다음 문서를 참조했습니다.
 
 - [StorSimple 다중 경로 I/O 설정](storsimple-configure-mpio-windows-server.md)
-- [저장소 시나리오: 씬 프로비전](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage 시나리오: 씬 프로비저닝](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [GPT 드라이브 사용](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [공유 폴더의 섀도 복사본 설정](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [백업 세트에서 복원](storsimple-restore-from-backup-set-u2.md)하는 방법에 대해 자세히 알아보세요.
-- [장치 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.
+- [디바이스 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.

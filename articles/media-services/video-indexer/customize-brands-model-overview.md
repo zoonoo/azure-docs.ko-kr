@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872882"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer에서 브랜드 모델 사용자 지정
 
@@ -28,7 +28,7 @@ Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱
 
 ![브랜드 개요](./media/content-model-customization/brands-overview.png)
 
-생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다. [전체 Microsoft Build 2017 2일차 키노트 비디오 및 인덱스](http://www.videoindexer.ai/media/ed6ede78ad/)를 보려면 여기를 클릭하세요.
+생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다. [전체 Microsoft Build 2017 2일차 키노트 비디오 및 인덱스](https://www.videoindexer.ai/media/ed6ede78ad/)를 보려면 여기를 클릭하세요.
 
 사용자 고유의 브랜드를 가져오려면 다음 단계를 확인합니다.
 

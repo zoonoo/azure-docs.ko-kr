@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 6bc804c9cbf141f5b0e36a92e4f386a6540f583c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855523"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 연결 문제 해결
 
@@ -48,7 +48,7 @@ ms.locfileid: "53540931"
 
 * 서버 방화벽 구성: Azure Database for MySQL 서버 방화벽이 프록시 서버 및 게이트웨이를 포함하여 클라이언트에서 연결을 허용하도록 구성되어 있는지 확인합니다.
 * 클라이언트 방화벽 구성: 클라이언트에서 방화벽은 데이터베이스 서버에 연결을 허용해야 합니다. 일부 방화벽에서 MySQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
-* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락된 *@servername* 접미사와 같은 연결 매개 변수가 잘못 입력되었을 수 있습니다.
+* 사용자 오류: 연결 문자열 또는 누락 된 서버 이름과 같이 연결 매개 변수를 잘못 입력 했을 수 있습니다  *\@servername* 사용자 이름에는 접미사입니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

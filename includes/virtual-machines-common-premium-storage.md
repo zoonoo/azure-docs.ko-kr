@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116040"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
@@ -63,11 +63,11 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
     Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 스토리지 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 Premium Storage 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 Premium Storage 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
      
-    - [Azure Storage용 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure Storage용 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포용) 또는 Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나
+  - [Azure Storage용 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure Storage용 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포용) 또는 Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나
 
-    프리미엄 스토리지 계정 한도에 대해 자세히 알아보려면 Premium Storage 확장성 및 성능 목표를 참조하세요.
+    Premium storage 계정 한도 알아보려면 [확장성 및 성능 목표](#scalability-and-performance-targets)합니다.
 
 * **프리미엄 로컬 중복 저장소**
 
@@ -98,8 +98,6 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
     > [!NOTE]
     > [스토리지 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용하여 Premium Storage 데이터 디스크를 스트라이프하는 경우, 스토리지 공간은 사용하는 각 디스크에 대해 하나의 열로 설정해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자에서는 최대 8개의 디스크를 열로 설정할 수 있습니다. 8개 이상의 디스크가 있는 경우 PowerShell을 사용하여 볼륨을 만듭니다. 열 수를 수동으로 지정합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 계속 사용합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정합니다. 가상 디스크에서 사용하는 열 수를 지정하려면 [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet에서 *NumberOfColumns* 매개 변수를 사용합니다. 자세한 내용은 [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 FAQ](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
-    >
-    > 
 
 * **캐시**
 
@@ -160,7 +158,7 @@ Premium Storage 디스크를 프로비전할 때 디스크의 크기가 최대 I
 | 디스크당 처리량 | 초당 25MB | 초당 50MB | 초당 100MB | 초당 125MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 초당 480MB | 초당 750MB | 초당 750MB |
 
 > [!NOTE]
-> [Premium Storage 지원 VM]() 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
+> 충분 한 대역폭을에 설명 된 대로 디스크 트래픽 운용 하기 위해 VM에서 사용할 수 있는지 [지원 Vm](#supported-vms)합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
 > Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니다. 애플리케이션을 다중 스레드로 디자인하면 더 큰 디스크 크기에서 제공되는 고성능 목표를 달성하는 데 도움이 됩니다.
 
 다음은 Premium Storage 확장성 및 성능 목표에 대해 알아야 하는 중요한 사항입니다.
@@ -294,7 +292,7 @@ Premium Storage를 사용하는 경우 다음과 같은 청구 고려 사항이 
 
 * **Premium Storage 디스크 및 Blob 크기**
 
-    Premium Storage 디스크 또는 Blob에 대한 청구는 프로비전된 디스크 또는 Blob 크기에 따라 달라집니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 Premium Storage 디스크 옵션에 매핑합니다. 자세한 내용은 [Premium Storage 확장성 및 성능 목표]()의 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 그에 따라 요금이 청구됩니다. 프로비전된 디스크에 대한 청구는 Premium Storage 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS 및 처리량에 관계없이 적용됩니다.
+    Premium Storage 디스크 또는 Blob에 대한 청구는 프로비전된 디스크 또는 Blob 크기에 따라 달라집니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 Premium Storage 디스크 옵션에 매핑합니다. 자세한 내용은의 표를 참조 [확장성 및 성능 목표](#scalability-and-performance-targets)합니다. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 그에 따라 요금이 청구됩니다. 프로비전된 디스크에 대한 청구는 Premium Storage 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS 및 처리량에 관계없이 적용됩니다.
 
 * **프리미엄 관리되지 않는 디스크 스냅숏**
 

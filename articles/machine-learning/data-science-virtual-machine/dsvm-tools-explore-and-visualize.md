@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855489"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
@@ -43,7 +43,7 @@ ms.locfileid: "55453215"
 | 지원되는 DSVM 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
 | 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux인 경우 X2Go에 로그인한 다음, Applications -&gt; Development -&gt; Weka로 이동합니다. |
-| 샘플에 대한 링크      | [Weka 샘플](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM의 관련 도구      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
@@ -60,7 +60,7 @@ ms.locfileid: "55453215"
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
-| 지원되는 DSVM 버전      |  Windows  |
+| 지원되는 DSVM 버전      | Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |

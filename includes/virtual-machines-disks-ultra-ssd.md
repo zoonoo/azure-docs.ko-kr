@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4b5d2de2e9ccd44517e083a435e127bd5678f002
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736191"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58114362"
 ---
-# <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Azure Virtual Machine 워크로드용 Ultra SSD(미리 보기) Managed Disks
+# <a name="ultra-disks-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra (미리 보기) managed disks에 대 한 Azure virtual machine 워크 로드
 
-Azure Ultra SSD(미리 보기)는Azure IaaS VM에 대한 높은 처리량, 높은 IOP 및 일관된 짧은 대기 시간 디스크 저장소를 제공합니다. 이 새 제품은 당사의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. Ultra SSD의 추가 혜택에는 가상 머신을 다시 시작할 필요없이 워크로드와 함께 디스크의 성능을 동적으로 변경하는 기능이 포함됩니다. Ultra SSD는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 작업이 많은 워크로드와 같은 데이터 집약적인 워크로드에 적합합니다.
+Azure ultra 디스크 (미리 보기)는 Azure IaaS Vm에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. Ultra 디스크의 추가 혜택에는 가상 컴퓨터를 다시 시작 하지 않고 워크 로드와 함께 디스크의 성능을 동적으로 변경 하는 기능 포함 됩니다. Ultra 디스크는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 작업이 많은 워크 로드와 같은 데이터 집약적인 워크 로드에 적합 합니다.
 
-## <a name="ultra-ssd-features"></a>Ultra SSD 기능
+## <a name="ultra-disk-features"></a>Ultra 디스크 기능
 
-**Managed Disks**: 울트라 SSD는 Managed Disks로만 사용할 수 있습니다. Ultra SSD는 관리되지 않는 디스크 또는 페이지 Blob으로 배포될 수 없습니다. Managed Disks를 만들 때 디스크 sku 유형을 UltraSSD_LRS로 지정하고, 필요한 디스크 크기, IOPS 및 처리량을 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.  
+**‘관리 디스크**: Ultra 디스크만 관리 되는 디스크로 사용할 수 있습니다. Ultra 디스크 관리 되지 않는 디스크 또는 페이지 blob으로 배포할 수 없습니다. 관리 디스크를 만드는 동안 디스크 sku UltraSSD_LRS로 입력 하 고 IOPS, 디스크의 크기를 나타낼 만들고 필요한 처리량 및 Azure 디스크 관리를 지정 합니다.  
 
-**Virtual Machines**: 울트라 SSD는 Azure Virtual Machine SKU가 지원되는 모든 프리미엄 SSD와 함께 작동하도록 설계되었지만 현재 미리 보기로 제공되고 있으므로 VM 크기가 ES/DS v3로 지정됩니다.
+**Virtual Machines**: Ultra 디스크는 설정 된 Azure 가상 머신 Sku; 모든 프리미엄 SSD 사용 하 여 작동 하도록 설계 그러나 미리 보기에서 현재 이므로 Vm 크기가 조정 됩니다 ES/DS v3로.
 
-**동적 성능 구성**: 울트라 SSD를 통해 가상 머신을 다시 시작할 필요 없이 워크로드 요구 사항과 함께 디스크의 성능(IOPS 및 처리량)을 동적으로 변경할 수 있습니다.
+**동적 성능 구성**: Ultra 디스크를 사용 하면 가상 컴퓨터를 다시 시작 하지 않고 워크 로드 요구 사항을 함께 디스크의 성능 (IOPS 및 처리량)를 동적으로 변경할 수 있습니다.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
-Ultra SSD를 프로비전하는 경우 디스크의 용량 및 성능을 독립적으로 구성하는 옵션이 있습니다. Ultra SSD는 4GiB에서 최대 64Tib의 다양한 고정된 크기로 제공되며 IOPS 및 처리량을 독립적으로 구성할 수 있는 유연한 성능 구성 모델을 제공합니다. Ultra SSD는 데이터 디스크로만 활용할 수 있습니다. OS 디스크로 프리미엄 SSD를 사용하는 것이 좋습니다.
+Ultra는 디스크를 프로 비전 하는 경우에 독립적으로 구성할 용량 및 디스크의 성능 옵션을 해야 합니다. Ultra 디스크 최대 64tib 4 GiB에서 몇 가지 고정 된 크기로 제공 되며 독립적으로 구성할 IOPS 및 처리량 할 수 있는 유연한 성능 구성 모델 기능. Ultra 디스크 데이터 디스크로 활용할 수 있습니다. OS 디스크로 프리미엄 SSD를 사용하는 것이 좋습니다.
 
-Ultra SSD의 일부 키 기능은 다음과 같습니다.
+일부 키 ultra 디스크의 기능은 다음과 같습니다.
 
-- 디스크 용량: 울트라 SSD는 4GiB에서 최대 64TiB의 다양한 디스크 크기를 제공합니다.
-- 디스크 IOPS: 울트라 SSD는 디스크당 최대 160K IOPS로 300IOPS/GiB의 IOPS 제한을 지원합니다. 프로비전한 IOPS를 달성하려면 선택한 디스크 IOPS가 VM IOPS보다 작은지 확인합니다. 최소 디스크 IOPS는 100IOPS입니다.
-- 디스크 처리량: 울트라 SSD를 사용하는 경우 단일 디스크의 처리량 한도는 디스크당 최대 2000MBps로 각 프로비전된 IOPS에 대해 256KiB/s입니다(여기서 MBps = 초당 10^6바이트). 최소 디스크 처리량은 1MiB입니다.
+- 디스크 용량: Ultra 디스크 최대 64tib 4 GiB에서 다른 디스크 크기의 범위를 제공 합니다.
+- 디스크 IOPS: Ultra 디스크는 300 IOPS/GiB, 160 20,000iops의 디스크당 최대 IOPS 제한을 지원합니다. 프로비전한 IOPS를 달성하려면 선택한 디스크 IOPS가 VM IOPS보다 작은지 확인합니다. 최소 디스크 IOPS는 100IOPS입니다.
+- 디스크 처리량: Ultra 디스크를 사용 하 여 단일 디스크의 처리량 한도 256 3:n2}kib/의 2000 MBps 디스크당 최대 IOPS를 프로 비전 된 각 (여기서 MBps = 10 ^6 바이트 수 / 초)입니다. 최소 디스크 처리량은 1MiB입니다.
 
 다음 표에는 다양한 디스크 크기에 지원되는 다양한 구성이 개략적으로 나와 있습니다.  
 
-### <a name="ultra-ssd-managed-disk-offerings"></a>Ultra SSD Managed Disks 제품
+### <a name="ultra-disks-managed-disk-offerings"></a>Ultra managed 디스크 제품
 
 |디스크 크기(GiB)  |IOPS 용량  |처리량 용량(MBps)  |
 |---------|---------|---------|
@@ -55,22 +55,22 @@ Ultra SSD의 일부 키 기능은 다음과 같습니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-Ultra SSD를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
+Ultra 디스크를 사용 하는 경우 다음과 같은 청구 고려 사항이 적용 됩니다.
 
 - Managed Disks 크기
 - Managed Disks 프로비전된 IOPS
 - Managed Disks 프로비전된 처리량
-- Ultra SSD VM 예약 요금
+- Ultra 디스크 VM 예약 요금
 
-### <a name="managed-disk-size"></a>Managed Disks 크기
+### <a name="managed-disk-size"></a>관리 되는 디스크 크기
 
-Managed Disks는 새 Azure VM을 프로비전하는 동안 선택한 VM 크기에 따라 요금이 청구됩니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 디스크 크기 옵션에 매핑합니다. 제공되는 디스크 크기에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 시간 단위로 적절하게 요금이 청구됩니다. 예를 들어 Ultra SSD 디스크 200GiB를 프로비전하고 20시간 동안 사용한 후 삭제한 경우 디스크 크기 제품 256GiB로 매핑되고 256GiB를 20시간 동안 사용한 만큼 요금이 청구됩니다. 이러한 청구는 디스크에 실제로 기록된 데이터의 볼륨과 관계없이 사용된 계산 시간을 기반으로 한 것입니다.
+Managed Disks는 새 Azure VM을 프로비전하는 동안 선택한 VM 크기에 따라 요금이 청구됩니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 디스크 크기 옵션에 매핑합니다. 제공되는 디스크 크기에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 시간 단위로 적절하게 요금이 청구됩니다. 예를 들어 200 GiB ultra 디스크를 프로 비전 하 고 20 시간 후 삭제 하는 경우 256 GiB의 디스크 크기 제품에 매핑되는 및 청구 됩니다 256 GiB에 대 한 20 시간에 대 한 합니다. 이러한 청구는 디스크에 실제로 기록된 데이터의 볼륨과 관계없이 사용된 계산 시간을 기반으로 한 것입니다.
 
-### <a name="managed-disk-provisioned-iops"></a>Managed Disks 프로비전된 IOPS
+### <a name="managed-disk-provisioned-iops"></a>관리 디스크를 프로 비전 된 IOPS
 
 IOPS는 애플리케이션이 1초 동안 디스크로 보내는 요청의 수입니다. 입출력 작업은 순차 읽기 또는 쓰기나 임의 읽기 또는 쓰기가 될 수 있습니다. VM에 연결된 디스크 수 또는 디스크 크기를 기반으로 시간별 평균 IOPS 수를 기준으로 요금이 청구됩니다. 제공되는 디스크 IOPS에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요.
 
-### <a name="managed-disk-provisioned-throughput"></a>Managed Disks 프로비전된 처리량
+### <a name="managed-disk-provisioned-throughput"></a>관리 디스크 프로 비전 된 처리량
 
 처리량은 애플리케이션이 바이트/초로 측정된 지정된 간격의 디스크에 보내는 데이터의 양입니다. 애플리케이션이 대규모 입력/출력 작업을 수행하는 경우 높은 처리량이 필요합니다.  
 
@@ -78,20 +78,20 @@ IOPS는 애플리케이션이 1초 동안 디스크로 보내는 요청의 수�
 
 따라서 애플리케이션에 필요한 최적의 처리량 및 IOPS 값을 결정하는 것이 중요합니다. 하나를 최적화하려고 할 때 다른 하나도 영향을 받습니다. 16KiB IO 크기에 해당하는 처리량으로 시작하고, 처리량이 더 필요한 경우 조정하는 것이 좋습니다.
 
-Ultra SSD에서 지원되는 디스크 처리량에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 디스크 크기 및 IOPS와 마찬가지로 프로비전된 처리량은 프로비전된 MBps당 시간 단위로 요금이 청구됩니다.
+Ultra 디스크에 지원 되는 디스크 처리량에 대 한 자세한 내용은 위의 확장성 및 성능 목표 섹션의 표를 참조 합니다. 디스크 크기 및 IOPS와 마찬가지로 프로비전된 처리량은 프로비전된 MBps당 시간 단위로 요금이 청구됩니다.
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM 예약 요금
+### <a name="ultra-disk-vm-reservation-fee"></a>Ultra 디스크 VM 예약 요금
 
-VM이 Ultra SSD 호환 가능함을 나타내는 VM에서 기능을 도입합니다. Ultra SSD 호환 VM은 계산 VM 인스턴스와 블록 저장소 배율 단위 간에 전용 대역폭 용량을 할당하여 성능을 최적화하고 대기 시간을 줄입니다. VM에 이 기능을 추가하면 Ultra SSD 디스크를 연결하지 않고 VM에서 Ultra SSD 기능을 설정한 경우에만 적용되는 예약 요금이 발생합니다. Ultra SSD 디스크가 Ultra SSD 호환 VM에 연결되면 이 요금은 적용되지 않습니다. 이 요금은 VM에서 프로비전되는 vCPU당 부과됩니다.
+VM 디스크가 ultra 호환 여부를 나타내는 VM에서 기능을 도입 됩니다. 울트라 디스크 호환 VM은 컴퓨팅 VM 인스턴스와 블록 스토리지 배율 단위 간에 전용 대역폭 용량을 할당하여 성능을 최적화하고 대기 시간을 줄입니다. VM에 이 기능을 추가하면 울트라 디스크를 연결하지 않고 VM에서 울트라 디스크 기능을 활성화한 경우에만 적용되는 예약 요금이 발생합니다. Ultra 디스크를 ultra 호환 VM에 연결 되 면 대금이 청구는 적용할 수 없습니다. 이 요금은 VM에서 프로비전되는 vCPU당 부과됩니다.
 
-제한된 미리 보기에서 사용 가능한 새 Ultra SSD 디스크 가격 세부 정보는 [Azure Disks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/managed-disks/)를 참조하세요.
+참조를 [Azure Disks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/managed-disks/) 새 ultra 디스크 가격 세부 정보에 제한 된 미리 보기에서 사용할 수 있습니다.
 
-### <a name="ultra-ssd-preview-scope-and-limitations"></a>Ultra SSD 미리 보기 범위 및 제한 사항
+### <a name="ultra-disk-preview-scope-and-limitations"></a>Ultra 디스크 미리 보기 범위 및 제한 사항
 
-미리 보기에서 Ultra SSD 디스크:
+미리 보기에서 ultra 디스크:
 
 - 단일 가용성 영역의 미국 동부 2에서 처음에 지원될 예정  
-- 가용성 영역으로만 사용할 수 있음(가용성 집합 및 영역 외부의 단일 VM 배포는 Ultra SSD 디스크를 연결하는 기능이 없음)
+- 가용성 영역 (가용성 집합 및 울트라 디스크를 연결할 수 없는 영역은 외부에서 단일 VM 배포)를 사용 하 여 에서만 사용할 수 있습니다.
 - ES/DS v3 VM에서만 지원됨
 - 데이터 디스크로만 사용 가능하며 4k 물리적 섹터 크기만 지원함  
 - 빈 디스크로만 만들 수 있음  

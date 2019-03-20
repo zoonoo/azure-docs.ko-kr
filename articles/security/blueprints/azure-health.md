@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544565"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225368"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -359,7 +359,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 - [Application Insights](/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 검색합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ### <a name="azure-alerts"></a>Azure Alerts
-- Alerts는 Azure 서비스를 모니터링하는 방법을 제공하며, 데이터에 대한 조건을 구성할 수 있도록 합니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.
+- [경고](/azure/azure-monitor/platform/alerts-metric) Azure 서비스를 모니터링 하는 방법을 제공 하며 데이터에 대 한 조건을 구성할 수 있습니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 [Azure Monitor 로그](/azure/operations-management-suite/operations-management-suite-overview) 는 컬렉션 관리 서비스입니다.

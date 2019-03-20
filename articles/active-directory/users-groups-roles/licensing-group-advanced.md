@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3a0143b2fd536332cdae8ea0bb50cc0a93e6e9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887031"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -63,7 +63,7 @@ ms.locfileid: "56430433"
 
 > [!WARNING]
 > 기존 그룹의 멤버 자격 규칙을 수정할 때는 주의해야 합니다. 규칙이 변경되면 그룹의 멤버 자격을 다시 평가하고 새 규칙을 충족하지 않는 사용자를 제거합니다(새 규칙과 일치하는 사용자는 이 과정의 영향을 받지 않음). 해당 사용자가 프로세스 중에 라이선스를 제거하면 데이터의 손실 또는 일부 경우에 서비스 중단이 발생할 수 있습니다.
-
+> 
 > 라이선스 할당을 사용하는 대규모 동적 그룹이 있는 경우 기본 그룹에 적용하기 전에 소규모 테스트 그룹에서 주요 변경 내용의 유효성을 검사하는 것이 좋습니다.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>여러 그룹 및 여러 라이선스
@@ -90,23 +90,23 @@ ms.locfileid: "56430433"
 
 1. 처음에 사용자는 다음과 같이 네 가지 서비스 계획을 사용할 수 있는 *E3 기본 서비스* 그룹에서만 라이선스를 상속받습니다.
 
-  ![E3 그룹에서 사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/e3-group-enabled-services.png)
+   ![E3 그룹에서 사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/e3-group-enabled-services.png)
 
 2. **할당**을 선택하여 E3 라이선스를 사용자에게 직접 할당할 수 있습니다. 이 경우 Yammer Enterprise를 제외한 모든 서비스 계획을 사용하지 않도록 설정합니다.
 
-  ![사용자에게 라이선스를 직접 할당하는 방법의 스크린샷](./media/licensing-group-advanced/assign-license-to-user.png)
+   ![사용자에게 라이선스를 직접 할당하는 방법의 스크린샷](./media/licensing-group-advanced/assign-license-to-user.png)
 
 3. 결과적으로 사용자는 여전히 E3 제품의 라이선스 하나만 사용합니다. 그러나 직접 할당을 사용하면 해당 사용자에 대해서만 Yammer Enterprise 서비스를 사용하도록 설정할 수 있습니다. 그룹 멤버 자격과 직접 할당으로 어떤 서비스를 사용할 수 있는지는 확인할 수 있습니다.
 
-  ![상속된 할당 대 직접 할당의 스크린샷](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
+   ![상속된 할당 대 직접 할당의 스크린샷](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
 
 4. 직접 할당을 사용할 때 허용되는 작업은 다음과 같습니다.
 
-  - Yammer Enterprise는 사용자 개체에서 직접 해제 수 있습니다. 다른 서비스 토글과 달리 그림에서는 **사용/해제** 토글이 이 서비스에 대해 사용하도록 설정되었습니다. 이 서비스가 사용자에 대해 직접 사용하도록 설정되어 있으므로 수정할 수 있습니다.
-  - 직접 할당된 라이선스의 일부로서 추가 서비스도 사용할 수 있습니다.
-  - **제거** 단추를 사용하여 사용자로부터 직접 라이선스를 제거할 수 있습니다. 이제 사용자는 상속된 그룹 라이선스만 가지며 원래 서비스만 사용할 수 있게 됩니다.
+   - Yammer Enterprise는 사용자 개체에서 직접 해제 수 있습니다. 다른 서비스 토글과 달리 그림에서는 **사용/해제** 토글이 이 서비스에 대해 사용하도록 설정되었습니다. 이 서비스가 사용자에 대해 직접 사용하도록 설정되어 있으므로 수정할 수 있습니다.
+   - 직접 할당된 라이선스의 일부로서 추가 서비스도 사용할 수 있습니다.
+   - **제거** 단추를 사용하여 사용자로부터 직접 라이선스를 제거할 수 있습니다. 이제 사용자는 상속된 그룹 라이선스만 가지며 원래 서비스만 사용할 수 있게 됩니다.
 
-    ![직접 할당을 제거하는 방법을 보여 주는 스크린샷](./media/licensing-group-advanced/remove-direct-license.png)
+     ![직접 할당을 제거하는 방법을 보여 주는 스크린샷](./media/licensing-group-advanced/remove-direct-license.png)
 
 ## <a name="managing-new-services-added-to-products"></a>제품에 추가된 새 서비스 관리
 Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제품 라이선스를 할당한 모든 그룹에서 기본적으로 사용하도록 설정됩니다. 제품 변경에 대한 알림을 구독하는 테넌트의 사용자는 예정된 서비스 추가에 대해 알리는 메일을 미리 받게 됩니다.
@@ -122,15 +122,15 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹**을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
 
 4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭하면 모든 사용 가능한 서비스가 나열된 블레이드가 열립니다.
-> [!NOTE]
-> *Exchange Online* 서비스 이외에 *Microsoft Stream* 서비스가 이 그룹에 자동으로 추가되어 사용하도록 설정되었습니다.
+   > [!NOTE]
+   > *Exchange Online* 서비스 이외에 *Microsoft Stream* 서비스가 이 그룹에 자동으로 추가되어 사용하도록 설정되었습니다.
 
-  ![그룹 라이선스에 추가된 새 서비스의 스크린샷](./media/licensing-group-advanced/manage-new-services.png)
+   ![그룹 라이선스에 추가된 새 서비스의 스크린샷](./media/licensing-group-advanced/manage-new-services.png)
 
 5. 이 그룹에서 새 서비스를 사용하지 않으려면 서비스 옆에 있는 **설정/해제** 토글을 클릭하고 **저장** 단추를 클릭하여 변경을 확인합니다. 이제 Azure AD에서 그룹의 모든 사용자를 처리하여 변경을 적용합니다. 그룹에 새로 추가된 사용자는 *Microsoft Stream* 서비스를 사용할 수 없습니다.
 
-  > [!NOTE]
-  > 사용자는 일부 다른 라이선스 할당(직접 라이선스 할당의 구성원으로 포함된 다른 그룹)을 통해서만 서비스를 사용할 수 있습니다.
+   > [!NOTE]
+   > 사용자는 일부 다른 라이선스 할당(직접 라이선스 할당의 구성원으로 포함된 다른 그룹)을 통해서만 서비스를 사용할 수 있습니다.
 
 6. 필요한 경우 이 제품이 할당된 다른 그룹에 대해 동일한 단계를 수행합니다.
 
@@ -141,7 +141,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 2. `Get-MsolAccountSku`는 테넌트에서 프로비전된 모든 제품 라이선스를 검색하는 데 사용할 수 있습니다.
 
-  ![Get-msolaccountsku cmdlet의 스크린샷](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Get-msolaccountsku cmdlet의 스크린샷](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. [이 PowerShell 스크립트](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)에서 관심있는 라이선스에 *AccountSkuId* 값을 사용합니다. 라이선스가 할당된 방법에 대한 정보를 사용하여 이 라이선스가 있는 사용자가 목록이 생성됩니다.
 
@@ -159,8 +159,8 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 1. **작업** 필터를 설정하여 *그룹 라이선스를 설정*하고 **적용**을 클릭합니다.
 2. 결과는 그룹에서 설정 또는 수정된 모든 라이선스 사례를 포함합니다.
->[!TIP]
-> *대상* 필터에서 그룹의 이름을 입력하여 결과 범위를 지정할 수도 있습니다.
+   >[!TIP]
+   > *대상* 필터에서 그룹의 이름을 입력하여 결과 범위를 지정할 수도 있습니다.
 
 3. 변경된 내용의 세부 정보를 보려면 목록 보기에서 항목을 클릭합니다. *수정된 속성* 아래에서 라이선스 할당에 대한 기존 값과 새 값이 모두 나열됩니다.
 
@@ -173,23 +173,23 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 그룹에 대한 라이선스가 변경되면 Azure AD는 모든 사용자에게 변경 내용을 적용하기 시작합니다.
 
 1. 그룹이 처리를 시작하는 시점을 표시하려면 **작업** 필터를 설정하여 *사용자에게 그룹 기반 라이선스를 적용하기 시작*합니다. 작업의 작업자는 *Microsoft Azure AD 그룹 기반 라이선스*이며 모든 그룹 라이선스 변경을 실행하는 데 사용되는 시스템 계정입니다.
->[!TIP]
-> 목록에서 항목을 클릭하여 *속성 수정* 필드를 확인합니다. 여기서는 처리하기 위해 선택한 라이선스 변경 내용을 표시합니다. 그룹을 변경하고 처리할 항목이 확실하지 않은 경우에 유용합니다.
+   >[!TIP]
+   > 목록에서 항목을 클릭하여 *속성 수정* 필드를 확인합니다. 여기서는 처리하기 위해 선택한 라이선스 변경 내용을 표시합니다. 그룹을 변경하고 처리할 항목이 확실하지 않은 경우에 유용합니다.
 
 2. 마찬가지로 그룹이 처리를 완료하는 시점을 확인하려면 *사용자에게 그룹 기반 라이선스 적용 완료* 필터 값을 사용합니다.
->[!TIP]
-> 이 경우에 *수정된 속성* 필드에는 결과의 요약이 포함됩니다. 처리로 인해 오류가 발생했는지 신속하게 확인하는 데 유용합니다. 샘플 출력:
-> ```
-Modified Properties
-...
-Name : Result
-Old Value : []
-New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
-> ```
+   > [!TIP]
+   > 이 경우에 *수정된 속성* 필드에는 결과의 요약이 포함됩니다. 처리로 인해 오류가 발생했는지 신속하게 확인하는 데 유용합니다. 샘플 출력:
+   > ```
+   > Modified Properties
+   > ...
+   > Name : Result
+   > Old Value : []
+   > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+   > ```
 
 3. 모든 사용자의 변경 내용을 포함하여 그룹 처리 방법의 전체 로그를 확인하려면 다음 필터를 설정합니다.
-  - **초기자(작업자)**: "Microsoft Azure AD 그룹 기반 라이선스"
-  - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
+   - **초기자(작업자)**: "Microsoft Azure AD 그룹 기반 라이선스"
+   - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
 
 이 샘플 출력은 처리 시작, 모든 사용자 변경 내용 결과 및 처리 완료를 표시합니다.
 
@@ -220,7 +220,7 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 
 - 대규모 그룹(예: 100,000명의 사용자)에 대해 라이선스를 할당하거나 수정하면 성능에 영향을 줄 수 있습니다. 특히 Azure AD 자동화에서 생성된 변경 볼륨은 Azure AD와 온-프레미스 시스템 간의 디렉터리 동기화 성능에 부정적인 영향을 줄 수 있습니다.
 
-- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)합니다. 
+- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)합니다. 
 
 - 부하가 높은 특정 상황에서는 그룹에 대한 라이선스 변경 내용 또는 기존 라이선스가 있는 그룹에 대한 멤버 자격 변경 내용을 처리하는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 60K 사용자 이하의 그룹 크기를 처리하는 데 24시간 이상이 걸리는 경우 Microsoft에서 조사할 수 있도록 [지원 티켓을 열어주세요](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest). 
 

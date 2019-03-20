@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: dcfe744cc8ca6f3b3cd201898a79fcce3f24f8d5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113523"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -44,36 +44,36 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 다음 단계를 사용하여 Azure CLI를 통해 SAS URI를 생성합니다.
 
-1.  [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)를 다운로드하고 설치합니다.  버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다. 
-2.  PowerShell 파일(`.ps1` 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
+1. [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)를 다운로드하고 설치합니다.  버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다. 
+2. PowerShell 파일(`.ps1` 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  파일을 편집하여 다음 매개 변수 값을 제공합니다.  날짜는 UTC 날짜/시간 형식(예: `10-25-2016T00:00:00Z`)으로 제공해야 합니다.
-    - `<account-name>` -Azure 저장소 계정 이름
-    - `<account-key>` - Azure 저장소 계정 키
-    - `<vhd-name>` - VHD 이름
-    - `<start-date>` - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다. 
-    - `<expiry-date>` - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다. 
+3. 파일을 편집하여 다음 매개 변수 값을 제공합니다.  날짜는 UTC 날짜/시간 형식(예: `10-25-2016T00:00:00Z`)으로 제공해야 합니다.
+   - `<account-name>` -Azure 저장소 계정 이름
+   - `<account-key>` - Azure 저장소 계정 키
+   - `<vhd-name>` - VHD 이름
+   - `<start-date>` - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다. 
+   - `<expiry-date>` - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다. 
  
-    다음 예제에서는 적절한 매개 변수 값을 보여 줍니다(이 문서의 작성 시점 기준).
+   다음 예제에서는 적절한 매개 변수 값을 보여 줍니다(이 문서의 작성 시점 기준).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. 이 PowerShell 스크립트의 변경 내용을 저장합니다.
 5. 이 스크립트를 관리자 권한으로 실행하여 컨테이너 수준 액세스를 위한 *SAS 연결 문자열*을 생성합니다.  다음 두 가지 기본 방법을 사용할 수 있습니다.
-    - 콘솔에서 스크립트를 실행합니다.  예를 들어 Windows에서 스크립트에서 쓰기 클릭(write-click)을 수행하고, **관리자 권한으로 실행**을 선택합니다.
-    - PowerShell 스크립트 편집기(예: [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise))에서 스크립트를 관리자 권한으로 실행합니다. 
-  다음 예제에서는 이 편집기 내에서 생성된 SAS 연결 문자열을 보여 줍니다. 
+   - 콘솔에서 스크립트를 실행합니다.  예를 들어 Windows에서 스크립트에서 쓰기 클릭(write-click)을 수행하고, **관리자 권한으로 실행**을 선택합니다.
+   - PowerShell 스크립트 편집기(예: [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise))에서 스크립트를 관리자 권한으로 실행합니다. 
+     다음 예제에서는 이 편집기 내에서 생성된 SAS 연결 문자열을 보여 줍니다. 
 
-    ![PowerShell ISE에서 SAS URI 생성](./media/publishvm_032.png)
+     ![PowerShell ISE에서 SAS URI 생성](./media/publishvm_032.png)
 
 6. 결과 SAS 연결 문자열을 복사하고, 안전한 위치에 텍스트 파일로 저장합니다.  최종 SAS URI를 만들기 위해 연결되는 VHD 위치 정보를 추가하도록 이 문자열을 편집합니다. 
-7. Azure Portal에서 새로 생성된 URI와 연결되는 VHD가 포함된 Blob 저장소로 이동합니다.
+7. Azure Portal에서 새로 생성된 URI와 연결되는 VHD가 포함된 Blob Storage로 이동합니다.
 8. 아래와 같이 **Blob 서비스 엔드포인트**의 URL 값을 복사합니다.
 
     ![Azure Portal의 Blob 서비스 엔드포인트](./media/publishvm_033.png)
@@ -102,11 +102,11 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
     ![Azure 탐색기에서 SAS 항목 가져오기](./media/publishvm_034.png)
 
 6. **공유 액세스 서명** 대화 상자가 표시됩니다. 다음 필드에 대한 값을 입력합니다.
-    - **시작 시간** - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
-    - **만료 시간** - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다.
-    - **권한** - `Read` 및 `List` 권한을 선택합니다. 
+   - **시작 시간** - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
+   - **만료 시간** - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다.
+   - **권한** - `Read` 및 `List` 권한을 선택합니다. 
 
-    ![Azure 탐색기의 SAS 대화 상자](./media/publishvm_035.png)
+     ![Azure 탐색기의 SAS 대화 상자](./media/publishvm_035.png)
 
 7. **만들기**를 클릭하여 이 VHD에 연결되는 SAS URI를 만듭니다.  이제 대화 상자에는 이 작업에 대한 세부 정보가 표시됩니다. 
 8. **URL** 값을 복사하고, 안전한 위치에 텍스트 파일로 저장합니다. 

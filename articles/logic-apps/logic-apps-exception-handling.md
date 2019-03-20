@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308726"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779150"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -223,9 +223,9 @@ ms.locfileid: "56308726"
 
 범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. `@result()` 식은 범위에 있는 모든 작업의 결과에 대한 컨텍스트를 제공합니다.
 
-`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 ID 및 출력과 같이 **@actions()** 개체와 동일한 특성이 포함됩니다. 범위 내에서 실패한 작업에 대한 컨텍스트를 보내려면 **@result()** 함수를 **runAfter** 속성과 쉽게 페어링할 수 있습니다.
+`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체와 동일한 특성을 포함 합니다  **\@actions()** 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 Id 및 출력 등의 개체입니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려고 하면 쉽게 페어링할 수는  **\@result()** 함수를 **runAfter** 속성입니다.
 
-**실패** 결과가 있는 범위에서 각 작업에 대해 작업을 실행하고 실패한 작업에 대한 결과 배열을 필터링하려면 **[배열 필터링](../connectors/connectors-native-query.md)** 작업 및 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 **@result()** 를 페어링할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
+있는 범위에서 각 작업에 대 한 작업을 실행 하는 **실패** 결과 페어링할 수 있는 실패 한 작업 결과 배열을 필터링 하 고  **\@result()** 사용 하 여를 **[ 배열 필터링](../connectors/connectors-native-query.md)** 작업으로 [ **마다** ](../logic-apps/logic-apps-control-flow-loops.md) 루프입니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 
@@ -317,7 +317,7 @@ ms.locfileid: "56308726"
 }
 ```
 
-다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 또한 앞에서 설명한 대로 **@result()** 응답의 다른 유용한 속성을 포함할 수도 있습니다.
+다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 기타 유용한 속성을 포함할 수도 있습니다는  **\@result()** 앞에서 설명한 대로 응답 합니다.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure 진단 및 메트릭
 

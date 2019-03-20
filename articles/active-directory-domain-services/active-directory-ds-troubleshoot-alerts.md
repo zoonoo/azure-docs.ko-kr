@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121998"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -42,10 +42,10 @@ ms.locfileid: "55817532"
 | AADDS108 |  *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
 | AADDS109 | *관리되는 도메인에 사용되는 리소스가 삭제되었습니다. 이 리소스는 Azure AD Domain Services가 제대로 작동하기 위해 필요합니다.* | [리소스가 삭제됨](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Azure AD Domain Services의 배포에 선택된 서브넷이 꽉 차서 만들어야 하는 추가 도메인 컨트롤러에 사용할 수 있는 공간이 없습니다.* | [서브넷이 꽉 참](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다. * | 권한 없는 서비스 주체 |
+| AADDS111 |  *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.* | [권한 없는 서비스 주체](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *이 도메인에서 가상 네트워크의 서브넷에 충분한 IP 주소가 없을 수도 있음을 확인했습니다. Azure AD Domain Services에는 두 개의 이상의 사용 가능한 IP 주소가 활성화된 서브넷 내에 있어야 합니다. 최소 3-5개 예비 IP 주소가 서브넷 내에 있는 것이 좋습니다. 이는 다른 가상 머신이 서브넷 내에 배포되어 사용 가능한 IP 주소 수가 소진되거나 서브넷에서 사용 가능한 IP 주소 수가 제한되는 경우에 발생할 수 있습니다.* | [IP 주소가 부족함](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Azure AD Domain Services에서 사용되는 리소스가 예기치 않은 상태로 발견되었으며 복구할 수 없습니다.* | [리소스를 복구할 수 없음](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *Azure AD Domain Services의 배포를 위해 선택한 서브넷이 유효하지 않아 사용할 수 없습니다. * | [잘못된 서브넷](#aadds114-subnet-invalid) |
+| AADDS114 | *Azure AD Domain Services의 배포를 위해 선택한 서브넷이 유효하지 않아 사용할 수 없습니다.* | [잘못된 서브넷](#aadds114-subnet-invalid) |
 | AADDS115 | *대상 범위가 잠겨 관리되는 도메인에 사용되는 하나 이상의 네트워크 리소스를 사용할 수 없습니다.* | [리소스가 잠김](#aadds115-resources-are-locked) |
 | AADDS116 | *정책 제한으로 인해 관리되는 도메인에 사용되는 하나 이상의 네트워크 리소스를 사용할 수 없습니다.* | [리소스를 사용할 수 없음](#aadds116-resources-are-unusable) |
 | AADDS500 | *관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
@@ -103,13 +103,13 @@ ms.locfileid: "55817532"
 
 1. 디렉터리에서 [관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)합니다.
 2. 서브넷에 대한 IP 주소 범위 수정
-  1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
-  2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.
-  3. 설정 아래의 **주소 공간**을 클릭합니다.
-  4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 새 주소 범위가 개인 IP 범위에 있는지 확인합니다. 변경 내용을 저장합니다.
-  5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
-  6. 테이블에서 편집하려는 서브넷을 클릭합니다.
-  7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
+   1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
+   2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.
+   3. 설정 아래의 **주소 공간**을 클릭합니다.
+   4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 새 주소 범위가 개인 IP 범위에 있는지 확인합니다. 변경 내용을 저장합니다.
+   5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
+   6. 테이블에서 편집하려는 서브넷을 클릭합니다.
+   7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
 3. [Azure AD Domain Services를 사용하여 시작 가이드](active-directory-ds-getting-started.md)에 따라 관리되는 도메인을 다시 만듭니다. 개인 IP 주소 범위를 갖는 가상 네트워크를 선택해야 합니다.
 4. 가상 머신을 새 도메인에 가입하려면 [이 가이드](active-directory-ds-admin-guide-join-windows-vm-portal.md)를 따릅니다.
 8. 경고를 해결하려면 두 시간 내에 도메인의 상태를 확인합니다.
@@ -160,13 +160,13 @@ Azure AD Domain Services와 연결된 구독을 이전 디렉터리로 다시 �
 
 Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 공용 IP 주소, NIC 및 부하 분산 장치를 포함한 특정 리소스를 만듭니다. 명명된 어떠한 항목이 삭제된 경우에는 이로 인해 관리되는 도메인이 지원되지 않는 상태가 되며 도메인이 관리되는 것을 방지합니다. 이 경고는 Azure AD Domain Services 리소스를 편집할 수 있는 사용자가 필요한 리소스를 삭제할 때 발생합니다. 다음 단계에서는 관리되는 도메인을 복원하는 방법을 간략하게 설명합니다.
 
-1.  Azure AD Domain Services 상태 페이지로 이동합니다.
-  1.    Azure Portal에서 [Azure AD Domain Services 페이지](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)로 이동합니다.
-  2.    왼쪽 탐색에서 **상태**를 클릭합니다.
-2.  경고가 4시간 미만인지 확인합니다.
-  1.    상태 페이지에서 **AADDS109** ID를 사용하여 경고 클릭
-  2.    경고에는 처음 발견된 시간에 대한 타임스탬프가 있습니다. 해당 타임스탬프가 4시간 미만인 경우 Azure AD Domain Services가 삭제된 리소스를 다시 만들 수 있습니다.
-3.  경고가 4시간을 초과하면 관리되는 도메인은 복구할 수 없는 상태입니다. Azure AD Domain Services를 삭제하고 다시 만들어야 합니다.
+1. Azure AD Domain Services 상태 페이지로 이동합니다.
+   1.    Azure Portal에서 [Azure AD Domain Services 페이지](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)로 이동합니다.
+   2.    왼쪽 탐색에서 **상태**를 클릭합니다.
+2. 경고가 4시간 미만인지 확인합니다.
+   1.    상태 페이지에서 **AADDS109** ID를 사용하여 경고 클릭
+   2.    경고에는 처음 발견된 시간에 대한 타임스탬프가 있습니다. 해당 타임스탬프가 4시간 미만인 경우 Azure AD Domain Services가 삭제된 리소스를 다시 만들 수 있습니다.
+3. 경고가 4시간을 초과하면 관리되는 도메인은 복구할 수 없는 상태입니다. Azure AD Domain Services를 삭제하고 다시 만들어야 합니다.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: 관리되는 도메인에 연결된 서브넷이 꽉 찼음
@@ -203,13 +203,13 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 1. 테넌트에서 관리되는 도메인을 삭제합니다.
 2. 서브넷에 대한 IP 주소 범위 수정
-  1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
-  2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.
-  3. 설정 아래의 **주소 공간**을 클릭합니다.
-  4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 변경 내용을 저장합니다.
-  5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
-  6. 테이블에서 편집하려는 서브넷을 클릭합니다.
-  7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
+   1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
+   2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.
+   3. 설정 아래의 **주소 공간**을 클릭합니다.
+   4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 변경 내용을 저장합니다.
+   5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
+   6. 테이블에서 편집하려는 서브넷을 클릭합니다.
+   7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
 3. [Azure AD Domain Services를 사용하여 시작 가이드](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)에 따라 관리되는 도메인을 다시 만듭니다. 개인 IP 주소 범위를 갖는 가상 네트워크를 선택해야 합니다.
 4. 가상 머신을 새 도메인에 가입하려면 [이 가이드](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)를 따릅니다.
 5. 2시간 후에 도메인 상태를 확인하여 단계를 올바르게 완료했는지 검사합니다.

@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995493"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
-Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오는 Azure SQL Database에서 사용할 수 있습니다.
+Azure SQL Database를 사용하면 [JSON](https://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오는 Azure SQL Database에서 사용할 수 있습니다.
 - `FOR JSON` 절을 사용하여 [관계형 데이터 형식을 JSON으로 지정](#formatting-relational-data-in-json-format).
 - [JSON 데이터 작업](#working-with-json-data)
 - JSON 스칼라 함수를 사용하여 [JSON 데이터 쿼리](#querying-json-data).
@@ -190,7 +190,7 @@ JSON 배열로 형식이 지정되고 저장 프로시저에 대한 매개 변�
 ## <a name="next-steps"></a>다음 단계
 JSON을 애플리케이션에 통합하는 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [TechNet 블로그](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet 블로그](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN 설명서](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9 비디오](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

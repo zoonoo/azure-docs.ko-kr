@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447857"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077975"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -27,7 +27,7 @@ Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.sca
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* [Oracle Java Development 키트](https://www.azul.com/downloads/azure-only/zulu/).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
+* [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
 * IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
 * Azure Toolkit for IntelliJ.  [Azure Toolkit for IntelliJ 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)를 참조하세요.
 * WINUTILS.EXE.  [Windows의 Hadoop 실행 문제](https://wiki.apache.org/hadoop/WindowsProblems)를 참조하세요.
@@ -57,10 +57,10 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 3. 주 창에서 **Spark 프로젝트(Scala)** 를 선택합니다.
 
 4. **빌드 도구** 드롭다운 목록에서 다음 중 하나를 선택합니다.
-      * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
-      * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
+   * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
+   * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
-    ![새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. **다음**을 선택합니다.
 
@@ -209,7 +209,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |Spark 클러스터(Linux 전용)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
     |제출할 아티팩트를 선택합니다.|기본 설정을 유지합니다.|
     |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표(**...**)를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
-    |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
+    |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
     |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|

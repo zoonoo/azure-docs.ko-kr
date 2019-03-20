@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123235"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>서비스 패브릭 클러스터 분산
 Service Fabric 클러스터 리소스 관리자는 노드나 서비스의 추가 또는 제거에 대응하는 동적 로드 변경을 지원합니다. 또한 제약 조건 위반을 자동으로 수정하고 사전에 로드를 분산하도록 클러스터를 조정합니다. 그러나 이러한 작업은 얼마나 자주 수행될까요? 그리고 이러한 작업을 트리거하는 것은 무엇일까요?
@@ -85,7 +85,7 @@ ClusterManifest.xml:
 
 예를 들어 노드가 실패할 경우 전체 장애 도메인 작업을 한 번에 수행할 수 있습니다. 이러한 모든 실패는 *PLBRefreshGap* 이후의 다음 상태 업데이트에서 캡처됩니다. 수정은 다음 배치, 제약 조건 검사 및 분산 실행 중에 결정됩니다. 기본적으로 Cluster Resource Manager는 클러스터에서 변경 시간 내내 검색하는 것이 아니라 모든 변경을 한꺼번에 처리합니다. 이렇게 하면 갑작스러운 이탈이 발생하게 됩니다.
 
-Cluster Resource Manager는 클러스터의 분산 여부를 판단하기 위해 추가적인 정보도 필요로 합니다. 이를 위해 *BalancingThresholds(분산 임계값)* 과 *ActivityThresholds(활동 임계값)* 의 다른 두 가지 구성 요소가 있습니다.
+Cluster Resource Manager는 클러스터의 분산 여부를 판단하기 위해 추가적인 정보도 필요로 합니다. 에 대 한 다른 두 가지 구성 했습니다. *BalancingThresholds* 하 고 *ActivityThresholds*합니다.
 
 ## <a name="balancing-thresholds"></a>분산 임계값
 분산 임계값은 로드 다시 분산을 트리거하기 위한 주요 컨트롤입니다. 메트릭에 대한 분산 임계값은 _비율_입니다. 가장 로드가 많은 노드의 메트릭에 대한 로드를 가장 로드가 적은 노드의 로드 양으로 나눈 값이 해당 메트릭의 *BalancingThreshold*를 초과하는 경우 클러스터의 불균형이 발생합니다. 결과적으로 Cluster Resource Manager가 다음 번에 확인할 때 분산이 트리거됩니다. *MinLoadBalancingInterval* 타이머는 클러스터 리소스 관리자에서 로드 다시 분산이 필요한지 확인해야 하는 빈도를 정의합니다. 확인은 아무 것도 발생하지 않는다는 의미입니다. 
@@ -122,6 +122,7 @@ ClusterManifest.xml
 ```
 
 <center>
+
 ![분산 임계값 예][Image1]
 </center>
 
@@ -130,6 +131,7 @@ ClusterManifest.xml
 아래 예에서 노드의 최대 로드는 10이지만 최소 로드는 2이므로 비율은 5입니다. 5는 해당 메트릭에 지정된 분산 임계값인 3보다 큽니다. 결과적으로 다음번에 분산 타이머가 실행될 때 분산 변경 실행이 예약됩니다. 이와 같은 상황에서 일부 로드는 일반적으로 노드 3에 분산됩니다. Service Fabric 클러스터 리소스 관리자에서 greedy 방식을 사용하지 않으므로 일부 로드가 노드 2에도 분산됩니다. 
 
 <center>
+
 ![분산 임계값 예제 작업][Image2]
 </center>
 
@@ -145,6 +147,7 @@ ClusterManifest.xml
 이 메트릭에 대해 세 개의 분산 임계값을 유지한다고 가정해 보겠습니다. 활동 임계값도 1,536이라고 가정해 보겠습니다. 첫 번째 경우에서 분산 임계값에 따르면 클러스터는 불균형 상태이지만 활동 임계값을 충족하는 노드가 없으므로 아무 일도 발생하지 않습니다. 아래 예에서 노드 1은 활동 임계값을 초과했습니다. 메트릭에 대한 분산 임계값과 활동 임계값이 모두 초과되었으므로 분산이 예약됩니다. 예를 들어 다음 다이어그램을 살펴보겠습니다. 
 
 <center>
+
 ![활동 임계값 예][Image3]
 </center>
 
@@ -191,9 +194,10 @@ ClusterManifest.xml
 - 서비스 3에서 메트릭 3 및 메트릭 4를 보고합니다.
 - 서비스 4에서 메트릭 99를 보고합니다. 
 
-확실히 여기에 있다는 것을 알 수 있습니다. 즉 체인이 있습니다! 실제로 4개의 독립된 서비스가 있는 것이 아니라, 3개의 서비스가 관련되어 있고 하나는 자체적으로 꺼져 있습니다.
+물론 여기서 우리가 려는 확인할 수 있습니다. 즉 체인이 있습니다! 실제로 4개의 독립된 서비스가 있는 것이 아니라, 3개의 서비스가 관련되어 있고 하나는 자체적으로 꺼져 있습니다.
 
 <center>
+
 ![분산 서비스 함께 사용][Image4]
 </center>
 
@@ -202,6 +206,7 @@ ClusterManifest.xml
 클러스터 리소스 관리자는 관련된 서비스를 자동으로 파악합니다. 서비스에 대한 메트릭을 추가, 제거 또는 변경하면 이러한 관계에 영향을 미칠 수 있습니다. 예를 들어 분산이 두 번 실행되는 동안 서비스 2에서 메트릭 2를 제거하도록 업데이트되었을 수 있습니다. 이를 통해 Service1와 Service2 사이의 체인이 끊깁니다. 이제는 관련된 두 개의 서비스 그룹 대신 세 개 그룹이 있습니다.
 
 <center>
+
 ![분산 서비스 함께 사용][Image5]
 </center>
 

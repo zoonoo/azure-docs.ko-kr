@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086754"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -61,7 +61,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-각각의 `await`(C#) 또는 `yield`(JavaScript) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 테이블 저장소에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
+각각의 `await`(C#) 또는 `yield`(JavaScript) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 Table Storage에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
 
 ## <a name="history-table"></a>기록 테이블
 
@@ -79,7 +79,7 @@ module.exports = df.orchestrator(function*(context) {
 완료 시 이전에 표시된 함수의 기록은 Azure Table Storage에서 다음과 비슷합니다(이해를 돕기 위해 약어로 표시).
 
 | PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | 이름             | 결과                                                    | 상태 |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |

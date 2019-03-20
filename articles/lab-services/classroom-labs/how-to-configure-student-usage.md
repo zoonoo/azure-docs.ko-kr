@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181625"
 ---
 # <a name="configure-usage-settings-and-policies"></a>사용 설정 및 정책 구성
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -38,9 +38,22 @@ ms.locfileid: "55964817"
 
     ![사용자 목록](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>학생에게 등록 링크 보내기
-다음 절차는 사용자에게 등록 링크를 보내는 단계를 포함합니다. 랩에서 **액세스 제한**을 사용하도록 설정하면 사용자 목록의 사용자만 등록 링크를 사용하여 랩에 등록할 수 있습니다. 
+## <a name="share-registration-link-with-students"></a>학생 등록 링크 공유
+학생 들에 게 등록 링크를 보내도록 다음 방법 중 하나를 사용 합니다. 첫 번째 방법은 등록 링크 및 선택적 메시지를 사용 하 여 학생 들에 게 전자 메일을 보내는 방법을 보여 줍니다. 두 번째 메서드를 원하는 방식으로 다른 사용자와 공유할 수 있는 등록 링크를 가져오는 방법을 보여 줍니다. 
 
+랩에서 **액세스 제한**을 사용하도록 설정하면 사용자 목록의 사용자만 등록 링크를 사용하여 랩에 등록할 수 있습니다. 이 옵션은 기본적으로 사용 됩니다. 
+
+### <a name="send-email-to-users"></a>사용자에 게 전자 메일 보내기
+1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
+2. 목록에서 특정 또는 모든 사용자를 선택 합니다. 특정 사용자를 선택 하려면 목록에서 첫 번째 열의 확인란을 선택 합니다. 모든 사용자를 선택 하려면 첫 번째 열 제목 앞에 있는 확인란을 선택 합니다 (**이름을**) 하거나 목록에서 모든 사용자에 대 한 모든 확인란을 선택 합니다.
+3. 선택 **초대를 보낼** 도구 모음에서 합니다. 도 학생 이름 목록에서 위로 마우스를 이동 하 고 전자 메일 아이콘을 보낼 수 있습니다. 
+
+    ![등록 링크를 메일로 보내기](../media/tutorial-setup-classroom-lab/send-email.png)
+4. 에 **전자 메일을 통해 등록 링크 보내기** 페이지에서 다음이 단계를 수행 합니다. 
+    1. 형식은 **선택적 메시지** 학생에 게 전송 하려는입니다. 전자 메일에는 자동으로 등록 링크를 포함합니다. 
+    2. 에 **전자 메일을 통해 등록 링크 보내기** 페이지에서 **보낼**합니다. 
+
+## <a name="get-registration-link"></a>등록 링크 가져오기
 1. 왼쪽 메뉴에서 **사용자**를 선택하여 **사용자** 보기로 전환합니다. 
 2. **등록 링크 가져오기** 타일을 선택합니다.
 
@@ -49,11 +62,7 @@ ms.locfileid: "55964817"
 
     ![학생 등록 ​링크](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **사용자 등록** 대화 상자에서 **닫기**를 선택합니다. 
-4. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다. **제한 옵션** 설정을 사용하도록 설정했으며 목록에 사용자 목록이 있으면 다음 작업을 수행합니다.
-    1. 목록에서 사용자의 **이메일 주소**를 선택합니다. 
-    2. 기본 이메일 프로그램 창에 **받는 사람** 주소가 표시됩니다. 
-    3. 이전에 복사한 **등록 URL**을 붙여 넣습니다. 
-    4. **이메일**을 보냅니다. 
+4. 공유 합니다 **등록 링크** 학생을 사용 하 여 학생 클래스에 대해 등록할 수 있도록 합니다. 
 
 ## <a name="view-users-registered-with-the-lab"></a>랩에 등록된 사용자 보기
 

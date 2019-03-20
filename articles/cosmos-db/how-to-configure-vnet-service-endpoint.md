@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101128"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 액세스 구성
 
@@ -49,8 +49,11 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 > [!NOTE]
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
-  * 가상 네트워크를 사용한 구독: 네트워크 기여자
-  * Azure Cosmos DB 계정을 사용한 구독: DocumentDB 계정 기여자
+>   * 가상 네트워크를 사용한 구독: 네트워크 기여자
+>   * Azure Cosmos DB 계정을 사용한 구독: DocumentDB 계정 기여자
+>   * 가상 네트워크 및 Azure Cosmos DB 계정에 있는 경우 다른 구독 가지도록 가상 네트워크가 있는 구독도 `Microsoft.DocumentDB` 리소스 공급자를 등록 합니다. 리소스 공급자를 등록 하려면 참조 [Azure 리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md) 문서. 
+
+다음은 리소스 공급자를 사용 하 여 구독을 등록 하기 위한 지침입니다.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>새로운 Azure 가상 네트워크 및 서브넷에 대한 서비스 엔드포인트 구성
 

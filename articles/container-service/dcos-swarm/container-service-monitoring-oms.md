@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110973"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
@@ -34,25 +34,25 @@ Container Solution에 대한 자세한 내용은 [Container Solution Log Analyti
 ### <a name="pre-requisite"></a>필수 구성 요소
 - [Microsoft Azure 구독](https://azure.microsoft.com/free/) - 무료로 구독을 다운로드할 수 있습니다.  
 - Log Analytics 작업 영역 설정 - 아래 "3단계" 참조
-- [DC/OS CLI](http://docs.mesosphere.com/1.12/cli) 설치
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) 설치
 
 1. DC/OS 대시보드에서 아래와 같이 Universe를 클릭하고 'OMS'를 검색합니다.
 
    >[!NOTE]
    >OMS를 이제 Log Analytics라고 합니다.
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. **Install**을 클릭합니다. 버전 정보와 **패키지 설치** 또는 **고급 설치** 단추가 있는 팝업이 표시됩니다. **고급 설치**를 클릭하면 **OMS 특정 구성 속성** 페이지로 이동합니다.
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. 여기서 `wsid`(Log Analytics 작업 영역 ID) 및 `wskey`(작업 영역 ID에 대한 기본 키)를 입력하도록 요구하는 메시지가 표시됩니다. `wsid` 및 `wskey`를 모두 가져오려면 <https://mms.microsoft.com>에서 계정을 만들어야 합니다.
-다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 `wsid` 및 `wskey`를 획득해야 합니다.
+   다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 `wsid` 및 `wskey`를 획득해야 합니다.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. 원하는 인스턴스 수를 선택하고 '검토 및 설치' 단추를 클릭합니다. 일반적으로 인스턴스 수는 에이전트 클러스터에 있는 VM 수와 같아야 합니다. Linux용 Log Analytics 에이전트는 각 VM에 개별 컨테이너로 설치되어 모니터링 및 로깅 정보에 대한 정보를 수집하려고 합니다.
 

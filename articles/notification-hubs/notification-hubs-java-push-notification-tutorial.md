@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 993eafd5a0b74be706d13fe8e06483c223f81eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901188"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
 
@@ -389,4 +389,4 @@ Amazon Kindle Fire의 경우 예제:
 [지역화된 속보 보내기]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [인증된 사용자에게 알림 보내기]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [인증된 사용자에게 플랫폼 간 알림 보내기]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

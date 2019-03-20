@@ -1,3 +1,16 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 845b27b8efd66de87ec08e0b5b81bcc332dffdfb
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58113932"
+---
 ### <a name="prerequisites"></a>필수 조건
 * Twilio 계정
 * SMS를 받을 수 있다고 확인된 Twilio 전화 번호

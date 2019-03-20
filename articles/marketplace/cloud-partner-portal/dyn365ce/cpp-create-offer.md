@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900661"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Dynamics 365 for Customer Engagement 애플리케이션 제안 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "54082153"
 
 ## <a name="new-offer-form"></a>새 제안 양식
 
-[Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. [새 제안] 메뉴에서 **Dynamics 365 for Customer Engagement**를 선택합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. [새 제안] 메뉴에서 **Dynamics 365 for Customer Engagement**를 선택합니다.
 
 ![Dynamics 365 for Customer Engagement 애플리케이션에 대한 새 제안 메뉴 항목](./media/new-dyn365ce-menu-item.png)
 

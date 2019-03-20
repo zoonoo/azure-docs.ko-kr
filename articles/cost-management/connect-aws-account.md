@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010939"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services 계정 연결
 
@@ -127,11 +127,11 @@ Cloudyn에서 데이터를 수집하고 보고서를 채우기 시작합니다. 
 6. 검토 페이지에서 **버킷 만들기**를 클릭합니다. 버킷 목록이 표시됩니다.
 7. 만든 버킷을 클릭하고 **권한** 탭을 선택한 다음, **버킷 정책**을 선택합니다. 버킷 정책 편집기가 열립니다.
 8. 다음 JSON의 예제를 복사한 후 버킷 정책 편집기에 붙여넣습니다.
-  - `<BillingBucketName>`을 S3 버킷의 이름으로 바꿉니다.
-  - `<ReadOnlyUserOrRole>`을 이전에 복사한 역할 또는 사용자 ARN으로 바꿉니다.
+   - `<BillingBucketName>`을 S3 버킷의 이름으로 바꿉니다.
+   - `<ReadOnlyUserOrRole>`을 이전에 복사한 역할 또는 사용자 ARN으로 바꿉니다.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Cloudyn에서 데이터를 수집하고 보고서를 채우기 시작합니다. 
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. **저장**을 클릭합니다.  
     ![버킷 정책 편집기에서 저장 클릭](./media/connect-aws-account/bucket-policy-editor.png)

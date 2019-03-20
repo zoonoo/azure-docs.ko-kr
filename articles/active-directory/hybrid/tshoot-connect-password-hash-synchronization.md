@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198731"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193331"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
 이 항목에서는 암호 해시 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
@@ -225,7 +225,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>암호가 동기화되지 않음: 수동 문제 해결 단계
 암호가 동기화되지 않는 이유를 확인하려면 다음 단계를 따르세요.
 
-1. 연결 서버가 [스테이징 모드](how-to-connect-sync-operations.md#staging-mode)인가요? 스테이징 모드의 서버는 암호를 동기화하지 않습니다.
+1. 연결 서버가 [스테이징 모드](how-to-connect-sync-staging-server.md)인가요? 스테이징 모드의 서버는 암호를 동기화하지 않습니다.
 
 2. [암호 동기화 설정 상태 가져오기](#get-the-status-of-password-sync-settings) 섹션에서 스크립트를 실행합니다. 암호 동기화 구성의 개요를 제공합니다.  
 

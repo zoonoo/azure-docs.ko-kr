@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629529"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875449"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
 대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Apache Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다.
@@ -38,7 +38,7 @@ Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
  
 * Apache Zeppelin 사용
 
-    [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](../hdinsight-connect-hive-zeppelin.md)을 참조하세요.
+    참조 [Azure HDInsight에서 Apache Hive 쿼리 실행을 사용 하 여 Apache Zeppelin](../hdinsight-connect-hive-zeppelin.md)합니다.
 
 * Visual Studio 사용
 
@@ -72,7 +72,7 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 
 * [HDInsight에서 Interactive Query 클러스터를 만드는 방법](../hdinsight-hadoop-provision-linux-clusters.md)에 대해 알아봅니다.
 * [Azure HDInsight에서 Power BI를 사용하여 빅 데이터를 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)하는 방법에 대해 알아봅니다.
-* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법](../hdinsight-connect-hive-zeppelin.md)을 알아봅니다.
+* 설명 하는 방법 [Apache Zeppelin을 사용 하 여 Azure HDInsight에서 Apache Hive 쿼리를 실행 하려면](../hdinsight-connect-hive-zeppelin.md).
 * [Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries)을 알아봅니다.
 * [HDInsight Tools for Visual Studio Code를 사용](../hdinsight-for-vscode.md)하는 방법에 대해 알아봅니다.
 * [HDInsight에서 Apache Hadoop과 Apache Hive View를 사용하는 방법](../hadoop/apache-hadoop-use-hive-ambari-view.md)을 알아봅니다.

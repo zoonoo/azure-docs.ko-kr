@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089474"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -49,8 +49,6 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 
 Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](resource-group-overview.md#template-deployment)를 참조하세요.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="ensure-template-functions-work"></a>템플릿 함수가 작동하는지 확인
 
 Resource Manager 템플릿의 기본 구문은 JSON입니다. 템플릿은 JSON의 상위 집합을 사용하여 식과 함수로 구문을 확장합니다. 템플릿 언어 프로세서는 추가 템플릿 함수를 지원하기 위해 자주 업데이트됩니다. 사용 가능한 템플릿 함수에 대한 자세한 설명은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
@@ -65,13 +63,13 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 
 1. psm1 모듈을 가져오고 Test-AzureRmureRmTemplateFunctions cmdlet을 실행합니다.
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 스크립트는 각각 고유한 템플릿 함수만 포함하는 여러 개의 최소화된 템플릿을 배포합니다. 스크립트 출력은 지원되는 템플릿 함수와 사용할 수 없는 템플릿 함수를 보고합니다.
 

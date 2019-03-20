@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002348"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 
@@ -69,7 +72,7 @@ A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아
 A: 보기 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Azure 외부의 Analytics 포털을 계속 사용할 수 있나요?
-a. 예, Azure의 로그 페이지와 고급 분석 포털은 동일한 코드를 기반으로 합니다. Log Analytics는 Azure Monitor의 기능으로 통합되어 보다 통합된 모니터링 환경을 제공합니다. URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}을 사용하여 Analytics 포털에 계속 액세스할 수 있습니다.
+a. 예, Azure의 로그 페이지와 고급 분석 포털은 동일한 코드를 기반으로 합니다. Log Analytics는 Azure Monitor의 기능으로 통합되어 보다 통합된 모니터링 환경을 제공합니다. URL을 사용 하 여 Analytics 포털에 액세스할 수 있습니다: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -168,7 +171,7 @@ Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
-a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
+a. `Move-AzResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [이동 AzResource](https://msdn.microsoft.com/library/mt652516.aspx)합니다.
 
 이러한 변경은 Azure 포털에서 이루어집니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 13746779d37f6faa6d25f73d6c78523f174b658c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835246"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
 2. Service Fabric 리포지토리를 원본 목록에 추가합니다.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. 원본 목록에 `dotnet` 리포지토리를 추가합니다.
@@ -162,7 +162,7 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   다음 명령은 Service Fabric 패키지의 라이센스 수락을 자동화합니다.
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -219,7 +219,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node
     ```
-2. 컴퓨터에 npm의 [Yeoman](http://yeoman.io/) 템플릿 생성기를 설치합니다.
+2. 컴퓨터에 npm의 [Yeoman](https://yeoman.io/) 템플릿 생성기를 설치합니다.
 
     ```bash
     npm install -g yo
@@ -276,7 +276,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 
-3. **작업 대상** 상자에서 **http://dl.microsoft.com/eclipse**을 입력합니다.
+3. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse**을 입력합니다.
 
 4. **추가**를 선택합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 운영 보안 | Microsoft Docs
-description: Microsoft Azure Log Analytics, 해당 서비스 및 작동 방법에 대해 알아봅니다.
+description: Microsoft Azure Monitor 로그, 해당 서비스 및 작동 하는 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901511"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -53,36 +53,36 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor 로그
 
-Microsoft Azure Log Analytics는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용하거나 기존 System Center 배포를 확장할 수 있도록 Log Analytics는 인프라의 클라우드 기반 관리를 위한 최대한의 유연성과 제어를 제공합니다.
+Microsoft Azure Monitor 로그는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용 하거나 Azure Monitor 로그는 기존 System Center 배포 확장을 사용 하면 최대 유연성 및 제어 인프라의 클라우드 기반 관리에 대 한 합니다.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure Monitor 로그](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 애플리케이션 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Azure Monitor 로그를 사용 하 여 모든 클라우드, 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함 하 여 경쟁 솔루션 보다 저렴 한 비용의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계 용으로 작성 된, Azure Monitor 로그는 새로운 비즈니스 과제를 충족 하기 위해 새 워크 로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법인 엔터프라이즈를 관리 하는 새로운 방법을 제공 합니다.
 
-### <a name="log-analytics-services"></a>Log Analytics 서비스
+### <a name="azure-monitor-services"></a>Azure Monitor 서비스
 
-Log Analytics의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
+Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집합으로 제공 됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
 | 서비스  | 설명|
 | :------------- | :-------------|
-| Log Analytics | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
+| Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 |Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
 | Backup | 중요한 데이터를 백업하고 복원합니다. |
 | Site Recovery | 중요한 애플리케이션에 고가용성을 제공합니다. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리로 수집하여 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
+[Azure Monitor 로그](https://azure.microsoft.com/documentation/services/log-analytics) 를 중앙 리포지토리로 관리 되는 리소스의 데이터를 수집 하 여 모니터링 서비스를 제공 합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
 
 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure Monitor 로그](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데이터를 안전하게 관리합니다.
+Azure Monitor 서비스 다음 메서드를 사용 하 여 클라우드 기반 데이터를 안전 하 게 관리 합니다.
 -   데이터 분리
 -   데이터 보존
 -   물리적 보안
@@ -92,22 +92,22 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 Log Analytics 제품 및 서비스 계열의 일부입니다.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) 백업 및 복원 서비스 및 Azure Monitor 제품군 제품 및 서비스의 일부인 데이터를 제공 합니다.
 자본 투자 없이 최소한의 운영 비용으로 애플리케이션 데이터를 보호하고 수년 간 보관합니다. SQL Server, SharePoint와 같은 애플리케이션 워크로드 외에도 물리적 및 가상 Windows 서버의 데이터를 백업할 수 있습니다. 또한 중복 및 장기 저장을 위해 [System Center DPM(Data Protection Manager)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager)에서 보호된 데이터를 Azure로 복제하는 데 사용할 수 있습니다.
 
 
 Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저장소에 저장됩니다. 데이터는 동일 지역 내에서 복제되며, 보관 유형에 따라 복원력을 높이기 위해 다른 지역에 복제될 수 있습니다.
 
 ### <a name="management-solutions"></a>관리 솔루션
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) 는 Microsoft의 클라우드 기반 IT 관리 솔루션 보호할 온-프레미스 및 클라우드 인프라 및 관리할 수 있도록 합니다.
 
 
-[관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 Log Analytics 서비스를 사용하여 특정 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다. Azure 구독에 쉽게 추가할 수 있는 Microsoft와 파트너의 다양한 솔루션을 사용할 수 있기 때문에 Log Analytics에 대한 투자 가치를 높일 수 있습니다. 파트너는 자체 솔루션을 만들어 애플리케이션과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
+[관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) 미리 패키지 된 집합이 하나 이상의 Azure Monitor 서비스를 사용 하 여 특정 관리 시나리오를 구현 하는 논리입니다. 다른 솔루션은 Microsoft에서 파트너를 쉽게 추가할 수 있습니다 Azure Monitor에 대 한 투자의 가치를 높일 Azure 구독에 사용할 수 있습니다. 파트너는 자체 솔루션을 만들어 애플리케이션과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
 
 
 ![관리 솔루션](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management)이 있습니다. 이 솔루션은 Windows 및 Linux용 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 에이전트를 사용하여 각 에이전트에 필요한 업데이트에 대한 정보를 수집합니다. 솔루션에서 이 데이터를 Log Analytics 리포지토리에 쓰면 사용자는 포함된 대시보드를 사용하여 데이터를 분석할 수 있습니다.
+여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management)이 있습니다. 이 솔루션에서는 합니다 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 에이전트에 대 한 정보를 수집 하는 Windows 및 Linux 용 필요한 각 에이전트에 업데이트 합니다. 이 데이터는 포함 된 대시보드를 사용 하 여 분석할 수 있는 Azure Monitor 로그 저장소에 씁니다.
 
 배포를 만들 때 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)의 runbook을 사용하여 필요한 업데이트를 설치합니다. 이 전체 프로세스를 포털에서 관리할 수 있으며 기본적인 세부 사항에 대해 걱정할 필요가 없습니다.
 
@@ -135,7 +135,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 - Azure Security Center에서는 다음 소스의 데이터를 분석하여 보안 상태에 대한 가시성을 제공하고, 취약점을 식별하고, 완화 방법을 권장하고, 활성 위협을 감지합니다.
 
--   Azure 서비스: 해당 서비스의 리소스 공급 기업과 통신하여 배포한 Azure 서비스의 구성에 대한 정보를 사용합니다.
+-   Azure 서비스: 해당 서비스의 리소스 공급자와 통신하여 배포한 Azure 서비스의 구성에 대한 정보를 사용합니다.
 
 - 네트워크 트래픽: 원본/대상 IP/포트, 패킷 크기 및 네트워크 프로토콜과 같은 Microsoft의 인프라에서 샘플링된 네트워크 트래픽 메타데이터를 사용합니다.
 
@@ -149,7 +149,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 -   **데이터 분리**: 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
 
--   **데이터 액세스**: Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅숏 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
+-   **데이터 액세스**: Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅숏 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
 
 -   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인정보처리방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인정보처리방침 약정에 따라 수행합니다.
 
@@ -164,7 +164,7 @@ Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-[Log Analytics 보안](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) 및 감사 솔루션을 사용하면 IT가 모든 리소스를 능동적으로 모니터링하여 보안 문제의 영향을 최소화할 수 있습니다. Log Analytics 보안 및 감사에는 리소스 모니터링에 사용할 수 있는 보안 도메인이 있습니다. 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
+합니다 [Azure Monitor에는 보안 로그](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) 및 감사 솔루션을 사용 하면 IT 보안 인시던트의 영향을 최소화 하는 데 도움이 되는 모든 리소스를 능동적으로 모니터링할 수 있습니다. Azure Monitor 로그 보안 및 감사 보안 도메인 리소스 모니터링에 사용할 수 있는 경우 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
 
 -   맬웨어 평가
 -   업데이트 평가
@@ -271,6 +271,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 | SAS(공유 액세스 서명)를 사용하는 요청(실패한 요청 및 성공한 요청 포함) |클라이언트와 서버 모두에 대한 시간 제한 오류 |
 |   분석 데이터에 대한 요청 |    오류 코드가 304(수정되지 않음)인 실패한 GET 요청 |
 | 로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD에는 다단계 인증, 디바이스 등록, 셀프 서비스 암호 관리, 셀프 서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 애플리케이션 사용 모니터링, 광범위한 감사, 보안 모니터링 및 경고를 포함한 완벽한 ID 관리 기능이 포함되어 있습니다.
@@ -293,7 +294,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 |감염 가능성이 있는 디바이스에서 로그인 |개별 사용자 활동 |   |
 |비정상적인 로그인 활동을 포함하는 사용자 |그룹 활동 보고서 |   |
 | |암호 재설정 등록 활동 보고서 |   |
-| |암호 재설정 활동 |   | |
+| |암호 재설정 활동 |   |
 
 
 
@@ -312,7 +313,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 이 문서에서 설명하는 내용은 다음과 같습니다.
 
--   Log Analytics 제품군에서 데이터를 수집, 처리 및 보호하는 방법입니다.
+-   데이터 수집, 처리 및 방식을 Azure Monitor 도구 모음에 보호 합니다.
 
 -   여러 데이터 원본에서 이벤트를 빠르게 분석합니다. 보안 위험을 식별하고 위협과 공격의 범위와 영향을 파악하여 보안 위반의 손해를 완화합니다.
 
@@ -335,7 +336,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 Microsoft는 클라우드 인프라의 탄력성을 보장하고 공격으로부터 방어할 수 있도록 보안에 주의하면서 서비스와 소프트웨어를 설계합니다.
 
-- [Log Analytics | 보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Azure Monitor 로그 | 보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Microsoft 보안 데이터 및 분석을 사용하여 더 지능적이고 효과적인 위협 검색을 수행합니다.
 

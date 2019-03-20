@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086958"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구용 구성 서버 관리
 
@@ -93,25 +93,25 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 필요한 경우 동일한 자격 증명 모음에 구성 서버를 다시 등록할 수 있습니다. 구성 서버 컴퓨터에서 실행 중인 기본 프로세스 서버 외에도, 추가 프로세스 서버 컴퓨터가 있는 경우 두 컴퓨터를 다시 등록합니다.
 
 
-  1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 엽니다.
-  2. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
-  3. 구성 서버 컴퓨터에 로그인합니다.
-  4. **%ProgramData%\ASR\home\svsystems\bin**에서 **cspsconfigtool.exe**를 엽니다.
-  5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
-  6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택합니다.
-  7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
+1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 엽니다.
+2. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
+3. 구성 서버 컴퓨터에 로그인합니다.
+4. **%ProgramData%\ASR\home\svsystems\bin**에서 **cspsconfigtool.exe**를 엽니다.
+5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
+6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택합니다.
+7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 끌어오려면** *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>” --registermt* 명령을 실행합니다.
+    >[!NOTE]
+    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 끌어오려면** *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>” --registermt* 명령을 실행합니다.
 
-  8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
-  ```
-          net stop obengine
-          net start obengine
+8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

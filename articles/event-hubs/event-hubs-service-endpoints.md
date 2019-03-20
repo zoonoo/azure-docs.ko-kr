@@ -1,6 +1,6 @@
 ---
 title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 가상 네트워크에 Microsoft.EventHub 서비스 엔드포인트를 추가하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 Microsoft.EventHub 서비스 끝점을 가상 네트워크에 추가 하는 방법을 설명 합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,22 +9,23 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887598"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
 [VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Event Hubs를 통합하면 양쪽 엔드에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다.
 
-적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Event Hubs 네임스페이스는 권한이 부여된 가상 네트워크의 서브넷을 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
+를 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 연결 하도록 구성 되 면 해당 Event Hubs 네임 더 이상 어디에서 트래픽을 허용 하지만 가상 네트워크의 서브넷에 권한이 부여 합니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
-메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 개인 관계가 생성됩니다.
+메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 개인 관계가 생성됩니다. 이 동작은 예외가 있습니다. 기본적으로 서비스 끝점을 사용 하면 가상 네트워크와 연결 된 IP 방화벽에서 규칙은 denyall 됩니다. 이벤트 허브 공용 끝점에 대 한 액세스를 사용 하도록 설정 하려면 IP 방화벽에서 특정 IP 주소를 추가할 수 있습니다. 
+
 
 >[!WARNING]
 > Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 방지할 수 있습니다.
@@ -48,7 +49,7 @@ ms.locfileid: "56232606"
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 
-엄격하게 분류된 보안이 필요한 솔루션은 일반적으로 해당 구획에 위치한 서비스 간에 통신 경로가 필요합니다. 해당 솔루션에서 가상 네트워크 서브넷은 분류된 서비스 간를 구분합니다.
+긴밀 하 게 및 분리 된 보안을 요구 하는 가상 네트워크 서브넷 분리 된 서비스 간에 구분을 제공 하는 위치 및 솔루션은 이러한 구획에 상주 하는 서비스 간의 통신 경로 해야 합니다.
 
 TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP 경로를 사용하면 네트워크 레이어에서 취약성을 악용할 위험이 있습니다. 메시징 서비스는 완전히 격리된 통신 경로를 제공합니다. 여기서 메시지는 항목을 전환할 때 디스크에도 작성됩니다. 동일한 Event Hubs 인스턴스에 바인딩된 두 개의 고유 가상 네트워크에 있는 워크로드는 메시지를 통해 효율적이고 안정적으로 통신할 수 있습니다. 이 동안에 해당 네트워크 격리 경계의 무결성은 지켜집니다.
  

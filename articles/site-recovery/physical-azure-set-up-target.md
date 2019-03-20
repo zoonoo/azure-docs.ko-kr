@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866295"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 
@@ -21,7 +21,7 @@ ms.locfileid: "52849243"
 ## <a name="prerequisites"></a>필수 조건
 
 문서에서는 다음을 가정합니다.
-- 물리적 컴퓨터를 보호하기 위해 Recovery Services 자격 증명 모음을 만들었습니다. [Azure Portal](http://portal.azure.com "Azure Portal")에서 Recovery Services 자격 증명 모음을 만들 수 있습니다.
+- 물리적 컴퓨터를 보호하기 위해 Recovery Services 자격 증명 모음을 만들었습니다. [Azure Portal](https://portal.azure.com "Azure Portal")에서 Recovery Services 자격 증명 모음을 만들 수 있습니다.
 - 물리적 컴퓨터를 Azure에 복제하도록 [온-프레미스 환경을 설정](physical-azure-disaster-recovery.md)했습니다.
 
 ## <a name="prepare-target"></a>대상 준비

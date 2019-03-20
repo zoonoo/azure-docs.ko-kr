@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110395"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
-이 아티클에서는 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리하여 여러 동시 사용자 추가, ML 서비스 클러스터에 원격으로 연결, 계산 컨텍스트 변경 등의 작업을 수행하는 방법을 알아봅니다.
+이 문서에서는 여러 동시 사용자를 추가 하는 ML Services 클러스터에 원격으로 연결 등, 계산 컨텍스트를 변경 하는 등의 작업을 수행 하려면 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -310,7 +310,7 @@ HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함�
 
    * **이름**에서 스크립트 작업의 이름을 지정합니다.
 
-    * **Bash 스크립트 URI**에서 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
+     * **Bash 스크립트 URI**에서 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
 
    * **작업자** 확인란만 선택합니다.
 

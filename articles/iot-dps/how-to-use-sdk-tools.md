@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123677"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>SDK에서 제공된 도구를 사용하여 프로비전할 개발을 간소화하는 방법
 IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으로 Just-In-Time 무인 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 프로비전 프로세스를 간소화합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
@@ -23,9 +23,9 @@ IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으
 
 TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
 1. [개발 환경을 준비](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)하고 GitHub 리포지토리를 복제합니다.
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/``` 아래에 있는 TPM 시뮬레이터 폴더로 이동합니다.
 3. 장치를 프로비전하기 위해 클라이언트 애플리케이션을 실행하기 전에 Simulator.exe를 실행합니다.
 4. 등록 ID 및 인증 키를 가져오기 위해 프로비전 프로세스 전체에서 백그라운드에 시뮬레이터를 실행합니다.  두 값은 실행의 한 인스턴스에서만 유효합니다.
@@ -47,18 +47,18 @@ SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provis
 
 이 생성자를 사용하여 X.509 인증서를 생성하려면:
 1. [개발 환경을 준비](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)하고 GitHub 리포지토리를 복제합니다.
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. 루트를 azure-iot-sdk-java로 변경합니다.
 3. ```mvn install -DskipTests=true```를 실행하여 모든 필수 패키지를 다운로드하고 SDK를 컴파일합니다.
 4. ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```에서 X.509 인증서 생성기에 대한 루트로 이동합니다.
 5. ```mvn clean install```을 사용하여 빌드
 6. 다음 명령을 사용하여 도구를 실행합니다.
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
 8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
 

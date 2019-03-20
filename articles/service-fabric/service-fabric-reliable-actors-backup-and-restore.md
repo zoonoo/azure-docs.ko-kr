@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.openlocfilehash: c16e3ed140284422f3b62669fed1f8fb4dd681f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872242"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Reliable Actors 백업 및 복원 구현
 
@@ -123,7 +123,7 @@ Reliable Actors에 대한 자세한 내용은 다음 문서를 읽어보세요.
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

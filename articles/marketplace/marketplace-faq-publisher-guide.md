@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5ac8e35614d6f0514f60932bc34aa8cab2c0ad11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894159"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542151"
 ---
 # <a name="marketplace-faqs"></a>Marketplace FAQ
 
@@ -67,9 +67,10 @@ Azure Marketplace 고객은 Azure용으로/Azure를 기반으로 빌드된 기�
 Azure Marketplace 제품은 다음 방법을 통해 구매할 수 있습니다.
 
 * [웹 기반 상점](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Microsoft Azure 관리 포털](https://portal.azure.com/) 또는 [Azure Marketplace CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* [Microsoft Azure 관리 포털](https://portal.azure.com/)를 통하거나는 [Azure Marketplace 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-참고: 선불 크레딧과 다른 형태의 현금 약정 금액은 소프트웨어 라이선스 요금 결제에는 사용할 수 없지만 Azure 사용 요금 결제에는 사용할 수 있습니다.  예외에 해당하는 경우는 [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)에 나와 있습니다.
+>[!Note]
+>선불 크레딧과 다른 형태의 현금 약정 금액은 소프트웨어 라이선스 요금 결제에는 사용할 수 없지만 Azure 사용 요금 결제에는 사용할 수 있습니다.  예외에 해당하는 경우는 [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)에 나와 있습니다.
 
 **Azure Marketplace에서 구매한 제품을 배포할 Microsoft Azure 지역을 선택할 수 있나요?**
 
@@ -93,9 +94,11 @@ Azure Marketplace 제품은 다음 방법을 통해 구매할 수 있습니다.
 
 **Azure Marketplace을 통해 판매/프로비전되는 애플리케이션과 서비스를 구매할 수 있는 국가는 어디인가요?**
 
-Azure Marketplace은 다음 국가의 Microsoft Azure 고객이 사용할 수 있습니다.
+Azure Marketplace에서 나열 된 국가에서 Microsoft Azure 고객에 게 제공 되는 [참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy)합니다.
 
-알제리, 아르헨티나, 오스트레일리아, 오스트리아, 바레인, 벨로루시, 벨기에, 브라질, 불가리아, 캐나다, 칠레, 콜롬비아, 코스타리카, 크로아티아, 키프로스, 체코 공화국, 덴마크, 도미니카 공화국, 에콰도르, 이집트, 엘살바도르, 에스토니아, 핀란드, 프랑스, 독일, 그리스, 과테말라, 홍콩, 헝가리, 아이슬란드, 인도, 인도네시아, 아일랜드, 이스라엘, 이탈리아, 일본, 요르단, 카자흐스탄, 케냐, 쿠웨이트, 라트비아, 리히텐슈타인, 리투아니아, 룩셈부르크, 마케도니아(FYROM), 말레이시아, 몰타, 멕시코, 몬테네그로, 모로코, 네덜란드, 뉴질랜드, 나이지리아, 노르웨이, 오만, 파키스탄, 파나마, 파라과이, 페루, 필리핀, 폴란드, 포르투갈, 푸에르토리코, 카타르, 루마니아, 러시아, 사우디아라비아, 세르비아, 싱가포르, 슬로바키아, 슬로베니아, 남아프리카 공화국, 한국, 스페인, 스리랑카, 스웨덴, 스위스, 대만, 태국, 트리니다드 토바고, 튀니지, 터키, 우크라이나, 아랍에미리트, 영국, 미국, 우루과이, 베네수엘라
+**Azure Marketplace는 통화를 지원 하나요?**
+
+트랜잭션 17 통화에서 수행할 수 있습니다. AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, 문제, SEK, TWD, USD, RMB 합니다.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Azure Marketplace에서 솔루션 배포
 
@@ -160,7 +163,7 @@ BYOL 솔루션용 라이선스 자격 증명을 확보하고 적용하는 작업
 
 **무료 계층 또는 BYOL(사용자 라이선스 필요) 제품을 배포하는 경우 신용 카드 등의 결제 방법을 등록해야 하나요?**
 
- 아니요. 무료 계층 또는 BYOL 제품을 배포하는 경우에는 결제 방법이 필요하지 않습니다. 그러나 무료 평가판 제품의 경우 결제 방법이 필요합니다. **지금 설치해 보기** 또는 **무료 소프트웨어 평가판** 단추가 포함된 제품은 선택한 Azure 구독에 배포됩니다.  이러한 제품의 요금은 선택한 계정에 등록된 결제 방법을 사용하여 청구됩니다. Azure 사용 요금은 소프트웨어 라이선스 요금과 별도로 청구됩니다.
+아니요. 무료 계층 또는 BYOL 제품을 배포하는 경우에는 결제 방법이 필요하지 않습니다. 그러나 무료 평가판 제품의 경우 결제 방법이 필요합니다. **지금 설치해 보기** 또는 **무료 소프트웨어 평가판** 단추가 포함된 제품은 선택한 Azure 구독에 배포됩니다.  이러한 제품의 요금은 선택한 계정에 등록된 결제 방법을 사용하여 청구됩니다. Azure 사용 요금은 소프트웨어 라이선스 요금과 별도로 청구됩니다.
 
 **EA(기업계약) 간접 고객은 Azure Marketplace에서 판매되는 제품의 가격에 대한 질문이 있는 경우 누구에게 문의해야 하나요?**
 
@@ -176,21 +179,21 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 
 **Azure Marketplace 구매에 대해 볼륨 라이선스 할인이 적용되나요?**
 
- 아니요. Azure Marketplace의 솔루션을 소유한 판매자가 가격을 설정할 수 있습니다.  Azure Marketplace 구매에는 표준 Microsoft 볼륨 라이선스 할인이 적용되지 않습니다.
+아니요. Azure Marketplace의 솔루션을 소유한 판매자가 가격을 설정할 수 있습니다.  Azure Marketplace 구매에는 표준 Microsoft 볼륨 라이선스 할인이 적용되지 않습니다.
 
 **이러한 구독의 요금은 어떻게 결제할 수 있나요? Azure Marketplace 구매 내역은 Azure 청구서에 표시되나요, 아니면 다른 청구서에 표시되나요?**
 
-Azure Marketplace에서 구매할 때도 Azure 구독과 같은 결제 방법이 사용됩니다.  현금 약정 금액을 사용할 수 있는 경우가 아니면 Azure Marketplace에서 구매하는 제품의 가격은 Azure 사용 요금과 별도로 청구됩니다.
+-MOSP [Microsoft 온라인 정기 가입 프로그램](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (즉, direct 웹) 고객은 Azure 구독 프로필에 대 한 파일에 있는 동일한 신용 카드로 요금이 청구 됩니다. 신용 카드가 등록되어 있지 않으면 Azure Marketplace에서 제품을 구매할 수 없습니다. 신용 카드가 등록되어 있어야 Azure 요금 송장 발행을 특별 면제받을 수 있습니다.
 
-MOSP(Microsoft Online Subscription 프로그램) 고객(웹 직접 고객)의 경우에는 Azure 구독 프로필에 등록된 신용 카드에 요금이 청구됩니다. 신용 카드가 등록되어 있지 않은 고객은 Azure Marketplace에서 제품을 구매할 수 없습니다. 신용 카드가 등록되어 있어야 Azure 요금 송장 발행을 특별 면제받을 수 있습니다.
-
-EA(기업계약) 고객의 경우에는 EA에 요금이 청구됩니다. [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)에 나와 있는 특정 Azure Marketplace 제품의 경우 먼저 사용 가능한 현금 약정 금액에서 요금이 차감된 후에 차액이 단일 분기별 송장으로 청구됩니다. EA 간접, 교육 및 정부 고객의 경우 LSP(라이선스 솔루션 공급자)가 요금을 청구합니다.
+EA(기업계약) 고객의 경우에는 EA에 요금이 청구됩니다. 여기에 나와 있는 특정 Azure Marketplace 제품의 경우 먼저 사용 가능한 현금 약정 금액에서 요금이 차감된 후에 차액이 단일 분기별 송장으로 청구됩니다. EA 간접, 교육 및 정부 고객의 경우 LSP(라이선스 솔루션 공급자)가 요금을 청구합니다.
 
 **Azure Marketplace 구독 정보와 청구 정보는 어디서 확인할 수 있나요?**
 
-MOSP(Microsoft Online Subscription 프로그램) 고객(웹 직접 고객)은 Azure 청구 포털의 'Marketplace' 메뉴 아래에서 Marketplace 구독 정보를 확인할 수 있습니다. Marketplace에서 Virtual Machines를 구매한 고객은 Microsoft Azure 관리 포털에서 예상 발생 요금을 확인할 수 있습니다.
+-MOSP [Microsoft 온라인 정기 가입 프로그램](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (direct 웹) 고객 송장 탭 Cost Management + Azure 관리 포털의 청구 섹션 Marketplace 구매 정보를 볼 수 있습니다.
 
-EA(기업계약) 고객은 Enterprise Portal 청구 및 계정 관리 보기의 'Azure Marketplace' 탭에서 Marketplace 구독 정보를 확인할 수 있습니다. 참고: EA 간접 고객은 제품 및 사용량 정보만 확인할 수 있습니다. Enterprise Portal에서는 가격 정보를 확인할 수 없습니다.
+EA (기업 계약) 고객 송장 탭 Cost Management + Azure 관리 포털의 청구 섹션 Marketplace 구매 정보를 볼 수 있습니다.
+
+클라우드 솔루션 공급자 (CSP) 파트너 회사 고객 보기에서 선택한 후 각 고객 주문 내역 탭 내에서 파트너 센터에 대 한 Marketplace 구매 정보를 볼 수 있습니다.
 
 **Azure VM에 대한 Azure Marketplace 추가 기능을 취소하려면 어떻게 해야 하나요?**
 
@@ -198,9 +201,9 @@ EA(기업계약) 고객은 Enterprise Portal 청구 및 계정 관리 보기의 
 
 **Azure Marketplace에서 구매한 제품의 청구 빈도는 어느 정도인가요?**
 
-기업계약 고객의 경우 [여기에 나와 있는 특정 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)에 대해 먼저 사용 가능한 현금 약정 금액에서 해당월에 사용한 서비스의 총 비용이 차감됩니다. 현금 약정 금액에서 차감되지 않은 모든 Azure Marketplace 제품 비용은 매월 연체 요금으로 청구됩니다.
+에 설명 된 구체적인 서비스와 기업 계약 고객은 먼저가 사용 가능한 현금 약정 금액 인하 총 사용 됩니다 달에 이러한 서비스에 대 한 비용입니다. 현금 약정 금액에서 차감되지 않은 모든 Azure Marketplace 제품 비용은 매월 연체 요금으로 청구됩니다. 연간 SaaS 구독 전체 연도 서비스에 대 한 한 번만 청구 됩니다.
 
-MOSP 고객(웹 직접 고객)의 경우에는 Azure 구독 프로필에 등록된 신용 카드에 월 요금이 청구됩니다.
+-MOSP [Microsoft 온라인 정기 가입 프로그램](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (direct 웹) 고객은 Azure 구독 프로필에 대 한 파일에 있는 동일한 신용 카드로 월간 요금이 청구 됩니다. 연간 SaaS 구독 전체 연도 서비스에 대 한 한 번만 청구 됩니다.
 
 **Azure Marketplace에서 구매한 제품을 MOSP 구독에서 직접 EA(기업계약) 구독으로 변환하려면 어떻게 해야 하나요?**
 
@@ -246,7 +249,7 @@ Azure Marketplace 구매와 관련된 대금 청구 및 구독 문제의 경우 
 
 **구매한 제품에 불만이 있으면 반품할 수 있나요?**
 
-Azure Marketplace에서 구매한 제품은 반품할 수는 없지만 취소/삭제할 수는 있습니다. 구독을 취소/삭제하면 다음달부터는 요금이 청구되지 않습니다.
+구매한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 반환할 수 없지만 취소/삭제할 수는 있습니다. 소비 기반된 제품에 사용량에 따라 요금이 청구 됩니다 따라서 중지 되 면 청구도 중지 합니다. 구독 취소 되 고 현재 청구 기간이 지난 청구 하지 않습니다. 구독 구매 (월간 및 연간의 경우 14 일 동안 24 시간) 후 즉시 취소 되 면 전체 환불이 제공 됩니다.
 
 Marketplace 서비스 또는 구매와 관련된 기술적인 문제는 판매자에게 직접 문의해야 합니다. 판매자 연락처 정보 및/또는 지원 웹 사이트 링크는 Azure Marketplace의 해당 솔루션 정보 페이지에서 확인할 수 있습니다.
 
@@ -335,6 +338,10 @@ Azure Marketplace를 통해 목록, 평가판 또는 BYOL(사용자 라이선스
 **Azure Marketplace를 통해 제품을 구매할 때 거래 수수료가 발생하나요?**
 
 Azure Marketplace를 통해 솔루션 라이선스를 구매하면 판매자와 Microsoft에게 소프트웨어 라이선스 수익이 분할 지급됩니다.  수익은 [Marketplace 판매자 계약](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)의 약관에 따라 분할됩니다. 또한 BYOL(사용자 라이선스 필요)이 포함된 솔루션의 경우 판매자에게 거래 수수료가 발생하지 않습니다.
+
+**표준 계약 이란?**
+
+게시자는 고객에 게 간소화 된 조달 및 법적 검토 프로세스를 갖도록를 활용 하 여 선택할 수 있는 Microsoft 제품 표준 계약 조건
 
 **애플리케이션을 AAD(Azure Active Directory)와 통합하기 위한 지침은 어디서 확인할 수 있나요?**
 
@@ -489,7 +496,36 @@ Azure Marketplace는 IT 전문가 및 개발자가 Azure용으로/Azure를 기�
 
 Azure Marketplace은 다음 국가의 Microsoft Azure 고객이 사용할 수 있습니다.
 
-알제리, 아르헨티나, 오스트레일리아, 오스트리아, 바레인, 벨로루시, 벨기에, 브라질, 불가리아, 캐나다, 칠레, 콜롬비아, 코스타리카, 크로아티아, 키프로스, 체코 공화국, 덴마크, 도미니카 공화국, 에콰도르, 이집트, 엘살바도르, 에스토니아, 핀란드, 프랑스, 독일, 그리스, 과테말라, 홍콩, 헝가리, 아이슬란드, 인도, 인도네시아, 아일랜드, 이스라엘, 이탈리아, 일본, 요르단, 카자흐스탄, 케냐, 쿠웨이트, 라트비아, 리히텐슈타인, 리투아니아, 룩셈부르크, 마케도니아(FYROM), 말레이시아, 몰타, 멕시코, 몬테네그로, 모로코, 네덜란드, 뉴질랜드, 나이지리아, 노르웨이, 오만, 파키스탄, 파나마, 파라과이, 페루, 필리핀, 폴란드, 포르투갈, 푸에르토리코, 카타르, 루마니아, 러시아, 사우디아라비아, 세르비아, 싱가포르, 슬로바키아, 슬로베니아, 남아프리카 공화국, 한국, 스페인, 스리랑카, 스웨덴, 스위스, 대만, 태국, 트리니다드 토바고, 튀니지, 터키, 우크라이나, 아랍에미리트, 영국, 미국, 우루과이, 베네수엘라
+알제리, 아르헨티나, 오스트레일리아, 오스트리아, 바레인, 벨로루시, 벨기에, 브라질, 불가리아, 캐나다, 칠레, 콜롬비아, 코스타리카, 크로아티아, 키프로스, 체코 공화국, 덴마크, 도미니카 공화국, 에콰도르, 이집트, 엘살바도르, 에스토니아, 핀란드, 프랑스, 독일, 그리스, 과테말라, 홍콩, 헝가리, 아이슬란드, 인도, 인도네시아, 아일랜드, 이스라엘, 이탈리아, 일본, 요르단, 카자흐스탄, 케냐, 쿠웨이트, 라트비아, 리히텐슈타인, 리투아니아, 룩셈부르크, 마케도니아(FYROM), 말레이시아, 몰타, 멕시코, 몬테네그로, 모로코, 네덜란드, 뉴질랜드, 나이지리아, 노르웨이, 오만, 파키스탄, 파나마, 파라과이, 페루, 필리핀, 폴란드, 포르투갈, 푸에르토리코, 카타르, 루마니아, 러시아, 사우디아라비아, 세르비아, 싱가포르, 슬로바키아, 슬로베니아, 남아프리카 공화국, 한국, 스페인, 스리랑카, 스웨덴, 스위스, 대만, 태국, 트리니다드 토바고, 튀니지, 터키, 우크라이나, 아랍에미리트, 영국, 미국, 우루과이 및 베네수엘라
+
+**다른 국가에서 판매를 사용 하도록 설정 하려면 지리적 가용성 정의 어떻게 해야 하나요?**
+
+1.  클라우드 파트너 포털에서 새 국가 추가 하려면 SKU로 이동 합니다.  "SKU 세부 정보"에서 "국가/지역 가용성"로 이동 하 고 "선택 영역입니다."를 클릭 합니다.
+
+    ![지역 선택](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  판매 하기 위해 사용할 수 있는 모든 국가 사용 하 여 목록을 팝업 됩니다.  이 SKU를 사용할 수 있게 하려는 각 국가 옆의 확인란을 클릭 합니다. "확인"을 클릭 합니다.
+
+    ![국가 목록 선택](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  마지막으로 라이브 제품에 적용할 변경 내용을 게시 합니다."클릭  
+
+>[!Note]
+>변경 내용이 적용 되려면 24 시간이 걸립니다.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**게시자는 기존 제품에 대 한 지리적 가용성을 변경 하는 어떻게 하나요?**
+
+게시자 기존 제품을 편집, 새 국가 선택 및 스프레드시트 다운로드/업로드 함수를 사용 하 여 가격을 설정할 수 있습니다.
+
+**어떤 국가에서 고객은 Azure Marketplace 제품을 구입할 수 있습니까?**
+
+Azure Marketplace 고객의 대금 청구 주소에 정의 된 대로 141 구입에서 지리를 지원 합니다. 참조 [참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy) 국가 목록은 합니다.
+
+**Azure Marketplace는 통화를 지원 하나요?**
+
+트랜잭션 17 통화에서 수행할 수 있습니다. AUD BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, 문제, SEK, TWD, USD입니다.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Azure Marketplace에서 솔루션 배포
 
@@ -528,7 +564,7 @@ BYOL을 사용하는 VM을 EA 구독으로 마이그레이션하는 경우에는
 
 **무료 계층 또는 BYOL(사용자 라이선스 필요) 제품을 배포하는 경우 신용 카드 등의 결제 방법을 등록해야 하나요?**
 
- 아니요. 무료 계층 또는 BYOL 제품을 배포하는 경우에는 결제 방법이 필요하지 않습니다. 그러나 무료 평가판 제품의 경우 결제 방법이 필요합니다.
+아니요. 무료 계층 또는 BYOL 제품을 배포하는 경우에는 결제 방법이 필요하지 않습니다. 그러나 무료 평가판 제품의 경우 결제 방법이 필요합니다.
 
 "지금 가져오기" 또는 "무료 소프트웨어 평가판" 단추가 포함된 제품은 Azure 구독에 배포되며 해당 계정에 등록된 결제 방법에 따라 청구됩니다. Azure 사용 요금은 소프트웨어 라이선스 요금과 별도로 청구됩니다.
 
@@ -550,7 +586,7 @@ EA 간접 고객의 경우 모든 Azure Marketplace 가격 관련 질문을 LSP(
 
 **Azure Marketplace 구매에 대해 볼륨 라이선스 할인이 적용되나요?**
 
- 아니요. Azure Marketplace의 솔루션을 소유한 ISV가 가격을 설정할 수 있습니다. Azure Marketplace 구매에는 표준 Microsoft 볼륨 라이선스 할인이 적용되지 않습니다.
+아니요. Azure Marketplace의 솔루션을 소유한 ISV가 가격을 설정할 수 있습니다. Azure Marketplace 구매에는 표준 Microsoft 볼륨 라이선스 할인이 적용되지 않습니다.
 
 **이러한 구독의 요금은 어떻게 결제할 수 있나요? Azure Marketplace 구매 내역은 Azure 청구서에 표시되나요, 아니면 다른 청구서에 표시되나요?**
 

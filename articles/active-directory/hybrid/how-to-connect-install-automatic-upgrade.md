@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003906"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "56208829"
 | 일시 중단 |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
 | 사용 안 함 |자동 업그레이드를 사용할 수 없습니다. |
 
-`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.
+`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1.1.750.0 전에 Set-adsyncautoupgrade cmdlet은 자동 업그레이드 상태가 Suspended로 설정 된 경우 Autoupgrade 중단 됩니다. 이 기능에 AutoUpgrade를 차단 하지 않도록 이제 변경 되었습니다.
 
 자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 **Office 365 URL 및 IP 주소 범위** 에서 설명하는 대로 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)용 프록시 서버에서 URL을 열었는지 확인합니다.
 
@@ -89,18 +89,18 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeAbortedSyncExeInUse |[Synchronization Service Manager UI](how-to-connect-sync-service-manager-ui.md) 가 서버에 열려 있습니다. |
 | UpgradeAbortedSyncOrConfigurationInProgress |설치 마법사가 실행 중이거나 동기화가 스케줄러 외부에서 예약되었습니다. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. | 
+| UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. |
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
 | UpgradeNotSupportedDeviceWritebackEnabled |[디바이스 쓰기 저장](how-to-connect-device-writeback.md) 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedGroupWritebackEnabled |[그룹 쓰기 저장](how-to-connect-preview.md#group-writeback) 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
-| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |d
+| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
 | UpgradeNotSupportedNonMsolAccount |[AD DS Connector 계정](reference-connect-accounts-permissions.md#ad-ds-connector-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. |
 | UpgradeNotSupportedPtaSignInMethod | 로그인 방법으로 통과 인증을 선택했습니다. |
-| UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](how-to-connect-sync-operations.md#staging-mode)로 설정되어 있습니다. |
+| UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](how-to-connect-sync-staging-server.md)로 설정되어 있습니다. |
 | UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](how-to-connect-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |
 
 ## <a name="next-steps"></a>다음 단계

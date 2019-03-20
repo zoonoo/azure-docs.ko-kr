@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084101"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널 
 
@@ -59,15 +59,15 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
 
 - **컨텍스트를 미리 설정합니다**. **PySpark**, **PySpark3** 또는 **Spark** 커널을 사용하면 애플리케이션으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
    
-   * **sc** - Spark 컨텍스트용
-   * **sqlContext** - Hive 컨텍스트용
+  * **sc** - Spark 컨텍스트용
+  * **sqlContext** - Hive 컨텍스트용
    
-   따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
+    따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
+    대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
 - **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](https://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    
@@ -87,7 +87,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
    > [!NOTE]  
    > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
 
-2. **자동 시각화**. **Pyspark** 커널은 Hive 및 SQL 쿼리 출력을 자동으로 시각화합니다. 테이블, 원형, 선, 영역, 막대를 포함하여 다양한 시각화 형식 중에서 선택할 수 있습니다.
+1. **자동 시각화**. **Pyspark** 커널은 Hive 및 SQL 쿼리 출력을 자동으로 시각화합니다. 테이블, 원형, 선, 영역, 막대를 포함하여 다양한 시각화 형식 중에서 선택할 수 있습니다.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>%%sql 매직에서 지원되는 매개 변수
 `%%sql` 매직은 쿼리를 실행할 때 검색하는 출력 종류를 제어하는 데 사용할 수 있는 여러 매개 변수를 지원합니다. 다음 표에는 출력이 나와 있습니다.
@@ -127,7 +127,7 @@ Jupyter Notebook을 여는 경우 루트 수준에서 사용할 수 있는 두 �
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook이 저장되는 위치
 
-클러스터에 Azure Storage를 기본 저장소 계정으로 사용하는 경우 Jupyter 노트가 **/HdiNotebooks** 폴더 아래의 저장소 계정에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 저장소 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 저장소 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
+클러스터에 Azure Storage를 기본 스토리지 계정으로 사용하는 경우 Jupyter 노트가 **/HdiNotebooks** 폴더 아래의 스토리지 계정에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 저장소 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 저장소 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
 
 > [!NOTE]  
 > 기본 스토리지로 Azure Data Lake Storage를 사용하는 HDInsight 클러스터는 연결된 스토리지에 노트를 저장하지 않습니다.

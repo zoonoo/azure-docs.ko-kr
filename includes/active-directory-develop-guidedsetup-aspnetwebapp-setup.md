@@ -3,8 +3,8 @@ title: 포함 파일
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203630"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -143,5 +143,5 @@ ms.locfileid: "49988538"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>추가 정보
-> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 응용 프로그램이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에 쿠키를 사용하므로 위의 코드에서처럼 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에 특정 조직 하나로 액세스를 제한하지 않도록 지시합니다.
+> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에 쿠키를 사용하므로 위의 코드에서처럼 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에 특정 조직 하나로 액세스를 제한하지 않도록 지시합니다.
 <!--end-collapse-->

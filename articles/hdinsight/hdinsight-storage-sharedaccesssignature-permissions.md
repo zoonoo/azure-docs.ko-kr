@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202676"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -163,7 +163,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
     Connect-AzureRmAccount
     ```
 
-    메시지가 표시되면 Azure 구독 계정으로 로그인합니다.
+    Azure 구독에 대 한 메시지가 표시 되 면는 계정으로 로그인 합니다.
 
     계정이 여러 Azure 구독과 연결되는 경우 `Select-AzureRmSubscription` 을 사용하여 사용할 구독을 선택해야 합니다.
 
@@ -175,7 +175,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
     스크립트를 실행하면 리소스 그룹 및 저장소 계정이 생성되면서 출력이 PowerShell 프롬프트에 기록됩니다. HDInsight 클러스터에 대한 HTTP 사용자를 입력하라는 메시지가 표시됩니다. 이 계정은 클러스터에 대한 보안 HTTP/s 액세스를 보호하는 데 사용됩니다.
 
-    Linux 기반 클러스터를 만드는 경우 SSH 사용자 계정 이름 및 암호를 묻는 메시지가 표시됩니다. 이 계정은 클러스터에 원격으로 로그인하는 데 사용됩니다.
+    Linux 기반 클러스터를 만드는 경우 SSH 사용자 계정 이름 및 암호를 묻는 메시지가 표시됩니다. 이 계정은 클러스터에 원격으로 로그인 됩니다.
 
    > [!IMPORTANT]  
    > HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
@@ -202,7 +202,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    * **키**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **값**: 이전에 실행한 C# 또는 Python 애플리케이션에서 반환된 SAS
 
-     **CONTAINERNAME** 을 C# 또는 SAS 애플리케이션에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
+     **CONTAINERNAME** 을 C# 또는 SAS 애플리케이션에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME**을 사용한 스토리지 계정 이름으로 바꿉니다.
 
 5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가하고 **저장**을 클릭합니다.
 
@@ -219,13 +219,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 ## <a name="test-restricted-access"></a>제한된 액세스 테스트
 
-액세스를 제한을 확인하려면 다음 방법을 사용합니다.
-
-* **Windows 기반** HDInsight 클러스터의 경우 원격 데스크톱을 사용하여 클러스터에 연결합니다. 자세한 내용은 [RDP를 사용하여 HDInsight에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요.
-
-    연결된 후에는 바탕 화면의 **Hadoop 명령줄** 아이콘을 사용하여 명령 프롬프트를 엽니다.
-
-* **Linux 기반** HDInsight 클러스터의 경우 SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+액세스 제한 했는지를 확인 하려면 SSH를 사용 하 여 클러스터에 연결 합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 클러스터에 연결되면 다음 단계에 따라 SAS 저장소 계정의 항목에 대한 읽기 및 목록 전용 권한이 있는지 확인합니다.
 

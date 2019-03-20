@@ -1,6 +1,6 @@
 ---
-title: Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여 | Microsoft Docs
-description: Azure AD B2B 공동 작업을 사용하여 클라우드 B2B 사용자에게 온-프레미스 앱에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.
+title: 온-프레미스 앱-Azure Active Directory에 대 한 액세스 권한 부여 B2B 사용자 | Microsoft Docs
+description: 클라우드 B2B 사용자에 대 한 액세스를 Azure AD B2B 공동 작업을 사용 하 여 프레미스 앱을 제공 하는 방법을 보여 줍니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac169bfc2d04e08e9853bb6ceda64fdeed861b4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b0e9536f009d478796bc9367a66630c02019dcd2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190061"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441256"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 

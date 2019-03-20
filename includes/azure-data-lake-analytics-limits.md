@@ -4,18 +4,18 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e3059b5a76a6a9188f79b683bb997bbcf8185ced
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279797"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554045"
 ---
-Data Lake 분석은 분산 인프라와 복잡한 코드를 관리하는 복잡한 작업을 쉽게 해 줍니다. 이 서비스를 통해 리소스를 동적으로 프로비전하고 엑사바이트 단위의 데이터도 분석할 수 있습니다. 작업이 완료되면 리소스가 자동으로 사용 해제되며, 사용한 처리량에 대해서만 지불하면 됩니다. 저장된 데이터 크기 또는 사용된 계산량을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 지원 팀에 문의하여 구독에 대한 기본 제한 수를 쉽게 늘릴 수 있습니다. 
+Azure Data Lake Analytics는 분산된 인프라와 복잡 한 코드를 쉽게 관리 하는 복잡 한 작업을 만듭니다. 리소스를 동적으로 프로 비전 하 고 엑사바이트 규모의 데이터 분석을 위해 사용할 수 있습니다. 작업이 완료 되 면 해제 리소스 자동으로 합니다. 사용 된 처리 능력에 대해서만 지불 합니다. 저장된 데이터 크기 또는 사용된 계산량을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 구독의 기본 한도 발생 시키려면 지원에 문의 합니다.
 
 | **리소스** | **기본 제한** | **설명** |
 | --- | --- | --- |
 | 최대 동시 작업 수 |20 | |
-| 계정당 최대 AU(분석 단위) 수 |250 | 20개의 작업에 최대 250개의 AU 조합을 사용합니다.  이 제한을 높이려면 Microsoft 지원에 문의하세요. |
+| 최대 Au (분석 단위) 계정당 |250 | 20개의 작업에 최대 250개의 AU 조합을 사용합니다. 이 한도 늘리려면 Microsoft 지원에 문의 합니다. |
 | 작업 제출의 최대 스크립트 크기 | 3MB | |
-| 지역당 구독당 최대 ADLA 계정 수 | 5 | 이 제한을 높이려면 Microsoft 지원에 문의하세요. |
+| 구독 당 지역별 Data Lake Analytics 계정의 최대 수 | 5 | 이 한도 늘리려면 Microsoft 지원에 문의 합니다. |

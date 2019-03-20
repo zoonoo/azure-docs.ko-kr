@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804000b781ca1fc8d9f8834e3a8c0f0a78c52c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878485"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227034"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -27,9 +27,9 @@ ms.locfileid: "57878485"
 
 > [!TIP]
 > 이 문서 전체에서 다음 상태로 표시된 항목을 볼 수 있습니다.
->
+> 
 > :heavy_check_mark: **Microsoft 권장 사항**
->
+> 
 > 이러한 항목은 일반 권장 사항이며, 특정 기업 요구에 적용되는 경우에만 구현하는 것이 좋습니다.
 
 ## <a name="step-1-learn-about-pim"></a>1단계. PIM의 자세한 정보

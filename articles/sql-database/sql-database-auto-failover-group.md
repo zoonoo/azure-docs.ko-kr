@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861080"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -129,6 +129,18 @@ ms.locfileid: "56301930"
 
   > [!IMPORTANT]
   > Managed Instance는 여러 개의 장애 조치(failover) 그룹을 지원하지 않습니다.
+  
+## <a name="permissions"></a>권한
+장애 조치 그룹에 대 한 권한을 통해 관리 됩니다 [역할 기반 액세스 제어 (RBAC)](../role-based-access-control/overview.md)합니다. 합니다 [SQL Server 참여자](../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할에 장애 조치 그룹을 관리 하는 데 필요한 모든 권한이 있습니다. 
+
+### <a name="create-failover-group"></a>장애 조치 그룹 만들기
+장애 조치 그룹을 만들려면 RBAC 쓰기 권한을 모두 기본 및 보조 서버를 장애 조치 그룹의 모든 데이터베이스에 필요 합니다. 관리 되는 인스턴스에 대 한 기본 및 보조 관리 되는 인스턴스는 모두에 대 한 RBAC 쓰기 액세스 필요 하지만 개별 데이터베이스에 대 한 권한을 관련이 없는 개별 관리 되는 인스턴스 데이터베이스에 추가 하거나 장애 조치 그룹에서 제거할 수 있으므로. 
+
+### <a name="update-a-failover-group"></a>장애 조치 그룹 업데이트
+RBAC를 해야 장애 조치 그룹을 업데이트 하려면 장애 조치 그룹 및 현재 주 서버 또는 관리 되는 인스턴스에서 모든 데이터베이스에 대 한 쓰기 액세스 합니다.  
+
+### <a name="failover-a-failover-group"></a>장애 조치 그룹을 장애 조치
+장애 조치 그룹을 장애 조치할를 새 주 서버에서 장애 조치 그룹에 대 한 RBAC 쓰기 액세스 필요 하거나 관리 되는 인스턴스. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례
 
@@ -203,7 +215,7 @@ ms.locfileid: "56301930"
   > [!NOTE]
   > 특정 서비스 계층에서 Azure SQL Database는 [읽기 전용 복제본](sql-database-read-scale-out.md)을 사용하여 읽기 전용 복제본의 용량 및 연결 문자열의 `ApplicationIntent=ReadOnly` 매개 변수를 통해 읽기 전용 쿼리 워크로드를 부하를 분산할 수 있도록 지원합니다. 지역 복제된 보조 데이터베이스를 구성한 경우 이 기능을 사용하여 주 위치 또는 지역 복제된 위치에 있는 읽기 전용 복제본에 연결할 수 있습니다.
   > - 주 위치의 읽기 전용 복제본에 연결하려면 `failover-group-name.zone_id.database.windows.net`을 사용합니다.
-  > - 주 위치의 읽기 전용 복제본에 연결하려면 `failover-group-name.secondary.zone_id.database.windows.net`을 사용합니다.
+  > - 보조 위치의 읽기 전용 복제본에 연결 하려면 사용 하 여 `failover-group-name.secondary.zone_id.database.windows.net`입니다.
 
 - **성능 저하에 대한 대비**
 
@@ -270,7 +282,9 @@ ms.locfileid: "56301930"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>주 데이터베이스 업그레이드 또는 다운그레이드
 
-보조 데이터베이스와의 연결을 끊지 않고도 주 데이터베이스를 다른 계산 크기(동일한 서비스 계층 내, 범용 및 중요 비즈니스용 사이 아님)로 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드하는 경우에는 보조 데이터베이스를 먼저 업그레이드한 다음에 주 데이터베이스를 업그레이드하는 것이 좋습니다. 다운그레이드하는 경우에는 반대 순서로 주 데이터베이스를 먼저 다운그레이드하고 보조 데이터베이스를 다운그레이드합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다.
+보조 데이터베이스와의 연결을 끊지 않고도 주 데이터베이스를 다른 계산 크기(동일한 서비스 계층 내, 범용 및 중요 비즈니스용 사이 아님)로 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드 하는 경우 모든 보조 데이터베이스를 먼저 업그레이드 한 다음 주 데이터베이스를 업그레이드 하는 것이 좋습니다. 으로 다운 그레이드 하는 경우 순서를 반대로: 주 데이터베이스를 먼저 다운 그레이드 하 고 모든 보조 데이터베이스를 다운 그레이드 합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다.
+
+더 낮은 SKU에서 보조 흘려 보내면 보낼수록 않았고 다시 시드해야 업그레이드 또는 다운 그레이드 프로세스 중 문제를 방지 하려면 특히이 시퀀스를 사용 하는 것이 좋습니다. 또한 주에 대 한 모든 읽기 / 쓰기 워크 로드에 영향을 주는 대신 읽기 전용 기본 지정 하 여 문제를 방지할 수 있습니다. 
 
 > [!NOTE]
 > 장애 조치 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운그레이드하지 않는 것이 좋습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
@@ -294,12 +308,12 @@ ms.locfileid: "56301930"
 
 | Cmdlet | 설명 |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | 장애 조치 그룹 구성을 검색합니다. |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |장애 조치 그룹의 구성을 수정합니다. |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | 장애 조치 그룹의 장애 조치를 보조 서버로 트리거합니다. |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Azure SQL Database 장애 조치(failover) 그룹에 하나 이상의 데이터베이스 추가|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | 장애 조치 그룹 구성을 검색합니다. |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |장애 조치 그룹의 구성을 수정합니다. |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | 장애 조치 그룹의 장애 조치를 보조 서버로 트리거합니다. |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Azure SQL Database 장애 조치(failover) 그룹에 하나 이상의 데이터베이스 추가|
 |  | |
 
 > [!IMPORTANT]
@@ -308,32 +322,32 @@ ms.locfileid: "56301930"
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Managed Instance를 사용하여 장애 조치(failover) 그룹 관리(미리 보기)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>최신 시험판 버전의 Powershell 설치
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>PowerShell의 최신 시험판 버전을 설치
 
 1. PowerShellGet 모듈을 1.6.5(또는 최신 미리 보기 버전)로 업데이트합니다. [PowerShell 미리 보기 사이트](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)를 참조하세요.
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. 새 PowerShell 창에서 다음 명령을 실행합니다.
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>인스턴스 장애 조치(failover) 그룹을 만들기 위한 Powershell commandlet
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>인스턴스가 장애 조치 그룹을 만드는 PowerShell commandlet
 
 | API | 설명 |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 구성을 수정합니다.|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹 구성을 검색합니다.|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 장애 조치를 보조 서버로 트리거합니다.|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 장애 조치(failover) 그룹을 제거합니다.|
+| New-AzSqlDatabaseInstanceFailoverGroup |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
+| Set-AzSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 구성을 수정합니다.|
+| Get-AzSqlDatabaseInstanceFailoverGroup |장애 조치 그룹 구성을 검색합니다.|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 장애 조치를 보조 서버로 트리거합니다.|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | 장애 조치(failover) 그룹을 제거합니다.|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
 

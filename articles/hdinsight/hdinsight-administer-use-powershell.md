@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201282"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -41,7 +41,7 @@ Get-Module *azure*
 이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
- [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+[Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 현재 구독의 클러스터를 모두 나열하려면 다음 명령을 사용합니다.
@@ -106,7 +106,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
@@ -159,7 +159,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 > [!NOTE]  
 > 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-액세스 권한의 부여/해지는 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
+액세스 권한의 부여/해지는 포털을 통해서도 수행할 수 있습니다. 참조 [Azure portal을 사용 하 여 HDInsight에서 Apache Hadoop 관리 클러스터](hdinsight-administer-use-portal-linux.md)합니다.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 HTTP 액세스 권한 부여/해지와 같은 절차입니다. 클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
@@ -226,9 +226,9 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
@@ -245,12 +245,10 @@ $resourceGroupName = $cluster.ResourceGroup
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 

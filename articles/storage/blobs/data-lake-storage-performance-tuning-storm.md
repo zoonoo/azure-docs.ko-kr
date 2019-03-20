@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076210"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Storm on HDInsight 및 Azure Data Lake Storage Gen2에 대한 성능 튜닝 지침
 
@@ -78,7 +78,7 @@ Spout를 조정하도록 다음 설정을 수정할 수 있습니다.
 
 - **보류 중인 최대 Spout: topology.max.spout.pending** 이 설정은 언제든지 Spout 스레드당 처리할 수 있는(토폴로지의 모든 노드에서 아직 승인되지 않은) 튜플 수를 결정합니다.
 
- 수행할 수 있는 적절한 계산은 각 튜플의 크기를 예상하는 것입니다. 그런 다음 한 개의 Spout 스레드에 지정된 메모리 양을 파악합니다. 스레드에 할당된 총 메모리를 이 값으로 나누어 보류 중인 최대 Spout 매개 변수에 대한 상한을 제공합니다.
+  수행할 수 있는 적절한 계산은 각 튜플의 크기를 예상하는 것입니다. 그런 다음 한 개의 Spout 스레드에 지정된 메모리 양을 파악합니다. 스레드에 할당된 총 메모리를 이 값으로 나누어 보류 중인 최대 Spout 매개 변수에 대한 상한을 제공합니다.
 
 기본 Data Lake Storage Gen2 Storm Bolt에는 이 매개 변수를 튜닝하는 데 사용할 수 있는 크기 동기화 정책 매개 변수(fileBufferSize)가 있습니다.
 

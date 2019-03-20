@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112758"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>사용자 개인 정보 및 Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Azure AD Connect Health를 사용하면 모니터링되는 개별 서버 또는 
 Azure AD Connect Health는 테넌트에 등록된 **모든** 서비스의 데이터 수집을 중지하는 옵션을 제공합니다. 작업을 수행하기 전에 모든 전역 관리자의 승인을 얻고 신중하게 고려하는 것이 좋습니다. 프로세스가 시작되면 Connect Health 서비스는 모든 서비스의 데이터 수신, 처리 및 보고를 중지합니다. Connect Health 서비스의 기존 데이터는 30일 동안만 보존됩니다.
 특정 서버의 데이터 수집을 중지하려면 특정 서버의 삭제 단계를 따르세요. 테넌트 범위 데이터 수집을 중지하려면 다음 단계에 따라 데이터 수집을 중지하고 테넌트의 모든 서비스를 삭제합니다.
 
-1.  주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
-2.  블레이드의 맨 위에서 **데이터 수집 중지** 단추를 클릭합니다. 프로세스가 시작되면 테넌트 구성 설정의 다른 옵션이 사용하지 않도록 설정됩니다.  
+1. 주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
+2. 블레이드의 맨 위에서 **데이터 수집 중지** 단추를 클릭합니다. 프로세스가 시작되면 테넌트 구성 설정의 다른 옵션이 사용하지 않도록 설정됩니다.  
  
- ![데이터 수집 중지](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![데이터 수집 중지](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  데이터 수집을 중지할 경우 영향을 받는 온보딩된 서비스 목록을 확인합니다. 
-4.  정확한 테넌트 이름을 입력하여 **삭제** 작업 단추 활성화
-5.  **삭제**를 클릭하여 모든 서비스의 삭제를 트리거합니다. Connect Health가 온보딩된 서비스에서 전송된 모든 데이터의 수신, 처리 및 보고를 중지합니다. 전체 프로세스에는 최대 24시간이 소요될 수 있습니다. 이 단계는 되돌릴 수 없습니다. 
-6.  프로세스가 완료되면 Connect Health에 등록된 서비스가 더 이상 표시되지 않습니다. 
+3. 데이터 수집을 중지할 경우 영향을 받는 온보딩된 서비스 목록을 확인합니다. 
+4. 정확한 테넌트 이름을 입력하여 **삭제** 작업 단추 활성화
+5. **삭제**를 클릭하여 모든 서비스의 삭제를 트리거합니다. Connect Health가 온보딩된 서비스에서 전송된 모든 데이터의 수신, 처리 및 보고를 중지합니다. 전체 프로세스에는 최대 24시간이 소요될 수 있습니다. 이 단계는 되돌릴 수 없습니다. 
+6. 프로세스가 완료되면 Connect Health에 등록된 서비스가 더 이상 표시되지 않습니다. 
 
- ![데이터 수집이 중지된 후](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![데이터 수집이 중지된 후](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Azure AD Connect Health에서 데이터 수집 및 모니터링을 다시 사용하도록 설정
 Azure AD Connect Health에서 이전에 삭제된 모니터링되는 서비스에 대한 모니터링을 다시 사용하도록 설정하려면 모든 서버에서 [상태 에이전트를 제거한 후 다시 설치](how-to-connect-health-agent-install.md)해야 합니다.
@@ -85,14 +85,14 @@ Azure AD Connect Health에서 테넌트 범위 데이터 수집을 다시 시작
 > 다음 단계는 24시간 작업 중지 후 사용할 수 있습니다.
 > 데이터 수집을 사용하도록 설정하면, Connect Health에 표시되었던 정보 및 모니터링 데이터에 이전에 수집된 기존 데이터가 표시되지 않습니다. 
 
-1.  주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
-2.  블레이드의 맨 위에서 **데이터 수집 사용** 단추를 클릭합니다. 
+1. 주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
+2. 블레이드의 맨 위에서 **데이터 수집 사용** 단추를 클릭합니다. 
  
- ![데이터 컬렉션 활성화](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![데이터 컬렉션 활성화](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  정확한 테넌트 이름을 입력하여 **사용** 단추를 활성화합니다.
-4.  **사용** 단추를 클릭하여 Connect Health 서비스의 데이터 수집 권한을 부여합니다. 변경 내용은 즉시 적용됩니다. 
-5.  [설치 프로세스](how-to-connect-health-agent-install.md)에 따라 모니터링할 서버에 에이전트를 다시 설치하고 서비스가 포털에 표시됩니다.  
+3. 정확한 테넌트 이름을 입력하여 **사용** 단추를 활성화합니다.
+4. **사용** 단추를 클릭하여 Connect Health 서비스의 데이터 수집 권한을 부여합니다. 변경 내용은 즉시 적용됩니다. 
+5. [설치 프로세스](how-to-connect-health-agent-install.md)에 따라 모니터링할 서버에 에이전트를 다시 설치하고 서비스가 포털에 표시됩니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

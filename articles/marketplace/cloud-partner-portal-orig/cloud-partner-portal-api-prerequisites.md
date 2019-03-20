@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878650"
 ---
 <a name="api-prerequisites"></a>API 필수 구성 요소
 ================
@@ -48,14 +48,14 @@ ms.locfileid: "48809003"
 3. **유형** 드롭다운에서 **서비스 주체**를 선택하고 다음 세부 정보를 추가합니다.
 
 -   서비스 주체의 **표시 이름**(예: `spAccount`)
--   **응용 프로그램 ID**. 이 식별자를 확인하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**를 클릭하고 **앱 등록**을 선택한 후에 앱을 클릭합니다.
+-   **애플리케이션 ID**. 이 식별자를 확인하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**를 클릭하고 **앱 등록**을 선택한 후에 앱을 클릭합니다.
 -   Azure AD 테넌트의 **테넌트 ID**(**디렉터리 ID**)라고도 함. 이 식별자는 [Azure Portal](https://portal.azure.com)의 Azure Active Directory 페이지 내 **속성** 아래에서 확인할 수 있습니다.
--   서비스 주체 개체의 **개체 ID**. Azure Portal에서 이 식별자를 가져올 수 있습니다. **Azure Active Directory**로 이동하여 **앱 등록**을 선택하고 앱을 클릭한 후에 **로컬 디렉터리의 관리되는 응용 프로그램** 아래에서 앱 이름을 클릭합니다. 그런 다음 **속성** 페이지로 이동하여 개체 ID를 확인합니다. 앱에 표시되는 초기 개체 ID가 아니라 관리되는 애플리케이션의 개체 ID를 가져와야 합니다.
+-   서비스 주체 개체의 **개체 ID**. Azure Portal에서 이 식별자를 가져올 수 있습니다. **Azure Active Directory**로 이동하여 **앱 등록**을 선택하고 앱을 클릭한 후에 **로컬 디렉터리의 관리되는 애플리케이션** 아래에서 앱 이름을 클릭합니다. 그런 다음 **속성** 페이지로 이동하여 개체 ID를 확인합니다. 앱에 표시되는 초기 개체 ID가 아니라 관리되는 애플리케이션의 개체 ID를 가져와야 합니다.
 -   계정과 연결된 **역할**(RBAC에 사용됨)
 
      ![포털에 관리되는 앱 추가](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. **추가**를 클릭하여 계정에 서비스 주체를 추가합니다.
+1. **추가**를 클릭하여 계정에 서비스 주체를 추가합니다.
 
    ![서비스 주체 추가](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ ms.locfileid: "48809003"
 클라우드 파트너 포털 API는 인증 중에 다음 자산과 프로토콜을 사용합니다.
 
 - 리소스 액세스 권한 요청을 위한 JWT(JSON 웹 토큰) 전달자 토큰
-- ID 확인을 위한 OIDC([OpenID Connect](http://openid.net/connect/)) 프로토콜
+- ID 확인을 위한 OIDC([OpenID Connect](https://openid.net/connect/)) 프로토콜
 - [Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)(ID 기관)
 
 JWT 토큰을 프로그래밍 방식으로 가져오는 방식은 원칙적으로 다음의 두 가지입니다.

@@ -15,32 +15,51 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37d34d6df23b22466f3016841685ec2797a5c9ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0a53522a029129c097734a805c11c339135b4a81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895204"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
-Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
+Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
+
+> [!NOTE]
+> Connect Health 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 자동 업그레이드 설정을 Azure portal에서 활성화 되었는지 확인 하세요. 
+>
+
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
+
+## <a name="march-2019"></a>2019 년 3 월
+**에이전트 업데이트:** 
+* AD DS (3.1.41.0 버전)에 대 한 azure AD Connect Health agent 
+* .NET 버전 컬렉션입니다.
+* 특정 범주를 누락 하는 경우 성능 카운터 수집을 개선 합니다.
+* Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정.
+
+* AD FS (3.1.41.0 버전)에 대 한 azure AD Connect Health agent 
+* 통합 하 고 업그레이드 ADFSToolBox를 사용 하 여 AD FS 테스트 스크립트입니다.
+* .NET 버전 컬렉션입니다.
+* 특정 범주를 누락 하는 경우 성능 카운터 수집을 개선 합니다.
+* Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정.
+
 
 ## <a name="november-2018"></a>2018년 11월
 **새 GA 기능:** 
 * 동기화를 위한 Azure AD Connect Health - 포털에서 중복된 특성 동기화 오류 진단 및 수정
 
 **에이전트 업데이트:** 
-*  AD DS용 Azure AD Connect Health 에이전트(버전 3.1.24.0) 
-1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
-2. 글로벌 카탈로그 경고 노이즈 감소
-3. 상태 에이전트 등록 버그 수정
+* AD DS용 Azure AD Connect Health 에이전트(버전 3.1.24.0) 
+* TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+* 글로벌 카탈로그 경고 노이즈 감소
+* 상태 에이전트 등록 버그 수정
 
-*   AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)
-1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
-2. 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
-3. 진단 에이전트 EventHandler 잠금 문제 해결
-4. 상태 에이전트 등록 버그 수정
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)
+* TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+* 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
+* 진단 에이전트 EventHandler 잠금 문제를 해결합니다.
+* 상태 에이전트 등록 버그 수정
 
 ## <a name="august-2018"></a>2018년 8월 
 *  Azure AD Connect 버전 1.1.880.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.1.7.0)    
@@ -51,31 +70,31 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 * 동기화를 위한 Azure AD Connect Health - 포털에서 중복된 특성 동기화 오류 진단 및 수정 
 
 **에이전트 업데이트:** 
-*  AD DS용 Azure AD Connect Health 에이전트(버전 3.1.7.0)    
-   1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
+* AD DS용 Azure AD Connect Health 에이전트(버전 3.1.7.0)    
+  1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
    
-*   AD FS용 Azure AD Connect Health Agent(버전 3.1.7.0)  
-   1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
-   2. ADFS Server 2016 보조 서버에서 수정 결과 테스트
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.7.0)  
+  1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
+  2. ADFS Server 2016 보조 서버에서 수정 결과 테스트
    
-*   AD FS용 Azure AD Connect Health Agent(버전 3.1.2.0)  
-   1. 버전 3.0.244.0용으로 특별히 작성된 에이전트 메모리 관리 및 관련 경고에 대한 핫픽스
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.2.0)  
+  1. 버전 3.0.244.0용으로 특별히 작성된 에이전트 메모리 관리 및 관련 경고에 대한 핫픽스
 
 
 ## <a name="may-2018"></a>2018년 5월
 **에이전트 업데이트:**
-*   AD DS용 Azure AD Connect Health 에이전트(버전 3.0.244.0)
- 1. 에이전트 개인 정보 보호 향상  
- 2. 버그 수정 및 일반 개선 사항
+* AD DS용 Azure AD Connect Health 에이전트(버전 3.0.244.0)
+  1. 에이전트 개인 정보 보호 향상  
+  2. 버그 수정 및 일반 개선 사항
 
-*   AD FS용 Azure AD Connect Health Agent(버전 3.0.244.0)
- 1. 에이전트 진단 서비스 및 관련 PowerShell 모듈 향상
- 2. 에이전트 개인 정보 보호 향상  
- 3. 버그 수정 및 일반 개선 사항
+* AD FS용 Azure AD Connect Health Agent(버전 3.0.244.0)
+  1. 에이전트 진단 서비스 및 관련 PowerShell 모듈 향상
+  2. 에이전트 개인 정보 보호 향상  
+  3. 버그 수정 및 일반 개선 사항
 
 * Azure AD Connect 버전 1.1.819.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.0.164.0) 
- 1. 에이전트 개인 정보 보호 향상  
- 2. 버그 수정 및 일반 개선 사항
+  1. 에이전트 개인 정보 보호 향상  
+  2. 버그 수정 및 일반 개선 사항
 
 
 ## <a name="march-2018"></a>2018년 3월
@@ -84,10 +103,10 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 **에이전트 업데이트:**
 
-*   AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
+* AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
   1. 에이전트 가용성 개선 사항 
   2. 버그 수정 및 일반 개선 사항
-*   AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
+* AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.176.0)
   1. 에이전트 가용성 개선 사항 
   2. 버그 수정 및 일반 개선 사항
 * Azure AD Connect 버전 1.1.750.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.0.129.0)  
@@ -97,11 +116,11 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="december-2017"></a>2017년 12월
 **에이전트 업데이트:**
 
-*   AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.145.0)
+* AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.145.0)
   1. 에이전트 가용성 개선 사항 
   2. 새 에이전트 문제 해결 명령 추가
   3. 버그 수정 및 일반 개선 사항
-*   AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.145.0)
+* AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.145.0)
   1. 새 에이전트 문제 해결 명령 추가
   2. 에이전트 가용성 개선 사항 
   3. 버그 수정 및 일반 개선 사항
@@ -115,10 +134,10 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="july-2017"></a>2017년 7월
 **에이전트 업데이트:**
 
-*   AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.68.0)
+* AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.68.0)
   1. 버그 수정 및 일반 개선 사항
   2. 전체 클라우드 지원
-*   AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.68.0)
+* AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.68.0)
   1. 버그 수정 및 일반 개선 사항
   2. 전체 클라우드 지원
 * Azure AD Connect 버전 1.1.614.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.0.68.0)
@@ -127,9 +146,9 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="april-2017"></a>2017년 4월      
 **에이전트 업데이트:**
 
-*   AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.12.0)
+* AD FS에 대한 Azure AD Connect Health Agent(버전 3.0.12.0)
   1. 버그 수정 및 일반 개선 사항
-*   AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.12.0)
+* AD DS에 대한 Azure AD Connect Health Agent(버전 3.0.12.0)
   1. 성능 카운터 업로드 개선 사항
   2. 버그 수정 및 일반 개선 사항
 
@@ -137,13 +156,13 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 **에이전트 업데이트:**
 
 * AD FS용 Azure AD Connect Health Agent(버전 2.6.408.0)
-1. 인증 요청에서 클라이언트 IP 주소를 검색하는 향상된 기능
-2. 경고와 관련된 버그 수정
+* 인증 요청에서 클라이언트 IP 주소를 검색하는 향상된 기능
+* 경고와 관련된 버그 수정
 * AD FS에 대한 Azure AD Connect Health Agent(버전 2.6.408.0)
-1. 경고와 관련된 버그 수정
+* 경고와 관련된 버그 수정
 * Azure AD Connect 버전 1.1.281.0와 함께 출시된 Azure AD Connect Health Agent(동기화 버전 2.6.353.0)
-1. 동기화 오류 보고서에 대한 필요한 데이터 제공
-2. 경고와 관련된 버그 수정
+* 동기화 오류 보고서에 대한 필요한 데이터 제공
+* 경고와 관련된 버그 수정
 
 **새로운 미리 보기 기능:**
 

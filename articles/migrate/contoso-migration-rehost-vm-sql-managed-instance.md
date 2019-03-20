@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101570"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 마이그레이션: Azure VM 및 SQL Database Managed Instance에서 온-프레미스 앱 다시 호스트
 
@@ -222,7 +222,7 @@ Contoso에서 고려해야 하는 요소는 다음과 같습니다.
 - 서브넷은 단일 경로 테이블에만 연결할 수 있습니다.
 - Microsoft Azure에서 경로 테이블을 만드는 데는 추가 요금이 부과되지 않습니다.
 
- 라우팅을 설정하기 위해 Contoso 관리자는 다음을 수행합니다.
+  라우팅을 설정하기 위해 Contoso 관리자는 다음을 수행합니다.
 
 1. **ContosoNetworkingRG** 리소스 그룹에 UDR(경로) 테이블을 만듭니다.
 
@@ -441,11 +441,11 @@ Azure로 마이그레이션을 실행하기 전에 Contoso 관리자는 온-프�
 
 1. **인프라 준비** > **복제 설정** > **복제 정책** >  **만들기 및 연결**에서 **ContosoMigrationPolicy** 정책을 만듭니다.
 2. 다음 기본 설정을 사용합니다.
-    - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
-    - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
-    - **앱 일치 스냅숏 빈도**: 1시간이 기본값입니다. 이 값은 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+   - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
+   - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
+   - **앱 일치 스냅숏 빈도**: 1시간이 기본값입니다. 이 값은 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
  
-    ![복제 정책 - 만들기](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![복제 정책 - 만들기](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. 정책은 구성 서버와 자동으로 연결됩니다. 
 

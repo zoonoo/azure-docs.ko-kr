@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163537"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스를 관리하는 방법
 
@@ -152,7 +152,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 **설명**
 
 - 디바이스를 사용하거나 사용하지 않도록 설정하려면 Azure AD에서 전역 관리자여야 합니다. 
-- 디바이스를 사용하지 않도록 설정하면 디바이스가 Azure AD로 인증하지 못하게 되므로 디바이스 CA에 의해 또는 WH4B 자격 증명을 사용하여 보호되는 Azure AD 리소스에 디바이스가 액세스하지 못하게 됩니다. 
+- 장치를 사용 하지 않도록 설정 하므로 장치 CA에 의해 보호 되는 Azure AD 리소스에 액세스 하거나 WH4B 자격 증명을 사용 하 여 장치를 방지 하는 Azure AD를 사용 하 여 성공적으로 인증에서 장치 수 없게 합니다. 
 
 
 

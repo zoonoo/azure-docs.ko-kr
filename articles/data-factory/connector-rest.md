@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864901"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 
@@ -57,9 +57,9 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
 | URL | REST 서비스의 기본 URL입니다. | 예 |
-| enableServerCertificateValidation | 엔드포인트에 연결할 때 서버 쪽 SSL 인증서의 유효성을 검사할지 여부를 나타냅니다. | 아니요<br /> (기본값: **true**) |
+| enableServerCertificateValidation | 엔드포인트에 연결할 때 서버 쪽 SSL 인증서의 유효성을 검사할지 여부를 나타냅니다. | 아닙니다.<br /> (기본값: **true**) |
 | authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
@@ -170,11 +170,11 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
-| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
-| requestBody | HTTP 요청의 본문입니다. | 아니요 |
-| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 아니요 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아닙니다. |
+| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아닙니다. |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아닙니다. |
+| requestBody | HTTP 요청의 본문입니다. | 아닙니다. |
+| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 아닙니다. |
 
 **예제 1: Get 메서드에서 페이지 매김 사용**
 
@@ -233,8 +233,8 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
-| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아니요 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아닙니다. |
+| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아닙니다. |
 
 **예제**
 
@@ -274,8 +274,8 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 이 일반 REST 커넥터는 다음 페이지 매김 패턴을 지원합니다. 
 
-* 다음 요청의 절대 URL = 현재 응답 본문의 속성 값
-* 다음 요청의 절대 URL = 현재 응답 헤더의 헤더 값
+* 다음 요청의 절대 또는 상대 URL = 현재 응답 본문의 속성 값
+* 다음 요청의 절대 또는 상대 URL = 현재 응답 헤더에 헤더 값
 * 다음 요청의 쿼리 매개 변수 = 현재 응답 본문의 속성 값
 * 다음 요청의 쿼리 매개 변수 = 현재 응답 헤더의 헤더 값
 * 다음 요청의 헤더 = 현재 응답 본문의 속성 값
@@ -287,7 +287,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 | 키 | 설명 |
 |:--- |:--- |
-| AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. |
+| AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. 하기란 **절대 URL 이나 상대 URL**합니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header"는 다음 HTTP 요청에 있는 하나의 헤더 이름을 참조하는 사용자 정의 항목입니다. |
 

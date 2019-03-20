@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202965"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -49,7 +49,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [사전 컴파일한 리소스 사용](#bPS4)
 * [클러스터 사용자 지정 스크립트가 멱등원인지 확인](#bPS3)
 * [클러스터 아키텍처의 고가용성 확인](#bPS5)
-* SMB 3.0에 대한 지원을 통해 File Storage는 이제 SMB 3.0 클라이언트에서 암호화 및 영구 핸들을 지원합니다.
+* [Azure Blob Storage를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
 * [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 * [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
@@ -332,7 +332,6 @@ fi
 Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 더 많은 예제 스크립트 작업은 다음 링크를 참조하세요.
 
 * [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
-* [HDInsight 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 Mono 설치 또는 업그레이드](hdinsight-hadoop-install-mono.md)
 
@@ -370,6 +369,6 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 ## <a name="seeAlso"></a>다음 단계
 
-*  [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight를 관리하는 .NET 애플리케이션을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.

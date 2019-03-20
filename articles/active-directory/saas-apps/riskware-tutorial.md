@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>자습서: Riskware와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Riskware와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Riskware 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -110,6 +110,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![Riskware 도메인 및 URL Single Sign-On 정보](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+
     | Environment| URL 패턴|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     |||
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 URL을 입력합니다.
+    
     | Environment| URL 패턴|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     a. **인증** 섹션에서 SSO용 AZURE 구성과 같이 설정한 **인증** 모드를 선택합니다.
 
-    b. **로그온 세부 정보** 섹션에서 **사용자 ID** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
+    b. 아래 **로그온 정보** 섹션을 **사용자 ID** 텍스트 상자과 같은 사용자의 전자 메일을 입력 **brittasimon\@contoso.com**합니다.
 
     다. **암호** 텍스트 상자에 사용자 암호를 입력합니다.
 

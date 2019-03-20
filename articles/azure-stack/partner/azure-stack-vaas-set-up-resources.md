@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081766"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>자습서: 서비스 유효성 검사에 대 한 리소스 설정
 
@@ -56,13 +56,13 @@ VaaS 서비스에 액세스 하기 위해 조직에서 사용할 테 넌 트를 
 
     역할을 할당 합니다 **Azure Stack 유효성 검사 서비스** 응용 프로그램:
 
-    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-    2. 선택 **모든 서비스** > **Azure Active Directory** 아래 합니다 **Identity** 섹션입니다.
-    3. 선택 **엔터프라이즈 응용 프로그램** > **Azure Stack 유효성 검사 서비스** 응용 프로그램입니다.
-    4. **사용자 및 그룹**을 선택합니다. 합니다 **Azure Stack 유효성 검사 서비스-사용자 및 그룹** 블레이드에서 응용 프로그램을 사용할 수 있는 권한 가진 사용자를 나열 합니다.
-    5. 선택 **+ 사용자 추가** 테 넌 트에서 사용자를 추가 하 고 역할을 할당 합니다.
+   1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+   2. 선택 **모든 서비스** > **Azure Active Directory** 아래 합니다 **Identity** 섹션입니다.
+   3. 선택 **엔터프라이즈 응용 프로그램** > **Azure Stack 유효성 검사 서비스** 응용 프로그램입니다.
+   4. **사용자 및 그룹**을 선택합니다. 합니다 **Azure Stack 유효성 검사 서비스-사용자 및 그룹** 블레이드에서 응용 프로그램을 사용할 수 있는 권한 가진 사용자를 나열 합니다.
+   5. 선택 **+ 사용자 추가** 테 넌 트에서 사용자를 추가 하 고 역할을 할당 합니다.
 
-    VaaS 리소스 및 조직 내의 여러 그룹 간에 작업을 격리 하려는 경우에 여러 Azure AD 테 넌 트 디렉터리를 만들 수 있습니다.
+      VaaS 리소스 및 조직 내의 여러 그룹 간에 작업을 격리 하려는 경우에 여러 Azure AD 테 넌 트 디렉터리를 만들 수 있습니다.
 
 ### <a name="register-your-tenant"></a>테 넌 트를 등록 합니다.
 

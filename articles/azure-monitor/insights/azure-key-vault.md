@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078770"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
 
 ![Key Vault 기호](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다.
 
@@ -55,13 +57,13 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 8. *저장*을 클릭하여 Log Analytics로의 진단 로깅을 활성화합니다.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>PowerShell을 사용하여 Key Vault 진단 사용 설정
-다음 PowerShell 스크립트는 `Set-AzureRmDiagnosticSetting`을 사용하여 Key Vault에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
+다음 PowerShell 스크립트는 `Set-AzDiagnosticSetting`을 사용하여 Key Vault에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -103,7 +105,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 
 | 자산 | 설명 |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
+| Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | callerIpAddress |요청한 클라이언트의 IP 주소입니다. |
 | Category | *AuditEvent* |
@@ -111,7 +113,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 | DurationMs |밀리초 단위로 REST API 요청을 처리하는 데 걸린 시간입니다. 이 시간에는 네트워크 대기 시간이 포함되지 않으므로 클라이언트 쪽에서 측정한 시간이 이 시간과 일치하지 않을 수도 있습니다. |
 | httpStatusCode_d |요청에서 반환한 HTTP 상태 코드(예: *200*)입니다. |
 | id_s |요청의 고유 ID |
-| identity_claim_appid_g | 응용 프로그램 id의 GUID |
+| identity_claim_appid_g | 애플리케이션 id의 GUID |
 | OperationName |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md)에 설명된 대로 작업의 이름입니다. |
 | OperationVersion |클라이언트에서 요청한 REST API 버전(예: *2015-06-01*)입니다. |
 | requestUri_s |요청의 URI입니다. |
@@ -136,13 +138,13 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 1. [Key Vault에서 Log Analytics로 직접 보내도록 진단을 구성합니다](#enable-key-vault-diagnostics-in-the-portal).  
 2. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다.
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
-  + 형식은 KeyVaults에서 AzureDiagnostics로 변경됩니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
-  - `KeyVaults` 대신 `AzureDiagnostics | where ResourceType'=="VAULTS"`를 사용합니다.
-  + 필드: (필드 이름은 대/소문자를 구분함)
-  - 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.
-  - 이름에 \_o 접미사가 있는 모든 필드의 경우 데이터는 중첩된 필드 이름에 기반하여 개별 필드로 분할합니다. 예를 들어 호출자의 UPN은 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` 필드에 저장됩니다.
-   - CallerIpAddress 필드를 CallerIPAddress로 변경합니다.
-   - RemoteIPCountry 필드는 더 이상 존재하지 않습니다.
+   + 형식은 KeyVaults에서 AzureDiagnostics로 변경됩니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
+   + `KeyVaults` 대신 `AzureDiagnostics | where ResourceType'=="VAULTS"`를 사용합니다.
+   + 필드: (필드 이름은 대/소문자를 구분함)
+   + 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.
+   + 이름에 \_o 접미사가 있는 모든 필드의 경우 데이터는 중첩된 필드 이름에 기반하여 개별 필드로 분할합니다. 예를 들어 호출자의 UPN은 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` 필드에 저장됩니다.
+   + CallerIpAddress 필드를 CallerIPAddress로 변경합니다.
+   + RemoteIPCountry 필드는 더 이상 존재하지 않습니다.
 4. *Key Vault 분석(사용되지 않음)* 솔루션을 제거합니다. PowerShell을 사용하는 경우 `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`를 사용합니다.
 
 변경 전에 수집된 데이터는 새 솔루션에서 볼 수 없습니다. 이전 형식 및 필드 이름을 사용하여 이 데이터를 계속 쿼리할 수 있습니다.

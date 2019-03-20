@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195975"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880282"
 ---
 # <a name="create-a-new-saas-application-offer"></a>새 SaaS 애플리케이션 제안 만들기
 
@@ -34,6 +34,7 @@ ms.locfileid: "53195975"
 ## <a name="offer-components"></a>제안 구성 요소
 
 SaaS 앱 제품은 다음 표에 설명된 5개 섹션으로 구성됩니다.
+
 |  **자산 그룹**   |  **설명**  |
 |  ---------------   |  ---------------  |
 |    제품 설정  |  SaaS 앱에 대한 고유 ID를 구성하는 데 사용합니다.                 |
@@ -45,7 +46,7 @@ SaaS 앱 제품은 다음 표에 설명된 5개 섹션으로 구성됩니다.
 
 ## <a name="new-offer-form"></a>새 제안 양식
 
-[Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. [새 제안] 메뉴에서 **SaaS 앱**을 선택하여 [새 제안] 양식을 표시하고 새 SaaS 애플리케이션 제안에 대한 자산을 정의하는 프로세스를 시작합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. [새 제안] 메뉴에서 **SaaS 앱**을 선택하여 [새 제안] 양식을 표시하고 새 SaaS 애플리케이션 제안에 대한 자산을 정의하는 프로세스를 시작합니다.
 
 ![SaaS 앱에 대한 새 제안 메뉴](./media/azure-new-saas-offer.png)
 

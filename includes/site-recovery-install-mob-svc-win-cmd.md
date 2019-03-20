@@ -4,32 +4,32 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 9fe3b66de83ebc2cd0bf3a56a45456668c069191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165666"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116250"
 ---
 1. 보호하려는 서버의 로컬 폴더(예: C:\Temp)에 설치 관리자를 복사합니다. 명령 프롬프트에서 관리자 권한으로 다음 명령을 실행합니다.
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. 모바일 서비스를 제거하려면 다음 명령을 실행합니다.
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 3. 이제 에이전트를 구성 서버에 등록해야 합니다.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>모바일 서비스 설치 관리자 명령줄 인수
 
@@ -38,12 +38,12 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| 매개 변수|type|설명|가능한 값|
+| 매개 변수|형식|설명|가능한 값|
 |-|-|-|-|
 |/Role|필수|MS(Mobility Service) 설치 여부 또는 MT(MasterTarget) 설치 여부를 지정합니다.|MS </br> MT|
 |/InstallLocation|옵션|Mobility Service가 설치되는 위치입니다.|컴퓨터의 모든 폴더|
-|/Platform|필수|Mobility Service가 설치되는 플랫폼을 지정합니다. </br> </br>- **VMware**: *VMware vSphere ESXi 호스트*, *Hyper-V 호스트* 및 *물리적 서버*에서 실행되는 VM에 모바일 서비스를 설치하는 경우 이 값을 사용합니다. </br> - **Azure**: Azure IaaS VM에 에이전트를 설치하는 경우 이 값을 사용합니다. | VMware </br> Azure|
-|/Silent|옵션|설치 관리자를 자동 모드에서 실행하도록 지정합니다.| 해당 없음|
+|/Platform|필수|Mobility Service가 설치되는 플랫폼을 지정합니다. </br> </br>- **VMware**: 실행 중인 VM에 모바일 서비스를 설치 하는 경우이 값을 사용 *VMware vSphere ESXi 호스트*하십시오 *Hyper-v 호스트*, 및 *물리적 서버*. </br> - **Azure**: Azure IaaS VM에 에이전트를 설치 하는 경우이 값을 사용 합니다. | VMware </br> Azure|
+|/Silent|옵션|설치 관리자를 자동 모드에서 실행하도록 지정합니다.| N/A|
 
 >[!TIP]
 > 설치 로그는 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있습니다.
@@ -55,7 +55,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | 매개 변수|type|설명|가능한 값|
+  | 매개 변수|형식|설명|가능한 값|
   |-|-|-|-|
   |/CSEndPoint |필수|구성 서버의 IP 주소| 모든 유효한 IP 주소|
   |/PassphraseFilePath|필수|암호의 위치 |모든 유효한 UNC 또는 로컬 파일 경로|

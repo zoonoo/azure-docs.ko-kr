@@ -3,7 +3,7 @@ title: Azure Service Fabric 컨테이너 서비스에 대한 네트워킹 모드
 description: Azure Service Fabric에서 지원하는 다양한 네트워킹 모드를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899046"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -30,7 +30,7 @@ ms.locfileid: "55093165"
 컨테이너 서비스가 다시 시작되거나 클러스터의 다른 노드로 이동하면 IP 주소가 변경됩니다. 따라서 동적으로 할당된 IP 주소를 사용하여 컨테이너 서비스를 검색하는 것을 좋지 않습니다. 서비스 검색에는 Service Fabric 명명 서비스 또는 DNS 서비스 만 사용해야 합니다. 
 
 >[!WARNING]
->Azure는 가상 네트워크당 총 4,096개의 IP를 허용합니다. 노드 수와 컨테이너 서비스 인스턴스(오픈 모드를 사용하는) 수의 합계는 가상 네트워크 내에서 4,096개의 IP를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다.
+>Azure 가상 네트워크 당 총 65, 356 Ip의 허용 됩니다. 노드 수 및 컨테이너 서비스 인스턴스 (오픈 모드를 사용 하는) 숫자의 합계는 가상 네트워크 내에서 65, 356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성을 갖습니다 다른 [제한 사항](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) 고려해 야 합니다. 노드당 50 Ip은 현재 테스트 되었으며 안정적인 입증 합니다. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
@@ -55,15 +55,6 @@ ms.locfileid: "55093165"
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -212,7 +203,7 @@ ms.locfileid: "55093165"
    |설정 |값 | |
    | --- | --- | --- |
    |우선 순위 |2000 | |
-   |Name |Custom_Dns  | |
+   |이름 |Custom_Dns  | |
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
@@ -223,7 +214,7 @@ ms.locfileid: "55093165"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

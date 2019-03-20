@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의 | Microsoft Docs
-description: Azure Active Directory B2C의 사용자 지정 정책에 Azure Active Directory 기술 프로필을 정의합니다.
+description: Azure Active Directory B2C의 사용자 지정 정책에서 Azure Active Directory 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900576"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
@@ -52,8 +52,8 @@ ms.locfileid: "55175097"
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ReferenceId | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
-|ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생하는 경우 후속 유효성 검사 기술 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
-|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+|ContinueOnError|아닙니다.| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 모든 후속 유효성 검사 기술 프로필의 유효성을 검사 계속 해야 하는지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
+|ContinueOnSuccess | 아닙니다. | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 

@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075564"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
 Apache Spark [MLlib](https://spark.apache.org/mllib/)을 사용하여 오픈 데이터 세트에 대한 간단한 예측 분석을 수행하는 Machine Learning 애플리케이션을 만드는 방법을 알아봅니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다. 
-
-> [!TIP]  
-> 이 예제는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 [Jupyter Notebook](https://jupyter.org/)으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작합니다. **Python** 폴더에서 Notebook **Spark Machine Learning - MLlib.ipynb를 사용하여 음식 검사 데이터에 대한 예측 분석**을 실행합니다.
 
 MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learning 작업에 유용한 여러 유틸리티를 제공하는 코어 Spark 라이브러리입니다.
 
@@ -49,7 +46,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 애플리케이션에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 복사 하 고 빈 셀에 다음 코드를 붙여넣은 다음 키를 누릅니다 **SHIFT + ENTER**합니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     `-o countResultsdf` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [countResultsdf](https://pandas.pydata.org/) 라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
@@ -201,26 +198,18 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
     ![Spark Machine Learning 애플리케이션 출력 - 5개의 고유한 검사 결과를 포함하는 원형 차트](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark Machine Learning 결과 출력")
 
-    아래는 검사에서 나올 수 있는 5가지 고유한 결과입니다.
-
-    - 회사를 찾을 수 없음
-    - 불합격
-    - 합격
-    - 조건부 합격
-    - 폐업
-
     음식 검사 결과를 예측하려면 위반을 기반으로 모델을 개발해야 합니다. 로지스틱 회귀는 이진 분류 방법이므로 결과 데이터를 두 가지 범주로 그룹화할 수 있습니다. **불합격** 및 **합격**:
 
-    - 합격
-        - 합격
-        - 조건부 합격
-    - 불합격
-        - 불합격
-    - 취소
-        - 회사를 찾을 수 없음
-        - 폐업
+   - 합격
+       - 합격
+       - 조건부 합격
+   - 불합격
+       - 불합격
+   - 취소
+       - 회사를 찾을 수 없음
+       - 폐업
 
-    결과가 다른 데이터(“회사를 찾을 수 없음” 또는 “폐업”)는 유용하지 않으며, 어찌됐건 결과의 매우 작은 비율을 구성합니다.
+     결과가 다른 데이터(“회사를 찾을 수 없음” 또는 “폐업”)는 유용하지 않으며, 어찌됐건 결과의 매우 작은 비율을 구성합니다.
 
 4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 예에서 `0.0`의 레이블은 불합격, `1.0`의 레이블은 합격, `-1.0`의 레이블은 앞의 두 결과를 제외한 기타 결과를 나타냅니다. 
 
@@ -272,7 +261,7 @@ model = pipeline.fit(labeledData)
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ model = pipeline.fit(labeledData)
     다음과 유사한 출력이 표시됩니다.
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ model = pipeline.fit(labeledData)
     출력은 다음과 같이 표시됩니다.
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ model = pipeline.fit(labeledData)
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
 ## <a name="shut-down-the-notebook"></a>Notebook 종료
-애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook을 종료하고 닫습니다.
+애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook을 종료하고 닫습니다.
 
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)

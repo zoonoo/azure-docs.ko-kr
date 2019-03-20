@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226812"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115730"
 ---
 ## <a name="using-vm-extensions"></a>VM 확장 사용
 Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: **WebDeployForVSDevTest** 확장은 Azure VM에서 Visual Studio의 웹 배포 솔루션 작업을 허용함) 일부 다른 동작을 지원하기 위해 VM과 상호 작용하는 기능을 제공(예: PowerShell, Azure CLI 및 REST 클라이언트에서 VM Access 확장을 사용하여 Azure VM에서의 원격 액세스 값을 재설정하거나 수정할 수 있음)하는 동작이나 기능을 구현합니다.

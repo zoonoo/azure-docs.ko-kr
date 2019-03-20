@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101927"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
@@ -35,7 +35,7 @@ SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" �
 1. Azure Portal에서 **저장소 계정 만들기** 창을 엽니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-  ![저장소 계정 만들기 블레이드](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![저장소 계정 만들기 블레이드](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>기존 저장소 계정에 대해 보안 전송 필요
 
@@ -43,7 +43,7 @@ SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" �
 1. 저장소 계정 메뉴 창의 **설정** 아래에서 **구성**을 선택합니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-  ![저장소 계정 메뉴 창](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![저장소 계정 메뉴 창](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>프로그래밍 방식으로 "보안 전송 필요" 사용
 

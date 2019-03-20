@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082775"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure Notebook 프로젝트에서 데이터 파일 작업
 
@@ -42,13 +42,13 @@ ms.locfileid: "53309249"
 
 1. **업로드** 명령을 선택하고, **URL에서** 또는 **컴퓨터에서** 중에 선택하고, 가져오려는 데이터에 대한 필수 세부 정보를 제공합니다.
 
-    - **URL에서**: **파일 URL** 필드에 원본 주소를 입력하고, **파일 이름** 필드에 프로젝트의 Notebook에 할당할 파일 이름을 입력합니다. **+ 파일 추가**를 선택하여 업로드 목록에 URL을 추가합니다. URL이 더 있으면 이 프로세스를 반복한 다음, **완료**를 선택합니다.
+   - **URL에서**: **파일 URL** 필드에 원본 주소를 입력하고, **파일 이름** 필드에 프로젝트의 Notebook에 할당할 파일 이름을 입력합니다. **+ 파일 추가**를 선택하여 업로드 목록에 URL을 추가합니다. URL이 더 있으면 이 프로세스를 반복한 다음, **완료**를 선택합니다.
 
-    ![URL 팝업에서 업로드](media/quickstarts/upload-from-url-popup.png)
+     ![URL 팝업에서 업로드](media/quickstarts/upload-from-url-popup.png)
 
-    - **컴퓨터에서 업로드**: 파일을 팝업으로 끌어서 놓거나, **파일 선택**을 클릭하고 가져오려는 데이터 파일을 찾아서 선택합니다. 파일을 열고 데이터를 구문 분석하는 것은 Notebook의 코드에 달려 있으므로 파일 수, 파일 형식, 파일 형식을 원하는 대로 끌어서 놓거나 선택할 수 있습니다.
+   - **컴퓨터에서 업로드**: 파일을 팝업으로 끌어서 놓거나, **파일 선택**을 클릭하고 가져오려는 데이터 파일을 찾아서 선택합니다. 파일을 열고 데이터를 구문 분석하는 것은 Notebook의 코드에 달려 있으므로 파일 수, 파일 형식, 파일 형식을 원하는 대로 끌어서 놓거나 선택할 수 있습니다.
 
-    ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
+     ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
 
 1. 가져오기가 완료되면 프로젝트 대시보드에 파일이 표시되며, 파일이 포함된 폴더의 상태 경로 이름을 사용하여 Notebook 코드 내에서 액세스할 수 있습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852613"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 5월 
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 5월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 Azure Data의 부사장인 Rohan Kumar의 [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)(Azure SQL Data Warehouse를 사용하여 Turbocharge 클라우드 분석) 블로그 발표를 참조하세요.
 
 ## <a name="auto-statistics"></a>자동 통계
-SQL Data Warehouse의 엔진과 같은 최신 비용 기반 최적화 프로그램에서 쿼리 계획 생성을 최적화하려면 통계가 반드시 필요합니다. 모든 쿼리가 미리 알려지면 생성해야 하는 통계 개체를 결정할 수 있습니다. 그러나 시스템이 데이터 웨어하우징 워크로드에 일반적으로 발생하는 임시 및 임의 쿼리를 처리하는 경우 시스템 관리자는 생성해야 하는 통계를 예측하지 못하여 쿼리 실행 계획이 최적화되지 못하고 쿼리 응답 시간이 길어질 수 있습니다. 이 문제를 완화하는 한 가지 방법은 모든 테이블 열에서 통계 개체를 미리 만드는 것입니다. 그러나 이 프로세스는 테이블 로드 프로세스 중 통계 개체를 계속 유지해야 하므로 로드 시간이 길어지는 단점이 있습니다.
+SQL Data Warehouse의 엔진과 같은 최신 비용 기반 최적화 프로그램에서 쿼리 계획 생성을 최적화하려면 통계가 반드시 필요합니다. 모든 쿼리가 미리 알려지면 생성해야 하는 통계 개체를 결정할 수 있습니다. 그러나 시스템은 직면 하 게 임시 및 데이터 웨어하우징 워크 로드에 대 한 일반적인 임의 쿼리, 시스템 관리자 수을 이루기 위해 예측 하는 경우 통계 작성 해야 잠재적으로 최적이 아닌 쿼리 실행 계획에 선행 및 긴 쿼리 응답 시간입니다. 이 문제를 완화하는 한 가지 방법은 모든 테이블 열에서 통계 개체를 미리 만드는 것입니다. 그러나 이 프로세스는 테이블 로드 프로세스 중 통계 개체를 계속 유지해야 하므로 로드 시간이 길어지는 단점이 있습니다.
 
 이제 SQL Data Warehouse는 시스템 관리자 및 개발자의 유연성, 생산성 및 사용 편의성을 향상시키면서 시스템이 양질의 실행 계획 및 최상의 응답 시간을 지속적으로 제공할 수 있도록 통계 개체의 자동 만들기를 지원합니다.
 
@@ -44,7 +44,7 @@ ALTER DATABASE { database_name } SET { AUTO_CREATE_STATISTICS { OFF | ON } } [;]
 자세한 내용은 [ALTER DATABASE SET 옵션](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) 문서를 참조하세요.
 
 ## <a name="rejected-row-support"></a>거부된 행 지원
-데이터 로딩의 병렬 특성 및 성능 향상을 위해 [PolyBase(외부 테이블)를 사용하여 데이터](design-elt-data-loading.md)를 SQL Data Warehouse에 로드하는 경우가 많습니다. PolyBase는 [Azure Data Factory](http://azure.com/adf)를 통해 데이터를 로드할 때의 기본 로딩 모델입니다. 
+데이터 로딩의 병렬 특성 및 성능 향상을 위해 [PolyBase(외부 테이블)를 사용하여 데이터](design-elt-data-loading.md)를 SQL Data Warehouse에 로드하는 경우가 많습니다. PolyBase는 [Azure Data Factory](https://azure.com/adf)를 통해 데이터를 로드할 때의 기본 로딩 모델입니다. 
 
 SQL Data Warehouse는 [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) 문과 함께 `REJECTED_ROW_LOCATION` 매개 변수를 통해 거부된 행 위치를 정의하는 기능을 추가합니다. 외부 테이블에서 [CTAS(CREATE TABLE AS SELECT)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 실행한 후에는 로드할 수 없는 행이 추후 조사를 위해 소스 근처의 파일에 저장됩니다. 
 
@@ -144,7 +144,7 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

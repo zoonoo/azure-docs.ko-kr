@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201265"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
-이 문서에서는 Azure AD(Azure Active Directory)의 셀프 서비스 등록 및 지원 방법을 설명합니다. 관리되지 않는 Azure AD 테넌트에서 도메인 이름을 가져오려면 [Take over an unmanaged directory as administrator](domains-admin-takeover.md)(관리되지 않는 디렉터리를 관리자로 가져오기)를 참조하세요.
+이 문서에는 셀프 서비스 등록을 사용 하 여 조직 Azure Active Directory (Azure AD)에서 채우는 방법을 설명 합니다. 관리 되지 않는 Azure에서 도메인 이름을 인수 하려는 경우 AD 조직의 참조 [관리자 권한으로 관리 되지 않는 디렉터리 인수](domains-admin-takeover.md)합니다.
 
 ## <a name="why-use-self-service-signup"></a>셀프 서비스 등록을 사용하는 이유
 * 고객이 원하는 서비스를 더욱 빠르게 제공합니다.
@@ -71,7 +71,7 @@ Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에서 
 
 다음 순서도는 디렉터리와 셀프 서비스 등록에 대한 이러한 매개 변수 및 그 결과 조건의 다양한 조합을 설명합니다.
 
-![셀프 서비스 등록 제어](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![셀프 서비스 등록 컨트롤의 순서도](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 참조하세요.
 

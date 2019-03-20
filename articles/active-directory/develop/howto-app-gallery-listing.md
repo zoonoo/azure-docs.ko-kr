@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097960"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189823"
 - 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 애플리케이션이 폼 인증을 지원하는지 확인하세요.
 
 - 자동 사용자 프로비전 요청의 경우 SAML 2.0/WS-Fed를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 애플리케이션이 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
+
+>[!NOTE]
+>에서는 포털에서 새 요청을 가져오는 중지 되므로 많은 수의 SCIM 커넥터 요청을 사용 하 여 실행. 추가 공지가 있을 때까지 요청 기다려 주세요. 에서는 이러한 지연 시간 및이 일으킨 불편 정말 죄송 합니다.
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
@@ -80,12 +83,12 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
     * OpenID Connect를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **OpenID Connect 및 OAuth 2.0**을 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
-*   **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 애플리케이션을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
+- **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 애플리케이션을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
 
-    ![갤러리에 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
+  ![갤러리에 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
 
-    * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
-    * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
+  * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
+  * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
 
 ## <a name="implementing-sso-using-password-sso"></a>암호 SSO를 사용하여 SSO 구현
 
@@ -108,6 +111,16 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
     * Azure AD 갤러리에서 기존 애플리케이션을 제거하려는 경우 **기존 애플리케이션 목록 제거**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
+## <a name="listing-requests-by-customers"></a>고객 요청 나열
+
+고객을 클릭 하 여 응용 프로그램을 나열 요청을 제출할 수 있습니다 **고객이 응용 프로그램 요청** -> **새 요청을 제출**합니다.
+
+![고객 요청 된 앱 타일](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+고객의 흐름에 요청 된 응용 프로그램-다음과 같습니다.
+
+![고객 요청 앱 흐름](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>타임라인
 
 갤러리에서 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 7~10일입니다.
@@ -117,10 +130,6 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
 갤러리에서 OpenID Connect 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
    ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline2.png)
-
-사용자 프로비저닝 지원을 통해 갤러리에 애플리케이션을 나열하는 프로세스에 대한 타임라인은 40-45 영업일입니다.
-
-   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>에스컬레이션
 

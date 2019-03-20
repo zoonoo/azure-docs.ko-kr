@@ -1,22 +1,23 @@
 ---
 services: virtual-machines
-title: "PowerShell 설정"
+title: PowerShell 설정
 author: JoeDavies-MSFT
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-
-
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58115305"
 ---
 ## <a name="setting-up-powershell"></a>PowerShell 설정
 Azure PowerShell을 사용하려면 먼저 다음 단계를 수행합니다.
@@ -38,7 +39,7 @@ Windows PowerShell을 사용하려면 Windows PowerShell 버전 3.0 또는 4.0�
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-**PSVersion** 값이 3.0 또는 4.0인지 확인합니다. 호환 버전을 설치하려면 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
+**PSVersion** 값이 3.0 또는 4.0인지 확인합니다. 호환 버전을 설치하려면 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
 
 또한 Azure PowerShell 버전 0.8.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
@@ -55,7 +56,7 @@ Windows PowerShell을 사용하려면 Windows PowerShell 버전 3.0 또는 4.0�
 ### <a name="set-your-azure-account-and-subscription"></a>Azure 계정 및 구독 설정
 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로그온합니다.
+Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로그인합니다.
 
     Add-AzureAccount
 
@@ -82,10 +83,4 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
 Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](/powershell/azureps-cmdlets-docs#Connect)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

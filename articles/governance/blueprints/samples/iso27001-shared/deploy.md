@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64259d029ce67ecfd5db4b97fc165be0ee391ab8
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008069"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202506"
 ---
 # <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Azure 청사진 ISO 27001 공유 Services blueprint 샘플 배포
 
@@ -97,7 +97,7 @@ Blueprint 샘플의 복사본을 성공적으로 되 면 **게시**에 저장 �
 
      이 섹션에 정의 된 매개 변수는 정의 된 아티팩트에 적용 됩니다. 이러한 매개 변수는 [동적 매개 변수](../../concepts/parameters.md#dynamic-parameters) blueprint 할당 하는 동안 정의 때문입니다. 전체 목록은 또는 아티팩트 매개 변수 및 해당 설명을 참조 하세요 [아티팩트 매개 변수 테이블](#artifact-parameters-table)합니다.
 
-1. 모든 매개 변수에 입력 한 후 선택 **할당** 페이지의 맨 아래에 있습니다.
+1. 모든 매개 변수에 입력 한 후 선택 **할당** 페이지의 맨 아래에 있습니다. Blueprint 할당을 만들고 아티팩트 배포를 시작 합니다. 배포는 약 1 시간입니다. 배포의 상태를 확인 하려면 blueprint 할당을 엽니다.
 
 > [!WARNING]
 > Azure 청사진 서비스와 기본 제공 blueprint 샘플 **비용의 무료**합니다. Azure 리소스가 [제품으로 가격이 책정](https://azure.microsoft.com/en-us/pricing/)합니다. 사용 하 여는 [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 이 blueprint 샘플에서 배포한 리소스를 실행 하는 비용을 예측 합니다.

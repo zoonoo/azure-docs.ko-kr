@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118978"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437601"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
 
@@ -99,8 +99,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  "제공된 암호의 길이는 {0}~{1}자 사이여야 하고 최소한 다음의 암호 복잡성 요구 사항 중 적어도 {2}을(를) 충족해야 합니다. <ol><li> 대문자를 포함합니다.</li><li>소문자를 포함합니다.</li><li>숫자를 포함합니다.</li><li>특수 문자를 포함합니다.</li></ol>  |
 |  InvalidParameter  |  지정된 관리자 사용자 이름이 허용되지 않습니다.  |
 |  InvalidParameter  |  VM이 플랫폼 이미지 또는 사용자 이미지에서 만들어진 경우 기존 OS 디스크를 연결할 수 없습니다.  |
-|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈은 다음에 영숫자가 와야 합니다.  |
-|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈은 다음에 영숫자가 와야 합니다.  |
+|  InvalidParameter  |  컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 뒤에 영숫자 합니다.  |
+|  InvalidParameter  |  URL {1}의 컨테이너 이름 {0}이(가) 올바르지 않습니다. 컨테이너 이름의 길이는 3-63자여야 하며 소문자 영숫자 및 하이픈만 포함할 수 있습니다. 하이픈 앞에 뒤에 영숫자 합니다.  |
 |  InvalidParameter  |  URL {0}의 Blob 이름은 슬래시를 포함합니다. 이 항목은 현재 디스크에 지원되지 않습니다.  |
 |  InvalidParameter  |  URI {0}이(가) 올바른 Blob URI가 아닌 것 같습니다.  |
 |  InvalidParameter  |  이름이 '{0}'인 디스크가 이미 동일한 LUN {1}을(를) 사용합니다.  |
@@ -189,7 +189,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  StorageAccountSubscriptionMismatch  |  저장소 계정 {0}은(는) 구독 {1}에 포함되지 않습니다.  |
 |  StorageAccountTooBusy  |  저장소 계정 '{0}'은(는) 현재 사용량이 너무 많습니다. 다른 계정을 사용하는 것이 좋습니다.  |
 |  StorageAccountTypeNotSupported  |  {0} 디스크는 Blob Storage 계정인 {1}을(를) 사용합니다. 범용 저장소 계정을 사용하여 다시 시도하세요.  |
-|  StorageAccountTypeNotSupported  |  저장소 계정 {0}은(는) {1} 형식입니다. 부팅 진단은 저장소 계정 유형 {2}을(를) 지원합니다.  <ul><li>부팅 진단에 프리미엄 저장소 계정을 사용하는 경우 이 오류가 발생합니다. 자세한 내용은 [부팅 진단 사용 방법](boot-diagnostics.md)을 참조하세요. </li></ul> |
+|  StorageAccountTypeNotSupported  |  저장소 계정 {0}은(는) {1} 형식입니다. 부팅 진단은 저장소 계정 유형 {2}을(를) 지원합니다.  <ul><li>부팅 진단에 Premium Storage 계정을 사용하는 경우 이 오류가 발생합니다. 자세한 내용은 [부팅 진단 사용 방법](boot-diagnostics.md)을 참조하세요. </li></ul> |
 |  SubscriptionNotAuthorizedForImage  |  구독이 인증되지 않았습니다.  |
 |  TargetDiskBlobAlreadyExists  |  Blob {0}이(가) 이미 있습니다. 다른 Blob URI를 제공하여 새로운 빈 데이터 디스크 '{1}'을(를) 만드세요.  |
 |  TargetDiskBlobAlreadyExists  |  대상 이미지 Blob {0}이(가) 이미 있고 VHD Blob을 덮어쓰는 플래그가 설정되어 있지 않아서 캡처 작업을 완료할 수 없습니다. Blob을 삭제하거나 VHD Blob을 덮어쓰는 플래그를 설정하고 다시 시도하세요.  |

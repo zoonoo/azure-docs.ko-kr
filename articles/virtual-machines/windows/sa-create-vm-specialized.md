@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309627"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086805"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
@@ -212,10 +212,10 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>네트워크 보안 그룹 및 RDP 규칙 만들기
-RDP를 사용하여 VM에 로그인할 수 있으려면 포트 3389에 대한 RDP 액세스를 허용하는 보안 규칙이 필요합니다. 새 VM의 VHD가 기존의 특수한 VM에서 생성되었기 때문에 VM이 만들어진 후에 RDP를 사용하여 로그온할 사용 권한을 갖고 있던 원본 가상 머신에서 기존 계정을 사용할 수 있습니다.
-연결될 네트워크 인터페이스를 만들기 전에 완료해야 합니다.  
-이 예제에서는 NSG 이름을 **myNsg**로 설정하고 RDP 규칙 이름을 **myRdpRule**로 설정합니다.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>네트워크 보안 그룹 및 RDP 규칙 만들기
+   RDP를 사용하여 VM에 로그인할 수 있으려면 포트 3389에 대한 RDP 액세스를 허용하는 보안 규칙이 필요합니다. 새 VM의 VHD가 기존의 특수한 VM에서 생성되었기 때문에 VM이 만들어진 후에 RDP를 사용하여 로그온할 사용 권한을 갖고 있던 원본 가상 머신에서 기존 계정을 사용할 수 있습니다.
+   연결될 네트워크 인터페이스를 만들기 전에 완료해야 합니다.  
+   이 예제에서는 NSG 이름을 **myNsg**로 설정하고 RDP 규칙 이름을 **myRdpRule**로 설정합니다.
 
 ```powershell
 $nsgName = "myNsg"
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. OS 디스크를 추가합니다. 이 예에서는 OS 디스크가 만들어지면 VM 이름에 "osDisk"가 추가되어 OS 디스크 이름이 완성됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
+2. OS 디스크를 추가합니다. 이 예제에서는 OS 디스크를 만들면 OS 디스크 이름을 만들기 위해 VM 이름에 "osdisk" 추가 됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

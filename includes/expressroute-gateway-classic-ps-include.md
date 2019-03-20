@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114458"
 ---
 > [!NOTE]
 > 이러한 예제가 S2S/ExpressRoute 공존 구성에는 적용되지 않습니다.
@@ -28,8 +28,8 @@ ms.locfileid: "53430001"
 1. [네트워크 구성 파일](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) 문서의 단계를 사용하여 네트워크 구성 파일을 다운로드합니다. 텍스트 편집기를 사용하여 파일을 엽니다.
 2. 파일에 로컬 네트워크 사이트를 추가합니다. 올바른 어떤 주소 접두사도 사용 가능합니다. VPN Gateway에 유효한 어떤 IP 주소도 추가할 수 있습니다. 이 섹션의 주소 값은 ExpressRoute 작업에 사용되지 않지만 파일 유효성 검사에 반드시 필요합니다. 예제에서 “branch1”은 사이트의 이름입니다. 다른 이름을 사용할 수 있지만 파일의 게이트웨이 섹션에서 동일한 값을 사용해야 합니다.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ ms.locfileid: "53430001"
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. VirtualNetworkSites로 이동한 후 필드를 수정합니다.
 
-  * 가상 네트워크에 대해 게이트웨이 서브넷이 있는지 확인합니다. 없으면 지금 하나를 추가할 수 있습니다. 이름은 "GatewaySubnet"여야 합니다.
-  * 파일의 게이트웨이 섹션이 있는지 확인합니다. 없으면 추가합니다. 가상 네트워크를 로컬 네트워크 사이트(연결 중인 네트워크를 나타내는)에 연결하는 데 필요합니다.
-  * 연결 형식이 Dedicated인지 확인합니다. ExpressRoute 연결에 필요합니다.
+   * 가상 네트워크에 대해 게이트웨이 서브넷이 있는지 확인합니다. 없으면 지금 하나를 추가할 수 있습니다. 이름은 "GatewaySubnet"여야 합니다.
+   * 파일의 게이트웨이 섹션이 있는지 확인합니다. 없으면 추가합니다. 가상 네트워크를 로컬 네트워크 사이트(연결 중인 네트워크를 나타내는)에 연결하는 데 필요합니다.
+   * 연결 형식이 Dedicated인지 확인합니다. ExpressRoute 연결에 필요합니다.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ ms.locfileid: "53430001"
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. 파일을 저장하고 Azure에 업로드합니다.
 
 ### <a name="create-the-gateway"></a>게이트웨이 만들기

@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: harelbr
-ms.openlocfilehash: 4bcbed82a78caff62a9459ecb44c6513f367f6b7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889287"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
 
@@ -34,7 +34,7 @@ ms.locfileid: "56458200"
 
 ## <a name="how-to-prepare-for-this-change"></a>이 변경을 준비하는 방법
 
-스마트 검색의 메일 알림이 관련 사용자에게 전송되도록 하려면 해당 사용자를 [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할에 할당해야 합니다. 구독 수준(구독의 모든 Application Insights 리소스에 적용) 또는 Application Insights 리소스 수준(특정 리소스에만 적용)에서 할당해야 합니다.
+관련 사용자에 게 스마트 감지에서 전자 메일 알림이 전송 될 있도록 해당 사용자를 할당 해야 합니다는 [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 하거나 [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 구독의 역할입니다.
 
 Azure Portal을 통해 Monitoring Reader 또는 Monitoring Contributor 역할에 사용자를 할당하려면 [역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) 문서에 설명된 단계를 수행합니다. 사용자가 할당되는 역할로 ‘Monitoring Reader’ 또는 ‘Monitoring Contributor’를 선택해야 합니다.
 

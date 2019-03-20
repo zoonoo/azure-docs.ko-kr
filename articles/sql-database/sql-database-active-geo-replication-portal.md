@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001359"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
-이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
 
 단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. Managed Instance(미리 보기)를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [관리되는 인스턴스를 사용하는 장애 조치(failover) 그룹 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)를 참조하세요.
 
@@ -32,7 +32,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 * Azure SQL Database: 다른 지역으로 복제하려는 주 데이터베이스입니다.
 
 > [!Note]
-Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구독 내에서만 보조 데이터베이스를 만들 수 있습니다. 보조 데이터베이스가 다른 구독에 있어야 하는 경우 [데이터베이스 만들기 REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 또는 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)를 사용하세요.
+> Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구독 내에서만 보조 데이터베이스를 만들 수 있습니다. 보조 데이터베이스가 다른 구독에 있어야 하는 경우 [데이터베이스 만들기 REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 또는 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)를 사용하세요.
 
 ## <a name="add-a-secondary-database"></a>보조 데이터베이스 추가
 
@@ -46,7 +46,7 @@ Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구�
 > [!NOTE]
 > 파트너 데이터베이스가 이미 있는 경우(예: 이전 지역에서 복제 관계를 종료한 결과) 명령이 실패합니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 지역에서 복제를 위해 설치하려는 데이터베이스를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제를 위해 설치하려는 데이터베이스를 찾습니다.
 2. SQL Database 페이지에서 **지역에서 복제**를 선택하고 보조 데이터베이스를 만들 지역을 선택합니다. 주 데이터베이스를 호스트하는 지역과 다른 지역을 선택할 수 있지만 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)이 권장됩니다.
 
     ![지역에서 복제 구성](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,7 +66,7 @@ Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구�
 
 보조 데이터베이스가 주 데이터베이스가 되도록 전환할 수 있습니다.  
 
-1. [Azure Portal](http://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
 2. SQL Database 블레이드에서 **모든 설정** > **지역에서 복제**를 선택합니다.
 3. **보조** 목록에서 새로운 주 데이터베이스가 될 데이터베이스를 선택하고 **장애 조치**를 클릭합니다.
 
@@ -84,7 +84,7 @@ Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구�
 
 이 작업은 보조 데이터베이스에 대한 복제를 영구적으로 종료하고 보조의 역할을 일반적인 읽기-쓰기 데이터베이스로 변경합니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후에야 보조는 읽기-쓰기가 됩니다.  
 
-1. [Azure Portal](http://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
 2. SQL Database 페이지에서 **지역에서 복제**를 선택합니다.
 3. **보조** 목록에서 지역에서 복제 파트너 관계에서 제거할 데이터베이스를 선택합니다.
 4. **복제 중지**를 클릭합니다.

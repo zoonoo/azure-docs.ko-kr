@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478198"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003428"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Azure Container Instances를 Jenkins 빌드 에이전트로 사용
 
@@ -73,7 +73,7 @@ Azure Container Instances에 대한 자세한 내용은 [Azure Container Instanc
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. SSH 세션과 터널이 계속 실행되도록 그대로 두고, 브라우저에서 http://localhost:8080으로 이동합니다. 상자에 초기 관리자 암호를 붙여넣고 **계속**을 선택합니다.
+5. SSH 세션과 터널이 계속 실행되도록 그대로 두고, 브라우저에서 `http://localhost:8080`으로 이동합니다. 상자에 초기 관리자 암호를 붙여넣고 **계속**을 선택합니다.
 
    ![관리자 암호 상자가 있는 "Jenkins 잠금 해제" 화면](./media/container-instances-jenkins/jenkins-portal-05.png)
 

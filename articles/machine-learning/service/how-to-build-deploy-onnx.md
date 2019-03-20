@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 09/24/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6deeabfe57f946a9c31548791c00ee70ecd9f2d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c392e1df1b3a42256bc89cabcfa1506a4b4e83b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117798"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
@@ -36,7 +36,7 @@ ONNX 모델을 시각화하고 더 빠르게 작성하기 위한 도구 에코�
 
 Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX 모델을 배포](#deploy)할 수 있습니다. [Windows ML](https://docs.microsoft.com/windows/ai/)을 사용해 Windows 10 디바이스로 ONNX 모델을 배포할 수도 있습니다. ONNX 커뮤니티에서 제공되는 변환기를 사용하면 다른 플랫폼으로도 배포가 가능합니다. 
 
-[ ![학습, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![교육, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX 모델 가져오기
 
@@ -69,7 +69,7 @@ Azure Machine Learning 서비스를 사용하면 ONNX 모델을 배포, 관리 �
 
 ### <a name="install-and-configure-onnx-runtime"></a>ONNX Runtime 설치 및 구성
 
-ONNX Runtime은 ONNX 모델용 오픈 소스 고성능 유추 엔진입니다. 이 엔진은 Python, C# 및 C에 사용할 수 있는 API를 사용하여 CPU와 GPU 모두에 하드웨어 가속을 제공합니다. ONNX Runtime은 ONNX 1.2+ 모델을 지원하며 Linux, Windows 및 Mac에서 실행됩니다. Python 패키지는 [PyPi.org](https://pypi.org)([ CPU](https://pypi.org/project/onnxruntime) , [GPU](https://pypi.org/project/onnxruntime-gpu))에서 사용할 수 있고, [C# 패키지](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)는 [Nuget.org](https://www.nuget.org)에서 사용할 수 있습니다. [GitHub](https://github.com/Microsoft/onnxruntime)에서 이 프로젝트에 대해 자세히 알아보세요. 
+ONNX Runtime은 ONNX 모델용 오픈 소스 고성능 유추 엔진입니다. 이 엔진은 Python, C# 및 C에 사용할 수 있는 API를 사용하여 CPU와 GPU 모두에 하드웨어 가속을 제공합니다. ONNX Runtime은 ONNX 1.2+ 모델을 지원하며 Linux, Windows 및 Mac에서 실행됩니다. Python 패키지는 [PyPi.org](https://pypi.org)([ CPU](https://pypi.org/project/onnxruntime) , [GPU](https://pypi.org/project/onnxruntime-gpu))에서 사용할 수 있고, [C# 패키지](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)는 [Nuget.org](https://www.nuget.org)에서 사용할 수 있습니다. [GitHub](https://github.com/Microsoft/onnxruntime)에서 이 프로젝트에 대해 자세히 알아보세요. 읽어보세요 [시스템 요구 사항](https://github.com/Microsoft/onnxruntime#system-requirements) 설치 하기 전에 합니다.
 
 Python용 ONNX 런타임을 설치하려면 다음을 사용합니다.
 ```python
@@ -127,7 +127,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
    ```python
    from azureml.core.image import ContainerImage
-   
+
    image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                      runtime = "python",
                                                      conda_file = "myenv.yml",
@@ -161,10 +161,10 @@ results = session.run([], {"input1": indata1, "input2": indata2})
        try:
            data = json.loads(raw_data)['data']
            data = np.array(data)
-        
+
            sess = onnxruntime.InferenceSession(model_path)
            result = sess.run(["outY"], {"inX": data})
-        
+
            return json.dumps({"result": result.tolist()})
        except Exception as e:
            result = str(e)
@@ -189,9 +189,9 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 
 ## <a name="examples"></a>예
- 
+
 ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)를 참조하세요.
- 
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="more-info"></a>자세한 정보

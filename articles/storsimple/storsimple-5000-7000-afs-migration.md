@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104576"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
@@ -57,7 +57,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 저장소가 있습니다.
 - Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 소유자 수준 권한으로 액세스합니다. 소유자 또는 관리자 수준의 권한이 없으면 동기화 그룹에 대한 클라우드 엔드포인트를 만들 때 문제가 발생할 수 있습니다.
 - 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
- - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
+  - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
 
@@ -87,7 +87,7 @@ StorSimple 볼륨에 구성된 Windows 파일 공유를 Azure 파일 동기화 �
     다른 Windows Server 호스트를 사용하는 경우 이 단계를 건너뛰고 다음 단계로 이동합니다. AFS에 동일한 Windows 파일 서버를 사용하는 경우 몇 분 동안의 가동 중지 시간이 발생합니다. 
     - **가동 중지 시간 시작** - *1F 단계*에서 만든 서버 엔드포인트를 삭제합니다. 
     - 이후에 데이터가 상주하도록 하려는 경로가 있는 새 서버 엔드포인트를 만듭니다.
-    - 서버 엔드포인트가 정상으로 표시되면(몇 분이 소요될 수 있음) 이 새 위치에 있는 데이터가 표시됩니다. 이제 이 새 위치의 파일을 제공하도록 Windows Server 호스트를 구성할 수 있습니다. -  **가동 중지 시간 종료**
+    - 서버 엔드포인트가 정상으로 표시되면(몇 분이 소요될 수 있음) 이 새 위치에 있는 데이터가 표시됩니다. 이제 이 새 위치의 파일을 제공하도록 Windows Server 호스트를 구성할 수 있습니다. - **가동 중지 시간 종료**
 5.  Azure 파일 동기화에 다른 Windows 파일 서버를 사용하는 경우 가동 중지 시간이 발생하지 않습니다. 
     - StorSimple 디바이스 대신 캐시로 사용할 준비가 된 로컬 저장소의 경로가 있는 다른 서버 엔드포인트를 추가합니다. 
     - 몇 분 내에 새 서버의 파일이 표시될 수 있습니다. 언제든지 StorSimple 디바이스에서 호스트의 이 새 위치로 자유롭게 전환할 수 있습니다.

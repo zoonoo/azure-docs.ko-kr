@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096574"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Azure 호환 VHD 만들기
 
@@ -48,25 +48,25 @@ VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함�
 Microsoft [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 사용하여 기본 이미지를 만듭니다.
 
 1. VM 제안을 게시하려는 Azure 구독에 대한 Microsoft 계정으로 포털에 로그인합니다.
-2. 새 리소스 그룹을 만들고, **리소스 그룹 이름**, **구독** 및 **리소스 그룹 위치**를 제공합니다.  자세한 지침은 [리소스 그룹 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups)를 참조하세요.
+2. 새 리소스 그룹을 만들고, **리소스 그룹 이름**, **구독** 및 **리소스 그룹 위치**를 제공합니다.  자세한 지침은 [리소스 그룹 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)를 참조하세요.
 3. 왼쪽 도구 모음에서 **Virtual Machines**를 클릭하여 가상 머신 세부 정보 페이지를 표시합니다. 
 4. 이 새 페이지에서 **+ 추가**를 클릭하여 **계산** 블레이드를 표시합니다.  초기 화면에 VM 유형이 표시되지 않으면 다음과 같이 기본 VM의 이름을 검색하면 됩니다.
 
     ![새 VM의 계산 블레이드](./media/publishvm_014.png)
 
 5. 적절한 가상 이미지를 선택한 후 다음 값을 입력합니다.
-  * **기본 사항** 블레이드에서 가상 머신에 대한 **이름**을 1-15자의 영숫자로 입력합니다. (이 예에서는 `DemoVm009`를 사용합니다.)
-  * VM에서 로컬 계정을 만드는 데 사용되는 **사용자 이름**과 강력한 **암호**를 입력합니다.  (여기서는 `adminUser`가 사용됩니다.)  암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
-  * 만든 리소스 그룹을 선택합니다(여기서는 `DemoResourceGroup`).
-  * Azure 데이터 센터 **위치**를 선택합니다(여기서는 `West US`).
-  * **확인**을 클릭하여 이러한 값을 저장합니다. 
+   * **기본 사항** 블레이드에서 가상 머신에 대한 **이름**을 1-15자의 영숫자로 입력합니다. (이 예에서는 `DemoVm009`를 사용합니다.)
+   * VM에서 로컬 계정을 만드는 데 사용되는 **사용자 이름**과 강력한 **암호**를 입력합니다.  (여기서는 `adminUser`가 사용됩니다.)  암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+   * 만든 리소스 그룹을 선택합니다(여기서는 `DemoResourceGroup`).
+   * Azure 데이터 센터 **위치**를 선택합니다(여기서는 `West US`).
+   * **확인**을 클릭하여 이러한 값을 저장합니다. 
 
-6.  다음 권장 사항을 사용하여 배포할 VM의 크기를 선택합니다.
-  * 온-프레미스에서 VHD를 개발하려는 경우 크기는 중요하지 않습니다. 더 작은 VM 중 하나를 사용하는 것이 좋습니다.
-  * Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
-  * 가격 책정에 대한 자세한 내용은 포털에 표시되는 **권장 가격 책정 계층** 선택기를 참조하세요. 게시자가 제공한 세 가지 권장 크기가 표시됩니다. (여기서 게시자는 Microsoft입니다.)
+6. 다음 권장 사항을 사용하여 배포할 VM의 크기를 선택합니다.
+   * 온-프레미스에서 VHD를 개발하려는 경우 크기는 중요하지 않습니다. 더 작은 VM 중 하나를 사용하는 것이 좋습니다.
+   * Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
+   * 가격 책정에 대한 자세한 내용은 포털에 표시되는 **권장 가격 책정 계층** 선택기를 참조하세요. 게시자가 제공한 세 가지 권장 크기가 표시됩니다. (여기서 게시자는 Microsoft입니다.)
 
-    ![새 VM의 크기 블레이드](./media/publishvm_015.png)
+   ![새 VM의 크기 블레이드](./media/publishvm_015.png)
 
 7. **설정** 블레이드에서 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.  이렇게 하면 새 VHD를 수동으로 관리할 수 있습니다. (**설정** 블레이드를 사용하면 **디스크 유형**에서 **프리미엄(SSD)** 을 선택하는 것처럼 다른 저장소 및 네트워크 옵션을 변경할 수 있습니다.)  **확인** 을 클릭하여 계속합니다.
 

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123031"
 ---
 # <a name="introduction-to-application-groups"></a>애플리케이션 그룹 소개
 Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭](service-fabric-cluster-resource-manager-metrics.md)을 통해 표시됨)를 클러스터 전체에 균등하게 분산하여 클러스터 리소스를 관리합니다. Service Fabric은 클러스터에서 노드의 용량과 [용량](service-fabric-cluster-resource-manager-cluster-description.md)을 통해 전체적으로 클러스터를 관리합니다. 메트릭과 용량은 다양한 워크로드에 잘 적용되지만 서로 다른 Service Fabric 애플리케이션 인스턴스를 과도하게 사용하는 패턴은 때때로 추가 요구 사항을 가져옵니다. 예를 들어 다음을 원할 수 있습니다.
@@ -36,7 +36,8 @@ Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭]
 다음 이미지에서는 최대 노드 수가 정의되거나 정의되지 않은 애플리케이션 인스턴스를 보여줍니다.
 
 <center>
-![최대 노드 수를 정의하는 응용 프로그램 인스턴스][Image1]
+
+![최대 노드 수를 정의 하는 응용 프로그램 인스턴스][Image1]
 </center>
 
 왼쪽 예제에서 애플리케이션에는 정의된 최대 노드 수가 없으며 세 가지 서비스가 있습니다. Cluster Resource Manager는 클러스터에서 최상의 균형을 달성하기 위해 6개의 사용 가능한 노드에 모든 복제본을 분산했습니다(기본 동작). 오른쪽 예제에서는 동일한 애플리케이션이 3개의 노드로 제한된 것을 확인할 수 있습니다.
@@ -73,8 +74,8 @@ await fc.ApplicationManager.UpdateApplicationAsync(adUpdate);
 
 각 애플리케이션 메트릭에서 두 개의 값을 다음과 같이 설정할 수 있습니다.
 
-- **총 응용 프로그램 용량** - 이 설정은 특정 메트릭에 대한 응용 프로그램의 총 용량을 나타냅니다. Cluster Resource Manager를 사용하면 이 값을 초과하는 총 부하를 발생시키는 이 애플리케이션 인스턴스 내에서 새 서비스를 만들 수 없습니다. 예를 들어, 애플리케이션 인스턴스에 10이라는 용량이 있었고 이미 5라는 부하가 있다고 가정해보겠습니다. 10이라는 기본 총 부하를 가진 서비스를 만들도록 허용하지 않습니다.
-- **노드 최대 용량** – 이 설정은 단일 노드의 응용 프로그램에 대한 최대 총 부하를 지정합니다. 부하가 이 용량을 초과하면 Cluster Resource Manager는 부하가 감소되도록 복제본을 다른 노드로 이동합니다.
+- **총 애플리케이션 용량** - 이 설정은 특정 메트릭에 대한 애플리케이션의 총 용량을 나타냅니다. Cluster Resource Manager를 사용하면 이 값을 초과하는 총 부하를 발생시키는 이 애플리케이션 인스턴스 내에서 새 서비스를 만들 수 없습니다. 예를 들어, 애플리케이션 인스턴스에 10이라는 용량이 있었고 이미 5라는 부하가 있다고 가정해보겠습니다. 10이라는 기본 총 부하를 가진 서비스를 만들도록 허용하지 않습니다.
+- **노드 최대 용량** – 이 설정은 단일 노드의 애플리케이션에 대한 최대 총 부하를 지정합니다. 부하가 이 용량을 초과하면 Cluster Resource Manager는 부하가 감소되도록 복제본을 다른 노드로 이동합니다.
 
 
 Powershell:
@@ -107,17 +108,18 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - 애플리케이션 인스턴스 내의 서비스 수가 매번 변경되는 경우 
 - 서비스가 존재하지만 리소스를 사용하지 않고 있는 경우 
 
-애플리케이션 인스턴스에 대해 리소스를 예약하려면 2개의 추가 매개 변수 *MinimumNodes* 및 *NodeReservationCapacity*를 지정해야 합니다.
+응용 프로그램 인스턴스에 대 한 리소스를 예약 필요 두 개의 추가 매개 변수를 지정 합니다. *MinimumNodes* 고 *NodeReservationCapacity*
 
-- **MinimumNodes** - 응용 프로그램 인스턴스를 실행해야 하는 노드의 최소 수를 정의합니다.  
-- **NodeReservationCapacity** - 이 설정은 응용 프로그램에 대한 메트릭을 기준으로 합니다. 해당 값은 해당 애플리케이션의 서비스가 실행되는 모든 노드에서 애플리케이션용으로 예약된 메트릭 크기입니다.
+- **MinimumNodes** - 애플리케이션 인스턴스를 실행해야 하는 노드의 최소 수를 정의합니다.  
+- **NodeReservationCapacity** - 이 설정은 애플리케이션에 대한 메트릭을 기준으로 합니다. 해당 값은 해당 애플리케이션의 서비스가 실행되는 모든 노드에서 애플리케이션용으로 예약된 메트릭 크기입니다.
 
-**MinimumNodes** 및 **NodeReservationCapacity**를 함께 사용하면 클러스터 내에서 응용 프로그램에 대한 최소 부하 예약이 보장됩니다. 필요한 총 예약 크기보다 더 적은 양의 용량이 클러스터에 남아 있는 경우 애플리케이션을 만들지 못합니다. 
+**MinimumNodes** 및 **NodeReservationCapacity**를 함께 사용하면 클러스터 내에서 애플리케이션에 대한 최소 부하 예약이 보장됩니다. 필요한 총 예약 크기보다 더 적은 양의 용량이 클러스터에 남아 있는 경우 애플리케이션을 만들지 못합니다. 
 
 용량 예약의 예를 살펴보겠습니다.
 
 <center>
-![예약된 용량을 정의하는 응용 프로그램 인스턴스][Image2]
+
+![예약 된 용량을 정의 하는 응용 프로그램 인스턴스][Image2]
 </center>
 
 왼쪽 예에서 애플리케이션은 정의된 애플리케이션 용량이 없습니다. Cluster Resource Manager는 기본 규칙에 따라 모든 항목의 균형을 유지합니다.
@@ -178,10 +180,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 ApplicationLoad 쿼리는 애플리케이션에 대해 지정된 애플리케이션 성능에 대한 기본 정보를 반환합니다. 이 정보에는 최소 노드와 최대 노드 정보 및 애플리케이션이 현재 사용하고 있는 노드 수가 포함됩니다. 다음을 비롯한 각 애플리케이션 부하 메트릭에 대한 정보도 포함합니다.
 
-* 메트릭 이름: 메트릭의 이름.
-* 예약 용량: 이 애플리케이션에 대한 클러스터에 예약된 클러스터 용량.
-* 애플리케이션 부하: 이 애플리케이션 자식 복제본의 총 부하.
-* 애플리케이션 용량: 애플리케이션 부하의 허용되는 최대값.
+* 메트릭 이름: 메트릭의 이름입니다.
+* 예약 용량: 이 응용 프로그램에 대 한 클러스터에 예약 된 클러스터 용량입니다.
+* 응용 프로그램 부하: 이 응용 프로그램 자식 복제본의 총 부하입니다.
+* 응용 프로그램 용량: 최대 응용 프로그램 부하의 값을 허용 합니다.
 
 ## <a name="removing-application-capacity"></a>애플리케이션 용량 삭제
 애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예: 
@@ -191,7 +193,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 ```
 
-이 명령은 애플리케이션 인스턴스에서 모든 애플리케이션 용량 관리 매개 변수를 제거합니다. 여기에는 MinimumNodes, MaximumNodes 및 애플리케이션의 메트릭(있는 경우)이 포함됩니다. 명령은 즉시 적용됩니다. 이 명령이 완료되면 Cluster Resource Manager는 애플리케이션을 관리하는 기본 동작을 사용합니다. `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`을 통해 응용 프로그램 용량 매개 변수를 다시 지정할 수 있습니다.
+이 명령은 애플리케이션 인스턴스에서 모든 애플리케이션 용량 관리 매개 변수를 제거합니다. 여기에는 MinimumNodes, MaximumNodes 및 애플리케이션의 메트릭(있는 경우)이 포함됩니다. 명령은 즉시 적용됩니다. 이 명령이 완료되면 Cluster Resource Manager는 애플리케이션을 관리하는 기본 동작을 사용합니다. `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`을 통해 애플리케이션 용량 매개 변수를 다시 지정할 수 있습니다.
 
 ### <a name="restrictions-on-application-capacity"></a>애플리케이션 용량에 대한 제한 사항
 고려해야 할 애플리케이션 용량 매개 변수에 대한 몇 가지 제한 사항이 있습니다. 유효성 검사 오류가 있는 경우 아무 것도 변경되지 않습니다.

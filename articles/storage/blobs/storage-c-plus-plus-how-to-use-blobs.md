@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993221"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
 
-이 가이드에서는 Azure Blob Storage를 사용하여 일반 시나리오를 수행하는 방법을 보여줍니다. 예제에는 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법이 포함됩니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다.   
+이 가이드에서는 Azure Blob Storage를 사용하여 일반 시나리오를 수행하는 방법을 보여줍니다. 예제에는 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법이 포함됩니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다.   
 
 Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-blobs-introduction.md)를 참조하세요.
 
 > [!NOTE]
-> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능한 C++용 저장소 클라이언트 라이브러리의 최신 버전을 사용하는 것이 좋습니다.
+> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. [NuGet](https://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능한 C++용 저장소 클라이언트 라이브러리의 최신 버전을 사용하는 것이 좋습니다.
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
 * **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
-* **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
+* **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
   
      Install-Package wastorage
 
@@ -258,7 +258,7 @@ blockBlob.delete_blob();
 * [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [C++에서 Azure Storage 리소스 나열](../storage-c-plus-plus-enumeration.md)
-* [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
+* [C++용 Storage Client Library 참조(영문)](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../storage-use-azcopy.md)
 

@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103403"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Azure SQL Database의 단일 데이터베이스에 Excel을 연결하고 보고서 만들기
 
@@ -43,10 +43,10 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
 
 4. **SQL Server 데이터베이스** 대화 상자에서 왼쪽의 **데이터베이스**를 선택한 다음, 연결할 SQL Database 서버의 **사용자 이름**과 **암호**를 입력합니다. **연결**을 선택하여 **탐색기**를 엽니다. 
 
-  ![서버 이름 및 로그인 자격 증명 입력](./media/sql-database-connect-excel/connect-to-server.png)
+   ![서버 이름 및 로그인 자격 증명 입력](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > 네트워크 환경에 따라 SQL Database 서버에서 클라이언트 IP 주소에서 트래픽을 허용하지 않는 경우 연결할 수 없거나 연결이 끊길 수 있습니다. [Azure 포털](https://portal.azure.com/)로 이동하고 SQL Server를 클릭하고 서버를 클릭하며 설정 아래에서 방화벽을 클릭하고 클라이언트 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 구성 방법](sql-database-configure-firewall-settings.md) 을 참조하세요.
+   > [!TIP]
+   > 네트워크 환경에 따라 SQL Database 서버에서 클라이언트 IP 주소에서 트래픽을 허용하지 않는 경우 연결할 수 없거나 연결이 끊길 수 있습니다. [Azure 포털](https://portal.azure.com/)로 이동하고 SQL Server를 클릭하고 서버를 클릭하며 설정 아래에서 방화벽을 클릭하고 클라이언트 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 구성 방법](sql-database-configure-firewall-settings.md) 을 참조하세요.
 
 5. **탐색기**의 목록에서 작업할 데이터베이스를 선택하고, 작업할 테이블 또는 보기를 선택한(여기서는 **vGetAllCategories** 선택) 후에, **로드**를 선택하여 데이터베이스에서 Excel 스프레드시트로 데이터를 이동합니다.
 
@@ -75,17 +75,17 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
 연결 세부 정보를 영구적으로 저장하려면 .odc 파일을 만들고 이 연결을 **기존 연결** 대화 상자에서 선택 가능한 옵션으로 지정하면 됩니다. 
 
 1. 페이지 상단의 메뉴 모음에서 **데이터** 탭을 선택한 다음, **기존 연결**을 선택하여 **기존 연결** 대화 상자를 시작합니다. 
-    1. **더 찾아보기**를 선택하여 **데이터 원본 선택** 대화 상자를 엽니다.   
-    2. **+NewSqlServerConnection.odc** 파일을 선택한 후 **열기**를 선택하여 **데이터 연결 마법사**를 엽니다.
+   1. **더 찾아보기**를 선택하여 **데이터 원본 선택** 대화 상자를 엽니다.   
+   2. **+NewSqlServerConnection.odc** 파일을 선택한 후 **열기**를 선택하여 **데이터 연결 마법사**를 엽니다.
 
-    ![새 연결](media/sql-database-connect-excel/new-connection.png)
+      ![새 연결](media/sql-database-connect-excel/new-connection.png)
 
 2. **데이터 연결 마법사**에서 서버 이름과 SQL Database 자격 증명을 입력합니다. **다음**을 선택합니다. 
-    1. 드롭다운에서 데이터가 포함된 데이터베이스를 선택합니다. 
-    2. 원하는 테이블 또는 보기를 선택합니다. 여기서는 vGetAllCategories를 선택했습니다.
-    3. **다음**을 선택합니다. 
+   1. 드롭다운에서 데이터가 포함된 데이터베이스를 선택합니다. 
+   2. 원하는 테이블 또는 보기를 선택합니다. 여기서는 vGetAllCategories를 선택했습니다.
+   3. **다음**을 선택합니다. 
 
-    ![데이터 연결 마법사](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![데이터 연결 마법사](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. 파일의 위치와 **파일 이름**을 선택한 다음, 데이터 연결 마법사의 다음 화면에서 **이름**을 선택합니다. 파일에 암호를 저장하도록 선택할 수도 있지만, 이 경우에는 원치 않는 액세스에 데이터가 노출될 수도 있습니다. 준비가 되면 **마침**을 선택합니다. 
 

@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 원격 분석 규칙 만들기
 description: Azure IoT Central 원격 분석 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081562"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 원격 분석 규칙을 만들고 알림 설정
 
@@ -27,20 +27,15 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 원격 분석 규칙을 만들려면 디바이스 템플릿에 하나 이상의 원격 분석 측정이 정의되어 있어야 합니다. 이 예제에서는 온도 및 습도 원격 분석 데이터를 전송하는 냉장 자동 판매기를 사용합니다. 이 규칙은 디바이스에서 보고한 온도를 모니터링하다가 온도가 80도를 초과하면 이메일을 보냅니다.
 
-1. Device Explorer를 사용하여 규칙을 추가하려는 디바이스 템플릿으로 이동합니다.
-
-1. 선택한 템플릿에서 기존 디바이스를 클릭합니다. 
-
-    >[!TIP] 
-    >템플릿에 디바이스가 없는 경우 새 디바이스를 먼저 추가합니다.
+1. 사용 하는 **장치 템플릿** 페이지에 대 한 규칙을 추가할 장치 템플릿으로 이동 합니다.
 
 1. 아직 규칙을 하나도 만들지 않은 경우 다음 화면이 표시됩니다.
 
     ![규칙 없음](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. **규칙** 탭에서 **템플릿 편집**을 클릭한 후 **+ 새 규칙**을 클릭하여 만들 수 있는 규칙 유형을 확인합니다.
+1. 에 **규칙** 탭을 선택 **+ 새 규칙** 만들어야 하는 규칙의 유형을 보려면.
 
-1. **원격 분석**을 클릭하여 디바이스 원격 분석을 모니터링하기 위한 규칙을 만듭니다.
+1. 선택 **원격 분석** 장치 원격 분석을 모니터링 하는 규칙을 만듭니다.
 
     ![규칙 유형](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -49,28 +44,25 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 1. 이 템플릿에서 만든 모든 디바이스에 즉시 규칙을 사용하려면 **이 템플릿의 모든 디바이스에 규칙 사용**으로 전환합니다.
 
    ![규칙 세부 정보](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     규칙은 디바이스 템플릿 아래에 있는 모든 디바이스에 자동으로 적용됩니다.
-    
 
 ### <a name="configure-the-rule-conditions"></a>규칙 조건 구성
 
 조건은 규칙이 모니터링하는 기준을 정의합니다.
 
-1. 새 조건을 추가하려면 **조건** 옆에 있는 **+** 를 클릭합니다.
+1. 선택 **+** 옆에 **조건** 새 조건을 추가 합니다.
 
 1. **단위** 드롭다운에서 모니터링하려는 원격 분석을 선택합니다.
 
-   ![조건](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. 그런 다음, **집계**, **연산자**를 선택하고 **임계값**을 입력합니다.
-    - 집계는 선택 사항입니다. 집계를 사용하지 않으면 조건을 충족하는 각 원격 분석 데이터 요소에 대해 규칙이 트리거됩니다. 예를 들어, 온도가 80을 초과하면 트리거되도록 규칙을 구성한 경우, 디바이스가 80도를 초과하는 온도를 보고하면 규칙이 거의 즉시 트리거됩니다.
-    - Average, Min, Max, Count와 같은 집계 함수를 선택할 경우, 사용자는 조건을 평가할 **집계 기간**을 지정해야 합니다. 예를 들어 기간을 "5분"으로 설정할 경우, 평균 온도가 5분 이상 80도를 초과할 경우 규칙이 80도를 초과하는 평균 온도를 찾습니다. 규칙 평가 주기는 **집계 기간**과 동일합니다. 즉, 이 예에서 규칙은 5분에 한 번 평가됩니다.
+   - 집계는 선택 사항입니다. 집계를 사용하지 않으면 조건을 충족하는 각 원격 분석 데이터 요소에 대해 규칙이 트리거됩니다. 예를 들어 규칙은 거의 즉시 트리거 온도가 80 개를 초과 하는 경우 다음 규칙이 구성 된 경우 경우 장치 보고 온도 > 80입니다.
+   - Average, Min, Max, Count와 같은 집계 함수를 선택할 경우, 사용자는 조건을 평가할 **집계 기간**을 지정해야 합니다. 예를 들어 기간을 "5분"으로 설정할 경우, 평균 온도가 5분 이상 80도를 초과할 경우 규칙이 80도를 초과하는 평균 온도를 찾습니다. 규칙 평가 주기는 **집계 기간**과 동일합니다. 즉, 이 예에서 규칙은 5분에 한 번 평가됩니다.
 
-    >[!NOTE]
-    >**조건** 아래에 둘 이상의 원격 분석 측정값을 추가할 수 있습니다. 조건을 여러 개 지정하는 경우 모든 조건을 충족해야 규칙이 트리거됩니다. 각 조건은 'AND' 절을 사용하여 암시적으로 조인됩니다. 집계를 사용할 경우 모든 측정값이 집계되어야 합니다.
-    
-    
+     ![조건](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >**조건** 아래에 둘 이상의 원격 분석 측정값을 추가할 수 있습니다. 조건을 여러 개 지정하는 경우 모든 조건을 충족해야 규칙이 트리거됩니다. 각 조건은 'AND' 절을 사용하여 암시적으로 조인됩니다. 집계를 사용할 경우 모든 측정값이 집계되어야 합니다.
 
 ### <a name="configure-actions"></a>작업 구성
 
@@ -88,8 +80,6 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
    ![작업 구성](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. 규칙을 저장하려면 **저장**을 선택합니다. 몇 분 이내에 규칙이 적용되어 애플리케이션으로 전송되는 원격 분석 데이터의 모니터링이 시작됩니다. 규칙에 지정된 조건이 충족하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
-
-1. **완료**를 선택하여 **템플릿 편집** 모드를 종료합니다.
 
 Microsoft Flow 및 webhook와 같은 다른 작업을 규칙에 추가할 수 있습니다. 규칙당 최대 5개의 작업을 추가할 수 있습니다.
 

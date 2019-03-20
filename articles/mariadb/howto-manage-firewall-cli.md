@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083235"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for MariaDB 방화벽에 대한 개요는 [Azure Database for MariaDB 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
@@ -35,10 +35,10 @@ ms.locfileid: "53543889"
 **az login** 명령을 사용하여 Azure 계정으로 Azure CLI를 안전하게 연결합니다.
 
 1. 명령줄에서 다음 명령을 실행합니다.
-```azurecli
-az login
-```
-이 명령은 다음 단계에서 사용할 코드를 출력합니다.
+   ```azurecli
+   az login
+   ```
+   이 명령은 다음 단계에서 사용할 코드를 출력합니다.
 
 2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 연 다음, 제공된 코드를 입력하세요.
 

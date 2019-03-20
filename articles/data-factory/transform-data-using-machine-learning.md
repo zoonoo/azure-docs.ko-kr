@@ -3,20 +3,20 @@ title: Azure Data Factory를 사용하여 예측 데이터 파이프라인 만�
 description: Azure Data Factory에서 Azure Machine Learning - Batch 실행 작업을 사용하여 예측 파이프라인을 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: a5ba45b8a7bd507552b49b6a18582c393ad07ff5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840565"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "56446038"
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다.
+Azure Data Factory를 사용 하면 쉽게 게시를 사용 하는 파이프라인을 만들 수 있습니다 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) 웹 예측 분석 서비스입니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다.
 
 시간이 지남에 따라 Azure Machine Learning Studio 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 모델을 재학습할 수 있습니다.
 
@@ -127,12 +127,12 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 | 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | 이름              | 파이프라인의 작업 이름입니다.     | 예      |
-| description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식              | Data Lake Analytics U-SQL 활동의 경우 활동 형식은 **AzureMLBatchExecution**입니다. | 예      |
 | linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| globalParameters  | Azure Machine Learning Studio 일괄 처리 실행 서비스 엔드포인트에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning Studio 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure Machine Learning Studio 일괄 처리 실행 요청의 GlobalParameters 속성에 전달됩니다. | 아니요       |
+| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
+| webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
+| globalParameters  | Azure Machine Learning Studio 일괄 처리 실행 서비스 엔드포인트에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning Studio 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure Machine Learning Studio 일괄 처리 실행 요청의 GlobalParameters 속성에 전달됩니다. | 아닙니다.       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오 1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 

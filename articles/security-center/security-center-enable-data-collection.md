@@ -3,7 +3,7 @@ title: Azure Security Center에서 데이터 수집 | Microsoft Docs
 description: " Azure Security Center에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,41 +12,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/19/2018
+ms.author: monhaber
+ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110429"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223702"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
-Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. 데이터는 다양 한 보안 관련 구성 및 이벤트 로그에서 컴퓨터를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log analytics 작업 영역에 크래시 덤프 파일을 복사합니다.
+Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMSS), IaaS 컨테이너 및 보안 취약성과 위협을 모니터링 하는 온-프레미스) (포함 비 Azure 컴퓨터에서 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent 에이전트 작업 영역에 크래시 덤프 파일을 복사합니다.
 
 누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 사용, 상태 및 위협 검색에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 
 
-이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법에 지침을 제공 합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
+이 문서에서는 Microsoft Monitoring Agent를 설치하고 수집된 데이터를 저장할 Log Analytics 작업 영역을 설정하는 방법을 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
 
 > [!NOTE]
-> - 데이터 컬렉션은 계산 리소스(VM 및 비 Azure 컴퓨터)에만 필요합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
+
+> - 계산 리소스 (Vm, Virtual Machine Scale Sets, IaaS 컨테이너 및 비 Azure 컴퓨터)에 대 한 데이터 수집만 필요 합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
 > - 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
 > - 가상 머신 확장 집합에 대한 데이터 컬렉션은 현재 지원되지 않습니다.
 
 
-## Log Analytics 에이전트의 자동 프로 비전 사용 <a name="auto-provision-mma"></a>
+## Microsoft Monitoring Agent 자동 프로비저닝 사용 <a name="auto-provision-mma"></a>
 
-컴퓨터에서 데이터를 수집 하도록 Log Analytics로 에이전트를 설치 해야 합니다.  에이전트를 자동으로 설치할 수도 있고(권장) 에이전트를 수동으로 설치하도록 선택할 수도 있습니다.  
+머신에서 데이터를 수집하려면 Microsoft Monitoring Agent가 설치되어 있어야 합니다.  에이전트를 자동으로 설치할 수도 있고(권장) 에이전트를 수동으로 설치하도록 선택할 수도 있습니다.  
 
 >[!NOTE]
 > 자동 프로비전은 기본적으로 해제되어 있습니다. 기본적으로 자동 프로비전을 설치하도록 Security Center를 설정하려면 **켜기**로 설정합니다.
 >
 
-자동 프로 비전를 설정 하면 Security Center에서 지원 되는 모든 Azure Vm 및 새로 만든 Log Analytics 에이전트를 프로 비전 합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Log Analytics 에이전트 확장을 설치 하는 방법을 알아봅니다](#manualagent)합니다.
+자동 프로 비전를 설정 하면 Security Center에 Microsoft Monitoring agent에서 지원 되는 모든 Azure Vm 및 새로 만든 프로 비전 합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](#manualagent).
 
 
 
-사용할 수 있도록 Log Analytics 에이전트의 자동 프로 비전 합니다.
+Microsoft Monitoring Agent의 자동 프로비저닝을 사용하도록 설정하려면 다음을 수행합니다.
 1. Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
 2. 목록의 원하는 구독에 대한 설정 열에서 **설정 편집**을 클릭합니다.
 
@@ -60,7 +61,7 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 
 >[!NOTE]
 > - 기존 설치를 프로비전하는 방법은 [기존 에이전트 설치 시 자동 프로비전](#preexisting)을 참조하세요.
-> - 수동 프로 비전에 대 한 자세한 내용은 참조 하세요. [Log Analytics 에이전트 확장을 수동으로 설치](#manualagent)합니다.
+> - 수동으로 프로비전하는 방법은 [수동으로 Microsoft Monitoring Agent 확장 설치](#manualagent)를 참조하세요.
 > - 자동 프로비전을 해제하는 방법은 [자동 프로비전 해제](#offprovisioning)를 참조하세요.
 > - PowerShell을 사용하여 Security Center를 온보드하는 방법에 대한 지침은 [PowerShell을 사용하여 Azure Security Center의 온보딩 자동화](security-center-powershell-onboarding.md)를 참조하세요.
 >
@@ -202,16 +203,20 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 
 다음 사용 사례는 이미 에이전트 또는 확장이 설치된 경우에 자동 프로비전의 작동 방식을 지정합니다. 
 
-- Log Analytics 에이전트 컴퓨터에는 아니지만 확장 되어<br>
-Log Analytics 에이전트 (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center는 Log Analytics 에이전트를 설치 하지 않습니다. 자동 프로비전을 켜고 Security Center의 자동 프로비전 구성에서 적절한 사용자 작업 영역을 선택할 수 있습니다. 원하는 경우 동일한 작업 영역에서 VM 이미 기존 에이전트에 연결 된 Log Analytics 에이전트 확장을 사용 하 여 래핑됩니다. 
+- 확장 (직접 에이전트) 것이 아니라 컴퓨터에서 Microsoft Monitoring Agent가 설치<br>
+Microsoft Monitoring Agent (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center가 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring agent를 최신 버전으로 업그레이드할 수 있습니다.
+설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍 지원 됨).
+구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역)이 경우 설치 해야 합니다 "보안"securityFree"솔루션에 Vm 및 컴퓨터에서 이벤트 처리를 시작 하기 위해 Security Center에 대 한 해당 작업 영역에 보고 하는 /입니다.<br>
+<br>
+2019-03-17, 기존 에이전트는 감지 하면 전에 Security Center에 구독 등록의 기존 컴퓨터에 Microsoft Monitoring Agent 확장을 설치 하지 않습니다 및 컴퓨터에는 영향을 받지 않습니다. 이러한 컴퓨터를이 컴퓨터에 에이전트 설치 문제를 해결 하기 위한 "컴퓨터에서 에이전트 상태 문제 모니터링 해결" 권장 사항을 참조 하십시오.
 
-> [!NOTE]
-> SCOM 에이전트 2012 버전이 설치된 경우 자동 프로비전을 켜지 **마세요**. 
+  
+- SCOM 에이전트는 컴퓨터에 설치<br>
+보안 센터 기존 SCOM에는 Microsoft Monitoring Agent 확장 하 여 나란히 설치 됩니다. 기존 SCOM 에이전트는 일반적으로 SCOM 서버에 보고 계속 됩니다. SCOM 에이전트 및 Microsoft Monitoring Agent가이 프로세스 중 최신 버전으로 업데이트 될 공용 런타임 라이브러리를 공유 하는 참고 합니다.
+참고-SCOM 에이전트가 2012 버전이 설치 되어 있으면 **하지** 의 자동 배포를 설정 합니다.<br>
 
-자세한 내용은 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](security-center-faq.md#scomomsinstalled)를 참조하세요.
-
--   기존 VM 확장이 있음<br>
-    - Security Center는 기존 확장 설치를 지원하며 기존 연결을 재정의하지 않습니다. Security Center는 VM의 보안 데이터를 이미 연결된 작업 영역에 저장하고, 작업 영역에서 사용되는 솔루션에 따라 보호를 제공합니다.   
+- 기존 VM 확장이 있음<br>
+    - Monitoring Agent 확장으로 설치 될 때만 단일 작업 영역에 보고 확장 구성을 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. Security Center "보안" 또는 "securityFree" 솔루션 설치가 완료 된 후에 이미 연결 된 작업 영역에서 VM에서 보안 데이터를 저장 합니다. Security Center는이 프로세스에서 최신 버전으로 확장 버전을 업그레이드할 수 있습니다.  
     - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고 하 고 작업 영역을 선택 하 고 VM을 선택한 후 수 있으며 Log Analytics 에이전트 연결 확인 수 있습니다. 
     - Environment가 있는 경우 Log Analytics 에이전트는 클라이언트 워크스테이션에 설치 되어 않았고 목록을 검토 기존 Log Analytics 작업 영역에 보고 [Azure Security Center에서 지원 되는 운영 체제](security-center-os-coverage.md) 되도록 운영 체제는 지원 및 참조 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust) 자세한 내용은 합니다.
  

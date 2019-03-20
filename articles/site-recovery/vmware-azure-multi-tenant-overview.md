@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104457"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>CSP를 사용한 VMware와 Azure 간 재해 복구를 위한 다중 테넌트 지원 개요
 
@@ -75,17 +75,17 @@ ms.locfileid: "53723929"
 1. 미리 정의된 *읽기 전용* 역할을 복제하여 새 역할을 만들고 편리한 이름을 부여합니다(예: 이 예제에서 표시된 것처럼 Azure_Site_Recovery).
 2. 이 역할에 다음 권한을 할당합니다.
 
-    * **데이터 저장소**: 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트
-    * **네트워크**: 네트워크 할당
-    * **리소스**: 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
-    * **작업**: 만들기 작업, 업데이트 작업
-    * **VM - 구성**: 모두
-    - **VM - 상호 작용** &gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
-    - **VM - 인벤토리** > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
-    - **VM - 프로비전**> 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용
-    - **VM - 스냅숏 관리** > 스냅숏 제거
+   * **데이터 저장소**: 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트
+   * **네트워크**: 네트워크 할당
+   * **리소스**: 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
+   * **작업**: 만들기 작업, 업데이트 작업
+   * **VM - 구성**: 모두
+   * **VM - 상호 작용** &gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
+   * **VM - 인벤토리** > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
+   * **VM - 프로비전**> 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용
+   * **VM - 스냅숏 관리** > 스냅숏 제거
 
-        ![역할 편집 대화 상자](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![역할 편집 대화 상자](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. 다음과 같이 다양한 개체에 대해 vCenter 계정(테넌트 구성 서버에 사용)에 액세스 수준을 할당합니다.
 

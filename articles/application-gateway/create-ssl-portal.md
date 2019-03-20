@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091837"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 
@@ -29,6 +29,8 @@ Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 
 > * 백 엔드 서버로 사용되는 가상 머신 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -76,12 +78,12 @@ Export-PfxCertificate \
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
-    - *myVNet* - 가상 네트워크 이름
-    - *10.0.0.0/16* - 가상 네트워크 주소 공간
-    - *myAGSubnet* - 서브넷 이름
-    - *10.0.0.0/24* - 서브넷 주소 공간
+   - *myVNet* - 가상 네트워크 이름
+   - *10.0.0.0/16* - 가상 네트워크 주소 공간
+   - *myAGSubnet* - 서브넷 이름
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
-    ![가상 네트워크 만들기](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![가상 네트워크 만들기](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -132,7 +134,7 @@ Export-PfxCertificate \
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ Export-PfxCertificate \
       -Location EastUS
     ```
 
-3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 이름 및 VMName에 대해 *myVM2*를 입력합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. 입력 *myVM2* 의 이름 및 VMName AzVMExtension 집합에에서 대해 합니다.
 
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 
-3. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-4. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
-5. **대상 추가**를 클릭하여 만든 가상 머신 각각을 백 엔드 풀에 추가합니다.
+1. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
+1. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
+1. **대상 추가**를 클릭하여 만든 가상 머신 각각을 백 엔드 풀에 추가합니다.
 
     ![백 엔드 서버 추가](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 

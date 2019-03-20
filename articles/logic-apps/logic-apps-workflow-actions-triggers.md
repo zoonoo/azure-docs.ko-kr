@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: a7a34c703b9c6589679cf2035785c005f13f06cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856827"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 트리거 및 작업 형식 참조
 
@@ -340,8 +340,8 @@ ms.locfileid: "55822819"
 | response | 필수 | 설명 | 
 |----------|----------|-------------| 
 | 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
-| Retry-after 헤더 | 아니요 | 논리 앱이 엔드포인트를 다시 폴링할 때까지의 시간(초) | 
-| 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
+| Retry-after 헤더 | 아닙니다. | 논리 앱이 엔드포인트를 다시 폴링할 때까지의 시간(초) | 
+| 위치 헤더 | 아닙니다. | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
 
 *다른 요청에 대한 예제 동작*
@@ -2594,7 +2594,7 @@ Azure Active Directory를 사용한 [기본적인 인증](../active-directory-b2
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "Basic",
          "username": "@parameters('userNameParam')",
@@ -2628,7 +2628,7 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "ClientCertificate",
          "pfx": "@parameters('pfxParam')",
@@ -2651,7 +2651,7 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
 | 자산 | 필수 | Value | 설명 |
 |----------|----------|-------|-------------|
 | **type** | 예 | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
-| **authority** | 아니요 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |
+| **authority** | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |
 | **테넌트** | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
 | **대상** | 예 | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
 | **clientId** | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
@@ -2668,7 +2668,7 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "ActiveDirectoryOAuth",
          "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",

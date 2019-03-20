@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082843"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -40,15 +40,15 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 
-이 솔루션은 Microsoft System Operations Manager 2012 서비스 팩(SP) 1 및 2012 R2와 작동합니다.
+이 솔루션은 Microsoft System Center 2012 Operations Manager 서비스 팩 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 및 Microsoft System을 사용 하 여 작동 Center Operations Manager 1807
 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
- - Log Analytics에서 Health Check 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview)에서 솔루션을 설치합니다.
+- Log Analytics에서 Health Check 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview)에서 솔루션을 설치합니다.
 
- - 작업 영역에 솔루션을 추가한 후에 대시보드의 **System Center Operations Manager Health Check** 타일은 추가 구성이 필요하다는 메시지를 표시합니다. 타일을 클릭하고 페이지에 언급한 구성 단계를 따릅니다.
+- 작업 영역에 솔루션을 추가한 후에 대시보드의 **System Center Operations Manager Health Check** 타일은 추가 구성이 필요하다는 메시지를 표시합니다. 타일을 클릭하고 페이지에 언급한 구성 단계를 따릅니다.
 
- ![System Center Operations Manager 대시보드 타일](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager 대시보드 타일](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Log Analytics의 솔루션 구성 페이지에 설명한 단계를 수행하여 스크립트를 통해 System Center Operations Manager를 구성할 수 있습니다.
@@ -57,9 +57,9 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 1. [System Center Operations Manager Health Check 평가를 위한 실행 계정 설정](#operations-manager-run-as-accounts-for-log-analytics)  
 2. System Center Operations Manager 상태 검사 규칙 구성
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager Health Check 데이터 수집 정보
 
-System Center Operations Manager 평가는 다음과 같은 원본에서 데이터를 수집합니다.
+System Center Operations Manager Health Check 솔루션은 다음 원본에서 데이터를 수집합니다.
 
 * 레지스트리
 * WMI(Windows Management Instrumentation)
@@ -97,7 +97,7 @@ Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리
 2. **배포** 탭에서 **선택된 컴퓨터** 상자에 대해 **추가**를 클릭하고 계정을 배포할 관리 서버를 추가합니다.  **확인**을 두 번 클릭하여 변경 내용을 저장합니다.
 3. **실행 구성**에서 **프로필**을 클릭합니다.
 4. *SCOM 평가 프로필*을 검색합니다.
-5. 프로필 이름은 *Microsoft System Center Advisor SCOM 평가 실행 프로필*이어야 합니다.
+5. 프로필 이름은 *Microsoft System Center Operations Manager 상태 검사 실행 프로필*합니다.
 6. 오른쪽 클릭하여 속성을 업데이트하고 앞에서 만든 실행 계정을 추가합니다.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>실행 계정에 대한 세부적인 사용 권한을 부여하는 SQL 스크립트
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>상태 검사 규칙 구성
 
-System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙이 포함됩니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
+System Center Operations Manager Health Check 솔루션의 관리 팩 이라는 규칙을 포함 *Microsoft System Center Operations Manager 실행 상태 확인 규칙*합니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
 
-기본적으로 Microsoft System Center Advisor SCOM 평가 실행 평가 규칙은 사용하지 않도록 설정됩니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
+Microsoft System Center Operations Manager 실행 상태 확인 규칙은 기본적으로 비활성화 됩니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>특정 관리 서버에 대한 규칙을 사용하도록 설정
 
-1. Operations Manager Operations 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
+1. 에 **Authoring** 검색 규칙에 대 한 Operations Manager 운영 콘솔의 작업 영역 *Microsoft System Center Operations Manager 실행 상태 확인 규칙* 에 **규칙** 창입니다.
 2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
 3. 마우스 오른쪽 단추로 규칙을 클릭한 다음, **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
 4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.  앞에서 실행 계정에 연결하도록 구성한 것과 같은 관리 서버여야 합니다.
@@ -170,7 +170,7 @@ System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Mic
 
 평가는 기본적으로 10,080분(또는 7일) 주기로 실행되도록 구성됩니다. 값을 최소값인 1440분(또는 1일)으로 재정의할 수 있습니다. 이 값은 연속적인 평가 실행 사이에 필요한 최소 시간 간격을 나타냅니다. 간격을 재정의하려면 아래 단계를 사용합니다.
 
-1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 섹션의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
+1. 에 **Authoring** 검색 규칙에 대 한 Operations Manager 콘솔의 작업 영역 *Microsoft System Center Operations Manager 실행 상태 확인 규칙* 에 **규칙** 섹션입니다.
 2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **Override the Rule**(규칙 재정의) > **다음 클래스의 모든 개체: 관리 서버**를 클릭합니다.
 4. **간격** 매개 변수 값을 원하는 간격 값으로 변경합니다. 아래 예의 경우 값이 1440분(1일)으로 설정되어 있습니다.<br><br> ![간격 매개 변수](./media/scom-assessment/interval.png)<br>  
@@ -277,7 +277,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 *검사 실행 주기를 구성하는 방법이 있나요?* 예. [실행 빈도 구성](#configure-the-run-frequency)을 참조하세요.
 
-*System Center Operations Manager Assessment 솔루션을 추가한 후 다른 서버가 발견되면 이 서버를 검사하나요?* 예, 검색된 이후 기본적으로 7일마다 검사됩니다.
+*System Center Operations Manager Health Check 솔루션을 추가한 후 다른 서버가 발견 되 면를 검사?* 예, 검색된 이후 기본적으로 7일마다 검사됩니다.
 
 *데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?* AdvisorAssessment.exe
 

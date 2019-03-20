@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091548"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
 
@@ -367,7 +367,7 @@ Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-이러한 갑작스러운 종료로 인해 영역 서버 프로세스가 중지되더라도 프로세스와 연결된 포트가 해제되지 않을 수 있습니다. 이러한 상황으로 인해 다음 로그와 같이 영역 서버가 시작되는 동안 AddressBindException이 발생할 수 있습니다. 영역 서버가 시작되지 못할 경우 작업자 노드의 /var/log/hbase 디렉터리에 있는 region-server.log에서 이를 확인할 수 있습니다. 
+   이러한 갑작스러운 종료로 인해 영역 서버 프로세스가 중지되더라도 프로세스와 연결된 포트가 해제되지 않을 수 있습니다. 이러한 상황으로 인해 다음 로그와 같이 영역 서버가 시작되는 동안 AddressBindException이 발생할 수 있습니다. 영역 서버가 시작되지 못할 경우 작업자 노드의 /var/log/hbase 디렉터리에 있는 region-server.log에서 이를 확인할 수 있습니다. 
 
    ```apache
 
@@ -417,5 +417,5 @@ Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>관련 항목
 [Azure HDInsight를 사용하여 문제 해결](../../hdinsight/hdinsight-troubleshoot-guide.md)

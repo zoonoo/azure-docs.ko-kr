@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208353"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223923"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -107,12 +107,8 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-Azure 리소스 VM 확장(2019년 1월에 더 이상 사용되지 않을 예정)에 대한 관리 ID를 제거하려면 사용자 `-n ManagedIdentityExtensionForWindows` 또는 `-n ManagedIdentityExtensionForLinux` 스위치(VM 형식에 따라)를 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)와 함께 사용합니다.
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> 사용 하 여 제거 해야 하는 경우 (사용 되지 않음)에 VM 확장을 Azure 리소스에 대 한 관리 되는 id를 프로 비전 [az vm 확장 삭제](https://docs.microsoft.com/cli/azure/vm/)합니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
@@ -135,7 +131,7 @@ VM을 만드는 중 VM에 사용자 할당 ID를 할당하려면 계정에 [가�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 사용자 할당 관리 ID에 할당된 리소스 ID 값은 다음 단계에서 사용됩니다.
+   응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 사용자 할당 관리 서비스 id에 할당 된 리소스 ID 값은 다음 단계에서 사용 됩니다.
 
    ```json
    {

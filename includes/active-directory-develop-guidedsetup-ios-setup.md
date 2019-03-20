@@ -3,8 +3,8 @@ title: 포함 파일
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 4f820a95759d16a9b6ac1eb1e442ae0bc8d681a3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203512"
 ---
 ## <a name="setting-up-your-ios-application"></a>iOS 애플리케이션 설정
 
-이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 iOS 애플리케이션(Swift)을 *Microsoft에 로그인*과 통합하는 방식을 설명하기 위해 새 프로젝트를 만드는 방법에 대한 단계별 지침을 제공합니다.
+이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 iOS 응용 프로그램(Swift)을 *Microsoft에 로그인*과 통합하는 방식을 설명하기 위해 새 프로젝트를 만드는 방법에 대한 단계별 지침을 제공합니다.
 
 > 이 예제의 XCode 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)하면 실행 전 코드 예제를 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 

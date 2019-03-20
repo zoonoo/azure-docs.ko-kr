@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118615"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원됨(권장 버전) |
+| 2019 년 3 월 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원됨(권장 버전) |
+| V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원됨 |
 | 2019년 1월 업데이트 롤업 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019년 1월 14일 | 지원됨 |
 | 2018년 12월 업데이트 롤업 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018년 12월 10일 | 지원됨 |
 | 2018년 12월 업데이트 롤업 | 4.1.0.0 | 2018년 12월 4일 | 지원됨 |
@@ -33,10 +34,20 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 2018년 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 2018년 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5100"></a>에이전트 버전 5.1.0.0
+다음 릴리스 정보는 2019 년 3 월 7 일 릴리스된 Azure File Sync 에이전트의 버전 5.1.0.0 합니다. 이러한 정보는 5.0.2.0 버전에 대해 나열 된 릴리스 정보입니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- 파일 서버의 변경 내용 열거 실패 하는 경우 오류 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED)와 동기화 되지 않을 수 있습니다.
+- 동기화 세션 또는 파일을 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE) 오류를 수신 하는 경우 동기화는 현재 작업을 다시 시도
+- 파일 오류 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)와 동기화 되지 않을 수 있습니다.
+- 높은 메모리 사용량 파일을 회수 하는 경우 발생할 수 있습니다.
+- 클라우드 계층화 원격 분석 향상 
 
 ## <a name="agent-version-5020"></a>에이전트 버전 5.0.2.0
 다음 릴리스 정보는 2019년 2월 12일 릴리스된 Azure 파일 동기화 에이전트의 버전 5.0.2.0에 대한 것입니다.
@@ -44,7 +55,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
 
 - Azure Government 클라우드 지원
-    - Azure Government 클라우드에 대한 미리 보기 지원이 추가되었습니다. 이 기능을 이용하려면 허용 목록에 구독을 추가하고 Microsoft에서 특수 에이전트를 다운로드해야 합니다. 미리 보기에 대한 액세스 권한을 얻으려면 [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)으로 직접 메일을 보내 주세요.
+  - Azure Government 클라우드에 대한 미리 보기 지원이 추가되었습니다. 이 기능을 이용하려면 허용 목록에 구독을 추가하고 Microsoft에서 특수 에이전트를 다운로드해야 합니다. 미리 보기에 대한 액세스 권한을 얻으려면 [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)으로 직접 메일을 보내 주세요.
 - 데이터 중복 제거 지원
     - Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 이제 데이터 중복 제거가 완전히 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비전하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다.
 - 오프라인 데이터 전송 지원(예: Data Box 사용)

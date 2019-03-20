@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114969"
 ---
 1. Azure Site Recovery UnifiedSetup.exe 시작
 2. **시작하기 전에**에서 **배포 규모 확장을 위해 추가 프로세스 서버 추가**를 선택합니다.
 
-  ![프로세스 서버 추가](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![프로세스 서버 추가](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. **구성 서버 세부 정보**에서 구성 서버의 IP 주소 및 암호를 지정합니다.
 
-  ![프로세스 서버 2 추가](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![프로세스 서버 2 추가](./media/site-recovery-add-process-server/ps-page-2.png)
 4. **인터넷 설정**에서 구성 서버에서 실행 중인 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다.
 
-  ![프로세스 서버 3 추가](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![프로세스 서버 3 추가](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * 현재 컴퓨터에 설정된 프록시를 사용하여 연결하려면 **기존 프록시 설정을 사용하여 연결**을 선택합니다.
    * 공급자가 직접 연결되도록 하려면 **프록시 없이 직접 연결**을 선택합니다.

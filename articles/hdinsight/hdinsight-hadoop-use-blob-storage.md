@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085731"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -32,8 +32,8 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 | Storage 계정 유형 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 |
 |----------------------|--------------------|-----------------------------|------------------------|
 | 범용 V2   | Blob               | Standard                    | 핫, 쿨, 보관*    |
-| 범용 V1   | Blob               | Standard                    | 해당 없음                    |
-| Blob Storage         | Blob               | Standard                    | 핫, 쿨, 보관*    |
+| 범용 V1   | Blob               | Standard                    | N/A                    |
+| Blob 저장소         | Blob               | Standard                    | 핫, 쿨, 보관*    |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
@@ -197,7 +197,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> Azure PowerShell 사용
 
 > [!NOTE]
-
+> 
 > 이 섹션의 명령은 PowerShell을 사용하여 blob에 저장된 데이터에 액세스하는 기본 예제를 제공합니다. HDInsight와의 작업에 대해 사용자 지정되는 더 완전한 기능의 예는 [HDInsight 도구](https://github.com/Blackmist/hdinsight-tools)를 참조하세요.
 
 다음 명령을 사용하여 Blob 관련 cmdlet을 나열합니다:

@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3705b2dda7da8df2e6e3c98d5f6003bd3d771daf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098579"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
 
 > [!NOTE]
-> 외부 DNS 이름 (예를 들어 www.bing.com) Azure Stack에서를 해결 하려면 DNS 요청을 전달 하도록 DNS 서버를 제공 해야 합니다. Azure Stack의 DNS 요구 사항에 대 한 자세한 내용은 참조 하세요. [Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)합니다.
+> Azure Stack에서 외부 DNS 이름을 확인 하기 위해 (예: www\.bing.com), DNS 요청을 전달 하도록 DNS 서버를 제공 해야 합니다. Azure Stack의 DNS 요구 사항에 대 한 자세한 내용은 참조 하세요. [Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)합니다.
 
 ## <a name="physical-network-design"></a>실제 네트워크 디자인
 Azure Stack 솔루션에는 운영 및 서비스를 지원하기 위해 복원력이 있고 가용성이 높은 물리적 인프라가 필요합니다. 테두리 스위치에 ToR에서 업링크 SFP + SFP28 미디어 및 1GB에서 10GB 또는 25GB 속도 제한 됩니다. 가용성에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 사용 하 여 확인 합니다. 다음 다이어그램에서는 권장 되는 디자인을 제공합니다.
@@ -45,7 +45,7 @@ Azure Stack 솔루션에는 운영 및 서비스를 지원하기 위해 복원�
 | 공용 VIP | Azure Stack이이 네트워크에서 31 주소의 합계를 사용합니다. 소수의 Azure Stack 서비스에 대 한 8 공용 IP 주소는 사용 하 고 나머지 테 넌 트 가상 컴퓨터에서 사용 됩니다. App Service 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소가 사용 됩니다. 나머지 15 Ip는 향후 Azure 서비스에 대 한 예약 되어 있습니다. | / 26 (62 호스트)-롤아웃의 경우/22 (1022 호스트)<br><br>권장 되 는/24 (254 명의 호스트) = | 
 | 스위치 인프라 | 지점 간 라우팅 목적으로 전용된 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 
 | 인프라 | Azure Stack 내부 구성 요소에 대 한 통신 하는 데 사용 합니다. | /24 |
-| Private | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
+| 개인 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
 | BMC | 실제 호스트의 Bmc와 통신 하는 데 사용 합니다. | /26 | 
 | | | |
 

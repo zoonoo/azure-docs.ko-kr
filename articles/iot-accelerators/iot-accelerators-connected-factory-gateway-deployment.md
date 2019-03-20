@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 99953b486fbd1daa9800aa850684447465eead9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182101"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "53599947"
 
 ## <a name="choose-a-gateway-device"></a>게이트웨이 디바이스 선택
 
-게이트웨이 디바이스가 아직 없는 경우 파트너로부터 상용 게이트웨이를 구입하는 것이 좋습니다.  [Azure IoT 장치 카탈로그](https://catalog.azureiotsuite.com/?q=opc)에서 연결된 팩터리 솔루션과 호환되는 게이트웨이 장치 목록을 확인하세요. 디바이스와 함께 제공되는 지침에 따라 게이트웨이를 설정합니다.
+게이트웨이 디바이스가 아직 없는 경우 파트너로부터 상용 게이트웨이를 구입하는 것이 좋습니다.  [Azure IoT 장치 카탈로그](https://catalog.azureiotsolutions.com/?q=opc)에서 연결된 팩터리 솔루션과 호환되는 게이트웨이 장치 목록을 확인하세요. 디바이스와 함께 제공되는 지침에 따라 게이트웨이를 설정합니다.
 
 기존 게이트웨이 디바이스를 수동으로 구성해야 할 경우 다음 지침을 사용합니다.
 

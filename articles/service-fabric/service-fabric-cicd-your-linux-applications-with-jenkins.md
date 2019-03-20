@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089899"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 애플리케이션 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -253,24 +253,24 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
       ```
    
    * **클러스터 외부에서 실행되는 jenkins:** 다음 단계를 수행하여 클러스터 인증서를 컨테이너에 복사합니다.
-      1. 인증서는 PEM 형식이어야 합니다. PEM 파일이 없는 경우 인증서 PFX 파일에서 하나 만들 수 있습니다. PFX 파일이 암호로 보호되어 있지 않으면 호스트에서 다음 명령을 실행합니다.
+     1. 인증서는 PEM 형식이어야 합니다. PEM 파일이 없는 경우 인증서 PFX 파일에서 하나 만들 수 있습니다. PFX 파일이 암호로 보호되어 있지 않으면 호스트에서 다음 명령을 실행합니다.
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예: 
+        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예: 
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. Jenkins 컨테이너에 대한 컨테이너 ID를 가져오려면 호스트에서 `docker ps`를 실행합니다.
-      1. 다음 Docker 명령을 사용하여 컨테이너에 PEM 파일을 복사합니다.
+     1. Jenkins 컨테이너에 대한 컨테이너 ID를 가져오려면 호스트에서 `docker ps`를 실행합니다.
+     1. 다음 Docker 명령을 사용하여 컨테이너에 PEM 파일을 복사합니다.
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 이제 거의 끝났습니다. Jenkins 작업을 계속 열어 둡니다. 유일하게 남은 작업은 애플리케이션을 Service Fabric 클러스터로 배포하도록 빌드 후 단계를 구성하는 것입니다.
 

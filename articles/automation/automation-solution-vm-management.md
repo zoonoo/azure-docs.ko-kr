@@ -1,24 +1,24 @@
 ---
 title: 작업 시간 외 VM 시작/중지 솔루션
-description: VM 관리 솔루션은 Azure Resource Manager 가상 머신을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다.
+description: VM 관리 솔루션 일정에 따라 Azure Resource Manager 가상 컴퓨터를 중지 및 Azure Monitor 로그에서 사전에 모니터링을 시작 합니다.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902249"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
-작업 시간 외 VM 시작/중지 솔루션은 사용자 정의 일정에 따라 Azure Virtual Machines를 시작 및 중지하고, Azure Log Analytics를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
+솔루션 시작 및 사용자 정의 일정에 Azure 가상 컴퓨터를 중지, Azure Monitor 로그를 통해 통찰력을 제공 및 사용 하 여 선택적 이메일을 전송 하는 작업이 없는 동안 Vm 시작/중지 [작업 그룹](../azure-monitor/platform/action-groups.md)합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
 
 이 솔루션은 VM 비용을 최적화하려는 사용자에게 분산된 저비용 자동화 옵션을 제공합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -36,9 +36,13 @@ ms.locfileid: "55979652"
 >
 > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. 시작/중지 솔루션을 실행하면 클래식 리소스를 관리하기 위한 cmdlet에 발생하는 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 수정해야 합니다.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 솔루션에 대한 Runbook은 [Azure 실행 계정](automation-create-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.
+
+VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 것이 좋습니다. 즉 Azure 모듈 버전이 자주 업그레이드 하 고 해당 매개 변수 변경 될 수 있습니다. VM 시작/중지 솔루션 사용 되는 cmdlet의 최신 버전을 사용할 수 없습니다 있도록 동일한 주기로 업그레이드 되지 않습니다. Automation 계정을 테스트에서 프로덕션 Automation 계정에에서 가져오기 전에 모듈 업데이트를 테스트 하는 것이 좋습니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -58,18 +62,18 @@ ms.locfileid: "55979652"
 
    ![VM 관리 솔루션 추가 페이지](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. **솔루션 추가** 페이지에서 **작업 영역**을 선택합니다. Automation 계정이 속하는 동일한 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. **Log Analytics 작업 영역** 페이지에서 다음 단계를 수행합니다.
-   - 새 **Log Analytics 작업 영역**의 이름(예: “ContosoLAWorkspace”)을 지정합니다.
+4. **솔루션 추가** 페이지에서 **작업 영역**을 선택합니다. Automation 계정이 속하는 동일한 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. 에 **Log Analytics 작업 영역** 페이지에서 다음 단계를 수행 합니다.
+   - 새 이름을 지정 **Log Analytics 작업 영역**, "ContosoLAWorkspace" 등입니다.
    - 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
    - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서부 2**입니다.
-   - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Log Analytics에서 [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)이 업데이트되어 GB당 계층이 유일한 옵션입니다.
+   - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그 업데이트 했습니다 [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/) GB 당 계층은 유일한 옵션입니다.
 
 5. **Log Analytics 작업 영역** 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 **솔루션 추가** 페이지로 돌아갑니다.
 6. **솔루션 추가** 페이지에서 **Automation 계정**을 선택합니다. 새 Log Analytics 작업 영역을 만드는 경우 연결될 새 Automation 계정을 만들거나 아직 Log Analytics 작업 영역에 연결되지 않은 기존 Automation 계정을 선택할 수 있습니다. 기존 Automation 계정을 선택하거나 **Automation 계정 만들기**를 클릭하고, **Automation 계정 추가** 페이지에서 다음 정보를 제공합니다.
    - **이름** 필드에서 Automation 계정의 이름을 입력합니다.
 
-    다른 모든 옵션은 선택한 Log Analytics 작업 영역을 기반으로 자동으로 채워집니다. 이러한 옵션은 수정할 수 없습니다. Azure 실행 계정은 이 솔루션에 포함된 Runbook에 대한 기본 인증 방법입니다. **확인**을 클릭하면 구성 옵션의 유효성이 검사되고 Automation 계정이 생성됩니다. 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
+     다른 모든 옵션은 선택한 Log Analytics 작업 영역을 기반으로 자동으로 채워집니다. 이러한 옵션은 수정할 수 없습니다. Azure 실행 계정은 이 솔루션에 포함된 Runbook에 대한 기본 인증 방법입니다. **확인**을 클릭하면 구성 옵션의 유효성이 검사되고 Automation 계정이 생성됩니다. 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
 7. 마지막으로 **솔루션 추가** 페이지에서 **구성**을 선택합니다. **매개 변수** 페이지가 나타납니다.
 
@@ -91,7 +95,7 @@ ms.locfileid: "55979652"
 8. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 **매개 변수** 페이지를 닫고 **만들기**를 선택합니다. 모든 설정이 확인되면 솔루션이 구독에 배포됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
 > [!NOTE]
-> Azure CSP(Azure 클라우드 솔루션 공급자) 구독이 있는 경우 배포가 완료된 후에 Automation 계정에서 **공유 리소스** 아래 **변수**로 이동하여 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 설정합니다. 이렇게 하면 솔루션이 클래식 VM 리소스를 검색하지 않습니다.
+> 배포 완료 되 면 Automation 계정에서 Azure 클라우드 솔루션 공급자 (Azure CSP) 구독을 사용 하는 경우로 이동 **변수** 아래에서 **공유 리소스** 설정 하 고는 [ **External_EnableClassicVMs** ](#variables) 변수를 **False**합니다. 이렇게 하면 솔루션이 클래식 VM 리소스를 검색하지 않습니다.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -174,7 +178,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
-이 솔루션에는 비즈니스 요구에 맞게 가상 머신의 시작 및 종료를 조정할 수 있도록 하는 미리 구성된 Runbook, 일정 및 Log Analytics와의 통합이 포함되어 있습니다.
+이 솔루션 시작 및 비즈니스 요구에 맞게 가상 머신의 종료를 조정할 수 있도록 미리 구성 된 runbook, 일정 및 Azure Monitor 로그와의 통합을 포함 합니다.
 
 ### <a name="runbooks"></a>Runbook
 
@@ -209,7 +213,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |External_AutoStop_TimeAggregationOperator | 조건을 평가하기 위해 선택한 기간 크기에 적용되는 시간 집계 연산자입니다. 사용 가능한 값은 **Average**, **Minimum**, **Maximum**, **Total** 및 **Last**입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고를 트리거하기 위해 선택된 메트릭을 분석하는 기간입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
 |External_EnableClassicVMs| 솔루션이 클래식 VM을 대상으로 하는지 여부를 지정합니다. 기본값은 True입니다. CSP 구독의 경우 False로 설정해야 합니다.|
-|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다. VM은 140개로 제한됩니다. 140개를 초과하는 VM을 추가하면 제외할 VM이 추가되어 실수로 시작되거나 종료될 수 있습니다.|
+|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다. VM은 140개로 제한됩니다. 140개를 초과하는 VM을 쉼표로 구분된 목록에 추가하는 경우 제외하도록 설정된 VM이 실수로 시작되거나 중지될 수 있습니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |Internal_AutomationAccountName | Automation 계정의 이름을 지정합니다.|
@@ -233,7 +237,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
 |Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 _Start_ 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.|
 
-## <a name="log-analytics-records"></a>Log Analytics 레코드
+## <a name="azure-monitor-logs-records"></a>Azure Monitor 로그 레코드
 
 Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림의 두 가지 유형의 레코드를 만듭니다.
 
@@ -285,18 +289,18 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 |쿼리 | 설명|
 |----------|----------|
-|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>솔루션 보기
 
-솔루션에 액세스하려면 Automation 계정으로 이동하고, **관련 리소스** 아래에서 **작업 영역**을 선택합니다. Log Analytics 페이지의 **일반**에서 **솔루션**을 선택합니다. **솔루션** 페이지의 목록에서 **Start-Stop-VM[workspace]** 를 선택합니다.
+솔루션에 액세스하려면 Automation 계정으로 이동하고, **관련 리소스** 아래에서 **작업 영역**을 선택합니다. Log analytics 페이지에서 선택 **솔루션** 아래에서 **일반**합니다. **솔루션** 페이지의 목록에서 **Start-Stop-VM[workspace]** 를 선택합니다.
 
 솔루션을 선택하면 **Start-Stop-VM[workspace]** 솔루션 페이지가 표시됩니다. 여기에서 **StartStopVM** 타일과 같은 중요한 세부 정보를 검토할 수 있습니다. Log Analytics 작업 영역에서와 마찬가지로 이 타일에는 성공적으로 시작되고 완료된 솔루션에 대한 Runbook 작업의 수와 그래픽 표시가 나타납니다.
 
 ![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-여기에서 도넛형 타일을 클릭하면 작업 레코드의 추가 분석을 수행할 수 있습니다. 솔루션 대시보드에는 작업 기록 및 미리 정의된 로그 검색 쿼리가 표시됩니다. 검색 쿼리를 기반으로 검색하려면 Log Analytics 고급 포털로 전환합니다.
+여기에서 도넛형 타일을 클릭하면 작업 레코드의 추가 분석을 수행할 수 있습니다. 솔루션 대시보드에는 작업 기록 및 미리 정의된 로그 검색 쿼리가 표시됩니다. 검색 쿼리를 기반으로 검색 하려면 log analytics 고급 포털으로 전환 합니다.
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
@@ -364,14 +368,14 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 
 이 프로세스의 일부로 Automation 계정 및 Log Analytics 작업 영역이 삭제되지는 않습니다. Log Analytics 작업 영역을 유지하지 않으려는 경우 수동으로 삭제해야 합니다. Azure Portal에서도 이 작업을 수행할 수 있습니다.
 
-1. Azure Portal 홈 화면에서 **Log Analytics**를 선택합니다.
-1. **Log Analytics** 페이지에서 작업 영역을 선택합니다.
+1. Azure 포털 홈 화면에서 선택 **Log Analytics 작업 영역**합니다.
+1. 에 **Log Analytics 작업 영역** 페이지, 작업 영역을 선택 합니다.
 1. 작업 영역 설정 페이지에 있는 메뉴에서 **삭제**를 선택합니다.
 
 Azure Automation 계정 구성 요소를 유지하지 않으려면 각각을 수동으로 삭제할 수 있습니다. 솔루션에서 만든 Runbook, 변수 및 일정 목록은 [솔루션 구성 요소](#solution-components)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Log Analytics를 사용하여 여러 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Log Analytics의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
+- 여러 검색 쿼리를 생성 하 고 Azure Monitor 로그를 사용 하 여 Automation 작업 로그를 검토 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md)합니다.
 - runbook 실행, runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
-- Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.
+- Azure Monitor 로그 및 데이터 수집 소스에 대 한 자세한 내용은 참조 하세요 [Azure storage 데이터 수집 Azure Monitor의 로그 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)합니다.

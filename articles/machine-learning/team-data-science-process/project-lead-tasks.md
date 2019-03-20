@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854792"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process에서 프로젝트 리더의 작업
 
@@ -126,11 +126,11 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *프로젝트 템플릿 리포지토리의 SSH URL*은 다음과 같습니다.
 
-***ssh://\<Azure DevOps Services 이름\>@\<Azure DevOps Services 이름\>.visualstudio.com:22/\<프로젝트 이름>/_git/\<프로젝트 템플릿 리포지토리 이름\>*** 
+***ssh://\<Azure DevOps Services 이름\>\@\<Azure DevOps Services 이름\>.visualstudio.com:22/\<프로젝트 이름>/_git/\<프로젝트 템플릿 리포지토리 이름\>*** 
 
 이 예제에서 사용한 URL은 다음과 같습니다.
 
-***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
+***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>로컬 컴퓨터의 디렉터리(D5)에 DSProject1 리포지토리(R5) 복제
 
@@ -150,7 +150,7 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 SSH URL_은 _ssh://<Azure DevOps Services 이름\>@<Azure DevOps Services 이름\>.visualstudio.com:22/<Your Project Name>/\_git/<프로젝트 리포지토리 이름\>입니다. 이 예제에서는 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***을 사용합니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 SSH URL_은 _ssh://<Azure DevOps Services 이름\>@<Azure DevOps Services 이름\>.visualstudio.com:22/<Your Project Name>/\_git/<프로젝트 리포지토리 이름\>입니다. 이 예에는 ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***합니다.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>D5에 D3 콘텐츠 복사 
 

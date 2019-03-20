@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855889"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -65,10 +65,9 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
 
 하나 이상의 VM을 하나 이상의 독립 실행형 또는 클러스터형 Hyper-V 호스트에서 실행해야 합니다. 또한 System Center VMM(Virtual Machine Manager)에서 관리되는 호스트에서 실행되는 VM을 복제할 수도 있습니다.
-    - VMM을 실행하지 않는 경우에는 Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Site Recovery 에이전트(Azure Site Recovery 공급자와 Recovery Services 에이전트)를 각 Hyper-V 컴퓨터에 설치합니다.
-    - Hyper-V 호스트가 VMM 클라우드에 있는 경우 VMM에서 복제를 오케스트레이션합니다. VMM 서버에 Site Recovery 공급자를, 각 Hyper-V 호스트에 Recovery Services 에이전트를 설치합니다. VMM 논리/VM 네트워크와 Azure VNet 간을 매핑합니다.
-    - 
-Hyper-V에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](hyper-v-azure-architecture.md).
+- VMM을 실행하지 않는 경우에는 Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Site Recovery 에이전트(Azure Site Recovery 공급자와 Recovery Services 에이전트)를 각 Hyper-V 컴퓨터에 설치합니다.
+- Hyper-V 호스트가 VMM 클라우드에 있는 경우 VMM에서 복제를 오케스트레이션합니다. VMM 서버에 Site Recovery 공급자를, 각 Hyper-V 호스트에 Recovery Services 에이전트를 설치합니다. VMM 논리/VM 네트워크와 Azure VNet 간을 매핑합니다.
+- Hyper-V에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](hyper-v-azure-architecture.md).
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Hyper-V 클러스터에 있는 VM을 복제할 수 있나요?
 
@@ -139,11 +138,11 @@ Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 
 
 Hyper-V VM은 30초(Premium Storage 제외), 5분 또는 15분마다 복제할 수 있습니다.
 
-###<a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
-지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
 예, 디스크는 복제에서 제외할 수 있습니다. 
@@ -189,7 +188,7 @@ Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치를 시작하거나 [PowerShell](/powershell/module/azurerm.siterecovery)을 사용하여 장애 조치를 트리거할 수 있습니다.
+[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/azurerm.siterecovery) 장애 조치를 트리거할 수 있습니다.
 
 ### <a name="how-do-i-fail-back"></a>장애 복구(Failback)하려면 어떻게 하나요?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995785"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요
@@ -180,25 +180,25 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>위치|Azure<br/>지역|예상<br/>거리(km)|대기 시간|1 세션<br/>대역폭|최대<br/>대역폭|
-| 시애틀 | 미국 서부 2        |    191km |   5ms | 262.0Mbits/sec |  3.74Gbits/sec | 21
-| 시애틀 | 미국 서부          |  1,094km |  18ms |  82.3Mbits/sec |  3.70Gbits/sec | 20
-| 시애틀 | 미국 중부       |  2,357km |  40ms |  38.8Mbits/sec |  2.55Gbits/sec | 17
-| 시애틀 | 미국 중남부 |  2,877km |  51ms |  30.6Mbits/sec |  2.49Gbits/sec | 19
-| 시애틀 | 미국 중북부 |  2,792km |  55ms |  27.7Mbits/sec |  2.19Gbits/sec | 18
-| 시애틀 | 미국 동부 2        |  3,769km |  73ms |  21.3Mbits/sec |  1.79Gbits/sec | 16
-| 시애틀 | 미국 동부          |  3,699km |  74ms |  21.1Mbits/sec |  1.78Gbits/sec | 15
-| 시애틀 | 일본 동부       |  7,705km | 106ms |  14.6Mbits/sec |  1.22Gbits/sec | 28
-| 시애틀 | 영국 남부         |  7,708km | 146ms |  10.6Mbits/sec |   896Mbits/sec | 24
-| 시애틀 | 서유럽      |  7,834km | 153ms |  10.2Mbits/sec |   761Mbits/sec | 23
-| 시애틀 | 오스트레일리아 동부   | 12,484km | 165ms |   9.4Mbits/sec |   794Mbits/sec | 26
-| 시애틀 | 동남아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec | 25
-| 시애틀 | 브라질 남부 *   | 10,930km | 189ms |   8.2Mbits/sec |   699Mbits/sec | 22
-| 시애틀 | 인도 남부      | 12,918km | 202ms |   7.7Mbits/sec |   634Mbits/sec | 27
+| 시애틀 | 미국 서부 2        |    191km |   5ms | 262.0Mbits/sec |  3.74Gbits/sec |
+| 시애틀 | 미국 서부          |  1,094km |  18ms |  82.3Mbits/sec |  3.70Gbits/sec |
+| 시애틀 | 미국 중부       |  2,357km |  40ms |  38.8Mbits/sec |  2.55Gbits/sec |
+| 시애틀 | 미국 중남부 |  2,877km |  51ms |  30.6Mbits/sec |  2.49Gbits/sec |
+| 시애틀 | 미국 중북부 |  2,792km |  55ms |  27.7Mbits/sec |  2.19Gbits/sec |
+| 시애틀 | 미국 동부 2        |  3,769km |  73ms |  21.3Mbits/sec |  1.79Gbits/sec |
+| 시애틀 | 미국 동부          |  3,699km |  74ms |  21.1Mbits/sec |  1.78Gbits/sec |
+| 시애틀 | 일본 동부       |  7,705km | 106ms |  14.6Mbits/sec |  1.22Gbits/sec |
+| 시애틀 | 영국 남부         |  7,708km | 146ms |  10.6Mbits/sec |   896Mbits/sec |
+| 시애틀 | 서유럽      |  7,834km | 153ms |  10.2Mbits/sec |   761Mbits/sec |
+| 시애틀 | 오스트레일리아 동부   | 12,484km | 165ms |   9.4Mbits/sec |   794Mbits/sec |
+| 시애틀 | 동남아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec |
+| 시애틀 | 브라질 남부 *   | 10,930km | 189ms |   8.2Mbits/sec |   699Mbits/sec |
+| 시애틀 | 인도 남부      | 12,918km | 202ms |   7.7Mbits/sec |   634Mbits/sec |
 
 \* 브라질까지의 대기 시간은 직선 거리가 파이버 실행 거리와 크게 다르다는 것을 보여 주는 좋은 예입니다. 저는 대기 시간이 160ms 근처일 것으로 예상했지만 실제로는 189ms입니다. 어딘가에 네트워크 문제가 있어서 제 예상과 다른 결과가 나올 수도 있지만, 대부분은 파이버 실행이 브라질까지 직선으로 가는 것이 아니라 시애틀에서 브라질까지 이동할 때 약 1,000km를 더 이동하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. [http://aka.ms/AzCT][ACT]의 GitHub에서 Azure 연결 도구 키트 다운로드
+1. [https://aka.ms/AzCT][ACT]의 GitHub에서 Azure 연결 도구 키트 다운로드
 2. [링크 성능 테스트][Performance Doc]에 대한 지침 수행
 
 <!--Image References-->
@@ -212,15 +212,4 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-
+[ACT]: https://aka.ms/AzCT

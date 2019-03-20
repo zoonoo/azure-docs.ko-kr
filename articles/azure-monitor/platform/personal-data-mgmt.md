@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810273"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121352"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -53,7 +53,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     ```
     search "[username goes here]"
     ```
-사람이 읽을 수 있는 사용자 이름뿐만 아니라 직접 특정 사용자에게 다시 추적할 수 있는 GUID도 검색해야 합니다.
+  사람이 읽을 수 있는 사용자 이름뿐만 아니라 직접 특정 사용자에게 다시 추적할 수 있는 GUID도 검색해야 합니다.
 * *디바이스 ID*: 사용자 ID와 마찬가지로 디바이스 ID는 '개인'으로 간주되기도 합니다. 사용자 ID에 대해 위에서 나열한 것과 동일한 방법을 사용하여 이 문제가 될 수 있는 테이블을 식별합니다. 
 * *사용자 지정 데이터*: Log Analytics를 사용하면 사용자 지정 로그와 사용자 지정 필드, [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md) 및 시스템 이벤트 로그의 일부로 수집된 사용자 지정 데이터 등 다양한 방법으로 수집할 수 있습니다. 이러한 방법은 모두 개인 데이터를 포함하는 데 취약하고 이러한 정보가 있는지 여부를 확인하기 위해 조사해야 합니다.
 * *솔루션에서 캡처된 데이터*: 솔루션 메커니즘은 제한되지 않으므로 솔루션에서 생성된 모든 테이블을 검토하여 규정 준수 여부를 확인하는 것이 좋습니다.

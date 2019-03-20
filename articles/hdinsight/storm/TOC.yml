@@ -288,17 +288,11 @@ items:
     - name: Apache Maven을 사용하여 Java 애플리케이션 빌드
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: 스크립트 작업을 사용하여 사용자 지정
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Apache Hadoop YARN 애플리케이션 로그에 액세스
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: 스크립트 작업 개발
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Azure 포털을 사용하여 클러스터 관리
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Apache Ambari API를 사용하여 클러스터 모니터링
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -318,9 +312,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: ea149749fcb073861cb6af05225536c552e3f79a
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e2ad72d544a401842c9352ebca86394357ce96eb
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200924"

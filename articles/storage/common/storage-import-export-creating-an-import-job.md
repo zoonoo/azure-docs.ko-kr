@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102182"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가져오기 작업을 만드는 단계는 다음과 같습니다.
 
--   Azure Import/Export 도구로 드라이브 준비
+- Azure Import/Export 도구로 드라이브 준비
 
--   드라이브를 배송할 위치 가져오기
+- 드라이브를 배송할 위치 가져오기
 
--   가져오기 작업 만들기
+- 가져오기 작업 만들기
 
--   지원되는 운송업체 서비스를 통해 Microsoft에 드라이브 배송
+- 지원되는 운송업체 서비스를 통해 Microsoft에 드라이브 배송
 
--   배송 정보로 가져오기 작업 업데이트
+- 배송 정보로 가져오기 작업 업데이트
 
- Import/Export 서비스에 대한 개요 및 [Azure Portal](https://portal.azure.com/)을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](storage-import-export-service.md)을 참조하세요.
+  Import/Export 서비스에 대한 개요 및 [Azure Portal](https://portal.azure.com/)을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](storage-import-export-service.md)을 참조하세요.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure Import/Export 도구로 드라이브 준비
 
-가져오기 작업을 위해 드라이브를 준비하는 단계는 포털을 통해 작업을 만들거나 REST API를 통해 작업을 만들 경우 둘 다 동일합니다.
+가져오기 작업을 위해 드라이브를 준비 하는 단계는 포털 또는 REST API를 통해 작업을 만들 수 있는지 여부를 동일 합니다.
 
 다음은 드라이브 준비에 대한 간단한 설명입니다. 자세한 지침은 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요. [여기](https://go.microsoft.com/fwlink/?LinkID=301900)에서 Azure Import/Export 도구를 다운로드할 수 있습니다.
 
 드라이브를 준비하는 과정은 다음과 같습니다.
 
--   가져올 데이터 식별
+- 가져올 데이터 식별
 
--   Microsoft Azure Storage에서 대상 blob 식별
+- Microsoft Azure Storage에서 대상 blob 식별
 
--   Azure Import/Export 도구를 사용하여 하나 이상의 하드 드라이브로 데이터 복사
+- Azure Import/Export 도구를 사용하여 하나 이상의 하드 드라이브로 데이터 복사
 
- 또한 Azure Import/Export 도구는 드라이브가 준비되면 각 드라이브에 대해 매니페스트 파일도 생성합니다. 매니페스트 파일에는 다음이 포함됩니다.
+  또한 Azure Import/Export 도구는 드라이브가 준비되면 각 드라이브에 대해 매니페스트 파일도 생성합니다. 매니페스트 파일에는 다음이 포함됩니다.
 
--   업로드한 모든 파일의 열거형과 이러한 파일에서 blob으로의 매핑
+- 업로드한 모든 파일의 열거형과 이러한 파일에서 blob으로의 매핑
 
--   각 파일의 세그먼트 체크섬
+- 각 파일의 세그먼트 체크섬
 
--   각 blob에 연결될 속성 및 메타데이터에 대한 정보
+- 각 blob에 연결될 속성 및 메타데이터에 대한 정보
 
--   업로드될 blob이 컨테이너의 기존 blob과 이름이 같은 경우 수행할 작업 목록 가능한 옵션: a) blob을 파일로 덮어쓰기 b) 기존 blob을 유지하고 파일 업로드 건너뛰기 c) 다른 파일과 충돌하지 않게 이름에 접미사 추가
+- 업로드될 blob이 컨테이너의 기존 blob과 이름이 같은 경우 수행할 작업 목록 가능한 옵션: a) blob을 파일로 덮어쓰기 b) 기존 blob을 유지하고 파일 업로드 건너뛰기 c) 다른 파일과 충돌하지 않게 이름에 접미사 추가
 
 ## <a name="obtaining-your-shipping-location"></a>배송 위치 가져오기
 

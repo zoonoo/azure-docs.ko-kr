@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f27dbf20eab5866ac3061d888c17e970a1d197f7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d7497a0226f236cedc583de0a31013adcc2b830f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34666758"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "58114029"
 ---
 # <a name="azure-and-the-internet-of-things"></a>Azure 및 사물 인터넷
 
@@ -33,7 +33,7 @@ Microsoft Azure 및 IoT(사물 인터넷)를 시작합니다. 이 문서에서�
 
 ### <a name="device-connectivity"></a>디바이스 연결
 
-IoT 솔루션 아키텍처에서 디바이스는 일반적으로 저장 및 처리를 위해 클라우드에 원격 분석을 보냅니다. 예를 들어 예측 유지 관리 시나리오에서 솔루션 백 엔드는 센서 데이터 스트림을 사용하여 특정 펌프에 유지 관리가 필요한 시기를 결정할 수 있습니다. 또한 장치는 클라우드 끝점에서 메시지를 읽어 수신하고 클라우드-장치 메시지에 응답할 수 있습니다. 동일한 예에서 솔루션 백 엔드는 메시지를 펌핑 스테이션의 다른 펌프로 보내서 유지 관리가 시작되기 직전에 라우팅 흐름을 다시 시작할 수 있습니다. 이 절차를 통해 유지 관리 엔지니어가 도착하는 즉시 작업을 시작할 수 있는지 확인합니다.
+IoT 솔루션 아키텍처에서 디바이스는 일반적으로 저장 및 처리를 위해 클라우드에 원격 분석을 보냅니다. 예를 들어 예측 유지 관리 시나리오에서 솔루션 백 엔드는 센서 데이터 스트림을 사용하여 특정 펌프에 유지 관리가 필요한 시기를 결정할 수 있습니다. 또한 디바이스는 클라우드 엔드포인트에서 메시지를 읽어 수신하고 클라우드-디바이스 메시지에 응답할 수 있습니다. 동일한 예에서 솔루션 백 엔드는 메시지를 펌핑 스테이션의 다른 펌프로 보내서 유지 관리가 시작되기 직전에 라우팅 흐름을 다시 시작할 수 있습니다. 이 절차를 통해 유지 관리 엔지니어가 도착하는 즉시 작업을 시작할 수 있는지 확인합니다.
 
 디바이스를 안전하고 안정적으로 연결하는 것은 종종 IoT 솔루션의 가장 중요한 과제입니다. 이는 브라우저 및 모바일 앱과 같은 다른 클라이언트에 비해 다른 특징이 IoT 디바이스에 있기 때문입니다. IoT 디바이스의 이러한 특징은 구체적으로 다음과 같습니다.
 
@@ -79,8 +79,8 @@ IoT 솔루션 아키텍처에서 디바이스는 일반적으로 저장 및 처�
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-iot-hub]: ../articles/iot-hub/about-iot-hub.md
+[lnk-iot-suite]: ../articles/iot-accelerators/about-iot-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md

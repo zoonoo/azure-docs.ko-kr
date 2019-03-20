@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201520"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
 
-인덱스 및 데이터 원본과 같은 Azure Search 리소스를 관리할 때는 리소스를 안전하게 업데이트해야 합니다. 특히 응용 프로그램의 여러 구성 요소가 리소스에 동시에 액세스할 때는 안전한 업데이트가 더욱 중요합니다. 두 클라이언트가 조정 없이 리소스를 동시에 업데이트하면 경합 상태가 발생할 수 있습니다. Azure Search에서는 이러한 상황을 방지하기 위해 *낙관적 동시성 모델*을 제공합니다. 이 모델에서는 리소스가 잠기지 않습니다. 대신 요청을 작성할 수 있도록 리소스 버전을 식별하는 ETag가 모든 리소스에 포함되어 있으므로 실수로 인한 덮어쓰기를 방지할 수 있습니다.
+인덱스 및 데이터 원본과 같은 Azure Search 리소스를 관리할 때는 리소스를 안전하게 업데이트해야 합니다. 특히 애플리케이션의 여러 구성 요소가 리소스에 동시에 액세스할 때는 안전한 업데이트가 더욱 중요합니다. 두 클라이언트가 조정 없이 리소스를 동시에 업데이트하면 경합 상태가 발생할 수 있습니다. Azure Search에서는 이러한 상황을 방지하기 위해 *낙관적 동시성 모델*을 제공합니다. 이 모델에서는 리소스가 잠기지 않습니다. 대신 요청을 작성할 수 있도록 리소스 버전을 식별하는 ETag가 모든 리소스에 포함되어 있으므로 실수로 인한 덮어쓰기를 방지할 수 있습니다.
 
 > [!Tip]
 > [샘플 C# 솔루션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)의 개념 코드를 통해 Azure Search에서 동시성 제어가 작동하는 방식을 파악할 수 있습니다. 이 코드는 동시성 제어를 호출하는 조건을 만듭니다. 대부분의 개발자는 [아래의 코드 조각](#samplecode)만 확인해도 되겠지만, 해당 코드를 실행하려는 경우 appsettings.json을 편집하여 서비스 이름과 관리 API 키를 추가하세요. 서비스 URL이 `http://myservice.search.windows.net`인 경우 서비스 이름은 `myservice`입니다.
@@ -170,7 +170,7 @@ ms.locfileid: "53310250"
 
 낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다.
 
-다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Search용 Synonym(미리 보기) C# 자습서](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)에서 발췌한 것입니다.
+다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 합니다 [동의어 (미리 보기) C# Azure Search에 대 한 예제](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk)합니다.
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 

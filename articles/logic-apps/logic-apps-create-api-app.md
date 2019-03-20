@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895858"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -25,7 +25,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 * 고객이 서비스를 사용하여 전문적이거나 개인적인 작업을 관리할 수 있도록 지원합니다.
 * 서비스에 대한 범위, 검색 기능 및 사용을 확장합니다.
 
-기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/overview.md)에서 API를 호스팅할 수도 있습니다. 
+기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/overview.md)에서 API를 호스팅할 수도 있습니다. 
 
 사용자 지정 API가 논리 앱에서 작동하려면 API가 논리 앱 워크플로에서 특정 작업을 수행하는 [*동작*](./logic-apps-overview.md#logic-app-concepts)을 제공할 수 있습니다. 또한 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱 워크플로를 시작할 수도 있습니다. 이 항목에서는 API에서 제공할 동작에 따라 API에서 동작과 트리거를 빌드할 때 따라야 하는 일반적인 패턴에 대해 설명합니다.
 
@@ -41,11 +41,11 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](http://github.com/logicappsio) 또는 [블로그](https://aka.ms/logicappsblog)를 방문하세요.
+> 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](https://github.com/logicappsio) 또는 [블로그](https://aka.ms/logicappsblog)를 방문하세요.
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>사용자 지정 API는 사용자 지정 커넥터와 어떻게 다른가요?
 
-사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 또한 이러한 API 및 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 사용자 지정 API 및 커넥터를 빌드할 수 있습니다.
+사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 또한 이러한 API 및 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 사용자 지정 API 및 커넥터를 빌드할 수 있습니다.
 
 사용자 지정 API는 커넥터가 아닌 API를 호출할 수 있도록 하고, HTTP + Swagger, Azure SAPI Management 또는 App Services를 사용하여 호출할 수 있는 엔드포인트를 제공합니다. 사용자 지정 커넥터는 사용자 지정 API처럼 작동하지만 다음과 같은 특성도 있습니다.
 
@@ -63,7 +63,7 @@ Microsoft 인증에 대해 등록된 커넥터를 지정할 수도 있습니다.
 
 ## <a name="helpful-tools"></a>유용한 도구
 
-API 작업 및 매개 변수를 설명하는 [Swagger 문서](http://swagger.io/specification/)도 API에 있으면 사용자 지정 API가 논리 앱에서 가장 잘 작동합니다.
+API 작업 및 매개 변수를 설명하는 [Swagger 문서](https://swagger.io/specification/)도 API에 있으면 사용자 지정 API가 논리 앱에서 가장 잘 작동합니다.
 많은 라이브러리(예: [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle))에서 Swagger 파일을 자동으로 생성할 수 있습니다. 또한 Swagger 파일에 표시 이름, 속성 형식 등에 주석을 달려면 [TRex](https://github.com/nihaue/TRex)를 사용하여 Swagger 파일이 논리 앱에서 잘 작동하도록 할 수도 있습니다.
 
 <a name="actions"></a>
@@ -175,7 +175,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 | 요청에 `triggerState`가 있습니까? | API 응답 | 
 | -------------------------------- | -------------| 
-| 아니요 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
+| 아닙니다. | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
 | 예 | `triggerState`에 대한 `DateTime` 이후에 추가된 파일에 대한 서비스를 확인합니다. | 
 ||| 
 

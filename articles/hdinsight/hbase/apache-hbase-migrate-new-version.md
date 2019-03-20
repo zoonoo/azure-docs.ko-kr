@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650106"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226830"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -199,15 +199,21 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
     ![Ambari에서 컨테이너 이름을 변경함](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. 변경 내용을 저장합니다.
-9. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
-10. 애플리케이션이 새 클러스터를 가리키도록 합니다.
+8. **기록 향상 된 기능을 사용 하 여 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 기록 향상 된 기능을 사용 하 여 HBase 클러스터에만 필요 합니다.**
+   
+   원본 클러스터의 컨테이너를 가리키도록 hbase.rootdir 경로 변경 합니다.
+
+    ![Ambari에서 hbase rootdir에 대 한 컨테이너 이름을 변경 함](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. 변경 내용을 저장합니다.
+10. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
+11. 애플리케이션이 새 클러스터를 가리키도록 합니다.
 
     > [!NOTE]  
     > 업그레이드할 때 애플리케이션에 대한 고정 DNS가 변경됩니다. 이 DNS를 하드 코딩하는 대신, 도메인 이름의 DNS 설정에서 클러스터 이름을 가리키는 CNAME을 구성할 수 있습니다. 또 다른 옵션은 다시 배포하지 않고 업데이트할 수 있는 애플리케이션에 대한 구성 파일을 사용하는 것입니다.
 
-11. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
-12. 새 클러스터가 만족스러운 경우 원래 클러스터를 삭제합니다.
+12. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
+13. 새 클러스터가 만족스러운 경우 원래 클러스터를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

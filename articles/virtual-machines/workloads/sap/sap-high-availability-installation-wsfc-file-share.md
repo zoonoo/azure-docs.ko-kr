@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997370"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -48,7 +48,7 @@ ms.locfileid: "34658658"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -203,7 +203,7 @@ ms.locfileid: "34658658"
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
+* [아키텍처 가이드: 파일 공유를 사용 하 여 SAP ASCS/SCS 인스턴스에 Windows 장애 조치 클러스터에서 클러스터][sap-high-availability-guide-wsfc-file-share]
 
 * [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 Azure 인프라의 SAP 고가용성 준비][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -211,7 +211,7 @@ SAP에서 다음 실행 파일 및 DLL 파일이 필요합니다.
 * SAP SWPM(Software Provisioning Manager) 설치 도구 버전 SPS21 이상.
 * 새 SAP 클러스터 리소스 DLL이 포함된 최신 NTCLUST.SAR 아카이브를 다운로드합니다. 새로운 SAP 클러스터 DLL은 Windows Server 장애 조치(failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 고가용성을 지원합니다.
 
-  새로운 SAP 클러스터 리소스 DLL에 대한 자세한 내용은 [새 SAP 클러스터 리소스 DLL 사용 가능!][sap-blog-new-sap-cluster-resource-dll] 블로그를 확인하세요.
+  새 SAP 클러스터 리소스 DLL에 대 한 자세한 내용은이 블로그를 참조 하세요. [새 SAP 클러스터 리소스 DLL은 사용할 수 있습니다. ][sap-blog-new-sap-cluster-resource-dll].
 
 설정은 사용하는 DBMS(데이터베이스 관리 시스템)에 따라 다르므로 DBMS 설정에 대해서는 설명하지 않습니다. 그러나 다양한 DBMS 공급업체가 Azure에 대해 지원하는 기능을 통해 DBMS의 고가용성 문제가 해결된다고 가정합니다. 그러한 기능에는 SQL Server용 데이터베이스 미러링 또는 AlwaysOn, Oracle 데이터베이스용 Oracle Data Guard가 있습니다. 이 문서에서 사용하는 시나리오에서는 DBMS에 대해 추가 보호를 적용하지 않았습니다.
 
@@ -585,6 +585,6 @@ ASCS/SCS 클러스터의 *두* 노드에 ERS(Enqueue Replication Server) 인스�
 
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
 
-* [응용 프로그램 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [애플리케이션 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
 
 * [Windows Server 2016 저장소의 새로운 기능][new-in-win-2016-storage]

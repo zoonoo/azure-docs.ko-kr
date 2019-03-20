@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: aa9d03e40880dbc856045840499dba43b9d1aba9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201775"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -93,7 +93,7 @@ Visual Studio에서 Azure Portal에 연결하려면,
 
 1. 서버 탐색기에서로 이동 **Azure** > **HDInsight** 클러스터를 선택 합니다.
 
-2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 **Azure Portal에서 클러스터 관리**합니다.
+2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 **Azure portal에서 클러스터 관리**합니다.
 
 질문 하 Visual Studio에서 피드백을 제공 합니다.
 
@@ -275,5 +275,5 @@ Hive 작업을 보려면,
 * [HDInsight에서 Hadoop Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Apache Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 Apache Hadoop 작업 제출](submit-apache-hadoop-jobs-programmatically.md)
-* [HDInsight에서 Apache Hadoop으로 Twitter 데이터 분석](../hdinsight-analyze-twitter-data.md)
+* [HDInsight에서 Apache Hadoop으로 Twitter 데이터 분석](../hdinsight-analyze-twitter-data-linux.md)
 

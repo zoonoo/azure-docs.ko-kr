@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106562"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
@@ -144,21 +144,39 @@ App Service 정보를 확인하려면 구독에서 App Service를 사용하도�
 
 1. 웹 애플리케이션을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
 
-  - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
-  - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.
-  - **사용할 수 없는 평가**: 오류로 인해 실행하지 못한 평가 목록 또는 특정 App Service와 관련이 없는 권장 사항입니다.
+   - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
+   - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.
+   - **사용할 수 없는 평가**: 오류로 인해 실행하지 못한 평가 목록 또는 특정 App Service와 관련이 없는 권장 사항입니다.
 
-  **권장 사항**에는 선택한 웹 애플리케이션에 대한 권장 사항 목록과 각 권장 사항의 심각도가 표시됩니다.
+   **권장 사항**에는 선택한 웹 애플리케이션에 대한 권장 사항 목록과 각 권장 사항의 심각도가 표시됩니다.
 
-  ![App Services 권장 사항](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![App Services 권장 사항](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. 권장 사항을 선택하여 권장 사항에 대한 설명, 비정상 리소스, 정상 리소스, 검사되지 않은 리소스 목록을 확인합니다.
 
- - **통과된 평가** 열에는 통과된 평가의 목록이 나와 있습니다.  이러한 평가의 심각도는 항상 녹색입니다.
+   - **통과된 평가** 열에는 통과된 평가의 목록이 나와 있습니다.  이러한 평가의 심각도는 항상 녹색입니다.
 
- -  평가에 대한 설명, 비정상 및 정상 리소스 목록 및 검사되지 않은 리소스 목록에서 통과된 평가를 선택합니다. 비정상 리소스에 대한 탭이 있지만 평가를 통과하기 때문에 이 목록은 항상 비어 있습니다.
+   - 평가에 대한 설명, 비정상 및 정상 리소스 목록 및 검사되지 않은 리소스 목록에서 통과된 평가를 선택합니다. 비정상 리소스에 대한 탭이 있지만 평가를 통과하기 때문에 이 목록은 항상 비어 있습니다.
 
-    ![App Service 수정](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service 수정](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+Security Center는 사용자에게 확장 집합이 있는지를 자동으로 검색한 후 이러한 확장 집합에 Microsoft Monitoring Agent를 설치하도록 권장합니다. 
+
+Microsoft Monitoring Agent를 설치하려면 
+
+1. 권장 사항 **가상 머신 확장 집합에 모니터링 에이전트 설치**를 선택합니다. 모니터링되지 않는 확장 집합의 목록이 표시됩니다.
+2. 비정상 확장 집합을 선택합니다. 지침에 따라 기존의 채워진 작업 영역을 사용하여 모니터링 에이전트를 설치하거나 새로 만듭니다. 작업 영역 [가격 책정 계층](security-center-pricing.md)을 설정하지 않은 경우 설정합니다.
+
+   ![MMS 설치](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Microsoft Monitoring Agent를 자동으로 설치하도록 새 확장 집합을 설정하려면
+1. Azure Policy로 이동한 후 **정의**를 클릭합니다.
+2. 정책 **Windows VM 확장 집합용 Log Analytics 에이전트 배포**를 검색한 후 클릭합니다.
+3. **할당**을 클릭합니다.
+4. **범위** 및 **Log Analytics 작업 영역**을 설정하고 **할당**을 클릭합니다.
+
+Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 설정하려는 경우 Azure Policy에서 **수정**으로 이동한 후 기존 확장 집합에 기존 정책을 적용합니다.
 
 
 ## <a name="compute-and-app-recommendations"></a>컴퓨팅 및 앱 권장 사항
@@ -208,7 +226,11 @@ App Service 정보를 확인하려면 구독에서 App Service를 사용하도�
 |컴퓨터|30|가상 머신에 취약성 평가 솔루션 설치|가상 머신에 취약성 평가 솔루션 설치|
 |컴퓨터|1|새 Azure Resource Manager 리소스로 가상 머신 마이그레이션|가상 머신에 Azure Resource Manager를 사용하여 더 강력한 액세스 제어(RBAC), 더욱 효율적인 감사, Resource Manager 기반 배포 및 관리, 관리 ID 액세스, 비밀용 Key Vault 액세스, Azure AD 기반 인증, 더욱 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원과 같이 향상된 보안 기능을 제공합니다. |
 |컴퓨터|30|취약성 평가 솔루션을 사용하여 취약성 수정|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
-
+|가상 머신 크기 집합 |4|Virtual Machine Scale Sets에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.|
+|가상 머신 크기 집합|35|가상 머신 확장 집합의 보안 구성에서 취약성 수정|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. |
+|가상 머신 크기 집합|5|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류 수정|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류를 수정하여 위협 및 취약성으로부터 보호합니다. |
+|가상 머신 크기 집합|10|가상 머신 확장 집합에 엔드포인트 보호 솔루션 설치|가상 머신 확장 집합에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다. |
+|가상 머신 크기 집합|40|가상 머신 확장 집합에 시스템 업데이트 설치|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신 확장 집합을 보호합니다. |
  
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f682e0795f8f732805e817e4498cc486bbb2c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6376a479d2e6969505310de0e8e73e74738a04c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>자습서: SCC LifeCycle과 Azure Active Directory 통합
 
@@ -117,6 +117,7 @@ SCC LifeCycle에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|--|
     | `https://bs1.scc.com/<entity>`|
@@ -135,8 +136,8 @@ SCC LifeCycle에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 1. **SCC LifeCycle** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [SCC LifeCycle 지원 팀](mailto:lifecycle.support@scc.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
-  >[!NOTE]
-  >Single Sign-On은 SCC LifeCycle 지원팀에서 사용할 수 있어야 합니다.
+   >[!NOTE]
+   >Single Sign-On은 SCC LifeCycle 지원팀에서 사용할 수 있어야 합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010498"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -183,7 +183,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
 1. 추가를 클릭합니다.
-1. 이름을 입력하고 애플리케이션 유형 "웹앱/API"를 선택한 다음, 로그온 URL(예: http://localhost))을 입력하고 만들기를 클릭
+1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예를 들어 `http://localhost`) 만들기를 클릭 합니다.
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭

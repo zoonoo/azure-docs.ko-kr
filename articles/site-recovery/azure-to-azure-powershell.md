@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a37cfb19ab63335f120383a20753bf2b8333bd96
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448928"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869414"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -591,4 +591,4 @@ Errors           : {}
 장애 조치(failover) 후에 원래 지역으로 돌아갈 준비가 되면 Update-AzureRmRecoveryServicesAsrProtectionDirection cmdlet을 사용하여 복제 보호된 항목에 대한 역방향 복제를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)에서 PowerShell을 통한 복구 계획 만들기 및 복구 계획의 장애 조치(failover) 테스트 등과 같은 다른 작업을 수행하는 방법을 알아봅니다.
+보기는 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) 하려면 복구 계획 만들기 및 PowerShell 통해 복구 계획의 장애 조치 테스트 등의 다른 작업을 수행 하는 방법을 알아봅니다.

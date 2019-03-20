@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200653"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Apache Giraph 설치 및 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "55978871"
 
 * [HDInsight Hadoop 클러스터에 Apache Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+* [스크립트 동작을 사용 하 여 HDInsight 클러스터를 사용자 지정] [hdinsight-클러스터-사용자 지정]: 스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정에 대 한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-giraph"></a>Giraph 정의
@@ -48,7 +48,7 @@ ms.locfileid: "55978871"
 
     |자산|값|  
     |---|---|  
-    |Name|스크립트 작업의 이름을 지정합니다. 예: **Install Giraph**|
+    |이름|스크립트 작업의 이름을 지정합니다. 예: **Install Giraph**|
     |스크립트 URI|클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
     |노드 유형|사용자 지정 스크립트가 실행되는 노드를 지정합니다. **모든 노드**, **헤드 노드만** 또는 **작업자 노드만**을 선택할 수 있습니다.
     |매개 변수|스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.|  
@@ -150,18 +150,17 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-azure-powershell"></a>Azure PowerShell을 사용하여 Giraph 설치
-[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
+[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="install-giraph-using-net-sdk"></a>.NET SDK을 사용하여 Giraph 설치
-[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요. 샘플은 .NET SDK를 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
+[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. 샘플은 .NET SDK를 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [HDInsight Hadoop 클러스터에 Apache Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+* [스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정에 대 한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
-* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]: Spark를 설치에 대한 스크립트 작업 샘플입니다.
-* [HDInsight 클러스터에 Apache Solr 설치](hdinsight-hadoop-solr-install.md): Solr 설치에 대한 스크립트 작업 샘플입니다.
+* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
@@ -169,4 +168,3 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

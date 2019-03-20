@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122720"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구 
 
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **Azure Portal에 액세스하려면 MFA 필요**를 입력합니다.
 
-    ![Name](./media/app-based-mfa/05.png)
+    ![이름](./media/app-based-mfa/05.png)
 
 6. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -164,7 +164,7 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 - 사용자로 **Isabella Simonsen** 
 - 클라우드 앱으로 **Microsoft Azure 관리**
 
- **What If**를 클릭하면 다음 내용을 보여주는 시뮬레이션 보고서가 작성됩니다.
+  **What If**를 클릭하면 다음 내용을 보여주는 시뮬레이션 보고서가 작성됩니다.
 
 - **적용되는 정책** 아래에 **Azure Portal에 액세스하려면 MFA 필요** 
 - **권한 부여 컨트롤**로 **Multi-Factor Authentication 필요**.

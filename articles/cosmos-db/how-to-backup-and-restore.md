@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996885"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Azure Cosmos DB의 백업에서 데이터 복원 
 
-데이터베이스 또는 컨테이너를 실수로 삭제한 경우, [지원 티켓을 제출]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하거나 [Azure 지원에 문의]( https://azure.microsoft.com/support/options/)하여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **Standard**, **Developer 및 상위 플랜같은 지정된 플랜에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요. 
+데이터베이스 또는 컨테이너를 실수로 삭제한 경우, [지원 티켓을 제출]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하거나 [Azure 지원에 문의]( https://azure.microsoft.com/support/options/)하여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원만 제공 됩니다 선택한 계획에 대 한 같은 **표준**, **개발자**, 및 해당 이상 계획 합니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요. 
 
 백업의 특정 스냅숏을 복원하려면 Azure Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 
@@ -33,6 +33,11 @@ ms.locfileid: "55455935"
 * 하나 이상의 데이터베이스가 삭제된 경우 Azure Cosmos 계정뿐 아니라 Azure Cosmos 데이터베이스 이름을 제공하고 동일한 이름의 새 데이터베이스가 있는지 여부를 지정해야 합니다.
 
 * 하나 이상의 컨테이너가 삭제된 경우 Azure Cosmos 계정 이름, 데이터베이스 이름 및 컨테이너 이름을 제공해야 합니다. 또한 같은 이름의 컨테이너가 존재하는지 여부를 지정합니다.
+
+* 실수로 삭제 되거나 데이터 손상 있어야 하는 경우 문의 [Azure 지원](https://azure.microsoft.com/support/options/) 8 시간 이내 Azure Cosmos DB 팀 도움을 줄 수 있도록 하는 데이터 백업에서 복원 합니다.
+  
+  * 데이터베이스 또는 컨테이너를 실수로 삭제 한 경우에 Sev B 또는 심각도 C Azure 지원 사례를 엽니다. 
+  * 실수로 삭제 되거나 손상 된 컨테이너 내에서 일부 문서 있을 경우 심각도 A 지원 사례를 엽니다. 
 
 데이터 손상이 발생하는 경우 및 컨테이너 내 문서가 수정되거나 삭제되면 **가능한 한 빨리 컨테이너를 삭제**합니다. 컨테이너를 삭제하면 Azure Cosmos DB가 백업을 덮어쓰는 것을 방지할 수 있습니다. 어떠한 이유로 삭제할 수 없는 경우에는 가능한 한 빨리 티켓을 제출해야 합니다. Azure Cosmos 계정 이름, 데이터베이스 이름, 컬렉션 이름 외에도 데이터를 복원할 수 있는 시점을 지정해야 합니다. 가능한 한 정확하게 해야 해당 시점에 가장 적합한 백업을 결정할 수 있습니다. 또한 시간을 UTC로 지정하는 것도 중요합니다. 
 

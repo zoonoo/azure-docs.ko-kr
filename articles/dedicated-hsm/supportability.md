@@ -2,7 +2,7 @@
 title: 지원 가능성 - Azure Dedicated HSM | Microsoft Docs
 description: 다양한 시나리오에서 Azure Dedicated HSM의 지원 옵션 및 책임 영역
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114487"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225555"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure Dedicated HSM 지원 가능성
 
 Azure Dedicated HSM 서비스는 고객이 완벽한 관리 제어 및 관리 책임을 통해 단독으로 사용할 수 있는 물리적 디바이스를 제공합니다. 사용 가능한 디바이스는 [Gemalto SafeNet Luna 7 HSM 모델 A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/)입니다. 일단 고객이 프로비전하면 Microsoft에는 모니터링 역할을 통한 물리적 직렬 포트 연결을 제외하고는 관리 액세스 권한이 없습니다.  액세스 권한이 없으면 Microsoft에서 소프트웨어 수준 유지 관리 또는 시스템 관리 책임을 계속 수행할 수가 없습니다. 따라서 고객이 일반적인 운영 활동을 수행해야 합니다.
 고객은 HSM을 사용하는 애플리케이션을 전적으로 책임을 지며, 지원 또는 컨설팅 기반 지원을 받으려면 Gemalto와 협력해야 합니다. 운영 관리에 대한 고객 소유권의 범위로 인해 Microsoft는 이 서비스에 대해 어떠한 종류의 고가용성도 보장할 수 없습니다. 따라서 고객이 애플리케이션에서 고가용성을 달성하도록 제대로 구성해야 합니다. Microsoft는 디바이스 상태 및 네트워크 연결을 모니터링하고 유지합니다.
 
+## <a name="getting-support"></a>지원 받기
+
+고객 전용 HSM에 대 한 지원은 Microsoft 및 Gemalto 간의 협력 합니다. 하드웨어 문제 또는 네트워크 경로 문제를 Microsoft에서 해결 될 예정 및 구성, 소프트웨어, 펌웨어 및 응용 프로그램 개발을 같은 실제 HSM을 사용 하 여 관련이 Gemalto에서 해결 될 예정입니다. 이 지원 모델에는 가장 효과적인 지원 가장 빠른 경로 확인합니다. 특정 문제를 사용 하 여 확실 하지 않은의 경우 microsoft 지원 요청을 발생 시키고 하면 적절 하 게 이동 되도록 합니다. Microsoft는 모든 지원 시나리오에 참여 상태를 유지 하 고 고객에 대 한 최상의 지원 환경을 위해 노력 합니다.
+
 ## <a name="gemalto-support"></a>Gemalto 지원
 
-Dedicated HSM 서비스를 사용하는 고객은 Gemalto와 지원 계약을 맺어야 합니다. 지원 계약의 일환으로, 고객은 Gemalto로부터 직접 지침, 지원 및 서비스를 받습니다. Gemalto에서 지원하는 메커니즘은 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 이루어집니다.
-Gemalto는 HSM을 사용하는 데 필요한 모든 소프트웨어 구성 요소(예: 클라이언트 액세스 소프트웨어 및 SDK)를 제공합니다. 또한 SafeNet Luna 7 HSM을 사용하는 애플리케이션을 설계, 개발 및 배포할 수 있도록 구성을 지원하고 컨설팅 서비스를 제공합니다.
+전용 HSM 서비스를 사용 하 여 고객에 게 해당 Plus 지원 플랜에 따라 Gemalto에서 지원에 적합 합니다. Gemalto 지원 포털을 사용 하 여 등록 프로세스를 방금 필요 합니다. 전용 HSM 서비스에 대 한 액세스 권한을 얻으려고 Microsoft 사용 하 여 초기 계약의 일부로 고객 ID 및 지침은 제공 됩니다. Gemalto에서 지원하는 메커니즘은 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 이루어집니다.
+메모의 핵심은 고객 지원 포털에서 다운로드를 통해 모든 소프트웨어 및 설명서 (예: 클라이언트 액세스 소프트웨어 및 Sdk) HSM을 사용 하는 데 필요한 Gemalto는 제공입니다.
 
 ### <a name="software-components"></a>소프트웨어 구성 요소
 
@@ -51,7 +55,7 @@ HSM을 사용하는 사용자 지정 애플리케이션의 설계, 개발 및 �
 
 ## <a name="microsoft-support"></a>Microsoft 지원
 
-Microsoft는 단일 고객의 독점적 사용을 위해 물리적 HSM 디바이스에 연결할 수 있고 작동 상태에 있도록 보장해야 합니다. 고객은 디바이스 운영 및 관리를 담당합니다. Microsoft의 책임은 다음과 같습니다.
+Microsoft는 물리적 HSM 장치는 네트워크 액세스 가능 하 고 단일 고객 전용 사용에 대 한 작업 상태를 확인 합니다. 고객은 구성, 관리 및 장치 관리를 담당합니다. Microsoft의 책임은 다음과 같습니다.
 
 * 디바이스에 전원 및 냉각 디바이스가 있는지 확인합니다.
 * HSM의 작동 상태를 유지합니다(예: 고장/수리 시나리오).
@@ -72,7 +76,7 @@ Dedicated HSM 서비스에 대한 고객의 등록이 승인되면 HSM 리소스
 
 ### <a name="hardware-issues"></a>하드웨어 문제
 
-HSM 디바이스에는 중복 및 교체 가능한 전원 공급 디바이스와 팬 냉각 디바이스가 있습니다. 팬 냉각 디바이스를 제거하면 디바이스의 전원을 켤 때 제거된 경우에도 변조 이벤트가 발생합니다. 구성 요소 오류가 발생하면 Microsoft에서 고객의 서비스 가용성에 대한 중단과 위험을 최소화하는 방식으로 구성 요소 수준 문제를 해결하는 데 가장 적절한 프로세스를 사용합니다.
+HSM 디바이스에는 중복 및 교체 가능한 전원 공급 디바이스와 팬 냉각 디바이스가 있습니다.  그러나 팬 단위 분리 조작 이벤트를 유발 됩니다. 구성 요소 오류가 발생하면 Microsoft에서 고객의 서비스 가용성에 대한 중단과 위험을 최소화하는 방식으로 구성 요소 수준 문제를 해결하는 데 가장 적절한 프로세스를 사용합니다.
 디바이스에 더 심각한 오류가 발생하면 해당 디바이스가 사용 가능한 풀의 새 디바이스로 교체됩니다. 고객이 기존 HA 쌍에 새 디바이스를 포함하기만 하면 동기화하고 전체 작동 상태로 되돌릴 수 있습니다. 디바이스에 오류가 발생하면 데이터 센터의 현장에서 해당 데이터 관련 디바이스를 제거하고 단편화합니다. 섀시만 재활용을 위해 Gemalto에 반환됩니다.
 
 

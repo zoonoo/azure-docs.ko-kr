@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>자습서: Azure Active Directory와 Zscaler Three 통합
 
@@ -159,43 +159,43 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Zscaler Three Single Sign-On 구성
 
-9. 다른 웹 브라우저 창에서 Zscaler Three 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Zscaler Three 회사 사이트에 관리자로 로그인합니다.
 
-10. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
+1. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
    
-    ![관리](./media/zscaler-three-tutorial/ic800206.png "관리")
+   ![관리](./media/zscaler-three-tutorial/ic800206.png "관리")
 
-    a. 인증 형식에서 **SAML**을 선택합니다.
+   a. 인증 형식에서 **SAML**을 선택합니다.
 
-    b. **SAML 구성**을 클릭합니다.
+   b. **SAML 구성**을 클릭합니다.
 
-11. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
+1. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
             
-    ![사용자 및 인증 관리](./media/zscaler-three-tutorial/ic800208.png "사용자 및 인증 관리")
+   ![사용자 및 인증 관리](./media/zscaler-three-tutorial/ic800208.png "사용자 및 인증 관리")
     
-    a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
+   a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
 
-    b. **로그인 이름 특성** 텍스트 상자에 **NameID**을 입력합니다.
+   b. **로그인 이름 특성** 텍스트 상자에 **NameID**을 입력합니다.
 
-    다. **업로드**를 클릭하여 Azure Portal에서 다운로드한 Azure SAML 서명 인증서를 **공용 SSL 인증서**에 업로드합니다.
+   다. **업로드**를 클릭하여 Azure Portal에서 다운로드한 Azure SAML 서명 인증서를 **공용 SSL 인증서**에 업로드합니다.
 
-    d. **SAML 자동 프로비전 사용**을 선택/해제합니다.
+   d. **SAML 자동 프로비전 사용**을 선택/해제합니다.
 
-    e. displayName 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **사용자 표시 이름 특성** 텍스트 상자에 **displayName**을 입력합니다.
+   e. displayName 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **사용자 표시 이름 특성** 텍스트 상자에 **displayName**을 입력합니다.
 
-    f. memberOf 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **그룹 이름 특성** 텍스트 상자에 **memberOf**를 입력합니다.
+   f. memberOf 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **그룹 이름 특성** 텍스트 상자에 **memberOf**를 입력합니다.
 
-    g. 부서 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **부서 이름 특성** 텍스트 상자에 **부서**를 입력합니다.
+   g. 부서 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **부서 이름 특성** 텍스트 상자에 **부서**를 입력합니다.
 
-    i. **저장**을 클릭합니다.
+   i. **저장**을 클릭합니다.
 
-12. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![관리](./media/zscaler-three-tutorial/ic800207.png)
+   ![관리](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. 왼쪽 아래 근처에 있는 **활성화** 메뉴를 마우스로 가리킵니다.
+   a. 왼쪽 아래 근처에 있는 **활성화** 메뉴를 마우스로 가리킵니다.
 
-    b. **활성화**를 클릭합니다.
+   b. **활성화**를 클릭합니다.
 
 ## <a name="configuring-proxy-settings"></a>프록시 설정 구성
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer에서 프록시 설정을 구성하려면
@@ -246,7 +246,7 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.

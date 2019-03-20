@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755155"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316492"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
 
@@ -37,7 +37,7 @@ Azure SQL은 Microsoft SQL Server에서 빌드되고 가용성이 높고 성능�
 Azure에는 SQL Server 워크로드를 호스트하는 두 가지 옵션이 제공됩니다. Database as a Service에 해당하는 Azure SQL Database와 VM(Virtual Machines)의 SQL Server입니다. Azure SQL Database가 새로운 클라우드 기반 애플리케이션을 위해 클라우드 서비스가 제공하는 비용 절감과 성능 최적화를 활용하는 최선의 방법이라는 점을 제외하고 이 두 옵션간에 차이점을 찾을 수 없습니다. 클라우드로 온-프레미스 애플리케이션을 마이그레이션 또는 확장하려는 경우 Azure 가상 머신에서 SQL server가 더 적합할 수 있습니다. 이 문서에서 작업을 더 간단하게 유지하기 위해, Azure SQL Database를 만들어 보겠습니다.
 
 ## <a id="ODBC"></a>데이터 액세스 기술: ODBC 및 OLE DB
-Azure SQL DB에 연결할 때는 차이점이 없으며 현재, 데이터베이스에 연결하는 방법에는 ODBC(Open Database Connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다.
+Azure SQL DB에 연결할 때는 차이점이 없으며 현재, 데이터베이스에 연결하는 방법에는 ODBC(Open Database Connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다.
 
 ## <a id="Create"></a>1단계:  Azure SQL Database 만들기
 샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-single-database-get-started.md) 를 참조하세요.  또는 [짧은 2분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
@@ -78,7 +78,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요. 
 
 ## <a id="Linux"></a>5단계: Linux C/C++ 애플리케이션에서 연결
-아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 애플리케이션도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 머신](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다.
+아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 애플리케이션도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 머신](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다.
 
 이 자습서에서는 Ubuntu 16.04 Linux 배포판이 설치되어 있다고 가정합니다. 여기 나온 단계는 Ubuntu 15.10, Red Hat 6 및 Red Hat 7에도 적용 해야 합니다.
 

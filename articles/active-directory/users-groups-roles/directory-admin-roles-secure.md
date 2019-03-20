@@ -6,7 +6,7 @@ keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01bd205ad26169ab0a21345a2246eb12dca6645
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180894"
+ms.locfileid: "58201877"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -44,11 +44,12 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 대부분의 조직에서 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자는 조직의 중요한 데이터에 액세스하기 위해 인프라 시스템(예: Active Directory 및 Azure Active Directory)에 대한 권한 있는 액세스에 집중하고 있습니다. 
 
-인터넷에서 SaaS 앱 및 개인 디바이스의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다. 
+인터넷에서 SaaS 앱 및 개인 디바이스의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다.
 
 권한 있는 관리 계정은 새로운 이 "보안 경계"를 효과적으로 제어합니다. 환경이 온-프레미스, 클라우드 또는 하이브리드 온-프레미스 및 클라우드 호스팅 서비스인지 여부에 관계없이 권한 있는 액세스를 보호하는 것이 중요합니다. 결정된 악의적 사용자에 대한 관리 액세스를 보호하려면 조직의 시스템을 위험으로부터 격리하기 위한 완벽하고 신중한 방법을 사용해야 합니다. 
 
 권한 있는 액세스를 보호하기 위해 변경해야 하는 요소는 다음과 같습니다.
+
 * 프로세스, 관리 사례 및 기술 자료 관리
 * 호스트 방어, 계정 보호 및 ID 관리와 같은 기술 구성 요소
 
@@ -75,7 +76,7 @@ does the article really start here?-->
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>스테이지 1: 즉시 수행하도록 권장되는 중요한 항목
 
-![1단계](./media/directory-admin-roles-secure/stage-one.png)
+![먼저 수행할 작업에 중요 한 항목 1 단계](./media/directory-admin-roles-secure/stage-one.png)
 
 로드맵의 1단계는 빠르고 쉽게 구현할 수 있는 중요한 작업에 집중합니다. 기본 수준의 권한 있는 보안 액세스를 보장하기 위해 처음 24~48시간 내에 이러한 몇 가지 항목을 즉시 수행하는 것이 좋습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
@@ -116,17 +117,17 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 관리자 권한으로 기존 개인 사용자의 계정에 로그인하거나 활성화할 수 없으므로 Azure AD 테넌트의 관리에서 실수로 잠글 수 있는 상황이 발생하지 않도록 합니다. 예를 들어 조직이 온-프레미스 ID 공급자와 페더레이션되는 경우 해당 ID 공급자를 사용할 수 없으므로 사용자가 온-프레미스에 로그인할 수 없습니다. 테넌트에 둘 이상의 응급 액세스 계정을 저장하여 우발적인 관리 액세스 부족에 따른 영향을 완화할 수 있습니다.
 
-응급 액세스 계정을 사용하면 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있습니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다. 조직에서는 응급 계정의 사용을 통제하고 필요한 시간까지만 허용하는 목표를 보장해야 합니다. 
+응급 액세스 계정을 사용하면 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있습니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다. 조직에서는 응급 계정의 사용을 통제하고 필요한 시간까지만 허용하는 목표를 보장해야 합니다.
 
 전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. *.onmicrosoft.com 도메인을 사용하는 클라우드 전용 계정("비상" 응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](directory-emergency-access.md)를 참조하세요.
 
-#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록 
+#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
 로그인 시 Azure AD 관리자 역할인 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>스테이지 2: 가장 자주 사용되는 공격 기법에 대한 완화
 
-![2단계](./media/directory-admin-roles-secure/stage-two.png)
+![2 단계 Mitigate 자주 사용 되는 공격](./media/directory-admin-roles-secure/stage-two.png)
 
 로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현할 수 있습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
@@ -144,7 +145,7 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 * 사용자에게 관리 액세스 권한에 대한 비즈니스상의 사유를 요청합니다.
 * 필요하지 않은 개인 및 서비스에 대한 관리자 액세스 권한을 제거합니다.
 
-#### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별 
+#### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별
 
 조직의 초기 전역 관리자가 Azure AD를 사용하기 시작할 때 기존 Microsoft 계정 자격 증명을 다시 사용하는 경우가 있습니다. 이러한 Microsoft 계정은 개별 클라우드 기반 계정 또는 동기화된 계정으로 대체되어야 합니다. 
 
@@ -200,18 +201,17 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기�
 
 #### <a name="complete-an-inventory-of-subscriptions"></a>구독의 인벤토리 완성
 
-엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 애플리케이션을 호스팅하는 조직의 구독을 식별합니다. 
+엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 애플리케이션을 호스팅하는 조직의 구독을 식별합니다.
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
 
-Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직 구독에 대한 관리자 계정으로 사용하면 안됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거하고 Active Directory 직장 또는 학교 계정(예: chris@contoso.com)으로 바꿉니다.
+Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직 구독에 대한 관리자 계정으로 사용하면 안됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거 하 고 Azure Active Directory를 바꿉니다 (예를 들어 chris@contoso.com) 회사 또는 학교 계정.
 
 #### <a name="monitor-azure-activity"></a>Azure 활동 모니터링
 
 Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합니다. 즉 누가 어떤 리소스를 생성, 업데이트, 삭제했는지와 언제 이러한 이벤트가 발생했는지에 대한 정보를 제공합니다. 자세한 내용은 [Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신](../../azure-monitor/platform/quick-audit-notify-action-subscription.md)을 참조하세요.
 
-
-### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Azure AD를 통해 다른 클라우드 앱에 대한 액세스를 관리하는 조직을 위한 추가 단계 
+### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Azure AD를 통해 다른 클라우드 앱에 대한 액세스를 관리하는 조직을 위한 추가 단계
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
@@ -220,7 +220,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>스테이지 3: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
 
-![3단계](./media/directory-admin-roles-secure/stage-three.png)
+![3 단계 제어할 관리자 활동](./media/directory-admin-roles-secure/stage-three.png)
 
 3단계는 2단계의 완화를 기반으로 하며, 약 1~3개월 내에 구현되도록 설계되었습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 구성 요소는 다음과 같습니다.
 
@@ -322,8 +322,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>스테이지 4: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
 
-
-![4단계](./media/directory-admin-roles-secure/stage-four.png)
+![4 단계 보안 태세를 채택 합니다.](./media/directory-admin-roles-secure/stage-four.png)
 
 로드맵의 4단계는 3단계의 가시성을 기반으로 하며, 6개월 정도에 걸쳐 구현되도록 설계되었습니다. 로드맵을 완성하면 현재 알려져 있고 사용 가능한 잠재적 공격으로부터 강력한 권한 있는 액세스 보호를 개발할 수 있습니다. 그러나 보안 위협은 지속적으로 진화하고 변화하므로 비용을 높이고 환경을 대상으로 하는 악의적 사용자의 성공률을 줄이는 데 초점을 맞춘 지속적인 프로세스로 보안을 확인하는 것이 좋습니다.
 
@@ -368,7 +367,7 @@ Office 365를 사용하는 경우
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"비상": 긴급 상황에서 수행할 작업
 
-![응급](./media/directory-admin-roles-secure/emergency.jpeg)
+![긴급 중단 투명 액세스에 대 한 계정](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. 주요 관리자와 보안 책임자에게 인시던트와 관련된 정보를 알립니다.
 
@@ -390,51 +389,41 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: 권한 있는 액세스 보안과 관련하여 자주 받는 일반적인 질문  
 
-
 **Q:** 보안 액세스 구성 요소를 아직 구현하지 않은 경우 어떻게 해야 할까요?
 
 **답변:** 둘 이상의 비상 계정을 정의하고, 권한 있는 관리자 계정에 MFA를 할당하고, 사용자 계정과 전역 관리자 계정을 분리합니다.
-
 
 **Q:** 위반이 발생되면 가장 먼저 해결해야 하는 문제는 무엇인가요?
 
 **답변:** 많이 노출되는 개인에게 가장 강력한 인증을 요구해야 합니다.
 
-
 **Q:** 권한 있는 관리자가 비활성화되면 어떻게 되나요?
 
 **답변:** 항상 최신 상태로 유지되는 전역 관리자 계정을 만듭니다.
-
 
 **Q:** 전역 관리자 하나만 남아 있지만 연결할 수 없는 경우 어떻게 되나요? 
 
 **답변:** 비상 계정 중 하나를 사용하여 즉각적인 권한 있는 액세스를 얻습니다.
 
-
 **Q:** 조직 내에서 관리자를 보호하려면 어떻게 해야 할까요?
 
 **답변:** 관리자는 항상 "권한이 없는" 표준 사용자로 일상적인 업무를 수행해야 합니다.
- 
 
 **Q:** Azure AD 내에서 관리자 계정을 만드는 가장 좋은 방법은 무엇인가요?
 
 **답변:** 특정 관리 작업에 대한 권한 있는 액세스를 예약합니다.
 
-
 **Q:** 영구 관리자 액세스를 줄이기 위한 도구는 무엇인가요?
 
 **답변:** PIM(Privileged Identity Management) 및 Azure AD 관리자 역할입니다.
 
-
 **Q:** Azure AD에 관리자 계정을 동기화할 때 Microsoft의 입장은 무엇인가요?
 
-**답변:** 계층 0 관리자 계정(AD 포리스트, 도메인 또는 도메인 컨트롤러 및 모든 자산에 대한 직접 또는 간접 관리 제어 권한이 있는 계정, 그룹 및 기타 자산 포함)은 온-프레미스 AD 계정에만 사용되며, 일반적으로 클라우드의 Azure AD에 대해 동기화됩니다. 
-
+**답변:** 계층 0 관리자 계정(AD 포리스트, 도메인 또는 도메인 컨트롤러 및 모든 자산에 대한 직접 또는 간접 관리 제어 권한이 있는 계정, 그룹 및 기타 자산 포함)은 온-프레미스 AD 계정에만 사용되며, 일반적으로 클라우드의 Azure AD에 대해 동기화됩니다.
 
 **Q:** 관리자가 포털에서 임의의 관리자 액세스 권한을 할당하지 못하게 하려면 어떻게 해야 할까요?
 
 **답변:** 모든 사용자와 대부분의 관리자에게 권한이 없는 계정을 사용합니다. 먼저 조직의 공간을 개발하여 권한이 부여되어야 하는 몇 개의 관리자 계정을 결정합니다. 그리고 새로 만든 관리 사용자를 모니터링합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -444,10 +433,8 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 * [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 
-### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
+### <a name="other-microsoft-online-services"></a>다른 Microsoft Online Services
 
 * [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 애플리케이션 관리 및 PC 관리 기능을 제공합니다.
 
 * [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
-
- 

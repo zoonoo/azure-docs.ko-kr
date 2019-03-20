@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077244"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -57,7 +57,7 @@ ms.locfileid: "56243147"
 구체적으로 자세히 살펴보겠습니다.
 
 |보안 요구 사항|Azure Cosmos DB의 보안 접근 방식|
-|---|---|---|
+|---|---|
 |네트워크 보안|IP 방화벽을 사용하는 것이 데이터베이스를 보호하기 위한 첫 번째 보호 계층입니다. Azure Cosmos DB는 인바운드 방화벽 지원을 위해 정책 중심 IP 기반 액세스 제어를 지원합니다. IP 기반 액세스 제어는 기존의 데이터베이스 시스템에서 사용된 방화벽 규칙과 유사하지만 승인된 컴퓨터 집합 또는 클라우드 서비스에서만 Azure Cosmos DB 데이터베이스 계정에 액세스할 수 있도록 확장되었습니다. <br><br>Azure Cosmos DB를 통해 특정 IP 주소(168.61.48.0), IP 범위(168.61.48.0/8), IP와 범위 조합을 사용하도록 할 수 있습니다. <br><br>이 허용된 목록 이외의 컴퓨터에서 보내는 모든 요청은 Azure Cosmos DB에서 차단됩니다. 승인된 컴퓨터 및 클라우드 서비스에서 보내는 요청은 리소스에 대한 액세스 제어를 부여 받기 위해 인증 과정을 완료해야 합니다.<br><br>자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.|
 |권한 부여|Azure Cosmos DB는 권한 부여를 위해 HMAC(해시 기반 메시지 인증 코드)를 사용합니다. <br><br>각 요청은 비밀 계정 키를 사용하여 해시되고, Azure Cosmos DB를 호출할 때마다 base-64로 인코드된 후속 해시가 전송됩니다. 요청의 유효성을 검사하기 위해 Azure Cosmos DB 서비스는 올바른 비밀 키와 속성을 사용하여 해시를 생성한 후 요청에 있는 값과 비교합니다. 두 값이 일치하면 작업이 성공적으로 인증되어 요청이 처리되고 그렇지 않은 경우 권한 부여 오류로 요청이 거부됩니다.<br><br>문서와 같은 리소스에 세분화된 액세스를 허용하는 [마스터 키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens)을 사용할 수 있습니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |사용자 및 사용 권한|계정에 마스터 키를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. 리소스 토큰은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 애플리케이션 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 애플리케이션 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|

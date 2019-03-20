@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188325"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
 ## <a name="overview"></a>개요
@@ -46,7 +46,7 @@ App Service Environment는 수평적 규모 확장에 대한 이상적인 플랫
 ## <a name="planning-the-topology"></a>토폴로지 계획
 분산된 앱 공간을 빌드하기 전에 미리 약간 정보가 있는 편이 좋습니다.
 
-* **앱의 사용자 지정 도메인:**  고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇인가요?  샘플 앱의 경우 사용자 지정 도메인 이름은 *www.scalableasedemo.com*
+* **앱의 사용자 지정 도메인:**  고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇인가요?  샘플 앱에 대 한 사용자 지정 도메인 이름은 `www.scalableasedemo.com`
 * **트래픽 관리자 도메인:**  도메인 이름은 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 선택해야 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 Traffic Manager에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
 * **앱 공간을 크기 조정하는 전략:**  애플리케이션 공간이 단일 Azure 지역의 여러 App Service Environment에 분산되나요?  여러 영역?  두 방법을 혼합 및 일치?  결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다.  예를 들어 100% 상태 비저장 애플리케이션의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다.  선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 애플리케이션 공간을 진정으로 구축할 수 있습니다.  이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
 * **App Service Environment에 대한 명명 규칙:**  각 App Service Environment에 고유한 이름이 필요합니다.  하나 또는 두 개의 App Service Environment 외에도 각 App Service Environment를 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다.  샘플 앱의 경우 간단한 명명 규칙을 사용했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
@@ -87,7 +87,7 @@ App Service Environment는 수평적 규모 확장에 대한 이상적인 플랫
 세 엔드포인트는 모두 *가중치* 매개 변수에 동일한 값(10)을 사용합니다.  그러면 Traffic Manager에서 세 가지 앱 인스턴스에 상대적으로 균일하게 고객 요청을 분산하게 됩니다. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Traffic Manager 도메인에서 앱의 사용자 지정 도메인 가리키기
-필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  즉, 샘플 앱의 경우 *scalable-ase-demo.trafficmanager.net*에서 *www.scalableasedemo.com*을 가리킵니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관으로 완료해야 합니다.  
+필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  샘플 앱에 대 한 즉 `www.scalableasedemo.com` 에서 `scalable-ase-demo.trafficmanager.net`합니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관으로 완료해야 합니다.  
 
 등록 기관의 도메인 관리 도구를 사용하여 CNAME 기록은 Traffic Manager 도메인에서 사용자 지정 도메인을 가리키도록 만들어야 합니다.  아래 그림은 해당 CNAME 구성이 다음과 같다는 예를 보여줍니다.
 
@@ -95,16 +95,16 @@ App Service Environment는 수평적 규모 확장에 대한 이상적인 플랫
 
 이 항목에서 설명하지 않았지만 각 개별 앱 인스턴스도 등록된 사용자 지정 도메인이 있어야 합니다.  그렇지 않은 경우 앱 인스턴스로 요청을 하고 애플리케이션에 앱으로 등록된 사용자 지정 도메인이 없다면 요청은 실패합니다.  
 
-이 예에서 사용자 지정 도메인은 *www.scalableasedemo.com*이고 각 애플리케이션 인스턴스에는 연결된 사용자 지정 도메인이 있습니다.
+이 예제에서는 사용자 지정 도메인은 `www.scalableasedemo.com`, 각 응용 프로그램 인스턴스에 연결 된 사용자 지정 도메인 및 합니다.
 
 ![사용자 지정 도메인][CustomDomain] 
 
 Azure App Service 앱으로 사용자 지정 도메인을 등록하는 요점은 [사용자 지정 도메인 등록][RegisterCustomDomain]의 다음 문서를 참조하세요.
 
 ## <a name="trying-out-the-distributed-topology"></a>배포된 토폴로지 사용
-Traffic Manager 및 DNS 구성의 최종 결과는 *www.scalableasedemo.com* 에 대한 요청이 다음 시퀀스를 통과하는 것입니다.
+Traffic Manager 및 DNS 구성의 최종 결과 대 한 요청은 `www.scalableasedemo.com` 다음 시퀀스를 통과 합니다.
 
-1. 브라우저 또는 디바이스는 *www.scalableasedemo.com*
+1. 브라우저 또는 장치에 대 한 DNS 조회를 확인 합니다. `www.scalableasedemo.com`
 2. 도메인 등록 기관에서 CNAME 항목은 DNS를 조회하여 Azure Traffic Manager로 리디렉션됩니다.
 3. DNS 조회는 Azure Traffic Manager DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net* 에 대해 수행합니다.
 4. 부하 분산 정책에 따라(Traffic Manager 프로필을 만들 때 이전에 사용된 *TrafficRoutingMethod* 매개 변수) Traffic Manager는 구성된 엔드포인트 중 하나를 선택하고 브라우저 또는 디바이스에 해당 엔드포인트의 FQDN을 반환합니다.
