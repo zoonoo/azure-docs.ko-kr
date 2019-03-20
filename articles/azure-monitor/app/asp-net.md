@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996967"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
 이 절차는 ASP.NET 웹앱에서 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스로 원격 분석을 보내도록 구성합니다. 사용자 고유의 IIS 서버 온-프레미스 또는 클라우드에서 호스팅되는 ASP.NET 앱에서 작동합니다. 차트 및 강력한 쿼리 언어를 사용하여 앱의 성능, 사용 방식 및 오류 또는 성능 문제에 대한 자동 알림을 이해할 수 있습니다. 많은 개발자가 이 기능이 있는 그대로 훌륭한 것으로 알게 되지만, 필요에 따라 원격 분석을 확장하고 사용자 지정할 수도 있습니다.
 
-Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. 원격 분석의 양을 제한하여 비용 부담을 피할 수 있는 옵션이 있습니다. 이렇게 하면 사용자가 많지 않은 사이트를 실험하고 디버그하거나 모니터링할 수 있습니다. 프로덕션 사이트를 먼저 모니터링하려고 결정하는 경우 나중에 제한을 쉽게 늘릴 수 있습니다.
+Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. 원격 분석의 양을 제한하여 비용 부담을 피할 수 있는 옵션이 있습니다. 이 기능을 사용 하 여 실험 하 고, 디버그 또는 사용자가 많지 않은 사용 하 여 사이트를 모니터링할 수 있습니다. 프로덕션 사이트를 먼저 모니터링하려고 결정하는 경우 나중에 제한을 쉽게 늘릴 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
@@ -37,11 +37,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="ide"></a> 1단계: Application Insights SDK 추가
 
 > [!IMPORTANT]
-> Application Insights를 추가하는 프로세스는 ASP.NET 템플릿 유형에 따라 다릅니다. **빈** 템플릿이나 **Azure 모바일 앱** 템플릿을 사용하는 경우에는 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다. 다른 모든 ASP.NET 템플릿의 경우 아래 지침을 참조하세요. 
+> 이 예제의 스크린샷은 Visual Studio 2017 버전 15.9.9 기반으로 합니다. Application Insights를 추가할 환경을 ASP.NET 템플릿 유형에 뿐만 아니라 Visual Studio 2017의 버전 마다 다릅니다. 이전 버전에는 "Application Insights 구성"와 같은 대체 텍스트가 있을 수 있습니다.
 
-솔루션 탐색기에서 웹앱을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성**을 선택합니다.
+솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고 선택 **추가** > **Application Insights 원격 분석**
 
-![Application Insights 구성이 강조 표시된 솔루션 탐색기 스크린샷](./media/asp-net/0001-configure-application-insights.png)
+![Application Insights 구성이 강조 표시된 솔루션 탐색기 스크린샷](./media/asp-net/add-telemetry-new.png)
 
 (Application Insights SDK 버전에 따라 최신 SDK 릴리스로 업그레이드할 것인지 묻는 메시지가 표시될 수도 있습니다. 메시지가 표시되면 **SDK 업데이트**를 선택합니다.)
 
@@ -49,15 +49,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Application Insights 구성 화면:
 
-**체험하기**를 선택합니다.
+**시작**을 선택합니다.
 
-![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/0004-start-free.png)
+![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00004-start-free.png)
 
 데이터가 저장되는 위치나 리소스 그룹을 설정하려면 **설정 구성**을 클릭합니다. 리소스 그룹은 데이터에 대한 액세스를 제어하는 데 사용됩니다. 예를 들어, 동일한 시스템의 부분을 형성하는 몇 개의 앱이 있는 경우 해당 앱의 Application Insights 데이터를 동일한 리소스 그룹에 배치할 수 있습니다.
 
- **등록**을 선택합니다. 
+ **등록**을 선택합니다.
 
-![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/0005-register-ed.png)
+![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00005-register-ed.png)
 
  원격 분석이 디버깅 중 및 앱을 게시한 후에 [Azure Portal](https://portal.azure.com)로 전송됩니다.
 > [!NOTE]
@@ -68,7 +68,7 @@ F5를 사용하여 앱을 실행합니다. 다른 페이지를 열어서 일부 
 
 Visual Studio에서 로그된 이벤트 수가 표시됩니다.
 
-![Visual Studio의 스크린샷. Application Insights 단추는 디버깅하는 동안 표시됩니다.](./media/asp-net/0006-Events.png)
+![Visual Studio의 스크린샷. Application Insights 단추는 디버깅하는 동안 표시됩니다.](./media/asp-net/00006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>3단계: 원격 분석 확인
 원격 분석은 Visual Studio 또는 Application Insights 웹 포털에서 볼 수 있습니다. Visual Studio에서 원격 분석을 검색하여 앱을 디버그하는 데 도움을 줍니다. 시스템이 작동 중일 때 웹 포털의 성능 및 사용량을 모니터링합니다. 
@@ -95,7 +95,7 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 
 포털은 앱에서 원격 분석의 보기를 엽니다.
 
-![Application Insights 개요 페이지 스크린샷](./media/asp-net/66.png)
+![Application Insights 개요 페이지 스크린샷](./media/asp-net/007.png)
 
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
@@ -117,8 +117,6 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 
 축하합니다! 앱에 Application Insight 패키지를 설치하고, Azure의 Application Insights 서비스로 원격 분석을 보내도록 구성했습니다.
 
-![원격 분석의 이동 다이어그램](./media/asp-net/01-scheme.png)
-
 앱의 원격 분석을 받는 Azure 리소스는 *계측 키*로 식별됩니다. 이 키는 ApplicationInsights.config 파일에서 찾을 수 있습니다.
 
 
@@ -126,10 +124,6 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 [SDK의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)로 업그레이드하려면 **NuGet 패키지 관리자**를 열고 설치된 패키지를 필터링합니다. **Microsoft.ApplicationInsights.Web**을 선택하고 **업그레이드**를 선택합니다.
 
 ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업그레이드 전에 복사본을 저장합니다. 그런 다음 변경 내용을 새 버전에 병합합니다.
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -155,7 +149,7 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
 * [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과할 경우 경고 하는 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
 
 ### <a name="automation"></a>Automation
 

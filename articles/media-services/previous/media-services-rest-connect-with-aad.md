@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: dff6d07f4df1da3de083934e0d8240beb957292e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883596"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
@@ -60,8 +60,8 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
-|REST API 엔드포인트|https://amshelloworld.restv2.westus.media.azure.net/api/|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
 |클라이언트 ID(애플리케이션 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 애플리케이션(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
 |클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 애플리케이션 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
 
@@ -69,7 +69,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 정보를 가져오려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. AMS 인스턴스로 이동합니다.
 3. **API 액세스**를 선택합니다.
 4. **서비스 주체를 사용하여 Azure Media Services API에 연결**을 클릭합니다.
@@ -83,33 +83,33 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
     새 AD 앱을 만들어야 하는 경우 다음 단계를 수행합니다.
     
-    1. **새로 만들기**를 누릅니다.
-    2. 이름을 입력합니다.
-    3. **새로 만들기**를 다시 누릅니다.
-    4. **저장**을 누릅니다.
+   1. **새로 만들기**를 누릅니다.
+   2. 이름을 입력합니다.
+   3. **새로 만들기**를 다시 누릅니다.
+   4. **저장**을 누릅니다.
 
-    ![API 액세스](./media/connect-with-rest/new-app.png)
+      ![API 액세스](./media/connect-with-rest/new-app.png)
 
-    새 앱이 페이지에 표시됩니다.
+      새 앱이 페이지에 표시됩니다.
 
 6. **클라이언트 ID**(애플리케이션 ID)를 가져옵니다.
     
-    1. 애플리케이션을 선택합니다.
-    2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
+   1. 애플리케이션을 선택합니다.
+   2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
 
-    ![API 액세스](./media/connect-with-rest/existing-client-id.png)
+      ![API 액세스](./media/connect-with-rest/existing-client-id.png)
 
-7.  애플리케이션의 **키**(클라이언트 암호) 가져오기 
+7. 애플리케이션의 **키**(클라이언트 암호) 가져오기 
 
-    1. **애플리케이션 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **애플리케이션 ID** 아래에 있습니다. 
-    2. **키**를 누릅니다.
+   1. **애플리케이션 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **애플리케이션 ID** 아래에 있습니다. 
+   2. **키**를 누릅니다.
     
-        ![API 액세스](./media/connect-with-rest/manage-app.png)
-    3. **설명**과 **만료 날짜**를 입력하고 **저장**을 눌러 앱 키(클라이언트 암호)를 생성합니다.
+       ![API 액세스](./media/connect-with-rest/manage-app.png)
+   3. **설명**과 **만료 날짜**를 입력하고 **저장**을 눌러 앱 키(클라이언트 암호)를 생성합니다.
     
-        **저장** 단추를 누르면 키 값이 표시됩니다. 블레이드에서 나가기 전에 키 값을 복사합니다.
+       **저장** 단추를 누르면 키 값이 표시됩니다. 블레이드에서 나가기 전에 키 값을 복사합니다.
 
-    ![API 액세스](./media/connect-with-rest/connect-with-rest03.png)
+   ![API 액세스](./media/connect-with-rest/connect-with-rest03.png)
 
 코드에서 나중에 사용할 수 있도록 web.config 또는 app.config 파일에 AD 연결 매개 변수의 값을 추가할 수 있습니다.
 

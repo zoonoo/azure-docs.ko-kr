@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토를 사용하여 사용자 액세스 관리 | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용하여 애플리케이션에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
+title: Azure AD 액세스 검토를 사용 하 여 사용자 액세스 관리 | Microsoft Docs
+description: 그룹 또는 Azure Active Directory 액세스 검토를 사용 하 여 응용 프로그램에는 할당의 멤버 자격으로 사용자의 액세스를 관리 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b53fd8b53b85525a3105cfee3594cd284e3838a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 656a1d387a345d9ffcc549c19a131de758e18c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879993"
 ---
-# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
+# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용 하 여 사용자 액세스 관리
 
 Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액세스 권한이 있는지 쉽게 확인할 수 있습니다. 사용자 또는 의사 결정자에게 액세스 검토에 참여하고 사용자의 액세스를 다시 인증(또는 증명)하도록 요청할 수 있습니다. 검토자는 Azure AD의 제안 사항에 따라 지속적인 액세스에 대한 각 사용자의 요구에 입력을 제공할 수 있습니다. 액세스 검토가 완료되면 더 이상 필요하지 않은 사용자의 액세스를 변경하고 제거할 수 있습니다.
 
@@ -45,20 +45,20 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 2. 각 사용자가 자신의 액세스를 검토하도록 할지 또는 하나 이상의 사용자가 모든 사용자의 액세스를 검토하도록 할지를 결정합니다.
 
-3. 전역 관리자 또는 사용자 계정 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다.
+3. 전역 관리자 또는 사용자 관리자로 이동 합니다 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
 
-4. 액세스 검토를 만듭니다. 자세한 내용은 [액세스 검토 만들기](create-access-review.md)를 참조하세요.
+4. 액세스 검토를 만듭니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
 
-5. 액세스 검토를 시작할 때 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD로부터 [자신의 액세스 검토를 수행](perform-access-review.md)하는 액세스 패널에 대한 링크가 포함된 전자 메일을 받습니다.
+5. 액세스 검토를 시작할 때 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 전자 메일에서에서 받은 링크를 사용 하 여 Azure AD 액세스 패널에 있는 이러한 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
 
 6. 검토자가 입력을 제공하지 않으면 미리 알림을 보내도록 Azure AD에 요청할 수 있습니다. Azure AD에서는 기본적으로 아직 응답하지 않은 검토자에게 종료일 중간에 미리 알림을 자동으로 보냅니다.
 
-7. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [액세스 검토 완료](complete-access-review.md)를 참조하세요.
+7. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+[그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)
 
 
 

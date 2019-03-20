@@ -1,24 +1,24 @@
 ---
 title: System Center Operations Manager와 서비스 맵 통합 | Microsoft Docs
 description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 애플리케이션 다이어그램을 만드는 방법을 설명합니다.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: magoedte
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110106"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
 
@@ -67,11 +67,11 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
     통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
-    * Operations Manager에서 관리됨
-    * 서비스 맵에서 관리됨
-    * 서비스 맵 서버 그룹에 나열됨
+   * Operations Manager에서 관리됨
+   * 서비스 맵에서 관리됨
+   * 서비스 맵 서버 그룹에 나열됨
 
-    ![Operations Manager 구성 그룹](media/service-map-scom/scom-config-group.png)
+     ![Operations Manager 구성 그룹](media/service-map-scom/scom-config-group.png)
 
 6. 선택 사항: Log Analytics와 통신할 관리 서버 리소스 풀을 선택하고 **작업 영역 추가**를 클릭합니다.
 

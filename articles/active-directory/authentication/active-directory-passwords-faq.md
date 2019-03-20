@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878196"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -98,12 +98,10 @@ ms.locfileid: "56186372"
 * **Q:  암호 재설정에서 전자 메일, SMS 또는 전화 통화를 받으려면 얼마나 오래 대기해야 하나요?**
 
   > **A:** 메일, SMS 메시지 및 전화 통화 대기 시간은 1분 미만으로, 일반적인 경우 5-20초 정도입니다.
-    >이 시간 내에 알림이 수신되지 않으면 다음을 수행합니다.
-        > * 정크 메일 폴더를 확인합니다.
-        > * 연락받을 전화 번호나 메일이 올바른지 확인합니다.
-        > * 디렉터리의 인증 데이터 형식이 정확한지 확인합니다(예: +1 4255551234 또는 *user@contoso.com*). 
-  >
-  >
+  > 이 시간 내에 알림이 수신되지 않으면 다음을 수행합니다.
+  > * 정크 메일 폴더를 확인합니다.
+  > * 연락받을 전화 번호나 메일이 올바른지 확인합니다.
+  > * 디렉터리의 인증 데이터가 올바르게 확인 형식, 예를 들어, + 1 4255551234 또는 *사용자\@contoso.com*합니다. 
 * **Q:  암호 재설정에서 지원되는 언어는 무엇인가요?**
 
   > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.

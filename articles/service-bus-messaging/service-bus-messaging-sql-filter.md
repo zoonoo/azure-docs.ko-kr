@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118138"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
@@ -119,7 +119,7 @@ ms.locfileid: "47392859"
   
 `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`: 0개 이상의 문자입니다.  
+-   `%`:  0개 이상의 문자로 된 문자열입니다.  
   
 -   `_`: 단일 문자입니다.  
   
@@ -223,29 +223,29 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 ### <a name="property-evaluation-semantics"></a>속성 평가 의미 체계  
   
--   존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
+- 존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
   
--   존재하지 않는 속성은 내부적으로 **알 수 없음**으로 평가됩니다.  
+- 존재하지 않는 속성은 내부적으로 **알 수 없음**으로 평가됩니다.  
   
- 알 수 없음 평가는 산술 연산자입니다.  
+  알 수 없음 평가는 산술 연산자입니다.  
   
--   이항 연산자의 경우 왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 이항 연산자의 경우 왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
   
--   단항 연산자의 경우 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 단항 연산자의 경우 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
   
- 알 수 없음 평가는 이항 비교 연산자입니다.  
+  알 수 없음 평가는 이항 비교 연산자입니다.  
   
--   왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 왼쪽 및/또는 오른쪽 피연산자 중 하나가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
   
- `[NOT] LIKE`에서 알 수 없음 평가:  
+  `[NOT] LIKE`에서 알 수 없음 평가:  
   
--   피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
   
- `[NOT] IN`에서 알 수 없음 평가:  
+  `[NOT] IN`에서 알 수 없음 평가:  
   
--   왼쪽 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 왼쪽 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
   
- **AND** 연산자에서 알 수 없음 평가:  
+  **AND** 연산자에서 알 수 없음 평가:  
   
 ```  
 +---+---+---+---+  

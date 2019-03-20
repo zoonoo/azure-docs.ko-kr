@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
-ms.translationtype: HT
+ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872983"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
 Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
 
-Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://tomcat.apache.org/)를 참조하세요. 
+Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https://tomcat.apache.org/)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 * 다음을 실행하는 개발 컴퓨터
@@ -62,7 +62,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://
    자세한 내용은 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)를 참조하세요.
 
 
-4. `docker build` 명령을 실행하여 웹 응용 프로그램을 실행하는 이미지를 만듭니다.
+4. `docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다.
 
    ```bash
    docker build . -t tomcattest
@@ -89,15 +89,15 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://
    * `-p`는 컨테이너와 호스트 OS 간의 포트 매핑을 지정합니다. 
 
    > [!Note]
-   > `-p` 매개 변수를 사용하여 여는 포트는 Tomcat 응용 프로그램에서 요청을 수신 대기하는 포트여야 합니다. 현재의 예제에는 *ApacheTomcat/conf/server.xml* 파일에서 HTTP 요청을 8080 포트에서 수신 대기하도록 구성된 커넥터가 있습니다. 이 포트는 호스트의 8080 포트에 매핑됩니다. 
+   > `-p` 매개 변수를 사용하여 여는 포트는 Tomcat 애플리케이션에서 요청을 수신 대기하는 포트여야 합니다. 현재의 예제에는 *ApacheTomcat/conf/server.xml* 파일에서 HTTP 요청을 8080 포트에서 수신 대기하도록 구성된 커넥터가 있습니다. 이 포트는 호스트의 8080 포트에 매핑됩니다. 
 
    다른 매개 변수에 대한 자세한 내용은 [docker run 설명서](https://docs.docker.com/engine/reference/commandline/run/)를 참조하세요.
 
 1. 컨테이너를 테스트하려면 브라우저를 열고 다음 URL 중 하나를 입력합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -141,82 +141,82 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    ```
    메시지가 표시되면 다음 값을 입력합니다.
 
-   * 애플리케이션 이름 지정: ServiceFabricTomcat
-   * 애플리케이션 서비스 이름: TomcatService
-   * 이미지 이름 입력: 컨테이너 레지스트리의 컨테이너 이미지에 대한 URL을 제공합니다(예: myregistry.azurecr.io/samples/tomcattest).
-   * 명령: 이 명령은 비워둡니다. 이 이미지가 워크로드 진입점을 정의하지 않으므로 입력 명령을 명시적으로 지정하지 않아도 됩니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함).
-   * 게스트 컨테이너 애플리케이션의 인스턴스 수: 1
+   * 응용 프로그램 이름을 지정 합니다. ServiceFabricTomcat
+   * 응용 프로그램 서비스의 이름: TomcatService
+   * 이미지 이름 입력: 컨테이너 레지스트리에서 컨테이너 이미지에 대 한 URL을 제공 합니다. 예를 들어 myregistry.azurecr.io/samples/tomcattest 합니다.
+   * 명령: 이 항목을 비워둡니다. 이 이미지가 워크로드 진입점을 정의하지 않으므로 입력 명령을 명시적으로 지정하지 않아도 됩니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함).
+   * 게스트 컨테이너 응용 프로그램의 인스턴스 수: 1
 
    ![컨테이너용 Service Fabric Yeoman 생성기](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. 서비스 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*)에서 루트 **ServiceManfest** 태그 아래에 다음 XML을 추가하여 애플리케이션에서 요청을 수신 대기하는 포트를 엽니다. **엔드포인트** 태그는 엔드포인트에 대한 프로토콜과 포트를 선언합니다. 이 문서에서는 컨테이너화된 서비스가 8080 포트에서 수신 대기합니다. 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+     <Endpoints>
+       <!-- This endpoint is used by the communication listener to obtain the port on which to 
+        listen. Please note that if your service is partitioned, this port is shared with 
+        replicas of different partitions that are placed in your code. -->
+       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **Password**를 로그인하는 데 필요한 컨테이너 레지스트리의 이름과 암호로 바꿉니다.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+     <ContainerHostPolicies CodePackageRef="Code">
+       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+     </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    **ContainerHostPolicies** 태그는 컨테이너 호스트를 활성화하기 위한 정책을 지정합니다.
+   **ContainerHostPolicies** 태그는 컨테이너 호스트를 활성화하기 위한 정책을 지정합니다.
     
-    * **PortBinding** 태그는 컨테이너 포트-호스트 포트 매핑 정책을 구성합니다. Dockerfile에서 지정한 대로 컨테이너에서 8080 포트를 노출하므로 **ContainerPort** 특성은 8080으로 설정됩니다. **EndpointRef** 특성은 이전 단계의 서비스 매니페스트에 정의된 엔드포인트인 "endpointTest"로 설정됩니다. 따라서 8080 포트에서 서비스로 들어오는 요청은 컨테이너의 8080 포트에 매핑됩니다. 
-    * **RepositoryCredentials** 태그는 컨테이너에서 이미지를 가져오는 리포지토리(개인)를 사용하여 인증해야 하는 자격 증명을 지정합니다. 공용 리포지토리에서 이미지를 가져오는 경우에는 이 정책이 필요하지 않습니다.
+   * **PortBinding** 태그는 컨테이너 포트-호스트 포트 매핑 정책을 구성합니다. Dockerfile에서 지정한 대로 컨테이너에서 8080 포트를 노출하므로 **ContainerPort** 특성은 8080으로 설정됩니다. **EndpointRef** 특성은 이전 단계의 서비스 매니페스트에 정의된 엔드포인트인 "endpointTest"로 설정됩니다. 따라서 8080 포트에서 서비스로 들어오는 요청은 컨테이너의 8080 포트에 매핑됩니다. 
+   * **RepositoryCredentials** 태그는 컨테이너에서 이미지를 가져오는 리포지토리(개인)를 사용하여 인증해야 하는 자격 증명을 지정합니다. 공용 리포지토리에서 이미지를 가져오는 경우에는 이 정책이 필요하지 않습니다.
     
 
 12. *ServiceFabricTomcat* 폴더에서 Service Fabric 클러스터에 연결합니다. 
 
-    * 로컬 Service Fabric 클러스터에 연결하려면 다음을 실행합니다.
+   * 로컬 Service Fabric 클러스터에 연결하려면 다음을 실행합니다.
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+      ```bash
+      sfctl cluster select --endpoint http://localhost:19080
+      ```
     
-    * 보안 Azure 클러스터에 연결하려면 클라이언트 인증서가 *ServiceFabricTomcat* 디렉터리에 .pem 파일로 있는지 확인하고 다음을 실행합니다. 
+   * 보안 Azure 클러스터에 연결하려면 클라이언트 인증서가 *ServiceFabricTomcat* 디렉터리에 .pem 파일로 있는지 확인하고 다음을 실행합니다. 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       앞의 명령에서 `your-certificate.pem`을 클라이언트 인증서 파일의 이름으로 바꿉니다. 개발 및 테스트 환경에서 클러스터 인증서는 종종 클라이언트 인증서로 사용됩니다. 인증서가 자체 서명되어 있지 않으면 `-no-verify` 매개 변수를 생략합니다. 
+      ```bash
+      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+      ```
+      앞의 명령에서 `your-certificate.pem`을 클라이언트 인증서 파일의 이름으로 바꿉니다. 개발 및 테스트 환경에서 클러스터 인증서는 종종 클라이언트 인증서로 사용됩니다. 인증서가 자체 서명되어 있지 않으면 `-no-verify` 매개 변수를 생략합니다. 
        
-       클러스터 인증서는 일반적으로 로컬에서 .pfx 파일로 다운로드됩니다. PEM 형식의 인증서가 아직 없으면 다음 명령을 실행하여 .pfx 파일에서 .pem 파일을 만들 수 있습니다.
+      클러스터 인증서는 일반적으로 로컬에서 .pfx 파일로 다운로드됩니다. PEM 형식의 인증서가 아직 없으면 다음 명령을 실행하여 .pfx 파일에서 .pem 파일을 만들 수 있습니다.
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+      ```bash
+      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+      ```
 
-       .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 `-passin pass:`를 사용합니다.
+      .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 `-passin pass:`를 사용합니다.
 
 
 13. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터에 애플리케이션을 배포합니다. 스크립트는 애플리케이션 패키지를 클러스터의 이미지 저장소에 복사하고, 애플리케이션 유형을 등록하며, 애플리케이션의 인스턴스를 만듭니다.
 
-       ```bash
-       ./install.sh
-       ```
+      ```bash
+      ./install.sh
+      ```
 
-    설치 스크립트가 실행되면 브라우저를 열고 Service Fabric Explorer로 이동합니다.
+   설치 스크립트가 실행되면 브라우저를 열고 Service Fabric Explorer로 이동합니다.
     
-    * 로컬 클러스터에서 http://localhost:19080/Explorer를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 사설 IP로 바꿉니다).
-    * 보안 Azure 클러스터에서 https://PublicIPorFQDN:19080/Explorer를 사용합니다. 
+   * 로컬 클러스터에서 `http://localhost:19080/Explorer`를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 사설 IP로 바꿉니다).
+   * 보안 Azure 클러스터에서 `https://PublicIPorFQDN:19080/Explorer`를 사용합니다. 
     
-    **응용 프로그램** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 애플리케이션이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.
+   **애플리케이션** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 애플리케이션이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
 1. Tomcat 서버에서 애플리케이션에 액세스하려면 브라우저 창을 열고 다음 URL 중 하나를 입력합니다. 로컬 클러스터에 배포한 경우 *PublicIPorFQDN*에 *localhost*를 사용합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면

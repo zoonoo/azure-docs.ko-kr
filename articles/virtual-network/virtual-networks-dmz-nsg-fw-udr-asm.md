@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995174"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>예제 3 - 방화벽, UDR, NSG로 네트워크를 보호하는 DMZ 구축
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -356,7 +356,7 @@ DNS 서버 개체의 경우:
   
     이 전달 규칙은 프런트 엔드 서브넷의 모든 IIS 서버가 임의 프로토콜을 사용하여 웹 애플리케이션에 필요한 데이터에 액세스하면서 임의 포트의 AppVM01(IP 주소 10.0.2.5)에 도달할 수 있도록 허용합니다.
   
-    이 스크린샷에서는 대상 필드에서 대상으로 10.0.2.5를 나타내기 위해 "\<explicit-dest\>"가 사용되었습니다. 이 필드는 그림과 같이 명시적일 수도 있으며 명명된 네트워크 개체(DNS 서버의 필수 조건과 같은 방식)일 수도 있습니다. 사용할 방법은 방화벽 관리자가 선택할 수 있습니다. 명시적 대상으로 10.0.2.5를 추가하려면 \<explicit-dest\> 아래 첫 번째 빈 행을 두 번 클릭하고 표시되는 창에서 주소를 입력합니다.
+    이 스크린샷에서 "\<명시적 대상\>" 대상 필드에서 대상으로 10.0.2.5 하는 데 사용 됩니다. 이 필드는 그림과 같이 명시적일 수도 있으며 명명된 네트워크 개체(DNS 서버의 필수 조건과 같은 방식)일 수도 있습니다. 사용할 방법은 방화벽 관리자가 선택할 수 있습니다. 아래의 첫 번째 빈 행에서 두 번 클릭을 명시적 대상으로 10.0.2.5를 추가 하려면 \<명시적 대상\> 팝업 창에서 주소를 입력 합니다.
   
     이 전달 규칙에서는 내부 트래픽이므로 NAT 작업이 필요하지 않으며 연결 방법을 "No SNAT"으로 설정할 수 있습니다.
   
@@ -381,7 +381,7 @@ DNS 서버 개체의 경우:
   
     ![방화벽 DNS 규칙][15]
   
-    **참고**: 이 스크린샷에는 연결 방법이 포함되어 있습니다. 이 규칙은 내부 IP-내부 IP 주소 트래픽용이므로 NAT 작업이 필요하지 않으며 이 연결 방법은 이 전달 규칙에 대해 "No SNAT"로 설정되었습니다.
+    **참고**: 이 스크린샷에서 연결 방법이 포함 되어 있습니다. 이 규칙은 내부 IP-내부 IP 주소 트래픽용이므로 NAT 작업이 필요하지 않으며 이 연결 방법은 이 전달 규칙에 대해 "No SNAT"로 설정되었습니다.
 * **서브넷 대 서브넷 규칙**: 이 규칙은 활성화된 기본 규칙이며 백 엔드 서브넷의 모든 서버가 프런트 엔드 서브넷의 모든 서버에 연결할 수 있도록 허용하도록 수정되었습니다. 이 규칙은 모든 내부 트래픽이므로 연결 방법을 No SNAT로 설정할 수 있습니다.
   
     ![방화벽 인트라-VNet 규칙][16]
@@ -486,7 +486,7 @@ DNS 서버 개체의 경우:
 11. AppVM01에서 사용자 이름과 암호를 묻습니다.
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(허용) DNS 서버에서 웹 서버 DNS 조회
-1. 웹 서버인 IIS01은 www.data.gov에서 데이터 피드를 요구하지만 주소를 확인해야 합니다.
+1. 웹 서버 IIS01 요구는 데이터 피드에서 www\.data.gov, 하지만 주소를 확인 해야 합니다.
 2. VNet에 대한 네트워크 구성에서 DNS01(백 엔드 서브넷에서 10.0.2.4)을 주 DNS 서버로 나열하며 IIS01은 DNS01로 DNS 요청을 보냅니다.
 3. UDR에서 다음 홉인 방화벽으로 아웃바운드 트래픽을 라우팅합니다.
 4. 프런트 엔드 서브넷에 바인딩된 아웃바운드 NSG 규칙이 없으며 트래픽이 허용됩니다.
@@ -945,7 +945,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 업데이트된 위치로 이 xml 파일을 저장하고 이 파일에 대한 링크를 위의 스크립트에 있는 $NetworkConfigFile 변수에 추가합니다.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

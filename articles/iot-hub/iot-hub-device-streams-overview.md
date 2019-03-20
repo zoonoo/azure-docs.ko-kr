@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076278"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>디바이스 스트림 활동 로그를 통해 문제 해결
 
-IoT Hub에서 디바이스 스트림의 활동 로그를 수집하도록 Azure Log Analytics를 설정할 수 있습니다. 이 기능은 문제 해결 시나리오에서 매우 유용할 수 있습니다.
+IoT Hub에 장치 스트림에 대 한 작업 로그를 수집 하려면 Azure Monitor 로그를 설정할 수 있습니다. 이 기능은 문제 해결 시나리오에서 매우 유용할 수 있습니다.
 
-IoT Hub의 디바이스 스트림 활동에 대해 Azure Log Analytics를 구성하려면 아래 단계를 수행합니다.
+IoT Hub의 장치 stream 활동에 대 한 Azure Monitor 로그를 구성 하려면 다음 단계를 수행 합니다.
 
 1. IoT Hub의 ‘진단 설정’ 탭으로 이동한 다음, ‘진단 켜기’ 링크를 클릭합니다.
 
-  ![대체 텍스트](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "진단 로그 사용")
+   ![대체 텍스트](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "진단 로그 사용")
 
 
-2. 진단 설정의 이름을 제공하고 ‘Log Analytics에 보내기’ 옵션을 선택합니다. 기존 Log Analytics 리소스를 선택하거나 새로 만들도록 안내됩니다. 또한 목록에서 *DeviceStreams*를 확인합니다.
+2. 진단 설정의 이름을 제공하고 ‘Log Analytics에 보내기’ 옵션을 선택합니다. 기존 Log Analytics 작업 영역 리소스를 선택 하거나 새로 만들기를 안내 합니다. 또한 목록에서 *DeviceStreams*를 확인합니다.
 
     ![대체 텍스트](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "디바이스 스트림 로그 사용")
 
@@ -153,7 +153,7 @@ IoT Hub 디바이스 스트림은 공개 미리 보기 동안 미국 중부 및 
 ## <a name="iot-hub-device-stream-samples"></a>IoT Hub 디바이스 스트림 샘플
 
 애플리케이션별로 디바이스 스트림을 사용하는 방법을 보여 주기 위해 두 개의 [빠른 시작 샘플](/azure/iot-hub)을 게시했습니다.
-* *에코* 샘플에서는 SDK API를 직접 호출하여 디바이스 스트림을 프로그래밍 방식으로 사용하는 방법을 보여 줍니다.
+* 합니다 *echo* 샘플 장치 스트림을 사용 하 여 프로그래밍 방식으로 (SDK API를 직접 호출) 하 여 방법을 보여 줍니다.
 * *로컬 프록시* 샘플에서는 디바이스 스트림을 통해 상업용 클라이언트/서버 애플리케이션 트래픽(예: SSH, RDP 또는 웹)을 터널링하는 방법을 보여 줍니다.
 
 이러한 샘플은 아래에 자세히 설명하고 있습니다.

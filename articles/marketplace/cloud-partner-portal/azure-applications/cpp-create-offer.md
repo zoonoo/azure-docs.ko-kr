@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871231"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "53412812"
 
 ## <a name="new-offer-form"></a>새 제안 양식
 
-[Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. 새 제품 메뉴에서 **Azure 애플리케이션**을 선택하여 **새 제품** 양식을 표시하고 새 제품에 대한 자산을 정의하는 과정을 시작합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. 새 제품 메뉴에서 **Azure 애플리케이션**을 선택하여 **새 제품** 양식을 표시하고 새 제품에 대한 자산을 정의하는 과정을 시작합니다.
 
 ![새 제품 양식](./media/azure-new-managedapp-offer.png)
 

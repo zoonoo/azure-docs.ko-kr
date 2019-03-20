@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8897651c963b0036bc2ac3d8cdb06a52d6f52ba1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7e9795be75fe80d83104101a5a41f96c46269bbd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863647"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>미리 보기:  Azure AD 암호 보호 에이전트에 대한 버전 기록
 
@@ -24,6 +24,24 @@ ms.locfileid: "56188038"
 | --- |
 | Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
+
+## <a name="121160"></a>1.2.116.0
+
+릴리스 날짜: 3/13/2019
+
+* Get-AzureADPasswordProtectionProxy 및 Get AzureADPasswordProtectionDCAgent cmdlet은 이제 다음과 같은 제한 사항이 있는 테 넌 트 보고서 소프트웨어 버전 및 현재 Azure:
+  * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 에서만 이상 DC 에이전트 1.2.116.0 버전을 실행 하는 프록시에 사용할 수 있습니다.
+  * 프록시의 재등록 (또는 갱신) 될 때까지 azure 테 넌 트 데이터를 보고 될 수 있습니다 또는 포리스트 발생 했습니다.
+* 프록시 서비스는 이제.NET 4.7이 설치 되어 있는지 필요 합니다.
+  * .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
+  * Server Core 시스템에서 성공 하기 위해.NET 4.7 설치 관리자를 /q 플래그를 전달 해야 할 수도 있습니다.
+* 프록시 서비스는 이제 자동 업그레이드를 지원합니다. 프록시 서비스와 함께 설치 되는 Microsoft Azure AD Connect Agent Updater 서비스를 사용 하는 자동 업그레이드 합니다. 자동 업그레이드는 기본적으로 켜져 있습니다.
+* 자동 업그레이드가 사용 하도록 설정할 수 있습니다 또는 집합 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하지 않도록 설정 합니다. Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
+* DC 에이전트 서비스에 대 한 이진 서비스 AzureADPasswordProtectionDCAgent.exe로 바뀌었습니다.
+* 프록시 서비스에 대 한 이진 서비스 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 방화벽 규칙을 타사 방화벽을 사용 하는 경우 그에 따라 수정 해야 합니다.
+  * 참고: http 프록시 구성 파일을 이전 프록시에 사용 된 경우 설치를 바꿀 필요 (에서 *proxyservice.exe.config* 하 *AzureADPasswordProtectionProxy.exe.config*) 이후 업그레이드 합니다.
+* DC 에이전트에서 시간이 제한 된 기능 검사를 모두 제거 되었습니다.
+* 사소한 버그 수정 및 로깅 개선 사항
 
 ## <a name="12650"></a>1.2.65.0
 

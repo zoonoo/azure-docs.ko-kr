@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e87a63a0dad5e1f93b1bea62039abee8ded78ab7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a2e5982832dcf1747389eb78c6a1b1cb5762b64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964221"
 ---
 ## <a name="test-your-app"></a>앱 테스트
 
 1. 디바이스/에뮬레이터로 코드를 실행하는 방법을 설명합니다.
-2. Azure Active Directory 계정(회사 또는 학교 계정) 또는 Microsoft 계정(live.com, outlook.com)을 사용하여 로그인해 봅니다. 
+2. Azure Active Directory 계정 (회사 또는 학교 계정) 또는 Microsoft 계정 (live.com, outlook.com)를 사용 하 여 로그인 하려고 합니다. 
 
-    ![응용 프로그램 테스트](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
+    ![애플리케이션 테스트](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
     ![사용자 이름 및 암호 입력](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 

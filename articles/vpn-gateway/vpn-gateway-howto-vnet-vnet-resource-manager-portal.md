@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090103"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -172,10 +172,10 @@ TestVNet1을 구성한 후에는 값을 TestVNet4로 바꿔서 이전 단계를 
 
 1. Azure Portal에서 **모든 리소스**를 선택하고, 검색 상자에 *가상 네트워크 게이트웨이*를 입력하고, VNet의 가상 네트워크 게이트웨이로 이동합니다. 예를 들어 **TestVNet1GW**로 이동합니다. 선택하여 **가상 네트워크 게이트웨이** 페이지를 엽니다.
 
-  ![연결 페이지](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "연결 페이지")
+   ![연결 페이지](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "연결 페이지")
 2. **설정** 아래에서 **연결**을 선택한 다음, **추가**를 선택하여 **연결 추가** 페이지를 엽니다.
 
-  ![연결 추가](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
+   ![연결 추가](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
 3. **연결 추가** 페이지에서 연결의 값을 입력합니다.
 
    - **이름**: 연결의 이름을 입력합니다. 예를 들어, *TestVNet1toTestVNet4*를 입력합니다.
@@ -186,11 +186,11 @@ TestVNet1을 구성한 후에는 값을 TestVNet4로 바꿔서 이전 단계를 
 
    - **두 번째 가상 네트워크 게이트웨이**: 이 필드는 연결을 만들고자 하는 VNet의 가상 네트워크 게이트웨이입니다. **다른 가상 네트워크 게이트웨이 선택**을 선택하여 **선택 가상 네트워크 게이트웨이** 페이지를 엽니다.
 
-    - 이 페이지에 나열된 가상 네트워크 게이트웨이를 봅니다. 구독에 있는 가상 네트워크 게이트웨이만 나열되어 있는지 확인합니다. 구독에 없는 가상 네트워크 게이트웨이에 연결하려면 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)을 사용합니다.
+     - 이 페이지에 나열된 가상 네트워크 게이트웨이를 봅니다. 구독에 있는 가상 네트워크 게이트웨이만 나열되어 있는지 확인합니다. 구독에 없는 가상 네트워크 게이트웨이에 연결하려면 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)을 사용합니다.
 
-    - 연결하려는 가상 네트워크 게이트웨이를 선택합니다.
+     - 연결하려는 가상 네트워크 게이트웨이를 선택합니다.
 
-    - **공유 키(PSK)**: 이 필드에서 연결의 공유 키를 입력합니다. 이 키를 생성하거나 직접 만들 수 있습니다. 사이트 간 연결에 사용되는 키는 온-프레미스 디바이스 및 가상 네트워크 게이트웨이 연결에서 사용하는 키와 동일합니다. 개념은 비슷하지만, 여기서는 VPN 디바이스에 연결하지 않고 다른 가상 네트워크 게이트웨이를 연결합니다.
+     - **공유 키(PSK)**: 이 필드에서 연결의 공유 키를 입력합니다. 이 키를 생성하거나 직접 만들 수 있습니다. 사이트 간 연결에 사용되는 키는 온-프레미스 디바이스 및 가상 네트워크 게이트웨이 연결에서 사용하는 키와 동일합니다. 개념은 비슷하지만, 여기서는 VPN 디바이스에 연결하지 않고 다른 가상 네트워크 게이트웨이를 연결합니다.
     
 4. **확인** 을 선택하여 변경 내용을 저장합니다.
 

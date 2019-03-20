@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088930"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -60,10 +60,10 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니요 
-게스트 VM - NIC 팀 | 아니요
+호스트 - IPv6 | 아닙니다. 
+게스트 VM - NIC 팀 | 아닙니다.
 게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니요
+게스트 VM - IPv6 | 아닙니다.
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
 게스트 VM - 다중 NIC | 예
 
@@ -75,7 +75,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 **Storage(호스트)** | **지원됨** 
 --- | --- 
 NFS | 예 
-SMB 3.0 | 해당 없음 
+SMB 3.0 | N/A 
 SAN(ISCSI) | 예 
 다중 경로(MPIO) | 예 
 
@@ -84,36 +84,36 @@ SAN(ISCSI) | 예
 **구성** | **지원됨** 
 --- | --- 
 VMDK | 예 
-VHD/VHDX | 해당 없음 
-2세대 VM | 해당 없음 
+VHD/VHDX | N/A 
+2세대 VM | N/A 
 공유 클러스터 디스크 | 예 
-암호화된 디스크 | 아니요 
+암호화된 디스크 | 아닙니다. 
 UEFI| 예 
-NFS | 아니요 
-SMB 3.0 | 아니요 
+NFS | 아닙니다. 
+SMB 3.0 | 아닙니다. 
 RDM | 예 
 디스크 > 1TB | 예 
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 
-저장소 공간 | 아니요 
+저장소 공간 | 아닙니다. 
 디스크 핫 추가/제거 | 예 
 디스크 제외 | 예 
-다중 경로(MPIO) | 해당 없음 
+다중 경로(MPIO) | N/A 
 
 ## <a name="vaults"></a>자격 증명 모음
 
 **작업** | **지원됨** 
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
+리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
 
 ## <a name="mobility-service-and-updates"></a>Mobility 서비스 및 업데이트
 
 Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 보조 사이트 간 복제를 조정합니다. 복제를 설정할 때 Mobility 서비스 및 기타 구성 요소의 최신 버전이 필요합니다.
 
-**업데이트** | **세부 정보** 
---- | --- 
-Scout 업데이트 | 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates)  | Scout 업데이트는 누적입니다.
-구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **업데이트** | **세부 정보** |
+| --- | --- |
+|Scout 업데이트 | Scout 업데이트는 누적입니다. <br/><br/> 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates)  |
+|구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>다음 단계

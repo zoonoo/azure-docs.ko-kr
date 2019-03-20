@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080068"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -85,22 +85,22 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 - 프록시 서버의 IP 주소/FQDN은 *http://IPaddress* 또는 *http://FQDN*으로 지정해야 합니다.
 - HTTP 프록시만 지원됩니다. HTTPS 기반 프록시 서버는 Collector에서 지원되지 않습니다.
 - 프록시 서버가 가로채는 프록시인 경우에는 Collector VM으로 프록시 인증서를 가져와야 합니다.
-    1. Collector VM에서 **시작 메뉴** > **컴퓨터 인증서 관리**로 이동합니다.
-    2. 인증서 도구의 **인증서 - 로컬 컴퓨터** 아래에서 **신뢰할 수 있는 게시자** > **인증서**를 찾습니다.
+  1. Collector VM에서 **시작 메뉴** > **컴퓨터 인증서 관리**로 이동합니다.
+  2. 인증서 도구의 **인증서 - 로컬 컴퓨터** 아래에서 **신뢰할 수 있는 게시자** > **인증서**를 찾습니다.
 
-        ![인증서 도구](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![인증서 도구](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. 프록시 인증서를 Collector VM에 복사합니다. 네트워크 관리자에게 인증서를 받아야 할 수 있습니다.
-    4. 인증서를 두 번 클릭하여 연 다음 **인증서 설치**를 클릭합니다.
-    5. 인증서 가져오기 마법사 > 저장 위치에서 **로컬 컴퓨터**를 선택합니다.
+  3. 프록시 인증서를 Collector VM에 복사합니다. 네트워크 관리자에게 인증서를 받아야 할 수 있습니다.
+  4. 인증서를 두 번 클릭하여 연 다음 **인증서 설치**를 클릭합니다.
+  5. 인증서 가져오기 마법사 > 저장 위치에서 **로컬 컴퓨터**를 선택합니다.
 
-    ![인증서 저장 위치](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![인증서 저장 위치](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. **모든 인증서를 다음 저장소에 저장** > **찾아보기** > **신뢰할 수 있는 게시자**를 선택하고 **마침**을 클릭하여 인증서를 가져옵니다.
+  6. **모든 인증서를 다음 저장소에 저장** > **찾아보기** > **신뢰할 수 있는 게시자**를 선택하고 **마침**을 클릭하여 인증서를 가져옵니다.
 
-    ![인증서 저장소](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![인증서 저장소](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. 인증서를 제대로 가져왔는지, 그리고 인터넷 연결 필수 구성 요소 확인이 정상적으로 작동하는지 확인합니다.
+  7. 인증서를 제대로 가져왔는지, 그리고 인터넷 연결 필수 구성 요소 확인이 정상적으로 작동하는지 확인합니다.
 
 
 ### <a name="urls-for-connectivity"></a>연결에 대한 URL
@@ -111,7 +111,7 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 --- | --- | ---
 *.portal.azure.com | Azure 글로벌에 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
 *.portal.azure.us | Azure Government에만 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | 필요에 따라 URL에 액세스하면 됩니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 모듈을 수동으로 설치해야 합니다.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | Url에 대 한 액세스가 필요 합니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 인터넷에 연결 된 컴퓨터에 수동으로 모듈을 설치 하 고 다음 기기에 모듈을 복사 해야 합니다. [이 문제 해결 가이드에서 # 4 단계로 이동 하 여 자세한](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)합니다.
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>수동으로 VMware PowerCLI 모듈 설치
@@ -211,7 +211,7 @@ Azure Migrate에서 수집되는 VMware 카운터의 전체 목록은 아래와 
 네트워크 어댑터 세부 정보(NIC당) | IPv6 주소 | vm.Guest.Net
 네트워크 어댑터 세부 정보(NIC당) | 초당 읽기 처리량(메가바이트) | net.received.average
 네트워크 어댑터 세부 정보(NIC당) | 초당 쓰기 처리량(메가바이트) | net.transmitted.average
-인벤토리 경로 세부 정보 | Name | container.GetType().Name
+인벤토리 경로 세부 정보 | 이름 | container.GetType().Name
 인벤토리 경로 세부 정보 | 자식 개체 유형 | container.ChildType
 인벤토리 경로 세부 정보 | 참조 세부 정보 | container.MoRef
 인벤토리 경로 세부 정보 | 전체 인벤토리 경로 | 전체 경로가 포함된 container.Name

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106069"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -46,8 +46,8 @@ Azure CLI를 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를 만들 �
 
 리소스 그룹은 배포 하 고 Azure Stack 리소스를 관리할 수 있는 논리적 컨테이너입니다. 개발 키트 또는 Azure Stack 통합 시스템을 실행 합니다 [az 그룹 만들기](/cli/azure/group#az-group-create) 리소스 그룹을 만드는 명령입니다.
 
->[!NOTE]
- 값은 코드 예제에서 모든 변수에 할당 됩니다. 그러나 하려는 경우 새 값을 할당할 수 있습니다.
+> [!NOTE]
+>  값은 코드 예제에서 모든 변수에 할당 됩니다. 그러나 하려는 경우 새 값을 할당할 수 있습니다.
 
 다음 예제에서는 로컬 위치에 myResourceGroup 이라는 리소스 그룹을 만듭니다.
 

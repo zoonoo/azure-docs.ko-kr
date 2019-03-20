@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082707"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
 API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변경하도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 명명된 값을 사용하여 생성할 수 있습니다. 
 
 각 API Management 서비스 인스턴스에는 해당 서비스 인스턴스에 전역인, 명명된 값이라고 하는, 키/값 쌍의 속성 컬렉션이 있습니다. 이러한 명명된 값을 사용하여 모든 API 구성 및 정책에서 상수 문자열 값을 관리할 수 있습니다. 각 속성에는 다음과 같은 특성이 있습니다.
 
-| 특성 | type | 설명 |
+| 특성 | Type | 설명 |
 | --- | --- | --- |
-| 표시 이름 |string |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
-| 값 |string |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
+| 표시 이름 |문자열 |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
+| 값 |문자열 |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
 |Secret|부울|값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.|
 | 태그들 |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
 
@@ -36,7 +36,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 속성 값은 리터럴 문자열 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 포함할 수 있습니다. 예를 들어 `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
-| Name | 값 | Secret | 태그들 |
+| 이름 | 값 | Secret | 태그들 |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
@@ -50,7 +50,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 2. **명명된 값**을 선택합니다.
 3. **+추가**를 누릅니다.
 
-  이름 및 값은 필수 값입니다. 이 속성 값이 비밀인 경우 암호입니다 확인란을 선택합니다. 명명된 값을 구성하는 데 도움이 되도록 하나 이상의 선택적 태그를 입력하고 저장을 클릭합니다.
+   이름 및 값은 필수 값입니다. 이 속성 값이 비밀인 경우 암호입니다 확인란을 선택합니다. 명명된 값을 구성하는 데 도움이 되도록 하나 이상의 선택적 태그를 입력하고 저장을 클릭합니다.
 4. **만들기**를 클릭합니다.
 
 속성이 생성되면 속성을 클릭하여 속성을 편집할 수 있습니다. 속성 이름을 변경한 경우 해당 속성을 참조하는 모든 정책이 새 이름을 사용하도록 자동으로 업데이트됩니다.

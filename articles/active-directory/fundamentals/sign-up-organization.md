@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory를 사용하기 위해 조직 등록 | Microsoft Docs
+title: Azure Active Directory 조직을 등록 | Microsoft Docs
 description: Azure 및 Azure Active Directory를 사용하기 위해 조직을 등록하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91fe15cfbf855f18894ef602c86f780b97d62974
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101366"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Azure Active Directory를 사용하기 위해 조직 등록
 다음 중 하나를 사용하여 Azure AD(Azure Active Directory) 또는 새로운 Microsoft Azure 구독을 가입합니다.
@@ -27,8 +27,8 @@ ms.locfileid: "56205191"
 
 - **회사 또는 학교 계정** 회사 또는 학교 관련 계정을 사용하여 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft의 모든 중소 규모 및 엔터프라이즈 클라우드 서비스에 액세스할 수 있습니다. 이러한 서비스 중 하나에 조직으로 등록하면 조직을 나타내는 클라우드 기반 디렉터리가 Azure Active Directory에서 자동으로 프로비전됩니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
 
-    >[!Note]
-    Azure AD에 대한 액세스 권한이 이미 있는 경우 회사 또는 학교 계정을 사용하는 것이 좋습니다. 단, Azure 구독과 연결된 계정 유형을 사용해야 합니다.
+  > [!Note]
+  >   Azure AD에 대한 액세스 권한이 이미 있는 경우 회사 또는 학교 계정을 사용하는 것이 좋습니다. 단, Azure 구독과 연결된 계정 유형을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

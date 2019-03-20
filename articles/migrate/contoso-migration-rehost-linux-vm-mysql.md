@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077856"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso 마이그레이션: 온-프레미스 Linux 앱을 Azure VM 및 Azure MySQL에 다시 호스트
 
@@ -127,7 +127,7 @@ Contoso 관리자에서 마이그레이션을 수행하는 방법은 다음과 �
 > [!div class="checklist"]
 > * **1단계: Site Recovery를 위한 Azure 준비**: 복제된 데이터를 저장할 Azure Storage 계정 및 Recovery Services 자격 증명 모음을 만듭니다.
 > * **2단계: Site Recovery를 위한 온-프레미스 VMware 준비**: VM 검색 및 에이전트 설치를 위한 계정과 장애 조치 후에 Azure VM에 연결하기 위한 준비를 합니다.
- * **3단계: 데이터베이스를 프로비전]**: Azure에서 Azure MySQL 데이터베이스 인스턴스를 프로비전합니다.
+>   * **3단계: 데이터베이스를 프로비전]**: Azure에서 Azure MySQL 데이터베이스 인스턴스를 프로비전합니다.
 > * **4단계: VM 복제**: Site Recovery 원본 및 대상 환경을 구성하고, 복제 정책을 설정하고, Azure Storage로 VM 복제를 시작합니다.
 > * **5단계: 데이터베이스 마이그레이션**: MySQL 도구를 사용하여 마이그레이션을 설정합니다.
 > * **6단계: Site Recovery를 사용하여 VM 마이그레이션**: 마지막으로 테스트 장애 조치(failover)를 실행하여 모든 항목이 작동하는지 확인한 다음, 전체 장애 조치(failover)를 실행하여 VM을 Azure로 마이그레이션합니다.
@@ -147,10 +147,10 @@ Contoso 관리자는 다음과 같이 저장소 계정 및 자격 증명 모음�
 
 1. 미국 동부 2 지역에 저장소 계정(**contosovmsacc20180528**)을 만듭니다.
 
-    - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
-    - 범용 계정과 표준 저장소 및 LRS 복제를 사용합니다.
+   - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
+   - 범용 계정과 표준 저장소 및 LRS 복제를 사용합니다.
 
-    ![Site Recovery 저장소](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Recovery 저장소](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. 네트워크 및 저장소 계정이 준비되면 자격 증명 모음(ContosoMigrationVault)을 만들어 주 지역인 미국 동부 2 지역의 **ContosoFailoverRG** 리소스 그룹에 배치합니다.
 

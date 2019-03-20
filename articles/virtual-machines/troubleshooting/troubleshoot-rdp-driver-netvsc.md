@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994621"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
@@ -26,9 +26,9 @@ ms.locfileid: "52285417"
 
 ## <a name="symptoms"></a>증상
 
-RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Windows Server 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM이 연결되지 않았음을 의미합니다.
+원격 데스크톱 프로토콜 (RDP)를 사용 하 여 Azure Windows 10 또는 Windows Server 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM이 연결되지 않았음을 의미합니다.
 
-일반적으로 이 문제는 Windows [빌드 14393](http://support.microsoft.com/help/4093120/) 및 [빌드 15063](http://support.microsoft.com/help/4015583/)에서 나타납니다. 해당 빌드 이상의 운영 체제 버전을 사용 중인 경우, 이 문서의 내용이 해당 시나리오에 적용되지 않습니다. 시스템 버전을 확인하려면 [직렬 액세스 콘솔 기능](serial-console-windows.md)에서 CMD 세션을 열고 **Ver**을 실행합니다.
+일반적으로 이 문제는 Windows [빌드 14393](https://support.microsoft.com/help/4093120/) 및 [빌드 15063](https://support.microsoft.com/help/4015583/)에서 나타납니다. 해당 빌드 이상의 운영 체제 버전을 사용 중인 경우, 이 문서의 내용이 해당 시나리오에 적용되지 않습니다. 시스템 버전을 확인하려면 [직렬 액세스 콘솔 기능](serial-console-windows.md)에서 CMD 세션을 열고 **Ver**을 실행합니다.
 
 ## <a name="cause"></a>원인
 
@@ -55,8 +55,8 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Wi
 
 2. 동일한 지역에서 작동하는 VM에 연결된 새 데이터 디스크 또는 기존 데이터 디스크에 적절한 업데이트를 다운로드합니다.
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562)  이상 업데이트
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) 이상 업데이트
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상의 업데이트
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상의 업데이트
 
 3. 작동하는 VM에서 유틸리티 디스크를 분리하고 손상된 VM에 연결합니다.
 
@@ -98,22 +98,22 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Wi
 
 12. 적절한 업데이트를 다운로드합니다.
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562)  이상 업데이트
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) 이상 업데이트
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상의 업데이트
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상의 업데이트
 
 13. 시스템 디스크를 업데이트를 다운로드할 수 있는 복구 VM에 데이터 디스크로 연결합니다.
 
 14. 다음 명령을 실행하여 VM에 해당 업데이트를 설치합니다.
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. 다음 명령을 실행하여 하이브를 분리합니다.
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [시스템 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md).
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173756"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>관리 및 게시에 대한 Event Grid SDK
 
@@ -46,4 +46,4 @@ Event Grid는 사용자가 프로그래밍 방식으로 리소스를 관리하�
 * 예제 애플리케이션은 [Event Grid 코드 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid)을 참조하세요.
 * Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure CLI의 Event Grid 명령은 [Azure CLI](/cli/azure/eventgrid)를 참조하세요.
-* PowerShell의 Event Grid 명령은 [PowerShell](/powershell/module/azurerm.eventgrid)를 참조하세요.
+* PowerShell의 Event Grid 명령은 [PowerShell](/powershell/module/az.eventgrid)를 참조하세요.

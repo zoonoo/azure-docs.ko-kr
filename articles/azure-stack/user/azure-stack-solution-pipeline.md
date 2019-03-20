@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902215"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -78,17 +78,17 @@ CI 및 CD에 대 한 자세한 정보를 알아보려면:
 ### <a name="azure-stack-requirements"></a>Azure Stack 요구 사항
 
 * Azure Stack 통합 시스템을 사용 하거나 Azure Stack 개발 키트 (ASDK)를 배포 합니다. ASDK 배포:
-    * 합니다 [자습서: 설치 관리자를 사용 하 여 ASDK 배포](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) 상세한 배포 지침을 제공 합니다.
-    * 사용 된 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) ASDK 배포 후 단계를 자동화 하도록 PowerShell 스크립트입니다.
+  * 합니다 [자습서: 설치 관리자를 사용 하 여 ASDK 배포](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) 상세한 배포 지침을 제공 합니다.
+  * 사용 된 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) ASDK 배포 후 단계를 자동화 하도록 PowerShell 스크립트입니다.
 
     > [!Note]
     > ASDK 설치는 적절 하 게 계획을 완료 하려면 약 7 시간입니다.
 
- * 배포할 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스입니다.
- * 만들 [계획/제품](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack의 합니다.
- * 만들기는 [테 넌 트 구독](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack에서.
- * 테 넌 트 구독에 웹 앱을 만듭니다. 나중에 사용 하 여 새 웹 앱 url에 대 한 참고를 확인 합니다.
- * 테 넌 트 구독에는 Windows Server 2012 가상 머신을 배포 합니다. Azure DevOps 서비스를 실행 하 여 빌드 서버와이 서버를 사용 합니다.
+  * 배포할 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스입니다.
+  * 만들 [계획/제품](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack의 합니다.
+  * 만들기는 [테 넌 트 구독](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack에서.
+  * 테 넌 트 구독에 웹 앱을 만듭니다. 나중에 사용 하 여 새 웹 앱 url에 대 한 참고를 확인 합니다.
+  * 테 넌 트 구독에는 Windows Server 2012 가상 머신을 배포 합니다. Azure DevOps 서비스를 실행 하 여 빌드 서버와이 서버를 사용 합니다.
 * 가상 컴퓨터 (VM)를 위한.NET 3.5를 사용 하 여 Windows Server 2016 이미지를 제공 합니다. 개인 빌드 에이전트로이 VM에 Azure Stack에서 빌드됩니다.
 
 ### <a name="developer-tool-requirements"></a>개발자 도구 요구 사항
@@ -97,8 +97,8 @@ CI 및 CD에 대 한 자세한 정보를 알아보려면:
 * [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 하 고 [Azure DevOps 서비스에 로그인](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)합니다.
 * 프로젝트에 연결 하 고 [로컬로 복제할](https://www.visualstudio.com/docs/git/gitquickstart)합니다.
 
- > [!Note]
- > Azure Stack 환경과 Windows Server 및 SQL Server를 실행 하려면 신디케이티드 올바른 이미지가 필요 합니다. App Service에서 배포도 있어야 합니다.
+  > [!Note]
+  > Azure Stack 환경과 Windows Server 및 SQL Server를 실행 하려면 신디케이티드 올바른 이미지가 필요 합니다. App Service에서 배포도 있어야 합니다.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Azure DevOps 서비스 통합에 대 한 개인 Azure 파이프라인 에이전트 준비
 
@@ -363,7 +363,7 @@ CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용�
 
 2. 로 이동 합니다 **웹 응용 프로그램 빌드** 프로젝트에 대 한 페이지입니다.
 
-3. **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면 반드시 확인 해야 합니다.
+3. **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면이 필요 합니다.
 
     ![인수 빌드 파이프라인 추가](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

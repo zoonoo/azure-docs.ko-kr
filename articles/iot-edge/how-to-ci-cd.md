@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896231"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -47,7 +47,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 >
 >자세한 내용은 [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline)(빌드 파이프라인 만들기)을 참조하세요.
 
-1. Azure DevOps 조직(**https://dev.azure.com/{your organization}/**)에 로그인하고 IoT Edge 솔루션 리포지토리가 포함된 프로젝트를 엽니다.
+1. Azure DevOps 조직 로그인 (**https:\//dev.azure.com/{your 조직} /**) 하 고 IoT Edge 솔루션 리포지토리를 포함 하는 프로젝트를 엽니다.
 
    이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다. 해당 리포지토리에는 **filtermodule** 모듈의 코드가 있는 **IoTEdgeSolution**이 포함됩니다. 
 
@@ -69,13 +69,13 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
 4. 파이프라인이 만들어지면 파이프라인 편집기로 이동합니다. 파이프라인 설명에서 대상 플랫폼에 따라 올바른 에이전트 풀을 선택합니다. 
     
-    * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 Ubuntu 1604**를 선택합니다.
+   * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 Ubuntu 1604**를 선택합니다.
 
-    * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
+   * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
 
-    * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우에는 [Linux에서 자체 호스팅 에이전트를 설치](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)해야 합니다.
+   * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우에는 [Linux에서 자체 호스팅 에이전트를 설치](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)해야 합니다.
     
-    ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
+     ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
 5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호(**+**)를 선택하여 작업(job)에 다음 세 개의 작업(task)을 추가합니다. **Azure IoT Edge** 두 번 및 **빌드 아티팩트 게시** 한 번. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
 
@@ -158,11 +158,11 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
 10. 새 Azure IoT Edge 작업을 선택하고 다음 값으로 구성합니다.
 
-   * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
-   * **작업**: 드롭다운 목록을 사용하여 **IoT Edge 디바이스에 배포**를 선택합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
-   * **Azure 구독**: IoT Hub를 포함하는 구독을 선택합니다.
-   * **IoT Hub 이름**: IoT Hub를 선택합니다. 
-   * **단일/복수 디바이스 선택**: 릴리스 파이프라인을 단일 디바이스 또는 여러 디바이스에 배포할지 여부를 선택합니다. 
+    * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
+    * **작업**: 드롭다운 목록을 사용하여 **IoT Edge 디바이스에 배포**를 선택합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
+    * **Azure 구독**: IoT Hub를 포함하는 구독을 선택합니다.
+    * **IoT Hub 이름**: IoT Hub를 선택합니다. 
+    * **단일/복수 디바이스 선택**: 릴리스 파이프라인을 단일 디바이스 또는 여러 디바이스에 배포할지 여부를 선택합니다. 
       * 단일 디바이스에 배포하는 경우 **IoT Edge 디바이스 ID**를 입력합니다. 
       * 여러 디바이스에 배포하는 경우 디바이스 **대상 조건**을 지정합니다. 대상 조건은 IoT Hub에서 Edge 디바이스 세트에 일치하는 필터입니다. 디바이스 태그를 조건으로 사용하려는 경우 IoT Hub 디바이스 쌍으로 해당 디바이스 태그를 업데이트해야 합니다. 고급 설정에서 **IoT Edge 배포 ID** 및 **IoT Edge 배포 우선 순위**를 업데이트합니다. 여러 디바이스용 배포를 만드는 방법에 대한 자세한 내용은 [IoT Edge 자동 배포 이해](module-deployment-monitoring.md)를 참조하세요.
 

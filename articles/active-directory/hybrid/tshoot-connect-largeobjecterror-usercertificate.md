@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096676"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -79,9 +79,9 @@ Azure AD에 의도하지 않은 변경 사항을 내보내지 않도록 새 동�
 > [!Note]
 > 이전 단계는 기본 제공된 스케줄러가 있는 Azure AD Connect의 최신 버전(1.1.xxx.x)에만 적용됩니다. Windows Task Scheduler를 사용하는 이전 버전(1.0.xxx.x)의 Azure AD Connect를 사용하거나 정기적인 동기화를 트리거하기 위해 사용자 고유의 사용자 지정 스케줄러(공통이 아님)를 사용하는 경우 적절하게 비활성화해야 합니다.
 
-3. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
+1. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
 
-4. **작업** 탭으로 이동하고 상태가 *“진행 중”* 인 작업이 없는지 확인합니다.
+1. **작업** 탭으로 이동하고 상태가 *“진행 중”* 인 작업이 없는지 확인합니다.
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>2단계. userCertificate 특성에 대한 기존 아웃바운드 동기화 규칙을 찾습니다.
 User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 활성화 및 구성된 기존 동기화 규칙이 있어야 합니다. 이 동기화 규칙을 찾아 해당 **우선 순위**와 **범위 지정 필터** 구성을 확인합니다.
@@ -117,7 +117,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | Name | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
+    | 이름 | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
     | 설명 | *설명 제공* | 예: *“userCertificate 특성에 15개 이상의 값이 있는 경우 NULL을 내보냅니다.”* |
     | 연결된 시스템 | *Azure AD 커넥터에 선택* |
     | 연결된 시스템 개체 유형 | **user** | |

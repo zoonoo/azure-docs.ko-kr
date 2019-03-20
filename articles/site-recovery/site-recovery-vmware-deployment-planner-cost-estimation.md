@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093840"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Site Recovery Deployment Planner에서 비용 예측 보고서 검토
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
+
+>[!Note]
+>현재 버전의 Deployment planner 도구에서는 Vm에 대 한 비용 예측 Managed Disks로 복제 합니다.
+>* DR 드릴 비용 예측 ' 계산 및 네트워크 ' 블레이드에서 ' Managed Disks 사용 ' 매개 변수가 "Yes" 설정 된 경우 저장소 계정 및 managed disks에 대 한 동일 합니다.
+>* 복제에 대 한 대략적인 연간 비용 추정 하려면 다음 임시 설정에서 확인 하십시오 **비용 예측** 시트:
+>    * "비용 기간" 매개 변수 설정 **설정을** "Year" 테이블
+>    * **자세한 비용 분석** 테이블, 12 '연간에서 DR 드릴 횟수 번호' 열을 설정 하 고 "각 DR 드릴 기간 (일)" 30 
+>    * 복제 비용의 연간 열 'R' 예: DR 드릴 저장소 비용에 채워진 비용 비슷해야 **연간 DR 드릴 비용** 하위 섹션입니다.
 
 ### <a name="cost-estimation-summary"></a>비용 예측 요약 
 이 그래프는 사용자가 선택한 대상 지역에 대해 예측한 총 DR(재해 복구) 비용 및 사용자가 보고서 생성을 위해 지정한 통화의 요약 보기를 보여줍니다.
@@ -106,9 +114,9 @@ VM을 수동으로 추가하려면:
 * 데이터 중복 
 * Azure 하이브리드 혜택
 
-3.  연간 DR 드릴 횟수, 각 DR 드릴 지속 시간(일), 데이터 중복성 및 Azure 하이브리드 사용 혜택의 경우, 'Apply to all(모든 항목에 적용)' 단추를 클릭하면 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
+1. 연간 DR 드릴 횟수, 각 DR 드릴 지속 시간(일), 데이터 중복성 및 Azure 하이브리드 사용 혜택의 경우, 'Apply to all(모든 항목에 적용)' 단추를 클릭하면 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
 
-4.  비용을 업데이트하려면 'Re-calculate cost'(비용 다시 계산)을 클릭합니다.
+1. 비용을 업데이트하려면 'Re-calculate cost'(비용 다시 계산)을 클릭합니다.
 
 **VM 이름**: VM의 이름입니다.
 

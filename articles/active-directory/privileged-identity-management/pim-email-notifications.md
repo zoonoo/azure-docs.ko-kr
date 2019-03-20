@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905174"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
@@ -31,7 +31,7 @@ Azure AD PIM(Privileged Identity Management)을 사용하면 역할이 할당되
 
 Azure AD 및 Azure 리소스 역할 모두에 대해 PIM에서 보낸 이메일은 다음과 같은 보낸 사람 이메일 주소를 포함합니다.
 
-- 이메일 주소: **azure-noreply@microsoft.com**
+- 전자 메일 주소: **azure noreply\@microsoft.com**
 - 표시 이름: Microsoft Azure
 
 이러한 이메일은 제목 줄에 **PIM** 접두사를 포함합니다. 예를 들면 다음과 같습니다.
@@ -51,8 +51,8 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 | 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
 | --- | --- | --- | --- |
 | 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
-| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
-| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
+| 보안 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
+| 전역 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
 
 \* [**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
 

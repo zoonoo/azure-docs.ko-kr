@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 48da92be0eef1154b490fb4829363598d6d66569
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116602"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
 Service Fabric Cluster Resource Manager는 클러스터에서 실행되는 중앙 서비스입니다. 이 서비스는 특히 리소스 소비 및 배치 규칙 측면에서 클러스터에 있는 서비스의 원하는 상태를 관리합니다. 
@@ -51,6 +51,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 다음 다이어그램을 살펴보겠습니다.
 
 <center>
+
 ![리소스 분산 장치 아키텍처][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 다음 다이어그램을 살펴보고 그 다음에 어떤 결과가 발생하는지 알아보겠습니다. 클러스터 Resource Manager에서 변경이 필요한지 판단한다고 가정합니다. 이는 다른 시스템 서비스(특히 장애 조치 관리자)와 함께 필요한 변경을 수행합니다. 그런 다음 필요한 명령을 적절한 노드(4)로 전송합니다. 예를 들어 Resource Manager에서 Node5가 오버로드되었음을 알아차리고 서비스 B를 Node5에서 Node4로 이동하기로 결정했다고 가정합니다. 재구성(5)이 마무리되면 클러스터는 다음과 같이 됩니다.
 
 <center>
+
 ![리소스 분산 장치 아키텍처][Image2]
 </center>
 

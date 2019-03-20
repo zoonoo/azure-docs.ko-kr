@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899131"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Azure App Service의 “502 잘못된 게이트웨이” 및 “503 서비스를 사용할 수 없음” HTTP 오류 해결
 “502 잘못된 게이트웨이” 및 “503 서비스를 사용할 수 없음” 오류는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 호스트된 앱에서 일반적으로 나타나는 오류입니다. 이 문서는 이러한 오류를 해결하는 데 도움이 됩니다.
@@ -109,7 +109,7 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 수동 또는 자동으로 크기를 조정할 수 있습니다.
 
 #### <a name="use-autoheal"></a>AutoHeal를 사용
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. 언제든지 Azure Portal 내에서 직접 앱을 다시 시작할 수도 있지만, AutoHeal에서 자동으로 다시 시작합니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이 설정은 사용자의 애플리케이션이 .Net이 아니라도 같은 방식으로 작동됩니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. 언제든지 Azure Portal 내에서 직접 앱을 다시 시작할 수도 있지만, AutoHeal에서 자동으로 다시 시작합니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이 설정은 응용 프로그램 하나는.NET 아닌 경우에 동일한 방식으로 작동 됩니다 note 합니다.
 
 자세한 내용은 [Auto-Healing Azure Websites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 

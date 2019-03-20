@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260337"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093544"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Microsoft Azure BizTalk Services에 대한 릴리스 정보는 이 릴리스의 알려진 문제를 포함합니다.
@@ -47,7 +47,8 @@ Microsoft Azure BizTalk Services에 대한 릴리스 정보는 이 릴리스의 
 * 송신 측 규약의 경우 각 스키마에 대해 서로 다른 구분 기호 집합을 지정할 수 있습니다. 이 구성은 송신 측 규약의 프로토콜 설정 아래에 지정됩니다. 자세한 내용은 [Azure BizTalk Services에 X12 규약 만들기](https://msdn.microsoft.com/library/azure/hh689847.aspx) 및 [Azure BizTalk Services에 EDIFACT 규약 만들기](https://msdn.microsoft.com/library/azure/dn606267.aspx)를 참조하세요. 두 개의 새 엔터티가 동일한 목적을 위해 TPM OM API에 추가됩니다. [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) 및 [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)를 참조하세요.  
 * 파생 형식을 포함한 표준 XSD 항목이 이제 지원됩니다. [맵에 표준 XSD 항목 사용](https://msdn.microsoft.com/library/azure/dn793987.aspx) 및 [매핑 시나리오 및 예제에서 파생 형식 사용](https://msdn.microsoft.com/library/azure/dn793997.aspx)을 참조하세요.  
 * AS2는 메시지 서명을 위한 새 MIC 알고리즘 및 새로운 암호화 알고리즘을 지원합니다. [Azure BizTalk Services에서 AS2 규약 만들기](https://msdn.microsoft.com/library/azure/hh689890.aspx)를 참조하세요.  
-  ## <a name="know-issues"></a>알려진 문제
+
+## <a name="known-issues"></a>알려진 문제
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>BizTalk Services 포털 업데이트 후의 연결 문제
   서비스에 대한 변경 내용을 롤인하도록 BizTalk Services를 업그레이드하는 동안 BizTalk Services 포털이 열려 있으면 BizTalk Services 포털에 연결 문제가 발생할 수 있습니다.  
@@ -127,7 +128,7 @@ BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어�
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>
