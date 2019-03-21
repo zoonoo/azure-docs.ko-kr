@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756685"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866932"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -49,9 +49,9 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
-| apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| functionValues |아니요 |object | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스에 대한 고유 식별자. |
+| apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| functionValues |아닙니다. |object | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
 
 ### <a name="implementations"></a>구현
 
@@ -271,8 +271,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |예 |string |공급자의 네임스페이스입니다. |
-| resourceType |아니요 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
+| providerNamespace |예 |문자열 |공급자의 네임스페이스입니다. |
+| resourceType |아닙니다. |문자열 |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -359,9 +359,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. |
-| apiVersion |아니요 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| 'Full' |아니요 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. |
+| apiVersion |아닙니다. |문자열 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| 'Full' |아닙니다. |문자열 |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -658,11 +658,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceGroupName |아니요 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니요 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
+| subscriptionId |아닙니다. |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceGroupName |아닙니다. |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
+| resourceName2 |아닙니다. |문자열 |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -727,8 +727,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
       }
   },
   "variables": {
-      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
   {

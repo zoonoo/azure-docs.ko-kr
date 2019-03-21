@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694009"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403450"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>IoT(사물 인터넷) 기술 및 솔루션: PaaS 및 SaaS
 
@@ -90,7 +90,7 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 ### <a name="device-support"></a>디바이스 지원
 
-[Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [디바이스 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 디바이스 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
+[Azure IoT 시작 키트](https://catalog.azureiotsolutions.com/kits)를 활용하거나 [디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에 있는 수백 대의 IoT용 Certified 디바이스 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
 오픈 소스 [디바이스 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 디바이스를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
 
 ### <a name="iot"></a>IoT 

@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079846"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
    - 실행 2: 사용자 고유의 필터를 추가합니다.
    - 실행 3: 필요에 따라 사용자 고유의 필터를 제거합니다. 이렇게 하면 기본 필터가 다시 만들어지지 않습니다.
 
-    ![2의 출력 표시](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![2의 출력 표시](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. 필터가 만들어지면 메시지를 보낼 수 있습니다. 4를 누르고 토픽에 보내는 10개 메시지를 관찰합니다.
 

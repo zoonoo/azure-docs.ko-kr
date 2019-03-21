@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005469"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
 
-**Marketplace**의 이미지를 사용하여 가상 머신을 만드는 경우 [Azure Portal](http://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
+**Marketplace**의 이미지를 사용하여 가상 머신을 만드는 경우 [Azure Portal](https://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
 **Marketplace**의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/classic/tutorial.md)를 참조하세요.
 
@@ -94,4 +94,4 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 
 <!-- Link references -->
 [Windows Server를 실행하는 가상 머신에 로그온하는 방법]:../windows/classic/connect-logon.md
-[Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM 확장 및 기능]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

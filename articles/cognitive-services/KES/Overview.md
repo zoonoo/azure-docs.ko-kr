@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: overview
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: afd71999660d02c3c6d5ea174e786efcf43e54f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1f979e05c62f5df0574196d1c9bdc755c7893b78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860680"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546589"
 ---
 # <a name="knowledge-exploration-service"></a>지식 탐색 서비스
 
@@ -25,7 +25,7 @@ KES를 사용하여 학술 서적 도메인에 대한 대화형 검색 인터페
 
 ![AcademicAutoComplete](AutoComplete.png)
 
-KES는 Cognitive Services 미리 보기에서 Cognitive Services 랩으로 이동했습니다. 프로젝트의 새 홈 페이지는 [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration)입니다.
+KES는 Cognitive Services 미리 보기에서 Cognitive Services 랩으로 이동했습니다. 프로젝트의 새 홈 페이지는 [https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration)입니다.
 
 ## <a name="reference"></a>참고 자료
 

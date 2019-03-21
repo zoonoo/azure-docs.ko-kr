@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory란? | Microsoft Docs
+title: Azure Active Directory란? - Azure Active Directory | Microsoft Docs
 description: 필수 용어, 대상, 라이선싱 기본 사항 및 관련 기능을 포함하여 Azure Active Directory에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b443dc2d25558343fb8cad3fd5e9734a672e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0d3b3cd7e759892c2215f190a682f5f69818958d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442371"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란? 
 Azure AD(Azure Active Directory)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD를 사용하면 직원들이 다음 항목에서 로그인하여 리소스에 액세스할 수 있습니다.

@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871560"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551724"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -23,7 +23,7 @@ Academic Knowledge API에 오신 것을 환영합니다. 이 서비스를 사용
 
 MAG 데이터는 Bing에서 한 사내 기술 자료와 Bing 웹 인덱스에서 마이닝됩니다. 지속적인 Bing 인덱싱의 결과로 이 API에는 Bing의 인덱싱 및 검색을 수행하여 웹의 새로운 정보가 포함됩니다. 이 데이터 세트에 따라 Academic Knowledge API를 사용하면 반응형 검색을 능동적 제안 환경, 풍부한 연구 논문 그래프 검색 결과와 문서 집합 및 관련 엔터티에 대한 특성 값의 히스토그램 배포와 원활하게 결합하는 지식 기반의 대화형 대화를 할 수 있습니다.
 
-Microsoft Academic Graph에 대한 자세한 내용은 [http://aka.ms/academicgraph](https://aka.ms/academicgraph)을 참조합니다.
+Microsoft Academic Graph에 대한 자세한 내용은 [https://aka.ms/academicgraph](https://aka.ms/academicgraph)을 참조합니다.
 
 Academic Knowledge API는 Cognitive Services 미리 보기에서 Cognitive Services 랩으로 이동했습니다. 프로젝트의 새 홈 페이지는 [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge)입니다. 기존 API 키는 2018년 5월 24일까지만 서비스됩니다. 그 후에는 새 API 키를 생성하세요. 유료 미리 보기는 기존 키가 만료되면 더 이상 사용할 수 없으니 유의하십시오. API의 무료 계층이 사용자 용도에 적합하지 않은 경우 당사 팀에 문의하십시오. 
 

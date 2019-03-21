@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904510"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Machine Learning Studio를 사용하려면 Microsoft Azure Machine Learning Stud
 ## <a name="upload"></a>기존 데이터 업로드
 
 신용 위험에 대한 예측 모델을 개발하려면 모델을 학습하고 테스트하는 데 사용할 수 있는 데이터가 필요합니다. 이 자습서에서는 UC Irvine Machine Learning 리포지토리의 "UCI Statlog(독일 신용 데이터) 데이터 세트"를 사용합니다. 이 데이터 집합은   
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 **german.data**라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
 
@@ -212,18 +212,18 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 
 1. **속성** 창으로 돌아가서 **새 열 이름** 매개 변수를 찾습니다. 이 필드에 데이터 세트의 21개 열에 대한 이름 목록을 쉼표로 구분하여 열 순서로 입력합니다. UCI 웹 사이트의 데이터 세트 설명서에서 열 이름을 얻거나 편의를 위해 다음 목록을 복사하여 붙여넣을 수 있습니다.  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  속성 창의 모양은 다음과 같습니다.
+   속성 창의 모양은 다음과 같습니다.
 
-  ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
-  > 
-  > 
+   > [!TIP]
+   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>학습 및 테스트 데이터 세트 만들기
 

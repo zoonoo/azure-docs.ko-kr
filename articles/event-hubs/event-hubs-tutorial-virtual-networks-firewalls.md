@@ -1,7 +1,7 @@
 ---
 title: 자습서 - Event Hubs에서 Virtual Networks 통합 및 방화벽 사용 | Microsoft Docs
 description: 이 자습서에서는 안전하게 액세스할 수 있도록 가상 네트워크 및 방화벽을 사용하여 Event Hubs를 통합하는 방법을 알아봅니다.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233142"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779048"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>자습서: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
 

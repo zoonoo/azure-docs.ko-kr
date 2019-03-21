@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
 ms.devlang: ''
-ms.topic: ''
+ms.topic: overview
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077159"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -481,9 +481,9 @@ Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므
 
 - Azure 리소스 관리자 템플릿
 
->**사용하는 경우**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 사설 서브넷으로 분할할 수 있습니다.
-
->**시작**: Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
+> **사용하는 경우**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 사설 서브넷으로 분할할 수 있습니다.
+> 
+> **시작**: Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
 
 ### <a name="access-and-security-for-virtual-networks"></a>가상 네트워크의 액세스 및 보안
 

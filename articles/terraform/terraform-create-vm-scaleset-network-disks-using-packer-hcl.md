@@ -2,19 +2,19 @@
 title: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 머신 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002000"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
@@ -180,7 +180,7 @@ terraform apply
 - Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
 - 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
 - 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
-- 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](http://nginx.org/)
+- 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](https://nginx.org/)
 
 
 `vmss.tf` 파일의 끝에 다음 코드를 추가합니다.

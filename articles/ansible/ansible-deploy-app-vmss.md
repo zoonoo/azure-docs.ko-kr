@@ -1,19 +1,19 @@
 ---
 title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
 description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 애플리케이션을 배포하는 방법 알아보기
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 540634d68f28aadeed308bc6cc84f459b79385e2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729290"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791735"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 애플리케이션을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.

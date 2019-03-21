@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834729"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "54188558"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="order"></a>순서
 
@@ -74,7 +74,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
     
 4. 아래 그림과 같이 디바이스에 케이블을 꽂습니다.  
 
-    ![케이블을 꽂은 Data Box](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![케이블이 연결된 Data Box 디바이스의 백플레인](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. 디바이스에 전원 케이블을 연결합니다.
     2. RJ-45 CAT 6 네트워크 케이블을 사용하여 호스트 컴퓨터를 디바이스의 관리 포트(MGMT)에 연결합니다. 
@@ -86,7 +86,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
 
-1. 디바이스 암호를 확인하려면 [Azure Portal](http://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다.
+1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다.
 2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 

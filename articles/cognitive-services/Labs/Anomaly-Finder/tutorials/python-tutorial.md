@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219399"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539091"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>자습서: Python 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-이 자습서는 Python에서 변칙 검색 API를 사용하는 방법 및 인기 라이브러리를 사용하여 결과를 시각화하는 방법을 보여 줍니다. Jupyter를 사용하여 자습서를 실행하고 구독 키로 사용자 고유 데이터를 시도합니다. 대화형 Jupyter 노트북을 시작하는 방법을 알아보려면 [Jupyter 문서](http://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요. 
+이 자습서는 Python에서 변칙 검색 API를 사용하는 방법 및 인기 라이브러리를 사용하여 결과를 시각화하는 방법을 보여 줍니다. Jupyter를 사용하여 자습서를 실행하고 구독 키로 사용자 고유 데이터를 시도합니다. 대화형 Jupyter 노트북을 시작하는 방법을 알아보려면 [Jupyter 문서](https://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fedc053d7869d9d5e85f890dcc707852a27df089
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735944"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011384"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 
@@ -37,7 +37,7 @@ Import-Module Az.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인합니다. 화면에 나타나는 지침에 따릅니다.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인합니다. 화면에 나타나는 지침에 따릅니다.
 
 ```powershell
 Connect-AzAccount

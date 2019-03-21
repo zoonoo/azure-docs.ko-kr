@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878434"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -233,7 +233,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -262,7 +262,7 @@ GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아래 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스하는 방법을 보여 줍니다.
+Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 다음 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스 하는 방법을 보여 줍니다.
 
 ![GitHub 연결이 표시된 Visual Studio 스크린샷](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -279,7 +279,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 ![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리가 이미 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조하세요.
-* Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
+* Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
 ![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -296,7 +296,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. 다음은 AzCopy 명령을 사용하는 예입니다.
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

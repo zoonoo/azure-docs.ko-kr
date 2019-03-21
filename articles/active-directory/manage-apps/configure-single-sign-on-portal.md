@@ -12,12 +12,12 @@ ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b04831790083f9ba41f20719a7d8ffddc35348b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210410"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571408"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션에 대한 SAML 기반 Single Sign-On 구성
 
@@ -189,6 +189,6 @@ Azure AD에서는 인증서를 사용하여 애플리케이션에 보내는 SAML
 조직에서 더 많은 사용자에게 애플리케이션을 롤아웃하려면 자동 사용자 프로비저닝을 사용하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
->[자동 프로비저닝을 사용하여 사용자를 할당하는 방법 알아보기](configure-automatic-user-provisioning-portal.md)
+> [자동 프로비전을 사용하여 사용자를 할당하는 방법 알아보기](configure-automatic-user-provisioning-portal.md)
 
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870070"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294436"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 애플리케이션을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -49,7 +49,7 @@ Service Fabric은 어디에서나 실행됩니다. Azure 또는 온-프레미스
 
 ![서비스 패브릭 플랫폼][Image1]
 
-Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell과 통합됩니다. [Windows에서 개발 환경 준비](service-fabric-get-started.md)를 참조하세요. Linux 개발을 위해 Service Fabric Java SDK는 Eclipse와 통합되고, Yeoman은 Java, .NET Core 및 컨테이너 애플리케이션에 대한 템플릿을 생성하는 데 사용됩니다. [Linux에서 개발 환경 준비](service-fabric-get-started.md)를 참조하세요.
+Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell과 통합됩니다. [Windows에서 개발 환경 준비](service-fabric-get-started.md)를 참조하세요. Linux 개발을 위해 Service Fabric Java SDK는 Eclipse와 통합되고, Yeoman은 Java, .NET Core 및 컨테이너 애플리케이션에 대한 템플릿을 생성하는 데 사용됩니다. [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)를 참조하세요.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
 
