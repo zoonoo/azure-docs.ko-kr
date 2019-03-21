@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26520e3ff8f5bb97866015d3148b4c8b8813b319
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168573"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 ![새 프로젝트 대화 상자를 사용하여 새 Service Fabric 애플리케이션 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-그런 다음, *HelloWorldStateless*라는 **.Net Core 2.0**을 사용하여 상태 비저장 서비스 프로젝트를 만듭니다.
+다음을 사용 하 여 상태 비저장 서비스 프로젝트를 만듭니다 **.NET Core 2.0** 라는 *HelloWorldStateless*:
 
 ![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ![Service Fabric 애플리케이션에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-**.Net Core 2.0 -> 상태 저장 서비스**를 선택하고 *HelloWorldStateful*이라고 이름을 지정합니다. **확인**을 클릭합니다.
+선택 **-> 상태 저장 서비스를.NET Core 2.0** 하 고 이름을 *HelloWorldStateful*합니다. **확인**을 클릭합니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 상태 저장 서비스 만들기](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

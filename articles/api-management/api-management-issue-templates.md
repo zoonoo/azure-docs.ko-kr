@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: f099c27c55b817d6d9217a614ee66bf1d414a4dd
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446377"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760753"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -40,55 +40,55 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="default-template"></a>기본 템플릿  
   
-```xml  
-<div class="row">  
-  <div class="col-md-9">  
-    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>  
-  </div>  
-</div>  
-<div class="row">  
-  <div class="col-md-12">  
-    {% if issues.size > 0 %}  
-    <ul class="list-unstyled">  
-      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}  
-      {% assign replaceString0 = '{0}' %}  
-      {% assign replaceString1 = '{1}' %}  
-      {% for issue in issues %}  
-      <li>  
-        <h3>  
-          <a href="/issues/{{issue.id}}">{{issue.title}}</a>  
-        </h3>  
-        <p>{{issue.description}}</p>  
-        <em>  
-          {% capture state %}{{issue.issueState}}{% endcapture %}  
-          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}  
-          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}  
-          {{ str1 | replace : replaceString1, devName }}  
-          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>  
-        </em>  
-      </li>  
-      {% endfor %}  
-    </ul>  
-    <paging-control></paging-control>  
-    {% else %}  
-    {% localized "CommonResources|NoItemsToDisplay" %}  
-    {% endif %}  
-    {% if canReportIssue %}  
-    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>  
-    {% elsif isAuthenticated %}  
-    <hr />  
-    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>  
-    {% else %}  
-    <hr />  
-    <p>  
-      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}  
-      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}  
-      {{ signIntext | replace : replaceString0, link }}  
-    </p>  
-    {% endif %}  
-  </div>  
-</div>  
-```  
+```xml
+<div class="row">
+  <div class="col-md-9">
+    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {% if issues.size > 0 %}
+    <ul class="list-unstyled">
+      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}
+      {% assign replaceString0 = '{0}' %}
+      {% assign replaceString1 = '{1}' %}
+      {% for issue in issues %}
+      <li>
+        <h3>
+          <a href="/issues/{{issue.id}}">{{issue.title}}</a>
+        </h3>
+        <p>{{issue.description}}</p>
+        <em>
+          {% capture state %}{{issue.issueState}}{% endcapture %}
+          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}
+          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}
+          {{ str1 | replace : replaceString1, devName }}
+          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>
+        </em>
+      </li>
+      {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
+    {% if canReportIssue %}
+    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>
+    {% elsif isAuthenticated %}
+    <hr />
+    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>
+    {% else %}
+    <hr />
+    <p>
+      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}
+      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}
+      {{ signIntext | replace : replaceString0, link }}
+    </p>
+    {% endif %}
+  </div>
+</div>
+```
   
 ### <a name="controls"></a>컨트롤  
  `Issue list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
@@ -97,43 +97,43 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
 |문제|[문제](api-management-template-data-model-reference.md#Issue) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 문제입니다.|  
 |페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |IsAuthenticated|부울|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
 |CanReportIssues|부울|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
-|검색|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|검색|문자열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   
-```json  
-{  
-    "Issues": [  
-        {  
-            "Id": "5702b68bb16653124c8f9ba7",  
-            "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
-            "SubscriptionDeveloperName": "Clayton",  
-            "IssueState": "Proposed",  
-            "ReportedOn": "2016-04-04T18:46:35.64",  
-            "Comments": null,  
-            "Attachments": null,  
-            "Services": null  
-        }  
-    ],  
-    "Paging": {  
-        "Page": 1,  
-        "PageSize": 10,  
-        "TotalItemCount": 1,  
-        "ShowAll": false,  
-        "PageCount": 1  
-    },  
-    "IsAuthenticated": true,  
-    "CanReportIssue": true,  
-    "Search": null  
-}  
+```json
+{
+    "Issues": [
+        {
+            "Id": "5702b68bb16653124c8f9ba7",
+            "ApiId": "570275f1b16653124c8f9ba3",
+            "Title": "I couldn't figure out how to connect my application to the API",
+            "Description": "I'm having trouble connecting my application to the backend API.",
+            "SubscriptionDeveloperName": "Clayton",
+            "IssueState": "Proposed",
+            "ReportedOn": "2016-04-04T18:46:35.64",
+            "Comments": null,
+            "Attachments": null,
+            "Services": null
+        }
+    ],
+    "Paging": {
+        "Page": 1,
+        "PageSize": 10,
+        "TotalItemCount": 1,
+        "ShowAll": false,
+        "PageCount": 1
+    },
+    "IsAuthenticated": true,
+    "CanReportIssue": true,
+    "Search": null
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112180"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -81,17 +81,17 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
 5. HDInsight 네트워크와 AKS 클러스터 네트워크 간에 피어링을 구성하려면 가상 네트워크를 선택한 다음, __피어링__을 선택합니다. __+ 추가__를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
 
-    * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
-    * __가상 네트워크__: 이 필드를 사용하여 **AKS 클러스터**의 가상 네트워크를 선택합니다.
+   * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
+   * __가상 네트워크__: 이 필드를 사용하여 **AKS 클러스터**의 가상 네트워크를 선택합니다.
 
-    다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
+     다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 
 6. AKS 클러스터 네트워크와 HDInsight 네트워크 간에 피어링을 구성하려면 __AKS 클러스터 가상 네트워크__를 선택한 다음, __피어링__을 선택합니다. __+ 추가__를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
 
-    * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
-    * __가상 네트워크__: 이 필드를 사용하여 __HDInsight 클러스터__의 가상 네트워크를 선택합니다.
+   * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
+   * __가상 네트워크__: 이 필드를 사용하여 __HDInsight 클러스터__의 가상 네트워크를 선택합니다.
 
-    다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
+     다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>HDInsight에 Apache Kafka 설치
 

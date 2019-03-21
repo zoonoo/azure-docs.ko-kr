@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123473"
 ---
 # <a name="deploy"></a>배포
 
@@ -49,15 +49,15 @@ ms.locfileid: "54188388"
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Adventure Works Internet Sales를 배포하려면
   
-1.  **솔루션 탐색기**에서 **AW Internet Sales** 프로젝트 > **빌드**를 마우스 오른쪽 단추로 클릭합니다.  
+1. **솔루션 탐색기**에서 **AW Internet Sales** 프로젝트 > **빌드**를 마우스 오른쪽 단추로 클릭합니다.  
 
-2.  **AW Internet Sales** 프로젝트 > **배포**를 마우스 오른쪽 단추로 클릭합니다.
+2. **AW Internet Sales** 프로젝트 > **배포**를 마우스 오른쪽 단추로 클릭합니다.
 
-    Azure Analysis Services에 배포할 때는 사용자 계정을 입력하라는 메시지가 표시될 수 있습니다. 조직의 계정 및 암호를 입력합니다(예: nancy@adventureworks.com). 이 계정은 서버에서 관리자여야 합니다.
+   Azure Analysis Services에 배포할 때는 사용자 계정을 입력하라는 메시지가 표시될 수 있습니다. 조직의 계정 및 암호를 입력합니다(예: nancy@adventureworks.com). 이 계정은 서버에서 관리자여야 합니다.
   
-    배포 대화 상자가 나타나고 메타데이터와 모델에 포함된 각 테이블의 배포 상태가 표시됩니다.  
+   배포 대화 상자가 나타나고 메타데이터와 모델에 포함된 각 테이블의 배포 상태가 표시됩니다.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. 배포가 성공적으로 완료되면 진행하고 **닫기**를 클릭합니다.  
   

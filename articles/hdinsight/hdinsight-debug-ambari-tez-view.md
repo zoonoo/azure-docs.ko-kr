@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105270"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight에서 Apache Ambari Tez 뷰를 사용하여 Tez 작업 디버깅
 
@@ -90,14 +90,14 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 
 5. 이 페이지에 있는 탭에서 다음 정보를 볼 수 있습니다.
 
-    * **쿼리 세부 정보**: Hive 쿼리에 대한 세부 정보입니다.
-    * **타임라인**: 각 처리 단계가 진행되는 데 걸린 시간에 대한 정보입니다.
-    * **구성**: 이 쿼리에 사용된 구성입니다.
+   * **쿼리 세부 정보**: Hive 쿼리에 대한 세부 정보입니다.
+   * **타임라인**: 각 처리 단계가 진행되는 데 걸린 시간에 대한 정보입니다.
+   * **구성**: 이 쿼리에 사용된 구성입니다.
 
-    __쿼리 세부 정보__에서 링크를 사용하여 이 쿼리에 대한 __애플리케이션__ 또는 __DAG__ 관련 정보를 찾을 수 있습니다.
+     __쿼리 세부 정보__에서 링크를 사용하여 이 쿼리에 대한 __애플리케이션__ 또는 __DAG__ 관련 정보를 찾을 수 있습니다.
     
-    * __애플리케이션__ 링크를 클릭하면 이 쿼리의 YARN 애플리케이션에 대한 정보가 표시됩니다. 여기에서 YARN 애플리케이션 로그에 액세스할 수 있습니다.
-    * __DAG__ 링크를 클릭하면 이 쿼리에 대해 지정된 비순환 그래프 관련 정보가 표시됩니다. 여기에서 DAG의 그래픽 표시를 볼 수 있습니다. DAG 내에서 꼭짓점에 대한 정보를 찾을 수 있습니다.
+   * __애플리케이션__ 링크를 클릭하면 이 쿼리의 YARN 애플리케이션에 대한 정보가 표시됩니다. 여기에서 YARN 애플리케이션 로그에 액세스할 수 있습니다.
+   * __DAG__ 링크를 클릭하면 이 쿼리에 대해 지정된 비순환 그래프 관련 정보가 표시됩니다. 여기에서 DAG의 그래픽 표시를 볼 수 있습니다. DAG 내에서 꼭짓점에 대한 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

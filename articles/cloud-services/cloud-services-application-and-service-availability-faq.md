@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246364"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547642"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>응용 프로그램 및 Azure Cloud Services에 대 한 서비스 사용 가능성 문제: FAQ(질문과 대답)
 
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 애플리케이션 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
@@ -41,8 +41,8 @@ Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새
 애플리케이션 충돌, 중단 또는 메모리 누수를 일으킬 수 있는 불안정한 경우 상태를 방지하기 위해 IIS(인터넷 정보 서비스) 애플리케이션 풀을 정기적으로 재활용할 수 있습니다.
 
 다음 문서는 이 문제를 이해하고 완화하는 데 도움이 됩니다.
-* [IIS에서 느린 초기 로드 수정](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [앱 풀 재활용이 느려진 후 IIS 7.5 웹 응용 프로그램 첫 번째 요청](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+* [IIS에서 느린 초기 로드 수정](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [앱 풀 재활용이 느려진 후 IIS 7.5 웹 애플리케이션 첫 번째 요청](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
 IIS의 기본 동작을 변경하려는 경우 웹 역할 인스턴스에 변경 내용을 수동으로 적용하면 변경 내용이 손실되기 때문에 시작 작업을 사용해야 합니다.
 

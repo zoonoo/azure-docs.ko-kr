@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113081"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -100,7 +100,7 @@ availabilityResults
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/function-app-05.png)
 
-7. **함수 앱** > **플랫폼 기능** > **응용 프로그램 설정**을 선택합니다.
+7. **Function App** > **플랫폼 기능** > **애플리케이션 설정**을 선택합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/function-app-07.png)
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (AI_ 값은 보고하려는 Application Insights 리소스에 대한 API 액세스에서 찾을 수 있습니다. Application Insights API 키가 없는 경우 **API 키 만들기**에 대한 옵션이 있습니다.)
     
-    * AI_APP_ID = 애플리케이션 ID
-    * AI_APP_KEY = API 키
-    * SendGridAPI =SendGrid API 키
+   * AI_APP_ID = 애플리케이션 ID
+   * AI_APP_KEY = API 키
+   * SendGridAPI =SendGrid API 키
 
-    > [!NOTE]
-    > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
+     > [!NOTE]
+     > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
 
 9. **통합**을 선택하고 출력 아래에서 **SendGrid($return)** 를 선택합니다.
 

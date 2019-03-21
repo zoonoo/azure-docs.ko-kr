@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327853"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544242"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -38,7 +38,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 > [!NOTE]
 > 대부분의 시나리오에서 범용 v2 저장소 계정을 사용하는 것이 좋습니다. 가동 중지 시간이 없고 데이터를 복사할 필요 없이 범용 v1 또는 Blob Storage 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.
 >
-> 범용 v2 계정으로의 업그레이드에 대한 자세한 내용은 [범용 v2 저장소 계정으로 업그레이드](storage-account-upgrade.md)를 참조하세요. 
+> 범용 v2 계정으로의 업그레이드에 대한 자세한 내용은 [범용 v2 저장소 계정으로 업그레이드](storage-account-upgrade.md)를 참조하세요.
 
 범용 v2 저장소 계정은 사용 패턴을 기준으로 데이터 저장을 위한 여러 액세스 계층을 제공합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
 
@@ -60,11 +60,9 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 * 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 나, 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
 
-### <a name="blob-storage-accounts"></a>Blob Storage 계정
+### <a name="block-blob-storage-accounts"></a>블록 blob storage 계정
 
-Blob Storage 계정은 구조화되지 않은 개체 데이터를 블록 Blob로 저장하기 위한 특수 스토리지 계정입니다. Blob Storage 계정은 범용 v2 스토리지 계정에서 제공하는 것과 동일한 내구성, 가용성, 확장성 및 성능 특징을 제공합니다. Blob Storage 계정은 블록 Blob 및 추가 Blob만 지원하고 페이지 Blob는 지원하지 않습니다.
-
-Blob Storage 계정은 사용 패턴을 기준으로 데이터 저장을 위한 여러 액세스 계층을 제공합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
+블록 blob storage 계정은 블록 blob으로 구조화 되지 않은 개체 데이터를 저장 하기 위한 특수 storage 계정 되었거나 추가 blob입니다. 블록 blob storage 계정 사용 패턴을 기반으로 데이터를 저장 하는 것에 대 한 여러 액세스 계층을 제공 합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
 
 ## <a name="naming-storage-accounts"></a>저장소 계정 이름 지정
 
@@ -87,7 +85,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 사용 가능한 액세스 계층은 다음과 같습니다.
 
 > [!NOTE]
-> [프리미엄 액세스 계층](../blobs/storage-blob-storage-tiers.md#premium-access-tier)은 유럽 북부, 미국 동부 2, 미국 중부 및 미국 서부에서 LRS(로컬 중복 구성 저장소) 계정으로 제공되며 제한적인 미리 보기 상태입니다. 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
+> 합니다 [premium 액세스 계층 (미리 보기)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), 성능에 민감한 응용 프로그램에 최적화 된 높은 처리량 및 트랜잭션 속도 사용 하 여 낮은 및 일관 된 대기 시간을 제공 합니다. 프리미엄 액세스 계층은 블록 Blob 저장소 계정 (미리 보기) 에서만 사용할 수 있습니다. 자세한 내용은 [공개 미리 보기 Azure Premium Blob Storage](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/)합니다.
 
 * **핫** 액세스 계층은 저장소 계층의 개체에 자주 액세스하는 데 최적화되어 있습니다. 핫 계층의 데이터 액세스는 가장 비용 효율적이지만, 저장소 비용이 다소 높습니다. 새 저장소 계정은 기본적으로 핫 계층에 만들어집니다.
 * **쿨** 액세스 계층은 자주 액세스하지 않고 최소 30일 동안 저장된 많은 양의 데이터를 저장하는 데 최적화되어 있습니다. 쿨 계층에 데이터를 저장하는 것은 상당히 비용 효율적이지만, 데이터 액세스 비용이 핫 계층의 데이터에 액세스하는 것보다 다소 높을 수 있습니다.

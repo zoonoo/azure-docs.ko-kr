@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314230"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453493"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
 
@@ -152,7 +152,7 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>결론
 
-사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 이 함수를 사용하면 요청하는 사용자가 각 대상 문서와 연결된 보안 주체 식별자에 맞출 보안 주체 식별자를 전달할 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
+사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 각 대상 문서와 연결 된 보안 주체 식별자에 대 한 일치 하도록 요청 하는 사용자에 대 한 사용자 식별자를 전달 하려면이 함수를 사용할 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
 ## <a name="see-also"></a>참고 항목
 

@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465244"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445486"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
 
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
@@ -49,8 +52,8 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
-* 리소스에 대한 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 을 구성합니다.*
-* 구독에 대한 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
+* 설정할 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 리소스에 대 한 합니다.\*
+* 설정 된 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 구독에 대 한 합니다.\*
 * [Azure 경고](../../azure-monitor/platform/alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
@@ -58,7 +61,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * Log Analytics 저장 검색을 만들고 삭제합니다.
 * Log Analytics 저장소 구성을 만들고 삭제합니다.
 
-*사용자가 로그 프로필이나 진단 설정을 구성하려면 대상 리소스(저장소 계정 또는 이벤트 허브 네임스페이스)에 대한 ListKeys 권한도 별도로 받아야 합니다.
+\*또한 개별적으로 사용자가 로그 프로필이 나 진단 설정을 설정 하려면 대상 리소스 (저장소 계정 또는 이벤트 허브 네임 스페이스)에 대 한 Listkey 권한이 부여 되어야 합니다.
 
 > [!NOTE]
 > 이 역할은 이벤트 허브에 스트리밍되었거나 저장소 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
@@ -98,7 +101,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 예를 들어, 다음과 같이 위의 표를 사용하여 "활동 로그 판독자"에 대한 사용자 지정 RBAC 역할을 만들 수 있습니다.
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>모니터링 데이터에 대한 보안 고려 사항
@@ -127,8 +130,8 @@ New-AzureRmRoleDefinition -Role $role
 사용자나 응용 프로그램이 저장소 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob 저장소에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 저장소 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 그런 다음 해당 저장소 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 저장소 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
@@ -136,7 +139,7 @@ $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Pe
 또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 스토리지 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -157,10 +160,10 @@ New-AzureRmRoleDefinition -Role $role
 이벤트 허브에서도 비슷한 패턴을 따를 수 있지만 먼저 전용 수신 권한 규칙을 만들어야 합니다. 관련 모니터링 이벤트 허브를 수신 대기 하도록 하는 애플리케이션에 대한 액세스 권한을 부여하려면 다음을 수행합니다.
 
 1. 수신 클레임만으로 모니터링 데이터를 스트리밍하기 위해 생성된 이벤트 허브에서 공유 액세스 정책을 만듭니다. 이 작업은 포털에서 수행할 수 있습니다. 예를 들어, 이 정책을 “monitoringReadOnly”라고 할 수 있습니다. 가능한 경우 소비자에게 직접 이 키를 제공하고 다음 단계를 건너뛰고자 할 수 있습니다.
-2. 소비자가 임시로 키를 가져올 수 있어야 할 경우 해당 이벤트 허브에 대해 사용자에게 ListKeys 작업을 부여합니다. 이벤트 허브에 스트리밍하기 위해 로그 프로필이나 진단 설정을 구성할 수 있어야 하는 사용자에게 필요한 항목입니다. 예를 들어, RBAC 규칙을 만들 수 있습니다.
+2. 소비자를 임시 키를 얻을 수 해야 경우 해당 이벤트 허브에 대 한 ListKeys 작업 사용자에 게 부여 합니다. 이벤트 허브에 스트리밍하기 위해 로그 프로필이나 진단 설정을 구성할 수 있어야 하는 사용자에게 필요한 항목입니다. 예를 들어, RBAC 규칙을 만들 수 있습니다.
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ New-AzureRmRoleDefinition -Role $role
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>보안 가상 네트워크 내의 모니터링

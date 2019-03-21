@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202947"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543189"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -44,7 +44,6 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 특히 다음 시나리오에는 조건부 액세스 “챌린지”를 처리하기 위한 코드가 필요합니다.
 
-* Microsoft Graph에 액세스하는 앱
 * On-Behalf-Of 흐름을 수행하는 앱
 * 여러 서비스/리소스에 액세스하는 앱
 * ADAL.js를 사용하는 단일 페이지 앱
@@ -58,15 +57,28 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 일부 시나리오에서는 조건부 액세스를 처리하기 위해 코드 변경이 필요하지만 그렇지 않고 그대로 작동하는 시나리오도 있습니다. 다음에서 다단계 인증을 수행하기 위해 조건부 액세스를 사용하는 몇 가지 시나리오를 살펴보고 차이를 파악할 수 있습니다.
 
-* 단일 테넌트 iOS 앱을 빌드 중이고 조건부 액세스 정책을 적용합니다. 사용자는 앱에 로그인하고 앱은 API에 대한 액세스를 요청하지 않습니다. 사용자가 로그인하면 정책이 자동으로 호출되고 사용자는 MFA(Multi-Factor Authentication)를 수행해야 합니다.
-* Microsoft Graph를 사용하여 다른 서비스 중에서 Exchange에 액세스하는 다중 테넌트 웹앱을 빌드하고 있습니다. 이 앱을 채택하는 기업 고객은 Exchange에서 정책을 설정합니다. 웹앱이 MS Graph에 토큰을 요청하는 경우 앱은 문제 없이 정책을 준수합니다. 최종 사용자는 유효한 토큰을 사용하여 로그인합니다. 앱이 Microsoft Graph에 대해 이 토큰을 사용하여 Exchange 데이터에 액세스하려는 경우 클레임 "문제"가 ```WWW-Authenticate``` 헤더를 통해 웹앱에 반환됩니다. 앱은 새로운 요청에서 ```claims```를 사용할 수 있습니다. 최종 사용자에게는 조건을 준수하라는 메시지가 표시됩니다.
+* 단일 테넌트 iOS 앱을 빌드 중이고 조건부 액세스 정책을 적용합니다. 사용자는 앱에 로그인하고 앱은 API에 대한 액세스를 요청하지 않습니다. 사용자가 로그인하면 정책이 자동으로 호출되고 사용자는 MFA(Multi-Factor Authentication)를 수행해야 합니다. 
 * 중간 계층 서비스를 사용하여 다운스트림 API에 액세스하는 원시 앱을 빌드하고 있습니다. 이 앱을 사용하는 회사의 기업 고객은 다운스트림 API에 정책을 적용합니다. 최종 사용자가 로그인하면 원시 앱에서 중간 계층에 대한 액세스를 요청하고 토큰을 보냅니다. 중간 계층은 On-Behalf-Of 흐름을 수행하여 다운스트림 API에 대한 액세스를 요청합니다. 이때 클레임 “챌린지”가 중간 계층에 표시됩니다. 중간 계층은 챌린지를 원시 앱으로 다시 보내는 데, 앱은 조건부 액세스 정책을 준수해야 합니다.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph에 대 한 조건부 액세스 환경에서 앱을 빌드할 때 특별 고려 사항이 있습니다. 일반적으로 조건부 액세스에 대 한 메커니즘을 동일 하 게 동작 하지만 사용자에 게 표시 하는 정책을 그래프에서 응용 프로그램이 요청 하는 기본 데이터에 따라 달라 집니다. 
+
+특히 모든 Microsoft Graph 범위는 개별적으로 적용 하는 정책을 만들 수 있는 일부 데이터 집합을 나타냅니다. 조건부 액세스 정책에서 특정 데이터 집합에 할당 되어 있으므로 Azure AD 자체를 그래프로 표시 하는 대신 그래프-뒤의 데이터에 따라 조건부 액세스 정책을 적용 됩니다.
+
+예를 들어 다음과 같은 Microsoft Graph 범위를 요청 하는 앱
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+앱 사용자 Bookings 및 Exchange에서 설정 하는 모든 정책이 충족 하도록 기대할 수 있습니다. 일부 범위는 액세스를 부여 하는 경우 여러 데이터 집합에 매핑할 수 있습니다. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>조건부 액세스 정책 준수
 
 여러 가지 서로 다른 앱 토폴로지에 대해, 세션이 설정될 때 조건부 액세스 정책이 평가됩니다. 조건부 액세스 정책은 앱 및 서비스 단위로 작동하므로 호출되는 시점은 수행하려는 시나리오에 따라 크게 달라집니다.
 
-앱이 조건부 액세스 정책으로 서비스에 대한 액세스를 시도하면 조건부 액세스 챌린지가 발생할 수 있습니다. 이러한 챌린지는 Azure AD 또는 Microsoft Graph의 응답에서 제공되는 `claims` 매개 변수에 인코딩됩니다. 이 챌린지 매개 변수의 예는 다음과 같습니다.
+앱이 조건부 액세스 정책으로 서비스에 대한 액세스를 시도하면 조건부 액세스 챌린지가 발생할 수 있습니다. 이 문제는 인코딩된는 `claims` Azure AD의 응답에서 제공 되는 매개 변수입니다. 이 챌린지 매개 변수의 예는 다음과 같습니다. 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/az
 
 다음 정보는 이러한 조건부 액세스 시나리오에만 적용됩니다.
 
-* Microsoft Graph에 액세스하는 앱
 * On-Behalf-Of 흐름을 수행하는 앱
 * 여러 서비스/리소스에 액세스하는 앱
 * ADAL.js를 사용하는 단일 페이지 앱
 
-다음 섹션에서는 더 복잡한 일반적인 시나리오에 대해 설명합니다. 핵심 작동 원리는 Microsoft Graph를 통해 액세스하지 않는 한, 조건부 액세스 정책이 적용된 서비스에 대해 토큰을 요청할 때 조건부 액세스 정책이 평가된다는 것입니다.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>시나리오: Microsoft Graph에 액세스하는 앱
-
-이 시나리오에서는 웹앱에서 Microsoft Graph에 대한 액세스를 요청하는 방법을 알아봅니다. 이 경우 조건부 액세스 정책은 SharePoint, Exchange 또는 Microsoft Graph를 통해 작업으로 액세스되는 다른 일부 서비스에 할당할 수 있습니다. 이 예제에서는 SharePoint Online에 조건부 액세스 정책이 있다고 가정해 보겠습니다.
-
-![Microsoft Graph 흐름 다이어그램에 액세스하는 앱](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-앱에서 먼저 조건부 액세스 없이 다운스트림 작업에 액세스해야 하는 Microsoft Graph에 대한 권한 부여를 요청합니다. 어떠한 정책도 호출하지 않고 요청이 성공하며 앱은 Microsoft Graph에 대한 토큰을 받습니다. 이 시점에서 앱은 요청된 엔드포인트에 대한 전달자 요청에 액세스 토큰을 사용할 수 있습니다. 이제 앱은 Microsoft Graph의 SharePoint Online 엔드포인트에 액세스해야 합니다(예: `https://graph.microsoft.com/v1.0/me/mySite`).
-
-앱에 Microsoft Graph에 유효한 토큰이 이미 있으므로 새 토큰을 발급하지 않고 새 요청을 수행할 수 있습니다. 이 요청은 실패하고 Microsoft Graph에서 ```WWW-Authenticate``` 챌린지와 함께 HTTP 403 사용할 수 없음 형태로 클레임 챌린지가 발급됩니다.
-
-응답의 예는 다음과 같습니다.
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-클레임 챌린지는 ```WWW-Authenticate``` 헤더 내부에 있으며 구문 분석을 통해 다음 요청에 대한 클레임 매개 변수를 추출할 수 있습니다. 새 요청에 추가되면, Azure AD는 사용자가 로그인할 때 조건부 액세스 정책을 평가할 것을 알고 있으며 앱은 조건부 액세스 정책을 준수합니다. SharePoint Online 엔드포인트에 요청을 반복하면 성공합니다.
-
-```WWW-Authenticate``` 헤더는 고유한 구조를 가지며 여기서 값을 추출하기 위해 구문 분석을 수행하는 것이 간단하지 않습니다. 도움이 되는 짧은 방법은 다음과 같습니다.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-클레임 챌린지를 처리하는 방법을 보여주는 샘플 코드는 ADAL .NET용 [On-Behalf-Of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)를 참조하세요.
+다음 섹션에서는 더 복잡한 일반적인 시나리오에 대해 설명합니다. 핵심 작동 원리는 조건부 액세스 정책이 적용 되는 조건부 액세스 정책이 있는 서비스에 대 한 토큰을 요청 하는 시간에 평가 됩니다.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>시나리오: On-Behalf-Of 흐름을 수행하는 앱
 
-이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 이 서비스에서는 “On-Behalf-Of” 흐름을 차례로 수행하여 다운스트림 서비스를 호출합니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다.
+이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 이 서비스에서는 “On-Behalf-Of” 흐름을 차례로 수행하여 다운스트림 서비스를 호출합니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다. 
 
 ![On-Behalf-Of 흐름을 수행하는 앱 다이어그램](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 앱은 `error=interaction_required`를 catch해야 합니다. 그러면 애플리케이션은 동일한 리소스에서 `acquireTokenPopup()` 또는 `acquireTokenRedirect()`를 사용할 수 있습니다. 사용자는 다단계 인증을 수행해야 합니다. 사용자가 다단계 인증을 완료하면 앱에는 요청된 리소스에 대한 새로운 액세스 토큰이 발급됩니다.
 
 이 시나리오를 사용해 보려면 [JS SPA On-behalf-of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)를 참조하세요. 이 샘플 코드에서는 이 시나리오를 설명하기 위해 JS SPA와 함께 이전에 등록한 조건부 액세스 정책 및 Web API를 사용합니다. 클레임 챌린지를 올바르게 처리하고 Web API에 사용할 수 있는 액세스 토큰을 가져오는 방법을 보여 줍니다. 또한 Angular SPA에 대한 지침은 일반 [Angular.js 샘플 코드](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)를 확인하세요.
-
 
 ## <a name="see-also"></a>참고 항목
 

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106664"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: 서비스를 사용 하 여 또는 Azure Stack에 대 한 앱 빌드
 
@@ -76,8 +76,8 @@ Azure Stack 특정 버전의 Azure PowerShell 및 Azure 서비스 Api 지원합�
 
 사용 하 여 올바른 버전의 Azure PowerShell 사용 [API 버전 프로필](azure-stack-version-profiles.md)합니다. 사용할 수 있는 최신 API 버전 프로필을 확인 하려면 사용 하는 Azure Stack의 빌드에 대해 알아봅니다. Azure Stack 관리자에 게이 정보를 가져올 수 있습니다.
 
->[!NOTE]
- Azure Stack Development Kit를 사용 하는 경우 관리 액세스 권한이 표시 합니다 [현재 버전 확인](../azure-stack-updates.md#determine-the-current-version) Azure Stack 빌드를 확인 하려면 섹션입니다.
+> [!NOTE]
+>  Azure Stack Development Kit를 사용 하는 경우 관리 액세스 권한이 표시 합니다 [현재 버전 확인](../azure-stack-updates.md#determine-the-current-version) Azure Stack 빌드를 확인 하려면 섹션입니다.
 
 다른 Api에 대 한 네임 스페이스, 리소스 유형 및 Azure Stack 구독에 지원 되는 API 버전을 출력 하려면 다음 PowerShell 명령을 실행 합니다. 여기에 메모 속성 수준에서 차이 수 있습니다. 이 명령이 작동 하려면 해야 이미 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-user.md) Azure Stack 환경에 대 한 PowerShell. Azure Stack 제품에 대 한 구독이 있어야 합니다.
 
@@ -94,4 +94,4 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 * [Azure Stack에서 Virtual Machines에 대 한 고려 사항](azure-stack-vm-considerations.md)
 * [Azure Stack의 Storage에 대 한 고려 사항](azure-stack-acs-differences.md)
-* [Azure Stack 네트워킹에 대 한 고려 사항](azure-stack-network-differences.md)
+* [Azure Stack 네트워킹 고려 사항](azure-stack-network-differences.md)

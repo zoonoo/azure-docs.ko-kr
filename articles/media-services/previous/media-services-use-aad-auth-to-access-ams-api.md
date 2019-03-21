@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104134"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스  
  
@@ -71,20 +71,20 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
 1. 사용자에게 자격 증명을 묻는 메시지를 표시합니다.
 2. 다음 매개 변수로 Azure AD 액세스 토큰을 요청합니다.  
 
-    * Azure AD 테넌트 엔드포인트.
+   * Azure AD 테넌트 엔드포인트.
 
-        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
-    * Media Services 리소스 URI. 
+       Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
+   * Media Services 리소스 URI. 
 
-        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
+       이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
 
-    * Media Services(원시) 애플리케이션 클라이언트 ID.
-    * Media Services(원시) 애플리케이션 리디렉션 URI.
-    * REST Media Services의 리소스 URI.
+   * Media Services(원시) 애플리케이션 클라이언트 ID.
+   * Media Services(원시) 애플리케이션 리디렉션 URI.
+   * REST Media Services의 리소스 URI.
         
-        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+       REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
-    이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
+     이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
 3. Azure AD 액세스 토큰이 클라이언트로 전송됩니다.
 4. 클라이언트는 Azure AD 액세스 토큰과 함께 Azure Media REST API로 요청을 보냅니다.
@@ -113,20 +113,20 @@ Azure AD 애플리케이션을 만든 후 다음 설정에 대한 값을 가져�
     
 1. 중간 계층 앱(웹 API 또는 웹 애플리케이션)은 다음 매개 변수가 있는 Azure AD 액세스 토큰을 요청합니다.  
 
-    * Azure AD 테넌트 엔드포인트.
+   * Azure AD 테넌트 엔드포인트.
 
-        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
-    * Media Services 리소스 URI. 
+       Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
+   * Media Services 리소스 URI. 
 
-        이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
+       이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
 
-    * REST Media Services의 리소스 URI.
+   * REST Media Services의 리소스 URI.
 
-        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+       REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
-    * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
+   * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
     
-    이러한 매개 변수 값을 가져오려면 서비스 주체 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
+     이러한 매개 변수 값을 가져오려면 서비스 주체 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
 2. Azure AD 액세스 토큰이 중간 계층으로 전송됩니다.
 4. 중간 계층은 Azure AD 토큰과 함께 Azure Media REST API로 요청을 보냅니다.
