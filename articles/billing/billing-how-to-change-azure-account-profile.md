@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846755"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>연락처 메일, 주소 및 전화 번호와 같은 Azure 계정 프로필 정보 변경
 
@@ -46,7 +46,7 @@ ms.locfileid: "54904389"
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>프로필 메일을 업데이트하면 로그인 메일 주소도 업데이트되나요?
 
- 아니요. 프로필 메일을 업데이트하는 경우 로그인 메일 주소는 업데이트되지 않습니다. 로그인 메일 주소를 변경하려면 계정 소유권을 이전해야 합니다.
+아니요. 프로필 메일을 업데이트하는 경우 로그인 메일 주소는 업데이트되지 않습니다. 로그인 메일 주소를 변경하려면 계정 소유권을 이전해야 합니다.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>프로필 주소를 업데이트하면 신용 카드 청구 주소도 업데이트되나요?
 
@@ -58,5 +58,5 @@ ms.locfileid: "54904389"
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
 

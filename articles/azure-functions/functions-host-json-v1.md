@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: ee82aab37973117b0c1960d8b75a29bfad38b7c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252075"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200077"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -163,7 +163,7 @@ ms.locfileid: "50252075"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -210,7 +210,7 @@ ms.locfileid: "50252075"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
 |defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
@@ -220,7 +220,25 @@ ms.locfileid: "50252075"
 
 [저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md)에 대한 구성 설정입니다.
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+```json
+{
+    "queues": {
+      "maxPollingInterval": 2000,
+      "visibilityTimeout" : "00:00:30",
+      "batchSize": 16,
+      "maxDequeueCount": 5,
+      "newBatchThreshold": 8
+    }
+}
+```
+
+|자산  |Default | 설명 |
+|---------|---------|---------| 
+|maxPollingInterval|60000|큐 폴링 사이 최대 간격(밀리초)입니다.| 
+|visibilityTimeout|0|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다.| 
+|batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. | 
+|maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.| 
+|newBatchThreshold|batchSize/2|동시에 처리되는 메시지의 수가 이 숫자로 내려갈 때마다 런타임은 다른 일괄 처리를 검색합니다.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -244,7 +262,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -267,7 +285,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 

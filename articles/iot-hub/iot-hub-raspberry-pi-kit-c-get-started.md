@@ -8,18 +8,18 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103216"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 디바이스를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
+이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 디바이스를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](https://www.windowsondevices.com/)로 이동하세요.
 
 아직 키트가 없으세요? [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md)를 사용해 보세요. 또는 새 키트를 [여기](https://azure.microsoft.com/develop/iot/starter-kits)에서 구입합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "56327251"
 Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
-   1. [Raspbian Jessie with Desktop을 다운로드합니다](https://www.raspberrypi.org/downloads/raspbian/)(.zip 파일).
+   1. [데스크톱을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/downloads/raspbian/) (.zip 파일).
    1. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 1. microSD 카드에 Raspbian을 설치합니다.
    1. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
@@ -148,7 +148,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
    **Windows 사용자**
-   1. Windows용 [PuTTY](http://www.putty.org/)를 다운로드 및 설치합니다. 
+   1. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다. 
    1. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
@@ -156,8 +156,8 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    **Mac 및 Ubuntu 사용자**
    
    Ubuntu 또는 macOS에서 기본 제공되는 SSH 클라이언트를 사용합니다. SSH를 통해 Pi를 연결하려면 `ssh pi@<ip address of pi>`를 실행해야 할 수도 있습니다.
-   > [!NOTE] 
-   기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
+   > [!NOTE]
+   > 기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
 
 
 ### <a name="configure-the-sample-application"></a>샘플 애플리케이션 구성

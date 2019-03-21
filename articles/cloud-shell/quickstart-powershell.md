@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: df9dc7d25ff0304effadbf27751042e9961c75c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106409"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -34,11 +34,11 @@ ms.locfileid: "55562031"
 
 1. Azure Portal의 위쪽 탐색 모음에서 **Azure Cloud Shell** 버튼을 클릭합니다.
 
-  ![](media/quickstart-powershell/shell-icon.png)
+   ![](media/quickstart-powershell/shell-icon.png)
 
 2. 드롭다운에서 PowerShell 환경을 선택하면 Azure 드라이브 `(Azure:)`에 들어가게 됩니다.
 
-  ![](media/quickstart-powershell/environment-ps.png)
+   ![](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>PowerShell 명령 실행
 
@@ -105,7 +105,7 @@ PS Azure:\MySubscriptionName> dir AllResources
 
  `ResourceGroups` 디렉터리로 가서 특정 리소스 그룹 안에서 가상 컴퓨터를 찾을 수 있습니다.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -129,7 +129,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 
 `StorageAccounts` 디렉터리에 들어가면 모든 저장소 리소스를 쉽게 탐색할 수 있습니다.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files

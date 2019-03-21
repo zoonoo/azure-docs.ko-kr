@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005514"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services Speech Devices SDK 1.3.1: 2019-3 월 릴리스 
+
+* 업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.3.1 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+*   처리 하는 업데이트 된 절전 모드 해제 단어의 주요 변경 내용을 참조 하세요.
+*   샘플 응용 프로그램 모두 음성 인식 및 변환에 대 한 언어를 추가합니다.
+
+**주요 변경 내용** 
+
+*   [절전 모드 해제 단어 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) 되었습니다 간체, 이제 앱의 일부 이며 별도 장치에 설치할 필요가 없습니다.
+*   절전 모드 해제 단어 인식 변경 하 고 두 이벤트는 지원 합니다.
+    - RecognizingKeyword 합니다 (확인 되지 않은) 키워드 텍스트를 포함 하는 음성 결과 나타냅니다.
+    - RecognizedKeyword, 지정 된 키워드가 인식 완료 하는 키워드 인식을 나타냅니다.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services Speech Devices SDK 1.1.0: 2018년 11월 릴리스 
 

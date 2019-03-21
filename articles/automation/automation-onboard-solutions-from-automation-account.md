@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843626"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -28,11 +28,11 @@ https://portal.azure.com에서 Azure에 로그인
 
 Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
+Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사용** 솔루션을 사용 하도록 합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![인벤토리 솔루션 등록](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-솔루션을 사용하도록 설정하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결은 특정 지역에서만 지원됩니다.
+솔루션을 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결에 대 한 특정 지역 에서만 지원 됩니다.
 
 다음 표에 지원되는 매핑이 나와 있습니다.
 
@@ -41,14 +41,19 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP 및 EastUS 매핑을 Automation 계정과 Log Analytics 작업 영역에 대 한 정확한 지역 매핑이 되지 않지만 올바른 매핑이 있습니다.
+
+> [!NOTE]
+> 요청으로 인해 지역 못할 Automation 계정 또는 Log Analytics 작업 영역을 만들 때.  하는 경우 앞의 표에 있는 리소스를 만들 수 있는 영역을 사용 하는 확인 합니다.
 
 변경 내용 추적 및 인벤토리 솔루션은 가상 머신에서 [변경 내용 추적](automation-vm-change-tracking.md) 및 [인벤토리](automation-vm-inventory.md)의 기능을 제공합니다. 이 단계에서는 가상 머신에 솔루션을 사용할 수 있습니다.
 
@@ -56,7 +61,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을
 
 업데이트 관리 솔루션을 사용하면 Azure Windows VM에 대한 업데이트 및 패치를 관리할 수 있습니다. 사용 가능한 업데이트의 상태를 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하여 업데이트가 VM에 성공적으로 적용되었는지 확인할 수 있습니다. 이 작업을 통해 VM에 대한 솔루션을 사용하도록 설정할 수 있었습니다.
 
-**업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다. 선택한 Log Analytics 작업 영역은 이전 단계에서 사용된 동일한 작업 영역입니다. **사용**을 클릭하여 업데이트 관리 솔루션을 등록합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
+**업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다. 선택한 Log Analytics 작업 영역 동일한 작업 영역에서 이전 단계에서 사용 됩니다. **사용**을 클릭하여 업데이트 관리 솔루션을 등록합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![업데이트 솔루션 등록](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -78,7 +83,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을
 
 Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|Name     |Category  |Alias  |
+|이름     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -91,7 +96,7 @@ Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 �
 
 Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-**+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. **업데이트 관리 사용** 페이지에서 **사용**을 클릭합니다. 이 작업은 컴퓨터 그룹의 저장된 솔루션 검색에 선택한 VM을 추가합니다.
+**+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure Vm의 Automation 계정 위치에 관계 없이 모든 지역에 있을 수 있습니다. **업데이트 관리 사용** 페이지에서 **사용**을 클릭합니다. 이 작업은 컴퓨터 그룹의 저장된 솔루션 검색에 선택한 VM을 추가합니다.
 
 ![Azure VM을 사용하도록 설정](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -129,7 +134,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 * [변경 내용 추적](automation-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정할 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 제거하지 않으면 이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거하는 데 필요한 단계를 파악합니다.
+더 이상 Log Analytics 작업 영역과 Automation 계정을 통합 하려는 경우 Azure portal에서 직접 계정 연결을 해제할 수 없습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 제거하지 않으면 이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거하는 데 필요한 단계를 파악합니다.
 
 이러한 솔루션을 제거하고 나면, 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 

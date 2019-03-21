@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b5c4779605922bf6d523a9bc6e65e4d9a27f32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>자습서: TalentLMS와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ TalentLMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 TalentLMS 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -219,7 +219,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 
     b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
  
-    다. **전자 메일 주소** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    다. 에 **전자 메일 주소** 텍스트 상자과 같은 사용자의 전자 메일 입력 **brittasimon\@contoso.com**합니다.
 
     d. **사용자 추가**를 클릭합니다.
 

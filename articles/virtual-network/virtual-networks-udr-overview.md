@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123575"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -48,8 +48,8 @@ Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 �
 - **인터넷**: 주소 접두사로 지정된 트래픽을 인터넷으로 라우팅합니다. 시스템 기본 경로에는 0.0.0.0/0 주소 접두사가 지정됩니다. Azure의 기본 경로를 재정의하지 않는 경우 Azure는 한 가지 예외를 제외하고 가상 네트워크의 주소 범위에 지정되지 않은 주소에 대한 트래픽을 인터넷으로 라우팅합니다. 대상 주소가 Azure 서비스 중 하나에 대한 주소인 경우 Azure는 트래픽을 인터넷으로 라우팅하지 않고 Azure의 백본 네트워크를 통해 트래픽을 해당 서비스로 직접 라우팅합니다. Azure 서비스 간 트래픽은 가상 네트워크가 있는 Azure 지역 또는 Azure 서비스 인스턴스가 배포된 Azure 지역과 관계없이 인터넷을 거치지 않습니다. 0.0.0.0/0 주소 접두사에 대한 Azure의 기본 시스템 경로는 [사용자 지정 경로](#custom-routes)로 재정의할 수 있습니다.
 
 - **없음**: **없음** 다음 홉 유형으로 라우팅된 트래픽은 서브넷 외부로 라우팅되지 않고 삭제됩니다. Azure는 다음 주소 접두사에 대한 기본 경로를 자동으로 만듭니다.
-    - **10.0.0.0/8, 172.16.0.0/12 및 192.168.0.0/16**: RFC 1918에서 비공개용으로 예약되어 있습니다.
-    - **100.64.0.0/10**: RFC 6598에서 예약되어 있습니다.
+  - **10.0.0.0/8, 172.16.0.0/12 및 192.168.0.0/16**: RFC 1918에서 비공개용으로 예약되어 있습니다.
+  - **100.64.0.0/10**: RFC 6598에서 예약되어 있습니다.
 
     가상 네트워크의 주소 공간에 이전 주소 범위 중 하나를 할당하면 Azure는 자동으로 경로에 대한 다음 홉 유형을 **없음**에서 **가상 네트워크**로 변경합니다. 예약된 4개 주소 접두사 중 하나를 포함하지만 동일하지 않은 주소 범위를 가상 네트워크 주소 공간에 할당하면, Azure는 해당 접두사에 대한 경로를 제거하고 **가상 네트워크**를 다음 홉 유형으로 추가한 주소 접두사에 대한 경로를 추가합니다.
 
@@ -82,16 +82,16 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 - **가상 어플라이언스**: 가상 어플라이언스는 방화벽과 같은 네트워크 애플리케이션을 주로 실행하는 가상 머신입니다. Azure 가상 네트워크에 배포할 수 있는 미리 구성된 다양한 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요. **가상 어플라이언스** 홉 유형으로 경로를 만들 때 다음 홉 IP 주소도 지정합니다. IP 주소는 다음과 같습니다.
 
-    - 가상 컴퓨터에 연결된 네트워크 인터페이스의 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) - 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 머신에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용*이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 머신의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 머신 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 애플리케이션의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+  - 가상 컴퓨터에 연결된 네트워크 인터페이스의 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) - 네트워크 트래픽을 자체 주소가 아닌 다른 주소로 전달하는 가상 머신에 연결된 모든 네트워크 인터페이스에는 Azure *IP 전달 사용* 옵션이 설정되어 있어야 합니다. 이 설정은 Azure에서 네트워크 인터페이스에 대한 원본과 대상을 확인하지 않도록 합니다. [네트워크 인터페이스에 대한 IP 전달 사용을 설정하는 방법](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)에 대해 자세히 알아보세요. *IP 전달 사용*이 Azure 설정이지만 Azure 네트워크 인터페이스에 할당된 개인 IP 주소 간에 트래픽을 전달하도록 어플라이언스에 대한 가상 머신의 운영 체제 내에서 IP 전달을 사용하도록 설정해야 할 수도 있습니다. 어플라이언스가 트래픽을 공용 IP에 라우팅해야 하는 경우 트래픽 프록시 또는 네트워크 주소 중 하나를 사용하여 원본의 개인 IP 주소에 대한 개인 IP 주소를 고유한 개인 IP 주소로 변환해야 합니다. 그러면 인터넷에 트래픽을 전송하기 전에 Azure에서 네트워크 주소를 개인 IP 주소로 변환합니다. 가상 머신 내에서 필요한 설정을 확인하려면 운영 체제 또는 네트워크 애플리케이션의 설명서를 참조하세요. Azure에서 아웃바운드 연결을 이해하려면 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-      > [!NOTE]
-      > 가상 어플라이언스를 통해 라우팅되는 리소스가 배포된 것과 다른 서브넷에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 동일한 서브넷에 배포한 다음 가상 어플라이언스를 통해 트래픽을 라우팅하는 서브넷에 경로 테이블을 적용하면 트래픽이 서브넷에서 나가지 않는 라우팅 루프가 발생할 수 있습니다.
+    > [!NOTE]
+    > 가상 어플라이언스를 통해 라우팅되는 리소스가 배포된 것과 다른 서브넷에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 동일한 서브넷에 배포한 다음 가상 어플라이언스를 통해 트래픽을 라우팅하는 서브넷에 경로 테이블을 적용하면 트래픽이 서브넷에서 나가지 않는 라우팅 루프가 발생할 수 있습니다.
 
-    - Azure [내부 부하 분산 장치](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 사설 IP 주소 - 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
+  - Azure [내부 부하 분산 장치](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 사설 IP 주소 - 부하 분산 장치는 종종 [네트워크 가상 어플라이언스에 대한 고가용성 전략](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)의 일부로 사용됩니다.
 
     어플라이언스에서 트래픽을 검사하고 해당 트래픽을 전달하거나 삭제할지 여부를 결정할 수 있도록 0.0.0.0/0 주소 접두사 및 가상 어플라이언스의 다음 홉 유형이 포함된 경로를 정의합니다. 0.0.0.0/0 주소 접두사가 포함된 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요.
 
-- **가상 네트워크 게이트웨이**: 가상 네트워크 게이트웨이로 라우팅되는 특정 주소 접두사로 향하는 트래픽을 원하는 시점을 지정합니다. 가상 네트워크 게이트웨이는 **VPN** 유형으로 만들어야 합니다. ExpressRoute를 통해 사용자 지정 경로에 BGP를 사용해야 하므로, 사용자 정의 경로에서 **ExpressRoute** 유형으로 만든 가상 네트워크 게이트웨이를 지정할 수 없습니다. 0.0.0.0/0 주소 접두사로 향하는 트래픽을 [경로 기반](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) 가상 네트워크 게이트웨이로 보내는 경로를 정의할 수 있습니다. 온-프레미스에서 트래픽을 검사하고 트래픽을 전달하거나 삭제할지 여부를 결정하는 디바이스가 있을 수 있습니다. 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요. [VPN 가상 네트워크 게이트웨이에 BGP를 사용하도록 설정](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)한 경우, 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 구성하는 대신 0.0.0.0/0 접두사가 포함된 경로를 BGP를 통해 보급할 수 있습니다.
+- **가상 네트워크 게이트웨이**: 가상 네트워크 게이트웨이로 라우팅되는 특정 주소 접두사로 향하는 트래픽을 원하는 시점을 지정합니다. 가상 네트워크 게이트웨이는 **VPN** 유형으로 만들어야 합니다. ExpressRoute를 통해 사용자 지정 경로에 BGP를 사용해야 하므로, 사용자 정의 경로에서 **ExpressRoute** 유형으로 만든 가상 네트워크 게이트웨이를 지정할 수 없습니다. 0.0.0.0/0 주소 접두사로 향하는 트래픽을 [경로 기반](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) 가상 네트워크 게이트웨이로 보내는 경로를 정의할 수 있습니다. 온-프레미스에서 트래픽을 검사하고 트래픽을 전달하거나 삭제할지 여부를 결정하는 디바이스가 있을 수 있습니다. 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요. [VPN 가상 네트워크 게이트웨이에 BGP를 사용하도록 설정](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)한 경우, 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 구성하는 대신 0.0.0.0/0 접두사가 포함된 경로를 BGP를 통해 보급할 수 있습니다.
 - **없음**: 대상에 트래픽을 전달하는 대신 주소 접두사로 트래픽을 삭제하려는 경우를 지정합니다. 기능을 완전히 구성하지 않은 경우 Azure는 일부 선택적 시스템 경로에 대해 *없음*을 나열할 수 있습니다. 예를 들어 *없음*이 *가상 네트워크 게이트웨이* 또는 *가상 어플라이언스*의 **다음 홉 유형**이 있는 **다음 홉 IP 주소**로 나열되면 디바이스가 실행되고 있지 않거나 완전히 구성되지 않았기 때문일 수 있습니다. Azure는 다음 홉 유형으로 **없음**이 있는 예약된 주소 접두사에 대한 시스템 [기본 경로](#default)를 만듭니다.
 - **가상 네트워크**: 가상 네트워크 내의 기본 라우팅을 재정의하려는 경우를 지정합니다. **가상 네트워크** 홉 유형이 포함된 경로를 만들 수 있는 이유에 대한 예는 [라우팅 예](#routing-example)를 참조하세요.
 - **인터넷**: 명시적으로 주소 접두사로 향하는 트래픽을 인터넷으로 라우팅하려는 경우 또는 Azure 백본 네트워크 내에서 유지하는 공용 IP 주소가 있는 Azure 서비스로 향하는 트래픽을 원하는 경우에 이를 지정합니다.
@@ -217,7 +217,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 |8   |기본값|올바르지 않음|10.10.0.0/16        |가상 네트워크 게이트웨이|[X.X.X.X]          |              |
 |9   |사용자   |Active |10.10.0.0/16        |가상 어플라이언스      |10.0.100.4         |To-On-Prem    |
 |10  |기본값|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |기본값|올바르지 않음|0.0.0.0/0           |인터넷|              |                   |              |
+|11  |기본값|올바르지 않음|0.0.0.0/0           |인터넷               |                   |              |
 |12  |사용자   |Active |0.0.0.0/0           |가상 어플라이언스      |10.0.100.4         |Default-NVA   |
 
 각 경로 ID에 대한 설명은 다음과 같습니다.

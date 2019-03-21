@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097994"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 
@@ -111,12 +111,12 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **관리자 자격 증명** 섹션 아래에서 Zendesk 계정의 **관리 사용자 이름**, **비밀 토큰** 및 **도메인**을 입력합니다. 이러한 값의 예는 다음과 같습니다.
 
-    *   **관리자 사용자 이름** 필드에서 Zendesk 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
+   * **관리자 사용자 이름** 필드에서 Zendesk 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
 
-    *   6단계에서 설명한 대로 **비밀 토큰** 필드에 비밀 토큰을 채웁니다.
+   * 6단계에서 설명한 대로 **비밀 토큰** 필드에 비밀 토큰을 채웁니다.
 
-    *   **도메인** 필드에 Zendesk 테넌트의 하위 도메인을 채웁니다.
-    예제: 테넌트 URL이 https://my-tenant.zendesk.com인 계정의 하위 도메인은 **my-tenant**입니다.
+   * **도메인** 필드에 Zendesk 테넌트의 하위 도메인을 채웁니다.
+     예제: 테넌트 URL이 https://my-tenant.zendesk.com인 계정의 하위 도메인은 **my-tenant**입니다.
 
 6. Zendesk 계정의 **비밀 토큰**은 **관리자 > API > 설정**에 있습니다.
    **토큰 액세스**가 **사용**으로 설정되었는지 확인합니다.

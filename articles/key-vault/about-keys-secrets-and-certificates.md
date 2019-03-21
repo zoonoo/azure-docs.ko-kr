@@ -3,7 +3,7 @@ title: Azure Key Vault 키, 비밀 및 인증서 정보 - Azure Key Vault
 description: 키, 비밀 및 인증서에 대한 Azure Key Vault REST 인터페이스 및 개발자 정보의 개요입니다.
 services: key-vault
 documentationcenter: ''
-author: BryanLa
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842569"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -39,10 +39,10 @@ Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](/azure/key-vault/k
 
 JSON(JavaScript Object Notation) 및 JOSE(JavaScript Object Signing and Encryption) 사양은 중요한 배경 정보입니다.  
 
--   [JWK(JSON 웹 키)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JWK(JSON 웹 키)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JWE(JSON 웹 암호화)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JWA(JSON 웹 알고리즘)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JWS(JSON 웹 서명)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JWS(JSON 웹 서명)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>데이터 형식
 
@@ -112,7 +112,7 @@ Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIP
 #### <a name="curve-types"></a>곡선 유형
 
 -   **P-256** - [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)에 정의되는 NIST 곡선 P-256.
--   **P-256K** - [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf)에 정의되는 SEC 곡선 SECP256K1.
+-   **P-256K** - [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf)에 정의되는 SEC 곡선 SECP256K1.
 -   **P-384** - [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)에 정의되는 NIST 곡선 P-384.
 -   **P-521** - [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)에 정의되는 NIST 곡선 P-521.
 
@@ -166,7 +166,7 @@ Key Vault는 EXPORT 작업을 지원하지 않습니다. 일단 키가 시스템
 
 사용자는 Key Vault에서 JWK 개체의 key_ops 속성을 사용하여 키별로 지원하는 암호화 작업을 제한할 수 있습니다.  
 
-JWK 개체에 대한 자세한 내용은 [JWK(JSON 웹 키)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)를 참조하세요.  
+JWK 개체에 대한 자세한 내용은 [JWK(JSON 웹 키)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)를 참조하세요.  
 
 ###  <a name="key-attributes"></a>키 특성
 
@@ -189,7 +189,7 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [데이터 형
 
 데이터 형식에 대한 자세한 내용은 [데이터 형식](#data-types)을 참조하세요.
 
-사용 가능한 다른 특성에 대한 자세한 내용은 [JWK(JSON 웹 키)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)를 참조하세요.
+사용 가능한 다른 특성에 대한 자세한 내용은 [JWK(JSON 웹 키)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)를 참조하세요.
 
 ### <a name="key-tags"></a>키 태그
 
@@ -367,14 +367,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| 해당 없음 |
-|DecipherOnly|decrypt| 해당 없음  |
+|DataEncipherment|encrypt, decrypt| N/A |
+|DecipherOnly|decrypt| N/A  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|EncipherOnly|encrypt| 해당 없음 |
-|KeyCertSign|sign, verify|해당 없음|
+|EncipherOnly|encrypt| N/A |
+|KeyCertSign|sign, verify|N/A|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|NonRepudiation|sign, verify| 해당 없음 |
-|crlsign|sign, verify| 해당 없음 |
+|NonRepudiation|sign, verify| N/A |
+|crlsign|sign, verify| N/A |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 
@@ -409,10 +409,10 @@ Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 
 
 인증서를 자동으로 갱신하도록 정책이 설정되는 경우 알림을 보내는 이벤트는 다음과 같습니다.  
 
--   인증서 갱신 전
--   인증서 갱신 후 - 인증서가 성공적으로 갱신된 경우에 시작되거나, 오류가 있는 경우 인증서를 수동으로 갱신해야 합니다.  
+- 인증서 갱신 전
+- 인증서 갱신 후 - 인증서가 성공적으로 갱신된 경우에 시작되거나, 오류가 있는 경우 인증서를 수동으로 갱신해야 합니다.  
 
- 인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
+  인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
 
 ### <a name="certificate-access-control"></a>인증서 액세스 제어
 
@@ -477,7 +477,7 @@ Key Vault는 Azure 저장소 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 저장소 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - [인증, 요청 및 응답](authentication-requests-and-responses.md)
 - [Key Vault 버전](key-vault-versions.md)

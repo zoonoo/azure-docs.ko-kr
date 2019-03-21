@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>자습서: RingCentral과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ RingCentral과 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 RingCentral 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -127,6 +127,7 @@ RingCentral에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     ![이미지](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. **로그온 URL** 텍스트 상자에서 URL을 입력합니다.
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -137,9 +138,10 @@ RingCentral에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     > [!NOTE]
     > **서비스 공급자 메타데이터 파일**은 RingCentral SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다.
 
-6. **서비스 공급자 메타데이터 파일**이 없는 경우 다음 단계를 수행합니다.
+6. 없다면 **서비스 공급자 메타 데이터 파일**, 다음 단계를 수행 합니다.
 
     a. **로그온 URL** 텍스트 상자에서 URL을 입력합니다.
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ RingCentral에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     | `https://service.ringcentral.eu` |
 
     b. **식별자** 텍스트 상자에 다음 URL을 입력합니다.
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     다. **회신 URL** 텍스트 상자에서 URL을 입력합니다.
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -191,7 +195,7 @@ RingCentral에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     d. **저장**을 클릭합니다.
 
-    e. **2단계**에서 **다운로드**를 클릭하여 **서비스 공급자 메타데이터 파일**을 다운로드한 다음 **기본 SAML 구성** 섹션에 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
+    e. **2 단계** 클릭 **다운로드** 다운로드 하는 **서비스 공급자 메타 데이터 파일** 에 업로드 하 고 **기본 SAML 구성을** 섹션 자동으로 채우려면 합니다 **식별자** 하 고 **회신 URL** Azure portal에서 값입니다.
 
     ![이미지](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -223,7 +227,7 @@ RingCentral에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.

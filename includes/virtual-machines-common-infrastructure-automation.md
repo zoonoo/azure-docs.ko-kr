@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53027922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125252"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -26,7 +26,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
     - 예로는 [Azure DevOps Services](#azure-devops-services)와 [Jenkins](#jenkins)가 있습니다.
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 응용 프로그램 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 플레이북에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈이 포함됩니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.
+[Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 애플리케이션 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 플레이북에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈이 포함됩니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.
 
 방법 배우기:
 
@@ -45,7 +45,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com)은 응용 프로그램 전달 및 배포 프로세스를 처리하는 엔터프라이즈 지원 자동화 플랫폼입니다. 에이전트가 대상 컴퓨터에 설치되어 Puppet Master에서 Azure 인프라 및 VM에 대해 원하는 구성을 정의하는 매니페스트를 실행할 수 있게 합니다. Puppet은 Jenkins 및 GitHub와 같은 다른 솔루션과 통합되어 향상된 DevOps 워크플로를 구현할 수 있습니다. 자세한 내용은 [Puppet 작동 방법(영문)](https://puppet.com/product/how-puppet-works)을 참조하세요.
+[Puppet](https://www.puppet.com)은 애플리케이션 배달 및 배포 프로세스를 처리하는 엔터프라이즈 지원 자동화 플랫폼입니다. 에이전트가 대상 컴퓨터에 설치되어 Puppet Master에서 Azure 인프라 및 VM에 대해 원하는 구성을 정의하는 매니페스트를 실행할 수 있게 합니다. Puppet은 Jenkins 및 GitHub와 같은 다른 솔루션과 통합되어 향상된 DevOps 워크플로를 구현할 수 있습니다. 자세한 내용은 [Puppet 작동 방법(영문)](https://puppet.com/product/how-puppet-works)을 참조하세요.
 
 방법 배우기:
 
@@ -60,7 +60,7 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
  Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. 다음 표에서는 Azure 플랫폼에서 현재 사용 가능한 cloud-init 지원 이미지를 보여 줍니다.
 
 | 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- 
 |Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
 |Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
 |CoreOS |CoreOS |Stable |최신 |예 |
@@ -135,7 +135,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io)는 응용 프로그램을 배포 및 테스트하고, 코드 전달을 위한 자동화된 파이프라인을 만드는 데 도움이 되는 연속 통합 서버입니다. Jenkins 핵심 플랫폼을 확장하는 플러그인은 수백 가지 있으며, webhook를 통해 다른 많은 제품 및 솔루션과도 통합할 수 있습니다. Azure VM에 Jenkins를 수동으로 설치하거나, Docker 컨테이너 내에서 Jenkins를 실행하거나, 미리 빌드된 Azure Marketplace 이미지를 사용할 수 있습니다.
+[Jenkins](https://www.jenkins.io)는 애플리케이션을 배포 및 테스트하고, 코드 전달을 위한 자동화된 파이프라인을 만드는 데 도움이 되는 연속 통합 서버입니다. Jenkins 핵심 플랫폼을 확장하는 플러그인은 수백 가지 있으며, webhook를 통해 다른 많은 제품 및 솔루션과도 통합할 수 있습니다. Azure VM에 Jenkins를 수동으로 설치하거나, Docker 컨테이너 내에서 Jenkins를 실행하거나, 미리 빌드된 Azure Marketplace 이미지를 사용할 수 있습니다.
 
 방법 배우기:
 

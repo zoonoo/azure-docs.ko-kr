@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342007"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575749"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -176,7 +176,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 2. `scp` 명령을 사용하여 파일을 HDInsight 클러스터에 복사합니다.
 
     ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
     ```
 
     `myuser`를 클러스터의 SSH 사용자 계정으로 바꿉니다. `mycluster`를 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호할 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.

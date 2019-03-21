@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0a658d47f850537f18c976ab0933105b57692673
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344458"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258533"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 Azure Storage에 온-프레미스 HDFS 저장소에서 데이터를 마이그레이션하려면
 
@@ -59,7 +59,7 @@ Data Box 장치에 온-프레미스 HDFS 저장소에서 데이터를 복사, �
 
 2. 액세스 저장소 계정에 업로드 데이터 대화 상자에서 복사 하 고는 **Blob service 끝점** 하며 **저장소 계정 키**합니다. Blob service 끝점에서 생략 된 `https://` 및 후행 슬래시입니다.
 
-    이 경우에 끝점은: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`합니다. 사용 하는 URI의 호스트 부분은: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`합니다. 예를 들어 참조 하는 방법 [http 통한 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest.md)합니다. 
+    이 경우에 끝점은: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`합니다. 사용 하는 URI의 호스트 부분은: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`합니다. 예를 들어 참조 하는 방법 [http 통한 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)합니다. 
 
      !["저장소 계정에 액세스 및 데이터 업로드" 대화 상자](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 

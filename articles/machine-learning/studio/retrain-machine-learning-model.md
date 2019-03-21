@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio에서 새로 학습한 기계 학습 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108123"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
@@ -42,7 +42,7 @@ ms.locfileid: "56330514"
 
     실험을 실행한 후 결과 워크플로는 다음 이미지와 비슷합니다.
 
-    ![결과 워크플로](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![결과 워크플로](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     다음으로, 학습 실험을 학습된 모델 및 모델 평가 결과를 출력하는 재학습 웹 서비스로 배포합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "56330514"
 
 다음 스크린 샷은 Azure Machine Learning Web Services 포털의 **사용** 페이지를 보여줍니다.
 
-![사용 페이지](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![사용 페이지](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>apikey 선언 업데이트
 
@@ -114,7 +114,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 
 다음은 재학습 출력 예제입니다.
 
-![재학습 출력](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![재학습 출력](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>재학습 결과 평가
 
@@ -188,7 +188,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 서비스를 관리하거나 여러 실험 실험을 추적하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+웹 서비스를 관리하거나 여러 실험 실행을 추적하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [웹 서비스 포털 살펴보기](manage-new-webservice.md)
 * [실험 반복 관리](manage-experiment-iterations.md)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002505"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -46,11 +46,11 @@ OpenShift의 여러 버전을 사용할 수 있습니다.
 
 Container Platform은 Red Hat이 제공하고 지원하는 엔터프라이즈급 [상용](https://www.openshift.com) 버전입니다. 이 버전을 통해 고객은 OpenShift Container Platform에 필요한 자격을 구매하고 전체 인프라의 설치 및 관리를 담당합니다.
 
-고객이 전체 플랫폼을 “소유”하기 때문에 온-프레미스 데이터 센터나 공용 클라우드(Azure, AWS, Google 등)에 설치할 수 있습니다.
+고객이 전체 플랫폼 "소유" 하기 때문에 해당 온-프레미스 데이터 센터 또는 공용 클라우드 (예: Azure)에서 설치할 수 있습니다.
 
 ## <a name="openshift-on-azure"></a>OpenShift On Azure
 
-OpenShift On Azure는 Azure에서 실행되는 OpenShift의 완전 관리형 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 클러스터는 고객의 Azure 구독에 배포됩니다. 이 서비스는 현재 비공개 미리 보기로 제공되며 Q1 CY2019 말에 GA될 예정입니다. 비공개 미리 보기에 참가하려는 고객은 [추천 양식](http://aka.ms/openshiftazureinterest)을 작성해주세요.  GA가 좀 더 가까워지면 추가 정보가 제공될 것입니다.
+OpenShift On Azure는 Azure에서 실행되는 OpenShift의 완전 관리형 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 클러스터는 고객의 Azure 구독에 배포됩니다. 이 서비스는 현재 비공개 미리 보기로 제공되며 Q1 CY2019 말에 GA될 예정입니다. 비공개 미리 보기에 참가하려는 고객은 [추천 양식](https://aka.ms/openshiftazureinterest)을 작성해주세요.  GA가 좀 더 가까워지면 추가 정보가 제공될 것입니다.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD(이전의 OpenShift Origin)
 
@@ -58,7 +58,7 @@ OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터는 한 고객 전용이며 공용 클라우드(예: AWS 또는 Google)에서 실행됩니다. 시작 클러스터에는 4개의 응용 프로그램 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
+Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터 한 고객 전용 이며 공용 클라우드 (예: Azure)에서 실행 됩니다. 시작 클러스터에는 4개의 애플리케이션 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

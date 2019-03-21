@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190503"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ ServiceChannel과의 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ServiceChannel 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -155,7 +155,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. **ServiceChannel 구성** 섹션에서 **ServiceChannel 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **SAML 엔터티 ID**를 적어 둡니다.
+1. **ServiceChannel 구성** 섹션에서 **ServiceChannel 구성**을 클릭하여 **로그온 구성** 창을 엽니다. 참고 합니다 **SAML 엔터티 ID** 에서 합니다 **빠른 참조** 섹션입니다.
 
 1. **ServiceChannel** 측에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 및 **SAML 엔터티 ID**를 [ServiceChannel 지원 팀](https://servicechannel.zendesk.com/hc/en-us)에 보내야 합니다. 그러면 해당 팀에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 설정합니다.
 

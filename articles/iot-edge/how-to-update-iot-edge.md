@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dfad3199ba3a9cd2f3bca55be50760ddde676e70
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558195"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672902"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -28,7 +28,7 @@ IoT Edge 서비스가 새 버전을 릴리스하면 최신 기능 및 개선된 
 >* 디바이스를 Windows 빌드 17763으로 업그레이드하지 않았습니다. IoT Edge 버전 1.0.5는 17763보다 오래된 Windows 빌드를 지원하지 않습니다.
 >* Windows 디바이스에서 Java 또는 Node.js 모듈을 실행합니다. Windows 디바이스를 최신 빌드로 업데이트한 경우에도 버전 1.0.5를 건너뜁니다. 
 >
->IoT Edge 버전 1.0.5에 대한 자세한 내용은 [1.0.5 릴리스 정보](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)를 참조하세요. 개발 도구를 최신 버전으로 업데이트하지 않는 방법에 대한 자세한 내용은 [IoT 개발자 블로그](https://aka.ms/dev-win-iot-edge-module)를 참조하세요.
+>IoT Edge 버전 1.0.5에 대한 자세한 내용은 [1.0.5 릴리스 정보](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)를 참조하세요. 개발 도구를 최신 버전으로 업데이트하지 않는 방법에 대한 자세한 내용은 [IoT 개발자 블로그](https://devblogs.microsoft.com/iotdev/)를 참조하세요.
 
 
 최신 버전의 Azure IoT Edge를 찾으려면 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조하세요.

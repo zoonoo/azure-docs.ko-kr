@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098011"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -37,17 +37,17 @@ Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소�
    Service Fabric을 배포 하는 경우 key Vault를 추가할 X.509 서버 인증서입니다. 
    - 합니다 **CN** 이 인증서는 완전히 정규화 된 도메인 이름 (FQDN) 사용자가 만든 Service Fabric 클러스터의 일치 해야 합니다. 
    - 인증서 형식 공개 및 개인 키가 필요한 대로 PFX 여야 합니다. 
-   참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 서버 쪽 인증서를 만들기 위한 합니다.
+     참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 서버 쪽 인증서를 만들기 위한 합니다.
 
-    > [!NOTE]  
-    > X.509 서버 인증서는 자체 서명 된 인증서 내부 테스트용으로 사용할 수 있습니다. 자체 서명 된 인증서는 클러스터의 FQDN과 일치 필요가 없습니다.
+     > [!NOTE]  
+     > X.509 서버 인증서는 자체 서명 된 인증서 내부 테스트용으로 사용할 수 있습니다. 자체 서명 된 인증서는 클러스터의 FQDN과 일치 필요가 없습니다.
 
-1.  **관리 클라이언트 인증서** 클라이언트는 자체 서명 될 수 있는 Service Fabric 클러스터에 인증 하는 인증서입니다. 참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 클라이언트 인증서 만들기에 대 한 합니다.
+1. **관리 클라이언트 인증서** 클라이언트는 자체 서명 될 수 있는 Service Fabric 클러스터에 인증 하는 인증서입니다. 참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 클라이언트 인증서 만들기에 대 한 합니다.
 
-1.  **Azure Stack Marketplace에서 다음 항목을 사용할 수 있어야 합니다.**
-     - **Windows Server 2016** – 템플릿은 Windows Server 2016 이미지를 사용 하 여 클러스터를 만듭니다.  
-     - **고객 스크립트 확장** -Microsoft에서 가상 머신 확장 합니다.  
-     - **PowerShell 필요한 구성 단계** -Microsoft에서 가상 머신 확장 합니다.
+1. **Azure Stack Marketplace에서 다음 항목을 사용할 수 있어야 합니다.**
+    - **Windows Server 2016** – 템플릿은 Windows Server 2016 이미지를 사용 하 여 클러스터를 만듭니다.  
+    - **고객 스크립트 확장** -Microsoft에서 가상 머신 확장 합니다.  
+    - **PowerShell 필요한 구성 단계** -Microsoft에서 가상 머신 확장 합니다.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가

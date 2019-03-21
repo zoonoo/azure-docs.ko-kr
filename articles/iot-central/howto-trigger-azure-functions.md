@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306870"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284632"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Azure IoT Central에서 웹후크를 사용하여 Azure Functions 트리거
 
 *이 항목은 빌더 및 관리자에게 적용됩니다.*
 
-Azure Functions를 사용하여 서버리스 코드를 IoT Central 규칙의 웹후크 출력에서 실행합니다. Azure Functions를 사용하기 위해 VM을 프로비전하거나 웹앱을 게시하지 않아도 됩니다. 대신 이 코드를 서버 없이 실행할 수 있습니다. Azure Functions를 사용하여 SQL Database 또는 Event Grid와 같은 최종 대상에 보내기 전에 웹후크 페이로드를 변환합니다.
+Azure Functions를 사용하여 서버리스 코드를 IoT Central 규칙의 웹후크 출력에서 실행합니다. VM을 프로 비전 하거나 Azure Functions를 사용 하도록 웹 앱을 게시 하려면 없지만 대신 서버 리스이 코드를 실행할 수 있습니다. Azure Functions를 사용하여 SQL Database 또는 Event Grid와 같은 최종 대상에 보내기 전에 웹후크 페이로드를 변환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -27,15 +27,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="how-to-connect-azure-functions"></a>Azure Functions를 연결하는 방법
 
-1. [Azure Portal에서 새 함수 앱 만들기](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)합니다.
+1. [Azure portal에서 새 함수 앱 만들기](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)합니다.
 
-    ![Azure Portal에서 새 함수 앱 만들기](media/howto-trigger-azure-functions/createfunction.png)
+    ![Azure portal에서 새 함수 앱 만들기](media/howto-trigger-azure-functions/createfunction.png)
 
-2. 함수 앱을 확장 하 고 선택 합니다 **+ 단추** 함수 옆에 있는 합니다. 이 함수가 함수 앱의 첫 번째 함수이면 **사용자 지정 함수**를 선택합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다.
+2. 함수 앱을 확장 하 고 선택 합니다 **+ 단추** 함수 옆에 있는 합니다. 이 함수는 함수 앱의 첫 번째, 선택 **포털에서** 개발 환경 및 선택 **계속**합니다.
 
     ![함수 앱에서 사용자 지정 함수 선택](media/howto-trigger-azure-functions/customfunction.png)
 
-3. 검색 필드에 **“generic”** 을 입력한 다음, 일반 웹후크 트리거 템플릿에 사용할 원하는 언어를 선택합니다. 이 항목에서는 C# 함수를 사용합니다. 
+3. 선택할 **Webhook + API** 템플릿과 선택 **만들기**합니다. 이 항목에서는.NET 기반 Azure 함수를 사용합니다.
 
     ![제네릭 웹후크 트리거 선택](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

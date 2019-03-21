@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445809"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258754"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에서 Key Vault 관리
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![새로운 Key Vault](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-이 명령의 출력은 사용자가 만든 key vault의 속성을 보여 줍니다. 응용 프로그램에서이 자격 증명이 모음에 액세스할 때 사용 해야 합니다 **자격 증명 모음 URI** 속성, 즉 "https://vault01.vault.local.azurestack.external"이 예제의 합니다.
+이 명령의 출력은 사용자가 만든 key vault의 속성을 보여 줍니다. 응용 프로그램에서이 자격 증명이 모음에 액세스할 때 사용 해야 합니다 **자격 증명 모음 URI** 속성, 즉 "https:\//vault01.vault.local.azurestack.external"이 예제의 합니다.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory Federation Services (AD FS) 배포
 
@@ -127,8 +127,8 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 같은 이름을 가진 키를 가져올 경우 원래 키를 새 키에 지정한 값으로 업데이트 됩니다. 키의 버전별 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예: 
 
-* 사용 하 여 "https://vault10.vault.local.azurestack.external:443/keys/key01" 항상 현재 버전을 가져올 수 있습니다.
-* 사용 하 여 "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"이 특정 버전을 가져올 수 있습니다.
+* 사용 하 여 "https:\//vault10.vault.local.azurestack.external:443/keys/key01" 항상 현재 버전을 가져올 수 있습니다.
+* 사용 하 여 "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"이 특정 버전을 가져올 수 있습니다.
 
 ### <a name="get-a-key"></a>키 가져오기
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882713"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -42,7 +42,7 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
 
-각 SQL Database에는 구매 모델 및 서비스 계층에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. SQL Database 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
+각 SQL Database에는 구매 모델 및 서비스 계층에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. SQL Database 서버의 데이터베이스에 대 한 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 유지합니다. 예를 들어, 보존 기간이 7일인 기본 데이터베이스를 삭제하는 경우, 4일 된 백업은 앞으로 3일 동안 더 저장됩니다.
 
@@ -66,7 +66,7 @@ DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보
 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 기본 백업 보존 기간은 7일입니다(단일, 풀링된 및 인스턴스 데이터베이스). 모든 Azure SQL Database(단일, 풀링된 및 인스턴스 데이터베이스)에 대해 [백업 보존 기간을 최대 35일로 변경](#how-to-change-the-pitr-backup-retention-period)할 수 있습니다.
 
 > [!WARNING]
-> 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없게 됩니다. 현재 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
+> 현재 보존 기간을 줄이기 위해 새 보존 기간 보다 오래 된 모든 기존 백업을 사용할 수 없게 됩니다. 현재 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
 
 ## <a name="how-often-do-backups-happen"></a>백업이 얼마나 자주 수행됩니까?
 
@@ -126,12 +126,13 @@ Azure Portal을 사용하여 PITR 백업 보존 기간을 변경하려면 Portal
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>PowerShell을 사용하여 PITR 백업 보존 기간 변경
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> 이 API는 [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview) 버전부터 AzureRM.Sql PowerShell 모듈에 포함됩니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>REST API를 사용하여 PITR 보존 기간 변경
 
@@ -145,9 +146,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 
@@ -174,4 +175,4 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 - Azure Portal을 사용하여 지정 시간으로 복원하려면 [Azure Portal을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 - PowerShell을 사용하여 지정 시간으로 복원하려면 [PowerShell을 사용하여 지정 시간으로 데이터베이스 복원](scripts/sql-database-restore-database-powershell.md)을 참조하세요.
 - Azure Portal을 사용하여 Azure Blob Storage에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
-- PowerShell을 사용하여 Azure Blob 저장소의 장기 보존된 자동화된 백업에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
+- 자동화 된 PowerShell를 사용 하 여 Azure Blob storage에 백업을 구성, 관리 및 장기 보존에서 복원 하려면 다음을 참조 하십시오 [PowerShell을 사용 하 여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)합니다.

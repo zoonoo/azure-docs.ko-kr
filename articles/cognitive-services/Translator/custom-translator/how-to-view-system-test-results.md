@@ -5,20 +5,20 @@ description: 훈련을 성공적으로 마쳤으면 시스템 테스트를 검�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997708"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
-훈련을 성공적으로 마쳤으면 시스템 테스트를 검토하여 훈련 결과를 분석합니다. 훈련 결과가 만족스러우면 훈련된 모델에 대한 배포 요청을 제출합니다. 
+훈련을 성공적으로 마쳤으면 시스템 테스트를 검토하여 훈련 결과를 분석합니다. 훈련 결과가 만족스러우면 훈련된 모델에 대한 배포 요청을 제출합니다.
 
 ## <a name="system-test-results-page"></a>시스템 테스트 결과 페이지
 
@@ -26,7 +26,7 @@ ms.locfileid: "55215252"
 
 [테스트] 탭에는 다음과 같은 항목이 표시됩니다.
 
-1.  **시스템 테스트 결과:** 훈련에 포함된 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
+1.  **시스템 테스트 결과:** 결과 학습 테스트 프로세스입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
 
     **문장 개수:** 테스트 세트에 사용된 병렬 문장의 개수입니다.
 

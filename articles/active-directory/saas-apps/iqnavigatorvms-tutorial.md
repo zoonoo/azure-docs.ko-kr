@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>자습서: IQNavigator VMS와 Azure Active Directory 통합
 
@@ -39,7 +39,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 IQNavigator VMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- IQNavigator VMS Single Sign-On이 설정된 구독
+- IQNavigator VMS에서 single sign-on이 설정 된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -50,7 +50,7 @@ IQNavigator VMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합
 - Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 IQNavigator VMS 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -91,7 +91,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[IQNavigator VMS 테스트 사용자 만들기](#creating-a-iqnavigator-vms-test-user)** - Britta Simon의 Azure AD 표현과 연결된 사용자를 IQNavigator VMS에 만듭니다.
+1. **[IQNavigator VMS 테스트 사용자 만들기](#creating-a-iqnavigator-vms-test-user)**  -사용자의 Azure AD 표현과 연결 된 IQNavigator VMS에서 Britta Simon에 해당 하도록 합니다.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -175,7 +175,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     d. **만들기**를 클릭합니다.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>IQNavigator VMS 테스트 사용자 만들기
+### <a name="creating-an-iqnavigator-vms-test-user"></a>IQNavigator VMS 테스트 사용자 만들기
 
 이 섹션의 목적은 IQNavigator VMS에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다. IQNavigator VMS 계정에서 사용자를 추가하려면 [IQNavigator VMS 지원 팀](https://www.beeline.com/iqn-product-support/)에 문의하세요.
 

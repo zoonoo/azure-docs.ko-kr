@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 2995c08b2dc92f36061c6ba29be68b402b2d3ec0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876479"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>SQL Data Warehouse와 기타 서비스 통합
 핵심 기능 외에도 SQL Data Warehouse는 사용자가 Azure에서 다양한 기타 서비스를 통합할 수 있게 설정합니다. 일부 이러한 서비스에는 다음이 포함됩니다.
@@ -33,7 +33,7 @@ Power BI 통합을 통해 Power BI의 동적 보고 및 시각화와 SQL Data Wa
 * **직접 연결**: SQL Data Warehouse에 대해 논리적 푸시다운을 사용하는 보다 고급 연결입니다. 푸시다운은 더 큰 규모를 더욱 빠르게 분석합니다.
 * **Power BI에서 열기**: ‘Power BI에서 열기’ 단추를 사용하면 인스턴스 정보가 Power BI에 전달되어 좀 더 간단하게 연결할 수 있습니다.
 
-자세한 내용은 [Power BI와 통합](sql-data-warehouse-get-started-visualize-with-power-bi.md) 또는 [Power BI 설명서](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx)를 참조하세요.
+자세한 내용은 [Power BI와 통합](sql-data-warehouse-get-started-visualize-with-power-bi.md) 또는 [Power BI 설명서](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/)를 참조하세요.
 
 ## <a name="azure-data-factory"></a>Azure 데이터 팩터리
 Azure 데이터 팩터리는 복잡한 추출을 만들고 파이프라인을 로드할 수 있는 관리되는 플랫폼을 사용자에게 제공합니다. Azure Data Factory와 SQL Data Warehouse의 통합에는 다음이 포함됩니다.

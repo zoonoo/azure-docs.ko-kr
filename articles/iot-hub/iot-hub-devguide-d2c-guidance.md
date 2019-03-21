@@ -1,18 +1,19 @@
 ---
 title: Azure IoT Hub 디바이스-클라우드 옵션 | Microsoft Docs
 description: 개발자 가이드 - 디바이스-클라우드 메시지, reported 속성 또는 클라우드-디바이스 통신을 위한 파일 업로드를 사용하는 경우에 대한 지침입니다.
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: cd20c835fbb08ca0d44f6c77374ba52e19536d63
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452193"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57007984"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>디바이스-클라우드 통신 지침
 
@@ -36,7 +37,7 @@ ms.locfileid: "47452193"
 | Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
 | 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 디바이스에 HTTPS가 필요합니다. |
 
-응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 디바이스 쌍에도 제공해야 할 수 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
+애플리케이션이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에도 제공해야 할 수 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
 
 * 디바이스 앱이 디바이스-클라우드 메시지를 보내고 속성 변경 사항을 보고합니다.
 * 메시지를 받을 때 솔루션 백 엔드가 디바이스 쌍의 태그에 정보를 저장할 수 있습니다.

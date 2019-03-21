@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848952"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -84,7 +84,7 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 프로덕션 함수 앱에서 로드하는 것에 주의하세요. 메모리는 앱에서 각 함수가 사용하는 것의 평균으로 계산됩니다.
 
-여러.Net 함수에서 참조되는 공유 어셈블리가 있는 경우 일반적인 공유 폴더에 저장합니다. C# 스크립트(.csx)를 사용하는 경우 다음 예제와 비슷한 문을 사용하여 어셈블리를 참조합니다. 
+여러.NET 함수에서 참조 되는 공유 어셈블리에 있는 경우 일반적인 공유 폴더에 배치 합니다. C# 스크립트(.csx)를 사용하는 경우 다음 예제와 비슷한 문을 사용하여 어셈블리를 참조합니다. 
 
     #r "..\Shared\MyAssembly.dll". 
 

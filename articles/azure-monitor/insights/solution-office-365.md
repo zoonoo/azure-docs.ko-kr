@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999303"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996704"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -30,6 +30,8 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
 - 조직의 Office 365 활동 데이터를 토대로 [로그 쿼리](../log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
@@ -69,7 +71,7 @@ Office 365 구독에서 수집할 정보:
 1. **새 애플리케이션 등록**을 클릭합니다.
 
     ![앱 등록 추가](media/solution-office-365/add-app-registration.png)
-1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL로 _http://localhost_를 사용하고, **애플리케이션 형식**은 _웹앱/API_로 유지합니다.
+1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  사용 하 여 `http://localhost` URL을 유지 _웹 앱 / API_ 에 대 한는 **응용 프로그램 유형**
     
     ![애플리케이션 만들기](media/solution-office-365/create-application.png)
 1. **만들기**를 클릭하고 응용 프로그램 정보의 유효성을 검사합니다.
@@ -89,11 +91,11 @@ Office 365 구독에서 수집할 정보:
     ![API 선택](media/solution-office-365/select-api.png)
 
 1. **권한 선택** 아래에서 **응용 프로그램 권한** 및 **위임된 권한**에 대해 다음 옵션을 선택합니다.
-    - 조직의 서비스 상태 정보 읽기
-    - 조직의 활동 데이터 읽기
-    - 조직의 활동 보고서 읽기
+   - 조직의 서비스 상태 정보 읽기
+   - 조직의 활동 데이터 읽기
+   - 조직의 활동 보고서 읽기
 
-    ![API 선택](media/solution-office-365/select-permissions.png)
+     ![API 선택](media/solution-office-365/select-permissions.png)
 
 1. **선택**, **완료**를 차례로 클릭합니다.
 1. **권한 부여**를 클릭한 다음, 확인하라는 메시지가 나오면 **예**를 클릭합니다.
@@ -123,10 +125,10 @@ Office 365 구독에서 수집할 정보:
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -190,11 +192,11 @@ Office 365 구독에서 수집할 정보:
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -365,12 +367,12 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 잘못된 매개 변수 값을 제공하면 다음 오류가 발생할 수 있습니다.
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
@@ -390,11 +392,11 @@ At line:12 char:18
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -703,7 +705,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | 쿼리 | 설명 |
 | --- | --- |
 |Office 365 구독의 모든 작업 수 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 사이트 사용량|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | 수를 기준으로 오름차순 정렬|
+|SharePoint 사이트 사용량|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |사용자 유형별 파일 액세스 작업|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |특정 키워드를 사용한 검색|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Exchange에서 외부 작업 모니터링|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

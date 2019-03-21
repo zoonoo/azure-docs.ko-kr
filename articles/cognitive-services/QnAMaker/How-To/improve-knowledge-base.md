@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874008"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537901"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
@@ -32,13 +32,15 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 둘 중 어떤 방법을 사용하든 순위매기기 기능에 클러스터된 유사 쿼리가 제공됩니다.
 
-유사 쿼리가 클러스터되어 있으면 QnA Maker는 수락하거나 거부할 수 있는 사용자 기반 질문을 기술 자료 디자이너에게 제공합니다.
-
 ## <a name="how-active-learning-works"></a>활성 학습의 작동 방식
 
 활성 학습은 지정된 쿼리에 대해 QnA Maker에서 반환하는 몇 가지 상위 대답 점수를 기준으로 트리거됩니다. 점수에 큰 차이가 없으면 쿼리는 가능한 각 대답의 가능한 _제안_으로 간주됩니다. 
 
 모든 제안은 유사성을 기준으로 클러스터되며, 최종 사용자가 특정 쿼리를 전송한 빈도에 따라 대체 질문의 상위 제안이 표시됩니다. 엔드포인트가 적절한 수와 종류의 사용량 쿼리를 수신하면 활성 학습에서는 가능한 최적의 제안을 제공합니다.
+
+5 개 또는 더 유사한 쿼리는 클러스터 된 경우 30 분 마다 QnA Maker 제안 허용 하거나 거부 하 여 기술 자료 디자이너로 사용자 기반 질문 합니다.
+
+질문 QnA Maker 포털에서 제안 되 면 검토 하 고 허용 하거나 이러한 제안 취소 해야 합니다. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>활성 학습 사용을 위한 버전 업그레이드
 
@@ -58,6 +60,8 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 활성 학습은 기본적으로 해제되어 있습니다. 제안된 질문을 확인하려면 활성 학습을 설정합니다. 
 
+1. 선택 **게시** 기술 자료를 게시 합니다. 활성 학습 쿼리 GenerateAnswer API 예측 끝점에서 수집 됩니다. Qna Maker 포털에서 테스트 창에 대 한 쿼리로 활성 학습을 영향을 주지 않습니다.
+
 1. 활성 학습을 설정하려면 자신의 **이름**을 클릭하고, QnA Maker 포털에서 오른쪽 위 모서리에 있는 [**서비스 설정**](https://www.qnamaker.ai/UserSettings)으로 이동합니다.  
 
     ![서비스 설정 페이지에서 활성 학습을 설정으로 전환](../media/improve-knowledge-base/Endpoint-Keys.png)
@@ -75,7 +79,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
     [![서비스 설정 페이지에서 활성 학습 단추 전환](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. **제안 기준 필터링**을 선택하여 제안만 표시되도록 질문과 대답 쌍이 포함된 기술 자료를 필터링합니다.
+1. 질문 및 답변 쌍을 선택 하 여 제안만을 표시 하 고 기술 자료를 필터링 **제안 필터링**합니다.
 
     [![서비스 설정 페이지에서 질문/대답 쌍만 표시되도록 제안을 기준으로 필터링](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -87,6 +91,9 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 1. **저장 및 학습**을 선택하여 기술 자료에 변경 내용을 저장합니다.
 
+1. 선택 **게시** GenerateAnswer API에서 사용 가능 하도록 변경할 수 있도록 합니다.
+
+    5 개 또는 더 유사한 쿼리는 클러스터 된 경우 30 분 마다 QnA Maker 제안 허용 하거나 거부 하 여 기술 자료 디자이너로 사용자 기반 질문 합니다.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>여러 질문의 점수가 비슷할 때 가장 적절한 선택 항목 결정
 
@@ -147,7 +154,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 클라이언트 애플리케이션은 사용자가 의도를 가장 적절하게 반영하는 질문을 선택할 수 있는 옵션과 함께 모든 질문을 표시합니다. 
 
-사용자가 기존 질문 중 하나를 선택하면 QnA Maker의 [학습](http://www.aka.ms/activelearningsamplebot) API에 사용자 피드백이 전송되어 활성 학습 피드백 루프가 계속 진행됩니다. 
+사용자가 기존 질문 중 하나를 선택하면 QnA Maker의 [학습](https://www.aka.ms/activelearningsamplebot) API에 사용자 피드백이 전송되어 활성 학습 피드백 루프가 계속 진행됩니다. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -157,6 +164,31 @@ Content-Type: application/json
 ```
 
 [Azure Bot C# 예제](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)를 통해 활성 학습을 사용하는 방법을 자세히 알아보세요.
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>활성 학습 내보낸된 응용 프로그램의 tsv 파일에 저장 됩니다.
+
+앱이 활성 학습 사용 하도록 설정 하 고 앱을 내보낼 때의 `SuggestedQuestions` tsv 파일의 열은 활성 학습 데이터를 유지 합니다. 
+
+합니다 `SuggestedQuestions` 열이 암시적의 정보는 JSON 개체 (`autosuggested`) 및 명시적 (`usersuggested`) [피드백](#active-learning)합니다. 이 JSON 개체의 단일 사용자가 제출한 질문에 대 한 예가 `help` 됩니다.
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+이 앱을 다시 가져오는 경우 활성 학습 정보를 수집 하 고 기술 자료에 대 한 제안을 권장 계속 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
  

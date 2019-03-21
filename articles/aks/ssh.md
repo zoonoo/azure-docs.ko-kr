@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: d687467e6bd64363c78f60064c6a17adbc5e0d1f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846134"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538802"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -20,21 +20,27 @@ AKS(Azure Kubernetes Service) 클러스터의 수명 주기 내내 AKS 노드에
 
 이 아티클에서는 사설 IP 주소를 사용하여 AKS 노드와 SSH를 연결하는 방법을 보여줍니다.
 
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+
+또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+
 ## <a name="add-your-public-ssh-key"></a>공용 SSH 키 추가
 
-기본적으로 AKS 클러스터를 만들 때 SSH 키가 생성됩니다. AKS 클러스터를 만들 때 고유한 SSH 키를 지정하지 않은 경우 AKS 노드에 공용 SSH 키를 추가합니다. 
+기본적으로 AKS 클러스터를 만들 때 SSH 키가 생성됩니다. AKS 클러스터를 만들 때 고유한 SSH 키를 지정하지 않은 경우 AKS 노드에 공용 SSH 키를 추가합니다.
 
 SSH 키를 AKS 노드에 추가하려면 다음 단계를 완료합니다.
 
 1. [az aks show][az-aks-show]를 사용하여 AKS 클러스터 리소스에 대한 리소스 그룹 이름을 가져옵니다. 고유한 핵심 리소스 그룹 및 AKS 클러스터 이름을 입력합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. [az vm list][az-vm-list] 명령을 사용하여 AKS 클러스터 리소스 그룹에서 VM을 나열합니다. 이러한 VM은 AKS 노드입니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -48,7 +54,7 @@ SSH 키를 AKS 노드에 추가하려면 다음 단계를 완료합니다.
 
 1. SSH 키를 노드에 추가하려면 [az vm user update][az-vm-user-update] 명령을 사용합니다. 이전 단계에서 가져온 리소스 그룹 이름 및 AKS 노드 중 하나를 차례로 입력합니다. AKS 노드에 대한 사용자 이름은 기본적으로 *azureuser*입니다. *~/.ssh/id_rsa.pub*와 같은 고유한 SSH 공용 키 위치를 입력하거나 SSH 공개 키의 내용을 붙여넣습니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -58,11 +64,11 @@ SSH 키를 AKS 노드에 추가하려면 다음 단계를 완료합니다.
 
 ## <a name="get-the-aks-node-address"></a>AKS 노드 주소 가져오기
 
-AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드에 SSH하려면 사설 IP 주소를 사용합니다.
+AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드에 SSH하려면 사설 IP 주소를 사용합니다. 다음 단계에서 만든 도우미 pod 수 있는 AKS 클러스터의 SSH 노드의이 개인 IP 주소.
 
 [az vm list-ip-addresses][az-vm-list-ip-addresses] 명령을 사용하여 AKS 클러스터 노드의 사설 IP 주소를 확인합니다. 이전 [az-aks-show][az-aks-show] 단계에서 가져온 고유한 AKS 클러스터 리소스 그룹 이름을 입력합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -154,3 +160,6 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

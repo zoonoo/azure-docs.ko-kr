@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848935"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S용 공용 CA 게이트웨이 인증서로 전환
 
 Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서명된 인증서를 더 이상 발급하지 않습니다. 이제 발급된 인증서가 공용 CA(인증 기관)에 의해 서명됩니다. 그러나 이전 게이트웨이 중 일부는 자체 서명된 인증서를 계속 사용할 수 있습니다. 이러한 자체 서명된 인증서는 만료 날짜가 임박했으며 공용 CA 인증서로 전환해야 합니다.
 
 >[!NOTE]
-> P2S 클라이언트 인증에 사용되는 자체 서명 인증서는 이 Azure 수준의 인증서 변경에 의해 영향을 받지 않습니다. 자체 서명된 인증서를 계속해서 발급하고 정상적으로 사용할 수 있습니다.
+> * P2S 클라이언트 인증에 사용되는 자체 서명 인증서는 이 Azure 수준의 인증서 변경에 의해 영향을 받지 않습니다. 자체 서명된 인증서를 계속해서 발급하고 정상적으로 사용할 수 있습니다.
 >
 
 이 컨텍스트의 인증서는 Azure 수준의 추가 인증서입니다. 인증을 위해 자체 서명된 루트 인증서 및 클라이언트 인증서를 생성할 때 사용하는 인증서 체인이 아닙니다. 이러한 인증서는 영향을 받지 않으며 생성할 때 지정한 날짜에 만료됩니다.
@@ -38,7 +38,7 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 >
 > **나머지 게이트웨이는 모두 2019년 3월 12일 18:00 UTC부터 전환됩니다**.
 >
-> 게이트웨이 전환 프로세스를 완료하는 데 최대 2시간이 걸립니다. 게이트웨이 전환 프로세스가 완료되면 고객이 메일을 받게 됩니다.
+> 게이트웨이 전환 프로세스가 완료되면 고객이 메일을 받게 됩니다.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. 인증서 확인
@@ -50,8 +50,8 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 2. zip 파일을 열거나 추출하고 “일반” 폴더로 이동합니다. 일반 폴더에는 두 개의 파일이 표시되며, 둘 중 하나는 *VPNSettings.xml*입니다.
 3. 임의의 xml 뷰어/편집기에서 *VPNSettings.xml*을 엽니다. xml 파일에서 다음 필드를 검색합니다.
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. *ServerCertRotCn* 및 *ServerCertIssuerCn*이 “DigiCert Global Root CA”인 경우에는 이 업데이트의 영향을 받지 않으며 이 문서의 단계를 진행할 필요가 없습니다. 그러나 다른 값이 표시되는 경우 게이트웨이 인증서가 업데이트에 포함되며 전환됩니다.
 
 ### <a name="classic"></a>클래식

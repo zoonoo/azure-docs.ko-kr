@@ -3,7 +3,7 @@ title: Azure 서비스 패브릭을 사용하여 상태를 보고하고 확인 |
 description: Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427311"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821681"
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
@@ -50,14 +50,14 @@ ms.locfileid: "39427311"
 1. **상태 저장 서비스** 템플릿을 사용하여 프로젝트를 만듭니다.
    
     ![상태 저장 서비스를 사용하여 서비스 패브릭 애플리케이션 만들기](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-1. **F5** 키를 눌러 디버그 모드에서 응용 프로그램을 실행합니다. 애플리케이션이 로컬 클러스터에 배포됩니다.
+1. **F5** 키를 눌러 디버그 모드에서 애플리케이션을 실행합니다. 애플리케이션이 로컬 클러스터에 배포됩니다.
 1. 애플리케이션을 실행한 후 알림 영역에서 로컬 클러스터 관리자 아이콘을 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **로컬 클러스터 관리**를 선택하여 Service Fabric 탐색기를 엽니다.
    
     ![알림 영역에서 서비스 패브릭 탐색기 열기](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
 1. 애플리케이션의 상태는 이 이미지와 같이 표시되어야 합니다. 이때 애플리케이션은 오류 없이 정상이어야 합니다.
    
     ![서비스 패브릭 탐색기에서 정상적인 애플리케이션](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-healthy-app.png)
-1. PowerShell을 사용하여 상태를 확인할 수도 있습니다. ```Get-ServiceFabricApplicationHealth```를 사용하여 응용 프로그램의 상태를 확인하고 ```Get-ServiceFabricServiceHealth```를 사용하여 서비스의 상태를 확인할 수 있습니다. 이 이미지에 동일한 애플리케이션에 대해 PowerShell에서 제공하는 상태 보고서가 있습니다.
+1. PowerShell을 사용하여 상태를 확인할 수도 있습니다. ```Get-ServiceFabricApplicationHealth```를 사용하여 애플리케이션의 상태를 확인하고 ```Get-ServiceFabricServiceHealth```를 사용하여 서비스의 상태를 확인할 수 있습니다. 이 이미지에 동일한 애플리케이션에 대해 PowerShell에서 제공하는 상태 보고서가 있습니다.
    
     ![PowerShell에서 정상적인 애플리케이션](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
@@ -74,7 +74,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     using System.Fabric.Health;
     ```
    
-    나. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
+    b. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
    
     ```csharp
     if (!result.HasValue)
@@ -102,7 +102,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    나. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
+    b. `myDictionary.TryGetValueAsync` 호출 후 다음 코드를 추가합니다.
    
     ```csharp
     if (!result.HasValue)
@@ -151,5 +151,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## <a name="next-steps"></a>다음 단계
 * [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
 * [서비스 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [응용 프로그램 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
+* [애플리케이션 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
 

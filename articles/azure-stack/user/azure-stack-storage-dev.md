@@ -10,12 +10,12 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: c1f210f7007426114c30e792186010b8905b1d15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1640e06d2d6eec19d516fb3ddf0e98c579e667a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080797"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 저장소 개발 도구를 사용 하 여 시작
 
@@ -79,13 +79,13 @@ Azure Stack 저장소 개발 도구를 사용 하 여 시작 하려면이 문서
 
 1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
 
-  ```json
+   ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-  ```
+   ```
 
 2. 다운로드 [composer.phar](https://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
 3. `php composer.phar install`을 실행합니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6ac36fed8f9d3220e6caf6eba94a62d1ec8372c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846662"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216342"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
@@ -46,7 +46,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
     ![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
+5.  원하는 보관 대상을 설정합니다 예를 들어 저장소 계정, event hub 또는 Azure Monitor를 기록합니다.
 
 6.  새 진단 설정을 저장합니다.
 

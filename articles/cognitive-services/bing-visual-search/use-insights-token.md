@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082727"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기
 
@@ -286,7 +286,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -373,19 +373,19 @@ public class InsightsToken {
 1. 프로젝트에 대한 폴더를 만듭니다(또는 즐겨찾는 IDE 또는 편집기 사용).
 2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
 3. 요청 모듈을 설치합니다.  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. 다음과 같이 form-data 모듈을 설치합니다.  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. GetVisualInsights.js라는 파일을 만들고 다음 코드를 추가합니다.
 5. `subscriptionKey` 값을 구독 키로 바꿉니다.
 7. 프로그램을 실행합니다.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
-ms.openlocfilehash: 2b14753237e118540da6306fa9f06816f3e58b71
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086329"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 
-DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. contoso.com에서 www.contoso.com으로의 리디렉션을 예로 들 수 있습니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
+DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. Www contoso.com에서 리디렉션을 예로\.contoso.com입니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
 
 별칭 레코드를 사용하면 이 문제가 더 이상 발생하지 않습니다. 이제 애플리케이션 소유자는 영역 apex 레코드에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리키도록 할 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
 
-예를 들어 contoso.com 및 www.contoso.com은 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
+예를 들어 contoso.com 및 www\.contoso.com은 동일한 Traffic Manager 프로필에 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
 
 이 문서에서는 사용자 도메인 루트에 대한 별칭 레코드를 만들고, 웹앱에 대한 Traffic Manager 프로필 엔드포인트를 구성하는 방법을 알아봅니다.
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
-Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure DNS에 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
+Azure DNS에서 도메인을 호스트 하는 지침을 참조 하세요. [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
 
 이 자습서에 사용되는 예제 도메인은 contoso.com이지만 사용자 고유의 도메인 이름을 사용하세요.
 
@@ -45,7 +45,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 
 |이름  |운영 체제  |위치  |가격 책정 계층  |
 |---------|---------|---------|---------|
-|ASP-01     | Windows|미국 동부|개발/테스트 D1-공유|
+|ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
 
 ## <a name="create-app-services"></a>App Services 만들기
@@ -76,7 +76,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 
 리소스 그룹에서 Traffic Manager 프로필을 만듭니다. 기본값을 사용하고 trafficmanager.net 네임스페이스 내에서 고유한 이름을 입력합니다.
 
-Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠른 시작: 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기](../traffic-manager/quickstart-create-traffic-manager-profile.md)를 참조하세요.
+Traffic Manager 프로필을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: 항상 사용 가능한 웹 응용 프로그램에 대 한 Traffic Manager 프로필을 만드는](../traffic-manager/quickstart-create-traffic-manager-profile.md)합니다.
 
 ### <a name="create-endpoints"></a>엔드포인트 만들기
 
@@ -87,14 +87,14 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 3. **추가**를 클릭합니다.
 4. 다음 표를 사용하여 엔드포인트를 구성합니다.
 
-   |type  |이름  |대상  |위치  |사용자 지정 헤더 설정|
+   |Type  |이름  |대상  |위치  |사용자 지정 헤더 설정|
    |---------|---------|---------|---------|---------|
    |외부 엔드포인트     |End-01|App-01에 기록한 IP 주소|미국 동부|호스트:\<App-01에 기록한 URL\><br>예: **호스트:app-01.azurewebsites.net**|
    |외부 엔드포인트     |End-02|App-02에 기록한 IP 주소|미국 중부|호스트:\<App-02에 기록한 URL\><br>예: **호스트:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS 영역 만들기
 
-테스트에 기존 DNS 영역을 사용하거나 새 영역을 만들 수 있습니다. Azure에서 새 DNS 영역을 만들고 위임하려면 [자습서: Azure DNS에 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
+테스트에 기존 DNS 영역을 사용하거나 새 영역을 만들 수 있습니다. 참조를 만들고 Azure에서 새 DNS 영역을 위임 하려면 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
 
 ### <a name="add-the-alias-record-set"></a>별칭 레코드 집합 추가
 
@@ -104,9 +104,9 @@ DNS 영역이 준비되면 영역 루트에 대한 별칭 레코드를 추가할
 2. **레코드 집합**을 클릭합니다.
 3. 다음 표를 사용하여 레코드 집합을 추가합니다.
 
-   |이름  |type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
+   |이름  |Type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
    |---------|---------|---------|---------|-----|
-   |@     |A|yes|Azure 리소스|Traffic Manager - 프로필|
+   |@     |A|예|Azure 리소스|Traffic Manager - 프로필|
 
 ## <a name="add-custom-hostnames"></a>사용자 지정 호스트 이름 추가
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077278"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260192"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 저장소 분석 로깅
 
@@ -37,7 +37,7 @@ ms.locfileid: "58077278"
 - 공유 액세스 서명 (SAS) 또는 실패 한 실행과 성공한 요청을 포함 하 여 OAuth를 사용 하 여 요청
 - 분석 데이터에 대한 요청
 
-  로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format.md) 항목에 나와 있습니다.
+  로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
 
 ### <a name="logging-anonymous-requests"></a>익명 요청 로깅
 
@@ -48,7 +48,7 @@ ms.locfileid: "58077278"
 - 클라이언트와 서버 모두에 대 한 시간 초과 오류
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
-  기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format.md) 항목에 나와 있습니다.
+  기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
 
 ## <a name="how-logs-are-stored"></a>로그 저장 방법
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  로그 데이터를 프로그래밍 방식으로 다운로드 하는 방법의 예로, 블로그 게시물을 참조 하세요. [Windows Azure Storage 로깅: 저장소 요청 추적 로그를 사용 하 여](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) 및 페이지에서 단어 "DumpLogs"를 검색 합니다.  
 
- 로그 데이터를 다운로드 한 경우에 파일에 로그 항목을 볼 수 있습니다. 이러한 로그 파일 사용 하 여 구분 기호로 분리 된 텍스트 형식으로 많은 로그 읽기 도구가 구문 분석할 수 Microsoft Message Analyzer를 비롯 한 (자세한 내용은 가이드를 참조 하세요. [모니터링, 진단 및 문제 해결 Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). 다른 도구는 형식 지정, 필터링, 정렬 및 로그 파일의 콘텐츠를 검색 하기 위한 다양 한 기능을 갖습니다. 저장소 로깅 로그 파일 형식 및 콘텐츠에 대 한 자세한 내용은 참조 하세요. [저장소 분석 로그 형식](storage-analytics-logging.md) 하 고 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)합니다.
+ 로그 데이터를 다운로드 한 경우에 파일에 로그 항목을 볼 수 있습니다. 이러한 로그 파일 사용 하 여 구분 기호로 분리 된 텍스트 형식으로 많은 로그 읽기 도구가 구문 분석할 수 Microsoft Message Analyzer를 비롯 한 (자세한 내용은 가이드를 참조 하세요. [모니터링, 진단 및 문제 해결 Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). 다른 도구는 형식 지정, 필터링, 정렬 및 로그 파일의 콘텐츠를 검색 하기 위한 다양 한 기능을 갖습니다. 저장소 로깅 로그 파일 형식 및 콘텐츠에 대 한 자세한 내용은 참조 하세요. [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 하 고 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format.md)
-* [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
+* [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [저장소 분석 메트릭 (클래식)](storage-analytics-metrics.md)

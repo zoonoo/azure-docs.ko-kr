@@ -5,16 +5,16 @@ description: 문서 목록 페이지는 작업 영역에 포함된 처음 10개�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: how to edit a model
-ms.openlocfilehash: e656c6dd7050851eb9885fe253ab29f4e3675216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219807"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777391"
 ---
 # <a name="view-document-details"></a>문서 세부 정보 보기
 
@@ -22,7 +22,7 @@ ms.locfileid: "55219807"
 
 개별 문서를 클릭하여 문서 세부 사항 페이지를 봅니다. 문서 세부 사항 페이지에 문서에서 추출된 문장 목록이 표시됩니다.
 
-- 기본적으로 드롭다운 필드에서 “소스” 언어가 선택되어 있지만, 대상 언어의 문장이 표시되도록 토글할 수 있습니다. 
+- 기본적으로 드롭다운 필드에서 “소스” 언어가 선택되어 있지만, 대상 언어의 문장이 표시되도록 토글할 수 있습니다.
 - 기본적으로 페이지당 20개의 문장이 표시됩니다. 페이지 매김 컨트롤을 사용하여 페이지 사이를 이동할 수 있습니다.
 
 ![문서 세부 사항](media/how-to/how-to-view-document-details.png)

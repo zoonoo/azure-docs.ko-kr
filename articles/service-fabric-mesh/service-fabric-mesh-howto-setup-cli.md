@@ -6,15 +6,15 @@ keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 675848f26b991978dce2e8686a71d86756180586
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885456"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정
 Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh에서 리소스를 로컬로 배포하고 관리하는 데 필요합니다. 
@@ -55,7 +55,7 @@ Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh�
 Maven CLI를 사용하려면 다음을 머신에 설치해야 합니다. 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI(az mesh) - Azure Service Fabric Mesh를 대상으로 지정 
 * SFCTL(sfctl) - 로컬 클러스터를 대상으로 지정 

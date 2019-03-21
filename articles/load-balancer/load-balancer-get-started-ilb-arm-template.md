@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044011"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671678"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>템플릿을 사용하여 내부 부하 분산 장치 만들기
 
@@ -28,6 +28,7 @@ ms.locfileid: "54044011"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -44,10 +45,10 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 매개 변수 파일을 로컬 디스크에 다운로드합니다.
 3. 파일을 편집하고 저장합니다.
-4. **New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
+4. 실행 합니다 **새로 만들기-AzResourceGroupDeployment** 템플릿을 사용 하 여 리소스 그룹을 만드는 cmdlet입니다.
 
-    ```azurecli
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
+    ```azurepowershell-interactive
+    New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
@@ -59,7 +60,7 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode arm
     ```
 

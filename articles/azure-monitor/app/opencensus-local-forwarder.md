@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus 분산 추적 로컬 전달자 | Microsoft Docs
+title: Azure Application Insights OpenCensus 분산 추적 로컬 전달자 (미리 보기) | Microsoft docs
 description: 분산된 전달 OpenCensus는 Python 및 Go와 같은 언어부터 Azure Application Insights까지 추적하고 포괄합니다.
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002811"
 ---
-# <a name="local-forwarder"></a>로컬 전달자
+# <a name="local-forwarder-preview"></a>로컬 전달자 (미리 보기)
 
 로컬 전달자는 다양한 SDK에서 [OpenCensus](https://opencensus.io/) 원격 분석을 수집하고 Application Insights로 경로를 지정하는 에이전트입니다. Windows 및 Linux에서 실행할 수 있습니다. macOS에서 실행할 수도 있지만, 이번에 공식적으로 지원되지는 않습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "54004684"
 
 로컬 전달자는 [GitHub의 오픈 소스 프로젝트](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases)입니다. 여러 플랫폼에서 로컬 전달자를 실행하는 방법에는 여러 가지가 있습니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Windows 서비스
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 특정 사용 사례의 경우 로컬 전달자를 콘솔 애플리케이션으로 실행하는 것이 유익할 수 있습니다. 릴리스는 콘솔 호스트의 다음 실행 버전으로 제공됩니다.
 * 프레임워크 종속 .NET Core 이진 */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. 이 이진을 실행하려면 .NET Core 런타임을 설치해야 합니다. 자세한 내용은 이 다운로드 [페이지](https://www.microsoft.com/net/download/dotnet-core/2.1)를 참조하세요.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * x86 및 x64 플랫폼에 대한 자체 포함된 .NET Core 이진 집합. 이는 .NET Core 런타임을 실행하는 데 필요하지 않습니다. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897285"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -459,7 +459,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationUserIsNotConfirm|로그인을 시도하기 전에 등록을 확인하세요.|  
 |WebAuthenticationInvalidEmailFormated|잘못된 메일: {0}|  
 |WebAuthenticationUserNotFound|사용자를 찾을 수 없음|  
-|WebAuthenticationTenantNotRegistered|계정이 이 포털에 액세스할 수 있는 권한이 없는 Azure Active Directory 테넌트에 속합니다.|  
+|WebAuthenticationTenantNotRegistered|계정에 있는이 포털에 액세스할 권한이 없는 Azure Active Directory 테 넌 트에 속합니다.|  
 |WebAuthenticationAuthenticationFailed|인증에 실패했습니다.|  
 |WebAuthenticationGooglePlusNotEnabled|인증에 실패했습니다. 애플리케이션에 권한을 부여한 경우 관리자에게 문의하여 Google 인증이 올바르게 구성되었는지 확인하세요.|  
 |ValidationErrorAllowedTenantIsRequired|허용된 테넌트는 필수입니다.|  

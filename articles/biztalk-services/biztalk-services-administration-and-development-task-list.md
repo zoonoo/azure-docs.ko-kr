@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: e762141e089b11dd0fb129f3bf758874d4ad4da8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: baee8c8e931a18c1d72b52c6141c29cba98f9c53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096404"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk Services의 관리 및 개발 작업 목록
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="getting-started"></a>시작하기
@@ -35,7 +35,7 @@ Microsoft Azure BizTalk Services로 작업할 때 고려해야 할 몇 가지 �
 | 1. |관리자 |Microsoft 계정 또는 조직 계정을 사용하여 Microsoft Azure 구독 만들기 |[Azure Portal](https://portal.azure.com) |
 | 2. |관리자 |BizTalk 서비스 만들기 또는 프로비전 |[BizTalk Service 만들기](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
 | 3. |관리자 |사용자 또는 회사의 BizTalk Services 배포 등록 |[BizTalk Services 포털에서 BizTalk Services 배포 등록 및 업데이트](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
-| 4. |관리자 |애플리케이션이 온-프레미스 LOB(기간 업무) 시스템에 연결하는 데 BizTalk 어댑터 서비스를 사용하거나 큐 또는 토픽 대상을 사용하는 경우 적용합니다.  Azure Service Bus 네임스페이스 만들기 이 네임스페이스, Service Bus 발급자 이름 및 Service Bus 발급자 키 값을 개발자에게 제공합니다. |[방법: Service Bus 서비스 네임스페이스 만들기 또는 수정](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 및 [발급자 이름 및 발급자 키 값 가져오기](biztalk-issuer-name-issuer-key.md) |
+| 4. |관리자 |애플리케이션이 온-프레미스 LOB(기간 업무) 시스템에 연결하는 데 BizTalk 어댑터 서비스를 사용하거나 큐 또는 토픽 대상을 사용하는 경우 적용합니다.  Azure Service Bus 네임스페이스 만들기 이 네임스페이스, Service Bus 발급자 이름 및 Service Bus 발급자 키 값을 개발자에게 제공합니다. |[방법: 만들기 또는 수정 된 Service Bus 서비스 Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 고 [가져오기 발급자 이름과 발급자 키 값](biztalk-issuer-name-issuer-key.md) |
 | 5. |Developer |SDK를 설치하고 Visual Studio에서 BizTalk 서비스 프로젝트를 만듭니다. |[Azure BizTalk Services SDK 설치](https://msdn.microsoft.com/library/azure/hh689760.aspx) 및 [Azure에서 다양한 메시징 엔드포인트 만들기](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Developer |BizTalk 서비스 프로젝트를 Azure에서 호스트된 BizTalk 서비스에 배포합니다. |[BizTalk Services 프로젝트 배포 및 새로 고침](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |관리자 |EDI를 사용하는 경우 적용합니다.  파트너를 추가하고 Microsoft Azure BizTalk Services 포털에서 계약을 만들 수 있습니다. 계약을 만들 때 개발자가 만든 브리지 및/또는 변환을 계약 설정에 추가할 수 있습니다. |[BizTalk Services 포털에서 EDI, AS2 및 EDIFACT 구성](https://msdn.microsoft.com/library/azure/hh689853.aspx) |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105991"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872083"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT 설정 및 관리를 위한 라우터 구성 샘플
 
@@ -214,7 +214,7 @@ NAT 명령:
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. 각 방향으로 선택적 접두사를 보급하도록 BGP 구성
-[라우팅 구성 예제 ](expressroute-config-samples-routing.md) 페이지에 있는 샘플을 참조하세요.
+샘플을 참조 [라우팅 구성 샘플](expressroute-config-samples-routing.md) 페이지입니다.
 
 ### <a name="6-create-policies"></a>6. 정책 만들기
     routing-options {

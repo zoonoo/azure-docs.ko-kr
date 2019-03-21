@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100839"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateway와의 활성-활성 S2S VPN 연결 구성
 
@@ -36,10 +36,8 @@ VPN 게이트웨이가 이미 있는 경우 다음을 수행할 수 있습니다
 
 > [!IMPORTANT]
 > 활성-활성 모드에서 다음 SKU만 사용합니다. 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance(이전 레거시 SKU)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * HighPerformance(이전 레거시 SKU)
 
 ## <a name ="aagateway"></a>1부 - 활성-활성 VPN Gateway 만들기 및 구성
 다음 단계에서는 활성-활성 모드로 Azure VPN Gateway를 구성합니다. 활성-활성 및 활성-대기 게이트웨이 간의 주요 차이점:

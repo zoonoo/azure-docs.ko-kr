@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543566"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259825"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -39,7 +39,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 
- 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
+아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
@@ -129,7 +129,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>ExpressRoute를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 
- 아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
+아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>내 구독에 둘 이상의 ExpressRoute 회로가 있을 수 있나요?
 
@@ -178,7 +178,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>가상 네트워크가 서로 격리된 동일한 회로에 연결되어 있나요?
 
- 아니요. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
+아니요. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
@@ -266,7 +266,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 
- 아니요. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
+아니요. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute Premium 비용
 
@@ -343,10 +343,10 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 * 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct(미리 보기)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Global Reach(미리 보기)
+## <a name="globalreach"></a>글로벌 환경
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

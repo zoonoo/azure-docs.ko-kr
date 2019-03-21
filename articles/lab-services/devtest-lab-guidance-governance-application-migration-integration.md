@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c57385bc398544e786aec77dae9886784e3a0b3c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243623"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436581"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
 개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
@@ -117,7 +117,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 사용자/랩당 가상 머신 수를 고려할 때는 다음의 세 가지 요소를 주로 파악해야 합니다.
 
 - 팀이 랩의 리소스에 재출할 수 있는 **전체 비용**. 여러 컴퓨터를 스핀업하는 것 자체는 간단합니다. 이 경우 비용을 제어하는 메커니즘 중 하나는 사용자 및/또는 랩당 VM 수를 제한하는 것입니다.
-- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 따라서 구독에 랩이 10개이면 각 랩에는 약 79개의 가상 머신이 포함될 수 있습니다(상한 800개 - 10개 랩 자체의 리소스 그룹 10개 = 랩당 가상 머신 79개).
+- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10 labs 없으면 labs 맞게 약 79 virtual machines 각 랩 (800 상한값 – 자체 10 실습에 대 한 10 개 리소스 그룹)에서 랩 당 가상 머신 79 =.
 - 랩이 Express 경로 등을 통해 온-프레미스에 연결되는 경우에는 VNet/서브넷용으로 **정의된 사용 가능한 IP 주소 공간**이 있습니다. ‘IP 주소를 가져올 수 없음’ 오류로 인해 랩에서 VM 생성이 실패하는 일이 없도록 하려는 경우 랩 소유자는 사용 가능한 IP 주소 공간에 맞게 랩당 최대 VM 수를 적절하게 지정할 수 있습니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094680"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>C# IoT Edg 모듈을 개발하여 Data Box Edge에서 파일 이동(미리 보기)
 
@@ -71,14 +71,14 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 2. **리소스 만들기 > 컨테이너 > Container Registry**를 선택합니다. **만들기**를 클릭합니다.
 3. 다음을 제공합니다.
 
-    1. 5~50의 영숫자 문자를 포함하는 Azure 내의 고유한 **레지스트리 이름**
-    2. **구독**을 선택합니다.
-    3. 새 리소스 그룹을 만들거나 기존 **리소스 그룹**을 선택합니다.
-    4. **위치**를 선택합니다. 이 위치는 Data Box Edge 리소스와 연결된 것과 동일한 것이 좋습니다.
-    5. **관리 사용자**를 **사용**으로 전환합니다.
-    6. SKU를 **기본**으로 설정합니다.
+   1. 5~50의 영숫자 문자를 포함하는 Azure 내의 고유한 **레지스트리 이름**
+   2. **구독**을 선택합니다.
+   3. 새 리소스 그룹을 만들거나 기존 **리소스 그룹**을 선택합니다.
+   4. **위치**를 선택합니다. 이 위치는 Data Box Edge 리소스와 연결된 것과 동일한 것이 좋습니다.
+   5. **관리 사용자**를 **사용**으로 전환합니다.
+   6. SKU를 **기본**으로 설정합니다.
 
-    ![컨테이너 레지스트리 만들기](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![컨테이너 레지스트리 만들기](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. **만들기**를 선택합니다.
 5. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾고 **액세스 키**를 선택합니다.

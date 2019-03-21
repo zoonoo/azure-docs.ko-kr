@@ -1,32 +1,32 @@
 ---
-title: 검색 상자에 자동 완성을 추가하는 방법에 대한 자습서 - Azure Search
+title: 검색 상자-Azure Search에 자동 완성 기능을 추가 하는 것에 대 한 예제
 description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 애플리케이션의 최종 사용자 환경을 개선하는 방법을 보여주는 예제입니다.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200279"
 ---
-# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가
+# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>예제: Azure Search를 사용하여 검색 상자에 자동 완성 추가
 
-이 자습서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)의 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 및 [패싯](search-faceted-navigation.md)을 사용하여 강력한 검색 상자를 구성하는 방법을 알아봅니다. 
+이 예에서 사용 하는 방법을 알아봅니다 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 하 고 [패싯](search-faceted-navigation.md) 에 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) 강력한 검색 상자를 빌드할 수 있습니다. 
 
 + *제안*은 사용자가 지금까지 입력한 내용을 바탕으로 실제 결과를 추천합니다. 
 + Azure Search의 [새 미리 보기 기능](search-api-preview.md)인 *자동 완성*은 인덱스의 용어를 제공하여 사용자가 현재 입력 중인 항목을 완성합니다. 
 
 사용자가 입력할 때 다양한 검색어를 직접 제공하여 사용자 생산성을 높이는 여러 기법을 비교해 보겠습니다.
 
-이 자습서에서는 C#을 사용하여 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk)를 호출하고, JavaScript를 사용하여 Azure Search REST API를 직접 호출하는 ASP.NET MVC 기반 애플리케이션을 사용합니다. 이 자습서용 애플리케이션은 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 입력하는 인덱스를 대상으로 합니다. NYC Jobs 데모에서 이미 구성된 인덱스를 사용하거나, NYCJobs 샘플 솔루션에서 데이터 로더를 사용하여 자체 인덱스를 입력할 수 있습니다. 이 샘플은 [jQuery UI](https://jqueryui.com/autocomplete/) 및 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript 라이브러리를 사용하여 자동 완성을 지원하는 검색 상자를 빌드합니다. Azure Search와 함께 이러한 구성 요소를 사용하여 검색 상자에서 미리 입력을 통한 자동 완성을 지원하는 방법의 여러 예제를 확인합니다.
+이 예제를 사용 하는 ASP.NET MVC 기반 응용 프로그램을 통해 안내 메시지를 표시 합니다 C# 를 호출 하는 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk), 및 Azure Search REST API를 직접 호출 하는 JavaScript입니다. 이 예제에 대 한 응용 프로그램을 대상으로 채워진 인덱스는 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 데이터를 샘플링 합니다. NYC Jobs 데모에서 이미 구성된 인덱스를 사용하거나, NYCJobs 샘플 솔루션에서 데이터 로더를 사용하여 자체 인덱스를 입력할 수 있습니다. 이 샘플은 [jQuery UI](https://jqueryui.com/autocomplete/) 및 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript 라이브러리를 사용하여 자동 완성을 지원하는 검색 상자를 빌드합니다. Azure Search와 함께 이러한 구성 요소를 사용하여 검색 상자에서 미리 입력을 통한 자동 완성을 지원하는 방법의 여러 예제를 확인합니다.
 
 다음 작업을 수행합니다.
 
@@ -35,16 +35,16 @@ ms.locfileid: "55997169"
 > * 애플리케이션 설정에 검색 서비스 정보 추가
 > * 검색 입력 상자 구현
 > * 원격 원본에서 가져오는 자동 완성 목록에 대한 지원 추가 
-> * .Net SDK 및 REST API를 사용하여 제안 및 자동 완성 검색
+> * 검색 제안 및.NET SDK 및 REST API를 사용 하 여 자동 완성
 > * 성능 개선을 위해 클라이언트 쪽 캐싱 지원 
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Visual Studio 2017. [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) 평가판을 사용할 수 있습니다. 
 
-* 자습서용 샘플 [소스 코드](https://github.com/azure-samples/search-dotnet-getting-started)를 다운로드합니다.
+* 샘플을 다운로드 [소스 코드](https://github.com/azure-samples/search-dotnet-getting-started) 의 예입니다.
 
-* (선택 사항) 활성 Azure 계정 및 Azure Search 서비스. Azure 계정이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 서비스 프로비전에 대한 도움말은 [검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요. 이 자습서는 다른 데모에서 기존에 만든 호스팅되는 NYCJobs 인덱스를 사용하여 완료할 수 있으므로 계정과 서비스는 선택 사항입니다.
+* (선택 사항) 활성 Azure 계정 및 Azure Search 서비스. Azure 계정이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 서비스 프로비전에 대한 도움말은 [검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요. 계정 및 서비스 되므로 선택적 인덱스를 사용 하는 호스 티 드 NYCJobs 이미 진행에서 다른 데모에 대 한이 예제를 완료할 수 있습니다.
 
 * (선택 사항) 자체 Azure Search 서비스에서 인덱스에 NYCJobs 데이터를 가져오는 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 코드를 다운로드합니다.
 
@@ -61,11 +61,11 @@ ms.locfileid: "55997169"
 
 1. F5 키를 눌러 애플리케이션을 시작합니다.  그러면 두 인덱스를 만들고 NYCJob 샘플 데이터를 가져옵니다.
 
-1. 자습서 샘플 코드의 AutocompleteTutorial.sln 솔루션 파일을 Visual Studio에서 엽니다.  AutocompleteTutorial 프로젝트 내에서 Web.config를 열고 SearchServiceName 및 SearchServiceApiKey 값을 위와 동일하게 변경합니다.
+1. 예제 샘플 코드에서는 Visual Studio에서 AutocompleteTutorial.sln 솔루션 파일을 엽니다.  AutocompleteTutorial 프로젝트 내에서 Web.config를 열고 SearchServiceName 및 SearchServiceApiKey 값을 위와 동일하게 변경합니다.
 
 ### <a name="running-the-sample"></a>샘플 실행
 
-이제 자습서 샘플 애플리케이션을 실행할 준비가 되었습니다.  AutocompleteTutorial.sln 솔루션 파일을 Visual Studio에서 열어 자습서를 실행합니다.  솔루션은 ASP.NET MVC 프로젝트를 포함합니다.  원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.  맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다.  C# 옵션은 브라우저에서 HomeController를 호출하고 Azure Search .Net SDK를 사용하여 결과를 검색합니다.  브라우저에서 직접 Azure Search REST API를 호출하는 JavaScript 옵션입니다.  이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다.  요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다.  각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다.  예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
+이제 예제에서는 샘플 응용 프로그램을 실행할 준비가 되었습니다.  예제를 실행 하려면 Visual Studio에서 AutocompleteTutorial.sln 솔루션 파일을 엽니다.  솔루션은 ASP.NET MVC 프로젝트를 포함합니다.  원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.  맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다.  C# 옵션은 브라우저에서 HomeController를 호출 하 고 Azure Search.NET SDK를 사용 하 여 결과 검색 합니다.  브라우저에서 직접 Azure Search REST API를 호출하는 JavaScript 옵션입니다.  이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다.  요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다.  각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다.  예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
 
 ## <a name="how-this-works-in-code"></a>코드에서의 작동 방식
 
@@ -79,7 +79,7 @@ ms.locfileid: "55997169"
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-스타일을 위한 클래스, JavaScript 참조 ID 및 자리 표시자 텍스트가 있는 간단한 입력 텍스트 상자입니다.  비밀은 Javascript에 있습니다.
+이 스타일 지정, JavaScript 및 자리 표시자 텍스트에서 참조 하는 ID에 대 한 클래스를 사용 하 여 간단한 입력된 텍스트 상자입니다.  비밀은 Javascript에 있습니다.
 
 ### <a name="javascript-code-c"></a>JavaScript 코드(C#)
 
@@ -132,7 +132,7 @@ F5를 눌러 애플리케이션을 시작합니다.
 
 1. Controllers 디렉터리에서 HomeController.cs 파일을 엽니다. 
 
-1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 다음 자습서를 살펴보세요. [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 원하는 경우 다음 예제에서는 방문: [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Suggest 함수로 이동합니다.
 
@@ -209,15 +209,15 @@ $(function () {
 });
 ```
 
-이 코드를, Home 컨트롤러를 호출하는 위의 에제와 비교해 보면 몇 가지 유사점을 확인할 수 있습니다.  `minLength` 및 `position`에 대한 자동 완성 구성은 정확히 동일합니다.  여기서 큰 변화는 소스입니다.  홈 컨트롤러에서 Suggest 메서드를 호출하는 대신 JavaScript 함수에서 REST 요청을 만들어 ajax를 통해 실행합니다.  그러면 응답이 "성공" 처리되고 소스로 사용됩니다.
+이 코드를, Home 컨트롤러를 호출하는 위의 에제와 비교해 보면 몇 가지 유사점을 확인할 수 있습니다.  `minLength` 및 `position`에 대한 자동 완성 구성은 정확히 동일합니다.  여기서 큰 변화는 소스입니다.  Home 컨트롤러의 제안 메서드를 호출 하는 대신 REST 요청을 JavaScript 함수에서 생성 되 고 Ajax를 사용 하 여 실행.  그러면 응답이 "성공" 처리되고 소스로 사용됩니다.
 
 ## <a name="takeaways"></a>핵심 내용
 
-이 자습서에서는 자동 완성 및 제안을 지원하는 검색 상자 빌드를 위한 기본 단계를 보여줍니다.  ASP.NET MVC 애플리케이션을 빌드하고 Azure Search .Net SDK 또는 REST API를 사용하여 제안을 검색하는 방법을 살펴보았습니다.
+이 예제에서는 검색 상자 자동 완성 기능 및 제안을 지를 구축 하기 위한 기본 단계를 보여 줍니다.  ASP.NET MVC 응용 프로그램을 빌드 및 Azure Search.NET SDK 또는 REST API를 사용 하 여 추천 단어를 검색할 수 있습니다 하는 방법을 살펴보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 및 자동 완성을 검색 환경에 통합합니다.  .NET SDK 또는 REST API를 직접 사용하면 사용자 입력에서의 생산성 증대를 위해 Azure Search가 어떻게 도움이 될 수 있는지 살펴봅니다.
+제안 및 자동 완성을 검색 환경에 통합합니다.  .NET SDK 또는 REST API를 직접 사용 하 여 어떻게 도움이 되는지 더 생산성을 입력할 사용자에 게 Azure Search의 힘을 전달 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
 > [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

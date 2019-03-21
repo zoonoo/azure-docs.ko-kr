@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 893273fc325eaf878814c07eb095c67f5ea3c3f1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812500"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675061"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -133,6 +133,5 @@ Apache Spark 및 MLLib
 
 딥 러닝, Cognitive Toolkit 등
 
-* [Azure HDInsight Spark에서 Cognitive Toolkit 및 TensorFlow를 사용하여 처치 곤란한 병렬 이미지 분류](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Azure 데이터 과학 가상 머신](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Azure HDInsight에 H2O.ai 소개](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

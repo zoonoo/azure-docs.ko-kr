@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195792"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216903"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>기존 Azure 애플리케이션 제품 업데이트
 
@@ -75,6 +75,9 @@ ms.locfileid: "53195792"
 2. **모든 제품** 아래에서 업데이트할 제품을 찾습니다.
 3. **Marketplace** 탭으로 이동합니다. [Azure 애플리케이션 제품 게시](./cpp-publish-offer.md)의 지침에 따라 메타데이터를 변경합니다.
 4. **게시**를 선택하여 변경 내용을 게시하는 워크플로를 시작합니다.
+ 
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
 
 ## <a name="deleting-an-existing-offer"></a>기존 제품 삭제
 
@@ -100,4 +103,4 @@ Marketplace에서 제품을 제거할 수 있습니다. 제품을 삭제해도 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 응용 프로그램 제품](./cpp-azure-app-offer.md)
+[Azure 애플리케이션 제품](./cpp-azure-app-offer.md)

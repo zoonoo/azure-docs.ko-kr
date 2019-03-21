@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: c6a2f14900d3a0d6f9e16e9b0c6d0bdfff97d6b5
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881115"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류
 
@@ -56,4 +56,4 @@ ms.locfileid: "54903839"
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 07f4506b7dd0ac8ca0462e2a418983e561859c91
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080663"
 ---
 ## <a name="control-flow"></a>흐름 제어
 
@@ -25,13 +25,13 @@ ms.locfileid: "55208383"
 
 1. 사용자가 봇에 용어 또는 구를 입력합니다(예: ‘what's the weather in Seattle?’).
 1. CL이 엔터티를 추출하는 Machine Learning 모델에 사용자 입력을 전달합니다.
-    - 이 모델은 Conversation Learner에서 빌드되고 www.luis.ai에 호스트됩니다.
+   - 이 모델은 Conversation Learner에서 빌드되고 www.luis.ai에 호스트됩니다.
 1. 추출된 엔터티 및 사용자 입력 텍스트가 봇 코드의 엔터티 검색 콜백 메서드에 전달됩니다.
     - 이 코드는 엔터티 값을 설정/지우기/조작할 수 있습니다.
 1. CL 신경망이 엔터티 추출 출력과 사용자 입력을 사용하여 봇에 정의된 모든 작업에 점수를 지정합니다.
-    - 이 예제에서 확률이 가장 높은 작업은 날씨 예측을 제공하는 것입니다.
+   - 이 예제에서 확률이 가장 높은 작업은 날씨 예측을 제공하는 것입니다.
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. 이 경우, 선택한 작업에 날씨 예측을 검색하기 위한 API 호출이 필요합니다. 
 1. 그런 다음, CL.AddCallback 메서드를 사용하여 등록된 이 API가 호출됩니다.  이 API의 결과가 사용자에게 메시지로 반환됩니다(예: ‘Sunny with a high of 67’).
@@ -41,4 +41,4 @@ ms.locfileid: "55208383"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Conversation Learner로 학습하는 방법](./how-to-teach-cl.md)
+> [대화 학습자를 사용 하 여 설명 하는 방법](./how-to-teach-cl.md)

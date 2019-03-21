@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410118"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807000"
 ---
 #   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
-**쉐이퍼** 기술은 복합 형식을 만들어 복합 필드(다중 파트 필드라고도 함)를 지원합니다. 복합 형식 필드에는 여러 파트가 있지만 Azure Search 인덱스에서 단일 항목으로 처리됩니다. 검색 시나리오에서 유용한 통합 필드의 예로 이름과 성을 하나의 필드로 결합하거나, 구/군/시와 시/도를 하나의 필드로 결합하거나, 이름과 생년월일을 하나의 필드로 결합하여 고유한 ID를 설정하는 것 등이 있습니다.
-
-**쉐이퍼** 기술을 사용하면 기본적으로 구조를 만들고, 해당 구조의 멤버 이름을 정의하고, 각 멤버에게 값을 할당할 수 있습니다.
+합니다 **쉐이 퍼** 기술 보강 파이프라인에서 나중에 참조할 수 있는 복합 형식으로 여러 입력을 통합 합니다. **쉐이퍼** 기술을 사용하면 기본적으로 구조를 만들고, 해당 구조의 멤버 이름을 정의하고, 각 멤버에게 값을 할당할 수 있습니다. 검색 시나리오에서 유용한 통합된 필드의 예로 단일 구조, 도시 및 단일 구조 또는 이름에는 상태 및 고유 id를 설정 하려면 단일 구조에는 birthdate 이름과 성을 결합 합니다.
 
 기본적으로 이 기술은 한 수준 깊이인 개체를 지원합니다. 더 복잡한 개체의 경우 여러 **쉐이퍼** 단계를 연결할 수 있습니다.
 
@@ -58,7 +56,7 @@ Microsoft.Skills.Util.ShaperSkill
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ Microsoft.Skills.Util.ShaperSkill
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

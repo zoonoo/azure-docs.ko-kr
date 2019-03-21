@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835523"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259587"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -109,7 +109,7 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?
 
-이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 이 권고[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731]를 확인하세요.
+이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세한 내용은 체크 아웃 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)합니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 - [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

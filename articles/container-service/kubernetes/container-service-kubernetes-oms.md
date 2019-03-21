@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107528"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 Log Analytics 에이전트 설치
 Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
 
- - [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet YAML 파일을 복사하고 이러한 항목이 같은 디렉터리에 있는지 확인합니다.
-      - 비밀 생성 스크립트 - secret-gen.sh
-      - 비밀 템플릿 - secret-template.yaml
-   - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
- - 스크립트를 실행합니다. 스크립트에서는 Log Analytics 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet YAML 파일을 복사하고 이러한 항목이 같은 디렉터리에 있는지 확인합니다.
+  - 비밀 생성 스크립트 - secret-gen.sh
+  - 비밀 템플릿 - secret-template.yaml
+    - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
+- 스크립트를 실행합니다. 스크립트에서는 Log Analytics 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - 다음을 실행하여 비밀 Pod를 만듭니다. ``` kubectl create -f omsagentsecret.yaml ```
+  - 다음을 실행하여 비밀 Pod를 만듭니다. ``` kubectl create -f omsagentsecret.yaml ```
 
-   - 확인하려면 다음을 실행합니다.
+  - 확인하려면 다음을 실행합니다.
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - ``` kubectl create -f omsagent-ds-secrets.yaml ```을 실행하여 omsagent daemon-set 만들기
 

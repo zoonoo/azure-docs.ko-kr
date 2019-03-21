@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973883"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116036"
 ---
 각 엔드포인트에는 *공용 포트*와 *개인 포트*가 있습니다.
 
@@ -76,7 +76,7 @@ Azure Portal을 사용하여 엔드포인트를 만드는 경우 잘 알려진 �
 
 4. 목록의 행을 사용하여 ACL에 대한 규칙을 추가, 삭제 또는 편집하고 해당 순서를 변경합니다. **원격 서브넷** 값은 인터넷에서 들어오는 트래픽에 대한 IP 주소 범위로서, Azure 부하 분산 장치는 해당 원본 IP 주소에 따라 트래픽을 허용하거나 거부하도록 사용합니다. 주소 접두사 형식이라고도 하는 CIDR(Classless Inter-Domain Routing) 형식으로 IP 주소 범위를 지정해야 합니다. 예: `10.1.0.0/8`
 
- ![새 ACL 항목](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![새 ACL 항목](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 규칙을 사용하여 인터넷의 컴퓨터에 해당하는 특정 컴퓨터에서 들어오는 트래픽만 허용하고 알려진 특정 주소 범위에서 들어오는 트래픽을 거부할 수 있습니다.

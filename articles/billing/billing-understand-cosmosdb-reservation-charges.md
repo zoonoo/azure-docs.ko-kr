@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899522"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
@@ -117,5 +117,5 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
 

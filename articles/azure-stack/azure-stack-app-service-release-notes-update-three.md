@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886442"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service에서 Azure Stack 업데이트 3 릴리스 정보
 
@@ -59,7 +59,7 @@ Azure Stack 업데이트 3의 azure App Service는 다음과 같은 향상 된 �
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
-  - 추가 된 ASP.Net Core 2.1.2
+  - 추가 된 ASP.NET Core 2.1.2
   - 추가 NodeJS 10.0.0
   - Zulu OpenJDK 8.30.0.1 추가
   - 추가 Tomcat 8.5.31 및 9.0.8

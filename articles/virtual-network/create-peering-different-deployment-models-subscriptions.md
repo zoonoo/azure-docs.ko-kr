@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104117"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -60,7 +60,7 @@ ms.locfileid: "55512451"
 10. 사용자 A를 포털에서 로그아웃한 다음 사용자 B로 로그인합니다.
 11. **+ 새로 만들기**를 클릭하고 **Marketplace 검색** 상자에 *가상 네트워크*를 입력한 다음 검색 결과에서 **가상 네트워크**를 클릭합니다.
 12. 표시되는 **Virtual Network** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
-13.   가상 네트워크 만들기(클래식) 상자가 나타나면 다음 값을 입력합니다.
+13. 가상 네트워크 만들기(클래식) 상자가 나타나면 다음 값을 입력합니다.
 
     - **이름**: *myVnetB*
     - **주소 공간**: *10.1.0.0/16*
@@ -180,7 +180,7 @@ ms.locfileid: "55512451"
 
 이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다. 
 
-1. 최신 버전의 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 및 [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+1. 최신 버전의 PowerShell 설치 [Azure](https://www.powershellgallery.com/packages/Azure) 하 고 [Az](https://www.powershellgallery.com/packages/Az) 모듈입니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. PowerShell 세션을 시작합니다.
 3. PowerShell에서 `Add-AzureAccount` 명령을 입력하여 사용자 B의 구독에 사용자 B로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 4. PowerShell에 가상 네트워크(클래식)를 만들려면 기존 네트워크 구성 파일을 새로 만들거나 수정해야 합니다. [네트워크 구성 파일 내보내기, 업데이트 및 가져오기](virtual-networks-using-network-configuration-file.md) 방법을 확인합니다. 파일에는 이 자습서에서 사용되는 가상 네트워크에 대한 **VirtualNetworkSite** 요소가 있어야 합니다.
@@ -201,17 +201,17 @@ ms.locfileid: "55512451"
     > [!WARNING]
     > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
 
-5. `Connect-AzureRmAccount` 명령을 입력하여, 리소스 관리자 명령을 사용하기 위해 사용자 B로 사용자 B의 구독에 로그인합니다.
-6. 사용자 A 권한을 가상 네트워크 B에 할당합니다. 다음 스크립트를 복사하여 PC의 텍스트 편집기에 붙여 넣고 `<SubscriptionB-id>`는 구독 B의 ID로 교체합니다. 구독 ID를 모를 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. Azure는 이름이 *Default-Networking*인 리소스 그룹에 4단계에서 만든 가상 네트워크(클래식)를 만들었습니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
+5. `Connect-AzAccount` 명령을 입력하여, 리소스 관리자 명령을 사용하기 위해 사용자 B로 사용자 B의 구독에 로그인합니다.
+6. 사용자 A 권한을 가상 네트워크 B에 할당합니다. 다음 스크립트를 복사하여 PC의 텍스트 편집기에 붙여 넣고 `<SubscriptionB-id>`는 구독 B의 ID로 교체합니다. 구독 ID를 모를 경우 `Get-AzSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. Azure는 이름이 *Default-Networking*인 리소스 그룹에 4단계에서 만든 가상 네트워크(클래식)를 만들었습니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
     
     ```powershell 
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. 사용자 B로 Azure에서 로그아웃하고 `Connect-AzureRmAccount` 명령을 입력하여 사용자 A의 구독에 사용자 A로 로그인합니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
+7. 사용자 B로 Azure에서 로그아웃하고 `Connect-AzAccount` 명령을 입력하여 사용자 A의 구독에 사용자 A로 로그인합니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 8. 다음 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 눌러 가상 네트워크(리소스 관리자)를 만듭니다.
 
     ```powershell
@@ -220,22 +220,22 @@ ms.locfileid: "55512451"
       $location='eastus'
 
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name $rgName `
       -Location $location
 
     # Create virtual network A.
-    $vnetA = New-AzureRmVirtualNetwork `
+    $vnetA = New-AzVirtualNetwork `
       -ResourceGroupName $rgName `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location $location
     ```
 
-9. MyVnetA에 사용자 B 권한을 할당합니다. 다음 스크립트를 복사하여 PC의 텍스트 편집기에 붙여 넣고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체합니다. 구독 ID를 모를 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. PowerShell에서 스크립트의 수정된 버전을 붙여 넣은 다음 `Enter`를 눌러 실행합니다.
+9. MyVnetA에 사용자 B 권한을 할당합니다. 다음 스크립트를 복사하여 PC의 텍스트 편집기에 붙여 넣고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체합니다. 구독 ID를 모를 경우 `Get-AzSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. PowerShell에서 스크립트의 수정된 버전을 붙여 넣은 다음 `Enter`를 눌러 실행합니다.
 
     ```powershell
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -244,7 +244,7 @@ ms.locfileid: "55512451"
 10. 다음 스크립트를 PC의 텍스트 편집기에 복사하고 `<SubscriptionB-id>`는 구독 B의 ID로 교체합니다. myVnetA를 myVNetB와 피어링하기 위해 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 
     ```powershell
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
       -VirtualNetwork $vnetA `
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -253,7 +253,7 @@ ms.locfileid: "55512451"
 11. 다음 스크립트를 복사하고 PowerShell에 붙여 넣은 다음 `Enter`를 눌러 myVnetA의 피어링 상태를 확인합니다.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -299,7 +299,7 @@ ms.locfileid: "55512451"
 1. PowerShell 명령 프롬프트에서 다음 명령을 입력하여 가상 네트워크(리소스 관리자)를 삭제합니다.
 
    ```powershell
-   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
 2. PowerShell을 통해 가상 네트워크(클래식)를 삭제하려면 기존 네트워크 구성 파일을 수정해야 합니다. [네트워크 구성 파일 내보내기, 업데이트 및 가져오기](virtual-networks-using-network-configuration-file.md) 방법을 확인합니다. 이 자습서에서 사용되는 가상 네트워크에 대한 다음 VirtualNetworkSite 요소를 제거합니다.

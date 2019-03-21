@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364676"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999759"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 7, Windows 8.1, Windows 10 Enterprise를 실행하고 다음 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "49364676"
 
 - 또는 **청구**를 클릭하고 구독 ID를 클릭합니다. 제품 ID가 *청구* 창에 표시됩니다.
 
-Azure 계정 포털의 ['구독' 탭](http://account.windowsazure.com/Subscriptions)에서도 제안 ID를 확인할 수 있습니다.
+Azure 계정 포털의 ['구독' 탭](https://account.windowsazure.com/Subscriptions)에서도 제안 ID를 확인할 수 있습니다.
 
 ![Azure 계정 포털의 제품 ID 세부 정보](./media/client-images/offer-id-azure-account-portal.png) 
 

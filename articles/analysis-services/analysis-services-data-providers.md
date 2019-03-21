@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 68f99b71930b507501aa6fb8cf0d3529de2ede5d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897421"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
-클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. 
+클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. Microsoft 클라이언트 응용 프로그램 같은 Power BI Desktop, Excel, SQL Server Management Studio (SSMS) 및 SQL Server Data Tools (SSDT) 세 클라이언트 라이브러리를 설치 하 고 일반 응용 프로그램 업데이트와 함께 업데이트 합니다. 경우에 따라 최신 버전의 클라이언트 라이브러리를 설치 해야 합니다. 사용자 지정 클라이언트 응용 프로그램 클라이언트 라이브러리가 설치 되어 있어야 합니다.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>최신 클라이언트 라이브러리 다운로드(Windows Installer)  
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.8.19     |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.8.19      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.14.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.14.1.0     |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.15.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.15.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
@@ -34,8 +34,8 @@ AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.14.1.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.14.1.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.15.0.0     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.15.0.0      |
 
 NuGet 패키지 어셈블리 AssemblyVersion은 유의적 버전 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 

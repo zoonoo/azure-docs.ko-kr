@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 7f5aa65b055669a8a4047dffa72d456fed0714f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099123"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 CLI를 로컬로 설치하고 사용하도록 선택하는 경우 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치했고 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 > [!NOTE]
- Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 가용성 영역에 대한 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
+>  Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 가용성 영역에 대한 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>영역별 공용 IP 표준 만들기
 인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 특정 영역에 생성된 공용 IP 주소는 항상 해당 영역에만 존재합니다. 공용 IP 주소의 영역을 변경하는 것은 불가능합니다.
 
-[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 영역 1의 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 영역별 공용 IP 주소를 만듭니다.
+[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 영역 1의 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 영역별 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network public-ip create \

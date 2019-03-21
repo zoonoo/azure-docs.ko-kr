@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4c48e0d6c2b9d7ff2ff82da64a240e1bf0aacd39
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173079"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.

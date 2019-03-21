@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 0b5e7a36c89c594dd0a7ec681b112ea523884461
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903993"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
 Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
@@ -71,4 +71,4 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다. 

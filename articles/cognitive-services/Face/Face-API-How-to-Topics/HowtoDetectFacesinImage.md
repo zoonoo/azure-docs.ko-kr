@@ -1,180 +1,148 @@
 ---
-title: '예제: 이미지에서 얼굴 감지 - Face API'
+title: Face API는 이미지에서 얼굴 감지
 titleSuffix: Azure Cognitive Services
-description: Face API를 사용하여 이미지에서 얼굴을 감지합니다.
+description: 얼굴 감지 기능에 의해 반환 되는 다양 한 데이터를 사용 하는 방법에 알아봅니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
-ms.date: 03/01/2018
+ms.topic: conceptual
+ms.date: 02/22/2019
 ms.author: sbowles
-ms.openlocfilehash: 30d5294defe02ca6c8cfd588648429859bdf19ad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856397"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588774"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>예제: 이미지에서 얼굴을 감지하는 방법
+# <a name="get-face-detection-data"></a>얼굴 검색 데이터 가져오기
 
-이 가이드에서는 추출된 성별, 나이 또는 포즈와 같은 얼굴 특성이 포함된 이미지에서 얼굴을 감지하는 방법을 설명합니다. 샘플은 Face API 클라이언트 라이브러리를 사용하여 C#에서 작성되었습니다. 
+이 가이드에서는 특성을 추출할 성별, 연령 또는 자세와 같은 지정된 된 이미지에서 얼굴 감지를 사용 하는 방법을 보여 줍니다. 이 가이드에서 코드 조각을 작성 된 C# 를 통해 사용할 수는 동일한 기능을 Face API 클라이언트 라이브러리를 사용 하는 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="concepts"></a>개념
+이 가이드에 표시 됩니다 하는 방법에:
 
-이 가이드에서 다음 개념에 대해 익숙치 않다면 언제든지 [용어집](../Glossary.md)에 나와 있는 정의를 참조하세요. 
+- 이미지에서 얼굴의 크기와 위치를 가져옵니다.
+- 이미지에서 다양 한 얼굴 랜드마크 (삼아, 코, 말하거나, 및 등)의 위치를 가져옵니다.
+- 성별, 연령과 및 emotion 및 검색 된 얼굴의 다른 특성을 추측 합니다.
 
-- 얼굴 감지
-- 얼굴 이정표
-- 머리 포즈
-- 얼굴 특성
+## <a name="setup"></a>설정
 
-## <a name="preparation"></a>준비
+이 가이드에서는 이미 생성 된 가정를 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 라는 개체 `faceClient`, 얼굴 구독 키 및 끝점 url입니다. 여기에서 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)** (이 가이드에 사용) 또는 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**. 참조를 [얼굴 감지 빠른 시작에 대 한 C# ](../quickstarts/csharp-detect-sdk.md) 이를 설정 하는 방법에 대 한 합니다.
 
-이 샘플에서는 다음과 같은 기능을 설명합니다. 
+이 가이드는 검색 호출의 세부 정보에 중점&mdash;전달할 수 있는 인수 및 반환된 된 데이터를 사용 하 여 수행할 수 있습니다. 각 작업에는 데 추가 시간이 소요 되는 대로 필요한 기능에 대 한 쿼리 하는 것이 좋습니다.
 
-- 이미지에서 얼굴을 감지하고 사각형 프레이밍을 사용하도록 설정
-- 눈동자, 코나 입의 위치를 분석한 다음, 이미지에서 표시
-- 얼굴의 머리 포즈, 성별 및 나이를 분석
+## <a name="get-basic-face-data"></a>기본 글꼴 데이터 가져오기
 
-이러한 기능을 실행하려면 선명한 얼굴이 하나 이상 포함된 이미지를 준비해야 합니다. 
+얼굴 찾고 이미지에 해당 위치를 가져올 메서드를 호출 합니다 _returnFaceId_ 매개 변수 설정 **true** (기본값).
 
-## <a name="step-1-authorize-the-api-call"></a>1단계: API 호출 권한 부여
-
-Face API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달되거나 요청 헤더에서 지정되어야 합니다. 쿼리 문자열을 통해 구독 키를 전달하려면 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)에 대한 요청 URL을 참조하세요. 다음은 예제입니다.
-
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription Key>
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
 ```
 
-대안으로 HTTP 요청 헤더에서 구독 키 **ocp-apim-subscription-key: &lt;구독 키&gt;** 를 지정할 수도 있습니다. 클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
-```CSharp
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
-```
+반환 된 **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** 해당 고유 Id 및 글꼴의 픽셀 좌표를 제공 하는 사각형에 대 한 개체를 쿼리할 수 있습니다.
 
-## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>2단계: 서비스에 이미지를 업로드하고 얼굴 감지를 실행
-
-얼굴 감지를 수행하는 가장 기본적인 방법은 직접 이미지를 업로드하는 것입니다. JPEG 이미지에서 읽은 데이터와 함께 애플리케이션/옥텟 스트림 콘텐츠 형식으로 “POST” 요청을 보내 수행합니다. 이미지의 최대 크기는 4MB입니다.
-
-클라이언트 라이브러리를 사용하면 업로드를 통한 얼굴 감지는 스트리밍 개체를 전달하여 수행됩니다. 아래 예제를 참조하세요.
-
-```CSharp
-using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
+```csharp
+foreach (var face in faces)
 {
-    var faces = await faceServiceClient.DetectAsync(s, true, true);
- 
-    foreach (var face in faces)
-    {
-        var rect = face.FaceRectangle;
-        var landmarks = face.FaceLandmarks;
-    }
+    string id = face.FaceId.ToString();
+    FaceRectangle rect = face.FaceRectangle;
 }
 ```
 
-FaceServiceClient의 DetectAsync 메서드가 비동기임을 확인하세요. await 절을 사용하려면 호출 메서드도 비동기로 표시되어야 합니다.
-이미지가 이미 웹에 있고 URL이 있는 경우 URL을 제공하여 얼굴 감지를 실행할 수 있습니다. 이 예제에서 요청 본문은 URL이 포함된 JSON 문자열입니다.
-클라이언트 라이브러리를 사용하면 URL를 통한 얼굴 감지를 DetectAsync 메서드의 다른 오버로드를 사용하여 쉽게 실행할 수 있습니다.
+참조 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)** 글꼴의 크기와 위치를 구문 분석 하는 방법에 대 한 정보에 대 한 합니다. 이 사각형 눈, 눈 썹, 코, 및 입;를 포함 하는 일반적으로 헤드, 귀, 및 chin 맨 반드시 포함 되지 않습니다. 전체 헤드 또는 중간 샷 세로 (사진 ID 형식 이미지)을 자르려면 얼굴 사각형을 사용 하려는 경우에 각 방향에는 특정 여백으로 사각형을 확장 하는 것이 좋습니다.
 
-```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
- 
+## <a name="get-face-landmarks"></a>얼굴 랜드마크 가져오기
+
+얼굴 랜드마크는는 삼아 같은 얼굴 찾기 쉽게 점의 집합 또는 코의 팁입니다. 설정 하 여 얼굴 랜드마크 데이터를 가져올 수 있습니다 합니다 _returnFaceLandmarks_ 매개 변수를 **true**합니다.
+
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
+```
+
+기본적으로 27개의 이정표 지점이 사전 정의되어 있습니다. 다음 그림에는 모든 27 지점을 보여 줍니다.
+
+![레이블이 지정 된 모든 27 개의 특징을 사용 하 여 얼굴 다이어그램](../Images/landmarks.1.jpg)
+
+얼굴 사각형 프레임 마찬가지로 픽셀 단위로 지점은 반환 합니다. 다음 코드는 코 및 삼아의 위치를 검색할 수 있습니다 하는 방법을 보여 줍니다.
+
+```csharp
 foreach (var face in faces)
 {
-    var rect = face.FaceRectangle;
     var landmarks = face.FaceLandmarks;
-}
-``` 
 
-감지된 얼굴과 함께 반환되는 FaceRectangle 속성은 기본적으로 얼굴에서의 위치(픽셀)입니다. 보통 이 사각형에는 눈, 눈썹, 코 및 입이 포함됩니다. 머리의 맨 윗부분, 귀, 턱은 포함되지 않습니다. 전체 머리 또는 중간 인물 사진을 자르는 경우(사진 ID 유형 이미지) 일부 애플리케이션에 사용하기에 얼굴 영역이 너무 작을 수 있으므로 사각형의 얼굴 프레임 영역을 확대할 수 있습니다. 얼굴의 위치를 더 정확하게 찾기 위해서는 다음 섹션에 설명되어 있는 얼굴 이정표를 사용(얼굴 특징 또는 얼굴 방향 찾기 메커니즘)하는 것이 유용합니다.
-
-## <a name="step-3-understanding-and-using-face-landmarks"></a>3단계: 얼굴 이정표에 대한 이해 및 사용
-
-얼굴 이정표는 얼굴에서의 일련의 세부 지점입니다(일반적으로 얼굴의 지점은 눈동자, 안각 또는 코). 얼굴 이정표는 얼굴을 감지하는 동안 분석할 수 있는 선택적 특성입니다. 감지 결과에 얼굴 이정표를 포함시키려면 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 호출할 때 ‘true’를 returnFaceLandmarks 쿼리 매개 변수에 부울 값으로 전달하거나, FaceServiceClient 클래스 DetectAsync 메서드에 대해 returnFaceLandmarks 선택적 매개 변수를 사용합니다.
-
-기본적으로 27개의 이정표 지점이 사전 정의되어 있습니다. 정의된 27개의 모든 지점이 다음 그림에 나와 있습니다.
-
-![HowToDetectFace](../Images/landmarks.1.jpg)
-
-얼굴 사각형 프레임과 마찬가지로 반환되는 지점은 픽셀 단위입니다. 따라서 이미지에서 특정한 관심 지점을 더 손쉽게 표시할 수 있습니다. 다음 코드는 코와 눈동자의 위치를 검색하는 방법을 보여 줍니다.
-
-```CSharp
-var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
- 
-foreach (var face in faces)
-{
-    var rect = face.FaceRectangle;
-    var landmarks = face.FaceLandmarks;
- 
     double noseX = landmarks.NoseTip.X;
     double noseY = landmarks.NoseTip.Y;
- 
+
     double leftPupilX = landmarks.PupilLeft.X;
     double leftPupilY = landmarks.PupilLeft.Y;
- 
+
     double rightPupilX = landmarks.PupilRight.X;
     double rightPupilY = landmarks.PupilRight.Y;
 }
-``` 
+```
 
-얼굴 이정표는 이미지의 얼굴 특성을 표시할 뿐만 아니라, 얼굴의 방향을 정확히 계산하는 데도 사용할 수 있습니다. 예를 들어 얼굴의 방향을 입의 가운데부터 눈동자의 가운데까지 벡터로 정의할 수 있습니다. 아래 코드에서는 이를 자세히 설명합니다.
+얼굴 랜드마크 데이터는 정확 하 게 발생 하는 방향을 계산 하려면 데도 사용할 수 있습니다. 예를 들어 글꼴의 회전 중심 눈에 입 센터에서 벡터로 정의할 수 있습니다. 아래 코드에서는이 벡터를 계산합니다.
 
-```CSharp
-var landmarks = face.FaceLandmarks;
- 
+```csharp
 var upperLipBottom = landmarks.UpperLipBottom;
 var underLipTop = landmarks.UnderLipTop;
- 
+
 var centerOfMouth = new Point(
     (upperLipBottom.X + underLipTop.X) / 2,
     (upperLipBottom.Y + underLipTop.Y) / 2);
- 
+
 var eyeLeftInner = landmarks.EyeLeftInner;
 var eyeRightInner = landmarks.EyeRightInner;
- 
+
 var centerOfTwoEyes = new Point(
     (eyeLeftInner.X + eyeRightInner.X) / 2,
     (eyeLeftInner.Y + eyeRightInner.Y) / 2);
- 
+
 Vector faceDirection = new Vector(
     centerOfTwoEyes.X - centerOfMouth.X,
     centerOfTwoEyes.Y - centerOfMouth.Y);
-``` 
+```
 
-얼굴이 있는 방향을 알고 있으면 얼굴에 맞춰 사각형 얼굴 프레임을 회전할 수 있습니다. 얼굴 이정표를 사용하면 확실히 더 많은 세부 정보 및 유용성을 제공할 수 있습니다.
+글꼴의 방향의 알고 있으면 더 적절히 맞출 사각형 얼굴 프레임을 회전할 수 있습니다. 이미지에서 얼굴을 자르려면 하려는 경우 얼굴 항상 수직 표시 되도록 이미지를 프로그래밍 방식으로 회전할 수 있습니다.
 
-## <a name="step-4-using-other-face-attributes"></a>4단계: 다른 얼굴 특성 사용
+## <a name="get-face-attributes"></a>얼굴 특성 가져오기
 
-얼굴 이정표 외에, Face – Detect API는 얼굴에서 다른 여러 특성을 분석할 수도 있습니다. 이러한 특성에는 다음이 포함됩니다.
+얼굴 감지 API는 얼굴 사각형 및 랜드마크 외에도 얼굴의 몇 가지 개념적 특성을 분석할 수 있습니다. 내용은 다음과 같습니다.
 
 - Age
 - 성별
 - 웃는 정도
 - 얼굴의 털
+- 안경
 - 3D 머리 포즈
+- Emotion
 
-이러한 특성은 통계 알고리즘을 사용하여 예측할 수 있으나, 항상 100% 정확하지 않을 수도 있습니다. 그러나 이러한 특성으로 얼굴을 분류하려는 경우에는 여전히 유용합니다. 각 특성에 대한 자세한 내용은 [용어집](../Glossary.md)을 참조하세요.
+> [!IMPORTANT]
+> 이러한 특성을 예측 하는 통계 알고리즘을 사용 하 여 항상 정확 하지 않을 하며 특성 데이터를 기반으로 결정을 내릴 경우에 주의 해야 합니다.
+>
 
-다음은 얼굴을 감지하는 동안 얼굴 특성을 추출하는 간단한 예제입니다.
+얼굴 특성을 분석 하려면 설정 합니다 _returnFaceAttributes_ 매개 변수 목록을 **[FaceAttributeType 열거형](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 값입니다.
 
-```CSharp
+```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {
-                FaceAttributeType.Age,
-                FaceAttributeType.Gender,
-                FaceAttributeType.Smile,
-                FaceAttributeType.FacialHair,
-                FaceAttributeType.HeadPose,
-                FaceAttributeType.Glasses
-            };
-var faces = await faceServiceClient.DetectAsync(imageUrl,
-    returnFaceLandmarks: true,
-    returnFaceAttributes: requiredFaceAttributes);
+    FaceAttributeType.Age,
+    FaceAttributeType.Gender,
+    FaceAttributeType.Smile,
+    FaceAttributeType.FacialHair,
+    FaceAttributeType.HeadPose,
+    FaceAttributeType.Glasses,
+    FaceAttributeType.Emotion
+};
+var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
+```
 
+그런 다음 반환된 된 데이터에 대 한 참조를 가져오고 추가로 수행 필요에 따라 작업 합니다.
+
+```csharp
 foreach (var face in faces)
 {
-    var id = face.FaceId;
     var attributes = face.FaceAttributes;
     var age = attributes.Age;
     var gender = attributes.Gender;
@@ -182,15 +150,17 @@ foreach (var face in faces)
     var facialHair = attributes.FacialHair;
     var headPose = attributes.HeadPose;
     var glasses = attributes.Glasses;
+    var emotion = attributes.Emotion;
 }
-``` 
+```
 
-## <a name="summary"></a>요약
+각 특성에 대 한 자세한 내용은 참조는 [용어집](../Glossary.md)합니다.
 
-이 가이드에서는 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API의 기능, 로컬 업로드된 이미지 또는 웹에 있는 이미지 URL에 대한 얼굴을 감지하는 방법, 사각형 얼굴 프레임을 반환하여 얼굴을 감지하는 방법, 얼굴 이정표, 3D 머리 포즈 및 다른 얼굴 특성을 분석하는 방법에 대해 알아보았습니다.
+## <a name="next-steps"></a>다음 단계
 
-API 세부 사항에 대한 자세한 내용은 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)에 대한 API 참조 가이드를 참조하세요.
+이 가이드의 얼굴 감지의 다양 한 기능을 사용 하는 방법을 알아보았습니다. 다음으로, 참조를 [용어집](../Glossary.md) 세부 정보를 보려면 검색 한 얼굴 데이터에 대 한 합니다.
 
 ## <a name="related-topics"></a>관련 항목
 
-[이미지에서 얼굴을 식별하는 방법](HowtoIdentifyFacesinImage.md)
+- [참조 설명서 (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [참조 설명서 (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)

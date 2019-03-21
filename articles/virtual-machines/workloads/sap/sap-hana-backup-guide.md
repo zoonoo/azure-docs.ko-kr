@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013351"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
@@ -63,8 +63,8 @@ _아니요, 현재는 기본 쪽에서만 데이터 및 로그 백업을 수행�
 
 - [SAP HANA 관리 소개](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)(영문)
 - [Backup 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문)
-- [ABAP DBACOCKPIT을 사용하여 HANA Backup 예약](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)(영문)
-- [데이터 Backup 예약(SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)(영문)
+- [ABAP DBACOCKPIT을 사용하여 HANA Backup 예약](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)(영문)
+- [데이터 Backup 예약(SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)(영문)
 - [SAP Note 1642148](https://launchpad.support.sap.com/#/notes/1642148): SAP HANA 백업에 대한 FAQ
 - [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883): SAP HANA 데이터베이스 및 저장소 스냅숏에 대한 FAQ
 - [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529): 백업 및 복구에 부적합한 네트워크 파일 시스템
@@ -80,7 +80,7 @@ Azure 스토리지는 기본적으로 가용성과 안정성을 제공합니다(
 
 간단한 복원을 수행하고 HANA가 가동 중인지 확인하는 것만으로는 충분하지 않다는 것을 명심해야 합니다. 이상적으로는 테이블 일관성 검사를 실행하여 복원된 데이터베이스가 정상인지 확인해야 합니다. SAP HANA는 [SAP Note 1977584](https://launchpad.support.sap.com/#/notes/1977584)에서 설명하는 여러 종류의 일관성 검사를 제공합니다.
 
-테이블 일관성 검사에 대한 내용은 SAP 웹 사이트의 [테이블 및 카탈로그 일관성 검사](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b)(영문)에서 찾을 수도 있습니다.
+테이블 일관성 검사에 대한 내용은 SAP 웹 사이트의 [테이블 및 카탈로그 일관성 검사](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b)(영문)에서 찾을 수도 있습니다.
 
 표준 파일 백업의 경우 테스트 복원이 필요하지 않습니다. 복원에 사용할 수 있는 백업을 확인하는 데 유용한 두 가지 SAP HANA 도구, 즉 hdbbackupdiag 및 hdbbackupcheck가 있습니다. 이러한 도구에 대한 자세한 내용은 [복구가 가능한지 수동으로 확인](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm)(영문)을 참조하세요.
 
@@ -90,7 +90,7 @@ SAP에서는 HANA 백업과 저장소 스냅숏을 비교하여 어느 한 쪽�
 
 Azure에서 Azure Blob 스냅숏 기능이 파일 시스템 일관성을 보장하지 않는다는 사실을 알고 있어야 합니다([PowerShell과 함께 Blob 스냅숏 사용](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(영문) 참조). 다음에 나오는 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_ 섹션에서는 이 기능과 관련된 몇 가지 고려 사항에 대해 설명합니다.
 
-또한 [스냅숏 요금 청구 방법 이해](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) 문서에서 설명한 대로 Blob 스냅숏을 자주 사용하는 경우 청구의 함축적 의미를 이해해야 합니다. 이는 Azure 가상 디스크를 사용하는 것만큼 명확하지 않기 때문입니다.
+또한이 문서에 설명 된 대로 blob 스냅숏을 사용 하 여 자주 작업 하는 경우 청구의 함축적 의미를 이해 해야 하나: [이해 하는 방법을 스냅숏에서 요금이 발생](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)-이 되었습니다&#39;Azure 가상 디스크를 사용 하는 것 만큼 명확 하지.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성
 
@@ -137,13 +137,13 @@ HANA 관리 가이드에서는 예제 목록을 제공합니다. 다음 백업 �
 특정 백업 유형을 수행하는 시기와 빈도에 대한 정확한 일정과 관련한 일반적인 지침은 제시할 수 없습니다. 이는 고객마다 요구 사항이 매우 다르며, 시스템에서 발생하는 데이터 변경의 정도에 따라 달라지기 때문입니다. 일반적인 지침으로 볼 수 있는 SAP 측면의 한 가지 기본 권장 사항은 전체 HANA 백업을 일주일에 한 번씩 수행하는 것입니다.
 로그 백업과 관련하여 [로그 Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm)(영문) SAP HANA 설명서를 참조하세요.
 
-또한 SAP에서는 무한정 증가하지 않도록 몇 가지 백업 카탈로그 정리 작업을 수행하도록 권장합니다([Backup 카탈로그 및 Backup Storage 정리](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)(영문) 참조).
+또한 SAP에서는 무한정 증가하지 않도록 몇 가지 백업 카탈로그 정리 작업을 수행하도록 권장합니다([Backup 카탈로그 및 Backup Storage 정리](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)(영문) 참조).
 
 ### <a name="sap-hana-configuration-files"></a>SAP HANA 구성 파일
 
 [SAP Note 1642148](https://launchpad.support.sap.com/#/notes/1642148)의 FAQ에서 설명한 대로 SAP HANA 구성 파일은 표준 HANA 백업의 일부가 아닙니다. 이러한 구성 파일은 시스템을 복원하는 데 반드시 필요하지는 않습니다. HANA 구성은 복원 후에 수동으로 변경할 수 있습니다. 복원 프로세스 중에 동일한 사용자 지정 구성을 가져오려면 HANA 구성 파일을 별도로 백업해야 합니다.
 
-표준 HANA 백업이 전용 HANA 백업 파일 시스템으로 이동하는 경우, 해당 구성 파일도 동일한 백업 파일 시스템으로 복사한, 다음 멋진 Blob 저장소와 같은 최종 저장소 대상으로 모두 복사하면 됩니다.
+표준 HANA 백업이 전용 HANA 백업 파일 시스템으로 이동하는 경우, 해당 구성 파일도 동일한 백업 파일 시스템으로 복사한, 다음 멋진 Blob Storage와 같은 최종 스토리지 대상으로 모두 복사하면 됩니다.
 
 ### <a name="sap-hana-cockpit"></a>SAP HANA Cockpit
 
@@ -189,7 +189,7 @@ Azure Backup 서비스는 암호화된 VM/디스크를 처리할 수 있습니�
 
 ### <a name="test-tool-to-copy-files-directly-to-azure-storage"></a>Azure 저장소에 파일을 직접 복사하는 테스트 도구
 
-SAP HANA 백업 파일을 Azure Blob 저장소 또는 Azure 파일 공유로 직접 전송하는 데 blobxfer 도구가 사용되었습니다. 이는 두 대상을 모두 지원하고 명령줄 인터페이스로 인해 자동화 스크립트에 쉽게 통합될 수 있기 때문입니다. blobxfer 도구는 [GitHub](https://github.com/Azure/blobxfer)에서 사용할 수 있습니다.
+SAP HANA 백업 파일을 Azure Blob Storage 또는 Azure 파일 공유로 직접 전송하는 데 blobxfer 도구가 사용되었습니다. 이는 두 대상을 모두 지원하고 명령줄 인터페이스로 인해 자동화 스크립트에 쉽게 통합될 수 있기 때문입니다. blobxfer 도구는 [GitHub](https://github.com/Azure/blobxfer)에서 사용할 수 있습니다.
 
 ### <a name="test-backup-size-estimation"></a>테스트 백업 크기 추정
 
@@ -216,7 +216,7 @@ HANA Studio 백업 콘솔을 사용하면 HANA 백업 파일의 최대 파일 �
 |해결 방법                                           |장점                                 |단점                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |VM 디스크에서 HANA 백업 유지                      |추가 관리 작업 없음     |로컬 VM 디스크 공간 사용           |
-|Blob 저장소에 백업 파일을 복사하는 blobxfer 도구 |여러 파일을 복사하는 병렬 처리, 멋진 Blob 저장소를 사용하기 위한 선택 항목 | 추가 도구 유지 관리 및 사용자 지정 스크립팅 | 
+|Blob Storage에 백업 파일을 복사하는 blobxfer 도구 |여러 파일을 복사하는 병렬 처리, 멋진 Blob Storage를 사용하기 위한 선택 항목 | 추가 도구 유지 관리 및 사용자 지정 스크립팅 | 
 |Powershell 또는 CLI를 통한 Blob 복사                    |추가 도구 필요하지 않음, Azure Powershell 또는 CLI를 통해 수행할 수 있음 |수동 프로세스, 고객이 복원을 위해 복사된 Blob의 스크립팅 및 관리를 처리해야 함|
 |NFS 공유에 복사                                  |HANA 서버에 영향을 미치지 않고 다른 VM에서 백업 파일 사후 처리|느린 복사 프로세스|
 |Azure 파일 서비스에 blobxfer 복사                |로컬 VM 디스크 공간 사용 안 함|HANA 백업에서 직접 쓰기 지원 안 함, 현재 파일 공유 크기 제한은 5TB임|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 5ef84f6dbabbfed802a61306eeae09e0b0ccf36f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848697"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -49,7 +49,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SUSE Linux Enteprise Server | SLES 12 |
+| SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 및 Ubuntu Server 18.04 |
 
 
@@ -186,7 +186,7 @@ Access denied
 
 웹 브라우저에서 인증 단계를 성공적으로 완료한 경우 즉시 새 코드를 사용하여 다시 로그인하라는 메시지가 표시될 수 있습니다. 이 오류는 일반적으로 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치로 인해 발생합니다. 이 문제를 수정하려면:
 
-- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *azureuser@contoso.onmicrosoft.com* 대신 *azuresuer@contoso.onmicrosoft.com*을 입력했습니다.
+- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 입력 *azuresuer\@contoso.onmicrosoft.com* 대신 *azureuser\@contoso.onmicrosoft.com*합니다.
 - 여러 사용자 계정이 있는 경우 Azure AD에 로그인할 때 브라우저 창에서 다른 사용자 계정을 입력하지 않도록 확인합니다.
 - Linux는 대/소문자 구분 운영 체제입니다. 'Azureuser@contoso.onmicrosoft.com'및'azureuser@contoso.onmicrosoft.com' 간의 차이로 인해 불일치가 발생할 수 있습니다. SSH 프롬프트에서 대/소문자 구분이 올바른 UPN을 지정했는지 확인합니다.
 

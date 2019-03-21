@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330735"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992488"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330735"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330735"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -343,7 +343,7 @@ ms.locfileid: "56330735"
 이러한 구성을 사용하면 tempdb에서 시스템 드라이브에서 제공할 수 있는 것보다 더 많은 공간을 사용할 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 적절한 tempdb 크기를 결정하기 위해 기존 시스템에서 tempdb 크기를 확인할 수 있습니다. 
 
 >[!NOTE]
-> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. VM이 다시 부팅되면 D:\ 드라이브가 새로 초기화되므로 모든 파일과 디렉터리의 구조가 초기화됩니다. SQL Server 서비스가 시작되기 전에 D:\ 드라이브에 최종 디렉터리 구조를 다시 만들 수 있는 가능성은 [이 문서](http://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)에서 설명하고 있습니다.
+> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. VM이 다시 부팅되면 D:\ 드라이브가 새로 초기화되므로 모든 파일과 디렉터리의 구조가 초기화됩니다. SQL Server 서비스가 시작되기 전에 D:\ 드라이브에 최종 디렉터리 구조를 다시 만들 수 있는 가능성은 [이 문서](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)에서 설명하고 있습니다.
 
 SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb 로그 파일이 D:\ 드라이브에 배치된 VM 구성은 다음과 같습니다.
 
@@ -383,7 +383,7 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 * 앞 부분에서 설명한 여러 Azure Storage 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure Storage 계정의 제한에 대한 I/O 작업 수를 의미합니다.
 * SQL Server 데이터 및 로그 파일을 나타내는 저장소 Blob에 대한 트래픽은 VM의 저장소 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 저장소 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 문서를 참조하세요.
 * 네트워크 할당량을 통해 파일 I/O 푸시의 결과로 저장소 할당량을 주로 스트랜딩하고 이와 함께 VM의 전체 대역폭을 부분적으로만 사용합니다.
-* Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
+* Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
 * Azure Premium Storage 디스크에 사용할 수 있는 호스트 기반 캐싱은 Azure Blob에서 SQL Server 데이터 파일을 직접 배치할 때 사용할 수 없습니다.
 * M 시리즈 VM에서는 Azure Write Accelerator를 사용하여 SQL Server 트랜잭션 로그 파일에 대한 밀리초 미만의 쓰기를 지원할 수 없습니다. 
 

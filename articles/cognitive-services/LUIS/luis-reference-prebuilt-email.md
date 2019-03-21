@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 51e6a5da0d757023bd7cd1f61c77387a77b77de4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4a48bb4a6e988d4352f957c6435a9c1bf0a3e5fb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869050"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340119"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 이메일 미리 빌드된 엔터티
 이메일 추출에는 발언의 전체 이메일 주소가 포함됩니다. 이 엔터티를 이미 학습했기 때문에 이메일을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. 이메일 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -42,7 +42,10 @@ ms.locfileid: "55869050"
       "entity": "patti.owens@microsoft.com",
       "type": "builtin.email",
       "startIndex": 31,
-      "endIndex": 55
+      "endIndex": 55,
+      "resolution": {
+        "value": "patti.owens@microsoft.com"
+      }
     }
   ]
 }

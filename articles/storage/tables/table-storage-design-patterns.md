@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995313"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 더 나은 성능을 위해 쿼리에서 **RowKey** 및 **PartitionKey**를 둘 다 지정합니다.  
 
-다음 코드 예제에서는 흐름 API를 사용하여 동일한 기능을 보여 줍니다(일반적인 흐름 API에 대한 자세한 내용은 [흐름 API 디자인 모범 사례](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)참조).  
+다음 코드 예제에서는 흐름 API를 사용하여 동일한 기능을 보여 줍니다(일반적인 흐름 API에 대한 자세한 내용은 [흐름 API 디자인 모범 사례](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)참조).  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

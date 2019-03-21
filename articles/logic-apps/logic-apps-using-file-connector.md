@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870997"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
@@ -34,9 +34,9 @@ ms.locfileid: "54264329"
 
 * 논리 앱을 파일 시스템 서버 같은 온-프레미스 시스템에 연결하려면 먼저 [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이런 방식으로 논리 앱에서 파일 시스템 연결을 만들 때 게이트웨이 설치를 사용하도록 지정할 수 있습니다.
 
-* [Drobox 계정](https://www.dropbox.com/) 및 사용자 계정 자격 증명. 논리 앱과 DropBox 계정 간의 연결을 생성하려면 DropBox 자격 증명이 필요합니다. 
+* A [Dropbox 계정](https://www.dropbox.com/)는 무료로 등록할 수 있습니다. 계정 자격 증명은 논리 앱과 Dropbox 계정 간에 연결을 만드는 데 필요한 합니다. 
 
-* 파일 시스템에 액세스하려는 컴퓨터용 계정 자격 증명. 예를 들어 파일 시스템과 같은 컴퓨터에 데이터 게이트웨이를 설치하는 경우에는 해당 컴퓨터용 계정 자격 증명이 필요합니다. 
+* 사용 하려는 파일 시스템에 있는 컴퓨터에 액세스 합니다. 예를 들어, 파일 시스템으로 동일한 컴퓨터에 데이터 게이트웨이 설치 하는 경우 해당 컴퓨터에 대 한 계정 자격 증명이 필요 합니다. 
 
 * Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다. 
 
@@ -68,11 +68,11 @@ ms.locfileid: "54264329"
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 자산 | 필수 | 값 | 설명 | 
+   | 자산 | 필수 | Value | 설명 | 
    | -------- | -------- | ----- | ----------- | 
    | **연결 이름** | 예 | <*connection-name*> | 연결에 사용하려는 이름 | 
    | **루트 폴더** | 예 | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. | 
-   | **인증 유형** | 아니요 | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) | 
+   | **인증 유형** | 아닙니다. | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) | 
    | **사용자 이름** | 예 | <*domain*>\\<*username*> | 파일 시스템이 있는 컴퓨터의 사용자 이름 | 
    | **암호** | 예 | <*your-password*> | 파일 시스템이 있는 컴퓨터의 암호 | 
    | **gateway** | 예 | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 | 

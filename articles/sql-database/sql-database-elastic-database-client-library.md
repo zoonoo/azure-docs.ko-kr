@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 065b2511da568ee2cdc0a989b34905b4010ea32e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006293"
 ---
 # <a name="building-scalable-cloud-databases"></a>확장성 있는 클라우드 데이터베이스 빌드
 
@@ -62,7 +62,7 @@ Azure SQL Database의 확장성 있는 도구 및 기능을 사용하여 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Elastic Database 클라이언트 라이브러리([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - 라이브러리를 **다운로드**합니다.
+- Elastic Database 클라이언트 라이브러리([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - 라이브러리를 **다운로드**합니다.
 
 - [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md) - 클라이언트 함수를 설명하는 **샘플 앱**을 사용해 봅니다.
 

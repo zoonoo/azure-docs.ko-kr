@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171654"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961298"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ ms.locfileid: "55171654"
 
 사용자 경험은 트랜잭션을 정상적으로 수행하려면 따라야 하는 오케스트레이션 시퀀스로 표시됩니다. 한 단계라도 실패하면 트랜잭션은 실패합니다. 이러한 오케스트레이션 단계는 정책 파일에서 허용되는 클레임 공급자와 구성 요소를 모두 참조합니다. 사용자 경험을 표시하거나 렌더링해야 하는 모든 오케스트레이션 단계에는 해당하는 콘텐츠 정의 식별자에 대한 참조도 포함됩니다.
 
-오케스트레이션 단계 요소에 정의된 전제 조건을 기준으로 오케스트레이션 단계를 조건부로 실행할 수 있습니다. 예를 들어 특정 클레임이 있는 경우 또는 클레임이 지정한 값과 같거나 다른 경우에만 오케스트레이션 단계를 수행하도록 선택할 수 있습니다. 
+오케스트레이션 단계 조건부로 실행할 수 있습니다, 오케스트레이션 단계 요소에 정의 된 사전 조건에 따라 합니다. 예를 들어 특정 클레임이 있는 경우에 클레임 같으면 또는 지정된 된 값 필요가 오케스트레이션 단계를 수행 하려면 확인할 수 있습니다. 
 
 오케스트레이션 단계의 정렬된 목록을 지정하기 위해 **OrchestrationSteps** 요소가 정책의 일부로 추가됩니다. 이 요소는 필수 요소입니다.
 
@@ -65,8 +65,8 @@ ms.locfileid: "55171654"
 | --------- | -------- | ----------- |
 | 순서 | 예 | 오케스트레이션 단계의 순서입니다. | 
 | Type | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> | 
-| ContentDefinitionReferenceId | 아니요 | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 오케스트레이션 단계의 유형이 `ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp` 중 하나인 경우가 여기에 해당합니다. 이러한 경우 Azure AD B2C는 기술 프로필을 사용하지 않고 ID 공급자 선택 항목을 표시해야 합니다. | 
-| CpimIssuerTechnicalProfileReferenceId | 아니요 | 오케스트레이션 단계의 유형이 `SendClaims`입니다. 이 속성은 신뢰 당사자용 토큰을 발급하는 클레임 공급자의 기술 프로필 식별자를 정의합니다.  해당 식별자가 없으면 신뢰 당사자 토큰이 생성되지 않습니다. |
+| ContentDefinitionReferenceId | 아닙니다. | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 오케스트레이션 단계의 유형이 `ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp` 중 하나인 경우가 여기에 해당합니다. 이러한 경우 Azure AD B2C는 기술 프로필을 사용하지 않고 ID 공급자 선택 항목을 표시해야 합니다. | 
+| CpimIssuerTechnicalProfileReferenceId | 아닙니다. | 오케스트레이션 단계의 유형이 `SendClaims`입니다. 이 속성은 신뢰 당사자용 토큰을 발급하는 클레임 공급자의 기술 프로필 식별자를 정의합니다.  해당 식별자가 없으면 신뢰 당사자 토큰이 생성되지 않습니다. |
 
 
 **OrchestrationStep** 요소에는 다음과 같은 요소가 포함될 수 있습니다.
@@ -77,7 +77,7 @@ ms.locfileid: "55171654"
 | ClaimsProviderSelections | 0:n | 오케스트레이션 단계의 클레임 공급자 선택 항목 목록입니다. | 
 | ClaimsExchanges | 0:n | 오케스트레이션 단계의 클레임 교환 목록입니다. | 
 
-#### <a name="preconditions"></a>Preconditions
+### <a name="preconditions"></a>Preconditions
 
 **Preconditions** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "55171654"
 | Precondition | 0:n | 사용 중인 기술 프로필별로 클레임 공급자 선택 항목에 따라 클라이언트를 리디렉션하거나 교환 클레임에 대한 서버 호출을 수행합니다. | 
 
 
-##### <a name="precondition"></a>Precondition
+#### <a name="precondition"></a>Precondition
 
 **Precondition** 요소에 포함되는 특성은 다음과 같습니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "55171654"
 | 값 | 1:n | 쿼리할 ClaimTypeReferenceId입니다. 확인할 값은 다른 value 요소에 포함되어 있습니다.</li></ul>|
 | 조치 | 1:1 | 오케스트레이션 단계 내에서 수행한 전제 조건 확인의 결과가 true이면 수행해야 하는 작업입니다. `Action`의 값이 `SkipThisOrchestrationStep`으로 설정된 경우 연결된 `OrchestrationStep`이 실행되면 안 됩니다. | 
 
-### <a name="preconditions-examples"></a>Preconditions 예제
+#### <a name="preconditions-examples"></a>Preconditions 예제
 
 다음 Preconditions는 사용자의 objectId가 있는지를 확인합니다. 사용자 경험에서 사용자는 로컬 계정을 사용하여 로그인하도록 선택했습니다. objectId가 있으면 이 오케스트레이션 단계를 건너뜁니다.
 
@@ -172,8 +172,8 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | 아니요 | 클레임 공급자 선택 항목의 다음 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 ValidationClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. | 
-| ValidationClaimsExchangeId | 아니요 | 클레임 공급자 선택 항목의 유효성을 검사하기 위해 현재 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 TargetClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
+| TargetClaimsExchangeId | 아닙니다. | 클레임 공급자 선택 항목의 다음 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 ValidationClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. | 
+| ValidationClaimsExchangeId | 아닙니다. | 클레임 공급자 선택 항목의 유효성을 검사하기 위해 현재 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 TargetClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection 예제
 
@@ -226,20 +226,3 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 교환 단계의 식별자입니다. 식별자는 정책의 클레임 공급자 선택 단계에서 클레임 교환을 참조하는 데 사용됩니다. | 
 | TechnicalProfileReferenceId | 예 | 실행할 기술 프로필의 식별자입니다. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

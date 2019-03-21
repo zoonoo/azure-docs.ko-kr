@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997558"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -360,6 +360,7 @@ module.exports = function (context, req) {
 ### <a name="excel-input---usage"></a>Excel 입력 - 사용
 
 이 바인딩에는 다음 Azure AD 권한이 필요합니다.
+
 |리소스|사용 권한|
 |--------|--------|
 |Microsoft Graph|사용자 파일 읽기|
@@ -522,6 +523,7 @@ module.exports = function (context, req) {
 ### <a name="excel-output---usage"></a>Excel 출력 - 사용
 
 이 바인딩에는 다음 Azure AD 권한이 필요합니다.
+
 |리소스|사용 권한|
 |--------|--------|
 |Microsoft Graph|사용자 파일에 대한 전체 액세스 권한이 있음|
@@ -664,6 +666,7 @@ module.exports = function (context, req) {
 ### <a name="file-input---usage"></a>파일 입력 - 사용
 
 이 바인딩에는 다음 Azure AD 권한이 필요합니다.
+
 |리소스|사용 권한|
 |--------|--------|
 |Microsoft Graph|사용자 파일 읽기|
@@ -671,7 +674,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - Stream
-- string
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -811,6 +814,7 @@ module.exports = function (context, req) {
 #### <a name="file-output---usage"></a>파일 출력 - 사용
 
 이 바인딩에는 다음 Azure AD 권한이 필요합니다.
+
 |리소스|사용 권한|
 |--------|--------|
 |Microsoft Graph|사용자 파일에 대한 전체 액세스 권한이 있음|
@@ -818,7 +822,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - Stream
-- string
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -960,6 +964,7 @@ module.exports = function (context, req) {
 ### <a name="outlook-output---usage"></a>Outlook 출력 - 사용
 
 이 바인딩에는 다음 Azure AD 권한이 필요합니다.
+
 |리소스|사용 권한|
 |--------|--------|
 |Microsoft Graph|사용자로 메일 보내기|
@@ -967,7 +972,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- 문자열
 - 사용자 지정 개체 형식(구조 모델 바인딩 사용)
 
 
@@ -1397,7 +1402,7 @@ module.exports = function (context, req) {
 ### <a name="webhook-output---usage"></a>웹후크 출력 - 사용
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
-- string
+- 문자열
 - Microsoft.Graph.Subscription
 
 

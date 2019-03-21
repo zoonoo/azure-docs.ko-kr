@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007938"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
 IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-collection.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
@@ -72,7 +72,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | W3CIISLog |모든 IIS 로그 레코드 |
 | W3CIISLog &#124; where scStatus==500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |
 | W3CIISLog &#124; summarize count() by cIP |클라이언트 IP 주소별 IIS 로그 항목 수 |
-| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |호스트 www.contoso.com의 URL별 IIS 로그 항목 수 |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Count의 별 IIS 로그 항목 URL 호스트 www\.contoso.com입니다. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |각 IIS 컴퓨터에서 받은 총 바이트 수 |
 
 ## <a name="next-steps"></a>다음 단계

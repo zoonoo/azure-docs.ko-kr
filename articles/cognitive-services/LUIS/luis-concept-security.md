@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089848"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "55863622"
 개인 앱의 엔드포인트는 다음에만 제공됩니다.
 
 |키 및 사용자|설명|
-|--|--|--|
+|--|--|
 |소유자의 작성 키| 최대 1000회의 엔드포인트 적중|
 |협력자의 작성 키| 최대 1000회의 엔드포인트 적중|
 |작성자 또는 협력자가 LUIS에 할당한 모든 키|키 사용량 계층 기반|

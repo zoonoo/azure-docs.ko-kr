@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008363"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656716"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ ms.locfileid: "34656716"
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
+* [아키텍처 가이드: 파일 공유를 사용 하 여 Windows 장애 조치 클러스터에 SAP ASCS/SCS 인스턴스 클러스터][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
@@ -226,13 +226,13 @@ ms.locfileid: "34656716"
 | SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | 해당 없음 |
 
 
-**테이블 1**: ASCS/SCS 클러스터
+**표 1**: ASCS/SCS 클러스터
 
 | SAP \<SID> | SAP ASCS/SCS 인스턴스 번호 |
 | --- | --- |
 | PR1 | 00 |
 
-**테이블 2:** SAP ASCS/SCS 인스턴스 세부 정보
+**표 2**: SAP ASCS/SCS 인스턴스 세부 정보
 
 
 | 가상 호스트 이름 역할 | 가상 호스트 이름 | 고정 IP 주소 | 가용성 집합 |
@@ -271,9 +271,9 @@ Azure 인프라를 준비하려면 다음을 완료합니다.
 * Windows Server 2016을 사용하는 경우 [Azure Cloud Witness][deploy-cloud-witness]를 구성하는 것이 좋습니다.
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
 
-다음 코드를 실행하여 [Azure의 저장소 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
+다음 코드를 실행하여 [Azure의 저장소 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 Managed Disks를 사용하는 것이 좋습니다.
 
-![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
+![그림 1: 관리 디스크를 사용 하 여 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
+_**그림 1**: 관리 디스크를 사용 하 여 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
 1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
@@ -336,11 +336,11 @@ _**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resourc
 
 저장소 공간 다이렉트 및 Azure 관리되지 않는 디스크를 사용하여 스케일 아웃 파일 서버를 배포하는 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
 
-![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
+![그림 2: Managed disks가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2**: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
+_**그림 2**: Managed disks가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
 
-**저장소 계정 형식** 상자에서 **프리미엄 저장소**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
+**스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

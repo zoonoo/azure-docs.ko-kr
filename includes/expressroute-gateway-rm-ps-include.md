@@ -5,19 +5,17 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 03a56951b68163a9160cc4a57f15354b5f210eb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115834"
 ---
 이 작업의 단계는 다음 구성 참조 목록의 값을 기반으로 VNet을 사용합니다. 추가 설정 및 이름도 이 목록에 설명되어 있습니다. 이 목록의 값을 기준으로 변수를 추가하지만 어느 단계에서도 이 목록을 직접 사용하지 않습니다. 목록을 복사하여 참조로 사용하고 값을 사용자 값으로 바꿀 수 있습니다.
-
-**구성 참조 목록**
 
 * Virtual Network 이름 = "TestVNet"
 * Virtual Network 주소 공간: 192.168.0.0/16
@@ -36,62 +34,58 @@ ms.locfileid: "31613622"
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
 1. Azure 구독에 연결합니다.
 
-  ```powershell 
-  Connect-AzureRmAccount
-  Get-AzureRmSubscription 
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
+   [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
 2. 이 연습에 대한 변수를 선언합니다. 사용하려는 설정을 반영하도록 샘플을 편집합니다.
 
-  ```powershell 
-  $RG = "TestRG"
-  $Location = "East US"
-  $GWName = "GW"
-  $GWIPName = "GWIP"
-  $GWIPconfName = "gwipconf"
-  $VNetName = "TestVNet"
-  ```
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "East US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
 3. 가상 네트워크 개체를 변수로 저장합니다.
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
 4. Virtual Network에 게이트웨이 서브넷을 추가합니다. 게이트웨이 서브넷의 이름을 "GatewaySubnet"으로 지정해야 합니다. /27 이상(/26, /25 등)인 게이트웨이 서브넷을 만들어야 합니다.
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
 5. 구성을 설정합니다.
 
-  ```powershell
-  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 6. 게이트웨이 서브넷을 변수로 저장합니다.
 
-  ```powershell
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
 7. 공용 IP 주소를 요청합니다. 게이트웨이를 만들기 전에 IP 주소를 요청합니다. 사용할 IP 주소를 지정할 수는 없으며 IP 주소는 동적으로 할당됩니다. 다음 구성 섹션에서 이 IP 주소를 사용합니다. AllocationMethod는 동적이어야 합니다.
 
-  ```powershell
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  ```
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```
 8. 게이트웨이에 대한 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 이 단계에서 게이트웨이를 만들 때 사용되는 구성을 지정합니다. 이 단계에서는 실제 게이트웨이 개체를 만들지 않습니다. 아래 샘플을 사용하여 게이트웨이 구성을 만듭니다.
 
-  ```powershell
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 9. 게이트웨이를 만듭니다. 이 단계에서는 **-GatewayType** 이 특히 중요합니다. 값 **ExpressRoute**를 사용해야 합니다. 이러한 cmdlet을 실행한 후 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
 
 ## <a name="verify-the-gateway-was-created"></a>게이트웨이가 만들어졌는지 확인합니다.
 다음 명령을 사용하여 게이트웨이가 만들어졌는지 확인합니다.
 
-```powershell
-Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+```azurepowershell-interactive
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## <a name="resize-a-gateway"></a>게이트웨이 크기 조정
@@ -102,14 +96,14 @@ Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
 > 
 > 
 
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>게이트웨이 제거
 다음 명령을 사용하여 게이트웨이를 제거합니다.
 
-```powershell
-Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 ```

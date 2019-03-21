@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002070"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293790"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
@@ -66,8 +66,8 @@ ms.locfileid: "58002070"
 
     스크립트는 다음 작업을 수행 합니다.
     - Etcd, Docker 및 Kubernetes 설치 kubelet와 같은 리소스입니다. etcd에 클러스터 컴퓨터에 걸쳐 데이터를 저장 하는 방법을 제공 하는 분산된 키 값 저장소입니다. Docker는 컨테이너 라고 하는 핵심 운영 체제 수준 virtualizations를 지원 합니다. Kubelet 각 Kubernetes 노드에서 실행 되는 노드 에이전트는입니다.
-    - Etcd 서비스를 설정합니다.
-    - Kubelet 서비스를 설정합니다.
+    - 설정 된 **etcd** 서비스입니다.
+    - 설정 된 **kubelet** 서비스입니다.
     - Kubelet을 시작합니다. 이 작업에는 다음 단계가 포함 됩니다.
         1. API 서비스를 시작합니다.
         2. 컨트롤러 서비스를 시작합니다.
@@ -77,9 +77,9 @@ ms.locfileid: "58002070"
 7. 다운로드 하 고 사용자 지정 스크립트 확장을 실행 합니다.
 
 7. 에이전트 스크립트를 실행 합니다. 에이전트 사용자 지정 스크립트는 다음 작업을 수행 합니다.
-    - Etcd 설치
-    - Kubelet 서비스 설정
-    - Kubernetes 클러스터에 연결
+    - 설치 **etcd**합니다.
+    - 설정 된 **kubelet** 서비스입니다.
+    - Kubernetes 클러스터에 연결 합니다.
 
 ## <a name="steps-for-troubleshooting"></a>문제 해결 단계
 
@@ -119,66 +119,52 @@ Kubernetes 클러스터를 배포할 때 문제를 확인 하려면 배포 상�
 
     각 항목에 녹색 또는 빨간색 상태 아이콘이 있습니다.
 
-## <a name="get-logs-from-a-vm"></a>VM에서 로그 가져오기
+## <a name="review-deployment-logs"></a>배포 로그를 검토 합니다.
 
-로그를 생성 하려면 필요한 클러스터에 대 한 마스터 VM에 연결 하는 bash 프롬프트를 열고 스크립트를 실행 합니다. 마스터 VM 클러스터 리소스 그룹에서 찾을 수 있습니다 및 이름은 `k8s-master-<sequence-of-numbers>`합니다. 
+Azure Stack 포털 문제를 해결 하거나 배포 오류 해결을 위한 충분 한 정보를 제공 하지 않으면, 클러스터 로그를 자세히는 다음 단계가입니다. 배포 로그를 수동으로 검색 하려면 일반적으로 클러스터의 마스터 가상 컴퓨터 중 하나에 연결 해야 합니다. 대체 간단 다운로드 하 고 다음을 실행 하는 것 [Bash 스크립트](https://aka.ms/AzsK8sLogCollectorScript) Azure Stack 팀에서 제공 합니다. 이 스크립트는 dvm이 클러스터의 가상 컴퓨터를 연결 하 고 관련 시스템 및 클러스터 로그를 수집을 워크스테이션으로 다시 다운로드 합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에서 확인 합니다. Bash를 사용 하 여 로그에 액세스 하는 스크립트를 실행 합니다. Windows 컴퓨터에서 Git와 함께 설치 되는 bash 프롬프트를 사용할 수 있습니다. Git의 최신 버전을 참조 하세요 [Git 다운로드](https://git-scm.com/downloads)합니다.
+Azure Stack을 관리 하는 데 사용할 컴퓨터에서 Bash 프롬프트를 해야 합니다. Windows 컴퓨터에서 가져올 수 있습니다는 Bash 프롬프트를 설치 하 여 [Git에 대 한 Windows](https://git-scm.com/downloads)합니다. 설치 되 면 찾습니다 _Git Bash_ 시작 메뉴에 있습니다.
 
-### <a name="get-logs"></a>로그 가져오기
+### <a name="retrieving-the-logs"></a>로그 검색
 
-로그를 가져오려면 다음 단계를 수행 합니다.
+수집 하 고 클러스터 로그를 다운로드 하려면 다음이 단계를 수행 합니다.
 
-1. Bash 프롬프트를 엽니다. Git를 Windows 컴퓨터에서 사용 하는 경우 다음 경로에서 bash 프롬프트를 열 수 있습니다: `c:\programfiles\git\bin\bash.exe`합니다.
-2. 다음 bash 명령을 실행 합니다.
+1. Bash 프롬프트를 엽니다. Windows 컴퓨터에서 엽니다 _Git Bash_ 실행 또는: `C:\Program Files\Git\git-bash.exe`합니다.
+
+2. Bash 프롬프트에서 다음 명령을 실행 하 여 로그 수집기 스크립트를 다운로드 합니다.
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > Windows를 실행할 필요가 `sudo`합니다. 대신 사용할 수 있습니다 `chmod 744 getkuberneteslogs.sh`합니다.
-
-3. 동일한 세션에서 환경에 맞게 업데이트 하는 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. 매개 변수를 검토 하 고 사용자 환경에 따라 값을 설정 합니다.
+3. 스크립트에 필요한 정보를 찾아서 실행 합니다.
 
     | 매개 변수           | 설명                                                                                                      | 예                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
-    | -f, --force | 개인 키를 업로드 하기 전에 표시 되지 않습니다. | |
-    | -i, --identity-file | RSA 개인 키 파일 Kubernetes 마스터 VM에 연결 합니다. 키는 시작 해야 합니다. <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h, --help  | 명령 사용법에 대 한 인쇄 `getkuberneteslogs.sh` 스크립트입니다. | |
-    | -m, --master-host          | 공용 IP 또는 Kubernetes 클러스터 마스터 VM의 정규화 된 도메인 이름 (FQDN). VM 이름은 시작 `k8s-master-`합니다.                       | IP: 192.168.102.37<br><br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Kubernetes 클러스터 마스터 VM의 사용자 이름입니다. 마켓플레이스 항목을 구성할 때이 이름을 설정 합니다.                                                                    | azureuser                                                                     |
+    | -d, --vmd-host      | 공용 IP 또는 dvm이의 정규화 된 도메인 이름 (FQDN)입니다. 가상 머신 이름 시작 `vmd-`합니다. | IP: 192.168.102.38<br>DNS: vmd myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | 명령 사용법을 인쇄 합니다. | |
+    | -i, --identity-file | RSA 개인 키 파일을 Kubernetes 클러스터를 만들 때 marketplace 항목에 전달 합니다. Kubernetes 노드를 원격에서 필요합니다. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | 공용 IP 또는 Kubernetes 마스터 노드의 정규화 된 도메인 이름 (FQDN). 가상 머신 이름 시작 `k8s-master-`합니다. | IP: 192.168.102.37<br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | Kubernetes 클러스터를 만들 때 marketplace 항목에 전달 된 사용자 이름입니다. 에 원격으로 Kubernetes 노드 액세스 하는 데 필요한 | azureuser (기본값) |
 
 
-
-
-   매개 변수 값에 추가 하면 것 다음 코드와 같이 보일 수 있습니다.
+   매개 변수 값에 추가 하면 명령 코드는 다음과 같을 수 있습니다.
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    실행을 성공적으로 로그를 만듭니다.
+4. 스크립트는 수집 된 로그 라는 디렉터리를을 출력 하는 데 몇 분 후 `KubernetesLogs_{{time-stamp}}`합니다. 여기서 클러스터에 속한 각 가상 머신에 대 한 디렉터리를 찾을 수 있습니다.
 
-    ![생성 된 로그](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    로그 수집기 스크립트는 또한 오류 로그 파일에 대 한 확인 하 고 알려진된 문제를 찾으려는 경우 문제 해결 단계를 포함 합니다. 최신 버전의 알려진된 문제를 찾는 가능성을 높이기 위해 스크립트를 실행 하 되 고 있는지 확인 하십시오.
 
-
-1. 명령에 의해 생성 된 폴더에 로그를 검색 합니다. 명령은 새 폴더를 만듭니다 및 타임 스탬프에 지정 합니다.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> 이 GitHub 확인해 [리포지토리](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) 로그 수집기 스크립트에 대 한 자세한 내용을 알아보려면 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

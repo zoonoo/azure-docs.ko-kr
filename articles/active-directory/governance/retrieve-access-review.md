@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토 결과 검색 | Microsoft Docs
-description: Azure Active Directory 액세스 검토 결과 검색하는 방법입니다.
+title: 그룹 또는 응용 프로그램에서 Azure AD 액세스 검토에 대 한 액세스 검토 결과 검색 합니다. | Microsoft Docs
+description: 그룹 구성원 또는 Azure AD 액세스 검토에 대 한 응용 프로그램 액세스에 대 한 액세스 검토 결과 검색 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839647"
 ---
-# <a name="retrieve-access-review-results"></a>액세스 검토 결과 검색
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>그룹 또는 응용 프로그램에서 Azure AD 액세스 검토에 대 한 액세스 검토 결과 검색 합니다.
 
-관리자는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다.  **전역 관리자**, **사용자 계정 관리자**, **보안 관리자** 또는 **보안 판독기** 역할을 하는 사용자는 액세스 검토 결과를 읽을 수 있습니다.  이러한 역할 중 하나에 사용자를 할당하려면 권한있는 역할 관리자는 Azure AD PIM를 사용하여 사용자가 역할을 활성화하기에 적합하게 만들 수 있거나 전역 관리자가 영구적으로 [사용자를 역할에 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)할 수 있습니다.
+관리자는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다.  에 있는 사용자를 **전역 관리자**, **사용자 관리자**, **보안 관리자** 하거나 **보안 읽기 권한자** 역할 수도 있습니다 액세스 검토의 결과 읽습니다.  에 이러한 역할 중 하나에 사용자를 할당 하려면 권한 있는 역할 관리자 사용자 역할을 활성화할 수 있도록 Azure AD PIM를 사용 하거나 전역 관리자 수 영구적 [역할에 사용자 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "56210801"
 - [Azure AD 액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)
 - [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](manage-guest-access-with-access-reviews.md)
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](manage-programs-controls.md)
-- [그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+- [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

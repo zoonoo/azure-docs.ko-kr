@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 304637422c0b8fd4dfa99e2e434e13d12f1fb342
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164440"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011665"
 ---
 > [!div class="op_single_selector"]
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
@@ -17,7 +17,7 @@ ms.locfileid: "50164440"
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다.
+디바이스 쌍은 디바이스의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "50164440"
 
 디바이스 쌍은 IoT hub에 저장되고 다음을 포함합니다.
 
-* *태그*, 솔루션 백 엔드만 액세스할 수 있는 장치 메타데이터.
+* *태그*, 솔루션 백 엔드만 액세스할 수 있는 디바이스 메타데이터.
 
-* *desired 속성*, 솔루션 백 엔드에서 수정할 수 있고 장치 앱에서 관찰할 수 있는 JSON 개체.
+* *desired 속성*, 솔루션 백 엔드에서 수정할 수 있고 디바이스 앱에서 관찰할 수 있는 JSON 개체.
 
-* *reported 속성*, 장치 앱에서 수정할 수 있고 솔루션 백 엔드에서 읽을 수 있는 JSON 개체. 태그 및 속성은 배열을 포함할 수 없지만, 개체는 중첩될 수 있습니다.
+* *reported 속성*, 디바이스 앱에서 수정할 수 있고 솔루션 백 엔드에서 읽을 수 있는 JSON 개체. 태그 및 속성은 배열을 포함할 수 없지만, 개체는 중첩될 수 있습니다.
 
 ![기능을 보여 주는 디바이스 쌍 이미지](./media/iot-hub-selector-twin-get-started/twin.png)
 
@@ -49,6 +49,6 @@ ms.locfileid: "50164440"
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* *태그*를 장치 쌍에 추가하는 백 엔드 앱과 연결 채널을 *보고된 속성*으로 장치 쌍에 보고하는 시뮬레이션된 장치 앱을 만듭니다.
+* *태그*를 디바이스 쌍에 추가하는 백 엔드 앱과 연결 채널을 *보고된 속성*으로 디바이스 쌍에 보고하는 시뮬레이션된 디바이스 앱을 만듭니다.
 
 * 이전에 만든 태그 및 속성에 필터를 사용하여 백 엔드 앱에서 디바이스를 쿼리합니다.

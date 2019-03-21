@@ -1,22 +1,28 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 kubelet 로그 보기
-description: AKS(Azure Kubernetes Service) 노드에서 kubelet 로그의 문제 해결 정보를 보는 방법입니다.
+description: Azure Kubernetes Service (AKS) 노드에서 kubelet 로그에서 문제 해결 정보를 보는 방법에 알아봅니다.
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
-ms.translationtype: HT
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534023"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 노드에서 kubelet 로그 가져오기
 
-경우에 따라 문제 해결을 위해 AKS(Azure Kubernetes Service) 노드에서 *kubelet* 로그를 가져와야 할 수도 있습니다. 이 문서에서는 `journalctl`을 사용하여 *kubelet* 로그를 보는 방법에 대해 설명합니다.
+AKS 클러스터 작동의 일환으로, 문제를 해결 하기 위해 로그를 검토 해야 합니다. Azure 포털에서 기본 제공 하는 기능에 대 한 로그를 확인 합니다 [AKS 마스터 구성 요소] [ aks-master-logs] 또는 [AKS 클러스터에서 컨테이너][azure-container-logs]합니다. 가져올 해야 하는 경우에 따라 *kubelet* 로그에서 문제 해결을 위해 AKS 노드.
+
+이 아티클에서 사용 하는 방법을 `journalctl` 보려는 합니다 *kubelet* AKS 노드에 기록 합니다.
+
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 ## <a name="create-an-ssh-connection"></a>SSH 연결 만들기
 
@@ -63,3 +69,7 @@ Kubernetes 마스터의 추가 문제 해결 정보가 필요하면 [ AKS에서 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

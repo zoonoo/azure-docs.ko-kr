@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 81684031ddaa1ca8fa63a6c7e512f3fe6769a639
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859813"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340866"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -30,7 +30,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -53,7 +53,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 
  - `zh-cn` 문화권에서 LUIS는 기존 문자 집합 대신 중국어 간체 문자 집합을 예상합니다.
  - 의도, 엔터티, 기능 및 정규식의 이름은 중국어 또는 로마 문자일 수 있습니다.
- - `zh-cn` 문화권에서 지원되는 미리 빌드된 도메인에 대한 정보는 [미리 빌드된 도메인 참조](luis-reference-prebuilt-domains.md)를 참조하세요.
+ - 참조를 [미리 빌드된 도메인 참조](luis-reference-prebuilt-domains.md) 미리 작성 된 도메인에서 지원 되는 내용은 `zh-cn` 문화권입니다.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*일본어 지원 참고

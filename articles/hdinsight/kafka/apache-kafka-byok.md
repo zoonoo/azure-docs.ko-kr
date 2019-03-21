@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173926"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
 
@@ -31,7 +31,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 1. Azure 리소스에 대한 관리 ID 만들기
 
-   Key Vault에 인증하려면 [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md) 또는 [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md)를 사용하여 사용자가 할당한 관리 ID를 만듭니다. Kafka에 대한 관리 ID 및 BYOK에는 Azure Active Directory가 필요하지만 ESP(Encapsulating Security Payload)는 필요하지 않습니다. Key Vault 액세스 정책에 추가할 경우를 위해 관리 ID 리소스 ID를 저장해야 합니다.
+   Key Vault에 인증을 사용 하 여 관리 되는 사용자 할당 id를 만듭니다는 [Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)합니다 [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), 또는 [ Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)합니다. Azure HDInsight에서 관리 되는 identities 작업에 대 한 자세한 내용은 참조 하세요. [Azure HDInsight에서 id 관리](../hdinsight-managed-identities.md)합니다. Kafka에 대한 관리 ID 및 BYOK에는 Azure Active Directory가 필요하지만 ESP(Encapsulating Security Payload)는 필요하지 않습니다. Key Vault 액세스 정책에 추가할 경우를 위해 관리 ID 리소스 ID를 저장해야 합니다.
 
    ![Azure Portal에서 사용자가 할당한 관리 ID 만들기](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
@@ -107,7 +107,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 **OS 디스크/리소스 디스크도 암호화되나요?**
 
-    아니요. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
+   아니요. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
 
 **클러스터가 강화될 경우 새 broker가 BYOK를 원활하게 지원할까요?**
 

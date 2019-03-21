@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078179"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있도록 하려면 등록이 필요 합니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 출력 반환 **FullLanguageMode**합니다. 다른 언어 모드 반환, 다른 컴퓨터에서 실행 해야 등록 되거나 언어 모드 설정 해야 합니다 **FullLanguageMode** 계속 하기 전에 합니다.
 
-Azure AD 데 사용한 계정이 등록 요구 사항에 대 한 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 있어야 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 [등록에 사용할 서비스 계정을 만드는](..\azure-stack-registration-role.md) 전역 관리자 자격 증명을 사용 하는 대신 합니다.
+Azure AD 데 사용한 계정이 등록 요구 사항에 대 한 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 있어야 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 [등록에 사용할 서비스 계정을 만드는](../azure-stack-registration-role.md) 전역 관리자 자격 증명을 사용 하는 대신 합니다.
 
 ## <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886646"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric에서 정기적인 백업 및 복원
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ## <a name="prerequisites"></a>필수 조건
 * Fabric 버전 6.2 이상을 포함하는 Service Fabric 클러스터. 클러스터는 Windows 서버에 설치해야 합니다. 필요한 패키지를 다운로드하는 단계는 이 [문서](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 * 백업을 저장하기 위해 저장소에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
-* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .Net Core 2.0을 대상으로 하는 애플리케이션은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
+* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 응용 프로그램에 대 한 응용 프로그램 사용 하 여 빌드되어야 Service Fabric SDK 버전 3.1 이상.
 
 ## <a name="enabling-backup-and-restore-service"></a>Backup 및 Restore 서비스 사용
 먼저 클러스터에서 _Backup 및 Restore 서비스_를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)을 사용할 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_를 사용하도록 설정합니다.

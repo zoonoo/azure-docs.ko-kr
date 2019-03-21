@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887224"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Azure Scheduler를 사용하여 첫 번째 작업을 만들고 예약 - Azure Portal
 
@@ -28,13 +28,13 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 ## <a name="create-job"></a>작업 만들기
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
 
 1. Azure 기본 메뉴에서 **리소스 만들기**를 선택합니다. 검색 상자에 "scheduler"를 입력합니다. 결과 목록에서 **Scheduler**를 선택하고 **만들기**를 선택합니다.
 
    ![Scheduler 리소스 만들기](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   이제 URL `http://www.microsoft.com/`로 GET 요청을 보내는 작업을 만듭니다. 
+   이제 URL `https://www.microsoft.com/`로 GET 요청을 보내는 작업을 만듭니다. 
 
 1. **Scheduler 작업** 아래에서 다음 정보를 입력합니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
    |----------|---------------|-------------| 
    | **작업** | **Http** | 실행할 작업 유형 | 
    | **메서드** | **Get** | 호출할 메서드 | 
-   | **URL** | **http://www.microsoft.com** | 대상 URL | 
+   | **URL** | **https://www.microsoft.com** | 대상 URL | 
    |||| 
    
    ![작업 정의](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

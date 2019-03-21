@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185148"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294828"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>메일 일회성 암호 인증(미리 보기)
 
@@ -35,11 +36,11 @@ ms.locfileid: "56185148"
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>일회성 암호 게스트 사용자를 위한 사용자 환경
 일회성 암호 인증을 사용하면 게스트 사용자가 직접 링크를 클릭하거나 초대 메일을 사용하여 초대를 사용할 수 있습니다. 두 경우 모두 코드가 게스트 사용자의 메일 주소로 전송된다는 메시지가 브라우저에 표시됩니다. 게스트 사용자가 **코드 보내기**를 선택합니다.
  
-   ![액세스 패널 앱 관리](media/one-time-passcode/otp-send-code.png)
+   ![송신 코드 단추를 보여 주는 스크린샷](media/one-time-passcode/otp-send-code.png)
  
 암호가 사용자의 메일 주소로 전송됩니다. 사용자가 메일에서 암호를 검색하고 브라우저 창에 입력합니다.
  
-   ![액세스 패널 앱 관리](media/one-time-passcode/otp-enter-code.png)
+   ![Enter 코드 페이지를 보여 주는 스크린샷](media/one-time-passcode/otp-enter-code.png)
  
 이제 게스트 사용자가 인증되었고 공유 리소스를 보거나 로그인을 계속할 수 있습니다. 
 
@@ -57,7 +58,7 @@ ms.locfileid: "56185148"
 
 **Azure Active Directory** > **조직 관계** > **다른 조직의 사용자**로 이동하여 Azure Portal에서 일회성 암호로 인증하는 게스트 사용자를 볼 수 있습니다.
 
-![원본이 OTP인 경우 Azure Portal에서 일회성 암호 사용자 보기](media/one-time-passcode/otp-users.png)
+![원본 값이 OTP (일회성 암호) 사용자를 보여 주는 스크린샷](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > 사용자가 일회성 암호를 사용하고 나중에 MSA, Azure AD 계정 또는 기타 페더레이션 계정을 얻을 경우 일회성 암호를 사용하여 계속 인증됩니다. 인증 방법을 업데이트하려면 해당 게스트 사용자 계정을 삭제하고 사용자를 다시 초대하면 됩니다.

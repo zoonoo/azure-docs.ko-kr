@@ -1,26 +1,26 @@
 ---
 title: 기술 자료 만들기
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: QnA Maker 포털을 사용하여 잡답이 포함된 기술 자료 만들기를 추가합니다. 이를 통해 앱을 더 개선할 수 있습니다. KB에서 사전에 채워지는 상단 잡담 세트를 추가하면 봇 잡담의 시작점 역할을 하며, 잡담을 처음부터 작성하는 데 드는 비용과 시간을 많이 절약할 수 있습니다.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: 추가할 QnA Maker API 서비스 포털을 사용 하 여 chit 채팅을 사용 하 여 기술 자료를 만듭니다. 이를 통해 앱을 더 개선할 수 있습니다. KB에서 사전에 채워지는 상단 잡담 세트를 추가하면 봇 잡담의 시작점 역할을 하며, 잡담을 처음부터 작성하는 데 드는 비용과 시간을 많이 절약할 수 있습니다.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116235"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 기술 자료 만들기
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>빠른 시작: QnA Maker API 서비스 포털을 사용 하 여 기술 자료 만들기
 
-QnA Maker를 사용하면 기술 자료를 만들 때 간단하게 기존 데이터 원본을 추가할 수 있습니다. 다음 문서 형식에서 새 QnA Maker 기술 자료를 만들 수 있습니다.
+QnA Maker API 서비스 포털을 손쉽게 기술 자료를 만들 때 기존 데이터 소스를 추가 합니다. 다음 문서 형식에서 새 QnA Maker 기술 자료를 만들 수 있습니다.
 
 <!-- added for scanability -->
 * FAQ 페이지
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. KB에 **잡담**을 추가합니다. 3개의 개성 중에서 하나를 선택하여 봇에 잡담 지원을 추가하도록 선택합니다. 
 
-    ![KB에 잡담 추가 ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![KB에 잡담 추가](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. **KB 만들기**를 선택합니다.
 

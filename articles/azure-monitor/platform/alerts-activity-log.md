@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090817"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -27,13 +27,13 @@ ms.locfileid: "56234240"
 ## <a name="azure-portal"></a>Azure portal
 
 > [!NOTE]
-
+> 
 >  경고 규칙을 만드는 동안 다음을 확인합니다.
-
+> 
 > - 범위의 구독이 경고가 생성된 구독과 다르지 않습니다.
-- 조건은 경고가 구성된 수준/상태/호출자/리소스 그룹/리소스 ID/리소스 유형/이벤트 범주여야 합니다.
-- 경고 구성 JSON에 “anyOf” 조건 또는 중첩된 조건이 없습니다(기본적으로 추가 allOf/anyOf 없이 하나의 allOf만 허용됨).
-- 범주가 "관리"인 경우. 경고에 앞에 나온 조건 중 하나 이상을 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
+> - 조건은 경고가 구성된 수준/상태/호출자/리소스 그룹/리소스 ID/리소스 유형/이벤트 범주여야 합니다.
+> - 경고 구성 JSON에 “anyOf” 조건 또는 중첩된 조건이 없습니다(기본적으로 추가 allOf/anyOf 없이 하나의 allOf만 허용됨).
+> - 범주가 "관리"인 경우. 경고에 앞에 나온 조건 중 하나 이상을 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
 
 ### <a name="create-with-azure-portal"></a>Azure Portal을 사용하여 만들기
 
@@ -50,35 +50,36 @@ ms.locfileid: "56234240"
 
 3. **경고 조건 정의**에서 다음 정보를 제공하고 **완료**를 클릭합니다.
 
-    - **경고 대상:** 새 경고의 대상을 보고 선택하려면 **구독별로 필터링** / **리소스 종류별로 필터링**을 사용하고 표시되는 목록에서 리소스 또는 리소스 그룹을 선택합니다.
+   - **경고 대상:** 새 경고의 대상을 보고 선택하려면 **구독별로 필터링** / **리소스 종류별로 필터링**을 사용하고 표시되는 목록에서 리소스 또는 리소스 그룹을 선택합니다.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > 활동 로그 신호에 대한 리소스, 리소스 그룹 또는 전체 구독을 선택할 수 있습니다.
 
-    > 활동 로그 신호에 대한 리소스, 리소스 그룹 또는 전체 구독을 선택할 수 있습니다.
+     **경고 대상 샘플 보기**
+     ![대상 선택](media/alerts-activity-log/select-target.png)
 
-    **경고 대상 샘플 보기** ![대상 선택](media/alerts-activity-log/select-target.png)
+   - **대상 조건** 아래에서 **조건 추가**를 클릭하면 **서비스 모니터링** 이름에 범주 이름이 추가된 다양한 범주의 **활동 로그** 신호를 비롯하여 대상에 사용할 수 있는 모든 신호가 표시됩니다.
 
-    - **대상 조건** 아래에서 **조건 추가**를 클릭하면 **서비스 모니터링** 이름에 범주 이름이 추가된 다양한 범주의 **활동 로그** 신호를 비롯하여 대상에 사용할 수 있는 모든 신호가 표시됩니다.
+   - **활동 로그** 유형에 대해 가능한 다양한 작업에 대해 표시된 목록에서 신호를 선택합니다.
 
-    - **활동 로그** 유형에 대해 가능한 다양한 작업에 대해 표시된 목록에서 신호를 선택합니다.
+     이 대상 신호에 대한 로그 기록 타임라인 및 해당 경고 논리를 선택할 수 있습니다.
 
-    이 대상 신호에 대한 로그 기록 타임라인 및 해당 경고 논리를 선택할 수 있습니다.
+     **조건 추가 화면**
 
-    **조건 추가 화면**
+     ![조건 추가](media/alerts-activity-log/add-criteria.png)
 
-    ![조건 추가](media/alerts-activity-log/add-criteria.png)
+     **기록 시간**: 선택한 작업에 사용할 수 있는 이벤트는 지난 6/12/24시간 동안 (또는) 지난 주 동안 표시될 수 있습니다.
 
-    **기록 시간**: 선택한 작업에 사용할 수 있는 이벤트는 지난 6/12/24시간 동안 (또는) 지난 주 동안 표시될 수 있습니다.
-
-    **경고 논리**:
+     **경고 논리**:
 
      - **이벤트 수준**- 이벤트의 심각도 수준입니다. _자세한 정보_, _정보_, _경고_, _오류_ 또는 _위험_.
      - **상태**: 이벤트의 상태입니다. _시작_, _실패_ 또는 _성공_.
      - **이벤트를 시작한 사람**: 호출자라고도 합니다. 작업을 수행한 사용자의 메일 주소 또는 Azure Active Directory 식별자입니다.
 
-        경고 논리가 적용된 샘플 신호 그래프:
+       경고 논리가 적용된 샘플 신호 그래프:
 
-        ![ 선택한 기준](media/alerts-activity-log/criteria-selected.png)
+       ![ 선택한 기준](media/alerts-activity-log/criteria-selected.png)
 
 4. **경고 규칙 세부 정보 정의**에서 다음 세부 정보를 제공합니다.
 
@@ -115,15 +116,15 @@ ms.locfileid: "56234240"
 
     사용 가능한 필터(_구독_, _리소스 그룹_, _리소스_, _신호 유형_ 또는 _상태_)를 사용하여 편집할 활동 규칙을 찾을 수 있습니다.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > **설명** , **대상 조건** 및 **작업 그룹**만 편집할 수 있습니다.
 
-    > **설명** , **대상 조건** 및 **작업 그룹**만 편집할 수 있습니다.
+3. 규칙을 선택하고 두 번 클릭하여 규칙 옵션을 편집합니다. 필요에 따라 변경하고 **저장**을 클릭합니다.
 
-3.  규칙을 선택하고 두 번 클릭하여 규칙 옵션을 편집합니다. 필요에 따라 변경하고 **저장**을 클릭합니다.
+   ![ 경고 규칙 관리](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ 경고 규칙 관리](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다. 2단계에서 설명한 대로 규칙을 선택한 후 창의 맨 위에서 적절한 옵션을 선택합니다.
+4. 규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다. 2단계에서 설명한 대로 규칙을 선택한 후 창의 맨 위에서 적절한 옵션을 선택합니다.
 
 
 ## <a name="azure-resource-template"></a>Azure 리소스 템플릿
@@ -204,13 +205,26 @@ ms.locfileid: "56234240"
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>PowerShell 사용 하 여 Resource Manager 템플릿 배포
+리소스 템플릿 이전 [리소스 템플릿 섹션]에 표시 된 예제를 배포 하려면 PowerShell을 사용 하려면 (#resource manager-템플릿, 다음 명령을 사용 하 여:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+여기서는 sampleActivityLogAlert.parameters.json 경고 규칙을 만드는 데 필요한 매개 변수에 대해 제공 된 값을 포함 합니다.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>활동 로그 PowerShell cmdlet 사용
+
 활동 로그 경고에서는 다음과 같은 전용 PowerShell cmdlet을 사용할 수 있습니다.
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): 새로 만들거나 기존 활동 로그 경고 규칙 리소스를 업데이트하려면
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): 하나 이상의 활동 로그 경고 규칙 리소스를 검색하려면
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): 사용자 확인을 통해 활동 로그 경고 규칙 리소스를 삭제하려면
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): 기존 활동 로그 경고 규칙 리소스를 사용하도록 설정하려면
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): 기존 활동 로그 경고 규칙 리소스를 사용하지 않도록 설정하려면
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : 새 또는 기존 활동 로그 경고를 업데이트 합니다.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : 하나 이상의 활동 로그 경고 리소스를 가져옵니다.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : 기존 활동 로그 경고를 사용 하도록 설정 하 고 해당 태그를 설정 합니다.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : 기존 활동 로그 경고를 사용 하지 않도록 설정 하 고 해당 태그를 설정 합니다.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : 활동 로그 경고를 제거합니다.
 
 ## <a name="cli"></a>CLI
 

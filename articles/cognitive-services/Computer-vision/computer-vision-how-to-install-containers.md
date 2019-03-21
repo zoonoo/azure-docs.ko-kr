@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2a786d383d103f9b45ea7b13de24b8de9c9e9f5e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445375"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293398"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -50,14 +50,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 표에서는 각 텍스트 인식 컨테이너에 할당해야 하는 최소/권장 CPU 코어 수와 메모리에 대해 설명합니다.
 
-| 컨테이너 | 최소 | 권장 |
-|-----------|---------|-------------|
-|텍스트 인식|1개 코어, 8GB 메모리, 0.5TPS|2개 코어, 8GB 메모리, 1TPS|
+| 컨테이너 | 최소 | 권장 |TPS<br>(최소, 최대)|
+|-----------|---------|-------------|--|
+|텍스트 인식|1개 코어, 8GB 메모리, 0.5TPS|2개 코어, 8GB 메모리, 1TPS|0.5, 1|
 
-각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* 각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* TP-초당 트랜잭션 수
 
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -116,11 +116,14 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000을 사용합니다.
+컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
 
 ### <a name="asynchronous-text-recognition"></a>비동기 텍스트 인식
 

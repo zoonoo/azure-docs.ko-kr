@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294316"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533456"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
 이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake Storage Gen1과 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "46294316"
 * Data Lake Storage Gen1에 대해 **Azure 구독을 사용하도록 설정**합니다. [지침](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 자습서에서는 Data Lake Storage Gen1 계정 **datacatalogstore**를 만듭니다.
 
-    계정을 만든 후에 그 계정에 샘플 데이터 집합을 업로드합니다. 이 자습서에서는, **Azure Data Lake Git 리포지토리** 의 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)폴더에 있는 모든 .csv 파일을 업로드하겠습니다. [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
+    계정을 만든 후에 그 계정에 샘플 데이터 집합을 업로드합니다. 이 자습서에서는, **Azure Data Lake Git 리포지토리** 의 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)폴더에 있는 모든 .csv 파일을 업로드하겠습니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 * **Azure Data Catalog**. 조직용 Azure Data Catalog가 이미 생성되어 있어야 합니다. 각 조직에는 카탈로그가 하나만 허용됩니다.
 
 ## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Data Lake Storage Gen1을 Data Catalog의 원본으로 등록

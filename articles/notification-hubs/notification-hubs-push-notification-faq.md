@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884747"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -206,30 +206,34 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
+또한 프로그래밍 방식으로 메트릭에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+
+- [.NET을 사용 하 여 Azure Monitor 메트릭 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면에 표시 된 대로 인증서를 제공할 FromServicePrincipal 메서드를 오버 로드 [이 예제에서는](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)합니다. 
+- [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Azure Monitoring REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md)
+
+
 > [!NOTE]
 > 성공적인 알림은 푸시 알림이 외부 PNS(예: Apple용 APNS, Google용 FCM)에 전송되었음을 의미합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
 
-표준 계층에서는 프로그래밍 방식으로 원격 분석 데이터를 내보내는 기능도 제공합니다. 자세한 내용은 [Notification Hubs 메트릭 샘플]을 참조하세요.
-
 [Azure Portal]: https://portal.azure.com
-[Notification Hubs 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Notification Hubs 가격 책정]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [사례 연구: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [사례 연구: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [사례 연구: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [사례 연구: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [사례 연구: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs 시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome 앱 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification Hubs 시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome 앱 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [백 엔드 등록 지침 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Notification Hubs 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs 보안 푸시 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs 문제 해결]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Notification Hubs 보안 푸시 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Notification Hubs 문제 해결]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Notification Hubs 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

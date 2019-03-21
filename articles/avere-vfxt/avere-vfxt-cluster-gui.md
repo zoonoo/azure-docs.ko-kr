@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856844"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
@@ -31,7 +31,7 @@ vFXT 클러스터는 사설 가상 네트워크 내에 있으므로 SSH 터널�
 
 Linux 기반 클라이언트를 사용하는 경우 이 양식으로 SSH 터널링 명령을 사용합니다. 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 이 명령은 클러스터 컨트롤러의 IP 주소를 통해 클러스터의 관리 IP 주소에 연결합니다.
 
@@ -47,7 +47,7 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
 이 예제에서는 일반적인 Windows 기반 터미널 유틸리티, PuTTY를 사용합니다.
 
-PuTTY **호스트 이름** 필드에 클러스터 컨트롤러 사용자 이름과 해당 IP 주소(*your_username*@*controller_public_IP*)를 입력합니다.
+PuTTY **호스트 이름** 필드에 클러스터 컨트롤러 사용자 이름과 해당 IP 주소(*your_username*\@*controller_public_IP*)를 입력합니다.
 
 예제: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
 이 단계에서는 웹 브라우저를 사용하여 vFXT 클러스터에서 실행되는 구성 유틸리티에 연결합니다.
 
-* SSH 터널 연결의 경우 웹 브라우저를 열고 https://127.0.0.1:8443 으로 이동합니다. 
+* SSH 터널 연결의 경우 웹 브라우저를 열고 `https://127.0.0.1:8443` 으로 이동합니다. 
 
   터널을 만들었을 때 클러스터 IP 주소에 연결했으므로 브라우저에서 localhost IP 주소를 사용해야 합니다. 8443 이외의 로컬 포트를 사용한 경우 포트 번호를 대신 사용합니다.
 

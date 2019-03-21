@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 3b354ebf5436a6637fe126085225b0ae6c8f1dcc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895705"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Fivetran 및 SQL Data Warehouse로 빠른 시작
 
@@ -80,5 +80,5 @@ Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용�
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자(사용자 이름은 **fivetran@_server_name_** 이어야 하며, *server_name*은 Azure 호스트 URI인 **server_name.database.windows.net**의 일부임).
+* 사용자 (사용자 이름은 반드시 **fivetran\@_server_name_**  여기서 *server_name* Azure 호스트 URI의 일부인: ***server_name * 합니다. database.windows.net**).
 * Password.

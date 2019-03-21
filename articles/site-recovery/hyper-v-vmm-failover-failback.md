@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107021"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
 
@@ -49,7 +49,7 @@ Hyper-V VM에 대해 주기적이거나 예정된 장애 조치(Failover)를 실
 - 예기치 않은 중단에 대비해서 주기적인 장애 조치(Failover)를 사용합니다. 이 장애 조치(Failover)를 실행하면 Site Recovery에서 보조 사이트에 VM을 만들고 작동시킵니다. 동기화되지 않은 보류 중인 데이터에 따라 데이터 손실이 발생할 수 있습니다.
 - 유지 관리 또는 예정된 중단에 대해서는 계획된 장애 조치(failover)를 사용할 수 있습니다. 이 옵션은 데이터 손실을 발생하지 않습니다. 계획된 장애 조치(failover)가 트리거되면 원본 VM이 종료됩니다. 동기화되지 않은 데이터가 동기화되고 장애 조치(failover)가 트리거됩니다. 
 - 
-이 절차에서는 주기적 장애 조치(failover)를 실행하는 방법을 설명합니다.
+  이 절차에서는 주기적 장애 조치(failover)를 실행하는 방법을 설명합니다.
 
 
 1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)** 를 클릭합니다.

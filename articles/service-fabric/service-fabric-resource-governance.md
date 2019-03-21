@@ -3,7 +3,7 @@ title: 컨테이너 및 서비스에 대한 Azure Service Fabric 리소스 거�
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: twhitney, subramar
-ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 985d31ea5fff7989b70443848effb616eca47ae2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844112"
 ---
 # <a name="resource-governance"></a>리소스 관리
 
@@ -112,11 +112,11 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 
 ## <a name="specify-resource-governance"></a>리소스 거버넌스 지정
 
-리소스 관리 제한은 다음 예제와 같이 응용 프로그램 매니페스트(ServiceManifestImport 섹션)에서 지정됩니다.
+리소스 관리 제한은 다음 예제와 같이 애플리케이션 매니페스트(ServiceManifestImport 섹션)에서 지정됩니다.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
@@ -139,13 +139,13 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 
 메모리 제한은 절대값이므로 두 코드 패키지가 모두 1024MB 메모리로 제한됩니다(동일한 값의 소프트 보장 예약). 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
 
-### <a name="using-application-parameters"></a>응용 프로그램 매개 변수 사용
+### <a name="using-application-parameters"></a>애플리케이션 매개 변수 사용
 
-리소스 관리를 지정하는 경우 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)를 사용하여 여러 앱 구성을 관리할 수 있습니다. 다음 예제에서는 응용 프로그램 매개 변수의 사용법을 보여 줍니다.
+리소스 관리를 지정하는 경우 [애플리케이션 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)를 사용하여 여러 앱 구성을 관리할 수 있습니다. 다음 예제에서는 애플리케이션 매개 변수의 사용법을 보여 줍니다.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <Parameters>
     <Parameter Name="CpuCores" DefaultValue="4" />
@@ -165,7 +165,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
   </ServiceManifestImport>
 ```
 
-이 예제에서는 기본 매개 변수 값이 프로덕션 환경에 대해 설정되며, 각 서비스 패키지에 4개 코어와 2GB의 메모리가 할당됩니다. 응용 프로그램 매개 변수 파일을 사용해 기본값을 변경할 수 있습니다. 이 예제에서는 응용 프로그램을 로컬로 테스트하는 데 하나의 매개 변수 파일을 사용할 수 있습니다. 이 경우 프로덕션 환경보다 리소스가 덜 사용됩니다.
+이 예제에서는 기본 매개 변수 값이 프로덕션 환경에 대해 설정되며, 각 서비스 패키지에 4개 코어와 2GB의 메모리가 할당됩니다. 애플리케이션 매개 변수 파일을 사용해 기본값을 변경할 수 있습니다. 이 예제에서는 애플리케이션을 로컬로 테스트하는 데 하나의 매개 변수 파일을 사용할 수 있습니다. 이 경우 프로덕션 환경보다 리소스가 덜 사용됩니다.
 
 ```xml
 <!-- ApplicationParameters\Local.xml -->
@@ -182,9 +182,9 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 ```
 
 > [!IMPORTANT]
-> 응용 프로그램 매개 변수를 사용해서 리소스 관리는 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br>
+> 애플리케이션 매개 변수를 사용해서 리소스 관리를 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br>
 >
-> 리소스 관리를 지정하는 데 응용 프로그램 매개 변수를 사용할 경우 Service Fabric을 버전 6.1 이전 버전으로 다운그레이드할 수 없습니다.
+> 리소스 관리를 지정하는 데 애플리케이션 매개 변수를 사용할 경우 Service Fabric을 버전 6.1 이전 버전으로 다운그레이드할 수 없습니다.
 
 ## <a name="other-resources-for-containers"></a>컨테이너에 대한 기타 리소스
 

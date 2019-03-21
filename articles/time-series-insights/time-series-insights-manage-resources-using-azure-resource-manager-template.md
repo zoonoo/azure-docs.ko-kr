@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009379"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 Time Series Insights 리소스 공급자를 사용하여 Time Series Insights 리소스를 만들고 배포하는 방법을 설명합니다.
 
 Time Series Insights은 다음 리소스를 지원합니다.
+
    | 리소스 | 설명 |
    | --- | --- |
    | Environment | Time Series Insights 환경은 이벤트 broker에서 읽고, 저장되고, 쿼리에 대해 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md)을 참조하세요. |
@@ -65,7 +66,7 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -116,7 +117,7 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 GitHub에서 빠른 시작 템플릿의 홈페이지에는 **Azure에 배포** 단추도 포함됩니다. 이 단추를 클릭하면 Azure Portal에서 사용자 지정 배포 페이지를 엽니다. 이 페이지의 [필수 매개 변수](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) 또는 [선택적 매개 변수](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) 테이블에서 각 매개 변수에 대한 값을 입력하거나 선택할 수 있습니다. 설정을 입력한 후에 **구매** 단추를 클릭하면 템플릿 배포를 시작합니다.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>다음 단계

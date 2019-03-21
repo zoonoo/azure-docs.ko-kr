@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438621"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 수동 튜닝
 
@@ -38,7 +38,7 @@ Azure SQL Database 서비스 계층이 애플리케이션의 성능 안정성과
 
 - **"번잡한" 동작으로 인해 성능이 느려지는 애플리케이션**
 
-  번잡한 애플리케이션은 네트워크 대기 시간에 민감한 과도한 데이터 액세스 작업을 만듭니다. 이러한 종류의 애플리케이션은 SQL Database에 대한 데이터 액세스 작업 수를 줄이기 위한 수정이 필요할 수 있습니다. 예를 들어 임시 쿼리를 일괄 처리로 처리하거나 쿼리를 저장된 프로시저로 이동하는 등의 기법을 사용하여 애플리케이션 성능을 개선할 수 있습니다. 자세한 내용은 [쿼리 일괄 처리](#batch-queries)를 참조하세요.
+  번잡한 애플리케이션은 네트워크 대기 시간에 민감한 과도한 데이터 액세스 작업을 만듭니다. 이러한 종류의 애플리케이션은 SQL Database에 대한 데이터 액세스 작업 수를 줄이기 위한 수정이 필요할 수 있습니다. 예를 들어 임시 쿼리를 일괄 처리 또는 쿼리를 저장된 프로시저로 이동와 같은 기술을 사용 하 여 응용 프로그램 성능을 향상 시킬 수 있습니다. 자세한 내용은 [쿼리 일괄 처리](#batch-queries)를 참조하세요.
 
 - **전체 단일 시스템에서 지원할 수 없는 집중적인 워크로드를 가진 데이터베이스**
 

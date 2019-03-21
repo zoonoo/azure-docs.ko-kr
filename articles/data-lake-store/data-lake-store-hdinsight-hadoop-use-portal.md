@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 25e4c308b55b66038be6825a239f185e5e813af5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085765"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -136,7 +136,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "HDInsight 클러스터에 서비스 주체 추가")
 
-  기본적으로 __읽기__, __쓰기__ 및 __실행__이 모두 선택되어 있습니다.
+   기본적으로 __읽기__, __쓰기__ 및 __실행__이 모두 선택되어 있습니다.
 
 3. 페이지 아래쪽에서 **선택**을 클릭합니다.
 4. **실행**을 클릭하여 권한을 할당합니다.

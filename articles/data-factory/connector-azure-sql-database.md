@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875240"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -178,21 +178,21 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 ### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
-특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에 이 서비스 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
+특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에 대 한 관리 되는이 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
 
-MSI 기반 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
+관리 되는 id 인증을 사용 하려면 다음이 단계를 수행 합니다.
 
-1. **Azure AD에서 그룹을 만듭니다.** 팩터리 MSI를 그룹의 구성원으로 지정합니다.
+1. **Azure AD에서 그룹을 만듭니다.** 그룹의 멤버인 관리 되는 id를 확인 합니다.
     
-    1. Azure Portal에서 데이터 팩터리 서비스 ID를 찾습니다. 데이터 팩터리의 **속성**으로 이동합니다. 서비스 ID의 ID를 복사합니다.
+   1. Azure portal에서 data factory 관리 id를 찾습니다. 데이터 팩터리의 **속성**으로 이동합니다. 서비스 ID의 ID를 복사합니다.
     
-    1. [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 모듈을 설치합니다. `Connect-AzureAD` 명령을 사용하여 로그인합니다. 다음 명령을 실행하여 그룹을 만들고 데이터 팩터리 MSI를 구성원으로 추가합니다.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 모듈을 설치합니다. `Connect-AzureAD` 명령을 사용하여 로그인합니다. 그룹을 만들고 구성원으로 관리 되는 id를 추가 하려면 다음 명령을 실행 합니다.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
-1. 아직 완료하지 않은 경우, Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. MSI가 있는 그룹에 관리자 역할을 부여하는 경우, 3단계와 4단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
+1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
 1. Azure AD 그룹에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터베이스에 연결합니다. 다음 T-SQL을 실행합니다. 
     
@@ -208,7 +208,7 @@ MSI 기반 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 �
 
 1. Azure Data Factory에서 **Azure SQL Database 연결된 서비스를 구성**합니다.
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>MSI 인증을 사용하는 연결된 서비스 예제
+**예제:**
 
 ```json
 {
@@ -374,11 +374,11 @@ Azure SQL Database에 데이터를 복사하려면 복사 작업 싱크의 **typ
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 **type** 속성은 **SqlSink**로 설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/> 허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아니요 |
-| preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요 |
-| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 예를 들어, 고유한 비즈니스 논리를 사용하여 upsert(업데이트/삽입) 또는 변환을 수행한다고 가정합니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 관련이 없는 작업의 경우, `preCopyScript` 속성을 사용합니다. 이러한 작업의 예로 삭제와 자르기가 있습니다. | 아니요 |
-| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
-| sqlWriterTableType | 저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 볼 수 있습니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 아니요 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아닙니다. |
+| preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아닙니다. |
+| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 예를 들어, 고유한 비즈니스 논리를 사용하여 upsert(업데이트/삽입) 또는 변환을 수행한다고 가정합니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 관련이 없는 작업의 경우, `preCopyScript` 속성을 사용합니다. 이러한 작업의 예로 삭제와 자르기가 있습니다. | 아닙니다. |
+| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아닙니다. |
+| sqlWriterTableType | 저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 볼 수 있습니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 아닙니다. |
 
 > [!TIP]
 > 데이터를 Azure SQL Database로 복사하는 경우, 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. upsert(업데이트/삽입) 또는 추가 비즈니스 논리를 수행하려면 **SqlSink**에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ END
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 저장된 프로시저 기능은 [테이블 값 매개 변수](https://msdn.microsoft.com/library/bb675163.aspx)을 이용합니다.
-
->[!NOTE]
->저장 프로시저를 호출하여 Money/Smallmoney 데이터 형식에 쓰는 경우에는 값이 반올림될 수 있습니다. TVP의 해당 데이터 형식을 Money/Smallmoney대신 Decimal로 지정하면 이 현상을 완화할 수 있습니다. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL Database에 대한 데이터 형식 매핑
 

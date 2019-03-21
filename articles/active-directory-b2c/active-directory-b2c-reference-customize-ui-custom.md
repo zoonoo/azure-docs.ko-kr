@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122929"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -66,7 +66,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 - 콘텐츠가 HTML5 호환되고 액세스 가능해야 함
 - 콘텐츠 서버가 CORS에 대해 사용하도록 설정되어야 함
 - HTTPS를 통해 콘텐츠를 제공
-- 모든 링크 및 CSS 콘텐츠에 대해 절대 URL(예: https://yourdomain/content)을 사용합니다.
+- 모든 링크 및 CSS 콘텐츠에 대해 절대 URL(예: `https://yourdomain/content`)을 사용합니다.
 
 > [!TIP]
 > 콘텐츠를 호스트하는 사이트에 CORS가 활성화되어 있고 CORS 요청을 테스트했는지 확인하려면 https://test-cors.org/ 사이트를 사용할 수 있습니다. 이 사이트 덕분에 CORS 요청을 원격 서버로 보내거나(CORS가 지원되는지 테스트) CORS 요청을 테스트 서버로 보낼 수 있습니다(CORS의 특정 기능 탐색).
@@ -121,16 +121,16 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
 2. https://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. **원격 URL**에서 unified.html 콘텐츠에 대한 전체 URL을 입력하고 **요청 보내기**를 클릭합니다.
 4. **결과** 섹션의 출력에 CORS가 활성화되어 있음을 나타내는 *XHR 상태: 200*이 포함되어 있는지 확인합니다.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-이제 저장소 계정에는 *Starter-Pack*의 다음 wingtiptoys 템플릿이 포함된 그림에 *b2c*라는 이름의 Blob 컨테이너가 포함되어야 합니다.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   이제 저장소 계정에는 *Starter-Pack*의 다음 wingtiptoys 템플릿이 포함된 그림에 *b2c*라는 이름의 Blob 컨테이너가 포함되어야 합니다.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

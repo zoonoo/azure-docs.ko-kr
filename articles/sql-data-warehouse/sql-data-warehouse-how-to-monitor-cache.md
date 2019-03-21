@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: performance
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 51c433248feed615684ab5a1273826135d3dea3d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903874"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
 Gen2 저장소 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다. 이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.  
@@ -62,11 +62,11 @@ Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** �
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
-[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx

@@ -11,19 +11,23 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416114"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855923"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
 SQL Database 조정 권장 사항은 Azure SQL Database [자동 조정](sql-database-automatic-tuning.md)에서 생성됩니다. 이 솔루션은 SQL Database의 워크로드를 지속적으로 모니터링하고 분석하여, 각 개별 데이터베이스에 대해 인덱스 만들기, 인덱스 삭제 및 쿼리 실행 계획의 최적화와 관련된 사용자 지정 조정 권장 사항을 제공합니다.
 
-SQL Database 자동 조정 권장 구성은 [Azure Portal](sql-database-advisor-portal.md)에서 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)를 호출하거나 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) 명령을 사용해서 검색할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
+SQL Database 자동 조정 권장 구성은 [Azure Portal](sql-database-advisor-portal.md)에서 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)를 호출하거나 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 명령을 사용해서 검색할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>자동 조정 권장 사항에 대한 전자 메일 알림 자동화
 
@@ -55,7 +59,7 @@ Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azur
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation 모듈 업데이트
 
-Automation 조정 권장 구성을 검색하는 PowerShell 스크립트는 버전 4 이상으로의 Azure 모듈 업데이트가 필요한 경우 [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) 및 [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction)을 사용합니다.
+자동 조정 권장 사항을 검색 하는 PowerShell 스크립트를 사용 하 여 [Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 하 고 [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 4 버전의 Azure 모듈 업데이트에 대 한 명령 및 이상이 필요 합니다.
 
 Azure PowerShell 모듈을 업데이트하려면 다음 단계를 수행합니다.
 
@@ -63,8 +67,6 @@ Azure PowerShell 모듈을 업데이트하려면 다음 단계를 수행합니�
 - 모듈 창 맨 위에서 "**Azure 모듈 업데이트**"를 클릭하고 "Azure 모듈이 업데이트되었습니다."라는 메시지가 표시될 때까지 기다립니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
 ![Azure Automation 모듈 업데이트](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-필요한 AzureRM.Resources 및 AzureRM.Sql 모듈 버전은 버전 4 이상입니다.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -85,7 +87,7 @@ Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 - "**PowerShell Runbook 편집**" 창의 메뉴 트리에서 "**RUNBOOKS**"를 선택하고 Runbook 이름이 보일 때까지 보기를 확장합니다(이 예제에서는 " **AutomaticTuningEmailAutomation**"). 이 Runbook을 선택합니다.
 - "PowerShell Runbook 편집"의 첫 번째 줄에(숫자 1부터 시작) 다음 PowerShell 스크립트 코드를 복사하여 붙여 넣습니다. 이 PowerShell 스크립트는 사용자가 시작할 수 있도록만 제공됩니다. 요구에 맞게 스크립트를 수정합니다.
 
-제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal/)를 참조하세요.
+제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/)를 참조하세요.
 
 여러 구독이 있는 경우 스크립트 헤더의 "$subscriptions" 속성에 쉼표로 구분해서 구독 ID를 추가할 수 있습니다.
 
@@ -104,7 +106,7 @@ $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_W
 
 # Get credentials
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Define the resource types
 $resourceTypes = ("Microsoft.Sql/servers/databases")
@@ -113,8 +115,8 @@ $results = @()
 
 # Loop through all subscriptions
 foreach($subscriptionId in $subscriptions) {
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    $rgs = Get-AzureRmResourceGroup
+    Select-AzSubscription -SubscriptionId $subscriptionId
+    $rgs = Get-AzResourceGroup
 
     # Loop through all resource groups
     foreach($rg in $rgs) {
@@ -122,7 +124,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
+            $resources = Get-AzResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -151,7 +153,7 @@ foreach($subscriptionId in $subscriptions) {
 
                 # Loop through all Automatic tuning recommendation types
                 foreach ($advisor in $advisors) {
-                    $recs = Get-AzureRmSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
+                    $recs = Get-AzSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
                     foreach ($r in $recs) {
                         if ($r.State.CurrentValue -eq "Active") {
                             $object = New-Object -TypeName PSObject

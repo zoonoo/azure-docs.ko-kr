@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090664"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -48,7 +48,7 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 6. **노드 크기**, **대상 전용 노드** 및 **낮은 우선 순위 노드** 등 나머지 필수 설정과 선택 사항인 설정을 원하는 대로 지정합니다.
 7. **가상 네트워크**에서 사용할 가상 네트워크와 서브넷을 선택합니다.
   
-  ![가상 네트워크가 있는 풀 추가](./media/batch-virtual-network/add-vnet-pool.png)
+   ![가상 네트워크가 있는 풀 추가](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>강제 터널링을 위한 사용자 정의 경로
 

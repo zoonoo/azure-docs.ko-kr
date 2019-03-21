@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998750"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS의 작성 및 쿼리 예측 엔드포인트 키
 LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md), LUIS 앱에 [할당](luis-how-to-azure-subscription.md)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
@@ -60,7 +60,7 @@ LUIS 엔드포인트는 두 가지 쿼리를 허용하고, 두 가지 쿼리는 
 
 |동사|예제 URL 및 키 위치|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key`의 쿼리 문자열 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `subscription-key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 ‘subscription-key’의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key`의 쿼리 문자열 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `subscription-key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 `subscription-key`의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key`의 헤더 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `Ocp-Apim-Subscription-Key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 `Ocp-Apim-Subscription-Key`의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
 
 이전 URL에 사용되던 앱 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2`는 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)에 사용되는 공용 IoT 앱입니다. 

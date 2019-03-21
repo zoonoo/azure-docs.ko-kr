@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108715"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -54,20 +54,20 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
      
-      - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
-      - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
+   - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
+   - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
 4. **버전**에 대해 **V1**을 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
 8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
-    ![데이터 팩터리 배포 중 타일](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![데이터 팩터리 배포 중 타일](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
    
-    ![데이터 팩터리 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![데이터 팩터리 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. **작성자 및 배포** 타일을 클릭하여 데이터 팩터리 편집기를 시작합니다.
 
     ![데이터 팩터리 편집기](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
@@ -165,7 +165,9 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 ## <a name="azure-powershell"></a>Azure PowerShell
 이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 호출하는 저장 프로시저 작업이 있는 Data Factory 파이프라인을 만듭니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. 이 데이터 팩터리의 저장 프로시저 작업을 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업은 SSISDB 데이터베이스의 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다.
@@ -180,7 +182,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 2. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$ResourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
 3. 데이터 팩터리 이름에 대한 변수를 정의합니다. 
@@ -192,10 +194,10 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용하여 다음 **New-AzureRmDataFactory** cmdlet을 실행합니다. 
+5. 데이터 팩터리를 만들려면 다음을 실행 **새로 만들기-AzDataFactory** $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용 하 여 cmdlet: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 다음 사항에 유의하세요.
@@ -227,10 +229,10 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     ```
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **New-AzureRmDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
+3. 실행 합니다 **새로 만들기-AzDataFactoryLinkedService** cmdlet을 통해 연결된 된 서비스를 만들려면: **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
@@ -252,10 +254,10 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     }
     ```
-2. **New-AzureRmDataFactoryDataset** cmdlet을 실행하여 데이터 세트를 만듭니다. 
+2. 실행 합니다 **새로 만들기-AzDataFactoryDataset** cmdlet는 데이터 집합을 만듭니다. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>저장 프로시저 작업을 사용하여 파이프라인 만들기 
@@ -294,24 +296,24 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     }    
     ```
 
-2. 파이프라인 **New-AzureRmDataFactoryPipeline** cmdlet을 실행하여 **RunSSISPackagePipeline** 파이프라인을 만듭니다.
+2. 파이프라인 **RunSSISPackagePipeline**을 실행 합니다 **새로 만들기-AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 출력 데이터 세트**의 모든 조각에 대한 세부 정보를 가져옵니다.
+1. 실행할 **Get AzDataFactorySlice** 는 출력 데이터 집합 * *, 파이프라인의 출력 테이블인의 모든 조각에 대 한 세부 정보를 가져옵니다.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 
-3. **Get-AzureRmDataFactoryRun** 을 실행하여 특정 조각에 대한 작업 실행의 세부 정보를 가져옵니다.
+1. 실행할 **Get AzDataFactoryRun** 특정 조각에 대 한 실행 작업의 세부 정보를 가져오려고 합니다.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     **준비** 상태 또는 **실패** 상태에 조각이 표시될 때가지 이 cmdlet을 계속 실행합니다. 

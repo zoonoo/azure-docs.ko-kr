@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162291"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241836"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -65,7 +65,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
 Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 애플리케이션을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure Cloud Services 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 디바이스, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
 
-Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [애플리케이션 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
+Service Fabric을 통한 주요 차별화는 해당 중점을 사용 하 여 상태 저장 서비스를 빌드하는 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너 화 된 상태 저장 서비스를 사용 하 여 합니다. [애플리케이션 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
 
 상태 저장 마이크로 서비스가 상태 비저장 마이크로 서비스와 함께 있는 이유는 무엇인가요? 두 가지 주요 이유가 있습니다.
 
@@ -119,7 +119,7 @@ Service Fabric은 웹 및 API 애플리케이션 빌드를 위한 첫 번째 클
 Windows Server 또는 Linux를 실행하는 가상 또는 물리적 컴퓨터에 Service Fabric 클러스터를 만들 수 있습니다. 온-프레미스, Microsoft Azure 또는 다른 모든 클라우드 공급자에서 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다.
 
 ### <a name="clusters-on-azure"></a>Azure의 클러스터
-Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure에서 클러스터는 Azure 진단 및 Log Analytics와 통합됩니다. 클러스터 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
+Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure의 클러스터는 Azure 진단을 사용 하 여 통합 하 고 Azure Monitor 기록 합니다. 클러스터 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 

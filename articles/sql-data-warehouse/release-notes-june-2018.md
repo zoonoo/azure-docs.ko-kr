@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475349"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835370"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 6월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>사용자 정의 복원 지점
 SQL Data Warehouse는 8시간 간격으로 데이터 웨어하우스의 스냅숏을 자동으로 만들어 8시간 RPO(복구 지점 목표)를 보장합니다. 이 자동화 스냅숏은 데이터 웨어하우스 실행에 따른 관리 부담을 완화하지만, 비즈니스 필요에 따라 중대한 시간에 스냅숏을 생성할 필요가 있습니다. 예를 들어, 데이터 부하가 아주 높아지기 직전이나 데이터 웨어하우스에 새 스크립트를 배포하기 직전에 스냅숏을 생성하면 해당 작업 바로 직전의 복원 지점을 사용할 수 있습니다. 
 
-이제 SQL Data Warehouse에서는 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet을 통해 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)을 지원합니다.
+SQL Data Warehouse에서 지 원하는 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) 를 통해 합니다 [새로 만들기-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
@@ -124,7 +126,7 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

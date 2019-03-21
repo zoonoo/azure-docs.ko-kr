@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884446"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104712"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL Preview v7 참조
 
@@ -56,7 +56,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 > 다른 검색 API에 의미 있는 일부 요청 헤더가 URL Preview에는 영향을 주지 않습니다.
 > - Pragma - 호출자가 URL Preview의 캐시 사용 여부를 제어할 수 없습니다.
 > - User-Agent - 현재, URL Preview API는 PC, 노트북 또는 모바일에서 시작된 호출에 대해 다른 응답을 제공하지 않습니다.
-
+> 
 > 또한 일부 매개 변수는 현재 URL Preview API에서 의미가 없지만, 향상된 세계화를 위해 나중에 사용될 수 있습니다.
 
 ## <a name="headers"></a>헤더
@@ -73,11 +73,11 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ## <a name="query-parameters"></a>쿼리 매개 변수
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다. 쿼리는 http 또는 https 체계를 사용하는 절대 URL이어야 합니다. 상대 URL이나 기타 체계(예: ftp://)는 지원되지 않습니다.
 
-|Name|값|Type|필수|
+|이름|값|Type|필수|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 미국 지역과 영어 언어만 지원합니다.<br /><br />|문자열|예|
 |<a name="query" />q|미리 보기할 URL입니다.|문자열|예|
-|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니요|
+|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|문자열|아닙니다.|
 |<a name="safesearch"/>safeSearch|불법 성인 콘텐츠 또는 해적판 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지는 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.|
 
 ## <a name="response-objects"></a>응답 개체
@@ -102,7 +102,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ### <a name="errorresponse"></a>ErrorResponse
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.
 
-|Name|값|Type|
+|이름|값|Type|
 |----------|-----------|----------|
 |_type|유형 힌트입니다.|문자열|
 |<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[Error](#error)[]|
@@ -110,7 +110,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ### <a name="webpage"></a>WebPage
 미리 보기의 웹 페이지에 대한 정보를 정의합니다.
 
-|Name|값|Type|
+|이름|값|Type|
 |----------|-----------|----------|
 |이름|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
 |URL|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|문자열|
@@ -119,7 +119,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 |primaryImageOfPage/contentUrl|미리 보기에 포함할 대표 이미지의 URL입니다.|문자열|
 
 ### <a name="identifiable"></a>Identifiable
-|Name|값|Type|
+|이름|값|Type|
 |-------------|-----------------|----------|
 |id|리소스 식별자|문자열|
 

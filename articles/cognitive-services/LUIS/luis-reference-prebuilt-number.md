@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 5628c0fa3d6b3554fe096a323899770f3a14f97b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 83f7cc7c0da2682244fa9c4e0e2b153aff2e2380
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857195"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339303"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Number 미리 빌드된 엔터티
 숫자 값은 다양한 방식으로 정보를 정량화하고, 표현하고, 설명하는 데 사용됩니다. 이 문서에서는 가능한 예제 중 일부만 제공합니다. LUIS는 사용자 발언에서 변형을 해석하고 일관된 숫자 값을 반환합니다. 이 엔터티를 이미 학습했기 때문에 number를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. 
@@ -71,6 +71,7 @@ LUIS에서 반환하는 JSON 응답의 `resolution` 필드에는 **`builtin.numb
       "startIndex": 6,
       "endIndex": 14,
       "resolution": {
+        "subtype": "integer",
         "value": "24"
       }
     }

@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901358"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284751"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>미리 보기: Azure AD 암호 보호 온-프레미스 - 질문과 대답
-
-|     |
-| --- |
-| Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
 ## <a name="general-questions"></a>일반적인 질문
 

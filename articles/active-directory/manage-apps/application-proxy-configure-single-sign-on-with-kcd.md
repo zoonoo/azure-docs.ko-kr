@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431312"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286587"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -37,7 +37,7 @@ Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부�
 1. 사용자가 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 URL을 입력 합니다.
 2. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
 3. 사용자는 토큰을 애플리케이션 프록시로 전달합니다.
-4. 애플리케이션 프록시는 토큰의 유효성을 검사하고 토큰에서 UPN(사용자 사용자 이름)을 검색한 다음, 요청, UPN 및 SPN(서비스 사용자 이름)을 이중 인증된 보안 채널을 통해 커넥터에 전송합니다.
+4. 토큰의 유효성을 검사 하 고에서 사용자 주체 이름 (UPN)을 검색 하는 응용 프로그램 프록시 및 UPN 및 서비스 주체 이름 (SPN) 이중 인증 된 보안 채널을 통해 커넥터를 끌어옵니다.
 5. 커넥터는 온-프레미스 AD에서 응용 프로그램에 Kerberos 토큰을 가져올 사용자를 가장을 사용 하 여 Kerberos 제한 위임 (KCD) 협상을 수행 합니다.
 6. Active Directory는 애플리케이션에 대한 Kerberos 토큰을 커넥터로 보냅니다.
 7. 그러면 커넥터에서 AD에서 받은 Kerberos 토큰을 사용하여 원래 요청을 애플리케이션 서버에 보냅니다.

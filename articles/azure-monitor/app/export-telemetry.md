@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076776"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307822"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -29,9 +29,19 @@ ms.locfileid: "54076776"
 * [분석](../../azure-monitor/app/analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
-* [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0) 설정에 액세스할 수도 있습니다.
+* [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport) 설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](../../azure-monitor/app/data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
+
+## <a name="continuous-export-advanced-storage-configuration"></a>연속 내보내기 고급 저장소 구성
+
+연속 내보내기 **지원 하지 않습니다** 다음 Azure storage 기능/구성:
+
+* 이용 [VNET/Azure Storage 방화벽](https://docs.microsoft.com/azure/storage/common/storage-network-security) Azure Blob storage와 함께에서 합니다.
+
+* [변경할 수 없는 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) Azure Blob storage에 대 한 합니다.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)합니다.
 
 ## <a name="setup"></a> 연속 내보내기 만들기
 1. 앱에 대한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
@@ -140,7 +150,7 @@ Where
 더 큰 코드 샘플에 대해서는 [작업자 역할 사용][exportasa]을 참조하세요.
 
 ## <a name="delete"></a>이전 데이터 삭제
-필요한 경우 스토리지 용량을 관리하고 오래된 데이터를 삭제해야 합니다.
+하는 저장소 용량을 관리 하 고 필요한 경우 이전 데이터를 삭제 하는 일을 담당 합니다.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>저장소 키를 다시 생성하는 경우...
 저장소 키를 변경하는 경우 연속 내보내기 작업이 중지됩니다. Azure 계정에 알림이 표시됩니다.
@@ -173,11 +183,11 @@ Where
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure 저장소에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-     아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
+    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. Windows에서 Azure File Storage 시작문서의 지침에 따라 Azure 파일 공유를 만듭니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
 * *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.
-  * 또한, 트래픽이 많은 애플리케이션은 추가 파티션이 할당됩니다. 이 경우 모든 각 유닛이 매 분마다 blob을 생성합니다.
+  * 또한, 트래픽이 많은 애플리케이션은 추가 파티션이 할당됩니다. 이 경우 단위당 1 분 마다 blob을 만듭니다.
 * *내 저장소 키를 다시 생성하거나 컨테이너의 이름을 변경한 경우에는 현재 내보내기가 동작하지 않습니다.*
 
     내보내기를 편집하고 내보내기 대상 블레이드를 엽니다. 이전과 마찬가지로 선택된 것과 동일한 저장소는 그대로 두고 확인을 클릭하여 확인합니다. 내보내기가 다시 시작됩니다. 지난 몇 일 이내에 변경된 경우 데이터가 손실됩니다.

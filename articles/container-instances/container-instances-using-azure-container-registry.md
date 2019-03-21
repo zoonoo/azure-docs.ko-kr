@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727911"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337926"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "55727911"
 
 ### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 
-[Azure Key Vault](/azure/key-vault/)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
+[Azure Key Vault](../key-vault/key-vault-overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
 `RES_GROUP` 변수를 키 자격 증명 모음을 만들 기존 리소스 그룹의 이름으로 업데이트하고 `ACR_NAME` 변수를 컨테이너 레지스트리의 이름으로 바꿉니다. `AKV_NAME`에 새 주요 자격 증명 모음의 이름을 지정합니다. 자격 증명 모음 이름은 Azure 내에서 고유해야 하고, 영숫자 3~24자 사이여야 하고, 문자로 시작하고 문자 또는 숫자로 끝나야 하며 연속 하이픈은 포함하면 안 됩니다.
 

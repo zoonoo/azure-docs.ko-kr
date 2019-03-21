@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: 신뢰도 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245136"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403739"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -72,9 +72,9 @@ ms.locfileid: "56245136"
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 엔드포인트를 호출하는 봇 또는 애플리케이션 코드에서 이 기본 응답을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 이 설정을 재정의할 수 있습니다 [기본 응답](#change-default-answer) 봇 또는 응용 프로그램 코드는 끝점을 호출 합니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
-### <a name="change-default-answer"></a>기본 답변 변경
+## <a name="change-default-answer"></a>기본 답변 변경
 
 1. [Azure Portal](https://portal.azure.com)로 이동한 다음, 직접 만든 QnA Maker 서비스를 나타내는 리소스 그룹으로 이동합니다.
 
@@ -94,5 +94,4 @@ ms.locfileid: "56245136"
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [지원되는 데이터 원본](./data-sources-supported.md)
-## <a name="see-also"></a>참고 항목 
-[QnA Maker 개요](../Overview/overview.md)
+

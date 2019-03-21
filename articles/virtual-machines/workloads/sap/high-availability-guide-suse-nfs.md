@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992059"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -426,9 +426,9 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
    drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 브레인(split-brain)은 두 클러스터 노드가 drbd 디바이스를 기본 디바이스로 승격시키고 동기화되지 않는 시나리오입니다. 드문 상황이지만 분할 브레인(split-brain)을 가능한 한 빨리 처리하고 해결해야 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
 
-   분할 브레인(split-brain) 알림을 설정하는 방법은 [공식 drbd 설명서](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification)를 참조하세요.
+   분할 브레인(split-brain) 알림을 설정하는 방법은 [공식 drbd 설명서](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification)를 참조하세요.
 
-   분할 브레인(split-brain) 시나리오에서 자동으로 복구할 수도 있습니다. 자세한 내용은 [분할 브레인(split-brain) 자동 복구 정책](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)을 참조하세요.
+   분할 브레인(split-brain) 시나리오에서 자동으로 복구할 수도 있습니다. 자세한 내용은 [분할 브레인(split-brain) 자동 복구 정책](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)을 참조하세요.
    
 ### <a name="configure-cluster-framework"></a>클러스터 프레임워크 구성
 

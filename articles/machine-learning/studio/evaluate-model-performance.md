@@ -5,17 +5,17 @@ description: 이 문서에서는 Azure Machine Learning Studio에서 모델의 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453959"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891589"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 성능을 평가하는 방법
 
@@ -83,7 +83,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 그림 4. 회귀 모델의 교차 유효성 검사 결과
 
 ## <a name="evaluating-a-binary-classification-model"></a>이진 분류 모델 평가
-이진 분류 시나리오에서는 대상 변수의 가능한 결과가 두 가지뿐입니다. 예를 들면 {0, 1} 또는 {false, true}, {negative, positive}입니다. 일부 인구 통계 및 고용 변수가 있는 성인 직원의 데이터 세트에서 소득 수준(값이 {“<=50 K”, “>50 K”}인 이진 변수)을 예측해 보겠습니다. 즉, 부정 클래스는 소득이 연간 50K 이하인 직원을 나타내고, 긍정 클래스는 다른 모든 직원을 나타냅니다. 회귀 시나리오와 마찬가지로 모델을 학습하고, 일부 데이터의 점수를 매긴 다음, 결과를 평가합니다. 가장 큰 차이점은 Azure Machine Learning Studio에서 계산하고 출력하는 메트릭의 선택입니다. 소득 수준 예측 시나리오를 보여 주기 위해 [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) 데이터 세트를 사용하여 Studio 실험을 만들고, 일반적으로 사용되는 이진 분류자인 2클래스 로지스틱 회귀 모델의 성능을 평가합니다.
+이진 분류 시나리오에서는 대상 변수의 가능한 결과가 두 가지뿐입니다. 예를 들면 {0, 1} 또는 {false, true}, {negative, positive}입니다. 일부 인구 통계 및 고용 변수가 있는 성인 직원의 데이터 세트에서 소득 수준(값이 {“<=50 K”, “>50 K”}인 이진 변수)을 예측해 보겠습니다. 즉, 부정 클래스는 소득이 연간 50K 이하인 직원을 나타내고, 긍정 클래스는 다른 모든 직원을 나타냅니다. 회귀 시나리오와 마찬가지로 모델을 학습하고, 일부 데이터의 점수를 매긴 다음, 결과를 평가합니다. 가장 큰 차이점은 Azure Machine Learning Studio에서 계산하고 출력하는 메트릭의 선택입니다. 소득 수준 예측 시나리오를 보여 주기 위해 [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) 데이터 세트를 사용하여 Studio 실험을 만들고, 일반적으로 사용되는 이진 분류자인 2클래스 로지스틱 회귀 모델의 성능을 평가합니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
 다음 모듈을 Azure Machine Learning Studio의 작업 영역에 추가합니다.
@@ -133,7 +133,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 그림 9. 이진 분류자의 교차 유효성 검사 결과
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>다중 클래스 분류 모델 평가
-이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 세트를 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 세트를 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 세트는 [UCI Machine Learning 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][import-data] 모듈을 사용하여 다운로드할 수 있습니다.
+이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 세트를 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 세트를 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 세트는 [UCI Machine Learning 리포지토리](https://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][import-data] 모듈을 사용하여 다운로드할 수 있습니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
 다음 모듈을 Azure Machine Learning Studio의 작업 영역에 추가합니다.

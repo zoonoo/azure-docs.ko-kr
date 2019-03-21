@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b52ac4ae2a02208e61aafebe883d33ed27309134
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112588"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK를 다시 배포
 이 문서는 Azure Stack 개발 키트 ASDK () 비-프로덕션 환경에서 다시 배포 하는 방법을 알아봅니다. 에서는 지원 되지 않습니다는 ASDK 업그레이드 때문에 완전히 최신 버전으로 이동 하 고 다시 배포 해야 합니다. 또한는 ASDK 처음부터 다시 시작 하려는 언제 든 다시 배포할 수 있습니다.
@@ -39,24 +39,24 @@ Azure를 사용 하 여 이전에 ASDK 설치를 등록 하는 경우 등록 리
 
 2. ASDK 설치의 등록을 취소 하 고 삭제 하려면 다음 PowerShell 명령을 실행 합니다 **azurestack** Azure 구독에서 리소스 그룹:
 
-  ```Powershell    
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   ```Powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  # Provide Azure subscription admin credentials
-  Add-AzureRmAccount
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
 
-  # Provide ASDK admin credentials
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-  # Unregister Azure Stack
-  Remove-AzsRegistration `
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
-  # Remove the Azure Stack resource group
-  Remove-AzureRmResourceGroup -Name azurestack -Force
-  ```
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
 
 3. 스크립트를 실행 하면 로컬 ASDK 설치와 Azure 구독에 로그인 하 라는 메시지가 표시 됩니다.
 4. 스크립트가 완료 되 면 다음 예제와 유사한 메시지가 표시 됩니다.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102148"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
 
@@ -68,19 +68,19 @@ ms.locfileid: "54355245"
 
 Azure Marketplace 제품의 경우
 
-2. **SKU** 탭을 선택합니다.  수정할 SKU를 선택합니다.
-3. **국가/지역 가용성** 필드 아래에서 **국가 선택** 단추를 클릭합니다.
-4. 지역 가용성 대화 상자에서 해당하는 SKU의 지역을 추가하거나 제거합니다.
+1. **SKU** 탭을 선택합니다.  수정할 SKU를 선택합니다.
+1. **국가/지역 가용성** 필드 아래에서 **국가 선택** 단추를 클릭합니다.
+1. 지역 가용성 대화 상자에서 해당하는 SKU의 지역을 추가하거나 제거합니다.
 
 AppSource 제품의 경우
 
-2. **상점 세부 정보** 탭을 선택합니다.
-3. **지원되는 국가/지역** 레이블 옆에 있는 **지원되는 국가/지역**을 클릭합니다. 
-4. 지원되는 국가/지역 대화 상자에서 이 제품의 지역을 추가하거나 제거합니다.
+1. **상점 세부 정보** 탭을 선택합니다.
+1. **지원되는 국가/지역** 레이블 옆에 있는 **지원되는 국가/지역**을 클릭합니다. 
+1. 지원되는 국가/지역 대화 상자에서 이 제품의 지역을 추가하거나 제거합니다.
 
 마켓플레이스의 경우
 
-5. **게시**를 클릭하여 게시 프로세스를 시작합니다. 
+1. **게시**를 클릭하여 게시 프로세스를 시작합니다. 
 
 새 지역에서 SKU를 사용할 수 있게 되면 **가격 데이터 내보내기** 기능을 통해 특정 지역의 가격 책정을 지정할 수 있습니다. 이전에 지원되었던 지역을 다시 추가하는 경우 가격 책정 변경이 허용되지 않으므로 가격을 업데이트할 수 없습니다.
 

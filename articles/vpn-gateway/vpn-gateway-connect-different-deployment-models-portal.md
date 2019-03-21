@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099174"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -114,7 +114,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 1. **새 VPN 연결** 페이지에서 **게이트웨이 즉시 만들기** 확인란을 선택합니다.
 2. **선택적 게이트웨이 구성**을 클릭하여 **게이트웨이 구성** 페이지를 엽니다.
 
-  ![게이트웨이 구성 페이지 열기](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "게이트웨이 구성 페이지 열기")
+   ![게이트웨이 구성 페이지 열기](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "게이트웨이 구성 페이지 열기")
 3. **서브넷 - 필요한 설정 구성**을 클릭하여 **서브넷 추가** 페이지를 엽니다. **이름**이 다음 필수 값으로 이미 구성되어 있습니다. **GatewaySubnet**.
 4. **주소 범위**는 게이트웨이 서브넷에 대한 범위를 나타냅니다. 게이트웨이 서브넷을 /29 주소 범위(주소 3개)로 만들 수 있지만 더 많은 IP 주소를 포함하는 게이트웨이 서브넷을 만드는 것이 좋습니다. 그러면 사용 가능한 IP 주소가 필요할 수 있는 향후 구성을 수용하게 됩니다. 가능하면 /27 또는 /28을 사용합니다. 이 단계를 연습으로 사용하는 경우 다음 [예제 값](#values)을 참조할 수 있습니다. 이 예제에서는 '10.0.0.32/28'을 사용합니다. **확인**을 클릭하여 게이트웨이 서브넷을 만듭니다.
 5. **게이트웨이 구성** 페이지에서 **크기**는 게이트웨이 SKU를 나타냅니다. VPN 게이트웨이에 대한 게이트웨이 SKU를 선택합니다.
@@ -192,16 +192,16 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 2. 가상 네트워크에 대한 페이지에서 **개요**를 클릭합니다.
 3. **VPN 연결** 섹션에서 그래픽의 로컬 사이트 이름을 클릭합니다.
 
-  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 연결")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 연결")
 4. **사이트 간 VPN 연결** 페이지에서 사이트의 이름을 클릭합니다.
 
-  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "로컬 사이트 이름")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "로컬 사이트 이름")
 5. 로컬 사이트에 대한 연결 페이지에서 로컬 사이트의 이름을 클릭하여 **로컬 사이트** 페이지를 엽니다.
 
-  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "로컬 사이트 열기")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "로컬 사이트 열기")
 6. **로컬 사이트** 페이지에서 **VPN 게이트웨이 IP 주소**를 리소스 관리자 게이트웨이의 IP 주소로 바꿉니다.
 
-  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
 7. **확인**을 클릭하여 IP 주소를 업데이트합니다.
 
 ## <a name="RMtoclassic"></a>섹션 4 - 클래식 연결에 대해 Resource Manager 만들기

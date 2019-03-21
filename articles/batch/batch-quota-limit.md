@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532405"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295269"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -65,6 +65,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | [동시 작업](batch-parallel-node-tasks.md)  | 4 x 노드 코어 수 |
 | [애플리케이션](batch-application-packages.md) | 20 |
 | 애플리케이션당 애플리케이션 패키지 | 40 |
+| 풀 당 응용 프로그램 패키지 | 10 |
 | 최대 작업 수명 | 180일<sup>1</sup> |
 
 <sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 완료된 태스크는 7일 동안 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
-ms.translationtype: HT
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035621"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821664"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -49,7 +49,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>최대 예상 수신/송신 계산
 
 1.  애플리케이션의 기준선 처리량 요구 사항을 결정합니다.
-2.  Azure VPN Gateway 처리량 제한을 결정합니다. 자세한 내용은 [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)의 “SKU 및 VPN 형식별 총 처리량” 섹션을 참조하세요.
+2.  Azure VPN Gateway 처리량 제한을 결정합니다. 도움말의 "게이트웨이 Sku" 섹션을 참조 하세요. [VPN Gateway에 대 한](vpn-gateway-about-vpngateways.md#gwsku)합니다.
 3.  VM 크기에 대한 [Azure VM 처리량 지침](../virtual-machines/virtual-machines-windows-sizes.md)을 결정합니다.
 4.  ISP(인터넷 서비스 공급자) 대역폭을 결정합니다.
 5.  예상 처리량을 계산합니다((VM, Gateway, ISP)의 최소 대역폭 * 0.8).
@@ -77,7 +77,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 2. 두 노드에서 모두 포트 5001에 대한 방화벽 예외를 사용하도록 설정합니다.
 
-    **Windows:** 관리자 권한으로 다음 명령을 실행합니다.
+    **Windows:** 관리자 권한으로 다음 명령을 실행 합니다.
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux:** Azure Linux 이미지에는 허용되는 방화벽이 있습니다. 포트를 수신 중인 애플리케이션이 있으면 트래픽이 통과할 수 있습니다. 보안 설정된 사용자 지정 이미지를 사용하려면 명시적으로 열린 포트가 필요할 수 있습니다. 일반적인 Linux OS 계층 방화벽에는 `iptables`, `ufw` 또는 `firewalld`가 포함됩니다.
+    **Azure Linux:**  Azure Linux 이미지에 허용 되는 방화벽이 있습니다. 포트를 수신 중인 애플리케이션이 있으면 트래픽이 통과할 수 있습니다. 보안 설정된 사용자 지정 이미지를 사용하려면 명시적으로 열린 포트가 필요할 수 있습니다. 일반적인 Linux OS 계층 방화벽에는 `iptables`, `ufw` 또는 `firewalld`가 포함됩니다.
 
 3. 서버 노드에서 iperf3.exe가 추출된 디렉터리로 변경합니다. 그다음에 서버 모드에서 iPerf를 실행하고 다음 명령으로 포트 5001을 수신하도록 설정합니다.
 

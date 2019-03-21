@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734660"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295388"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -120,7 +120,7 @@ y_valid |   pandas 데이터 프레임 또는 numpy 배열 | data_train, label |
 sample_weight | pandas 데이터 프레임 또는 numpy 배열 |   data_train, label, columns| _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다.
 sample_weight_valid | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |    _선택 사항_ 각 유효성 검사 샘플에 대한 가중치입니다. 지정하지 않으면 sample_weight가 학습과 유효성 검사 간에 분할됩니다.
 data_train |    pandas 데이터 프레임 |  X, y, X_valid, y_valid |    학습할 모든 데이터(기능 + 레이블)입니다.
-label | string  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
+label | 문자열  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
 열 | 문자열 배열  ||  _선택 사항_ 기능에 사용할 열의 허용 목록입니다.
 cv_splits_indices   | 정수 배열 ||  _선택 사항_ 교차 유효성 검사를 위해 데이터를 분할할 인덱스 목록입니다.
 
@@ -396,4 +396,4 @@ RunDetails(local_run).show()
 
 [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 
-[자동화된 Machine Learning을 사용하여 분류 모델을 학습하는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다.
+에 대해 자세히 알아보세요 [자동화 된 machine learning 사용 하 여 회귀 모델을 학습 하는 방법을](tutorial-auto-train-models.md) 하거나 [사용 하 여 학습 하는 방법에는 machine learning 원격 리소스에 자동화 된](how-to-auto-train-remote.md)합니다.

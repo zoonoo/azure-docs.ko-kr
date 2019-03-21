@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 884a13df23fd0cc1103b6a73fad26f2099e3bfd7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074696"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295762"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory의 Databricks를 사용하여 데이터 변환
 
@@ -39,7 +39,7 @@ ms.locfileid: "58074696"
 
 2.  **Azure Databricks 작업 영역**이 있는지 확인하거나, 새 작업 영역을 만듭니다.
 
-1.  **ETL에 사용할 노트북을 가져옵니다**. 아래 변환 노트북을 Databricks 작업 영역으로 가져옵니다. 아래와 동일한 위치에 있을 필요는 없지만 나중을 위해 선택한 경로를 기억해 두세요. URL 필드에 이 URL(`https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`)을 입력하여 URL에서 노트북을 가져옵니다. **가져오기**를 선택합니다.
+1.  **ETL에 사용할 노트북을 가져옵니다**. 아래 변환 노트북을 Databricks 작업 영역으로 가져옵니다. 아래와 동일한 위치에 있을 필요는 없지만 나중을 위해 선택한 경로를 기억해 두세요. URL 필드에 이 URL(`https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`)을 입력하여 URL에서 노트북을 가져옵니다. **가져오기**를 선택합니다.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

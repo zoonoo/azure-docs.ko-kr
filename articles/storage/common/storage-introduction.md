@@ -4,16 +4,16 @@ description: Azure Storage는 Microsoft의 클라우드 스토리지 솔루션�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d84fe768170cffd433b18a1a3dacb1a9c2be7e9f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012739"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -36,7 +36,7 @@ Azure Storage는 이러한 데이터 서비스를 포함합니다.
 
 각 서비스는 저장소 계정을 통해 액세스됩니다. 시작하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blob 저장소
 
 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다. 
 
@@ -48,7 +48,7 @@ Blob Storage는 다음에 이상적입니다.
 * 백업/복원, 재해 복구 및 보관용 데이터 저장
 * 온-프레미스 또는 Azure 호스티드 서비스에 의한 분석용 데이터 저장
 
-Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) 및 [Ruby](http://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
+Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) 및 [Ruby](https://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
 
 Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
@@ -69,7 +69,7 @@ Azure Files가 회사 파일 공유의 파일과 다른 점 한 가지는 파일
 
 Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
-## <a name="queue-storage"></a>Queue Storage
+## <a name="queue-storage"></a>큐 저장소
 
 Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니다. 큐 메시지의 크기는 최대 64KB일 수 있고 큐에는 수 많은 메시지가 포함될 수 있습니다. 큐는 일반적으로 비동기적으로 처리될 메시지의 목록을 저장하는 데 사용됩니다.
 
@@ -77,7 +77,7 @@ Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니�
 
 Azure 큐에 대한 자세한 내용은 [큐 소개](../queues/storage-queues-introduction.md)를 참조하세요.
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>테이블 저장소
 
 Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
 

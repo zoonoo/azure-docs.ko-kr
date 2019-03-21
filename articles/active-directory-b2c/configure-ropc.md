@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089338"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -37,15 +37,15 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 
 ##  <a name="create-a-resource-owner-user-flow"></a>리소스 소유자 사용자 흐름 만들기
 
-1.  Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
-2.  Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
-3.  **사용자 흐름**을 클릭하고 **새 사용자 흐름**을 선택합니다.
-4.  **모든** 탭을 클릭하고 **리소스 소유자**를 선택합니다.
-5.  *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
-6.  **애플리케이션 클레임**에서 **자세히 보기**를 클릭합니다.
-7.  표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
-8.  **확인**을 선택하고 **만들기**를 선택합니다.
-9.  **사용자 흐름 실행**을 클릭합니다.
+1. Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
+2. Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
+3. **사용자 흐름**을 클릭하고 **새 사용자 흐름**을 선택합니다.
+4. 클릭 합니다 **모든** 탭을 선택한 **ROPC를 사용 하 여 로그인**합니다.
+5. *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
+6. **애플리케이션 클레임**에서 **자세히 보기**를 클릭합니다.
+7. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
+8. **확인**을 선택하고 **만들기**를 선택합니다.
+9. **사용자 흐름 실행**을 클릭합니다.
 
    다음 예제와 같은 엔드포인트가 표시됩니다.
 
@@ -83,7 +83,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 실제 POST 요청은 다음과 같습니다.
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

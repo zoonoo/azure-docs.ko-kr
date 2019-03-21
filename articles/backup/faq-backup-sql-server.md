@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225684"
+ms.locfileid: "58284581"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -66,7 +66,7 @@ Azure Backup Recovery Services 자격 증명 모음 검색 하 고 자격 증명
 합니다 **백업 작업** 메뉴 애드혹 백업 작업 표시만 됩니다. 예약 된 작업에 대 한 사용 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)합니다.
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
-예,이 기능을 얻을 수 있습니다 [자동 보호](backup-azure-sql-database.md#enable-auto-protection)합니다.  
+예,이 기능을 얻을 수 있습니다 [자동 보호](backup-sql-server-database-azure-vms.md#enable-auto-protection)합니다.  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Autoprotected 인스턴스에서 데이터베이스를 삭제할 경우 백업은 어떻게 되나요?
 데이터베이스 autoprotected 인스턴스에서 삭제 되 면 데이터베이스 백업은 계속 시도 됩니다. 이 삭제 된 데이터베이스에서 비정상으로 표시를 시작 하는 것을 의미 **Backup 항목** 되 고 계속 보호 됩니다.
@@ -84,7 +84,7 @@ Azure Backup Recovery Services 자격 증명 모음 검색 하 고 자격 증명
 이제 이름이 바뀌고에 보호를 구성 하는 데이터베이스를 선택할 수 있습니다. 인스턴스의 자동 보호는 사용 하도록 설정 하는 경우 이름이 바뀐된 데이터베이스 자동으로 검색 되며 보호 합니다.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Autoprotected 인스턴스에 대 한 추가 된 데이터베이스는 표시 되지 않는 이유
-데이터베이스 [autoprotected 인스턴스에 추가](backup-azure-sql-database.md#enable-auto-protection) 보호 된 항목 아래에서 즉시 나타나지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 검색 하 고 선택 하 여 검색을 수동으로 실행 하는 경우 새 데이터베이스를 즉시 보호할 수 있지만 **Db 복구**다음 그림에 나와 있는 것 처럼 합니다.
+데이터베이스 [autoprotected 인스턴스에 추가](backup-sql-server-database-azure-vms.md#enable-auto-protection) 보호 된 항목 아래에서 즉시 나타나지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 검색 하 고 선택 하 여 검색을 수동으로 실행 하는 경우 새 데이터베이스를 즉시 보호할 수 있지만 **Db 복구**다음 그림에 나와 있는 것 처럼 합니다.
 
   ![새로 추가 된 데이터베이스를 수동으로 검색합니다](./media/backup-azure-sql-database/view-newly-added-database.png)
 

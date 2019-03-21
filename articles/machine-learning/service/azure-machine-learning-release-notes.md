@@ -6,23 +6,78 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.author: larryfr
+author: Blackmist
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860638"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  각 SDK에 대한 전체 설명은 다음 참조 문서를 참조하세요.
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning Python v1.0.18 for SDK
+
+ + **변경된 기능**
+   + Azureml tensorboard 패키지 azureml-contrib-tensorboard를 대체합니다.
+   + 이 릴리스를 사용 하 여 관리 되는 계산 클러스터 (amlcompute)에서 사용자 계정을 만드는 동안 설정할 수 있습니다. 이 단순히 프로 비전 구성에서 이러한 속성을 전달 하 여 수행할 수 있습니다. 자세한 내용을 찾을 수 있습니다 합니다 [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-)합니다.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning 데이터 준비 SDK v1.0.17
+
++ **새로운 기능**
+  + 이제 식 언어를 사용 하 여 결과 열을 생성 하는 두 개의 숫자 열 추가 지원 합니다.
+
++ **버그 수정 및 향상 된 기능**
+  + 향상 된 설명서 및 매개 변수 random_split 확인 합니다.
+  
+## <a name="2019-02-27"></a>2019-02-27
+
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning 데이터 준비 SDK v1.0.16
+
++ **버그 수정**
+  + 서비스 주체 인증 문제가 발생 하는 고정 API 변경으로 합니다.
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning Python v1.0.17 for SDK
+
++ **새로운 기능**
+
+  + Azure Machine Learning은 이제 인기 있는 DNN 프레임 워크 Chainer에 대 한 최고 수준의 지원을 제공합니다. 사용 하 여 [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스 사용자가 쉽게 학습를 Chainer 모델을 배포 합니다.
+    + 자세한 방법 [ChainerMN를 사용 하 여 분산된 교육 실행](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + 자세한 방법 [HyperDrive를 사용 하 여 Chainer를 사용 하 여 하이퍼 매개 변수 튜닝 실행](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+  + Azure Machine Learning 파이프라인 파이프라인 실행 데이터 저장소, 수정을 기반으로 하는 기능 트리거를 추가 합니다. 파이프라인 [일정 notebook](https://aka.ms/pl-schedule) 이 기능을 소개 하도록 업데이트 됩니다.
+
++ **버그 수정 및 향상 된 기능**
+  + 지원이 추가 되었습니다 Azure Machine Learning 파이프라인 (예: blob storage) 원하는 데이터 저장소로 source_directory_data_store 속성을 설정 하는 것에 대 한 온 [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 에 제공 되는 여 [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)합니다. 기본적으로 단계는 많은 수의 단계를 동시에 실행할 때 제한 문제를 겪을 수 있는 백업 데이터 저장소로 Azure 파일 저장소를 사용 합니다.
+
+### <a name="azure-portal"></a>Azure portal
+
++ **새로운 기능**
+  + 새 끌어서 테이블 보고서에 대 한 편집기 환경입니다. 사용자는 테이블의 미리 보기를 표시할 테이블 영역에 웰에서 열을 끌어 수 있습니다. 열을 다시 배열할 수 있습니다.
+  + 새 로그 파일 뷰어
+  + 실험 실행, 계산, 모델, 이미지 및 작업 탭에서 배포에 대 한 링크
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning 데이터 준비 SDK v1.0.15
+
++ **새로운 기능**
+  + 데이터 흐름에서 파일 스트림을 쓰는 데이터 준비 이제 지원 합니다. 또한 새 파일 이름을 만들기 위해 파일 스트림을 이름을 조작 하는 기능을 제공 합니다.
+    + 방법 가이드: [파일 스트림 작업 notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+
++ **버그 수정 및 향상 된 기능**
+  + T-digest 큰 데이터 집합의 성능이 향상 되었습니다.
+  + 이제 데이터 준비는 데이터 경로에서 데이터 읽기를 지원합니다.
+  + 이제 핫 인코딩이 부울 및 숫자 열에서 작동합니다.
+  + 다른 기타 버그가 수정 되었습니다.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -85,7 +140,7 @@ ms.locfileid: "56446769"
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Prep SDK v1.0.7
 
 + **새로운 기능**
-  + 데이터 저장소 기능 향상([데이터 저장소 방법 가이드](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb)에 설명되어 있음)
+  + 데이터 저장소 기능 향상([데이터 저장소 방법 가이드](https://aka.ms/aml-data-prep-datastore-nb)에 설명되어 있음)
     + 강화 시 Azure 파일 공유 및 ADLS 데이터 저장소에서 데이터를 읽고 쓰는 기능이 추가되었습니다.
     + 이제 데이터 저장소 사용 시 Data Prep에서 대화형 인증 대신 서비스 주체 인증 사용을 지원합니다.
     + wasb 및 wasbs url 지원이 추가되었습니다.

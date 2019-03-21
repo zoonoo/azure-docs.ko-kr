@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890052"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55998572"
 >
 >
 
-이 문서에서는 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다.  자세한 내용은 [Azure Media Services를 사용하여 Live Encoding을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+이 문서에서는 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다.  자세한 내용은 [Azure Media Services를 사용하여 Live Encoding을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "55998572"
    * 프로필 기본
    * 키 프레임 간격: 60프레임
 
-    **오디오**
+     **오디오**
 
    * 대상 비트 전송률: 192kbits/sec
    * 샘플링 속도: 44.100kHz
@@ -134,7 +134,7 @@ ms.locfileid: "55998572"
 1. **확인**을 선택합니다.
 2. 기본 **Wirecast** 화면에서 비디오 및 오디오용 입력 원본이 준비되었는지 확인한 다음 왼쪽 위 모서리에 있는 **스트림**을 누릅니다.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > **스트림**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인합니다.

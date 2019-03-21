@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8009f50643121f1def184485aa383fe3ce8033dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091514"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
 Azure AD(Azure Active Directory)에 추가할 수 있는 네 가지 유형의 애플리케이션에 대해 알아봅니다. Azure Active Directory에서 애플리케이션을 추가할 때 4개의 애플리케이션 유형 중 하나를 선택하라는 메시지가 표시됩니다. 
@@ -67,32 +67,32 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 다음은 Azure AD 애플리케이션에 대해 지원되는 **Single Sign-On** 모드입니다.
 
--   **Azure AD Single Sign-On 사용 안 함** – 이 애플리케이션을 Single Sign-On을 사용하여 Azure AD와 통합할 준비가 되지 않았거나 단순히 테스트하는 경우 Azure AD Single Sign-On 사용 안 함 **Single Sign-On 모드** 선택
+- **Azure AD Single Sign-On 사용 안 함** – 이 애플리케이션을 Single Sign-On을 사용하여 Azure AD와 통합할 준비가 되지 않았거나 단순히 테스트하는 경우 Azure AD Single Sign-On 사용 안 함 **Single Sign-On 모드** 선택
 
--   **연결된 로그온** - 기존 Single Sign-On 솔루션에 연결된 애플리케이션이 있거나 [애플리케이션 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) 또는 [Office 365 애플리케이션 시작 관리자](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)에서 사용자에게 간단한 링크를 배포하려는 경우 [연결된 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)**Single Sign-On 모드** 선택
+- **연결된 로그온** - 기존 Single Sign-On 솔루션에 연결된 애플리케이션이 있거나 [애플리케이션 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) 또는 [Office 365 애플리케이션 시작 관리자](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)에서 사용자에게 간단한 링크를 배포하려는 경우 [연결된 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)**Single Sign-On 모드** 선택
 
--   **암호 기반 로그온** - 애플리케이션이 HTML 사용자 이름 및 암호 필드를 렌더링하고 해당 사용자 이름 및 암호가 나중에 애플리케이션에 재생되도록 안전하게 저장하려는 경우 [암호 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)**Single Sign-On 모드** 선택
+- **암호 기반 로그온** - 애플리케이션이 HTML 사용자 이름 및 암호 필드를 렌더링하고 해당 사용자 이름 및 암호가 나중에 애플리케이션에 재생되도록 안전하게 저장하려는 경우 [암호 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)**Single Sign-On 모드** 선택
 
--   **SAML 기반 로그온** - 애플리케이션이 SAML 또는 OpenID Connect 프로토콜을 지원하거나 사용자를 SAML 클레임에서 정의하는 규칙에 따라 특정 애플리케이션 역할에 매핑할 수 있게 되기를 원하는 경우 [SAML 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) Single Sign-On 모드 선택 *
+- **SAML 기반 로그온** - 애플리케이션이 SAML 또는 OpenID Connect 프로토콜을 지원하거나 사용자를 SAML 클레임에서 정의하는 규칙에 따라 특정 애플리케이션 역할에 매핑할 수 있게 되기를 원하는 경우 [SAML 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) Single Sign-On 모드 선택 *
 
-   >[!NOTE]
-   >애플리케이션 프록시가 애플리케이션에 대해 구성된 경우 이 옵션은 사용할 수 없습니다.
-   >
-   >
+  >[!NOTE]
+  >애플리케이션 프록시가 애플리케이션에 대해 구성된 경우 이 옵션은 사용할 수 없습니다.
+  >
+  >
 
--   **헤더 기반 로그온** – Single Sign-On을 수행하려는 HTTP 헤더 기반 인증을 지원하는 PingAccess를 사용하는 애플리케이션이 있는 경우 이 [헤더 기반 로그온](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) Single Sign-On 모드 선택 
+- **헤더 기반 로그온** – Single Sign-On을 수행하려는 HTTP 헤더 기반 인증을 지원하는 PingAccess를 사용하는 애플리케이션이 있는 경우 이 [헤더 기반 로그온](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) Single Sign-On 모드 선택 
 
-   >[!NOTE]
-   >애플리케이션 프록시 및 PingAccess가 애플리케이션에 대해 구성된 경우에만 이 옵션을 사용할 수 있습니다.
-   >
-   >
+  >[!NOTE]
+  >애플리케이션 프록시 및 PingAccess가 애플리케이션에 대해 구성된 경우에만 이 옵션을 사용할 수 있습니다.
+  >
+  >
 
--   **Windows 통합 인증** - Single Sign-On을 수행하려는 온-프레미스 WIA 애플리케이션을 노출하는 경우 [Windows 통합 인증](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) Single Sign-On 모드 선택 
+- **Windows 통합 인증** - Single Sign-On을 수행하려는 온-프레미스 WIA 애플리케이션을 노출하는 경우 [Windows 통합 인증](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) Single Sign-On 모드 선택 
 
-   >[!NOTE]
-   >애플리케이션 프록시가 애플리케이션에 대해 구성된 경우에만 이 옵션을 사용할 수 있습니다.
-   >
-   >
+  >[!NOTE]
+  >애플리케이션 프록시가 애플리케이션에 대해 구성된 경우에만 이 옵션을 사용할 수 있습니다.
+  >
+  >
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 애플리케이션에 대한 Single Sign-On 모드
 
@@ -112,39 +112,39 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
+6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>프로비전 모드를 선택하는 방법
 
--   **수동 프로비전** - 기존 계정이 있거나 Azure AD 외부에서 이 애플리케이션에 대한 계정을 관리하려는 경우 [수동](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) 프로비전 모드를 선택합니다.
+- **수동 프로비전** - 기존 계정이 있거나 Azure AD 외부에서 이 애플리케이션에 대한 계정을 관리하려는 경우 [수동](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) 프로비전 모드를 선택합니다.
 
--   **자동 프로비전** - 자동 API 기반 프로비전 및/또는 이 애플리케이션에 사용자 계정의 프로비전 해제를 활성화하려면 [자동](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)**프로비전 모드** 선택 
+- **자동 프로비전** - 자동 API 기반 프로비전 및/또는 이 애플리케이션에 사용자 계정의 프로비전 해제를 활성화하려면 [자동](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)**프로비전 모드** 선택 
 
-   >[!NOTE]
-   >이 옵션은 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal)의 **주요** 범주 내의 애플리케이션에만 사용할 수 있습니다.
-   >
-   >
+  >[!NOTE]
+  >이 옵션은 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal)의 **주요** 범주 내의 애플리케이션에만 사용할 수 있습니다.
+  >
+  >
 
--   **SCIM 기반 자동 프로비전** - 애플리케이션이 Azure AD와 통합된 모든 애플리케이션에 변경 내용을 자동으로 내보내는 사용자 및 그룹에 대한 변경 내용 감지에 SCIM 프로토콜을 지원하는 경우 [SCIM 기반 자동 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) 사용 
+- **SCIM 기반 자동 프로비전** - 애플리케이션이 Azure AD와 통합된 모든 애플리케이션에 변경 내용을 자동으로 내보내는 사용자 및 그룹에 대한 변경 내용 감지에 SCIM 프로토콜을 지원하는 경우 [SCIM 기반 자동 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) 사용 
 
-   >[!NOTE]
-   >이 옵션은 특정 프로비전 모드로 나열되어 있지 않지만 Azure AD와 통합된 모든 애플리케이션에 기본적으로 활성화됩니다.
-   >
-   >
+  >[!NOTE]
+  >이 옵션은 특정 프로비전 모드로 나열되어 있지 않지만 Azure AD와 통합된 모든 애플리케이션에 기본적으로 활성화됩니다.
+  >
+  >
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>애플리케이션의 프로비전 모드를 설정하는 방법
 
@@ -152,21 +152,21 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  프로비전을 구성하려는 애플리케이션을 선택합니다.
+6. 프로비전을 구성하려는 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **프로비전**을 클릭합니다.
+7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **프로비전**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

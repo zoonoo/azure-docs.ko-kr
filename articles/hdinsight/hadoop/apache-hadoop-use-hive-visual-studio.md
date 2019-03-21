@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 5cc079a5e6d78269d2df9f13dc8ccf8d026163e4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202268"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -39,7 +39,7 @@ Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 �
 
 ## <a id="run"></a> Visual Studio를 사용하여 Apache Hive 쿼리 실행
 
-1. **Visual Studio**를 열고 **새로 만들기** > **프로젝트** > **Azure Data Lake** > **HIVE** > **Hive 응용 프로그램**을 차례로 선택합니다. 이 프로젝트에 대한 이름을 입력합니다.
+1. **Visual Studio**를 열고 **새로 만들기** > **프로젝트** > **Azure Data Lake** > **HIVE** > **Hive 애플리케이션**을 차례로 선택합니다. 이 프로젝트에 대한 이름을 입력합니다.
 
 2. 이 프로젝트에서 만든 **Script.hql** 파일을 열고 아래 HiveQL 문을 붙여 넣습니다.
 
@@ -136,7 +136,6 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108834"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -77,7 +77,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
     - 동일한 VNet에서 대상 백 엔드 풀 VM 및 다른 테스트 VM에 대해 동시 Netsh 추적을 실행합니다. 이제 얼마 동안 PsPing 테스트를 실행하고 일부 네트워크 추적을 수집한 후 테스트를 중지합니다. 
     - 네트워크 캡처를 분석하고 ping 쿼리와 관련해서 들어오고 나가는 패킷이 둘다 있는지 확인합니다. 
         - 백 엔드 풀 VM에서 들어오는 패킷이 확인되지 않으면 트래픽을 차단하는 네트워크 보안 그룹 또는 UDR 구성 오류가 있는 것일 수 있습니다. 
-        - 백 엔드 풀 VM에서 나가는 패킷이 확인되지 않으면 VM에 관련 없는 문제(예: 프로브 포트를 차단하는 애플리케이션)가 있는지 확인해야 합니다. 
+        - 백 엔드 풀 VM에서 나가는 패킷이 확인 되 면 VM 관련 되지 않은 문제 (예: 프로브 포트를 차단 하는 응용 프로그램)에 있는지 확인 해야 합니다. 
     - 프로브 패킷이 부하 분산 장치에 도달하기 전에 강제로 다른 대상으로 전달되는지 확인합니다(UDR 설정을 통해). 이로 인해 트래픽이 백엔드 VM에 절대 도달하지 못할 수 있습니다. 
 * 프로브 형식을 변경하고(예: HTTP에서 TCP로) 네트워크 보안 그룹 ACL의 해당 포트 및 방화벽이 프로브 응답 구성에 문제가 있는지 평가하도록 구성합니다. 상태 프로브 구성에 대한 자세한 내용은 [엔드포인트 부하 분산 장치 상태 프로브 구성](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)을 참조하세요.
 
@@ -128,7 +128,7 @@ Load Balancer의 백 엔드 VM에서 호스트된 애플리케이션이 동일�
 지원 사례를 열기로 결정한 경우 더 빠른 해결을 위해 다음 정보를 수집합니다. 단일 백 엔드 VM을 선택하여 다음과 같은 테스트를 수행합니다.
 - VNet 내의 백 엔드 VM 중 하나에서 Psping을 사용하여 프로브 포트 응답을 테스트하고(예: psping 10.0.0.4:3389) 결과를 기록합니다. 
 - 이러한 ping 테스트에서 응답이 수신되지 않으면 PsPing을 실행하는 동안 백 엔드 VM 및 VNet 테스트 VM에 대해 동시 Netsh 추적을 실행한 후 Netsh 추적을 중지합니다. 
-  
+  
 ## <a name="next-steps"></a>다음 단계
 
 앞의 단계에서 문제가 해결되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.

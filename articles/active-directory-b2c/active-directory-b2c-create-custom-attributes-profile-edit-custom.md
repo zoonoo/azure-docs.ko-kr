@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094629"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
 
@@ -260,20 +260,20 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
 1. 다음 **TechnicalProfile**을 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 소셜 및 페더레이션된 계정은 로그인에 이러한 두 개의 **TechnicalProfile**을 사용합니다. 이러한 계정은 사용자 개체의 로케이터로 **alternativeSecurityId**를 사용하여 사용자 데이터를 쓰고 읽습니다.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. 기본 제공 및 사용자 지정 정책 간에 동일한 확장 특성을 사용합니다. 포털 환경을 통해 확장 특성이나 사용자 지정 특성을 추가하는 경우, 해당 특성은 모든 B2C 테넌트에 존재하는 **b2c-extensions-app**을 사용하여 등록됩니다. 사용자 지정 정책에서 확장 특성을 사용하려면 다음 단계를 수행합니다.
 
-  a. portal.azure.com의 B2C 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.  
-  b. **b2c-extensions-app**을 찾고 선택합니다.  
-  다. **Essentials** 아래에서 **애플리케이션 ID** 및 **개체 ID**를 입력합니다.  
-  d. **AAD-Common** TechnicalProfile 메타데이터에 포함합니다.  
+   a. portal.azure.com의 B2C 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.  
+   b. **b2c-extensions-app**을 찾고 선택합니다.  
+   다. **Essentials** 아래에서 **애플리케이션 ID** 및 **개체 ID**를 입력합니다.  
+   d. **AAD-Common** TechnicalProfile 메타데이터에 포함합니다.  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,16 +285,16 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. 포털 환경과 일관성을 유지합니다. 사용자 지정 정책에서 사용하기 전에 포털 UI를 사용하여 이러한 특성을 만듭니다. 포털에서 **ActivationStatus** 특성을 만들 때 다음과 같이 참조해야 합니다.
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
-## <a name="reference"></a>참고 자료
+## <a name="reference"></a>참조
 
 확장 속성에 대한 자세한 내용은 [디렉터리 스키마 확장 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
 

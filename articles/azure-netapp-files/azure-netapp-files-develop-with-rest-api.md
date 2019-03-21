@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 169638fed9a513b8ed835076c049ee21979085fe
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104627"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
@@ -29,23 +29,23 @@ Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 �
 
 1. 아직 설치하지 않은 경우 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
 2. Azure AD(Azure Active Directory)에 서비스 주체를 만듭니다.
-    1. [충분한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)이 있는지 확인합니다.
+   1. [충분한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)이 있는지 확인합니다.
 
-    1. Azure CLI에서 다음 명령을 입력합니다.  
+   1. Azure CLI에서 다음 명령을 입력합니다.  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    명령 출력은 다음 예제와 유사합니다.  
+      명령 출력은 다음 예제와 유사합니다.  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    명령 출력을 보관합니다.  `appId`, `password` 및 `tenant` 값이 필요합니다. 
+      명령 출력을 보관합니다.  `appId`, `password` 및 `tenant` 값이 필요합니다. 
 
 3. OAuth 액세스 토큰을 요청합니다.
 

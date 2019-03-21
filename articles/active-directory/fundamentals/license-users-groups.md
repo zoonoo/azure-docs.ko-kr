@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194311"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286859"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거
 많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.
@@ -47,7 +47,7 @@ Azure AD 제품에는 사용 가능한 몇 가지 버전이 있습니다.
 
     **라이선스** 페이지가 표시됩니다.
 
-    ![구입한 제품 수와 할당된 라이선스 수를 보여 주는 라이선스 페이지](media/license-users-groups/license-details-blade.png)
+    ![구매한 제품 및 할당 된 라이선스의 수를 사용 하 여 라이선스 페이지](media/license-users-groups/license-details-blade.png)
     
 3. **제품** 페이지를 보고 각 특정 제품 버전에 대한 **할당됨**, **사용 가능** 및 **곧 만료됨** 세부 정보를 확인하려면 **구입한 제품** 링크를 선택합니다.
 
@@ -76,7 +76,7 @@ Azure AD 제품에는 사용 가능한 몇 가지 버전이 있습니다.
 
 4. **할당 옵션**을 선택하고, 적절한 라이선스 옵션이 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
 
-    ![버전에서 사용 가능한 모든 옵션을 보여 주는 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-assignments.png)
+    ![버전에서 사용 가능한 모든 옵션을 사용 하 여 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-assignments.png)
 
     **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
 
@@ -102,7 +102,7 @@ Azure AD 제품에는 사용 가능한 몇 가지 버전이 있습니다.
 
 4. **할당 옵션**을 선택하고, 적절한 라이선스 옵션이 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
 
-    ![버전에서 사용 가능한 모든 옵션을 보여 주는 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![버전에서 사용 가능한 모든 옵션을 사용 하 여 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-group-assignments.png)
 
     **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
 
@@ -112,7 +112,6 @@ Azure AD 제품에는 사용 가능한 몇 가지 버전이 있습니다.
 5. **할당**을 선택합니다.
 
     그룹이 사용이 허가된 그룹 목록에 추가되며, 모든 멤버가 포함된 Azure AD 서비스에 액세스할 수 있습니다.
-
 
 ## <a name="remove-a-license"></a>라이선스 제거
 **라이선스** 페이지에서 사용자 또는 그룹의 라이선스를 제거할 수 있습니다.

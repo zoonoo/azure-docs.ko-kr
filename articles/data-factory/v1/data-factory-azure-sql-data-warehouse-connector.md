@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331237"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116201"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,9 +99,9 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요 |
+| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아닙니다. |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
-| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
+| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아닙니다. |
 
 **sqlReaderQuery** 가 SqlDWSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL Data Warehouse 원본에 대해 이 쿼리를 실행합니다.
 
@@ -145,15 +145,15 @@ GO
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아니요 |
-| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. |True <br/>False(기본값) |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아닙니다. |
+| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. |True <br/>False(기본값) |아닙니다. |
 | polyBaseSettings |**allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |아니오 |
-| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. |0(기본값), 1, 2, … |아니요 |
-| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |아니요 |
+| rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. |0(기본값), 1, 2, … |아닙니다. |
+| rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |아닙니다. |
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. |1, 2, … |예. **rejectType**이 **백분율**인 경우 |
-| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. |True, False(기본값) |아니요 |
+| useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. |True, False(기본값) |아닙니다. |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: “00:30:00”(30분) |아닙니다. |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink 예제
 
@@ -197,28 +197,28 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store(서비스 �
 1. **원본 연결된 서비스**의 형식은 **AzureStorage** 또는 **서비스 주체 인증이 적용된 AzureDataLakeStore**입니다.
 2. **입력 데이터 세트**의 형식은 **AzureBlob** 또는 **AzureDataLakeStore**이고, `type` 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
-    1. `rowDelimiter`는 **\n**이어야 합니다.
-    2. `nullValue`가 **빈 문자열**("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true**로 설정되어 있습니다.
-    3. `encodingName`이 **기본값**인 **utf-8**로 설정됩니다.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` 및 `skipLineCount`는 지정되지 않습니다.
-    5. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
+   1. `rowDelimiter`는 **\n**이어야 합니다.
+   2. `nullValue`가 **빈 문자열**("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true**로 설정되어 있습니다.
+   3. `encodingName`이 **기본값**인 **utf-8**로 설정됩니다.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` 및 `skipLineCount`는 지정되지 않습니다.
+   5. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. 파이프라인에서 복사 작업에 대한 **BlobSource** 또는 **AzureDataLakeStore**에는 `skipHeaderLineCount` 설정이 없습니다.
 4. 파이프라인에서 복사 작업에 대한 **SqlDWSink**에는 `sliceIdentifierColumnName` 설정이 없습니다. (PolyBase는 한 번의 실행으로 모든 데이터를 업데이트하거나 아무 것도 업데이트하지 않도록 보장합니다. **반복성**을 달성하려면 `sqlWriterCleanupScript`를 사용할 수 있습니다.
@@ -228,7 +228,7 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store(서비스 �
 원본 데이터가 이전 섹션에서 도입된 조건을 충족하지 않는 경우 일시적으로 스테이징한 Azure Blob Storage를 통해 데이터를 복사하도록 설정할 수 있습니다(Premium Storage일 수 없음). 이 경우 Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족시키기 위해 데이터에 변환을 수행한 다음 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하고 마지막으로 Blob Storage에서 임시 데이터를 삭제합니다. 스테이징 Azure Blob을 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
 
 > [!NOTE]
-> PolyBase와 스테이징을 사용하여 온-프레미스 데이터 저장소에서 Azure SQL Data Warehouse로 데이터를 복사할 때 데이터 관리 게이트웨이 버전이 2.4 미만이면 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 JRE(Java Runtime Environment)가 게이트웨이 컴퓨터에 필요합니다. 이러한 종속성을 방지하려면 게이트웨이를 최신으로 업그레이드하는 것이 좋습니다.
+> 경우 PolyBase를 사용 하 여 Azure SQL Data Warehouse로 데이터 저장소는 온-프레미스에서 데이터를 복사 및 준비, 데이터 관리 게이트웨이 버전이 2.4 미만이 면 JRE (Java Runtime Environment) 소스를 변환 하는 데 사용 되는 게이트웨이 컴퓨터에 필요 적절 한 형식으로 데이터입니다. 이러한 종속성을 방지하려면 게이트웨이를 최신으로 업그레이드하는 것이 좋습니다.
 >
 
 이 기능을 사용하려면 중간 Blob Storage가 있는 Azure Storage 계정을 나타내는 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 만든 후 다음 코드에 표시된 복사 작업에 대해 `enableStaging` 및 `stagingSettings` 속성을 지정합니다.
@@ -302,13 +302,13 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 
 | 원본 SQL Database 열 형식 | 대상 SQL DW 열 유형(크기 제한) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bit | Bit |
-| 10진수 | 10진수 |
-| 숫자 | 10진수 |
+| Decimal | Decimal |
+| 숫자 | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
@@ -316,7 +316,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | 이진 | 이진 |
 | Varbinary | Varbinary(최대 8000) |
 | Date | Date |
-| Datetime | Datetime |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |

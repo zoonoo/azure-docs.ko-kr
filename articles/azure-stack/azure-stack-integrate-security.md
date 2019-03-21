@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009483"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 데이터 센터 통합-syslog 전달
 
@@ -72,6 +72,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |*제거*| 클라이언트에서 구성 서버를 제거 하 고 syslog 전달을 중지합니다| 플래그 | no|
 
 에 대 한 매개 변수 *집합 SyslogClient* cmdlet:
+
 | 매개 변수 | 설명 | Type |
 |---------|---------| ---------|
 | *pfxBinary* | 사용할 클라이언트 id로 syslog 서버 인증에 인증서를 포함 한 pfx 파일  | Byte[] |
@@ -287,6 +288,7 @@ Prefix fields
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP 심각도 표:
+
 | 심각도 | Level | 숫자 값 |
 |----------|-------| ----------------|
 |0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
@@ -306,6 +308,7 @@ REP 심각도 표:
 ```
 
 Windows 이벤트에 대 한 심각도 표:
+
 | CEF 심각도 값 | Windows 이벤트 수준 | 숫자 값 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
@@ -316,6 +319,7 @@ Windows 이벤트에 대 한 심각도 표:
 |0|자세한 정보 표시|값: 5. 모든 수준에서 로그를 나타냅니다.|
 
 Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
+
 | 사용자 지정 확장 이름 | Windows 이벤트 예제 | 
 |-----------------------|---------|
 |MasChannel | 시스템|
@@ -352,6 +356,7 @@ Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 ```
 
 경고 심각도 표:
+
 | 심각도 | Level |
 |----------|-------|
 |0|Undefined|
@@ -359,6 +364,7 @@ Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 |5|Warning|
 
 Azure Stack에서 생성 된 경고에 대 한 사용자 지정 확장 테이블:
+
 | 사용자 지정 확장 이름 | 예 | 
 |-----------------------|---------|
 |MasEventDescription|설명: 사용자 계정을 \<TestUser\> 에 대해 만들어진 \<TestDomain\>합니다. 이 잠재적인 보안 위험이 초래 됩니다. -업데이트 관리: 지원에 문의 이 문제를 해결 하려면 고객 지원에 필요 합니다. 해당의 도움 없이이 문제를 해결 하려고 하지 않습니다. 지원 요청을 열기 전에의 지침을 사용 하 여 로그 파일 수집 프로세스 시작 https://aka.ms/azurestacklogfiles |

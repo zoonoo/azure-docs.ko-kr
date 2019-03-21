@@ -11,24 +11,24 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004594"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
-VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 이 서비스는 Windows 및 Linux VM의 성능과 상태를 분석하고, 해당 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 
+VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 성능과 Windows 및 Linux Vm의 상태를 분석 하 고 해당 프로세스 및 다른 리소스와 외부 프로세스에 대 한 종속성을 모니터링 합니다. 
 
 VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다. 다음 세 가지 주요 기능이 심층적인 인사이트를 제공합니다.
 
 * **Windows 및 Linux를 실행하는 Azure VM의 논리적 구성 요소**: 미리 구성된 상태 기준에 따라 측정되고 평가 조건이 충족되면 경고합니다.  
 
-* **미리 정의된 추세 성능 차트**: 게스트 VM 운영 체제의 핵심 성능 메트릭을 표시합니다.
+* **미리 정의 된 최신 성능 차트**: 게스트 VM 운영 체제의 핵심 성능 메트릭을 표시합니다.
 
 * **종속성 맵**: 다양한 리소스 그룹 및 구독에서 VM과 상호 연결된 구성 요소를 표시합니다.  
 
@@ -39,7 +39,7 @@ VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 
 * Map
 
 >[!NOTE]
->현재 상태 기능은 Azure Virtual Machines 및 가상 머신 확장 집합에만 제공됩니다. 성능 및 맵 기능은 사용자 환경 또는 다른 클라우드 공급자에 호스트된 Azure VM 및 가상 머신을 모두 지원합니다.
+>현재 상태 기능은 Azure Virtual Machines 및 가상 머신 확장 집합에만 제공됩니다. 성능 및 지도 기능 환경 또는 다른 클라우드 공급자의 Azure Vm 및 호스트 된 virtual machines를 모두 지원 합니다.
 
 Azure Monitor 로그와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor 또는 서비스 맵 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
 
@@ -54,13 +54,14 @@ VM용 Azure Monitor는 중요한 애플리케이션의 예측 가능한 성능 �
 
 ## <a name="data-usage"></a>데이터 사용량 
 
-VM용 Azure Monitor를 배포하면 VM에서 수집한 데이터가 Azure Monitor에 수집 및 저장됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시된 가격 책정에 따라, Azure Monitor용 VM에 다음에 대한 요금이 청구됩니다.
+VM용 Azure Monitor를 배포하면 VM에서 수집한 데이터가 Azure Monitor에 수집 및 저장됩니다. 시계열 데이터베이스에 상태 조건을 메트릭은 Azure Monitor에 저장 됩니다, 그리고 수집 된 성능 및 종속성 데이터는 Log Analytics 작업 영역에 저장 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시된 가격 책정에 따라, Azure Monitor용 VM에 다음에 대한 요금이 청구됩니다.
+
 * 수집 및 저장된 데이터
 * 모니터링되는 상태 조건 메트릭 시계열의 수
 * 만들어진 경고 규칙
 * 전송되는 알림 
 
-로그 크기는 카운터의 문자열 길이에 따라 달라지며, 논리 디스크 및 네트워크 어댑터 수를 늘릴 수 있습니다. 이미 작업 영역이 있고 이러한 카운터를 수집 중인 경우 요금이 중복 적용되지 않습니다. 이미 서비스 맵을 사용 중인 경우 Azure Monitor로 전송되는 추가 연결 데이터만 변경됩니다.
+성능 카운터의 문자열 길이 따라 로그 크기 및 개수 논리 디스크 및 VM에 할당 된 네트워크 어댑터를 사용 하 여 늘릴 수 있습니다. 이미 작업 영역이 있고 이러한 카운터를 수집 중인 경우 요금이 중복 적용되지 않습니다. 이미 서비스 맵을 사용 중인 경우 Azure Monitor로 전송되는 추가 연결 데이터만 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 가상 머신을 모니터링하는 데 도움이 되는 요구 사항과 메서드를 이해하려면 [VM용 Azure Monitor 배포](vminsights-onboard.md)를 검토하세요.

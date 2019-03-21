@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991926"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
 
@@ -23,7 +23,7 @@ ms.locfileid: "55773093"
 
 ## <a name="budget-alerts"></a>예산 경고
 
-예산 경고는 사용량 또는 비용을 기준으로 지출이 [예산의 경고 조건](tutorial-acm-create-budgets.md)에 정의된 금액에 도달하거나 초과할 때 알립니다. Cost Management 예산은 Azure Portal 또는 [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API를 사용하여 만들어집니다. 
+예산 경고는 사용량 또는 비용을 기준으로 지출이 [예산의 경고 조건](tutorial-acm-create-budgets.md)에 정의된 금액에 도달하거나 초과할 때 알립니다. Cost Management 예산은 Azure Portal 또는 [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API를 사용하여 만들어집니다.
 
 Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumption API를 사용하는 경우 비용 또는 소비 사용량을 통해 예산이 정의됩니다. 예산 경고는 비용 기반 예산과 사용량 기반 예산을 둘 다 지원합니다. 예산 경고 조건이 충족될 때마다 예산 경고가 자동으로 생성됩니다. Azure Portal에서 모든 비용 경고를 볼 수 있습니다. 경고가 생성될 때마다 비용 경고에 표시됩니다. 또한 예산의 경고 수신자 목록에 있는 사람에게 경고 메일이 전송됩니다.
 
@@ -35,9 +35,21 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 부서 지출 할당량 경고는 부서 지출이 할당량의 정해진 임계값에 도달할 때 알립니다. 지출 할당량은 EA 포털에서 구성됩니다. 임계값이 충족될 때마다 부서 소유자에게 전송되는 메일이 생성되고 비용 경고에 표시됩니다. 예를 들어 할당량의 50% 또는 75%입니다.
 
+## <a name="supported-alert-features-by-offer-categories"></a>제품 범주별으로 지원 되는 경고 기능
+
+경고 유형에 대 한 지원 (Microsoft 제공) 해야 하는 Azure 계정 유형에 따라 달라 집니다. 다음 표에서 지원 되는 경고 기능을 보여 줍니다. 다양 한 Microsoft 제품으로 합니다. Microsoft 제품의 전체 목록을 볼 수 있습니다 [이해 Cost Management 데이터](understand-cost-mgt-data.md)입니다.
+
+| 경고 유형 | 기업 계약 | Microsoft 고객 계약 | Web direct/종 량 제 As-You-중단 |
+|---|---|---|---|
+| 예산 | ✔ | ✔ | ✔ |
+| 크레딧 | ✔ |✘ | ✘ |
+| 부서 지출 할당량 | ✔ | ✘ | ✘ |
+
+
+
 ## <a name="view-cost-alerts"></a>비용 경고 보기
 
-Azure Portal의 서비스 목록에서 **비용 관리 + 청구**를 클릭합니다. 그런 다음, **Cost Management** 아래의 목록에서 **비용 경고**를 선택합니다.
+비용 경고를 보려면 Azure portal 선택에서 원하는 범위를 엽니다 **예산을** 메뉴에서. 사용 된 **범위** 필 다른 범위로 전환 하려면. 선택 **경고 비용** 메뉴에서. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
 
 ![Cost Management에 표시된 경고의 예제 이미지](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

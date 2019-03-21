@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2c1a4a1931bc2e38b0bee5f90518b01fdf4767a1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908691"
 ---
 Resource Manager 배포 모델을 사용 중인 경우 새로운 게이트웨이 SKU로 변경할 수 있습니다. 레거시 게이트웨이 SKU에서 새 SKU로 변경할 때는 기존 VPN 게이트웨이를 삭제하고 새 VPN 게이트웨이를 만듭니다.
 

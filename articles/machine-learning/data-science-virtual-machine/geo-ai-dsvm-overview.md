@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471235"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890885"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 소개
 
@@ -44,7 +44,7 @@ Windows 2016 데이터 과학 가상 머신에서 지원됩니다. ArcGIS에 대
 
 Microsoft의 [DSVM(데이터 과학 가상 머신)](overview.md)은 Azure에 제공되는 인기 있는 실험 및 모델링 환경으로, AI, Machine Learning 및 데이터 과학 도구 모음을 제공합니다. 이러한 플랫폼 및 도구는 모두 편리하게 미리 구성되어 있으므로 생산성을 바로 높이는 데 도움이 됩니다. 
 
-이제 데이터 과학자와 지리 공간적 분석가들은 데이터 과학 VM의 예측 기능을 Azure 클라우드의 확장성 및 [ESRI](http://www.esri.com)의 지리 공간적 분석 소프트웨어와 결합하여, 데이터에서 새로운 정보를 얻고 새로운 기회를 찾아낼 수 있는 생산적인 플랫폼을 얻게 되었습니다. 
+이제 데이터 과학자와 지리 공간적 분석가들은 데이터 과학 VM의 예측 기능을 Azure 클라우드의 확장성 및 [ESRI](https://www.esri.com)의 지리 공간적 분석 소프트웨어와 결합하여, 데이터에서 새로운 정보를 얻고 새로운 기회를 찾아낼 수 있는 생산적인 플랫폼을 얻게 되었습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

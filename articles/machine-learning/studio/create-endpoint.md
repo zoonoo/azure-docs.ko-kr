@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio에서 웹 서비스 엔드포인트�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 62505a89be5535f7b8b7b50ad2462e33d44db57a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084694"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>배포된 Azure Machine Learning Studio 웹 서비스에 대한 엔드포인트 만들기
 

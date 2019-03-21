@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2019
+ms.date: 03/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188971"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)에서 로그를 쿼리하는 방법
 Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor에서 Log Analytics 작업 영역으로 전달 합니다.  이 데이터를 사용할 수 [쿼리](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor에서. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
@@ -33,10 +33,20 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 지정된 시간 범위 내에서 지정된 프로세스 및 컴퓨터에 대해 여러 레코드가 존재할 수 있으므로 쿼리는 동일한 컴퓨터 또는 프로세스에 대해 둘 이상의 레코드를 반환할 수 있습니다. 가장 최근 레코드만 포함하려면 쿼리에 "| dedup ResourceId"를 추가합니다.
 
-### <a name="connections"></a>연결
-연결 메트릭은 Azure Monitor 로그-VMConnection에서에서 새 테이블에 기록 됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 대기 소켓에서의 *수락*으로 인해 발생한 TCP 연결은 인바운드되는 반면, 지정된 IP 및 포트로 *연결*되면서 생성된 연결은 아웃바운드됩니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
+### <a name="connections-and-ports"></a>연결 및 포트
+연결 메트릭 기능은 Azure Monitor 로그 VMConnection VMBoundPort에서에서 두 개의 새 테이블을 소개합니다. 이러한 표에서 포트 열기/활성 하는 서버 뿐만 아니라 (인바운드 및 아웃 바운드) 컴퓨터에 대 한 연결에 대 한 정보를 제공 합니다. ConnectionMetrics 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공 하는 Api를 통해 노출 됩니다. TCP 연결에서 발생 *수락* 수신 대기 소켓 아닌에서 생성 하는 동안 바인딩된 *연결* 지정 IP 및 포트에 아웃 바운드 됩니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
 
-이러한 테이블의 레코드는 종속성 에이전트에서 보고된 데이터에서 생성됩니다. 모든 레코드는 1분 간격의 관찰을 나타냅니다. TimeGenerated 속성은 시간 간격의 시작을 나타냅니다. 각 레코드에는 각 엔터티를 식별하는 정보가 있습니다. 즉, 해당 엔터티에 연결된 메트릭과 함께 연결 또는 포트를 포함합니다. 현재 IPv4를 통해 TCP를 사용하여 발생하는 네트워크 활동만 보고됩니다.
+이러한 테이블의 레코드는 종속성 에이전트에서 보고 데이터에서 생성 됩니다. 모든 레코드는 1 분 시간 간격 동안 관찰을 나타냅니다. TimeGenerated 속성은 시간 간격의 시작을 나타냅니다. 각 레코드에는 각 엔터티를 식별하는 정보가 있습니다. 즉, 해당 엔터티에 연결된 메트릭과 함께 연결 또는 포트를 포함합니다. 현재 IPv4를 통해 TCP를 사용하여 발생하는 네트워크 활동만 보고됩니다. 
+
+#### <a name="common-fields-and-conventions"></a>공용 필드 및 규칙 
+다음 필드 및 규칙에 VMConnection 및 VMBoundPort 둘 다에 적용 됩니다. 
+
+- 컴퓨터: 컴퓨터를 보고 합니다. 정규화 된 도메인 이름 
+- AgentID: Log Analytics 에이전트를 사용 하 여 컴퓨터에 대 한 고유 식별자  
+- 컴퓨터: ServiceMap에서 노출 하는 컴퓨터에 대 한 Azure Resource Manager 리소스의 이름입니다. 폼의 것 *m-{GUID}*, 여기서 *GUID* 노드의 에이전트 Id guid와 동일  
+- 프로세스: ServiceMap에서 노출 하는 프로세스에 대 한 Azure Resource Manager 리소스의 이름입니다. 폼의 것 *p-{16 진수 문자열}* 합니다. 프로세스는 컴퓨터 범위 내에서 고유 하 고 컴퓨터에서 고유 프로세스 ID를 생성 하려면 컴퓨터와 프로세스 필드를 결합 합니다. 
+- ProcessName: 보고 프로세스의 실행 파일 이름입니다.
+- 모든 IP 주소는 문자열 형식으로 정식 IPv4 예를 들어 *13.107.3.160* 
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
 
@@ -81,7 +91,7 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 1. 프로세스가 동일한 IP 주소에 있지만 여러 네트워크 인터페이스를 통한 연결을 허용하는 경우 각 인터페이스에 대한 별도 레코드가 보고됩니다. 
 2. 와일드카드 IP를 사용한 레코드에는 활동이 포함되지 않습니다. 해당 레코드는 머신에 있는 포트가 인바운드 트래픽에 대해 열려있음을 나타내기 위해 포함됩니다.
 3. 자세한 정도 및 데이터 볼륨을 줄이기 위해 와일드카드 IP를 사용한 레코드는 특정 IP 주소와 일치하는 레코드(동일한 프로세스, 포트 및 프로토콜에 대해)가 있는 경우 생략됩니다. 와일드카드 IP 레코드가 생략되면 포트가 보고한 머신의 모든 인터페이스에서 노출됨을 나타내기 위해 특정 IP 주소를 가진 IsWildcardBind 레코드 속성이 “True”로 설정됩니다.
-4. 특정 인터페이스에서만 바인딩된 포트는 IsWildcardBind가 “False”로 설정되어 있습니다.
+4. 특정 인터페이스에만 바인딩되는 포트에로 IsWildcardBind *False*합니다.
 
 #### <a name="naming-and-classification"></a>이름 지정 및 분류
 편의를 위해 연결의 원격 끝 IP 주소는 RemoteIp 속성에 포함됩니다. 인바운드 연결의 경우 RemoteIp는 SourceIp와 동일하고, 아웃바운드 연결의 경우 DestinationIp와 동일합니다. RemoteDnsCanonicalNames 속성은 RemoteIp에 대한 머신에서 보고된 DNS 정식 이름을 나타냅니다. 나중에 사용하기 위해 RemoteDnsQuestions 및 RemoteClassification 속성이 예약되어 있습니다. 
@@ -111,6 +121,36 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 |IsActive |표시기가 *True* 또는 *False* 값으로 비활성화되었음을 나타냅니다. |
 |ReportReferenceLink |지정된 관찰 가능 개체와 관련된 보고서의 링크입니다. |
 |AdditionalInformation |관찰된 위협에 대한 추가 정보(해당되는 경우)를 제공합니다. |
+
+### <a name="ports"></a>포트 
+적극적으로 들어오는 트래픽을 허용 하거나 트래픽을 잠재적으로 수락할 수 있지만 보고 기간 동안 유휴 상태가 되는 컴퓨터에서 포트 VMBoundPort 테이블에 기록 됩니다.  
+
+기본적으로 데이터는이 테이블을 기록 되지 않습니다. 데이터가이 테이블에 기록 하는 이메일을 보내세요 vminsights@microsoft.com 작업 영역 ID와 작업 영역입니다.   
+
+VMBoundPort의 모든 레코드는 다음 필드에 의해 식별 됩니다. 
+
+| 자산 | 설명 |
+|:--|:--|
+|Process | 포트와 연결 된 프로세스 (또는 프로세스의 그룹)의 id입니다.|
+|IP | Ip 포트 (와일드 카드 IP 수 *0.0.0.0*) |
+|포트 |포트 번호 |
+|프로토콜 | 프로토콜입니다.  예에서 *tcp* 하거나 *udp* (만 *tcp* 는 현재 지원).|
+ 
+Id는 포트는 위의 다섯 개의 필드에서 파생 되며 PortId 속성에 저장 됩니다. 이 속성은 특정 포트에 대 한 전체 시간 레코드를 신속 하 게 찾는 데 사용할 수 있습니다. 
+
+#### <a name="metrics"></a>메트릭 
+포트 레코드에는 연결 된 연결을 나타내는 메트릭이 포함 됩니다. 현재 다음 메트릭을 보고 됩니다 (각 메트릭에 대 한 세부 정보는 이전 섹션에서 설명 됨): 
+
+- BytesSent 및 BytesReceived 
+- LinksEstablished, LinksTerminated, LinksLive 
+- ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
+
+고려할 몇 가지 중요한 사항은 다음과 같습니다.
+
+- 프로세스가 동일한 IP 주소에 있지만 여러 네트워크 인터페이스를 통한 연결을 허용하는 경우 각 인터페이스에 대한 별도 레코드가 보고됩니다.  
+- 와일드카드 IP를 사용한 레코드에는 활동이 포함되지 않습니다. 해당 레코드는 머신에 있는 포트가 인바운드 트래픽에 대해 열려있음을 나타내기 위해 포함됩니다. 
+- 자세한 정도 및 데이터 볼륨을 줄이기 위해 와일드카드 IP를 사용한 레코드는 특정 IP 주소와 일치하는 레코드(동일한 프로세스, 포트 및 프로토콜에 대해)가 있는 경우 생략됩니다. 와일드 카드 IP 레코드를 생략 하면 합니다 *IsWildcardBind* 특정 IP 주소를 가진 레코드에 대 한 속성에 설정할 *True*합니다.  이 포트는 보고 시스템의 모든 인터페이스를 통해 노출 된다는 것을 나타냅니다. 
+- 특정 인터페이스에만 바인딩되는 포트에로 IsWildcardBind *False*합니다. 
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 레코드
 *ServiceMapComputer_CL* 형식의 레코드는 종속성 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
@@ -165,55 +205,124 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 
 ### <a name="list-all-known-machines"></a>알려진 모든 컴퓨터 나열
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="when-was-the-vm-last-rebooted"></a>VM이 마지막으로 재부팅된 시기
-`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```kusto
+let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```
 
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>이미지, 위치 및 SKU별 Azure VM 요약
-`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```kusto
+ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>모든 관리되는 컴퓨터의 실제 메모리 용량을 나열합니다.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>컴퓨터 이름, DNS, IP 및 OS를 나열합니다.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>명령줄에서 "sql"로 모든 프로세스 찾기
-`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>리소스 이름으로 컴퓨터(가장 최근 레코드) 찾기
-`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>IP 주소로 컴퓨터(가장 최근 레코드) 찾기
-`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>특정 컴퓨터의 알려진 프로세스 모두 나열
-`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-computers-running-sql-server"></a>SQL Server를 실행하는 모든 컴퓨터 나열
-`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>내 데이터 센터에서 curl의 고유한 제품 버전 모두 나열
-`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```kusto
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS를 실행하는 모든 컴퓨터의 컴퓨터 그룹 만들기
-`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```
 
 ### <a name="bytes-sent-and-received-trends"></a>보내고 받은 바이트 수 추세
-`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```kusto
+VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```
 
 ### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>가장 많은 바이트를 전송하는 Azure VM
-`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```kusto
+VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```
 
 ### <a name="link-status-trends"></a>연결 상태 추세
-`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```kusto
+VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```
 
 ### <a name="connection-failures-trend"></a>연결 오류 추세
-`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```kusto
+VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```
+
+### <a name="bound-ports"></a>바인딩 포트
+```kusto
+VMBoundPort
+| where TimeGenerated >= ago(24hr)
+| where Computer == 'admdemo-appsvr'
+| distinct Port, ProcessName
+```
+
+### <a name="number-of-open-ports-across-machines"></a>컴퓨터에서 열려 있는 포트 수
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by Computer, Machine, Port, Protocol
+| summarize OpenPorts=count() by Computer, Machine
+| order by OpenPorts desc
+```
+
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>열려 있는 포트 번호로 작업 영역에서 프로세스 점수
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by ProcessName, Port, Protocol
+| summarize OpenPorts=count() by ProcessName
+| order by OpenPorts desc
+```
+
+### <a name="aggregate-behavior-for-each-port"></a>각 포트에 대 한 집계 동작
+이 쿼리에 사용할 수 있습니다 포트 점수를 매길 작업별: 예: 인바운드/아웃 바운드 트래픽이 가장 많은 포트, 대부분의 연결을 사용 하 여 포트
+```kusto
+// 
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize BytesSent=sum(BytesSent), BytesReceived=sum(BytesReceived), LinksEstablished=sum(LinksEstablished), LinksTerminated=sum(LinksTerminated), arg_max(TimeGenerated, LinksLive) by Machine, Computer, ProcessName, Ip, Port, IsWildcardBind
+| project-away TimeGenerated
+| order by Machine, Computer, Port, Ip, ProcessName
+```
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>머신 그룹에서 아웃바운드 연결 요약
-```
+```kusto
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
 // map of ip to monitored machine in the environment

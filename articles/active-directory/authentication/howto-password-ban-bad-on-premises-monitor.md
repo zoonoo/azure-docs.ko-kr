@@ -1,5 +1,5 @@
 ---
-title: Azure AD 암호 보호 미리 보기에서 모니터링 및 로깅
+title: 모니터링 및 로깅의 Azure AD 암호 보호
 description: Azure AD 암호 보호 모니터링 및 로깅 이해
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451489"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293722"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>미리 보기: Azure AD 암호 보호 모니터링 및 로깅
-
-|     |
-| --- |
-| Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
 
 Azure AD 암호 보호의 배포 후 모니터링 및 보고는 필수 작업입니다. 이 문서에서는 각 서비스에서 정보를 기록하는 위치 및 Azure AD 암호 보호 사용에 대한 보고 방법을 포함하여 다양한 모니터링 기술을 이해할 수 있도록 자세히 설명합니다.
 
-# <a name="dc-agent-event-logging"></a>DC 에이전트 이벤트 로깅
+## <a name="dc-agent-event-logging"></a>DC 에이전트 이벤트 로깅
 
 각 도메인 컨트롤러에서 DC 에이전트 서비스 소프트웨어는 각 개별 암호 유효성 검사 작업의 결과(및 기타 상태)를 로컬 이벤트 로그에 씁니다.
 

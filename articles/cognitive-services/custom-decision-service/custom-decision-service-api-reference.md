@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867344"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552065"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Azure Custom Decision Service에서는 각 의사 결정에 대해 호출되는 
 > 콜백 함수는 순위 API를 호출하기 전에 정의되어야 합니다.
 
 > [!TIP]
-> 대기 시간을 개선하기 위해 순위 API가 `http://ds.microsoft.com/api/v2/<appId>/rank/*`에서처럼 HTTPS 대신 HTTP를 통해 노출됩니다.
+> 대기 시간을 개선하기 위해 순위 API가 `https://ds.microsoft.com/api/v2/<appId>/rank/*`에서처럼 HTTPS 대신 HTTP를 통해 노출됩니다.
 > 그러나 기본 페이지가 HTTPS를 통해 제공되는 경우 HTTPS 엔드포인트를 사용해야 합니다.
 
 매개 변수를 사용하지 않는 경우 순위 API의 HTTP 응답은 JSONP 형식 문자열입니다.

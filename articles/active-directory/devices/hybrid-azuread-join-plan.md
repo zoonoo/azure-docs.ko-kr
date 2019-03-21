@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003803"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294589"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -116,7 +116,8 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 
 Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 등록](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices)한 경우 먼저 해당 상태를 제거한 후에 하이브리드 Azure AD 조인을 사용하도록 설정할 것을 적극 권장합니다. Windows 10 1809 릴리스에서 이 이중 상태를 방지하기 위해 다음과 같이 변경되었습니다. 
  - 디바이스가 하이브리드 Azure AD에 조인되면 기존의 Azure AD 등록됨 상태가 자동으로 제거됩니다. 
- - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001 레지스트리 키를 추가하여 도메인 조인 디바이스가 Azure AD에 등록되지 않도록 방지할 수 있습니다.
+ - 이 레지스트리 키-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"를 추가 하 여 등록 하는 Azure AD에서 도메인에 가입 된 장치를 방지할 수 있습니다 = dword: 00000001 합니다.
+ - 이 변경은 KB4489894 사용 하 여 Windows 10 1803 릴리스에 대 한 출시 되었습니다.
 
 하이브리드 Azure AD 조인에 대 한 FIPS 호환 tpm은 지원 되지 않습니다. FIPS 규격 장치의 경우, 하이브리드 Azure AD 조인을 사용 하 여 계속 진행 하기 전에 해제 해야 합니다. Microsoft은 TPM 제조업체에 따라 달라 집니다 이므로 Tpm에 대 한 FIPS 모드를 해제 하는 것에 대 한 모든 도구를 제공 하지 않습니다. OEM의 하드웨어가 지원에 문의 하세요.
 

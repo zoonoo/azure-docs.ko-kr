@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088964"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
 
@@ -33,13 +33,13 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  이 명령은 allatables.sql이라는 파일을 생성합니다.
+   이 명령은 allatables.sql이라는 파일을 생성합니다.
 
 3. alltables.sql 파일을 새 HDInsight 클러스터에 복사하고 다음 명령을 실행합니다.
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다른 경우 변경 내용을 반영하도록 생성된 alltables.sql 파일을 수동으로 편집할 수 있습니다.
 
@@ -56,21 +56,21 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 2. Hive 클라이언트 로그를 보려면 다음 명령을 사용합니다.
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. Hive metastore 로그를 보려면 다음 명령을 사용합니다.
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. HiveServer 로그를 보려면 다음 명령을 사용합니다.
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
@@ -83,21 +83,21 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 1. Hive 셸을 시작할 때 구성 키-값 쌍을 지정합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. Hive 셸에서 모든 유효 구성을 나열하려면 다음 명령을 사용합니다.
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  예를 들어 다음 명령을 사용하여 콘솔에서 디버그 로깅이 사용하도록 설정된 상태로 Hive 셸을 시작합니다.
+   예를 들어 다음 명령을 사용하여 콘솔에서 디버그 로깅이 사용하도록 설정된 상태로 Hive 셸을 시작합니다.
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
@@ -113,19 +113,19 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 2. 명령 프롬프트에서 다음 명령을 실행합니다.
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. Tez DAG를 분석하는 데 사용할 수 있는 다른 분석기를 나열하려면 다음 명령을 사용합니다.
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  예제 프로그램을 첫 번째 인수로 제공해야 합니다.
+   예제 프로그램을 첫 번째 인수로 제공해야 합니다.
 
-  올바른 프로그램의 이름은 다음과 같습니다.
+   올바른 프로그램의 이름은 다음과 같습니다.
     - **ContainerReuseAnalyzer**: DAG에 컨테이너 다시 사용 세부 정보를 출력합니다.
     - **CriticalPath**: DAG의 중요한 경로를 찾습니다.
     - **LocalityAnalyzer**: DAG에 위치 정보를 인쇄합니다.
@@ -171,7 +171,7 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>관련 항목
 [Azure HDInsight를 사용하여 문제 해결](hdinsight-troubleshoot-guide.md)
 
 

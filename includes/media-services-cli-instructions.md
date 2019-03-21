@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: c13ba8ab42d949e5752bfefd9b792b14a5a5ce59
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56408206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964224"
 ---
 ## <a name="cli-shell"></a>CLI 셸
 
@@ -31,7 +31,7 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 여러 Media Services CLI 명령을 사용하면 파일 이름으로 매개 변수를 전달할 수 있습니다. **Cloud Shell**을 사용하는 경우 파일을 클라우드 드라이브에 업로드할 수 있습니다(Bash 또는 PowerShell 사용). 
 
-![Upload files]
+![파일 업로드]
 
 로컬 CLI 또는 **Cloud Shell**을 사용하는 경우 사용 중인 OS 또는 Cloud Shell(Bash 또는 PowerShell)에 따라 파일 경로를 지정해야 합니다. 다음은 몇 가지 예입니다.
 
@@ -45,5 +45,6 @@ Linux/Mac 및 Windows OS의 절대 파일 경로
 * `@ "/usr/home/mytestfile.json"`
 *   `@"c:\tmp\user\mytestfile.json"`
 
+사용 하 여 `{file}` 명령을 파일에 대 한 경로 요청 하는 경우. 예: `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json` <br/> 사용 하 여 `@{file}` 명령은 지정된 된 파일을 로드 하려는 경우. 예: `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`
 
 [파일 업로드]: ./media/media-services-cli/upload-download-files.png

@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997042"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294725"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Azure Monitor 로그 레코드의 표준 속성
 Azure Monitor의 로그 데이터는 각각 고유한 속성 집합이 있는 특정 데이터 형식의 [레코드 세트로 저장](../log-query/log-query-overview.md)됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
@@ -84,6 +84,18 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+다음 쿼리를 구문 분석 **_ResourceId** 집계에는 Azure 구독 당 데이터 볼륨 청구 합니다.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+```
+
+여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다.
 
 ## <a name="isbillable"></a>\_IsBillable
 **\_IsBillable** 속성은 수집된 데이터의 청구 가능 여부를 지정합니다. **\_IsBillable**이 _false_인 데이터는 무료로 수집되고 Azure 계정에 요금이 청구되지 않습니다.

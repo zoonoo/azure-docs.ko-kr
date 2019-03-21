@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873794"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -47,29 +47,29 @@ ms.locfileid: "55990448"
 
 1. **리소스 선택** 링크를 사용하고 리소스를 선택하여 대상을 지정하여 경고 조건을 정의합니다. _구독_, _리소스 종류_ 및 필요한 _리소스_를 선택하여 필터링합니다.
 
-    >[!NOTE]
-
-    > 로그 경고 만들기의 경우 진행하기 전에 선택한 리소스에 대해 사용 가능한 **로그** 신호를 확인합니다.
-    ![리소스 선택](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > 로그 경고 만들기의 경우 진행하기 전에 선택한 리소스에 대해 사용 가능한 **로그** 신호를 확인합니다.
+   >  ![리소스 선택](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본이고 신호 유형이 **로그**인지 확인한 다음, 적절한 **리소스가** 선택되면 *완료*를 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
 
    ![리소스 선택 - 사용자 지정 로그 검색](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 Analytics에서 쿼리를 완료한 후 경고에서 나중에 사용할 수 있게 저장합니다. 쿼리 저장 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 사용](../../azure-monitor/log-query/log-query-overview.md) 또는 [Application Insights 분석의 공유 쿼리](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 1. *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 
     ![경고 규칙 구성](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > 쿼리 결과에 시간 세부 정보가 있는 경우 기록 데이터 시각화만 표시될 수 있습니다. 쿼리 결과가 요약된 데이터 또는 특정 열 값인 경우 단일 플롯으로 동일하게 표시됩니다.
-    > Application insights를 사용하거나 [새 API로 전환된](alerts-log-api-switch.md) 로그 경고의 메트릭 측정 유형의 경우 아래에 설명된 대로 **집계** 옵션을 사용하여 데이터를 그룹화하는 특정 변수를 지정할 수 있습니다.
-    >
-    > ![집계 옵션](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > 쿼리 결과에 시간 세부 정보가 있는 경우 기록 데이터 시각화만 표시될 수 있습니다. 쿼리 결과가 요약된 데이터 또는 특정 열 값인 경우 단일 플롯으로 동일하게 표시됩니다.
+   > Application insights를 사용하거나 [새 API로 전환된](alerts-log-api-switch.md) 로그 경고의 메트릭 측정 유형의 경우 아래에 설명된 대로 **집계** 옵션을 사용하여 데이터를 그룹화하는 특정 변수를 지정할 수 있습니다.
+   > 
+   > ![집계 옵션](media/alerts-log/aggregate-on.png)
 
 1. *로그 경고*: 준비된 시각화를 사용하여 조건, 집계 및 마지막으로 임계값의 표시된 옵션에서 **경고 논리**를 선택할 수 있습니다. 마지막으로 논리에서 **기간** 옵션을 사용하여 지정된 조건에 대해 평가할 시간을 지정합니다. **빈도**를 선택하여 경고를 실행해야 하는 빈도를 지정합니다. **로그 경고**는 다음을 기반으로 할 수 있습니다.
     - [레코드 수](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): 쿼리에서 반환된 레코드의 개수가 제공된 값보다 큰 또는 값보다 작은 경우 경고가 생성됩니다.
@@ -102,9 +102,9 @@ ms.locfileid: "55990448"
 
 1. 모든 필드가 유효하고 녹색 틱인 경우 **경고 규칙 만들기** 단추를 클릭할 수 있으며 Azure Monitor - 경고에서 경고가 생성됩니다. 경고 대시보드에서 모든 경고를 볼 수 있습니다.
 
-    ![규칙 만들기](media/alerts-log/AlertsPreviewCreate.png)
+     ![규칙 만들기](media/alerts-log/AlertsPreviewCreate.png)
 
-    앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
+     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
 사용자는 [Logs Analytics](../log-query/portals.md)에서 해당 분석 쿼리를 종료한 다음, [경고 설정] 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
 
@@ -205,7 +205,7 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 ```
 
 > [!IMPORTANT]
-> 대상 리소스에 대한 숨겨진 링크가 있는 태그 필드는 [예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿의 사용에서 필수입니다.
+> 대상 리소스를 사용할 수 있는 숨겨진 링크를 사용 하 여 태그 필드는 사용의 필수 [예약 된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿.
 
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 
@@ -217,7 +217,7 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
     },
@@ -304,34 +304,35 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 ```
 
 > [!IMPORTANT]
-> 대상 리소스에 대한 숨겨진 링크가 있는 태그 필드는 [예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿의 사용에서 필수입니다. 로그 경고에 리소스 간 쿼리를 사용하는 경우 [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) 사용은 반드시 필요하며 사용자는 시작된 리소스의 목록에 액세스할 수 있어야 합니다.
+> 대상 리소스를 사용할 수 있는 숨겨진 링크를 사용 하 여 태그 필드는 사용의 필수 [예약 된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿. 로그 경고에 리소스 간 쿼리를 사용하는 경우 [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) 사용은 반드시 필요하며 사용자는 시작된 리소스의 목록에 액세스할 수 있어야 합니다.
 
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>PowerShell, CLI 또는 API를 사용하여 로그 경고 관리
 
-[Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
+
 
 > [!NOTE]
 > Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
+로그 경고 현재 없는 전용된 PowerShell 또는 CLI 명령을 현재; 하지만 아래와 같이 사용할 수 있는 Azure Resource Manager PowerShell cmdlet을 통해 앞에 표시 된 리소스 템플릿 (sampleScheduledQueryRule.json) 샘플에 대 한 리소스 템플릿 섹션에서:
 
-로그 경고는 현재 전용 PowerShell 또는 CLI 명령이 없지만 아래와 같이 리소스 템플릿 섹션에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통해 사용할 수 있습니다.
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 리소스 템플릿 섹션에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량이 아래에 나와 있습니다.
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-작업이 성공하면 201은 상태 새 경고 규칙 만들기로 반환되거나 200은 기존 경고 규칙이 수정된 경우 반환됩니다.
+## Next steps
 
-## <a name="next-steps"></a>다음 단계
-
-* [Azure Alerts의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md)에 대해 알아보기
-* [로그 경고에 대한 웹후크 작업](../../azure-monitor/platform/alerts-log-webhook.md) 이해
-* [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

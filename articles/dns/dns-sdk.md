@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860604"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -45,7 +45,7 @@ Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet
 2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리...** 로 이동합니다.
 3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
-5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.
+5. 또한 다음 패키지를 설치 하려면 위의 프로세스를 반복 합니다. **Microsoft.Rest.ClientRuntime.Azure.Authentication** 하 고 **Microsoft.Azure.Management.ResourceManager**합니다.
 
 ## <a name="add-namespace-declarations"></a>네임스페이스 선언 추가
 
@@ -83,7 +83,7 @@ Azure DNS는 [Etag](dns-getstarted-create-dnszone.md)라는 낙관적 동시성�
 // Create zone parameters
 var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
 
-// Create a Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
+// Create an Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
 dnsZoneParams.Tags = new Dictionary<string, string>();
 dnsZoneParams.Tags.Add("dept", "finance");
 

@@ -1,21 +1,21 @@
 ---
-title: Excel에서 Azure Machine Learning Studio로 분석 마이그레이션
+title: Excel에서 마이그레이션 분석
 titleSuffix: Azure Machine Learning Studio
 description: Excel과 Azure Machine Learning Studio의 선형 회귀 모델 비교
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5db8c4be9317706fcc8a31b916cff72fd13596d6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864833"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션
 
@@ -54,8 +54,8 @@ Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다.
 |  | Excel | 스튜디오 |
 | --- |:---:|:---:|
 | 성능 | | |
-| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |해당 없음 |
-| <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |해당 없음 |0.78<br />(낮은 정확도) |
+| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |N/A |
+| <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |N/A |0.78<br />(낮은 정확도) |
 | 평균 절대 오류 |$9.5M |$19.4M |
 | 평균 절대 오차율(%) |6.03% |12.2% |
 
@@ -73,13 +73,13 @@ Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다.
 | --- |:---:|:---:|:---:|
 | 레이블이 지정된 값 |실제 값(숫자) |동일 |동일 |
 | 학습자 |Excel -> 데이터 분석 ->회귀 |선형 회귀 |Linear Regression |
-| 학습자 옵션 |해당 없음 |기본값 |최소 자승법<br />L2 = 0.005 |
+| 학습자 옵션 |N/A |기본값 |최소 자승법<br />L2 = 0.005 |
 | 데이터 집합 |26개 행, 3가지 기능, 1개 레이블 모든 숫자 |동일 |동일 |
 | 분할: 학습 |처음 18개 행에서 학습되고 마지막 8개 행에서 테스트된 Excel |동일 |동일 |
 | 분할: 테스트 |마지막 8개 행에 적용되는 Excel 회귀 수식 |동일 |동일 |
 | **성능** | | | |
-| 조정된 R 제곱 |0.96 |해당 없음 | |
-| 결정 계수 |해당 없음 |0.78 |0.952049 |
+| 조정된 R 제곱 |0.96 |N/A | |
+| 결정 계수 |N/A |0.78 |0.952049 |
 | 평균 절대 오류 |$9.5M |$19.4M |$9.5M |
 | 평균 절대 오차율(%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -102,14 +102,14 @@ Excel 내에서 Machine Learning 웹 서비스를 사용하려고 했습니다. 
 
 *웹 서비스 대시보드* 섹션에 다운로드할 수 있는 Excel 통합 문서가 포함되어 있습니다. 이 통합 문서는 웹 서비스 API 및 스키마 정보가 포함되어 있으며 서식이 미리 지정되어 있습니다. *Excel 통합 문서 다운로드*를 클릭하면 통합 문서가 열리고 로컬 컴퓨터에 저장할 수 있습니다. 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
+![웹 서비스 대시보드에서 Excel 통합 문서를 다운로드 합니다.](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 통합 문서가 열리면 아래 그림과 같이 파란색 매개 변수 섹션에 미리 정의된 매개 변수를 복사합니다. 매개 변수를 입력하면 Excel에서 Machine Learning 웹 서비스를 호출하고 예측 점수가 매겨진 레이블이 녹색 예측 값 섹션에 표시됩니다. 이 통합 문서는 매개 변수 아래에 입력된 모든 행 항목에 대해 학습된 모델을 기반으로 매개 변수의 예측 값을 계속 생성합니다. 이 기능을 사용하는 방법에 대한 자세한 내용은 [Excel에서 Azure Machine Learning 웹 서비스 사용](consuming-from-excel.md)을 참조하세요. 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![배포 된 웹 서비스에 연결 하는 템플릿 Excel 통합 문서](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>최적화 및 추가 실험
-Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learning 선형 회귀 모델을 최적화하는 과정을 진행했습니다. [Filter-Based Feature Selection][filter-based-feature-selection] 모듈을 사용하여 초기 데이터 요소 선택을 개선함으로써 절대 평균 오차가 4.6%로 향상되는 효과를 얻었습니다. 향후 프로젝트에 이 기능을 사용하면 모델링에 사용할 올바른 기능 집합을 찾기 위해 데이터 특성을 반복하는 시간을 몇 주 정도 단축할 수 있습니다. 
+Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learning 선형 회귀 모델을 최적화하는 과정을 진행했습니다. [Filter-Based Feature Selection][filter-based-feature-selection] 모듈을 사용하여 초기 데이터 요소 선택을 개선함으로써 절대 평균 오차가 4.6%로 향상되는 효과를 얻었습니다. 향후 프로젝트에 대 한이 기능을 단축할 수 주 올바른 모델링에 사용할 기능 집합을 찾기 위해 데이터 특성을 반복에 사용 됩니다. 
 
 다음에는 [Bayesian][bayesian-linear-regression] 또는 [Boosted Decision Trees][boosted-decision-tree-regression]와 같은 추가 알고리즘을 포함하여 성능을 비교할 계획입니다. 
 
@@ -132,13 +132,9 @@ Studio에서 Excel로 예측 분석을 체계적으로 전송하는 기능을 �
 ## <a name="resources"></a>리소스
 회귀 작업에 유용한 일부 리소스는 다음과 같습니다. 
 
-* Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 최소 자승법 선형 회귀: 결함, 문제 및 위험 요인 회귀에 대한 소개 및 설명은 다음을 참조하세요. [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
-
-[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
-
+* 최소 자승법 선형 회귀: 결함, 문제 및 위험 요인 회귀에 대한 소개 및 설명은 다음을 참조하세요. [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

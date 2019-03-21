@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 448ae5f8a615a526460ac92eaaf6c7d16761aec2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247438"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845499"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역 중복 프런트 엔드로 표준 Load Balancer 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "54247438"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!NOTE]
- Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 가용성 영역에 대한 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
+>  Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 가용성 영역에 대한 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
@@ -36,7 +36,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>영역 중복 부하 분산 장치 만들기
 
-1. 브라우저에서 Azure Portal [http://portal.azure.com](http://portal.azure.com)로 이동하고 Azure 계정으로 로그인합니다.
+1. 브라우저에서 Azure Portal [https://portal.azure.com](https://portal.azure.com)로 이동하고 Azure 계정으로 로그인합니다.
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
 3. **부하 분산 장치 만들기** 페이지에서 **이름**에 **myLoadBalancer**를 입력합니다.
 4. **형식**에서 **Public**을 선택합니다.

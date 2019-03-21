@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997943"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 상점 세부 정보 탭
 
@@ -56,7 +56,7 @@ ms.locfileid: "54445065"
 |  앱 유형             | AppSource에서 사용할 앱에 대한 평가판의 유형을 선택합니다. **체험**은 애플리케이션을 추가 비용 없이 사용할 수 있음을 나타내고, **평가판**은 고객이 짧은 기간 동안 추가 비용 없이 앱을 사용해 볼 수 있음을 나타내며, **나에게 연락**은 고객이 AppSource에서 앱 평가판을 요청할 수 있음을 나타냅니다.  |
 | 앱 도움말 링크 | 앱에 대한 온라인 설명서 또는 다른 도움말 리소스의 URL입니다.  |
 | 지원되는 국가/지역 | 팝업 대화 상자를 통해 앱이 제공되는 지리적 지역을 선택할 수 있습니다.  기본값은 전 세계 배포입니다. |
-| 지원되는 언어   | 앱에서 지원하는 언어를 선택합니다. 현재는 몇 가지 언어 옵션만 지원됩니다.  (앱에서 이 목록에 없는 추가 언어를 지원하는 경우 제안을 계속 게시하고 이메일을 통해 이 정보를 appsource@microsoft.com으로 보냅니다.)  |
+| 지원되는 언어   | 앱에서 지원하는 언어를 선택합니다. 현재는 몇 가지 언어 옵션만 지원됩니다.  (앱이이 목록에 없는 추가 언어를 지 원하는 경우 계속 제품을 게시 하 고이 정보를 전자 메일: appsource\@microsoft.com.)  |
 | 앱 버전           | 앱의 버전 번호    |
 | 앱 릴리스 날짜      | 앱의 릴리스/게시 날짜 |
 | 앱과 연동되는 제품 | 앱과 상호 작용하는 제품 또는 서비스입니다. 최대 3개의 제품을 나열할 수 있습니다. 제품을 나열하려면 **+ 새로 만들기**를 클릭하고 표시된 텍스트 상자에서 제품 이름을 입력합니다.  |

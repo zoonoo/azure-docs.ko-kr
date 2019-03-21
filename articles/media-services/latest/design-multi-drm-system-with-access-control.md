@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893019"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -29,7 +29,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 
 이 문서는 OTT 또는 온라인 스트리밍/멀티 스크린 솔루션의 DRM 하위 시스템에서 작업 중인 엔지니어 또는 DRM 하위 시스템에 관심이 있는 모든 독자를 대상으로 합니다. 독자는 PlayReady, Widevine, FairPlay 또는 Adobe Access 등 한 가지 이상의 DRM 기술에 대해 잘 알고 있다고 가정합니다.
 
-이 토론에서는 다중 DRM을 통해 Azure Media Services가 지원하는 3개의 DRM(PlayReady 및 Widevine용 CENC(Common Encryption), FairPlay, AES-128 암호화되지 않은 키 암호화)을 포함합니다. 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 기본 DRM을 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
+이 토론에서는 다중 DRM을 통해 Azure Media Services가 지원하는 3개의 DRM(PlayReady 및 Widevine용 CENC(Common Encryption), FairPlay, AES-128 암호화되지 않은 키 암호화)을 포함합니다. 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 기본 DRM을 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
 
 콘텐츠 보호에 대해 기본 다중 DRM을 사용하는 이점은 다음과 같습니다.
 
@@ -49,7 +49,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 다음 표는 다양한 플랫폼에서 기본 DRM 지원 및 다양한 브라우저에서 EME 지원을 요약합니다.
 
 | **클라이언트 플랫폼** | **기본 DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **스마트 TV, STB** | PlayReady, Widevine 및/또는 기타 | 포함된 브라우저/PlayReady용 EME 및/또는 Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/PlayReady용 IE11|
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
@@ -145,7 +145,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **키 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 애플리케이션 |
 
-즉, IDP와 STS 둘 다 Azure AD에서 제공됩니다. 플레이어로는 [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Azure Media Services 및 Azure Media Player 둘 다 DASH를 통한 CENC, HLS를 통한 FairPlay, 부드러운 스트리밍을 통한 PlayReady 및 DASH, HLS 및 부드러운 스트리밍을 통한 AES-128 암호화를 제공합니다.
+즉, IDP와 STS 둘 다 Azure AD에서 제공됩니다. 플레이어로는 [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Azure Media Services 및 Azure Media Player 둘 다 DASH를 통한 CENC, HLS를 통한 FairPlay, 부드러운 스트리밍을 통한 PlayReady 및 DASH, HLS 및 부드러운 스트리밍을 통한 AES-128 암호화를 제공합니다.
 
 다음 다이어그램에서는 이전 기술 매핑을 사용하는 전체적인 구조 및 흐름을 보여 줍니다.
 
@@ -199,7 +199,7 @@ DRM 콘텐츠 보호를 설정하기 위해 콘텐츠 관리 도구는 다음 �
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만듭니다. [Azure Media Player의 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
+8. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만듭니다. [Azure Media Player의 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
 
 9. 다음 표에서는 테스트 매트릭스를 보여 줍니다.
 
@@ -365,7 +365,7 @@ Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사�
 
 > [!NOTE]
 > 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
-
+> 
 > IDX10630: 서명을 위한 ‘System.IdentityModel.Tokens.X509AsymmetricSecurityKey’는 ‘2048’비트 이상이어야 합니다.
 
 ## <a name="the-completed-system-and-test"></a>완료된 시스템 및 테스트

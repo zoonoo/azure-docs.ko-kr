@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850029"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Custom Vision에서 사용자 데이터 내보내기 또는 삭제
 
-Custom Vision은 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 Custom Vision Service의 [Training API](https://go.microsoft.com/fwlink/?linkid=865446)를 사용하여 해당 데이터의 보기, 내보내기 및 삭제를 완전히 제어합니다.
+Custom Vision 서비스를 운영 하는 사용자 데이터를 수집 하지만 고객은 보기, 내보내기 및 삭제 사용자 지정 비전을 사용 하 여 해당 데이터를 완전히 제어할 [교육 Api](https://go.microsoft.com/fwlink/?linkid=865446)합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Custom Vision에서 사용자 데이터를 내보내고 삭제하는 방법에 대한 자세한 내용은 다음 표를 참조하세요.
+내보내기 및 사용자 지정 비전의 사용자 데이터를 삭제 하는 방법에 알아보려면 다음 표를 참조 합니다.
 
 | Data | 내보내기 작업 | 삭제 작업 |
 | ---- | ---------------- | ---------------- |
@@ -34,4 +34,4 @@ Custom Vision에서 사용자 데이터를 내보내고 삭제하는 방법에 �
 | 프로젝트 및 프로젝트 세부 정보 | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) 및 [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | 이미지 태그 | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) 및 [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | 이미지 | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446)(이미지 다운로드를 위한 URI 제공) 및 [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446)(이미지 다운로드를 위한 URI 제공) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| 내보낸 모델 | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | 계정 삭제 시 삭제됨 | 
+| 내보낸 모델 | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | 계정 삭제 시 삭제됨 |

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201877"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287233"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -261,7 +261,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 차단할 수 있습니다 [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication)합니다. 에 세부 정보를 확인 하십시오 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) Exchnage 온라인을 통해. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 

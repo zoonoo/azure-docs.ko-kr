@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004506"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
 이 문서에서는 Linux를 실행하는 Azure 가상 머신에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
@@ -51,7 +51,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    설치하는 동안 아래에서 MySQL 루트 암호를 설정하라는 내용의 팝업 대화 창이 표시되면 여기에서 암호를 설정해야 합니다.
+    설치 하는 동안 아래 MySQL 루트 암호를 설정 하 라는 메시지가 표시 대화 상자 창이 표시 됩니다 하 고 여기에 암호를 설정 해야 합니다.
   
     ![이미지](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
@@ -92,7 +92,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
   
     MySQL 릴리스 패키지 다운로드 및 설치:
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * 2단계: MySQL 리포지토리에서 MySQL5.6 패키지를 다운로드할 수 있도록 아래 파일 편집
   

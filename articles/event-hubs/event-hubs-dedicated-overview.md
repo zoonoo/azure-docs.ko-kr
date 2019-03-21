@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105593"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -29,7 +29,7 @@ ms.locfileid: "56237130"
 다음은 Event Hubs에 제공되는 서비스 계층을 비교한 표입니다. Standard는 대부분의 기능이 사용량에 따라 요금이 부과되는 반면 Event Hubs Dedicated 제품은 혼합 방식의 월 요금제가 적용됩니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량을 제공합니다. 
 
 | 기능 | Standard | 전용 |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
 | 처리량 단위(1MB/초 수신, 2MB/초 송신) | 시간당 요금 부과 | 포함됨 |
 | 메시지 크기 | 1MB | 1MB |

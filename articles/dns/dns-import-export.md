@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993061"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312651"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기 
 
@@ -120,7 +120,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 * `nslookup` 을 사용하여 레코드에 대한 이름 확인의 유효성을 검사할 수 있습니다. 영역이 아직 위임되지 않았기 때문에 올바른 Azure DNS 이름 서버를 명시적으로 지정해야 합니다. 다음 샘플은 영역에 할당된 이름 서버 이름을 검색하는 방법을 보여 줍니다. 또한 `nslookup`을 사용하여 "www" 레코드를 쿼리하는 방법을 보여줍니다.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json

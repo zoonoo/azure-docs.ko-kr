@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 19f53449e21b39eb212f94b100eaf5d26ca4cf13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006658"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 머신에 MySQL 설치
 
-[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 OpenSUSE Linux를 실행하는 가상 머신을 만든 다음 MySQL을 설치하는 방법을 보여 줍니다.
+[MySQL](https://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 OpenSUSE Linux를 실행하는 가상 머신을 만든 다음 MySQL을 설치하는 방법을 보여 줍니다.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -163,7 +163,7 @@ quit
 
 
 ## <a name="next-steps"></a>다음 단계
-MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc)를 참조하세요.
+MySQL에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc)를 참조하세요.
 
 
 

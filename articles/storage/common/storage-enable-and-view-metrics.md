@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 8fc85f82e5b6290a0f7401581e57b77473a495ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 770a494e93a51fc018b2bfe803ac15ba543f35d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011336"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure Storage 메트릭 사용 및 메트릭 데이터 보기
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -113,7 +113,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 사용 가능한 도구의 목록은 [Azure Storage 클라이언트 도구](storage-explorers.md)를 참조하세요.
 
 > [!NOTE]
-> [Microsoft Azure Storage Explorer](http://storageexplorer.com/) 버전 0.8.0부터 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
+> [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 버전 0.8.0부터 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
 >
 >
 

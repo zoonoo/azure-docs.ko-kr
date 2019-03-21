@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114970"
 ---
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 
@@ -99,12 +99,12 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     다음 버전이 표시되어야 합니다.
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](../articles/storsimple/storsimple-contact-microsoft-support.md) 에 문의하세요.
+     업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](../articles/storsimple/storsimple-contact-microsoft-support.md) 에 문의하세요.
      
-    > [!IMPORTANT]
-    > 다음 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
+     > [!IMPORTANT]
+     > 다음 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
      
 7. _FirstOrderUpdate_ 폴더에 다운로드한 Cis/MDS 에이전트를 설치하려면 3-5단계를 반복합니다. 
 8. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 주문 업데이트의 경우 `Start-HcsHotfix cmdlet`을 실행하고 두 번째 주문 업데이트가 있는 폴더를 가리키면 여러 업데이트를 설치할 수 있습니다. 이 cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 

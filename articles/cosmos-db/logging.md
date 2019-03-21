@@ -4,15 +4,15 @@ description: Azure Cosmos DB에 저장된 데이터를 기록 및 모니터링�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992093"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259774"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -24,7 +24,7 @@ ms.locfileid: "56992093"
 
 Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모니터링에 관한 몇 가지 사항을 확인해 보겠습니다. Azure 플랫폼에는 여러 로그 유형이 있습니다. 바로 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), 이벤트, 하트비트 모니터링, 작업 로그 등입니다. 로그는 다양합니다. 로그의 전체 목록을 볼 수 있습니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) Azure portal에서 합니다. 
 
-다음 이미지는 사용할 수 있는 각종 Azure 로그를 보여 줍니다.
+다음 이미지에서는 사용할 수 있는 Azure 로그의 다양 한 종류를 보여 줍니다.
 
 ![다양한 종류의 Azure 로그](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업�
 
 진단 로깅을 사용하려면 다음 리소소가 있어야 합니다.
 
-* 기존 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너. 이러한 리소스를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI 샘플](cli-samples.md) 또는 [PowerShell 샘플](powershell-samples.md)을 참조하세요.
+* 기존 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너. 이러한 리소스를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account), [Azure CLI 샘플](cli-samples.md) 또는 [PowerShell 샘플](powershell-samples.md)을 참조하세요.
 
 Azure Portal에서 진단 로그를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -99,27 +99,23 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 - 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resourceId`는 Azure Cosmos DB 계정의 이름입니다. `storageId`는 로그를 전송할 저장소 계정의 이름입니다.
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. 리소스 형식에는 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >"는 `storage-account` 저장소 계정의 이름인는 로그를 전송 하려고 합니다. "MongoRequests" 또는 "DataPlaneRequests" 범주 매개 변수 값을 업데이트 하 여 다른 로그를 기록할 수 있습니다. 
 
 - 이벤트 허브로의 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resourceId`는 Azure Cosmos DB 계정의 이름입니다. `serviceBusRuleId`는 다음 형식의 문자열입니다.
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. `event-hub-rule` 이벤트 허브 규칙 ID입니다. 
 
 - 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.

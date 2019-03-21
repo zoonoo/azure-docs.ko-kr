@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100363"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -214,7 +214,7 @@ C SDK를 사용하지 않으며 IoT Hub에 대한 분산 추적을 미리 보려
 
     ![샘플링 모드 업데이트](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![샘플링 속도 업데이트 ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![샘플링 속도 업데이트](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>여러 디바이스에 대해 대량 업데이트
 
@@ -269,7 +269,7 @@ Log Analytics에 표시된 예제 로그:
 IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../application-insights/app-insights-app-map.md)으로 보냅니다.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github의 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github의 샘플 가져오기</a>
 
 아래 이미지는 다음과 같은 3개의 라우팅 엔드포인트가 있는 앱 지도의 분산 추적을 보여 줍니다.
 

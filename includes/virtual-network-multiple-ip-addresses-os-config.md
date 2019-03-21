@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36964538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115197"
 ---
 ## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
@@ -23,15 +23,15 @@ ms.locfileid: "36964538"
 
 1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
 2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
-3. 적절한 어댑터 **로컬 영역 연결**에 대한 속성을 엽니다.
+3. 적절 한 어댑터에 대 한 속성을 엽니다. **로컬 영역 연결**합니다.
 4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
 5. **다음 IP 주소 사용**을 선택하고 다음 값을 입력합니다.
 
-    * **IP 주소**: *기본* 개인 IP 주소를 입력합니다.
-    * **서브넷 마스크**: 서브넷을 기준으로 설정됩니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
-    * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소입니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
+    * **IP 주소**: 입력 된 *기본* 개인 IP 주소
+    * **서브넷 마스크**: 서브넷을 기준으로 하는 집합입니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
+    * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소를 지정 합니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
     * **다음 DNS 서버 주소 사용** 을 선택하고 다음 값을 입력합니다.
-        * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
+        * **기본 설정된 DNS 서버**: 사용자 고유의 DNS 서버를 사용 하지 않는 경우 168.63.129.16을 입력 합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
     * **고급** 단추를 선택하고 추가 IP 주소를 추가합니다. 이전 단계에서 Azure 네트워크 인터페이스에 추가한 각각의 보조 개인 IP 주소를 Azure 네트워크 인터페이스에 할당된 기본 IP 주소에 할당되어 있는 Windows 네트워크 인터페이스에 추가합니다.
 
         가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. Azure 공용 IP 주소는 절대 운영 체제 내에서 할당하지 않아야 합니다.
@@ -62,15 +62,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. 네트워크 인터페이스(‘eth0’이라고 가정)의 구성 파일을 업데이트합니다.
 
-    * dhcp에 대한 기존 줄 항목을 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
-    * 다음 명령을 사용하여 추가 정적 IP 주소에 대한 구성을 추가합니다.
+   * dhcp에 대한 기존 줄 항목을 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
+   * 다음 명령을 사용하여 추가 정적 IP 주소에 대한 구성을 추가합니다.
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    .cfg 파일이 표시됩니다.
+     .cfg 파일이 표시됩니다.
 4. 파일을 엽니다. 파일 끝에 다음 줄이 있어야 합니다.
 
     ```bash

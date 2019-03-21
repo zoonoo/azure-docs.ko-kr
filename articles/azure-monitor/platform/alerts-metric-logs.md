@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: ac4391b91d818b21e392e134115294fb84473e69
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 8fd43228c5129395f9a61778fb83d32906fc85df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449657"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311766"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](../../azure-monitor/platform/alerts-metric-near-real-time.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다.
 
@@ -360,7 +362,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.
@@ -676,7 +678,7 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.

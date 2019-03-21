@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835929"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224637"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 
@@ -56,7 +56,7 @@ Microsoft 고객 계약에 있는 경우 청구 프로필 소유자, 참가자, 
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 송장을 다운로드합니다
 
-각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#understand-billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다. 
+각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#understand-billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다.
 
 1. **Cost Management + 청구**에서 검색합니다.
 2. 청구 프로필을 선택 합니다.
@@ -91,7 +91,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 2. **옵트인**을 클릭하고 조건에 동의합니다.
 
     ![옵트인 흐름 2단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. 규약에 동의하면 추가 수취인을 구성할 수 있습니다. 받는 사람이 제거된 경우 전자 메일 주소는 더 이상 저장되지 않습니다. 생각이 바뀌었다면 제거한 받는 사람을 다시 추가해야 합니다.
 
     ![옵트인 흐름 3단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Microsoft 고객 계약 청구서 전자 메일로 받기
 
-Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에 선택할 수 있습니다. 모든 청구 프로필 소유자, 참가자, 판독기 및 송장 관리자 전자 메일을 통해 청구서를 받습니다. 판독기는 전자 메일 청구서 기본 설정을 업데이트할 수 없습니다. 
+Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에 선택할 수 있습니다. 모든 청구 프로필 소유자, 참가자, 판독기 및 송장 관리자 전자 메일을 통해 청구서를 받습니다. 판독기는 전자 메일 청구서 기본 설정을 업데이트할 수 없습니다.
 
 1. **Cost Management + 청구**에서 검색합니다.
 1. 청구 프로필을 선택 합니다.
@@ -121,7 +121,7 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 ## <a name="download-usage"></a>사용량 다운로드
 
- 대부분의 구독에 대한 일일 사용량 파일은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에서 찾을 수 있습니다. EA 고객 인 Microsoft 고객 계약을가지고 있는 경우에 사용량을 다운로드할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/)합니다. <!-할 일: Ibiza PayG 환경이 제공 되 면 업데이트 >
+ 대부분의 구독에 대한 일일 사용량 파일은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에서 찾을 수 있습니다. EA 고객 인 Microsoft 고객 계약을가지고 있는 경우에 사용량을 다운로드할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/)합니다. <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>계정 센터에서 사용 현황 다운로드(.csv)
 
