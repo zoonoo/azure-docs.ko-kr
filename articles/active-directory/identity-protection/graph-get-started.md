@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204749"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295541"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
@@ -166,7 +166,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  resource: `https://graph.microsoft.com`
 
 - client_id: \<클라이언트 ID\>
 
@@ -246,7 +246,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 
 
 
-# <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
 이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.

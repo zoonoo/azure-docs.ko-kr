@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844591"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -201,7 +201,7 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 ## <a name="regular-expression-entity"></a>정규식 엔터티 
 
-정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. 많은 대괄호를 사용하는 것처럼 정규식이 너무 복잡한 경우 모델에 식을 추가할 수 없습니다. [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 라이브러리의 전체가 아니라 일부를 사용합니다. 
+정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. 많은 대괄호를 사용하는 것처럼 정규식이 너무 복잡한 경우 모델에 식을 추가할 수 없습니다. 전체가 아니라 일부를 사용 하 여 [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 라이브러리입니다. 
 
 다음과 같은 경우 이 엔터티가 적합합니다.
 

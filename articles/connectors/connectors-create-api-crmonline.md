@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231257"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295303"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Dynamics 365 레코드 관리
 
@@ -42,7 +42,7 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
 1. [Azure Portal](https://portal.azure.com)에서 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 검색 상자에 “Dynamics 365”를 필터로 입력합니다. 예를 들어 트리거 목록에서 **레코드가 만들어지는 경우**의 트리거를 선택합니다.
+1. 검색 상자에 “Dynamics 365”를 필터로 입력합니다. 예를 들어 트리거 목록에서이 트리거를 선택 합니다. **레코드가 만들어질 때**
 
    ![트리거 선택](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -52,10 +52,10 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
    | 자산 | 필수 | 설명 | 
    |----------|----------|-------------| 
-   | **조직 이름** | yes | 모니터링할 조직의 Dynamics 365 인스턴스의 이름, 예를 들어 "Contoso" |
-   | **엔터티 이름** | yes | 모니터링할 엔터티의 이름, 예를 들어 "리드" | 
-   | **Frequency(빈도)** | yes | 트리거와 관련된 업데이트를 확인할 때 간격으로 사용할 시간 단위 |
-   | **간격** | yes | 다음 확인 때까지 경과할 초, 분, 시간, 일, 주, 달 수 |
+   | **조직 이름** | 예 | 모니터링할 조직의 Dynamics 365 인스턴스의 이름, 예를 들어 "Contoso" |
+   | **엔터티 이름** | 예 | 모니터링할 엔터티의 이름, 예를 들어 "리드" | 
+   | **Frequency(빈도)** | 예 | 트리거와 관련된 업데이트를 확인할 때 간격으로 사용할 시간 단위 |
+   | **간격** | 예 | 다음 확인 때까지 경과할 초, 분, 시간, 일, 주, 달 수 |
    ||| 
 
    ![트리거 세부 정보](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -66,7 +66,7 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
 1. 트리거 아래에서 **새 단계**를 선택합니다.
 
-1. 검색 상자에 “Dynamics 365”를 필터로 입력합니다. 작업 목록에서 **새 레코드 만들기** 작업을 선택합니다.
+1. 검색 상자에 “Dynamics 365”를 필터로 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **새 레코드 만들기**
 
    ![작업 선택](./media/connectors-create-api-crmonline/select-action.png)
 
@@ -74,8 +74,8 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
    | 자산 | 필수 | 설명 | 
    |----------|----------|-------------| 
-   | **조직 이름** | yes | 레코드를 만들려는 경우, 반드시 트리거의 동일한 인스턴스는 아니지만, 이 예제에서는 "Contoso"인 Dynamics 365 인스턴스 |
-   | **엔터티 이름** | yes | 레코드를 만들려는 엔터티, 예를 들어 "작업" | 
+   | **조직 이름** | 예 | 레코드를 만들려는 경우, 반드시 트리거의 동일한 인스턴스는 아니지만, 이 예제에서는 "Contoso"인 Dynamics 365 인스턴스 |
+   | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" | 
    | | |
 
    ![작업 세부 정보](./media/connectors-create-api-crmonline/action-details.png)
@@ -122,9 +122,9 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 
 | 필드 형식 | 필수 데이터 유형 | 설명 | 
 |------------|--------------------|-------------|
-| 텍스트 필드 | 한 줄의 텍스트 | 이러한 필드에는 한 줄의 텍스트 또는 텍스트 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제 필드*: **설명** 및 **범주** | 
-| 정수 필드 | 정수 | 일부 필드에는 정수 또는 정수 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제 필드*: **완료율** 및 **기간** | 
-| 날짜 필드 | 날짜 및 시간 | 일부 필드에 mm/dd/yyyy 형식의 날짜 또는 날짜 형식 필드가 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제 필드*: **만든 날짜**, **시작 날짜**, **실제 시작**, **실제 종료** 및 **기한 날짜** | 
+| 텍스트 필드 | 한 줄의 텍스트 | 이러한 필드에는 한 줄의 텍스트 또는 텍스트 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제에서는 필드*: **설명을** 고 **범주** | 
+| 정수 필드 | 정수 | 일부 필드에는 정수 또는 정수 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제에서는 필드*: **완료율** 고 **기간** | 
+| 날짜 필드 | 날짜 및 시간 | 일부 필드에 mm/dd/yyyy 형식의 날짜 또는 날짜 형식 필드가 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제에서는 필드*: **만든**, **시작 날짜**를 **실제 시작**를 **실제 종료**, 및 **기한** | 
 | 레코드 ID와 조회 유형이 모두 필요한 필드 | 기본 키 | 다른 엔터티 레코드를 참조하는 일부 필드에는 레코드 ID와 조회 유형이 모두 필요합니다. | 
 ||||
 
@@ -187,7 +187,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에서 설명한 것처럼 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/crm/)를 참조하세요. 
+커넥터의 Swagger 파일에서 설명한 것처럼 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/dynamicscrmonline/)를 참조하세요. 
 
 ## <a name="get-support"></a>지원 받기
 

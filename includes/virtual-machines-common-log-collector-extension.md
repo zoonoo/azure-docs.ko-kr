@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0171b3ae2f45d46769b13ac0849593944c6a6209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 081acf572c5b23d52ec0b8b7de1918edc9536c60
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124990"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305324"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
 
@@ -360,7 +360,7 @@ if ($AdditionDataLocationList -ne $null )
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 "publicConfig is:  $publicConfigJSON"
 
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 $privateconfig = "{
 }"
 
@@ -452,7 +452,7 @@ $publicConfigJSON = $publicConfig | ConvertTo-Json
 Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 #
 $privateconfig = "{
 }"

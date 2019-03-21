@@ -1,6 +1,6 @@
 ---
 title: Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트) | Microsoft Docs
-description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 WebJob 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다.
+description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 WebJob 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
 manager: douge
@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999541"
 ---
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
+# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Azure Storage 계정을 만들거나 참조한 후 Visual Studio Azure WebJob프로젝트에서 Azure Queue Storage를 사용하는 방법을 설명합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 Storage 계정을 추가하는 경우 적절한 Azure Storage NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 Storage 계정에 대한 연결 문자열이 업데이트됩니다.  
 
-이 문서에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
+이 문서에서는 Azure Queue Storage 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
+Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>큐 메시지를 받을 때 함수를 트리거하는 방법
 큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 **QueueTrigger** 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. 큐 이름을 동적으로 설정하는 방법을 알아보려면 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 **string** 외에도 매개 변수는 바이트 배열, **CloudQueueMessage** 개체 또는 사용자가 정의한 POCO일 수 있습니다.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 다음 예제에서 큐 메시지에는 **BlobName** 속성을 포함하는 **BlobInformation** 개체에 대한 JSON이 포함됩니다. SDK에서 자동으로 개체를 역직렬화합니다.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-이 SDK는 [Newtonsoft.Json NuGet 패키지](http://www.nuget.org/packages/Newtonsoft.Json) 를 사용하여 메시지를 직렬화 및 역직렬화합니다. WebJobs SDK를 사용하지 않는 프로그램에서 큐 메시지를 만드는 경우 다음 예제와 같은 코드를 작성하여 SDK에서 구문 분석할 수 있는 POCO 큐 메시지를 만들 수 있습니다.
+이 SDK는 [Newtonsoft.Json NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json) 를 사용하여 메시지를 직렬화 및 역직렬화합니다. WebJobs SDK를 사용하지 않는 프로그램에서 큐 메시지를 만드는 경우 다음 예제와 같은 코드를 작성하여 SDK에서 구문 분석할 수 있는 POCO 큐 메시지를 만들 수 있습니다.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Blob을 복사하는 다음 예제와 같이 비동기 함수는 [취소 토큰](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)을 사용할 수 있습니다. **queueTrigger** 자리 표시자에 대한 자세한 내용은 [Blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) 섹션을 참조하세요.
+Blob을 복사하는 다음 예제와 같이 비동기 함수는 [취소 토큰](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)을 사용할 수 있습니다. **queueTrigger** 자리 표시자에 대한 자세한 내용은 [Blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) 섹션을 참조하세요.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -115,7 +115,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 * **string** popReceipt
 * **int** dequeueCount
 
-Azure 저장소 API에서 직접 작업하려면 **CloudStorageAccount** 매개 변수를 추가하면 됩니다.
+Azure 스토리지 API에서 직접 작업하려면 **CloudStorageAccount** 매개 변수를 추가하면 됩니다.
 
 다음 예제에서는 이러한 모든 메타데이터를 INFO 애플리케이션 로그에 씁니다. 예제에서 logMessage와 queueTrigger에는 둘 다 큐 메시지의 내용이 포함됩니다.
 
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 문자열 대신 POCO가 포함된 큐 메시지를 만들려면 POCO 유형을 출력 매개 변수로 **Queue** 특성 생성자에 전달합니다.
 
 ```csharp
@@ -263,7 +263,7 @@ public static void CreateQueueMessage(
 **IBinder** 인터페이스를 **Table** 및 **Blob** 특성과 함께 사용할 수도 있습니다.
 
 ## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
-**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플에 대해서는 [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
+**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플에 대해서는 [WebJob SDK를 사용하여 Azure Blob Storage로 작업하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
 <!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Blob 작업을 트리거하는 문자열 큐 메시지
@@ -281,7 +281,7 @@ public static void ProcessQueueMessage(
 }
 ```
 
-**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure blob 저장소를 사용하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
+**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure Blob Storage를 사용하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
 
 특성이 **Stream** 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 **FileAccess** 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 큐 메시지에 JSON으로 저장된 POCO의 경우 **Queue** 특성의 **blobPath** 매개 변수에서 개체 속성의 이름을 지정하는 자리 표시자를 사용할 수 있습니다. 큐 메타데이터 속성 이름을 자리 표시자로 사용할 수도 있습니다. [큐 또는 큐 메시지 메타데이터 가져오기](#get-queue-or-queue-message-metadata)를 참조하세요.
 
 다음 예제에서는 Blob을 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 **BlobName** 및 **BlobNameWithoutExtension** 속성을 포함하는 **BlobInformation** 개체입니다. 속성 이름은 **Blob** 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-이 SDK는 [Newtonsoft.Json NuGet 패키지](http://www.nuget.org/packages/Newtonsoft.Json) 를 사용하여 메시지를 직렬화 및 역직렬화합니다. WebJobs SDK를 사용하지 않는 프로그램에서 큐 메시지를 만드는 경우 다음 예제와 같은 코드를 작성하여 SDK에서 구문 분석할 수 있는 POCO 큐 메시지를 만들 수 있습니다.
+이 SDK는 [Newtonsoft.Json NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json) 를 사용하여 메시지를 직렬화 및 역직렬화합니다. WebJobs SDK를 사용하지 않는 프로그램에서 큐 메시지를 만드는 경우 다음 예제와 같은 코드를 작성하여 SDK에서 구문 분석할 수 있는 POCO 큐 메시지를 만들 수 있습니다.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };

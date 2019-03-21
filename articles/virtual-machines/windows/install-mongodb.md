@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a45d6a6064173cea7ed15065ab3464718cc8578e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998491"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
-[MongoDB](http://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2016 VM(가상 머신)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
+[MongoDB](https://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2016 VM(가상 머신)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 MongoDB를 설치 및 구성하기 전에 VM을 만들고, 데이터 디스크를 추가해야 합니다. 다음 문서를 참조하여 VM을 만들고 데이터 디스크를 추가하세요.
@@ -34,7 +34,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
 
 ## <a name="install-mongodb"></a>MongoDB 설치
 > [!IMPORTANT]
-> 인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [MongoDB 보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)을 참조하세요.
+> 인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [MongoDB 보안 및 인증](https://www.mongodb.org/display/DOCS/Security+and+Authentication)을 참조하세요.
 
 
 1. 원격 데스크톱을 사용하여 VM에 연결한 후에는 작업 표시줄에서 Internet Explorer를 엽니다.
@@ -46,7 +46,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
    * **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *https://\*.mongodb.com*을 추가하고 대화 상자를 닫습니다.
      
      ![Internet Explorer 보안 설정 구성](./media/install-mongodb/configure-internet-explorer-security.png)
-4. [MongoDB - 다운로드](http://www.mongodb.com/downloads) 페이지(http://www.mongodb.com/downloads))로 이동합니다.
+4. [MongoDB - 다운로드](https://www.mongodb.com/downloads) 페이지(https://www.mongodb.com/downloads))로 이동합니다.
 5. 필요한 경우 **커뮤니티 서버** 버전을 선택한 후 *Windows Server 2008 R2 64비트 이상*의 최신 안정판을 선택합니다. 설치 관리자를 다운로드하려면 **다운로드(msi)** 를 클릭합니다.
    
     ![MongoDB 설치 관리자 다운로드](./media/install-mongodb/download-mongodb.png)

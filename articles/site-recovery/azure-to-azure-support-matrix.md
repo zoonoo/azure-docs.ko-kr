@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093874"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287199"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -220,7 +220,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20 MB/s | 디스크당 1684 GB
 ## <a name="replicated-machines---networking"></a>복제된 컴퓨터 - 네트워킹
 **구성** | **지원** | **세부 정보**
 --- | --- | ---

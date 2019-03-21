@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034967"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294514"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 
-고가용성이나 짧은 대기 시간 또는 둘 다를 위해 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간과 처리량을 근본적으로 절충합니다. 상업적으로 사용할 수 있는 대부분의 분산 데이터베이스는 개발자가 두 가지의 극단적인 일관성 모델: 강력한 일관성과 최종 일관성 간에 선택하도록 합니다.  [선형화 가능성](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) 또는 강력한 일관성 모델은 데이터 프로그래밍 기능의 표준입니다. 하지만 높은 대기 시간(정상 상태에서)의 부당한 금액을 추가하고 가용성을 감소시킵니다(실패 중). 반면, 최종 일관성은 더 높은 가용성과 성능을 제공하지만 애플리케이션을 프로그래밍하기에 어렵습니다. 
+고가용성이나 짧은 대기 시간 또는 둘 다를 위해 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간과 처리량을 근본적으로 절충합니다. 대부분의 상업적으로 사용할 수 있는 분산된 된 데이터베이스 요청 개발자가 두 가지 극단적인 일관성 모델을 선택할 수: *강력한* 일관성 및 *최종* 일관성. 합니다  [선형성](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) 강력한 일관성 모델은 데이터 프로그래밍 표준을 또는 합니다. 하지만 높은 대기 시간 (정상 상태)의 가격을 추가 하 고 (실패) 하는 동안 가용성을 감소 합니다. 반면, 최종 일관성 높은 가용성과 성능을 향상 시키려면를 제공 하지만 있도록 하드 응용 프로그램을 프로그래밍 합니다. 
 
-Azure Cosmos DB는 두 가지의 극단적인 일관성 모델이 아니라 선택 사항 스펙트럼으로 데이터 일관성에 접근합니다. 강력한 일관성과 최종 일관성이 끝이지만 스펙트럼을 따라 많은 일관성 선택 사항이 있습니다. 개발자는 이러한 일관성 옵션을 사용하여 고가용성 또는 성능과 관련해서 원하는 사항을 정확하게 선택하고 세부적으로 절충할 수 있습니다. 
+Azure Cosmos DB는 두 가지의 극단적인 일관성 모델이 아니라 선택 사항 스펙트럼으로 데이터 일관성에 접근합니다. 강력한 일관성과 결과적인 일관성 스펙트럼의 끝에는 여러 가지 일관성 스펙트럼을 따라. 개발자는 정확 하 게 선택 하 고 높은 수준의 가용성 및 성능에 대해 세부적으로 균형을 이러한 옵션을 사용할 수 있습니다. 
 
-Azure Cosmos DB를 사용하여 개발자는 일관성 스펙트럼에서 5개의 잘 정의된 일관성 모델에서 선택할 수 있습니다. 가장 강력한 것에서 가장 약한 것까지 모델은 강력, 제한된 부실, 세션, 일관적인 접두사 및 최종입니다. 모델은 잘 정의되었으며 직관적입니다. 특정 실제 시나리오에 사용할 수 있습니다. 각 모델은 [가용성과 성능의 절충](consistency-levels-tradeoffs.md)을 제공하며 포괄적인 SLA로 지원됩니다. 다음 이미지는 스펙트럼으로 다양한 일관성 수준을 보여줍니다.
+Azure Cosmos DB를 사용하여 개발자는 일관성 스펙트럼에서 5개의 잘 정의된 일관성 모델에서 선택할 수 있습니다. , 완화 더 강한 모델은 포함 *강력한*를 *제한 된 부실*를 *세션*를 *일관 된 접두사*, 및 *최종* 일관성. 잘 정의 되어 있고 직관적인 모델과 특정 실제 시나리오에 사용할 수 있습니다. 각 모델을 제공 [가용성 및 성능 절충](consistency-levels-tradeoffs.md) 있으며는 Sla로 지원 합니다. 다음 이미지에는 스펙트럼이 구현으로 다양 한 일관성 수준을 보여 줍니다.
 
 ![스펙트럼으로 일관성](./media/consistency-levels/five-consistency-levels.png)
 
-일관성 수준은 지역에 관계없이 적용됩니다. Azure Cosmos 계정의 일관성 수준은 읽기 및 쓰기가 제공되는 지역, Azure Cosmos 계정에 연결된 지역 수 또는 계정이 단일 또는 여러 개의 쓰기 지역으로 구성되었는지 여부와 관계없이 모든 읽기 작업에 대해 보장됩니다.
+일관성 수준 지역 중립적 이며 지역 올 읽기 및 쓰기는 처리, Azure Cosmos 계정과 연결 된 지역 수에 관계 없이 모든 작업에 대 한 보장은 단일 계정에 구성 되어 있는지 여부 또는 또는 여러 쓰기 영역을 추가 합니다.
 
 ## <a name="scope-of-the-read-consistency"></a>읽기 일관성 범위
 
@@ -81,7 +81,7 @@ Azure Cosmos DB 컨테이너는 원정팀과 홈팀의 누계를 포함합니다
 - [야구를 통해 설명하는 복제된 데이터 일관성(비디오) 작성자: Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [야구를 통해 설명하는 복제된 데이터 일관성(백서) 작성자: Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [약하게 일관된 복제 데이터에 대한 세션 보장](https://dl.acm.org/citation.cfm?id=383631)
-- [최신 분산 데이터베이스 시스템 디자인의 일관성 절충: CAP는 스토리의 일부일 뿐입니다.](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [최신 분산 데이터베이스 시스템 디자인의 일관성 절충: CAP는 스토리의 일부일 뿐입니다.](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [최종 일관성 - 재고되었습니다.](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

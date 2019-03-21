@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634544"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286315"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 애플리케이션에서 Azure Search를 사용하는 방법
 이 문서는 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 준비하여 실행하기 위한 연습입니다. Azure Search를 사용하여 애플리케이션에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.
@@ -59,7 +59,7 @@ Azure Search .NET SDK는 .NET Framework 4.5.2 이상 및 .NET Core를 대상으�
 * 문서를 사용하여 인덱스 채우기
 * 전체 텍스트 검색 및 필터를 사용하여 문서 검색하기
 
-이들 각각을 설명하는 샘플 코드 사용자 애플리케이션에서 코드 조각을 자유롭게 사용하세요.
+다음 샘플 코드에는 이들 각각을 설명 합니다. 사용자 애플리케이션에서 코드 조각을 자유롭게 사용하세요.
 
 ### <a name="overview"></a>개요
 "호텔"이라는 이름의 새로운 인덱스를 탐색하려는 샘플 애플리케이션은 몇몇 문서로 채운 다음, 일부 검색 쿼리를 실행합니다. 전체 흐름을 보여주는 주 프로그램은 다음과 같습니다.
@@ -202,7 +202,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 다음으로, `Main`에 의해 호출된 각 메서드를 좀더 자세히 살펴볼 것입니다.
 
 ### <a name="creating-an-index"></a>인덱스 만들기
-`SearchServiceClient`을(를) 만든 후, `Main`이(가) 하는 다음 일은 이미 있는 "호텔" 인덱스를 삭제하는 것입니다. 작업은 다음과 같은 메서드로 수행 됩니다.
+만든 후는 `SearchServiceClient`, `Main` 이미 있는 경우 "호텔" 인덱스를 삭제 합니다. 작업은 다음과 같은 메서드로 수행 됩니다.
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -330,6 +330,8 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 
 마지막으로, `UploadDocuments` 메서드가 2초 동안 지연됩니다. Azure Search 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 애플리케이션은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 애플리케이션에서는 일반적으로 지연만 필요합니다.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### <a name="how-the-net-sdk-handles-documents"></a>.NET SDK가 문서를 처리하는 방법
 Azure Search.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클래스의 인스턴스를 업로드할 수 있는지 궁금할 수 있습니다. 이 질문에 대답하기 위해 `Hotel` 클래스를 살펴보겠습니다.
 
@@ -394,9 +396,9 @@ public partial class Hotel
 > 
 > 
 
-두 번째로 유의할 사항은 `IsFilterable`, `IsSearchable`, `Key` 및 `Analyzer`와 같이 각 public 속성을 데코레이트하는 특성입니다. 이러한 특성은 [Azure Search 인덱스의 해당 특성](https://docs.microsoft.com/rest/api/searchservice/create-index#request)에 직접 매핑됩니다. `FieldBuilder` 클래스는 이러한 특성을 사용하여 인덱스에 대한 필드 정의를 생성합니다.
+두 번째 부분은 각 public 속성을 데코 레이트 하는 특성 (같은 `IsFilterable`, `IsSearchable`를 `Key`, 및 `Analyzer`). 이러한 특성은 [Azure Search 인덱스의 해당 특성](https://docs.microsoft.com/rest/api/searchservice/create-index#request)에 직접 매핑됩니다. `FieldBuilder` 클래스는 이러한 특성을 사용하여 인덱스에 대한 필드 정의를 생성합니다.
 
-`Hotel` 클래스에 대해 세 번째로 중요한 부분은 public 속성의 데이터 형식입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [Azure Search .NET SDK 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)에 `Documents.Get` 메서드로 문서화됩니다. `FieldBuilder` 클래스는 사용자를 위해 이러한 매핑을 처리하는 역할을 하지만 serialization 문제를 해결해야 하는 경우에도 알아두면 도움이 될 수 있습니다.
+에 대 한 세 번째 중요 한 사항은 `Hotel` 클래스는 public 속성의 데이터 형식입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [Azure Search .NET SDK 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)에 `Documents.Get` 메서드로 문서화됩니다. `FieldBuilder` 클래스는 사용자를 위해 이러한 매핑을 처리하는 역할을 하지만 serialization 문제를 해결해야 하는 경우에도 알아두면 도움이 될 수 있습니다.
 
 사용자의 클래스를 문서로서 사용하는 이 능력은 양방향으로 사용 가능합니다. 또한 다음 섹션에서 확인할 수 있듯이 검색 결과를 검색하고 이 검색 결과를 SDK가 자동으로 사용자가 선택한 유형으로 역직렬화하도록 할 수도 있습니다.
 
@@ -585,7 +587,7 @@ WriteDocuments(results);
 
     ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-이 단계에서 자습서를 완료하지만 여기서 멈추지 마십시오. **다음 단계** 에서는 Azure Search에 대해 자세히 학습하기 위한 추가 리소스가 제공됩니다.
+이 단계에서 자습서를 완료하지만 여기서 멈추지 마십시오. * * 다음 단계는 Azure Search에 대 한 자세한 학습을 위한 추가 리소스를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/)에 대한 참고 자료를 찾아봅니다.

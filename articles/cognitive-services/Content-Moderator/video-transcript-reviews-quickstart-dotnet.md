@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113736"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -246,10 +246,10 @@ VideotranscriptReviews 네임스페이스, Program 클래스에 다음 메서드
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
 1. IList<TranscriptModerationBodyItem>입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
-- **Terms**. IList<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
-- **Index**. 용어의 0부터 시작하는 인덱스입니다.
-- **Term**. 용어를 포함하는 문자열입니다.
-- **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
+1. **Terms**. IList<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
+1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
+1. **Term**. 용어를 포함하는 문자열입니다.
+1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 

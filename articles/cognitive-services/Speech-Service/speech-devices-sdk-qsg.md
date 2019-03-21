@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872546"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894413"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Speech Devices SDK 시작
 
@@ -37,20 +37,20 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
 * [Speech 장치 SDK 다운로드 사이트](https://shares.datatransfer.microsoft.com/)에서 Android 샘플 앱이 포함된 최신 버전의 Speech 장치 SDK를 가져옵니다. .zip 파일을 로컬 폴더(예: C:\SDSDK)에 추출합니다.
 
-* PC에 [Android Studio](https://developer.android.com/studio/) 및 [Vysor](http://vysor.io/download/)을 설치합니다.
+* PC에 [Android Studio](https://developer.android.com/studio/) 및 [Vysor](https://vysor.io/download/)을 설치합니다.
 
-* [Speech Service 구독 키](get-started.md)를 가져옵니다. 30일 평가판을 가져오거나 Azure 대시보드에서 키를 가져올 수 있습니다.
+* 가져오기는 [Speech Services 구독 키](get-started.md)합니다. 30일 평가판을 가져오거나 Azure 대시보드에서 키를 가져올 수 있습니다.
 
-* Speech Service의 의도 인식 기능을 사용하려면 [LUIS(Language Understanding 서비스)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 구독하고 [구독 키](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)를 가져옵니다.
+* 음성 서비스의 의도 인식 기능을 사용 하려는 경우에 가입 합니다 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) 및 [구독 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)합니다.
 
     [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://shares.datatransfer.microsoft.com/)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기**를 선택한 다음, JSON 파일을 선택합니다.
 
 ## <a name="set-up-the-development-kit"></a>개발 키트 설정
-    
+
 1. 개발 키트에는 마이크로 USB 커넥터 2개가 있습니다. 왼쪽 커넥터는 개발 키트에 전원을 공급하기 위한 것이며 아래 이미지에서 전원으로 강조 표시됩니다. 오른쪽 커넥터는 개발 키트를 제어하기 위한 것이며 해당 이미지에 디버그로 표시됩니다.
 
     ![개발 키트 연결](media/speech-devices-sdk/qsg-1.png)
-       
+
 1. 마이크로 USB 케이블을 사용해 전원 포트를 PC 또는 전원 어댑에 연결하여 개발 키트에 전원을 공급합니다. 상단 보드 아래에서 녹색 전원 표시기가 켜집니다.
 
 1. 두 번째 마이크로 USB 케이블을 사용하여 컴퓨터의 디버그 포트에 대한 개발 키트 연결을 제어합니다. 신뢰할 수 있는 통신을 확보하기 위해 반드시 고품질 케이블을 사용해야 합니다.
@@ -114,92 +114,68 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
 ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 응용 프로그램을 빌드하고 설치합니다.
 
-1.  Android Studio를 시작합니다.
+1. Android Studio를 시작합니다.
 
-1.  **기존 Android Studio 프로젝트 열기**를 선택합니다.
+1. **기존 Android Studio 프로젝트 열기**를 선택합니다.
 
-    ![Android Studio - 기존 프로젝트 열기](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - 기존 프로젝트 열기](media/speech-devices-sdk/qsg-5.png)
 
-1.  C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
+1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
-1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다.
+1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다.
 
-    키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
+   키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. 기본 절전 모드 해제 단어(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 절전 모드 해제 단어 중 하나를 시도할 수도 있습니다. 이러한 대체 절전 모드 해제 단어에 대한 리소스 파일은 Speech Devices SDK의 keyword 폴더에 있습니다. 예를 들어 C:\SDSDK\Android-Sample-Release\keyword\Computer에는 "Computer" 절전 모드 해제 단어에 사용되는 파일이 들어 있습니다.
 
     [사용자 지정 절전 모드 해제 단어를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    사용하려는 절전 모드 해제 단어를 설치하려면 다음을 수행합니다.
+    새로운 절전 모드 해제 단어를 사용 하려면 MainActivity.java 다음 두 줄을 업데이트 하 고 앱에는 절전 모드 해제 word 패키지를 복사 합니다. 예를 절전 모드 해제를 사용 하려면 'Machine' 절전 모드 해제 word 패키지 kws에서 word-machine.zip:
 
-    * [명령 프롬프트] 창에서 다음 명령을 실행하여 디바이스의 data 폴더에 keyword 폴더를 만듭니다.
+   * 절전 모드 해제 package "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\" 폴더로 복사 합니다.
+   * 업데이트 패키지 이름과 키워드를 사용 하 여 MainActivity.java: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. 마이크 배열 기하 도형 설정이 포함된 다음 줄을 업데이트합니다.
 
-    * kws.table, kws_k.fst 및 words_kw.txt 파일을 디바이스의 \data\keyword 폴더에 복사합니다. [명령 프롬프트 창]에서 다음 명령을 실행합니다. [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)를 만든 경우 웹에서 생성된 kws.table 파일은 kws.table, kws_k.fst 및 words_kw.txt 파일과 동일한 디렉터리에 있습니다. 사용자 지정 절전 모드 해제 단어의 경우 `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` 명령을 사용하여 kws.table 파일을 개발 키트에 푸시합니다.
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   다음 표에서는 사용 가능한 값을 설명하고 있습니다.
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * 샘플 애플리케이션에서 이러한 파일을 참조합니다. MainActivity.java에서 다음 줄을 찾습니다. 지정한 키워드가 사용 중인 키워드이고 해당 경로가 디바이스에 푸시한 `kws.table` 파일을 가리키는지 확인합니다.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > 사용자 고유의 코드에서 kws.table 파일을 사용하여 키워드 모델 인스턴스를 만들고 인식을 시작할 수 있습니다.
-        >
-        > ```java
-        > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.  마이크 배열 기하 도형 설정이 포함된 다음 줄을 업데이트합니다.
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    다음 표에서는 사용 가능한 값을 설명하고 있습니다.
-
-    |변수|의미|사용 가능한 값|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|실제 마이크 구성|원형 개발 키트의 경우: `Circular6+1` |
-    |||선형 개발 키트의 경우: `Linear4`|
-    |`SelectedGeometry`|소프트웨어 마이크 구성|모든 마이크를 사용하는 원형 개발 키트의 경우: `Circular6+1`|
-    |||네 개의 마이크를 사용하는 원형 개발 키트의 경우: `Circular3+1`|
-    |||모든 마이크를 사용하는 선형 개발 키트의 경우: `Linear4`|
-    |||두 개의 마이크를 사용하는 선형 개발 키트의 경우: `Linear2`|
+   |변수|의미|사용 가능한 값|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|실제 마이크 구성|원형 개발 키트의 경우: `Circular6+1` |
+   |||선형 개발 키트의 경우: `Linear4`|
+   |`SelectedGeometry`|소프트웨어 마이크 구성|모든 마이크를 사용하는 원형 개발 키트의 경우: `Circular6+1`|
+   |||네 개의 마이크를 사용하는 원형 개발 키트의 경우: `Circular3+1`|
+   |||모든 마이크를 사용하는 선형 개발 키트의 경우: `Linear4`|
+   |||두 개의 마이크를 사용하는 선형 개발 키트의 경우: `Linear2`|
 
 
-1.  애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
+1. 애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
 
 1. 디바이스를 선택한 다음, **확인**을 선택하여 애플리케이션을 디바이스에 배포합니다.
 
     ![배포 대상 선택 대화 상자](media/speech-devices-sdk/qsg-7.png)
 
-1.  Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
+1. Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
 
-    ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
+   ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
 
 1. 실험!
 
@@ -207,7 +183,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
 
 ### <a name="certificate-failures"></a>인증서 오류
 
-Speech Service를 사용할 때 인증서 오류가 발생하면 디바이스의 날짜와 시간이 정확한지 확인합니다.
+음성 서비스를 사용 하는 경우 인증서 오류를 받게 되 면 장치의 정확한 날짜와 시간에 있는지 확인 합니다.
 
 1. **설정**으로 이동합니다. **시스템** 아래에서 **날짜 및 시간**을 선택합니다.
 

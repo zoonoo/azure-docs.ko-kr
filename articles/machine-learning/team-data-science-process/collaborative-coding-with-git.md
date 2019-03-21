@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458238"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863307"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -36,7 +36,7 @@ Azure DevOps Services는 작업 항목(스토리 또는 작업)을 Git 분기와
 
 각 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 작업 항목에 대해 스토리 분기에 따라 분기를 만듭니다. 스토리-작업 관계에 해당하는 분기를 이러한 계층적 방식으로 구성하는 것은 여러 사람이 동일한 프로젝트의 다른 스토리에 대해 작업하거나 동일한 스토리의 다른 작업을 수행하는 경우에 유용합니다. 각 팀 구성원이 다른 분기에서 작업하는 경우 및 분기를 공유할 때 각 구성원이 다른 코드 또는 다른 아티팩트에서 작업하는 경우에 발생하는 충돌을 최소화할 수 있습니다. 
 
-다음 그림에서는 TDSP에 권장되는 분기 전략을 보여 줍니다. 이 그림과 같이 많은 분기가 필요하지 않을 수 있습니다. 특히 한두 명의 사람이 동일한 프로젝트에서 작업하거나 한 사람이 스토리의 모든 작업을 수행할 때 그렇습니다. 그러나 개발 분기와 마스터 분기는 분리하는 것이 항상 좋습니다. 이렇게 하면 릴리스 분기가 개발 작업으로 인해 중단되는 것을 방지할 수 있습니다. Git 분기 모델에 대한 더 자세한 설명은 [성공적인 Git 분기 모델](http://nvie.com/posts/a-successful-git-branching-model/)에서 찾을 수 있습니다.
+다음 그림에서는 TDSP에 권장되는 분기 전략을 보여 줍니다. 이 그림과 같이 많은 분기가 필요하지 않을 수 있습니다. 특히 한두 명의 사람이 동일한 프로젝트에서 작업하거나 한 사람이 스토리의 모든 작업을 수행할 때 그렇습니다. 그러나 개발 분기와 마스터 분기는 분리하는 것이 항상 좋습니다. 이렇게 하면 릴리스 분기가 개발 작업으로 인해 중단되는 것을 방지할 수 있습니다. Git 분기 모델에 대한 더 자세한 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)에서 찾을 수 있습니다.
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

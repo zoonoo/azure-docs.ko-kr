@@ -12,20 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005168"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294929"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트 
 
 새 AMS(Azure Media Services) 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure Storage 계정을 선택하도록 요청받습니다. Media Services 계정에 저장소 계정을 둘 이상 추가할 수 있습니다. 이 문서에서는 저장소 키를 회전하는 방법을 보여 줍니다. 또한 미디어 계정에 저장소 계정을 추가하는 방법도 보여 줍니다. 
 
-이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media)을 사용해야 합니다.  자세한 내용은 [PowerShell 및 Resource Manager로 Azure 리소스를 관리하는 방법](../../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
+이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](https://docs.microsoft.com/powershell/module/az.media)을 사용해야 합니다.  자세한 내용은 [PowerShell 및 Resource Manager로 Azure 리소스를 관리하는 방법](../../azure-resource-manager/manage-resource-groups-powershell.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
 
@@ -42,15 +44,15 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
 ## <a name="steps-to-rotate-storage-keys"></a>저장 키를 회전하는 단계 
  
  1. PowerShell cmdlet 또는 [Azure](https://portal.azure.com/) 포털을 통해 저장소 계정 기본 키를 변경합니다.
- 2. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys cmdlet을 호출하여 미디어 계정에서 스토리지 계정 키를 가져오도록 합니다.
+ 2. 저장소 계정 키를 선택 하 여 미디어 계정에 적절 한 매개 변수를 사용 하 여 동기화 AzMediaServiceStorageKeys cmdlet를 호출 합니다.
  
     다음 예제에서는 키를 저장소 계정에 동기화하는 방법을 보여 줍니다.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  4. PowerShell cmdlet 또는 Azure Portal을 통해 저장소 계정 보조 키를 변경합니다.
- 5. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys PowerShell cmdlet을 호출하여 미디어 계정에서 새 스토리지 계정 키를 가져오도록 합니다. 
+ 5. 새 저장소 계정 키를 선택 하 여 미디어 계정에 적절 한 매개 변수를 사용 하 여 동기화 AzMediaServiceStorageKeys powershell을 호출 합니다. 
  6. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  
 ### <a name="a-powershell-cmdlet-example"></a>PowerShell cmdlet 예제 
@@ -63,7 +65,7 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 저장소 계정을 추가하는 단계

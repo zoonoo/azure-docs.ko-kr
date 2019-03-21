@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2625b4807d98359b3534b8406182cd7bed194746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122406"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
@@ -37,7 +37,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   <th>설명</th>
   <tr>
     <td>api-version</td>
-    <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
+    <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
     <td>scope</td>

@@ -7,16 +7,16 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095214"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>자습서: Azure Bot Service v3로 QnA 봇 만들기
 
@@ -90,12 +90,12 @@ ms.locfileid: "55869163"
 
 1. QnA Maker 포털에 있는 기술 자료의 설정 탭에서 기술 자료 ID, 호스트 URL 및 엔드포인트 키를 가져옵니다.
 
-    - [QnA Maker](https://qnamaker.ai)에 로그인
-    - 기술 자료로 이동
-    - **설정** 탭을 선택합니다.
-    - 아직 게시하지 않은 경우 기술 자료 **게시**
+   - [QnA Maker](https://qnamaker.ai)에 로그인
+   - 기술 자료로 이동
+   - **설정** 탭을 선택합니다.
+   - 아직 게시하지 않은 경우 기술 자료 **게시**
 
-    ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>봇 테스트
 

@@ -1,5 +1,5 @@
 ---
-title: 초대 링크 없이 전자 메일-Azure Active Directory B2B 공동 작업 사용자 추가 | Microsoft Docs
+title: B2B 게스트를 초대 링크 없이 전자 메일-Azure Active Directory 추가 | Microsoft Docs
 description: 게스트 사용자가 Azure Active Directory B2B 공동 작업에서 초대를 사용하지 않고 Azure AD에 다른 게스트 사용자를 추가하도록 할 수 있습니다.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337671"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294980"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B 공동 작업 게스트 사용자를 초대 링크 없이 전자 메일 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "57337671"
 
 사용자를 디렉터리에 초대한 경우 게스트 사용자는 리소스 테넌트 특정 Azure Portal URL(예: https://portal.azure.com/*resourcetenant*.onmicrosoft.com)에 직접 액세스하여 개인 정보 보호 방침에 동의해야 합니다.
 
-### <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 - [B2B 공동 작업 초대 상환](redemption-experience.md)

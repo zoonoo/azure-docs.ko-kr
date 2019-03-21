@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884993"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241578"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
-Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합니다. NMT(신경 기계 번역)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 신경계를 사용할 수 있을 때 Translator Text API V3를 통해 기본 방식으로 사용할 수 있습니다. 
+Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합니다. NMT(신경 기계 번역)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 신경계를 사용할 수 있을 때 Translator Text API V3를 통해 기본 방식으로 사용할 수 있습니다.
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 * 기본 인공신경망: 인공신경망은 기본 번역 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
 * 인공신경망 전용: 인공신경망 번역만 사용할 수 있습니다.
 
-**V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다. Custom Translator는 인공신경망 언어에서만 사용할 수 있습니다. 
+**V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다. Custom Translator는 인공신경망 언어에서만 사용할 수 있습니다. [사용자 지정 변환기에서 현재 사용할 수 있는 언어를 보려면](#customization)합니다.
 
 |언어|  언어 코드|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 ## <a name="customization"></a>사용자 지정
 
-다음 언어는 [Custom Translator](http://aka.ms/CustomTranslator)를 사용하여 사용자 지정에 사용할 수 있습니다.
+다음 언어에서 영어를 사용 하 여 사용자 지정에 사용할 수 있는 [사용자 지정 변환기](http://aka.ms/CustomTranslator)합니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Language Understanding(LUIS)의 geographyV2 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: e794ba86500e1c149deeafeaba508b3429ac590c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 17f612f2ee6c7d27dcec9f72ed3df1ed418eb3d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221456"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961613"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
 미리 빌드된 geographyV2 엔터티는 위치를 검색합니다. 이 엔터티를 이미 학습했기 때문에 GeographyV2를 애플리케이션 의도에 포함하는 예제 발화를 추가할 필요가 없습니다. GeographyV2 엔터티는 영어 [문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.

@@ -10,19 +10,19 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873090"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437465"
 ---
 # <a name="paper-entity"></a>Paper 엔터티
 
 <sub> *아래 특성은 Paper 엔터티에 한정됩니다. (Ty = '0') </sub>
 
 
-Name    |설명                                        |Type       | 작업
+이름    |설명                                        |Type       | 작업
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                                          |Int64      |같음
 Ti      |논문 제목                                        |문자열     |Equals,<br/>StartsWith
@@ -50,7 +50,7 @@ E       |확장된 메타데이터(아래 표 참조)                |문자열 
 
 ## <a name="extended-metadata-attributes"></a>확장 메타데이터 특성 ##
 
-Name    | 설명               
+이름    | 설명               
 --------|---------------------------    
 DN      | 논문의 표시 이름 
 S       | 원본 - 논문의 웹 소스 목록, 고정 순위별로 정렬

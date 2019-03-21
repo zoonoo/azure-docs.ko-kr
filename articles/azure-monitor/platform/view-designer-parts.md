@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 뷰 디자이너 요소에 대한 참조 가이드 | Microsoft Docs
-description: Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 표시하는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
+title: Azure Monitor에서 뷰 디자이너 요소에 대 한 참조 가이드 | Microsoft Docs
+description: Azure Monitor에서 뷰 디자이너를 사용 하면 Azure portal에 표시 되는 다양 한 데이터를 Log Analytics 작업 영역에 대해 시각화를 포함 하는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193878"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889905"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
-Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너 시각화 요소에 대 한 참조 가이드
+Azure Monitor에서 뷰 디자이너를 사용 하면 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 Azure 포털에서 다양 한 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
 
 뷰 디자이너에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -33,9 +33,9 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 보기 유형 | 설명 |
 |:--- |:--- |
-| [쿼리 목록](#list-of-queries-part) |로그 검색 쿼리 목록을 표시합니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. |
-| [숫자 및 목록](#number-and-list-part) |머리글에 로그 검색 쿼리의 레코드 수를 나타내는 숫자가 하나 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
-| [숫자 2개와 목록](#two-numbers-and-list-part) |머리글에 별도의 로그 검색 쿼리의 레코드 수를 나타내는 숫자 2개가 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
+| [쿼리 목록](#list-of-queries-part) |로그 쿼리 목록을 표시합니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. |
+| [숫자 및 목록](#number-and-list-part) |머리글에서 로그 쿼리의 레코드 수를 보여 주는 단일 숫자를 표시 합니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
+| [숫자 2개와 목록](#two-numbers-and-list-part) |헤더는 별도 로그 쿼리의 레코드 수를 보여 주는 두 개의 숫자를 표시 합니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
 | [도넛 및 목록](#donut-and-list-part) |머리글에 로그 쿼리의 값 열을 요약하는 숫자가 하나 표시됩니다. 도넛에서 상위 3개 레코드의 결과를 그래픽으로 표시합니다. |
 | [타임 라인 2개 및 목록](#two-timelines-and-list-part) |머리글에 시간에 따른 로그 쿼리 2개의 값이 로그 쿼리의 값 열을 요약한 단일 숫자를 나타내는 설명선과 함께 세로 막대형 차트로 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
 | [정보](#information-part) |머리글에 정적 텍스트와 선택적 링크가 표시됩니다. 목록에 정적 제목과 텍스트가 있는 항목이 하나 이상 표시됩니다. |
@@ -46,7 +46,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 다음 섹션에서는 타일 유형 및 해당 속성을 자세히 설명합니다.
 
 ## <a name="list-of-queries-part"></a>쿼리 목록 요소
-쿼리 목록 요소에는 로그 검색 쿼리 목록이 표시됩니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. 보기에는 기본적으로 쿼리 하나가 포함되어 있으며, **+ 쿼리**를 선택하면 쿼리를 더 추가할 수 있습니다.
+쿼리 부분의 목록에는 로그 쿼리의 목록을 표시합니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. 보기에는 기본적으로 쿼리 하나가 포함되어 있으며, **+ 쿼리**를 선택하면 쿼리를 더 추가할 수 있습니다.
 
 ![쿼리 목록 보기](media/view-designer-parts/view-list-queries.png)
 
@@ -62,7 +62,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 친숙한 이름 | 표시되는 설명이 포함된 이름입니다. |
 
 ## <a name="number-and-list-part"></a>숫자 및 목록 요소
-머리글에 로그 검색 쿼리의 레코드 수를 나타내는 숫자가 하나 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
+머리글에서 로그 쿼리의 레코드 수를 보여 주는 단일 숫자를 표시 합니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
 ![쿼리 목록 보기](media/view-designer-parts/view-number-list.png)
 
@@ -91,7 +91,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 임계값 사용 |임계값을 사용하도록 설정하려면 이 링크를 선택합니다. 자세한 내용은 [일반 설정](#thresholds)을 참조하세요. |
 
 ## <a name="two-numbers-and-list-part"></a>숫자 2개와 목록 요소
-머리글에 별도의 로그 검색 쿼리의 레코드를 보여주는 숫자 2개가 있습니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
+머리글에 별도 로그 쿼리의 레코드 수를 표시 하는 두 숫자입니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
 ![2개 숫자 및 목록 보기](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -322,14 +322,14 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 예를 들어 *Redmond-Building 41* 및 *Bellevue-Building 12*와 같은 값을 포함하는 *위치*라는 속성이 있습니다. 이름과 값 구분 기호에 파선(-)을 사용하여 *City-Building*을 이름에 지정할 수 있습니다. 이렇게 하면 각 값이 *City*와 *Building*이라는 두 가지 속성으로 구문 분석됩니다.
 
 ### <a name="click-through-navigation"></a>클릭 탐색
-클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  [로그 검색 포털](../../azure-monitor/log-query/portals.md)에서 쿼리를 열거나 다른 보기를 시작합니다.
+클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  쿼리를 열거나 합니다 [로그 Analyticsl](../../azure-monitor/log-query/portals.md) 또는 다른 보기를 시작 합니다.
 
 다음 표에서는 클릭 탐색에 대한 설정을 설명합니다.
 
 | 설정           | 설명 |
 |:--|:--|
-| 로그 검색(자동) | 헤더 항목을 선택할 때 실행할 로그 검색입니다.  항목을 기반으로 하는 동일한 로그 검색입니다.
-| 로그 검색        | 목록에서 항목을 선택할 때 실행할 로그 검색입니다.  **탐색 쿼리** 상자에 쿼리를 입력합니다.   *{selected item}* 을 사용하면 사용자가 선택한 항목의 구문의 포함됩니다.  예를 들어 쿼리에 *Computer*라는 열이 있고 탐색 쿼리가 *{selected item}* 인 경우 컴퓨터를 선택하면 *Computer="MyComputer"* 와 같은 쿼리가 실행됩니다. 탐색 쿼리가 *Type=Event {selected item}* 이면 *Type=Event Computer="MyComputer"* 쿼리가 실행됩니다. |
+| 로그 검색(자동) | 로그 헤더 항목을 선택할 때 실행할 쿼리.  이 쿼리는 항목을 기반으로 하는 로그 쿼리와 동일 합니다.
+| 로그 검색        | 로그 목록에서 항목을 선택할 때 실행할 쿼리.  **탐색 쿼리** 상자에 쿼리를 입력합니다.   *{selected item}* 을 사용하면 사용자가 선택한 항목의 구문의 포함됩니다.  예를 들어 쿼리에 *Computer*라는 열이 있고 탐색 쿼리가 *{selected item}* 인 경우 컴퓨터를 선택하면 *Computer="MyComputer"* 와 같은 쿼리가 실행됩니다. 탐색 쿼리가 *Type=Event {selected item}* 이면 *Type=Event Computer="MyComputer"* 쿼리가 실행됩니다. |
 | 보기              | 헤더 항목 또는 목록의 항목을 선택할 때 열 보기입니다.  **보기 이름** 상자의 작업 영역에서 보기의 이름을 선택합니다. |
 
 
@@ -361,4 +361,4 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 색 |임계값을 나타내는 색입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* 시각화 요소에서 쿼리를 지원하는 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대한 자세한 정보
+* 에 대 한 자세한 [쿼리를 로깅](../log-query/log-query-overview.md) 시각화 요소에서의 쿼리를 지원 합니다.

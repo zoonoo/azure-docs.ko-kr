@@ -3,7 +3,7 @@ title: Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serializati
 description: Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: twhitney
-ms.openlocfilehash: 52e4b22a0c4acebe99ab5b9d94eeb66e917a231a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: b02952cf82707966cb0f3b3473b2020e14e48931
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192025"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805852"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
 신뢰할 수 있는 컬렉션은 해당 항목을 복제하고 유지하여 컴퓨터 장애 및 정전이 발생해도 지속되도록 합니다.
@@ -40,7 +40,7 @@ Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환
 - sbyte
 - byte[]
 - char
-- string
+- 문자열
 - decimal
 - double
 - float
@@ -136,7 +136,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 ```
 
 ## <a name="upgradability"></a>업그레이드 가능성
-[롤링 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드는 애플리케이션의 최신 버전에, 일부 업그레이드 도메인은 애플리케이션의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다.
+[롤링 애플리케이션 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드는 애플리케이션의 최신 버전에, 일부 업그레이드 도메인은 애플리케이션의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다.
 
 기본 제공 직렬 변환기를 사용하는 경우 호환성에 대해 염려할 필요가 없습니다.
 그러나 사용자 지정 직렬 변환기 또는 DataContractSerializer를 사용하는 경우 데이터가 이전 버전 및 이후 버전과 무기한 호환되어야 합니다.
@@ -151,8 +151,8 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 ## <a name="next-steps"></a>다음 단계
   * [serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  * [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
-  * [Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
-  * [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
-  * [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
-  * [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+  * [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+  * [Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+  * [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
+  * [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+  * [애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.

@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670713"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294657"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 공동 작업 사용자 속성
 
@@ -32,7 +33,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 
 - 상태 4: UserType이 Guest이고 호스트 조직에서 관리하는 자격 증명을 사용하는 호스트 조직의 Azure AD에 속합니다.
 
-  ![초대자의 이니셜 표시](media/user-properties/redemption-diagram.png)
+  ![네 개의 사용자 상태를 보여 주는 다이어그램](media/user-properties/redemption-diagram.png)
 
 
 이제 Azure AD에서 Azure AD B2B 공동 작업 사용자가 어떻게 보이는지 살펴보겠습니다.
@@ -41,7 +42,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 
 상태 1 및 상태 2 계정은 게스트 사용자의 고유한 자격 증명을 사용하여 공동 작업하는 게스트 사용자를 초대한 결과입니다. 초대가 초기에 게스트 사용자에게 전송되면 계정이 사용자 디렉터리에 생성됩니다. 인증이 게스트 사용자의 ID 공급 기업에서 수행되기 때문에 이 계정에는 연결된 자격 증명이 없습니다. 디렉터리의 게스트 사용자 계정에 대한 **원본** 속성은 **초대된 사용자**로 설정됩니다. 
 
-![제안 상환 전](media/user-properties/before-redemption.png)
+![제안 상환 전 사용자 속성을 보여 주는 스크린샷](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>초대 상환 후
 
@@ -87,7 +88,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>디렉터리의 게스트 사용자 필터링
 
-![게스트 사용자 필터링](media/user-properties/filter-guest-users.png)
+![게스트 사용자에 대 한 필터를 보여 주는 스크린샷](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>UserType 변환
 PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대로 변환할 수 있습니다. 그러나 UserType 속성은 사용자와 조직 사이의 관계를 나타냅니다. 따라서 사용자와 조직의 관계가 변할 때에만 이 속성을 변경해야 합니다. 사용자의 관계가 변경되면 UPN(사용자 계정 이름)을 변경해야 합니까? 사용자가 같은 리소스에 대한 액세스 권한을 계속 가져야 합니까? 사서함을 할당해야 합니까?와 같은 다른 질문에 답변해야 합니다. PowerShell을 사용하여 UserType을 원자성 작업으로 변경하지 않는 것이 좋습니다. 또한 PowerShell을 사용하여 이 속성을 변경 불가능하게 만드는 경우 이 값에 의존하지 않는 것이 좋습니다.
@@ -97,7 +98,7 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 
 기본 제한을 해제하여 회사 디렉터리의 게스트 사용자에게 구성원 사용자와 동일한 권한을 부여할 수 있습니다.
 
-![게스트 사용자 제한 제거](media/user-properties/remove-guest-limitations.png)
+![사용자 설정에서 외부 사용자 옵션을 보여주는 스크린샷](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
 예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요. 

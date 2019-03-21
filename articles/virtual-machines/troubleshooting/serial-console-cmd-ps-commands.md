@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075001"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
@@ -118,7 +118,7 @@ Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운
 ### <a name="disable-windows-firewall"></a>Windows 방화벽 사용 안 함
 `netsh advfirewall set allprofiles state off`
 
-Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 때 또는 아래 명령을 통해 사용할 때 사용할 수 있게 됩니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
+Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 또는 아래 명령을 사용 하 여 사용 하도록 설정한 경우 사용 하도록 설정 하는 것이 됩니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
 ### <a name="enable-windows-firewall"></a>Windows 방화벽 사용
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>사용자 및 그룹 관리
@@ -237,7 +237,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="restart-windows"></a>Windows 다시 시작
 `shutdown /r /t 0`
 
-`/f`을 추가하면 사용자에게 경고 없이 실행 중인 응용 프로그램을 강제로 닫습니다.
+`/f`을 추가하면 사용자에게 경고 없이 실행 중인 애플리케이션을 강제로 닫습니다.
 ### <a name="detect-safe-mode-boot"></a>안전 모드 부팅 검색
 `bcdedit /enum | find /i "safeboot"` 
 
@@ -247,8 +247,8 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 
 `powershell <enter>`
 
->[!CAUTION]
-다른 모든 PowerShell 명령을 실행하기 전에 PowerShell 세션에서 PSReadLine 모듈을 제거합니다. PSReadLine이 SAC의 PowerShell 세션에서 실행 중인 경우 클립보드에서 붙여넣은 텍스트에 추가 문자가 도입될 수 있는 알려진 문제가 있습니다.
+> [!CAUTION]
+> 다른 모든 PowerShell 명령을 실행하기 전에 PowerShell 세션에서 PSReadLine 모듈을 제거합니다. PSReadLine이 SAC의 PowerShell 세션에서 실행 중인 경우 클립보드에서 붙여넣은 텍스트에 추가 문자가 도입될 수 있는 알려진 문제가 있습니다.
 
 먼저 PSReadLine이 로드되었는지 확인합니다. 기본적으로 Windows Server 2016, Windows 10 및 이후 버전의 Windows에서 로드됩니다. 수동으로 설치한 경우 이전 Windows 버전에만 존재합니다. 
 
@@ -427,7 +427,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="restart-windows"></a>Windows 다시 시작
 `restart-computer`
 
-`-force`을 추가하면 사용자에게 경고 없이 실행 중인 응용 프로그램을 강제로 닫습니다.
+`-force`을 추가하면 사용자에게 경고 없이 실행 중인 애플리케이션을 강제로 닫습니다.
 ## <a name="instance-metadata"></a>인스턴스 메타데이터
 
 osType, Location, vmSize, vmId, name, resourceGroupName, subscriptionId, privateIpAddress 및 publicIpAddress 같은 세부 정보를 보려면 Azure VM 내에서 Azure 인스턴스 메타데이터를 쿼리할 수 있습니다.

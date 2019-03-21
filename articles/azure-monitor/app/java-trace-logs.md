@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001860"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
@@ -158,7 +158,7 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
 로거를 통해 제출된 예외는 포털에 예외 원격 분석으로 표시됩니다.
 
-![Application Insights 포털에서 검색을 엽니다.](./media/java-trace-logs/10-diagnostics.png)
+![Application Insights 포털에서 검색을 엽니다.](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>다음 단계
 [진단 검색][diagnostic]

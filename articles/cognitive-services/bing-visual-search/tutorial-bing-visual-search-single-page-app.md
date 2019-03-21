@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857752"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338657"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Visual Search 단일 페이지 웹앱 만들기 
 
-Bing Visual Search API는 Bing.com/images에 표시된 이미지 정보와 유사한 환경을 제공합니다. Visual Search를 사용하면 이미지를 지정하고 시각적으로 유사한 이미지, 쇼핑 원본, 해당 이미지를 포함한 웹 페이지 등의 이미지에 대한 인사이트를 얻을 수 있습니다. 
+Bing Visual Search API Bing.com/images에 표시 되는 이미지 세부 정보를와 비슷한 환경을 제공 합니다. Visual Search를 사용하면 이미지를 지정하고 시각적으로 유사한 이미지, 쇼핑 원본, 해당 이미지를 포함한 웹 페이지 등의 이미지에 대한 인사이트를 얻을 수 있습니다. 
 
 이 문서에서는 Bing Image Search API용 단일 페이지 웹앱을 확장하는 방법에 대해 설명합니다. 해당 자습서를 보거나 여기에 사용되는 소스 코드를 가져오려면 [자습서: Bing Image Search API용 단일 페이지 앱 만들기](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)를 참조하세요. 
 

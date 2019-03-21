@@ -11,17 +11,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 28210c06892097abb831f3f6f27b8c68652a8957
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003996"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258091"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>Media Services를 사용하여 Azure Portal(레거시)로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행 하는 방법  
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -41,18 +41,16 @@ ms.locfileid: "56003996"
 
 > [!NOTE]
 > 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
-> 
-> 
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
-   
+
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 2. 채널을 만들고 시작합니다. 
 3. 채널 수집 URL을 검색합니다. 
-   
+
     수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
 4. 채널 미리 보기 URL을 검색합니다. 
-   
+
     이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 5. 이벤트/프로그램을 만듭니다(자산도 만들어짐). 
 6. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).    
@@ -83,31 +81,31 @@ ms.locfileid: "56003996"
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services를 선택한 후 Media Services 계정 이름을 클릭합니다.
 2. **라이브 스트리밍**을 선택합니다.
 3. **사용자 지정 만들기**를 선택합니다. 이 옵션을 통해 Live Encoding에 사용할 수 있는 채널을 만들 수 있습니다.
-   
+
     ![채널 만들기](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. **설정**을 클릭합니다.
-   
+
    1. **Live Encoding** 채널 형식을 선택합니다. 이 형식은 라이브 인코딩에 사용할 수 있는 채널을 만들도록 지정합니다. 즉, 들어오는 단일 비트 전송률 스트림이 채널로 전송되고 지정한 라이브 인코더 설정을 사용하여 다중 비트 전송률 스트림으로 인코딩됩니다. 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요. 확인을 클릭합니다.
    2. 채널의 이름을 지정합니다.
    3. 화면 아래쪽에서 확인을 클릭합니다.
 5. **수집** 탭을 선택합니다.
-   
+
    1. 이 페이지에서는 스트리밍 프로토콜을 선택할 수 있습니다. **Live Encoding** 채널 형식의 경우 올바른 프로토콜 옵션은 다음과 같습니다.
-      
+
       * 단일 비트 전송률 조각화된 MP4(부드러운 스트리밍)
       * 단일 비트 전송률 RTMP
-        
+
         각 프로토콜에 대한 자세한 설명은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
-        
+
         채널 또는 연결된 이벤트/프로그램이 실행 중인 동안에는 프로토콜 옵션을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 스트리밍 프로토콜에 대한 개별 채널을 만들어야 합니다.  
    2. 수집에 대한 IP 제한을 적용할 수 있습니다. 
-      
+
        이 채널에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22'), 또는 IP 주소와 점으로 구분된 10진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)').
-      
+
        IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
 6. **미리 보기** 탭에서 미리 보기에 대한 IP 제한을 적용합니다.
 7. **Encoding** 탭에서 인코딩 사전 설정을 지정합니다. 
-   
+
     현재 선택할 수 있는 유일한 시스템 기본 설정은 **기본 720p**입니다. 사용자 지정 사전 설정을 지정하려면 Microsoft 지원 티켓을 엽니다. 그런 다음 만들어진 기본 설정의 이름을 입력합니다. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ ms.locfileid: "56003996"
 이벤트를 시작하는 방법에는 다음 두 가지가 있습니다. 
 
 1. **채널** 페이지에서 **라이브 이벤트**를 눌러 새 이벤트를 추가합니다.
-   
+
     이벤트 이름, 자산 이름, 보관 창 및 암호화 옵션을 지정합니다.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     **지금 이 라이브 이벤트 게시** 를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
-   
+
     이벤트를 스트리밍할 준비가 되면 언제든지 **시작**을 누르면 됩니다.
-   
+
     이벤트를 시작하면 **시청** 을 눌러 콘텐츠 재생을 시작할 수 있습니다.
 2. 또는 바로 가기를 사용하고 **채널** 페이지에서 **가동 중** 단추를 누를 수 있습니다. 그러면 기본 자산, 프로그램 및 스트리밍 로케이터가 만들어집니다.
-   
+
     이벤트의 이름은 **default** 로 지정되고 보관 창은 8시간으로 설정됩니다.
 
 **라이브 이벤트** 페이지에서 게시된 이벤트를 볼 수 있습니다. 

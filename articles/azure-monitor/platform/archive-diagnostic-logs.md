@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b01afe1626fe27a20e7b7103ccb020e4414f774f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476465"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313347"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 
@@ -68,18 +68,20 @@ ms.locfileid: "54476465"
 
 ## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Azure PowerShell을 통한 진단 로그 보관
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```
-Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | ResourceId |예 |진단 설정을 설정하려는 리소스의 리소스 ID입니다. |
-| StorageAccountId |아니요 |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 범주 |아니요 |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
+| StorageAccountId |아닙니다. |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 범주 |아닙니다. |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
 | 사용 |예 |이 리소스에 대한 진단 활성화 여부를 나타내는 부울입니다. |
-| RetentionEnabled |아니요 |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
-| RetentionInDays |아니요 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한 저장합니다. |
+| RetentionEnabled |아닙니다. |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
+| RetentionInDays |아닙니다. |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한 저장합니다. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Azure CLI를 통한 진단 로그 보관
 

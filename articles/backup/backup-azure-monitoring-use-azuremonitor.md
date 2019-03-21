@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439166"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258584"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Azure Monitor를 사용 하 여 모니터링
 
@@ -29,7 +29,7 @@ ms.locfileid: "57439166"
 ## <a name="using-log-analytics-workspace"></a>Log Analytics 작업 영역을 사용 하 여
 
 > [!NOTE]
-> 진단 설정 통한 Log Analytics 작업 영역에 Azure VM 백업, MAB 에이전트를 System Center DPM (SC DPM)에서 데이터를 주입 되는 합니다. SQL 백업 Azure Vm에서 Azure 파일 공유 백업에 Microsoft Azure Backup Server (MABS)에 대 한 지원이 곧 제공 됩니다.
+> 진단 설정 통한 Log Analytics 작업 영역에 Azure VM 백업, MAB 에이전트를 System Center DPM (SC-DPM)에서 Azure Vm에서 SQL 백업에서에서 데이터를 주입 되는 합니다. Azure 파일 공유 백업에 Microsoft Azure Backup Server (MABS)에 대 한 지원이 곧 제공 됩니다.
 
 두 개의 Azure 서비스의 기능을 활용 하는 것 **진단 설정** (보낼 데이터 여러 Azure Resource Manager 리소스에서 다른 리소스) 및 **Log Analytics** (LA-생성 하려면 작업 그룹을 사용 하 여 다른 알림 채널로 정의할 수 있는 사용자 지정 경고) 규모의 모니터링에 대 한 합니다. LA를 사용 하 여 대규모 Azure Backup을 모니터링 하는 방법은 다음 섹션에서는 세부 정보입니다.
 

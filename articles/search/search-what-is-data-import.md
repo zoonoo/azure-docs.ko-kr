@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136347"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287097"
 ---
 # <a name="data-import-overview---azure-search"></a>데이터 가져오기 개요-Azure Search
 
@@ -40,18 +40,25 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>인덱싱 작업: 업로드, 병합, uploadOrMerge, 삭제
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>인덱싱 작업: 업로드, merge, mergeOrUpload 삭제
 
-REST API를 사용하는 경우 Azure Search 인덱스의 엔드포인트 URL에 대한 JSON 요청 본문을 사용하여 HTTP POST 요청을 발급합니다. HTTP 요청 본문의 JSON 개체는 인덱스, 업데이트 또는 삭제에 추가하려는 문서를 나타내는 JSON 개체를 포함하는 "값"이라는 단일 JSON 배열을 포함합니다.
+전체, 기존 문서 콘텐츠와 병합 또는 삭제 된 문서를 업로드 해야 하는지 여부를 지정 합니다. 문서 단위로 인덱싱 동작의 유형을 제어할 수 있습니다.
 
-"값" 배열의 각 JSON 개체는 인덱싱할 문서를 나타냅니다. 문서 키를 포함 하 고 원하는 인덱싱 작업을 지정 합니다. 이러한 각 개체 (업로드, 병합, 삭제). 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
+REST api에서 Azure Search 인덱스의 끝점 URL에 JSON 요청 본문을 사용 하 여 HTTP POST 요청을 실행 합니다. "값" 배열의 각 JSON 개체는 문서 키를 포함 하 고 인덱싱 작업을 추가, 업데이트, 또는 문서 콘텐츠를 삭제를 지정 합니다. 코드 예제를 참조 하세요 [문서를 로드](search-create-index-rest-api.md#load-documents)합니다.
+
+.NET SDK에서 데이터를 패키지는 `IndexBatch` 개체입니다. `IndexBatch` 의 컬렉션을 캡슐화 `IndexAction` 개체를 각 문서와 Azure Search는 문서에서 수행할 작업을 지시 하는 속성을 포함 합니다. 코드 예제를 참조 하세요 [IndexBatch 생성](search-import-data-dotnet.md#construct-indexbatch)합니다.
+
 
 | @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
-| `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `Collection(Edm.String)`형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
+| `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. .NET SDK에서 여기에 형식의 필드 `DataType.Collection(DataType.String)`합니다. REST api에서 여기에 형식의 필드 `Collection(Edm.String)`합니다. 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
 | `mergeOrUpload` |이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `merge`와 비슷하게 작동합니다. 문서가 없는 경우 새 문서가 있는 `upload` 와 비슷하게 작동합니다. |키, 더하기 정의하려는 기타 필드 |- |
 | `delete` |삭제 시에는 지정된 문서를 인덱스에서 제거합니다. |키만 |키 필드 외의 지정한 모든 필드는 무시됩니다. 문서에서 개별 필드를 제거하려는 경우 대신 `merge` 를 사용하고 필드를 명시적으로 Null로 설정합니다. |
+
+## <a name="decide-which-indexing-action-to-use"></a>사용할 인덱싱 동작 결정
+.NET SDK, (업로드, 병합, 삭제 및 mergeOrUpload)를 사용 하 여 데이터를 가져옵니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
+
 
 ### <a name="formulate-your-query"></a>쿼리 작성
 [REST API를 사용하여 인덱스를 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)하는 두 가지 방법이 있습니다. 한 가지 방법은 쿼리 매개 변수가 요청 본문의 JSON 개체에 정의된 HTTP POST 요청을 발급하는 것입니다. 다른 방법은 쿼리 매개 변수가 요청 URL 내에 정의된 HTTP GET 요청을 발급하는 것입니다. 쿼리 매개 변수의 크기에 있어 POST는 GET보다 더 [큰 제한](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)이 있습니다. 따라서 GET을 사용하는 것이 보다 편리한 특별한 경우가 아니라면 게시를 사용하는 것이 좋습니다.

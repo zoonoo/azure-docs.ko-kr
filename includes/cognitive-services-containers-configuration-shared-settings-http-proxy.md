@@ -4,19 +4,19 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: 98a6eb024e723e0225711adaccf385a2790e5bc8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0745e4987ca602a41f2d93ddc0a93cb061ce127d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052263"
 ---
 아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성해야 하는 경우 다음 두 인수를 사용합니다.
 
-| Name | 데이터 형식 | 설명 |
+| 이름 | 데이터 형식 | 설명 |
 |--|--|--|
-|HTTP_PROXY|string|사용할 프록시. 예: http://proxy:8888|
-|HTTP_PROXY_CREDS|string|프록시를 인증하는 데 필요한 자격 증명. 예: username:password|
+|HTTP_PROXY|문자열|사용할 프록시. 예: `http://proxy:8888`|
+|HTTP_PROXY_CREDS|문자열|프록시를 인증하는 데 필요한 자격 증명. 예: username:password|
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \

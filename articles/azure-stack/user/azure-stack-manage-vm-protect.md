@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782941"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295014"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack에 배포 된 가상 컴퓨터를 보호 합니다.
 
 이 문서에서는 사용자가 Azure Stack에 배포 하는 virtual machines (Vm) 보호에 대 한 계획을 개발 하는 데 사용 합니다.
 
-데이터 손실 및 계획 되지 않은 가동 중지 시간을 방지 하려면 사용자 응용 프로그램 및 해당 데이터에 대 한 백업 복구 또는 재해 복구 계획을 구현 해야 합니다. 이 계획 각 응용 프로그램에 대 한 고유 수도 있지만 조직의 포괄적인 비즈니스 연속성 및 재해 복구 (BC/DR) 전략에 의해 설정 된 프레임 워크를 따릅니다. 좋은 시작 지점이 됩니다 [Azure 용 복원 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency), 응용 프로그램 가용성 및 복구 기능에 대 한 일반 패턴 및 사례 제공 합니다.
-
->[!IMPORTANT]
-> 지속적으로 백업 복구 및 재해 복구 계획을 테스트 합니다. 이 되도록 해야 합니다.
-> * 계획 작업
-> * 계획에 대 한 설계 된 요구 사항을 만족 합니다.
+데이터 손실 및 계획 되지 않은 가동 중지 시간을 방지 하려면 사용자 응용 프로그램 및 해당 데이터에 대 한 백업 복구 또는 재해 복구 계획을 구현 해야 합니다. 이 계획 각 응용 프로그램에 대 한 고유 수도 있지만 조직의 포괄적인 비즈니스 연속성 및 재해 복구 (BC/DR) 전략에 의해 설정 된 프레임 워크를 따릅니다. 좋은 출발점은 [Azure Stack: 비즈니스 연속성 및 재해 복구에 대 한 고려 사항](https://aka.ms/azurestackbcdrconsiderationswp)합니다.
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Azure Stack 인프라 복구
 
@@ -47,6 +42,9 @@ Azure Stack 클라우드는 오랜된 시간 동안 오프 라인 또는 복구�
 * 응용 프로그램을 사용자 요청에 응답 유지
 
 Azure Stack 클라우드 운영자는 기본 Azure Stack 인프라 및 서비스 복구 계획을 작성 하는 일을 담당 합니다. 자세한 내용은 문서를 읽어보세요 [치명적인 데이터 손실 로부터 복구](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data)합니다.
+
+## <a name="considerations-for-iaas-vms"></a>IaaS Vm에 대 한 고려 사항
+IaaS VM에 설치 된 운영 체제는 포함 된 데이터를 보호 하는 데 사용할 수 있는 제품으로 제한 됩니다. Windows 기반 IaaS Vm의 경우에 데이터를 보호 하기 위해 Microsoft 및 파트너 제품을 사용할 수 있습니다. Linux 기반 IaaS Vm의 경우 유일한 옵션 파트너 제품을 사용 하는 것입니다. 가리킵니다 [Azure Stack에 대 한 유효성이 검사 된 제품을 사용 하 여 모든 BC/DR 파트너에 대 한이 데이터 시트](https://aka.ms/azurestackbcdrpartners)합니다.
 
 ## <a name="sourcetarget-combinations"></a>원본/대상 조합
 

@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860289"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544327"
 ---
 # <a name="grammar-format"></a>문법 형식
 
-문법은 서비스에서 해석할 수 있는 가중치가 적용된 자연어 쿼리 집합 및 이러한 자연어 쿼리가 의미 체계 쿼리 식으로 변환하는 방법을 지정하는 XML 파일입니다.  문법 구문은 데이터 인덱스 통합 및 의미 체계 함수를 지원하는 확장과 함께 [SRGS](http://www.w3.org/TR/speech-grammar/) 기반의 음성 인식 문법에 대한 W3C 표준입니다.
+문법은 서비스에서 해석할 수 있는 가중치가 적용된 자연어 쿼리 집합 및 이러한 자연어 쿼리가 의미 체계 쿼리 식으로 변환하는 방법을 지정하는 XML 파일입니다.  문법 구문은 데이터 인덱스 통합 및 의미 체계 함수를 지원하는 확장과 함께 [SRGS](https://www.w3.org/TR/speech-grammar/) 기반의 음성 인식 문법에 대한 W3C 표준입니다.
 
 다음은 문법에 사용할 수 있는 각 구문 요소를 설명합니다.  컨텍스트에서 이러한 요소의 사용을 보여주는 완전한 문법은 [이 예제](#example)를 참조하세요.
 

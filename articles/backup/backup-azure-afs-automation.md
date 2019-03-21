@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 489de7b2fe87d1bb218e3fce39f269d866d66dd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845174"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258363"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure 파일 복원
 
@@ -240,9 +240,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 사용 하 여 [백업 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) 보호 된 Azure 파일 공유에 대 한 주문형 백업을 실행할 합니다.
 
-1. 검색을 사용 하 여 백업 데이터를 보유 하는 자격 증명 모음에서 컨테이너에서 저장소 계정 및 파일 공유 [Get AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer)합니다.
-2. 백업 작업을 시작 하려면 사용 하 여 VM에 대 한 내용은 받아야 [Get AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem)합니다.
-3. 사용 하 여 주문형 백업을 실행할[백업 AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem)합니다.
+1. 검색을 사용 하 여 백업 데이터를 보유 하는 자격 증명 모음에서 컨테이너에서 저장소 계정 및 파일 공유 [Get AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)합니다.
+2. 백업 작업을 시작 하려면 사용 하 여 VM에 대 한 내용은 받아야 [Get AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem)합니다.
+3. 사용 하 여 주문형 백업을 실행할[백업 AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)합니다.
 
 다음과 같이 주문형 백업을 실행 합니다.
     

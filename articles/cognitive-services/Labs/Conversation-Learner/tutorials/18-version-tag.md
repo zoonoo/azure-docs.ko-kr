@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086312"
 ---
 # <a name="how-to-use-version-tagging"></a>Version Tagging을 사용하는 방법
 
@@ -67,9 +67,9 @@ ms.locfileid: "55206003"
 
 이제 모델의 "버전 1"로 태그를 지정하겠습니다.
 
-4. 왼쪽 패널에서 "설정"을 클릭한 다음, "버전 태그"![](../media/tutorial18_version_tags.PNG) 아이콘을 클릭하여 클릭해야 하는 `New Tag` 단추를 표시합니다.
+1. 왼쪽 패널에서 "설정"을 클릭한 다음, "버전 태그"![](../media/tutorial18_version_tags.PNG) 아이콘을 클릭하여 클릭해야 하는 `New Tag` 단추를 표시합니다.
     - “버전 1”로 이름 지정
-4. "라이브 태그" 드롭다운 메뉴에서 "버전 1"을 선택합니다.  
+1. "라이브 태그" 드롭다운 메뉴에서 "버전 1"을 선택합니다.  
     - 이제 이 봇을 사용하는 채널이 모델의 "버전 1"을 사용합니다.
     - 엔터티, 작업 및 이 버전 1 모델의 학습 대화 상자를 더 이상 변경할 수 없습니다.
     - "태그 편집"으로 "버전 1"을 선택하는 경우 모델을 볼 수만 있고 편집할 수는 없습니다.

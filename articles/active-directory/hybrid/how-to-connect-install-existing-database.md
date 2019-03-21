@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004190"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286094"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -59,7 +59,7 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 1.  Windows 서버에 Azure AD Connect 설치 관리자(AzureADConnect.MSI)를 다운로드합니다. Azure AD Connect 설치 관리자를 두 번 클릭하여 Azure AD Connect 설치를 시작합니다.
 2.  MSI 설치가 완료되면 Azure AD Connect 마법사가 기본 모드 설치를 시작합니다. 종료 아이콘을 클릭하여 화면을 닫습니다.
 ![시작](./media/how-to-connect-install-existing-database/db1.png)
-3.  새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. <drive>\program files\Microsoft Azure AD Connect로 이동합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
+3.  새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. "C:\Program Files\Microsoft Azure Active Directory Connect" 폴더로 이동 합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
 
 > [!NOTE]
 > 데이터베이스에 이전 Azure AD Connect 설치의 데이터가 이미 포함된 경우에만 스위치 **/UseExistingDatabase**를 사용합니다. 예를 들어 로컬 데이터베이스에서 전체 SQL Server 데이터베이스로 이동하거나 Azure AD Connect 서버가 다시 빌드되어 Azure AD Connect의 이전 설치에서 ADSync 데이터베이스의 SQL 백업을 복원한 경우입니다. 데이터베이스 비어 있으면 즉, 해당 하지 않습니다 이전 Azure AD Connect 설치에서 모든 데이터가이 단계를 건너뜁니다.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: lewlu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 5eb198ecf76556e632c5f42bc22362b2f20f8916
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448784"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID 검색
 
-스냅숏 생성 메서드는 비동기적이므로 해당 작업이 끝날 때까지 기다려야 합니다(스냅숏 작업은 취소할 수 없음). 이 코드에서 `WaitForOperation` 메서드는 비동기 호출을 모니터링하고 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다. 
+메서드를 수행 하는 스냅숏 비동기 이므로 해당 완료 (snapshot 작업을 취소할 수 없습니다) 대기 해야 합니다. 이 코드에서 `WaitForOperation` 메서드는 비동기 호출을 모니터링하고 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186976"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258832"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807)에 대한 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하기 위해 Log Analytics 작업 영역으로 Operations Manager를 통합할 수 있습니다. 이렇게 하면 Log Analytics의 기회를 활용하면서도 Operations Manager를 계속 사용하여 다음 작업을 할 수 있습니다.
@@ -61,15 +61,15 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |리소스 | 포트 번호| HTTP 검사 무시|  
 |---------|------|-----------------------|  
 |**에이전트**|||  
-|\*.ods.opinsights.azure.com| 443 |yes|  
-|\*.oms.opinsights.azure.com| 443|yes|  
-|\*.blob.core.windows.net| 443|yes|  
-|\*.azure-automation.net| 443|yes|  
+|\*.ods.opinsights.azure.com| 443 |예|  
+|\*.oms.opinsights.azure.com| 443|예|  
+|\*.blob.core.windows.net| 443|예|  
+|\*.azure-automation.net| 443|예|  
 |**관리 서버**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| yes|  
-|\*.ods.opinsights.azure.com| 443| yes|  
-|*.azure-automation.net | 443| yes|  
+|\*.blob.core.windows.net| 443| 예|  
+|\*.ods.opinsights.azure.com| 443| 예|  
+|*.azure-automation.net | 443| 예|  
 |**Log Analytics에 Operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -132,7 +132,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite를 확장한 다음 **연결**을 클릭합니다.
 1. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
-1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80)한 다음, **마침**을 클릭합니다.
+1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 Operations Management Suite에 액세스 하는 데**, 포트 번호를 사용 하 여 URL을 입력 하 고 예를 들어 http:\//corpproxy:80 및 클릭  **마침**합니다.
 
 프록시 서버에 인증이 필요한 경우 다음 단계를 수행하여 관리 그룹에서 Log Analytics에 보고하는 관리되는 컴퓨터에 전파해야 하는 자격 증명 및 설정을 구성합니다.
 

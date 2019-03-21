@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086397"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260063"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -105,8 +105,8 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 만듭니다.
 2. Azure Resource Manager URL을 Application Insights API로 대체하여 Analytics에서 내보낸 Power BI M 스크립트를 업데이트합니다.
-   * **https://management.azure.com/subscriptions/...** 을
-   * **https://api.applicationinsights.io/beta/apps/...** 으로 바꿉니다.
+   * 바꿉니다 **https:\//management.azure.com/subscriptions/...**
+   * 를 사용 하 여 **https:\//api.applicationinsights.io/beta/apps/...**
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
 
 **기존 스크립트**

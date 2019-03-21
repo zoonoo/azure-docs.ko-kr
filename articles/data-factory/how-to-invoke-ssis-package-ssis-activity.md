@@ -8,22 +8,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114385"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259706"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용하여 ADF(Azure Data Factory) 파이프라인에서 SSIS 패키지를 실행하는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 새로 만듭니다.
 
@@ -49,19 +51,19 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
 
    ![일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. SSIS 패키지 실행 작업의 **설정** 탭에서 패키지가 배포된 SSISDB 데이터베이스와 연결된 Azure-SSIS IR을 선택합니다. 패키지를 실행하는 데 32비트 런타임이 필요한 경우 **32비트 런타임** 확인란을 선택합니다. **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 로깅 이름을 대신 입력하려면 **사용자 지정** 확인란을 선택합니다. Azure-SSIS IR이 실행 중이고 **수동 입력** 확인란이 선택 취소된 경우 SSISDB에서 기존 폴더/프로젝트/패키지/환경을 찾아 선택할 수 있습니다. **새로 고침** 단추를 클릭하여 새로 추가한 폴더/프로젝트/패키지/환경을 찾아서 선택할 수 있도록 SSISDB에서 페치합니다. 
+4. SSIS 패키지 실행 작업의 **설정** 탭에서 패키지가 배포된 SSISDB 데이터베이스와 연결된 Azure-SSIS IR을 선택합니다. 패키지에서 데이터 저장소에 액세스 하려면 Windows 인증을 사용 하는 경우 온-프레미스 SQL 서버/파일을 공유 하는 예를 들어 Azure Files 등을 확인 합니다 **Windows 인증** 확인란을 선택 하 고 패키지에 대 한 도메인/사용자 이름/암호를 입력 실행 합니다. 패키지를 실행하는 데 32비트 런타임이 필요한 경우 **32비트 런타임** 확인란을 선택합니다. **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 로깅 이름을 대신 입력하려면 **사용자 지정** 확인란을 선택합니다. Azure-SSIS IR이 실행 중이고 **수동 입력** 확인란이 선택 취소된 경우 SSISDB에서 기존 폴더/프로젝트/패키지/환경을 찾아 선택할 수 있습니다. **새로 고침** 단추를 클릭하여 새로 추가한 폴더/프로젝트/패키지/환경을 찾아서 선택할 수 있도록 SSISDB에서 페치합니다. 
 
    ![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Azure-SSIS IR이 실행되지 않거나 **수동 입력** 확인란이 선택된 경우 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>` 형식으로 SSISDB의 패키지 및 환경 경로를 입력할 수 있습니다.
+   경우에 Azure SSIS IR이 아님 또는 **수동 항목** 확인란이 선택 되어, 다음 형식으로 직접 SSISDB에서 패키지 및 환경 경로 입력할 수 있습니다: `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>`.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 Azure-SSIS IR이 실행 중이고 **설정** 탭의 **수동 입력** 확인란이 선택 취소된 경우 SSISDB에서 선택한 프로젝트/패키지의 기존 SSIS 매개 변수가 표시되므로 값을 할당할 수 있습니다. 그렇지 않으면 매개 변수를 하나씩 입력하여 수동으로 값을 할당할 수 있습니다. 패키지 실행에 성공하려면 매개 변수가 있고 올바르게 입력되었는지 확인합니다. 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용하여 값에 동적 콘텐츠를 추가할 수도 있습니다.
+5. SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 Azure-SSIS IR이 실행 중이고 **설정** 탭의 **수동 입력** 확인란이 선택 취소된 경우 SSISDB에서 선택한 프로젝트/패키지의 기존 SSIS 매개 변수가 표시되므로 값을 할당할 수 있습니다. 그렇지 않으면 매개 변수를 하나씩 입력하여 수동으로 값을 할당할 수 있습니다. 패키지 실행에 성공하려면 매개 변수가 있고 올바르게 입력되었는지 확인합니다. 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용 하 여 해당 값에 동적 콘텐츠를 추가할 수 있습니다. 또는에서 Key Vault (AKV (Azure) 해당 값으로 저장 된 비밀을 사용할 수 있습니다. 이렇게 하려면 클릭 합니다 **AZURE KEY VAULT** 는 관련 매개 변수 옆의 확인란을 선택/편집 기존 AKV 연결 된 서비스 또는 새 대시보드를 만든 및 매개 변수 값에 대 한 비밀 이름/버전을 선택 합니다.  때 AKV 연결 된 서비스를 만들기/편집 선택/편집 하면 기존 AKV 또는 새 대시보드를 만든 따르면 하세요 ADF 관리 되는 id 액세스 권한을 부여 하 여 AKV 하지 않았으면 지금 이미 있는 경우. 다음 형식으로 직접 암호를 입력할 수도 있습니다: `<AKV linked service name>/<secret name>/<secret version>`합니다.
 
    ![SSIS 매개 변수 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 Azure-SSIS IR이 실행 중이고 **설정** 탭의 **수동 입력** 확인란이 선택 취소된 경우 SSISDB에서 선택한 프로젝트/패키지의 기존 연결 관리자가 표시되므로 값을 할당할 수 있습니다. 그렇지 않으면 매개 변수를 하나씩 입력하여 수동으로 값을 할당할 수 있습니다. 패키지 실행에 성공하려면 매개 변수가 있고 올바르게 입력되었는지 확인합니다. 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용하여 값에 동적 콘텐츠를 추가할 수도 있습니다.
+6. 에 **연결 관리자** SSIS 패키지 실행 작업의 경우에 Azure SSIS IR이 실행 중일 때 탭 및 **수동 항목** 확인란을 **설정** 탭이 선택 취소 SSISDB에서 선택한 프로젝트/패키지에서 기존 연결 관리자는 해당 속성에 값을 할당할 수 표시 됩니다. 그렇지 않으면 입력할 수 있습니다 하나씩에 해당 속성에 값을 수동으로 할당 – 존재 하 고 성공 하 여 패키지 실행에 대 한 정확 하 게 입력을 확인 하세요. 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용 하 여 해당 속성 값을 동적 콘텐츠를 추가할 수 있습니다. 또는에서 Key Vault (AKV (Azure) 해당 속성 값으로 저장 된 비밀을 사용할 수 있습니다. 이렇게 하려면 클릭 합니다 **AZURE KEY VAULT** 관련 속성 옆의 확인란을 선택/편집 기존 AKV 연결 된 서비스 또는 새 대시보드를 만든를 선택한 다음 속성 값에 대 한 비밀 이름/버전입니다.  때 AKV 연결 된 서비스를 만들기/편집 선택/편집 하면 기존 AKV 또는 새 대시보드를 만든 따르면 하세요 ADF 관리 되는 id 액세스 권한을 부여 하 여 AKV 하지 않았으면 지금 이미 있는 경우. 다음 형식으로 직접 암호를 입력할 수도 있습니다: `<AKV linked service name>/<secret name>/<secret version>`합니다.
 
    ![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -111,7 +113,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
 ## <a name="run-a-package-with-powershell"></a>PowerShell을 사용하여 패키지 실행
 이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 ADF 파이프라인을 만듭니다. 
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 단계별 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 단계별 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ### <a name="create-an-adf-with-azure-ssis-ir"></a>Azure-SSIS IR이 있는 ADF 만들기
 이미 Azure-SSIS IR이 프로비전된 기존 ADF를 사용하거나 [자습서: PowerShell을 통해 Azure에 SSIS 패키지 배포](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)의 단계별 지침에 따라 Azure-SSIS IR이 있는 새 ADF를 만들 수 있습니다.
@@ -137,6 +139,14 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -146,11 +156,27 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -169,12 +195,20 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }
@@ -198,10 +232,10 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
 
 2. Azure PowerShell에서 `C:\ADF\RunSSISPackage` 폴더로 전환합니다.
 
-3. **RunSSISPackagePipeline** 파이프라인을 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
+3. 파이프라인을 만듭니다 **RunSSISPackagePipeline**을 실행 합니다 **집합 AzDataFactoryV2Pipeline** cmdlet.
 
    ```powershell
-   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
                                                   -Name "RunSSISPackagePipeline"
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -218,10 +252,10 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure에 SSIS �
    ```
 
 ### <a name="run-the-pipeline"></a>파이프라인 실행
-**Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 파이프라인을 실행합니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
+사용 된 **Invoke AzDataFactoryV2Pipeline** 파이프라인을 실행 하려면 cmdlet. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -232,7 +266,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -280,31 +314,31 @@ Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습�
    }    
    ```
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **Set-AzureRmDataFactoryV2Trigger** cmdlet을 실행하여 트리거를 만듭니다. 
+3. 실행 합니다 **집합 AzDataFactoryV2Trigger** 트리거를 생성 하는 cmdlet입니다. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. 기본적으로 트리거는 중지된 상태입니다. **Start-AzureRmDataFactoryV2Trigger** cmdlet을 실행하여 트리거를 시작합니다. 
+4. 기본적으로 트리거는 중지된 상태입니다. 실행 하 여 트리거를 시작 합니다 **시작 AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. **Get-AzureRmDataFactoryV2Trigger** cmdlet을 실행하여 트리거가 시작되었는지 확인합니다. 
+5. 트리거를 실행 하 여 시작됨인지 확인 합니다 **Get AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
 6. 한 시간 후에 다음 명령을 실행합니다. 예를 들어 현재 시간이 오후 3:25(UTC)인 경우 오후 4시(UTC)에 명령을 실행합니다. 
     
    ```powershell
-   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                       -DataFactoryName $DataFactoryName `
                                       -TriggerName "MyTrigger" `
                                       -TriggerRunStartedAfter "2017-12-06" `

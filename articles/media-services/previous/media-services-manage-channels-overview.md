@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189515"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
@@ -69,17 +69,17 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 | 기능 | 통과 채널 | 표준 채널 |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |예 |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아닙니다. |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
 | 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |8시간 |
-| 슬레이트 삽입 지원 |아니요 |예 |
-| 광고 신호 지원 |아니요 |예 |
+| 슬레이트 삽입 지원 |아닙니다. |예 |
+| 광고 신호 지원 |아닙니다. |예 |
 | 통과 CEA 608/708 캡션 |예 |예 |
 | 균일하지 않은 입력 GOP에 대한 지원 |예 |아니요 - 입력은 고정된 2초 GOP여야 함 |
 | 변수 프레임 속도 입력에 대한 지원 |예 |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
-| 입력 피드가 손실될 경우 채널 자동 차단 |아니요 |12시간 동안 프로그램 실행이 없는 경우 |
+| 입력 피드가 손실될 경우 채널 자동 차단 |아닙니다. |12시간 동안 프로그램 실행이 없는 경우 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>온-프레미스 인코더(통과)에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -148,7 +148,7 @@ Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operati
 | 시작 중 |시작 중 |없음(일시적인 상태) |
 | 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |예 |
 | 중지 중 |중지 중 |없음(일시적인 상태) |
-| 중지됨 |중지됨 |아니요 |
+| 중지됨 |중지됨 |아닙니다. |
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: 복합 엔터티”
+title: 복합 엔터티 자습서
 titleSuffix: Azure Cognitive Services
 description: 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091582"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>자습서: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
@@ -85,18 +85,19 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
 1. 의도 목록에서 **TransferEmployeeToDepartment**를 선택합니다.
 
-1. 첫 번째 발화에서 personName 엔터티 `John Jackson`을(를) 선택한 후, 다음 발화의 팝업 메뉴에서 **복합 엔터티 래핑 시작**을 선택합니다.
+1. utterance에서 `place John Jackson in engineering`, personName 엔터티를 선택 `John Jackson`을 선택한 후 **복합 엔터티에서 줄 바꿈** 다음 utterance 팝업 메뉴 목록에 있습니다. 
 
-    `place John Jackson in engineering`
+    ![줄 바꿈 복합 드롭다운 대화 상자에서에서 선택 하는 스크린샷](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. 그런 다음, 발언에서 마지막 엔터티 `engineering`를 즉시 선택합니다. 선택한 단어 아래에 복합 엔터티를 나타내는 녹색 막대가 그려집니다. 팝업 메뉴에서 `TransferEmployeeInfo` 복합 이름을 입력한 다음, 입력을 선택합니다. 
 
-1. **어떤 형식의 엔터티를 만들고 싶으신가요?** 에서는 필요한 모든 필드, 즉 `personName`과(와) `Department`가(이) 목록에 표시됩니다. **완료**를 선택합니다. 
+    ![복합 이름 드롭다운 대화 상자에에서 입력 하는 스크린샷](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    미리 빌드된 personName 엔터티가 복합 엔터티에 추가되었습니다. 미리 빌드된 엔터티가 복합 엔터티의 시작 및 끝 토큰 사이에 표시되는 경우 복합 엔터티에는 미리 빌드된 엔터티가 포함되어야 합니다. 미리 빌드된 엔터티를 포함하지 않는 경우 복합 엔터티는 올바르게 예측되지 않지만 각 개별 요소는 올바르게 예측됩니다.
+1. **어떤 형식의 엔터티를 만들고 싶으신가요?** 에서는 필요한 모든 필드, 즉 `personName`과(와) `Department`가(이) 목록에 표시됩니다. **완료**를 선택합니다. 미리 빌드된 personName 엔터티가 복합 엔터티에 추가되었습니다. 미리 빌드된 엔터티가 복합 엔터티의 시작 및 끝 토큰 사이에 표시되는 경우 복합 엔터티에는 미리 빌드된 엔터티가 포함되어야 합니다. 미리 빌드된 엔터티를 포함하지 않는 경우 복합 엔터티는 올바르게 예측되지 않지만 각 개별 요소는 올바르게 예측됩니다.
+
+    ![복합 이름 드롭다운 대화 상자에에서 입력 하는 스크린샷](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>복합 엔터티를 사용하여 예제 발언에 레이블 지정
-
 
 1. 각 예제 발언에서 복합 요소로 지정되어야 하는 맨 왼쪽 엔터티를 선택합니다. 그런 후 **복합 엔터티에 래핑**을 선택합니다.
 
@@ -182,7 +183,7 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
     }
     ```
 
-  이 발언은 복합 엔터티 배열을 반환합니다. 각 엔터티에는 형식 및 값이 지정됩니다. 각 자식 엔터티를 보다 정확하게 찾으려면 복합 배열 항목의 형식 및 값을 조합해서 엔터티 배열에서 해당 항목을 찾습니다.  
+   이 발언은 복합 엔터티 배열을 반환합니다. 각 엔터티에는 형식 및 값이 지정됩니다. 각 자식 엔터티를 보다 정확하게 찾으려면 복합 배열 항목의 형식 및 값을 조합해서 엔터티 배열에서 해당 항목을 찾습니다.  
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

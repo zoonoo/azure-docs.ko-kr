@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189770"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294079"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -199,6 +199,13 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 |[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
+
+## <a name="troubleshoot"></a>문제 해결
+
+표시 되 면는 `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 오류를 적절 한 스트리밍 정책을 지정 해야 합니다.
+
+로 끝나는 오류가 발생할 경우 `_NOT_SPECIFIED_IN_URL`를 확인 하는 암호화 형식을 URL에 지정 해야 합니다. 예를 들어.../manifest (형식 ='m3u8-cmaf = 암호화 cbcs-aapl). 참조 [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption types)합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

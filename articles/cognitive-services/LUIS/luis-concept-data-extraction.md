@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099834"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>의도 및 엔터티에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -195,7 +195,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 ```
 
 |데이터 개체|부모|자식|값|
-|--|--|--|--|--|
+|--|--|--|--|
 |계층적 엔터티|위치|ToLocation|“paris”|
 
 ## <a name="composite-entity-data"></a>복합 엔터티 데이터

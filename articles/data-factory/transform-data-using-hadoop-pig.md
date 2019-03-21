@@ -3,20 +3,20 @@ title: Azure Data Factory에서 Hadoop Pig 작업을 사용하여 데이터 변�
 description: Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014712"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574919"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Pig 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,14 +59,14 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | 자산            | 설명                              | 필수 |
 | ------------------- | ---------------------------------------- | -------- |
 | 이름                | 작업의 이름                     | 예      |
-| description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
+| description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다.       |
 | 형식                | Hive 작업의 경우 작업 유형은 HDinsightPig입니다. | 예      |
 | linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| scriptLinkedService | 실행할 Pig 스크립트를 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
-| scriptPath          | scriptLinkedService에서 참조하는 Azure Storage에 저장된 스크립트 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 아니요       |
-| getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아니요       |
-| arguments           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
-| defines             | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       |
+| scriptLinkedService | 실행할 Pig 스크립트를 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아닙니다.       |
+| scriptPath          | scriptLinkedService에서 참조하는 Azure Storage에 저장된 스크립트 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 아닙니다.       |
+| getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아닙니다.       |
+| arguments           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아닙니다.       |
+| defines             | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아닙니다.       |
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

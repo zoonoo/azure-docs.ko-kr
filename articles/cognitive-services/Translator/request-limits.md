@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f89e7e674efe3a823b7c969840772565650d8d07
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861573"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text에 대한 요청 제한
 
@@ -43,7 +43,7 @@ Translator Text API에 대한 미해결 요청 수에 제한이 없습니다.
 
 ## <a name="latency"></a>대기 시간
 
-Translator Text에는 13초의 최대 대기 시간이 있습니다. 이 시점에서 결과 또는 시간 초과 응답을 받습니다. 일반적으로 응답은 150밀리초~300밀리초 단위로 반환됩니다. 응답 시간은 크기 또는 요청 및 언어 쌍에 따라 달라집니다.
+Translator Text API 15 초 표준 모델을 사용 하 여 최대 대기 시간을 있습니다. 변환 사용자 지정 모델을 사용 하 여 최대 25 초 대기 시간을 있습니다. 이 시점에서 결과 또는 시간 초과 응답을 받습니다. 일반적으로 응답은 150밀리초~300밀리초 단위로 반환됩니다. 응답 시간이 요청 및 언어 쌍의 크기에 따라 달라 집니다. 번역을 수신할 수 없는 경우 또는 [오류 응답](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) 해당 시간대 내에서 네트워크 연결을 확인 및 다시 시도 합니다.
 
 ## <a name="sentence-length-limits"></a>문장 길이 제한
 

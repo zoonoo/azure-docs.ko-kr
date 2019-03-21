@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55235992"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305296"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global Reach란?
 
@@ -41,15 +41,15 @@ ExpressRoute Global Reach는 [국가 또는 장소 선택](../articles/expressro
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>동일한 피어링 위치에서 두 개의 ExpressRoute 회로 간에 ExpressRoute Global Reach를 활성화할 수 있나요?
 
- 아니요. 두 회로는 서로 다른 피어링 위치의 것이어야 합니다. 지원되는 국가의 대도시에 둘 이상의 ExpressRoute 피어링 위치가 있는 경우 해당 대도시의 다른 피어링 위치에서 생성된 ExpressRoute 회로를 함께 연결할 수 있습니다. 
+아니요. 두 회로는 서로 다른 피어링 위치의 것이어야 합니다. 지원되는 국가의 대도시에 둘 이상의 ExpressRoute 피어링 위치가 있는 경우 해당 대도시의 다른 피어링 위치에서 생성된 ExpressRoute 회로를 함께 연결할 수 있습니다. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>ExpressRoute Global Reach가 회로 X와 회로 Y 사이, 회로 Y와 회로 Z 사이 활성화되어 있는 경우 회로 X와 회로 Z에 연결된 온-프레미스 네트워크가 Microsoft 네트워크를 통해 서로 통신하나요?
 
- 아니요. 온-프레미스 네트워크 중 두 개의 네트워크 간에 연결을 설정하려면 해당 ExpressRoute 회로를 명시적으로 연결해야 합니다. 위의 예제에서 회로 X와 회로 Z를 연결해야 합니다. 
+아니요. 온-프레미스 네트워크 중 두 개의 네트워크 간에 연결을 설정하려면 해당 ExpressRoute 회로를 명시적으로 연결해야 합니다. 위의 예제에서 회로 X와 회로 Z를 연결해야 합니다. 
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>ExpressRoute Global Reach를 활성화한 후 온-프레미스 네트워크 간에 기대할 수 있는 네트워크 처리량은 어느 정도인가요?
 
-ExpressRoute Global Reach로 설정된 온-프레미스 네트워크 간의 네트워크 처리량은 두 ExpressRoute 회로 중 작은 것으로 제한됩니다.
+ExpressRoute Global Reach로 설정된 온-프레미스 네트워크 간의 네트워크 처리량은 두 ExpressRoute 회로 중 작은 것으로 제한됩니다. 프레미스-Azure 트래픽 및 프레미스-온-프레미스 트래픽 동일한 회로 공유 하 고 동일한 대역폭 요금에 적용 됩니다. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>ExpressRoute Global Reach를 사용할 경우 보급할 수 있는 경로 수와 수신하는 경로 수는 몇 개로 제한되나요?
 

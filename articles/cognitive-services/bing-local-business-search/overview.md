@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163146"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780323"
 ---
 # <a name="what-is-bing-local-business-search"></a>Bing Local Business Search란?
 Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기반으로 로컬 비즈니스에 대한 정보를 찾을 수 있게 해주는 RESTful 서비스입니다. 예를 들어 `q=<business-name> in Redmond, Washington` 또는 `q=Italian restaurants near me`입니다. 

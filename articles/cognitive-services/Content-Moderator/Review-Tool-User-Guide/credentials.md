@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207550"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260012"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Content Moderator 서비스 자격 증명 관리
 
@@ -61,7 +61,7 @@ Content Moderator 내에서 제공되는 워크플로에 Azure 키를 사용하�
 
 첫 번째 부분에는 검토 팀 생성의 일부로 **review API 엔드포인트**, **팀 ID** 및 **Ocp-Apim-Subscription-Key(Content Moderator 평가판 키)** 가 나열됩니다. 이러한 것들을 사용하여 review API를 포함한 모든 Content Moderator API를 호출하세요.
 
-또한 API 엔드포인트의 지역 식별자를 살펴보세요. 예를 들어 **westus**는 "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"의 지역입니다.
+또한 API 엔드포인트의 지역 식별자를 살펴보세요. 예를 들어 **westus** 은 지역에 "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![검토 도구의 Content Moderator 키](images/credentials-trialkey.PNG)
 

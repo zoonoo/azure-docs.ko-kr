@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9bb6491565f685e8ca3d7a6271747a5df3629e81
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 9ff6388c72c631dad870a4f52f86749bfd744d85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085629"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 작업 보기
 
@@ -58,118 +58,118 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 ## <a name="powershell"></a>PowerShell
 1. 배포의 전반적인 상태를 가져오려면 **Get-AzResourceGroupDeployment** 명령을 사용합니다. 
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
+   ```
 
    또는 실패한 배포에 대해서만 결과를 필터링할 수 있습니다.
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+   ```
    
 2. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
 
-  ```powershell
-  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+   ```
 
 3. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
 
-  ```powershell 
-  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
-  ```
+   ```powershell 
+   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+   ```
 
     여러 작업이 각각 다음과 같은 형식으로 반환됩니다.
 
-  ```powershell
-  Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
-  OperationId    : A3EB2DA598E0A780
-  Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+   ```powershell
+   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+   OperationId    : A3EB2DA598E0A780
+   Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
                    duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
                    serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
-  PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+   PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
-  ```
+   ```
 
 4. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+   ```
    
     모든 실패한 작업이 각각 다음과 같은 형식으로 반환됩니다.
 
-  ```powershell
-  provisioningOperation : Create
-  provisioningState     : Failed
-  timestamp             : 2016-06-14T21:54:55.1468068Z
-  duration              : PT3.1449887S
-  trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
-  serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
-  statusCode            : BadRequest
-  statusMessage         : @{error=}
-  targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+   ```powershell
+   provisioningOperation : Create
+   provisioningState     : Failed
+   timestamp             : 2016-06-14T21:54:55.1468068Z
+   duration              : PT3.1449887S
+   trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+   serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+   statusCode            : BadRequest
+   statusMessage         : @{error=}
+   targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
                           Microsoft.Network/publicIPAddresses/myPublicIP;
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
-  ```
+   ```
 
     작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 특정 작업에 집중하기 위해 trackingId는 다음 단계에서 사용할 예정입니다.
 5. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
-  ```powershell
-  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
-  ```
+   ```powershell
+   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+   ```
 
     반환하는 내용은 다음과 같습니다.
 
-  ```powershell
-  code           message                                                                        details
-  ----           -------                                                                        -------
-  DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
-  ```
+   ```powershell
+   code           message                                                                        details
+   ----           -------                                                                        -------
+   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+   ```
 6. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
 
-  로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
+   로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-  ```
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
 1. **azure group deployment show** 명령을 사용하여 배포의 전반적인 상태를 가져옵니다.
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment
+   ```
   
 2. 반환되는 값 중 하나는 **correlationId**입니다. 이 값은 관련 이벤트를 추적하는 데 사용되며 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다.
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+   ```
 
 3. 배포의 작업을 보려면 다음을 사용합니다.
 
-  ```azurecli
-  az group deployment operation list -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment operation list -g ExampleGroup -n ExampleDeployment
+   ```
 
 ## <a name="rest"></a>REST (영문)
 
 1. [템플릿 배포에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/resources/deployments) 작업을 사용하여 배포에 대한 정보를 가져옵니다.
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+   ```
 
     응답에서 **provisioningState** , **correlationId** 및 **error** 요소에 특히 유의합니다. **correlationId** 는 관련 이벤트를 추적하는 데 사용되며 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다.
 
-  ```json
-  { 
+   ```json
+   { 
     ...
     "properties": {
       "provisioningState":"Failed",
@@ -180,19 +180,19 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }
-  }
-  ```
+   }
+   ```
 
 2. [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments)을 사용하여 배포 작업에 대한 정보를 가져오세요. 
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
+   ```
    
     응답에는 배포 중에 **debugSetting** 속성에 지정하는 설정을 기준으로 요청 및/또는 응답 정보가 포함됩니다.
 
-  ```json
-  {
+   ```json
+   {
     ...
     "properties": 
     {
@@ -213,8 +213,8 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="next-steps"></a>다음 단계

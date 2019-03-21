@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: d75a71fe5ba5a275aa8703bc59398cc8a7a5a622
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101315"
 ---
 # <a name="paging-through-video-search-results"></a>비디오 검색 결과를 통한 페이징
 
@@ -77,4 +77,4 @@ Host: api.cognitive.microsoft.com
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-[비디오 인사이트 가져오기](video-insights.md)
+> [비디오 인사이트 가져오기](video-insights.md)

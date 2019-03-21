@@ -1,6 +1,6 @@
 ---
-title: Azure AD 암호 보호 미리 보기에서 문제 해결
-description: Azure AD 암호 보호 미리 보기 일반 문제 해결 이해
+title: Azure AD 암호 보호 문제 해결
+description: Azure AD 암호 보호 일반적인 문제 해결 방법을 이해 합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006960"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285703"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>미리 보기: Azure AD 암호 보호 문제 해결
-
-|     |
-| --- |
-| Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
 
 Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습니다. 이 문서에서는 몇 가지 일반적인 문제 해결 단계를 이해하는 데 유용한 세부 정보를 제공합니다.
 
@@ -101,7 +96,7 @@ DC 에이전트 서비스가 문제를 일으키는 상황이 발생하면 DC �
 
 ## <a name="removal"></a>제거
 
-공개 미리 보기 소프트웨어를 제거하고 도메인 및 포리스트에서 모든 관련 상태를 정리하기로 결정된 경우 다음 단계를 사용하여 이 작업을 수행할 수 있습니다.
+Azure AD 암호 보호 소프트웨어 및 정리를 모든 관련 된 상태에서 제거할 도메인 및 포리스트를 결정 한 경우에 다음 단계를 사용 하 여이 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > 이러한 단계를 순서대로 수행하는 것이 중요합니다. 프록시 서비스의 인스턴스가 실행되는 경우 주기적으로 해당 serviceConnectionPoint 개체를 다시 만듭니다. DC 에이전트 서비스의 인스턴스가 실행되는 경우 주기적으로 해당 serviceConnectionPoint 개체 및 sysvol 상태를 다시 만듭니다.
@@ -120,7 +115,7 @@ DC 에이전트 서비스가 문제를 일으키는 상황이 발생하면 DC �
 
    `Get-ADObject` 명령을 통해 찾은 결과 개체는 `Remove-ADObject`에 파이프되거나 수동으로 삭제될 수 있습니다.
 
-4. 각 도메인 명명 컨텍스트에서 모든 DC 에이전트 연결점을 수동으로 제거합니다. 공개 미리 보기 소프트웨어가 얼마나 넓게 배포됐는가에 따라 포리스트에 도메인 컨트롤러당 이러한 개체 중 하나가 있을 수 있습니다. 다음 Active Directory PowerShell 명령을 사용하여 해당 개체의 위치를 검색할 수 있습니다.
+4. 각 도메인 명명 컨텍스트에서 모든 DC 에이전트 연결점을 수동으로 제거합니다. 있을 수 있습니다 하나 소프트웨어를 배포 하는 정도 따라 포리스트의 도메인 컨트롤러 마다 이러한 개체. 다음 Active Directory PowerShell 명령을 사용하여 해당 개체의 위치를 검색할 수 있습니다.
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

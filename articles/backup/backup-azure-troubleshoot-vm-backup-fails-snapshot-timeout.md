@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890867"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286434"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -102,19 +102,12 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 5: 리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.** <br>
 **원인 6: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다.
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-현재 Azure Backup 4095GB 보다 큰 디스크 크기를 지원 하지 않습니다.
 
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
-**오류 메시지**: 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
+**오류 메시지**: 현재 Azure Backup 4095GB 보다 큰 디스크 크기 지원 하지 않습니다. <br>
 
-자격 증명 모음이 즉시 복원으로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. 즉시 복원으로 업그레이드하면 최대 4TB가 지원됩니다. 이 [문서](backup-instant-restore-capability.md#upgrading-to-instant-restore)를 참조하세요. 업그레이드 후에 구독에서 이 기능을 사용하려면 최대 2시간이 걸립니다. 작업을 다시 시도하기 전에 충분한 버퍼를 제공합니다.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다.
-
-**오류 코드**: UserErrorStandardSSDNotSupported <br>
-**오류 메시지**: 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다. <br>
-
-현재 Azure Backup은 [즉시 복원](backup-instant-restore-capability.md)으로 업그레이드된 자격 증명 모음에만 표준 SSD 디스크를 지원합니다.
+4095GB 보다 큰 디스크 크기를 사용 하 여 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 대용량 디스크에 대 한 지원이 곧 제공 됩니다.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 
@@ -200,7 +193,7 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 | 원인 | 해결 방법 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
-| VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 사설 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell**을 통해 구성해야 하며 VM 내 DHCP 옵션을 사용할 수 있는지 확인합니다. [자세한](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) PowerShell 사용 하 여 고정 IP 주소를 설정 하는 방법에 대 한 합니다.
+| VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP에 필요한 경우 구성 해야 통해는 **Azure portal** 또는 **PowerShell** VM 내 DHCP 옵션을 사용할 수 있는지 확인 합니다. [자세한](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) PowerShell 사용 하 여 고정 IP 주소를 설정 하는 방법에 대 한 합니다.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>백업 확장을 업데이트 또는 로드할 수 없습니다.
 확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 백업이 실패합니다.

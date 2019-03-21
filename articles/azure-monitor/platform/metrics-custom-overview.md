@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467904"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287267"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
@@ -29,7 +29,7 @@ Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 �
 
 Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데이터 요소 또는 값은 다음 정보를 포함해야 합니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 사용자 지정 메트릭을 Azure Monitor로 전송하려면 메트릭을 전송하는 엔터티에 유효한 Azure AD(Azure Active Directory) 토큰이 요청의 **전달자** 헤더에 있어야 합니다. 유효한 전달자 토큰을 획득하기 위한 지원되는 몇 가지 방법이 있습니다.
 1. [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI(관리 서비스 ID)는 특정 작업을 수행할 수 있는 권한을 리소스에 제공하도록 설계되었습니다. 예를 들어, 리소스가 해당 지표를 내보낼 수 있도록 허용합니다. 리소스 또는 해당 MSI에 다른 리소스에 대한 **모니터링 메트릭 게시자** 권한을 부여할 수 있습니다. 이 권한을 사용하면 MSI가 다른 리소스에 대한 지표도 내보낼 수 있습니다.
 2. [Azure AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 애플리케이션 또는 서비스에 할당할 수 있습니다.
@@ -55,7 +55,7 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 >
 
 ### <a name="timestamp"></a>타임 스탬프
-Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용하여 표시되어야 합니다. 이 타임스탬프는 메트릭 값이 측정 또는 수집된 날짜/시간을 캡처합니다. Azure Monitor는 과거 20분 및 미래 5분까지의 타임스탬프가 지정된 메트릭 데이터를 허용합니다.
+Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용하여 표시되어야 합니다. 이 타임스탬프는 메트릭 값이 측정 또는 수집된 날짜/시간을 캡처합니다. Azure Monitor는 과거 20분 및 미래 5분까지의 타임스탬프가 지정된 메트릭 데이터를 허용합니다. ISO 8601 형식의 타임 스탬프 여야 합니다.
 
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어, 앱을 프로파일링하는 메모리 사용 메트릭을 추적하는 **ContosoMemoryMetrics**라는 네임스페이스가 있을 수 있습니다. **ContosoAppTransaction**이라는 또 다른 네임스페이스는 응용 프로그램의 사용자 트랜잭션에 대한 모든 메트릭을 추적할 수 있습니다.
@@ -65,7 +65,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 
 ### <a name="dimension-keys"></a>차원 키
 차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스**라는 차원 키가 있을 수 있습니다. 이 키를 사용하여 메트릭을 필터링하면 특정 프로세스에서 사용하는 메모리 양을 확인하거나 메모리 사용량에 따른 상위 5개 프로세스를 식별할 수 있습니다.
-각 사용자 지정 메트릭에는 최대 10개의 차원이 있을 수 있습니다.
+차원은 선택적, 모든 메트릭의 차원을 포함할 수 있습니다. 사용자 지정 메트릭을 최대 10 개의 차원이 있을 수 있습니다.
 
 ### <a name="dimension-values"></a>차원 값
 메트릭 데이터 요소를 보고하는 경우 보고되는 메트릭의 각 차원 키에 해당하는 차원 값이 있습니다. 예를 들어, VM의 ContosoApp에서 사용하는 메모리를 보고하려는 경우
@@ -75,6 +75,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 * 차원 값은 **ContosoApp.exe**가 됩니다.
 
 메트릭 값을 게시하는 경우 차원 키당 단일 차원 값만 지정할 수 있습니다. VM의 여러 프로세스에 대해 수집한 메모리 사용률이 동일한 경우 해당 타임스탬프에 여러 개의 메트릭 값을 보고할 수 있습니다. 각 메트릭 값은 **프로세스** 차원 키에 대해 다른 차원 값을 지정합니다.
+차원은 선택적, 모든 메트릭의 차원을 포함할 수 있습니다. 메트릭 게시물 차원 키를 정의 하는 경우 해당 차원 값은 필수입니다.
 
 ### <a name="metric-values"></a>메트릭 값
 Azure Monitor는 1분 단위 간격으로 모든 메트릭을 저장합니다. 지정된 1분 동안 메트릭을 여러 번 샘플링해야 하는 경우도 있습니다. CPU 사용률을 예로 들 수 있습니다. 또는 많은 불연속 이벤트에 대해 측정해야 할 수도 있습니다. 로그인 트랜잭션 대기 시간을 예로 들 수 있습니다. 내보내야 하는 원시 값의 수를 제한하고 Azure Monitor에 대한 요금을 지불하려면 다음과 같은 값을 로컬로 미리 집계하고 내보낼 수 있습니다.
@@ -169,13 +170,13 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 
 |Azure 지역|지역별 엔드포인트 접두사|
 |---|---|
-|미국 동부|https://eastus.monitoring.azure.com/|
-|미국 중남부|https://southcentralus.monitoring.azure.com/|
-|미국 중서부|https://westcentralus.monitoring.azure.com/|
-|미국 서부 2|https://westus2.monitoring.azure.com/|
-|동남아시아|https://southeastasia.monitoring.azure.com/|
-|북유럽|https://northeurope.monitoring.azure.com/|
-|서유럽|https://westeurope.monitoring.azure.com/|
+|미국 동부| https:\//eastus.monitoring.azure.com/ |
+|미국 중남부| https:\//southcentralus.monitoring.azure.com/ |
+|미국 중서부| https:\//westcentralus.monitoring.azure.com/ |
+|미국 서부 2| https:\//westus2.monitoring.azure.com/ |
+|동남아시아| https:\//southeastasia.monitoring.azure.com/ |
+|북유럽| https:\//northeurope.monitoring.azure.com/ |
+|서유럽| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량 한도를 적용합니다.
@@ -185,6 +186,7 @@ Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량
 |활성 시계열/구독/지역|50,000|
 |메트릭당 차원 키|10|
 |메트릭 네임스페이스, 메트릭 이름, 차원 키 및 차원 값의 문자열 길이|256자|
+
 활성 시계열은 지난 12시간 동안 메트릭 값이 게시된 메트릭, 차원 키 또는 차원 값의 고유한 조합으로 정의됩니다.
 
 ## <a name="next-steps"></a>다음 단계

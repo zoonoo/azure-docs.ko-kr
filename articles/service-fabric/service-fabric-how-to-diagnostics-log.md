@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835716"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "39001381"
 
 ## <a name="eventflow"></a>EventFlow
 
-[EventFlow 라이브러리](https://github.com/Azure/diagnostics-eventflow) 제품군을 사용하면 응용 프로그램이 수집할 진단 데이터 및 데이터 출력 위치를 정의할 수 있습니다. 진단 데이터는 성능 카운터에서 애플리케이션 추적까지 모든 항목이 될 수 있습니다. 애플리케이션과 동일한 프로세스에서 실행되므로 통신 오버헤드가 최소화됩니다. EventFlow 및 Service Fabric에 대한 자세한 내용은 [Azure Service Fabric 이벤트 집계 및 EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.
+[EventFlow 라이브러리](https://github.com/Azure/diagnostics-eventflow) 제품군을 사용하면 애플리케이션이 수집할 진단 데이터 및 데이터 출력 위치를 정의할 수 있습니다. 진단 데이터는 성능 카운터에서 애플리케이션 추적까지 모든 항목이 될 수 있습니다. 애플리케이션과 동일한 프로세스에서 실행되므로 통신 오버헤드가 최소화됩니다. EventFlow 및 Service Fabric에 대한 자세한 내용은 [Azure Service Fabric 이벤트 집계 및 EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.
 
 ### <a name="using-structured-eventsource-events"></a>구조적 EventSource 이벤트 사용
 
@@ -132,7 +132,7 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 
 ### <a name="using-other-logging-providers"></a>다른 로깅 공급자 사용
 
-타사 공급자 중 일부는 [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/) 및 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)를 포함하여 이전 섹션에서 설명한 방법을 사용합니다. 이들 각각을 ASP.NET Core 로깅에 연결하거나 개별적으로 사용할 수 있습니다. Serilog에는 로거에서 보낸 모든 메시지를 보강하는 기능이 있습니다. 이 기능은 서비스 이름, 유형 및 파티션 정보를 출력하는 데 유용할 수 있습니다. ASP.NET Core 인프라에서 이 기능을 사용하려면 다음 단계를 수행합니다.
+타사 공급자 중 일부는 [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/) 및 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)를 포함하여 이전 섹션에서 설명한 방법을 사용합니다. 이들 각각을 ASP.NET Core 로깅에 연결하거나 개별적으로 사용할 수 있습니다. Serilog에는 로거에서 보낸 모든 메시지를 보강하는 기능이 있습니다. 이 기능은 서비스 이름, 유형 및 파티션 정보를 출력하는 데 유용할 수 있습니다. ASP.NET Core 인프라에서 이 기능을 사용하려면 다음 단계를 수행합니다.
 
 1. **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate** 및 **Serilog.Sinks.Observable** NuGet 패키지를 프로젝트에 추가합니다. 
 2. `LoggerConfiguration` 및 로거 인스턴스를 만듭니다.
@@ -174,7 +174,7 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Service Fabric의 응용 프로그램 모니터링](service-fabric-diagnostics-event-generation-app.md)에 대해 자세히 알아봅니다.
+- [Service Fabric의 애플리케이션 모니터링](service-fabric-diagnostics-event-generation-app.md)에 대해 자세히 알아봅니다.
 - [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [Microsoft Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 사용하는 로깅에 대해 알아봅니다.
 
 

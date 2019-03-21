@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004940"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(web.config 또는 app.config)에 지정된 위치에 클라이언트 쪽 로그 데이터를 저장합니다.
 
 ### <a name="collect-a-network-trace"></a>네트워크 추적 수집
-클라이언트 애플리케이션이 실행되는 동안 Message Analyzer를 사용하여 HTTP/HTTPS 네트워크 추적을 수집할 수 있습니다. Message Analyzer는 백 엔드에서 [Fiddler](http://www.telerik.com/fiddler) 를 사용합니다. 네트워크 추적을 수집하기 전에 다음과 같이 암호화되지 않은 HTTPS 트래픽을 기록하도록 Fiddler를 구성하는 것이 좋습니다.
+클라이언트 애플리케이션이 실행되는 동안 Message Analyzer를 사용하여 HTTP/HTTPS 네트워크 추적을 수집할 수 있습니다. Message Analyzer는 백 엔드에서 [Fiddler](https://www.telerik.com/fiddler) 를 사용합니다. 네트워크 추적을 수집하기 전에 다음과 같이 암호화되지 않은 HTTPS 트래픽을 기록하도록 Fiddler를 구성하는 것이 좋습니다.
 
-1. [Fiddler](http://www.telerik.com/download/fiddler)를 설치합니다.
+1. [Fiddler](https://www.telerik.com/download/fiddler)를 설치합니다.
 2. Fiddler를 시작합니다.
 3. **도구 | Fiddler 옵션**을 선택합니다.
 4. 옵션 대화 상자에서 아래와 같이 **HTTPS 연결 캡처** 및 **HTTPS 트래픽 해독**이 모두 선택되어 있는지 확인합니다.

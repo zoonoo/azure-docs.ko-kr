@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업 FAQ | Microsoft Docs
+title: B2B 공동 작업 Faq-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업에 대해 자주 묻는 질문의 대답을 얻습니다.
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09ce7f677bcf54355e30fc273ee64b23b1d55c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208166"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293824"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -59,12 +60,12 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 예! 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 [Azure Portal](https://portal.azure.com)에 대한 게스트 사용자의 액세스를 차단하려면 Microsoft Azure 클래식 배포 모델 API에서 조건부 액세스 정책을 사용합니다.
 1. **모든 사용자** 그룹을 수정하여 구성원만 포함되도록 합니다.
-  ![그룹 스크린샷 수정](media/faq/modify-all-users-group.png)
+   ![UserType이 같은 게스트 되지 모든 사용자 그룹을 보여 주는 스크린샷 ](media/faq/modify-all-users-group.png)
 2. 게스트 사용자를 포함하는 동적 그룹을 만듭니다.
-  ![그룹 스크린샷 만들기](media/faq/group-with-guest-users.png)
+   ![새 모든 게스트 사용자 그룹을 보여 주는 스크린샷](media/faq/group-with-guest-users.png)
 3. 다음 비디오에서 보여준 대로 조건부 액세스 정책을 설정하여 게스트 사용자가 포털에 액세스하지 못하도록 차단합니다.
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 공동 작업에서는 Multi-Factor Authentication 및 소비자 전자 메일 계정을 지원하나요?
 예. Multi-Factor Authentication 및 소비자 전자 메일 계정은 둘 다 Azure AD B2B 공동 작업에 지원됩니다.
@@ -94,7 +95,7 @@ Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>솔루션을 공유하고 아이디어를 제출하는 B2B 공동 작업 커뮤니티를 어디에서 찾을 수 있나요?
 B2B 공동 작업을 개선하기 위해 사용자의 의견을 지속적으로 수렴하고 있습니다. Azure AD B2B 공동 작업에 대한 사용자 시나리오, 모범 사례 및 원하는 기능을 공유해 주세요. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참여합니다.
- 
+ 
 [B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)에서 아이디어를 제출하고 향후 기능에 대해 투표해 주세요.
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>사용자가 곧 "준비"될 수 있도록 자동으로 상환되는 초대장을 보낼 수 있나요? 아니면 사용자가 항상 상환 URL을 클릭해야 하나요?
@@ -107,7 +108,7 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 지원되는 ID라는 측면에서 B2B 및 B2C(business-to-consumer) 공동 작업 간의 차이점을 제거하고 있습니다. 사용되는 ID로 B2B를 사용할지 아니면 B2C를 사용할지 결정하는 것은 좋은 기준이 아닙니다. 공동 작업 옵션을 선택하는 방법에 대한 정보는 [Azure Active Directory에서 B2B 공동 작업과 B2C 비교](compare-with-b2c.md)를 참조하세요.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>어떤 애플리케이션 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
-모든 Azure AD 통합 애플리케이션은 Azure B2B 게스트 사용자를 지원할 수 있지만 게스트 사용자를 인증하기 위해 테넌트 엔드포인트를 사용해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
+모든 Azure AD 통합 응용 프로그램에서 Azure B2B 게스트 사용자를 지원할 수 있지만 게스트 사용자를 인증 하는 테 넌 트로 설정 하는 끝점 사용 해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>파트너가 Multi-Factor Authentication을 설치하지 않은 경우 B2B 게스트 사용자에 대해 Multi-Factor Authentication을 강제할 수 있나요?
 예. 자세한 내용은 [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.

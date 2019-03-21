@@ -1,21 +1,21 @@
 ---
-title: Machine Learning Studio에서 모델 결과 해석
+title: 모델 결과 해석
 titleSuffix: Azure Machine Learning Studio
 description: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877278"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
 이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 ### <a name="two-class-classification"></a>2클래스 분류
 **예제 실험**
 
-2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio에서 제공하는 아이리스 데이터 세트는 널리 사용되는 [아이리스 데이터 세트](http://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
+2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio에서 제공하는 아이리스 데이터 세트는 널리 사용되는 [아이리스 데이터 세트](https://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
 
 ![붓꽃 실험의 스크린샷](./media/interpret-model-results/1.png)
 

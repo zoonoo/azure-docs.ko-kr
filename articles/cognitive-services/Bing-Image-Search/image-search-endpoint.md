@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860272"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336143"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 엔드포인트
 
 **Image Search API**는 세 개의 엔드포인트를 포함합니다.  엔드포인트 1은 쿼리를 기반으로 하는 웹에서 이미지를 반환합니다. 엔드포인트 2는 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)를 반환합니다.  엔드포인트 3은 최신 이미지를 반환합니다.
+
 ## <a name="endpoints"></a>엔드포인트
+
 Bing API를 사용하여 이미지 결과를 가져오려면 다음 엔드포인트 중 하나로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
 **엔드포인트 1:** `?q=""`에서 정의한 사용자의 검색 쿼리와 관련된 이미지를 반환합니다.

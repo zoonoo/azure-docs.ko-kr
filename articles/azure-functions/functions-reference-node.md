@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807476"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226541"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 이 예제에서는 해당 것에 유의 해야 개체를 내보낸 있지만 실행 간에 상태를 유지 하는 것에 대 한 보장 되지 않습니다.
+
+## <a name="local-debugging"></a>로컬 디버깅
+
+시작 하는 경우는 `--inspect` 매개 변수를 지정된 된 포트에서 디버깅 클라이언트에 대 한 Node.js 프로세스를 수신 대기 합니다. Azure Functions에서 2.x의 경우 환경 변수 또는 앱 설정을 추가 하 여 코드를 실행 하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다 `languageWorkers:node:arguments = <args>`합니다. 
+
+로컬로 디버그 하려면 추가 `"languageWorkers:node:arguments": "--inspect=5858"` 아래에서 `Values` 에서 프로그램 [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) 파일과 5858 포트로 디버거를 연결 합니다.
+
+VS Code를 사용 하 여 디버깅 하는 경우는 `--inspect` 매개 변수를 사용 하 여 자동으로 추가 됩니다는 `port` 프로젝트의 launch.json 파일의 값입니다.
+
+버전에서 1.x에서 설정 `languageWorkers:node:arguments` 작동 하지 것입니다. 디버그 포트를 사용 하 여 선택할 수 있습니다 합니다 [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) Azure Functions 핵심 도구에 대 한 매개 변수입니다.
 
 ## <a name="typescript"></a>TypeScript
 

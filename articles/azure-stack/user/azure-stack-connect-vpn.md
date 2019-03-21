@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763557"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286145"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN을 사용 하 여 Azure에 연결
 
@@ -92,8 +92,7 @@ ms.locfileid: "57763557"
 5. 가상 네트워크를 선택 하려면 **가상 네트워크**합니다. 선택한 **AzureVnet** 목록에서.
 6. **공용 IP 주소**를 선택합니다. 경우는 **공용 IP 주소 선택** 선택 섹션 열립니다 **새로 만들기**합니다.
 7. **이름을**, 형식 **Azure-GW-PiP**를 선택한 후 **확인**합니다.
-8. 기본적으로 대 한 **VPN 유형**를 **route-based** 을 선택 합니다. 유지 된 **route-based** VPN 유형입니다.
-9. **구독** 및 **위치**가 올바른지 확인합니다. 리소스를 대시보드에 고정할 수 있습니다. **만들기**를 선택합니다.
+8. **구독** 및 **위치**가 올바른지 확인합니다. 리소스를 대시보드에 고정할 수 있습니다. **만들기**를 선택합니다.
 
 ### <a name="create-the-local-network-gateway-resource"></a>로컬 네트워크 게이트웨이 리소스 만들기
 

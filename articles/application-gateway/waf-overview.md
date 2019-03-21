@@ -4,14 +4,15 @@ description: 이 문서에서는 Application Gateway용 WAF(웹 애플리케이�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454262"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790360"
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
 
@@ -58,19 +59,8 @@ Application Gateway가 제공하는 향상된 보안 기능으로는 SSL 정책 
 - 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
 - 봇, 크롤러 및 스캐너에 대한 방지
 - 일반적인 애플리케이션 구성 오류(예: Apache, IIS 등) 검색
-
-### <a name="public-preview-features"></a>공개 미리 보기 기능
-
-현재 WAF 공개 미리 SKU에는 다음과 같은 기능이 포함됩니다.
-
-- **요청 크기 제한** - 사용자는 웹 애플리케이션 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다.
-- **제외 목록** - 사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
-
-WAF 공개 미리 보기에 대한 자세한 내용은 [웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)](application-gateway-waf-configuration.md)을 참조하세요.
-
-
-
-
+- 요청 크기 제한-웹 응용 프로그램 방화벽 한과 상한을 내 요청 크기 제한을 구성할 수 있습니다.
+- 제외 목록을 WAF 제외 목록에 WAF 평가에서 특정 요청 특성을 생략 하는 작업을 할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
 
 ### <a name="core-rule-sets"></a>핵심 규칙 집합
 
@@ -87,7 +77,6 @@ Application Gateway는 CRS 3.0 및 CRS 2.2.9라는 두 개의 규칙 집합을 �
 - 일반적인 애플리케이션 구성 오류(예: Apache, IIS 등) 검색
 
 더 자세한 규칙 목록 및 해당 보호는 [핵심 규칙 세트](#core-rule-sets)를 참조하세요.
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -130,6 +119,16 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 * **검색 모드** – 검색 모드에서 실행되도록 구성할 경우 Application Gateway WAF는 모든 위협 경고를 모니터링하고 로그 파일에 기록합니다. **진단** 섹션을 사용하여 Application Gateway에 대한 진단 로깅을 켜야 합니다. 또한 WAF 로그가 선택되어 있고 켜져 있는지 확인해야 합니다. 웹 애플리케이션 방화벽을 감지 모드로 실행하면 들어오는 요청을 차단하지 않습니다.
 * **방지 모드** – 방지 모드에서 실행되도록 구성할 경우 Application Gateway는 규칙에 의해 감지된 침입 및 공격을 능동적으로 차단합니다. 공격자는 403 무단 액세스 예외를 수신하고 연결이 종료됩니다. 방지 모드는 이러한 공격을 WAF 로그에 계속 기록합니다.
+
+### <a name="anomaly-scoring-mode"></a>변칙 점수 매기기 모드 
+ 
+OWASP에 트래픽을 차단 인지 여부를 결정 하기 위한 두 가지 모드가 있습니다. 기존 모드와 변칙 점수 매기기 모드 있습니다. 기존의 모드에서는 트래픽을 일치 규칙은 다른 규칙이 너무 일치 하는지 여부와 독립적으로 간주 됩니다. 이해 하기 쉬우며, 하는 동안 특정 요청에 의해 발생 하는 규칙 수에 대 한 정보가 부족이이 모드의 제한 사항 중 하나인 메시지를 표시 합니다. 따라서 변칙 점수 매기기 모드 도입, OWASP 기본값 바뀌었기 3.x입니다. 
+
+변칙 점수 매기기 모드에서 트래픽에 대해 이전 섹션에서 설명 하는 규칙 중 하나가 일치 한다는 사실을 즉시 되지는지 않습니다 트래픽을 것임 차단 될 방화벽 방지 모드에서 라고 가정 합니다. 규칙은 특정 심각도 (위험, 오류, 경고 및 알림) 있고 변칙 점수를 호출 하는 요청에 대 한 숫자 값을 해당 심각도 따라 늘어납니다. 예를 들어, 하나의 일치 하는 경고 규칙 3은 영향을 줍니다 하지만 일치 하는 중요 한 규칙을 하나 5의 값을 제공 합니다. 
+
+트래픽을 삭제 되지 않습니다 변칙 점수에 대 한 임계값, 임계값을 5로 설정 되어 있습니다. 즉, 단일 일치 하는 중요 한 규칙을 Azure WAF (때문에 변칙 점수 이전 단락에 따라 5 씩 증가 하는 중요 한 규칙) 방지 모드에서 요청을 차단할 수 있도록 사용자에 게 적합 합니다. 그러나 일치 규칙 경고는 증가 변칙 수준이 3으로 점수입니다. 3 5 임계값 보다 낮은 이므로 트래픽이 차단 됩니다, WAF 방지 모드의 경우에 합니다. 
+
+WAF 규칙 트래픽에 "차단 됨"으로 필드 action_s 포함 하지만 반드시 트래픽이 차단 실제로 메시지가 기록는 note 합니다. 실제로 트래픽을 차단 하도록 변칙 점수를 5 이상이 필요 합니다.  
 
 ### <a name="application-gateway-waf-reports"></a>WAF 모니터링
 

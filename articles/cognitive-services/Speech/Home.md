@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217648"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673191"
 ---
 # <a name="what-is-bing-speech"></a>Bing Speech란?
 
@@ -36,9 +37,9 @@ Microsoft Speech Recognition API는 오디오 스트림을 애플리케이션에
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아니요 | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아니요 | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | 예 |
+| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예 |
 
 개발자가 REST API와 클라이언트 라이브러리 중에서 어느 것을 선택하든 Microsoft Speech Service에서 지원하는 항목은 다음과 같습니다.
 

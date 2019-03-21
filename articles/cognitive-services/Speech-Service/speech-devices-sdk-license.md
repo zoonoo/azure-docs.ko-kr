@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084626"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>음성 디바이스 SDK 라이선스 계약
 
@@ -52,7 +52,7 @@ e)  소프트웨어를 공유, 게시 또는 대여하거나(위의 해당 사�
 
 f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프트웨어를 사용해야 합니다.
 
-**3\. 데이터 수집.** 이 소프트웨어는 Microsoft로 전송되는 데이터를 수집하는 다른 Microsoft 제품과 상호 작용할 수 있습니다. 수집한 개인 데이터를 Microsoft에서 처리하는 방법에 대한 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=248681에서 Microsoft 개인정보처리방침을 참조하세요.
+**3\. 데이터 수집.** 이 소프트웨어는 Microsoft로 전송되는 데이터를 수집하는 다른 Microsoft 제품과 상호 작용할 수 있습니다. 수집한 개인 데이터를 Microsoft에서 처리하는 방법에 대한 자세한 내용은 https://go.microsoft.com/fwlink/?LinkId=248681에서 Microsoft 개인정보처리방침을 참조하세요.
 
 **4\. 시험판 소프트웨어.** 소프트웨어가 시험판 버전입니다. 올바르게 작동하지 않을 수 있습니다. 정식으로 출시되는 버전과 다를 수 있습니다.
 
@@ -83,9 +83,9 @@ b)  캐나다. 이 소프트웨어를 캐나다에서 구입한 경우 자동 �
 c)  독일 및 오스트리아.
 
 > (i)   보증. 적절하게 사용이 허가된 소프트웨어는 대체로 소프트웨어와 함께 제공되는 Microsoft 자료에 설명된 대로 작동됩니다. 그러나 Microsoft는 사용이 허가된 소프트웨어와 관련하여 어떠한 계약 보증도 제공하지 않습니다.
-
+> 
 > (ii)  책임의 제한. 의도적인 행위, 심각한 부주의, 제조물 책임법에 따른 청구 및 개인 또는 신체 부상이나 사망의 경우 Microsoft는 성문법에 따라 책임을 집니다.
-
+> 
 > 앞 조항 (ii)에 따라 Microsoft는 Microsoft가 이러한 중요한 계약 의무를 위반하거나 본 계약의 적절한 수행을 가능하게 하는 사항을 이행하지 않거나, 이행을 위반하거나, 본 계약을 목적 및 당사자가 지속적으로 신뢰할 수 있도록 하는 준수 사항을 위반하는 경우에만 약간의 부주의에 대해 책임집니다. 다른 경우 약간의 부주의에 대해 책임지지 않습니다.
 
 **15\. 보증 부인. 이 소프트웨어는 “있는 그대로” 사용이 허가됩니다. 해당 사용으로 인해 발생하는 모든 위험은 귀하의 책임입니다. Microsoft는 어떠한 명시적 보증, 보장 또는 조건도 제시하지 않습니다. 귀하가 거주하는 지역의 법규가 허용하는 범위 내에서 MICROSOFT는 상업성, 특정 목적에의 적합성 및 비침해성과 관련된 묵시적 보증을 배제합니다.**

@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816100"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258737"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack을 사용 하 여 외부 모니터링 솔루션 통합
 
@@ -81,8 +81,8 @@ Nagios 엔터프라이즈 및 Nagios Core를 사용 하 여 플러그 인이 작
 
 | 매개 변수 | 설명 | 예 |
 |---------|---------|---------|
-| *arm_endpoint* | Azure 리소스 관리자 (관리자) 끝점 |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure 리소스 관리자 (관리자) 끝점  | https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure 리소스 관리자 (관리자) 끝점 |https:\//adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure 리소스 관리자 (관리자) 끝점  | https:\//adminmanagement.local.azurestack.external |
 | *Tenant_id* | 관리자 구독 ID | 관리자 포털 또는 PowerShell을 통해 검색 |
 | *User_name* | 연산자 구독 사용자 이름 | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | 연산자 구독 암호 | mypassword |
@@ -96,12 +96,12 @@ Nagios 엔터프라이즈 및 Nagios Core를 사용 하 여 플러그 인이 작
 
 Operations Manager, Nagios, 또는 Nagios 기반 솔루션을 사용 하지 않는 경우에 모니터링 Azure Stack과 함께 통합 하는 솔루션의 광범위 한 범위를 사용 하도록 설정 하려면 PowerShell을 사용할 수 있습니다.
 
-1. PowerShell을 사용 하려면 했는지 [PowerShell 설치 및 구성](azure-stack-powershell-configure-quickstart.md) Azure Stack 연산자 environment에 대 한 합니다. 리소스 관리자 (관리자) 끝점에 연결할 수 있는 로컬 컴퓨터에 PowerShell을 설치 (https://adminmanagement. [ 지역]입니다. [External_FQDN])입니다.
+1. PowerShell을 사용 하려면 했는지 [PowerShell 설치 및 구성](azure-stack-powershell-configure-quickstart.md) Azure Stack 연산자 environment에 대 한 합니다. 리소스 관리자 (관리자) 끝점에 연결할 수 있는 로컬 컴퓨터에 PowerShell을 설치 (https:\//adminmanagement. [ 지역]입니다. [External_FQDN])입니다.
 
 2. Azure Stack 운영자로 서 Azure Stack 환경에 연결 하려면 다음 명령을 실행 합니다.
 
    ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```

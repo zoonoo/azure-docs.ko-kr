@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852818"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287131"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -67,7 +67,7 @@ rules:
 RoleBinding가 Azure AD 사용자에 바인딩하는 생성 됩니다 *developer1\@contoso.com* RoleBinding, 다음 YAML 매니페스트에 표시 된 것 처럼 하려면:
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
@@ -90,7 +90,7 @@ roleRef:
 
 Pod가 Cosmos DB, Key Vault 또는 Blob Storage와 같은 다른 Azure 서비스에 액세스해야 하는 경우 Pod에는 액세스 자격 증명이 필요합니다. 이러한 액세스 자격 증명은 컨테이너 이미지를 사용하여 정의하거나 Kubernetes 비밀로 삽입할 수 있지만, 수동으로 만들고 할당해야 합니다. 대개 인증서는 Pod 전체에 재사용되며 정기적으로 회전되지 않습니다.
 
-Azure 리소스의 관리형 ID를 사용하면 Azure AD를 통해 서비스에 대한 액세스를 자동으로 요청할 수 있습니다. Pod에 대한 자격 증명을 수동으로 정의하는 대신, 액세스 토큰을 실시간으로 요청하며 이를 사용하여 할당된 서비스에만 액세스할 수 있습니다. AKS에서 클러스터 운영자는 Pod가 관리형 ID를 사용할 수 있도록 하는 다음 두 가지 구성 요소를 배포합니다.
+(현재 연결 AKS 오픈 소스 프로젝트로 구현 됨) Azure 리소스에 대 한 관리 되는 id 수 자동으로 Azure AD 통해 서비스에 액세스를 요청 합니다. Pod에 대한 자격 증명을 수동으로 정의하는 대신, 액세스 토큰을 실시간으로 요청하며 이를 사용하여 할당된 서비스에만 액세스할 수 있습니다. AKS에서 클러스터 운영자는 Pod가 관리형 ID를 사용할 수 있도록 하는 다음 두 가지 구성 요소를 배포합니다.
 
 * **NMI(노드 관리 ID) 서버**는 AKS 클러스터의 각 노드에서 DaemonSet으로 실행되는 Pod입니다. NMI 서버는 Azure 서비스에 대한 Pod 요청을 수신 대기합니다.
 * **MIC(Managed Identity Controller)** 는 Kubernetes API 서버를 쿼리할 권한을 가진 중앙 Pod이고 Pod에 해당하는 Azure ID 매핑을 확인합니다.
@@ -105,6 +105,8 @@ Pod가 Azure 서비스에 대한 액세스를 요청하면 네트워크 규칙�
 1. NMI 서버와 MIC를 배포하여 액세스 토큰에 대한 Pod 요청을 Azure AD로 릴레이합니다.
 1. 개발자는 NMI 서버를 통해 액세스 토큰을 요청하는 관리형 ID를 사용하여 Pod를 배포합니다.
 1. 토큰은 Pod에 반환되고 Azure SQL Server 인스턴스에 액세스하는 데 사용됩니다.
+
+관리 되는 pod id는 AKS 오픈 소스 프로젝트 및 Azure 기술 지원에서 지원 되지 않습니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 프로젝트는 프로덕션 용도로 권장 되지 않습니다.
 
 Pod ID를 사용하려면 [Kubernetes 애플리케이션의 Azure Active Directory ID][aad-pod-identity]를 참조하세요.
 

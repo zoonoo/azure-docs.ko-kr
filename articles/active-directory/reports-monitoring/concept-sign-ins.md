@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183750"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294895"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -149,7 +149,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
-Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. 클릭 **다운로드** 최신 250,000 레코드의 CSV 또는 JSCON 파일을 만드는 옵션을 제공 합니다.  
+Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. 클릭 **다운로드** 최신 250,000 레코드의 CSV 또는 JSON 파일을 만드는 옵션을 제공 합니다.  
 
 ![다운로드](./media/concept-sign-ins/71.png "다운로드")
 
@@ -168,7 +168,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>ID 보안 보호에서 사용자 로그인 데이터
 
-**ID 보안 보호** 개요 페이지의 사용자 로그인 그래프에서는 지정된 기간 내에 모든 사용자에 대한 로그인의 주간 집계를 보여줍니다. 시간에 대한 기본값은 30일입니다.
+사용자 로그인 그래프 합니다 **Id 보안 보호** 개요 페이지에 지정된 된 기간 동안 모든 사용자에 대 한 로그인의 주간 집계를 표시 합니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 활동](./media/concept-sign-ins/06.png "로그인 활동")
 
@@ -214,7 +214,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ![로그인 활동](./media/concept-sign-ins/10.png "로그인 활동")
 
-지정된 기간 동안 상위 3가지 애플리케이션에 대한 로그인의 주간 사용량 그래프 집계입니다. 시간에 대한 기본값은 30일입니다.
+앱 주간 사용량 그래프 집계에서 지정된 된 기간 동안 상위 3 개 응용 프로그램에 로그인 합니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 활동](./media/concept-sign-ins/47.png "로그인 활동")
 

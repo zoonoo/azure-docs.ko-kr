@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445928"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -40,7 +40,10 @@ Azure IoT Edge를 사용하면 IoT Hub에 대한 연결을 유지하는 단일 �
 2. IoT Hub에서 디바이스 ID가 있는 다운스트림 디바이스. 
     IoT Edge 디바이스는 다운스트림 디바이스로 사용할 수 없습니다. 대신, IoT Hub에서 일반적인 IoT 디바이스로 등록된 디바이스를 사용합니다. 포털에서 새 디바이스를 **IoT 디바이스** 섹션에 등록할 수 있습니다. 또는 Azure CLI를 사용하여 [디바이스를 등록](../iot-hub/quickstart-send-telemetry-c.md#register-a-device)할 수 있습니다. 연결 문자열을 복사하여 이후 섹션에서 사용할 수 있도록 합니다. 
 
-    현재는 대칭 키 인증을 사용한 다운스트림 디바이스만 IoT Edge 게이트웨이를 통해 연결할 수 있습니다. X.509 인증 기관 및 자체 서명된 X.509 인증서는 현재 지원되지 않습니다. 
+    현재는 대칭 키 인증을 사용한 다운스트림 디바이스만 IoT Edge 게이트웨이를 통해 연결할 수 있습니다. X.509 인증 기관 및 자체 서명된 X.509 인증서는 현재 지원되지 않습니다.
+    
+> [!NOTE]
+> 이 명령에서 인증서를 만드는 데 "게이트웨이 이름이" GatewayHostName 다운스트림 장치 연결 문자열에 IoT Edge config.yaml 파일에는 호스트와 동일한 이름으로 사용 해야 합니다. "게이트웨이 이름이" DNS 또는 호스트 파일 항목을 사용 하거나 IP 주소를 확인할 수 있어야 합니다. 통신 프로토콜을 기반으로 사용 되는 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 다운스트림 장치에서 IoT Edge 투명 사이의 수 여야 합니다. 방화벽 사이 인 경우 해당 포트를 열어야 해야 합니다.
 
 ## <a name="prepare-a-downstream-device"></a>다운스트림 디바이스 준비
 
@@ -89,7 +92,7 @@ sudo update-ca-certificates
 
 다음과 같은 메시지가 표시됩니다. “/etc/ssl/certs에 인증서 업데이트 중... 1개 추가됨, 0개 제거됨. 완료."
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 다음 단계는 Windows 호스트에 CA 인증서를 설치하는 방법의 예제입니다. 이 샘플은 필수 구성 요소 문서의 **azure-iot-test-only.root.ca.cert.pem** 인증서를 사용하고 다운스트림 디바이스에 있는 위치에 인증서를 복사한 것으로 가정합니다.  
 

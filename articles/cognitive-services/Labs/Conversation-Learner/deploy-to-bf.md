@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994650"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Conversation Learner 봇을 배포하는 방법
 
@@ -45,7 +45,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
     npm run ui
     ```
 
-2. 브라우저에서 http://localhost:5050을 엽니다. 
+2. 브라우저에서 `http://localhost:5050`을 엽니다. 
 
 3. ID를 가져올 Conversation Learner 모델을 클릭합니다.
 
@@ -94,7 +94,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 다른 봇을 게시하는 것과 동일한 방식으로 Conversation Learner 봇을 게시합니다. 상위 수준에서 코드를 호스트된 웹 사이트에 업로드하고, 적절한 구성 값을 설정한 다음, 다양한 채널에 봇을 등록합니다. 이 비디오에는 Azure Bot Service를 사용하여 봇을 게시하는 방법을 보여 주는 자세한 지침이 있습니다.
 
-봇이 배포되어 실행 중이면 Azure Bot 채널 등록을 사용하여 Facebook, Teams, Skype 등의 다양한 채널을 봇에 연결할 수 있습니다. 해당 프로세스에 대한 문서는 다음을 참조하세요. https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+봇이 배포 되 고 실행에 연결할 수 있습니다 다른 채널 Facebook, Teams, Skype 등과 같은 합니다. Azure 봇 채널 등록을 사용합니다. 해당 프로세스에 대한 문서는 다음을 참조하세요. https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 다음은 Azure에 Conversation Learner 봇을 배포하기 위한 단계별 지침입니다.  이러한 지침에서는 Azure DevOps Services, GitHub, BitBucket 또는 OneDrive와 같은 클라우드 기반 원본에서 봇 원본을 사용할 수 있다고 가정하고 지속적인 배포에 맞게 봇을 구성합니다.
 
@@ -109,20 +109,20 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 3. Azure Portal에서 방금 만든 웹앱 봇 리소스를 편집합니다.
 
-    1. 왼쪽에서 “애플리케이션 설정” 탐색 항목을 클릭합니다.
-    1. “앱 설정” 섹션까지 아래로 스크롤합니다.
-    2. 다음 설정을 추가합니다.
+   1. 왼쪽에서 “애플리케이션 설정” 탐색 항목을 클릭합니다.
+   1. “앱 설정” 섹션까지 아래로 스크롤합니다.
+   2. 다음 설정을 추가합니다.
 
-        환경 변수 | 값
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 애플리케이션 ID GUID
-        LUIS_AUTHORING_KEY               | 이 모델에 대한 LUIS 작성 키
-        LUIS_SUBSCRIPTION_KEY            | 필수 변수는 아니지만 작성 할당량이 소진되지 않도록 하려면 게시된 봇에 사용하는 것이 좋습니다.
+       환경 변수 | 값
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 애플리케이션 ID GUID
+       LUIS_AUTHORING_KEY               | 이 모델에 대한 LUIS 작성 키
+       LUIS_SUBSCRIPTION_KEY            | 필수 변수는 아니지만 작성 할당량이 소진되지 않도록 하려면 게시된 봇에 사용하는 것이 좋습니다.
     
-    4. 페이지 맨 위에서 “저장”을 클릭합니다.
-    5. 왼쪽에서 “빌드” 탐색 항목을 엽니다.
-    6. “지속적인 배포 구성”을 클릭합니다. 
-    7. 배포 아래에서 “설정” 아이콘을 클릭합니다.
-    8. “필수 설정”을 클릭합니다.
-    9. 봇 코드를 사용할 수 있는 소스를 선택하고 소스를 구성합니다.
+   4. 페이지 맨 위에서 “저장”을 클릭합니다.
+   5. 왼쪽에서 “빌드” 탐색 항목을 엽니다.
+   6. “지속적인 배포 구성”을 클릭합니다. 
+   7. 배포 아래에서 “설정” 아이콘을 클릭합니다.
+   8. “필수 설정”을 클릭합니다.
+   9. 봇 코드를 사용할 수 있는 소스를 선택하고 소스를 구성합니다.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 36628ed0749814b5bafe4b18278c8bcfe7265374
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227715"
+ms.locfileid: "58259502"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB 드라이버 및 관리 도구를 Azure Database for MariaDB 호환
 
@@ -29,7 +29,7 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0과 SS
 .NET | [GitHub의 MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 |
 MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다.
 Node.js |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하
-이동 | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 이하 | 연결 문자열에 allowNativePasswords=true 사용
+이동 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 사용 하 여 `allowNativePasswords=true` 버전 1.3에 대 한 연결 문자열에 있습니다. 버전 1.4 수정 사항을 포함 하 고 `allowNativePasswords=true` 필요 하지 않습니다.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 |
 자바 | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
 

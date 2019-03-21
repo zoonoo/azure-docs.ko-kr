@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230753"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544647"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Azure Data Lake Storage Gen1은 다음 원본에서 데이터를 복사하기 �
 * **Azure Storage Blob** 컨테이너
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Azure Data Lake Analytics 계정(선택 사항)** - Data Lake Analytics 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
-* **AdlCopy 도구**. [http://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy)에서 AdlCopy 도구를 설치합니다.
+* **AdlCopy 도구**. [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy)에서 AdlCopy 도구를 설치합니다.
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 도구 구문
 다음 구문에 따라 AdlCopy 도구를 사용합니다.

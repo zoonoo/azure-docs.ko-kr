@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171301"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295218"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -48,15 +48,46 @@ ms.locfileid: "56171301"
 
 ### <a name="filtering-on-audit-logs"></a>감사 로그 필터링
 
-감사 보고서에서 고급 필터링을 사용하여 **활동 범주** 필터에서 지정하여 특정 범주의 감사 데이터에 액세스할 수 있습니다. 예를 들어 셀프 서비스 암호 재설정과 관련된 모든 작업을 보려면 **셀프 서비스 암호 관리** 범주를 선택합니다. 
+감사 보고서에서 고급 필터링 하 여 감사 데이터를 특정 범주에 지정 하 여 액세스 합니다 **범주** 필터입니다. 예를 들어, 사용자와 관련 된 모든 활동을 보려면 선택 합니다 **UserManagement** 범주입니다. 
 
-작업 범주에는 다음과 같은 항목이 포함됩니다.
+범주는 다음과 같습니다.
 
+- 모두
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- 권한 부여
+- 연락처
+- 디바이스
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- 기타
+- 정책
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+필터링 할 수도 있습니다 사용 하 여 특정 서비스를 **서비스** 드롭다운 필터입니다. 예를 들어 셀프 서비스 암호 관리와 관련 된 모든 감사 이벤트를 가져오려면 선택 합니다 **셀프 서비스 암호 관리** 필터입니다.
+
+서비스에는 다음이 포함됩니다.
+
+- 모두
+- 액세스 검토
+- 계정 프로비전 
+- SSO 응용 프로그램
+- 인증 방법
+- B2C
+- 조건부 액세스
 - 핵심 디렉터리
-- 셀프 서비스 암호 관리
+- 권한 관리
+- ID 보호
+- 사용자 초대
+- PIM
 - 셀프 서비스 그룹 관리
-- 계정 프로비전
-
+- 셀프 서비스 암호 관리
+- 사용 약관
 
 ## <a name="sign-ins-report"></a>로그인 보고서 
 
@@ -122,11 +153,11 @@ ms.locfileid: "56171301"
  
 #### <a name="cause"></a>원인
 
-Azure Portal에서 활동 로그를 다운로드할 때 크기를 가장 최근에 먼저 정렬된 5000개의 레코드로 제한합니다. 
+Azure portal에서 활동 로그를 다운로드 하면 최근 순으로 정렬 하는 250000 레코드 크기 조정을 제한을 두고 있습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
-[Azure AD Reporting API](concept-reporting-api.md)를 활용하여 특정 시점에서 최대 백만 개의 레코드를 가져올 수 있습니다. 기간에 따라(예: 매일 또는 매주) 증분 방식으로 레코드를 가져오도록 보고서 API를 호출하는 [스크립트를 일정에 따라 실행](tutorial-signin-logs-download-script.md)하는 것이 좋습니다. 
+[Azure AD Reporting API](concept-reporting-api.md)를 활용하여 특정 시점에서 최대 백만 개의 레코드를 가져올 수 있습니다.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Azure Portal에서 최근 작업의 감사 데이터 누락
 

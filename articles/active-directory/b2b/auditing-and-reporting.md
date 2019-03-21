@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673616"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294198"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 
@@ -28,11 +29,11 @@ ms.locfileid: "56673616"
 
 Azure AD 감사 로그는 게스트 사용자가 시작한 작업을 비롯하여 시스템 및 사용자 작업에 대한 기록을 제공합니다. 감사 로그에 액세스하려면 **Azure Active Directory**의 **모니터링** 아래에서 **감사 로그**를 선택합니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
 
-![감사 로그](./media/auditing-and-reporting/audit-log.png)
+![보여 주는 스크린샷 및 예제 감사 로그 출력](./media/auditing-and-reporting/audit-log.png)
 
 이러한 각 이벤트를 심층 분석하여 자세한 정보를 얻을 수 있습니다. 예를 들어 승인 세부 정보를 살펴보겠습니다.
 
-![활동 세부 정보](./media/auditing-and-reporting/activity-details.png)
+![및 작업 세부 정보 출력 예를 보여 주는 스크린샷](./media/auditing-and-reporting/activity-details.png)
 
 Azure AD에서 이러한 로그를 내보낸 후 원하는 보고 도구를 사용하여 익숙한 보고서를 얻을 수도 있습니다.
 

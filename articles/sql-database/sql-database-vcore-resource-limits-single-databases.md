@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902266"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260233"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -149,7 +149,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |최대 동시 로그인|200|400|600|800|1000|1200|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|N/A|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|N/A|
+|다중 AZ|예|예|예|예|예|예|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -173,7 +173,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |최대 동시 로그인 (요청)|1400|1600|1800|2000|3200|4800|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|N/A|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|N/A|
+|다중 AZ|예|예|예|예|예|예|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -198,7 +198,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|4|
 |다중 AZ|예|예|예|예|예|예|예|
-|읽기 확장|N/A|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|N/A|
+|읽기 확장|예|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>중요 비즈니스 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
@@ -222,7 +222,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|4|
 |다중 AZ|예|예|예|예|예|예|예|
-|읽기 확장|N/A|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|N/A|
+|읽기 확장|예|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
 ## <a name="hyperscale-service-tier-preview"></a>하이퍼스케일 서비스 계층(미리 보기)

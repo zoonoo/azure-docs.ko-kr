@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473349"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847368"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 ML(기계 학습)을 위한 다양한 도구 및 라이브러리 집합이 있습니다. 
@@ -71,7 +71,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
 | 사용/실행 방법      | Windows인 경우 시작 메뉴에서 Weka를 검색하세요. Linux의 경우 X2Go로 로그인한 다음, **Applications** >   **Development**  >  **Weka**로 이동합니다. |
-| 샘플에 대한 링크      | [Weka 샘플](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | 관련 도구      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle

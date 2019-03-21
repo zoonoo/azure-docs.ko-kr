@@ -10,17 +10,18 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218056"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669876"
 ---
 # <a name="bing-speech-client-samples"></a>Bing Speech 클라이언트 샘플
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
- 
+
 Bing Speech는 명령 인식, 연속 인식 및 의도 감지와 같은 다양한 사용 사례를 보여 주는 종단 간 샘플을 제공합니다. 모든 샘플은 GitHub에서 제공되며 다음 링크에서 다운로드할 수 있습니다. 각 리포지토리의 README.md와 [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) 페이지에서 샘플을 빌드하고 실행하는 방법에 대한 자세한 내용을 제공합니다.
 
 - [REST API 샘플](https://github.com/Azure-Samples/SpeechToText-REST)

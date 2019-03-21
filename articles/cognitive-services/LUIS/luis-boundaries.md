@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897521"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다. 
@@ -27,7 +27,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 앱이 LUIS 모델 제한 및 경계를 초과하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱 또는 [LUIS 컨테이너](luis-container-howto.md)를 사용하는 방안을 고려합니다. 
 
 |영역|제한|
-|--|:--|--|
+|--|:--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
 | [일괄 테스트][batch-testing]| 10개 데이터 세트, 데이터 세트당 1000개 발화|
 | 명시적 목록 | 애플리케이션당 50개|
@@ -41,7 +41,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | [정규식 엔터티](./luis-concept-entity-types.md)|20개 엔터티<br>정규식 엔터티 패턴당 최대 500자|
 | [역할](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
 | [발화][utterances] | 500자|
-| [발화][utterances] | 애플리케이션당 15,000개|
+| [발화][utterances] | 15,000 응용 프로그램별-는 의도 당 길이 발언 수에 제한이|
 | [버전](luis-concept-version.md)| 제한 없음 |
 | [버전 이름][luis-how-to-manage-versions] | 영숫자 및 마침표(.)로 제한되는 10자 |
 
@@ -50,7 +50,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 ## <a name="intent-and-entity-naming"></a>의도 및 엔터티 이름 지정
 의도 및 엔터티 이름에 다음 문자를 사용하지 마세요.
 
-|문자|Name|
+|문자|이름|
 |--|--|
 |`{`|왼쪽 중괄호|
 |`}`|오른쪽 중괄호|

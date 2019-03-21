@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295677"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics의 사용량 및 비용 관리
 
@@ -112,13 +112,13 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
     ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-작업 영역을 현재 가격 책정 계층으로 이동하려는 경우 [Azure Monitor에서 구독의 모니터링 가격 책정 모델을 변경](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)하여 해당 구독에 있는 모든 작업 영역의 가격 책정 계층을 변경해야 합니다.
+작업 영역을 현재 가격 책정 계층으로 이동하려는 경우 [Azure Monitor에서 구독의 모니터링 가격 책정 모델을 변경](usage-estimated-costs.md#moving-to-the-new-pricing-model)하여 해당 구독에 있는 모든 작업 영역의 가격 책정 계층을 변경해야 합니다.
 
 > [!NOTE]
 > 작업 영역이 Automation 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **Automation 및 제어** 솔루션을 삭제하고 Automation 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. Automation 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 Automation 계정의 이름을 클릭합니다.
 
 > [!NOTE]
-> 에 대 한 자세한 내용은 [ARM 통해 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) 및 ARM 배포 여부 구독이 기존 또는 새 가격 책정 모델에 관계 없이 성공 한다는 사실을 확인 하는 방법입니다. 
+> 에 대 한 자세한 내용은 [ARM 통해 가격 책정 계층](template-workspace-configuration.md#create-a-log-analytics-workspace) 및 ARM 배포 여부 구독이 기존 또는 새 가격 책정 모델에 관계 없이 성공 한다는 사실을 확인 하는 방법입니다. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
@@ -138,24 +138,12 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>사용량이 예상보다 더 높은 원인 해결
 사용량이 높은 원인은 다음과 같습니다.
-- 예상보다 많은 데이터가 Log Analytics에 전송
 - 예상보다 많은 노드가 Log Analytics에 데이터 전송
+- 예상보다 많은 데이터가 Log Analytics에 전송
 
-### <a name="data-volume"></a>데이터 볼륨 
-**사용량 및 예상 비용** 페이지에서 *솔루션당 데이터 수집* 차트는 전송된 총 데이터 양과 각 솔루션이 전송하는 데이터 양을 보여 줍니다. 이를 통해 전체 데이터 사용량(또는 특정 솔루션에 의한 사용량)이 증가하는지, 고정적인지, 감소하는지 여부의 추세를 판단할 수 있습니다. 이를 생성하는 데 사용되는 쿼리는 다음과 같습니다.
+다음 섹션에서는 탐색
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-여기서 “where IsBillable = true” 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 
-
-데이터 추세를 보다 자세히 조사하여 특정 데이터 형식을 발견할 수 있습니다(예: IIS 로그로 인한 데이터를 연구하려는 경우).
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>데이터를 전송하는 노드
+## <a name="understanding-nodes-sending-data"></a>데이터를 전송 하는 노드 이해
 
 지난달에 매일 데이터를 보고한 컴퓨터(노드)의 수를 파악하려면 다음을 사용합니다.
 
@@ -171,9 +159,9 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 
+여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 이 쿼리는 사용 현황 데이터 형식 사용 하 여 컴퓨터 정보를 쿼리 하는 이전 방식으로 대체 합니다.  
 
-비용이 청구되는 데이터 형식을 전송하는 컴퓨터의 시간당 수를 반환하도록 이 쿼리를 다음과 같이 확장할 수 있습니다.
+시간당 전송 하는 컴퓨터 수가 청구 데이터 형식 (하는 Log Analytics는 레거시 노드당 가격 책정 계층에 대 한 청구 가능한 노드를 계산 하는 방법)를 반환 하려면이 확장할 수 있습니다.
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-컴퓨터당 수집된 청구 가능한 이벤트의 **크기**를 보려면 크기(바이트)를 제공하는 `_BilledSize` 속성을 사용합니다.
+## <a name="understanding-ingested-data-volume"></a>이해 수집 된 데이터 볼륨 
+
+**사용량 및 예상 비용** 페이지에서 *솔루션당 데이터 수집* 차트는 전송된 총 데이터 양과 각 솔루션이 전송하는 데이터 양을 보여 줍니다. 이를 통해 전체 데이터 사용량(또는 특정 솔루션에 의한 사용량)이 증가하는지, 고정적인지, 감소하는지 여부의 추세를 판단할 수 있습니다. 이를 생성하는 데 사용되는 쿼리는 다음과 같습니다.
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+여기서 “where IsBillable = true” 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 
+
+데이터 추세를 보다 자세히 조사하여 특정 데이터 형식을 발견할 수 있습니다(예: IIS 로그로 인한 데이터를 연구하려는 경우).
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
+
+보려는 **크기** 컴퓨터 단위로 수집 되는 청구 가능한 이벤트를 사용 합니다 `_BilledSize` 속성 ([로그-표준-속성 &#40; _billedsize.md](learn more)) 크기 (바이트) 제공 하는:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-이 쿼리는 이전 쿼리 방법을 사용량 데이터 형식으로 바꿉니다. 
+합니다 `_IsBillable` 속성 수집 된 데이터 요금이 발생 하는지 여부를 지정 합니다 ([로그-표준-properties.md #_isbillable](Learn more).)
 
 컴퓨터당 수집된 이벤트 **수**를 보려면 다음을 사용합니다.
 
@@ -207,8 +212,29 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독으로 데이터 볼륨
+
+Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니다는 **크기** 수집 하는 청구 가능한 이벤트 __컴퓨터당__를 사용 하 여는 `_ResourceId` 리소스에 전체 경로 제공 하는 속성 ([ 로그-표준-properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니다는 **크기** 수집 하는 청구 가능한 이벤트 __Azure 구독 당__, 구문 분석을 `_ResourceId` 속성:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+변경 `subscriptionId` 에 `resourceGroup` Azure resouurce 그룹별로 청구 가능한 수집 된 데이터 볼륨을 표시 됩니다. 
+
+
 > [!NOTE]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
+
+### <a name="querying-for-common-data-types"></a>일반적인 데이터 형식에 대 한 쿼리
 
 특정 데이터 형식의 데이터 소스를 더 자세히 알아보려면 다음 예와 같은 몇 가지 쿼리를 사용합니다.
 
@@ -241,7 +267,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
-### <a name="getting-node-counts"></a>노드 수 구하기 
+### <a name="getting-security-and-automation-node-counts"></a>가져오는 보안 및 자동화 노드 수 
 
 “노드별 (OMS)” 가격 책정 계층에 속하는 경우 사용하는 노드 및 솔루션 수에 따라 비용이 청구됩니다. 요금이 청구되는 Insights 및 Analytics 노드의 수는 **사용량 및 예상 비용** 페이지의 표에 표시됩니다.  
 
@@ -282,6 +308,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>데이터 컬렉션이 예상보다 높은 경우 경고를 만듭니다.
+
 이 섹션에서는 경고가 발생하는 경우를 설명합니다.
 - 데이터 볼륨이 지정된 크기를 초과합니다.
 - 데이터 볼륨이 지정된 크기를 초과할 것으로 예측됩니다.

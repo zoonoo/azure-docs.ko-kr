@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164536"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286451"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
->이 URL `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us`를 ![RSS 아이콘](./media/whats-new/feed-icon-16x16.png) 피드 판독기에 복사하고 붙어넣어 업데이트를 위해 이 페이지를 다시 방문해야 할 때 알림을 받습니다.
+>복사 하 여이 URL을 붙여넣으면 업데이트에 대 한이 페이지를 다시 방문 하는 경우에 대 한 알림 받기: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 에 사용자 ![RSS 피드 판독기 아이콘](./media/whats-new/feed-icon-16x16.png) 피드 판독기입니다.
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -38,6 +38,124 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 6개월 이상된 항목을 찾으려는 경우 [Azure Active Directory의 새로운 기능 아카이브](whats-new-archive.md)에서 찾을 수 있습니다.
 
 ---
+## <a name="february-2019"></a>2019년 2월
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>구성 가능한 Azure AD SAML 토큰 암호화(공개 미리 보기) 
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** SSO
+ 
+이제 암호화 된 SAML 토큰을 받을 모든 지원 되는 SAML 앱을 구성할 수 있습니다. 구성 하 고 앱을 사용 하는 경우 Azure AD에서 Azure AD에 저장 된 인증서를 가져온 공개 키를 사용 하 여 내보낸된 SAML 어설션이 암호화 합니다.
+
+SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure AD SAML 구성 토큰 암호화](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)합니다.
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 그룹 또는 앱에 대한 액세스 검토 만들기
+
+**유형:** 새로운 기능  
+**서비스 범주:** 액세스 검토  
+**제품 기능:** 거버넌스
+
+이제 여러 그룹을 포함할 수 있습니다 또는 단일 Azure AD에 앱 액세스 그룹 멤버 자격에 앱 할당 검토 합니다. 여러 그룹을 사용 하 여 액세스 검토 또는 앱은 동일한 설정을 사용 하 여 설정 하 고 동시에 포함 된 모든 검토자에 게 알림이 표시 됩니다.
+
+방법에 대 한 자세한 내용은 Azure AD 액세스 검토를 사용 하 여 액세스 검토 만들기, 참조 [Azure AD 액세스 검토에 그룹 또는 응용 프로그램의 액세스 검토 만들기](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱 - 2019년 2월
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** 타사 통합
+ 
+2019 1 월에에서 앱 갤러리에 페더레이션이 포함 된 이러한 27 새 앱 지원 추가 했습니다.
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MindTickle](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial)합니다 [오타로](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7)를 [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial)를 [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [ IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial)를 [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial)를 [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial)를 [Soloinsight CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), 사용 권한 클릭 [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial)를 [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial)를 [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial)를 [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [지진 ](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [공유는 꿈의](https://www.shareadream.org/how-it-works)를 [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial)를 [webMethods 통합 클라우드](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial)를 [기술 원격 LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [OU 캠퍼스](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial)를 [Periscope 데이터](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial)를 [Netop 포털](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial)를 [smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [Genesys여PureCloud](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [ClickUp 생산성 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>향상된 통합 MFA/SSPR 등록
+
+**유형:** 변경된 기능  
+**서비스 범주:** 셀프 서비스 암호 재설정  
+**제품 기능:** 사용자 인증
+ 
+고객 피드백에 대 한 응답을 개선 했습니다 결합 된 MFA/SSPR 등록 미리 보기 환경은 사용자의 MFA 및 SSPR에 대 한 해당 보안 정보를 보다 신속 하 게 등록 하도록 지원 합니다. 
+
+**현재 사용자에 대 한 향상 된 환경을 설정 하려면 다음이 단계를 수행 합니다.**
+
+1. 전역 관리자 또는 사용자 관리자, Azure portal에 로그인 이동할 **Azure Active Directory > 사용자 설정 > 액세스 패널 미리 보기 기능에 대 한 설정을 관리**합니다. 
+
+2. 에 **미리 보기를 사용할 수 있는 사용자는 등록 하 고 보안 정보 관리에 대 한 기능 – 새로 고침** 옵션을 선택에 대 한 기능을 켜려면를 **선택한 사용자 그룹** 또는 **모든 사용자** .
+
+다음 몇 주 동안 우리가 이전 결합 된 MFA/SSPR 등록 미리 보기 환경에 아직 없는 켜져 있는 테 넌 트에서 끌 수를 삭제 하겠습니다.
+
+**테 넌 트에 대 한 컨트롤을 제거할 경우를 확인 하려면 다음이 단계를 수행 합니다.**
+
+1. 전역 관리자 또는 사용자 관리자, Azure portal에 로그인 이동할 **Azure Active Directory > 사용자 설정 > 액세스 패널 미리 보기 기능에 대 한 설정을 관리**합니다.  
+
+2.  경우는 **등록 하 고 보안 정보 관리에 대 한 미리 보기 기능을 사용할 수 있는 사용자** 옵션을 설정 **None**, 테 넌 트에서 옵션이 제거 됩니다.
+
+이전 결합 된 MFA/SSPR 등록으로 이전에 설정한 여부에 관계 없이 미리 보기 사용자를 위한 환경을 여부, 나중에 이전 환경 해제 됩니다. 따라서 이동 하는 새로운, 향상 된 환경에 가능한 한 빨리는 것이 좋습니다.
+
+향상 된 등록 환경에 대 한 자세한 내용은 참조는 [쿨 향상 된 기능을 Azure AD MFA를 결합 하 고 암호 재설정 등록 환경을](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)합니다.
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>사용자 흐름의 업데이트된 정책 관리 환경
+
+**유형:** 변경된 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+쉽게 사용자 흐름 (이전에 알려진으로, 기본 제공 정책)에 대 한 정책 만들기 및 관리 프로세스를 업데이트 했습니다. 이 새로운 환경은 이제 모든 Azure AD 테 넌 트에 대 한 기본값입니다.
+
+웃는 얼굴을 사용 하 여 추가 사용자 의견 및 제안을 제공할 수 아이콘 찡그린 얼굴 보내기는 **피드백 보내기** 포털 화면 맨 위에 있는 영역입니다.
+
+새 정책 관리 환경에 대 한 자세한 내용은 참조는 [JavaScript 사용자 정 및 많은 새 기능에 이제 Azure AD B2C에](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) 블로그.
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Azure AD B2C에서 제공하는 특정 페이지 요소 버전 선택
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+이제 Azure AD B2C에서 제공 하는 페이지 요소의 특정 버전을 선택할 수 있습니다. 특정 버전을 선택 하면 페이지에 표시 되 고 예측 가능한 동작을 얻을 수 있습니다 전에 업데이트를 테스트할 수 있습니다. 또한 이제 하도록 선택할 수 있습니다에서 JavaScript 사용자 지정을 허용 하도록 특정 페이지 버전을 적용 합니다. 이 기능을 켜려면로 이동 합니다 **속성** 사용자 흐름에서 페이지입니다.
+
+페이지 요소의 특정 버전을 선택 하는 방법에 대 한 자세한 내용은 참조는 [JavaScript 사용자 정 및 많은 새 기능에 이제 Azure AD B2C에](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) 블로그.
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C를 위한 구성 가능한 최종 사용자 암호 요구 사항(GA)
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+설정할 수 있습니다 이제 특히 조직의 암호 복잡성 네이티브를 사용 하는 대신 최종 사용자를 Azure AD 암호 정책입니다. **속성** 블레이드에서 사용자의 흐름 (이전에 기본 제공 정책을 알려짐)의 암호 복잡성을 선택할 수 있습니다 **단순** 또는 **강력한**를 할 수 있습니다 만들기는 **사용자 지정** 요구 사항 집합입니다.
+
+암호 복잡성 요구 사항 구성 하는 방법에 대 한 자세한 내용은 참조 하십시오 [Azure Active Directory B2C에서 암호에 복잡성 요구 사항을 구성](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity)합니다.
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>사용자 지정 브랜드 인증 환경을 위한 새로운 기본 템플릿
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+에 새 기본 템플릿을 사용할 수 있습니다는 **레이아웃 페이지** 블레이드 (이전에 기본 제공 정책으로 알려짐) 사용자 흐름을 사용자 지정을 만들려면 사용자에 대 한 인증 환경을 브랜드.
+
+템플릿을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [JavaScript 사용자 정 및 많은 새 기능에 이제 Azure AD B2C에](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)입니다.
+
+---
+
 ## <a name="january-2019"></a>2019년 1월
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>일회용 암호 인증을 사용하여 Active Directory B2B 공동 작업(공용 미리 보기)
@@ -76,7 +194,7 @@ Azure AD MSA(Microsoft 계정) 또는 Google 페더레이션 등의 다른 수�
  
 2019년 1월에 페더레이션이 지원되는 다음의 신규 앱 35개가 앱 갤러리에 추가되었습니다.
 
-[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [Talent Palette](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco Umbrella](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Internet Access Administrator](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [Expiration Reminder](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [ARES for Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn Ferry ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial)를 [재능 색상표](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial)를 [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial)를 [Cisco 포괄적인](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler 인터넷 액세스 관리자에 게](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [만료 알림](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial)를 [InstaVR 뷰어](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial)를 [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [동사](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora)합니다 [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital 닫기](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice 도구 키트](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [ 클라우드 서비스 PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial)를 [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial)를 [CallPlease](https://webapp.callplease.com/create-account/create-account.html)를 [GTNexus SSO 시스템](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial)하십시오 [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial)를 [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [엔터프라이즈용 아레스](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [Office 365에 대 한 K2](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial)하십시오 [Korn Ferry ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial)를 [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -398,11 +516,11 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 역할은 다음과 같습니다.
 
-- 글로벌 관리자 또는 회사 작성자
+- 전역 관리자
 
-- Intune 서비스 관리자
+- Intune 관리자
 
-- 사용자 계정 관리자
+- 사용자 관리자
 
 자세한 내용은 [동적 그룹 만들기 및 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)을 참조하세요.
 
@@ -459,7 +577,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 지원** 탭의 목적은 관리자 및 지원 엔지니어가 Azure AD 로그인 관련 문제를 해결할 수 있게 도와주는 것입니다. 이 새 탭은 문제 해결에 도움이 되는 오류 코드, 오류 메시지 및 수정 권장 사항(있는 경우)을 제공합니다. 문제를 해결할 수 없는 경우 지원 티켓의 로그 파일에 대한 **요청 ID** 및 **날짜(UTC)** 필드를 채우는 **클립보드에 복사** 환경을 사용하여 지원 티켓을 만들 수 있는 새로운 방법을 제공합니다.  
 
-![새 탭을 사용하는 로그인 로그](media/whats-new/troubleshooting-and-support.png)
+![로그인 로그 새 탭을 보여 주는](media/whats-new/troubleshooting-and-support.png)
 
 ---
 
@@ -690,207 +808,5 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 조직에 Google과의 페더레이션을 설정하면 초대받은 Gmail 사용자가 MSA(개인 Microsoft 계정)나 Azure AD 계정을 만들 필요 없이 기존 Google 계정을 사용하여 공유 앱 및 리소스에 로그인하도록 할 수 있습니다.
 
 이 기능은 옵트인 공개 미리 보기입니다. Google 페더레이션에 대한 자세한 내용은 [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)를 참조하세요.
-
----
-
-## <a name="july-2018"></a>2018년 7월
-
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 메일 알림에 대한 개선
-
-**유형:** 변경된 기능  
-**서비스 범주:** 기타  
-**제품 기능:** ID 수명 주기 관리
- 
-이제 Azure AD(Azure Active Directory) 이메일은 다음 서비스에서 전송된 경우, 보낸 사람 이메일 주소 및 보낸 사람 표시 이름을 변경하고 업데이트된 디자인을 사용합니다.
- 
-- Azure AD 액세스 검토
-- Azure AD Connect Health 
-- Azure AD ID 보호 
-- Azure AD Privileged Identity Management
-- 엔터프라이즈 앱 인증서 만료 알림
-- 엔터프라이즈 앱 서비스 프로비저닝 알림
- 
-메일 알림은 다음 메일 주소 및 표시 이름에서 전송됩니다.
-
-- 메일 주소: azure-noreply@microsoft.com
-- 표시 이름: Microsoft Azure
- 
-새 메일 디자인의 몇 가지 예제와 자세한 내용은 [Azure AD PIM의 메일 알림](https://go.microsoft.com/fwlink/?linkid=2005832)을 참조하세요.
-
----
-
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD 활동 로그는 이제 Azure Monitor를 통해 제공됩니다.
-
-**유형:** 새로운 기능  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
-
-이제 Azure Monitor(Azure의 플랫폼 수준 모니터링 서비스)를 위한 공개 미리 보기에서 Azure AD 활동 로그를 사용할 수 있습니다. Azure Monitor는 장기 보존 및 매끄러운 통합 외에도 다음과 같은 향상된 기능을 제공합니다.
-
-- 로그 파일을 사용자 고유의 Azure 저장소 계정에 라우팅하여 장기 보존.
-
-- 사용자 지정 스크립트를 작성하거나 유지 관리할 필요 없이 매끄럽게 SIEM 통합.
-
-- 사용자 고유의 사용자 지정 솔루션, 분석 도구 또는 인시던트 관리 솔루션과 매끄럽게 통합.
-
-이러한 새 기능에 대한 자세한 내용은 [Azure Monitor 진단에서 Azure AD 활동 로그를 공개 미리 보기로 제공](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) 블로그 및 [Azure Monitor의 Azure Active Directory 활동 로그(미리 보기)](https://docs.microsoft.com/azure/active-directory/reporting-azure-monitor-diagnostics-overview) 문서를 참조하세요.
-
----
-
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서에 추가된 조건부 액세스 정보
-
-**유형:** 새로운 기능  
-**서비스 범주:** 보고  
-**제품 기능:** ID 보안 및 보호
- 
-이 업데이트는 정책 결과와 함께 사용자가 로그인할 때 어떤 정책이 평가되는지 볼 수 있게 해줍니다. 또한 이제 보고서에 사용자가 사용한 클라이언트 앱 유형이 포함되므로 레거시 프로토콜 트래픽을 식별할 수 있습니다. 또한 이제 보고서 항목에서 상관 관계 ID를 검색할 수 있습니다. 이 ID는 사용자에게 표시되는 오류 메시지에서 찾을 수 있으며 일치하는 로그인 요청을 찾아서 해결하는 데 사용할 수 있습니다.
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>로그인 활동 로그를 통해 레거시 인증 보기
-
-**유형:** 새로운 기능  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
- 
-로그인 활동 로그에 **클라이언트 앱** 필드가 도입되어 레거시 인증을 사용하는 사용자를 고객이 볼 수 있습니다. 고객은 로그인 MS Graph API를 사용하거나 **클라이언트 앱** 컨트롤을 사용하여 레거시 인증을 필터링할 수 있는 Azure AD 포털에서 로그인 활동 로그를 통해 이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 7월
-
-**유형:** 새로운 기능  
-**서비스 범주:** 엔터프라이즈 앱  
-**제품 기능:** 타사 통합
- 
-2018년 7월에 페더레이션이 지원되는 신규 앱 16개가 앱 갤러리에 추가되었습니다.
-
-[Innovation Hub](https://docs.microsoft.com/azure/active-directory/saas-apps/innovationhub-tutorial), [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-tutorial), [Certain Admin SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/certainadminsso-tutorial), PSUC Staging, [iPass SmartConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/ipasssmartconnect-tutorial), [Screencast-O-Matic](https://docs.microsoft.com/azure/active-directory/saas-apps/screencast-tutorial), PowerSchool Unified Classroom, [Eli Onboarding](https://docs.microsoft.com/azure/active-directory/saas-apps/elionboarding-tutorial), [Bomgar Remote Support](https://docs.microsoft.com/azure/active-directory/saas-apps/bomgarremotesupport-tutorial), [Nimblex](https://docs.microsoft.com/azure/active-directory/saas-apps/nimblex-tutorial), [Imagineer WebVision](https://docs.microsoft.com/azure/active-directory/saas-apps/imagineerwebvision-tutorial), [Insight4GRC](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial), [SecureW2 JoinNow Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/securejoinnow-tutorial), [Kanbanize](https://review.docs.microsoft.com/azure/active-directory/saas-apps/kanbanize-tutorial), [SmartLPA](https://review.docs.microsoft.com/azure/active-directory/saas-apps/smartlpa-tutorial), [Skills Base](https://docs.microsoft.com/azure/active-directory/saas-apps/skillsbase-tutorial)
-
-앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
-
----
- 
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>새 사용자 프로비전 SaaS 앱 통합 - 2018년 7월
-
-**유형:** 새로운 기능  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** 타사 통합
- 
-Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 애플리케이션에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 2018년 7월에 Azure AD 앱 갤러리에서 다음 애플리케이션에 대한 사용자 프로비전 지원을 추가했습니다.
-
-- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
-
-- [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
-
-- [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
-
-Azure AD 갤러리에서 사용자 프로비전을 지원하는 모든 애플리케이션 목록은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요.
-
----
-
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>동기화용 Connect Health - 분리되고 중복되는 특성 동기화 오류를 간단하게 해결할 수 있습니다.
-
-**유형:** 새로운 기능  
-**서비스 범주:** AD Connect  
-**제품 기능:** 모니터링 및 보고
- 
-Azure AD Connect Health는 동기화 오류를 강조하고 해결할 수 있는 셀프 서비스 업데이트 관리를 도입합니다. 이 기능은 중복된 특성 동기화 오류를 해결하고 Azure AD에서 분리된 개체를 수정합니다. 이 진단은 다음과 같은 이점이 있습니다.
-
-- 중복된 특성 동기화 오류의 범위를 좁혀서 특정 픽스 제공
-
-- 전용 Azure AD 시나리오용 픽스를 적용하여 한 단계로 오류 해결
-
-- 이 기능을 사용하기 위한 별도의 업그레이드 또는 구성이 필요 없음
-
-자세한 내용은 [중복된 특성 동기화 오류 진단 및 수정](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors) 참조
-
----
-
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Azure AD 및 MSA 로그인 환경으로 시각적 업데이트
-
-**유형:** 변경된 기능  
-**서비스 범주:** Azure AD  
-**제품 기능:** 사용자 인증
-
-Office 365, Azure 등의 Microsoft 온라인 서비스 로그인 환경용 UI를 업데이트했습니다. 이 변화로 화면이 더욱 깔끔하게 정리되고 더 쉬워졌습니다. 이 변화에 대한 자세한 내용은 [Azure AD 로그인 환경에 예정된 기능 개선](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/) 블로그를 참조하세요.
-
----
-
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Azure AD Connect의 새 릴리스 - 2018년 7월
-
-**유형:** 변경된 기능  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** ID 수명 주기 관리
-
-Azure AD Connect의 최신 릴리스에는 다음이 포함되어 있습니다. 
-
-- 버그 수정 및 지원 가능성 업데이트 
-
-- Ping Federate 통합의 일반 공급
-
-- 최신 SQL 2012 클라이언트의 업데이트 
-
-이 업데이트에 대한 자세한 내용은 [Azure AD Connect: 버전 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)을 참조하세요.
-
----
-
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>ToU(사용 약관) 최종 사용자 UI 업데이트
-
-**유형:** 변경된 기능  
-**서비스 범주:** 사용 약관  
-**제품 기능:** 거버넌스
-
-TOU 최종 사용자 UI의 동의 문자열을 업데이트할 것입니다.
-
-**현재 텍스트.** [tenantName] 리소스에 액세스하려면 사용 약관에 동의해야 합니다.<br>**새 텍스트.** [tenantName] 리소스에 액세스하려면 사용 약관을 읽어야 합니다.
-
-**현재 텍스트:** 동의를 선택하면 위의 모든 사용 약관에 동의하는 것입니다.<br>**새 텍스트:** 사용 약관을 읽고 이해한 것을 확인하려면 동의를 클릭합니다.
-
----
- 
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>통과 인증은 레거시 프로토콜 및 애플리케이션 지원
-
-**유형:** 변경된 기능  
-**서비스 범주:** 인증(로그인)  
-**제품 기능:** 사용자 인증
- 
-이제 통과 인증은 레거시 프로토콜 및 응용 프로그램을 지원합니다. 이제 다음 제한 사항이 완전히 지원됩니다.
-
-- 사용자가 최신 인증 없이 레거시 Office 클라이언트 애플리케이션, Office 2010 및 Office 2013에 로그인.
-
-- Office 2010의 Exchange 하이브리드 환경에서만 일정 공유 및 약속 있음/없음 정보에 액세스하세요.
-
-- 사용자가 최신 인증 없이 비즈니스용 Skype 클라이언트 애플리케이션에 로그인.
-
-- 사용자가 PowerShell 버전 1.0에 로그인.
-
-- iOS 설정 도우미를 사용하는 Apple DEP(Apple 장비 등록 프로그램). 
-
----
- 
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>셀프 서비스 암호 재설정 및 Multi-Factor Authentication을 위한 융합형 보안 정보
-
-**유형:** 새로운 기능  
-**서비스 범주:** SSPR  
-**제품 기능:** 사용자 인증
-
-사용자는 이 새로운 기능을 통해 SSPR(셀프 서비스 암호 재설정) 및 MFA(Multi-Factor Authentication)에 대한 보안 정보(예: 전화 번호, 이메일 주소, 모바일 앱 및 등)를 단일 환경에서 관리할 수 있습니다. 사용자는 더 이상 SSPR 및 MFA에 대한 동일한 보안 정보를 서로 다른 두 환경에 등록할 필요가 없습니다. 이 새로운 환경은 SSPR 또는 MFA를 사용하는 사용자에게도 적용됩니다.
-
-조직에서 MFA 또는 SSPR 등록을 강제로 적용하지 않는 경우 사용자는 **My Apps** 포털을 통해 보안 정보를 등록할 수 있습니다. 여기서 사용자는 MFA 또는 SSPR에 대해 설정된 방법을 등록할 수 있습니다. 
-
-이 기능은 옵트인 공개 미리 보기입니다. 관리자는 원하는 경우 테넌트의 특정 사용자 그룹 또는 모든 사용자에게 새 환경을 적용할 수 있습니다.
-
----
- 
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>암호를 재설정할 때 Microsoft Authenticator 앱을 사용하여 ID 확인
-
-**유형:** 변경된 기능  
-**서비스 범주:** SSPR  
-**제품 기능:** 사용자 인증
-
-관리자가 아닌 사용자는 이 기능을 통해 Microsoft Authenticator(또는 다른 인증 앱)에서 알림 또는 코드를 사용하여 암호를 재설정하는 동안 자신의 ID를 확인할 수 있습니다. 관리자가 이 셀프 서비스 암호 재설정 방법을 설정하면 aka.ms/mfasetup 또는 aka.ms/setupsecurityinfo를 통해 모바일 앱을 등록한 사용자는 암호를 재설정하는 동안 모바일 앱을 인증 방법으로 사용할 수 있습니다.
-
-모바일 앱 알림은 암호를 재설정하는 두 가지 방법을 요구하는 정책의 일부로만 설정할 수 있습니다.
 
 ---

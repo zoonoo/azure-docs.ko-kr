@@ -10,17 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301879"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101179"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
 > [!NOTE]
 > V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
+> 
+> Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
@@ -49,8 +51,8 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [검색](reference/v3-0-detect.md)         |
 | `DetectArray`     | [검색](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `AddTranslation`     | 기능은 더 이상 지원되지 않습니다.       |
+| `AddTranslationArray`    | 기능은 더 이상 지원되지 않습니다.          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | 기능은 더 이상 지원되지 않습니다.         |
 | `GetTranslationsArray`      | 기능은 더 이상 지원되지 않습니다.         |
@@ -106,13 +108,17 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="compatibility-and-customization"></a>호환성 및 사용자 지정
 
+> [!NOTE]
+> 
+> Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.   
+
 Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
 
 V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
 
 | |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |예    |아니요|
+|Translator Text API 버전 2| api.microsofttranslator.com|    아닙니다.  |사용자 계정 컨트롤    |아닙니다.|
 |Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    no| 예|
 
 **Translator Text API 버전 3**
@@ -130,13 +136,13 @@ api.cognitive.microsofttranslator.com 엔드포인트를 사용하는 경우 Tra
 * Microsoft Translator Hub를 사용하여 작성된 사용자 지정 번역 시스템에 대한 액세스를 제공합니다.
 * api.microsofttranslator.com 엔드포인트를 사용하는 경우 Translator Text API 버전 2를 사용하고 있습니다.
 
-Translator API 버전은 번역 레코드를 만들지 않습니다. 번역은 누구와도 공유되지 않습니다. 추가 정보는 [Translator 비추적](http://www.aka.ms/NoTrace) 웹 페이지에 있습니다.
+Translator API 버전은 번역 레코드를 만들지 않습니다. 번역은 누구와도 공유되지 않습니다. 추가 정보는 [Translator 비추적](https://www.aka.ms/NoTrace) 웹 페이지에 있습니다.
 
 ## <a name="links"></a>링크
 
 * [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure 법률 정보](https://azure.microsoft.com/support/legal)
-* [온라인 서비스 약관](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
 ## <a name="next-steps"></a>다음 단계
 

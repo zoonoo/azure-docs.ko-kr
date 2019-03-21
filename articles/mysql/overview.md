@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353331"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295405"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL용 Azure Database란?
-MySQL용 Azure Database는 [MySQL 커뮤니티 버전](https://www.mysql.com/products/community/) 데이터베이스 엔진(버전 5.6 및 5.7)을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. MySQL용 Azure Database는 다음과 같은 기능을 제공합니다.
+
+Azure Database for MySQL은 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스를 [MySQL Community Edition](https://www.mysql.com/products/community/) (GPLv2 라이선스로 사용 가능) 데이터베이스 엔진, 5.6 및 5.7 버전입니다. MySQL용 Azure Database는 다음과 같은 기능을 제공합니다.
 
 - 추가 비용 없이 기본 제공되는 고가용성
 - 예측 가능한 성능, 종량제 가격 책정 사용
@@ -29,10 +30,12 @@ MySQL용 Azure Database는 [MySQL 커뮤니티 버전](https://www.mysql.com/pro
 ![MySQL용 Azure Database 개념 다이어그램](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 이 문서에서는 세부 정보를 찾는 링크를 통해 성능, 확장성 및 관리 효율성과 관련된 MySQL용 Azure Database의 핵심 개념과 기능을 소개합니다. 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
+
 - [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 일련의 Azure CLI 샘플은 다음을 참조하세요.
+
 - [MySQL용 Azure Database에 대한 Azure CLI 샘플](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
@@ -55,12 +58,14 @@ Azure Database for MySQL 서비스는 미사용 데이터에 대해 저장소 �
 Azure Database for MySQL 작업에 대해 궁금한 점이나 제안하고 싶은 의견이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이는 기술 지원 별칭이 아닙니다.
 
 또한 문의의 다음 사항을 적절히 고려해 주세요.
+
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
 - 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 MySQL용 Azure Database에 대한 소개를 읽고 질문 "MySQL용 Azure Database란?"에 답변했으므로 다음에 대한 준비가 되었습니다.
+
 - 비용 비교 및 계산기는 가격 책정 페이지를 참조하세요. [가격](https://azure.microsoft.com/pricing/details/mysql/)
 - 첫 번째 서버를 만들어서 시작합니다. [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)
 - 기본 설정된 언어를 사용하여 첫 번째 앱을 빌드합니다. [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

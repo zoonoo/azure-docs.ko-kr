@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66c694d2bfb5497712bcf81c4d50a8e68fdcef9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122523"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293961"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업 문제 해결
 
@@ -38,7 +38,7 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 사용자를 초대할 수 있는 권한이 없다는 알림이 표시되면 사용자 설정에서 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다.
 
-![외부 사용자 설정](media/troubleshoot/external-user-settings.png)
+![외부 사용자 설정을 보여 주는 스크린샷](media/troubleshoot/external-user-settings.png)
 
 최근에 이러한 설정을 수정했거나 사용자에게 [게스트 초대자] 역할을 할당한 경우 변경 내용이 적용되는 데 15-60분 정도 걸릴 수 있습니다.
 
@@ -50,7 +50,7 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 확인).
 
-![오류 메시지가이 테 넌이 트에는 전자 메일 확인 사용자를 추가할 수](media/troubleshoot/allow-email-verified-users.png)
+![오류 메시지가 테 넌 트에는 전자 메일 확인 사용자](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>외부 사용자가 이미 페더레이션된 도메인에 존재하지 않습니다.
 

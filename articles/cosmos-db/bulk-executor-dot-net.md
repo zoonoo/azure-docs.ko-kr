@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845123"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258465"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
@@ -30,7 +30,7 @@ ms.locfileid: "57845123"
 
 * Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/). 또는 엔드포인트가 `https://localhost:8081`인 [Azure Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator)를 사용할 수 있습니다. 기본 키는 [인증 요청](local-emulator.md#authenticating-requests)에 제공됩니다.
 
-* .NET 빠른 시작 문서의 [데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-a-database-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다. 
+* .NET 빠른 시작 문서의 [데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다. 
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    connectionPolicy)
    ```
 
-4. BulkExecutor 개체는 대기 시간 및 스로틀된 요청을 위해 높은 다시 시도 값으로 초기화됩니다. 그런 다음, 정체 제어를 해당 수명에 대한 BulkExecutor로 전달하도록 0으로 설정됩니다.  
+4. BulkExecutor 개체에는 스로틀 된 요청 및 대기 시간에 대 한 높은 다시 시도 값으로 초기화 됩니다. 그런 다음, 정체 제어를 해당 수명에 대한 BulkExecutor로 전달하도록 0으로 설정됩니다.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    
    |**매개 변수**  |**설명** |
    |---------|---------|
-   |enableUpsert    |   문서의 upsert를 사용할 수 있도록 설정하는 플래그입니다. 주어진 ID의 문서가 이미 존재하는 경우 업데이트됩니다. 기본적으로 false로 설정됩니다.      |
+   |enableUpsert    |   문서의 upsert를 사용 하도록 설정 하는 플래그입니다. 주어진 ID의 문서가 이미 존재하는 경우 업데이트됩니다. 기본적으로 false로 설정됩니다.      |
    |disableAutomaticIdGeneration    |    ID의 자동 생성을 사용하지 않도록 설정하는 플래그입니다. 기본적으로 true로 설정됩니다.     |
    |maxConcurrencyPerPartitionKeyRange    | 파티션 키 범위당 최대 동시성 수준으로, null로 설정하면 라이브러리는 기본값 20을 사용하게 됩니다. |
    |maxInMemorySortingBatchSize     |  각 단계에서 API 호출에 전달되는 문서 열거자에서 풀되는 최대 문서 수입니다.  대량 가져오기 이전의 메모리 내 전처리 정렬 단계의 경우 null로 설정하면 라이브러리는 최소 기본값을 사용하게 됩니다(documents.count, 1000000).       |
@@ -173,7 +173,7 @@ Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다
 
 * 특정 Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 애플리케이션에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
 
-* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.  
+* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 컴퓨터에서 실행 되는 단일 대량 작업 API 호출을 전체 컨테이너의 처리량을 사용할 수 없는 경우 (하는 경우 컨테이너의 처리량 > 1 백만 RU/s)을 동시에 실행 하도록 개별 가상 머신을 만드는 것이 좋습니다 대량 작업 API 호출 합니다.  
 
 * InitializeAsync()가 대상 Cosmos DB 컨테이너 파티션 맵을 가져오기 위해 BulkExecutor 개체를 인스턴스화한 후 호출되는지 확인합니다.  
 

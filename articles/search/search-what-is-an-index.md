@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342493"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537595"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
@@ -57,76 +57,76 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에는 [제안](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정을 지원하는 구성 요소 파트가 있는 [분석기](#analyzers), [CORS](#cors) 옵션 등이 있습니다.
 
 ```json
-{  
-  "name": (optional on PUT; required on POST) "name_of_index",  
-  "fields": [  
-    {  
-      "name": "name_of_field",  
-      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",  
-      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),  
-      "filterable": true (default) | false,  
-      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),  
-      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),  
-      "key": true | false (default, only Edm.String fields can be keys),  
-      "retrievable": true (default) | false,  
+{
+  "name": (optional on PUT; required on POST) "name_of_index",
+  "fields": [
+    {
+      "name": "name_of_field",
+      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",
+      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),
+      "filterable": true (default) | false,
+      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
+      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
+      "key": true | false (default, only Edm.String fields can be keys),
+      "retrievable": true (default) | false,
       "analyzer": "name_of_analyzer_for_search_and_indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
       "searchAnalyzer": "name_of_search_analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
       "indexAnalyzer": "name_of_indexing_analyzer", (only if 'searchAnalyzer' is set and 'analyzer' is not set)
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
-    }  
-  ],  
-  "suggesters": [  
-    {  
-      "name": "name of suggester",  
-      "searchMode": "analyzingInfixMatching",  
-      "sourceFields": ["field1", "field2", ...]  
-    }  
-  ],  
-  "scoringProfiles": [  
-    {  
-      "name": "name of scoring profile",  
-      "text": (optional, only applies to searchable fields) {  
-        "weights": {  
-          "searchable_field_name": relative_weight_value (positive #'s),  
-          ...  
-        }  
-      },  
-      "functions": (optional) [  
-        {  
-          "type": "magnitude | freshness | distance | tag",  
-          "boost": # (positive number used as multiplier for raw score != 1),  
-          "fieldName": "...",  
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",  
-          "magnitude": {  
-            "boostingRangeStart": #,  
-            "boostingRangeEnd": #,  
-            "constantBoostBeyondRange": true | false (default)  
-          },  
-          "freshness": {  
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)  
-          },  
-          "distance": {  
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)  
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)  
-          },  
-          "tag": {  
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)  
-          }  
-        }  
-      ],  
-      "functionAggregation": (optional, applies only when functions are specified)   
-        "sum (default) | average | minimum | maximum | firstMatching"  
-    }  
-  ],  
+    }
+  ],
+  "suggesters": [
+    {
+      "name": "name of suggester",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["field1", "field2", ...]
+    }
+  ],
+  "scoringProfiles": [
+    {
+      "name": "name of scoring profile",
+      "text": (optional, only applies to searchable fields) {
+        "weights": {
+          "searchable_field_name": relative_weight_value (positive #'s),
+          ...
+        }
+      },
+      "functions": (optional) [
+        {
+          "type": "magnitude | freshness | distance | tag",
+          "boost": # (positive number used as multiplier for raw score != 1),
+          "fieldName": "...",
+          "interpolation": "constant | linear (default) | quadratic | logarithmic",
+          "magnitude": {
+            "boostingRangeStart": #,
+            "boostingRangeEnd": #,
+            "constantBoostBeyondRange": true | false (default)
+          },
+          "freshness": {
+            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
+          },
+          "distance": {
+            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+          },
+          "tag": {
+            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
+          }
+        }
+      ],
+      "functionAggregation": (optional, applies only when functions are specified) 
+        "sum (default) | average | minimum | maximum | firstMatching"
+    }
+  ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) {  
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],  
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)  
-  }  
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) {
+    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
+    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  }
 }
 ```
 
@@ -170,7 +170,7 @@ Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/
 
 ![특성 선택에 따른 인덱스 크기](./media/search-what-is-an-index/realestate-index-size.png "특성 선택에 따른 인덱스 크기")
 
-이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요?  아니요. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
+이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요? 아니요. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
 
 필터 및 정렬을 지원하는 인덱스는 전체 텍스트 검색만 지원하는 인덱스보다 비례적으로 큽니다. 필터 및 정렬은 정확히 일치하는 항목을 쿼리하므로 문서가 그대로 저장됩니다. 반면 전체 텍스트 및 유사 항목 검색을 지원하는 검색 가능 필드는 반전 인덱스를 사용하며, 반전 인덱스는 전체 문서보다 공간을 적게 사용하는 토큰화된 용어로 채워집니다.
 

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816216"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670437"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -81,9 +82,9 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아니요 | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아니요 | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | 예 |
+| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예 |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 
@@ -198,7 +199,7 @@ Microsoft Speech Service는 전사 응답에 다양한 페이로드 형식을 �
 
 ### <a name="n-best-values"></a>N 상위 값
 
-수신기는 인간이든 컴퓨터이든 간에 이들이 말한 것을 *정확히* 들었는지 확신할 수 없습니다. 수신기는 발화의 특정 해석에만 *확률*을 할당할 수 있습니다. 
+수신기는 인간이든 컴퓨터이든 간에 이들이 말한 것을 *정확히* 들었는지 확신할 수 없습니다. 수신기는 발화의 특정 해석에만 *확률*을 할당할 수 있습니다.
 
 정상 조건에서 자주 상호 작용하는 다른 사람에게 말할 때 사람들은 발화된 단어를 인식할 확률이 높습니다. 컴퓨터 기반 음성 수신기는 비슷한 정확도 수준을 달성하기 위해 노력하고, 적절한 조건에서 [인간과의 동등성을 달성합니다](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ Microsoft Speech Service는 많은 사람들이 "불경한 언어"로 분류하�
 
 | *profanity* 값 | 설명 |
 | - | - |
-| `masked` | 불경한 언어를 별표로 마스킹합니다. 이 동작은 기본값입니다. | 
+| `masked` | 불경한 언어를 별표로 마스킹합니다. 이 동작은 기본값입니다. |
 | `removed` | 모든 결과에서 불경한 언어를 제거합니다. |
 | `raw` | 모든 결과에서 불경한 언어를 인식하고 반환합니다. |
 
@@ -322,7 +323,7 @@ Microsoft Speech Service는 많은 사람들이 "불경한 언어"로 분류하�
 
 #### <a name="profanity-only-utterances"></a>불경한 언어 전용 발화
 
-애플리케이션에서 불경한 언어를 제거하도록 서비스를 구성한 경우 사용자는 *불경한 언어만* 말할 수 있습니다. 이 시나리오의 경우 인식 모드가 *받아쓰기* 또는 *대화*이면 서비스에서 *speech.result*를 반환하지 않습니다. 인식 모드가 *대화형*이면 서비스에서 상태 코드가 *NoMatch*인 *speech.result*를 반환합니다. 
+애플리케이션에서 불경한 언어를 제거하도록 서비스를 구성한 경우 사용자는 *불경한 언어만* 말할 수 있습니다. 이 시나리오의 경우 인식 모드가 *받아쓰기* 또는 *대화*이면 서비스에서 *speech.result*를 반환하지 않습니다. 인식 모드가 *대화형*이면 서비스에서 상태 코드가 *NoMatch*인 *speech.result*를 반환합니다.
 
 ### <a name="profanity-value-raw"></a>`Raw` profanity 값
 

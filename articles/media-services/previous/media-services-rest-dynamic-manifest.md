@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 9900a9c7116359f8ccbb2d101ce6f147bef932bc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fc72bad81896d786bfe040632b7f6a61f775b6f1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990004"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294752"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성 
 > [!div class="op_single_selector"]
@@ -335,6 +335,6 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
 

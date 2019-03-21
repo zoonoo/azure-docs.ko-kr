@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997909"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736552"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
@@ -25,20 +25,22 @@ Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포�
 
 이 문서에서는 Azure [Traffic Manager][traffic-manager-marketing]를 사용하여 키 전체에서 트래픽을 관리하는 방법에 대해 설명합니다. 이미 학습하고 게시한 LUIS 앱이 있어야 합니다. 이러한 앱이 없는 경우, 미리 빌드된 도메인 [빠른 시작](luis-get-started-create-app.md)을 따르세요. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Azure Portal에서 PowerShell에 연결
 [Azure][azure-portal] Portal에서 PowerShell 창을 엽니다. PowerShell 창의 아이콘은 맨 위 탐색 모음에 있는 **>_** 입니다. 포털에서 PowerShell을 사용하면 최신 PowerShell 버전이 다운로드되고 인증됩니다. 포털에서 PowerShell을 사용하려면 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정이 필요합니다. 
 
 ![Powershell 창이 열려 있는 Azure Portal 스크린샷](./media/traffic-manager/azure-portal-powershell.png)
 
-다음 섹션에서는 [Traffic Manager PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager)을 사용합니다.
+다음 섹션에서는 [Traffic Manager PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager)을 사용합니다.
 
 ## <a name="create-azure-resource-group-with-powershell"></a>PowerShell을 사용하여 Azure 리소스 그룹 만들기
 Azure 리소스를 만들기 전에 모든 리소스를 포함할 리소스 그룹을 만듭니다. 리소스 그룹 이름을 `luis-traffic-manager`로 지정하고 지역은 `West US`를 사용합니다. 리소스 그룹의 지역에는 그룹에 대한 메타데이터가 저장됩니다. 다른 지역에 있어도 리소스 속도가 느려지지는 않습니다. 
 
-**[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet을 사용하여 리소스 그룹을 만듭니다.
+사용 하 여 리소스 그룹을 만듭니다 **[새로 만들기-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** cmdlet:
 
 ```powerShell
-New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
+New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>LUIS 키를 만들어 총 엔드포인트 할당량 늘리기
@@ -66,12 +68,12 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>PowerShell을 사용하여 미국 동부 Traffic Manager 프로필 만들기
 미국 동부 Traffic Manager 프로필을 만들려면 프로필 만들기, 엔드포인트 추가, 엔드포인트 설정 등의 여러 단계를 수행합니다. Traffic Manager 프로필에는 많은 엔드포인트가 있을 수 있지만 각 엔드포인트에는 동일한 유효성 검사 경로가 있습니다. 지역 및 끝점 키로 인해 east 및 west 구독에 대한 LUIS 끝점 URL이 서로 다르기 때문에 각 LUIS 끝점은 프로필에서 단일 끝점이어야 합니다. 
 
-1. **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet을 사용하여 프로필 만들기
+1. 사용 하 여 프로필 만들기 **[새로 만들기-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** cmdlet
 
     다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-east`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
     ```powerShell
-    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
+    $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -88,10 +90,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     
     성공한 요청에는 응답이 없습니다.
 
-2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 동부 엔드포인트 추가
+2. 사용 하 여 미국 동부 끝점 추가 **[추가-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
@@ -123,10 +125,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 동부 엔드포인트 설정
+3. Set East US endpoint with **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** cmdlet
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
     성공한 응답은 2단계의 응답과 동일합니다.
@@ -134,12 +136,12 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>PowerShell을 사용하여 미국 서부 Traffic Manager 프로필 만들기
 미국 서부 Traffic Manager 프로필을 만들려면 프로필 만들기, 엔드포인트 추가, 엔드포인트 설정 등의 동일한 단계를 수행합니다.
 
-1. **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 프로필 만들기
+1. 사용 하 여 프로필 만들기 **[새로 만들기-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
 
     다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-west`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
     ```powerShell
-    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
+    $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -156,10 +158,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     
     성공한 요청에는 응답이 없습니다.
 
-2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 서부 엔드포인트 추가
+2. 사용 하 여 미국 서 부 끝점 추가 **[추가-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -192,10 +194,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 서부 엔드포인트 설정
+3. Set West US endpoint with **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
     성공한 응답은 2단계의 응답과 동일합니다.
@@ -203,10 +205,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 ### <a name="create-parent-traffic-manager-profile"></a>부모 Traffic Manager 프로필 만들기
 부모 Traffic Manager 프로필을 만들고 두 개의 자식 Traffic Manager 프로필을 부모에 연결합니다.
 
-1. **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 부모 프로필 만들기
+1. 사용 하 여 부모 프로필을 만들 **[새로 만들기-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
 
     ```powerShell
-    $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
+    $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -223,10 +225,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     성공한 요청에는 응답이 없습니다.
 
-2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** 및 **NestedEndpoints** 형식을 사용하여 부모에 미국 동부 자식 프로필 추가
+2. 부모와 미국 동부 자식 프로필 추가 **[추가-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** 하 고 **NestedEndpoints** 형식
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -235,7 +237,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-EndpointName|child-endpoint-useast|East 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
-    |-Type|NestedEndpoints|자세한 내용은 [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)를 참조하세요. |
+    |-Type|NestedEndpoints|자세한 내용은 [추가 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)합니다. |
     |-TargetResourceId|$eastprofile.Id|자식 프로필의 ID|
     |-EndpointStatus|사용|부모에 추가한 후 엔드포인트 상태|
     |-EndpointLocation|“eastus”|리소스의 [Azure 지역 이름](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -260,10 +262,10 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet 및 **NestedEndpoints** 형식을 사용하여 부모에 미국 서부 자식 프로필 추가
+3. 미국 서 부 하위 프로필을 사용 하 여 부모 추가할 **[추가-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet 및 **NestedEndpoints** 형식
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -272,7 +274,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|West 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
-    |-Type|NestedEndpoints|자세한 내용은 [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)를 참조하세요. |
+    |-Type|NestedEndpoints|자세한 내용은 [추가 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)합니다. |
     |-TargetResourceId|$westprofile.Id|자식 프로필의 ID|
     |-EndpointStatus|사용|부모에 추가한 후 엔드포인트 상태|
     |-EndpointLocation|“westus”|리소스의 [Azure 지역 이름](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -297,21 +299,21 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 엔드포인트 설정 
+4. Set endpoints with **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
     성공한 응답은 3단계의 응답과 동일합니다.
 
 ### <a name="powershell-variables"></a>PowerShell 변수
-이전 섹션에서 세 개의 PowerShell 변수 `$eastprofile`, `$westprofile`, `$parentprofile`을 만들었습니다. 이러한 변수는 Traffic Manager 구성의 끝 부분에서 사용됩니다. 변수를 만들지 않도록 선택했거나, 만드는 것을 잊었거나, PowerShell 창 시간이 초과된 경우 PowerShell cmdlet **[Get-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** 을 사용하여 프로필을 다시 가져와 변수에 할당할 수 있습니다. 
+이전 섹션에서 세 개의 PowerShell 변수 `$eastprofile`, `$westprofile`, `$parentprofile`을 만들었습니다. 이러한 변수는 Traffic Manager 구성의 끝 부분에서 사용됩니다. 변수를 만들지 않도록 선택 하거나, 찾기 또는 PowerShell 창에서 시간이 초과 하는 경우에 PowerShell cmdlet을 사용할 수 있습니다  **[Get AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** 하에 할당 하 고 프로필을 다시 가져옵니다는 변수입니다. 
 
 꺾쇠 괄호(`<>`)로 묶인 항목을 필요한 세 개의 프로필 각각에 올바른 값으로 바꾸세요. 
 
 ```powerShell
-$<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
+$<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
 ## <a name="verify-traffic-manager-works"></a>Traffic Manager 작동 확인

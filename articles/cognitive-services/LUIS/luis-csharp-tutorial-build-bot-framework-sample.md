@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091684"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 
@@ -46,16 +46,16 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 3. [웹앱 봇] 창에서 **만들기**를 클릭합니다.
 
 4. **Bot Service**에서 필수 정보를 제공하고 **만들기**를 클릭합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)를 사용하려면 봇을 만들기 전에 [지역 요구 사항](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)을 검토합니다. 
-    * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
-    * **봇 템플릿**의 경우 다음을 선택합니다.
-        * **SDK v3**
-        * **C#**
-        * **언어 이해**
-    * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역](luis-reference-regions.md)입니다.
-    * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
+   * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
+   * **봇 템플릿**의 경우 다음을 선택합니다.
+       * **SDK v3**
+       * **C#**
+       * **언어 이해**
+   * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역](luis-reference-regions.md)입니다.
+   * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
 
-    ![Bot 서비스](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Bot 서비스](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Bot Service가 배포되었는지 확인합니다.
@@ -86,9 +86,9 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 > 1. **내 앱**을 클릭합니다. 
 > 2. HomeAutomation 도메인에서 의도 및 엔터티를 포함하는 이전에 만든 LUIS 앱을 찾습니다.
 > 3. LUIS 앱의 **설정** 페이지에서 앱 ID를 찾아서 복사합니다. LUIS 앱이 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)되었는지 확인합니다. 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> 앱 ID 또는 LUIS 키를 삭제 하면 봇 작동이 중지 됩니다.
 
 ## <a name="modify-the-bot-code"></a>봇 코드 수정
 
@@ -130,7 +130,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 ## <a name="build-the-bot"></a>봇 빌드
 코드 편집기에서 `build.cmd`를 마우스 오른쪽 단추로 클릭하고 **콘솔에서 실행**을 선택합니다.
 
-![웹 봇 빌드 ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![웹 봇 빌드](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 코드 보기는 빌드의 진행 상황 및 결과를 표시하는 터미널 창으로 바뀝니다.
 

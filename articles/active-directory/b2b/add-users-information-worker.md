@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211430"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294518"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 
@@ -36,15 +37,15 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 1. `https://myapps.microsoft.com`으로 이동하여 액세스 패널을 엽니다.
 2. 앱을 가리키도록 줄임표(**...**)를 선택한 다음, **앱 관리**를 선택합니다.
  
-   ![액세스 패널 앱 관리](media/add-users-iw/access-panel-manage-app.png)
+   ![Salesforce 앱에 대 한 관리 응용 프로그램 하위 메뉴를 보여 주는 스크린샷](media/add-users-iw/access-panel-manage-app.png)
  
 3. 사용자 목록의 맨 위에서 **+** 를 선택합니다.
    
-   ![액세스 패널 사용자 추가](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![앱에 구성원을 추가 하는 것에 대 한 더하기 기호를 보여 주는 스크린샷](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. **멤버 추가** 검색 상자에서 게스트 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다.
    
-   ![액세스 패널 초대](media/add-users-iw/access-panel-invitation.png)
+   ![스크린샷 추가 게스트를 추가 하기 위한 멤버 창](media/add-users-iw/access-panel-invitation.png)
    
 5. **추가**를 선택하여 게스트 사용자에게 초대를 발송합니다. 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
@@ -55,19 +56,19 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 2. `https://myapps.microsoft.com`으로 이동하여 액세스 패널을 엽니다.
 3. **그룹** 앱을 선택합니다.
    
-   ![액세스 패널 그룹 앱](media/add-users-iw/access-panel-groups.png)
+   ![액세스 패널에서 그룹 앱을 보여 주는 스크린샷](media/add-users-iw/access-panel-groups.png)
    
 4. **내가 소유한 그룹**에서 공유하려는 앱에 액세스할 수 있는 그룹을 선택합니다.
    
-   ![액세스 패널 내가 소유한 그룹](media/add-users-iw/access-panel-groups-i-own.png)
+   ![내가 소유한 그룹에서 그룹을 선택 하는 위치를 보여 주는 스크린샷](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. 사용자 멤버 목록의 맨 위에서 **+** 를 선택합니다.
    
-   ![액세스 패널 멤버 추가](media/add-users-iw/access-panel-groups-add-member.png)
+   ![그룹에 구성원을 추가 하는 것에 대 한 더하기 기호를 보여 주는 스크린샷](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. **멤버 추가** 검색 상자에서 게스트 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다.
    
-   ![액세스 패널 그룹 초대](media/add-users-iw/access-panel-invitation.png)
+   ![스크린샷 추가 게스트를 추가 하기 위한 멤버 창](media/add-users-iw/access-panel-invitation.png)
    
 7. **추가**를 선택하여 게스트 사용자에게 자동으로 초대를 발송합니다. 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 

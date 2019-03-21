@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873975"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534806"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "55873975"
 
 ### <a name="single-service-subscription"></a>단일 서비스 구독
 
-1. [Azure Portal](http://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
 
     ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "55873975"
 
 ### <a name="multi-service-subscription"></a>다중 서비스 구독
 
-1. [Azure Portal](http://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
 
     ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

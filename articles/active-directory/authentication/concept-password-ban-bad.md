@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206551"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287029"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
-
-|     |
-| --- |
-| Azure AD 암호 보호 및 사용자 지정 금지 암호 목록은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
 
 업계의 주요 기업들은 여러 위치에서 동일한 암호를 사용하지 않아야 하고, Password123 같은 간단한 암호도 사용하지 말라고 조언합니다. 사용자가 규정을 준수하게 만들려면 조직에서 어떻게 해야 할까요? 사용자가 일반적인 암호 또는 최근에 데이터 보안 위반 사건에 연루된 것으로 알려진 암호를 사용하지 못하게 하려면 어떻게 해야 할까요?
 
@@ -31,7 +26,7 @@ ms.locfileid: "56206551"
 
 Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다. Azure AD ID 보호 팀은 일반적으로 사용되는 보안 위험이 있는 암호를 지속적으로 살펴보고 있습니다. 그리고 소위 말하는 전역 금지 암호 목록에서 자주 보이는 암호를 차단합니다. 사이버 범죄자 역시 비슷한 전략을 공격에 사용하므로 Microsoft는 이 목록의 콘텐츠를 공개적으로 게시하지 않습니다. 이와 같이 취약한 암호는 Microsoft 고객에게 실질적인 위협으로 다가오기 전에 차단됩니다. 현재 보안 노력에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/operations/security-intelligence-report)를 참조하세요.
 
-## <a name="preview-custom-banned-password-list"></a>미리 보기: 사용자 지정 금지 암호 목록
+## <a name="custom-banned-password-list"></a>사용자 지정 금지 암호 목록
 
 일부 조직은 Microsoft에서 사용자 금지 암호 목록이라고 부르는 전역 금지 암호 목록 위에 자체적인 사용자 지정을 추가하여 보안을 강화하려 합니다. Contoso 같은 대기업 고객은 브랜드 이름, 회사 관련 용어 또는 기타 항목의 변형을 차단하도록 선택할 수 있습니다.
 
@@ -41,7 +36,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 ## <a name="on-premises-hybrid-scenarios"></a>온-프레미스 하이브리드 시나리오
 
-클라우드 전용 계정을 보호하면 도움이 되지만, 많은 조직에서는 온-프레미스 Windows Server Active Directory를 비롯한 하이브리드 시나리오를 유지하고 있습니다. 온-프레미스에 Windows Server Active Directory(미리 보기) 에이전트용 Azure AD 암호 보호를 설치하여 금지 암호 목록을 기존 인프라로 확장할 수 있습니다. 이제 온-프레미스에서 암호를 변경, 설정 또는 다시 설정하는 사용자와 관리자는 클라우드 전용 사용자와 동일한 암호 정책을 준수해야 합니다.
+클라우드 전용 계정을 보호하면 도움이 되지만, 많은 조직에서는 온-프레미스 Windows Server Active Directory를 비롯한 하이브리드 시나리오를 유지하고 있습니다. Windows Server Active Directory 에이전트 온-프레미스와 기존 인프라에 금지 된 암호 목록을 확장에 대 한 Azure AD 암호 보호를 설치 하는 것이 가능 합니다. 이제 온-프레미스에서 암호를 변경, 설정 또는 다시 설정하는 사용자와 관리자는 클라우드 전용 사용자와 동일한 암호 정책을 준수해야 합니다.
 
 ## <a name="how-are-passwords-evaluated"></a>암호 평가 방법
 
@@ -60,7 +55,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 예: "blank"라는 암호가 금지된 상태에서 사용자가 암호를 "Bl@nK"로 변경하려 한다고 가정해 보겠습니다. "Bl@nk"는 구체적으로 금지되어 있지는 않지만 정규화 프로세스에서는 이 암호를 금지된 암호인 "blank"로 변환합니다.
 
@@ -96,7 +91,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 정규화 후에 이 암호는 "contosoblank12"가 됩니다. 일치 프로세스에서는 이 암호에 금지된 암호 2개(contoso, blank)가 포함되어 있음이 확인됩니다. 따라서 이 암호의 점수는
 
-[contoso] + [blank] = [1] + [2] = 4점입니다. 이 암호는 점수가 5점 미만이므로 거부됩니다.
+[contoso] + [공백] [1] + [2] = 4 포인트 + 5 지점에서이 암호는 작으므로, 거부 됩니다.
 
 예제: 사용자가 암호 "ContoS0Bl@nkf9!"로 변경합니다.
 

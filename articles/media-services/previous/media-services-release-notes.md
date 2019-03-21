@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8e602cc28026b4b6660c90eaeb529e549dbba5f5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182989"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295439"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -35,7 +35,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | 문제 | 설명 |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
-| 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
+| 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
 | Azure Storage SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |Media Services에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Storage SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Storage SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. |
 | Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 애플리케이션의 리소스 사용을 제한합니다. 해당 서비스에서 "서비스를 사용할 수 없음" 503 HTTP 상태 코드를 반환할 수 있습니다. |자세한 내용은 [Media Services 오류 코드](media-services-encoding-error-codes.md)에서 503 HTTP 상태 코드 설명을 참조하세요. |
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수의 제한은 1,000개입니다. 공용 REST 버전 2에서는 쿼리 결과를 1,000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 건너뛰기 및 포함(.NET)/top(REST)을 사용합니다. |
@@ -184,17 +184,17 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
  Media Encoder는 Media Encoder Standard 릴리스의 약 12개월 지점부터 사용되지 않습니다.
 
 ### <a name="azure-sdk-for-php"></a>PHP용 Azure SDK
-Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](http://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히 PHP용 Media Services SDK는 이제 최신 [Content Protection](media-services-content-protection-overview.md) 기능을 지원합니다. 이러한 기능은 토큰 제한을 포함하거나 없는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화입니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md)의 크기 조정을 지원합니다.
+Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히 PHP용 Media Services SDK는 이제 최신 [Content Protection](media-services-content-protection-overview.md) 기능을 지원합니다. 이러한 기능은 토큰 제한을 포함하거나 없는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화입니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md)의 크기 조정을 지원합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-* 다음 [코드 샘플](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
+* 다음 [코드 샘플](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)에 설명된 .NET 샘플에 기반합니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 PlayReady 동적 암호화 및 라이선스 배달 서비스를 사용하는 방법을 보여줍니다. [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에 설명된 .NET 샘플에 기반합니다.
   * **scale_encoding_units.php**: 이 PHP 파일은 인코딩 예약 단위 크기를 조정하는 방법을 보여줍니다.
 
 ## <a id="nov_changes_15"></a>2015년 11월 릴리스
- 이제 Media Services는 클라우드에서 Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-playready-widevine.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요. 
+ 이제 Media Services는 클라우드에서 Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-playready-widevine.md) 및 [GitHub 리포지토리](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요. 
 
 Media Services에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요.
 
@@ -206,9 +206,9 @@ Media Services는 이제 다음과 같은 데이터 센터에서 사용할 수 �
 
 ## <a id="september_changes_15"></a>2015년 9월 릴리스
 이제 Media Services에서는 Widevine 모듈식 DRM 기술을 사용하여 주문형 비디오와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음과 같은 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
-* [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) 
-* [EZDRM](http://ezdrm.com/) 
-* [castLabs](http://castlabs.com/company/partners/azure/) 
+* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [EZDRM](https://ezdrm.com/) 
+* [castLabs](https://castlabs.com/company/partners/azure/) 
 
 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
   
@@ -311,7 +311,7 @@ Media Services .NET SDK의 현재 버전은 3.1.0.1입니다.
 * HLS 자동 대상 기간이 추가되었습니다. 라이브 스트리밍을 수행할 때 HLS는 항상 동적으로 패키지됩니다. Media Services는 기본적으로 키 프레임 간격(KeyFrameInterval)에 따라 자동으로 HLS 세그먼트 패키징 비율(FragmentsPerSegment)을 계산합니다. 이 메서드는 라이브 인코더에서 수신한 GOP(Group of Pictures)라고도 합니다. 자세한 내용은 [Media Services 라이브 스트리밍 사용](https://msdn.microsoft.com/library/azure/dn783466.aspx)을 참조하세요.
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK 업데이트
-[Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/)의 현재 버전은 3.1.0.0입니다. 다음이 업데이트되었습니다.
+[Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)의 현재 버전은 3.1.0.0입니다. 다음이 업데이트되었습니다.
 
 * .NET SDK 종속성이 .NET 4.5 Framework로 업그레이드되었습니다.
 * 인코딩 예약 단위를 업데이트하는 데 사용할 수 있는 새 API가 추가되었습니다. 자세한 내용은 [.NET을 사용하여 예약 단위 형식 업데이트 및 인코딩 예약 단위 증가](media-services-dotnet-encoding-units.md)를 참조하세요.
@@ -556,35 +556,35 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Azure Media Services MSDN 포럼]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API 참조]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services 가격 책정 정보]: http://azure.microsoft.com/pricing/details/media-services/
-[입력 메타데이터]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[출력 메타데이터]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
-[Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
-[StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
-[Work with Media Services live streaming]: http://msdn.microsoft.com/library/azure/dn783466.aspx
-[Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
-[Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
-[Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady 라이선스 템플릿 개요]: http://msdn.microsoft.com/library/azure/dn783459.aspx
-[Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
+[Media Services 가격 책정 정보]: https://azure.microsoft.com/pricing/details/media-services/
+[입력 메타데이터]: https://msdn.microsoft.com/library/azure/dn783120.aspx
+[출력 메타데이터]: https://msdn.microsoft.com/library/azure/dn783217.aspx
+[Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
+[Index media files with the Azure Media Indexer]: https://msdn.microsoft.com/library/azure/dn783455.aspx
+[StreamingEndpoint]: https://msdn.microsoft.com/library/azure/dn783468.aspx
+[Work with Media Services live streaming]: https://msdn.microsoft.com/library/azure/dn783466.aspx
+[Use AES-128 dynamic encryption and the key delivery service]: https://msdn.microsoft.com/library/azure/dn783457.aspx
+[Use PlayReady dynamic encryption and the license delivery service]: https://msdn.microsoft.com/library/azure/dn783467.aspx
+[Preview features]: https://azure.microsoft.com/services/preview/
+[Media Services PlayReady 라이선스 템플릿 개요]: https://msdn.microsoft.com/library/azure/dn783459.aspx
+[Stream storage-encrypted content]: https://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
-[동적 패키징]: http://msdn.microsoft.com/library/azure/jj889436.aspx
+[동적 패키징]: https://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
-[Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
-[.NET용 Media Services SDK의 다시 시도 논리]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grass Valley의 클라우드를 통한 EDIUS 7 스트리밍 발표]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
-[Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
-[Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
-[Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx
+[Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
+[.NET용 Media Services SDK의 다시 시도 논리]: https://msdn.microsoft.com/library/azure/dn745650.aspx
+[Grass Valley의 클라우드를 통한 EDIUS 7 스트리밍 발표]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
+[Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
+[Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure AD Access Control Service]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connect to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure AD Access Control Service]: https://msdn.microsoft.com/library/hh147631.aspx
+[Connect to Media Services with the Media Services SDK for .NET]: https://msdn.microsoft.com/library/azure/jj129571.aspx
 [Media Services .NET SDK extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [Azure SDK tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
-[Manage Media Services assets across multiple Storage accounts]: http://msdn.microsoft.com/library/azure/dn271889.aspx
-[Handle Media Services job notifications]: http://msdn.microsoft.com/library/azure/dn261241.aspx
+[Manage Media Services assets across multiple Storage accounts]: https://msdn.microsoft.com/library/azure/dn271889.aspx
+[Handle Media Services job notifications]: https://msdn.microsoft.com/library/azure/dn261241.aspx
 

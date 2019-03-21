@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267720"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888086"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 애플리케이션이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "56267720"
 
 ## <a name="where-to-find-dependency-data"></a>종속성 데이터를 찾을 수 있는 위치
 * [애플리케이션 맵](#application-map)은 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
-* [성능, 브라우저 및 실패 블레이드](#performance-and-blades): 서버 종속성 데이터를 표시합니다.
+* [성능, 브라우저 및 실패 블레이드](#performance-and-failure-blades): 서버 종속성 데이터를 표시합니다.
 * [브라우저 블레이드](#ajax-calls): 사용자 브라우저에서의 AJAX 호출을 표시합니다.
 * 느리거나 실패한 요청 클릭: 해당 종속성 호출을 확인합니다.
 * [분석](#analytics): 종속성 데이터를 쿼리하는 데 사용됩니다.

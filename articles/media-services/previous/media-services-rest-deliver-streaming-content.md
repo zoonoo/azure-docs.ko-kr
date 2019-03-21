@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cfa3dd5c39626f209fdcba9df567d506cc768bec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884021"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294963"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시 
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ URL: **경로** + 자산 파일 mp4 이름
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)

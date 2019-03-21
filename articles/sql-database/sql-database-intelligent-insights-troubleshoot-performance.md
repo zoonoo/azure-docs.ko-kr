@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993642"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316059"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석을 스트리밍할 수 있습니다 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md)를 [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다 [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), 또는 타사 솔루션에 사용자 지정 DevOps 경고 및 보고 기능을 제공 합니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
@@ -73,7 +73,7 @@ SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 애플리케이션을 최적화할 수 있습니다. 애플리케이션에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
+세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 
@@ -109,7 +109,7 @@ SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md
 
 또한 워크로드를 최적화하거나 여러 데이터베이스에 분산하여 워크로드를 줄일 수 있습니다. 또는 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 방법을 사용할 수 없는 경우 SQL 데이터베이스 구독의 가격 책정 계층을 높여 데이터베이스에 사용 가능한 메모리 리소스의 양을 늘려 보십시오.
 
-추가 문제 해결 제안 사항은 [메모리 부여 명상: 많은 이름을 가진 특이한 SQL Server 메모리 소비자](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
+추가 문제 해결 제안 사항은 [메모리 부여 명상: 많은 이름을 가진 특이한 SQL Server 메모리 소비자](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
 
 ## <a name="locking"></a>잠금
 
@@ -259,7 +259,7 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 새 계획 회귀 상태는 SQL Database가 기존 계획만큼 효율적이지 않은 새 쿼리 실행 계획을 시작하는 상태를 가리킵니다. 이전 계획 회귀 상태란 SQL Database가 더 효율적인 새 계획에서 새 계획만큼 효율적이지 않은 이전 계획으로 전환하는 상태를 가리킵니다. 기존 계획 변경 워크로드 회귀는 이전 계획과 새 계획이 성능이 낮은 계획으로 균형을 이동하면서 계속해서 이전 계획과 새 계획을 교대하는 상태를 나타냅니다.
 
-계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/)을 참조하세요. 
+계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)을 참조하세요. 
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -267,7 +267,7 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 제공된 쿼리 해시로 식별할 수 있는 특정 쿼리에 대해 성능을 향상시킬 수 있는 계획을 분석할 수 있습니다. 쿼리에 대해 더 효율적으로 작동하는 계획을 결정한 후에는 계획을 수동으로 적용할 수 있습니다. 
 
-자세한 내용은 [SQL Server에서 계획 회귀를 방지하는 방법 알아보기(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)를 참조하세요.
+자세한 내용은 [SQL Server에서 계획 회귀를 방지하는 방법 알아보기(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)를 참조하세요.
 
 > [!TIP]
 > SQL Database에 기본 제공되는 인텔리전스를 통해 데이터베이스에 대해 성능이 가장 뛰어난 쿼리 실행 계획을 자동으로 관리할 수 있다는 것을 알고 계신가요?

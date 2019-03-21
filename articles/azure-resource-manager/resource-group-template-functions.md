@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527622"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766753"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
-이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다.
-
-`[` 및 `]` 각각 대괄호로 묶어서 템플릿에서 기능을 추가합니다. 배포하는 동안 식이 평가됩니다. 문자열 리터럴로 작성되지만 식의 평가 결과는 다른 JSON 형식(예: 배열, 개체 또는 정수)일 수 있습니다. JavaScript에서와 마찬가지로 함수 호출은 `functionName(arg1,arg2,arg3)`과 같이 형식이 지정됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다.
-
-템플릿 식은 24,576자를 초과할 수 없습니다.
-
-템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 Resource Manager에서 **variables('var1')** 와 **VARIABLES('VAR1')** 는 동일합니다. 계산될 때 함수는 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 유형에는 함수가 계산되는 방식에 관계없이 대/소문자 요구 사항이 있을 수 있습니다.
+이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 서식 파일에서 함수를 사용 하는 방법에 대 한 내용은 [템플릿 구문](resource-group-authoring-templates.md#syntax)합니다.
 
 함수를 직접 만들려면 [사용자 정의 함수](resource-group-authoring-templates.md#functions)를 참조하세요.
 
@@ -207,10 +201,11 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
+* [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
-* [분할](resource-group-template-functions-string.md#split)
+* [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
@@ -222,9 +217,10 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+* [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)
+* 사용자가 만든 템플릿을 배포 하는 방법을 참조 하세요 [Azure Resource Manager 템플릿 사용 하 여 응용 프로그램 배포](resource-group-template-deploy.md)

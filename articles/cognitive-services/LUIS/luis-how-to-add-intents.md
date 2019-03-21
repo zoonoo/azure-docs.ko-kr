@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867735"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593425"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
@@ -50,21 +50,14 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 맨 위 탐색에서 **학습**을 선택합니다. 이제 예측 불일치가 사라졌습니다.
 
+> [!Note]
+> 빨간색 선은 단어나 구를 예제 utterance에서 관리 되는 경우는 [엔터티 예측 오차](luis-how-to-add-example-utterances.md#entity-status-predictions) 발생 했습니다. 수정 해야 합니다. 
+
 ## <a name="add-a-custom-entity"></a>사용자 지정 엔터티 추가
 
 발화가 의도에 추가되면 발화 내의 텍스트를 선택하여 사용자 지정 엔터티를 만들 수 있습니다. 사용자 지정 엔터티는 올바른 의도와 함께 추출할 텍스트에 태그를 지정하는 방법입니다. 
 
-1. 발화에서 `Seattle`이라는 단어를 선택합니다. 텍스트 주위에 대괄호가 그려지고 드롭다운 메뉴가 나타납니다. 
-
-    ![의도 세부 정보 페이지, 사용자 지정 엔터티 만들기 스크린샷](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    이 예제에서는 엔터티로 표시할 단일 단어를 선택합니다. 단일 작업 및 구를 엔터티로 표시할 수 있습니다.
-
-1. 메뉴의 맨 위 텍스트 상자에 `Location`을 입력하고 **새 엔터티 만들기**를 선택합니다. 
-
-    ![의도 세부 정보 페이지, 사용자 지정 엔터티 이름 만들기 스크린샷](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. 엔터티 만들기에 대한 **만들려는 엔터티 형식을 선택하세요.** 팝업 창에서 **엔터티 이름**이 _위치_이고 **엔터티 형식**이 _단순_인지 확인합니다. **완료**를 선택합니다.
+참조 [utterance에 엔터티 추가](luis-how-to-add-example-utterances.md) 자세한 합니다.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>엔터티 예측 불일치 오류 
 
@@ -80,7 +73,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 ## <a name="using-the-contextual-toolbar"></a>상황에 맞는 도구 모음 사용
 
-목록에서 발화 왼쪽에 있는 확인란을 선택하여 예제 발화를 하나 이상 선택한 경우 발화 목록 위의 도구 모음을 사용하여 다음 작업을 수행할 수 있습니다.
+목록에서를 utterance의 왼쪽에 있는 확인란에서 하나 이상의 예제 길이 발언을 선택할 때 utterance 목록 위의 도구 모음을 사용 하면 다음 작업을 수행할 수 있습니다.
 
 * 의도 다시 할당: 발화를 다른 의도로 이동합니다.
 * 발화 삭제

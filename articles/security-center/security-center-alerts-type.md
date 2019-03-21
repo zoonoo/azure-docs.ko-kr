@@ -3,7 +3,7 @@ title: Azure Security Center에서 유형별 보안 경고 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 사용할 수 있는 다양한 종류의 보안 경고를 설명합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439686"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286366"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 
 고급 감지를 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](tutorial-security-policy.md)에서 **가격 책정 계층**을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
-
-> [!NOTE]
-> Security Center는 Linux 컴퓨터에서 악의적인 행동을 감지하는 감사된 레코드인 공통 감사 프레임워크를 활용하는 새로운 집합의 감지에 대한 제한된 미리 보기를 출시했습니다. 전자 메일로 [당사](mailto:ASC_linuxdetections@microsoft.com)에 구독 ID를 보내어 미리 보기에 조인하세요.
 
 ## <a name="what-type-of-alerts-are-available"></a>어떤 유형의 경고를 사용할 수 있습니까?
 Azure Security Center는 다양한 [검색 기능](security-center-detection-capabilities.md)을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. 경고에 포함된 정보는 위협을 검색하는 데 사용되는 분석의 유형에 따라 달라집니다. 인시던트는 위협을 조사할 때 유용할 수 있는 추가 컨텍스트 정보를 포함할 수도 있습니다.  이 문서는 다음 경고 유형에 대한 정보를 제공합니다.

@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9925f2ed9f5b24a4113c30f1d00eb3a5bbed8eb5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835472"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -50,7 +50,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
 * Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다.
 * Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Server Core에 설치하는 것은 **지원되지 않습니다**.
-* Azure AD Connect는 반드시 Windows Server 2008 R2 이상 버전에 설치되어야 합니다. Express 설정을 사용하는 경우 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다. 사용자 지정 설정을 사용하는 경우 서버는 독립 실행형일 수 있고 도메인에 가입할 필요는 없습니다.
+* Azure AD Connect는 반드시 Windows Server 2008 R2 이상 버전에 설치되어야 합니다. 이 서버는 도메인 가입 및 도메인 컨트롤러 또는 멤버 서버일 수 있어야 합니다.
 * Windows Server 2008 R2에 Azure AD Connect를 설치하는 경우 Windows 업데이트에서 최신 핫픽스를 적용해야 합니다. 패치가 적용되지 않은 서버에서는 설치를 시작할 수 없습니다.
 * **암호 동기화**기능을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
 * **그룹 관리 서비스 계정**을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2012 이상이어야 합니다.
@@ -64,7 +64,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다.
 * 별도의 SQL Server를 사용하는 경우 다음 요구 사항이 적용됩니다.
-  * Azure AD Connect는 SQL Server 2008(최신 서비스 팩)에서 SQL Server 2017까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
+  * Azure AD Connect는 모든 버전의 Microsoft SQL Server 2008 R2 (최신 서비스 팩)에서 SQL Server 2019를 지원합니다. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
@@ -117,7 +117,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * 선택 사항: 동기화를 확인할 테스트 사용자 계정
 
 ## <a name="component-prerequisites"></a>구성 요소 필수 조건
-### <a name="powershell-and-net-framework"></a>PowerShell 및 .Net Framework
+### <a name="powershell-and-net-framework"></a>PowerShell 및.NET Framework
 Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 * Windows Server 2012R2
@@ -129,20 +129,20 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect에 TLS 1.2 사용
-1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용하도록 .Net 애플리케이션을 구성하여 이를 변경할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
+1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용 하도록.NET 응용 프로그램을 구성 하 여이 변경할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
 
-1. Windows Server 2008 R2 이상 이전에는 TLS 1.2를 사용할 수 없습니다. 운영 체제에 대해 .Net 4.5.1 핫픽스를 설치했는지 확인하고 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
+1. Windows Server 2008 R2 이상 이전에는 TLS 1.2를 사용할 수 없습니다. 했는지.NET 4.5.1 핫픽스를 설치 중인 운영 체제에 대 한 참조 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)합니다. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
 2. Windows Server 2008 R2를 사용하는 경우 TLS 1.2가 사용하도록 설정되어 있는지 확인합니다. Windows Server 2012 서버 및 이후 버전에서는 TLS 1.2가 이미 사용되도록 설정되어 있습니다.
-   ```
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   ```
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    ```
 3. 모든 운영 체제에 대해 이 레지스트리 키를 설정하고 서버를 다시 시작합니다.
-   ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-   "SchUseStrongCrypto"=dword:00000001
-   ```
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
+    ```
 4. 동기화 엔진 서버와 원격 SQL Server 간에 TLS 1.2를 사용하도록 설정하려는 경우 [Microsoft SQL Server에 대한 TLS 1.2 지원](https://support.microsoft.com/kb/3135244)을 위해 필요한 버전이 설치되어 있는지 확인합니다.
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>페더레이션 설치 및 구성을 위한 필수 조건

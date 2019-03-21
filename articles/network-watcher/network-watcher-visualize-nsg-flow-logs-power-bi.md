@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079029"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -56,10 +56,10 @@ ms.locfileid: "54913311"
 
 1. Power BI Desktop 애플리케이션 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherpowerbiflowlogstemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
 1. 필요한 쿼리 매개 변수 입력
-    1. **StorageAccountName** - 로드하여 시각화하려는 NSG 흐름 로그가 포함된 스토리지 계정의 이름을 지정합니다.
-    1. **NumberOfLogFiles** – Power BI에서 다운로드하여 시각화하려는 로그 파일의 수를 지정합니다. 예를 들어 50을 지정하면 가장 최근의 로그 파일 50개가 지정됩니다. NSG 2개가 활성화되어 이 계정에 NSG 흐름 로그를 보내도록 구성되어 있는 경우 지난 25시간 동안의 로그를 볼 수 있습니다.
+   1. **StorageAccountName** - 로드하여 시각화하려는 NSG 흐름 로그가 포함된 스토리지 계정의 이름을 지정합니다.
+   1. **NumberOfLogFiles** – Power BI에서 다운로드하여 시각화하려는 로그 파일의 수를 지정합니다. 예를 들어 50을 지정하면 가장 최근의 로그 파일 50개가 지정됩니다. NSG 2개가 활성화되어 이 계정에 NSG 흐름 로그를 보내도록 구성되어 있는 경우 지난 25시간 동안의 로그를 볼 수 있습니다.
 
-    ![power BI 메인][2]
+      ![power BI 메인][2]
 
 1. 저장소 계정의 액세스 키를 입력합니다. Azure Portal에서 저장소 계정으로 이동한 후 설정 메뉴에서 **액세스 키**를 선택하면 유효한 액세스 키를 찾을 수 있습니다. 그런 다음 **연결**을 클릭하여 변경 내용을 적용합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "54913311"
 
     ![액세스 키 2][4]
 
-4.  로그가 다운로드되고 구문 분석되며 사용자는 미리 작성된 시각 효과를 사용할 수 있습니다.
+4. 로그가 다운로드되고 구문 분석되며 사용자는 미리 작성된 시각 효과를 사용할 수 있습니다.
 
 ## <a name="understanding-the-visuals"></a>시각 효과의 이해
 

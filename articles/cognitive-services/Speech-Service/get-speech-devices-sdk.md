@@ -1,7 +1,7 @@
 ---
 title: 음성 디바이스 SDK 가져오기
 titleSuffix: Azure Cognitive Services
-description: Speech Service는 다양한 디바이스 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. 이 문서에서는 Speech Devices SDK에 대한 액세스를 가져오고 개발을 시작하는 방법을 알아봅니다.
+description: Speech Services는 다양한 디바이스 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. 이 문서에서는 Speech Devices SDK에 대한 액세스를 가져오고 개발을 시작하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 905f3dde7c9c728c2a57858578cef8cff2777d81
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856725"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 

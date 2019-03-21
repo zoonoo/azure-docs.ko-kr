@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023025"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549207"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
 > 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 
 
 이 문서에서는 Azure Data Factory 사용 시 발생하는 문제에 대한 문제 해결 팁을 제공합니다. 여기서는 서비스 사용 중 발생할 수 있는 모든 문제를 다루지는 않으며, 몇 가지 문제와 일반적인 문제 해결 팁을 설명합니다.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>오류: 구독이 'Microsoft.DataFactory' 네임스페이스를 사용하도록 등록되어 있지 않습니다.
@@ -34,20 +36,20 @@ ms.locfileid: "54023025"
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. 다음 명령을 실행하여 Azure Data Factory 공급자를 등록합니다.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: Data Factory cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
-1. Connect-AzureRmAccount - 올바른 사용자 ID 및 암호 사용
-2. Get-AzureRmSubscription - 계정의 모든 구독을 확인합니다.
-3. Select-AzureRmSubscription &lt;구독 이름&gt; - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
+1. 연결-AzAccount-올바른 사용자 이름 및 암호
+2. Get-AzSubscription-계정의 모든 구독을 확인 합니다.
+3. 선택 AzSubscription &lt;구독 이름&gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure Portal에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
@@ -128,9 +130,9 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-portal]: https://portal.azure.com/
 

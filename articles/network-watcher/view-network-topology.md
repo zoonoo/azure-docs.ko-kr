@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112741"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -42,7 +42,7 @@ ms.locfileid: "55809898"
     - *myVnet* 가상 네트워크와 동일한 리소스 그룹 및 지역 내부에 있습니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
     - *myVnet* 가상 네트워크 내부에 있거나 내부의 리소스와 연결되어 있습니다. 예를 들어, *myVnet* 가상 네트워크의 서브넷 또는 네트워크 인터페이스와 연결되지 않은 네트워크 보안 그룹은 *MyResourceGroup* 리소스 그룹에 있어도 표시되지 않습니다.
 
-  그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는**네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
+   그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는**네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
 
 6. **토폴로지 다운로드**를 선택하여 이미지를 편집 가능한 파일을 svg 형식으로 다운로드합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "55809898"
 
     *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
 
-  반환된 출력의 관계 및 [속성](#properties)을 자세히 살펴보세요. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
+   반환된 출력의 관계 및 [속성](#properties)을 자세히 살펴보세요. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
 
 ## <a name = "powershell"></a>토폴로지 보기 - PowerShell
 
@@ -123,7 +123,7 @@ ms.locfileid: "55809898"
 
    *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
 
-  반환된 출력의 관계 및 [속성](#properties)을 자세히 살펴보세요. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
+   반환된 출력의 관계 및 [속성](#properties)을 자세히 살펴보세요. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
 
 ## <a name="relationships"></a>관계
 

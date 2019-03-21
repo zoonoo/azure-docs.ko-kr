@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137980"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용하여 고성능이 필요한 VM을 만들려면 `-AccountType Premium_LRS` 매개 변수를 New-AzSnapshot 명령에 추가합니다. 이 매개 변수는 스냅숏을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용 하 여 고성능 되어야 하는 VM 만들기, 추가 매개 변수 `-AccountType Premium_LRS` 새 AzSnapshotConfig 명령입니다. 이 매개 변수는 스냅숏을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅숏에서 새 디스크 만들기
 

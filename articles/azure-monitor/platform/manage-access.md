@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076311"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294351"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>로그 데이터 및 Azure Monitor에서 작업 영역 관리
 Azure Monitor는 기본적으로 데이터 및 구성 정보가 포함된 컨테이너 인 Log Analytics 작업 영역에 로그 데이터를 저장합니다. 로그 데이터에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
@@ -136,15 +136,6 @@ Log Analytics 작업 영역에서 데이터를 분석 하는 동안 합니다 **
 > [!NOTE]
 > 사용자의 작업 영역에 리소스 사용 권한만 있으면 됩니다만 볼 수 사용 하 여 작업 영역 액세스 [리소스 중심 모드](#access-modes)합니다.
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Azure portal에서 액세스 제어 모드 정의
-현재 작업 영역 액세스 제어 모드에서 볼 수 있습니다는 **개요** 페이지에서 작업 영역에는 **Log Analytics 작업 영역** 메뉴.
-
-![작업 영역 액세스 제어 모드 보기](media/manage-access/view-access-control-mode.png)
-
-이 설정을 변경할 수는 **속성** 작업 영역에 대 한 페이지입니다. 작업 영역을 구성 하는 권한이 없는 경우 설정을 변경 비활성화 됩니다.
-
-![작업 영역 액세스 모드 변경](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Azure portal에서 액세스 제어 모드 정의
 현재 작업 영역 액세스 제어 모드에서 볼 수 있습니다는 **개요** 페이지에서 작업 영역에는 **Log Analytics 작업 영역** 메뉴.

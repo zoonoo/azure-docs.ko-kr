@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e548188f1fc44ec32b90d0eaaa4154602e3e51c4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764084"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259961"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack에 대 한 id 개요
 
@@ -60,12 +60,12 @@ Azure Stack 환경에 의존 하는 옵션에 대 한 자세한 내용은 다음
 
 Azure stack에서 사용자 계정:
 
-- 생성 되는 *username@domain* 형식. AD FS의 사용을 지원 하지 않는 AD FS는 Active Directory 인스턴스에 사용자 계정 매핑되지만 합니다  *\\ \<도메인 >\\\<별칭 >* 형식입니다.
+- 만들어진 합니다 *사용자 이름\@도메인* 형식. AD FS의 사용을 지원 하지 않는 AD FS는 Active Directory 인스턴스에 사용자 계정 매핑되지만 합니다  *\\ \<도메인 >\\\<별칭 >* 형식입니다.
 - 다단계 인증을 사용 하도록를 설정할 수 있습니다.
 - 조직의 디렉터리가 있는 디렉터리를 먼저 등록을 제한 됩니다.
 - 온-프레미스 디렉터리에서 가져올 수 있습니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](/azure/active-directory/connect/active-directory-aadconnect)합니다.
 
-조직의 테 넌 트 포털에 로그인 할 때 사용 합니다 *https://portal.local.azurestack.external* URL입니다. Azure Stack 등록에 사용 된 도메인 이름을 Azure Stack 등록을 사용 하는 것 이외의 도메인에서 Azure Stack 포털에 로그인 하는 경우 포털에 추가 해야 url입니다. 예를 들어 fabrikam.onmicrosoft.com Azure Stack에 등록 된 경우 사용자 계정 로그인 이며 admin@contoso.com에 사용자 포털에 로그인 하는 데 url: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.
+조직의 테 넌 트 포털에 로그인 할 때 사용 합니다 *https:\//portal.local.azurestack.external* URL입니다. Azure Stack 등록에 사용 된 도메인 이름을 Azure Stack 등록을 사용 하는 것 이외의 도메인에서 Azure Stack 포털에 로그인 하는 경우 포털에 추가 해야 url입니다. 예를 들어 fabrikam.onmicrosoft.com Azure Stack에 등록 된 경우 사용자 계정 로그인 이며 admin@contoso.com에 사용자 포털에 로그인 하는 데 url: https:\//portal.local.azurestack.external/ fabrikam.onmicrosoft.com 합니다.
 
 ### <a name="guest-users"></a>게스트 사용자
 
@@ -73,7 +73,7 @@ Azure stack에서 사용자 계정:
 
 게스트 사용자를 초대 하려면 클라우드 운영자 및 사용자가 사용할 수 있습니다 [Azure AD B2B 공동 작업](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)합니다. 초대 된 사용자 디렉터리에서 문서, 리소스 및 응용 프로그램에 대 한 액세스를 가져오고, 사용자 고유의 리소스 및 데이터에 대 한 제어를 유지 관리 합니다. 
 
-게스트 사용자로 다른 조직의 디렉터리 테 넌 트에 로그인 하는 것이 있습니다. 해당 조직의 디렉터리 이름을 포털에 추가 하면이 위해 URL입니다. 예를 들어 Contoso 조직에 속해야 하 고 Fabrikam 디렉터리에 로그인 하려고 할 경우 사용할 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.
+게스트 사용자로 다른 조직의 디렉터리 테 넌 트에 로그인 하는 것이 있습니다. 해당 조직의 디렉터리 이름을 포털에 추가 하면이 위해 URL입니다. 예를 들어 Contoso 조직에 속해 Fabrikam 디렉터리에 로그인 하려고 하는 경우 https를 사용 하면:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com 합니다.
 
 ### <a name="applications"></a>애플리케이션
 
@@ -156,10 +156,10 @@ Azure Stack의 아키텍처는 사용자와 응용 프로그램에 대 한 네 �
 
 Id 공급자를 사용 하 여 인증 및 JSON 웹 토큰을 받기는 다음 정보가 있어야 합니다.
 
-1. **Id 시스템 (인증 기관)에 대 한 URL**: Id 공급자를 연결할 수 있는 URL입니다. 예를 들어 *https://login.windows.net*입니다.
+1. **Id 시스템 (인증 기관)에 대 한 URL**: Id 공급자를 연결할 수 있는 URL입니다. 예를 들어 *https:\//login.windows.net*합니다.
 2. **Azure Resource Manager에 대 한 앱 ID URI**: 고유 식별자에 대 한 Azure Resource Manager에 등록 된 id 공급자입니다. 각 Azure Stack 설치에 고유한 이기도합니다.
 3. **자격 증명**: Id 공급자를 사용 하 여 인증에 사용할 자격 증명입니다.
-4. **Azure Resource Manager에 대 한 URL**: URL에는 Azure Resource Manager 서비스의 위치입니다. 예를 들어 *https://management.azure.com* 하거나 *https://management.local.azurestack.external*합니다.
+4. **Azure Resource Manager에 대 한 URL**: URL에는 Azure Resource Manager 서비스의 위치입니다. 예를 들어 *https:\//management.azure.com* 하거나 *https:\//management.local.azurestack.external*합니다.
 
 보안 주체 (클라이언트, 응용 프로그램 또는 사용자)의 리소스 액세스에 인증을 요청 하면 요청 포함 해야 합니다.
 

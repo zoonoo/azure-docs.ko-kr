@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854758"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285788"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 모든 새로운 Azure AD 테넌트는 *domainname*.onmicrosoft.com이라는 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수는 없지만 조직의 이름을 해당 목록에 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 사용자 이름을 사용자에 게 친숙 한 같은 만들 수 있습니다 *alain\@contoso.com*합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "57854758"
 
 1. 구독의 **소유자** 역할이 있는 계정을 사용하여 디렉터리에 대한 [Azure Portal](https://portal.azure.com/)에 로그인하고 **Azure Active Directory**를 선택합니다. 구독 역할에 대한 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)을 참조하세요.
 
-    ![Azure Portal 화면](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure AD 옵션을 보여 주는 azure 포털 화면에서](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Azure AD에서 온-프레미스 Windows Server AD를 페더레이션하려는 경우 Azure AD Connect 도구를 실행하여 디렉터리 동기화를 실행할 때 **내 로컬 Active Directory에서 Single Sign-On하도록 이 도메인을 구성하려고 합니다.** 확인란을 선택해야 합니다. 마법사의 **Azure AD 도메인** 단계에서 온-프레미스 디렉터리와 페더레이션하기 위해 선택한 동일한 도메인 이름을 등록해야 합니다. 마법사의 어떤 단계가 [이 지침에서](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)와 유사한지를 확인할 수 있습니다. Azure AD Connect 도구가 없는 경우 [여기서 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)할 수 있습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "57854758"
 
 1. **사용자 지정 도메인 이름**을 선택한 다음, **사용자 지정 도메인 추가**를 선택합니다.
 
-    ![Fabrikam - 사용자 지정 도메인 추가 옵션이 강조 표시된 사용자 지정 도메인 이름 페이지](media/add-custom-domain/add-custom-domain.png)
+    ![사용자 지정 도메인 이름이 페이지에 표시 된 사용자 지정 도메인 추가](media/add-custom-domain/add-custom-domain.png)
 
 2. 조직의 새 도메인 이름을 **사용자 지정 도메인 이름** 상자(예를 들어, _contoso.com_)에 입력한 다음, **도메인 추가**를 선택합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "57854758"
     >[!Important]
     >이 기능이 제대로 작동하려면 .com, .net, 또는 기타 최상위 확장명을 포함해야 합니다.
 
-    ![Fabrikam - 도메인 추가 버튼이 강조 표시된 사용자 지정 도메인 이름 페이지](media/add-custom-domain/add-custom-domain-blade.png)
+    ![추가 사용자 지정 도메인 페이지를 사용 하 여 사용자 지정 도메인 이름 페이지](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. DNS 정보를 **Contoso** 페이지에서 복사합니다. 예: MS=ms64983159
 

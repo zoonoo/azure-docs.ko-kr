@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 5b1fc44b06dde7c7aa28a251b7250515998ac604
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c3ceb8f130118ee7abdbe801cd3931e9f870ec4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857263"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538887"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기
 
@@ -26,7 +26,7 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 ## <a name="prerequisites"></a>필수 조건
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 * NuGet Visual Search 및 Image Search 패키지입니다. 
     - Visual Studio의 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 메뉴에서 `Manage NuGet Packages`를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지 및 `Microsoft.Azure.CognitiveServices.Search.ImageSearch` 패키지를 차례로 설치합니다. NuGet 패키지를 설치하면 다음도 설치됩니다.
         - Microsoft.Rest.ClientRuntime

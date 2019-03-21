@@ -1,6 +1,6 @@
 ---
-title: Azure AD 암호 보호 미리 보기 작업 및 보고
-description: Azure AD 암호 보호 미리 보기의 배포 후 작업 및 보고
+title: Azure AD 암호 보호 작업 및 보고
+description: Azure AD 암호 보호 배포 후 작업 및 보고
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175246"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285805"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>미리 보기: Azure AD 암호 보호 운영 절차
-
-|     |
-| --- |
-| Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 암호 보호 운영 절차
 
 [Azure AD 암호 보호가 온-프레미스에 설치](howto-password-ban-bad-on-premises-deploy.md)되면 Azure Portal에서 구성해야 하는 몇 가지 항목이 있습니다.
 
@@ -33,7 +28,7 @@ ms.locfileid: "56175246"
 
 ## <a name="enable-password-protection"></a>암호 보호 사용
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory**, **인증 방법**, **암호 보호(미리 보기)** 로 차례로 이동합니다.
+1. 에 로그인 하는 [Azure portal](https://portal.azure.com) 로 이동한 **Azure Active Directory**, **인증 방법**, 한 다음 **암호 보호**합니다.
 1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정**을 **예**로 설정합니다.
 1. [배포 가이드](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)에 설명된 대로, 처음에는 **모드**를 **감사**로 설정하는 것이 좋습니다.
    * 기능에 익숙해진 후 **모드**를 **강제 적용**으로 전환하면 됩니다.

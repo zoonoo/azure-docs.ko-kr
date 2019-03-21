@@ -5,16 +5,16 @@ description: 허브 작업 영역 및 프로젝트를 Custom Translator로 마�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: b8347a8c34cf5a0585e9bb6c247102207a70015a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901528"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -26,12 +26,8 @@ ms.locfileid: "55225621"
 * 배포 상태에 있지 않던 모든 마이그레이션된 학습은 마이그레이션된 초안 상태에 놓이게 됩니다. 이 상태에서는 마이그레이션된 정의를 사용하여 모델을 학습하는 옵션이 있지만 일반적인 학습 비용이 적용됩니다.
 * 허브 학습에서 마이그레이션된 BLEU 점수는 언제든 "MT 허브의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
 
->[!Note]
->학습에 성공하려면 Custom Translator에 최소 10,000개의 추출된 문장이 필요합니다. 추출된 문장 수가 [제안된 최소 수](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences)보다 적으면 Custom Translator는 학습을 수행할 수 없습니다.
-
-## <a name="enable-account-migration"></a>계정 마이그레이션을 사용하도록 설정
-
-마이그레이션 도구를 사용하려면 허브 계정 마이그레이션을 사용하도록 설정해야 합니다. 이렇게 하려면 사용하도록 설정하려는 모든 liveid 계정 목록을 사용하여 [custommt@microsoft.com](mailto:custommt@microsoft.com)에 이메일을 보냅니다. 이러한 계정은 로그인할 수 있는 이메일 주소여야 합니다.
+> [!Note]
+> 성공 하는 학습 시에 사용자 지정 변환기 고유 추출 된 문장 10,000 개가 필요 합니다. 사용자 지정 변환기 보다 적은 학습을 수행할 수 없습니다는 [제안 된 최소](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences)합니다.
 
 ## <a name="find-custom-translator-workspace-id"></a>Custom Translator 작업 영역 ID 찾기
 
@@ -125,7 +121,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 ## <a name="implementation-notes"></a>구현 참고 사항
 * 허브에서 Custom Translator로 프로젝트를 마이그레이션하면 허브 학습 또는 프로젝트에 아무런 영향도 주지 않습니다. 마이그레이션하는 중에는 허브에서 프로젝트 또는 문서를 삭제하지 않으며 모델 배포를 취소하지 않습니다.
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다. 프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
-* 현재 Custom Translator는 영어에서 및 영어로 번역되는 36개 언어를 지원하며 추가적인 언어를 추가하기 위해 많은 노력을 하고 있습니다. 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
+* 사용자 지정 변환기 NMT 언어 쌍와 영어를 지원합니다. [지원 되는 언어의 전체 목록을 보려면](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)합니다. 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
 * Custom Translator는 현재 단일어 학습 데이터를 지원하지 않습니다. 지원되지 않는 언어 쌍처럼 단일어 문서를 마이그레이션할 수 있지만 단일어 데이터가 지원될 때까지는 비활성으로 표시합니다.
 * 학습하려면 Custom Translator에는 10,000개의 병렬 문장이 필요합니다. Microsoft Hub는 더 작은 데이터 세트에 대해 학습할 수 있습니다. 이 요구 사항을 충족하지 않는 학습이 마이그레이션되는 경우 해당 요구 사항은 학습되지 않습니다.
 
@@ -137,10 +133,14 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | 예   | 아니요 |
-| NMT 사용자 지정 | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
+| SMT 사용자 지정 | 예   | 아닙니다. |
+| NMT 사용자 지정 | 아닙니다.    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | 예 |
 | 추적 없음 | 예 | 예 |
+
+## <a name="new-languages"></a>새 언어
+
+커뮤니티 또는 조직에서 Microsoft Translator에 대 한 새 언어 시스템을 만드는 작업 인 경우에 연락 [ custommt@microsoft.com ](mailto:custommt@microsoft.com) 자세한 내용은 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

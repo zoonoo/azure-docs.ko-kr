@@ -1,10 +1,10 @@
 ---
 title: 라이선스에 대한 제품 이름 및 서비스 계획 식별자 - Azure AD | Microsoft Docs
-description: Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure Active Directory 라이선스를 관리하기 위한 식별자 맵
+description: Azure portal, Microsoft 365 관리 센터, PowerShell 또는 Microsoft Graph에서 Azure Active Directory 라이선스를 관리 하기 위한 식별자 맵
 services: active-directory
 keywords: Azure Active Directory 라이선싱 서비스 계획
 documentationcenter: ''
-author: curtand
+author: ajayanti1
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 01/28/2019
 ms.author: curtand
-ms.reviewer: sumitp
+ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12a300afbf56d5f6149dcc71f2fc4efedbc44f8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fc4580b4f600b06fc89e3fc8760679028765e03e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176431"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 Office 365 포털에서 라이선스를 관리할 때 *Office 365 Enterprise E3*와 같은 제품 이름이 표시됩니다. PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 구체적이지만 덜 익숙한 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 cmdlet 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 나열하고 해당 제품의 여러 ID 값을 제공합니다. 이러한 테이블의 목적은 참조용이며 이 문서가 최종 업데이트된 날짜 기준입니다. Microsoft에서는 새로 추가된 서비스에 대한 정기적인 업데이트 계획이 없습니다.
+라이선스를 관리할 때 [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 유사 하 게 표시 하는 제품 이름 표시 *Office 365 Enterprise E3*합니다. PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 구체적이지만 덜 익숙한 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 cmdlet 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 나열하고 해당 제품의 여러 ID 값을 제공합니다. 이러한 테이블의 목적은 참조용이며 이 문서가 최종 업데이트된 날짜 기준입니다. Microsoft에서는 새로 추가된 서비스에 대한 정기적인 업데이트 계획이 없습니다.
 
 - **제품 이름**: 관리 포털에서 사용됩니다.
 - **문자열 ID**: 라이선스에 대한 작업을 수행할 때 PowerShell v1.0 cmdlet에서 사용됩니다.

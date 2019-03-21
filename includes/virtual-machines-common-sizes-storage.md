@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e05281b2279f5d40f8a3ba4ed3f49a38e5abf0ee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333812"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261561"
 ---
 스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다.
 
@@ -31,13 +31,13 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원되지 않음
 
-| 크기          | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 호스트 캐시 크기<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 
+| 크기          | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 최대 데이터 디스크 처리량 (IOPs/MBps) 캐시 되지 않은<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 340,000/2,000 | 해당 없음 | 16 | 2/3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 680,000/4,500 | 해당 없음 | 32 | 4/6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.4M/9,000    | 해당 없음 | 32 | 8/12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.7M/18,000   | 해당 없음 | 32 | 8/25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4M/22,000   | 해당 없음 | 32 | 8 / 32,000 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2/3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4/6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 M / 8,000    | 32,000/640 | 32 | 8/12,800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9 M 16,000 /   | 64,000/1,280 | 32 | 8/25,600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20,000   | 80,000/1,400 | 32 | 8 / 32,000 |
  
 <sup>1</sup> Lsv2 시리즈 VM에는 OS 페이징/스왑 파일용 표준 SCSI 기반 임시 리소스 디스크가 있습니다(Windows의 D:, Linux의 /dev/sdb). 이 디스크는 모든 8 vCPU에 대해 80GiB 스토리지, 4,000 IOPS 및 80MBps 전송 속도를 제공합니다(예: Standard_L80s_v2는 40,000 IOPS 및 800MBPS에서 800GiB 제공). 이 경우 NVMe 드라이브는 완전히 애플리케이션 전용일 수 있습니다. 이는 임시 디스크이며 중지/할당 취소 시 모든 데이터가 손실됩니다.
 

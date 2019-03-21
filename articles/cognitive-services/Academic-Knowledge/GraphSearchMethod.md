@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57977414"
 ---
 # <a name="graph-search-method"></a>Graph Search 메서드
 
@@ -29,7 +29,8 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>요청 매개 변수  
-Name     | 값 | Required?  | 설명
+
+이름     | 값 | Required?  | 설명
 -----------|-----------|---------|--------
 **mode**       | 텍스트 문자열 | 예 | 사용할 모드의 이름입니다. 값은 *json* 또는 *lambda*입니다.
 
@@ -45,8 +46,10 @@ Graph Search 메서드는 HTTP POST 요청을 통해 호출되어야 합니다. 
 *람다* 검색의 경우, POST 본문은 일반 텍스트 문자열입니다. POST 본문은 단일 C# 문인 LIKQ 람다 쿼리 문자열입니다(*람다* 검색을 위한 [쿼리 문자열의 사양](LambdaSearchSyntax.md) 참조). 
 
 <br>
+
 ## <a name="response-json"></a>응답(JSON)
-Name | 설명
+
+이름 | 설명
 -------|-----   
 **결과** | 쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 요청된 특성 값이 있습니다. 이 필드는 요청이 성공적으로 처리된 경우 나타납니다.
 **error** | HTTP 상태 코드. 이 필드는 요청이 실패하는 경우 나타납니다.
@@ -55,6 +58,7 @@ Name | 설명
 쿼리를 _800ms_ 내에 처리할 수 없는 경우 _시간 제한_ 오류가 반환됩니다. 
 
 <br>
+
 #### <a name="example"></a>예제:
 
 ##### <a name="json-search"></a>JSON 검색

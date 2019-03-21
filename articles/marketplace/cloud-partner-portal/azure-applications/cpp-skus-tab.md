@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095996"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 애플리케이션 SKU 탭
 
 이 문서에는 SKU 탭을 사용하여 Azure 애플리케이션용 SKU를 만드는 방법을 설명합니다. 
 
->[!IMPORTANT] 
-SKU를 구성하는 단계는 관리되는 애플리케이션 제품과 솔루션 템플릿 제품에서 다릅니다. 이러한 차이는 이 문서에 설명되어 있습니다. 
+> [!IMPORTANT]
+> SKU를 구성하는 단계는 관리되는 애플리케이션 제품과 솔루션 템플릿 제품에서 다릅니다. 이러한 차이는 이 문서에 설명되어 있습니다. 
 
 ## <a name="configure-azure-application-skus"></a>Azure 애플리케이션 SKU 구성
 

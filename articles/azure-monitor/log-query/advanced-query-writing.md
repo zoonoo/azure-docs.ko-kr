@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 고급 쿼리 | Microsoft Docs
+title: 고급 Azure Monitor에서 쿼리 | Microsoft Docs
 description: 이 문서에서는 Analytics 포털을 사용하여 Azure Monitor에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268022"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451623"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Azure Monitor에서 고급 쿼리 작성
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [쿼리로 시작](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 이 함수는 단순 계산이 필요한 경우에 종종 사용됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.
+`print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 이 간단한 계산을 해야 하는 경우에 종종 사용 됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.
 
 ```Kusto
 print nowPst = now()-8h

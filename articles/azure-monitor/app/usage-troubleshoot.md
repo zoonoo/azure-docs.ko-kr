@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258781"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
 [Application Insights의 사용자 동작 분석 도구](usage-overview.md)에서 [사용자, 세션, 이벤트](usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](usage-flows.md), [재방문 주기](usage-retention.md) 또는 코호트에 대한 질문이 있나요? 다음은 몇 가지 대답입니다.
@@ -39,7 +39,7 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 ## <a name="naming-events"></a>이벤트 이름 지정
 **내 앱에는 수천 개의 서로 다른 페이지 보기 및 사용자 지정 이벤트 이름이 있습니다. 이러한 항목을 구분하기 어려워서 사용자 동작 분석 도구가 응답하지 않는 경우가 많습니다. 이러한 이름 지정 문제를 어떻게 해결할 수 있나요?**
 
-페이지 보기 및 사용자 지정 이벤트 이름은 사용자 동작 분석 도구 전체에서 사용됩니다. 이벤트 이름을 잘 지정하는 것은 이러한 도구에서 값을 가져오는 데 매우 중요합니다. 그 목표는 너무 적은 과도하게 일반적인 이름(“단추를 클릭함”)도 아니고, 너무 많은 과도하게 구체적인 이름(“http://www.contoso.com/index에서 편집 단추를 클릭함”)도 아닌 적절한 이름을 사용하는 것입니다.
+페이지 보기 및 사용자 지정 이벤트 이름은 사용자 동작 분석 도구 전체에서 사용됩니다. 이벤트 이름을 잘 지정하는 것은 이러한 도구에서 값을 가져오는 데 매우 중요합니다. 목표는 너무 적은, 과도 하 게 일반적인 이름 ("단추를 클릭) 하 고, 너무 많은 과도 하 게 구체적인 이름 (" http에서 편집 단추 클릭:\//www.contoso.com/index ").
 
 앱이 전송하는 페이지 보기 및 사용자 지정 이벤트 이름을 변경하려면 앱의 소스 코드를 변경하고 다시 배포해야 합니다. **Application Insights의 모든 원격 분석 데이터는 90일 동안 저장되며 삭제할 수 없으므로** 이벤트 이름 변경 내용이 완전히 반영되려면 90일이 걸립니다. 이름을 변경한 후 90일 동안, 이전 및 새 이벤트 이름이 모두 원격 분석에 표시되므로, 그에 따라 팀 내에서 쿼리를 조정하고 소통합니다.
 

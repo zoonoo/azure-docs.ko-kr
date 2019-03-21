@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086057"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리되는 인스턴스 감사 시작
 
@@ -50,7 +50,7 @@ ms.locfileid: "55894397"
 
    1. 컨테이너 **이름**을 지정하고 공용 액세스 수준을 **개인**으로 설정한 다음, **확인**을 클릭합니다.
 
-     ![Blob 컨테이너 구성 만들기](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Blob 컨테이너 구성 만들기](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. 감사 로그용 컨테이너를 만든 후 이 컨테이너를 감사 로그의 대상으로 구성하려면 [T-SQL을 사용](#blobtsql)하거나 [SSMS(SQL Server Management Studio) UI를 사용](#blobssms)할 수 있습니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "55894397"
         GO
         ```
 
-      1. [서버 감사 사양 또는 데이터베이스 감사 사양](#createspec)을 만들어 계속 진행합니다.
+        1. [서버 감사 사양 또는 데이터베이스 감사 사양](#createspec)을 만들어 계속 진행합니다.
 
    - <a id="blobssms"></a>SSMS(SQL Server Management Studio) 18(미리 보기)을 사용하여 감사 로그에 대한 blob 스토리지를 구성합니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "55894397"
 
      1. 드롭다운에서 구독, 스토리지 계정 및 Blob 컨테이너를 선택하거나 **만들기**를 클릭하여 고유한 컨테이너를 만듭니다. 완료되면 **확인**을 클릭합니다.
 
-        ![Azure 구독, 스토리지 계정 및 blob 컨테이너 선택](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Azure 구독, 저장소 계정 및 blob 컨테이너를 선택 합니다.](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. "감사 만들기" 대화 상자에서 **확인**을 클릭합니다.
 
@@ -158,9 +158,9 @@ ms.locfileid: "55894397"
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Even Hubs 또는 Log Analytics로 서버에 대한 감사 설정
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>이벤트 허브 또는 Azure Monitor 로그로 서버에 대 한 감사 설정
 
-관리되는 인스턴스의 감사 로그를 Azure Monitor를 사용하여 Even Hubs 또는 Log Analytics로 보낼 수 있습니다. 이 섹션에서는 이렇게 구성하는 방법을 설명합니다.
+Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 로그를 보낼 수 있습니다. 이 섹션에서는 이렇게 구성하는 방법을 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 관리되는 인스턴스로 이동합니다.
 
@@ -170,7 +170,7 @@ ms.locfileid: "55894397"
 
 4. 로그 목록에서 **SQLSecurityAuditEvents**를 선택합니다.
 
-5. 감사 이벤트의 대상으로 Event Hubs 또는 Log Analytics 중 하나 또는 둘 다를 선택합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
+5. 감사 이벤트-이벤트 허브, Azure Monitor 로그 중 하나 또는 둘 다에 대 한 대상을 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
 
 6. **저장**을 클릭합니다.
 
@@ -190,7 +190,7 @@ ms.locfileid: "55894397"
    - [서버 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [데이터베이스 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 7단계에서 만든 서버 감사를 사용하도록 설정합니다.
+10. 8 단계에서 만든 서버 감사를 사용 하도록 설정 합니다.
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -213,11 +213,13 @@ ms.locfileid: "55894397"
 
 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 Azure Event Hubs 설명서를 참조하세요.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Log Analytics에 저장된 로그 사용 및 분석
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>사용 하 고 Azure Monitor 로그에 저장 된 로그를 분석 합니다.
 
-감사 로그를 Log Analytics에 쓴 경우 Log Analytics 작업 영역에서 사용할 수 있으며 감사 데이터에 대해 고급 검색도 실행할 수 있습니다. 처음에는 Log Analytics로 이동한 후 *일반* 섹션에서 *로그*를 클릭하고 간단한 쿼리(예: `search "SQLSecurityAuditEvents"`)를 입력하여 감사 로그를 봅니다.  
+감사 로그는 Azure Monitor 로그에 기록에 있는 경우 사용할 수 있는 감사 데이터에 대해 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 합니다. 시작 지점으로 고 Log Analytics 작업 영역으로 이동 *일반적인* 섹션 클릭 *로그* 와 같은 간단한 쿼리를 입력 하 고: `search "SQLSecurityAuditEvents"` 로그를 보려면 감사 합니다.  
 
-Log Analytics는 통합 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 운영 정보를 제공합니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조하세요.
+Azure Monitor 로그 통합된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보를 추가, 참조 [Azure Monitor 로그 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Azure SQL Database의 데이터베이스 및 SQL Server의 데이터베이스 간 감사 차이점
 
@@ -232,7 +234,7 @@ Azure SQL Database의 데이터베이스 및 SQL Server의 데이터베이스 �
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다.
-- Event Hubs 및 Log Analytics 대상을 사용하도록 설정하기 위해 새로운 구문 `TO EXTERNAL MONITOR`가 제공됩니다.
+- 새로운 구문 `TO EXTERNAL MONITOR` 도 허브 및 Azure Monitor 로그 대상으로 사용할 수 있도록 제공 됩니다.
 - SQL Database에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
 - `queue_delay` 0은 **지원되지 않습니다**.

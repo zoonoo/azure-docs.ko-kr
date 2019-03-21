@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4f08b728198d6ee508cbd8267c593abc59e4cb37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075256"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -70,7 +70,7 @@ HTML과 같은 태그를 포함하는 콘텐츠(`contentType=text/html`)를 번�
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml 
 
@@ -78,14 +78,14 @@ string
 
 |매개 변수|값|설명    |매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId  |(empty)    |필수 사항입니다. Authorization 또는 Ocp-Apim-Subscription-Key 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + "access_token"을 포함하는 문자열을 지정합니다.|쿼리|string|
-|text|(empty)   |필수 사항입니다. 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|string|
-|from|(empty)   |선택 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|쿼리|string|
-|to|(empty) |필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|string|
-|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원되는 형식은 text/plain(기본값) 및 text/html입니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다.|쿼리|string|
-|카테고리|(empty)   |선택 사항입니다. 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.|쿼리|string|
-|권한 부여|(empty)  |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)  |appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId  |(empty)    |필수 사항입니다. Authorization 또는 Ocp-Apim-Subscription-Key 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + "access_token"을 포함하는 문자열을 지정합니다.|쿼리|문자열|
+|text|(empty)   |필수 사항입니다. 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|문자열|
+|from|(empty)   |선택 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|쿼리|문자열|
+|to|(empty) |필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|문자열|
+|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원되는 형식은 text/plain(기본값) 및 text/html입니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다.|쿼리|문자열|
+|카테고리|(empty)   |선택 사항입니다. 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.|쿼리|문자열|
+|권한 부여|(empty)  |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 
 ### <a name="response-messages"></a>응답 메시지
@@ -157,7 +157,7 @@ TranslateArray 메서드는 `Content-Type`에 대해 `application/xml` 또는 `t
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <TranslateArrayResponse>
     <From>language-code</From>
     <OriginalTextSentenceLengths xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -175,7 +175,7 @@ TranslateArray 메서드는 `Content-Type`에 대해 `application/xml` 또는 `t
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 성공적인 응답에는 위에 설명된 형식의 `TranslateArrayResponse` 배열이 포함됩니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
 
@@ -183,8 +183,8 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(empty)) |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|권한 부여|(empty)) |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -205,7 +205,7 @@ string
 요청 본문에는 해당 이름을 검색하기 위한 ISO 639-1 언어 코드를 나타내는 문자열 배열이 포함됩니다. 예: 
 
 ```
-<ArrayOfstring xmlns:i="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+<ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
     <string>zh</string>
     <string>en</string>
 </ArrayOfstring>
@@ -216,7 +216,7 @@ string
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 Translator Service에서 지원되고 요청된 언어로 지역화되는 언어 이름을 포함하는 문자열 배열입니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -224,10 +224,10 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|locale|(empty) |필수 사항입니다. 언어와 연결된 ISO 639의 2자 소문자 문화권 코드와 언어 이름을 지역화하기 위한 ISO 3166의 2자 대문자 문화권 코드 또는 ISO 639 소문자 문화권 코드 자체의 조합을 나타내는 문자열입니다.|쿼리|string|
-|권한 부여|(empty)  |appid 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)  |appid 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|locale|(empty) |필수 사항입니다. 언어와 연결된 ISO 639의 2자 소문자 문화권 코드와 언어 이름을 지역화하기 위한 ISO 3166의 2자 대문자 문화권 코드 또는 ISO 639 소문자 문화권 코드 자체의 조합을 나타내는 문자열입니다.|쿼리|문자열|
+|권한 부여|(empty)  |appid 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |appid 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -250,7 +250,7 @@ Translation Service에서 지원하는 언어를 나타내는 언어 코드의 �
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 Translator Service에서 지원하는 언어 코드를 포함하는 문자열 배열입니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -258,9 +258,9 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|권한 부여|(empty)  |`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|권한 부여|(empty)  |`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -283,7 +283,7 @@ string
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 Translator Service에서 음성 합성을 위해 지원하는 언어 코드를 포함하는 문자열 배열입니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
 
@@ -291,9 +291,9 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
  
 ### <a name="response-messages"></a>응답 메시지
 
@@ -323,13 +323,13 @@ binary
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|text|(empty)   |필수 사항입니다. wave 스트림에 대해 읽을 지정된 언어의 문장을 포함하는 문자열입니다. 읽을 텍스트 크기는 2,000자를 초과하지 않아야 합니다.|쿼리|string|
-|언어|(empty)   |필수 사항입니다. 텍스트를 읽을 지원되는 언어 코드를 나타내는 문자열입니다. 이 코드는 메서드 `GetLanguagesForSpeak`에서 반환된 코드 목록에 있어야 합니다.|쿼리|string|
-|format|(empty)|선택 사항입니다. content-type ID를 지정하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|쿼리|string|
-|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize`는 오디오 신호의 품질을 지정하는 데 사용할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male`은 음성의 원하는 성별을 지정하는 데 사용할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 막대(`|`)를 사용하세요. 예: `MaxQuality|Male`.</li></li></ul> |쿼리|string|
-|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|text|(empty)   |필수 사항입니다. wave 스트림에 대해 읽을 지정된 언어의 문장을 포함하는 문자열입니다. 읽을 텍스트 크기는 2,000자를 초과하지 않아야 합니다.|쿼리|문자열|
+|언어|(empty)   |필수 사항입니다. 텍스트를 읽을 지원되는 언어 코드를 나타내는 문자열입니다. 이 코드는 메서드 `GetLanguagesForSpeak`에서 반환된 코드 목록에 있어야 합니다.|쿼리|문자열|
+|format|(empty)|선택 사항입니다. content-type ID를 지정하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|쿼리|문자열|
+|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize`는 오디오 신호의 품질을 지정하는 데 사용할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male`은 음성의 원하는 성별을 지정하는 데 사용할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 막대(<code>\|</code>)를 사용하세요. 예: `MaxQuality|Male`.</li></li></ul> |쿼리|문자열|
+|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -351,7 +351,7 @@ binary
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
 
@@ -359,10 +359,10 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)  |필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|text|(empty)|필수 사항입니다. 해당 언어를 식별할 수 있는 텍스트를 포함하는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리| string|
-|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key  |(empty)    |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)  |필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|text|(empty)|필수 사항입니다. 해당 언어를 식별할 수 있는 텍스트를 포함하는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리| 문자열|
+|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key  |(empty)    |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -397,7 +397,7 @@ string
 응답 본문의 형식은 다음과 같습니다.
 
 ```
-<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <string>language-code-1</string>
   <string>language-code-2</string>
 </ArrayOfstring>
@@ -406,7 +406,7 @@ string
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 DetectArray에 성공했습니다. 각 입력 배열 행에 대해 2문자 언어 코드를 포함하는 문자열 배열입니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -414,9 +414,9 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -440,7 +440,7 @@ string
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 
-string
+문자열
 
 응답 콘텐츠 형식: application: xml
  
@@ -448,18 +448,18 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식   |
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|originalText|(empty)|필수 사항입니다. 번역할 원본 텍스트를 포함하는 문자열입니다. 이 문자열의 최대 길이는 1,000자입니다.|쿼리|string|
-|translatedText|(empty) |필수 사항입니다. 대상 언어로 번역된 텍스트를 포함하는 문자열입니다. 이 문자열의 최대 길이는 2,000자입니다.|쿼리|string|
-|from|(empty)   |필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다. en = english, de = german 등|쿼리|string|
-|to|(empty)|필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|originalText|(empty)|필수 사항입니다. 번역할 원본 텍스트를 포함하는 문자열입니다. 이 문자열의 최대 길이는 1,000자입니다.|쿼리|문자열|
+|translatedText|(empty) |필수 사항입니다. 대상 언어로 번역된 텍스트를 포함하는 문자열입니다. 이 문자열의 최대 길이는 2,000자입니다.|쿼리|문자열|
+|from|(empty)   |필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다. en = english, de = german 등|쿼리|문자열|
+|to|(empty)|필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|문자열|
 |rating|(empty) |선택 사항입니다. 이 문자열의 품질 등급을 나타내는 정수입니다. 값은 -10에서 10 사이입니다. 기본값은 1입니다.|쿼리|정수|
-|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원되는 형식은 "text/plain" 및 "text/html"입니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다.   |쿼리|string|
-|카테고리|(empty)|선택 사항입니다. 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.|쿼리|string|
-|사용자|(empty)|필수 사항입니다. 제출의 보낸 사람을 추적하는 데 사용되는 문자열입니다.|쿼리|string|
-|uri|(empty)|선택 사항입니다. 이 번역의 콘텐츠 위치를 포함하는 문자열입니다.|쿼리|string|
-|권한 부여|(empty)|appid 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.    |머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원되는 형식은 "text/plain" 및 "text/html"입니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다.   |쿼리|문자열|
+|카테고리|(empty)|선택 사항입니다. 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.|쿼리|문자열|
+|사용자|(empty)|필수 사항입니다. 제출의 보낸 사람을 추적하는 데 사용되는 문자열입니다.|쿼리|문자열|
+|uri|(empty)|선택 사항입니다. 이 번역의 콘텐츠 위치를 포함하는 문자열입니다.|쿼리|문자열|
+|권한 부여|(empty)|appid 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.    |머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -517,7 +517,7 @@ AddtranslationsRequest 요소 내의 요소는 다음과 같습니다.
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 AddTranslationArray 메서드가 성공했습니다. 2018년 1월 31일 이후부터 문장 제출이 수락되지 않습니다. 이 서비스는 오류 코드 410으로 응답합니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -525,8 +525,8 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -558,11 +558,11 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)  |필수 사항입니다. Authorization 또는 Ocp-Apim-Subscription-Key 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + "access_token"을 포함하는 문자열을 지정합니다.|쿼리| string|
-|text|(empty)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|string|
-|언어   |(empty)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|쿼리|string|
-|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.    |머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|appId|(empty)  |필수 사항입니다. Authorization 또는 Ocp-Apim-Subscription-Key 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + "access_token"을 포함하는 문자열을 지정합니다.|쿼리| 문자열|
+|text|(empty)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|문자열|
+|언어   |(empty)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|쿼리|문자열|
+|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.    |머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -611,7 +611,7 @@ string
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <From>Two character language code</From>
   <State/>
   <Translations>
@@ -644,7 +644,7 @@ MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일�
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 위에 설명된 형식의 `GetTranslationsResponse` 개체입니다.
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -652,13 +652,13 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|string|
-|text|(empty)|필수 사항입니다. 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|string|
-|from|(empty)|필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다.|쿼리|string|
-|to |(empty)    |필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|string|
+|appId|(empty)|필수 사항입니다. `Authorization` 또는 `Ocp-Apim-Subscription-Key` 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.|쿼리|문자열|
+|text|(empty)|필수 사항입니다. 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|문자열|
+|from|(empty)|필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다.|쿼리|문자열|
+|to |(empty)    |필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|문자열|
 |maxTranslations|(empty)|필수 사항입니다. 반환할 번역의 최대 수를 나타내는 정수입니다.|쿼리|정수|
-|권한 부여| (empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|string| 머리글|
-|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|권한 부여| (empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|문자열| 머리글|
+|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -723,7 +723,7 @@ string
 **반환 값:** 응답의 형식은 다음과 같습니다.
 
 ```
-<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <GetTranslationsResponse>
     <From>language-code</From>
     <State/>
@@ -764,7 +764,7 @@ string
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 
-string
+문자열
 
 응답 콘텐츠 형식: application/xml
  
@@ -772,8 +772,8 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여  |(empty)    |`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
-|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
+|권한 부여  |(empty)    |`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 

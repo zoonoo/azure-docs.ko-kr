@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869962"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338436"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>대시보드에서 모델 및 사용 현황 통계
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 애플리케이션 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
@@ -69,21 +69,8 @@ ms.locfileid: "55869962"
 
 ![의도 분석](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-분석이 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수를 기준으로 하는지 제어하려면:
-
-1. 다음 이미지와 같이 목록에 액세스하려면 **추가 설정** ![추가 설정 단추를 클릭하여 목록에 액세스합니다](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png).
-
-    ![의도 분석 목록](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. 목록에서 값을 선택한 후 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 차트를 표시합니다.
-
 ## <a name="entity-breakdown"></a>엔터티 분석
 대시보드에는 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수에 따른 엔터티 분석이 표시됩니다. 이 요약 그래프는 앱에서 각 엔터티의 상대적 중요성을 보여 줍니다. 마우스 포인터로 슬라이스를 가리키면 엔터티 이름 및 레이블이 지정된 발화 수/끝점 적중 횟수의 합계 중 엔터티 비율이 표시됩니다. 
 
 ![엔터티 분석](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-분석이 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수를 기준으로 하는지 제어하려면:
-
-1. 다음 이미지와 같이 목록에 액세스하려면 **추가 설정** ![추가 설정 단추를 클릭하여 목록을 가져옵니다](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png).
-
-    ![엔터티 분석 목록](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. 목록에서 값을 선택한 후 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 이에 따라 차트를 표시합니다.

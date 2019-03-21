@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101230"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -82,19 +82,19 @@ ms.locfileid: "54198425"
  
 13. 데이터 그리드 위의 **데이터 집합 이름** 필드에 입력하여 데이터 집합 이름을 지정합니다.
 
-   ![데이터 집합 이름을 지정합니다.](media/add-reference-data-set/name_reference_dataset.png)
+    ![데이터 집합 이름을 지정합니다.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. 데이터 그리드 위의 드롭다운을 선택하여 데이터 집합에 **기본 키** 열을 제공합니다.
 
-   ![키 열을 선택합니다.](media/add-reference-data-set/set_primary_key.png)
+    ![키 열을 선택합니다.](media/add-reference-data-set/set_primary_key.png)
 
-   필요에 따라 보조 키 열을 복합 기본 키로 추가하려면 **+** 단추를 선택합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
+    필요에 따라 보조 키 열을 복합 기본 키로 추가하려면 **+** 단추를 선택합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
 
-15.  데이터를 업로드하려면 **행 업로드** 단추를 선택합니다.
+15. 데이터를 업로드하려면 **행 업로드** 단추를 선택합니다.
 
-   ![업로드](media/add-reference-data-set/upload_rows.png)
+    ![업로드](media/add-reference-data-set/upload_rows.png)
 
-   이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
+    이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.

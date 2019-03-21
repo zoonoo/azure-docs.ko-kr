@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234291"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295456"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -30,6 +30,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 > [!NOTE]
 > 이 정보는 임시로 제공되며 변경될 수 있습니다. 질문이 있거나 원하는 항목을 찾을 수 없나요? GitHub 문제를 만들거나 [개발자를 위한 지원 및 도움말 옵션](active-directory-develop-help-support.md)을 확인하여 도움말 및 지원을 얻을 수 있는 다른 방법을 알아보세요.
+>
+> 이 설명서 개발자 및 관리자 지침을 제공 하지만 자체 클라이언트에서 사용 되지 않아야 합니다. 오류 코드는 응용 프로그램을 빌드하는 동안 개발자는 데 사용 되는 보다 세부적인 오류 메시지를 제공 하기 위해 언제 든 지 변경 될 수 있습니다는. 텍스트 또는 오류 코드 번호에 의존 하는 앱은 시간이 지남에 따라 끊어집니다.  
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
@@ -68,7 +70,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50032 | WeakRsaKey - 잘못된 사용자가 약한 RSA 키를 사용하려고 했음을 나타냅니다. |
 | AADSTS50033 | RetryableError - 데이터베이스 작업과 관련이 없는 일시적인 오류를 나타냅니다. |
 | AADSTS50034 | UserAccountNotFound - 이 애플리케이션에 로그인하려면 계정을 해당 디렉터리에 추가해야 합니다. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 쌍으로 된 식별자를 생성하는 데 필요한 솔트가 보안 주체에 없습니다. 테넌트 관리자에게 문의하세요. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-쌍별 식별자를 생성 하는 데 필요한 솔트 원칙에 없습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 주체가 클라이언트 어설션의 발급자 클레임과 일치하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 알 수 없거나 잘못된 인스턴스입니다. |
@@ -140,7 +142,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
-| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
 | AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. |
@@ -255,6 +257,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 디바이스 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 사용자에게 Azure AD에 디바이스를 등록할 수 있는 권한이 없습니다. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token을 `urn:ietf:params:oauth:grant-type:jwt-bearer` 권한 부여로 사용할 수 없습니다.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-테 넌 트 관리자가이 요청을 차단 하는 보안 정책을 구성 합니다. 요청에 정책 요구 사항을 만족 하는지 확인 하려면 테 넌 트 수준에서 정의 된 보안 정책을 확인 합니다. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 디렉터리/테넌트에서 애플리케이션을 찾지 못했습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보낸 것일 수 있습니다. |
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |

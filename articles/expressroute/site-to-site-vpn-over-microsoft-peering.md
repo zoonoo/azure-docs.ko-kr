@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094205"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405874"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
@@ -23,6 +23,8 @@ ms.locfileid: "53094205"
 >Microsoft 피어링을 통해 사이트 간 VPN을 설정하면 VPN Gateway 및 VPN 송신에 대한 요금이 청구됩니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="architecture"></a>아키텍처
 
@@ -89,7 +91,7 @@ ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 �
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-다음 부분 출력에서는 ASN 12076(MSEE)을 통해 68개의 접두사가 *.243.229.34 인접 항목에서 수신되었음을 보여줍니다.
+다음 부분 출력에서는 68 접두사는 인접 한 항목에서 받은 \*.243.229.34 ASN 12076 (MSEE) 사용 하 여:
 
 ```
 ...
@@ -107,7 +109,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 올바른 일련의 접두사를 수신하고 있는지를 확인하려면 교차 확인을 실행할 수 있습니다. 다음 Azure PowerShell 명령 출력은 각 서비스 및 각 Azure 지역에 대한 Microsoft 피어링을 통해 보급된 접두사를 나열합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmBgpServiceCommunity
+Get-AzBgpServiceCommunity
 ```
 
 ## <a name="vpngateway"></a>3. VPN Gateway 및 IPsec 터널 구성
@@ -482,7 +484,7 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 IPsec 터널의 상태는 Powershell 명령을 사용하여 Azure VPN Gateway에서 확인할 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 예제 출력:
@@ -496,7 +498,7 @@ IngressBytesTransferred : 10538211
 Azure VPN Gateway 인스턴스에서 터널 상태를 독립적으로 확인하려면 다음 예제를 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 예제 출력:
@@ -618,7 +620,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 Azure VPN Gateway에서 BGP 피어의 상태를 확인합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
+Get-AzVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 예제 출력:
@@ -634,7 +636,7 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 VPN 집선 장치 온-프레미스에서 eBGP를 통해 수신된 네트워크 접두사 목록을 확인하려면 "Origin" 특성으로 필터링하면 됩니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
+Get-AzVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
 예제 출력에서 ASN 65010은 VPN 온-프레미스의 BGP 익명 시스템 번호입니다.
@@ -649,7 +651,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 보급된 경로 목록 보기:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
+Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 예제 출력:

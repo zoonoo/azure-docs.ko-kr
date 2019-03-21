@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163537"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258057"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스를 관리하는 방법
 
@@ -83,7 +83,7 @@ Azure Portal을 사용하여 디바이스를 관리하려면 해당 디바이스
 
 - **사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음** - 기본적으로 이 설정은 **없음**으로 지정됩니다. 특정 사용자 또는 그룹을 선택하거나 모두를 선택하면 Windows 10 디바이스 간에 사용자 설정 및 앱 데이터를 동기화할 수 있습니다. Windows 10에서 동기화가 작동되는 방식에 대해 자세히 알아봅니다.
 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 기능입니다.
- 
+
 
 
 
@@ -119,7 +119,7 @@ Azure Portal을 사용하여 디바이스를 관리하려면 해당 디바이스
 
 ## <a name="device-management-tasks"></a>디바이스 관리 작업
 
-글로벌 관리자는 등록 또는 조인된 디바이스를 관리할 수 있습니다. Intune 서비스 관리자는 다음을 수행할 수 있습니다.
+전역 관리자 또는 클라우드 장치 관리자를 등록 또는 조인 된 장치를 관리할 수 있습니다. Intune 서비스 관리자는 다음을 수행할 수 있습니다.
  
 - 디바이스 업데이트 - 예제는 디바이스를 사용/사용 안 함과 같은 일상적인 작업임
 
@@ -151,7 +151,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
 **설명**
 
-- 디바이스를 사용하거나 사용하지 않도록 설정하려면 Azure AD에서 전역 관리자여야 합니다. 
+- 전역 관리자 여야 하거나 장치 관리자는 장치 사용 안 함 / 사용 하려면 Azure AD에서 클라우드를 해야 합니다. 
 - 장치를 사용 하지 않도록 설정 하므로 장치 CA에 의해 보호 되는 Azure AD 리소스에 액세스 하거나 WH4B 자격 증명을 사용 하 여 장치를 방지 하는 Azure AD를 사용 하 여 성공적으로 인증에서 장치 수 없게 합니다. 
 
 

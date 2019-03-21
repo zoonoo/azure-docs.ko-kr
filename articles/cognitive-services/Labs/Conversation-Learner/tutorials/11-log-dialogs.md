@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170499"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Conversation Learner 모델에서 대화를 기록하는 방법
 
@@ -55,6 +55,8 @@ ms.locfileid: "55213347"
 9. “오스틴의 날씨는 아마도 맑습니다”라는 응답을 선택합니다.
 10. "학습 대화로 저장" 단추를 클릭합니다.
     - 학습 즉시 시작
+
+![](../media/T11_logdialog.png)
 
 마지막 주의 사항 하나. 비즈니스 요구 사항에 따라 설정으로 이동해 "로그 대화"를 선택 취소하여 대화 로깅 기능을 해제할 수 있습니다.
 

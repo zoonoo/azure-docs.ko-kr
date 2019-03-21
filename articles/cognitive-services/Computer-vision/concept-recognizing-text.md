@@ -8,33 +8,92 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313180"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588978"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>인쇄되고 필기된 텍스트 인식
+# <a name="recognize-printed-and-handwritten-text"></a>인쇄되고 필기된 텍스트 인식
 
-Computer Vision은 영수증, 포스터, 명함, 편지 및 화이트보드와 같은 서로 다른 표면과 배경이 있는 다양한 사물의 이미지에서 인쇄되거나 필기된 텍스트를 검색하고 추출할 수 있습니다.
+Computer Vision 감지 하 고 이미지에 표시 되는 인쇄 하거나 필기 한 텍스트를 추출 하는 서비스의 수를 제공 합니다. 다양 한 사용 방법, 의료 기록, 보안, 뱅킹 등 시나리오에에서 유용합니다. 다음 세 가지 섹션 3 세부 다양 한 텍스트 인식 Api는 각각에 서로 다른 사용 사례에 대 한 최적화 합니다.
 
-텍스트 인식 기능은 [OCR(광학 문자 인식)](concept-extracting-text-ocr.md)과 비슷하지만, OCR과는 달리 비동기적으로 실행되며 업데이트된 인식 모델을 사용합니다.
+## <a name="read-api"></a>읽기 API
+
+읽기 API는 최신 인식 모델을 사용 하 여 이미지에서 텍스트 콘텐츠를 감지 하 고 컴퓨터가 읽을 수 있는 문자 스트림으로 식별 된 텍스트를 변환 합니다. 지저분한 많이 사용 하 여 이미지 및 텍스트가 많은 이미지 (예: 디지털 검색 않은 문서)에 대 한 최적화 되었습니다. 큰 문서에는 결과 반환 하는 데 몇 분 정도 시간이 걸릴 수 있으므로 실행 비동기적으로 합니다.
+
+읽기 작업에서 출력에 인식 된 단어의 원래 줄 그룹 유지 관리합니다. 경계 상자 좌표를 사용 하 여 제공 되는 각 줄 및 줄 내에서 각 단어에는 역시 자체 좌표입니다. 낮은 신뢰도 사용 하 여 단어를 인식 하는 경우 해당 정보는도 전달 됩니다. 참조를 [읽기 API 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 이 기술은 현재 미리 보기 상태로 제공되고 있으며, 영어 텍스트에만 사용할 수 있습니다.
+> 이 기능은 현재 미리 보기 상태인 및 영어 텍스트에만 제공 됩니다.
 
-## <a name="text-recognition-requirements"></a>텍스트 인식 요구 사항
+### <a name="image-requirements"></a>이미지 요구 사항
 
-Computer Vision은 다음 요구 사항을 충족하는 이미지에서 인쇄하고 필기된 텍스트를 인식할 수 있습니다.
+읽기 API는 다음 요구 사항을 충족 하는 이미지를 사용 하 여 작동 합니다.
 
-- 이미지가 JPEG, PNG 또는 BMP 형식으로 제공되어야 합니다.
-- 이미지의 파일 크기가 4MB보다 작아야 합니다.
-- 이미지의 크기는 50x50픽셀에서 4200x4200픽셀 사이여야 합니다.
+- 이미지를 JPEG, PNG, BMP, PDF 또는 TIFF 형식으로 제공 해야 합니다.
+- 이미지의 크기는 50 x 50 4200 x 4200 픽셀 사이 여야 합니다. PDF 페이지 또는 더 작은 17 인치 x 17 이어야 합니다.
+- 이미지의 파일 크기는 20mb 미만 (MB) 여야 합니다.
+
+### <a name="limitations"></a>제한 사항
+
+무료 계층 구독을 사용 하는 경우 읽기 API를 PDF 또는 TIFF 문서 처음 두 페이지와만 처리 됩니다. 유료 구독을 최대 200 개의 페이지 처리 합니다. API는 페이지당 300 선의 최대 감지는 참고도 합니다.
+
+## <a name="ocr-optical-character-recognition-api"></a>OCR (광학 문자 인식) API
+
+Computer Vision OCR (광학 문자 인식) API는 읽기 API와 유사한 있지만 동기적으로 실행 하 고 큰 문서에 대 한 최적화 되지 않은 것입니다. 더 많은 언어를 사용 하 여 작동 하지만 이전 인식 모델을 사용합니다.
+
+OCR은 25개 언어를 지원합니다. 아랍어, 중국어 간체, 중국어 번체, 체코어, 덴마크어, 네덜란드어, 영어, 핀란드어, 프랑스어, 독일어, 그리스어, 헝가리어, 이탈리아어, 일본어, 한국어, 노르웨이어, 폴란드어, 포르투갈어, 루마니아어, 러시아어, 세르비아어(키릴 문자 및 라틴 문자), 슬로바키아어, 스페인어, 스웨덴어 및 터키어입니다. OCR은 감지된 텍스트의 언어를 자동으로 감지합니다.
+
+필요한 경우, OCR은 가로 이미지 축을 중심으로 회전 오프셋(도)을 반환하여 인식된 텍스트의 회전을 정정합니다. OCR는 또한 다음 그림에 표시 된 대로 각 단어의 프레임 좌표를 제공 합니다.
+
+![이미지가 회전되고 텍스트가 읽고 설명되고 있음을 나타내는 다이어그램](./Images/vision-overview-ocr.png)
+
+참조를 [OCR 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 에 대해 자세히 알아보세요.
+
+### <a name="image-requirements"></a>이미지 요구 사항
+
+OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니다.
+
+* 이미지를 JPEG, PNG, GIF 또는 BMP 형식으로 제공 해야 합니다.
+* 입력된 이미지의 크기는 50 x 50 4200 x 4200 픽셀 사이 여야 합니다.
+* 90도의 배수에 최대 40도의 작은 각도를 더한 값만큼 이미지의 텍스트를 회전할 수 있습니다.
+
+### <a name="limitations"></a>제한 사항
+
+텍스트가 많은 사진에서는 부분적으로 인식된 단어에서 가양성이 발생할 수 있습니다. 전체 자릿수는 일부 사진, 텍스트, 없이 특히 사진에 이미지의 형식에 따라 달라질 수 있습니다.
+
+## <a name="recognize-text-api"></a>Recognize Text API
+
+> [!NOTE]
+> 텍스트 인식 API는 API를 읽기 위해 되지 않습니다. 읽기 API 비슷한 기능이 고 PDF, TIFF 및 다중 페이지 파일을 처리 하도록 업데이트 됩니다.
+
+OCR, 텍스트 인식 API 비슷합니다 하지만 비동기적으로 실행 하 고 업데이트 된 인식 모델을 사용 합니다. 참조를 [인식 Text API 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 자세한 합니다.
+
+### <a name="image-requirements"></a>이미지 요구 사항
+
+텍스트 인식 API는 다음 요구 사항을 충족 하는 이미지를 사용 하 여 작동 합니다.
+
+- 이미지를 JPEG, PNG 또는 BMP 형식으로 제공 해야 합니다.
+- 이미지의 크기는 50 x 50 4200 x 4200 픽셀 사이 여야 합니다.
+- 이미지의 파일 크기 보다 작은 4 메가바이트 (MB) 여야 합니다.
+
+## <a name="improve-results"></a>결과 개선
+
+텍스트 인식 작업의 정확도 이미지의 품질에 따라 달라 집니다. 다음 요소를 정확 하지 않은 읽기는 발생할 수 있습니다.
+
+* 흐린 이미지
+* 필기체 또는 흘림체 텍스트
+* 꾸밈 글꼴 스타일
+* 작은 텍스트 크기
+* 복잡한 배경, 텍스트 위의 그림자 또는 눈부심, 원근 왜곡
+* 너무 큰 없거나 대문자 단어의 처음과 끝에 있습니다.
+* 아래 첨자, 위 첨자 또는 취소선 텍스트
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [텍스트 인식 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)를 참조하세요.
+수행 합니다 [인쇄 된 텍스트 (OCR)를 추출](./quickstarts/csharp-print-text.md) 간단한 텍스트 인식 구현 하는 빠른 시작 C# 앱.

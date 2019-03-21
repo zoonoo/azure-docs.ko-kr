@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082945"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -44,10 +44,10 @@ PHP 로깅을 켜려면:
 9. **저장**을 선택합니다.
 10. **wp-config.php** 옆에 있는 연필 아이콘을 선택합니다.
 11. 텍스트를 다음 코드로 변경합니다.
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Azure Portal의 웹앱 메뉴에서 웹앱을 다시 시작합니다.
 
 자세한 내용은 [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)(WordPress 오류 로그 사용)를 참조하세요.
@@ -59,31 +59,31 @@ PHP 로깅을 켜려면:
 
 Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나를 사용합니다.
 
-*   Azure Portal에서 **앱 설정**을 사용합니다.
-    1. Azure Portal에서 웹앱으로 이동합니다.
-    2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
-    3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
-    4. [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net)로 이동합니다.
-    5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
-   ```
-   node -v
-   ```
-*   iisnode.yml 파일을 수정합니다. iisnode.yml 파일에서 Node.js 버전을 변경하면 iisnode에 사용되는 런타임 환경만 설정됩니다. Kudu cmd 등에서는 Azure Portal의 **앱 설정**에서 설정된 Node.js 버전을 사용합니다.
+* Azure Portal에서 **앱 설정**을 사용합니다.
+  1. Azure Portal에서 웹앱으로 이동합니다.
+  2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
+  3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
+  4. [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net)로 이동합니다.
+  5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
+     ```
+     node -v
+     ```
+* iisnode.yml 파일을 수정합니다. iisnode.yml 파일에서 Node.js 버전을 변경하면 iisnode에 사용되는 런타임 환경만 설정됩니다. Kudu cmd 등에서는 Azure Portal의 **앱 설정**에서 설정된 Node.js 버전을 사용합니다.
 
-    iisnode.yml을 수동으로 설정하려면 앱 루트 폴더에 iisnode.yml 파일을 만듭니다. 파일에 다음 줄을 포함합니다.
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  iisnode.yml을 수동으로 설정하려면 앱 루트 폴더에 iisnode.yml 파일을 만듭니다. 파일에 다음 줄을 포함합니다.
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   원본 제어 배포 중에 package.json을 사용하여 iisnode.yml 파일을 설정합니다.
-    Azure 원본 제어 배포 프로세스에는 다음 단계가 포함됩니다.
-    1. 콘텐츠를 Azure 웹앱으로 이동합니다.
-    2. 웹앱 루트 폴더에 deploy.cmd, .deployment 파일이 없는 경우 기본 배포 스크립트를 만듭니다.
-    3. package.json 파일 > 엔진에 Node.js 버전을 언급한 경우 iisnode.yml 파일을 만들 배포 스크립트를 실행합니다. `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. iisnode.yml 파일에는 다음 코드 줄이 있습니다.
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* 원본 제어 배포 중에 package.json을 사용하여 iisnode.yml 파일을 설정합니다.
+  Azure 원본 제어 배포 프로세스에는 다음 단계가 포함됩니다.
+  1. 콘텐츠를 Azure 웹앱으로 이동합니다.
+  2. 웹앱 루트 폴더에 deploy.cmd, .deployment 파일이 없는 경우 기본 배포 스크립트를 만듭니다.
+  3. package.json 파일 > 엔진에 Node.js 버전을 언급한 경우 iisnode.yml 파일을 만들 배포 스크립트를 실행합니다. `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. iisnode.yml 파일에는 다음 코드 줄이 있습니다.
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>App Service에서 호스트된 내 WordPress 앱에 “데이터베이스 연결 설정 오류” 메시지가 표시됩니다. 이 문제를 어떻게 해결해야 하나요?
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 암호 보호 미리 보기
-description: Azure AD 암호 보호 미리 보기를 사용 하 여 온-프레미스 Active Directory에서 약한 암호를 차단
+title: Azure AD 암호 보호
+description: Azure AD 암호 보호를 사용 하 여 온-프레미스 Active Directory에서 약한 암호를 차단
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840956"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284871"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
-|     |
-| --- |
-| Azure Active Directory (Azure AD) 암호 보호를 사용자 지정 차단된 암호 목록을 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대 한 정보를 참조 하세요 [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.|
-|     |
-
-Azure AD 암호 보호는 조직에서 암호 정책을 향상 시켜 주는 공개 미리 보기의 새로운 기능입니다. 온-프레미스 배포 암호 보호는 두 전역 및 사용자 지정 차단 암호 목록을 Azure AD에 저장 된 사용 합니다. 동일한 검사 온-프레미스 클라우드 기반 변경에 대 한 Azure AD로 수행합니다.
+Azure AD 암호 보호 기능은 조직에서 암호 정책을 강화 합니다. 온-프레미스 배포 암호 보호는 두 전역 및 사용자 지정 차단 암호 목록을 Azure AD에 저장 된 사용 합니다. 동일한 검사 온-프레미스 클라우드 기반 변경에 대 한 Azure AD로 수행합니다.
 
 ## <a name="design-principles"></a>디자인 원칙
 
@@ -62,7 +57,7 @@ DC 에이전트 서비스는 Azure AD에서 새 암호 정책 다운로드를 �
 
 DC 에이전트 서비스는 항상 서비스 시작 시 새 정책을 요청합니다. DC 에이전트 서비스가 시작 된 후 현재 로컬로 사용할 수 있는 정책의 기간 1 시간 마다 확인 합니다. 1 시간 보다 오래 된 정책, 앞에서 설명한 대로 Azure AD에서 새 정책을 요청 DC 에이전트. 현재 정책이 1 시간 보다 오래 없으면 DC 에이전트에서 해당 정책을 사용 하 여 계속 합니다.
 
-Azure AD 암호 보호 암호 정책을 다운로드 될 때마다 해당 정책은 테 넌 트 특정입니다. 즉, 암호 정책은 항상 Microsoft 글로벌 차단 암호 목록을 목록과 테 넌 트 당 사용자 지정 차단 암호의 조합입니다.
+Azure AD 암호 보호 암호 정책 다운로드 될 때마다 해당 정책은 테 넌 트 특정입니다. 즉, 암호 정책은 항상 Microsoft 글로벌 차단 암호 목록을 목록과 테 넌 트 당 사용자 지정 차단 암호의 조합입니다.
 
 DC 에이전트는 TCP를 통한 RPC 통해 프록시 서비스와 통신 합니다. 동적 또는 정적 RPC 포트 구성에 따라에서 이러한 호출에 대 한 프록시 서비스를 수신 대기합니다.
 

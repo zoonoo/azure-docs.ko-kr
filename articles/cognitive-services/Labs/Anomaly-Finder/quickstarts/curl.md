@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: e055bff430c0d090b4d527a79a22922da2eb90d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 7a4996c83d57b34fcfcff43650b21359acb4e65e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207058"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730888"
 ---
 # <a name="use-the-anomaly-finder-api-with-curl"></a>cURL 및 Anomaly Finder API 사용
 

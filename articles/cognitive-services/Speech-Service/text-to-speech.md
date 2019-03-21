@@ -1,72 +1,80 @@
 ---
-title: 텍스트 음성 변환 정보 - Speech Service
+title: Azure 음성 서비스를 사용 하 여 텍스트 음성 변환
 titleSuffix: Azure Cognitive Services
-description: Text to Speech API는 45개를 초과하는 언어와 로캘로 된 75개를 초과하는 음성을 제공합니다. 표준 음성 글꼴을 사용하려면 Speech Service를 호출할 때 음성 이름을 몇 가지 다른 매개 변수로 지정하면 됩니다.
+description: Azure Speech Services에서 text to speech는 사용자 응용 프로그램, 도구 또는 장치 자연 스러운 인간과 유사한 합성 된 음성 텍스트 변환 수 있도록 하는 REST 기반 서비스. 표준 및 신경망 음성에서 선택 하거나 사용자 고유의 사용자 지정 음성을 고유한 제품 또는 브랜드를 만듭니다. 75 표준 음성 45 개 언어 및 로캘을 제공 되며 5 신경망 음성 4 언어 및 로캘을 사용할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859337"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226915"
 ---
-# <a name="about-the-text-to-speech-api"></a>Text-to-Speech API 정보
+# <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
-TTS(**Text-to-Speech**) API는 입력 텍스트를 자연스러운 발음으로 변환합니다(*음성 합성*이라고도 함).
+Azure Speech Services에서 text to speech는 사용자 응용 프로그램, 도구 또는 장치 자연 스러운 인간과 유사한 합성 된 음성 텍스트 변환 수 있도록 하는 REST 기반 서비스. 표준 및 신경망 음성에서 선택 하거나 직접 만들 [사용자 지정 음성](#custom-voice-fonts) 제품 또는 브랜드에 고유 합니다. 75 표준 음성 45 개 언어 및 로캘을 제공 되며 5 신경망 음성 4 언어 및 로캘을 사용할 수 있습니다. 전체 목록을 참조 하세요 [지원 되는 언어](language-support.md#text-to-speech)합니다.
 
-음성을 생성하기 위해 애플리케이션은 Text-to-Speech API에 HTTP POST 요청을 보냅니다. 여기에서 텍스트는 인간의 음성으로 합성된 후 오디오 파일로 반환됩니다. 다양한 음성 및 언어가 지원됩니다.
-
-음성 합성이 채택되는 시나리오는 다음과 같습니다.
-
-* *접근성 개선:* **텍스트 음성 변환** 기술을 사용하여 콘텐츠 소유자와 게시자는 사람들이 해당 콘텐츠와 상호 작용하는 다양한 방식에 대응합니다. 시각 장애가 있거나 난독증이 있는 사람들은 콘텐츠를 들을 수 있다는 사실에 고마움을 느낍니다. 또한 음성 출력은 사람들이 출퇴근하거나 운동을 하는 동안 모바일 디바이스에서 신문이나 블로그 같은 텍스트 콘텐츠를 보다 쉽게 즐길 수 있도록 해줍니다.
-
-* *멀티태스킹 시나리오에 대응:* **텍스트 음성 변환**은 사람들이 운전 중이거나 편안하게 읽을 수 없는 환경에 있을 때 중요한 정보를 빠르고 편안하게 습득할 수 있도록 합니다. 이러한 분야에서 일반적인 응용 사례가 바로 네비게이션입니다.
-
-* *여러 모드를 사용하여 학습 향상:* 다양한 사람이 다양한 방식으로 가장 잘 학습합니다. 온라인 학습 전문가에 따르면 음성과 텍스트를 함께 제공할 경우 정보를 보다 쉽게 학습하고 지속할 수 있다고 합니다.
-
-* *직관적인 봇 또는 도우미 제공:* 말하는 능력은 인텔리전트 챗봇이나 가상 도우미에게 필수적인 부분으로 통합될 수 있습니다. 점점 더 많은 회사들이 고객에게 참여형 서비스 환경을 제공하기 위해 챗봇을 개발하고 있습니다. 음성은 봇 응답을 음성(예: 전화)으로 받을 수 있도록 하여 한 차원 높아진 서비스를 가능하게 합니다.
-
-## <a name="voice-support"></a>음성 지원
-
-Microsoft **Text-to-Speech** 서비스는 45개 이상의 언어 및 로캘로 75가지 이상의 음성을 제공합니다. 이러한 표준 "음성 글꼴"을 사용하려는 경우 서비스의 REST API를 호출할 때 몇 개의 매개 변수를 사용해서 음성 이름을 지정하기만 하면 됩니다. 지원되는 언어, 로캘 및 음성에 대한 자세한 내용은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
-
-> [!IMPORTANT]
-> 비용은 표준, 사용자 지정 및 인공신경망 음성별로 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
+텍스트 음성 변환 기술 콘텐츠 작성자가 사용자에 게 다양 한 방법으로 조작할 수 있습니다. Text to speech 음성으로 콘텐츠와 상호 작용 하는 옵션이 사용자에 게 제공 하 여 접근성을 향상할 수 있습니다. 든 사용자가 시각 장애가, 학습 장애가 운전 하면서 탐색 정보가 필요 text to speech 기존 환경을 개선할 수 있습니다. Text to speech 음성 봇 및 가상 도우미에 대 한 유용한 추가 기능을 이기도합니다.
 
 ### <a name="neural-voices"></a>인공신경망 음성
 
-인공신경망 텍스트 음성 변환을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, 전자책 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 AI 시스템과 상호 작용할 때 인공신경망 TTS는 수신 피로도를 현저히 줄일 수 있습니다. 인공신경망 음성에 대한 자세한 내용은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
+인공신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, 전자책 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연 스러운 prosody와 단어 지우기 할 신경망 음성을 크게 줄일 수신 피로 AI 시스템과 상호 작용 하는 경우. 인공신경망 음성에 대한 자세한 내용은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
 
 ### <a name="custom-voices"></a>사용자 지정 음성
 
-텍스트 음성 변환 사용자 지정을 사용하면 인식 가능한, 독특한 브랜드의 음성인 *음성 글꼴*을 만들 수 있습니다. 음성 글꼴을 만들려면 스튜디오에서 녹음한 후 관련 스크립트를 학습 데이터로서 업로드합니다. 그러면 이 서비스는 녹음한 음성에 맞게 튜닝된 고유한 음성 모델을 만듭니다. 이 음성 글꼴을 사용하여 음성을 합성할 수 있습니다. 자세한 내용은 [사용자 지정 음성 글꼴](how-to-customize-voice-font.md)을 참조하세요.
+음성 사용자 지정 브랜드에 대 한 인식할 수 있는 한 종류 음성을 만들 수 있습니다. 사용자 지정 음성 글꼴을 만들려면 studio 기록을 확인 하 고 학습 데이터와 관련된 스크립트를 업로드 합니다. 그러면 이 서비스는 녹음한 음성에 맞게 튜닝된 고유한 음성 모델을 만듭니다. 음성 합성에이 사용자 지정 음성 글꼴을 사용할 수 있습니다. 자세한 내용은 [사용자 지정 음성](how-to-customize-voice-font.md)합니다.
 
-## <a name="api-capabilities"></a>API 기능
+## <a name="core-features"></a>핵심 기능
 
-**Text-to-Speech** API의 많은 기능, 특히 사용자 지정 관련 기능은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 세부 정보에 대한 전체 목록은 [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 참조하세요.
+이 표에서 텍스트 음성 변환에 대 한 핵심 기능을 보여 줍니다.
 
-| 사용 사례 | REST (영문) | SDK |
-|-----|-----|-----|----|
-| 모델 적응을 위한 데이터 세트 업로드 | 예 | 아니요 |
-| 음성 글꼴 모델 만들기 및 관리 | 예 | 아니요 |
-| 음성 글꼴 배포 만들기 및 관리 | 예 | 아니요 |
-| 음성 글꼴 테스트 만들기 및 관리| 예 | 아니요 |
-| 구독 관리 | 예 | 아니요 |
+| 사용 사례 | SDK) | REST (영문) |
+|----------|-----|------|
+| 텍스트를 음성으로 변환 합니다. | 아닙니다. | 예 |
+| 음성 조정에 대 한 데이터 집합을 업로드 합니다. | 아닙니다. | 예\* |
+| 음성 글꼴 모델을 만들고 설정 합니다. | 아닙니다. | 예\* |
+| 만들고 음성 글꼴 배포를 관리 합니다. | 아닙니다. | 예\* |
+| 음성 글꼴 테스트를 만들고 설정 합니다. | 아닙니다. | 예\* |
+| 구독을 관리 합니다. | 아닙니다. | 예\* |
+
+\* *이러한 서비스 cris.ai 끝점을 사용 하 여 사용할 수 있습니다. 참조 [참조를 Swagger](https://westus.cris.ai/swagger/ui/index)합니다.*
 
 > [!NOTE]
-> API는 API 요청을 5초당 25개로 한정하는 제한을 구현합니다. 메시지 헤더에서 이 제한을 알려줍니다.
+> 텍스트 음성 변환 끝점 5 초 당 25에 대 한 요청을 제한 하는 제한을 구현 합니다. 제한이 발생 하는 경우 메시지 헤더를 통해 알림을 받게 됩니다.
+
+## <a name="get-started-with-text-to-speech"></a>텍스트 읽어주기 시작
+
+10 분 이내에 코드를 실행 하는 경우 제공 하도록 설계 되었습니다 빠른 시작을 제공 합니다. 이 테이블에는 언어에서 구성 하는 텍스트 음성 변환 빠른 시작의 목록을 포함 합니다.
+
+| 빠른 시작 | 플랫폼 | API 참조 |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>샘플 코드
+
+텍스트 음성 변환에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에는 가장 인기 있는 프로그래밍 언어로 텍스트 음성 변환 변환을 다룹니다.
+
+* [텍스트 음성 변환 샘플 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>참조 문서
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
+* [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [체험 Speech Services 구독 받기](https://azure.microsoft.com/try/cognitive-services/)
-* [빠른 시작: 텍스트 음성 변환, Python](quickstart-python-text-to-speech.md)
-* [빠른 시작: 텍스트 음성 변환, .NET Core](quickstart-dotnet-text-to-speech.md)
-* [REST API 참조](rest-apis.md)
+* [체험 Speech Services 구독 받기](get-started.md)
+* [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014272"
 ---
 # <a name="migrate-your-data"></a>데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL Data Warehouse로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -191,11 +191,11 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: https://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

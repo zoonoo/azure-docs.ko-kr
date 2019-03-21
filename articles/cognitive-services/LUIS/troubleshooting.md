@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120774"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -102,10 +102,12 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 다음 PowerShell 명령을 사용해 엔드포인트 할당량을 확인할 수 있습니다.
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
@@ -145,7 +147,7 @@ Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>앱을 내보낸 후 새 앱으로 다시 가져오면(새 앱 ID 사용) LUIS 예측 점수가 달라집니다. 그 이유는 무엇인가요?
 
-[동일한 앱 사본 간 예측 차이점](luis-concept-prediction-score.md#differences-with-predictions)을 참조하세요.
+[동일한 앱 사본 간 예측 차이점](luis-concept-prediction-score.md#review-intents-with-similar-scores)을 참조하세요.
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>내 앱을 변경한 후 일부 발언의 의도가 맞지 않습니다. 이 문제는 우연히 사라진 것 같습니다. 이 문제를 어떻게 해결하나요? 
 
@@ -276,7 +278,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 
-|Name|Content|
+|이름|Content|
 |--|--|
 |향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
 |패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|

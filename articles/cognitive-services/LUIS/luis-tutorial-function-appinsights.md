@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098775"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Application Insights 및 Azure 함수에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
@@ -26,9 +26,9 @@ ms.locfileid: "55870608"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-* 웹앱 봇에 Application Insights 라이브러리 추가
-* LUIS 쿼리 결과 캡처 및 Application Insights에 보내기
-* Application Insights에서 상위 의도, 점수 및 발언 쿼리
+> * 웹앱 봇에 Application Insights 라이브러리 추가
+> * LUIS 쿼리 결과 캡처 및 Application Insights에 보내기
+> * Application Insights에서 상위 의도, 점수 및 발언 쿼리
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,11 +51,11 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
 
 1. Azure Portal의 웹앱 봇 서비스에서 **봇 관리** 섹션 아래의 **빌드**를 선택합니다. 
 
-    ![Azure Portal의 웹앱 봇 서비스에서 "봇 관리" 섹션 아래의 "빌드"를 선택합니다. ](./media/luis-tutorial-appinsights/build.png)
+    ![Azure Portal의 웹앱 봇 서비스에서 "봇 관리" 섹션 아래의 "빌드"를 선택합니다.](./media/luis-tutorial-appinsights/build.png)
 
 2. 새 웹 브라우저 탭에서 App Service 편집기가 열립니다. 위쪽 막대에서 앱 이름을 선택하고 **Kudu 콘솔 열기**를 선택합니다. 
 
-    ![위쪽 막대에서 앱 이름을 선택한 다음, "Kudu 콘솔 열기"를 선택합니다. ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![위쪽 막대에서 앱 이름을 선택한 다음, "Kudu 콘솔 열기"를 선택합니다.](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. 콘솔에서 다음 명령을 입력하여 Application Insights 및 Underscore 패키지를 설치합니다.
 

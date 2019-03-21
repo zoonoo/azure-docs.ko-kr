@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013565"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -54,7 +54,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 저장소 에뮬레이터는 기본적으로 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`에 설치됩니다.
 
 > [!TIP]
-> [Microsoft Azure Storage 탐색기](http://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음 스토리지 탐색기 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
+> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음 스토리지 탐색기 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
@@ -64,15 +64,15 @@ Azure Storage 에뮬레이터를 시작하려면:
 1. [저장소 에뮬레이터 시작 및 초기화](#start-and-initialize-the-storage-emulator) 섹션에서 설명한대로 저장소 에뮬레이터 콘솔 창을 엽니다.
 1. 콘솔 창에 다음 명령을 입력합니다. 여기서 `<SQLServerInstance>`은 SQL Server 인스턴스의 이름입니다. LocalDB를 사용하려면 SQL Server 인스턴스로 `(localdb)\MSSQLLocalDb`을 지정합니다.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
+   기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  또는 LocalDB 인스턴스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
+   또는 LocalDB 인스턴스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 이 명령에 대한 자세한 내용은 [저장소 에뮬레이터 명령줄 도구 참조](#storage-emulator-command-line-tool-reference)를 참조하세요.
 
@@ -91,7 +91,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](http://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 애플리케이션과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
+Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](https://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 애플리케이션과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
 
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
 
@@ -281,4 +281,4 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 * 커뮤니티에서 유지 관리하는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)를 평가합니다. 
 * [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
-* [Microsoft Azure Storage 탐색기](http://storageexplorer.com)를 사용하여 클라우드 스토리지 계정 및 스토리지 에뮬레이터의 리소스를 사용할 수 있습니다.
+* [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 클라우드 스토리지 계정 및 스토리지 에뮬레이터의 리소스를 사용할 수 있습니다.

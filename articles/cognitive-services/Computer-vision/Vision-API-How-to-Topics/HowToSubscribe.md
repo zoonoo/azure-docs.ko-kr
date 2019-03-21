@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 03e519520d4a956a5c9690dc1327089505aafced
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858079"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120859"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>구독 키를 가져오는 방법
 
@@ -24,8 +24,8 @@ Computer Vision 서비스에는 특별한 구독 키가 필요합니다. Compute
 
 구독 키를 등록하려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 무료로 등록할 수 있습니다. 이러한 서비스에 대한 가격 책정은 변경될 수 있습니다.
 
->[!NOTE]
-구독 키는 이러한 [Microsoft Azure 지역](https://azure.microsoft.com/regions/) 중 하나에 대해서만 유효합니다. 
+> [!NOTE]
+> 구독 키는 이러한 [Microsoft Azure 지역](https://azure.microsoft.com/regions/) 중 하나에 대해서만 유효합니다. 
 
 | 지역 | 주소 |
 |---|---|

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653665"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730106"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -88,13 +88,84 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 - 구독에서 허용되는 구매 한도에 도달했습니다.
 
     **솔루션**: App Service 인증서의 종량제 및 EA 구독 유형에 대한 인증서 구매 한도는 10개입니다. 다른 구독 유형의 한도는 3개입니다. 한도를 늘리려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
-- App Service 인증서가 사기로 표시되었습니다. 다음과 같은 오류 메시지를 받았습니다. “인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요."
+- App Service 인증서가 사기로 표시되었습니다. 다음과 같은 오류 메시지를 받았습니다. “인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24 시간 이내 인증서를 사용할 수 있게 되지 않으면, Azure 지원에 문의 합니다. "
 
     **솔루션**: 인증서가 사기로 표시되고 24시간 후에도 해결되지 않으면 다음 단계를 수행합니다.
 
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. **App Service 인증서**로 이동하고, 인증서를 선택합니다.
     3. **인증서 구성** > **2단계: 확인** > **도메인 확인**을 선택합니다. 이 단계는 문제를 해결하라는 이메일 알림을 Azure 인증서 공급자에게 전송합니다.
+
+## <a name="custom-domain-problems"></a>사용자 지정 도메인 문제
+
+### <a name="a-custom-domain-returns-a-404-error"></a>사용자 지정 도메인에서 404 오류 반환 
+
+#### <a name="symptom"></a>증상
+
+사용자 지정 도메인 이름을 사용하여 사이트를 탐색할 때 다음과 같은 오류 메시지가 나타납니다.
+
+"오류 404-웹앱을 찾을 수 없습니다."
+
+#### <a name="cause-and-solution"></a>원인 및 해결 방법
+
+**원인 1** 
+
+구성된 사용자 지정 도메인에 CNAME 또는 A 레코드가 없습니다. 
+
+**원인 1의 해결 방법**
+
+- A 레코드를 추가한 경우 TXT 레코드도 추가해야 합니다. 자세한 내용은 [A 레코드 만들기](./app-service-web-tutorial-custom-domain.md#create-the-a-record)를 참조하세요.
+- 앱에 루트 도메인을 사용하지 않아도 되는 경우 A 레코드 대신 CNAME 레코드를 사용하는 것이 좋습니다.
+- CNAME 및 A 레코드를 동일한 도메인에 사용하지 마세요. 이 문제는 충돌이 발생 하 고에서 확인할 도메인을 방지할 수 있습니다. 
+
+**원인 2** 
+
+인터넷 브라우저가 여전히 도메인의 이전 IP 주소를 캐싱하고 있습니다. 
+
+**원인 2의 해결 방법**
+
+브라우저를 지웁니다. Windows 디바이스의 경우 `ipconfig /flushdns` 명령을 실행하면 됩니다. [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 
+
+### <a name="you-cant-add-a-subdomain"></a>하위 도메인을 추가할 수 없음 
+
+#### <a name="symptom"></a>증상
+
+앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
+
+#### <a name="solution"></a>해결 방법
+
+- 구독 관리자에게 문의하여 앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
+- 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure 도메인 이름 서비스 (DNS)를 변경 하는 것이 좋습니다. Azure DNS를 사용하여 앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)를 참조하세요.
+
+### <a name="dns-cant-be-resolved"></a>DNS를 확인할 수 없음
+
+#### <a name="symptom"></a>증상
+
+다음과 같은 오류 메시지를 받았습니다.
+
+"DNS 레코드를 찾을 수 없습니다."
+
+#### <a name="cause"></a>원인
+이 문제는 다음과 같은 이유로 발생합니다.
+
+- TTL(Time to Live)이 만료되지 않았습니다. 도메인의 DNS 구성을 검사하여 TTL 값을 확인한 다음, 기간이 만료될 때까지 기다립니다.
+- DNS 구성이 올바르지 않습니다.
+
+#### <a name="solution"></a>해결 방법
+- 이 문제가 스스로 해결될 때까지 48시간 동안 기다립니다.
+- DNS 구성에서 TTL 설정을 변경할 수 있는 경우 값을 5분으로 변경하고 문제가 해결되는지 확인합니다.
+- [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 앱의 올바른 IP 주소로 구성합니다.
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>삭제된 도메인을 복원해야 함 
+
+#### <a name="symptom"></a>증상
+도메인이 더 이상 Azure Portal에 표시되지 않습니다.
+
+#### <a name="cause"></a>원인 
+구독 소유자가 실수로 도메인을 삭제했을 가능성이 있습니다.
+
+#### <a name="solution"></a>해결 방법
+도메인이 7일 이내에 삭제된 경우 도메인에서 아직 삭제 프로세스가 시작되지 않았습니다. 이 경우 동일한 구독에서 Azure Portal을 통해 동일한 도메인을 다시 구입할 수 있습니다. (검색 상자에 도메인 이름을 정확하게 입력해야 합니다.) 이 도메인에 대한 요금이 다시 청구되지 않습니다. 도메인 전 7 일 넘게 삭제 된 경우에 문의 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 도메인 복원에 대 한 도움말입니다.
 
 ## <a name="domain-problems"></a>도메인 문제
 
@@ -199,102 +270,59 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>DNS를 확인할 수 없음
+## <a name="faq"></a>FAQ
 
-#### <a name="symptom"></a>증상
+**구입 하기 면 내 웹 사이트에 대 한 사용자 지정 도메인을 구성 해야 하나요?**
 
-다음과 같은 오류 메시지를 받았습니다.
+Azure portal에서 도메인을 구매 하는 사용자 지정 도메인을 사용 하도록 App Service 응용 프로그램 자동으로 구성 됩니다. 추가 단계를 수행할 필요가 없습니다. 자세한 내용은 [Azure 앱 서비스 자체 도움말: 사용자 지정 도메인 이름 추가](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) Channel9에 있습니다.
 
-"DNS 레코드를 찾을 수 없습니다."
+**대신 Azure VM을 가리키도록 Azure portal에서 구매한 도메인을 사용할 수 있습니까?**
 
-#### <a name="cause"></a>원인
-이 문제는 다음과 같은 이유로 발생합니다.
+예, 저장소 등 VM에 도메인을 가리킬 수 있습니다. 자세한 내용은 [Windows VM에 대 한 Azure portal에서 사용자 지정 FQDN 만들기](../virtual-machines/windows/portal-create-fqdn.md)합니다.
 
-- TTL(Time to Live)이 만료되지 않았습니다. 도메인의 DNS 구성을 검사하여 TTL 값을 확인한 다음, 기간이 만료될 때까지 기다립니다.
-- DNS 구성이 올바르지 않습니다.
+**내 도메인 GoDaddy 또는 Azure DNS에서 호스팅되는?**
 
-#### <a name="solution"></a>해결 방법
-- 이 문제가 스스로 해결될 때까지 48시간 동안 기다립니다.
-- DNS 구성에서 TTL 설정을 변경할 수 있는 경우 값을 5분으로 변경하고 문제가 해결되는지 확인합니다.
-- [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 앱의 올바른 IP 주소로 구성합니다.
+App Service 도메인은 도메인을 호스트 하려면 GoDaddy 도메인 등록 및 Azure DNS를 사용 합니다. 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>삭제된 도메인을 복원해야 함 
+**있는데 자동 갱신 사용 하도록 설정 되지만 여전히 전자 메일을 통해 도메인에 대 한 갱신 고 지를 수신 합니다. 어떻게 해야 하나요?**
 
-#### <a name="symptom"></a>증상
-도메인이 더 이상 Azure Portal에 표시되지 않습니다.
+있는 경우 자동 갱신 사용 않아도 작업을 수행할 수 있습니다. 알림 전자 메일 도메인 만료 하는 경우 수동으로 갱신 되는 자동 갱신을 알리기 위해 해제 되어 제공 됩니다.
 
-#### <a name="cause"></a>원인 
-구독 소유자가 실수로 도메인을 삭제했을 가능성이 있습니다.
+**요금이 부과 되나요 Azure DNS에 대 한 도메인 호스팅?**
 
-#### <a name="solution"></a>해결 방법
-도메인이 7일 이내에 삭제된 경우 도메인에서 아직 삭제 프로세스가 시작되지 않았습니다. 이 경우 동일한 구독에서 Azure Portal을 통해 동일한 도메인을 다시 구입할 수 있습니다. (검색 상자에 도메인 이름을 정확하게 입력해야 합니다.) 이 도메인에 대한 요금이 다시 청구되지 않습니다. 도메인이 삭제된 지 7일이 넘었으면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)의 도움을 받아 도메인을 복원합니다.
+도메인 구매의 초기 비용 도메인 등록에만 적용 됩니다. 등록 비용 외에 사용량에 따라 Azure DNS에 대 한 별도 요금이 있습니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/) 대 한 자세한 내용은 합니다.
 
-### <a name="a-custom-domain-returns-a-404-error"></a>사용자 지정 도메인에서 404 오류 반환 
+**Azure portal에서 이전 내 도메인을 구입 하 고 GoDaddy 호스팅을 Azure DNS 호스트에서 이동 하려고 합니다. 어떻게 해야 합니까?**
 
-#### <a name="symptom"></a>증상
+Azure DNS 호스팅로 마이그레이션하려는 필수적이 지 않습니다. 에 대 한 Azure dns에 Azure portal에서 도메인 관리 환경 마이그레이션할 하려는 경우 Azure DNS로 이동 하는 데 필요한 단계에 정보를 제공 합니다. 도메인 App Service를 통해 구매한 경우에서 GoDaddy 호스팅을 Azure DNS 마이그레이션이 상대적으로 원활 하 게 프로시저입니다.
 
-사용자 지정 도메인 이름을 사용하여 사이트를 탐색할 때 다음과 같은 오류 메시지가 나타납니다.
+**App Service 도메인에서 도메인을 구매 하려고 하지만 내 도메인 대신 Azure DNS는 GoDaddy에서 호스트할 수 있나요?**
 
-"오류 404-웹앱을 찾을 수 없습니다."
+2017 년 7 월 24 일 시작 포털에서 구입한 도메인의 App Service는 Azure DNS에서 호스팅됩니다. 다른 호스팅 공급자를 사용 하려는 경우 도메인 호스팅 솔루션을 가져오려면 해당 웹 사이트로 이동 해야 있습니다.
 
+**내 도메인에 대 한 개인 정보 보호에 대 한 요금을 지불 해야 합니까?**
 
-#### <a name="cause-and-solution"></a>원인 및 해결 방법
+Azure portal 통해 도메인을 구매 하는 경우 추가 비용 없이 개인 정보 보호를 추가할 수 있습니다. Azure App Service를 통해 도메인을 구매 하는 이점 중 하나입니다.
 
-**원인 1** 
+**내 도메인 사용 하지 않습니다.를 결정 하는 경우 얻을 수 있습니까 돈을 다시?**
 
-구성된 사용자 지정 도메인에 CNAME 또는 A 레코드가 없습니다. 
+도메인을 구입 하는 경우,이 기간 동안 결정할 수 있습니다는 원하지 않는 도메인 5 일의 기간에 대 한 요금이 부과 되지 않습니다. 5 일의 기간 동안 해당 도메인을 원하지 않으려는 경우 하면 요금이 부과 되지 않습니다. (.uk 도메인은이 예외는 있습니다. .Uk 도메인을 구매 하면 즉시 청구 됩니다 및 환불 있습니다 수 없습니다.)
 
-**원인 1의 해결 방법**
+**내 구독에서 다른 Azure App Service 앱에서 도메인을 사용할 수 있습니까?**
 
-- A 레코드를 추가한 경우 TXT 레코드도 추가해야 합니다. 자세한 내용은 [A 레코드 만들기](./app-service-web-tutorial-custom-domain.md#create-the-a-record)를 참조하세요.
-- 앱에 루트 도메인을 사용하지 않아도 되는 경우 A 레코드 대신 CNAME 레코드를 사용하는 것이 좋습니다.
-- CNAME 및 A 레코드를 동일한 도메인에 사용하지 마세요. 충돌이 발생하고 도메인을 확인하지 못하게 될 수 있습니다. 
+예. Azure portal에서 사용자 지정 도메인 및 SSL 블레이드를 액세스 하면 구매한 도메인 표시 됩니다. 이러한 도메인 중 하나를 사용 하 여 앱을 구성할 수 있습니다.
 
-**원인 2** 
+**전송할 수 있습니까 도메인 하나의 구독에서 다른 구독으로?**
 
-인터넷 브라우저가 여전히 도메인의 이전 IP 주소를 캐싱하고 있습니다. 
+도메인을 사용 하 여 다른 구독/리소스 그룹을 이동할 수 있습니다 합니다 [Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet.
 
-**원인 2의 해결 방법**
+**Azure App Service 앱을 현재 없는 경우 내 사용자 지정 도메인을 관리 하려면 어떻게 하나요?**
 
-브라우저를 지웁니다. Windows 디바이스의 경우 `ipconfig /flushdns` 명령을 실행하면 됩니다. [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 
+App Service 웹 앱이 없는 경우에 도메인을 관리할 수 있습니다. 가상 머신, 저장소 등와 같은 Azure 서비스에 대 한 도메인을 사용할 수 있습니다. App Service Web Apps에 대 한 도메인을 사용 하려는 경우 웹 앱에 도메인을 바인딩하려면 무료 App Service 계획에 없는 웹 앱을 포함 해야 합니다.
 
-### <a name="you-cant-add-a-subdomain"></a>하위 도메인을 추가할 수 없음 
+**또는 이동할 수 있나요 사용자 지정 도메인을 사용 하 여 웹 앱을 다른 구독에 App Service Environment v1에서 V2로?**
 
-#### <a name="symptom"></a>증상
+예, 구독에서 웹 앱을 이동할 수 있습니다. 지침을 따르세요 [Azure에서 리소스를 이동 하는 방법을](../azure-resource-manager/resource-group-move-resources.md)합니다. 웹 앱을 이동 하는 데는 몇 가지 제한이 있습니다. 자세한 내용은 [App Service 리소스를 이동 하는 것에 대 한 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+)합니다.
 
-앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
-
-#### <a name="solution"></a>해결 방법
-
-- 구독 관리자에게 문의하여 앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
-- 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure DNS로 변경하는 것이 좋습니다. Azure DNS를 사용하여 앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)를 참조하세요.
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+웹 앱으로 변경한 후 사용자 지정 도메인 설정 내에 있는 도메인의 호스트 이름 바인딩을 동일 해야 합니다. 추가 단계 없이 호스트 이름 바인딩을 구성 해야 합니다.

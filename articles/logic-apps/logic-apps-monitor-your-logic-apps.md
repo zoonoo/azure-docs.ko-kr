@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112316"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
 [논리 앱을 만들고 실행](../logic-apps/quickstart-create-first-logic-app-workflow.md)한 후 해당 실행 기록, 트리거 기록, 상태 및 성능을 확인할 수 있습니다. 실시간 이벤트 모니터링 및 보다 풍부한 디버깅은 논리 앱에 대한 [진단 로깅](#azure-diagnostics)을 설정합니다. 이런 방식으로 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 [이벤트를 찾고 볼](#find-events) 수 있습니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다. 
 
 오류 또는 가능한 다른 문제에 대한 알림을 받으려면 [경고](#add-azure-alerts)를 설정합니다. 예를 들어 "한 시간에 5개 이상의 실행이 실패하는 경우"를 검색하는 경고를 만들 수 있습니다. [Azure 진단 이벤트 설정 및 속성](#diagnostic-event-properties)을 사용하여 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정할 수도 있습니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>논리 앱에 대한 실행 및 트리거 기록 보기
 
@@ -72,13 +74,13 @@ ms.locfileid: "53543859"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>논리 앱에 대한 진단 로깅 켜기
 
-런타임 세부 정보 및 이벤트로 보다 풍부한 디버깅은 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 진단 로깅을 설정할 수 있습니다. Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하도록 돕는 Azure의 서비스입니다. 
+런타임 세부 정보 및 이벤트를 사용 하 여 보다 풍부한 디버깅에 대 한 진단 로깅을 사용 하 여 설정할 수 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)합니다. Azure Monitor는 Azure 클라우드를 모니터링 하 고 온-프레미스 환경의 해당 가용성 및 성능을 유지 하는 데에 서비스입니다. 
 
 시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다. 
 
-2. 논리 앱 블레이드 메뉴의 **모니터링** 아래에서 **진단** > **진단 설정**을 선택합니다.
+2. 논리 앱 블레이드 메뉴에서 **모니터링**, 선택 **진단** > **진단 설정을**합니다.
 
    ![모니터링, 진단, 진단 설정으로 이동](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -91,8 +93,8 @@ ms.locfileid: "53543859"
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
    3. **OMS 작업 영역**에서 로깅에 사용할 작업 영역을 선택합니다.
-   > [!NOTE]
-   > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
+      > [!NOTE]
+      > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
    4. **로그** 아래에서 **WorkflowRuntime** 범주를 선택합니다.
    5. 메트릭 간격을 선택합니다.
    6. 완료하면 **저장**을 선택합니다.
@@ -125,7 +127,7 @@ ms.locfileid: "53543859"
 
    ![검색 문자열 입력](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   [Log Analytics에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+   에 대해 자세히 알아보세요 [Azure Monitor 로그에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)합니다.
 
 5. 결과 페이지의 왼쪽 모음에서 보려는 시간 프레임을 선택합니다.
 필터를 추가하여 쿼리를 구체화하려면 **+추가**를 선택합니다.
@@ -153,7 +155,7 @@ ms.locfileid: "53543859"
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>다른 서비스와 함께 진단 데이터를 사용하는 방법 및 위치 확장
 
-Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 앱의 진단 데이터를 사용하는 방법을 다음과 같이 확장할 수 있습니다. 
+Azure Monitor 로그와 함께 사용법 논리 앱의 진단 데이터의 다른 Azure 서비스를 사용 하 여 예를 들어 확장할 수 있습니다. 
 
 * [Azure Storage에 Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 �
 
 논리 앱에 대한 특정 메트릭 또는 초과된 임계값을 모니터링하려면 [Azure에서 경고](../azure-monitor/platform/alerts-overview.md)를 설정합니다. [Azure의 매트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)에 대해 알아봅니다. 
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 없이 경고를 설정하려면 다음 단계를 수행합니다. 더 많은 고급 경고 조건 및 작업은 [Log Analytics도 설정](#azure-diagnostics)합니다.
+없이 경고를 설정할 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md), 다음이 단계를 수행 합니다. 고급 경고 조건 및 작업에 대 한 [Azure Monitor 로그 설정](#azure-diagnostics) 너무 합니다.
 
 1. 논리 앱 블레이드 메뉴의 **모니터링** 아래에서 다음과 같이 **진단** > **경고 규칙** > **경고 추가**를 선택합니다.
 

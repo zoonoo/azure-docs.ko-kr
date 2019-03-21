@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: b50dcfc21ce6b8d4fc1becd178bf8469870740b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839681"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259315"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm 복원
 
@@ -299,7 +299,7 @@ Azure Portal을 사용하여 VM을 복원하는 방식과 PowerShell을 사용�
 
 ![BackupContainer를 표시하는 Recovery Services 개체 계층 구조](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-백업 데이터를 복원하려면 백업 항목 및 지정 시간 데이터가 포함된 복구 지점을 식별합니다. 사용 하 여 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) 계정에 자격 증명 모음에서 데이터를 복원 합니다.
+백업 데이터를 복원하려면 백업 항목 및 지정 시간 데이터가 포함된 복구 지점을 식별합니다. 사용 하 여 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) 계정에 자격 증명 모음에서 데이터를 복원 합니다.
 
 Azure VM을 복원하는 기본 단계는 다음과 같습니다.
 
@@ -348,7 +348,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>디스크 복원
 
-사용 된 * *[복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) 백업 항목의 데이터 및 구성을 복구 지점으로 복원 하는 cmdlet입니다. 복구 지점을 식별하고 나면 이 지점을 **-RecoveryPoint** 매개 변수의 값으로 사용합니다. 이전 샘플에서 **$rp[0]** 이 사용할 복구 지점이었지만, 아래 샘플 코드에서는 **$rp[0]** 이 디스크를 복원하는 데 사용할 복구 지점이 됩니다.
+사용 된 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) 백업 항목의 데이터 및 구성을 복구 지점으로 복원 하는 cmdlet입니다. 복구 지점을 식별하고 나면 이 지점을 **-RecoveryPoint** 매개 변수의 값으로 사용합니다. 이전 샘플에서 **$rp[0]** 이 사용할 복구 지점이었지만, 아래 샘플 코드에서는 **$rp[0]** 이 디스크를 복원하는 데 사용할 복구 지점이 됩니다.
 
 디스크 및 구성 정보를 복원하려면
 

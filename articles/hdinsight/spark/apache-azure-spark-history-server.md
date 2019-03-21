@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792784"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076805"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -70,7 +70,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     ![데이터 다운로드 행](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 저장소 파일의 경우 **Azure Storage 탐색기에서 열기**는 Azure Storage 탐색기를 시작하고 로그인 시 해당 폴더를 찾습니다.
++ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 스토리지 파일의 경우 **Azure Storage 탐색기에서 열기**는 Azure Storage 탐색기를 시작하고 로그인 시 해당 폴더를 찾습니다.
 
     ![데이터 복사 경로](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
@@ -106,11 +106,11 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + **재생** 단추를 클릭하여 작업을 재생하고 중지 단추를 클릭하여 언제든 중지할 수 있습니다. 재생 시 다른 상태를 표시하기 위한 컬러판 작업 표시입니다.
 
-    + 성공인 경우 녹색: 작업이 완료되었습니다.
-    + 다시 시도의 경우 주황색: 실패했지만 작업의 최종 결과에는 영향을 미치지 않는 작업의 인스턴스입니다. 이러한 작업은 나중에 성공할 수 있는 인스턴스를 복제하거나 다시 시도합니다.
-    + 실행 중인 경우 파란색: 작업이 실행 중입니다.
-    + 건너뜀 또는 대기 중인 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
-    + 실패인 경우 빨간색: 작업이 실패했습니다.
+  + 성공인 경우 녹색: 작업이 완료되었습니다.
+  + 다시 시도의 경우 주황색: 실패했지만 작업의 최종 결과에는 영향을 미치지 않는 작업의 인스턴스입니다. 이러한 작업은 나중에 성공할 수 있는 인스턴스를 복제하거나 다시 시도합니다.
+  + 실행 중인 경우 파란색: 작업이 실행 중입니다.
+  + 건너뜀 또는 대기 중인 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
+  + 실패인 경우 빨간색: 작업이 실패했습니다.
 
     ![실행 중인 그래프 색 샘플](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![그래프 도구 설명](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + 작업 그래프 탭에서 아래 조건을 충족하는 작업이 있을 경우 단계에 도구 설명과 작은 아이콘이 표시됩니다.
-    + 데이터 편향: 읽은 데이터 크기 > 이 단계 내 모든 작업에서 읽은 데이터의 평균 크기 * 2 및 읽은 데이터 크기 > 10MB
-    + 시간 편향: 실행 시간 > 이 단계 내 모든 작업의 평균 실행 시간 * 2와 실행 시간 > 2분
+  + 데이터 편향: 읽은 데이터 크기 > 이 단계 내 모든 작업에서 읽은 데이터의 평균 크기 * 2 및 읽은 데이터 크기 > 10MB
+  + 시간 편향: 실행 시간 > 이 단계 내 모든 작업의 평균 실행 시간 * 2와 실행 시간 > 2분
 
     ![그래프 편향 아이콘](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + 작업 그래프 노드는 다음과 같은 각 단계의 정보를 표시합니다.
-    + ID.
-    + 이름 또는 설명.
-    + 총 작업 수.
-    + 읽은 데이터: 입력 크기 및 순서 섞기 읽기 크기의 합계입니다.
-    + 데이터 쓰기: 출력 크기 및 순서 섞기 쓰기 크기의 합계입니다.
-    + 실행 시간: 첫 번째 시도의 시작 시간과 마지막 시도의 완료 시간 간의 시간입니다.
-    + 행 개수: 입력 레코드, 출력 레코드, 순서 섞기 읽기 레코드 및 순서 섞기 쓰기 레코드의 합계입니다.
-    + 진행률.
+  + ID.
+  + 이름 또는 설명.
+  + 총 작업 수.
+  + 읽은 데이터: 입력 크기 및 순서 섞기 읽기 크기의 합계입니다.
+  + 데이터 쓰기: 출력 크기 및 순서 섞기 쓰기 크기의 합계입니다.
+  + 실행 시간: 첫 번째 시도의 시작 시간과 마지막 시도의 완료 시간 간의 시간입니다.
+  + 행 개수: 입력 레코드, 출력 레코드, 순서 섞기 읽기 레코드 및 순서 섞기 쓰기 레코드의 합계입니다.
+  + 진행률.
 
     > [!NOTE]  
     > 기본적으로 작업 그래프 노드는 각 단계(스테이지 실행 시간 제외)의 마지막 시도에서 정보를 표시하지만 재생 중 노드 그래프는 각 시도에 대한 정보를 표시합니다.
@@ -312,10 +312,10 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + **헤드** 및 **작업자**를 확인합니다.
-    + **매개 변수**: Bash 사용량에 따라 매개 변수를 설정합니다.
+   + **헤드** 및 **작업자**를 확인합니다.
+   + **매개 변수**: Bash 사용량에 따라 매개 변수를 설정합니다.
 
-    ![로그 업로드 또는 핫픽스 업그레이드](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![로그 업로드 또는 핫픽스 업그레이드](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>알려진 문제

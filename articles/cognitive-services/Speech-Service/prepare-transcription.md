@@ -1,7 +1,7 @@
 ---
-title: Speech Service 학습을 위한 전사 지침
+title: 음성 서비스 모델을 학습 하는 것에 대 한 기록 지침
 titleSuffix: Azure Cognitive Services
-description: Speech Service에 대한 음향 및 언어 모델과 음성 글꼴을 사용자 지정하기 위해 텍스트를 준비하는 방법을 알아봅니다.
+description: 어쿠스틱 및 언어 모델 및 음성 음성 서비스에 대 한 사용자 지정 하는 텍스트를 준비 하는 방법에 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897217"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Speech Service 사용을 위한 전사 지침
 
 **Speech to Text** 또는 **Text to Speech**를 사용자 지정하려면 음성과 함께 텍스트를 제공해야 합니다. 텍스트의 각 줄은 단일 발화에 해당합니다. 텍스트는 음성과 최대한 가깝게 일치해야 합니다. 텍스트를 ‘대본’이라고 하며 대본을 특정 형식으로 만들어야 합니다.
 
-Speech Service는 입력을 정규화하여 텍스트를 일관되게 유지합니다. 
+음성 서비스 텍스트를 일관 되 게 유지에 대 한 입력을 정규화 합니다.
 
 이 문서에서는 두 가지 유형의 정규화를 모두 설명합니다. 지침은 언어에 따라 약간 달라집니다.
 
@@ -39,7 +39,7 @@ Speech Service는 입력을 정규화하여 텍스트를 일관되게 유지합�
 
 ### <a name="text-normalization-rules-for-english"></a>영어에 대한 텍스트 정규화 규칙
 
-Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
+Speech Services 다음 정규화 규칙을 수행합니다.
 
 * 모든 텍스트에 소문자 사용
 * 단어 내부 아포스트로피를 제외한 모든 문장 부호 제거
@@ -64,7 +64,7 @@ Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
 * 비표준 숫자 문자열(예: 일부 날짜 또는 회계 양식)은 단어로 작성해야 합니다.
 * 영문자가 아닌 문자 또는 혼합 영숫자 문자가 포함된 단어는 발음되는 대로 전사해야 합니다.
 * 단어로 발음되는 약어는 그대로 둡니다(예: "레이더", "레이저", "RAM" 또는 "NATO").
-* 개별 글자로 발음되는 약어는 공백으로 분리된 글자로 작성합니다(예: "IBM", "CPU", "FBI", "TBD" 또는 "NaN"). 
+* 개별 글자로 발음되는 약어는 공백으로 분리된 글자로 작성합니다(예: "IBM", "CPU", "FBI", "TBD" 또는 "NaN").
 
 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
@@ -83,7 +83,7 @@ Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
 
 ## <a name="chinese-zh-cn"></a>중국어(zh-cn)
 
-Custom Speech Service에 업로드된 텍스트 데이터는 바이트 순서 표식이 있는 UTF-8 인코딩을 사용해야 합니다. 파일에는 줄당 하나의 발언이 기록되어야 합니다.
+사용자 지정 음성 서비스에 업로드 되는 텍스트 데이터는 utf-8 바이트 순서 표식을 사용 하 여 인코딩을 사용 해야 합니다. 파일에는 줄당 하나의 발언이 기록되어야 합니다.
 
 반자 문장 부호 문자를 사용하지 않아야 합니다. 이러한 문자는 워드 프로세싱 프로그램에서 데이터를 준비하거나 웹 페이지에서 데이터를 수집할 때 실수로 포함될 수 있습니다. 적절한 전자 대체 문자로 바꿉니다. 예: 
 
@@ -94,7 +94,7 @@ Custom Speech Service에 업로드된 텍스트 데이터는 바이트 순서 �
 
 ### <a name="text-normalization-rules-for-chinese"></a>중국어에 대한 텍스트 정규화 규칙
 
-Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
+Speech Services 다음 정규화 규칙을 수행합니다.
 
 * 모든 문장 부호 제거
 * 숫자를 음성 형식으로 확장
@@ -134,7 +134,7 @@ Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
 
 ### <a name="text-normalization-rules-for-german"></a>독일어에 대한 텍스트 정규화 규칙
 
-Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
+Speech Services 다음 정규화 규칙을 수행합니다.
 
 * 모든 텍스트에 소문자 사용
 * 다양한 유형의 따옴표 포함하여 모든 문장 부호 제거("테스트", '테스트', "테스트„ 및 «테스트»는 허용됨)
@@ -162,13 +162,13 @@ Speech Service에서 수행하는 정규화 규칙은 다음과 같습니다.
 
 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
-| 원래 텍스트 | 사용자 정규화 후 | 시스템 정규화 후
+| 원래 텍스트 | 사용자 정규화 후 | 시스템 정규화 후 |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech Service 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [Speech Services 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)

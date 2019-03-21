@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a1f1270f5c77332cbcc8c7761203f0194be62a94
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881097"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314877"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
@@ -71,7 +71,7 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 ## <a name="add-metadata"></a>메타데이터 추가
 
 
-메타데이터 아이콘을 선택하여 메타데이터 쌍을 추가합니다.
+메타 데이터 아이콘을 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 쌍을 하나의 키 한 개와 값으로 구성 됩니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

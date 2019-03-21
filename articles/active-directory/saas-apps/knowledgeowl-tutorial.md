@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>자습서: Azure Active Directory와 KnowledgeOwl 통합
 
@@ -110,6 +110,7 @@ KnowledgeOwl에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![KnowledgeOwl 도메인 및 URL Single Sign-On 정보](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ KnowledgeOwl에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     |||
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ KnowledgeOwl에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![KnowledgeOwl 도메인 및 URL Single Sign-On 정보](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ KnowledgeOwl에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 1. **설정**을 클릭한 다음, **보안**을 선택합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure1.png)
+     ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure1.png)
 
 1. **SAML SSO 통합**으로 스크롤하여 다음 단계를 수행합니다.
     
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure2.png)
+     ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. **SAML SSO 사용**을 선택합니다.
+     a. **SAML SSO 사용**을 선택합니다.
 
-    b. **SP 엔터티 ID** 값을 복사하고 Azure Portal의 **KnowledgeOwl 도메인 및 URL** 섹션에 있는 **식별자(엔터티 ID)** 에 붙여넣습니다.
+     b. **SP 엔터티 ID** 값을 복사하고 Azure Portal의 **KnowledgeOwl 도메인 및 URL** 섹션에 있는 **식별자(엔터티 ID)** 에 붙여넣습니다.
 
-    다. **SP 엔터티 URL** 값을 복사하고 Azure Portal의 **KnowledgeOwl 도메인 및 URL** 섹션에 있는 **로그인 URL 및 회신 URL** 텍스트 상자에 붙여넣습니다.
+     다. **SP 엔터티 URL** 값을 복사하고 Azure Portal의 **KnowledgeOwl 도메인 및 URL** 섹션에 있는 **로그인 URL 및 회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+     d. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
+     e. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    f. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+     f. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    g. **IdP 인증서 업로드**를 클릭하여 Azure Portal에서 다운로드한 인증서 양식을 업로드합니다.
+     g. **IdP 인증서 업로드**를 클릭하여 Azure Portal에서 다운로드한 인증서 양식을 업로드합니다.
 
-    h. **맵 SAML 특성**을 클릭하여 특성을 매핑하고 다음 단계를 수행합니다.
+     h. **맵 SAML 특성**을 클릭하여 특성을 매핑하고 다음 단계를 수행합니다.
     
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure3.png)
+     ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure3.png)
 
     * **SSO ID** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`를 입력합니다.
     * **사용자 이름/이메일** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
@@ -215,9 +218,9 @@ KnowledgeOwl에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     * **성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
     * 페이지 맨 아래에 있는 **저장**
 
-    i. 페이지 맨 아래에서 **저장**을 클릭합니다.
+      i. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure4.png)
+      ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

@@ -1,7 +1,7 @@
 ---
 title: Custom Speech Service에서 Speech Service로 마이그레이션
 titlesuffix: Azure Cognitive Services
-description: Custom Speech Service는 이제 Speech Service의 일부입니다. Speech Service로 전환하여 최신 기능 및 기능 업데이트의 이점을 활용합니다.
+description: Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용 하도록 음성 서비스를 전환 합니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833540"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Custom Speech Service에서 Speech Service로 마이그레이션
 
 이 문서를 사용하여 Custom Speech Service에서 Speech Service로 마이그레이션합니다.
 
-Custom Speech Service는 이제 Speech Service의 일부입니다. Speech Service로 전환하여 최신 기능 및 기능 업데이트의 이점을 활용합니다.
+Custom Speech Service는 이제 Speech Service의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용 하도록 음성 서비스를 전환 합니다.
 
 ## <a name="migration-for-new-customers"></a>신규 고객에 대한 마이그레이션
 
@@ -39,16 +39,16 @@ Custom Speech Service는 이제 Speech Service의 일부입니다. Speech Servic
 
 3. 올바른 API를 사용하기 위해 빠른 시작 가이드 및 SDK 샘플을 따릅니다. 또한 REST API를 사용하는 경우 올바른 엔드포인트 및 리소스 키를 사용해야 합니다.
 
-4. Speech Service 및 API를 사용하도록 클라이언트 애플리케이션을 업데이트합니다.
+4. 음성 서비스 및 Api를 사용 하 여 클라이언트 응용 프로그램을 업데이트 합니다.
 
 ## <a name="migration-for-existing-customers"></a>기존 고객에 대한 마이그레이션
 
-Speech Service 포털에서 기존 리소스 키를 Speech Service로 마이그레이션합니다. 다음 단계를 사용하세요.
+Speech Services 포털에서 음성 서비스에 기존 리소스 키를 마이그레이션하십시오. 다음 단계를 사용하세요.
 
 > [!NOTE]
 > 리소스 키는 동일한 지역 내에서만 마이그레이션할 수 있습니다.
 
-1. [cris.ai](http://www.cris.ai) 포털에 로그인하고 오른쪽 위 메뉴에서 구독을 선택합니다.
+1. [cris.ai](https://www.cris.ai) 포털에 로그인하고 오른쪽 위 메뉴에서 구독을 선택합니다.
 
 2. **선택한 구독 마이그레이션**을 선택합니다.
 
@@ -56,10 +56,10 @@ Speech Service 포털에서 기존 리소스 키를 Speech Service로 마이그�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech Service 체험해 보기](get-started.md)
+* [음성 서비스를 무료로 사용해](get-started.md)합니다.
 * [음성을 텍스트로 변환](./speech-to-text.md) 개념에 대해 알아보기
 
 ## <a name="see-also"></a>참고 항목
 
 * [Speech Service란](overview.md)
-* [Speech Service 및 SDK 설명서](speech-sdk.md#get-the-sdk)
+* [음성 서비스 및 Speech SDK 설명서](speech-sdk.md#get-the-sdk)

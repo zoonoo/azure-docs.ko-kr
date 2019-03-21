@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881132"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -35,7 +35,7 @@ Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 
 
 - 데이터를 Blob Storage로 내보내고, CSV로 내보낸 후 Excel에서 그래프를 생성합니다.
 - 데이터를 Event Hubs로 내보내고 다른 Azure 서비스의 데이터와 상관 관계를 설정합니다.
-- 데이터를 Log Analytics로 내보내고, 고유한 Log Analytics 작업 공간에서 데이터를 봅니다.
+- Azure Monitor 로그 데이터를 내보내고 Log Analytics 작업 영역에서 데이터 보기
 
 다음 다이어그램에서는 데이터에 대한 일반적인 CDN 핵심 분석 뷰를 보여 줍니다.
 
@@ -45,11 +45,13 @@ Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 
 
 진단 로그에 대한 자세한 내용은 [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)를 참조하세요.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Azure Portal에서 로깅을 사용하도록 설정
 
 CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계를 따르세요.
 
-[Azure Portal](http://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
 
 1. Azure Portal에서 **CDN 프로필**로 이동합니다.
 
@@ -85,15 +87,15 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 
 5. 진단 로그 설정 만들기를 완료한 후 **저장**을 선택합니다.
 
-### <a name="logging-with-log-analytics"></a>Log Analytics로 로깅
+### <a name="logging-with-azure-monitor"></a>Azure Monitor를 사용 하 여 로깅
 
-Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
+로그를 저장할 Azure Monitor를 사용 하려면 다음이 단계를 수행 합니다.
 
 1. **진단 로그** 페이지에서 **Log Analytics에 보내기**를 선택합니다. 
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. **구성**을 선택하여 Log Analytics 로깅을 구성합니다. 
+2. 선택 **구성** Azure Monitor 로깅을 구성할 수 있습니다. 
 
    **Log Analytics 작업 영역** 페이지가 나타납니다.
 
@@ -133,7 +135,7 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Log Analytics 작업 영역에서 데이터를 기록할 준비가 되었습니다. 해당 데이터를 사용하려면 이 문서의 후반부에서 다루고 있는 [Log Analytics 솔루션](#consuming-diagnostics-logs-from-a-log-analytics-workspace)을 사용해야 합니다.
+    Log Analytics 작업 영역에서 데이터를 기록할 준비가 되었습니다. 해당 데이터를 사용 하기 위해 사용 해야 합니다는 [Azure Monitor 로그 솔루션](#consuming-diagnostics-logs-from-a-log-analytics-workspace),이 문서의 후반부에서 다루고 있습니다.
 
 로그 데이터 지연에 대한 자세한 내용은 [로그 데이터 지연](#log-data-delays)을 참조하세요.
 
@@ -168,7 +170,7 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 이 섹션에서는 CDN 핵심 분석의 스키마를 설명하고, Azure Storage 계정 내에서 이러한 분석을 구성하는 방법을 설명하며, 로그를 CSV 파일로 다운로드하기 위한 샘플 코드를 제공합니다.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기 사용
-Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 스토리지 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage 탐색기가 권장됩니다. 도구를 다운로드하려면 [Azure Storage 탐색기](http://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
+Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 스토리지 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage 탐색기가 권장됩니다. 도구를 다운로드하려면 [Azure Storage 탐색기](https://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
 
 1.  **Microsoft Azure Storage 탐색기**를 엽니다.
 2.  저장소 계정을 찾습니다.
@@ -204,16 +206,16 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 
 도구를 사용하는 방법은 다음과 같습니다.
 
-1.  GitHub 링크를 방문합니다. [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  GitHub 링크를 방문 합니다. [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  코드를 다운로드합니다.
 3.  지침에 따라 컴파일 및 구성합니다.
 4.  도구를 실행합니다.
 5.  결과 CSV 파일은 분석 데이터를 간단한 평면 계층으로 표시합니다.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 진단 로그 사용
-Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 Azure 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
+Azure Monitor는 Azure 서비스 모니터링 하는 클라우드 및 온-프레미스 해당 가용성 및 성능을 유지 하는 환경입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. 
 
-Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure Log Analytics 작업 영역에 대한 [로깅을 사용하도록 설정](#enable-logging-with-azure-storage)해야 합니다.
+Azure Monitor를 사용 하려면 [로깅을](#enable-logging-with-azure-storage) 이 문서의 앞부분에 설명 되어 있는 Azure Log Analytics 작업 영역으로 합니다.
 
 ### <a name="using-the-log-analytics-workspace"></a>Log Analytics 작업 영역 사용
 
@@ -225,11 +227,11 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure Log Ana
 
 관리 솔루션을 사용하여 다양한 방법으로 데이터를 표시할 수 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions)에서 관리 솔루션을 다운로드할 수 있습니다.
 
-각 솔루션의 맨 아래에서 **지금 신청** 링크를 선택하여 Azure Marketplace에서 관리 솔루션을 설치할 수 있습니다.
+선택 하 여 Azure marketplace에서 모니터링 솔루션을 설치할 수는 **지금** 각 솔루션의 맨 아래에 링크 합니다.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Log Analytics CDN 관리 솔루션 추가
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>솔루션을 모니터링 하 여 Azure Monitor CDN 추가
 
-Log Analytics 관리 솔루션을 추가하려면 아래 단계를 따르세요.
+솔루션을 모니터링 하는 Azure Monitor를 추가 하려면 다음이 단계를 수행 합니다.
 
 1.   Azure 구독을 사용하여 Azure Portal에 로그인한 후 대시보드로 이동합니다.
     ![Azure 대시보드](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -334,22 +336,22 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 | RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
 | RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
 | RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
-| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아니요  |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | 예 | 예 | 아니요 |
-| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | 예 | 예 | 아니요 |
-| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | 예 | 예 | 아니요 |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | 예 | 아니요  |
+| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아닙니다.  |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | 예 | 예 | 아닙니다. |
+| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | 예 | 예 | 아닙니다. |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | 예 | 예 | 아닙니다. |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.  |
 | EgressTotal | 아웃바운드 데이터 전송(GB) | 예 |예 |예 |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아니요  |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | 예 | 예 | 아니요 |
-| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
-| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | 예 | 아니요 |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아닙니다.  |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아닙니다.  |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아닙니다.  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아닙니다. |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아닙니다.  |
+| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아닙니다. |
+| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아닙니다. |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | 예 | 예 | 아닙니다. |
+| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | 예 | 예 | 아닙니다. |
+| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다. |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 
@@ -443,7 +445,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 * [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN 보조 포털을 통한 핵심 분석](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

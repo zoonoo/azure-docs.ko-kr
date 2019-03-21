@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864947"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530742"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -150,7 +150,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
 여기서 대부분의 범위(높이)가 사용되지만, 창의 맨 위 또는 맨 아래에 신호의 최대치가 도달하지 않습니다. 또한 녹음에서 아무 말도 하지 않은 부분이 얇은 가로 선에 비슷해지므로 소음이 낮은 층이라는 것을 알 수 있습니다. 이 녹음은 허용되는 동적 범위 및 신호 대 잡은 비율을 갖습니다.
 
-사용하는 마이크에 따라 고품질 오디오 인터페이스 또는 USB 포트를 통해 컴퓨터에 직접 녹음합니다. 아날로그 방식의 경우, 오디오 체인을 마이크, 프리앰프, 오디오 인터페이스, 컴퓨터 순서로 간단히 유지합니다. [Avid Pro Tools](http://www.avid.com/en/pro-tools) 및 [Adobe Audition](https://www.adobe.com/products/audition.html)에 대한 라이선스는 모두 월 단위의 합리적인 비용으로 취득할 수 있습니다. 예산이 충분치 않은 경우 무료 [Audacity](https://www.audacityteam.org/)를 사용해보세요.
+사용하는 마이크에 따라 고품질 오디오 인터페이스 또는 USB 포트를 통해 컴퓨터에 직접 녹음합니다. 아날로그 방식의 경우, 오디오 체인을 마이크, 프리앰프, 오디오 인터페이스, 컴퓨터 순서로 간단히 유지합니다. [Avid Pro Tools](https://www.avid.com/en/pro-tools) 및 [Adobe Audition](https://www.adobe.com/products/audition.html)에 대한 라이선스는 모두 월 단위의 합리적인 비용으로 취득할 수 있습니다. 예산이 충분치 않은 경우 무료 [Audacity](https://www.audacityteam.org/)를 사용해보세요.
 
 44.1kHz 16비트 모노포닉(CD 품질) 이상으로 녹음합니다. 장비에서 지원하는 경우 현재의 최첨단 기술은 48kHz 24비트입니다. 오디오는 Custom Voice 포털에 제출하기 전에 16kHz 16비트로 다운샘플링합니다. 그러나 편집이 필요한 경우에는 비용을 들여 고품질의 원래 녹음을 유지해야 합니다.
 
@@ -204,7 +204,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
 사용자 지정 음성 포털에서는 제공된 각 발언을 자체 파일에 저장하도록 요구합니다. 스튜디오에서 제공하는 각 오디오 파일에는 여러 개의 발화가 포함되어 있습니다. 따라서 기본적인 제작 후 작업을 통해 녹음을 분할하고 제출용으로 준비해야 합니다. 녹음 엔지니어는 각 발화가 시작되는 위치를 나타내기 위해 파일에 마커를 배치할 수 있습니다(또는 별도의 큐 시트 제공).
 
-메모를 사용하여 원하는 정확한 테이크를 찾은 다음, [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) 또는 무료 [Audacity](https://www.audacityteam.org/)와 같은 소리 편집 유틸리티를 사용하여 각 발화를 새 파일에 복사합니다.
+메모를 사용하여 원하는 정확한 테이크를 찾은 다음, [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) 또는 무료 [Audacity](https://www.audacityteam.org/)와 같은 소리 편집 유틸리티를 사용하여 각 발화를 새 파일에 복사합니다.
 
 첫 번째 클립을 제외하고 각 클립의 시작과 끝에 약 0.2초 정도의 묵음만 남겨 둡니다. 해당 파일은 5초 동안 말 없는 상태로 시작해야 합니다. 오디오 편집기를 사용하여 파일의 묵음 부분을 "0으로 설정(zero out)"하지 마세요. "룸 톤"을 포함하면 사용자 지정 음성 알고리즘에 따라 남아 있는 모든 배경 소음이 보정되는 데 도움이 됩니다.
 

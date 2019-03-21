@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8881a0c5e809dc75d1b9f4b6f6bd3af7142333cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884633"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876802"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Computer Vision을 사용하여 스마트하게 자른 썸네일 생성
 
 썸네일은 이미지의 크기가 축소된 표현입니다. 썸네일은 더 경제적이고 레이아웃에 친숙한 방식으로 이미지 및 기타 데이터를 나타내는 데 사용됩니다. Computer Vision API는 이미지 크기 조정과 함께 스마트 자르기를 사용하여 지정된 이미지에 대한 직관적인 썸네일을 만듭니다.
 
 Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니다.
+
 1. 이미지에서 방해되는 요소를 제거하고 주 개체가 표시되는 _관심 영역_&mdash;이미지 영역을 식별합니다.
 1. 식별된 _관심 영역_에 따라 이미지를 자릅니다.
 1. 대상 썸네일 크기에 맞게 가로 세로 비율을 변경합니다.

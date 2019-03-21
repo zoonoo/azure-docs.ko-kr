@@ -7,15 +7,15 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876065"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124017"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -42,7 +42,8 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
-레거시 Microsoft Translator Hub를 사용하여 통계 기계 번역을 번역할 수 있습니다. [자세히 알아보기](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> 레거시 Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
 
@@ -50,17 +51,17 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2만   | V3만 |
-| SMT 사용자 지정 | 예   | 아니요 |
-| NMT 사용자 지정 | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
+| SMT 사용자 지정 | 예   | 아닙니다. |
+| NMT 사용자 지정 | 아닙니다.    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | 예 |
 | [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 
 > [!NOTE]
 > 2018년, 2월 1일부터 AddTranslation() 및 AddTranslationArray()를 더 이상 Translator Text API V2.0에서 사용할 수 없습니다. 이러한 메서드는 실패하며 아무 결과도 기록되지 않습니다. Translator Text API v3.0은 이러한 메서드를 지원하지 않습니다.
-
->유사한 기능을 Translator Hub API에서 사용할 수 있습니다. [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger)를 참조하세요.
+> 
+> 유사한 기능을 Translator Hub API에서 사용할 수 있습니다. [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

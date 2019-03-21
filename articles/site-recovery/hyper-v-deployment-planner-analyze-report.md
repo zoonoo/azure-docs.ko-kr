@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732656"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286502"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 Excel 보고서에 포함된 시트에 대해 설명합니다.
@@ -275,7 +275,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 ---|---|---|---
 Standard Storage | 8KB | VM당 2MB/s | VM당 168GB
 Premium Storage | 8KB  | VM당 5MB/s | VM당 421GB
-Premium Storage | 16KB 이상| VM당 10MB/s | VM당 842GB
+Premium Storage | 16KB 이상| VM 당 20 MB/s | VM 당 1684 GB
 
 이러한 한도는 I/O가 30% 겹친다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며, 5분 내에 복구 지점이 만들어집니다.
 

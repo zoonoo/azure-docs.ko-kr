@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9a668a71b0fb7b2bb57f759cc54a8d1930a0f03
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905123"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Virtual Machines의 SQL Server에서 Azure Premium Storage 사용
 
@@ -140,17 +140,17 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Diskname과 LUN을 확인합니다.
+1. DiskName과 LUN을 note 합니다.
 
     ![DisknameAndLUN][2]
-3. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **장치 관리자** | **디스크 드라이브**로 이동합니다. 각 ‘Microsoft 가상 디스크'의 속성을 확인합니다.
+1. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **장치 관리자** | **디스크 드라이브**로 이동합니다. 각 ‘Microsoft 가상 디스크'의 속성을 확인합니다.
 
     ![VirtualDiskProperties][3]
-4. 여기서 LUN 번호는 VHD를 VM에 연결할 때 지정하는 LUN 번호에 대한 참조입니다.
-5. 'Microsoft 가상 디스크'의 경우 **세부 정보** 탭으로 이동한 다음 **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 저장소 풀이 참조하는 PhysicalDisk2를 나타냅니다.
+1. 여기서 LUN 번호는 VHD를 VM에 연결할 때 지정하는 LUN 번호에 대한 참조입니다.
+1. 'Microsoft 가상 디스크'의 경우 **세부 정보** 탭으로 이동한 다음 **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 저장소 풀이 참조하는 PhysicalDisk2를 나타냅니다.
 
     ![VirtualDiskPropertyDetails][4]
-6. 각 저장소 풀에 대해 연결된 디스크를 덤프합니다.
+1. 각 저장소 풀에 대해 연결된 디스크를 덤프합니다.
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -261,7 +261,7 @@ $ipaddr = "192.168.0.8"
 #Remember to change to DS series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #Machine User Credentials
@@ -380,7 +380,7 @@ $destcloudsvc = "danregsvcamsxio2"
 #Use to DS Series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>클라이언트 애플리케이션 설정
 
-SQL 클라이언트 애플리케이션에서 .Net 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
+SQL 클라이언트 응용 프로그램에.NET 4.5 SQLClient를 지 원하는 경우 사용할 수 ' MULTISUBNETFAILOVER = TRUE' 키워드입니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
 
 이전 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)도 참조하세요.
 
@@ -926,7 +926,7 @@ $ipaddr = "192.168.0.5"
 $newInstanceSize = "Standard_DS13"
 $subnet = "SQL"
 
-#Create new Avaiability Set
+#Create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #build machine config into object
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1125,7 +1125,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1152,7 +1152,7 @@ ForEach ($disk in $diskobjects)
 개별 Blob에 대한 정보를 확인하려면 다음을 실행합니다.
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1176,7 +1176,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 $ipaddr = "192.168.0.4"
 $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+#Join to existing Availability Set
 
 #Build machine config into object
 $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1218,12 +1218,12 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>23단계: 테스트 장애 조치
 
-마이그레이션된 노드가 온-프레미스 Always On 노드와 동기화될 때까지 기다립니다. 동기 복제 모드로 설정하고 동기화될 때까지 기다립니다. 그런 다음 온-프레미스에서 마이그레이션된 첫 번째 노드(AFP)로 장애 조치(failover)합니다. 장애 조치(failover)가 정상적으로 수행되면 마지막으로 마이그레이션한 노드를 AFP로 변경합니다.
+마이그레이션된 노드가 온-프레미스 Always On 노드와 동기화될 때까지 기다립니다. 동기 복제 모드로 설정하고 동기화될 때까지 기다립니다. 그런 다음 장애 조치에서 온-프레미스에서 첫 번째 노드 마이그레이션, afp. 장애 조치(failover)가 정상적으로 수행되면 마지막으로 마이그레이션한 노드를 AFP로 변경합니다.
 
 모든 노드 간에 장애 조치(failover)를 테스트하고 비정상 상황 테스트를 실행하여 장애 조치(failover)가 제때 정상적으로 작동하는지 확인해야 합니다.
 

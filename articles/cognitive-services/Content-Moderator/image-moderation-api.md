@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873515"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079722"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
@@ -35,12 +35,11 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified`는 잠재적으로 특정 상황에서 성적으로 노골적이거나 성인용으로 간주될 수 있는 이미지가 있음을 나타냅니다.
 > - `isImageRacyClassified`는 잠재적으로 특정 상황에서 성적으로 외설적이거나 도발적인 것으로 간주될 수 있는 이미지가 있음을 나타냅니다.
 > - 점수는 0과 1 사이입니다. 점수가 높을수록 모델이 예측하는 범주에 해당할 가능성이 높아집니다. 이 미리 보기는 수동으로 코딩된 결과가 아닌 통계 모델을 사용합니다. 고유한 콘텐츠로 테스트하여 각 범주가 요구 사항과 얼마나 일치하는지 확인하는 것이 좋습니다.
 > - 부울 값은 내부 점수 임계값에 따라 true 또는 false입니다. 고객은 이 값을 사용할지 또는 콘텐츠 정책에 따라 사용자 지정 임계값을 결정할지를 평가해야 합니다.
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>OCR(광학 문자 인식)을 사용하여 텍스트 감지
 

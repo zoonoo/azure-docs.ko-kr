@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087451"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
 Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 기능을 위해 이 도구를 사용할 수 있습니다.  
@@ -45,36 +45,36 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
   
 부분적으로 실패한 가져오기를 복구하려는 경우 다음이 필요합니다.  
   
--   복사 로그 파일  
+- 복사 로그 파일  
   
--   저장소 계정 키입니다.  
+- 저장소 계정 키입니다.  
   
   부분적으로 실패한 내보내기를 복구하려는 경우 다음이 필요합니다.  
   
--   복사 로그 파일  
+- 복사 로그 파일  
   
--   매니페스트 파일(선택 사항)  
+- 매니페스트 파일(선택 사항)  
   
--   저장소 계정 키입니다.  
+- 저장소 계정 키입니다.  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치  
  Azure Import/Export 도구는 다음 파일로 구성됩니다.  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- 이 파일을 작업 디렉터리(예: `c:\WAImportExport`)에 복사합니다. 그런 다음 관리자 모드에서 명령줄 창을 열고 위의 디렉터리를 현재 디렉터리로 설정합니다.  
+  이 파일을 작업 디렉터리(예: `c:\WAImportExport`)에 복사합니다. 그런 다음 관리자 모드에서 명령줄 창을 열고 위의 디렉터리를 현재 디렉터리로 설정합니다.  
   
- 명령에 대한 도움말을 출력하려면 매개 변수 없이 도구를 실행합니다.  
+  명령에 대한 도움말을 출력하려면 매개 변수 없이 도구를 실행합니다.  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

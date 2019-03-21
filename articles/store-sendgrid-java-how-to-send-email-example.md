@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421950"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442464"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법
-다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼, 애플리케이션에서 사용자에게 전자 메일 값을 묻습니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시 된 것 처럼 응용 프로그램에서 전자 메일 값에 대 한 사용자를 묻습니다.
 
 ![전자 메일 양식][emailform]
 
-이에 따라 나타나는 메일은 다음 스크린샷과 모양이 비슷합니다.
+결과 이메일은 다음 스크린샷과 유사 합니다.
 
 ![전자 메일 메시지][emailsent]
 
@@ -204,7 +204,7 @@ ms.locfileid: "52421950"
     </body>
     </html>
 
-emailform.jsp는 전자 메일을 보낼 뿐만 아니라 사용자에게 결과를 제공합니다. 예를 들어 다음 스크린샷과 같습니다.
+전자 메일을 전송 하는 것 외에도 emailform.jsp 사용자에 대 한 결과 제공 예로 다음 스크린샷과 같습니다.
 
 ![메일 보내기 결과][emailresult]
 

@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429471"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240765"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -28,6 +28,8 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 
 요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 내에 설정할 수 있도록 안내하는 [Azure에서 Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md) 가이드가 있습니다.
 
+구독 키를 가져올 수 있습니다는 [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) 계정에 작성 하거나 활성화 한 후를 [평가판](https://azure.microsoft.com/try/cognitive-services/my-apis)합니다.
+ 
 ## <a name="authentication-headers"></a>인증 헤더
 
 Azure Cognitive Services에서 사용할 수 있는 인증 헤더를 빠르게 살펴보겠습니다.

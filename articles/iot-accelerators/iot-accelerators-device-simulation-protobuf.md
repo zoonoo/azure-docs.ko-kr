@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 9657cda8b0f3a19d02ebf1907116235b88f4cb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111517"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258833"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -40,7 +40,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-quickstart-create-account.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비

@@ -2,33 +2,33 @@
 title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight
 description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
 services: hdinsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 05c6f1cbf5f7f20745fa837accdaa95e6c186b8b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.date: 03/19/2019
+ms.openlocfilehash: 0129a09383b59aa5d213ef7ff1c78f23588472a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226625"
+ms.locfileid: "58295473"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 
-HDInsight 클러스터가 느리게 실행되거나 오류 코드와 함께 실패하는 경우 여러 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절한 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)를 선택해야 합니다.
+HDInsight 클러스터가 느리게 실행되거나 오류 코드와 함께 실패하는 경우 여러 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절 한 선택 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)합니다.
 
 속도가 느리거나 오류가 발생하는 클러스터를 진단하려면 관련된 Azure Services, 클러스터 구성, 작업 실행 정보 등 환경의 모든 측면에 대한 정보를 수집합니다. 다른 클러스터에서 오류 상태를 재현해 보면 진단에 도움이 됩니다.
 
-* 1단계: 문제에 대한 데이터 수집
-* 2단계: HDInsight 클러스터 환경 유효성 검사 
-* 3단계: 클러스터 상태 확인
-* 4단계: 환경 스택 및 버전 검토
-* 5단계: 클러스터 로그 파일 검사
-* 6단계: 구성 설정 확인
-* 7단계: 다른 클러스터에서 오류 재현 
+* 1단계: 문제에 대 한 데이터를 수집 합니다.
+* 2단계: HDInsight 클러스터 환경 유효성을 검사 합니다.
+* 3단계: 클러스터의 상태를 봅니다.
+* 4단계: 환경 스택 및 버전을 검토 합니다.
+* 5단계: 클러스터 로그 파일을 검사 합니다.
+* 6단계: 구성 설정을 확인 합니다.
+* 7단계: 다른 클러스터에서 오류를 재현 합니다.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>1단계: 문제에 대한 데이터 수집
 
@@ -57,13 +57,12 @@ Azure Portal에서 이 정보를 제공할 수 있습니다.
 
 ![HDInsight Azure Portal 정보](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Azure 클래식 CLI를 사용할 수도 있습니다.
+사용할 수도 있습니다 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 또 다른 옵션은 PowerShell입니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
@@ -73,10 +72,10 @@ Azure 클래식 CLI를 사용할 수도 있습니다.
 
 ### <a name="service-details"></a>서비스 세부 정보
 
-* 오픈 소스 라이브러리 릴리스 버전 확인
-* [Azure 서비스 중단](https://azure.microsoft.com/status/) 확인 
-* Azure 서비스 사용 제한 확인 
-* Azure Virtual Network 서브넷 구성 확인 
+* 오픈 소스 라이브러리 릴리스 버전을 확인 합니다.
+* 확인할 [Azure 서비스 중단](https://azure.microsoft.com/status/)합니다.  
+* Azure 서비스 사용 제한 확인 합니다. 
+* Azure Virtual Network 서브넷 구성을 확인 합니다.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI를 사용하여 클러스터 구성 설정 보기
 
@@ -124,7 +123,7 @@ Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 
 게이트웨이 노드에서 반환하는 일반적인 메시지이며, 가장 일반적인 오류 상태 코드입니다. 이 코드가 표시되는 이유 중 하나는 활성 헤드 노드에서 WebHCat 서비스가 중지되는 것입니다. 이 가능성을 확인하려면 다음 CURL 명령을 사용합니다.
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari는 WebHCat 서비스가 중지된 호스트를 보여 주는 경고를 표시합니다. 호스트에서 서비스를 다시 시작하여 WebHCat 서비스를 다시 온라인 상태로 되돌릴 수 있습니다.
@@ -153,7 +152,7 @@ HDInsight 게이트웨이는 응답 시간이 2분을 초과하면 시간 초과
 WebHCat에 부하가 걸리고 소켓이 10개 넘게 열려 있으면 새 소켓 연결을 설정하는 데 더 긴 시간이 걸리고, 이로 인해 시간 제한이 발생할 수 있습니다. WebHCat과의 네트워크 연결을 나열하려면 현재 활성 헤드 노드에서 `netstat` 명령을 사용합니다.
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111은 WebHCat이 수신 대기하는 포트입니다. 열려 있는 소켓 수가 10개 미만이어야 합니다.
@@ -161,7 +160,7 @@ $ netstat | grep 30111
 열려 있는 소켓이 없으면 이전 명령이 결과를 생성하지 않습니다. Templeton이 작동 중이고 30111 포트에서 수신 대기 중인지 확인하려면 다음 명령을 사용합니다.
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>YARN 수준 시간 제한
@@ -190,9 +189,9 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
 이러한 문제를 진단하려면:
 
-    1. 문제를 해결할 UTC 시간 범위 결정
-    2. 적절한 `webhcat.log` 파일 선택
-    3. 해당 시간의 경고 및 오류 메시지 확인
+1. 문제를 해결할 UTC 시간 범위 결정
+2. 적절한 `webhcat.log` 파일 선택
+3. 해당 시간의 경고 및 오류 메시지 확인
 
 #### <a name="other-webhcat-failures"></a>기타 WebHCat 오류
 
@@ -215,8 +214,6 @@ Ambari UI **스택 및 버전** 페이지는 클러스터 서비스 구성 및 �
 ## <a name="step-5-examine-the-log-files"></a>5단계: 로그 파일 검사
 
 HDInsight 클러스터를 구성하는 여러 서비스 및 구성 요소에서 생성되는 여러 가지 종류의 로그가 있습니다. [WebHCat 로그 파일](#check-your-webhcat-service)은 앞에서 설명했습니다. 그 외에도 다음 섹션에 설명된 것처럼 조사하여 문제의 원인을 좁힐 수 있는 여러 가지 유용한 로그 파일이 있습니다.
-
-![HDInsight 로그 파일 예](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * HDInsight 클러스터는 여러 노드로 구성되며, 대부분의 노드는 제출된 작업을 실행하는 업무를 수행합니다. 작업은 동시에 실행되지만, 로그 파일은 결과를 선형적으로만 표시할 수 있습니다. HDInsight는 새 작업을 실행하고, 완료되지 않은 다른 작업을 먼저 종료합니다. 이 모든 동작이 `stderr` 및 `syslog` 파일에 기록됩니다.
 
@@ -259,7 +256,7 @@ HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등�
 1. 실패한 클러스터와 동일한 구성으로 새 테스트 클러스터를 만듭니다.
 2. 첫 번째 작업 단계를 테스트 클러스터에 제출합니다.
 3. 단계에서 처리가 완료되면 단계 로그 파일에서 오류를 확인합니다. 테스트 클러스터의 마스터 노드에 연결하고 거기서 로그 파일을 봅니다. 단계 로그 파일은 단계가 어느 정도 실행된 후에야 나타나고, 완료되거나 실패합니다.
-4. 첫 번째 단계가 성공하면 그 다음 단계를 실행합니다. 오류가 있으면 로그 파일의 오류를 조사합니다. 코드 오류인 경우 오류를 수정하고 단계를 다시 실행합니다. 
+4. 첫 번째 단계가 성공하면 그 다음 단계를 실행합니다. 오류가 있으면 로그 파일의 오류를 조사합니다. 코드 오류인 경우 오류를 수정하고 단계를 다시 실행합니다.
 5. 모든 단계가 오류 없이 실행될 때까지 계속 진행합니다.
 6. 테스트 클러스터 디버깅이 완료되면 테스트 클러스터를 삭제합니다.
 

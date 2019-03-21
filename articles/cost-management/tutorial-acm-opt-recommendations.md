@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000926"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -29,7 +29,7 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 > * 가상 머신의 크기가 성공적으로 조정되었는지 확인하기 위해 작업 확인
 
 ## <a name="prerequisites"></a>필수 조건
-추천은 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객을 포함하여 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
+권장 사항은 다양 한 범위 및 응용 프로그램을 포함 하 여 Azure 계정 유형, 사용 가능한 [EA (기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
 
 - 구독
 - 리소스 그룹
@@ -41,7 +41,9 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 
 ## <a name="view-cost-optimization-recommendations"></a>비용 최적화 권장 사항 보기
 
-Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다. 그런 다음, **Cost Management**의 목록에서 **Advisor 권장 사항**을 선택합니다. Advisor 비용 권장 사항이 표시됩니다.
+구독에 대 한 비용 최적화 권장 사항을 보려면 Azure portal 선택에서 원하는 범위를 엽니다 **Advisor 권장 사항**합니다.
+
+관리 그룹에 대 한 권장 사항을 보려면 Azure portal 선택에서 원하는 범위를 엽니다 **비용 분석** 메뉴에서. 사용 합니다 **범위** 필 관리 그룹 등의 다른 범위도 전환 합니다. 선택 **Advisor 권장 사항** 메뉴에서. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
 
 ![Azure Portal에 표시되는 비용 관리 Advisor 권장 사항](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871016"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649444"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 기술 자료 및 서비스에 대한 용어집
 
@@ -42,4 +42,4 @@ QnA Maker 서비스는 QnA Maker 사용을 시작하기 위한 필수 조건입�
 응답은 지정된 사용자 쿼리에 가장 잘 일치하는 항목을 기준으로 기술 자료에서 검색된 답변입니다.
 
 ## <a name="confidence-score"></a>신뢰도 점수
-응답의 신뢰도 점수는 0에서 100 사이의 숫자 값이며, 100은 사용자 쿼리와 기술 자료의 질문이 정확히 일치하는 쿼리이고, 제공된 응답이 지정된 사용자 쿼리에 대한 적절한 응답임을 나타냅니다. 답변은 일반적으로 신뢰도 점수에 의해 순위가 지정되며 신뢰도 점수가 더 높은 답변이 기본 응답으로 제공됩니다.
+응답의 신뢰도 점수는 0에서 100 사이의 숫자 값이며, 100은 사용자 쿼리와 기술 자료의 질문이 정확히 일치하는 쿼리이고, 제공된 응답이 지정된 사용자 쿼리에 대한 적절한 응답임을 나타냅니다. 답변은 일반적으로 순으로 순위가 지정 신뢰성 점수 및 더 높은 신뢰성 점수를 사용 하 여 것으로 제공 되는 [기본 응답](concepts/confidence-score.md#change-default-answer)합니다.

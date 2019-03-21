@@ -1,7 +1,7 @@
 ---
 title: v1에서 v2 API 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 버전 1 엔드포인트 및 작성 API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
+description: 버전 1 끝점 및 언어 이해 Api 제작 사용 되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087927"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
 
 ## <a name="new-azure-regions"></a>새 Azure 지역
-LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS는 지역 그룹에 다른 웹 사이트를 제공합니다. 애플리케이션은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 애플리케이션은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
+LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS 영역 그룹에 대 한 다른 포털을 제공합니다. 애플리케이션은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 애플리케이션은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
 
 ## <a name="authoring-route-changes"></a>작성 경로 변경 내용
 작성 API 경로가 **prog** 경로 사용에서 **api** 경로 사용으로 변경되었습니다.
@@ -35,7 +35,7 @@ LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)
 
 
 ## <a name="endpoint-route-changes"></a>엔드포인트 경로 변경 내용
-엔드포인트 API에는 다른 응답과 함께 새 쿼리 문자열 매개 변수가 포함됩니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
+API 끝점에는 새 쿼리 문자열 매개 변수 뿐만 아니라 다른 응답에 있습니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
 
 | 버전 | GET 경로 |
 |--|--|

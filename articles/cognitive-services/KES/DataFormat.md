@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854798"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532170"
 ---
 # <a name="data-format"></a>데이터 형식
 
 데이터 파일은 인덱싱할 개체 목록을 설명합니다.
-파일의 각 줄은 UTF-8 인코딩을 사용하여 개체의 특성 값을 [JSON 형식](http://json.org/)으로 지정합니다.
+파일의 각 줄은 UTF-8 인코딩을 사용하여 개체의 특성 값을 [JSON 형식](https://json.org/)으로 지정합니다.
 [스키마](SchemaFormat.md)에 정의된 특성 외에도, 각 개체에는 개체 간의 상대 로그 확률을 지정하는 선택적 "logprob" 특성이 있습니다.
 서비스에서 개체를 높은 확률에서 낮은 확률 순서로 반환할 때 "logprob"를 사용하여 일치하는 개체의 반환 순서를 나타낼 수 있습니다.
 0~1 사이의 확률 *p*가 있을 때 이에 해당하는 로그 확률을 log(*p*)로 계산할 수 있으며, 여기서 log()는 자연 로그 함수입니다.

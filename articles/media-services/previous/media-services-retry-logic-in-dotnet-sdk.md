@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 909a68ff0fd78fbdd4870506d1ad579392036dbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999201"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294487"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리  
 
@@ -40,14 +40,14 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | 예외 | 웹 요청 | Storage | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>자세한 내용은 [WebException 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) 섹션을 참조하세요. |예 |예 |예 |예 |
-| DataServiceClientException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아니요 |예 |예 |예 |
-| DataServiceQueryException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아니요 |예 |예 |예 |
-| DataServiceRequestException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아니요 |예 |예 |예 |
-| DataServiceTransportException |아니요 |아니요 |예 |예 |
-| TimeoutException |예 |예 |예 |아니요 |
+| DataServiceClientException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
+| DataServiceQueryException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
+| DataServiceRequestException<br/> 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |아닙니다. |예 |예 |예 |
+| DataServiceTransportException |아닙니다. |아니요 |예 |예 |
+| TimeoutException |예 |예 |예 |아닙니다. |
 | SocketException |예 |예 |예 |예 |
-| StorageException |아니요 |예 |아니요 |아니요 |
-| IOException |아니요 |예 |아니요 |아니요 |
+| StorageException |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
+| IOException |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
 
 ### <a name="WebExceptionStatus"></a> WebException 상태 코드
 다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 열거형은 상태 코드를 정의합니다.  
@@ -58,13 +58,13 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | NameResolutionFailure |예 |예 |예 |예 |
 | ProxyNameResolutionFailure |예 |예 |예 |예 |
 | SendFailure |예 |예 |예 |예 |
-| PipelineFailure |예 |예 |예 |아니요 |
-| ConnectionClosed |예 |예 |예 |아니요 |
-| KeepAliveFailure |예 |예 |예 |아니요 |
-| UnknownError |예 |예 |예 |아니요 |
-| ReceiveFailure |예 |예 |예 |아니요 |
-| RequestCanceled |예 |예 |예 |아니요 |
-| 시간 제한 |예 |예 |예 |아니요 |
+| PipelineFailure |예 |예 |예 |아닙니다. |
+| ConnectionClosed |예 |예 |예 |아닙니다. |
+| KeepAliveFailure |예 |예 |예 |아닙니다. |
+| UnknownError |예 |예 |예 |아닙니다. |
+| ReceiveFailure |예 |예 |예 |아닙니다. |
+| RequestCanceled |예 |예 |예 |아닙니다. |
+| 시간 제한 |예 |예 |예 |아닙니다. |
 | ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |예 |예 |예 |
 
 ### <a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
@@ -72,14 +72,14 @@ Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryE
 
 | 상태 | 웹 요청 | Storage | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |아니요 |예 |아니요 |아니요 |
-| 403 |아니요 |예<br/>더 긴 대기 시간으로 재시도를 처리함. |아니요 |아니요 |
+| 401 |아닙니다. |사용자 계정 컨트롤 |아니오 |아닙니다. |
+| 403 |아닙니다. |예<br/>더 긴 대기 시간으로 재시도를 처리함. |아닙니다. |아닙니다. |
 | 408 |예 |예 |예 |예 |
 | 429 |예 |예 |예 |예 |
-| 500 |예 |예 |예 |아니요 |
-| 502 |예 |예 |예 |아니요 |
+| 500 |예 |예 |예 |아닙니다. |
+| 502 |예 |예 |예 |아닙니다. |
 | 503 |예 |예 |예 |예 |
-| 504 |예 |예 |예 |아니요 |
+| 504 |예 |예 |예 |아닙니다. |
 
 .NET용 Media Services SDK 재처리 논리의 실제 구현을 보려면 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)를 참조하세요.
 

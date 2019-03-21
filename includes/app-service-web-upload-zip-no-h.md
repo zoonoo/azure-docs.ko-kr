@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 10/24/2018
+ms.author: cephalin
+ms.openlocfilehash: e4bc749047bbf0d55fc60a699ac956421775d5b0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "58116140"
+---
 [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>** 을 클릭합니다.
 
 ![Cloud Shell 저장소 계정 찾기](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)

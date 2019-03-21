@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435765"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: Languages
 
@@ -27,7 +28,7 @@ Translator Speech는 서비스에서 지원되는 언어 목록을 지속적으�
 
 ## <a name="implementation-notes"></a>구현 참고 사항
 
-### <a name="get-languages"></a>GET /languages 
+### <a name="get-languages"></a>GET /languages
 
 음성을 기록하고, 기록한 텍스트를 번역하고, 번역의 합성 음성을 생성하는 데 다양한 언어를 사용할 수 있습니다.
 
@@ -64,7 +65,7 @@ Translator Speech는 서비스에서 지원되는 언어 목록을 지속적으�
 음성-텍스트 속성 `speech`와 연결된 값은 (키, 값) 쌍의 사전입니다. 각 키는 음성-텍스트 변환이 지원되는 언어를 식별합니다. 키는 클라이언트가 API에 전달하는 식별자입니다. 키와 연결된 값은 다음과 같은 속성을 갖는 개체입니다.
 
 * `name`: 언어의 표시 이름입니다.
-* `language`: 연결된 문자 언어의 언어 태그입니다. 아래의 "텍스트 트랜잭션"을 참조하세요.
+* `language`: 연결된 문자 언어의 언어 태그입니다. 아래의 "텍스트 transaction을"을 참조 하십시오.
 예제는 다음과 같습니다.
 
 ```
@@ -125,7 +126,7 @@ TTS(텍스트 음성 변환) 속성과 연결된 값은 각 키가 지원되는 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 지원되는 언어의 집합을 설명하는 개체입니다.
 
-ModelExample 값: 
+ModelExample 값:
 
 Langagues { speech (object, optional), text (object, optional), tts (object, optional) }
 
@@ -133,17 +134,17 @@ Langagues { speech (object, optional), text (object, optional), tts (object, opt
 
 |헤더|설명|Type|
 :--|:--|:--|
-X-RequestId|서버가 요청을 식별하기 위해 생성하며, 문제 해결에 사용되는 값입니다.|string|
+X-RequestId|서버가 요청을 식별하기 위해 생성하며, 문제 해결에 사용되는 값입니다.|문자열|
 
 ### <a name="parameters"></a>매개 변수
 
 |매개 변수|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|
-|api-version    |클라이언트에서 요청한 API 버전입니다. 허용되는 값은 `1.0`입니다.|쿼리|string|
-|scope  |클라이언트에 반환될 지원되는 언어 또는 음성 설정입니다. 이 매개 변수는 쉼표로 구분된 키워드 목록으로 지정됩니다. 사용할 수 있는 키워드는 다음과 같습니다.<ul><li>`speech`: 음성을 기록하도록 지원되는 언어 세트를 제공합니다.</li><li>`tts`: 텍스트를 음성으로 변환이 지원되는 음성의 세트를 제공합니다.</li><li>`text`: 텍스트를 번역하기 위해 지원되는 언어 세트를 제공합니다.</li></ul>값을 지정하지 않으면 `scope` 값의 기본값은 `text`입니다.|쿼리|string|
-|X-ClientTraceId    |요청을 추적하는 데 사용되는 클라이언트 생성 GUID입니다. 용이한 문제 해결을 위해, 클라이언트는 각 요청에 새 값을 제공하고 로깅해야 합니다.|머리글|string|
-|Accept-Language    |응답에 있는 필드 중 일부는 언어 또는 지역 이름입니다. 이 매개 변수를 사용하여 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. `text` 범위와 함께 반환된 언어 식별자 목록에서 태그를 선택합니다. 지원되지 않는 언어의 경우 이 이름은 영어로 제공됩니다.<br/>예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.|머리글|string|
-    
+|api-version    |클라이언트에서 요청한 API 버전입니다. 허용되는 값은 `1.0`입니다.|쿼리|문자열|
+|scope  |클라이언트에 반환될 지원되는 언어 또는 음성 설정입니다. 이 매개 변수는 쉼표로 구분된 키워드 목록으로 지정됩니다. 사용할 수 있는 키워드는 다음과 같습니다.<ul><li>`speech`: 음성을 기록하도록 지원되는 언어 세트를 제공합니다.</li><li>`tts`: 텍스트를 음성으로 변환이 지원되는 음성의 세트를 제공합니다.</li><li>`text`: 텍스트를 번역하기 위해 지원되는 언어 세트를 제공합니다.</li></ul>값을 지정하지 않으면 `scope` 값의 기본값은 `text`입니다.|쿼리|문자열|
+|X-ClientTraceId    |요청을 추적하는 데 사용되는 클라이언트 생성 GUID입니다. 용이한 문제 해결을 위해, 클라이언트는 각 요청에 새 값을 제공하고 로깅해야 합니다.|머리글|문자열|
+|Accept-Language    |응답에 있는 필드 중 일부는 언어 또는 지역 이름입니다. 이 매개 변수를 사용하여 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. `text` 범위와 함께 반환된 언어 식별자 목록에서 태그를 선택합니다. 지원되지 않는 언어의 경우 이 이름은 영어로 제공됩니다.<br/>예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.|머리글|문자열|
+
 ### <a name="response-messages"></a>응답 메시지
 
 |HTTP 상태 코드|이유|

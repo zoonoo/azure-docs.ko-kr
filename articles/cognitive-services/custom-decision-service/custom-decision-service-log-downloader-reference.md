@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869673"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109412"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -49,7 +49,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | *YYYY-MM-DD* 형식의 다운로드 시작 날짜(포함)입니다. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | *YYYY-MM-DD* 형식의 다운로드 종료 날짜(포함)입니다. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | 사용할 덮어쓰기 모드입니다. | |
-| | `0`: 덮어쓰지 않습니다. Blob을 현재 사용하고 있는지 여부를 사용자에게 확인합니다. | 기본값 | |
+| | `0`: 덮어쓰지 않습니다. Blob을 현재 사용하고 있는지 여부를 사용자에게 확인합니다. | 기본값 |
 | | `1`: 파일 크기가 서로 다른 경우 또는 Blob이 현재 사용 중인 경우 어떤 과정을 진행할지를 사용자에게 확인합니다. | |
 | | `2`: 항상 덮어씁니다. 현재 사용하고 있는 Blob을 다운로드합니다. | |
 | | `3`: 덮어쓰지 않으며, 크기가 크면 확인하지 않고 추가합니다. 현재 사용되는 Blob을 다운로드합니다. | |

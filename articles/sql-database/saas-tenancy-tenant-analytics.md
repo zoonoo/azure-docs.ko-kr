@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561389"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890545"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
  
@@ -93,7 +93,7 @@ ms.locfileid: "55561389"
     - 열 저장소가 있는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 Login = *developer*, Password = *P@ssword1*입니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+사용 하 여 응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터를 사용 하 여 입력 했으므로 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 연결할 **tenants1-dpt-&lt;사용자&gt;**  및 **catalog-dpt-&lt;사용자&gt;**  로그인을 사용 하 여 서버 = *개발자*, 암호 = *P\@ssword1*합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 패널에서 **데이터베이스**를 선택하고 user name = *developer*, password = *P@ssword1*을 입력합니다. **Connect**를 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

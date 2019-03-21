@@ -2,21 +2,21 @@
 title: Database Migration Service 및 PowerShell을 사용하여 SQL Server를 Azure SQL Database로 마이그레이션 | Microsoft Docs
 description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7346fc55db29e3f6e8e06938a79ae054681eba51
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174327"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL Database로 마이그레이션
 이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database로 마이그레이션할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "54303380"
 - Azure SQL Database 인스턴스. [Azure Portal에서 Azure SQL Database 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 문서의 세부 지침을 수행하여 Azure SQL Database 인스턴스를 만들 수 있습니다.
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상.
 - Azure Resource Manager 배포 모델을 사용하여 VNET을 만들었습니다. VNET은 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 Azure Database Migration Service에 온-프레미스 원본 서버에 대한 사이트 간 연결을 제공합니다.
-- [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 문서에서 설명한 대로 Data Migration Assistant를 사용하여 온-프레미스 데이터베이스 및 스키마 마이그레이션에 대한 평가를 완료했습니다.
+- 문서에 설명 된 대로 Data Migration Assistant를 사용 하 여 온-프레미스 데이터베이스 및 스키마 마이그레이션 평가 완료 하려면 [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)을 사용하여 PowerShell 갤러리에서 AzureRM.DataMigration 모듈을 다운로드 및 설치합니다. 관리자 권한으로 실행을 사용하여 PowerShell 명령창을 열어야 합니다.
 - 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)(서버 제어) 권한이 있어야 합니다.
 - 대상 Azure SQL DB 인스턴스에 연결하는 데 사용되는 자격 증명에 대상 Azure SQL Database 데이터베이스에 대한 CONTROL DATABASE(데이터베이스 제어) 권한이 있어야 합니다.

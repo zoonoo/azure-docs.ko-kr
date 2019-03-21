@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101468"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API 콘솔에서 검토 만들기
 
@@ -33,35 +33,35 @@ Review API의 [검토 작업](https://westus.dev.cognitive.microsoft.com/docs/se
 
 테스트 콘솔에 액세스하는 가장 간단한 방법은 **자격 증명** 창입니다.
 
-1.  **자격 증명** 창에서 [Review API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)를 선택합니다.
+1. **자격 증명** 창에서 [Review API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)를 선택합니다.
 
-  **검토 - 만들기** 페이지가 열립니다.
+   **검토 - 만들기** 페이지가 열립니다.
 
-2.  **개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다.
+2. **개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다.
 
-  ![검토 - 페이지 지역 선택 만들기](images/test-drive-region.png)
+   ![검토 - 페이지 지역 선택 만들기](images/test-drive-region.png)
 
-  **검토 - 만들기** API 콘솔이 열립니다.
+   **검토 - 만들기** API 콘솔이 열립니다.
   
-3.  필수 쿼리 매개 변수, 콘텐츠 형식, 구독 키의 값을 입력합니다. **요청 본문** 상자에서 콘텐츠(예: 이미지 위치), 메타데이터 및 콘텐츠와 관련된 기타 정보를 지정합니다.
+3. 필수 쿼리 매개 변수, 콘텐츠 형식, 구독 키의 값을 입력합니다. **요청 본문** 상자에서 콘텐츠(예: 이미지 위치), 메타데이터 및 콘텐츠와 관련된 기타 정보를 지정합니다.
 
-  ![검토 - 콘솔 쿼리 매개 변수, 헤더 및 요청 본문 상자 만들기](images/test-drive-review-1.PNG)
+   ![검토 - 콘솔 쿼리 매개 변수, 헤더 및 요청 본문 상자 만들기](images/test-drive-review-1.PNG)
   
-4.  **보내기**를 선택합니다. 검토 ID가 생성됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
+4. **보내기**를 선택합니다. 검토 ID가 생성됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
 
-  ![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-review-2.PNG)
+   ![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-review-2.PNG)
   
-5.  **가져오기**를 선택한 다음, 지역과 일치하는 단추를 선택하여 API를 엽니다. 결과 페이지에서 **teamName**, **ReviewID** 및 **구독 키** 값을 입력합니다. 페이지의 **보내기** 단추를 선택합니다. 
+5. **가져오기**를 선택한 다음, 지역과 일치하는 단추를 선택하여 API를 엽니다. 결과 페이지에서 **teamName**, **ReviewID** 및 **구독 키** 값을 입력합니다. 페이지의 **보내기** 단추를 선택합니다. 
 
-  ![검토 - 콘솔 만들기 결과 가져오기](images/test-drive-review-3.PNG)
+   ![검토 - 콘솔 만들기 결과 가져오기](images/test-drive-review-3.PNG)
   
-6.  검사 결과를 볼 수 있습니다.
+6. 검사 결과를 볼 수 있습니다.
 
-  ![검토 - 콘솔 만들기 응답 콘텐츠 상자](images/test-drive-review-4.PNG)
+   ![검토 - 콘솔 만들기 응답 콘텐츠 상자](images/test-drive-review-4.PNG)
   
-7.  Content Moderator 대시보드에서 **검토** > **이미지**를 선택합니다. 스캔한 이미지가 나타나고, 사람이 즉시 검토할 수 있는 상태입니다.
+7. Content Moderator 대시보드에서 **검토** > **이미지**를 선택합니다. 스캔한 이미지가 나타나고, 사람이 즉시 검토할 수 있는 상태입니다.
 
-  ![축구공 이미지 검토 도구](images/test-drive-review-5.PNG)
+   ![축구공 이미지 검토 도구](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 

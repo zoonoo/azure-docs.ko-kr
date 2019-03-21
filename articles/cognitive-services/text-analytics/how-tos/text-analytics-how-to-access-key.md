@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096744"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Services에 사용할 엔드포인트 및 액세스 키를 찾는 방법
 
@@ -33,7 +33,7 @@ Text Analytics에 등록하면 구독에 고유한 개인 설정 액세스 키�
 
 4. 링크를 클릭하여 서비스 블레이드를 엽니다. 이제 **리소스 > 키**로 차례로 이동하거나 [기본 정보] 창에서 **액세스 키 표시**를 클릭하여 키를 가져올 수 있습니다. 또한 엔드포인트도 [기본 정보] 창에 표시됩니다.
 
- ![엔드포인트와 키가 있는 포털 페이지](../media/portal-keys-endpoint.png)
+   ![엔드포인트와 키가 있는 포털 페이지](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>참고 항목 
 

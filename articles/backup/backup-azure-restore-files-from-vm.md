@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 25c78e4050f1f5fdb02500fa1f206f6cf05e7134
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111959"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259546"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -67,16 +67,16 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
     - download.microsoft.com
     - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com>(Azure 공용 지역의 경우)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn>(Azure 중국의 경우)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us>(Azure 미국 정부의 경우)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de>(Azure 독일의 경우)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (에 대 한 Azure 공용 지역)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (에 대 한 Azure 중국)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (에 대 한 Azure US Government)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (에 대 한 Azure Germany)
     - 아웃바운드 포트 3260
 
 > [!Note]
 > 
 > * 다운로드 한 스크립트 파일 이름 합니다 **지역 이름** URL에서를 입력 하도록 합니다. 에 대 한 예를 들어: 다운로드 한 스크립트 이름을 사용 하 여 시작 \'VMname\'\_\'geoname\'_\'GUID\', ContosoVM_wcus_12345678 같은...<br><br>
-> * Url "<https://pod01-rec2.wcus.backup.windowsazure.com>"
+> * Url "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
@@ -187,7 +187,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -223,7 +223,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 가상 머신에서 파일을 복구하는 동안 문제가 생기는 경우 다음 표에서 추가 정보를 확인하세요.
 
-| 오류 메시지/시나리오 | 가능한 원인 | 권장 조치 |
+| 오류 메시지/시나리오 | 가능한 원인 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
 | Exe 출력: *대상에 연결하는 동안 예외가 발생했습니다.* |스크립트가 복구 지점에 액세스할 수 없습니다.    | 컴퓨터가 이전 액세스 요구 사항을 충족하는지 확인하세요. |  
 | Exe 출력: *iSCSI 세션을 통해 대상이 이미 로그인되었습니다.* | 동일한 컴퓨터에서 스크립트가 이미 실행되었고 드라이브가 연결되었습니다. | 복구 지점의 볼륨이 이미 연결되었습니다. 원래 VM과 동일한 드라이브 문자로 탑재되지 않을 수 있습니다. 파일 탐색기에서 사용 가능한 모든 볼륨을 탐색하여 파일을 찾습니다. |

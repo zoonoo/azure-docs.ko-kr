@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095741"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack에서 azure Monitor
 
@@ -33,8 +33,8 @@ ms.locfileid: "57780845"
 
 Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 플랫폼 서비스입니다. Azure에서 Azure Monitor를 통해 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. Azure Stack 관리 포털 Monitor PowerShell Cmdlet, Cross-platform CLI 또는 Azure Monitor REST Api를 사용 하 여이 데이터로 작업할 수 있습니다. Azure Stack에서 지원 되는 특정 연결을 참조 하세요. [Azure Stack에서 모니터링 데이터를 사용 하는 방법](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-메트릭 및 진단 로그는 Azure Stack 개발 키트에 대해 사용할 수 없는 경우
+> [!Note]
+> 메트릭 및 진단 로그는 Azure Stack 개발 키트에 대해 사용할 수 없는 경우
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor에 대 한 필수 구성 요소
 

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099091"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295432"
 ---
-# <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
+# <a name="install-and-run-face-containers"></a>설치 하 고 얼굴 컨테이너 실행
 
 Face는 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별하는 Face라는 표준화된 Docker용 Linux 컨테이너를 제공합니다. Face는 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.
 
@@ -48,11 +48,12 @@ Face API 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족�
 
 다음 표에서는 각 Face API 컨테이너에 할당해야 하는 최소/권장 CPU 코어 수와 메모리에 대해 설명합니다.
 
-| 컨테이너 | 최소 | 권장 |
-|-----------|---------|-------------|
-|Face | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
+| 컨테이너 | 최소 | 권장 | TPS<br>(최소, 최대)|
+|-----------|---------|-------------|--|
+|Face | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |10, 20|
 
-각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* 각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* TP-초당 트랜잭션 수
 
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
@@ -110,11 +111,14 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000을 사용합니다.
+컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 

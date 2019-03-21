@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095112"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
 
@@ -57,11 +57,11 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
 
 3. 필요한 정보로 복원 양식을 채웁니다.
 
-   ![PostgreSQL용 Azure Database - 정보 복원 ](./media/howto-restore-server-portal/3-restore.png)
-  - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
-  - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
-  - **위치**: 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
-  - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
+   ![PostgreSQL용 Azure Database - 정보 복원](./media/howto-restore-server-portal/3-restore.png)
+   - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
+   - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
+   - **위치**: 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
+   - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
 4. **확인**을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
 

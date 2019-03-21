@@ -1,6 +1,6 @@
 ---
-title: Azure AD 암호 보호 미리 보기 배포
-description: 잘못 된 암호가 온-프레미스를 금지 하려면 Azure AD 암호 보호 미리 보기를 배포 합니다.
+title: Azure AD 암호 보호 배포
+description: 잘못 된 암호가 온-프레미스를 금지 하려면 Azure AD 암호 보호를 배포 합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848748"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286536"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
-
-|     |
-| --- |
-| Azure Active Directory (Azure AD) 암호 보호에 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 참조 하세요. [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
 이해 했으므로 [Windows Server Active Directory에 대 한 Azure AD 암호 보호를 적용 하는 방법](concept-password-ban-bad-on-premises.md)를 계획 하 고 배포를 실행 하는 다음 단계입니다.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868959"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433776"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 앱에 대한 미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
@@ -62,7 +62,7 @@ Calendar 도메인은 일정 항목과 관련된 의도 및 엔터티를 제공�
 | 추가 | 일정에 일회용 항목을 새로 추가합니다.| 일요일 오후 2시에 Lisa와 약속을 합니다. <br/><br/>모임을 예약하려고 합니다.<br/><br/>모임을 설정해야 합니다.|
 | CheckAvailability | 사용자의 일정 또는 다른 사람의 일정에서 약속 또는 모임에 대한 가용성을 찾습니다.| Jim과 언제 모임을 할 수 있나요? <br/><br/>Carol이 내일 시간이 있다고 표시합니다.<br/><br/>토요일에 Chris는 시간이 있나요?|
 | 삭제 | 일정 항목 삭제를 요청합니다.| Carol과의 약속을 취소합니다. <br/><br/>오전 9시 모임을 삭제합니다.<br/>|
-| 편집 | 기존 모임 또는 일정 항목을 변경하도록 요청합니다.| 오전 9시 모임을 오전 10시 모임으로 이동합니다.<br/><br/>일정을 업데이트하려고 합니다.<br/><br/>Ryan과의 모임 일정을 다시 예약합니다.|
+| 편집 | 기존 모임 또는 일정 항목을 변경하도록 요청합니다.| 오전 9시 모임을 오전 10시 모임으로 이동합니다.<br/><br/>일정을 업데이트하려고 합니다.<br/><br/>Ryan 사용 하 여 내 모임 일정을 조정 합니다.|
 | 찾기 | 주간 일정을 표시합니다.| 치과 검사 약속을 찾습니다. <br/><br/>내 달력을 표시합니다.<br/>|
 
 ### <a name="entities"></a>엔터티
@@ -106,7 +106,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 | Confirm| 작업을 확인합니다.|예<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
 | Dial| 전화 통화를 합니다.|Jim에게 전화하기<br/>311 번호를 누르세요.<br/>|
 | FindContact| 연락처 정보를 이름으로 찾습니다.|Carol의 번호 찾기<br/>Carol의 번호 표시<br/>|
-| FindSpeedDial| 전화 번호를 설정할 단축번호와 단축번호를 설정할 전화 번호를 찾습니다.|내 다이얼 번호 5는 무엇인가요?<br/>설정된 단축번호가 있나요?<br/>941-5555-333의 다이얼 번호는 무엇인가요?|
+| FindSpeedDial| 전화 번호와 반대로 설정 되어 빠른 전화 번호를 찾습니다.|내 다이얼 번호 5는 무엇인가요?<br/>설정된 단축번호가 있나요?<br/>941-5555-333의 다이얼 번호는 무엇인가요?|
 | GetForwardingsStatus| 착신 전환의 현재 상태를 가져옵니다.|내 착신 전환이 켜져 있나요?<br/>내 호출 상태가 설정되었는지 또는 해제되었는지 알아보기<br/>|
 | Goback| 이전 단계로 돌아갑니다.|Twitter으로 돌아가기<br/>한 단계 뒤로 이동<br/>뒤로 이동|
 | 무시| 수신 전화를 무시합니다.|받지 않음<br/>전화 무시|
@@ -179,7 +179,7 @@ Events 도메인은 콘서트, 축제, 스포츠 게임 및 코미디 쇼와 같
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 주소 | 이벤트 위치 또는 주소입니다. |Palo Alto<br/>300 112th Ave SE <br/> 시애틀 |
-| Name | 이벤트의 이름입니다.|Shakespeare in the Park|
+| 이름 | 이벤트의 이름입니다.|Shakespeare in the Park|
 | PlaceName| 이벤트 위치 이름입니다.|루브르<br/>오페라 하우스<br/>브로드웨이|
 | PlaceType | 이벤트가 열릴 위치의 유형입니다.|카페<br/>극장<br/>라이브러리|
 | Type | 이벤트의 유형입니다.|콘서트<br/>스포츠 게임|
@@ -252,7 +252,7 @@ MovieTickets 도메인은 영화관의 영화 티켓 예약과 관련된 의도 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| Book | 영화 티켓을 구입합니다.|Captain Omar 티켓 2장과 musketeer 티켓 2장을 예약해주세요.<br/>내일 볼 영화 티켓을 구입하려고 합니다.<br/>다음 수요일에 상영하는 Captian Omar Part 2 티켓을 원합니다.|
+| Book | 영화 티켓을 구입합니다.|Captain Omar 티켓 2장과 musketeer 티켓 2장을 예약해주세요.<br/>내일 볼 영화 티켓을 구입하려고 합니다.<br/>티켓에 원하는 Captain Omar 2 부 다음 수요일|
 |GetShowTime| 영화 상영 시간을 알아봅니다.|Captain Omar 상영 시간은 언제인가요?|
 
 
@@ -412,7 +412,7 @@ Places 도메인은 회사, 기관, 식당, 공용 공간 및 주소와 같은 �
 |GetMenu|식당의 메뉴 항목을 문의합니다.|Zucca에서 채식주의자에게 음식을 제공하나요?<br/>Sizzler의 메뉴에 포함된 음식<br/>Applebee 메뉴 표시|
 |GetPhoneNumber| 장소의 전화 번호를 요청합니다.|가장 가까운 스타벅스 전화 번호는 무엇인가요?<br/>Home Depot의 번호 가져오기| 
 |GetPriceRange| 장소의 가격 범위를 문의합니다.|Zucca는 저렴한가요?<br/>수요일마다 Cineplex를 절반 가격으로 이용할 수 있나요?<br/>Sizzler에서 랍스터 1마리 저녁 식사 비용은 얼마나 되나요?|
-|GetReviews|장소에 대한 검토를 요청합니다.|Cheesecase Factory에 대한 검토 내용 표시<br/>Yelp에서 Cineplex 검토 읽기|
+|GetReviews|장소에 대한 검토를 요청합니다.|치즈 케이크 공장에 대 한 검토 표시<br/>Yelp에서 Cineplex 검토 읽기|
 |GetRoute|장소로 가는 길을 요청합니다.|도보로 벨브 광장까지 이동하는 방법<br/>여기에서 8번가 및 59번가까지 가는 최단 경로 표시<br/>Mountain View CA로 가는 길 보기|
 |GetStarRating|장소의 별 등급을 요청합니다.|Yelp에 따르면 Zucca 등급은 어떤가요?<br/>French Laundry의 별 등급은 무엇인가요?<br/>몬테레이의 아쿠아리움은 좋은가요?|
 |GetTransportationSchedule|장소의 버스 스케줄을 가져옵니다.|시내로 가는 다음 버스는 몇 시에 오나요?<br/>킹 카운티의 버스 표시|

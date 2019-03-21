@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286223"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
@@ -39,7 +39,7 @@ Azure AD의 지리적으로 분산된 아키텍처에는 광범위한 모니터�
 
 데이터 계층에는 읽기 쓰기 기능을 제공하는 몇 가지 프런트 엔드 서비스가 있습니다. 아래 다이어그램에서는 지리적으로 분산된 데이터 센터 전반에 걸쳐 단일 디렉터리 파티션의 구성 요소가 제공되는 방식을 보여 줍니다. 
 
-  ![단일 디렉터리 파티션](./media/active-directory-architecture/active-directory-architecture.png)
+  ![단일 디렉터리 파티션 다이어그램](./media/active-directory-architecture/active-directory-architecture.png)
 
 Azure AD 아키텍처의 구성 요소는 주 복제본과 보조 복제본을 포함합니다.
 

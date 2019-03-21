@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3e5f6edf213838345c21598213b4fc2065e66335
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884140"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530180"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 애플리케이션에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -29,7 +29,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 
 ```json
 {
-  "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
+  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.781975448
@@ -42,7 +42,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
   ],
   "entities": [
     {
-      "entity": "http://www.luis.ai",
+      "entity": "https://www.luis.ai",
       "type": "builtin.url",
       "startIndex": 0,
       "endIndex": 17

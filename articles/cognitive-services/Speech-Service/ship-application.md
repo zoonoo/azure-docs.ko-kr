@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445120"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962029"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -24,7 +24,7 @@ ms.locfileid: "56445120"
 
 플랫폼에 따라 애플리케이션을 실행하기 위한 다양한 종속성이 존재합니다.
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 Cognitive Services Speech SDK는 Windows 10 및 Windows Server 2016에서 테스트되었습니다.
 
@@ -39,11 +39,13 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| Name | 함수
+| 이름 | 함수
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 네이티브 및 관리된 배포에 필요한 핵심 SDK
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | 관리된 배포에 필요
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요
+
+>[!NOTE]
+> 릴리스부터 1.3.0 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공) 더 이상 필요 하지 않습니다. Core SDK의에서 기능 통합 되었습니다.
 
 ## <a name="linux"></a>Linux
 

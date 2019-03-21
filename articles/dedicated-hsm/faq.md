@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846891"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259995"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -78,7 +78,7 @@ Gemalto에서 제공한 HSM 클라이언트 도구/SDK/소프트웨어를 사용
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>Q: 전용 HSM에 저장된 키를 사용하여 다른 Azure 서비스에서 사용하는 데이터를 암호화할 수 있나요?
 
-번호 Azure Dedicated HSM은 가상 네트워크 내에서만 액세스할 수 있습니다.
+아니요. Azure Dedicated HSM은 가상 네트워크 내에서만 액세스할 수 있습니다.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>Q: 기존 온-프레미스 HSM에서 전용 HSM으로 키를 가져올 수 있나요?
 
@@ -103,7 +103,7 @@ PKCS#11, Java(JCA/JCE), Microsoft CAPI 및 CNG, OpenSSL
 
 ### <a name="q-can-i-importmigrate-keys-from-luna-56-hsms-to-azure-dedicated-hsms"></a>Q: Luna 5/6 HSM에서 Azure 전용 HSM으로 키를 가져오거나 마이그레이션할 수 있나요?
 
-예 Gemalto 마이그레이션 가이드를 참조하세요. 
+예. Gemalto 마이그레이션 가이드를 참조하세요. 
 
 ## <a name="using-your-hsm"></a>HSM 사용
 
@@ -124,13 +124,13 @@ Azure Dedicated HSM은 마이그레이션 시나리오에 가장 적합합니다
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>Q: 전용 HSM은 Office 365 고객 키, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage 암호화, Azure SQL TDE에서 사용할 수 있나요?
 
-번호 Dedicated HSM은 고객의 사설 IP 주소 공간에 직접 프로비전되어 다른 Azure 또는 Microsoft 서비스에서 액세스할 수 없습니다.
+아니요. Dedicated HSM은 고객의 사설 IP 주소 공간에 직접 프로비전되어 다른 Azure 또는 Microsoft 서비스에서 액세스할 수 없습니다.
 
 ## <a name="administration-access-and-control"></a>관리, 액세스 및 제어
 
 ### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-hsms"></a>Q: 고객이 전용 HSM을 통해 HSM을 독점적으로 완벽하게 제어하나요?
 
-예 각 HSM 어플라이언스는 단일 고객만 전적으로 사용하며, 일단 프로비전되고 관리자 암호가 변경되면 아무도 관리 제어 권한을 갖지 못합니다.
+예. 각 HSM 어플라이언스는 단일 고객만 전적으로 사용하며, 일단 프로비전되고 관리자 암호가 변경되면 아무도 관리 제어 권한을 갖지 못합니다.
 
 ### <a name="q-what-level-of-access-does-microsoft-have-to-my-hsm"></a>Q: Microsoft에서 내 HSM에 부여하는 액세스 권한 수준은 어떻게 되나요?
 
@@ -138,7 +138,7 @@ Microsoft에는 HSM에 대한 관리 또는 암호화 제어 권한이 없습니
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q: Microsoft 또는 Microsoft의 모든 사용자가 전용 HSM의 키에 액세스할 수 있나요?
 
-번호 Microsoft에는 고객에게 할당된 Dedicated HSM에 저장된 키에 대한 액세스 권한이 없습니다.
+아니요. Microsoft에는 고객에게 할당된 Dedicated HSM에 저장된 키에 대한 액세스 권한이 없습니다.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>Q: 내게 할당된 HSM의 소프트웨어/펌웨어를 업그레이드할 수 있나요?
 
@@ -158,31 +158,31 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ### <a name="q-can-i-get-full-access-log-of-all-hsm-operations-from-dedicated-hsm"></a>Q: 전용 HSM에서 모든 HSM 작업에 대한 전체 액세스 로그를 가져올 수 있나요?
 
-예 로그는 HSM 어플라이언스에서 syslog 서버로 보낼 수 있습니다.
+예. 로그는 HSM 어플라이언스에서 syslog 서버로 보낼 수 있습니다.
 
 ## <a name="high-availability"></a>고가용성
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역에서 또는 여러 지역에서 고가용성을 구성할 수 있나요?
 
-예 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 사이트-사이트를 사용 하 여 VNET에 연결 된 동일한 VNET 또는 다른 Vnet을 동일한 지역에 지역 또는 온-프레미스 Hsm에서 Hsm 또는 지점 간 VPN을 동일한 고가용성 구성에 추가할 수 있습니다.
+예. 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 사이트-사이트를 사용 하 여 VNET에 연결 된 동일한 VNET 또는 다른 Vnet을 동일한 지역에 지역 또는 온-프레미스 Hsm에서 Hsm 또는 지점 간 VPN을 동일한 고가용성 구성에 추가할 수 있습니다. 키 자료만 및 역할과 같은 특정 하지 않은 구성 항목 동기화이 점에 유의 해야 합니다.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 HSM을 고가용성 그룹에 추가할 수 있나요?
 
-예 SafeNet Luna Network HSM 7에 대한 HA(고가용성) 요구 사항을 충족해야 합니다.
+예. SafeNet Luna Network HSM 7에 대한 HA(고가용성) 요구 사항을 충족해야 합니다.
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 Luna 5/6 HSM을 고가용성 그룹에 추가할 수 있나요?
 
-번호
+아니요.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>Q: 단일 애플리케이션에서 동일한 고가용성 구성에 추가할 수 있는 HSM의 수는 어떻게 되나요?
 
-16\.
+16 HA 그룹 구성원에 뛰어난 결과 사용 하 여 테스트에서 완료, 전체 제한
 
 ## <a name="support"></a>지원
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q: 전용 HSM 서비스에 대한 SLA는 어떻게 되나요?
 
-현재 Dedicated HSM 서비스에 대한 SLA는 제공되지 않습니다. 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
+전용 HSM 서비스 제공 된 특정 가동 시간 guarentee 없는 경우 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>Q: Azure 전용 HSM에 사용되는 HSM은 어떻게 보호되나요?
 
@@ -198,15 +198,19 @@ Dedicated HSM 서비스는 SafeNet Network HSM 7 어플라이언스를 사용합
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>Q: 전용 HSM에 대한 지원을 받으려면 어떻게 할까요?
 
-다른 모든 Azure 서비스에 대한 지원을 받는 것과 동일한 방식입니다. Azure 지원 팀은 필요에 따라 Gemalto 지원으로 이관할 것입니다.
+Microsoft와 Gemalto에서 지원 됩니다.  하드웨어 관련 문제가 또는 네트워크 액세스 하 고, Microsoft 사용 하 여 지원 요청을 발생 시키는 HSM 구성, 소프트웨어 및 응용 프로그램 개발에 문제가 있는 경우 하세요 rasie 경우 Gemalto를 사용 하 여 지원 요청 합니다. Microsoft는 지원 요청 withg 발생 결정 되지 않은 문제가 발생 했 고으로 Gemalto 수 참여 하는 다음이 필요 합니다. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>Q: 전용 HSM 클라이언트 소프트웨어, 설명서, 펌웨어 이미지에 액세스하려면 어떻게 할까요?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q: 어떻게 가져오나 요 클라이언트 소프트웨어, 설명서 및 SafeNet Luna 7 HSM에 대 한 통합 지침에 액세스할 수 있습니까?
 
-고객이 HSM 클라이언트 소프트웨어, 설명서, OS/펌웨어 이미지에 액세스하려면 Gemalto와 직접 협력해야 합니다.
+서비스를 등록 한 후 Gemalto 고객 ID Gemalto 고객 지원 포털에서 등록에 허용 되는 제공 됩니다. 이렇게 하면 모든 소프트웨어 및 설명서 뿐만 아니라 Gemalto와 직접 사용 하도록 설정 하면 지원 요청에 대 한 액세스.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>Q: 보안 취약성이 있고 Gemalto에서 패치를 릴리스한 경우 OS/펌웨어 업그레이드/패치 작업은 누가 수행해야 하나요?
 
 Microsoft는 고객에게 할당된 HSM에 연결할 수 없습니다. 따라서 고객이 HSM을 업그레이드하고 패치해야 합니다.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q: 내 HSM 다시 부팅 해야 하는 경우에 어떻게 합니까?
+
+ HSM 명령줄 다시 부팅 옵션을 있으며이 "하드 재부팅" 옵션을 사용 해야 함을 유의 해야 합니다. 어떤 이유로 든 실패 하면 microsoft 지원 요청을 발생 시키고 실제로 다시 부팅 장치가 있을 수 있습니다. 
 
 ## <a name="cryptography-and-standards"></a>암호화 및 표준
 
@@ -240,7 +244,7 @@ Dedicated HSM 서비스는 SafeNet Network HSM 7 어플라이언스를 프로비
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>Q: 전용 HSM은 FIPS 140-2 수준 3으로 검증되었나요?
 
-예 Dedicated HSM 서비스는 FIPS 140-2 수준 3 검증 HSM을 사용하는 SafeNet Network HSM 7 어플라이언스를 프로비전합니다.
+예. Dedicated HSM 서비스는 FIPS 140-2 수준 3 검증 HSM을 사용하는 SafeNet Network HSM 7 어플라이언스를 프로비전합니다.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>Q: FIPS 140-2 수준 3 검증 모드에서 전용 HSM을 작동하려면 어떻게 해야 하나요?
 
@@ -262,15 +266,13 @@ Dedicated HSM은 SafeNet Network HSM 7 어플라이언스(모델 A790)를 프로
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>Q: 전용 HSM에 만들 수 있는 파티션의 수는 어떻게 되나요?
 
-사용된 HSM의 특정 모델에 따라 10개의 파티션을 사용할 수 있습니다.
+A790 사용 SafeNet Luna HSM 7 모델은 서비스의 비용에 10 개의 파티션에 대 한 라이선스를 포함 합니다. 장치에 파티션 수가 100 개로 제한 하 고 추가 라이선스 비용이 부과 되 고 장치의 새 라이선스 파일을 설치할 필요는 것이 한도까지 파티션을 추가 합니다.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>Q: 전용 HSM에서 지원할 수 있는 키의 수는 어떻게 되나요?
 
-최대 키 수입니다. 비대칭 키를 사용하는 경우에도 이러한 개수를 키 쌍에 적용할 수 있습니다.
+키의 최대 수는 사용 가능한 메모리의 함수입니다. 사용 중인 SafeNet Luna 7 모델 A790에 32MB의 메모리만 있습니다. 비대칭 키를 사용 하는 경우에 다음 숫자 키 쌍에 적용할 수 있습니다.
 
 * RSA-2048 - 19,000개
 * ECC-P256 - 91,000개
-* AES-256 - 218,000개
 
 용량은 키 생성 템플릿에 설정된 특정 키 특성 및 파티션 수에 따라 달라집니다.
-

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092568"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
@@ -23,9 +23,9 @@ ms.locfileid: "55874629"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-* 목록 엔터티 만들기 
-* 정규화된 값 및 동의어 추가
-* 향상된 엔터티 ID의 유효성 검사
+> * 목록 엔터티 만들기 
+> * 정규화된 값 및 동의어 추가
+> * 향상된 엔터티 ID의 유효성 검사
 
 ## <a name="prerequisites"></a>필수 조건
 

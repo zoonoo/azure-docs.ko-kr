@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172838"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>예측 유지 관리 솔루션 가속기 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "56100512"
 
 ![논리 아키텍처][img-architecture]
 
-파란색 항목은 솔루션 가속기를 배포한 지역에 프로비전되는 Azure 서비스입니다. 솔루션 가속기를 배포할 수 있는 지역 목록은 [프로비전 페이지][lnk-azureiotsuite]에 표시됩니다.
+파란색 항목은 솔루션 가속기를 배포한 지역에 프로비전되는 Azure 서비스입니다. 솔루션 가속기를 배포할 수 있는 지역 목록은 [프로비전 페이지][lnk-azureiotsolutions]에 표시됩니다.
 
 녹색 항목은 시뮬레이션된 항공기 엔진입니다. 시뮬레이션된 디바이스에 대한 자세한 내용은 [시뮬레이션된 디바이스](#simulated-devices) 섹션에서 알아볼 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 �
 
 ![가속기 리소스][img-resource-group]
 
-솔루션 가속기를 프로비전할 때 Machine Learning 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. [Microsoft Azure IoT 솔루션 가속기][lnk-azureiotsuite] 페이지에서 Machine Learning 작업 영역으로 이동할 수도 있습니다. 솔루션이 **준비** 상태일 때 이 페이지에 타일이 제공됩니다.
+솔루션 가속기를 프로비전할 때 Machine Learning 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. [Microsoft Azure IoT 솔루션 가속기][lnk-azureiotsolutions] 페이지에서 Machine Learning 작업 영역으로 이동할 수도 있습니다. 솔루션이 **준비** 상태일 때 이 페이지에 타일이 제공됩니다.
 
 ![Machine Learning 모델][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT Hub는 디바이스 명령 승인을 제공합니다.
 **이벤트 프로세서 호스트**는 Azure Web Job에서 실행됩니다. **이벤트 프로세서** 는 완료된 주기의 평균 센서 값을 사용합니다. 그런 다음, 엔진의 RUL을 계산하는 학습된 모델에 해당 값을 전달합니다. API는 솔루션의 일부인 Machine Learning 작업 영역의 모델에 대한 액세스를 제공합니다.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. [azureiotsuite.com][lnk-azureiotsuite] 페이지의 솔루션 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
+Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. 솔루션 타일에서 Machine Learning 작업 영역으로 이동할 수는 [azureiotsolutions.com] [ lnk-azureiotsolutions] 페이지입니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
 
 Machine Learning 모델은 IoT 솔루션 가속기 서비스를 통해 수집된 원격 분석을 사용하는 방법을 보여 주는 템플릿으로 제공됩니다. Microsoft는 공개적으로 사용 가능한 데이터<sup>\[1\]</sup>을 기반으로 하는 항공기 엔진의 [회귀 모델][lnk_regression_model] 및 해당 모델을 사용하는 방법에 대한 단계별 지침을 구축했습니다.
 
@@ -93,7 +93,7 @@ IoT 솔루션 가속기의 몇 가지 다른 기능을 살펴볼 수도 있습�
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

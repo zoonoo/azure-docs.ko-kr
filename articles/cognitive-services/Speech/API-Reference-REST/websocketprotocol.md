@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076193"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket 프로토콜
 
@@ -77,7 +78,7 @@ Content-Length: 0
 
 액세스 토큰을 위해 다음 헤더 정보가 필요합니다.
 
-| Name | 형식 | 설명 |
+| 이름 | 형식 | 설명 |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 구독 키 |
 
@@ -91,7 +92,7 @@ Content-Length: 0
 
 ### <a name="http-redirection"></a>Http 리디렉션
 
-클라이언트는 [HTTP 프로토콜 사양](http://www.w3.org/Protocols/rfc2616/rfc2616.html)에서 지정한 표준 리디렉션 메커니즘을 지원*해야 합니다*.
+클라이언트는 [HTTP 프로토콜 사양](https://www.w3.org/Protocols/rfc2616/rfc2616.html)에서 지정한 표준 리디렉션 메커니즘을 지원*해야 합니다*.
 
 ### <a name="speech-endpoints"></a>음성 엔드포인트
 
@@ -99,9 +100,9 @@ Content-Length: 0
 
 | Mode | path | 서비스 URI |
 | -----|-----|-----|
-| 대화형 | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| 대화 | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| 받아쓰기 | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| 대화형 | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| 대화 | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| 받아쓰기 | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 자세한 내용은 [서비스 URI](../GetStarted/GetStartedREST.md#service-uri) 페이지를 참조하세요.
 
@@ -131,13 +132,13 @@ Content-Length: 0
 
 ### <a name="binary-websocket-messages"></a>이진 WebSocket 메시지
 
-이진 WebSocket 메시지는 이진 페이로드를 전달합니다. 음성 서비스 프로토콜에서 오디오는 이진 WebSocket 메시지를 사용하여 서비스에서 송신 및 수신됩니다. 모든 다른 메시지는 텍스트 WebSocket 메시지입니다. 
+이진 WebSocket 메시지는 이진 페이로드를 전달합니다. 음성 서비스 프로토콜에서 오디오는 이진 WebSocket 메시지를 사용하여 서비스에서 송신 및 수신됩니다. 모든 다른 메시지는 텍스트 WebSocket 메시지입니다.
 
 텍스트 WebSocket 메시지와 마찬가지로 이진 WebSocket 메시지도 헤더와 본문 섹션으로 구성됩니다. 이진 WebSocket 메시지의 처음 2바이트는 헤더 섹션의 16비트 정수 크기를 [big-endian](https://en.wikipedia.org/wiki/Endianness) 순서로 지정합니다. 최소 헤더 섹션 크기는 0바이트입니다. 최대 크기는 8,192바이트입니다. 이진 WebSocket 메시지의 헤더의 텍스트는 [US-ASCII](https://tools.ietf.org/html/rfc20) 인코딩을 사용*해야 합니다*.
 
 이진 WebSocket 메시지의 헤더는 텍스트 WebSocket 메시지에서와 같은 형식으로 인코딩됩니다. *이름:값* 형식은 단일 캐리지 리턴 줄 바꿈 쌍으로 구분됩니다. 이진 WebSocket 메시지는 헤더 *경로*에 메시지 경로를 지정해야 합니다. 이 헤더의 값은 이 문서에서 나중에 정의하는 음성 프로토콜 메시지 유형 중 하나이어야 합니다.
 
-텍스트 및 이진 WebSocket 메시지 모두 음성 서비스 프로토콜에 사용됩니다. 
+텍스트 및 이진 WebSocket 메시지 모두 음성 서비스 프로토콜에 사용됩니다.
 
 ## <a name="client-originated-messages"></a>클라이언트 시작 메시지
 
@@ -187,7 +188,7 @@ Content-Length: 0
 음성 서비스 프로토콜의 모든 클라이언트 시작 메시지와 마찬가지로 `speech.config` 메시지도 메시지를 서비스에 보낸 클라이언트 UTC 시계 시간을 기록하는 *X-Timestamp* 헤더를 포함*해야 합니다*. `speech.config` 메시지는 특정 음성 요청과 연결되지 않으므로 *X-RequestId* 헤더를 요구하지 *않습니다*.
 
 #### <a name="message-payload"></a>메시지 페이로드
-`speech.config` 메시지의 페이로드는 애플리케이션에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 디바이스 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다. 
+`speech.config` 메시지의 페이로드는 애플리케이션에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 디바이스 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다.
 
 ```JSON
 {
@@ -507,7 +508,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | `Connection` | 필수 |
+| 이름 | `Connection` | 필수 |
 | Id | 이 연결 요청에 대한 *X-ConnectionId* 헤더에 사용한 연결 식별자 값 | 필수 |
 | 시작 | 클라이언트가 연결 요청을 보낸 시간 | 필수 |
 | 끝 | 클라이언트가 연결이 성공적으로 설정된 사실 또는 오류가 발생한 경우 거부, 거절 또는 실패한 사실의 알림을 받은 시간 | 필수 |
@@ -527,7 +528,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ServerUnavailable | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `503 Server Unavailable` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
 | ServerError | 서비스가 WebSocket 업그레이드 요청에 대해 `HTTP 500` 내부 오류 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
 | 시간 제한 | 클라이언트 연결 요청이 서비스에서의 응답 없이 시간 초과했습니다. *종료* 필드는 클라이언트가 시간 초과하여 연결 대기를 중단한 시간을 포함합니다. |
-| ClientError | 클라이언트가 일부 내부 클라이언트 오류 때문에 연결을 종료했습니다. | 
+| ClientError | 클라이언트가 일부 내부 클라이언트 오류 때문에 연결을 종료했습니다. |
 
 ### <a name="metric-microphone"></a>메트릭 `Microphone`
 
@@ -547,7 +548,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | 마이크 | 필수 |
+| 이름 | 마이크 | 필수 |
 | 시작 | 클라이언트가 마이크 또는 다른 오디오 스트림에서 오는 오디오 입력을 사용하기 시작했거나 키워드 스포터에서 트리거를 수신한 시간 | 필수 |
 | 끝 | 클라이언트가 마이크 또는 오디오 스트림 사용을 중단한 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 마이크 작동이 성공적인 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
@@ -567,7 +568,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | 옵션 |
+| 이름 | ListeningTrigger | 옵션 |
 | 시작 | 클라이언트 수신 대기 트리거가 시작된 시간 | 필수 |
 | 끝 | 클라이언트 수신 대기 트리거가 종료된 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 트리거 작업이 성공한 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
@@ -636,7 +637,7 @@ WebSocket 업그레이드 중에 잘못된 인증이 제공된 경우 음성 서
 
 #### <a name="incorrect-message-format"></a>잘못된 메시지 형식
 
-클라이언트가 이 사양에 나오는 올바른 형식으로 인코딩되지 않은 텍스트 또는 이진 메시지를 서비스에 보내면 서비스는 *1007 잘못된 페이로드 데이터* 상태 코드와 함께 연결을 닫습니다. 
+클라이언트가 이 사양에 나오는 올바른 형식으로 인코딩되지 않은 텍스트 또는 이진 메시지를 서비스에 보내면 서비스는 *1007 잘못된 페이로드 데이터* 상태 코드와 함께 연결을 닫습니다.
 
 서비스는 다음 예제와 같이 다양한 이유로 이 상태 코드를 반환합니다.
 

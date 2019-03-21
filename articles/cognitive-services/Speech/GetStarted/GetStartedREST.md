@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224057"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259944"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>빠른 시작: Bing Speech Recognition REST API 사용
 
@@ -32,7 +33,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 >* 구독 키를 가져오세요. REST API에 액세스하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
->* 구독 키를 사용하세요. 다음 REST 샘플에서 YOUR_SUBSCRIPTION_KEY를 사용자 고유의 구독 키로 바꿉니다. 
+>* 구독 키를 사용하세요. 다음 REST 샘플에서 YOUR_SUBSCRIPTION_KEY를 사용자 고유의 구독 키로 바꿉니다.
 >
 >* 구독 키를 가져오는 방법은 [인증](../how-to/how-to-authentication.md) 페이지를 참조하세요.
 
@@ -65,9 +66,9 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 | 인식 모드  | 언어 | 출력 형식 | 서비스 URI |
 |---|---|---|---|
-| `interactive` | pt-BR | 기본값 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | 간단한 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | 기본값 | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Detailed | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | 간단한 | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > 서비스 URI는 애플리케이션에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.

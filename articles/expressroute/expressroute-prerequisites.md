@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812279"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295201"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -30,7 +30,8 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 * 공급자가 ExpressRoute 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#connectivity-through-exchange-providers)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-* **중복 연결**: 사용자와 공급자 간 물리적 연결에서 중복성 요구 사항은 없습니다. [클라우드 Exchange에 대해 단 하나의 물리적 연결만](expressroute-faqs.md#onep2plink)있는 경우에도 Microsoft의 라우터 및 피어링 라우터 간에 중복 BGP 세션을 설정해야 합니다.
+* **각 피어 링 위치에서 중복**: Microsoft는 Microsoft의 라우터 및 각 ExpressRoute 회로의 피어 링 라우터 간에 설정 되어야 하는 중복 BGP 세션을 요구 (도 있는 경우 방금 [클라우드 exchange에 하나의 실제 연결만](expressroute-faqs.md#onep2plink)).
+* **재해 복구에 대 한 중복성**: 다른 피어 링 위치에 두 개 이상의 ExpressRoute 회로 단일 실패 지점을 방지를 설정 하는 것이 좋습니다.
 * **라우팅**: Microsoft Cloud에 연결하는 방법에 따라 사용자와 공급자는 [라우팅 도메인](expressroute-circuit-peerings.md)에 대한 BGP 세션을 설정 및 관리해야 합니다. 일부 이더넷 연결 공급자 또는 클라우드 Exchange 공급자는 가치 추가 서비스로 BGP 관리를 제공할 수 있습니다.
 * **NAT**: Microsoft만 Microsoft 피어링을 통해 공용 IP 주소를 허용합니다. 온-프레미스 네트워크에서 개인 IP 주소를 사용하는 경우 사용자 또는 공급자는 [NAT를 사용](expressroute-nat.md)하여 개인 IP 주소를 공용 IP 주소로 번역해야 합니다.
 * **QoS**: 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 서비스(예: 음성, 비디오, 텍스트)가 있습니다. 사용자와 공급자는 [QoS 요구 사항](expressroute-qos.md)을 따라야 합니다.

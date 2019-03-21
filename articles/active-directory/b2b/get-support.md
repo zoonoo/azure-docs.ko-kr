@@ -9,14 +9,15 @@ ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091140"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295524"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 공동 작업에 대한 지원 받기
 
@@ -28,7 +29,7 @@ ms.locfileid: "58091140"
      - 서비스: Active Directory
      - 지원 계획: 관련 지원 계획 선택
 
-   ![새 지원 요청](media/get-support/new-support-request.png)
+   ![새 지원 요청을 보여 주는 스크린샷](media/get-support/new-support-request.png)
 
 2. 문제에 대해 설명합니다.
    - 필요 사항을 반영하는 적절한 심각도를 선택합니다.
@@ -36,6 +37,6 @@ ms.locfileid: "58091140"
    - 사용자 추가(B2B)를 범주로 선택
    - CorrelationID, 영향을 받는 사용자와 같은 오류 메시지를 포함합니다.
 
-   ![지원 티켓 문제 설명](media/get-support/problem-description.png)
+   ![지원 티켓 문제 설명을 보여 주는 스크린샷](media/get-support/problem-description.png)
 
 3. 지원 담당자가 추가 문제 해결을 위해 연락할 수 있도록 하려면 연락처 정보를 추가합니다.

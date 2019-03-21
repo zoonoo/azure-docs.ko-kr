@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6166875c04ff9d183336a89da56c4b77521d0f29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 89eb18a2b4af76f6489442dc66ab12d0840e92c7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217427"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669487"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
 
@@ -43,4 +44,3 @@ Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에
 ## <a name="license"></a>라이선스
 
 Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md)를 참조하세요.
-

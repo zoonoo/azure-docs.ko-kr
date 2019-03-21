@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/14/2019
-ms.openlocfilehash: 37dcde3d55ce704c7a5dbb6d7757420ba8c393f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: 7c35c1f3568ab98bdd3c7fba8acd3aa958aa795b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885104"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285140"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 
@@ -73,12 +73,14 @@ ms.locfileid: "57885104"
 | **계산 크기** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | 최대 DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| 포함된 저장소(GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| 최대 저장소(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| 포함된 저장소(GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| 최대 저장소(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | 최대 메모리 내 OLTP 저장소(GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | 최대 동시 작업자(요청)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
+
+\* 1024GB에서 최대 4096 GB 단위로 256gb
 
 > [!IMPORTANT]
 > 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 P11-P15 현재 제한 사항을 참조 하세요.  

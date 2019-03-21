@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088012"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -100,7 +100,7 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
 
 > [!NOTE]
 > Custom Vision Service는 몇 가지 자동 음화 이미지 처리를 지원합니다. 예를 들어 사과와 바나나 분류자를 빌드 중이며 예측을 위해 신발 이미지를 제출하는 경우, 분류자는 해당 이미지의 점수를 사과와 바나나 둘 다에 대해 0%에 가깝게 지정해야 합니다.
-
+> 
 > 반면에 부정 이미지가 학습에 사용된 이미지 변형에 불과한 경우, 모델이 뛰어난 유사성 때문에 부정 이미지를 레이블이 지정된 클래스로 분류할 수 있습니다. 예를 들어, 오렌지와 포도 분류자가 있으며 귤 이미지를 제공하는 경우 귤의 많은 특징이 오렌지와 유사하기 때문에 귤이 오렌지로 점수가 매겨질 수 있습니다. 부정 이미지가 이러한 특성을 가질 경우, 학습 중에 하나 이상의 추가 태그(예: **기타**)를 만들고 부정 이미지에 이 태그를 레이블로 지정하여 모델이 이러한 클래스를 보다 잘 구분하도록 할 수 있습니다.
 
 ## <a name="train-the-classifier"></a>분류자 학습

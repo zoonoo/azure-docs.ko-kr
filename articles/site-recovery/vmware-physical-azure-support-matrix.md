@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903099"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286468"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -133,10 +133,10 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
 호스트 네트워크 IPv4 | 예.
-호스트 네트워크 IPv6 |  아니요.
-게스트/서버 네트워크 NIC 팀 |  아니요.
+호스트 네트워크 IPv6 | 아니요.
+게스트/서버 네트워크 NIC 팀 | 아니요.
 게스트/서버 네트워크 IPv4 | 예.
-게스트/서버 네트워크 IPv6 |  아니요.
+게스트/서버 네트워크 IPv6 | 아니요.
 게스트/서버 네트워크 정적 IP(Windows) | 예.
 게스트/서버 네트워크 정적 IP(Linux) | 예. <br/><br/>VM이 장애 복구(Failback) 시 DHCP를 사용하도록 구성되어 있습니다.
 게스트/서버 네트워크 다중 NIC | 예.
@@ -244,7 +244,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20 MB/s | 디스크당 1684 GB
 
 **원본 데이터 변동률** | **최대 제한**
 ---|---

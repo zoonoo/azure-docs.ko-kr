@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342680"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103726"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -87,19 +87,19 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 1. **만들기** 아래에서 다음을 입력합니다.
 
-    * 새 리소스 그룹의 이름. 이름은 동일한 서비스에 대한 여러 구독을 구분하는 데 도움이 됩니다.
-    * 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
-    * 리소스가 사용될 지역을 선택합니다. 현재 Speech Service는 동아시아, 북유럽 및 미국 서부 지역에서 사용할 수 있습니다.
-    * 체험 또는 유료 가격 책정 계층을 선택합니다. 각 계층의 가격 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 클릭합니다.
-    * 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
-    * 나중에 구독에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.
-    * **만들기**를 선택합니다.
+   * 새 리소스 그룹의 이름. 이름은 동일한 서비스에 대한 여러 구독을 구분하는 데 도움이 됩니다.
+   * 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
+   * 리소스가 사용될 지역을 선택합니다. 현재 Speech Service는 동아시아, 북유럽 및 미국 서부 지역에서 사용할 수 있습니다.
+   * 체험 또는 유료 가격 책정 계층을 선택합니다. 각 계층의 가격 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 클릭합니다.
+   * 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
+   * 나중에 구독에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.
+   * **만들기**를 선택합니다.
 
-    ![만들기 단추 선택](media/index/try-speech-api-create-speech4.png)
+     ![만들기 단추 선택](media/index/try-speech-api-create-speech4.png)
 
-    새 Speech 리소스를 만들고 배포하는 데 약간의 시간이 걸립니다. 새 리소스에 대한 정보를 보려면 **빠른 시작**을 선택합니다.
+     새 Speech 리소스를 만들고 배포하는 데 약간의 시간이 걸립니다. 새 리소스에 대한 정보를 보려면 **빠른 시작**을 선택합니다.
 
-    ![빠른 시작 패널](media/index/try-speech-api-create-speech5.png)
+     ![빠른 시작 패널](media/index/try-speech-api-create-speech5.png)
 
 1. **빠른 시작** 아래의 1단계에서 **키** 링크를 클릭하여 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
 

@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: d5a6692aceedb6dc7fad7a434a433882cdbea015
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 11a336bbcf75c6c4de61f1bb681ab6ee7aa05650
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984908"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740960"
 ---
 컨테이너 액세스 권한을 요청하려면 먼저 [Cognitive Services Vision 컨테이너 요청 양식](https://aka.ms/VisionContainersPreview)을 완성하여 제출해야 합니다. 이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 제출되면 Azure Cognitive Services 팀에서 양식을 검토하여 개인 컨테이너 레지스트리에 대한 액세스 조건을 충족하는지 확인합니다.
 

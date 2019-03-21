@@ -6,28 +6,26 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895536"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194711"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
-이 문서에는 Azure Data Lake Storage Gen2에서 알려진 문제 및 임시 제한 사항이 포함됩니다.
+이 문서는 Data Lake 저장소 Gen2를 사용 하 여 임시 제한 사항 및 알려진된 문제를 포함합니다.
 
-## <a name="api-interoperability"></a>API 상호 운용성
+## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>Data Lake 저장소 Gen2 계정에 대 한 SDK 지원
 
-Blob Storage API 및 Azure Data Lake Gen2 API는 서로 상호 운용되지 않습니다.
-
-Blob API를 사용하는 도구, 애플리케이션, 서비스 또는 스크립트를 가지고 있고 이들을 사용하여 본인의 계정에 업로드하는 모든 콘텐츠로 작업하려는 경우 Blob API가 Azure Data Lake Gen2 API와 상호 운용할 수 있게 될 때까지 본인의 Blob Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 마세요. 계층 구조 네임스페이스 없이 스토리지 계정을 사용하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+Data Lake 저장소 Gen2 계정으로 작동 하는 데 사용할 수 있는 Sdk 없습니다.
 
 ## <a name="blob-storage-apis"></a>Blob Storage API
 
-Blob Storage API는 아직 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
+Blob 저장소 Api가 Data Lake 저장소 Gen2 계정에 아직 불가능 합니다.
 
 Blob Storage API가 Azure Data Lake Gen2 API와 상호 운용 가능하지 않기 때문에 발생할 수 있는 의도하지 않은 데이터 액세스 문제를 방지하기 위해 이러한 API는 사용하지 않도록 설정됩니다.
 
@@ -45,6 +43,12 @@ Blob Storage API가 Azure Data Lake Gen2 API와 상호 운용 가능하지 않�
 
 비관리형 VM(Virtual Machine) 디스크는 사용하지 않도록 설정된 Blob Storage API에 따라 달라집니다. 따라서 스토리지 계정에서 계층 구조 네임스페이스를 사용하려면 계층 구조 네임스페이스 기능을 설정하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치하는 것이 좋습니다.
 
+## <a name="api-interoperability"></a>API 상호 운용성
+
+Blob Storage API 및 Azure Data Lake Gen2 API는 서로 상호 운용되지 않습니다.
+
+Blob API를 사용하는 도구, 애플리케이션, 서비스 또는 스크립트를 가지고 있고 이들을 사용하여 본인의 계정에 업로드하는 모든 콘텐츠로 작업하려는 경우 Blob API가 Azure Data Lake Gen2 API와 상호 운용할 수 있게 될 때까지 본인의 Blob Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 마세요. 계층 구조 네임스페이스 없이 스토리지 계정을 사용하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+
 ## <a name="azure-storage-explorer"></a>Azure Storage 탐색기
 
 Azure Storage 탐색기를 사용하여 Data Lake Storage Gen2 계정을 보거나 관리하려면 [무료 다운로드](https://azure.microsoft.com/features/storage-explorer/)로 제공되는 도구의 `1.6.0` 이상 버전이 있어야 합니다.
@@ -53,19 +57,19 @@ Azure Portal에 포함된 Storage 탐색기 버전은 현재 계층 구조 네�
 
 ## <a name="blob-viewing-tool"></a>Blob 보기 도구
 
-Azure Portal의 Blob 보기 도구는 Azure Data Lake Storage Gen2를 제한적으로 지원합니다.
+Azure portal의 도구를 보고 하는 blob만 제한적으로 지원 Data Lake 저장소 Gen2 합니다.
 
 ## <a name="third-party-applications"></a>타사 애플리케이션
 
-타사 애플리케이션에서는 Azure Data Lake Storage Gen2를 지원하지 않습니다.
+타사 응용 프로그램에서 Data Lake 저장소 Gen2를 지원 하지 않습니다.
 
-지원 여부는 각 타사 애플리케이션 공급자의 판단에 맡겨집니다. 현재 Blob Storage API 및 Azure Data Lake Storage Gen2 API는 동일한 콘텐츠를 관리하는 데 사용될 수 없습니다. 이러한 상호 운용성을 설정하기 위해 노력하고 있으므로 다양한 타사 도구가 자동으로 Azure Data Lake Storage Gen2를 지원하게 될 수 있습니다.
+지원 여부는 각 타사 애플리케이션 공급자의 판단에 맡겨집니다. 현재 Blob 저장소 Api와 동일한 콘텐츠를 관리 하는 Data Lake 저장소 Gen2 Api를 사용할 수 없습니다. 상호 운용성을 수 있다는 것 많은 타사 도구에서 자동으로 사용할 수 있도록 노력으로 Data Lake 저장소 Gen2를 지원 합니다.
 
 ## <a name="azcopy-support"></a>AzCopy 지원
 
-AzCopy 버전 8은 Azure Data Lake Storage Gen2를 지원하지 않습니다.
+버전 8 AzCopy는 Data Lake 저장소 Gen2를 지원 하지 않습니다.
 
-대신 Azure Data Lake Storage Gen2 엔드포인트를 지원하는 최신 미리 보기 버전의 AzCopy([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))를 사용합니다.
+대신 최신 미리 보기 버전의 AzCopy 사용 하 여 ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) Data Lake 저장소 Gen2 끝점을 지원 합니다.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
@@ -73,7 +77,7 @@ Azure Data Lake Gen2 계정이 아직 이벤트를 생성하지 않았기 때문
 
 ## <a name="soft-delete-and-snapshots"></a>일시 삭제 및 스냅숏
 
-일시 삭제 및 스냅숏은 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
+일시 삭제 및 스냅숏 Data Lake 저장소 Gen2 계정을 사용할 수 없습니다.
 
 [스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) 및 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 비롯한 모든 버전 관리 기능은 아직 계층 구조 네임스페이스 기능을 사용하도록 설정한 Storage 계정에 지원되지 않습니다.
 
@@ -83,10 +87,10 @@ Azure Data Lake Gen2 계정이 아직 이벤트를 생성하지 않았기 때문
 
 ## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob Storage 수명 주기 관리 정책
 
-Azure Blob Storage 수명 주기 관리 정책은 아직 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
+Azure Blob 저장소 수명 주기 관리 정책을 아직 Data Lake 저장소 Gen2 계정을 사용할 수 없습니다.
 
 이러한 정책은 계층 구조 네임스페이스 기능을 사용하도록 설정하지 않은 스토리지 계정에 사용할 수 있습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-진단 로그는 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
+진단 로그는 Data Lake 저장소 Gen2 계정을 사용할 수 없습니다.

@@ -5,23 +5,22 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854380"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292889"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
-**작성** 또는 **구문 분석 JSON**과 같은 네이티브 데이터 조작 작업을 사용하여 Logic Apps에서 기본 JSON 변환을 수행할 수 있습니다. 고급 JSON 변환을 수행하려면 유연한 웹앱을 위한 오픈 소스 템플릿 언어인 [Liquid](https://shopify.github.io/liquid/)를 사용하여 템플릿 또는 맵을 만들 수 있습니다. Liquid 템플릿을 사용하여 JSON 출력을 변환하고 반복, 제어 흐름, 변수 등 더 복잡한 JSON 변환을 지원하는 방법을 정의할 수 있습니다. 
+**작성** 또는 **구문 분석 JSON**과 같은 네이티브 데이터 조작 작업을 사용하여 Logic Apps에서 기본 JSON 변환을 수행할 수 있습니다. 고급 JSON 변환을 수행하려면 유연한 웹앱을 위한 오픈 소스 템플릿 언어인 [Liquid](https://shopify.github.io/liquid/)를 사용하여 템플릿 또는 맵을 만들 수 있습니다. Liquid 템플릿을 JSON 출력을 변환 하는 방법을 정의 하 고 반복, 제어 흐름, 변수 등 더 복잡 한 JSON 변환을 지원 합니다. 
 
-따라서 논리 앱에서 Liquid 변환을 수행하려면, 먼저 Liquid 템플릿을 사용하여 JSON 간의 매핑을 정의하고 해당 맵을 통합 계정에 저장해야 합니다. 이 문서에서는 이러한 Liquid 템플릿 또는 맵을 만들고 사용하는 방법을 보여 줍니다. 
+논리 앱에서 Liquid 변환을 수행할 수 있습니다, 전에 통합 계정에 매핑되는 Liquid 템플릿 및 저장소를 사용 하 여 JSON 매핑 JSON를 먼저 정의 해야 있습니다. 이 문서에서는 이러한 Liquid 템플릿 또는 맵을 만들고 사용하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,8 +34,10 @@ ms.locfileid: "54854380"
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>통합 계정에 대한 Liquid 템플릿 또는 맵 만들기
 
-1. 이 예제에서는 이 단계에 설명된 샘플 Liquid 템플릿을 만듭니다.
-Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자로 시작해야 합니다. [DotLiquid](https://dotliquidmarkup.org/) 및 C# 명명 규칙을 사용하는 [Liquid 필터](https://shopify.github.io/liquid/basics/introduction/#filters)에 대해 자세히 알아보세요.
+1. 이 예제에서는 이 단계에 설명된 샘플 Liquid 템플릿을 만듭니다. Liquid 템플릿을 사용할 수 있습니다 [Liquid 필터링](https://shopify.github.io/liquid/basics/introduction/#filters)를 사용 하는 [DotLiquid](https://dotliquidmarkup.org/) 및 C# 명명 규칙입니다. 
+
+   > [!NOTE]
+   > 필터 이름을 사용 했는지 *문장 대/소문자 구분* 템플릿에서 합니다. 그렇지 않은 경우 필터가 작동 하지 않습니다.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +83,8 @@ Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자�
 
 2. Logic Apps 디자이너에서 논리 앱에 [요청 트리거](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)를 추가합니다.
 
-3. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 "liquid"를 입력하고, **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
+3. 트리거 아래에서 **새 단계**를 선택합니다. 
+   검색 상자에서 필터로 "liquid"를 입력하고, **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
 
    ![Liquid 작업 찾기 및 선택](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +103,7 @@ Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자�
 
    2. **통합 계정 선택** 목록에서 통합 계정을 선택하고 **저장**을 선택합니다.
 
-     ![통합 계정에 논리 앱 연결](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![통합 계정에 논리 앱 연결](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>논리 앱 테스트
 

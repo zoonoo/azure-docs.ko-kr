@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874093"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870655"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>LUIS 버전을 사용하는 방법 및 시기 이해
 
@@ -35,7 +35,7 @@ LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버�
 
 현재 활성 버전의 이름이 앱 이름 뒤의 왼쪽 위 패널에 표시됩니다. 
 
-[ ![활성 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![현재 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>버전 및 게시 슬롯
 스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 애플리케이션에 사용할 수 있습니다. 

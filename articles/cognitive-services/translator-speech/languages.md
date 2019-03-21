@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873053"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673702"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator Speech API에서 지원되는 언어
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-음성 번역에 다음 언어가 지원됩니다. 두 언어가 음성 번역에 지원되는 경우 음성 - 음성 변환 또는 음성 - 텍스트 변환이 지원됩니다. 대상 언어가 음성 번역을 지원하지 않으면 음성 - 텍스트 변환만 지원됩니다. 
+음성 번역에 다음 언어가 지원됩니다. 두 언어가 음성 번역에 지원되는 경우 음성 - 음성 변환 또는 음성 - 텍스트 변환이 지원됩니다. 대상 언어가 음성 번역을 지원하지 않으면 음성 - 텍스트 변환만 지원됩니다.
 
 | 음성 언어    |
 |:----------- |
@@ -34,9 +35,9 @@ ms.locfileid: "55873053"
 | 일본어      |
 | 포르투갈어(브라질어)     |
 | 러시아어      |
-| 스페인어      | 
+| 스페인어      |
 
-Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대한 대상 언어로 지원합니다. 
+Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대한 대상 언어로 지원합니다.
 
 | 텍스트 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대�
 | 불가리아어      | `bg`          |
 | 광둥어(번체)      | `yue`          |
 | 카탈로니아어      | `ca`          |
-| 중국어 간체      | `zh-Hans`          | 
+| 중국어 간체      | `zh-Hans`          |
 | 중국어 번체      | `zh-Hant`          |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
@@ -116,4 +117,4 @@ Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대�
 
 언어를 빠르게 확인하려는 경우 Microsoft Translator 웹 사이트는Translator Text 및 Speech API에서 지원하는 모든 언어를 표시합니다. 이 목록에는 언어 코드와 같은 개발자별 정보가 포함되지 않습니다.
 
-[언어 목록을 참조하세요](https://www.microsoft.com/translator/languages.aspx). 
+[언어 목록을 참조하세요](https://www.microsoft.com/translator/languages.aspx).

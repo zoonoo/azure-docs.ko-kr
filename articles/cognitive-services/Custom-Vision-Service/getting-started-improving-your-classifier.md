@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104423"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "56310217"
 
 ## <a name="data-quantity"></a>데이터 수량
 
-학습 이미지의 수가 무엇보다 중요한 요소입니다. 시작점으로 레이블별 최소 50개의 이미지를 사용하는 것이 좋습니다. 더 적은 수의 이미지를 사용하면 과잉 맞춤을 위험이 높아집니다. 성능 수치가 높은 품질을 암시하는 반면, 모델은 실제 데이터와 씨름할 수 있습니다. 
+학습 이미지의 수가 무엇보다 중요한 요소입니다. 시작 지점으로 레이블 당 최소 50 개의 이미지를 사용 하는 것이 좋습니다. 더 적은 수의 이미지를 사용하면 과잉 맞춤을 위험이 높아집니다. 성능 수치가 높은 품질을 암시하는 반면, 모델은 실제 데이터와 씨름할 수 있습니다. 
 
 ## <a name="data-balance"></a>데이터 균형
 
@@ -102,4 +102,4 @@ ms.locfileid: "56310217"
 이 가이드에서는 사용자 지정 이미지 분류 모델을 더 정확하게 만들기 위한 다양한 기술을 배웠습니다. 다음으로는 그러한 모델을 Prediction API에 제출하여 프로그래밍 방식으로 이미지를 테스트하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-[예측 API 사용](use-prediction-api.md)
+> [예측 API 사용](use-prediction-api.md)

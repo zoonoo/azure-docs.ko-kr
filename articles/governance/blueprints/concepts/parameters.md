@@ -4,17 +4,17 @@ description: 정적 및 동적 매개 변수란 무엇이며 동적 청사진을
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838020"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -41,8 +41,13 @@ Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject
 - Key Vault 비밀 이름
 - Key Vault 비밀 버전
 
-참조된 Key Vault는 Blueprint가 할당되는 구독과 동일한 구독에 있어야 합니다.
-또한 Key Vault의 **액세스 정책** 페이지에 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이 구성되어 있어야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요. Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
+Blueprint 할당을 사용 하는 경우는 **관리 시스템 할당 id**, Key Vault 참조 _해야_ blueprint 정의에 할당 된 동일한 구독에 존재 합니다.
+
+Blueprint 할당을 사용 하는 경우는 **사용자 할당 관리 id**, Key Vault 참조 _수 있습니다_ 중앙 집중화 된 구독에 존재 합니다. 관리 되는 id blueprint 할당 하기 전에 Key Vault에 적절 한 권한이 부여 되어야 합니다.
+
+두 경우 모두에 Key Vault가 있어야 합니다 **Azure Resource Manager 템플릿 배포에 대 한 액세스를 사용 하도록 설정** 에서 구성 합니다 **액세스 정책** 페이지입니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
+
+Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
 
 ## <a name="parameter-types"></a>매개 변수 유형
 
@@ -52,11 +57,11 @@ Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject
 
 #### <a name="setting-static-parameters-in-the-portal"></a>포털에서 정적 매개 변수 설정
 
-1. **모든 서비스**를 클릭하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다.
 
-1. 기존 청사진을 클릭한 다음, **청사진 편집** 또는 **+ 청사진 만들기**를 클릭하고 **기본 사항** 탭에서 정보를 입력합니다.
+1. 기존 blueprint를 클릭 하 고 클릭 **편집 blueprint** 누르거나 **+ 만들기 blueprint** 에서 정보를 입력 하 고는 **기본 사항** 탭 합니다.
 
 1. **다음: 아티팩트**를 클릭하거나 **아티팩트** 탭을 클릭합니다.
 
@@ -169,13 +174,13 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>포털에서 동적 매개 변수 설정
 
-1. **모든 서비스**를 클릭하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다.
 
-1. 할당하려는 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 할당**을 선택하거나, 할당하려는 청사진을 클릭하고 **청사진 할당** 단추를 클릭합니다.
+1. 할당하려는 청사진을 마우스 오른쪽 단추로 클릭하고 선택 **할당 blueprint** 또는 청사진에 할당 하려면 클릭 합니다 **할당 blueprint** 단추입니다.
 
-1. **청사진 할당** 페이지에서 **아티팩트 매개 변수** 섹션을 찾습니다. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
+1. 에 **할당 blueprint** 페이지에서 찾을 합니다 **아티팩트 매개 변수** 섹션. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
 
    ![청사진 동적 매개 변수](../media/parameters/dynamic-parameter.png)
 

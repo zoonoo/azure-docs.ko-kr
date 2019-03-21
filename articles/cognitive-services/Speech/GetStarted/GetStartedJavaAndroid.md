@@ -10,16 +10,17 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222493"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547030"
 ---
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>빠른 시작: Android의 Java에서 Bing Speech Recognition API 사용
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서비스를 사용하여 음성 오디오를 텍스트로 변환하는 Android 애플리케이션을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 애플리케이션에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
 
@@ -29,7 +30,7 @@ Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서�
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
-이 샘플은 Windows용 [Android Studio](http://developer.android.com/sdk/index.html)를 통해 Java에서 개발되었습니다.
+이 샘플은 Windows용 [Android Studio](https://developer.android.com/sdk/index.html)를 통해 Java에서 개발되었습니다.
 
 ### <a name="get-the-client-library-and-sample-application"></a>클라이언트 라이브러리 및 샘플 애플리케이션 가져오기
 

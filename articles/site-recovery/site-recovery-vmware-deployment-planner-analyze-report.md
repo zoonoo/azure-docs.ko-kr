@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109630"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286349"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 보고서 분석
 
@@ -279,7 +279,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 MB/s | 디스크당 1684 GB
 
 **원본 데이터 변동률** | **최대 제한**
 ---|---

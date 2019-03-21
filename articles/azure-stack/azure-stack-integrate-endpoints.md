@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 0bfd280e2a0a63c8fb41d0813a0ac44784e7a055
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270065"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259180"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -73,12 +73,12 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 
 |목적|대상 URL|프로토콜|포트|원본 네트워크|
 |---------|---------|---------|---------|---------|
-|ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
-|마켓플레이스 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|공용 VIP-/ 27|
+|ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
+|마켓플레이스 배포|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|공용 VIP-/ 27|
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|공용 VIP-/ 27|
-|등록|https://management.azure.com|HTTPS|443|공용 VIP-/ 27|
+|등록|https:\//management.azure.com|HTTPS|443|공용 VIP-/ 27|
 |사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|공용 VIP-/ 27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https:\//msdl.microsoft.com/download/symbols<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
 |NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|공용 VIP-/ 27|
 |DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|공용 VIP-/ 27|
 |CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|공용 VIP-/ 27|
