@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086023"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -53,20 +53,20 @@ ms.locfileid: "55494751"
 
 3. **Automation 추가**에서
 
-    1. Automation 계정의 **이름**을 입력합니다.
-    2. StorSimple 데이터 관리자 서비스에 연결된 **구독**을 선택합니다.
-    3. 새 리소스 그룹을 만들거나 기존 리소스 그룹에서 선택합니다.
-    4. **위치**를 선택합니다.
-    5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
-    6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
+   1. Automation 계정의 **이름**을 입력합니다.
+   2. StorSimple 데이터 관리자 서비스에 연결된 **구독**을 선택합니다.
+   3. 새 리소스 그룹을 만들거나 기존 리소스 그룹에서 선택합니다.
+   4. **위치**를 선택합니다.
+   5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
+   6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
 
-    ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    Automation 계정이 생성되면 알림이 표시됩니다.
+      Automation 계정이 생성되면 알림이 표시됩니다.
     
-    ![Automation 계정 배포 알림](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Automation 계정 배포 알림](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    자세한 내용은 [실행 계정 만들기](../automation/automation-create-runas-account.md)로 이동합니다.
+      자세한 내용은 [실행 계정 만들기](../automation/automation-create-runas-account.md)로 이동합니다.
 
 3. 새로 만든 계정에서 **공유 리소스 > 모듈**로 이동한 다음 **+ 모듈 추가**를 클릭합니다.
 

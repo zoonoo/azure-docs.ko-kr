@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098307"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 Apache Pig 작업 실행
 
@@ -58,8 +58,8 @@ Azure HDInsight 클러스터에 대한 REST 요청을 만들어 Apache Pig Latin
 
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u**: 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
-    * **-G**: 이 요청이 GET 요청임을 나타냅니다.
+   * **-u**: 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
+   * **-G**: 이 요청이 GET 요청임을 나타냅니다.
 
      URL의 시작 부분, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에 대해 동일합니다. **/status** 경로는 요청이 서버에 대한 WebHCat(Templeton라고도 함)의 상태를 반환하는 경우 나타납니다.
 
@@ -71,18 +71,18 @@ Azure HDInsight 클러스터에 대한 REST 요청을 만들어 Apache Pig Latin
 
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-d**: `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
+   * **-d**: `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
 
-    * **user.name**: 명령을 실행하는 사용자입니다.
-    * **execute**: 실행할 Pig Latin 문입니다.
-    * **statusdir**: 이 작업의 상태를 기록할 디렉터리입니다.
+   * **user.name**: 명령을 실행하는 사용자입니다.
+   * **execute**: 실행할 Pig Latin 문입니다.
+   * **statusdir**: 이 작업의 상태를 기록할 디렉터리입니다.
 
-    > [!NOTE]  
-    > Curl과 함께 사용할 경우 Pig Latin 문의 공백이 `+` 문자로 바뀝니다.
+     > [!NOTE]  
+     > Curl과 함께 사용할 경우 Pig Latin 문의 공백이 `+` 문자로 바뀝니다.
 
-    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다. 예를 들면 다음과 같습니다.
+     이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다. 예를 들면 다음과 같습니다.
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. 작업 상태를 확인하려면 다음 명령을 사용합니다.
 

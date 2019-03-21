@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 789657e53f8575b4e001fd3ec2629aaefe1a2d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082010"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -172,9 +172,9 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 * **태그 바꾸기**. 이 작업을 사용하여 솔루션 백 엔드에서 기존의 모든 태그를 완전히 덮어쓰고 `tags`에 대해 새 JSON 문서를 대체할 수 있습니다.
 
-* **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 쌍 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 응용 프로그램에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 디바이스-클라우드 메시지를 사용하는 것이 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
+* **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 쌍 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 애플리케이션에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 장치-클라우드 메시지를 사용하는 것이 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
 
-    - properties
+  - properties
 
     | 이름 | 값 |
     | --- | --- |
@@ -191,26 +191,26 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
     메시지 시스템 속성 앞에 `$` 기호를 붙입니다.
 
-    - 본문
+  - 본문
         
     이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -230,7 +230,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) 문서에 정의된 대로 **ModuleConnect** 권한이 필요합니다.
 
-[Azure IoT 장치 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다.
+[Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다.
 
 ## <a name="tags-and-properties-format"></a>태그 및 속성 형식
 
@@ -331,10 +331,10 @@ IoT Hub는 모듈 쌍 desired 또는 reported 속성에서 각 JSON 개체에 �
 
 모듈 쌍 desired 및 reported 속성에는 ETag가 없지만 증분할 수 있는 `$version` 값이 있습니다. ETag와 마찬가지로 버전은 업데이트의 일관성을 유지하는 파티를 업데이트하여 사용할 수 있습니다. 예를 들어 reported 속성에 대한 모듈 앱 또는 desired 속성에 대한 솔루션 백 엔드가 있습니다.
 
-또한 관찰 에이전트(예: desired 속성을 관찰하는 모듈 앱)에서 검색 작업 결과와 업데이트 알림 간의 경합을 조정해야 하는 경우에도 버전이 유용합니다. [장치 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow) 섹션에 자세한 정보가 있습니다. 
+또한 관찰 에이전트(예: desired 속성을 관찰하는 모듈 앱)에서 검색 작업 결과와 업데이트 알림 간의 경합을 조정해야 하는 경우에도 버전이 유용합니다. [디바이스 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow) 섹션에 자세한 정보가 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [.NET 백 엔드 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [.NET 백 엔드 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작](iot-hub-csharp-csharp-module-twin-getstarted.md)

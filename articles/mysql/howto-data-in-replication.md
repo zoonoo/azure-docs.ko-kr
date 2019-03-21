@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102944"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -184,7 +184,7 @@ ms.locfileid: "53539622"
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. 복제 시작
+1. 복제 시작
 
    `mysql.az_replication_start` 저장 프로시저를 호출하여 복제를 시작합니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "53539622"
    CALL mysql.az_replication_start;
    ```
 
-3. 복제 상태 확인
+1. 복제 상태 확인
 
    복제본 서버에서 [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) 명령을 호출하여 복제 상태를 확인합니다.
     

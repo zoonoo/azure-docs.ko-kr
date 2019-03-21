@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088658"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -50,60 +50,60 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. 도구가 있는 루트 폴더에서 *dataset.csv* 파일을 수정합니다. 파일 또는 폴더 중 하나 또는 둘 다를 가져올지에 따라 다음 예제와 비슷한 *dataset.csv* 파일에 항목을 추가합니다.  
 
-    - **파일을 가져오려면**: 다음 예제에서 C: 드라이브에 복사할 데이터가 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1*의 루트에 복사합니다. *MyAzureFileshare1*이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
+   - **파일을 가져오려면**: 다음 예제에서 C: 드라이브에 복사할 데이터가 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1*의 루트에 복사합니다. *MyAzureFileshare1*이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
+       ```
+   - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    가져온 폴더 또는 파일에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     가져온 폴더 또는 파일에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    [데이터 세트 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)에 대해 자세히 알아보세요.
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     [데이터 세트 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)에 대해 자세히 알아보세요.
     
 
 4. 도구가 있는 루트 폴더에서 *driveset.csv* 파일을 수정합니다. 다음 예제와 비슷한 *driveset.csv* 파일에 항목을 추가합니다. 드라이브 집합 파일에는 디스크 및 해당하는 드라이브 문자 목록이 있으므로 도구는 준비해야 할 디스크 목록을 올바르게 선택할 수 있습니다.
 
     이 예제에서는 두 개의 디스크가 연결되어 있고 기본 NTFS 볼륨 G:\ 및 H:\가 생성되었다고 가정합니다. G:가 이미 암호화된 반면 H:\는 암호화되지 않았습니다. 도구는 H:\만을 호스트하는 디스크를 포맷하고 암호화합니다(G:\) 제외).
 
-    - **암호화되지 않은 디스크의 경우**: *Encrypt*를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
+   - **암호화되지 않은 디스크의 경우**: *Encrypt*를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **이미 암호화되어 있는 디스크의 경우**: *AlreadyEncrypted*를 지정하고 BitLocker 키를 제공합니다.
+   - **이미 암호화되어 있는 디스크의 경우**: *AlreadyEncrypted*를 지정하고 BitLocker 키를 제공합니다.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    여러 드라이브에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. [드라이브 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)에 대해 자세히 알아보세요. 
+     여러 드라이브에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. [드라이브 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)에 대해 자세히 알아보세요. 
 
-5.  `PrepImport` 옵션을 사용하여 디스크 드라이브에 대한 데이터를 복사하고 준비합니다. 새 복사 세션을 사용하여 디렉터리 및/또는 파일을 복사하는 첫 번째 복사 세션의 경우 다음과 같은 명령을 실행합니다.
+5. `PrepImport` 옵션을 사용하여 디스크 드라이브에 대한 데이터를 복사하고 준비합니다. 새 복사 세션을 사용하여 디렉터리 및/또는 파일을 복사하는 첫 번째 복사 세션의 경우 다음과 같은 명령을 실행합니다.
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    아래에 가져오기 예제가 나와 있습니다.
+   아래에 가져오기 예제가 나와 있습니다.
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. 명령줄을 실행할 때마다 `/j:` 매개 변수와 함께 제공된 이름의 업무 일지 파일이 만들어집니다. 준비한 각 드라이브에는 가져오기 작업을 만들 때 업로드해야 하는 업무 일지 파일이 있습니다. 업무 일지 파일이 없는 드라이브는 처리되지 않습니다.
 
