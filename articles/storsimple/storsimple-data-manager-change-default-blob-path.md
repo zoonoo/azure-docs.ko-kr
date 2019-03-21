@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011640"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
@@ -33,17 +33,17 @@ StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구
 
 Azure 함수를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
-2. **+ 리소스 만들기**를 클릭합니다. **검색** 상자에 **함수 앱**을 입력한 다음 **Enter** 키를 누릅니다. 표시되는 앱 목록에서 **함수 앱**을 선택한 후 클릭합니다.
+2. **+ 리소스 만들기**를 클릭합니다. **검색** 상자에 **Function App**을 입력한 다음 **Enter** 키를 누릅니다. 표시되는 앱 목록에서 **함수 앱**을 선택한 후 클릭합니다.
 
-    ![검색 상자에 “함수 앱” 입력](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![검색 상자에 “Function App” 입력](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. **만들기**를 클릭합니다.
 
-    ![함수 앱 창의 “만들기” 단추](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![Function App 창의 “만들기” 단추](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-4. **함수 앱** 구성 블레이드에서 다음 단계를 수행합니다.
+4. **Function App** 구성 블레이드에서 다음 단계를 수행합니다.
 
     1. 고유한 **앱 이름**을 제공합니다.
     2. 드롭다운 목록에서 **구독**을 선택합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
@@ -52,11 +52,11 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
     5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 저장소 계정이 있는 동일한 영역이 좋습니다.
     6. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 저장소 계정은 함수에 대해 내부적으로 사용됩니다.
 
-        ![새 함수 앱 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
+        ![새 Function App 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
     7. **만들기**를 클릭합니다. 함수 앱이 생성됩니다.
      
-        ![함수 앱이 생성됨](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
+        ![Function App이 생성됨](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
 5. **함수**를 선택하고 **+ 새 함수**를 클릭합니다.
 

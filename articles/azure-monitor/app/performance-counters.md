@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837612"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -122,8 +122,8 @@ Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/de
 
 * *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](../../azure-monitor/app/asp-net-exceptions.md)는 모두 포함되지 않습니다. 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 애플리케이션의 성능 카운터
-성능 카운터는 애플리케이션이 전체 .NET Framework를 대상으로 하는 경우에만 지원됩니다. .NET Core 애플리케이션에 대한 성능 카운터를 수집하는 기능은 없습니다.
+## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에서 성능 카운터
+성능 카운터는 애플리케이션이 전체 .NET Framework를 대상으로 하는 경우에만 지원됩니다. .NET Core 응용 프로그램에 대 한 성능 카운터를 수집 하는 기능은 없습니다.
 
 ## <a name="alerts"></a>경고
 다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../../azure-monitor/app/alerts.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.

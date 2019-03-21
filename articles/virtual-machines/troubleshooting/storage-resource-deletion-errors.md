@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089984"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>저장소 리소스 삭제 오류 문제 해결
 
 상황에 따라, 배포된 Azure Resource Manager에서 Azure 저장소 계정, 컨테이너 또는 BLOB을 삭제하려고 시도하면 다음 오류 중 하나가 발생할 수 있습니다.
 
->**스토리지 계정 'StorageAccountName'을 삭제하지 못했습니다. 오류: 스토리지 계정의 아티팩트가 사용 중이기 때문에 스토리지 계정을 삭제할 수 없습니다.**
-
->**# 컨테이너에서 #을 삭제하지 못했습니다.<br>vhds: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
-
->**# Blob에서 #을 삭제하지 못했습니다.<br>BlobName.vhd: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
+> **스토리지 계정 'StorageAccountName'을 삭제하지 못했습니다. 오류: 스토리지 계정의 아티팩트가 사용 중이기 때문에 스토리지 계정을 삭제할 수 없습니다.**
+> 
+> **# 컨테이너에서 #을 삭제하지 못했습니다.<br>vhds: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
+> 
+> **# Blob에서 #을 삭제하지 못했습니다.<br>BlobName.vhd: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.**
 
 Azure VM에 사용되는 VHD는 Azure의 표준 또는 Premium Storage 계정에 페이지 Blob으로 저장되는 .vhd 파일입니다. Azure 디스크에 대한 자세한 내용은 [관리 디스크 소개](../linux/managed-disks-overview.md)를 참조하세요.
 

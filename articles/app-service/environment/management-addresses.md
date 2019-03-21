@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010100"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 관리 주소
 
@@ -40,7 +40,7 @@ ASE에 대한 인바운드 관리 트래픽을 잠그기 위해 네트워크 보
 
 ## <a name="configuring-a-network-security-group"></a>네트워크 보안 그룹 구성
 
-네트워크 보안 그룹을 사용하면 개별 주소 또는 사용자 고유의 구성 유지 관리에 대해 걱정할 필요가 없습니다. 모든 주소를 사용하여 최신 상태로 유지되는 AppServiceManagement라는 IP 서비스 태그가 있습니다. NSG에서 이 IP 서비스 태그를 사용하려면 포털로 이동한 후 네트워크 보안 그룹 UI를 열고 인바운드 보안 규칙을 선택합니다. 인바운드 관리 트래픽에 대한 기존 규칙이 있으면 편집합니다. 이 NSG를 ASE과 함께 만들지 않았거나 모두 새 항목이면 **추가**를 선택합니다. 원본 드롭다운 목록에서 **서비스 태그**를 선택합니다.  원본 서비스 태그에서 ** AppServiceManagement **를 선택합니다. 원본 포트 범위를 \*으로, 대상을 **모두**로, 대상 포트 범위를 **454-455**로, 프로토콜을 **TCP**로, 작업을 **허용**으로 설정합니다. 규칙을 만드는 경우 우선 순위를 설정해야 합니다. 
+네트워크 보안 그룹을 사용하면 개별 주소 또는 사용자 고유의 구성 유지 관리에 대해 걱정할 필요가 없습니다. 모든 주소를 사용하여 최신 상태로 유지되는 AppServiceManagement라는 IP 서비스 태그가 있습니다. NSG에서 이 IP 서비스 태그를 사용하려면 포털로 이동한 후 네트워크 보안 그룹 UI를 열고 인바운드 보안 규칙을 선택합니다. 인바운드 관리 트래픽에 대한 기존 규칙이 있으면 편집합니다. 이 NSG를 ASE과 함께 만들지 않았거나 모두 새 항목이면 **추가**를 선택합니다. 원본 드롭다운 목록에서 **서비스 태그**를 선택합니다.  원본 서비스 태그 아래에서 선택 **AppServiceManagement**합니다. 원본 포트 범위를 \*으로, 대상을 **모두**로, 대상 포트 범위를 **454-455**로, 프로토콜을 **TCP**로, 작업을 **허용**으로 설정합니다. 규칙을 만드는 경우 우선 순위를 설정해야 합니다. 
 
 ![서비스 태그를 사용하여 NSG 만들기][1]
 

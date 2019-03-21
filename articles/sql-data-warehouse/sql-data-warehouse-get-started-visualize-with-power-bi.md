@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834628"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
@@ -93,4 +93,4 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 환경이 개선되면서 이러한 제한 및 참고 사항은 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 샘플 데이터로 [개발](sql-data-warehouse-overview-develop.md), [로드](design-elt-data-loading.md) 또는 [마이그레이션](sql-data-warehouse-overview-migrate.md)할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트](http://www.powerbi.com/)를 살펴보세요.
+이제 샘플 데이터로 [개발](sql-data-warehouse-overview-develop.md), [로드](design-elt-data-loading.md) 또는 [마이그레이션](sql-data-warehouse-overview-migrate.md)할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.

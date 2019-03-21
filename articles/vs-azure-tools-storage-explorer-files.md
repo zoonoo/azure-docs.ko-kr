@@ -11,15 +11,15 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847300"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage 탐색기 사용
 
@@ -31,7 +31,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 - [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com/)
 
-- [Azure 저장소 계정 또는 서비스에 연결](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Azure storage 계정 또는 서비스에 연결](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/11/2019
+ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: 919dbd057f2fa1d762775ed799505796a420864a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840633"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure Media Services에 대한 Azure CLI 예제
 
@@ -30,13 +30,14 @@ ms.locfileid: "56109251"
 |**규모**||
 | [미디어 예약 단위 규모](media-reserved-units-cli-how-to.md)|Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10개의 S3 MRU를 사용하여 계정을 프로비전하는 것이 좋습니다. <br/>이 스크립트는 CLI를 사용하여 MRU(미디어 예약 단위) 비율 크기를 조정하는 방법을 보여줍니다.|
 |**계정**||
-| [Media Services 계정 만들기](./scripts/cli-create-account.md) | Azure Media Services 계정을 만듭니다. 또한 프로그래밍 방식으로 계정을 관리하기 위해 API에 액세스하는 데 사용할 수 있는 서비스 주체를 만듭니다. |
+| [Media Services 계정 만들기](create-account-cli-how-to.md) | 스크립트는 Azure Media Services 계정을 만듭니다. |
 | [계정 자격 증명 다시 설정](./scripts/cli-reset-account-credentials.md)|계정 자격 증명을 다시 설정하고 app.config 설정을 되돌립니다.|
 |**Assets**||
 | [자산 만들기](./scripts/cli-create-asset.md)|콘텐츠를 업로드 할 Media Services Asset을 만듭니다.|
 | [파일 업로드](./scripts/cli-upload-file-asset.md)|저장소 컨테이너에 로컬 파일을 업로드합니다.|
 | **Transforms** 및 **Jobs**||
-| [변환 만들기](./scripts/cli-create-transform.md)|변환을 만드는 방법을 보여줍니다. Transform은 비디오 또는 오디오 파일(흔히 "레시피"라고도 함)을 처리하는 간단한 작업 워크플로를 설명합니다.<br/> 원하는 이름 및 "레시피"를 가진 Transform이 이미 존재하는지 항상 확인해야 합니다. 그렇지 않으면 다시 사용합니다. |
+| [변환 만들기](./scripts/cli-create-transform.md)|변환을 만드는 방법을 보여줍니다. Transform은 비디오 또는 오디오 파일(흔히 "레시피"라고도 함)을 처리하는 간단한 작업 워크플로를 설명합니다.<br/> 원하는 이름으로 변환 하는 경우 항상 확인 해야 하 고 "recipe" 이미 존재 합니다. 그렇지 않으면 다시 사용합니다. |
+| [사용자 지정 변환을 사용 하 여 인코딩](custom-preset-cli-howto.md) | 특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정을 빌드하는 방법을 보여 줍니다.|
 | [작업 만들기](./scripts/cli-create-jobs.md)|HTTPs URL을 사용하여 작업을 간단한 인코딩 Transform에 제출합니다.|
 | [EventGrid 만들기](./scripts/cli-create-event-grid.md)|Job State Changes에 대한 계정 수준 Event Grid 구독을 만듭니다.|
 | **제공**||
@@ -45,4 +46,5 @@ ms.locfileid: "56109251"
 
 ## <a name="see-also"></a>참고 항목
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [빠른 시작: Stream 비디오 파일-CLI](stream-files-cli-quickstart.md)

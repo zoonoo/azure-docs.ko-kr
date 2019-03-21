@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ae4b19e9a4f11d84dddd7ec3b129cc5d575b75cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109167"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -39,8 +39,8 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    - Azure Stack 지원 세대만 고정된 디스크 VHD에서에서 VM 한 개 (1) 형식입니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장 되도록 파일 내에 선형적으로 논리적 디스크를 구조입니다. Blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 디스크는 고정 하는 경우를 확인 하려면 사용 합니다 [GET-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 명령입니다.  
 
-    > [!IMPORTANT]  
-    >  Azure Stack에서 동적 디스크 Vhd를 지원 하지 않습니다. VM에 연결 된 동적 디스크 크기 조정 실패 상태의 VM 종료 됩니다. 이 문제를 완화 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
+     > [!IMPORTANT]  
+     >  Azure Stack에서 동적 디스크 Vhd를 지원 하지 않습니다. VM에 연결 된 동적 디스크 크기 조정 실패 상태의 VM 종료 됩니다. 이 문제를 완화 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
 
    - Azure Stack 이미지 리포지토리에 이미지를 푸시 하려면 적은 시간이 걸리기 때문에 blob storage에서 Azure로 보다 Azure Stack blob storage에 이미지를 업로드 하는 것이 효율적 이며
 
@@ -50,9 +50,9 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    - Blob에 익명으로 액세스할 수 있도록으로 저장소 계정 blob 컨테이너를 VM 이미지 VHD를 업로드 하는 위치입니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 컨테이너에 대 한 공유 액세스 서명을 생성 하 고 blob URI의 일부로 포함 시킬 수 있습니다. 이 단계를 수행 하면 blob이 이미지를 추가 하기 위해 사용할 수 있습니다. Blob를 익명으로 액세스할 수 없는 경우 실패 한 상태의 VM 이미지에 만들어집니다.
 
-    ![저장소 계정 blob으로 이동](./media/azure-stack-add-vm-image/image1.png)
+     ![저장소 계정 blob으로 이동](./media/azure-stack-add-vm-image/image1.png)
 
-    ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
+     ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
 
 2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **모든 서비스** > **이미지** 아래에서 **계산** > **추가**합니다.
 
@@ -83,42 +83,42 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ```
+   ```
 
-  합니다 **추가 AzsPlatformimage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
-  - **publisher**  
-    예: `Canonical`  
-    사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **offer**  
-    예: `UbuntuServer`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **sku**  
-    예: `14.04.3-LTS`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **version**  
-    예: `1.0.0`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **osType**  
-    예: `Linux`  
-    이미지의 osType 여야 **Windows** 하거나 **Linux**합니다.  
-  - **OSUri**  
-    예: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
-    Blob 저장소 URI를 지정할 수 있습니다에 대 한는 `osDisk`합니다.  
+   합니다 **추가 AzsPlatformimage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
+   - **publisher**  
+     예: `Canonical`  
+     사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **offer**  
+     예: `UbuntuServer`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **sku**  
+     예: `14.04.3-LTS`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **version**  
+     예: `1.0.0`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **osType**  
+     예: `Linux`  
+     이미지의 osType 여야 **Windows** 하거나 **Linux**합니다.  
+   - **OSUri**  
+     예: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     Blob 저장소 URI를 지정할 수 있습니다에 대 한는 `osDisk`합니다.  
 
-    자세한 내용은 참조에 대 한 PowerShell 참조를 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 만들기-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
+     자세한 내용은 참조에 대 한 PowerShell 참조를 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 만들기-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 사용자 지정 VM 이미지를 Marketplace에 추가
  
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 
-  ```PowerShell  
+   ```PowerShell  
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -135,19 +135,19 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 2. 사용 하는 경우 **Active Directory Federation Services**, 다음 cmdlet을 사용 합니다.
 
-  ```PowerShell
-  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+   ```PowerShell
+   # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
+   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAudience endpoint for your environment>"
 
-  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-  Add-AzureRMEnvironment `
+   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
     ```
@@ -158,24 +158,24 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 5. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비, 저장소 계정에 이미지를 업로드 및 VM 이미지 PowerShell에서 검색할 수 있는 URI를 가져옵니다.  
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 6. (선택 사항) VM 이미지의 일부로 배열 데이터 디스크를 업로드할 수 있습니다. 새로 만들기-DataDiskObject cmdlet을 사용 하 여 데이터 디스크를 만듭니다. 관리자 권한 프롬프트에서 PowerShell을 열고 실행 합니다.
 
-  ```PowerShell  
+   ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ```
+   ```
 
 7. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ```
+   ```
 
     추가 AzsPlatformimage cmdlet 및 새 DataDiskObject cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [모듈 설명서 Azure Stack 운영자](https://docs.microsoft.com/powershell/module/)합니다.
 
@@ -189,28 +189,28 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ```PowerShell  
-  Remove-AzsPlatformImage `
+   ```PowerShell  
+   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ```
-  합니다 **제거 AzsPlatformImage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
-  - **publisher**  
-    예: `Canonical`  
-    사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **offer**  
-    예: `UbuntuServer`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **sku**  
-    예: `14.04.3-LTS`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-  - **version**  
-    예: `1.0.0`  
-    사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   ```
+   합니다 **제거 AzsPlatformImage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
+   - **publisher**  
+     예: `Canonical`  
+     사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **offer**  
+     예: `UbuntuServer`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **sku**  
+     예: `14.04.3-LTS`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
+   - **version**  
+     예: `1.0.0`  
+     사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
     
-    제거-AzsPlatformImage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [모듈 설명서 Azure Stack 운영자](https://docs.microsoft.com/powershell/module/)합니다.
+     제거-AzsPlatformImage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [모듈 설명서 Azure Stack 운영자](https://docs.microsoft.com/powershell/module/)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860621"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
 
@@ -65,13 +65,13 @@ ms.locfileid: "55701015"
 
 | 요소 | 필수 | 설명 | 
 |---------|----------|-------------|
-| **startTime** | 아니요 | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](http://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
-| **recurrence** | 아니요 | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
+| **startTime** | 아닙니다. | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
+| **recurrence** | 아닙니다. | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
 | **frequency** | 예(**recurrence**를 사용하는 경우) | 발생 간격의 시간 단위이며 “분”, “시간”, “일”, “주”, “월” 및 “연도” 값을 지원합니다. | 
-| **interval** | 아니요 | **frequency**에 기반한 발생 간격의 시간 단위 수를 결정하는 양의 정수입니다. <p>예를 들어 **interval**이 10이고 **frequency**가 "week"인 경우 작업은 10주마다 되풀이 됩니다. <p>각 빈도의 간격에 대한 최대 수는 다음과 같습니다. <p>- 18개월 <br>- 78주 <br>- 548일 <br>- 시간과 분의 경우 범위는 1 <= <*interval*> <= 1000입니다. | 
-| **schedule** | 아니요 | 지정된 분 표시, 시간 표시, 요일 및 날짜를 기반으로 되풀이에 대한 변경을 정의합니다. | 
-| **count** | 아니요 | 작업이 완료되기 전에 실행되는 횟수를 지정하는 양의 정수입니다. <p>예를 들어 일일 작업의 **count**가 7로 설정되고 시작 날짜가 월요일이면 이 작업은 일요일에 실행을 마칩니다. 시작 날짜가 이미 지난 경우에는 만든 시간에서 첫 번째 실행이 계산됩니다. <p>**endTime**이나 **count**가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count**와 **endTime**을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. | 
-| **endTime** | 아니요 | 작업 실행이 중지되는 시기를 지정하는 [ISO 8601 형식](http://en.wikipedia.org/wiki/ISO_8601)의 날짜 또는 날짜/시간 문자열 값입니다. 과거의 **endTime**에 대한 값을 설정할 수 있습니다. <p>**endTime**이나 **count**가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count**와 **endTime**을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. |
+| **interval** | 아닙니다. | **frequency**에 기반한 발생 간격의 시간 단위 수를 결정하는 양의 정수입니다. <p>예를 들어 **interval**이 10이고 **frequency**가 "week"인 경우 작업은 10주마다 되풀이 됩니다. <p>각 빈도의 간격에 대한 최대 수는 다음과 같습니다. <p>- 18개월 <br>- 78주 <br>- 548일 <br>- 시간과 분의 경우 범위는 1 <= <*interval*> <= 1000입니다. | 
+| **schedule** | 아닙니다. | 지정된 분 표시, 시간 표시, 요일 및 날짜를 기반으로 되풀이에 대한 변경을 정의합니다. | 
+| **count** | 아닙니다. | 작업이 완료되기 전에 실행되는 횟수를 지정하는 양의 정수입니다. <p>예를 들어 일일 작업의 **count**가 7로 설정되고 시작 날짜가 월요일이면 이 작업은 일요일에 실행을 마칩니다. 시작 날짜가 이미 지난 경우에는 만든 시간에서 첫 번째 실행이 계산됩니다. <p>**endTime**이나 **count**가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count**와 **endTime**을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. | 
+| **endTime** | 아닙니다. | 작업 실행이 중지되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜 또는 날짜/시간 문자열 값입니다. 과거의 **endTime**에 대한 값을 설정할 수 있습니다. <p>**endTime**이나 **count**가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count**와 **endTime**을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. |
 |||| 
 
 예를 들어,이 JSON 스키마는 기본 일정과 되풀이 작업을 설명합니다. 
@@ -94,9 +94,9 @@ ms.locfileid: "55701015"
 
 *날짜 및 날짜/시간 값*
 
-* Scheduler 작업의 날짜에는 날짜만 포함되며 [ISO 8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따릅니다.
+* Scheduler 작업의 날짜에는 날짜만 포함되며 [ISO 8601 사양](https://en.wikipedia.org/wiki/ISO_8601)을 따릅니다.
 
-* Scheduler 작업의 날짜-시간에는 날짜와 시간이 모두 포함되며 [ISO 8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따르고, UTC 오프셋이 지정되지 않은 경우 UTC로 간주됩니다. 
+* Scheduler 작업의 날짜-시간에는 날짜와 시간이 모두 포함되며 [ISO 8601 사양](https://en.wikipedia.org/wiki/ISO_8601)을 따르고, UTC 오프셋이 지정되지 않은 경우 UTC로 간주됩니다. 
 
 자세한 내용은 [개념, 용어 및 엔터티](../scheduler/scheduler-concepts-terms.md)를 참조하세요.
 

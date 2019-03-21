@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012320"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
@@ -120,9 +120,9 @@ Azure Storage는 범위 기반 파티션 구성표를 사용하여 시스템을 
 
 이러한 작업의 빈도를 줄이려면 몇 가지 모범 사례를 따르십시오.  
 
-* 계정, 컨테이너, Blob, 테이블, 큐에 사용하는 명명 규칙을 자세히 확인합니다. 계정 이름에 요구 사항에 가장 적합한 해싱 함수를 사용하는 3자리 수 해시의 접두사를 추가해 보십시오.  
+* 계정, 컨테이너, Blob, 테이블, 큐에 사용하는 명명 규칙을 자세히 확인합니다. 계정 이름에 요구 사항에 가장 적합한 해싱 함수를 사용하는 3자릿수 해시의 접두사를 추가해 보십시오.  
 * 타임스탬프 또는 숫자 식별자를 사용하여 데이터를 정리할 경우 추가만 가능한(또는 앞에만 추가할 수 있는) 트래픽 패턴을 사용하지 않아야 합니다. 이러한 패턴은 범위 기반 파티셔닝 시스템에 적합하지 않으며 모든 트래픽이 단일 파티션으로 이동하여 시스템이 부하 분산을 효과적으로 수행하지 못할 수 있습니다. 예를 들어 일상적인 작업에서 타임스탬프(예: yyyymmdd)가 포함된 Blob 개체를 사용하는 경우 이러한 일상적인 작업의 모든 트래픽이 단일 파티션 서버에서 지원하는 단일 개체로 전송될 수 있습니다. Blob당 한계와 파티션당 한계가 요구 사항을 충족하는지 확인하고 필요에 따라 이 작업을 여러 Blob으로 나누는 것을 고려해 보십시오. 마찬가지로 테이블에 시계열 데이터를 저장하는 경우 모든 트래픽이 키 네임스페이스의 마지막 부분으로 전송될 수 있습니다. 타임스탬프 또는 숫자 ID를 사용해야 하는 경우에는 3자리 수 해시를 ID에 접두사로 추가합니다. 타임스탬프의 경우에는 ssyyyymmdd와 같이 시간의 초 부분을 접두사로 추가합니다. 열거 및 쿼리 작업을 일상적으로 수행하는 경우 쿼리 수를 제한하는 해시 함수를 선택합니다. 다른 경우에는 임의의 접두사로도 충분할 수 있습니다.  
-* Azure Storage에 사용된 파티션 구성표에 대한 자세한 내용은 [여기](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)에서 SOSP 백서를 읽으십시오.
+* Azure Storage에 사용된 파티션 구성표에 대한 자세한 내용은 [여기](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)에서 SOSP 백서를 읽으십시오.
 
 ### <a name="networking"></a>네트워킹
 API 호출은 중요한 작업이기는 하지만 애플리케이션의 실제 네트워크 제약 조건이 성능에 큰 영향을 주는 경우가 많습니다. 아래에서는 사용자에게 적용될 수 있는 몇 가지 제한에 대해 설명합니다.  

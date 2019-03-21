@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011802"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 
@@ -75,7 +75,7 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 먼저 사용자 계정이 *initiallySuspended*를 가져오는 가장 일반적인 시나리오를 살펴보겠습니다.
 
 > Admin1은 Microsoft 클라우드 솔루션 공급자 또는 기업계약 사용자일 수 있습니다. 해당 조직에서 Cloudyn을 사용할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cloudyn 서비스를 등록하고 Cloudyn 포털에 로그인하는 사람이므로 *기본 관리자*가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용하여 Azure 계정을 만들고 엔터티 계층 구조를 설정합니다. Admin1이 테넌트 관리자인 Admin2에게 Cloudyn에 등록하고 Cloudyn 포털에 로그인해야 한다고 알립니다.
-
+> 
 > Admin2가 Azure Portal을 통해 등록합니다. 그러나 Cloudyn 포털에 로그인을 시도할 때 계정이 **일시 중단**되었다는 오류가 표시됩니다. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
 
 

@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fc7441b109c87f1ab9ff5b56ed8e055c152d10
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996556"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
@@ -27,6 +27,7 @@ ms.locfileid: "56456064"
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
+
 |질문|해결 방법|
 |--------|--------|
 |Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?|Microsoft Authenticator 앱은 세 가지 유형의 정보를 수집합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴를 통해 Microsoft에 **로그를 보내도록** 선택할 때까지 앱에만 상주하는 진단 로그 데이터 이러한 로그 파일은 앱 문제를 해결하는 데 필요한 정보로 제한된 개인 데이터가 있는 이메일 주소(예: alain@contoso.com)와 같은 개인 데이터, 서버/IP 주소 및 디바이스 데이터(예: 디바이스 이름 및 운영 체제 버전)를 포함합니다. 수집된 정보를 확인하려면 언제든지 앱에서 이러한 로그 파일을 볼 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 이를 사용하여 고객이 보고한 문제를 해결할 수 있습니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터 이 데이터는 당사의 엔지니어링 의사 결정의 핵심이며 사용자에게 중요한 기능 및 앱에 대한 업데이트의 양식에서 만들어야 하는 개선 사항의 위치를 확인할 수 있도록 도와줍니다. 앱 사용자로서 앱의 첫 번째 실행 시 이 데이터 컬렉션의 알림을 확인하고, 앱의 **설정** 페이지에서 해제할 수 있음을 알 수 있습니다. 언제든지 이 설정을 활성화 또는 비활성화할 수 있습니다.</li></ul>|
@@ -49,13 +50,15 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 |Apple Watch용 Microsoft Authenticator 도우미 앱이 동기화되지 않거나 Watch에 표시되지 않는 이유는 무엇인가요?|앱이 Watch에 표시되지 않는 경우 다음 방법을 시도합니다. <ol><li>Watch가 watchOS 4.0 이상을 실행 중인지 확인합니다.</li><li>Watch를 다시 동기화합니다.</li></ol>|
 |Apple Watch 도우미 앱이 충돌했습니다. 크래시 로그를 보내서 조사할 수 있나요? |먼저 분석 정보를 Microsoft와 공유하도록 선택했는지 확인합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br><br>등록을 마친 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Microsoft Authenticator 앱을 열고, 앞에서 복사한 텍스트를 **로그 보내기** 페이지의 **앱 개발자와 공유** 텍스트 상자에 붙여넣습니다.</li></ol>|
 |앱 잠금 기능이란 무엇이며 보안을 강화하는 데 어떤 도움이 되나요?|일회용 암호, 앱 정보 및 앱 설정을 더욱 안전하게 유지하려는 경우 Microsoft Authenticator 앱에서 앱 잠금 기능을 설정하면 됩니다. Microsoft Authenticator 앱의 **설정** 화면에서 앱 잠금을 설정하면 Microsoft Authenticator 앱을 열 때마다 PIN이나 생체 인식 정보를 사용하여 인증하라는 메시지가 표시됩니다. 이 기능은 추가적인 보호를 제공하기 위한 것이며 Microsoft Authenticator 앱에서 알림을 승인하는 방식은 변경되지 않습니다.<br><br>**참고**<br>30초 이내에 Android 디바이스에서 실행 중인 Microsoft Authenticator 앱으로 돌아오면 다시 인증하라는 메시지가 표시되지 않습니다.|
-|내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요?|개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경하려면 https://account.live.com/SecurityNotifications/Update에 로그인합니다.|
+|내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요?|개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경하려면 https://account.live.com/SecurityNotifications/Update에 로그인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
+- 개인 Microsoft 계정에 대 한 확인 코드를 시작 하는 데 문제가 있는 경우 참조를 **확인 코드 문제 해결** 섹션을 [Microsoft 계정 보안 정보 및 확인 코드](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) 문서.
+
 -   2단계 인증에 대해 더 자세히 알아보려면 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 
--   보안 정보에 대해 더 자세히 알아보려면 [보안 정보 관리](security-info-manage-settings.md)를 참조하세요.
+-   보안 정보에 대 한 자세한 정보를 원한다 면 참조 [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)
 
 - 궁금한 내용에 대한 답변이 여기에 없으면 직접 질문을 남겨주세요. [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 질문을 게시하고, 커뮤니티의 도움을 받고, 이 페이지에 의견을 남기세요.

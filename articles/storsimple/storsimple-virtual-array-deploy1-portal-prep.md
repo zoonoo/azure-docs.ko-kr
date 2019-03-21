@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088709"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -155,15 +155,15 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 3. **추가**를 클릭합니다.
 4. **저장소 계정 추가** 블레이드에서 다음을 수행합니다.
    
-    1. **구독**에 **현재**를 선택합니다.
+   1. **구독**에 **현재**를 선택합니다.
    
-    2. Azure 저장소 계정의 이름을 제공합니다.
+   2. Azure 저장소 계정의 이름을 제공합니다.
    
-    3. **사용**을 선택하여 StorSimple 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **사용 안 함**을 선택합니다.
+   3. **사용**을 선택하여 StorSimple 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **사용 안 함**을 선택합니다.
    
-    4. **추가**를 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.<br></br>
+   4. **추가**를 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.<br></br>
    
-     ![기존 저장소 계정 자격 증명 추가](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![기존 저장소 계정 자격 증명 추가](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>다음 단계
 

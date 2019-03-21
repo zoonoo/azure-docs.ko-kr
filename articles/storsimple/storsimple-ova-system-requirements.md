@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999513"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
@@ -100,7 +100,7 @@ Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> 파일 서버를 배포하는 경우 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
 | TCP 80(HTTP) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
 | TCP 443(HTTPS) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. |
-| TCP 3260(iSCSI) |그런 다음 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| TCP 3260(iSCSI) |그런 다음 |LAN |아닙니다. |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -125,12 +125,12 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스|
 | `http://*.backup.windowsazure.com` |디바이스 등록 |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |인증서 해지 |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft 업데이트 서버<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft 업데이트 서버<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |지원 패키지 |
-| `http://*.data.microsoft.com ` |Windows의 원격 분석 서비스는 [사용자 환경 및 진단 원격 분석 업데이트](https://support.microsoft.com/en-us/kb/3068708)를 참조하세요. |
+| `https://*.data.microsoft.com ` |Windows의 원격 분석 서비스는 [사용자 환경 및 진단 원격 분석 업데이트](https://support.microsoft.com/en-us/kb/3068708)를 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)

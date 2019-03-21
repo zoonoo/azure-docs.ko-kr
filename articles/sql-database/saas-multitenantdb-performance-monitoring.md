@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083184"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -28,7 +28,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-
+> 
 > * 제공된 부하 생성기를 사용하여 분할된 다중 테넌트 데이터베이스에서 사용량 시뮬레이션하기
 > * 부하 증가에 대응하여 변화하는 데이터베이스 모니터링하기
 > * 데이터베이스 부하 증가에 대응하여 데이터베이스 확장하기
@@ -52,7 +52,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스에 작업하는 경우 편리하지 않을 수 있습니다.
 
-여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
+대규모 시나리오의 경우 많은 리소스를 사용 하 여 작업 하는 위치를 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 사용할 수 있습니다. 내보낸된 진단 및 Log Analytics 작업 영역에서 수집 된 원격 분석을 통해 분석을 제공 하는 별도 Azure 서비스입니다. Azure Monitor 로그 많은 서비스에서 원격 분석을 수집 및 쿼리 및 경고를 설정 하는 데 사용 됩니다.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
@@ -78,10 +78,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 | 데모 | 시나리오 |
 |:--|:--|
-| 2 | 표준 강도 부하(약 30 DTU) 생성 |
+| 2 | 표준 강도 부하 (약 30 DTU) 생성 |
 | 3 | 테넌트당 버스트가 더 높은 부하 생성|
-| 4 | 데이터베이스당 DTU 버스트가 더 높은(약 70 DTU) 부하 생성|
-| 5 | 하나의 테넌트에 높은 강도(약 90 DTU)의 부하 생성, 다른 모든 테넌트에 표준 강도의 부하 생성 |
+| 4 | DTU 버스트가 더 높은 (약 70 DTU) 테 넌 트 당 부하 생성|
+| 5 | 단일 테 넌 트를 비롯 한 다른 모든 테 넌 트에 표준 강도 부하를에 높은 강도 (약 90 DTU) 생성 |
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(DTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
@@ -168,7 +168,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 이 연습에서는 인기 있는 이벤트의 티켓을 판매할 때 높은 부하를 경험하는 Salix Salsa의 영향을 시뮬레이션합니다.
 
 1. ...\\*Demo-PerformanceMonitoringAndManagement.ps1* 스크립트를 엽니다.
-1. **$DemoScenario = 5**, _단일 테넌트에 표준 부하와 높은 부하(약 90 DTU) 생성_을 설정합니다.
+1. 설정할 **$DemoScenario = 5**, _표준 부하와 단일 테 넌 트 (약 90 DTU)에 대 한 높은 부하를 생성 합니다._
 1. **$SingleTenantName = Salix Salsa**로 설정합니다.
 1. **F5**를 사용하여 스크립트를 실행합니다.
 

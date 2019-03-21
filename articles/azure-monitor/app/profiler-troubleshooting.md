@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855676"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -36,11 +36,11 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
     ```
     다음 이미지에는 두 AI 리소스에서 수행한 검색의 두 가지 예가 나와 있습니다. 
     
-    * 왼쪽 예의 경우 Profiler가 실행되는 동안 애플리케이션이 요청을 수신하지 않습니다. 그리고 활동이 없어서 업로드가 취소되었음을 설명하는 메시지가 표시됩니다. 
+   * 왼쪽 예의 경우 Profiler가 실행되는 동안 애플리케이션이 요청을 수신하지 않습니다. 그리고 활동이 없어서 업로드가 취소되었음을 설명하는 메시지가 표시됩니다. 
 
-    * 오른쪽 예의 경우에는 Profiler가 시작되었으며, Profiler가 실행되는 동안 발생한 요청이 검색되면 사용자 지정 이벤트가 전송되었습니다. ServiceProfilerSample 사용자 지정 이벤트가 표시되는 경우 Profiler가 추적을 요청에 첨부한 것이며, 그러면 **Application Insights 성능** 창에서 추적을 확인할 수 있습니다.
+   * 오른쪽 예의 경우에는 Profiler가 시작되었으며, Profiler가 실행되는 동안 발생한 요청이 검색되면 사용자 지정 이벤트가 전송되었습니다. ServiceProfilerSample 사용자 지정 이벤트가 표시되는 경우 Profiler가 추적을 요청에 첨부한 것이며, 그러면 **Application Insights 성능** 창에서 추적을 확인할 수 있습니다.
 
-    원격 분석이 표시되지 않으면 Profiler 실행되고 있지 않은 것입니다. 이러한 문제를 해결하려면 이 문서 뒷부분에서 사용 중인 특정 앱 유형에 해당하는 문제 해결 섹션을 참조하세요.  
+     원격 분석이 표시되지 않으면 Profiler 실행되고 있지 않은 것입니다. 이러한 문제를 해결하려면 이 문서 뒷부분에서 사용 중인 특정 앱 유형에 해당하는 문제 해결 섹션을 참조하세요.  
 
      ![Profiler 원격 분석 검색][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
 1. **Web App 제어** 창에서 **설정**을 엽니다.
 
-1. **.NET Framework 버전**을 **v4.6**으로 설정합니다.
+1. 설정할 **.NET Framework 버전** 하 **v4.6**합니다.
 
 1. **무중단**을 **사용**으로 설정합니다.
 
@@ -124,6 +124,8 @@ Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure P
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler 및 Azure 진단 문제 해결
 
+  >**Cloud Services에 대 한 WAD의 최신 버전에서 제공 되는 프로파일러에 버그가 있습니다.** 클라우드 서비스를 사용 하 여 프로파일러를 사용 하려면 지원 AI SDK 버전 2.7.2까지 합니다. AI SDK의 최신 버전을 사용 하는 경우 프로파일러를 사용 하려면 2.7.2로 다시 이동 해야 합니다. App Insights SDK의 버전을 다운 그레이드 하려면 Visual Studio를 사용 하는 경우에 런타임에 바인딩 리디렉션 오류가 발생할 수 있습니다. 왜냐하면 Microsoft.ApplicationInsights에 대 한 web.config 파일에서 "newVersion" AI SDK 하지만 다운 그레이드 하지 자동으로 업데이트 한 후 "2.7.2.0"로 설정 해야 합니다.
+
 Azure 진단을 통해 Profiler가 올바르게 구성되어 있는지 여부를 확인하려면 다음의 세 가지 작업을 수행합니다. 
 1. 먼저 배포된 Azure 진단 구성의 내용이 필요한 구성인지를 확인합니다. 
 
@@ -133,15 +135,19 @@ Azure 진단을 통해 Profiler가 올바르게 구성되어 있는지 여부를
 
 Azure 진단을 구성하는 데 사용된 설정을 확인하려면 다음 단계를 수행합니다.
 
-1. VM(가상 머신)에 로그인한 후에 다음 위치에서 로그 파일을 엽니다. 
+1. 가상 컴퓨터 (VM)에 로그인 한 후이 위치의 로그 파일을 엽니다. (드라이브 c: 수 또는 d: 및 플러그 인 버전 다를 수 있습니다.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    또는
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. 해당 파일에서 **WadCfg** 문자열을 검색하면 Azure 진단을 구성하기 위해 VM에 전달된 설정을 확인할 수 있습니다. Profiler 싱크에서 사용하는 iKey가 올바른지 확인할 수 있습니다.
 
-1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. Profiler를 시작하는 데 사용되는 인수는 다음 파일에 포함되어 있습니다.
+1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. Profiler를 시작 하는 데 사용 되는 인수는 다음 파일에는. (드라이브 c: 또는 d:를 수 있습니다.)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

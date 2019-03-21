@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 MyApps 포털이란? | Microsoft Docs
+title: MyApps 포털-Azure Active Directory 란? | Microsoft Docs
 description: 다양한 MyApps 포털(웹 브라우저, Android 앱, iPhone 및 iPad 앱)을 사용하여 SaaS 앱에 액세스하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115513"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
 
@@ -81,11 +82,11 @@ MyApps 포털 확장은 현재 다음과 같은 경우 사용할 수 있습니�
 
 > [!NOTE]
 > 추가 기능은 Microsoft Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
->
-다음 사이트에서 확장을 직접 다운로드할 수 있습니다.
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> 다음 사이트에서 확장을 직접 다운로드할 수 있습니다.
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 `https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
 1. 확장에 로그인되지 *않은* 상태에서 확장 아이콘을 마우스 오른쪽 단추로 클릭합니다.

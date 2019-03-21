@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875277"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -144,18 +144,18 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-라이선스 할당 | 사용자 계정 관리자 | 
-그룹 만들기 | 사용자 계정 관리자 | 
-그룹 또는 앱의 액세스 검토 만들기, 업데이트 또는 삭제 | 사용자 계정 관리자 | 
-그룹 만료 관리 | 사용자 계정 관리자 | 
+라이선스 할당 | 사용자 관리자 | 
+그룹 만들기 | 사용자 관리자 | 
+그룹 또는 앱의 액세스 검토 만들기, 업데이트 또는 삭제 | 사용자 관리자 | 
+그룹 만료 관리 | 사용자 관리자 | 
 그룹 설정 관리 | 전역 관리자 | 
 모든 구성 읽기(숨겨진 멤버 자격 제외) | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-숨겨진 멤버 자격 읽기 | 그룹 멤버 | 그룹 소유자, 암호 관리자, Exchange 관리자, SharePoint 관리자, 팀 관리자, 사용자 계정 관리자
-숨겨진 구성원이 있는 그룹의 멤버 자격 읽기 | 기술 지원팀 관리자 | 사용자 계정 관리자, 팀 관리자
-라이선스 해지 | 라이선스 관리자 | 사용자 계정 관리자
-그룹 멤버 자격 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 계정 관리자
-그룹 소유자 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 계정 관리자
-그룹 속성 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 계정 관리자
+숨겨진 멤버 자격 읽기 | 그룹 멤버 | 그룹 소유자, 암호 관리자, Exchange 관리자, SharePoint 관리자, 팀 관리자, 사용자 관리자
+숨겨진 구성원이 있는 그룹의 멤버 자격 읽기 | 기술 지원팀 관리자 | 사용자 관리자, 팀 관리자
+라이선스 해지 | 라이선스 관리자 | 사용자 관리자
+그룹 멤버 자격 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 관리자
+그룹 소유자 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 관리자
+그룹 속성 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 관리자
 
 ## <a name="identity-protection"></a>ID 보호
 
@@ -176,9 +176,9 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-라이선스 할당 | 라이선스 관리자 | 사용자 계정 관리자
+라이선스 할당 | 라이선스 관리자 | 사용자 관리자
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-라이선스 해지 | 라이선스 관리자 | 사용자 계정 관리자
+라이선스 해지 | 라이선스 관리자 | 사용자 관리자
 구독 체험 또는 구입 | 대금 청구 관리자 | 
 
 
@@ -315,21 +315,21 @@ Task | 최소 권한 역할 | 추가 역할
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 디렉터리 역할에 사용자 추가 | 권한 있는 역할 관리자 | 
-그룹에 사용자 추가 | 사용자 계정 관리자 | 
-라이선스 할당 | 라이선스 관리자 | 사용자 계정 관리자
-게스트 사용자 만들기 | 게스트 초대자 | 사용자 계정 관리자
-사용자 만들기 | 사용자 계정 관리자 | 
-사용자 삭제 | 사용자 계정 관리자 | 
-제한된 관리자의 새로 고침 토큰 무효화(설명서 참조) | 사용자 계정 관리자 | 
-비 관리자의 새로 고침 토큰 무효화(설명서 참조) | 암호 관리자 | 사용자 계정 관리자
+그룹에 사용자 추가 | 사용자 관리자 | 
+라이선스 할당 | 라이선스 관리자 | 사용자 관리자
+게스트 사용자 만들기 | 게스트 초대자 | 사용자 관리자
+사용자 만들기 | 사용자 관리자 | 
+사용자 삭제 | 사용자 관리자 | 
+제한된 관리자의 새로 고침 토큰 무효화(설명서 참조) | 사용자 관리자 | 
+비 관리자의 새로 고침 토큰 무효화(설명서 참조) | 암호 관리자 | 사용자 관리자
 권한 있는 관리자의 새로 고침 토큰 무효화(설명서 참조) | 전역 관리자 | 
 기본 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-제한된 관리자의 암호 재설정(설명서 참조) | 사용자 계정 관리자 | 
-비 관리자의 암호 재설정(설명서 참조) | 암호 관리자 | 사용자 계정 관리자
+제한된 관리자의 암호 재설정(설명서 참조) | 사용자 관리자 | 
+비 관리자의 암호 재설정(설명서 참조) | 암호 관리자 | 사용자 관리자
 권한 있는 관리자의 암호 재설정 | 전역 관리자 | 
-라이선스 해지 | 라이선스 관리자 | 사용자 계정 관리자
-사용자 계정 이름을 제외한 모든 속성 업데이트 | 사용자 계정 관리자 | 
-제한된 관리자의 사용자 계정 이름 업데이트(설명서 참조) | 사용자 계정 관리자 | 
+라이선스 해지 | 라이선스 관리자 | 사용자 관리자
+사용자 계정 이름을 제외한 모든 속성 업데이트 | 사용자 관리자 | 
+제한된 관리자의 사용자 계정 이름 업데이트(설명서 참조) | 사용자 관리자 | 
 권한 있는 관리자의 사용자 계정 이름 속성 업데이트(설명서 참조) | 전역 관리자 | 
 사용자 설정 업데이트 | 전역 관리자 | 
 

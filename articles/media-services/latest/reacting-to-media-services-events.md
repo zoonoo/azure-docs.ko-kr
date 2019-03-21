@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377551"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850907"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
@@ -24,26 +24,9 @@ Media Services 이벤트를 사용하면 애플리케이션이 최신 서버리�
 
 Media Services 이벤트의 가용성은 Event Grid [가용성](../../event-grid/overview.md)과 연관되어 있으며, Event Grid가 사용 가능하면 다른 지역에서도 사용 가능해집니다.  
 
-## <a name="available-media-services-events"></a>사용 가능한 Media Services 이벤트
+## <a name="media-services-events-and-schemas"></a>Media Services 이벤트 및 스키마
 
-Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  현재 Media Services 이벤트 구독에 다음 이벤트를 포함할 수 있습니다.  
-
-|이벤트 이름|설명|
-|----------|-----------|
-| Microsoft.Media.JobStateChange| 작업의 상태가 변경되면 발생합니다. |
-| Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
-| Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
-| Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
-| Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
-| Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화되지 않았음을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버에서 외부 인코더로부터 들어오는 두 비디오 스트림 중 동기화되지 않은 것을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
-
-## <a name="event-schema"></a>이벤트 스키마
-
-Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다.  Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다.
+Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다.
 
 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
 

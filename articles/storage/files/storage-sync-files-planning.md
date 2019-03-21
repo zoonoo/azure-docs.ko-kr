@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013229"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -132,6 +132,7 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
 - NTFS 파일 시스템으로 포맷되어 로컬로 연결된 볼륨
 
 ### <a name="file-system-features"></a>파일 시스템 기능
+
 | 기능 | 상태 지원 | 메모 |
 |---------|----------------|-------|
 | ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure 파일 동기화에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
@@ -148,6 +149,7 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
 > NTFS 볼륨만 지원됩니다. ReFS, FAT, FAT32 및 다른 파일 시스템은 지원되지 않습니다.
 
 ### <a name="files-skipped"></a>건너뛴 파일
+
 | 파일/폴더 | 참고 |
 |-|-|
 | Desktop.ini | 시스템에 특정된 파일 |
@@ -235,6 +237,7 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 |--------|---------------------|
 | 오스트레일리아 동부 | 뉴사우스웨일스 |
 | 오스트레일리아 남동부 | 빅토리아 |
+| 브라질 남부 | 상파울루 Paolo 상태 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
 | 인도 중부 | 푸네 |
@@ -242,6 +245,8 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 동아시아 | 홍콩 |
 | 미국 동부 | 버지니아 |
 | 미국 동부2 | 버지니아 |
+| 일본 동부 | 도쿄, 사이타마 |
+| 일본 서부 | 오사카 |
 | 미국 중북부 | 일리노이 |
 | 북유럽 | 아일랜드 |
 | 미국 중남부 | 텍사스 |

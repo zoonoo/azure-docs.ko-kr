@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090749"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -62,10 +62,10 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 - A사는 장애 조치(failover) 전에 이미 사용되고 있던 대상 IP 주소를 사용하여 장애 조치(failover)를 오케스트레이션하고, 장애 조치(failover) 후 자동으로 **Recovery VNet**과 **Azure VNet** 간에 연결을 설정할 수 있습니다. 다음 다이어그램은 이 내용을 그림으로 표현한 것입니다.
 - 앱 요구 사항에 따라 장애 조치(failover) 전, 도중(중간 단계로) 또는 후에 대상 영역의 두 VNet(**Recovery VNet** 및 **Azure VNet**) 간 연결을 설정할 수 있습니다.
-    - 회사에서는 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 언제 연결을 설정할 것인지 지정할 수 있습니다.
-    - 회사에서는 VNet 피어링 또는 사이트 간 VPN을 사용하여 VNet을 연결할 수 있습니다.
-        - VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 여러 제약 조건이 있습니다.
-        - VNet 피어링 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 VNet-VNet VPN Gateway [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다른 방식으로 계산됩니다. 장애 조치(failover)의 경우 예측할 수 없는 네트워크 문제를 최소화화기 위해 일반적으로 연결 형식을 비롯한 여러 연결 방법을 원본 네트워크와 동일하게 사용하는 것이 좋습니다.
+  - 회사에서는 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 언제 연결을 설정할 것인지 지정할 수 있습니다.
+  - 회사에서는 VNet 피어링 또는 사이트 간 VPN을 사용하여 VNet을 연결할 수 있습니다.
+      - VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 여러 제약 조건이 있습니다.
+      - VNet 피어링 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 VNet-VNet VPN Gateway [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다른 방식으로 계산됩니다. 장애 조치(failover)의 경우 예측할 수 없는 네트워크 문제를 최소화화기 위해 일반적으로 연결 형식을 비롯한 여러 연결 방법을 원본 네트워크와 동일하게 사용하는 것이 좋습니다.
 
     ![Azure 리소스 전체 장애 조치(failover)](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 다음은 장애 조치(failover) 전 네트워크 아키텍처의 모습입니다.
 
 - 애플리케이션 VM이 Azure 동아시아에 호스트됩니다.
--  동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
-    - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
-        - **서브넷 1**: 10.1.1.0/24
-        - **서브넷 2**: 10.1.2.0/24,
-        - **서브넷 3**: 10.1.3.0/24 주소 공간이 10.1.0.0/16인 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
- - 보조(대상) 지역은 Azure 동남아시아:
-    - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
+- 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
+  - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
+    - **서브넷 1**: 10.1.1.0/24
+    - **서브넷 2**: 10.1.2.0/24,
+    - **서브넷 3**: 10.1.3.0/24 주소 공간이 10.1.0.0/16인 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
+      - 보조(대상) 지역은 Azure 동남아시아:
+  - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
 - 동아시아의 VM은 Azure ExpressRoute 또는 사이트 간 VPN을 통해 온-프레미스 데이터 센터에 연결됩니다.
 - RTO를 줄이기 위해 B사는 장애 조치(failover) 전에 Azure 동남 아시아의 Recovery VNet에 게이트웨이를 프로비전합니다.
 - B사는 복제된 VM의 대상 IP 주소를 할당/확인합니다. 대상 IP 주소는 각 VM의 원본 IP 주소와 같습니다.

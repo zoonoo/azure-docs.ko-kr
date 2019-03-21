@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d1dc92e134b7ebca8e0eed30ef125210bc00eb37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875909"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림을 수행하는 방법
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "55989987"
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* 웹캠. 예를 들어, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm)
+* 웹캠. 예를 들어, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm)
 
 다음 문서를 검토하는 것이 좋습니다.
 

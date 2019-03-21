@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853072"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에 대 한 방화벽 규칙을 사용할지 설정 합니다.
 
 이 문서에서는 게스트 운영 체제 방화벽에서 VM(가상 머신)의 트래픽 일부를 필터링하는 것으로 의심되는 상황을 해결하기 위한 참조를 제공합니다. 이는 다음과 같은 이유로 유용할 수 있습니다.
 
@@ -107,7 +107,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         그런 다음, 문자열에서 **Active=FALSE**를 **Active=TRUE**로 변경합니다.
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | 작업 = 허용 | 활성 = TRUE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
     
     * 규칙을 사용하지 않도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -115,7 +115,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active =TRUE**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | 작업 = 허용 | 활성 = FALSE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 3.  VM을 다시 시작하여 변경 내용을 적용합니다.
 
@@ -154,7 +154,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
         
         그런 다음, **Active=FALSE**를 **Active=True**로 변경합니다.
         
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | 작업 = 허용 | 활성 = TRUE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
     3.  규칙을 사용하지 않도록 설정하려면 다음 레지스트리 키를 엽니다.
 
@@ -162,7 +162,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active=True**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | 작업 = 허용 | 활성 = FALSE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 9.   **BROKENSYSTEM**을 강조 표시한 다음, 메뉴에서  **파일** > **하이브 언로드** 를 차례로 선택합니다.
 
