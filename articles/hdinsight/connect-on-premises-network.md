@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975426"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450008"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -135,7 +135,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo apt-get install bind9 -y
     ```
 
-3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달하도록 바인딩을 구성하려면 `/etc/bind/named.conf.options` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
+3. 온-프레미스 DNS 서버로 이름 확인 요청을 전달 하도록 바인딩을 구성 하려면의 내용으로 다음 텍스트를 사용 합니다 `/etc/bind/named.conf.options` 파일:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network

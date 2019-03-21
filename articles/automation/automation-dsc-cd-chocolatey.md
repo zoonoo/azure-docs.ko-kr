@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456115"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451198"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예제: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -51,7 +51,7 @@ Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 V
 ## <a name="quick-trip-around-the-diagram"></a>간략히 다이어그램 둘러보기
 
 맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음 설치 패키지를 만듭니다.
-Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 읽을 수 있는 특정 위치, 즉 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 위치 연결할 – 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
 그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
 사실 일반 텍스트로 1번, MOF 파일로 컴파일 1번 등(이에 대해 알고 있는 상황), 두 번 저장됩니다. 포털에서 MOF는 "노드 구성"입니다(단순 "구성"과 반대). 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.

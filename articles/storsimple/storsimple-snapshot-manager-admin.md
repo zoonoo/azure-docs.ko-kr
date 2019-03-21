@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872186"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리
 
@@ -29,7 +29,7 @@ StorSimple 스냅숏 관리자는 Microsoft Azure StorSimple 환경에서 데이
 StorSimple 스냅숏 관리자의 중앙 관리 콘솔은 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있습니다. 예를 들어 콘솔을 사용하여 다음을 수행할 수 있습니다.
 
 * 볼륨을 구성, 백업 및 삭제합니다.
-* 백업된 데이터가 응용 프로그램과 일관되도록 볼륨 그룹을 구성합니다.
+* 백업된 데이터가 애플리케이션과 일관되도록 볼륨 그룹을 구성합니다.
 * 미리 정해진 일정에 따라 데이터가 백업되도록 백업 정책을 관리합니다.
 * 클라우드에 저장하여 재해 복구에 사용할 수 있는 데이터의 개별 복사본을 만듭니다.
 
@@ -40,7 +40,7 @@ StorSimple 스냅숏 관리자의 중앙 관리 콘솔은 로컬 및 클라우�
 * StorSimple 스냅숏 관리자 배포 절차에 대해서는 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)로 이동하세요.
 
 > [!NOTE]
-> StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+> StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 디바이스라고도 함)를 관리할 수 없습니다.
 
 
 ## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>StorSimple 스냅숏 관리자 작업 및 워크플로
@@ -48,11 +48,11 @@ StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 �
 
 | 수행하려는 작업 | 자습서의 참조 위치 |
 |:--- |:--- |
-| StorSimple 스냅숏 관리자에 대해 자세히 알아봅니다. |[StorSimple 스냅숏 관리자란? ](storsimple-what-is-snapshot-manager.md) |
+| StorSimple 스냅숏 관리자에 대해 자세히 알아봅니다. |[StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md) |
 | StorSimple 스냅숏 관리자 설치<br>StorSimple Snapshot Manager 다시 설치<br>StorSimple 스냅숏 관리자 제거 |[StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md) |
 | StorSimple 스냅숏 관리자 메뉴 및 기능 사용:<ul><li>메뉴 모음</li><li>도구 모음</li><li>범위 창</li><li>결과 창</li><li>작업 창</li><li>키보드 탐색 및 바로 가기</li></ul> |[StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md) |
 | StorSimple 스냅숏 관리자에 포함된 일반적인 MMC 기능 사용:<ul><li>보기</li><li>여기에서 창 새로 만들기</li><li>새로 고침</li><li>목록 내보내기</li><li>도움말</li></ul> |[StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용](storsimple-snapshot-manager-mmc-menu.md) |
-| 장치 추가 또는 교체<br>장치 연결<br>가져온 볼륨 그룹 확인<br>연결된 장치 새로 고침<br>장치 인증<br>장치 세부 정보 보기<br>장치 구성 삭제<br>장치 암호 변경<br>실패한 장치 바꾸기<br> |[StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리](storsimple-snapshot-manager-manage-devices.md) |
+| 디바이스 추가 또는 교체<br>디바이스 연결<br>가져온 볼륨 그룹 확인<br>연결된 디바이스 새로 고침<br>디바이스 인증<br>디바이스 세부 정보 보기<br>디바이스 구성 삭제<br>디바이스 암호 변경<br>실패한 디바이스 바꾸기<br> |[StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리](storsimple-snapshot-manager-manage-devices.md) |
 | 볼륨 탑재<br>볼륨에 대한 정보 보기<br>볼륨 삭제<br>볼륨 다시 검사<br>기본 볼륨 구성 및 백업<br>동적 미러 볼륨 구성 및 백업 |[StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md) |
 | 볼륨 그룹 보기<br>볼륨 그룹 만들기<br>볼륨 그룹 백업<br>볼륨 그룹 편집<br>볼륨 그룹 삭제 |[StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리](storsimple-snapshot-manager-manage-volume-groups.md) |
 | 백업 정책 만들기 <br>백업 정책 편집<br>백업 정책 삭제 |[StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리](storsimple-snapshot-manager-manage-backup-policies.md) |

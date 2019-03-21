@@ -4,14 +4,14 @@ description: Avere vFXT for Azure에 대한 필수 조건입니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082588"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -43,7 +43,7 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
   * 다음을 포함한 모든 Avere vFXT 리소스는 리소스 그룹 내에 배포해야 합니다.
     * 클러스터 컨트롤러
     * 클러스터 노드
-    * Blob Storage
+    * Blob 저장소
     * 네트워크 요소
  
 * RBAC(역할 기반 액세스 제어)를 미리 사용하여 사용자에게 권한을 할당하면 소유자 권한이 없는 사용자가 vFXT 클러스터를 만들 수 있습니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 액세스 역할을 만들어 소유자가 아닌 사용자에게 클러스터 만들기 권한을 부여하는 방법에 대한 설명은 [이 문서](avere-vfxt-non-owner.md)에 나와 있습니다.
@@ -57,7 +57,7 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
 
 |Azure 구성 요소|할당량|
 |----------|-----------|
-|가상 머신|D16s_v3 또는 E32s_v3 3개 이상|
+|가상 머신|3 개 이상의 e32s_v3와|
 |프리미엄 SSD 저장소|노드당 200GB OS 공간 + 1TB-4TB 캐시 공간 |
 |저장소 계정(선택 사항) |v2|
 |데이터 백 엔드 저장소(선택 사항) |새 LRS Blob 컨테이너 1개 |
@@ -151,6 +151,30 @@ Avere vFXT 클러스터를 만들려면 먼저 클러스터 노드에 사용할 
    ```
 
 역할 이름은 클러스터를 만들 때 사용됩니다. 이 예제에서 이름은 ``avere-operator``입니다.
+
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>가상 네트워크 (필요한 경우)에서 저장소 서비스 끝점 만들기
+
+A [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob 트래픽이 로컬 virtual network 외부 라우팅 하지 않고 유지 합니다. 백 엔드 데이터 저장소에 대 한 Azure Blob을 사용 하는 Azure 클러스터에 대 한 모든 Avere vFXT에 대 한 것이 좋습니다. 
+
+기존 vnet을 제공 하 고 클러스터 만들기의 일환으로 백 엔드 저장소에 대 한 새 Azure Blob 컨테이너를 만드는 하는 경우 서비스 끝점을 Microsoft storage에 대 한 vnet에 있어야 합니다. 이 끝점은 클러스터를 만들기 전에 존재 해야 합니다 또는 생성에 실패 합니다. 
+
+저장소 서비스 끝점을 나중에 저장소를 추가 하는 경우에 Azure Blob storage를 사용 하는 Azure 클러스터에 대 한 모든 Avere vFXT에 권장 됩니다. 
+
+> [!TIP] 
+> * 클러스터 만들기의 일환으로 새 가상 네트워크를 만들려는 경우이 단계를 건너뜁니다. 
+> * 이 단계는 클러스터를 만드는 동안 Blob storage를 만들지 않는 경우에 선택 사항입니다. 이 경우 만들 수 있습니다 서비스 끝점을 나중에 Azure Blob을 사용 하려는 경우.
+
+Azure portal에서 저장소 서비스 끝점을 만듭니다. 
+
+1. 포털의 왼쪽에서 **가상 네트워크**를 클릭합니다.
+1. 클러스터에 대 한 vnet을 선택 합니다. 
+1. 왼쪽에서 **서비스 엔드포인트**를 클릭합니다.
+1. 위쪽에서 **추가**를 클릭합니다.
+1. 로 서비스를 중지할 ``Microsoft.Storage`` 클러스터의 서브넷을 선택 합니다.
+1. 아래쪽에서 **추가**를 클릭합니다.
+
+   ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>다음 단계: vFXT 클러스터 만들기
 

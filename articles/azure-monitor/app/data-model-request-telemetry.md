@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117149"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884123"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
@@ -29,7 +29,7 @@ ms.locfileid: "54117149"
 
 요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
-Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. [블로그 게시물](https://apmtips.com/blog/2015/02/23/request-name-and-url/)에서 ASP.Net 웹 SDK의 요청 이름 컬렉션에 대한 자세한 내용을 확인할 수 있습니다.
+Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. ASP.NET 웹 SDK에서 사용 하 여 자세한 on 요청 이름 컬렉션을 읽을 수는 [블로그 게시물](https://apmtips.com/blog/2015/02/23/request-name-and-url/)합니다.
 
 최대 길이: 1024자
 
