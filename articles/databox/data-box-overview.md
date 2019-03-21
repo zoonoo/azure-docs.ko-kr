@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117747"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -44,11 +44,11 @@ Data Box는 네트워크에 거의 영향을 주지 않으면서 대량의 데�
 - **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 80TB의 데이터를 Azure로 이동합니다.
 
 - **보안** - Data Box에는 디바이스, 데이터 및 서비스에 대한 보안 보호 기능이 기본적으로 제공됩니다.
-    - 디바이스는 나사 변조 방지 및 변조 방지 스티커로 보호되어 견고하게 포장됩니다. 
-    - 디바이스의 데이터는 항상 AES 256비트 암호화로 보호됩니다.
-    - 디바이스는 Azure Portal에 제공된 암호로만 잠금 해제할 수 있습니다.
-    - 서비스는 Azure 보안 기능으로 보호됩니다.
-    - 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다.
+  - 디바이스는 나사 변조 방지 및 변조 방지 스티커로 보호되어 견고하게 포장됩니다. 
+  - 디바이스의 데이터는 항상 AES 256비트 암호화로 보호됩니다.
+  - 디바이스는 Azure Portal에 제공된 암호로만 잠금 해제할 수 있습니다.
+  - 서비스는 Azure 보안 기능으로 보호됩니다.
+  - 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다.
     
     자세한 내용은 [Azure Data Box 보안 및 데이터 보호](data-box-security.md)를 참조하세요.
 

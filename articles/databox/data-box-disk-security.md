@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093459"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
 
@@ -71,17 +71,17 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
 
 - **주문 세부 정보** – 주문이 만들어지면 사용자의 배송 주소, 이메일, 연락처 정보가 Azure Portal에 저장됩니다. 저장되는 정보는 다음과 같습니다.
 
-    - 담당자 이름
-    - 전화 번호
-    - Email
-    - 주소
-    - City
-    - 우편 번호
-    - 시스템 상태
-    - 국가/시/도/지역
-    - 드라이브 ID
-    - 운송업체 계정 번호
-    - 배송 추적 번호
+  - 담당자 이름
+  - 전화 번호
+  - Email
+  - 주소
+  - City
+  - 우편 번호
+  - 시스템 상태
+  - 국가/시/도/지역
+  - 드라이브 ID
+  - 운송업체 계정 번호
+  - 배송 추적 번호
 
     주문 세부 정보는 작업이 완료되거나 주문을 삭제하면 Data Box 서비스에 의해 삭제됩니다.
 

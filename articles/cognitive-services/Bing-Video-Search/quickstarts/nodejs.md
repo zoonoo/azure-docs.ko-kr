@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077312"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 
@@ -61,19 +61,19 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     };
     ```
     
-    2. `end`가 표시되면 `response.on()`을 사용하여 bing과 관련된 헤더를 저장합니다(`bingapis` 또는 `x-msedge-`로 시작). 그런 다음, `JSON.parse()`를 사용하여 JSON을 구문 분석하고, `JSON.stringify()`를 사용하여 문자열로 변환한 후, 출력합니다.
+   1. `end`가 표시되면 `response.on()`을 사용하여 bing과 관련된 헤더를 저장합니다(`bingapis` 또는 `x-msedge-`로 시작). 그런 다음, `JSON.parse()`를 사용하여 JSON을 구문 분석하고, `JSON.stringify()`를 사용하여 문자열로 변환한 후, 출력합니다.
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
 

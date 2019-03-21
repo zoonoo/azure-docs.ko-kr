@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007616"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -146,7 +146,8 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [애플리케이션을 위한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)으로 이동하세요.
+<!--start-collapse-->
+이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [애플리케이션을 위한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)으로 이동하세요.
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7단계: 컨트롤러를 추가하여 사용자 클레임 표시
@@ -300,7 +301,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 이 단계에서는 익명 사용자로 클레임 컨트롤러 액세스를 테스트합니다.<br/>
 사용자 로그아웃 링크를 선택하고 로그아웃 프로세스를 완료합니다.<br/>
-이제 브라우저에서 http://localhost:{port}/claims를 입력하여 `[Authorize]` 특성으로 보호되는 컨트롤러에 액세스합니다.
+이제 브라우저에서 `http://localhost:{port}/claims`를 입력하여 `[Authorize]` 특성으로 보호되는 컨트롤러에 액세스합니다.
 
 #### <a name="expected-results"></a>예상 결과
 

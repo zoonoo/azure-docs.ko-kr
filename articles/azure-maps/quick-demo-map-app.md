@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 대화형 맵 검색 | Microsoft Docs
 description: Azure 빠른 시작 - Azure Maps를 사용하여 대화형 맵 검색 데모를 만듭니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095469"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -34,20 +34,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **Marketplace 검색** 상자에서 **Maps**를 입력합니다.
 3. **결과**에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 선택합니다.
 4. **Azure Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
-    - 새 계정의 **이름**.
-    - 이 계정에 사용하려는 **구독**.
-    - 이 계정에 대한 **리소스 그룹**. **새로 만들기** 또는 **기존 리소스 그룹 사용**을 선택할 수도 있습니다.
-    - 선택 항목에서 **가격 책정 계층**을 선택합니다.
-    - **라이선스** 및 **개인정보처리방침**을 읽습니다. 사용 약관에 동의하려면 확인란을 선택합니다.
-    - 마지막으로 **만들기** 단추를 선택합니다.
+   - 새 계정의 **이름**.
+   - 이 계정에 사용하려는 **구독**.
+   - 이 계정에 대한 **리소스 그룹**. **새로 만들기** 또는 **기존 리소스 그룹 사용**을 선택할 수도 있습니다.
+   - 선택 항목에서 **가격 책정 계층**을 선택합니다.
+   - **라이선스** 및 **개인정보처리방침**을 읽습니다. 사용 약관에 동의하려면 확인란을 선택합니다.
+   - 마지막으로 **만들기** 단추를 선택합니다.
 
-    ![포털에서 Azure Maps 계정 만들기](./media/quick-demo-map-app/create-account.png)
+     ![포털에서 Azure Maps 계정 만들기](./media/quick-demo-map-app/create-account.png)
 
 5. 계정이 성공적으로 만들어지면 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **키**를 선택하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
 
 ## <a name="download-the-application"></a>응용 프로그램 다운로드
 
-1. [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
+1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장합니다. 텍스트 편집기에서 엽니다.
 3. `<insert-key>` 문자열을 검색합니다. 이 문자열을 이전 섹션의 **기본 키** 값으로 바꿉니다.
 

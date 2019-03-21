@@ -12,12 +12,12 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c68dba4a188e5acf88cc39b02e535d89a1c9e46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090511"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>자습서:  Azure AD Connect에서 AD FS용 백업으로 PHS 설정
 
@@ -60,9 +60,9 @@ ms.locfileid: "56178824"
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
 
-1.  [http://myapps.microsoft.com](http://myapps.microsoft.com)으로 이동합니다.
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  user@domain.onmicrosoft.com 형식을 사용하여 로그인해야 합니다. 사용자가 온-프레미스 로그인에 사용하는 것과 동일한 암호를 사용합니다.</br>
-![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>다음 단계
 

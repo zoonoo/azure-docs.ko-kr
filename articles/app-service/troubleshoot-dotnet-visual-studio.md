@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730438"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996782"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
+1. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
 
-5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
-6. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
+1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
-7. **게시** 대화 상자에서 **설정** 탭을 클릭한 다음, **구성**을 **디버그**로 변경하고 **저장**을 클릭합니다.
+1. **게시** 대화 상자에서 **설정** 탭을 클릭한 다음, **구성**을 **디버그**로 변경하고 **저장**을 클릭합니다.
 
     ![디버그 모드에서 게시](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. **게시**를 클릭합니다. 배포를 마치고 브라우저에 앱의 Azure URL이 열리면 브라우저를 닫습니다.
+1. **게시**를 클릭합니다. 배포를 마치고 브라우저에 앱의 Azure URL이 열리면 브라우저를 닫습니다.
 
-9. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭한 다음, **디버거 연결**을 클릭합니다.
+1. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭한 다음, **디버거 연결**을 클릭합니다.
 
     ![디버거 연결](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > 디버거를 시작하는 데 문제가 있는 경우 **서버 탐색기** 대신 **클라우드 탐색기**를 사용해 보세요.
     >
 
-10. 메뉴에서 **정보** 를 클릭합니다.
+1. 메뉴에서 **정보** 를 클릭합니다.
 
-     Visual Studio가 중단점에서 중지되고 코드는 로컬 컴퓨터가 아닌 Azure에서 실행됩니다.
+    Visual Studio가 중단점에서 중지되고 코드는 로컬 컴퓨터가 아닌 Azure에서 실행됩니다.
 
-11. `currentTime` 변수를 마우스 포인터로 가리켜 시간 값을 봅니다.
+1. `currentTime` 변수를 마우스 포인터로 가리켜 시간 값을 봅니다.
 
-     ![Azure에서 실행 중인 디버그 모드의 변수 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Azure에서 실행 중인 디버그 모드의 변수 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     보이는 시간은 Azure 서버 시간이며 이는 로컬 컴퓨터의 표준 시간대와 다를 수 있습니다.
+    보이는 시간은 Azure 서버 시간이며 이는 로컬 컴퓨터의 표준 시간대와 다를 수 있습니다.
 
-12. `currentTime` 변수에 "현재 Azure에서 실행 중" 같은 새 값을 입력합니다.
+1. `currentTime` 변수에 "현재 Azure에서 실행 중" 같은 새 값을 입력합니다.
 
-13. F5 키를 눌러 계속 실행합니다.
+1. F5 키를 눌러 계속 실행합니다.
 
      Azure에서 실행되는 정보 페이지에는 currentTime 변수에 입력한 새 값이 표시됩니다.
 
@@ -277,7 +277,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 애플리케이션에서 생성된 로그 보기
 
-WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 스토리지 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
+WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
 
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
 1. *Controllers\HomeController.cs*를 열고 `Index`, `About`, `Contact` 메서드를 다음 코드로 바꾸어 `System.Diagnostics`에 대해 `Trace` 문과 `using` 문을 추가합니다.
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. 파일 맨 위에 `using System.Diagnostics;` 문을 추가합니다.
+1. 파일 맨 위에 `using System.Diagnostics;` 문을 추가합니다.
 
 ### <a name="view-the-tracing-output-locally"></a>로컬에서 추적 출력 보기
 1. F5 키를 눌러 디버그 모드에서 애플리케이션을 실행합니다.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener`를 사용하면 `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
-3. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
+1. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
-5. 브라우저 창의 주소 표시줄에서 *trace.axd*를 URL에 추가한 후 Enter 키를 누릅니다. URL은 http://localhost:53370/trace.axd)과 유사합니다.
-6. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
+1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
+1. 브라우저 창의 주소 표시줄에 추가할 *trace.axd* URL을 한 다음 Enter 키를 누릅니다 (URL은 비슷한 `http://localhost:53370/trace.axd`).
+1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ public ActionResult Contact()
    * 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
    * 자세한 오류 메시지 로그는 *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
-    참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.  
+     참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -685,7 +685,7 @@ catch (Exception ex)
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
-* [LogParser를 사용하여 IIS 성능 문제 또는 애플리케이션 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)

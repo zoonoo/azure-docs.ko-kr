@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a785cb461b12c20bd5e322a55a91c8b49cb40d54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cabf29423123d988b08e002077b4782529e96aa0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095639"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>빠른 시작: Python용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -52,16 +52,16 @@ ms.locfileid: "55858164"
 
 ## <a name="create-the-image-search-client"></a>이미지 검색 클라이언트 만들기
 
-3. `CognitiveServicesCredentials` 인스턴스를 만들고 이 인스턴스를 사용하여 클라이언트를 인스턴스화합니다.
+1. `CognitiveServicesCredentials` 인스턴스를 만들고 이 인스턴스를 사용하여 클라이언트를 인스턴스화합니다.
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. 검색 쿼리를 Bing Image Search API에 보냅니다.
+1. 검색 쿼리를 Bing Image Search API에 보냅니다.
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>결과 처리 및 보기
+   ## <a name="process-and-view-the-results"></a>결과 처리 및 보기
 
 응답에서 반환된 이미지 결과를 구문 분석합니다.
 

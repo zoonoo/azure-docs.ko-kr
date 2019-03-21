@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080848"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성(미리 보기)
 
@@ -106,10 +106,10 @@ UI를 통해 새 범위를 공개하려면
       }
       ```
 
-  > [!NOTE]
-  > `id` 값은 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)과 같은 GUID 생성 도구를 사용하거나 프로그래밍 방식으로 만들어야 합니다. `id`는 웹 API에 의해 노출되는 범위에서 고유한 식별자를 나타냅니다. 웹 API에 액세스할 수 있는 권한이 있는 클라이언트를 적절하게 구성하면 Azure AD에서 OAuth 2.0 액세스 토큰을 발급합니다. 클라이언트가 웹 API를 호출하면 해당 애플리케이션 등록에서 요청된 권한으로 설정된 범위(scp) 클레임을 갖는 액세스 토큰을 표시합니다.
-  >
-  > 추가 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API에서 다양한 기능과 관련된 여러 범위를 공개할 수도 있음을 고려하세요. 리소스에서는 OAuth 2.0 액세스 토큰에서 수신된 범위(`scp`) 클레임을 평가하여 런타임 시 웹 API에 대한 액세스를 제어할 수 있습니다.
+   > [!NOTE]
+   > `id` 값은 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)과 같은 GUID 생성 도구를 사용하거나 프로그래밍 방식으로 만들어야 합니다. `id`는 웹 API에 의해 노출되는 범위에서 고유한 식별자를 나타냅니다. 웹 API에 액세스할 수 있는 권한이 있는 클라이언트를 적절하게 구성하면 Azure AD에서 OAuth 2.0 액세스 토큰을 발급합니다. 클라이언트가 웹 API를 호출하면 해당 애플리케이션 등록에서 요청된 권한으로 설정된 범위(scp) 클레임을 갖는 액세스 토큰을 표시합니다.
+   >
+   > 추가 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API에서 다양한 기능과 관련된 여러 범위를 공개할 수도 있음을 고려하세요. 리소스에서는 OAuth 2.0 액세스 토큰에서 수신된 범위(`scp`) 클레임을 평가하여 런타임 시 웹 API에 대한 액세스를 제어할 수 있습니다.
 
 1. 완료되면 **저장**을 클릭합니다. 이제 Web API가 디렉토리에 있는 다른 애플리케이션에 의해 사용되도록 구성되었습니다.
 1. [웹 API가 다른 응용 프로그램에 공개되는지 확인](#verify-the-web-api-is-exposed-to-other-applications)하기 위한 단계를 따릅니다.

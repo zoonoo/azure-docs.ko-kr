@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e2980b48a5d9b1f2e9d75e59a27bfceb0d1180
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6221fb7575fc267030929b449cba48cff8563f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195586"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122557"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>빠른 시작: Azure Active Directory v2.0 엔드포인트에 앱 등록
 
@@ -61,4 +61,4 @@ v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원�
 
 이제 Microsoft 앱이 있으므로 v2.0 빠른 시작2 중 하나를 완료할 수 있습니다. 몇 가지 권장 사항입니다.
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

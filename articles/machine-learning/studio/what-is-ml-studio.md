@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894005"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -40,7 +40,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Machine Learning Studio 개요 다이어그램 다운로드
 **Microsoft Azure Machine Learning Studio 기능 개요** 다이어그램을 다운로드하여 Machine Learning Studio의 기능을 개략적으로 봅니다. 옆에 두고 보려면, tabloid 크기(11 x 17인치)로 다이어그램을 인쇄하면 됩니다.
 
-**여기서 다이어그램 다운로드: [Microsoft Azure Machine Learning Studio 기능 개요](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**여기서 다이어그램 다운로드: [Microsoft Azure Machine Learning Studio 기능 개요](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio 기능 개요](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio 시작
@@ -61,7 +61,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 * **설정** - 계정과 리소스를 구성하는 데 사용할 수 있는 설정 모음입니다.
 
 ### <a name="gallery"></a>갤러리
-**갤러리** 탭을 클릭하면 **[Azure AI Gallery](http://gallery.azure.ai/)** 로 이동합니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유하는 곳입니다.
+**갤러리** 탭을 클릭하면 **[Azure AI Gallery](https://gallery.azure.ai/)** 로 이동합니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유하는 곳입니다.
 
 갤러리에 대한 자세한 내용은 [Azure AI Gallery의 솔루션 공유 및 검색](gallery-how-to-use-contribute-publish.md)을 참조하세요.
 

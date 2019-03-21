@@ -10,23 +10,23 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106001"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-다음 단계에서는 Windows OS를 실행 중인 개발 머신에서 X.509 디바이스를 시뮬레이션하고, 코드 샘플을 사용하여 이 시뮬레이션된 디바이스를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여줍니다. 
+다음 단계에서는 Windows OS를 실행 중인 개발 컴퓨터에서 X.509 디바이스를 시뮬레이션하고, 코드 샘플을 사용하여 이 시뮬레이션된 디바이스를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여줍니다. 
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)도 검토하세요. 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
 Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
-- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 장치를 등록하는 데 사용됩니다.
-- [개별 등록](concepts-service.md#individual-enrollment): 단일 장치를 등록하는 데 사용됩니다.
+- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
+- [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
 
 이 문서에서는 개별 등록을 설명합니다.
 
@@ -63,7 +63,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 * 자체 서명된 인증서는 테스트 목적으로만 사용되며 프로덕션 환경에서 사용하지 마십시오.
 * 자체 서명된 인증서에 대한 기본 만료일은 1년입니다.
 
-[Java용 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java.git)의 샘플 코드를 사용하여 시뮬레이션된 장치에 대한 개별 등록 항목에서 사용될 인증서를 만듭니다.
+[Java용 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java.git)의 샘플 코드를 사용하여 시뮬레이션된 디바이스에 대한 개별 등록 항목에서 사용될 인증서를 만듭니다.
 
 
 1. 이전 단계의 명령 프롬프트를 사용하여 `target` 폴더로 이동한 다음, 이전 단계에서 만든 jar 파일을 실행합니다.
@@ -86,15 +86,15 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 6. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
 7. **등록 추가** 패널 아래에 다음 정보를 입력합니다.
-    - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
-    - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **X509individual.pem** 인증서 파일을 선택합니다.  
-    - 필요에 따라 다음 정보를 입력합니다.
-      - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
-      - 고유한 디바이스 ID를 입력합니다. 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
-      - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
-   - 완료되면 **저장** 단추를 클릭합니다. 
+   - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
+   - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **X509individual.pem** 인증서 파일을 선택합니다.  
+   - 필요에 따라 다음 정보를 입력합니다.
+     - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
+     - 고유한 디바이스 ID를 입력합니다. 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
+     - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
+     - 완료되면 **저장** 단추를 클릭합니다. 
 
-    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      성공적으로 등록되면 *개별 등록* 탭의 *등록 ID* 열 아래에 X.509 디바이스가 **microsoftriotcore**로 표시됩니다. 
 
@@ -149,7 +149,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-5. Azure Portal에서 프로비전 서비스에 연결된 IoT 허브로 이동하고 **Device Explorer** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다.  샘플 디바이스 응용 프로그램을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 클릭해야 할 수도 있습니다. 
+5. Azure Portal에서 프로비전 서비스에 연결된 IoT 허브로 이동하고 **Device Explorer** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다.  샘플 장치 애플리케이션을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 클릭해야 할 수도 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
@@ -172,4 +172,4 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 이 빠른 시작에서는 Windows 컴퓨터에서 시뮬레이션된 X.509 디바이스를 만들었습니다. Azure IoT Hub Device Provisioning 서비스에 해당 등록을 구성한 다음, IoT 허브에 디바이스를 자동 프로비전했습니다. 프로그래밍 방식으로 X.509 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 디바이스를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-java.md)
+> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 디바이스 등록](quick-enroll-device-x509-java.md)

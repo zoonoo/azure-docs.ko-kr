@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079165"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
 
@@ -69,18 +69,18 @@ Application Insights에서 가용성 테스트를 사용하여 전 세계 여러
 ## <a name="create-an-alert-from-metrics"></a>메트릭에서 경고 만들기
 가용성 테스트에서 경고를 보내는 것 이외에도 애플리케이션에 대해 수집되는 모든 성능 메트릭에서 경고를 만들 수 있습니다.
 
-2. **구성** 메뉴에서 **경고**를 선택합니다.  Azure Alerts 패널이 열립니다.  다른 서비스에 대해 여기에서 구성된 다른 경고 규칙이 있을 수 있습니다.
-3. **메트릭 경고 추가**를 클릭합니다.  새 경고 규칙을 만드는 패널이 열립니다.
+1. **구성** 메뉴에서 **경고**를 선택합니다.  Azure Alerts 패널이 열립니다.  다른 서비스에 대해 여기에서 구성된 다른 경고 규칙이 있을 수 있습니다.
+1. **메트릭 경고 추가**를 클릭합니다.  새 경고 규칙을 만드는 패널이 열립니다.
 
     ![메트릭 경고 추가](media/tutorial-alert/add-metric-alert.png)
 
-4. 경고 규칙에 대한 **이름**을 입력하고 **리소스**에 대한 드롭다운에서 애플리케이션을 선택합니다.
-5. 샘플링할 **메트릭**을 선택합니다.  지난 24시간 동안 이 요청의 값을 나타내는 그래프가 표시됩니다.  메트릭에 대한 조건을 설정하도록 도와줍니다.
+1. 경고 규칙에 대한 **이름**을 입력하고 **리소스**에 대한 드롭다운에서 애플리케이션을 선택합니다.
+1. 샘플링할 **메트릭**을 선택합니다.  지난 24시간 동안 이 요청의 값을 나타내는 그래프가 표시됩니다.  메트릭에 대한 조건을 설정하도록 도와줍니다.
 
     ![경고 규칙 추가](media/tutorial-alert/add-alert-01.png)
 
-6. 경고에 대한 **조건** 및 **임계값**을 지정합니다. 만들 경고에 대해 메트릭이 초과되어야 하는 횟수입니다. 
-6. **다음을 통해 알림** 아래에서 **소유자, 참가자 및 구독자에게 전자 메일 보내기** 상자를 선택하여 경고 조건이 충족될 때 이러한 사용자에게 전자 메일을 보내고 추가 받는 사람의 전자 메일 주소를 추가합니다.  또한 조건이 충족될 때 실행하는 웹후크 또는 논리 앱을 여기에서 지정할 수 있습니다.  검색된 문제를 완화하는 시도에 사용됩니다. 또는 
+1. 경고에 대한 **조건** 및 **임계값**을 지정합니다. 만들 경고에 대해 메트릭이 초과되어야 하는 횟수입니다. 
+1. **다음을 통해 알림** 아래에서 **소유자, 참가자 및 구독자에게 전자 메일 보내기** 상자를 선택하여 경고 조건이 충족될 때 이러한 사용자에게 전자 메일을 보내고 추가 받는 사람의 전자 메일 주소를 추가합니다.  또한 조건이 충족될 때 실행하는 웹후크 또는 논리 앱을 여기에서 지정할 수 있습니다.  검색된 문제를 완화하는 시도에 사용됩니다. 또는 
 
     ![경고 규칙 추가](media/tutorial-alert/add-alert-02.png)
 

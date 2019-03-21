@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015314"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -258,7 +258,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
 
 - [multer](https://github.com/expressjs/multer)는 경로 처리기에 대한 업로드 전략을 구현합니다.
-- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
+- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
 
 파일이 경로로 전송되면 파일이 Blob 컨테이너에 업로드될 때까지 파일의 내용이 메모리에 유지됩니다.
 
@@ -322,7 +322,7 @@ router.post('/', uploadStrategy, (req, res) => {
 샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
 
 - [multer](https://github.com/expressjs/multer)는 경로 처리기에 대한 업로드 전략을 구현합니다.
-- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
+- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
 
 파일이 경로로 전송되면 파일이 Blob 컨테이너에 업로드될 때까지 파일의 내용이 메모리에 유지됩니다.
 

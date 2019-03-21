@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090052"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>빠른 시작: C#용 Bing News Search SDK로 뉴스 검색 수행
 
@@ -26,7 +26,7 @@ C#용 Bing News Search SDK를 사용하여 뉴스 검색을 시작하려면 이 
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 * [Bing News Search SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) 이 패키지를 설치하면 다음도 설치됩니다.
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설정하려�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)
+> [단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

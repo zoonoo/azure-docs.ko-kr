@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408938"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093231"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Batch AI 학습 작업에 대한 클러스터 만들기
 
@@ -59,7 +59,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 3. **계정 이름** 및 **리소스 그룹** 값을 입력합니다. 원할 경우 작업 영역의 **구독** 및 **위치**에 대해 다른 옵션을 선택합니다. **작업 영역 만들기**를 선택합니다.
 
-  ![Batch AI 작업 영역 만들기](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Batch AI 작업 영역 만들기](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 **배포 성공** 메시지가 나타나면 만든 리소스로 이동한 후 작업 영역을 선택합니다.
 
@@ -73,7 +73,7 @@ Batch AI 파일 서버는 클러스터 노드에 자동으로 탑재될 수 있�
 
 3. **관리자 사용자 이름**을 입력하고 SSH 공개 키 파일의 내용을 **SSH 키**로 복사합니다. 나머지 값은 기본값으로 유지하고 **파일 서버 만들기**를 선택합니다.
 
-  ![Batch AI 파일 서버 만들기](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Batch AI 파일 서버 만들기](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 파일 서버를 배포하는 데 몇 분 정도 걸립니다.
 
@@ -83,7 +83,7 @@ Batch AI 파일 서버는 클러스터 노드에 자동으로 탑재될 수 있�
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-다음 단계에서는 단일 GPU 노드가 있는 클러스터를 만듭니다. 클러스터 노드는 호스트 컨테이너 기반 응용 프로그램으로 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 이미지는 대부분의 학습 워크로드에 사용할 수 있습니다. 클러스터 노드는 해당 탑재 지점에 파일 서버를 탑재합니다. 
+다음 단계에서는 단일 GPU 노드가 있는 클러스터를 만듭니다. 클러스터 노드는 호스트 컨테이너 기반 애플리케이션으로 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 이미지는 대부분의 학습 워크로드에 사용할 수 있습니다. 클러스터 노드는 해당 탑재 지점에 파일 서버를 탑재합니다. 
 
 1. Batch AI 작업 영역에서 **클러스터** > **Batch AI 클러스터 추가**를 선택합니다.
 
@@ -112,7 +112,7 @@ Batch AI에서 노드를 할당하는 데 몇 분 정도 걸립니다. 이 시�
 
 ### <a name="list-cluster-nodes"></a>클러스터 노드 나열
 
-응용 프로그램을 설치하거나 유지 관리를 수행하기 위해 클러스터 노드(이 경우 단일 노드)에 연결해야 할 경우 포털에서 연결 정보를 가져옵니다. 클러스터가 생성된 후 **노드**를 클릭하고 SSH **연결** 설정(IP 주소 및 포트 번호)을 기록해 둡니다.
+애플리케이션을 설치하거나 유지 관리를 수행하기 위해 클러스터 노드(이 경우 단일 노드)에 연결해야 할 경우 포털에서 연결 정보를 가져옵니다. 클러스터가 생성된 후 **노드**를 클릭하고 SSH **연결** 설정(IP 주소 및 포트 번호)을 기록해 둡니다.
 
 ![클러스터 노드](./media/quickstart-create-cluster-portal/cluster-nodes.png)
 

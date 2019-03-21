@@ -1,19 +1,19 @@
 ---
 title: Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 description: Azure에서 Ansible을 사용하여 자동 크기 조정으로 가상 머신 확장 집합의 크기를 조정하는 방법 알아보기
-ms.service: ansible
+ms.service: azure
 keywords: Ansible, Azure, DevOps, bash, 플레이북, 크기 조정, 자동 크기 조정, 가상 머신, 가상 머신 확장 집합, VMSS
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157057"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792432"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 

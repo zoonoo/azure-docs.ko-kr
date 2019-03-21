@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560824"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306938"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure CLI 샘플
 
@@ -51,9 +51,9 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 | |  |
 |---|---|
-| [Managed Instance 만들기](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | 이 CLI 스크립트는 Managed Instance를 만드는 방법을 보여 줍니다. |
-| [Managed Instance 업데이트](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | 이 CLI 스크립트는 Managed Instance를 업데이트하는 방법을 보여 줍니다. |
-| [데이터베이스를 다른 Managed Instance로 이동](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | 이 CLI 스크립트는 한 인스턴스에서 다른 인스턴스로 데이터베이스의 백업을 복원하는 방법을 보여 줍니다. |
+| [Managed Instance 만들기](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | 이 CLI 스크립트는 Managed Instance를 만드는 방법을 보여 줍니다. |
+| [Managed Instance 업데이트](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | 이 CLI 스크립트는 Managed Instance를 업데이트하는 방법을 보여 줍니다. |
+| [데이터베이스를 다른 Managed Instance로 이동](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | 이 CLI 스크립트는 한 인스턴스에서 다른 인스턴스로 데이터베이스의 백업을 복원하는 방법을 보여 줍니다. |
 |||
 
 [Managed Instance Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances)에 대해 자세히 알아보고 [여기에서 추가 예제](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 확인해 보세요.

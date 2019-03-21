@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 9a84b87a3577d3b88d49040d309f48083d494879
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5c2f85e6417c3185df58e757f9831ef171e39add
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181897"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>빠른 시작: Java를 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -74,7 +74,7 @@ dependencies {
 샘플 앱의 폴더를 만들어 보겠습니다. 작업 디렉터리에서 다음을 실행합니다.
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 다음으로, 이 폴더에서 `AltTranslation.java`라는 파일을 만듭니다.

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: c2dfd67a2ac3efd24da9c7ba2b1b5541fafafd2d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108783"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>빠른 시작: Bing Video Search REST API 및 C#을 사용하여 비디오 검색
 
@@ -26,7 +26,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 ## <a name="prerequisites"></a>필수 조건
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -52,7 +52,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>구조체를 만들어 Bing Video Search API 응답의 형식 지정
 
-3. 이미지 검색 결과 및 JSON 헤더 정보를 포함할 `SearchResult` 구조체를 정의합니다.
+1. 이미지 검색 결과 및 JSON 헤더 정보를 포함할 `SearchResult` 구조체를 정의합니다.
 
     ```csharp
     struct SearchResult

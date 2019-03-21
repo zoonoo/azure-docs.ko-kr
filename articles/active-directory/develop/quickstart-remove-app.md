@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182615"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093197"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거(미리 보기)
 
@@ -52,8 +52,8 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 4. **개요** 페이지에서 **삭제**를 선택합니다.
 5. **예**를 선택하여 앱 삭제를 확인합니다.
 
-  > [!NOTE]
-  > 애플리케이션을 삭제하려면 사용자가 애플리케이션의 소유자 목록에 있거나 관리 권한이 있어야 합니다.
+   > [!NOTE]
+   > 애플리케이션을 삭제하려면 사용자가 애플리케이션의 소유자 목록에 있거나 관리 권한이 있어야 합니다.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>다른 조직이 작성한 애플리케이션 제거
 

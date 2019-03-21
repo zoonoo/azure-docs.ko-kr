@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 예제에서는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 QnA Maker KB를 만듭니다.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113702"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -53,7 +54,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 10. 오른쪽 위에서 **QnA 쌍 추가**를 선택하여 KB의 **Editorial**에 새 행을 추가합니다. **질문**에 **Hi**를 입력합니다. **답변**에 **Hello. Ask me bitlocker questions.** 를 입력합니다.
 
-   ![QnA 쌍 추가](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![QnA 쌍 추가](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. 오른쪽 위에서 **저장 후 학습**을 선택하여 편집 내용을 저장하고 QnA Maker 모델을 학습합니다. 저장하지 않으면 편집 내용은 보관되지 않습니다.
 
@@ -61,7 +62,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 13. **검사**를 선택하여 응답을 더 자세히 살펴봅니다. 테스트 창을 사용하여 KB에 적용한 변경 사항을 게시하기 전에 테스트합니다.
 
-   ![테스트 패널](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![테스트 패널](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. **테스트**를 다시 선택하여 **테스트** 팝업을 닫습니다.
 
@@ -69,7 +70,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 16. 이제 QnA Maker 서비스가 성공적으로 게시되었습니다. 애플리케이션 또는 봇 코드에서 엔드포인트를 사용할 수 있습니다.
 
-   ![게시](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![게시](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>다음 단계
 

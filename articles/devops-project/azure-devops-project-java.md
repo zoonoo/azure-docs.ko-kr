@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093568"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Java용 CI/CD 파이프라인 만들기
 
@@ -65,7 +65,7 @@ Java 샘플에는 여러 애플리케이션 프레임워크 선택이 포함됩�
 
     ![대시보드 보기](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps Projects에서 CI 빌드 및 릴리스 트리거가 자동으로 구성되었을 것입니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
+   DevOps Projects에서 CI 빌드 및 릴리스 트리거가 자동으로 구성되었을 것입니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
@@ -110,7 +110,7 @@ DevOps Projects는 Azure Repos 또는 GitHub에 Git 리포지토리를 만듭니
 **기록** 창에 빌드에 대한 최근 변경 내용의 감사 내역이 표시됩니다.  Azure Pipelines는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
 1. **트리거**를 선택합니다.   
- DevOps Projects는 CI 트리거를 자동으로 생성하면 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+ DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다.   
 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.

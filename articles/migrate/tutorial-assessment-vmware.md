@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104525"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -179,16 +179,16 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 3. 바탕 화면에서 **수집기 실행** 바로 가기를 클릭합니다.
 4. 수집기 UI의 위쪽 표시줄에서 **업데이트 확인**을 클릭하고 수집기가 최신 버전에서 실행되는지를 확인합니다. 그렇지 않으면 링크에서 최신 업그레이드 패키지를 다운로드하고 수집기를 업데이트하도록 선택할 수 있습니다.
 5. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
-    - 마이그레이션할 Azure 클라우드(Azure Global 또는 Azure Government)를 선택합니다.
-    - 사용 조건에 동의하고 타사 정보를 읽습니다.
-    - 수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
-    - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기에서 액세스하는 [URL 목록](https://docs.microsoft.com/azure/migrate/concepts-collector)에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites).
+   - 마이그레이션할 Azure 클라우드(Azure Global 또는 Azure Government)를 선택합니다.
+   - 사용 조건에 동의하고 타사 정보를 읽습니다.
+   - 수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
+   - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기에서 액세스하는 [URL 목록](https://docs.microsoft.com/azure/migrate/concepts-collector)에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites).
 
-      > [!NOTE]
-      > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다. 가로채는 프록시가 있는 경우 프록시 인증서를 가져오지 않으면 인터넷 연결이 처음에는 실패할 수 있습니다. 수집기 VM에서 프록시 인증서를 신뢰할 수 있는 인증서로 가져와서 이 문제를 해결할 수 있는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector).
+     > [!NOTE]
+     > 프록시 주소는 <http://ProxyIPAddress> 또는 <http://ProxyFQDN> 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다. 가로채는 프록시가 있는 경우 프록시 인증서를 가져오지 않으면 인터넷 연결이 처음에는 실패할 수 있습니다. 수집기 VM에서 프록시 인증서를 신뢰할 수 있는 인증서로 가져와서 이 문제를 해결할 수 있는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-    - 수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
-    - VMware PowerCLI를 다운로드하여 설치합니다.
+   - 수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
+   - VMware PowerCLI를 다운로드하여 설치합니다.
 
 6. **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
     - vCenter 서버의 이름(FQDN) 또는 IP 주소를 지정합니다.

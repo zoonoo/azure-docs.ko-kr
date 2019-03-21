@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092296"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
@@ -117,12 +117,12 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>설정 스크립트 샘플을 통해 Kubernetes 클러스터 설정
 1. **deploy/aks/setup/setup.sh** 파일을 편집하고 다음 자리 표시자를 사용자 환경에 맞는 값으로 바꿉니다. 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![강조 표시된 여러 자리 표시자가 포함된 Bash의 setup.sh 스크립트의 스크린 샷](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![강조 표시된 여러 자리 표시자가 포함된 Bash의 setup.sh 스크립트의 스크린 샷](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. 설정 스크립트를 실행합니다.
 

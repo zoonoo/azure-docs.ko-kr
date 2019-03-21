@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ab41826661db3f46161aca4e650e5e974c6b3b45
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090018"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
@@ -116,8 +116,8 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 
 3. .NET 또는 REST API 중 하나를 사용하는 코드로 진행합니다.
 
-  + [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)에서는 관리 코드의 기본 워크플로를 설명합니다.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다. 이 빠른 시작을 사용하여 Postman 또는 Fiddler: [Azure Search REST API 탐색](search-fiddler.md)에서 REST API를 호출할 수도 있습니다.
+   + [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)에서는 관리 코드의 기본 워크플로를 설명합니다.  
+   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다. 이 빠른 시작을 사용하여 Postman 또는 Fiddler: [Azure Search REST API 탐색](search-fiddler.md)에서 REST API를 호출할 수도 있습니다.
 
 ## <a name="watch-this-video"></a>이 동영상 시청
 

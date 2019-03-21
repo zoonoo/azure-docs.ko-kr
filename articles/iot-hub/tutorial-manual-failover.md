@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093738"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행(공개 미리 보기)
 
@@ -138,4 +138,4 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
-[IoT 장치의 상태 관리](tutorial-device-twins.md)
+> [IoT 장치의 상태 관리](tutorial-device-twins.md)

@@ -2,19 +2,19 @@
 title: AKS(Azure Kubernetes Service)와 함께 수신 컨트롤러로 Application Gateway를 사용하여 Kubernetes 클러스터 만들기
 description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 가상 머신, azure, kubernetes, 수신, 애플리케이션 게이트웨이
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891984"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994361"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Application Gateway 수신 컨트롤러로 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스트된 Kubernetes 환경을 관리합니다. AKS를 사용하면 컨테이너 오케스트레이션 전문 지식 없이도 컨테이너화된 애플리케이션을 쉽고 빠르게 배포 및 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -36,16 +36,16 @@ ms.locfileid: "55891984"
 - **Terraform 구성**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
 - **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName 값 및 암호를 기록해 둡니다.
-    - 다음 명령을 실행하여 서비스 사용자의 개체 ID를 기록해 둡니다.
+  - 다음 명령을 실행하여 서비스 사용자의 개체 ID를 기록해 둡니다.
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 첫 번째 단계는 연습용 Terraform 구성 파일을 넣을 디렉터리를 만드는 것입니다.
 
-1. [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)을 엽니다. 이전에 환경을 선택하지 않은 경우 환경으로 **Bash**를 선택합니다.
 
@@ -99,8 +99,8 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>입력 변수 정의
-이 배포에 필요한 모든 변수를 나열하는 Terraform 구성 파일 만들기
+   ## <a name="define-input-variables"></a>입력 변수 정의
+   이 배포에 필요한 모든 변수를 나열하는 Terraform 구성 파일 만들기
 1. Cloud Shell에서 이름이 `variables.tf`인 파일을 만듭니다.
     ```bash
     vi variables.tf

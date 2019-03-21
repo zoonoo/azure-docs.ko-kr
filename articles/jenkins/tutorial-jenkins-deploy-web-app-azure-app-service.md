@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821306"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533496"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 
-이 자습서에는 Jenkins에서 CI(지속적인 통합) 및 CD(연속 배포)를 설정하여 GitHub의 샘플 Java 웹앱을 [Linux의 Azure App Service](/azure/app-service/containers/app-service-linux-intro)로 배포합니다. GitHub로 커밋을 푸시하여 앱을 업데이트하면 Jenkins는 앱을 자동으로 빌드한 후 Azure App Service에 다시 게시합니다. 이 자습서의 샘플 앱은 [Spring Boot](http://projects.spring.io/spring-boot/) 프레임워크를 사용하여 개발했습니다. 
+이 자습서에는 Jenkins에서 CI(지속적인 통합) 및 CD(연속 배포)를 설정하여 GitHub의 샘플 Java 웹앱을 [Linux의 Azure App Service](/azure/app-service/containers/app-service-linux-intro)로 배포합니다. GitHub로 커밋을 푸시하여 앱을 업데이트하면 Jenkins는 앱을 자동으로 빌드한 후 Azure App Service에 다시 게시합니다. 이 자습서의 샘플 앱은 [Spring Boot](https://projects.spring.io/spring-boot/) 프레임워크를 사용하여 개발했습니다. 
 
 ![개요](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -193,7 +193,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
    1. 표시되는 **속성 콘텐츠** 상자에서 이러한 환경 변수 및 해당 값을 추가합니다. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 1. GitHub 포크의 `src/main/resources/` 폴더에서 이름이 `web.config`이고 이 XML을 포함하는 이 앱 구성 파일을 만듭니다. 단, `$(JAR_FILE_NAME)`을 `gs-spring-boot-0.1.0.jar`로 바꿉니다.
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
 1. GitHub 포크의 루트 폴더에 이름이 `Jenkinsfile`이고 이 텍스트([GitHub의 원본](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se))를 포함하는 이 빌드 및 배포 스크립트를 만듭니다.
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

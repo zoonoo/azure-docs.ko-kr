@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087332"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -137,7 +137,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 4. 이전 자습서에서 복제된 데이터용으로 만든 **contosovmsacct1910171607** 저장소 계정을 선택하고, 장애 조치(failover) 후 Azure VM이 배치될 **ContosoASRnet** 네트워크를 선택합니다.
 5. **가상 머신** > **선택**에서 복제할 VM을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
- **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되고 나면 초기 복제가 완료되며 가상 머신은 장애 조치(failover)를 수행할 준비가 됩니다.
+   **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되고 나면 초기 복제가 완료되며 가상 머신은 장애 조치(failover)를 수행할 준비가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)

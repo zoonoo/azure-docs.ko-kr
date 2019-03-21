@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080899"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Blob 컨테이너의 총 청구 크기 계산
 
@@ -101,17 +101,17 @@ For-Each Signed Identifier[512 bytes]
 * 저장된 메타데이터의 각 블록에 대해 이름의 길이(ASCII로 저장됨)와 문자열 값의 길이를 저장합니다.
 
 * 블록 Blob의 경우:
-    * 블록 목록에 대한 8바이트.
-    * 블록 수 곱하기 블록 ID 크기(바이트).
-    * 커밋된 블록과 커밋되지 않은 블록에 있는 데이터의 크기.
+  * 블록 목록에 대한 8바이트.
+  * 블록 수 곱하기 블록 ID 크기(바이트).
+  * 커밋된 블록과 커밋되지 않은 블록에 있는 데이터의 크기.
 
     >[!NOTE]
     >스냅숏이 사용되면 이 크기에 기본 또는 스냅숏 Blob에 대한 고유 데이터만 포함됩니다. 커밋되지 않은 블록이 일주일 후에 사용되지 않았다면 가비지 수집됩니다. 그 후 그것들은 청구에 포함되지 않습니다.
 
 * 페이지 Blob의 경우:
-    * 데이터 시간이 12바이트인 비연속적인 페이지 범위의 수. **GetPageRanges** API를 호출할 때 표시되는 고유한 페이지 범위의 수입니다.
+  * 데이터 시간이 12바이트인 비연속적인 페이지 범위의 수. **GetPageRanges** API를 호출할 때 표시되는 고유한 페이지 범위의 수입니다.
 
-    * 저장된 모든 페이지의 데이터 크기(바이트).
+  * 저장된 모든 페이지의 데이터 크기(바이트).
 
     >[!NOTE]
     >스냅숏이 사용되면 이 크기에 기본 BLOB 또는 계산된 스냅숏 BLOB에 대한 고유 페이지만 포함됩니다.

@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993249"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
-Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](http://socket.io)를 참조하세요.
+Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
@@ -33,7 +33,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 *  [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-*  [Node.js](https://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 *  [Python 버전 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
@@ -62,7 +62,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 1. **복제** 단추를 눌러 리포지토리의 로컬 복사본을 만듭니다. **ZIP** 단추를 눌러 프로젝트를 다운로드할 수도 있습니다.
    
-   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 보는 브라우저 창][chat-example-view]
+   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 보는 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. **examples\\chat** 디렉터리를 찾을 때까지 로컬 리포지토리의 디렉터리 구조를 탐색합니다. 이 디렉터리의 내용을 이전에 만든 **C:\\node\\chatapp\\WorkerRole1** 디렉터리로 복사합니다.
    
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
@@ -84,15 +84,15 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
          var port = process.env.PORT || 3000;         //Updated
 3. 애플리케이션이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
    
-       //app.listen(3000, function () {            //Original
+       //app.listen(3000, function () {            //Original
        app.listen(process.env.port, function () {  //Updated
          var addr = app.address();
          console.log('   app listening on http://' + addr.address + ':' + addr.port);
        });
 
-**server.js**에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 응용 프로그램을 테스트합니다.
+**server.js**에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 애플리케이션을 테스트합니다.
 
-1. **Azure PowerShell**을 사용하여 디렉터리를 **C:\\node\\chatapp\\WorkerRole1** 디렉터리를 변경하고 다음 명령을 사용하여 이 응용 프로그램에서 필요한 모듈을 설치합니다.
+1. **Azure PowerShell**을 사용하여 디렉터리를 **C:\\node\\chatapp\\WorkerRole1** 디렉터리를 변경하고 다음 명령을 사용하여 이 애플리케이션에서 필요한 모듈을 설치합니다.
    
        PS C:\node\chatapp\WorkerRole1> npm install
    
@@ -109,12 +109,9 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
-   
-      AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7을 다시 설치하세요. 버전이 일치하는지 확인하세요.
-   >
-   >
-
+   > 예를 들어 에뮬레이터 시작 문제가 발생 하는 경우.: Start-azureemulator: 예기치 않은 오류가 발생 했습니다.  세부 정보: 발생 한 예기치 않은 오류가 통신 개체 System.ServiceModel.Channels.ServiceChannel Faulted 상태에서 이기 때문에 통신에 사용할 수 없습니다.
+   > 
+   > AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7 다시 설치 하십시오-버전이 일치 하는지 확인 합니다.
 
 2. 브라우저를 열고 **http://127.0.0.1**로 이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
@@ -131,14 +128,14 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
    > [!IMPORTANT]
    > 고유한 이름을 사용해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. 배포가 완료되면 브라우저가 열리고 배포된 서비스로 이동합니다.
    > 
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 애플리케이션 빌드 및 배포** (영문)에서 [Azure에 애플리케이션 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
    
    ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
    
    > [!NOTE]
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 애플리케이션 빌드 및 배포** (영문)에서 [Azure에 애플리케이션 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
 
@@ -156,7 +153,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/

@@ -1,19 +1,19 @@
 ---
 title: Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성
 description: Ansible을 사용하여 Azure Database for MySQL 서버를 만들고 구성하는 방법 알아보기
-ms.service: ansible
+ms.service: azure
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, MySQK, 데이터베이스
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095401"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 
@@ -134,14 +134,14 @@ ansible-playbook mysql_firewall.yml
 다음 명령을 입력합니다. 
 
 1. **mysql** 명령줄 도구를 사용하여 서버에 연결
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. 서버 상태 보기:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 모든 작업이 제대로 진행되었다면 명령줄 도구에서 다음 텍스트가 출력될 것입니다.
 

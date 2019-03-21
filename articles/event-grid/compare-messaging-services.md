@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297109"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540808"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -34,7 +34,7 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 이벤트는 조건 또는 상태 변경에 대한 간단한 알림입니다. 이벤트 게시자는 이벤트 처리 방법에 대한 기대가 없습니다. 이벤트 소비자는 알림을 어떻게 처리할지 결정합니다. 이벤트는 불연속 단위 또는 시리즈의 일부일 수 있습니다.
 
-불연속 이벤트는 상태 변경을 보고하며 실행이 가능합니다. 다음 단계를 수행하기 위해 소비자는 무언가가 발생했다는 것만 알면 됩니다. 이벤트 데이터는 발생한 상황에 대한 정보를 포함하지만 이벤트를 트리거한 데이터가 없습니다. 예를 들어, 이벤트는 소비자에게 파일이 만들어진 것을 알립니다. 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않습니다. 불연속 이벤트는 크기를 조정해야 하는 [서버리스](http://azure.com/serverless) 솔루션에 이상적입니다.
+불연속 이벤트는 상태 변경을 보고하며 실행이 가능합니다. 다음 단계를 수행하기 위해 소비자는 무언가가 발생했다는 것만 알면 됩니다. 이벤트 데이터는 발생한 상황에 대한 정보를 포함하지만 이벤트를 트리거한 데이터가 없습니다. 예를 들어, 이벤트는 소비자에게 파일이 만들어진 것을 알립니다. 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않습니다. 불연속 이벤트는 크기를 조정해야 하는 [서버리스](https://azure.com/serverless) 솔루션에 이상적입니다.
 
 시리즈 이벤트는 조건을 보고하며 분석이 가능합니다. 이벤트는 시간 순서가 지정되며 상호 연관됩니다. 소비자는 발생한 결과를 분석하기 위해 순차화된 일련의 이벤트가 필요합니다.
 

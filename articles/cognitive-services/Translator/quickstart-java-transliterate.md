@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee586011c17125d5647d9a7baf946532190d8ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895926"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 텍스트 음역
 
@@ -74,7 +74,7 @@ dependencies {
 샘플 앱의 폴더를 만들어 보겠습니다. 작업 디렉터리에서 다음을 실행합니다.
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 다음으로, 이 폴더에서 `Transliterate.java`라는 파일을 만듭니다.
@@ -184,7 +184,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

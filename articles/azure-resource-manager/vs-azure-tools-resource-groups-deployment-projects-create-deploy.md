@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097460"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -221,7 +221,7 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 
 1. WebsiteSqlDeploy.json 파일을 열고 저장소 계정 리소스 뒤에, 하지만 리소스 섹션의 닫는 `]` 앞에 다음 JSON을 추가합니다.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. 리소스 그룹을 다시 배포합니다. Azure Portal에서 대시보드를 살펴보고, 공유 대시보드가 선택 목록에 추가되었는지 확인합니다.
 

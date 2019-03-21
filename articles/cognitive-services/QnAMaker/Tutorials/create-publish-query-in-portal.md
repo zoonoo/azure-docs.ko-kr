@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121420"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>자습서: 기술 자료를 만든 후 QnA Maker 포털을 통해 질문의 답변 만들기
 
@@ -25,12 +25,12 @@ ms.locfileid: "55882151"
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
-* QnA Maker 포털에서 기술 자료 만들기
-* 기술 자료 검토, 저장 및 학습
-* 기술 자료 게시
-* Curl을 사용하여 기술 자료 쿼리
-
-> [!NOTE] 
+> * QnA Maker 포털에서 기술 자료 만들기
+> * 기술 자료 검토, 저장 및 학습
+> * 기술 자료 게시
+> * Curl을 사용하여 기술 자료 쿼리
+> 
+> [!NOTE]
 > 이 자습서의 프로그래밍 방식 버전은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 완전한 솔루션으로 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004084"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal에서 Azure Linux VM에 Jenkins 서버 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "54079020"
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독
-* 컴퓨터의 명령줄에서 SSH에 대한 액세스(Bash 셸 또는 [PuTTY](http://www.putty.org/) 등)
+* 컴퓨터의 명령줄에서 SSH에 대한 액세스(Bash 셸 또는 [PuTTY](https://www.putty.org/) 등)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Jenkins는 단일 Jenkins 설치가 많은 수의 프로젝트를 호스트하�
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-터널을 시작한 후에 로컬 컴퓨터에서 http://localhost:8080/으로 이동합니다. 
+터널을 시작한 후에 로컬 컴퓨터에서 `http://localhost:8080/`으로 이동합니다. 
 
 Jenkins VM에 SSH를 통해 연결되어 있는 동안 명령줄에서 다음 명령을 실행하여 초기 암호를 가져옵니다.
 

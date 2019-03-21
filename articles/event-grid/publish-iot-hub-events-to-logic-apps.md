@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080000"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기
 
@@ -109,7 +109,7 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
    }]
    ```
 
-5. **요청할 때 Content-Type 헤더 집합을 응용프로그램/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
+5. **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
 
 ### <a name="create-an-action"></a>작업 만들기
 
@@ -162,14 +162,14 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
    ![새 이벤트 구독 만들기](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. 다음 값을 가진 이벤트 구독을 만듭니다. 
-    * **이벤트 유형**: 모든 이벤트 유형에 대한 구독의 선택을 취소하고, 메뉴에서 **디바이스를 만들었습니다**를 선택합니다.
-    * **엔드포인트 정보**: [엔드포인트 유형]을 **웹후크**로 선택하고, [엔드포인트 선택]을 클릭하고, 논리 앱에서 복사한 URL을 붙여넣고, 선택한 항목을 확인합니다.
+   * **이벤트 유형**: 모든 이벤트 유형에 대한 구독의 선택을 취소하고, 메뉴에서 **디바이스를 만들었습니다**를 선택합니다.
+   * **엔드포인트 정보**: 엔드포인트 유형으로 **웹후크**로 선택하고, 엔드포인트 선택을 클릭한 후, 논리 앱에서 복사한 URL을 붙여넣고, 선택한 항목을 확인합니다.
 
-    ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
+   * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
 
-  작업을 완료했을 때 폼 모양은 다음 예제와 유사해야 합니다. 
+   작업을 완료했을 때 폼 모양은 다음 예제와 유사해야 합니다. 
 
     ![샘플 이벤트 구독 양식](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 6. 다음 필터를 만듭니다.
 
-  * **제목 시작 문자**: 건물 1에서 디바이스 이벤트를 필터링하려면 `devices/Building1_`을 입력합니다.
-  * **제목 종료 문자**: 온도와 관련된 디바이스 이벤트를 필터링하려면 `_Temperature`를 입력합니다.
+   * **제목 시작 문자**: 건물 1에서 디바이스 이벤트를 필터링하려면 `devices/Building1_`을 입력합니다.
+   * **제목 종료 문자**: 온도와 관련된 디바이스 이벤트를 필터링하려면 `_Temperature`를 입력합니다.
 
 5. **만들기**를 선택하여 이벤트 구독을 저장합니다.
 

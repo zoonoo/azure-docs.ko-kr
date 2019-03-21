@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078876"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>빠른 시작: Logstash에서 Azure Data Explorer로 데이터 수집
 
@@ -108,7 +108,7 @@ output {
 ```
 
 | 매개 변수 이름 | 설명 |
-| --- | --- | --- |
+| --- | --- |
 | **path** | Logstash 플러그인은 이벤트를 Azure Data Explorer로 보내기 전에 임시 파일에 기록합니다. 이 매개 변수에는 파일을 작성해야 하는 경로와 Azure Data Explorer 서비스에 대한 업로드를 트리거하기 위한 파일 순환의 시간 표현식이 포함됩니다.|
 | **ingest_url** | 수집 관련 통신을 위한 Kusto 엔드포인트입니다.|
 | **app_id**, **app_key** 및 **app_tenant**| Azure Data Explorer에 연결하는 데 필요한 자격 증명입니다. 수집 권한이 있는 애플리케이션을 사용해야 합니다. |

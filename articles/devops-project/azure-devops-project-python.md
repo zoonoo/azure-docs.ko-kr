@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111432"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Python용 CI/CD 파이프라인 만들기
 
@@ -64,7 +64,7 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
     ![대시보드 보기](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects는 CI 빌드 및 릴리스 트리거를 자동으로 구성합니다. 이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Python 앱에서 팀과 협업할 준비가 되었습니다.
+   DevOps Projects는 CI 빌드 및 릴리스 트리거를 자동으로 구성합니다. 이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Python 앱에서 팀과 협업할 준비가 되었습니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 

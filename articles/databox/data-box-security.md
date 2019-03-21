@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095860"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -25,9 +25,9 @@ Data Box는 인증된 엔터티만 데이터를 확인, 수정 또는 삭제할 
 
 Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기본 구성 요소로 이루어져 있습니다.
 
-- **Azure에서 호스팅되는 Azure Data Box 서비스** - 장치 주문을 작성하고 장치를 구성한 다음 주문이 완료될 때까지의 과정을 추적하는 데 사용하는 관리 서비스입니다.
-- **Data Box 장치** – Azure로 온-프레미스 데이터를 가져올 수 있도록 함께 제공되는 전송 장치입니다. 
-- **장치에 연결된 클라이언트/호스트** – Data Box 디스크에 연결하고 보호되어야 하는 데이터를 포함하는 인프라 내의 클라이언트입니다.
+- **Azure에서 호스팅되는 Azure Data Box 서비스** - 디바이스 주문을 작성하고 디바이스를 구성한 다음, 주문이 완료될 때까지의 과정을 추적하는 데 사용하는 관리 서비스입니다.
+- **Data Box 디바이스** – Azure로 온-프레미스 데이터를 가져올 수 있도록 함께 제공되는 전송 디바이스입니다. 
+- **디바이스에 연결된 클라이언트/호스트** – Data Box 디스크에 연결하고 보호되어야 하는 데이터를 포함하는 인프라 내의 클라이언트입니다.
 - **클라우드 저장소** – 데이터가 저장되는 Azure 클라우드의 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 저장소 계정입니다.
 
 다음 다이어그램에는 Azure Data Box 솔루션을 통과하는 온-프레미스에서 Azure로의 데이터 흐름이 나와 있습니다.
@@ -75,16 +75,16 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 - **주문 세부 정보** – 주문이 만들어지면 사용자의 배송 주소, 이메일, 연락처 정보가 Azure Portal에 저장됩니다. 저장되는 정보는 다음과 같습니다.
 
-    - 담당자 이름
-    - 전화 번호
-    - Email
-    - 주소
-    - City
-    - 우편 번호
-    - 시스템 상태
-    - 국가/시/도/지역
-    - 운송업체 계정 번호
-    - 배송 추적 번호
+  - 담당자 이름
+  - 전화 번호
+  - Email
+  - 주소
+  - City
+  - 우편 번호
+  - 시스템 상태
+  - 국가/시/도/지역
+  - 운송업체 계정 번호
+  - 배송 추적 번호
 
     주문 세부 정보는 작업이 완료되거나 주문을 삭제하면 Data Box 서비스에 의해 삭제됩니다.
 
@@ -99,11 +99,11 @@ Data Box에서 구현되는 보안 지침은 다음과 같습니다.
 
 |지침   |설명   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | 방수/방진         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | 방수/방진         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 보안 펌웨어 업데이트         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 보안 펌웨어 업데이트         |
 |[FIPS 140-2 수준 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 데이터 보호         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 데이터 삭제         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 데이터 삭제         |
 
 ## <a name="next-steps"></a>다음 단계
 

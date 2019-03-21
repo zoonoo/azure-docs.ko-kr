@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497889"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093248"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -77,16 +77,16 @@ Recovery Services 자격 증명 모음을 만든 후 다음 단계는 데이터 
     ![워크로드 선택](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. **백업 정책** 메뉴에서 **정책 이름**에 *재무*를 입력합니다. 백업 정책에 대해 다음과 같은 변경 사항을 입력합니다.
-    - **백업 빈도**에서 *중부 표준시*의 표준 시간대를 설정합니다. 스포츠 복합 시설이 텍사스에 있으므로 소유자는 현지 시간을 설정하고자 합니다. 백업 빈도는 매일 오전 3시 30분 설정을 그대로 둡니다.
-    - **일일 백업 지점 보존**에서 기간은 90일로 설정합니다.
-    - **주간 백업 지점 보존**에서 *월요일*을 복원 지점으로 사용하고 52주 동안 유지합니다.
-    - **월간 백업 지점 보존**에서 해당 월 첫 번째 일요일의 복원 지점을 사용하고 36개월 동안 유지합니다.
-    - **연간 백업 지점 보존** 옵션은 선택 취소합니다. 재무 책임자는 데이터를 36개월 넘게 보관하려고 하지 않습니다.
-    - **확인**을 클릭하여 백업 정책을 만듭니다.
+   - **백업 빈도**에서 *중부 표준시*의 표준 시간대를 설정합니다. 스포츠 복합 시설이 텍사스에 있으므로 소유자는 현지 시간을 설정하고자 합니다. 백업 빈도는 매일 오전 3시 30분 설정을 그대로 둡니다.
+   - **일일 백업 지점 보존**에서 기간은 90일로 설정합니다.
+   - **주간 백업 지점 보존**에서 *월요일*을 복원 지점으로 사용하고 52주 동안 유지합니다.
+   - **월간 백업 지점 보존**에서 해당 월 첫 번째 일요일의 복원 지점을 사용하고 36개월 동안 유지합니다.
+   - **연간 백업 지점 보존** 옵션은 선택 취소합니다. 재무 책임자는 데이터를 36개월 넘게 보관하려고 하지 않습니다.
+   - **확인**을 클릭하여 백업 정책을 만듭니다.
 
-    ![워크로드 선택](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![워크로드 선택](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    백업 정책을 만든 후 정책을 가상 머신과 연결합니다.
+     백업 정책을 만든 후 정책을 가상 머신과 연결합니다.
 
 6. **가상 머신 선택** 대화 상자에서 *myVM*을 선택하고 **확인**을 클릭하여 가상 머신에 백업 정책을 배포합니다.
 

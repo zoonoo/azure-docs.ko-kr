@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006257"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 업데이트
 
@@ -47,7 +47,7 @@ Kubernetes에서 애플리케이션을 배포한 후 새 컨테이너 이미지 
 
 이 자습서에서는 애플리케이션을 변경했으며 업데이트된 애플리케이션을 Kubernetes 클러스터로 배포했습니다. 
 
-`azure-vote` 디렉터리 내에서 응용 프로그램 소스 코드를 찾을 수 있습니다. 아무 코드 또는 텍스트 편집기나 사용하여 `config_file.cfg` 파일을 엽니다. 이 예에서는 `vi` 가 사용됩니다.
+`azure-vote` 디렉터리 내에서 애플리케이션 소스 코드를 찾을 수 있습니다. 아무 코드 또는 텍스트 편집기나 사용하여 `config_file.cfg` 파일을 엽니다. 이 예에서는 `vi` 가 사용됩니다.
 
 ```bash
 vi azure-vote/azure-vote/config_file.cfg
@@ -67,7 +67,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-container-image"></a>컨테이너 이미지 업데이트
 
-[docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
+[docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 애플리케이션을 실행합니다. `--build` 인수를 사용하여 애플리케이션 이미지를 다시 만들도록 Docker Compose에 명령합니다.
 
 ```bash
 docker-compose up --build -d
@@ -75,7 +75,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>로컬에서 애플리케이션 테스트
 
-http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
+`http://localhost:8080`으로 이동하여 업데이트된 애플리케이션을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

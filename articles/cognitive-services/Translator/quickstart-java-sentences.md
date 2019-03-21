@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d7679f41b5e1c1fe6705ef3ed4be28a521f0d0d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46507562ab5a31f377b8c3a11902abf9aeccd846
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176449"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 문장 길이 확인
 
@@ -34,8 +34,8 @@ ms.locfileid: "56728491"
 이 프로젝트의 작업 디렉터리를 만들어 보겠습니다. 명령줄(또는 터미널)에서 이 명령을 실행합니다.
 
 ```console
-mkdir break-sentence-sample
-cd break-sentence-sample
+mkdir length-sentence-sample
+cd length-sentence-sample
 ```
 
 다음으로, Gradle 프로젝트를 초기화하려고 합니다. 이 명령은 런타임 시 애플리케이션을 만들고 구성하는 데 사용되는 중요한 `build.gradle.kts`와 같은 Gradle의 필수 빌드 파일을 만듭니다. 작업 디렉터리에서 이 명령을 실행합니다.
@@ -56,7 +56,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "BreakSentence"
+    mainClassName = "LengthSentence"
 }
 repositories {
     mavenCentral()
@@ -77,11 +77,11 @@ dependencies {
 mkdir -p src/main/java
 ```
 
-다음으로, 이 폴더에서 `BreakSentence.java`라는 파일을 만듭니다.
+다음으로, 이 폴더에서 `LengthSentence.java`라는 파일을 만듭니다.
 
 ## <a name="import-required-libraries"></a>필수 라이브러리 가져오기
 
-`BreakSentence.java`를 열고 다음과 같은 가져오기 문을 추가합니다.
+`LengthSentence.java`를 열고 다음과 같은 가져오기 문을 추가합니다.
 
 ```java
 import java.io.*;
@@ -97,12 +97,12 @@ import com.squareup.okhttp.*;
 먼저 프로젝트에 대한 공용 클래스를 만들어야 합니다.
 
 ```java
-public class BreakSentence {
+public class LengthSentence {
   // All project code goes here...
 }
 ```
 
-`BreakSentence` 클래스에 이러한 줄을 추가합니다. `api-version`과 함께 입력 언어를 정의할 수 있습니다. 이 샘플에서 이 언어는 영어입니다.
+`LengthSentence` 클래스에 이러한 줄을 추가합니다. `api-version`과 함께 입력 언어를 정의할 수 있습니다. 이 샘플에서 이 언어는 영어입니다.
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-ve
 
 ## <a name="create-a-client-and-build-a-request"></a>클라이언트 만들기 및 요청 빌드
 
-이 줄을 `BreakSentence` 클래스에 추가하여 `OkHttpClient`를 인스턴스화합니다.
+이 줄을 `LengthSentence` 클래스에 추가하여 `OkHttpClient`를 인스턴스화합니다.
 
 ```java
 // Instantiates the OkHttpClient.
@@ -156,8 +156,8 @@ public static String prettify(String json_text) {
 ```java
 public static void main(String[] args) {
     try {
-        BreakSentence breakSentenceRequest = new BreakSentence();
-        String response = breakSentenceRequest.Post();
+        LengthSentence lengthSentenceRequest = new LengthSentence();
+        String response = lengthSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);

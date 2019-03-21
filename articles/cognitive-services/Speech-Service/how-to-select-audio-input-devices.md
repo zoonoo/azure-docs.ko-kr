@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550684"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스 선택
 
@@ -223,7 +223,7 @@ namespace helloworld {
 
 디바이스 ID는 표준 ALSA 디바이스 ID를 사용하여 선택됩니다.
 시스템에 연결된 입력의 ID는 `arecord -L` 명령의 출력에 포함됩니다.
-또는 [ALSA C 라이브러리](http://www.alsa-project.org/alsa-doc/alsa-lib/)를 사용하여 가져올 수 있습니다.
+또는 [ALSA C 라이브러리](https://www.alsa-project.org/alsa-doc/alsa-lib/)를 사용하여 가져올 수 있습니다.
 샘플 ID는 `hw:1,0` 및 `hw:CARD=CC,DEV=0`입니다.
 
 ## <a name="audio-device-ids-on-macos"></a>macOS의 오디오 디바이스 ID

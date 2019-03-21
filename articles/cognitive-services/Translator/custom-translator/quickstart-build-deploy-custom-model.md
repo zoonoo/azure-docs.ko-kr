@@ -5,16 +5,16 @@ description: 이 빠른 시작에서는 Custom Translator를 사용하여 번역
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 25ff375b3b29729270b23372d82d1978c4ae37be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735002"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762996"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 

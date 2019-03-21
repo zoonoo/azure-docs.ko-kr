@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088471"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>자습서: Visual Studio의 연결된 서비스 및 C#을 사용하여 Bing News Search API에 연결
 
@@ -87,14 +87,14 @@ Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광
 
 프로젝트에 Bing News Search API에 대한 지원을 추가했으므로 아래에서 API를 사용하여 웹 페이지에 지능형 검색 기능을 추가하는 방법을 확인합니다.
 
-1.  *Startup.cs*의 `ConfigureServices` 메서드에서 `IServiceCollection.AddSingleton`에 대한 호출을 추가합니다. 이렇게 하면 키 설정을 포함하는 구성 개체를 프로젝트의 코드에서 사용할 수 있습니다.
+1. *Startup.cs*의 `ConfigureServices` 메서드에서 `IServiceCollection.AddSingleton`에 대한 호출을 추가합니다. 이렇게 하면 키 설정을 포함하는 구성 개체를 프로젝트의 코드에서 사용할 수 있습니다.
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 

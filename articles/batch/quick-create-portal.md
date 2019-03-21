@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471218"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087842"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
 
@@ -34,7 +34,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **리소스 만들기** > **계산** > **Batch Service**를 선택합니다. 
 
-  ![Marketplace에서 Batch][marketplace_portal]
+   ![Marketplace에서 Batch][marketplace_portal]
 
 2. **계정 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 계정 이름은 선택한 Azure **위치** 내에서 고유해야 하며, 소문자 또는 숫자만 사용하고, 3-24자를 포함해야 합니다. 
 
@@ -42,7 +42,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 4. 나머지 설정에 대한 기본값은 그대로 유지하고 **만들기**를 선택하여 계정을 만듭니다.
 
-  ![Batch 계정 만들기][account_portal]  
+   ![Batch 계정 만들기][account_portal]  
 
 **배포 성공** 메시지가 표시되면 포털의 배치 계정으로 이동합니다.
 
@@ -57,23 +57,23 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 3. **운영 체제**에서 다음 설정을 선택합니다(다른 옵션을 탐색할 수 있음).
   
-  |설정  |값  |
-  |---------|---------|
-  |**이미지 형식**|Marketplace(Linux/Windows)|
-  |**게시자**     |MicrosoftWindowsServer|
-  |**제안**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |설정  |값  |
+   |---------|---------|
+   |**이미지 형식**|Marketplace(Linux/Windows)|
+   |**게시자**     |MicrosoftWindowsServer|
+   |**제안**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![풀 운영 체제 선택][pool_os] 
+   ![풀 운영 체제 선택][pool_os] 
 
 4. 아래로 스크롤하여 **노드 크기** 및 **배율** 설정을 입력합니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
   
-  |설정  |값  |
-  |---------|---------|
-  |**노드 가격 책정 계층**     |Standard_A1|
-  |**대상 전용 노드**     |2|
+   |설정  |값  |
+   |---------|---------|
+   |**노드 가격 책정 계층**     |Standard_A1|
+   |**대상 전용 노드**     |2|
 
-  ![풀 크기 선택][pool_size] 
+   ![풀 크기 선택][pool_size] 
 
 5. 나머지 설정은 기본값으로 유지하고 **확인**을 선택하여 풀을 만듭니다.
 
@@ -91,7 +91,7 @@ Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 
 
 2. *myjob*이라는 **작업 ID**를 입력합니다. **풀**에서 *mypool*을 선택합니다. 나머지 설정은 기본값으로 유지하고 **확인**을 선택합니다.
 
-  ![작업 만들기][job_create]
+   ![작업 만들기][job_create]
 
 작업이 만들어지면 **태스크** 페이지가 열립니다.
 
@@ -109,7 +109,7 @@ Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다
 
 3. **명령줄**에 `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`을 입력합니다. 나머지 설정은 기본값으로 유지하고 **확인**을 선택합니다.
 
-  ![작업을 만듭니다.][task_create]
+   ![작업을 만듭니다.][task_create]
 
 태스크가 만들어지면 Batch는 풀에서 실행되도록 해당 태스크를 큐에 넣습니다. 노드에서 실행할 수 있게 되면 태스크가 실행됩니다.
 

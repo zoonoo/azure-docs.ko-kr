@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078366"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -131,12 +131,12 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
     이 템플릿은 다음과 같은 리소스를 만듭니다.
 
-    * HDInsight 3.6 클러스터의 Kafka
-    * HDInsight 3.6 클러스터의 Spark 2.2.0
-    * HDInsight 클러스터를 포함하는 Azure Virtual Network
+   * HDInsight 3.6 클러스터의 Kafka
+   * HDInsight 3.6 클러스터의 Spark 2.2.0
+   * HDInsight 클러스터를 포함하는 Azure Virtual Network
 
-    > [!IMPORTANT]  
-    > 이 자습서에서 사용된 구조적 스트림 Notebook에는 HDInsight 3.6의 Spark 2.2.0가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
+     > [!IMPORTANT]  
+     > 이 자습서에서 사용된 구조적 스트림 Notebook에는 HDInsight 3.6의 Spark 2.2.0가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
 
 2. 다음 정보를 사용하여 **사용자 지정된 템플릿** 섹션의 항목을 채웁니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011307"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>자습서: 클라우드 저장소의 구조화되지 않은 데이터 검색
 
@@ -39,7 +39,7 @@ ms.locfileid: "53599845"
 
 모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 자습서에서는 새 리소스 그룹을 만듭니다.
 
-[Azure Portal](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ ms.locfileid: "53599845"
 
 5. **확인**을 선택하여 컨테이너를 만듭니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/storageactinfo.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>예제 데이터 업로드
 
@@ -77,7 +77,7 @@ ms.locfileid: "53599845"
 
 4. **업로드**를 선택하여 업로드 프로세스를 시작합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/upload.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/upload.png)
 
 업로드 프로세스는 시간이 걸릴 수 있습니다.
 
@@ -107,11 +107,11 @@ Azure Search는 개발자에게 풍부한 검색 환경을 추가하기 위한 A
 
 8. **만들기**를 선택하여 검색 서비스를 만듭니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/createsearch2.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>검색 서비스를 컨테이너에 연결
 
-이제 검색 서비스가 있으므로 Blob 저장소에 연결할 수 있습니다. 이 섹션에서는 데이터 원본 선택, 인덱스 및 인덱서 만들기 과정을 안내합니다.
+이제 검색 서비스가 있으므로 Blob Storage에 연결할 수 있습니다. 이 섹션에서는 데이터 원본 선택, 인덱스 및 인덱서 만들기 과정을 안내합니다.
 
 1. 저장소 계정으로 이동합니다.
 
@@ -127,13 +127,13 @@ Azure Search는 개발자에게 풍부한 검색 환경을 추가하기 위한 A
 
 2. 사용하려는 Blob이 텍스트 파일이므로 **구문 분석 모드**를 **텍스트**로 설정합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/datasources.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/datasources.png)
 
 3. **저장소 컨테이너**를 선택하여 사용 가능한 저장소 계정을 나열합니다.
 
 4. 스토리지 계정을 선택한 다음, 이전에 만든 컨테이너를 선택합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/datacontainer.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/datacontainer.png)
 
 5. **선택**을 클릭하여 **새 데이터 원본**으로 돌아간 후, **확인**을 선택하여 계속합니다.
 
@@ -147,7 +147,7 @@ Azure Search는 개발자에게 풍부한 검색 환경을 추가하기 위한 A
 
 3. **metadata_storage_name**에서 **조회 가능** 특성의 확인란을 선택합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/valuestoselect.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/valuestoselect.png)
 
 4. **확인**을 선택하여 **인덱서 만들기**를 불러 옵니다.
 
@@ -172,7 +172,7 @@ Azure Search는 개발자에게 풍부한 검색 환경을 추가하기 위한 A
 
 1. **이름** 필드에 이름을 입력하고 **확인**을 선택합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/exindexer.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/exindexer.png)
 
 2. **데이터 가져오기**로 다시 이동합니다. **확인**을 선택하여 연결 프로세스를 완료합니다.
 
@@ -186,19 +186,19 @@ Azure Search는 개발자에게 풍부한 검색 환경을 추가하기 위한 A
 
 1. 모든 리소스로 이동하여 새로 만든 검색 서비스를 찾습니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/exampleurl.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/exampleurl.png)
 
 2. 인덱스를 선택하여 엽니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/overview.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/overview.png)
 
 3. **검색 탐색기**를 선택하여 데이터에 대한 라이브 쿼리를 수행할 수 있는 검색 탐색기를 엽니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/indexespane.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/indexespane.png)
 
 4. 쿼리 문자열 필드가 비어 있는 상태에서 **검색**을 선택합니다. 빈 쿼리는 Blob에서 *모든* 데이터를 반환합니다.
 
-  ![구조화되지 않은 검색](media/storage-unstructured-search/emptySearch.png)
+   ![구조화되지 않은 검색](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>전체 텍스트 검색 수행
 

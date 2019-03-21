@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424815"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451640"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -112,15 +112,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 ### <a name="windows-powershell"></a>Windows PowerShell
 
 #### <a name="install-azure-powershell"></a>Azure Powershell 설치
-컴퓨터에 최신 버전의 Azure PowerShell이 설치되지 않은 경우 설치합니다. 
 
-1. [Azure SDK 다운로드](https://azure.microsoft.com/downloads/)로 이동합니다. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. **명령줄 도구** 아래의 **PowerShell** 섹션에서 **Windows 설치**를 선택합니다. 
-
-1. Azure PowerShell을 설치하려면 MSI 파일을 실행합니다. 
-
-자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요. 
+컴퓨터에 최신 버전의 Azure PowerShell이 설치되지 않은 경우 설치합니다. 자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/install-Az-ps)을 참조하세요. 
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
@@ -131,13 +126,13 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 Azure 사용자 이름 및 암호를 입력합니다.
        
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
 
 1. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
@@ -151,7 +146,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
@@ -171,10 +166,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     $location = "East US"
     ```  
 
-1. 데이터 팩터리를 만들려면 다음 `Set-AzureRmDataFactoryV2` cmdlet을 실행합니다. 
+1. 데이터 팩터리를 만들려면 다음 `Set-AzDataFactoryV2` cmdlet을 실행합니다. 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 > [!NOTE]
@@ -201,7 +196,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 자체 호스팅 통합 런타임을 만듭니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     샘플 출력은 다음과 같습니다.
 
@@ -217,7 +212,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 만든 Integration Runtime의 상태를 검색하려면 다음 명령을 실행합니다.
 
     ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -242,7 +237,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 자체 호스팅 Integration Runtime을 클라우드의 Data Factory 서비스에 등록하기 위해 *인증 키*를 검색하려면 다음 명령을 실행합니다. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 Integration Runtime을 등록하기 위한 키(인용 부호 제외) 중 하나를 복사합니다. 
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+    Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
     샘플 출력은 다음과 같습니다.
@@ -345,10 +340,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. PowerShell에서 *C:\ADFv2Tutorial* 폴더로 전환합니다.
 
-1. AzureStorageLinkedService라는 연결된 서비스를 만들려면 다음 `Set-AzureRmDataFactoryV2LinkedService` cmdlet을 실행합니다. 
+1. AzureStorageLinkedService라는 연결된 서비스를 만들려면 다음 `Set-AzDataFactoryV2LinkedService` cmdlet을 실행합니다. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
    ```
 
    샘플 출력은 다음과 같습니다.
@@ -423,17 +418,17 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     > - 파일을 저장하기 전에 **\<servername>**, **\<databasename>**, **\<username>** 및 **\<password>** 를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
     > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다. 
 
-1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  
+1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  
     이 암호화를 사용하면 DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화합니다. 암호화된 자격 증명은 자체 호스팅 통합 런타임 노드(로컬 컴퓨터)에 로컬로 저장됩니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 *encryptedLinkedService.json*)로 리디렉션될 수 있습니다.
     
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 1. EncryptedSqlServerLinkedService를 생성하는 다음 명령을 실행합니다.
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -475,10 +470,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     }
     ```
 
-1. SqlServerDataset 데이터 세트를 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
+1. SqlServerDataset 데이터 세트를 만들려면 `Set-AzDataFactoryV2Dataset` cmdlet을 실행합니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -517,10 +512,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     }
     ```
 
-1. AzureBlobDataset 데이터 세트를 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
+1. AzureBlobDataset 데이터 세트를 만들려면 `Set-AzDataFactoryV2Dataset` cmdlet을 실행합니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -572,10 +567,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     }
     ```
 
-1. SQLServerToBlobPipeline 파이프라인을 만들려면 `Set-AzureRmDataFactoryV2Pipeline` cmdlet을 실행합니다.
+1. SQLServerToBlobPipeline 파이프라인을 만들려면 `Set-AzDataFactoryV2Pipeline` cmdlet을 실행합니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -592,7 +587,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 SQLServerToBlobPipeline 파이프라인에서 파이프라인을 실행하기 시작하고, 이후 모니터링할 파이프라인 실행 ID를 캡처합니다.
 
 ```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
@@ -601,7 +596,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"

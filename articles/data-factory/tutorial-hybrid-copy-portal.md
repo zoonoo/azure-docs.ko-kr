@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ab13b0db843e5a2652ed1dd61a0e5ab5f7541244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120264"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
-이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
+# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
 
 > [!NOTE]
 > 이 문서에서는 Data Factory를 자세히 소개하지 않습니다. 자세한 내용은 [Data Factory 소개](introduction.md)를 참조하세요. 
@@ -46,7 +46,7 @@ ms.locfileid: "54021988"
 구독에 대한 권한을 보려면 Azure Portal로 이동합니다. 오른쪽 위 모서리에서 사용자 이름을 선택한 다음, **권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침을 보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 및 2017
-이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 그런 다음, SQL Server 데이터베이스에 **emp**라는 테이블을 만들고, 동일한 두 개의 샘플 항목을 이 테이블에 삽입합니다. 
+이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob Storage(싱크)로 데이터를 복사합니다. 그런 다음, SQL Server 데이터베이스에 **emp**라는 테이블을 만들고, 동일한 두 개의 샘플 항목을 이 테이블에 삽입합니다. 
 
 1. SQL Server Management Studio를 시작합니다. 아직 컴퓨터에 설치되지 않은 경우 [SQL Server Management Studio 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다. 
 
@@ -74,7 +74,7 @@ ms.locfileid: "54021988"
 1. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 대상/싱크 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob Storage(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 자습서에서는 저장소 계정의 이름과 키를 사용합니다. 저장소 계정의 이름과 키를 가져오려면 다음 단계를 수행합니다. 
@@ -94,7 +94,7 @@ ms.locfileid: "54021988"
 1. **저장소 계정 이름** 및 **key1** 상자에서 값을 복사한 다음 메모장 또는 나중에 자습서에서 사용할 다른 편집기에 붙여넣습니다. 
 
 #### <a name="create-the-adftutorial-container"></a>adftutorial 컨테이너 만들기 
-이 섹션에서는 Blob 저장소에 **adftutorial**이라는 Blob 컨테이너를 만듭니다. 
+이 섹션에서는 Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다. 
 
 1. **저장소 계정** 창에서 **개요**로 이동한 다음, **Blob**을 선택합니다. 
 
@@ -134,11 +134,11 @@ ms.locfileid: "54021988"
 1. 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
    
-      - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+   - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
-      - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
+   - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
         
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 1. **대시보드에 고정**을 선택합니다. 
@@ -182,7 +182,7 @@ ms.locfileid: "54021988"
 
    ![원본 데이터 세트에 연결](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
 
-1. **새 연결된 서비스** 창에서 **이름**을 **SqlServerLinkedService**로 추가합니다. **통합 런타임을 통해 연결**에서 **새로 만들기**를 선택합니다. 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 컴퓨터의 SQL Server 데이터베이스에서 Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
+1. **새 연결된 서비스** 창에서 **이름**을 **SqlServerLinkedService**로 추가합니다. **통합 런타임을 통해 연결**에서 **새로 만들기**를 선택합니다. 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 컴퓨터의 SQL Server 데이터베이스에서 Blob Storage로 데이터를 복사하는 구성 요소입니다. 
 
    ![새 통합 런타임](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
 
@@ -244,7 +244,7 @@ ms.locfileid: "54021988"
 
 1. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 세트에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 
 
-    ![Blob 저장소 선택](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+    ![Blob Storage 선택](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
 
 1. **이름**에서 **AzureBlobDataset**를 입력합니다.
 
@@ -320,13 +320,13 @@ ms.locfileid: "54021988"
 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인이 Blob 저장소의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인이 Blob Storage의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Storage 연결된 서비스를 만듭니다. 
-> * SQL Server 및 Blob 저장소 데이터 세트를 만듭니다.
+> * SQL Server 및 Blob Storage 데이터 집합을 만듭니다.
 > * 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.

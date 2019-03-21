@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809975"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770479"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -44,6 +44,7 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 애플�
 * Service Bus
 * 저장소 Blob
 * 저장소 범용 v2(GPv2)
+* Azure Maps
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
@@ -87,7 +88,7 @@ Event Grid, Event Hubs 및 Service Bus를 비교하려면 [Choose between Azure 
 
 ## <a name="what-can-i-do-with-event-grid"></a>Event Grid로 할 수 있는 작업은 무엇인가요?
 
-Azure Event Grid는 서버리스 작업 자동화 및 [통합](http://azure.com/integration) 작업을 크게 개선하는 여러 가지 기능을 제공합니다. 
+Azure Event Grid는 서버리스 작업 자동화 및 [통합](https://azure.com/integration) 작업을 크게 개선하는 여러 가지 기능을 제공합니다. 
 
 ### <a name="serverless-application-architectures"></a>서버를 사용하지 않는 애플리케이션 아키텍처
 

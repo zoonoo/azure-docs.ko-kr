@@ -2,19 +2,19 @@
 title: Azure Terraform Visual Studio Code 확장 설치 및 사용
 description: Visual Studio Code에서 Azure Terraform 확장을 설치하고 사용하는 방법을 알아봅니다.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, 확장
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074583"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006197"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code 확장 설치 및 사용
 
@@ -59,7 +59,7 @@ Cloud Shell에서 Terraform을 사용하려면 [Node.js 6.0 이상을 설치](ht
 
 ### <a name="install-graphviz"></a>GraphViz 설치
 
-Terraform 시각화 함수를 사용하려면 [GraphViz를 설치](http://graphviz.org/)해야 합니다.
+Terraform 시각화 함수를 사용하려면 [GraphViz를 설치](https://graphviz.org/)해야 합니다.
 
 >[!NOTE]
 >GraphViz가 설치되어 있는지 확인하려면 터미널 창을 열고 `dot -V`를 입력합니다.
@@ -128,7 +128,7 @@ Azure Terraform 확장이 설치된 확장 목록에 표시됩니다.
     ![main.tf로 저장](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. **저장**을 선택합니다.
-- 메뉴 모음에서 **파일 > 폴더 열기**를 선택합니다. 만든 새 폴더로 이동한 후 선택합니다.
+1. 메뉴 모음에서 **파일 > 폴더 열기**를 선택합니다. 만든 새 폴더로 이동한 후 선택합니다.
 
 ### <a name="run-terraform-init-command"></a>Terraform *init* 명령 실행
 
@@ -196,7 +196,7 @@ Terraform *plan*의 결과가 만족스러우면 *apply* 명령을 실행할 수
 
     ![Terraform Apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-1. `yes` 을 입력합니다.
+1. [https://slack.botframework.com](`yes`) 을 입력합니다.
 
     ![Terraform apply yes](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 

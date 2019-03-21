@@ -13,12 +13,12 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105797"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -65,8 +65,8 @@ SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서
 AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure Portal 및 SQL 데이터베이스에 로그인할 수 있습니다. 다음 단계에 따라 SQL Server에 대한 AD 관리자를 구성합니다.
 
 > [!NOTE]
-* 메일 계정(예: outlook.com, gmail.com, yahoo.com 등)은 아직 AD 관리자로 지원되지 않습니다. Azure AD에서 기본적으로 만들어지거나 Azure AD에 페더레이션된 사용자를 선택해야 합니다.
-* Azure AD 관리자 로그인은 2단계 인증이 사용되는 계정에서 작동하지 않습니다.
+> * 메일 계정(예: outlook.com, gmail.com, yahoo.com 등)은 아직 AD 관리자로 지원되지 않습니다. Azure AD에서 기본적으로 만들어지거나 Azure AD에 페더레이션된 사용자를 선택해야 합니다.
+> * Azure AD 관리자 로그인은 2단계 인증이 사용되는 계정에서 작동하지 않습니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, SQL Server를 선택합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086074"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>빠른 시작: Security Center 표준에 Azure 구독 온보딩
 Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 계층은 Azure 리소스에 대한 제한된 보안만 제공하지만 표준 계층은 이러한 기능을 온-프레미스 및 기타 클라우드로 확장합니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 응용 프로그램 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -37,7 +37,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 2. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
- ![Security Center 개요][2]
+   ![Security Center 개요][2]
 
 **Security Center - 개요**에서는 하이브리드 클라우드 워크로드의 보안 태세를 총체적으로 확인하여 워크로드의 보안을 검색 및 평가하고 위험을 파악 및 완화할 수 있습니다. Security Center는 이전에 사용자 또는 다른 구독 사용자가 체험 계층에 온보딩하지 않은 Azure 구독을 자동으로 사용하도록 설정합니다.
 
@@ -55,13 +55,13 @@ Security Center 빠른 시작 및 자습서를 위해 표준 계층으로 업그
 
 1. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
  
-  ![시작하기][4]
+   ![시작하기][4]
 
 2. **업그레이드** 아래에 Security Center가 온보딩할 수 있는 구독 및 작업 영역을 나열합니다. 
    - 확장 가능한 **Apply your trial**(평가판 적용)을 클릭하여 평가판 사용 자격이 있는 모든 구독 및 작업 영역 목록을 표시할 수 있습니다.
    -    평가판 사용 자격이 없는 구독 및 작업 영역은 업그레이드할 수 있습니다.
    -    평가판 사용 자격이 있는 작업 영역 및 구독을 선택하여 평가판을 시작할 수 있습니다.
-3.  **평가판 시작**을 클릭하여 선택한 구독에서 평가판을 시작할 수 있습니다.
+3. **평가판 시작**을 클릭하여 선택한 구독에서 평가판을 시작할 수 있습니다.
 
 
   ![보안 경고][9]

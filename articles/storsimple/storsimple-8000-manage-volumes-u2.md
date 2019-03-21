@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093333"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -65,8 +65,8 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 | 8100 |64TB |8 TB |
 | 8600 |64TB |20TB |
 | **가상 디바이스** | | |
-| 8010 |30TB |해당 없음 |
-| 8020 |64TB |해당 없음 |
+| 8010 |30TB |N/A |
+| 8020 |64TB |N/A |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
 
@@ -235,7 +235,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
    * 유형을 **계층화됨**으로 변경하고 이 볼륨을 보관 데이터에 대해 사용하는 경우 **자주 액세스하지 않는 아카이브 데이터에 이 볼륨 사용** 확인란을 선택합니다.
    * 로컬 고정 볼륨을 계층화된 볼륨으로 구성하거나 _반대로_ 구성하는 경우 다음과 같은 메시지가 표시됩니다.
    
-    ![볼륨 유형 변경 메시지](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![볼륨 유형 변경 메시지](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. **저장**을 클릭하여 변경 내용을 저장합니다. 확인 메시지가 나타나면 **예**를 클릭하여 전환 프로세스가 시작됩니다. 
 

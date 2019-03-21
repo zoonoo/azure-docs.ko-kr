@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082129"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -42,18 +42,18 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
 단일 대시보드는 여러 애플리케이션, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  애플리케이션에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
 
-2.  대시보드 창에서 **새 대시보드**를 선택합니다.
+1. 대시보드 창에서 **새 대시보드**를 선택합니다.
 
-    ![새 대시보드](media/tutorial-app-dashboards/1newdashboard.png)
+   ![새 대시보드](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. 대시보드의 이름을 입력합니다.
-4. 대시보드에 추가할 수 있는 다양한 타일에 대한 **타일 갤러리**를 살펴봅니다.  갤러리에서 타일을 추가하는 것 외에도 Application Insights의 차트 및 다른 보기를 대시보드에 직접 고정할 수 있습니다.
-5. **Markdown** 타일을 찾고 대시보드로 끌어옵니다.  이 타일을 통해 대시보드에 설명 텍스트를 추가하는 데 적합한 markdown에서 서식이 지정된 텍스트를 추가할 수 있습니다.
-6. 타일의 속성에 텍스트를 추가하고 대시보드 캔버스에서 크기를 조정합니다.
+1. 대시보드의 이름을 입력합니다.
+1. 대시보드에 추가할 수 있는 다양한 타일에 대한 **타일 갤러리**를 살펴봅니다.  갤러리에서 타일을 추가하는 것 외에도 Application Insights의 차트 및 다른 보기를 대시보드에 직접 고정할 수 있습니다.
+1. **Markdown** 타일을 찾고 대시보드로 끌어옵니다.  이 타일을 통해 대시보드에 설명 텍스트를 추가하는 데 적합한 markdown에서 서식이 지정된 텍스트를 추가할 수 있습니다.
+1. 타일의 속성에 텍스트를 추가하고 대시보드 캔버스에서 크기를 조정합니다.
     
     ![markdown 타일 편집](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. 화면의 위쪽에서 **사용자 지정 완료**를 클릭하여 타일 사용자 지정 모드를 종료합니다.
+1. 화면의 위쪽에서 **사용자 지정 완료**를 클릭하여 타일 사용자 지정 모드를 종료합니다.
 
 ## <a name="add-health-overview"></a>상태 추가 개요
 정적 텍스트만이 있는 대시보드는 그다지 흥미롭지 않으므로 이제 Application Insights에서 타일을 추가하여 애플리케이션에 대한 정보를 표시합니다.  타일 갤러리에서 Application Insights 타일을 추가하거나 Application Insights 화면에서 직접 고정할 수 있습니다.  이를 통해 익숙한 차트 및 보기를 대시보드에 고정하기 전에 해당 내용을 구성할 수 있습니다.  애플리케이션에 대한 표준 상태 개요를 추가하여 시작합니다.  구성이 필요하지 않으며 대시보드에 최소한의 사용자 지정을 허용합니다.

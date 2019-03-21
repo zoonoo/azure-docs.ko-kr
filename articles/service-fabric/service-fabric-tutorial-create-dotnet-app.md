@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851366"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
@@ -187,7 +187,7 @@ ASP.NET 앱의 기본 레이아웃인 **Views/Shared/_Layout.cshtml**을 엽니�
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric
 4. 브라우저로 돌아가서 투표 옵션을 클릭하거나 새 투표 옵션을 추가합니다. 웹 프런트 엔드의 api 컨트롤러에서 첫 번째 중단점에 도달합니다.
     
 
-    1. 여기서 브라우저의 JavaScript가 프런트 엔드 서비스의 Web API 컨트롤러에 요청을 보냅니다.
+   1. 여기서 브라우저의 JavaScript가 프런트 엔드 서비스의 Web API 컨트롤러에 요청을 보냅니다.
 
-    ![투표 프런트 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![투표 프런트 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. 먼저 백 엔드 서비스 **(1)** 에 대해 ReverseProxy에 대한 URL을 구성합니다.
-    3. 그런 다음, ReverseProxy **(2)** 에 HTTP PUT 요청을 보냅니다.
-    4. 마지막으로 백 엔드 서비스에서 **(3)** 클라이언트로 응답을 반환합니다.
+   2. 먼저 백 엔드 서비스 **(1)** 에 대해 ReverseProxy에 대한 URL을 구성합니다.
+   3. 그런 다음, ReverseProxy **(2)** 에 HTTP PUT 요청을 보냅니다.
+   4. 마지막으로 백 엔드 서비스에서 **(3)** 클라이언트로 응답을 반환합니다.
 
 5. 계속하려면 **F5** 키를 누릅니다.
-    1. 이제 백 엔드 서비스의 중단점에 있습니다.
+   1. 이제 백 엔드 서비스의 중단점에 있습니다.
 
-    ![투표 백 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![투표 백 엔드 서비스 추가](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. **(1)** 메서드의 첫 번째 줄에서는 `StateManager`를 사용하여 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
-    3. 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문 **(2)** 으로 트랜잭션이 만들어집니다.
-    4. 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 **(3)** 작업을 커밋합니다. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
+   2. **(1)** 메서드의 첫 번째 줄에서는 `StateManager`를 사용하여 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
+   3. 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문 **(2)** 으로 트랜잭션이 만들어집니다.
+   4. 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 **(3)** 작업을 커밋합니다. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
 6. 계속하려면 **F5** 키를 누릅니다.
 
 디버깅 세션을 중지하려면 **Shift+F5** 키를 누릅니다.

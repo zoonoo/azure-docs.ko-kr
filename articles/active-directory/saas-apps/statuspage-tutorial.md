@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168150"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ StatusPage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 StatusPage 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,23 +114,25 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    >  [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
-    >
-    >a. 메타데이터에서 발급자 값을 복사한 다음 **식별자** 텍스트 상자에 붙여넣습니다.
-    >
-    >b. 메타데이터에서 회신 URL을 복사한 다음 **회신 URL** 텍스트 상자에 붙여넣습니다.
+   > [!NOTE]
+   >  [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
+   > 
+   > a. 메타데이터에서 발급자 값을 복사한 다음 **식별자** 텍스트 상자에 붙여넣습니다.
+   > 
+   > b. 메타데이터에서 회신 URL을 복사한 다음 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -156,15 +158,15 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. SSO 설정 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 대상 URL** 텍스트 상자에 붙여 넣습니다.
+      a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 대상 URL** 텍스트 상자에 붙여 넣습니다.
 
-    b. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다. 
+      b. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다. 
 
-    다. **구성 저장**을 클릭합니다.
+      다. **구성 저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

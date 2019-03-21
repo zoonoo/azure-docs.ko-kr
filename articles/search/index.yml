@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199872"
 documentType: LandingData
 title: Azure Search 설명서
 metadata:
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">인식 기술 REST API 학습</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI를 사용하여 인덱싱(Cognitive Services)</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET에서 Azure Search를 사용하는 방법</a>
     - html: <a href="/azure/search/search-indexer-tutorial">.NET으로 Azure SQL Database 콘텐츠 인덱싱</a>
     - html: <a href="/azure/search/search-semi-structured-data">REST를 사용하여 Azure Blob Storage에서 반구조적 데이터 인덱싱</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">동일한 용어에 대한 결과를 반환하도록 동의어 추가</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">.NET을 사용하여 검색 상자에 자동 완성 추가</a>
     - html: <a href="/azure/search/search-get-started-portal">포털을 사용한 인덱싱 및 쿼리 테스트</a>
 - title: 참고 자료
   items:

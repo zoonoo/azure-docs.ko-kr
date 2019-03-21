@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077907"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -37,7 +37,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 2. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
- ![Security Center 개요][2]
+   ![Security Center 개요][2]
 
 3. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
 4. **시작하기** 탭을 선택합니다.
@@ -48,13 +48,13 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
     ![비 Azure 컴퓨터 추가](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Windows 에이전트 및 이러한 에이전트를 구성할 때 사용할 작업 영역 ID용 키를 다운로드할 수 있는 링크를 포함하는 **직접 에이전트** 블레이드가 열립니다.
+   Windows 에이전트 및 이러한 에이전트를 구성할 때 사용할 작업 영역 ID용 키를 다운로드할 수 있는 링크를 포함하는 **직접 에이전트** 블레이드가 열립니다.
 
-6.  사용하는 컴퓨터 프로세서 유형에 해당하는 **Windows 에이전트 다운로드** 링크를 선택하여 설치 파일을 다운로드합니다.
+6. 사용하는 컴퓨터 프로세서 유형에 해당하는 **Windows 에이전트 다운로드** 링크를 선택하여 설치 파일을 다운로드합니다.
 
-7.  **작업 영역 ID** 오른쪽에서 복사 아이콘을 선택하고 ID를 메모장에 붙여 넣습니다.
+7. **작업 영역 ID** 오른쪽에서 복사 아이콘을 선택하고 ID를 메모장에 붙여 넣습니다.
 
-8.  **기본 키** 오른쪽에서 복사 아이콘을 선택하고 키를 메모장에 붙여 넣습니다.
+8. **기본 키** 오른쪽에서 복사 아이콘을 선택하고 키를 메모장에 붙여 넣습니다.
 
 ## <a name="install-the-agent"></a>에이전트 설치
 이제 다운로드한 파일을 대상 컴퓨터에 설치해야 합니다.
@@ -68,7 +68,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 7. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 **Azure Cloud** 드롭다운 목록에서 **Azure 미국 정부**를 선택합니다.  컴퓨터가 프록시 서버를 통해 Log Analytics 서비스와 통신해야 하는 경우 **고급**을 선택하고 프록시 서버의 URL 및 포트 번호를 제공합니다.
 8. 필요한 구성 설정 제공을 완료한 후 **다음**을 선택합니다.
 
-  ![에이전트 설치][5]
+   ![에이전트 설치][5]
 
 9. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 선택합니다.
 10. **구성 완료** 페이지에서 **마침**을 선택합니다.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093772"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge 설치(미리 보기)
 
@@ -94,15 +94,15 @@ ms.locfileid: "56113603"
     ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. 랙 캐비닛 수직 멤버에 외부 레일을 설치합니다. 방향을 잡을 수 있도록 레일 슬라이드가 **Front(전면)** 로 표시되어 있고 그 끝은 인클로저의 앞쪽을 향해 부착됩니다.    
-    1. 레일 어셈블리의 앞면/뒷면에서 레일 핀을 찾으세요. 랙 포스트 사이에 맞도록 레일을 확장합니다. 먼저 랙의 뒤쪽에 외부 레일을 붙입니다. 후면 탑재 브래킷을 조정하여 후면 랙 탑재 구멍에 맞춥니다.   
+   1. 레일 어셈블리의 앞면/뒷면에서 레일 핀을 찾으세요. 랙 포스트 사이에 맞도록 레일을 확장합니다. 먼저 랙의 뒤쪽에 외부 레일을 붙입니다. 후면 탑재 브래킷을 조정하여 후면 랙 탑재 구멍에 맞춥니다.   
 
-    2. 금속 고리가 노출되도록 후면 브래킷의 제동기를 누르고 있습니다. 후면 브래킷을 탑재 구멍에 맞춰 끼운 다음, 제동기에서 손을 뗍니다.
+   2. 금속 고리가 노출되도록 후면 브래킷의 제동기를 누르고 있습니다. 후면 브래킷을 탑재 구멍에 맞춰 끼운 다음, 제동기에서 손을 뗍니다.
 
-    3. 전면 브래킷을 탑재 구멍에 맞춥니다.
+   3. 전면 브래킷을 탑재 구멍에 맞춥니다.
 
-    4. 이제 전면 브래킷이 랙에 고정됩니다. 필요에 따라 포스트를 사용하여 레일을 안전하게 보호하도록 M5 X 10L 나사를 선택적으로 사용할 수 있습니다. 
+   4. 이제 전면 브래킷이 랙에 고정됩니다. 필요에 따라 포스트를 사용하여 레일을 안전하게 보호하도록 M5 X 10L 나사를 선택적으로 사용할 수 있습니다. 
 
-    ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. 내부 레일을 섀시에 부착하려면 내부 레일의 열쇠 구멍 개구부를 섀시 측면의 위치 결정 핀에 맞춥니다. 섀시 위치 결정 핀의 머리 부분을 내부 레일의 열쇠 구멍 개구부로 내밉니다. 레일이 딸깍 소리를 내며 제자리에 고정될 때까지 섀시 전면을 향해 레일을 당깁니다. 다른 내부 레일에서도 반복합니다. 내부 레일을 사용하여 섀시를 슬라이드에 밀어 랙 설치를 완료합니다.
 

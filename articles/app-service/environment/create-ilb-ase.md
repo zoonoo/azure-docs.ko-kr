@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747512"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101536"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -80,11 +80,11 @@ ILB ASE를 만들려면
 
    [앱에 기존 DNS 이름을 매핑][customdomain]할 수 있습니다. 앱의 사용자 지정 도메인 이름 및 ASE에서 사용하는 도메인 이름은 겹칠 수 없습니다. _contoso.com_이라는 도메인 이름의 ILB ASE의 경우 앱에 다음과 비슷한 사용자 지정 도메인 이름을 사용할 수 없습니다.
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    앱의 사용자 지정 도메인 이름을 알고 있는 경우 해당 사용자 지정 도메인 이름과 충돌하지 않는 ILB ASE의 도메인을 선택합니다. 이 예제에서는 *.contoso.com*으로 끝나는 사용자 지정 도메인 이름과 충돌하지 않는 *contoso-internal.com*과 같은 이름을 ASE의 도메인에 사용할 수 있습니다.
 
@@ -222,7 +222,7 @@ WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 �
 ## <a name="get-started"></a>시작하기 ##
 
 * ASE를 시작하려면 [App Service Environment 소개][Intro]를 참조하세요.
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

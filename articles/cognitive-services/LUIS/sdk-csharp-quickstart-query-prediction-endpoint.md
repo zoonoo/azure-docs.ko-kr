@@ -5,16 +5,17 @@ description: C# SDK를 사용하여 LUIS에 사용자 발화를 보내고 예측
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: diberry
-ms.openlocfilehash: e009ef159a51a22c56409cd1564fa9fde3c67b55
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344216"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404096"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 예측 엔드포인트 쿼리
 

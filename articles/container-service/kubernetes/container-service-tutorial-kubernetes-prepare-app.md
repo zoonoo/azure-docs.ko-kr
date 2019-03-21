@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995386"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(사용되지 않음) Azure Container Service에 사용할 컨테이너 이미지 만들기
 
@@ -64,9 +64,9 @@ cd azure-voting-app-redis
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
-[Docker Compose](https://docs.docker.com/compose/)는 컨테이너 이미지 빌드 및 다중 컨테이너 응용 프로그램 배포를 자동화하는 데 사용할 수 있습니다.
+[Docker Compose](https://docs.docker.com/compose/)는 컨테이너 이미지 빌드 및 다중 컨테이너 애플리케이션 배포를 자동화하는 데 사용할 수 있습니다.
 
-`docker-compose.yml` 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 응용 프로그램을 시작합니다.
+`docker-compose.yml` 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 애플리케이션을 시작합니다.
 
 ```bash
 docker-compose up -d
@@ -78,7 +78,7 @@ docker-compose up -d
 docker images
 ```
 
-세 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
+세 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 애플리케이션을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -103,7 +103,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>로컬에서 애플리케이션 테스트
 
-http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
+`http://localhost:8080`으로 이동하여 실행 중인 애플리케이션을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 

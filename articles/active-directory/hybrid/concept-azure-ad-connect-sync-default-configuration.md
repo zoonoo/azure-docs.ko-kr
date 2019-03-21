@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891140"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -151,7 +151,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 #### <a name="description"></a>설명
 첫 번째 섹션은 이름 및 설명과 같은 기본 정보를 제공합니다.
 
-![동기화 규칙 편집기의 설명 탭 ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![동기화 규칙 편집기의 설명 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 이 규칙이 관련된 연결된 시스템, 적용되는 연결된 시스템의 개체 유형 및 메타버스 개체 유형에 관한 정보를 찾을 수도 있습니다. 메타버스 개체 형식은 소스 개체 형식이 사용자, iNetOrgPerson 또는 연락처인지와 관계 없이 항상 사람입니다. 메타버스 개체 형식은 일반 형식으로 생성되어야 하므로 변경되어서는 안됩니다. 링크 형식은 조인, StickyJoin, 또는 프로 비전으로 설정할 수 있습니다. 이 설정은 조인 규칙 섹션과 함께 작동하며 나중에 설명됩니다.
 
@@ -160,18 +160,18 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 #### <a name="scoping-filter"></a>범위 지정 필터
 범위 지정 필터 섹션은 동기화 규칙을 적용할 시기를 구성하는 데 사용됩니다. 검색하려는 동기화 규칙의 이름을 보면 활성화된 사용자에게만 적용해야 함을 알 수 있으므로 AD 특성 **userAccountControl** 에는 비트 2가 설정되지 않도록 범위가 구성됩니다. 동기화 엔진이 AD에서 사용자를 찾을 때 **userAccountControl** 이 10진수 값 512(활성화된 일반 사용자)로 설정된 경우 이 동기화 규칙을 적용합니다. 사용자가 **userAccountControl**을 514(비활성화된 일반 사용자)로 설정한 경우 규칙이 적용되지 않습니다.
 
-![동기화 규칙 편집기의 범위 지정 탭 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![동기화 규칙 편집기의 범위 지정 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 범위 지정 필터에는 중첩될 수 있는 그룹 및 절이 있습니다. 동기화 규칙을 적용하려면 그룹 내의 모든 절을 충족해야 합니다. 여러 그룹이 정의된 경우, 하나 이상의 그룹이 적용할 규칙에 충족되어야 합니다. 즉, 논리 OR은 그룹들 간에 평가되며 논리 AND는 하나의 그룹 내에서 평가됩니다. 이 구성의 예는 **AAD로 나가기 - 그룹 조인**아웃바운드 동기화 규칙에서 찾을 수 있습니다. 예를 들어 몇 가지 동기화 필터 그룹, 보안 그룹에 대한 하나의 필터 그룹(`securityEnabled EQUAL True`) 및 배포 그룹에 대한 하나의 필터 그룹(`securityEnabled EQUAL False`)이 있습니다.
 
-![동기화 규칙 편집기의 범위 지정 탭 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![동기화 규칙 편집기의 범위 지정 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 이 규칙은 Azure AD에 프로비전해야 하는 그룹을 정의하는 데 사용됩니다. 배포 그룹은 Azure AD와 동기화할 수 있도록 메일을 설정해야 하지만 보안 그룹에 대해서는 필요하지 않습니다.
 
 #### <a name="join-rules"></a>조인 규칙
 세 번째 섹션은 커넥터 공간의 개체가 메타버스의 개체와 관련되는 방법을 구성하는데 사용됩니다. 이전에 살펴본 규칙에는 조인 규칙에 대한 구성은 없으며, 대신 **AD에서 들어오기 – 사용자 조인**에서 살펴봅니다.
 
-![동기화 규칙 편집기의 조인 규칙 탭 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![동기화 규칙 편집기의 조인 규칙 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 조인 규칙의 콘텐츠는 설치 마법사에서 선택한 일치 옵션에 따라 달라집니다. 인바운드 규칙의 경우, 평가는 원본 커넥터 공간에서 개체와 함께 시작되며 조인 규칙의 각 그룹이 순서대로 평가됩니다. 원본 개체가 조인 규칙 중 하나를 사용하는 메타버스로의 개체 하나와 정확히 일치하는 것으로 평가되는 경우, 개체는 조인됩니다. 모든 규칙이 평가되며 일치 항목이 없는 경우, 설명 페이지의 링크 형식이 사용됩니다. 이 구성이 **프로비전**에 설정된 경우 대상, 메타버스에서 새 개체가 만들어집니다. 메타버스에 새 개체를 프로비전하는 것은 개체를 메타버스에 **프로젝트** 하는 것이라고도 합니다.
 
@@ -184,7 +184,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 #### <a name="transformations"></a>변환
 변환 섹션은 개체가 조인되고 범위 지정 필터를 충족하는 경우 대상 개체에 적용되도록 모든 특성 흐름을 정의합니다. **AD에서 들어오기 – 사용자 AccountEnabled** 동기화 규칙으로 돌아가서 다음 변환을 찾습니다.
 
-![동기화 규칙 편집기의 변환 탭 ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![동기화 규칙 편집기의 변환 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 이 구성을 컨텍스트에 배치하려면 계정 리소스 포리스트 배포에서 Exchange 및 Lync 설정을 사용하여 계정 포리스트에서 활성화된 계정을 찾고 리소스 포리스트에서 비활성화된 계정을 찾을 예정입니다. 찾고 있는 동기화 규칙은 로그인에 필요한 특성을 포함하며 해당 특성은 활성화된 계정이 있는 포리스트에서부터 진행되어야 합니다. 이러한 모든 특성 흐름은 하나의 동기화 규칙에 함께 배치됩니다.
 
@@ -201,7 +201,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL
@@ -220,7 +220,7 @@ NULL
 ### <a name="putting-it-all-together"></a>모든 항목 요약
 이제 다른 동기화 규칙을 사용하여 구성이 작동하는 방식을 이해할 수 있을 만큼 동기화 규칙에 대해 충분히 알고 있습니다. 메타버스에도 제공된 사용자와 특성을 보면 다음과 같은 순서로 규칙이 적용됩니다.
 
-| Name | 주석 |
+| 이름 | 주석 |
 |:--- |:--- |
 | AD에서 들어오기 – 사용자 조인 |메타버스를 사용하여 커넥터 공간 개체에 조인시키기 위한 규칙. |
 | AD에서 들어오기 – 사용하도록 설정된 UserAccount |Azure AD 및 Office 365에 로그인하는 데 필요한 속성. 사용된 계정에서 이러한 특성이 필요합니다. |

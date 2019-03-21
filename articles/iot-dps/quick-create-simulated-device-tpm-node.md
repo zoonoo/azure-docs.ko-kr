@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099140"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전
 
@@ -72,25 +72,25 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 1. 등록 시 사용한 구성 요소가 포함된 다음 패키지를 설치합니다.
 
-    - TPM에서 작동하는 보안 클라이언트: `azure-iot-security-tpm`
-    - Device Provisioning Service에 연결하는 디바이스에 대한 전송: `azure-iot-provisioning-device-http` 또는 `azure-iot-provisioning-device-amqp`
-    - 전송 및 보안 클라이언트를 사용하는 클라이언트: `azure-iot-provisioning-device`
+   - TPM에서 작동하는 보안 클라이언트: `azure-iot-security-tpm`
+   - Device Provisioning Service에 연결하는 디바이스에 대한 전송: `azure-iot-provisioning-device-http` 또는 `azure-iot-provisioning-device-amqp`
+   - 전송 및 보안 클라이언트를 사용하는 클라이언트: `azure-iot-provisioning-device`
 
-    디바이스가 등록되면 등록 시 제공된 자격 증명을 사용하여 디바이스를 연결하기 위해 일반적인 IoT Hub Device Client 패키지를 사용할 수 있습니다. 필요한 항목은 다음과 같습니다.
+     디바이스가 등록되면 등록 시 제공된 자격 증명을 사용하여 디바이스를 연결하기 위해 일반적인 IoT Hub Device Client 패키지를 사용할 수 있습니다. 필요한 항목은 다음과 같습니다.
 
-    - 디바이스 클라이언트: `azure-iot-device`
-    - 전송: `azure-iot-device-amqp`, `azure-iot-device-mqtt`, 또는 `azure-iot-device-http` 중 하나
-    - 이미 설치한 보안 클라이언트: `azure-iot-security-tpm`
+   - 디바이스 클라이언트: `azure-iot-device`
+   - 전송: `azure-iot-device-amqp`, `azure-iot-device-mqtt`, 또는 `azure-iot-device-http` 중 하나
+   - 이미 설치한 보안 클라이언트: `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > 아래 샘플에서는 `azure-iot-provisioning-device-http` 및 `azure-iot-device-mqtt` 전송을 사용합니다.
-    > 
+     > [!NOTE]
+     > 아래 샘플에서는 `azure-iot-provisioning-device-http` 및 `azure-iot-device-mqtt` 전송을 사용합니다.
+     > 
 
-    **registerdevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 이러한 패키지를 한 번에 모두 설치할 수 있습니다.
+     **registerdevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 이러한 패키지를 한 번에 모두 설치할 수 있습니다.
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. 텍스트 편집기를 사용하여 **registerdevice** 폴더에 새 **ExtractDevice.js** 파일을 만듭니다.
 
@@ -141,15 +141,15 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 1. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
 1. **등록 추가** 아래에서 다음 정보를 입력합니다.
-    - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
-    - TPM 디바이스에 대한 *등록 ID* 및 *인증 키*를 입력합니다.
-    - 필요에 따라 다음 정보를 입력합니다.
-        - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
-        - 고유한 디바이스 ID를 입력합니다. 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다.
-        - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
-    - 완료되면 **저장** 단추를 클릭합니다. 
+   - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
+   - TPM 디바이스에 대한 *등록 ID* 및 *인증 키*를 입력합니다.
+   - 필요에 따라 다음 정보를 입력합니다.
+       - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
+       - 고유한 디바이스 ID를 입력합니다. 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다.
+       - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
+   - 완료되면 **저장** 단추를 클릭합니다. 
 
-    ![포털 블레이드에 디바이스 등록 정보 입력](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![포털 블레이드에 디바이스 등록 정보 입력](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    성공적으로 등록되면 디바이스의 *등록 ID*가 *개별 등록* 탭 아래의 목록에 표시됩니다. 
 

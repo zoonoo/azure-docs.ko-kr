@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014486"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -121,6 +121,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |위치| **미국 동부**를 선택합니다.|
 4. **크기 선택**에서 VM 크기를 선택합니다.
 5. **설정**에 대해 다음 값을 선택하고 **확인**을 선택합니다.
+
     |설정|값|
     |---|---|
     |가상 네트워크| myVirtualNetwork1 - 아직 선택하지 않은 경우 **가상 네트워크**를 선택한 다음, **가상 네트워크 선택**에서 **myVirtualNetwork1**을 선택합니다.|

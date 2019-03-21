@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: bfe289e29a6a2bb048d9fd42323f32ce8c12792c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110611"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588655"
 ---
-# <a name="pen-testing"></a>펜 테스트
-애플리케이션 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다.  자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
+# <a name="penetration-testing"></a>침투 테스트
+애플리케이션 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다. 자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
 
-이것은 좋은 일입니다 – 그렇지만 여전히 일반적인 보안 실사는 수행해야 합니다. 수행해야 할 일 중 하나는 Azure에서 배포하는 애플리케이션에 대한 침투 테스트를 하는 것입니다.
+이것은 좋은 일입니다 – 그렇지만 여전히 일반적인 보안 실사는 수행해야 합니다. 침투 가능성이 수행 하려는 작업 중 하나는 Azure에서 배포 응용 프로그램을 테스트 합니다.
 
 Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 수행하는 것에 관해 어쩌면 이미 알고 계실 것입니다. 이는 Azure 개선에 많은 도움이 됩니다.
 
-우리는 여러분을 위해 애플리케이션을 펜 테스트하지는 않지만, 여러분이 자신의 애플리케이션에 펜 테스트를 수행하기를 원하며 그럴 필요가 있다는 것을 이해합니다. 애플리케이션의 보안을 강화할 때 Azure 전체 에코시스템을 보다 안전하게 보호하는데 도움이 되기 때문에 그렇게 하는 것이 좋습니다.
+침투 테스트를 위해 응용 프로그램 않으려는 있지만 것을 이해 하려면를 여러분의 응용 프로그램에 대 한 테스트를 수행 해야 합니다. 응용 프로그램의 보안을 강화할 때 Azure 전체 에코 시스템의 보안 수준을 높이 것이 도움이 때문 한 것입니다.
 
-그렇다면 어떻게 해야 할까요?
-
-Microsoft에는 2017년 6월 15일부터 Azure 리소스에 대한 보안 테스트를 수행하기 위해 더 이상 사전 승인이 필요하지 않습니다. Microsoft Azure에 대해 예정된 보안 테스트를 공식적으로 문서화하려는 고객은 [Azure 서비스 보안 테스트 알림 양식](https://portal.msrc.microsoft.com/en-us/engage/pentest)을 채우는 것이 좋습니다. 이 프로세스는 다른 Microsoft 클라우드 서비스에 적용할 수 없고 Microsoft Azure에만 관련됩니다.
+2017 년 6 월 15 일부 터 Microsoft는 더 이상 Azure 리소스에 대 한 침투 테스트를 수행 하는 사전 승인이 필요 합니다. Microsoft Azure에 대해 예정된 보안 테스트를 공식적으로 문서화하려는 고객은 [Azure 서비스 보안 테스트 알림 양식](https://portal.msrc.microsoft.com/en-us/engage/pentest)을 채우는 것이 좋습니다. 이 프로세스는 다른 Microsoft 클라우드 서비스에 적용할 수 없고 Microsoft Azure에만 관련됩니다.
 
 >[!IMPORTANT]
 >보안 테스트 작업을 수행한다는 것을 Microsoft에 알리는 작업은 더 이상 필수가 아니지만 고객은 여전히 [Microsoft 클라우드 통합 보안 테스트 지침서](https://technet.microsoft.com/mt784683)를 준수해야 합니다.
@@ -47,4 +45,4 @@ Microsoft에는 2017년 6월 15일부터 Azure 리소스에 대한 보안 테스
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft Azure에서 호스팅된 애플리케이션의 펜 테스트를 시작할 준비가 되셨습니까? 그렇다면 [참여의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2)으로 이동하여 테스트 알림 양식을 작성합니다.
+- Microsoft Azure에서 호스팅되는 응용 프로그램에 대해 테스트 하는 예정 된 침투를 공식적으로 문서화 하려는 경우에서 이동 합니다 [침투 테스트 참여 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) 테스트 알림 양식을 작성 하 고 있습니다.

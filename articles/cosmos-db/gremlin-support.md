@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081103"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop](https://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
@@ -181,7 +181,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `range` | 지정된 값 범위로 필터링합니다.| [range 단계](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | 지정된 횟수 동안 단계를 반복합니다. 반복에 사용됩니다. | [repeat 단계](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | 순회의 결과를 샘플링하는 데 사용됩니다. | [sample 단계](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | 순회의 결과를 투영하는 데 사용됩니다. |  [select 단계](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | 순회의 결과를 투영하는 데 사용됩니다. |  [select 단계](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | 순회의 비차단 집계에 사용됩니다. | [store 단계](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | 꼭짓점에서의 경로를 트리로 집계합니다. | [tree 단계](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | 반복기를 단계로 언롤합니다.| [unfold 단계](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

@@ -533,10 +533,16 @@ items:
       href: sql-database-develop-overview.md
     - name: JSON 데이터 작업
       href: sql-database-json-features.md
+    - name: ASP.NET App Service 사용
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: Azure Functions 사용
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Azure Logic Apps 사용
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Spark 커넥터 사용
       href: sql-database-spark-connector.md
+    - name: Azure Search를 사용하여 인덱싱
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: 앱 인증
       href: sql-database-client-id-keys.md
     - name: 오류 메시지
@@ -718,9 +724,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 8c0124072f26716a25cc2fc098c2da0a29a6b15f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41379e27d936db125261459c106687fc6c74a098
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835506"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227000"

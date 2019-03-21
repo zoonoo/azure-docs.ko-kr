@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112282"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 
@@ -135,8 +135,8 @@ LUIS는 학습할 때까지 변경 내용을 알지 못합니다.
 
 2. 주소의 URL 끝으로 이동하고 `Are there any natural language processing jobs in my department right now?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-  ```json
-  {
+   ```json
+   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {
       "intent": "GetJobInformation",
@@ -228,11 +228,11 @@ LUIS는 학습할 때까지 변경 내용을 알지 못합니다.
       "label": "positive",
       "score": 0.8251864
     }
-  }
-  }
-  ```
+   }
+   }
+   ```
 
-  올바른 의도는 높은 점수를 통해 예측되며 **작업** 엔터티는 `natural language processing`으로 감지됩니다. 
+   올바른 의도는 높은 점수를 통해 예측되며 **작업** 엔터티는 `natural language processing`으로 감지됩니다. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>더 많은 발언을 추가하여 검토를 대체할 수 있습니까? 
 더 많은 예제 발언을 추가하지 않은 이유가 궁금할 것입니다. 엔드포인트 발언 검토의 목적은 무엇입니까? 실제 LUIS 앱에서 엔드포인트 발언은 아직 사용하지 않은 단어 선택 및 배열을 사용하는 사용자로부터 나온 것입니다. 동일한 단어 선택과 배열을 사용한 경우, 원래의 예측은 더 높은 백분율을 가집니다. 

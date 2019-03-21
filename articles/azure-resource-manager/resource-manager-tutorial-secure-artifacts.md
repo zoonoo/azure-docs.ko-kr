@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120349"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -126,11 +126,11 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 3. **URL 및 Blob SAS 토큰 생성**을 선택합니다.
 4. **Blob SAS URL**의 복사본을 만듭니다. URL의 중간에서 파일 이름은 **SQLDatabaseExtension.bacpac**입니다.  파일 이름은 URL을 세 부분으로 나눕니다.
 
-    - **아티팩트 위치**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/입니다. 위치가 "/"로 끝나야 합니다.
-    - **BACPAC 파일 이름**: SQLDatabaseExtension.bacpac입니다.
-    - **아티팩트 위치 SAS 토큰**: 토큰이 "?"로 시작해야 합니다.
+   - **아티팩트 위치**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/입니다. 위치가 "/"로 끝나야 합니다.
+   - **BACPAC 파일 이름**: SQLDatabaseExtension.bacpac입니다.
+   - **아티팩트 위치 SAS 토큰**: 토큰이 "?"로 시작해야 합니다.
 
-    [템플릿 배포](#deploy-the-template)에서 이러한 세 가지 값이 필요합니다.
+     [템플릿 배포](#deploy-the-template)에서 이러한 세 가지 값이 필요합니다.
 
 ## <a name="open-an-existing-template"></a>기존 템플릿 열기
 
@@ -146,13 +146,13 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
     템플릿에 5개 리소스가 정의되어 있습니다.
 
-    * `Microsoft.Sql/servers`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers)를 참조하세요.
-    * `Microsoft.SQL/servers/securityAlertPolicies`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)를 참조하세요.
-    * `Microsoft.SQL/servers/filewallRules`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)를 참조하세요.
-    * `Microsoft.SQL/servers/databases`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
-    * `Microsoft.SQL/server/databases/extensions`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)를 참조하세요.
+   * `Microsoft.Sql/servers`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers)를 참조하세요.
+   * `Microsoft.SQL/servers/securityAlertPolicies`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)를 참조하세요.
+   * `Microsoft.SQL/servers/filewallRules`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)를 참조하세요.
+   * `Microsoft.SQL/servers/databases`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
+   * `Microsoft.SQL/server/databases/extensions`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)를 참조하세요.
 
-    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 4. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집

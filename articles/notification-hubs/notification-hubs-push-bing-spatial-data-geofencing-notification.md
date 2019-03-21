@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118309"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>자습서: Azure Notification Hubs 및 Bing 공간 데이터가 있는 위치 기반 알림 푸시
 
@@ -63,12 +63,12 @@ ms.locfileid: "54453155"
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. **데이터 원본 업로드** 페이지에서 다음 작업을 수행합니다.
-    1. **데이터 형식**에 대해 **파이프**를 선택합니다.
-    2. 이전 단계에서 만든 `NotificationHubGeofence.pipe` 파일을 찾아 선택합니다.
-    3. **업로드** 단추를 선택합니다.
+   1. **데이터 형식**에 대해 **파이프**를 선택합니다.
+   2. 이전 단계에서 만든 `NotificationHubGeofence.pipe` 파일을 찾아 선택합니다.
+   3. **업로드** 단추를 선택합니다.
 
-    > [!NOTE]
-    > **쿼리 키**와 다른 **마스터 키**에 대한 새 키를 지정하라는 메시지가 표시될 수 있습니다. 대시보드를 통해 새 키를 만들고 데이터 원본 업로드 페이지를 새로 고칩니다.
+      > [!NOTE]
+      > **쿼리 키**와 다른 **마스터 키**에 대한 새 키를 지정하라는 메시지가 표시될 수 있습니다. 대시보드를 통해 새 키를 만들고 데이터 원본 업로드 페이지를 새로 고칩니다.
 6. 데이터 파일을 업로드하면 데이터 원본을 게시하는지 확인해야 합니다. 이전에 했던 것처럼 **데이터 원본** -> **데이터 원본 관리**를 선택합니다.
 7. 목록에서 데이터 원본을 선택하고, **동작** 열에서 **게시**를 선택합니다.
 
@@ -112,11 +112,11 @@ ms.locfileid: "54453155"
     ```
     다음 매개 변수를 지정하여 작동시킵니다.
 
-    * **데이터 원본 ID** 및 **데이터 원본 이름** – Bing 맵 API에서 데이터 원본은 작업하는 위치 및 업무 시간 등 다양하게 버킷 구성된 메타데이터를 포함합니다.  
-    * **엔터티 이름** – 알림에 대한 참조 지점으로 사용하려는 엔터티.
-    * **Bing 맵 API 키** – Bing 개발자 센터 계정을 만들 경우 이전에 얻은 키입니다.
+   * **데이터 원본 ID** 및 **데이터 원본 이름** – Bing 맵 API에서 데이터 원본은 작업하는 위치 및 업무 시간 등 다양하게 버킷 구성된 메타데이터를 포함합니다.  
+   * **엔터티 이름** – 알림에 대한 참조 지점으로 사용하려는 엔터티.
+   * **Bing 맵 API 키** – Bing 개발자 센터 계정을 만들 경우 이전에 얻은 키입니다.
 
-    이제 데이터 원본을 준비했으므로 UWP 애플리케이션에서 작업을 시작할 수 있습니다.
+     이제 데이터 원본을 준비했으므로 UWP 애플리케이션에서 작업을 시작할 수 있습니다.
 2. 애플리케이션에 대한 위치 서비스를 사용하도록 설정합니다. **솔루션 탐색기**에서 `Package.appxmanifest` 파일을 엽니다.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

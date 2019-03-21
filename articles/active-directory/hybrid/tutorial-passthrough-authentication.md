@@ -11,12 +11,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098045"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>자습서:  PTA(통과 인증)를 사용하여 단일 AD 포리스트 통합
 
@@ -80,7 +80,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 
 1. Hyper-V 관리자에서 가상 머신을 두 번 클릭합니다.
 2. 시작 단추를 클릭합니다.
-3.  ‘CD 또는 DVD에서 부팅하려면 아무 키나 누르세요’라는 메시지가 표시됩니다. 계속 진행합니다.
+3. ‘CD 또는 DVD에서 부팅하려면 아무 키나 누르세요’라는 메시지가 표시됩니다. 계속 진행합니다.
 4. Windows Server 시작 화면에서 언어를 선택하고 **다음**을 클릭합니다.
 5. **지금 설치**를 클릭합니다.
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
@@ -250,9 +250,9 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
 
-1.  [https://myapps.microsoft.com](httpss://myapps.microsoft.com)으로 이동합니다.
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  다음 형식을 사용하여 로그인해야 합니다(user@domain.onmicrosoft.com). 사용자가 온-프레미스 로그인에 사용한 것과 동일한 암호를 사용합니다.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)
 
 Azure에 제공되는 기능을 테스트하고 익히는 데 사용할 수 있는 하이브리드 ID 환경이 성공적으로 설정되었습니다.
 

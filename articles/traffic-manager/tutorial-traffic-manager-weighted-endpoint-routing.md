@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009764"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 엔드포인트에서 트래픽 라우팅 제어
 
@@ -54,12 +54,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |이름|**myIISVMEastUS**를 입력합니다.|
+    |Name|**myIISVMEastUS**를 입력합니다.|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **새로 만들기**를 선택한 다음, **myResourceGroupTM1**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
     |||
+
 4. **크기 선택**에서 VM 크기를 선택합니다.
 5. **설정**에 다음 값을 선택한 후 **확인**을 선택합니다.
     
@@ -69,6 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |네트워크 보안 그룹|**기본**을 선택합니다. **공용 인바운드 포트 선택** 드롭다운 목록에서 **HTTP** 및 **RDP**를 선택합니다. |
     |부트 진단|**사용 안 함**을 선택합니다.|
     |||
+
 6. **요약**의 **만들기** 아래에서 **만들기**를 선택하여 VM 배포를 시작합니다.
 
 7. 다음과 같은 변경 내용을 사용하여 다시 1~6단계를 완료합니다.
@@ -80,6 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |VM 이름 | **myIISVMWEurope**를 입력합니다.|
     |가상 네트워크 | **가상 네트워크**를 선택합니다. **가상 네트워크 만들기**에서 **이름**에 **myVNet2**를 입력합니다. **서브넷**에 **mySubnet**을 입력합니다.|
     |||
+
 8. VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들어질 때까지 다른 단계를 진행하지 마세요.
 
 ![VM 만들기](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -129,7 +132,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
     |설정|값|
     |---|---|
-    |이름|**myVMEastUS**를 입력합니다.|
+    |Name|**myVMEastUS**를 입력합니다.|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택한 다음, **myResourceGroupTM1**을 선택합니다.|
@@ -137,6 +140,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
 4. **크기 선택**에서 VM 크기를 선택합니다.
 5. **설정**에 다음 값을 선택한 후 **확인**을 선택합니다.
+
     |설정|값|
     |---|---|
     |가상 네트워크| **가상 네트워크**를 선택합니다. **가상 네트워크 만들기**에서 **이름**에 **myVNet3**을 입력합니다. 서브넷에 **mySubnet**을 입력합니다.|
@@ -155,7 +159,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 이름                   | trafficmanager.net 영역 내에서 고유한 이름을 입력합니다. 이는 Traffic Manager 프로필에 액세스하는 데 사용되는 DNS 이름 trafficmanager.net이 됩니다.                                   |
+    | Name                   | trafficmanager.net 영역 내에서 고유한 이름을 입력합니다. 이는 Traffic Manager 프로필에 액세스하는 데 사용되는 DNS 이름 trafficmanager.net이 됩니다.                                   |
     | 라우팅 방법          | **가중** 라우팅 방법을 선택합니다.                                       |
     | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | **기존 항목 사용**을 선택한 다음, **myResourceGroupTM1**을 선택합니다. |
@@ -173,8 +177,8 @@ IIS 서버를 실행하는 myIISVMEastUS 및 myIISVMWEurope이라는 두 개의 
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | type                    | Azure 엔드포인트를 입력합니다.                                   |
-    | 이름           | **myEastUSEndpoint**를 입력합니다.                                        |
+    | Type                    | Azure 엔드포인트를 입력합니다.                                   |
+    | Name           | **myEastUSEndpoint**를 입력합니다.                                        |
     | 대상 리소스 종류           | **공용 IP 주소**를 선택합니다.                          |
     | 대상 리소스          | 공용 IP 주소를 선택하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 **myIISVMEastUS-ip**라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
     |  무게      | **100**을 입력합니다.        |

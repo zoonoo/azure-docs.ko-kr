@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080644"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>C#용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 
@@ -26,7 +26,7 @@ C#용 Bing Entity Search SDK를 사용하여 엔터티 검색을 시작하려면
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 * [Bing News Search SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) 이 패키지를 설치하면 다음도 설치됩니다.
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
@@ -52,13 +52,13 @@ Bing Entity Search SDK를 Visual Studio 프로젝트에 추가하려면 솔루�
 
 ## <a name="create-a-client-and-send-a-search-request"></a>클라이언트를 만들고 검색 요청 보내기
 
-2. 새 검색 클라이언트를 만듭니다. 새 `ApiKeyServiceClientCredentials`를 만들어서 구독 키를 추가합니다.
+1. 새 검색 클라이언트를 만듭니다. 새 `ApiKeyServiceClientCredentials`를 만들어서 구독 키를 추가합니다.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. 클라이언트의 `Entities.Search()` 함수를 사용하여 쿼리를 검색합니다.
+1. 클라이언트의 `Entities.Search()` 함수를 사용하여 쿼리를 검색합니다.
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

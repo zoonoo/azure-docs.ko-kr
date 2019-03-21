@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100737"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -49,11 +49,11 @@ Bing Custom Search 인스턴스를 만들려면
   
 4. 로그인한 후 **새 사용자 지정 검색**을 클릭합니다. **새 사용자 지정 검색 인스턴스 만들기** 창에서 의미 있는 이름을 입력하고 검색에서 반환하는 콘텐츠 형식을 설명합니다. 언제든지 이름을 변경할 수 있습니다.  
   
-  ![새 사용자 지정 검색 인스턴스 만들기 상자 스크린샷](../media/newCustomSrch.png)  
+   ![새 사용자 지정 검색 인스턴스 만들기 상자 스크린샷](../media/newCustomSrch.png)  
   
 5. 확인을 클릭하고 URL 및 URL의 하위 페이지를 포함할지 여부를 지정합니다.  
   
-  ![URL 정의 페이지 스크린샷](../media/newCustomSrch1-a.png)  
+   ![URL 정의 페이지 스크린샷](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>활성 항목 추가
@@ -97,28 +97,28 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
 2. 레이아웃을 선택합니다.  
   
-  ![호스트된 UI 레이아웃 선택 단계 스크린샷](./media/custom-search-hosted-ui-select-layout.png)  
+   ![호스트된 UI 레이아웃 선택 단계 스크린샷](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. 색 테마를 선택합니다.  
   
-  ![호스트된 UI 색 테마 선택 스크린샷](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![호스트된 UI 색 테마 선택 스크린샷](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  웹 앱과 더 효율적으로 통합하기 위해 색 테마를 미세 조정해야 하는 경우 **테마 사용자 지정**을 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
+   웹 앱과 더 효율적으로 통합하기 위해 색 테마를 미세 조정해야 하는 경우 **테마 사용자 지정**을 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
   
-  ![호스트된 UI 색 테마 사용자 지정 스크린샷](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![호스트된 UI 색 테마 사용자 지정 스크린샷](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. 추가 구성 옵션을 지정합니다.  
   
-  ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  고급 구성을 가져오려면 **고급 구성 표시**를 클릭합니다. 그러면 *링크 대상* 등의 구성이 웹 검색 옵션에 추가되고, *필터 사용* 등의 구성이 이미지 및 비디오 옵션에 추가되며, *검색 상자 텍스트 개체 틀* 등의 구성이 기타 옵션에 추가됩니다.
+   고급 구성을 가져오려면 **고급 구성 표시**를 클릭합니다. 그러면 *링크 대상* 등의 구성이 웹 검색 옵션에 추가되고, *필터 사용* 등의 구성이 이미지 및 비디오 옵션에 추가되며, *검색 상자 텍스트 개체 틀* 등의 구성이 기타 옵션에 추가됩니다.
 
-  ![호스트된 UI 고급 구성 단계 스크린샷](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![호스트된 UI 고급 구성 단계 스크린샷](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다. 키를 가져오는 방법에 대한 정보는 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)를 참조하세요.  
   
-  ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
+   ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
 3. **새 프로젝트** 창에서 **Visual C#/Web/ASP.NET Core 웹 애플리케이션**을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.  
   
-  ![새 프로젝트 창의 스크린샷](./media/custom-search-new-project.png)  
+   ![새 프로젝트 창의 스크린샷](./media/custom-search-new-project.png)  
   
 4. **새 ASP.NET Core 웹 애플리케이션** 창에서 **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.  
   
-  ![새 프로젝트 창의 스크린샷](./media/custom-search-new-webapp.png)  
+   ![새 프로젝트 창의 스크린샷](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>index.cshtml 편집
 
 1. **솔루션 탐색기**에서 **페이지**를 확장하고 **index.cshtml**을 두 번 클릭하여 파일을 엽니다.  
   
-  ![페이지가 확장되고 index.cshtml이 선택된 솔루션 탐색기 스크린샷](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![페이지가 확장되고 index.cshtml이 선택된 솔루션 탐색기 스크린샷](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. index.cshtml에서 줄 7부터 아래의 모든 내용을 삭제합니다.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. 줄 바꿈 요소와 컨테이너 역할을 하는 div를 추가합니다.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. **호스트된 UI** 페이지에서 아래의 **UI 사용** 섹션으로 스크롤합니다. *엔드포인트*를 클릭하여 JavaScript 코드 조각에 액세스합니다. **프로덕션**과 **호스트된 UI** 탭을 차례로 클릭하여 코드 조각으로 이동할 수도 있습니다.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. 추가한 컨테이너에 스크립트 요소를 붙여넣습니다.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. **솔루션 탐색기**에서 **wwwroot**를 마우스 오른쪽 단추로 클릭하고 **브라우저에서 보기**를 클릭합니다.  
   
-  ![wwwroot 바로 가기 메뉴에서 브라우저에서 보기를 선택하는 솔루션 탐색기 스크린샷](./media/custom-search-webapp-view-in-browser.png)  
+   ![wwwroot 바로 가기 메뉴에서 브라우저에서 보기를 선택하는 솔루션 탐색기 스크린샷](./media/custom-search-webapp-view-in-browser.png)  
 
 새 사용자 지정 검색 웹 페이지는 다음과 유사해야 합니다.
 

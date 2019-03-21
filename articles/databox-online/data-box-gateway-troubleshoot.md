@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961051"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100856"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결 
 
@@ -67,16 +67,16 @@ ms.locfileid: "56961051"
 
 2. _Microsoft Data Box Gateway 폴더_를 클릭합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
 
-    - 업로드 오류에 대한 로그 파일이 있는 Upload 폴더
-    - 새로 고침 중 오류를 위한 Refresh 폴더
+   - 업로드 오류에 대한 로그 파일이 있는 Upload 폴더
+   - 새로 고침 중 오류를 위한 Refresh 폴더
 
-    다음은 새로 고침에 대한 샘플 로그 파일입니다.
+     다음은 새로 고침에 대한 샘플 로그 파일입니다.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. 이 파일에 오류가 표시되면(샘플에 강조 표시됨), 오류 코드를 적어두십시오. 이 경우에는 16001입니다. 다음 오류 참조에서 이 오류 코드에 대한 설명을 찾아봅니다.
 

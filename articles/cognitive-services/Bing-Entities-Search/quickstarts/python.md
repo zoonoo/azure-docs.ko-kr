@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 73b666116a23ab8d861d38af4dc9fa5e19d5d1bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109579"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -53,18 +53,18 @@ ms.locfileid: "55857161"
 ## <a name="send-a-request-and-get-a-response"></a>요청 보내기 및 응답 받기
 
 1. `get_suggestions()`라는 함수를 만듭니다. 그런 후에 다음 단계를 수행합니다.
-    1. `Ocp-Apim-Subscription-Key`를 키로 사용하여 구독 키를 사전에 추가합니다.
-    2. `http.client.HTTPSConnection()`을 사용하여 HTTPS 클라이언트 개체를 만듭니다. 경로 및 매개 변수와 헤더 정보가 포함된 `request()`를 사용하여 `GET` 요청을 보냅니다.
-    3. `getresponse()`를 사용하여 응답을 저장하고 `response.read()`를 반환합니다.
+   1. `Ocp-Apim-Subscription-Key`를 키로 사용하여 구독 키를 사전에 추가합니다.
+   2. `http.client.HTTPSConnection()`을 사용하여 HTTPS 클라이언트 개체를 만듭니다. 경로 및 매개 변수와 헤더 정보가 포함된 `request()`를 사용하여 `GET` 요청을 보냅니다.
+   3. `getresponse()`를 사용하여 응답을 저장하고 `response.read()`를 반환합니다.
 
-    ```python
-    def get_suggestions ():
-        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-        conn = http.client.HTTPSConnection (host)
-        conn.request ("GET", path + params, None, headers)
-        response = conn.getresponse ()
-        return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. `get_suggestions()`를 호출하고 json 응답을 출력합니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "55857161"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

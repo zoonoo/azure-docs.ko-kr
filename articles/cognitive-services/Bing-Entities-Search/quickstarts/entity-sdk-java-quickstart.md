@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673567"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094112"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>빠른 시작: Java용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 
@@ -67,7 +67,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Enti
 
 ## <a name="create-a-search-client"></a>검색 클라이언트 만들기
 
-2. `dominantEntityLookup` 클라이언트를 구현합니다. 그러려면 API 엔드포인트와 `ServiceClientCredentials` 클래스의 인스턴스가 필요합니다.
+1. `dominantEntityLookup` 클라이언트를 구현합니다. 그러려면 API 엔드포인트와 `ServiceClientCredentials` 클래스의 인스턴스가 필요합니다.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,47 +80,47 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Enti
 
     `ServiceClientCredentials`를 구현하려면 다음 단계를 수행합니다.
 
-    1. `OkHttpClient.Builder` 개체를 매개 변수로 사용하여 `applyCredentialsFilter()` 함수를 재정의합니다. 
+   1. `OkHttpClient.Builder` 개체를 매개 변수로 사용하여 `applyCredentialsFilter()` 함수를 재정의합니다. 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. `applyCredentialsFilter()` 내에서 `builder.addNetworkInterceptor()`를 호출합니다. 새 `Interceptor` 개체를 만들고, `Chain` 인터셉터 개체를 사용하도록 `intercept()` 메서드를 재정의합니다.
+   2. `applyCredentialsFilter()` 내에서 `builder.addNetworkInterceptor()`를 호출합니다. 새 `Interceptor` 개체를 만들고, `Chain` 인터셉터 개체를 사용하도록 `intercept()` 메서드를 재정의합니다.
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. `intercept` 함수 내에서 요청에 대한 변수를 만듭니다. `Request.Builder()`를 사용하여 요청을 빌드합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고, 요청 개체에서 `chain.proceed()`를 반환합니다.
+   3. `intercept` 함수 내에서 요청에 대한 변수를 만듭니다. `Request.Builder()`를 사용하여 요청을 빌드합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고, 요청 개체에서 `chain.proceed()`를 반환합니다.
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## <a name="send-a-request-and-receive-a-response"></a>요청을 보내고 응답 수신
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## <a name="send-a-request-and-receive-a-response"></a>요청을 보내고 응답 수신
 
 1. 구독 키를 사용하여 검색 클라이언트의 새 인스턴스를 만듭니다. `client.entities().search()`를 사용하여 검색 쿼리 `satya nadella`에 대한 검색 요청을 보내고, 응답을 받습니다. 
     
@@ -130,7 +130,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Enti
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. 엔터티가 반환되면 목록으로 변환합니다. 이 절차를 반복하고, 기준 엔터티를 인쇄합니다.
+1. 엔터티가 반환되면 목록으로 변환합니다. 이 절차를 반복하고, 기준 엔터티를 인쇄합니다.
 
     ```java
     if (entityData.entities().value().size() > 0){

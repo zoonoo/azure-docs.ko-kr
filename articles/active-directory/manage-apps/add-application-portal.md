@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110123"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
 
@@ -113,35 +113,35 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
 4. 다음 표를 사용하여 요구 사항에 가장 적합한 옵션을 선택하세요.
 
-    - **할당된** 사용자에 대한 동작:
+   - **할당된** 사용자에 대한 동작:
 
-        | 애플리케이션 속성 설정 | | | 할당된 사용자 경험 | |
-        |---|---|---|---|---|
-        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당된 사용자가 로그인할 수 있습니까? | 할당된 사용자가 애플리케이션을 볼 수 있습니까?* |
-        | 예 | 예 | 예 | 예 | 예  |
-        | 예 | 예 | no  | 예 | no   |
-        | 예 | no  | 예 | 예 | 예  |
-        | 예 | no  | no  | 예 | no   |
-        | no  | 예 | 예 | no  | no   |
-        | no  | 예 | no  | no  | no   |
-        | no  | no  | 예 | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | 애플리케이션 속성 설정 | | | 할당된 사용자 경험 | |
+       |---|---|---|---|---|
+       | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당된 사용자가 로그인할 수 있습니까? | 할당된 사용자가 애플리케이션을 볼 수 있습니까?* |
+       | 예 | 예 | 예 | 예 | 예  |
+       | 예 | 예 | no  | 예 | no   |
+       | 예 | no  | 예 | 예 | 예  |
+       | 예 | no  | no  | 예 | no   |
+       | no  | 예 | 예 | no  | no   |
+       | no  | 예 | no  | no  | no   |
+       | no  | no  | 예 | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - **할당되지 않은** 사용자에 대한 동작:
+   - **할당되지 않은** 사용자에 대한 동작:
 
-        | 애플리케이션 속성 설정 | | | 할당되지 않은 사용자 환경 | |
-        |---|---|---|---|---|
-        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당되지 않은 사용자가 로그인할 수 있습니까? | 할당되지 않은 사용자가 애플리케이션을 볼 수 있습니다? * |
-        | 예 | 예 | 예 | no  | no   |
-        | 예 | 예 | no  | no  | no   |
-        | 예 | no  | 예 | 예 | no   |
-        | 예 | no  | no  | 예 | no   |
-        | no  | 예 | 예 | no  | no   |
-        | no  | 예 | no  | no  | no   |
-        | no  | no  | 예 | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | 애플리케이션 속성 설정 | | | 할당되지 않은 사용자 환경 | |
+       |---|---|---|---|---|
+       | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당되지 않은 사용자가 로그인할 수 있습니까? | 할당되지 않은 사용자가 애플리케이션을 볼 수 있습니다? * |
+       | 예 | 예 | 예 | no  | no   |
+       | 예 | 예 | no  | no  | no   |
+       | 예 | no  | 예 | 예 | no   |
+       | 예 | no  | no  | 예 | no   |
+       | no  | 예 | 예 | no  | no   |
+       | no  | 예 | no  | no  | no   |
+       | no  | no  | 예 | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    *사용자가 액세스 패널 및 Office 365 앱 시작 관리자에서 애플리케이션을 볼 수 있습니까?
+     *사용자가 액세스 패널 및 Office 365 앱 시작 관리자에서 애플리케이션을 볼 수 있습니까?
 
 ## <a name="use-a-custom-logo"></a>사용자 지정 로고 사용
 

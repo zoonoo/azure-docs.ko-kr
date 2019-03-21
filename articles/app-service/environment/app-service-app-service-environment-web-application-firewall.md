@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089321"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
@@ -66,7 +66,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 
 ![관리 엔드포인트 추가][AddManagementEndpoint]
 
-브라우저를 사용하여 클라우드 서비스에서 관리 엔드포인트로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000 으로 이동하여 이 엔드포인트에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
+브라우저를 사용하여 클라우드 서비스에서 관리 엔드포인트로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 `http://test.cloudapp.net:8000` 으로 이동하여 이 엔드포인트에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
 
 ![관리 로그인 페이지][ManagementLoginPage]
 

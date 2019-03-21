@@ -1,19 +1,19 @@
 ---
 title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합 만들기
 description: Azure에서 Ansible을 사용하여 가상 머신 확장 집합을 만들고 구성하는 방법 알아보기
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097892"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 가상 머신 확장 집합을 만들고 확장하는 방법을 보여줍니다. 
@@ -276,5 +276,5 @@ Cloud Shell에서 명령을 실행한 결과에서는 이제 세 개의 인스�
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
 > [Ansible을 사용하여 가상 머신 확장 세트에 애플리케이션 배포](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Ansible을 사용하여 가상 머신 확장 세트의 크기를 자동으로 조정](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

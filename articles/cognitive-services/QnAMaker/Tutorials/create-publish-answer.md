@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102165"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 
 이 자습서에서는 프로그래매틱 방식으로 기술 자료(KB)를 생성 및 게시한 후 기술 자료의 고객 질문에 답변하는 방법을 안내합니다. 
 
 > [!div class="checklist"]
-* 기술 자료 만들기 
-* 만들기 상태 확인
-* 기술 자료 학습 및 게시
-* 엔드포인트 정보 가져오기
-* Curl을 사용하여 기술 자료 쿼리
+> * 기술 자료 만들기 
+> * 만들기 상태 확인
+> * 기술 자료 학습 및 게시
+> * 엔드포인트 정보 가져오기
+> * Curl을 사용하여 기술 자료 쿼리
 
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.

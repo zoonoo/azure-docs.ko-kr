@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120111"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
 
@@ -35,31 +35,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * **처리량 요구 사항 예측:** Azure Cosmos DB에서 데이터를 Cassandra API 계정으로 마이그레이션하려면 먼저 워크로드에 대한 처리량 요구 사항을 예측해야 합니다. 일반적으로 CRUD 작업에 필요한 평균 처리량부터 시작한 다음, ETL(추출, 변환 및 로드) 또는 급증하는 작업에 필요한 추가 처리량을 포함하는 것이 좋습니다. 마이그레이션을 계획하려면 다음과 같은 세부 정보가 필요합니다. 
 
-   * **기존 또는 예상 데이터 크기:** 최소 데이터베이스 크기 및 처리량 요구 사항을 정의합니다. 새 애플리케이션의 데이터 크기를 예측할 경우 데이터가 행 전체에 균일하게 분포되어 있다고 가정하고 데이터 크기를 곱하여 값을 추정하면 됩니다. 
+  * **기존 또는 예상 데이터 크기:** 최소 데이터베이스 크기 및 처리량 요구 사항을 정의합니다. 새 애플리케이션의 데이터 크기를 예측할 경우 데이터가 행 전체에 균일하게 분포되어 있다고 가정하고 데이터 크기를 곱하여 값을 추정하면 됩니다. 
 
-   * **필요한 처리량:** 대략적인 읽기(쿼리/가져오기) 및 쓰기(업데이트/삭제/삽입) 처리량 속도입니다. 이 값은 안정적인 상태 데이터 크기와 함께 필요한 요청 단위를 계산하는 데 필요합니다.  
+  * **필요한 처리량:** 대략적인 읽기(쿼리/가져오기) 및 쓰기(업데이트/삭제/삽입) 처리량 속도입니다. 이 값은 안정적인 상태 데이터 크기와 함께 필요한 요청 단위를 계산하는 데 필요합니다.  
 
-   * **스키마:** cqlsh를 통해 기존 Cassandra 클러스터에 연결하고 Cassandra에서 스키마를 내보냅니다. 
+  * **스키마:** cqlsh를 통해 기존 Cassandra 클러스터에 연결하고 Cassandra에서 스키마를 내보냅니다. 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   기존 워크로드의 요구 사항을 확인한 후에는 수집한 처리량 요구 사항에 따라 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만들어야 합니다.  
+    기존 워크로드의 요구 사항을 확인한 후에는 수집한 처리량 요구 사항에 따라 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만들어야 합니다.  
 
-   * **작업에 대한 RU 요금 결정:** Cassandra API에서 지원되는 SDK 중 하나를 사용하여 RU를 결정할 수 있습니다. 다음 예제는 RU 비용 가져오기의 .NET 버전을 보여 줍니다.
+  * **작업에 대한 RU 요금 결정:** Cassandra API에서 지원되는 SDK 중 하나를 사용하여 RU를 결정할 수 있습니다. 다음 예제는 RU 비용 가져오기의 .NET 버전을 보여 줍니다.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **필요한 처리량 할당:** 요구 사항이 증가함에 따라 Azure Cosmos DB에서 스토리지 및 처리량의 크기를 자동으로 조정할 수 있습니다. [Azure Cosmos DB 요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 처리량 수요를 예측할 수 있습니다. 
 

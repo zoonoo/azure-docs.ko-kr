@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dcb7807513c03b3bc61f780582b429a54cee561c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8ae2cd5f3a866b2d026ad4f3babc89bc9af68dc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858657"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904493"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Ruby를 사용하여 원격 이미지 분석
 
@@ -178,10 +178,6 @@ puts response.body
 }
 
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

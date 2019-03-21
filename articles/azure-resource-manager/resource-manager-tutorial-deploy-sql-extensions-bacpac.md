@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085068"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -65,11 +65,11 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
     템플릿에 3개 리소스가 정의되어 있습니다.
 
-    * `Microsoft.Sql/servers`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)를 참조하세요.
-    * `Microsoft.SQL/servers/securityAlertPolicies`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)를 참조하세요.
-    * `Microsoft.SQL.servers/databases`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
+   * `Microsoft.Sql/servers`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)를 참조하세요.
+   * `Microsoft.SQL/servers/securityAlertPolicies`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)를 참조하세요.
+   * `Microsoft.SQL.servers/databases`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
 
-    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 4. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집

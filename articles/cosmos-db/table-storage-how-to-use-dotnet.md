@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 8d9037a0f557a39ba4384981d9f31daa5f1ca6e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985889"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842654"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -565,9 +565,9 @@ do
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 * [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
-*  [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-* 특히 다음 섹션에서 Azure File Storage를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다.
+* [.NET을 사용하여 Azure Blob 저장소를 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
 * [.NET(C#)을 사용하여 SQL Database에 연결](../sql-database/sql-database-develop-dotnet-simple.md)하여 관계형 데이터를 저장합니다.
 
 [Download and install the Azure SDK for .NET]: /develop/net/

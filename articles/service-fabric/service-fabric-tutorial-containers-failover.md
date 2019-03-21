@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104270"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric으로 컨테이너 서비스의 장애 조치(failover) 및 크기 조정을 보여 줍니다.
 
 이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "37112272"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[2부](service-fabric-tutorial-package-containers.md)의 응용 프로그램은 활성 Service Fabric 클러스터에서 실행되고 있습니다.
+[2부](service-fabric-tutorial-package-containers.md)의 애플리케이션은 활성 Service Fabric 클러스터에서 실행되고 있습니다.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>클러스터에서 컨테이너 장애 조치(failover)
 
@@ -63,8 +63,8 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 
 이제 웹 프런트 엔드의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 이 수를 **2**로 변경하고 **Scale Service**를 클릭합니다.
-4. 트리 뷰에서 **fabric:/TestContainer/azurevotefront** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
+1. 이 수를 **2**로 변경하고 **Scale Service**를 클릭합니다.
+1. 트리 뷰에서 **fabric:/TestContainer/azurevotefront** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
 ![sfxscaledone][sfxscaledone]
 

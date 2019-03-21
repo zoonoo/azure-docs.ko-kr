@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088352"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. 기본 프로필에서 **크기 조정 모드**가 '특정 인스턴스 수로 크기 조정'으로 설정되었는지 확인합니다.
 3. 인스턴스 수를 **1**로 설정합니다. 이 설정을 사용하면 다른 프로필이 활성화되거나 적용될 때 기본 프로필이 인스턴스 수를 1로 반환하게 됩니다.
 
-  ![자동 크기 조정 설정으로 이동합니다.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![자동 크기 조정 설정으로 이동합니다.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>되풀이 프로필 만들기

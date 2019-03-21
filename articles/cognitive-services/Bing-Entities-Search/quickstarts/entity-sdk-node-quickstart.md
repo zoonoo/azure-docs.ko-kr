@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 04ec95e891b4e9333949a3a0f40dcc9df88e49e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097033"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 
@@ -53,7 +53,7 @@ Bing Entity Search SDK를 설치하려면:
 
 ## <a name="send-a-request-and-receive-a-response"></a>요청을 보내고 응답 수신
 
-2. `entitiesOperations.search()`를 사용하여 엔터티 검색 요청을 보냅니다. 응답을 받은 후 `queryContext`, 반환된 결과 수, 첫 번째 결과에 대한 설명을 인쇄합니다.
+1. `entitiesOperations.search()`를 사용하여 엔터티 검색 요청을 보냅니다. 응답을 받은 후 `queryContext`, 반환된 결과 수, 첫 번째 결과에 대한 설명을 인쇄합니다.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

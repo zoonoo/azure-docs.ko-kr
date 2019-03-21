@@ -11,16 +11,16 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 710ba8b3e8b581da1db0bf7a3aeb2ee254887b7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007014"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL Database 쿼리
 
-이 문서에서는 [PHP](http://php.net/manual/en/intro-whatis.php)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
+이 문서에서는 [PHP](https://php.net/manual/en/intro-whatis.php)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899549"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>자습서: Azure Portal에서 표준 Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -41,7 +41,7 @@ ms.locfileid: "56985991"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>공용 표준 Load Balancer 인스턴스 만들기
 
@@ -63,7 +63,7 @@ ms.locfileid: "56985991"
     |가용성 영역| **1**을 선택합니다.    |
 3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
 
- ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+   ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
 이 섹션에서는 가상 네트워크를 만듭니다. 또한 부하 분산 장치의 백 엔드 풀에 추가하도록 지역의 동일한 영역(즉, 영역 1)에 두 개의 가상 머신을 만듭니다. 그런 다음, 영역 중복 부하 분산 장치 테스트를 돕기 위해 가상 머신에 IIS를 설치합니다. 하나의 VM이 실패하면 동일한 영역에 있는 VM의 상태 프로브가 실패합니다. 트래픽은 동일한 영역 내의 다른 VM에 의해 처리되도록 계속합니다.
 
@@ -80,8 +80,8 @@ ms.locfileid: "56985991"
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기**를 선택합니다. 검색 상자에 **네트워크 보안 그룹**을 입력합니다. 네트워크 보안 그룹 페이지에서 **만들기**를 선택합니다.
 2. **네트워크 보안 그룹 만들기** 페이지에서 다음 값을 입력합니다.
-    - **myNetworkSecurityGroup** - 네트워크 보안 그룹의 이름
-    - **myResourceGroupLBAZ** - 기존 리소스 그룹의 이름
+   - **myNetworkSecurityGroup** - 네트워크 보안 그룹의 이름
+   - **myResourceGroupLBAZ** - 기존 리소스 그룹의 이름
    
      ![네트워크 보안 그룹 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

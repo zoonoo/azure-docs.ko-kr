@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106443"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
-R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지인 [doAzureParallel](http://www.github.com/Azure/doAzureParallel)을 사용하여 병렬 R 작업을 규모에 맞게 실행합니다. doAzureParallel 패키지는 인기 있는 [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R 패키지를 기반으로 하여 빌드되었습니다. doAzureParallel은 foreach 루프의 각 반복을 수행하여 Azure Batch 태스크로 제출합니다.
+R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지인 [doAzureParallel](https://www.github.com/Azure/doAzureParallel)을 사용하여 병렬 R 작업을 규모에 맞게 실행합니다. doAzureParallel 패키지는 인기 있는 [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R 패키지를 기반으로 하여 빌드되었습니다. doAzureParallel은 foreach 루프의 각 반복을 수행하여 Azure Batch 태스크로 제출합니다.
 
 이 자습서에서는 RStudio 내에서 직접 Batch 풀을 배포하고 Azure Batch에서 병렬 R 작업을 실행하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
  
@@ -45,7 +45,7 @@ R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지�
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel 설치
 
-RStudio 콘솔에서 [doAzureParallel GitHub 패키지](http://www.github.com/Azure/doAzureParallel)를 설치합니다. 다음 명령은 현재 R 세션에서 패키지 및 해당 종속성을 다운로드하고 설치합니다. 
+RStudio 콘솔에서 [doAzureParallel GitHub 패키지](https://www.github.com/Azure/doAzureParallel)를 설치합니다. 다음 명령은 현재 R 세션에서 패키지 및 해당 종속성을 다운로드하고 설치합니다. 
 
 ```R
 # Install the devtools package  
@@ -260,7 +260,7 @@ stopCluster(cluster)
 이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
+> doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 

@@ -2,18 +2,18 @@
 title: Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 description: Terraform을 사용하여 가상 네트워크 및 관리되는 연결 디스크로 구성된 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 작업에 대한 자습서
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 가상 머신, Azure, 확장 집합, 네트워크, 저장소, 모듈
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 7d23e9113b83970d0cfee8f96989faa2c2760421
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002301"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "55745829"
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 
-1. [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)을 엽니다. 이전에 환경을 선택하지 않은 경우 환경으로 **Bash**를 선택합니다.
 
@@ -80,25 +80,25 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-  ```JSON
-  variable "location" {
+   ```JSON
+   variable "location" {
     description = "The location where resources will be created"
-  }
+   }
 
-  variable "tags" {
+   variable "tags" {
     description = "A map of the tags to use for the resources that are deployed"
     type        = "map"
 
     default = {
       environment = "codelab"
     }
-  }
+   }
 
-  variable "resource_group_name" {
+   variable "resource_group_name" {
     description = "The name of the resource group in which the resources will be created"
     default     = "myResourceGroup"
-  }
-  ```
+   }
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
@@ -122,13 +122,13 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 1. I 키를 선택하여 삽입 모드를시작합니다.
 
 1. 편집기에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
-:
+   :
 
-  ```JSON
+   ```JSON
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
-  ```
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
@@ -157,78 +157,78 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. 파일 끝에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
-  ```JSON
-  resource "azurerm_resource_group" "vmss" {
+   ```JSON
+   resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
     tags     = "${var.tags}"
-  }
+   }
 
-  resource "random_string" "fqdn" {
+   resource "random_string" "fqdn" {
     length  = 6
     special = false
     upper   = false
     number  = false
-  }
+   }
 
-  resource "azurerm_virtual_network" "vmss" {
+   resource "azurerm_virtual_network" "vmss" {
     name                = "vmss-vnet"
     address_space       = ["10.0.0.0/16"]
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     tags                = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_subnet" "vmss" {
+   resource "azurerm_subnet" "vmss" {
     name                 = "vmss-subnet"
     resource_group_name  = "${azurerm_resource_group.vmss.name}"
     virtual_network_name = "${azurerm_virtual_network.vmss.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "vmss" {
+   resource "azurerm_public_ip" "vmss" {
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
 1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
-  ```bash
-  :wq
-  ```
+   ```bash
+   :wq
+   ```
 
 ## <a name="provision-the-network-infrastructure"></a>네트워크 인프라 프로비전
 구성 파일(.tf)을 만든 디렉터리에서 Azure Cloud Shell을 사용하여 다음 단계를 수행합니다.
 
 1. Terraform을 초기화합니다.
 
-  ```bash
-  terraform init
-  ```
+   ```bash
+   terraform init
+   ```
 
 1. 다음 명령을 실행하여 Azure에 정의된 인프라를 배포합니다.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
-  **location** 변수가 `variables.tf`에 정의되어 있으므로 Terraform에서 "location" 값을 묻는 메시지를 표시하지만 설정되지 않습니다. "West US"와 같은 유효한 위치를 입력한 다음 Enter를 선택할 수 있습니다. 공백이 포함된 모든 값 주위에 괄호를 사용합니다.
+   **location** 변수가 `variables.tf`에 정의되어 있으므로 Terraform에서 "location" 값을 묻는 메시지를 표시하지만 설정되지 않습니다. "West US"와 같은 유효한 위치를 입력한 다음 Enter를 선택할 수 있습니다. 공백이 포함된 모든 값 주위에 괄호를 사용합니다.
 
 1. Terraform은 `output.tf` 파일에 정의된 대로 출력을 인쇄합니다. 다음 스크린샷과 같이 FQDN은 &lt;id>.&lt;location>.cloudapp.azure.com의 형식을 사용합니다. id 값은 계산된 값이고 location은 Terraform을 실행할 때 입력한 값입니다.
 
-  ![가상 머신 확장 집합의 공용 IP 주소에 대한 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+   ![가상 머신 확장 집합의 공용 IP 주소에 대한 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
 1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
 1. **리소스 그룹** 탭에서 **myResourceGroup**을 선택하여 Terraform에서 만든 리소스를 표시합니다.
-  ![가상 머신 확장 집합 네트워크 리소스](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+   ![가상 머신 확장 집합 네트워크 리소스](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
 ## <a name="add-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 추가
 
@@ -238,22 +238,22 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 - Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당
 - 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트
 - 이 문서의 앞부분에서 배포한 VNET에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
-- [cloud-init](http://cloudinit.readthedocs.io/en/latest/)를 사용하는 가상 머신 확장의 노드에 있는 [Nginx](http://nginx.org/)
+- [cloud-init](https://cloudinit.readthedocs.io/en/latest/)를 사용하는 가상 머신 확장의 노드에 있는 [Nginx](https://nginx.org/)
 
 Cloud Shell에서 다음 단계를 수행합니다.
 
 1. `vmss.tf` 구성 파일을 엽니다.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. 파일 끝으로 이동하고 A 키를 선택하여 추가 모드를 시작합니다.
 
 1. 파일 끝에 다음 코드를 추가합니다.
 
-  ```JSON
-  resource "azurerm_lb" "vmss" {
+   ```JSON
+   resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -264,22 +264,22 @@ Cloud Shell에서 다음 단계를 수행합니다.
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "bpepool" {
+   resource "azurerm_lb_backend_address_pool" "bpepool" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_lb_probe" "vmss" {
+   resource "azurerm_lb_probe" "vmss" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "ssh-running-probe"
     port                = "${var.application_port}"
-  }
+   }
 
-  resource "azurerm_lb_rule" "lbnatrule" {
+   resource "azurerm_lb_rule" "lbnatrule" {
       resource_group_name            = "${azurerm_resource_group.vmss.name}"
       loadbalancer_id                = "${azurerm_lb.vmss.id}"
       name                           = "http"
@@ -289,9 +289,9 @@ Cloud Shell에서 다음 단계를 수행합니다.
       backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
       frontend_ip_configuration_name = "PublicIPAddress"
       probe_id                       = "${azurerm_lb_probe.vmss.id}"
-  }
+   }
 
-  resource "azurerm_virtual_machine_scale_set" "vmss" {
+   resource "azurerm_virtual_machine_scale_set" "vmss" {
     name                = "vmscaleset"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -348,8 +348,8 @@ Cloud Shell에서 다음 단계를 수행합니다.
     }
 
     tags = "${var.tags}"
-}
-  ```
+   }
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
@@ -369,77 +369,77 @@ Cloud Shell에서 다음 단계를 수행합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-  ```JSON
-  #cloud-config
-  packages:
+   ```JSON
+   #cloud-config
+   packages:
     - nginx
-  ```
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
 1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. `variables.tf` 구성 파일을 엽니다.
 
-  ```bash
-  vi variables.tf
-  ```
+    ```bash
+    vi variables.tf
+    ```
 
 1. 파일 끝으로 이동하고 A 키를 선택하여 추가 모드를 시작합니다.
 
 1. 파일 끝에 다음 코드를 붙여넣어 배포를 사용자 지정합니다.
 
-  ```JSON
-  variable "application_port" {
-      description = "The port that you want to expose to the external load balancer"
-      default     = 80
-  }
+    ```JSON
+    variable "application_port" {
+       description = "The port that you want to expose to the external load balancer"
+       default     = 80
+    }
 
-  variable "admin_user" {
-      description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
-      default     = "azureuser"
-  }
+    variable "admin_user" {
+       description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
+       default     = "azureuser"
+    }
 
-  variable "admin_password" {
-      description = "Default password for admin account"
-  }
-  ```
+    variable "admin_password" {
+       description = "Default password for admin account"
+    }
+    ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
 1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. 가상 머신 확장 집합 배포를 시각화할 Terraform 계획을 만듭니다. 리소스 위치뿐 아니라 암호도 지정해야 합니다.
 
-  ```bash
-  terraform plan
-  ```
+    ```bash
+    terraform plan
+    ```
 
-  명령의 출력은 다음 스크린샷과 유사해야 합니다.
+    명령의 출력은 다음 스크린샷과 유사해야 합니다.
 
-  ![가상 머신 확장 집합 만들기의 출력](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+    ![가상 머신 확장 집합 만들기의 출력](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
 
 1. Azure에서 새 리소스를 배포합니다.
 
-  ```bash
-  terraform apply
-  ```
+    ```bash
+    terraform apply
+    ```
 
-  명령의 출력은 다음 스크린샷과 유사해야 합니다.
+    명령의 출력은 다음 스크린샷과 유사해야 합니다.
 
-  ![Terraform 가상 머신 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+    ![Terraform 가상 머신 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
 1. 브라우저를 열고 명령에 의해 반환된 FQDN에 연결합니다.
 
-  ![FQDN 검색 결과](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+    ![FQDN 검색 결과](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>SSH jumpbox 추가
 SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점프"할 단일 서버입니다. 이 단계에서는 다음 리소스를 구성합니다.
@@ -450,25 +450,25 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 
 1. `vmss.tf` 구성 파일을 엽니다.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. 파일 끝으로 이동하고 A 키를 선택하여 추가 모드를 시작합니다.
 
 1. 파일 끝에 다음 코드를 추가합니다.
 
-  ```JSON
-  resource "azurerm_public_ip" "jumpbox" {
+   ```JSON
+   resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_network_interface" "jumpbox" {
+   resource "azurerm_network_interface" "jumpbox" {
     name                = "jumpbox-nic"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -481,9 +481,9 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_virtual_machine" "jumpbox" {
+   resource "azurerm_virtual_machine" "jumpbox" {
     name                  = "jumpbox"
     location              = "${var.location}"
     resource_group_name   = "${azurerm_resource_group.vmss.name}"
@@ -515,24 +515,24 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
     }
 
     tags = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. `output.tf` 구성 파일을 엽니다.
 
-  ```bash
-  vi output.tf
-  ```
+   ```bash
+   vi output.tf
+   ```
 
 1. 파일 끝으로 이동하고 A 키를 선택하여 추가 모드를 시작합니다.
 
 1. 파일 끝에 다음 코드를 붙여넣어 배포가 완료될 때 jumpbox의 호스트 이름을 표시합니다.
 
-  ```
-  output "jumpbox_public_ip" {
+   ```
+   output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
-  }
-  ```
+   }
+   ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
@@ -544,9 +544,9 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 
 1. jumpbox를 배포합니다.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
 배포가 완료된 후 리소스 그룹의 콘텐츠는 다음 스크린샷과 비슷합니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002017"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 
@@ -89,7 +89,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>로컬에서 애플리케이션 테스트
 
-실행 중인 애플리케이션을 보려면 로컬 웹 브라우저에 http://localhost:8080을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
+실행 중인 애플리케이션을 보려면 로컬 웹 브라우저에 `http://localhost:8080`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

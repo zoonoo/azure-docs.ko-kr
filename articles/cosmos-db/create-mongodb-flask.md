@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119210"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 Python 앱 빌드
 
@@ -37,10 +37,10 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 - Visual Studio Code를 아직 설치하지 않은 경우 자신의 플랫폼(Windows, Mac, Linux)에 맞는 [VS Code](https://code.visualstudio.com/Download)를 빠르게 설치할 수 있습니다.
 
 - 인기 있는 Python 확장 중 하나를 설치하여 Python 언어 지원을 추가해야 합니다.
-    1. 확장을 선택합니다.
-    2. `Ctrl+Shift+P` 명령 팔레트에 `ext install`을 입력하여 확장을 설치합니다.
+  1. 확장을 선택합니다.
+  2. `Ctrl+Shift+P` 명령 팔레트에 `ext install`을 입력하여 확장을 설치합니다.
 
-    이 문서의 예제에서는 널리 사용되고 완벽한 Don Jayamanne의 [Python 확장](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)을 사용합니다.
+     이 문서의 예제에서는 널리 사용되고 완벽한 Don Jayamanne의 [Python 확장](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)을 사용합니다.
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102125"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 대역폭 일정 관리  
 
@@ -43,13 +43,13 @@ Azure Portal을 통해 Data Box Gateway에 대한 대역폭 일정을 추가, �
 
 3. **일정 추가**에서: 
 
-    1. 일정에 대한 **시작일**, **종료일**, **시작 시간** 및 **종료 시간**을 입력합니다. 
-    2. 일정을 하루 종일 실행하는 경우에는 **하루 종일** 옵션을 선택하면 됩니다. 
-    3. **대역폭 속도**는 클라우드와 관련된 작업(업로드 및 다운로드 모두)의 장치에 사용되는 초당 메가비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다. 
-    4. 업로드 및 다운로드 날짜를 제한하지 않으려면 **무제한 대역폭**을 선택합니다. 
-    5. **추가**를 클릭합니다.
+   1. 일정에 대한 **시작일**, **종료일**, **시작 시간** 및 **종료 시간**을 입력합니다. 
+   2. 일정을 하루 종일 실행하는 경우에는 **하루 종일** 옵션을 선택하면 됩니다. 
+   3. **대역폭 속도**는 클라우드와 관련된 작업(업로드 및 다운로드 모두)의 디바이스에 사용되는 초당 메가비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다. 
+   4. 업로드 및 다운로드 날짜를 제한하지 않으려면 **무제한 대역폭**을 선택합니다. 
+   5. **추가**를 클릭합니다.
 
-    ![사용자 추가 클릭](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![사용자 추가 클릭](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. 지정한 매개 변수로 일정이 만들어집니다. 이 일정은 포털의 대역폭 일정 목록에 표시됩니다.
 

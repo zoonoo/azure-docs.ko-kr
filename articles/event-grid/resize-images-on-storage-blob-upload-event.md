@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 919bd20bc5650bc2a843680770fad6190ef01361
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182339"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -49,6 +49,8 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 > * Event Grid에서 Blob Storage 이벤트 구독 만들기
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -219,7 +221,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 이벤트 구독은 특정 엔드포인트로 보내려는 공급자 생성 이벤트를 나타냅니다. 이 경우 해당 함수에서 엔드포인트가 노출됩니다. Azure Portal에서 함수에 알림을 전송하는 이벤트 구독을 만들려면 다음 단계를 사용합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **함수 앱**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **Function App**을 선택합니다. 
 
     ![Azure Portal의 Function App 찾아보기](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 

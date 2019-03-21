@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112792"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -199,13 +199,13 @@ public class Stream
 
     토픽은 다음과 같은 용도로 사용됩니다.
 
-    * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 애플리케이션이 읽습니다.
-    * `wordcounts`: 이 토픽은 스트리밍 애플리케이션이 출력을 저장하는 위치입니다.
-    * `RekeyedIntermediateTopic`: 이 토픽은 `countByKey` 연산자에 의해 카운트가 업데이트되므로 데이터를 다시 분할하는 데 사용됩니다.
-    * `wordcount-example-Counts-changelog`: 이 토픽은 `countByKey` 작업에서 사용되는 상태 저장소입니다.
+   * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 애플리케이션이 읽습니다.
+   * `wordcounts`: 이 토픽은 스트리밍 애플리케이션이 출력을 저장하는 위치입니다.
+   * `RekeyedIntermediateTopic`: 이 토픽은 `countByKey` 연산자에 의해 카운트가 업데이트되므로 데이터를 다시 분할하는 데 사용됩니다.
+   * `wordcount-example-Counts-changelog`: 이 토픽은 `countByKey` 작업에서 사용되는 상태 저장소입니다.
 
-    > [!IMPORTANT]  
-    > HDInsight의 Kafka를 자동으로 토픽을 만들도록 구성할 수도 있습니다. 자세한 내용은 [자동 토픽 만들기 구성](apache-kafka-auto-create-topics.md) 문서를 참조하세요.
+     > [!IMPORTANT]  
+     > HDInsight의 Kafka를 자동으로 토픽을 만들도록 구성할 수도 있습니다. 자세한 내용은 [자동 토픽 만들기 구성](apache-kafka-auto-create-topics.md) 문서를 참조하세요.
 
 ## <a name="run-the-code"></a>코드 실행
 

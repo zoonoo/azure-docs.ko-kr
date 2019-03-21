@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864867"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -211,7 +211,7 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,6 +344,7 @@ To Do List 애플리케이션의 구체적인 정보는 [mesh_rp.windows.json de
 다음 명령을 사용하여 애플리케이션 및 관련 리소스를 만들고 이전 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry) 단계의 자격 증명을 제공합니다.
 
 parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
+
 |매개 변수|값|
 |---|---|
 |location|응용 프로그램을 배포할 지역입니다.  예를 들면 “eastus”입니다.|

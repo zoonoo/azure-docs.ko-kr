@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ffac79209f998f1ef042ed5fcb4d8c6a45de2c2e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 03374f63345bd6c9e4f2b603443a1448493e1cdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894617"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시
 
@@ -266,7 +266,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
         sendNHRegistrationRequest();
     }
 
-    // From http://msdn.microsoft.com/library/dn495627.aspx
+    // From https://msdn.microsoft.com/library/dn495627.aspx
     function splitConnectionString()
     {
         var parts = connectionString.split(';');
@@ -361,17 +361,17 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
     스크립트에 있는 주요 매개 변수는 다음과 같습니다.
 
-    * `window.onload`는 UI에서 두 단추의 단추 클릭 이벤트를 정의합니다. 첫 번째 단추 클릭 이벤트 처리기가 GCM에 등록되고, GCM에 등록된 후에 반환되는 등록 ID를 사용하여 다른 하나의 처리기가 Azure Notification Hubs에 등록됩니다.
-    * `updateLog`는 코드 로그 정보를 허용하는 함수입니다.
-    * `registerWithGCM`은 GCM에 대한 `chrome.gcm.register` 호출을 수행하여 현재 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
-    * `registerCallback`은 GCM 등록 호출이 반환될 때 호출되는 콜백 함수입니다.
-    * `registerWithNH`는 Notification Hubs로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 Notification Hubs 등록 REST API 호출을 만듭니다.
-    * `splitConnectionString` 및 `generateSaSToken`은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](https://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
-    * `sendNHRegistrationRequest`는 Azure Notification Hubs에 대한 HTTP REST 호출을 수행하는 함수입니다.
-    * `registrationPayload`는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트합니다.
-    * `client`는 애플리케이션에서 HTTP POST 요청을 수행하는 데 사용하는 `XMLHttpRequest`의 인스턴스입니다. `sasToken`을 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 성공적으로 완료되면 이 Chrome 앱 인스턴스가 Azure Notification Hubs에 등록됩니다.
+   * `window.onload`는 UI에서 두 단추의 단추 클릭 이벤트를 정의합니다. 첫 번째 단추 클릭 이벤트 처리기가 GCM에 등록되고, GCM에 등록된 후에 반환되는 등록 ID를 사용하여 다른 하나의 처리기가 Azure Notification Hubs에 등록됩니다.
+   * `updateLog`는 코드 로그 정보를 허용하는 함수입니다.
+   * `registerWithGCM`은 GCM에 대한 `chrome.gcm.register` 호출을 수행하여 현재 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
+   * `registerCallback`은 GCM 등록 호출이 반환될 때 호출되는 콜백 함수입니다.
+   * `registerWithNH`는 Notification Hubs로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 Notification Hubs 등록 REST API 호출을 만듭니다.
+   * `splitConnectionString` 및 `generateSaSToken`은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](https://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
+   * `sendNHRegistrationRequest`는 Azure Notification Hubs에 대한 HTTP REST 호출을 수행하는 함수입니다.
+   * `registrationPayload`는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트합니다.
+   * `client`는 애플리케이션에서 HTTP POST 요청을 수행하는 데 사용하는 `XMLHttpRequest`의 인스턴스입니다. `sasToken`을 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 성공적으로 완료되면 이 Chrome 앱 인스턴스가 Azure Notification Hubs에 등록됩니다.
 
-    이 프로젝트에 대한 전체 폴더 구조는  ![Google Chrome 앱 - 폴더 구조][21]와 비슷합니다
+     이 프로젝트에 대한 전체 폴더 구조는 ![Google Chrome 앱 - 폴더 구조][21]와 비슷합니다
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Chrome 앱 설치 및 테스트
 
@@ -406,7 +406,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-   [WindowsAzure.ServiceBus NuGet 패키지를 포함하는 Azure Service Bus SDK에 대한 참조는 프로젝트에 자동으로 추가됩니다.](http://nuget.org/packages/WindowsAzure.ServiceBus/)
+   [WindowsAzure.ServiceBus NuGet 패키지를 포함하는 Azure Service Bus SDK에 대한 참조는 프로젝트에 자동으로 추가됩니다.](https://nuget.org/packages/WindowsAzure.ServiceBus/)
 4. `Program.cs`을 열고 다음 `using` 문을 추가합니다.
 
     ```csharp
@@ -481,8 +481,8 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 [Chrome App GCM 샘플]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [모바일의 Chrome 앱]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[등록 NH REST API 만들기]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js 라이브러리]: http://code.google.com/p/crypto-js/
+[등록 NH REST API 만들기]: https://msdn.microsoft.com/library/azure/dn223265.aspx
+[crypto-js 라이브러리]: https://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

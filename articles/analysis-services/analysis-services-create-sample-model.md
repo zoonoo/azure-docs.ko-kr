@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903932"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 샘플 모델은 캐시 메모리 리소스를 사용합니다. 따라서 샘플 모델을 테스트하는 데 사용하지 않는 경우 서버에서 이 모델을 제거해야 합니다.
 
-다음 단계에서는 SSMS를 사용하여 서버에서 모델을 삭제하는 방법을 설명합니다. 또한 모델은 미리 보기 웹 디자이너 기능을 사용하여 삭제할 수도 있습니다.
+다음 단계에서는 SSMS를 사용하여 서버에서 모델을 삭제하는 방법을 설명합니다.
 
 1. SSMS > **개체 탐색기**에서 **연결** > **Analysis Services**를 클릭합니다.
 

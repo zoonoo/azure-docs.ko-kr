@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105729"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>빠른 시작: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -95,21 +95,21 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. [데이터 세트에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
-    - 왼쪽에서 **규칙으로**
-    - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이러한 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열은 예외임)을 통과하도록 지정합니다.
-    - 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
-    - 확인 표시(OK) 단추(오른쪽 아래)를 클릭하여 열 선택기를 닫습니다.
+   - 왼쪽에서 **규칙으로**
+   - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이러한 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열은 예외임)을 통과하도록 지정합니다.
+   - 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
+   - 확인 표시(OK) 단추(오른쪽 아래)를 클릭하여 열 선택기를 닫습니다.
 
-    ![열 선택기 시작 및 "normalized-losses" 열 제외](./media/create-experiment/launch-column-selector.png)
+     ![열 선택기 시작 및 "normalized-losses" 열 제외](./media/create-experiment/launch-column-selector.png)
 
-    이제 **데이터 세트에서 열 선택**의 속성 창은 **nomalized-losses**를 제외한 데이터 세트의 모든 열을 통과한다는 것을 나타냅니다.
+     이제 **데이터 세트에서 열 선택**의 속성 창은 **nomalized-losses**를 제외한 데이터 세트의 모든 열을 통과한다는 것을 나타냅니다.
 
-    !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창](./media/create-experiment/showing-excluded-column.png)
+     !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
+     > [!TIP] 
+     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
 
-    ![모듈을 두 번 클릭하여 주석 추가](./media/create-experiment/add-comment.png)
+     ![모듈을 두 번 클릭하여 주석 추가](./media/create-experiment/add-comment.png)
 
 1. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이러한 옵션은 [누락된 데이터 정리][clean-missing-data]에서 누락 값이 있는 모든 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 

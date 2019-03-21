@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838819"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -101,7 +101,6 @@ Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져�
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
 Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계정이 필요합니다. 서비스 주체를 통해 역할 기반 액세스 제어를 사용하여 앱에 특정 권한을 위임할 수 있습니다. 자세한 내용은 [서비스 주체 가이드](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)를 참조하세요.
@@ -131,6 +130,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
   ...
 }
 ```
+
 `clientId` 및 `tenantId` 값을 기록해 둡니다. 이러한 값을 *Source\VisualProvision\AppSettings.cs* 파일의 적절한 필드에 추가합니다.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 ## <a name="run-the-app"></a>앱 실행
 
 이제 다음 항목에 대한 액세스 권한이 앱에 부여되었습니다.
-* 학습된 Custom Vision 모델
-* Computer Vision 서비스
-* 서비스 주체 계정 
+
+- 학습된 Custom Vision 모델
+- Computer Vision 서비스
+- 서비스 주체 계정
 
 다음 단계에 따라 앱을 실행합니다.
 
@@ -163,7 +164,6 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
     ![대상 Azure 구독에 대한 드롭다운 필드를 보여 주는 앱 화면](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. 디바이스의 카메라가 활성화됩니다. 학습한 Azure 서비스 로고 중 하나의 사진을 찍습니다. 새 서비스의 Azure 지역 및 리소스 그룹을 선택(Azure Portal에서 배포할 때와 같은 방법으로)하라는 배포 창이 표시됩니다. 
 
@@ -171,7 +171,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
     ![배포 지역 및 리소스 그룹에 대한 필드를 보여 주는 앱 화면](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>리소스 정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
 이 시나리오의 모든 단계를 수행하고 앱을 사용하여 계정에 Azure 서비스를 배포한 경우 [Azure Portal](https://ms.portal.azure.com/)로 이동합니다. 여기서 사용하지 않을 서비스를 취소합니다.
 

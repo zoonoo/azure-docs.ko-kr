@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 44ea6db1c31f0ebfbe2abe2f9f6eea165a3ff4e0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874752"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306768"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스 시작하기
 
@@ -28,6 +28,7 @@ ms.locfileid: "56874752"
 다음 빠른 시작에서는 관리형 인스턴스를 빠르게 만들고, 클라이언트 애플리케이션에 가상 머신 또는 지점과 사이트 간 VPN 연결을 구성하고, `.bak` 파일을 사용하여 새로운 관리형 인스턴스로 데이터베이스를 복원하도록 할 수 있습니다.
 
 ### <a name="configure-environment"></a>환경 구성
+
 첫 번째 단계에서는 첫 번째 Managed Instance가 배치될 네트워크 환경에서 해당 인스턴스를 만들어야 하며, Managed Instance에 대한 쿼리를 실행하는 컴퓨터 또는 가상 머신에서 연결을 사용하도록 설정해야 합니다. 다음 지침을 사용할 수 있습니다.
 
 - [Azure Portal을 사용하여 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md). Azure Portal에서 필요한 매개 변수(사용자 이름/암호, 코어 수, 최대 스토리지 양)를 구성하고, 네트워킹 세부 정보 및 인프라 요구 사항에 대해 알아볼 필요 없이 Azure 네트워크 환경을 자동으로 만들 수 있습니다. 현재 관리형 인스턴스를 만들도록 허용된 [구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)이 있는지 확인합니다. 사용하려는 고유한 네트워크가 있거나 네트워크를 사용자 지정하려는 경우 [Azure SQL Database 관리형 인스턴스의 기존 가상 네트워크 구성](sql-database-managed-instance-configure-vnet-subnet.md) 또는 [Azure SQL Database 관리형 인스턴스의 가상 네트워크 만들기](sql-database-managed-instance-create-vnet-subnet.md)를 참조하세요.
@@ -39,10 +40,11 @@ ms.locfileid: "56874752"
   > [!NOTE]
   > 또한 로컬 네트워크에서 사이트 간 연결 또는 Express 경로를 사용할 수 있지만 이러한 방법은 이 빠른 시작의 범위를 벗어납니다.
 
-### <a name="migrate-your-databases"></a>데이터베이스 마이그레이션 
+### <a name="migrate-your-databases"></a>데이터베이스 마이그레이션
+
 관리형 인스턴스를 만들고 액세스를 구성한 후 SQL Server 온-프레미스 또는 Azure VM에서 데이터베이스 마이그레이션을 시작할 수 있습니다. 마이그레이션할 원본 데이터베이스에 지원되지 않는 기능이 있으면 마이그레이션이 실패합니다. 실패를 방지하고 호환성을 확인하려면 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 설치하면 됩니다. DMA는 SQL Server의 데이터베이스를 분석하여 관리되는 인스턴스로 마이그레이션을 차단할 수 있는 문제(예: 여러 로그 파일 또는 [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) 존재)를 찾습니다. 이러한 문제를 해결하면 데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있습니다. [데이터베이스 실험 도우미](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/)는 또 다른 유용한 도구입니다. SQL Server에 워크로드를 기록하고 관리되는 인스턴스에서 재생할 수 있기 때문에 관리되는 인스턴스로 마이그레이션할 때 성능 문제가 있는지를 확인할 수 있습니다.
 
-데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있다는 확신이 들면 원시 SQL Server 복원 기능을 사용하여 `.bak` 파일에서 관리되는 인스턴스로 데이터베이스를 복원할 수 있습니다. 온-프레미스 또는 Azure VM에 설치된 SQL Server 데이터베이스 엔진에서 데이터베이스를 마이그레이션하려면 이 메서드를 사용할 수 있습니다. 빠른 시작의 경우 [백업에서 관리되는 인스턴스로 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 `RESTORE` Transact-SQL 명령을 사용하여 Azure Blob Storage에 저장된 `.bak` 파일로 복원합니다. 
+데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있다는 확신이 들면 원시 SQL Server 복원 기능을 사용하여 `.bak` 파일에서 관리되는 인스턴스로 데이터베이스를 복원할 수 있습니다. 온-프레미스 또는 Azure VM에 설치된 SQL Server 데이터베이스 엔진에서 데이터베이스를 마이그레이션하려면 이 메서드를 사용할 수 있습니다. 빠른 시작의 경우 [백업에서 관리되는 인스턴스로 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 `RESTORE` Transact-SQL 명령을 사용하여 Azure Blob Storage에 저장된 `.bak` 파일로 복원합니다.
 
 > [!TIP]
 > `BACKUP` Transact-SQL 명령을 사용하여 Azure Blob Storage에 데이터베이스 백업을 만들려면 [URL에 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)을 참조하세요.
@@ -51,7 +53,9 @@ ms.locfileid: "56874752"
 
 ## <a name="customize-network-environment"></a>네트워크 환경 사용자 지정
 
-Azure Portal을 사용하여 인스턴스를 만드는 경우 VNet/서브넷을 자동으로 구성할 수 있지만, VNet과 서브넷의 매개 변수를 구성할 수 있기 때문에 관리되는 인스턴스를 만들기 전에 VNet/서브넷을 만드는 것이 좋습니다. 네트워크 환경을 만들고 구성하는 가장 쉬운 방법은 관리되는 인스턴스를 위한 네트워크와 서브넷을 만들고 구성하는 [Azure Resource 배포](sql-database-managed-instance-create-vnet-subnet.md) 템플릿을 사용하는 것입니다. Azure Resource Manager 배포 단추를 누르고 양식에 매개 변수를 입력하기만 하면 됩니다. 
+[Azure Portal](sql-database-managed-instance-get-started.md)을 사용하여 인스턴스를 만드는 경우 VNet/서브넷을 자동으로 구성할 수 있지만, VNet과 서브넷의 매개 변수를 구성할 수 있기 때문에 Managed Instance를 만들기 전에 인스턴스를 만드는 것이 좋습니다. 네트워크 환경을 만들고 구성하는 가장 쉬운 방법은 인스턴스가 배치되는 곳에 네트워크와 서브넷을 만들고 구성하는 [Azure Resource 배포](sql-database-managed-instance-create-vnet-subnet.md) 템플릿을 사용하는 것입니다. Azure Resource Manager 배포 단추를 누르고 양식에 매개 변수를 입력하기만 하면 됩니다.
+
+또는 [PowerShell 스크립트](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수 있습니다.
 
 또는 [PowerShell 스크립트](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수도 있습니다.
 
@@ -72,5 +76,5 @@ Azure Portal을 사용하여 인스턴스를 만드는 경우 VNet/서브넷을 
 ## <a name="next-steps"></a>다음 단계
 
 - [Managed Instance에서 지원되는 기능에 대한 개략적인 목록](sql-database-features.md)과 [세부 정보 및 알려진 문제](sql-database-managed-instance-transact-sql-information.md)는 여기에서 참조하세요.
-- [관리형 인스턴스의 기술적인 특성](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 알아봅니다. 
-- [Azure SQL Database에서 관리되는 인스턴스를 사용하는 방법](sql-database-howto-managed-instance.md)에서 고급 작업 방법을 자세히 알아보세요. 
+- [관리형 인스턴스의 기술적인 특성](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 알아봅니다.
+- [Azure SQL Database에서 관리되는 인스턴스를 사용하는 방법](sql-database-howto-managed-instance.md)에서 고급 작업 방법을 자세히 알아보세요.

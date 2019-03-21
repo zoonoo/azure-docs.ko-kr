@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4228692d707f0cff8be0d76bc70794f48d944143
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 751b6e5979174eae9bc815061f16bf99bd0899cf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878768"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534789"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Web Language Model API란? (미리 보기)
 
@@ -44,7 +44,7 @@ Web Language Model API는 다음과 같은 네 가지 조회 작업을 지원합
 1. 서비스를 구독합니다.
 2. [SDK](https://www.github.com/microsoft/cognitive-weblm-windows)를 다운로드합니다.
 3. SDK 샘플 코드를 실행합니다.
-4. 다양한 언어로 작성된 코드 조각을 포함하여 엔드포인트에 대한 전체 세부 정보는 [API 참조](http://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)에서 확인할 수 있습니다.
+4. 다양한 언어로 작성된 코드 조각을 포함하여 엔드포인트에 대한 전체 세부 정보는 [API 참조](https://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)에서 확인할 수 있습니다.
 
 ## <a name="underlying-technology"></a>기본 기술
 

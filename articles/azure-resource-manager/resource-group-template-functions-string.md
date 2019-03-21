@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269300"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762843"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -40,11 +40,12 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [split](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
+* [startsWith](#startswith)
 * [string](#string)
 * [substring](#substring)
 * [take](#take)
@@ -53,14 +54,12 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [trim](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
-* [uriComponent](resource-group-template-functions-string.md#uricomponent)
-* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
-
-<a id="base64" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [uriComponent](#uricomponent)
+* [uriComponentToString](#uricomponenttostring)
+* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
+
 `base64(inputString)`
 
 입력 문자열의 base64 표현을 반환합니다.
@@ -124,21 +123,8 @@ Base64 표현을 포함하는 문자열입니다.
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tojson" />
-
 ## <a name="base64tojson"></a>base64ToJson
+
 `base64tojson`
 
 base64 표현을 JSON 개체로 변환합니다.
@@ -202,21 +188,8 @@ JSON 개체입니다.
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tostring" />
-
 ## <a name="base64tostring"></a>base64ToString
+
 `base64ToString(base64Value)`
 
 base64 표현을 문자열로 변환합니다.
@@ -280,21 +253,8 @@ base64 표현을 문자열로 변환합니다.
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat (arg1, arg2, arg3, ...)`
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환하거나 여러 배열을 결합하고 연결된 배열을 반환합니다.
@@ -339,18 +299,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
 ```json
@@ -392,21 +340,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-<a id="contains" />
-
 ## <a name="contains"></a>contains
+
 `contains (container, itemToFind)`
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
@@ -486,21 +421,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-<a id="datauri" />
-
 ## <a name="datauri"></a>dataUri
+
 `dataUri(stringToConvert)`
 
 값을 데이터 URI로 변환합니다.
@@ -554,21 +476,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="datauritostring" />
-
 ## <a name="datauritostring"></a>dataUriToString
+
 `dataUriToString(dataUriToConvert)`
 
 데이터 URI로 형식이 지정된 값을 문자열로 변환합니다.
@@ -622,21 +531,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="empty" /> 
-
 ## <a name="empty"></a>empty
+
 `empty(itemToTest)`
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
@@ -700,21 +596,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-<a id="endswith" />
-
 ## <a name="endswith"></a>endsWith
+
 `endsWith(stringToSearch, stringToFind)`
 
 문자열이 값으로 끝나는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
@@ -779,21 +662,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="first" />
-
 ## <a name="first"></a>first
+
 `first(arg1)`
 
 문자열의 첫 번째 문자 또는 배열의 첫 번째 요소를 반환합니다.
@@ -844,18 +714,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | 문자열 | one |
 | stringOutput | 문자열 | O |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## <a name="guid"></a>GUID
 
 `guid (baseString, ...)`
@@ -873,7 +731,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 이 함수는 전역 고유 식별자 형식으로 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
-반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 36자입니다. 전역적으로 고유하지 않습니다.
+반환된 된 값이 임의의 문자열이 있지만 매개 변수에 대 한 해시 함수 결과 대신 아닙니다. 반환된 값은 36자입니다. 전역적으로 고유하지 않습니다. 매개 변수를 해시 값을 기반으로 하지 않는 하는 새 GUID를 만들려면 사용 합니다 [newGuid](#newguid) 함수입니다.
 
 다음 예제에서는 guid를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -901,7 +759,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)에서는 guid에서 결과를 반환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
 
 ```json
 {
@@ -927,21 +785,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-<a id="indexof" />
-
 ## <a name="indexof"></a>indexof
+
 `indexOf(stringToSearch, stringToFind)`
 
 문자열 내 값의 첫 번째 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
@@ -1001,21 +846,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | lastString | int | 0 |
 | notFound | int | -1 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="last" />
-
 ## <a name="last"></a>last
+
 `last (arg1)`
 
 문자열의 마지막 문자 또는 배열의 마지막 요소를 반환합니다.
@@ -1066,21 +898,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | 문자열 | three |
 | stringOutput | 문자열 | e |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-<a id="lastindexof" />
-
 ## <a name="lastindexof"></a>lastindexof
+
 `lastIndexOf(stringToSearch, stringToFind)`
 
 문자열 내 값의 마지막 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
@@ -1140,21 +959,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | lastString | int | 0 |
 | notFound | int | -1 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="length" />
-
 ## <a name="length"></a>length
+
 `length(string)`
 
 문자열의 문자 수 또는 배열의 요소 수를 반환합니다.
@@ -1212,21 +1018,105 @@ int입니다.
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+## <a name="newguid"></a>newGuid
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+`newGuid()`
+
+전역적으로 고유 식별자 형식의 값을 반환 합니다. **이 함수는 매개 변수에 대 한 기본값인 에서만 사용 수 있습니다.**
+
+### <a name="remarks"></a>설명
+
+매개 변수의 기본값만 식 내에서이 함수를 사용할 수 있습니다. 템플릿에서 다른 곳에이 함수를 사용 하 여 오류를 반환 합니다. 함수를 호출할 때마다 다른 값을 반환 하기 때문에 템플릿의 다른 부분에서 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿에 배포 같은 결과 안정적으로 생성 하지 않습니다.
+
+NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하지 때문에 작동 합니다. 동일한 매개 변수를 사용 하 여 guid를 호출할 때마다 동일한 식별자를 반환 됩니다. 특정 환경에 동일한 GUID를 안정적으로 생성 해야 하는 경우에 guid를 사용 합니다. 매번 테스트 환경에 리소스 배포와 같은 다른 식별자가 필요한 경우 newGuid를 사용 합니다.
+
+사용 하는 경우는 [이전 성공적인 배포를 다시 배포 하는 옵션](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), newGuid를 사용 하는 매개 변수를 포함 하는 이전 배포를 매개 변수 다시 평가 되지 않습니다. 대신 이전 배포에서 매개 변수 값을 롤백 배포에서 자동으로 재사용 됩니다.
+
+테스트 환경에서 반복적으로 짧은 시간 동안에 존재 하는 리소스를 배포 해야 할 수 있습니다. 고유한 이름을 생성 하는 대신 사용 하 여 newGuid를 사용할 수 있습니다 [uniqueString](#uniquestring) 고유 이름을 만듭니다.
+
+기본값에 대 한 newGuid 함수에 의존 하는 템플릿을 다시 배포 주의 해야 합니다. 다시 배포 하 고 매개 변수 값을 제공 하지는 다시 평가 됩니다. 새로 만들어야 하는 것이 아니라 기존 리소스를 업데이트 하려는 경우 이전 배포에서 매개 변수 값에 전달 합니다.
+
+### <a name="return-value"></a>반환 값
+
+전 세계적으로 고유한 식별자의 형식으로 된 36자를 포함하는 문자열입니다.
+
+### <a name="examples"></a>예
+
+다음 예제 템플릿은 새 식별자를 사용 하 여 매개 변수를 표시 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "guidOutput": {
+            "type": "string",
+            "value": "[parameters('guidValue')]"
+        }
+    }
+}
 ```
 
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+| 이름 | type | 값 |
+| ---- | ---- | ----- |
+| guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+다음 예제에서는 저장소 계정에 대 한 고유한 이름을 만들기 위해 newGuid 함수를 사용 합니다. 이 템플릿은 저장소 계정 짧은 시간 동안 존재 및 다시 배포 하지는 테스트 환경용 적합할 수 있습니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "West US",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
 ```
 
-<a id="padleft" />
+출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
+
+| 이름 | type | 값 |
+| ---- | ---- | ----- |
+| nameOutput | 문자열 | storagenziwvyru7uxie |
+
 
 ## <a name="padleft"></a>padLeft
+
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
 지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
@@ -1275,21 +1165,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | stringOutput | 문자열 | 0000000123 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+## <a name="replace"></a>바꾸기
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-<a id="replace" />
-
-## <a name="replace"></a>replace
 `replace(originalString, oldString, newString)`
 
 다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
@@ -1341,21 +1218,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | firstOutput | 문자열 | 1231231234 |
 | secodeOutput | 문자열 | 123-123-xxxx |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-<a id="skip" />
-
 ## <a name="skip"></a>skip
+
 `skip(originalValue, numberToSkip)`
 
 지정된 문자 수 이후의 모든 문자를 포함하는 문자열 또는 지정된 요소 수 이후의 모든 요소를 포함하는 배열을 반환합니다.
@@ -1422,21 +1286,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | 배열 | ["three"] |
 | stringOutput | 문자열 | two three |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-<a id="split" />
-
 ## <a name="split"></a>split
+
 `split(inputString, delimiter)`
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
@@ -1494,21 +1345,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-<a id="startswith" />
-
 ## <a name="startswith"></a>startswith
+
 `startsWith(stringToSearch, stringToFind)`
 
 문자열이 값으로 시작하는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
@@ -1573,21 +1411,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+## <a name="string"></a>문자열
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="string" />
-
-## <a name="string"></a>string
 `string(valueToConvert)`
 
 지정된 값을 문자열로 변환합니다.
@@ -1657,21 +1482,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | 문자열 | [“a”,“b”,“c”] |
 | intOutput | 문자열 | 5 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-<a id="substring" />
-
 ## <a name="substring"></a>substring
+
 `substring(stringToParse, startIndex, length)`
 
 지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
@@ -1731,21 +1543,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | substringOutput | 문자열 | two |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-<a id="take" />
-
 ## <a name="take"></a>take
+
 `take(originalValue, numberToTake)`
 
 문자열 시작부터 지정된 수의 문자를 포함하는 문자열 또는 배열 시작부터 지정된 수의 요소를 포함하는 배열을 반환합니다.
@@ -1812,21 +1611,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | 배열 | ["one", "two"] |
 | stringOutput | 문자열 | on |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-<a id="tolower" />
-
 ## <a name="tolower"></a>toLower
+
 `toLower(stringToChange)`
 
 지정된 문자열을 소문자로 변환합니다.
@@ -1876,21 +1662,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="toupper" />
-
 ## <a name="toupper"></a>toUpper
+
 `toUpper(stringToChange)`
 
 지정된 문자열을 대문자로 변환합니다.
@@ -1940,21 +1713,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="trim" />
-
 ## <a name="trim"></a>trim
+
 `trim (stringToTrim)`
 
 지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
@@ -1999,21 +1759,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | return | 문자열 | one two three |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-<a id="uniquestring" />
-
 ## <a name="uniquestring"></a>uniqueString
+
 `uniqueString (baseString, ...)`
 
 매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다. 
@@ -2062,6 +1809,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
     ...
 ```
 
+사용할 수 있습니다, 템플릿을 배포 하 고 리소스를 업데이트 하려면 인하지 않으려는 될 때마다 새 고유 이름을 생성 해야 하는 경우는 [utcNow](#utcnow) uniqueString 사용 하 여 함수입니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예를 들어 참조 [utcNow](#utcNow)합니다.
+
 ### <a name="return-value"></a>반환 값
 
 13개의 문자를 포함하는 문자열입니다.
@@ -2088,21 +1837,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-<a id="uri" />
-
 ## <a name="uri"></a>uri
+
 `uri (baseUri, relativeUri)`
 
 baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
@@ -2165,21 +1901,8 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponent" />
-
 ## <a name="uricomponent"></a>uriComponent
+
 `uricomponent(stringToEncode)`
 
 URI를 인코딩합니다.
@@ -2233,21 +1956,8 @@ URI로 인코딩된 값의 문자열입니다.
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponenttostring" />
-
 ## <a name="uricomponenttostring"></a>uriComponentToString
+
 `uriComponentToString(uriEncodedString)`
 
 URI로 인코딩된 값의 문자열을 반환합니다.
@@ -2301,16 +2011,113 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+## <a name="utcnow"></a>utcNow
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+`utcNow(format)`
+
+지정 된 형식의 현재 UTC 날짜/시간 값을 반환합니다. 서식을 제공 하는 경우 ISO 8601 (yyyyMMddTHHmmssZ) 형식으로 사용 됩니다. **이 함수는 매개 변수에 대 한 기본값인 에서만 사용 수 있습니다.**
+
+### <a name="parameters"></a>매개 변수
+
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| format |아닙니다. |문자열 |문자열로 변환할 URI 인코딩 값입니다. 사용 하 여 [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 하거나 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)합니다. |
+
+### <a name="remarks"></a>설명
+
+매개 변수의 기본값만 식 내에서이 함수를 사용할 수 있습니다. 템플릿에서 다른 곳에이 함수를 사용 하 여 오류를 반환 합니다. 함수를 호출할 때마다 다른 값을 반환 하기 때문에 템플릿의 다른 부분에서 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿에 배포 같은 결과 안정적으로 생성 하지 않습니다.
+
+사용 하는 경우는 [이전 성공적인 배포를 다시 배포 하는 옵션](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), utcNow를 사용 하는 매개 변수를 포함 하는 이전 배포를 매개 변수 다시 평가 되지 않습니다. 대신 이전 배포에서 매개 변수 값을 롤백 배포에서 자동으로 재사용 됩니다.
+
+UtcNow 함수에 대 한 기본값을 사용 하는 템플릿을 다시 배포 주의 해야 합니다. 다시 배포 하 고 매개 변수 값을 제공 하지는 다시 평가 됩니다. 새로 만들어야 하는 것이 아니라 기존 리소스를 업데이트 하려는 경우 이전 배포에서 매개 변수 값에 전달 합니다.
+
+### <a name="return-value"></a>반환 값
+
+현재 UTC 날짜/시간 값입니다.
+
+### <a name="examples"></a>예
+
+다음 예제에서는 서식 파일에는 날짜/시간 값에 대 한 다양 한 형식을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcValue": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        },
+        "utcShortValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "utcCustomValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('M d')]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "utcOutput": {
+            "type": "string",
+            "value": "[parameters('utcValue')]"
+        },
+        "utcShortOutput": {
+            "type": "string",
+            "value": "[parameters('utcShortValue')]"
+        },
+        "utcCustomOutput": {
+            "type": "string",
+            "value": "[parameters('utcCustomValue')]"
+        }
+    }
+}
 ```
 
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+| 이름 | type | 값 |
+| ---- | ---- | ----- |
+| utcOutput | 문자열 | 20190305T175318Z |
+| utcShortOutput | 문자열 | 03/05/2019 |
+| utcCustomOutput | 문자열 | 3 5 |
+
+다음 예제에서는 태그 값을 설정 하는 경우 함수에서 값을 사용 하는 방법을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
+            },
+            "properties":{}
+        }
+    ],
+    "outputs": {
+        "utcShort": {
+            "type": "string",
+            "value": "[parameters('utcShort')]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

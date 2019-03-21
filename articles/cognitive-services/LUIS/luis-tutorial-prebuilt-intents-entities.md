@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086618"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>자습서: 일반적인 의도 및 엔터티 식별
 
@@ -55,13 +55,13 @@ LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미�
 
 1. 다음 의도를 선택하고 **완료**를 선택합니다. 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 
+     이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>일반적인 데이터 형식 추출에 도움이 되도록 미리 빌드된 엔터티 추가
@@ -74,12 +74,12 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
 1. 미리 빌드된 엔터티 목록에서 다음 엔터티를 선택하고 **완료**를 선택합니다.
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    이러한 엔터티는 클라이언트 애플리케이션 이름 및 위치 인식 기능을 추가하는 데 도움이 됩니다.
+     이러한 엔터티는 클라이언트 애플리케이션 이름 및 위치 인식 기능을 추가하는 데 도움이 됩니다.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가 
 

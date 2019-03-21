@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111857"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -129,7 +129,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
     >
     > Storm 클러스터를 만드는 데 이 문서의 템플릿을 사용하지 않을 경우 클러스터에 스크립트 작업을 수동으로 적용해야 합니다.
     >
-    > 스크립트 작업은 `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh`에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
+    > 스크립트 작업은 `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
 토폴로지는 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
 
@@ -400,26 +400,26 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 
-  > [!WARNING]  
-  > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
+   > [!WARNING]  
+   > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
 2. 다음 지침을 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
 
-    2. 다음 정보를 사용하여 **사용자 지정된 템플릿** 섹션의 항목을 채웁니다.
+   1. 다음 정보를 사용하여 **사용자 지정된 템플릿** 섹션의 항목을 채웁니다.
 
-    | 설정 | 값 |
-    | --- | --- |
-    | 구독 | Azure 구독 |
-    | 리소스 그룹 | 리소스를 포함하는 리소스 그룹입니다. |
-    | 위치 | 리소스가 만들어지는 Azure 지역입니다. |
-    | Kafka 클러스터 이름 | Kafka 클러스터의 이름입니다. |
-    | Storm 클러스터 이름 | Storm 클러스터의 이름입니다. |
-    | 클러스터 로그인 사용자 이름 | 클러스터의 관리 사용자 이름입니다. |
-    | 클러스터 로그인 암호 | 클러스터의 관리 사용자 암호입니다. |
-    | SSH 사용자 이름 | 클러스터용으로 만들 SSH 사용자입니다. |
-    | SSH 암호 | SSH 사용자에 대한 암호입니다. |
+      | 설정 | 값 |
+      | --- | --- |
+      | 구독 | Azure 구독 |
+      | 리소스 그룹 | 리소스를 포함하는 리소스 그룹입니다. |
+      | 위치 | 리소스가 만들어지는 Azure 지역입니다. |
+      | Kafka 클러스터 이름 | Kafka 클러스터의 이름입니다. |
+      | Storm 클러스터 이름 | Storm 클러스터의 이름입니다. |
+      | 클러스터 로그인 사용자 이름 | 클러스터의 관리 사용자 이름입니다. |
+      | 클러스터 로그인 암호 | 클러스터의 관리 사용자 암호입니다. |
+      | SSH 사용자 이름 | 클러스터용으로 만들 SSH 사용자입니다. |
+      | SSH 암호 | SSH 사용자에 대한 암호입니다. |
    
-    ![템플릿 매개 변수 그림](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![템플릿 매개 변수 그림](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
@@ -434,17 +434,17 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
 2. **hdinsight-storm-java-kafka** 디렉터리에서 다음 명령을 사용하여 프로젝트를 컴파일하고 배포할 패키지를 만듭니다.
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     패키지 프로세스는 `target` 디렉터리에 `KafkaTopology-1.0-SNAPSHOT.jar`라는 파일을 만듭니다.
 
 3. 다음 명령을 사용하여 HDInsight 클러스터의 Storm에 패키지를 복사합니다. `sshuser`를 클러스터의 SSH 사용자 이름으로 바꿉니다. `stormclustername`을 __Storm__ 클러스터의 이름으로 바꿉니다.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
 
@@ -518,7 +518,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 4. `dev.properties` 파일을 저장하고 다음 명령을 사용하여 **Storm** 클러스터로 업로드합니다.
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     **USERNAME**은 클러스터의 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
@@ -577,9 +577,9 @@ Kafka에서는 데이터를 _토픽_에 저장합니다. Storm 토폴로지를 �
 
 1. Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 판독기 토폴로지를 시작합니다.
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. 1분 정도 기다린 후 다음 명령을 사용하여 판독기 토폴로지에서 사용되는 파일을 확인합니다.
 

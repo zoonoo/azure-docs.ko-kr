@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075188"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -42,8 +42,8 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
    - **리소스 그룹**: **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, **확인**을 선택합니다.
    - **원본 선택**: **샘플(AdventureWorksLT)** 을 드롭다운하고 선택합니다.
 
-    > [!IMPORTANT]
-    > 이 데이터를 사용하는 Azure SQL Database 빠른 시작을 쉽게 따라 할 수 있도록 **샘플(AdventureWorksLT)** 데이터를 선택해야 합니다.
+     > [!IMPORTANT]
+     > 이 데이터를 사용하는 Azure SQL Database 빠른 시작을 쉽게 따라 할 수 있도록 **샘플(AdventureWorksLT)** 데이터를 선택해야 합니다.
   
    ![단일 데이터베이스 만들기](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
    > [!NOTE]
    > 이 빠른 시작에서는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하지만 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)도 사용할 수 있습니다.
    > [!IMPORTANT]
-   > 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   > 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 
 8. 이 빠른 시작에서는 **Standard** 서비스 계층을 선택한 다음, 슬라이더를 사용하여 **10DTU(S0)** 및 **1**GB 스토리지를 선택합니다.
 9. **적용**을 선택합니다.  
@@ -76,9 +76,9 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
 
 10. **SQL Database** 양식에서 **만들기**를 선택하여 리소스 그룹, 서버 및 데이터베이스를 배포하고 프로비전합니다.
 
-   배포에는 몇 분 정도 걸립니다. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택할 수 있습니다.
+    배포에는 몇 분 정도 걸립니다. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택할 수 있습니다.
 
-   ![알림](./media/sql-database-get-started-portal/notification.png)
+    ![알림](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>데이터베이스 쿼리
 

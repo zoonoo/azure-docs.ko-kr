@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077754"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관(미리 보기)
 
@@ -45,11 +45,11 @@ ms.locfileid: "56211753"
 3. **설정 내보내기**를 선택합니다. 
 
 4. **진단 설정** 창에서 다음 중 하나를 수행합니다.
-    * 기존 설정을 변경하려면 **설정 편집**을 선택합니다.
-    * 새 설정을 추가하려면 **진단 설정 추가**를 선택합니다.  
-      최대 세 개의 설정을 지정할 수 있습니다. 
+   * 기존 설정을 변경하려면 **설정 편집**을 선택합니다.
+   * 새 설정을 추가하려면 **진단 설정 추가**를 선택합니다.  
+     최대 세 개의 설정을 지정할 수 있습니다. 
 
-    ![설정 내보내기](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![설정 내보내기](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. 이름을 보면 용도를 알 수 있는 설정 이름을 입력합니다(예: *Azure 저장소 계정으로 보내기*). 
 

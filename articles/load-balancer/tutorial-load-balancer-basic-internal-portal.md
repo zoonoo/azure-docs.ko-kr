@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105304"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -185,7 +185,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 1. **확인**을 선택합니다.
    
-  ![부하 분산 장치 규칙 추가](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![부하 분산 장치 규칙 추가](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

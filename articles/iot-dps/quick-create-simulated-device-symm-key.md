@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080298"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
 
@@ -114,15 +114,15 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
 
 3. **등록 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
-    - **메커니즘**: **대칭 키**를 ID 증명 *메커니즘*으로 선택합니다.
+   - **메커니즘**: **대칭 키**를 ID 증명 *메커니즘*으로 선택합니다.
 
-    - **키 자동 생성**: 이 확인란을 선택합니다.
+   - **키 자동 생성**: 이 확인란을 선택합니다.
 
-    - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예: `symm-key-device-007`
+   - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예: `symm-key-device-007`
 
-    - **IoT Hub 디바이스 ID:** 디바이스 식별자를 입력합니다. 예: **device-007**
+   - **IoT Hub 디바이스 ID:** 디바이스 식별자를 입력합니다. 예: **device-007**
 
-    ![포털에서 대칭 키 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![포털에서 대칭 키 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. 등록을 저장하면 **기본 키** 및 **보조 키**가 생성되고 등록 항목에 추가됩니다. 대칭 키 디바이스 등록이 *개별 등록* 탭의 *등록 ID* 열에 **symm-key-device-007**로 표시됩니다. 
 

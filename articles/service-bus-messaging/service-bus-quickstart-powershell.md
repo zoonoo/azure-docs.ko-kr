@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104763"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>빠른 시작: Azure PowerShell을 사용하여 Service Bus 큐 만들기
 Microsoft Azure Service Bus는 안전한 메시징과 완벽한 안정성을 제공하는 엔터프라이즈 통합 메시지 broker입니다. 일반적으로 전형적인 Service Bus 시나리오에는 둘 이상의 애플리케이션, 서비스 또는 프로세스를 서로 분리하고 상태 또는 데이터 변경 내용을 전송하는 작업이 포함됩니다. 이러한 시나리오에는 다른 애플리케이션 또는 서비스에서 여러 일괄 작업을 예약하거나 주문 처리를 트리거하는 작업이 포함될 수 있습니다. 예를 들어 소매 회사는 보급 및 재고 업데이트를 위해 POS(판매 시점 관리) 데이터를 백오피스 또는 지역 유통 센터로 보낼 수 있습니다. 이 시나리오에서 클라이언트 응용 프로그램은 Service Bus 큐에서 메시지를 보내고 받습니다.
@@ -96,15 +96,15 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.  PowerShell 프롬프트에서 다음 명령을 입력합니다.
+5. PowerShell 프롬프트에서 다음 명령을 입력합니다.
 
    ```shell
    dotnet build
    ```
 
-6.  `bin\Debug\netcoreapp2.0` 폴더로 이동합니다.
+6. `bin\Debug\netcoreapp2.0` 폴더로 이동합니다.
 
-7.  다음 명령을 입력하여 프로그램을 실행합니다. `myConnectionString`을 앞에서 가져온 값으로 바꾸고, `myQueueName`을 만든 큐의 이름으로 바꿔야 합니다.
+7. 다음 명령을 입력하여 프로그램을 실행합니다. `myConnectionString`을 앞에서 가져온 값으로 바꾸고, `myQueueName`을 만든 큐의 이름으로 바꿔야 합니다.
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

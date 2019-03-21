@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100771"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -68,13 +68,13 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 1. 파일을 열려면 **열기**를 선택합니다.  
     템플릿은 5개의 리소스를 정의합니다.
 
-    * **Microsoft.Storage/storageAccounts**. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-    * **Microsoft.Network/publicIPAddresses**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-    * **Microsoft.Network/virtualNetworks**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-    * **Microsoft.Network/networkInterfaces**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-    * **Microsoft.Compute/virtualMachines**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * **Microsoft.Storage/storageAccounts**. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
+   * **Microsoft.Network/publicIPAddresses**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
+   * **Microsoft.Network/virtualNetworks**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
+   * **Microsoft.Network/networkInterfaces**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
+   * **Microsoft.Compute/virtualMachines**. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
-    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 
 1. **파일** > **다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 *azuredeploy.json*이라는 이름으로 저장합니다.
 
@@ -108,7 +108,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 
 이 리소스 정의에 대한 자세한 내용은 [확장 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions)를 참조하세요. 다음은 중요한 요소입니다.
 
-* **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스](./resource-manager-templates-resources.md#child-resources)를 참조하세요.
+* **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스](./resource-group-authoring-templates.md#child-resources)를 참조하세요.
 * **dependsOn**: 가상 머신을 만든 후 확장 리소스를 만듭니다.
 * **fileUris**: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
 * **commandToExecute**: 이 명령은 스크립트를 호출합니다.  

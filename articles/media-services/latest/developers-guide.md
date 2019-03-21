@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889848"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>SDK/도구를 사용하여 Media Services v3 API로 개발 시작
 
@@ -95,7 +95,7 @@ Media Services [.NET 참조](https://aka.ms/ams-v3-dotnet-ref) 설명서를 살�
 - [DRM 동적 암호화 및 라이선스 배달 서비스 사용 - .NET](protect-with-drm.md)
 - [기존 정책에서 서명 키 가져오기 - .NET](get-content-key-policy-dotnet-howto.md)
 - [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](http://aka.ms/ams3functions)
+- [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
 
 ## <a name="java"></a>자바
 

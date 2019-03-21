@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864777"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258295"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "55864777"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. [새 Azure Cosmos DB 계정을 만들거나](create-sql-api-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
+1. [새 Azure Cosmos DB 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 계정을 선택합니다.
 
 1. **데이터 탐색기** 창을 열고 **새 컬렉션**을 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-MongoDB 유선 프로토콜은 단위를 요청하지 않습니다. 처리량을 사용하여 새 컬렉션을 만들려면 Azure Portal 또는 SQL API를 사용하세요.
+> MongoDB 유선 프로토콜은 단위를 요청하지 않습니다. 처리량을 사용하여 새 컬렉션을 만들려면 Azure Portal 또는 SQL API를 사용하세요.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120332"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 명명된 위치 구성
 
@@ -53,11 +53,11 @@ ms.locfileid: "56208183"
 
 6. 새 페이지에서 양식을 작성합니다. 
 
-    * **이름** 상자에 명명된 위치의 이름을 입력합니다.
-    * **IP 범위** 상자에 IP 범위를 CIDR 형식으로 입력합니다.  
-    * **만들기**를 클릭합니다.
+   * **이름** 상자에 명명된 위치의 이름을 입력합니다.
+   * **IP 범위** 상자에 IP 범위를 CIDR 형식으로 입력합니다.  
+   * **만들기**를 클릭합니다.
     
-    ![새로 만들기 블레이드](./media/quickstart-configure-named-locations/61.png)
+     ![새로 만들기 블레이드](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>다음 단계
 

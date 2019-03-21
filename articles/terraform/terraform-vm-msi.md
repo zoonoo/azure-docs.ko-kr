@@ -2,19 +2,19 @@
 title: Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Terraform Linux 가상 머신 만들기
 description: Marketplace 이미지를 사용하여 관리 ID 및 원격 상태 관리가 있는 Terraform Linux 가상 머신을 만들어 Azure에 리소스를 쉽게 배포합니다.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: Terraform, DevOps, MSI, 가상 머신, 원격 상태, Azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852544"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007972"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
@@ -77,7 +77,7 @@ Terraform VM 이미지에서 수행하는 단계는 다음과 같습니다.
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Linux Terraform 가상 머신에 액세스 및 구성
 
-VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 텍스트 셸 인터페이스에 대해 3단계의 "기본 사항" 섹션에서 만든 계정 자격 증명을 사용합니다. Windows에서는 [Putty](http://www.putty.org/)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다.
+VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 텍스트 셸 인터페이스에 대해 3단계의 "기본 사항" 섹션에서 만든 계정 자격 증명을 사용합니다. Windows에서는 [Putty](https://www.putty.org/)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다.
 
 SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 구독에 대한 기여자 권한을 Azure 리소스의 관리 서비스 ID에 부여해야 합니다. 
 

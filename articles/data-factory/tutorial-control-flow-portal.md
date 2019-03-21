@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099545"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 스토리지 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "54015426"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob Storage를 **원본** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기
@@ -52,7 +52,7 @@ ms.locfileid: "54015426"
     John,Doe
     Jane,Doe
     ```
-2. [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 다음 단계를 수행합니다. 
+2. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용하여 다음 단계를 수행합니다. 
     1. **adfv2branch** 컨테이너를 만듭니다.
     2. **adfv2branch** 컨테이너에 **input** 폴더를 만듭니다.
     3. **input.txt** 파일을 컨테이너에 업로드합니다.
@@ -199,10 +199,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
    ![새 Azure Storage 연결된 서비스](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. 폴더에는 `@pipeline().parameters.sourceBlobContainer`를 입력하고, 파일 이름에는 `emp.txt`를 입력합니다. sourceBlobContainer 파이프라인 매개 변수를 사용하여 데이터 세트의 폴더 경로를 설정합니다. 
 
-    ![원본 데이터 세트 설정](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![원본 데이터 세트 설정](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset**에 대해 **SourceBlobDataset**가 선택되어 있는지 확인합니다. 
 
-   ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다. 
 
     ![새 싱크 데이터 세트 단추](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ![싱크 데이터 세트 설정](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반**을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity**로 설정합니다. 웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. 
 
-   ![첫 번째 웹 활동 끌어서 놓기](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![첫 번째 웹 활동 끌어서 놓기](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. **일반** 탭에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
     1. **URL**에 대해 성공 전자 메일을 보내는 Logic Apps 워크플로에 대한 URL을 지정합니다.  
     2. **메서드**에 대해 **POST**를 선택합니다. 
@@ -235,12 +235,12 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ```
         메시지 본문에 포함되는 속성은 다음과 같습니다.
 
-        - 메시지 - `@{activity('Copy1').output.dataWritten`의 값을 전달합니다. 이전 복사 작업의 속성에 액세스하고 dataWritten 값을 전달합니다. 실패의 경우 `@{activity('CopyBlobtoBlob').error.message` 대신 오류 출력을 전달합니다.
-        - 데이터 팩터리 이름 - `@{pipeline().DataFactory}`의 값을 전달합니다. 이 변수는 시스템 변수이며, 해당 데이터 팩터리 이름에 액세스할 수 있게 합니다. 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md) 문서를 참조하세요.
-        - 파이프라인 이름 - `@{pipeline().Pipeline}`의 값을 전달합니다. 이는 시스템 변수이기도 하므로 해당 파이프라인 액세스할 수 있게 합니다. 
-        - 받는 사람 - "\@pipeline().parameters.receiver")의 값을 전달합니다. 파이프라인 매개 변수에 액세스합니다.
+       - 메시지 - `@{activity('Copy1').output.dataWritten`의 값을 전달합니다. 이전 복사 작업의 속성에 액세스하고 dataWritten 값을 전달합니다. 실패의 경우 `@{activity('CopyBlobtoBlob').error.message` 대신 오류 출력을 전달합니다.
+       - 데이터 팩터리 이름 - `@{pipeline().DataFactory}`의 값을 전달합니다. 이 변수는 시스템 변수이며, 해당 데이터 팩터리 이름에 액세스할 수 있게 합니다. 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md) 문서를 참조하세요.
+       - 파이프라인 이름 - `@{pipeline().Pipeline}`의 값을 전달합니다. 이는 시스템 변수이기도 하므로 해당 파이프라인 액세스할 수 있게 합니다. 
+       - 받는 사람 - "\@pipeline().parameters.receiver")의 값을 전달합니다. 파이프라인 매개 변수에 액세스합니다.
     
-        ![첫 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![첫 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. 복사 활동 옆의 녹색 단추를 끌어 웹 활동에 놓아서 **복사** 활동을 **웹** 활동에 연결합니다. 
 
     ![첫 번째 웹 활동 및 복사 활동 연결](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

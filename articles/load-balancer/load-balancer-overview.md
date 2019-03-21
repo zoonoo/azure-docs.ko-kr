@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111534"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -64,7 +64,7 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    그림: 해시 기반 배포
+    그림: 해시 기반 배포*
 
 * **포트 전달**
 
@@ -94,8 +94,8 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
     가상 네트워크 내의 개인 IP 주소에서 인터넷의 공용 IP 주소로 전달되는 모든 아웃바운드 흐름은 Load Balancer의 프런트 엔드 IP 주소로 변환될 수 있습니다. 공용 프런트 엔드가 부하 분산 규칙을 통해 백 엔드 VM에 연결되면 Azure는 공용 프런트 엔드 IP 주소로 자동으로 변환되도록 아웃바운드 연결을 프로그래밍합니다.
 
-    * 프런트 엔드를 서비스의 다른 인스턴스에 동적으로 매핑할 수 있으므로 서비스의 업그레이드 및 재해 복구가 용이합니다.
-    * ACL(액세스 제어 목록)을 보다 쉽게 관리할 수 있습니다. 프런트 엔드 IP로 표현되는 ACL은 서비스를 확장, 축소하거나 다시 배포해도 변경되지 않습니다.  컴퓨터가 허용 목록 부담을 줄일 수 있는 것보다 적은 수의 IP 주소에 아웃바운드 연결을 변환합니다.
+  * 프런트 엔드를 서비스의 다른 인스턴스에 동적으로 매핑할 수 있으므로 서비스의 업그레이드 및 재해 복구가 용이합니다.
+  * ACL(액세스 제어 목록)을 보다 쉽게 관리할 수 있습니다. 프런트 엔드 IP로 표현되는 ACL은 서비스를 확장, 축소하거나 다시 배포해도 변경되지 않습니다.  컴퓨터가 허용 목록 부담을 줄일 수 있는 것보다 적은 수의 IP 주소에 아웃바운드 연결을 변환합니다.
 
     자세한 내용은 [아웃바운드 연결](load-balancer-outbound-connections.md)을 참조하세요.
 
@@ -131,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
+그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -150,7 +150,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
+그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*
 
 ## <a name="pricing"></a>가격
 

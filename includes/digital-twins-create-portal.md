@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124528"
 ---
 1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "53584809"
    * **리소스 그룹**: Digital Twins 인스턴스에 대한 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 선택하거나 만듭니다.
    * **위치**: 디바이스에 가장 가까운 위치를 선택합니다.
 
-    ![정보가 입력된 Digital Twins 창](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![정보가 입력된 Digital Twins 창](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Digital Twins 정보를 검토한 다음, **만들기**를 선택합니다. Digital Twins 인스턴스가 만들어질 때까지 몇 분 정도 걸릴 수 있습니다. **알림** 창에서 진행 상황을 모니터링할 수 있습니다.
 

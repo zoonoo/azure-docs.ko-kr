@@ -2,24 +2,24 @@
 title: Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 description: Yeoman을 사용하여 Azure에서 Terraform 기본 템플릿을 만드는 방법을 알아봅니다.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 가상 머신, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001284"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-)은 Azure에서 인프라를 쉽게 만드는 방법을 제공합니다. [Yeoman](http://yeoman.io/)은 훌륭한 *모범 사례* 프레임워크를 제공하는 동시에 Terraform 모듈을 만드는 모듈 개발자의 작업을 크게 간소화합니다.
+)은 Azure에서 인프라를 쉽게 만드는 방법을 제공합니다. [Yeoman](https://yeoman.io/)은 훌륭한 *모범 사례* 프레임워크를 제공하는 동시에 Terraform 모듈을 만드는 모듈 개발자의 작업을 크게 간소화합니다.
 
 이 문서에서는 Yeoman 모듈 생성기를 사용하여 기본 Terraform 템플릿을 만드는 방법을 알아봅니다. 그런 다음, 다음 두 가지 방법을 사용하여 새 Terraform 템플릿을 테스트하는 방법을 알아봅니다.
 

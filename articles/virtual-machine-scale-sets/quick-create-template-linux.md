@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 481c05f01992ea682176d68211feeea26711e29c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5361dc41aeaab0d44ee9a28ad0d7e40d98b17b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012998"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>빠른 시작: Azure 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
@@ -104,7 +104,7 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 - 구성 또는 설치 스크립트의 위치
 - VM 인스턴스에서 실행할 명령
 
-[Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 템플릿은 사용자 지정 스크립트 확장을 사용하여 [Bottle](http://bottlepy.org/docs/dev/) Python 웹 프레임워크 및 간단한 HTTP 서버를 설치합니다. 
+[Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 템플릿은 사용자 지정 스크립트 확장을 사용하여 [Bottle](https://bottlepy.org/docs/dev/) Python 웹 프레임워크 및 간단한 HTTP 서버를 설치합니다. 
 
 두 스크립트는 **fileUris** - *installserver.sh* 및 *workserver.py*에 정의되어 있습니다. 이러한 파일은 GitHub에서 다운로드한 다음 *commandToExecute*에서 `bash installserver.sh`를 실행하여 앱을 설치하고 구성합니다.
 

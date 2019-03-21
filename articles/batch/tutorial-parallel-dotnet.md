@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754223"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538692"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -31,7 +31,7 @@ ms.locfileid: "53754223"
 > * 태스크 실행 모니터링
 > * 출력 파일 검색
 
-이 자습서에서는 [ffmpeg](http://ffmpeg.org/) 오픈 소스 도구를 사용하여 MP4 미디어 파일을 병렬로 MP3 형식으로 변환합니다. 
+이 자습서에서는 [ffmpeg](https://ffmpeg.org/) 오픈 소스 도구를 사용하여 MP4 미디어 파일을 병렬로 MP3 형식으로 변환합니다. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -140,7 +140,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
-앱은 연결된 저장소 계정과 상호 작용하기 위해 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. 공유 키 인증 사용을 인증하는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만듭니다. 그런 다음 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
+앱은 연결된 스토리지 계정과 상호 작용하기 위해 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. 공유 키 인증 사용을 인증하는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만듭니다. 그런 다음 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
 
 ```csharp
 // Construct the Storage account connection string

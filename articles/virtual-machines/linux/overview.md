@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 66ba6aa874e84ce86d54d5ea0f827a83dc6564b4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208554"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008950"
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
 Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 포함하여 성장하고 있는 통합된 공용 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.   Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
@@ -59,7 +59,7 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 * [Azure 템플릿](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](http://cloud-init.io/)에 대한 지원을 롤아웃하고 있습니다.  현재 Canonical의 Ubuntu VM은 기본적으로 사용하도록 설정된 cloud-init와 함께 배포됩니다.  Red Hat의 RHEL, CentOS 및 Fedora는 cloud-init를 지원하지만, Red Hat에서 유지 관리하는 Azure 이미지에는 현재 cloud-init가 설치되어 있지 않습니다.  Red Hat 계열 OS에서 cloud-init를 사용하려면 cloud-init가 설치된 사용자 지정 이미지를 만들어야 합니다.
+Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](https://cloud-init.io/)에 대한 지원을 롤아웃하고 있습니다.  현재 Canonical의 Ubuntu VM은 기본적으로 사용하도록 설정된 cloud-init와 함께 배포됩니다.  Red Hat의 RHEL, CentOS 및 Fedora는 cloud-init를 지원하지만, Red Hat에서 유지 관리하는 Azure 이미지에는 현재 cloud-init가 설치되어 있지 않습니다.  Red Hat 계열 OS에서 cloud-init를 사용하려면 cloud-init가 설치된 사용자 지정 이미지를 만들어야 합니다.
 
 * [Azure Linux VM에서 cloud-init 사용](using-cloud-init.md)
 

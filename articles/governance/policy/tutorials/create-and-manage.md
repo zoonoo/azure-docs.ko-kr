@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343564"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780289"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -87,32 +87,32 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
       - 정책 규칙/조건 - 여기서는 'VM SKU 크기가 G 시리즈와 같음'입니다.
       - 정책 효과 - 여기서는 **거부**입니다.
 
-    JSON 코드는 다음과 같습니다. 수정된 코드를 Azure Portal에 붙여 넣습니다.
+   JSON 코드는 다음과 같습니다. 수정된 코드를 Azure Portal에 붙여 넣습니다.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    정책 규칙의 *field* 속성은 이름, 유형, 위치, 태그 또는 별칭 값 중 하나여야 합니다. 별칭의 예로 `"Microsoft.Compute/VirtualMachines/Size"`를 들 수 있습니다.
+   정책 규칙의 *field* 속성은 이름, 유형, 위치, 태그 또는 별칭 값 중 하나여야 합니다. 별칭의 예로 `"Microsoft.Compute/VirtualMachines/Size"`를 들 수 있습니다.
 
-    더 많은 Azure 정책 샘플을 보려면 [Azure Policy 샘플](../samples/index.md)을 참조하세요.
+   더 많은 Azure 정책 샘플을 보려면 [Azure Policy 샘플](../samples/index.md)을 참조하세요.
 
 1. **저장**을 선택합니다.
 

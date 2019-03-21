@@ -2,22 +2,22 @@
 title: Azure IoT Hub를 통해 디바이스 펌웨어 업데이트 | Microsoft Docs
 description: 작업 및 디바이스 쌍을 사용하여 디바이스 펌웨어 업데이트 프로세스를 구현합니다.
 services: iot-hub
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116693"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 이 자습서에서는 연결된 디바이스에서 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보았습니다. 다음 자습서로 넘어가서 Azure IoT Hub 포털 도구와 Azure CLI 명령을 사용하여 디바이스 연결을 테스트하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-[시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)
+> [시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)

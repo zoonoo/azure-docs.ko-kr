@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995209"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성(미리 보기)
 
@@ -74,11 +74,11 @@ ms.locfileid: "56169380"
 
 1. 웹 및 공용 클라이언트 애플리케이션에 대한 사용자 지정 리디렉션 URI를 추가하려면 다음 단계를 따릅니다.
 
-    1. **리디렉션 URI** 섹션을 찾습니다.
-    1. 빌드하는 애플리케이션 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택합니다.
-    1. 애플리케이션의 리디렉션 URI를 입력합니다.
-        * 웹 애플리케이션의 경우 애플리케이션의 기준 URL을 제공합니다. 예를 들어 http://localhost:31544은 로컬 머신에서 실행 중인 웹 애플리케이션의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-        * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: https://MyFirstApp).
+   1. **리디렉션 URI** 섹션을 찾습니다.
+   1. 빌드하는 애플리케이션 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택합니다.
+   1. 애플리케이션의 리디렉션 URI를 입력합니다.
+      * 웹 애플리케이션의 경우 애플리케이션의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 머신에서 실행 중인 웹 애플리케이션의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
+      * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: https://MyFirstApp).
 
 1. 공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI에서 선택하려면 다음 단계를 따릅니다.
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100295"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -127,7 +127,7 @@ ms.locfileid: "56732707"
     |타일 공사 직에 지원합니다.|타일|
     |조경사 직에 지원하기 위한 이력서가 첨부되었습니다.|조경사|
     |생물학 교수 직에 지원하기 위한 내 이력서가 동봉되어 있습니다.|생물학 교수|
-    |사진 촬영 직에 지원하고 싶습니다.|사진 촬영 기사|git 
+    |사진 촬영 직에 지원하고 싶습니다.|사진 촬영 기사|
 
 ## <a name="mark-job-entity-in-other-intents"></a>다른 의도에서 직무 엔터티 표시
 

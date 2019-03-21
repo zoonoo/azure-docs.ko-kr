@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124989"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 
@@ -55,7 +55,7 @@ ms.locfileid: "54453072"
     * 이미 작성한 앱 서비스 계획을 선택합니다.
     * **새 앱 서비스 계획 만들기**를 선택한 다음 새로 만듭니다.
 
-  이 자습서를 위해 데이터베이스는 필요하지 않습니다. 앱 서비스 계획을 선택한 후 **확인**을 선택하여 프로젝트를 만듭니다.
+   이 자습서를 위해 데이터베이스는 필요하지 않습니다. 앱 서비스 계획을 선택한 후 **확인**을 선택하여 프로젝트를 만듭니다.
 
     ![Microsoft Azure 웹앱 구성 창][B5]
 
@@ -84,9 +84,9 @@ ms.locfileid: "54453072"
    * 요청이 *기본* 인증을 사용합니다.
    * 사용자 이름 문자열과 암호 문자열은 동일한 문자열입니다.
 
-  그렇지 않으면 요청이 거부됩니다. 이 인증은 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 간단한 예제일 뿐입니다.
+   그렇지 않으면 요청이 거부됩니다. 이 인증은 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 간단한 예제일 뿐입니다.
 
-  요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
+   요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

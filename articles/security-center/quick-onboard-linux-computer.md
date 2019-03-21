@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104678"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -37,7 +37,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 2. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
- ![Security Center 개요][2]
+   ![Security Center 개요][2]
 
 3. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
 4. **시작하기** 탭을 선택합니다. ![시작하기][3]
@@ -46,16 +46,16 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
     ![비 Azure 컴퓨터 추가](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  **직접 에이전트** 페이지의 **Linux용 에이전트 다운로드 및 온보딩** 아래에서 **복사** 단추를 선택하여 *wget* 명령을 복사합니다.
+6. **직접 에이전트** 페이지의 **Linux용 에이전트 다운로드 및 온보딩** 아래에서 **복사** 단추를 선택하여 *wget* 명령을 복사합니다.
 
-7.  메모장을 열고 이 명령을 붙여넣습니다. Linux 컴퓨터에서 액세스할 수 있는 위치에 이 파일을 저장합니다.
+7. 메모장을 열고 이 명령을 붙여넣습니다. Linux 컴퓨터에서 액세스할 수 있는 위치에 이 파일을 저장합니다.
 
 ## <a name="install-the-agent"></a>에이전트 설치
 
-1.  Linux 컴퓨터에서 이전에 저장한 파일을 엽니다. 전체 내용을 선택하고 복사한 다음 터미널 콘솔을 열고 명령을 붙여넣습니다.
-2.  설치가 완료되면 *pgrep* 명령을 실행하여 *omsagent*가 설치되어 있는지 확인할 수 있습니다. 이 명령은 다음과 같이 *omsagent* PID(프로세스 ID)를 반환합니다.
+1. Linux 컴퓨터에서 이전에 저장한 파일을 엽니다. 전체 내용을 선택하고 복사한 다음 터미널 콘솔을 열고 명령을 붙여넣습니다.
+2. 설치가 완료되면 *pgrep* 명령을 실행하여 *omsagent*가 설치되어 있는지 확인할 수 있습니다. 이 명령은 다음과 같이 *omsagent* PID(프로세스 ID)를 반환합니다.
 
-  ![에이전트 설치][5]
+   ![에이전트 설치][5]
 
 Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/<workspace id>/log/* 에서 확인할 수 있습니다.
 

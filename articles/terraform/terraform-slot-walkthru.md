@@ -2,19 +2,19 @@
 title: Azure 공급자 배포 슬롯과 Terraform
 description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방법에 대한 자습서
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992233"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
@@ -26,11 +26,11 @@ ms.locfileid: "54074821"
 
 - **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
 
-- **GitHub 계정**: 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](http://www.github.com) 계정이 필요합니다.
+- **GitHub 계정**: 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](https://www.github.com) 계정이 필요합니다.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Terraform 계획 만들기 및 적용
 
-1. [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)을 엽니다. 이전에 환경을 선택하지 않은 경우 환경으로 **Bash**를 선택합니다.
 

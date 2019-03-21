@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078128"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -240,7 +240,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Cognitive Services 구독 키를 추가하고 저장합니다.
+   1. Cognitive Services 구독 키를 추가하고 저장합니다.
 
 이 코드 블록에서는 번역에 사용할 수 있는 언어에 대한 정보가 포함된 두 개의 멤버 변수를 선언했습니다.
 

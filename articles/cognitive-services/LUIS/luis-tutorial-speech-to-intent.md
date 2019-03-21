@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076754"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Language Understanding 앱을 사용하여 음성 서비스 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
@@ -49,11 +49,11 @@ Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-h
 
 3. **키 및 엔드포인트** 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키를 할당합니다.
 
-  이 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
+   이 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
   
-  이 연습을 위해 무료 시작 키를 사용하지 **않도록** 합니다. Azure Portal에서 만든 **Language Understanding** 키만 이 연습에서 작동됩니다. 
+   이 연습을 위해 무료 시작 키를 사용하지 **않도록** 합니다. Azure Portal에서 만든 **Language Understanding** 키만 이 연습에서 작동됩니다. 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
 4. 맨 위 오른쪽 막대에 있는 **게시** 단추를 선택하여 LUIS 앱을 게시합니다. 

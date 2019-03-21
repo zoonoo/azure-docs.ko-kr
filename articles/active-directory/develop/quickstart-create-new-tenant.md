@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108664"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>빠른 시작: 개발 환경 설정
 
@@ -55,8 +55,8 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 > [!TIP]
 > 테넌트 ID를 찾아야 하는 경우 다음을 수행할 수 있습니다.
-* 사용자의 계정 이름을 가리켜 디렉터리/테넌트 ID를 가져오거나
-* Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID**를 선택합니다.
+> * 사용자의 계정 이름을 가리켜 디렉터리/테넌트 ID를 가져오거나
+> * Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID**를 선택합니다.
 
 계정과 연결된 기존 테넌트가 없으면, 계정 이름 아래에 GUID가 표시되며 다음 섹션의 단계를 따를 때까지 앱 등록과 같은 작업을 수행할 수 없습니다.
 

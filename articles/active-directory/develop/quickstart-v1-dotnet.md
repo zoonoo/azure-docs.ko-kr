@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204545"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223396"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>빠른 시작: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -77,9 +77,9 @@ Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련
 
 1. `DirectorySearcher` 프로젝트에서 `app.config`를 엽니다.
 1. Azure Portal에 입력한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
-  * `ida:Tenant`는 Azure AD 테넌트의 도메인입니다(예: contoso.onmicrosoft.com).
-  * `ida:ClientId`는 포털에서 복사한 애플리케이션의 클라이언트 ID여야 합니다.
-  * `ida:RedirectUri`는 포털에 등록한 리디렉션 URL입니다.
+   * `ida:Tenant`는 Azure AD 테넌트의 도메인입니다(예: contoso.onmicrosoft.com).
+   * `ida:ClientId`는 포털에서 복사한 애플리케이션의 클라이언트 ID여야 합니다.
+   * `ida:RedirectUri`는 포털에 등록한 리디렉션 URL입니다.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기
 
@@ -172,7 +172,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

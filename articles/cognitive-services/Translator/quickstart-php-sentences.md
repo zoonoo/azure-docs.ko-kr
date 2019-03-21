@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: a9d16037bd814c8fb0e18a27187a905efafa3fd2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2844017986b39b417407fc3da4b92af4aea51a42
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984293"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542729"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>빠른 시작: Translator Text REST API(PHP)로 문장 길이 가져오기
 
@@ -23,7 +23,7 @@ ms.locfileid: "55984293"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [PHP 5.6.x](http://php.net/downloads.php)가 필요합니다.
+이 코드를 실행하려면 [PHP 5.6.x](https://php.net/downloads.php)가 필요합니다.
 
 Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
 
@@ -74,7 +74,7 @@ function BreakSentences ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -98,7 +98,7 @@ $result = BreakSentences ($host, $path, $key, "", $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

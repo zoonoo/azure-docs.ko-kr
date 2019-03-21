@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 93b66424bcafc47c8f25854a1e2d2d39e8a2aa6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1efbb963deb71f9fa35660ecb6111413e2553e4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862125"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904323"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 인쇄된 텍스트 추출(OCR)
 
@@ -220,10 +220,6 @@ func main() {
   "textAngle": 0
 }
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 컴파일된 패키지 및 패키지가 컴파일된 원본 파일을 삭제한 후 명령 프롬프트 창과 텍스트 편집기를 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

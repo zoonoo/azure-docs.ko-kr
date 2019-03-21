@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076890"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>빠른 시작: Azure CLI를 사용하여 Service Bus 큐 만들기
 
@@ -61,31 +61,31 @@ connectionString=$(az servicebus namespace authorization-rule keys list --resour
 
 네임스페이스와 큐가 만들어지고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)에서 코드를 검사할 수 있습니다.
 
-2. 컴퓨터에서 다음 명령을 실행하여 [Service Bus GitHub 리포지토리](https://github.com/Azure/azure-service-bus/)를 복제합니다.
+1. 컴퓨터에서 다음 명령을 실행하여 [Service Bus GitHub 리포지토리](https://github.com/Azure/azure-service-bus/)를 복제합니다.
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. 슬래시를 경로 구분 기호로 사용하여 현재 디렉터리를 샘플 폴더로 변경합니다.
+1. 슬래시를 경로 구분 기호로 사용하여 현재 디렉터리를 샘플 폴더로 변경합니다.
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. 다음 명령을 실행하여 애플리케이션을 빌드합니다.
+1. 다음 명령을 실행하여 애플리케이션을 빌드합니다.
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. 프로그램을 실행하려면 연결 문자열을 앞에서 복사한 값으로 바꾼 후 다음 명령을 실행합니다.
+1. 프로그램을 실행하려면 연결 문자열을 앞에서 복사한 값으로 바꾼 후 다음 명령을 실행합니다.
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. 큐로 보내는 10개의 메시지를 관찰합니다. 메시지 순서는 보장되지 않지만 페이로드 데이터와 함께 보내진 다음, 승인되고 받은 메시지를 확인할 수 있습니다.
+1. 큐로 보내는 10개의 메시지를 관찰합니다. 메시지 순서는 보장되지 않지만 페이로드 데이터와 함께 보내진 다음, 승인되고 받은 메시지를 확인할 수 있습니다.
 
     ```
     Message sending: Id = 0

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009664"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB 설치 및 서버 설정
-[MongoDB](http://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 애플리케이션에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
+[MongoDB](https://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 애플리케이션에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
 
 1. VM에서 연 bash 셸을 SSH와 함께 사용하여 MongoDB를 설정합니다.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. 패키지 관리자를 키로 업데이트합니다.
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Express 설치 및 서버에 대한 경로 설정
 
-[기본](https://expressjs.com)은 웹 및 모바일 애플리케이션용 기능을 제공하는 유연한 최소 규모의 Node.js 웹 애플리케이션 프레임워크입니다. 이 자습서에서는 MongoDB 데이터베이스와 책 정보를 빠르게 주고 받기 위해 Express를 사용합니다. [Mongoose](http://mongoosejs.com)는 애플리케이션 데이터를 모델링하기 위한 간편한 스키마 기반 솔루션을 제공합니다. Mongoose는 데이터베이스에 책 스키마를 제공하기 위해 이 자습서에서 사용됩니다.
+[기본](https://expressjs.com)은 웹 및 모바일 애플리케이션용 기능을 제공하는 유연한 최소 규모의 Node.js 웹 애플리케이션 프레임워크입니다. 이 자습서에서는 MongoDB 데이터베이스와 책 정보를 빠르게 주고 받기 위해 Express를 사용합니다. [Mongoose](https://mongoosejs.com)는 애플리케이션 데이터를 모델링하기 위한 간편한 스키마 기반 솔루션을 제공합니다. Mongoose는 데이터베이스에 책 스키마를 제공하기 위해 이 자습서에서 사용됩니다.
 
 1. Express 및 Mongoose를 설치합니다.
 

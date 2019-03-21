@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090477"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
@@ -74,9 +74,9 @@ ms.locfileid: "56237827"
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
 
-3. *CacheSecrets.config*라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
+1. *CacheSecrets.config*라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
 
-4. *CacheSecrets.config* 파일을 편집합니다. 그런 다음, 다음 내용을 추가합니다.
+1. *CacheSecrets.config* 파일을 편집합니다. 그런 다음, 다음 내용을 추가합니다.
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ ms.locfileid: "56237827"
     </appSettings>
     ```
 
-5. `<cache-name>`을 캐시 호스트 이름으로 바꿉니다.
+1. `<cache-name>`을 캐시 호스트 이름으로 바꿉니다.
 
-6. `<access-key>`를 캐시에 대한 기본 키로 바꿉니다.
+1. `<access-key>`를 캐시에 대한 기본 키로 바꿉니다.
 
     > [!TIP]
     > 사용자가 기본 액세스 키를 다시 생성하는 동안 대체 키로 키를 회전하는 기간에 보조 액세스 키를 사용합니다.
->
-7. 파일을 저장합니다.
+   >
+1. 파일을 저장합니다.
 
 ## <a name="update-the-mvc-application"></a>MVC 애플리케이션 업데이트
 

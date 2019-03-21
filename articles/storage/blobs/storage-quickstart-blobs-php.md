@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - PHP를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: PHP를 사용하여 Azure Blob 저장소에서 개체를 전송하는 방법을 신속하게 알아봅니다.
+description: PHP를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 신속하게 알아봅니다.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,15 +8,15 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014780"
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob 저장소에서 개체 전송
-이 빠른 시작에서 PHP를 사용하여 Azure Blob 저장소의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
+#  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob Storage에서 개체 전송
+이 빠른 시작에서 PHP를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -24,7 +24,7 @@ ms.locfileid: "53787888"
 
 다음 추가 필수 구성 요소를 설치했는지 확인합니다.
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [PHP용 Azure Storage SDK](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
@@ -62,7 +62,7 @@ setx ACCOUNT_KEY=<youraccountkey>
 로컬 git 폴더에서 폴더를 가져와서 PHP 서버에서 제공하는 디렉터리에 배치합니다. 그런 다음, 동일한 디렉터리의 범위가 지정된 명령 프롬프트를 열고 `php composer.phar install`을 입력합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
-이 샘플에서는 '.' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob 저장소에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
+이 샘플에서는 '.' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob Storage에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
 
 샘플을 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 표시된 단추를 누르면 샘플 프로그램에서 저장소 컨테이너와 파일을 삭제합니다. 계속하기 전에 서버의 폴더에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다.
 
-[Azure Storage 탐색기](http://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage 탐색기](https://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
 파일을 확인한 후에 아무 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 example.rb 파일을 열고 코드를 확인합니다. 
 
@@ -198,14 +198,14 @@ Blob에 파일을 업로드하려면 로컬 드라이브에서 디렉터리 이�
 
 ## <a name="resources-for-developing-php-applications-with-blobs"></a>BLOB을 사용하여 PHP 애플리케이션을 개발하기 위한 리소스
 
-Blob 저장소를 사용하여 PHP 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
+Blob Storage를 사용하여 PHP 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 
 - GitHub에서 Azure Storage용 [PHP 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-php)를 검색, 다운로드 및 설치하세요.
-- PHP 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob)을 탐색하세요.
+- PHP 클라이언트 라이브러리를 사용하여 작성된 [Blob Storage 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
  
-이 빠른 시작에서는 PHP를 사용하여 로컬 디스크와 Azure Blob 저장소 간에 파일을 전송하는 방법을 알아보았습니다. PHP 사용에 대해 자세히 알아보려면 PHP 개발자 센터를 계속 진행하세요.
+이 빠른 시작에서는 PHP를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. PHP 사용에 대해 자세히 알아보려면 PHP 개발자 센터를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)

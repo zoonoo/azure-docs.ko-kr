@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.reviewer: sngun
-ms.openlocfilehash: 9a47333c8cd8968c007a2d328e81d8ea8585971c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28e9b420f3abc972e047af72e1b5bc755e7f9d2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001629"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -78,7 +78,7 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+| Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>LINQ를 사용하여 쿼리 
 해당 OData 쿼리 식으로 변환되는 LINQ를 사용하여 쿼리할 수도 있습니다. 다음은 .NET SDK를 사용하여 쿼리를 작성하는 방법을 보여 주는 예제입니다.

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878683"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548492"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
 
@@ -59,7 +59,7 @@ Azure Portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 | 줄당 발언의 # | 1 |
 | 최대 파일 크기 | 1.5GB |
 | 설명 | 문자를 4번을 초과하여(예를 들어 'aaaaa') 반복 사용하지 말 것|
-| 설명 | [유니코드 문자 표](http://www.utf8-chartable.de/)에는 U+00A1 이상의 기타 모든 UTF-8 문자 또는 '\t' 등의 특수 문자가 없음|
+| 설명 | [유니코드 문자 표](https://www.utf8-chartable.de/)에는 U+00A1 이상의 기타 모든 UTF-8 문자 또는 '\t' 등의 특수 문자가 없음|
 | 설명 | URI는 URI를 발음하는 고유의 방법이 있기 때문에 거부됩니다.|
 
 텍스트를 가져오면 시스템에서 처리할 수 있도록 텍스트가 정규화됩니다. 그러나 데이터를 업로드하기 _전에_ 사용자가 수행해야 하는 몇몇 중요한 정규화 작업이 있습니다. 언어 데이터를 준비하는 경우 사용할 적절한 언어를 결정하려면 [기록 지침](prepare-transcription.md)을 참조하세요.

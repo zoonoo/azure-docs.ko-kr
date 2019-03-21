@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880598"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
@@ -34,10 +34,10 @@ ms.locfileid: "53162225"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
-> * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
-> * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
+> * [Java Service Fabric Reliable Services 애플리케이션 빌드](service-fabric-tutorial-create-java-app.md)
+> * [로컬 클러스터에서 애플리케이션 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Azure 클러스터에 애플리케이션 배포](service-fabric-tutorial-java-deploy-azure.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * CI/CD 설정
 
 ## <a name="prerequisites"></a>필수 조건
@@ -72,15 +72,15 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     * 처음으로 로그인한 후 고유의 사용자 계정을 만들거나 관리자 계정을 사용할 수 있습니다.
 
 1. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)에서 설명한 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다. 명령은 Docker 컨테이너에서 실행되기 때문에 Linux 환경에 대한 지침을 따릅니다.
-    * GitHub에서 제공한 지침을 사용하여 SSH 키를 생성합니다. 다음으로 리포지토리를 호스팅하는 GitHub 계정에 SSH 키를 추가합니다.
-    * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
-    * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
+   * GitHub에서 제공한 지침을 사용하여 SSH 키를 생성합니다. 다음으로 리포지토리를 호스팅하는 GitHub 계정에 SSH 키를 추가합니다.
+   * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
+   * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터에 공용 연결 IP가 있는지 확인합니다. 공용 IP를 가진 경우 Jenkins 인스턴스가 GitHub에서 알림을 수신하게 할 수 있습니다.
+     Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터에 공용 연결 IP가 있는지 확인합니다. 공용 IP를 가진 경우 Jenkins 인스턴스가 GitHub에서 알림을 수신하게 할 수 있습니다.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
@@ -114,14 +114,14 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
+1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 애플리케이션을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
 
     또한 애플리케이션을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
-    > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 응용 프로그램을 호스팅하는 것과 동일할 수 있습니다.
+    > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 애플리케이션을 호스팅하는 것과 동일할 수 있습니다.
     >
 
 1. **저장**을 클릭합니다.
@@ -146,7 +146,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>
@@ -187,7 +187,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
     ![업그레이드 진행 중](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. **http://\<Host-IP>:8080**에 액세스하는 경우 완벽한 기능으로 Voting 응용 프로그램이 작동되고 실행됩니다.
+1. **http://\<Host-IP&gt;:8080**에 액세스하는 경우 완벽한 기능으로 Voting 애플리케이션이 작동되고 실행됩니다.
 
     ![로컬 Voting 앱](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

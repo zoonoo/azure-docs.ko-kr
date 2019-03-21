@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747018"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772061"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
@@ -200,4 +200,4 @@ az group delete --name <your_resource_group>
 
 ## <a name="next-steps"></a>다음 단계
 
-App Service에 Java EE 애플리케이션을 배포했으니, [Java Enterprise 개발자 가이드](https://aka.ms/wildfly-quickstart)에서 서비스 설정, 문제 해결 및 애플리케이션 크기 조정에 대해 자세히 알아보세요.
+App Service에 Java EE 애플리케이션을 배포했으니, [Java Enterprise 개발자 가이드](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)에서 서비스 설정, 문제 해결 및 애플리케이션 크기 조정에 대해 자세히 알아보세요.
