@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822258"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084609"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
@@ -56,11 +56,11 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 이 Oracle 커넥터는 다음 두 가지 버전의 드라이버를 지원합니다.
 
 - **Oracle용 Microsoft 드라이버(권장)**: 데이터 관리 게이트웨이 버전 2.7부터 Oracle용 Microsoft 드라이버가 게이트웨이와 함께 자동으로 설치됩니다. Oracle에 대한 연결을 설정하기 위해 드라이버를 설치하거나 업데이트할 필요가 없습니다. 또한 이 드라이버를 사용하면 더 나은 복사 성능을 경험할 수 있습니다. 아래 Oracle 데이터베이스 버전이 지원됩니다.
-    - Oracle 12c R1(12.1)
-    - Oracle 11g R1, R2(11.1, 11.2)
-    - Oracle 10g R1, R2(10.1, 10.2)
-    - Oracle 9i R1, R2(9.0.1, 9.2)
-    - Oracle 8i R3(8.1.7)
+  - Oracle 12c R1(12.1)
+  - Oracle 11g R1, R2(11.1, 11.2)
+  - Oracle 10g R1, R2(10.1, 10.2)
+  - Oracle 9i R1, R2(9.0.1, 9.2)
+  - Oracle 8i R3(8.1.7)
 
     > [!NOTE]
     > Oracle 프록시 서버는 지원되지 않습니다.
@@ -69,7 +69,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
     > 현재 Oracle용 Microsoft 드라이버는 Oracle에서의 데이터 복사만 지원합니다. 드라이버는 Oracle에 쓰기는 지원하지 않습니다. 데이터 관리 게이트웨이 **진단** 탭의 테스트 연결 기능은 이 드라이버를 지원하지 않습니다. 대신 복사 마법사를 사용하여 연결의 유효성을 검사할 수 있습니다.
     >
 
-- **.NET용 Oracle Data Provider**: Oracle Data Provider를 사용하여 Oracle에서 다른 곳으로 또는 그 반대로 데이터를 복사하도록 선택할 수 있습니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 머신에 관련 버전(32비트 또는 64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149)은 Oracle Database 10g 릴리스 2 이상 버전에 액세스할 수 있습니다.
+- **.NET용 Oracle Data Provider**: Oracle Data Provider를 사용하여 Oracle에서 다른 곳으로 또는 그 반대로 데이터를 복사하도록 선택할 수 있습니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](https://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 머신에 관련 버전(32비트 또는 64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149)은 Oracle Database 10g 릴리스 2 이상 버전에 액세스할 수 있습니다.
 
     **XCopy 설치**를 선택하는 경우 readme.htm 파일에 설명된 단계를 완료합니다. UI가 있는 설치 관리자를 선택하는 것이 좋습니다(XCopy 설치 관리자 제외).
 
@@ -103,7 +103,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 형식 |**type** 속성은 **OnPremisesOracle**로 설정해야 합니다. |예 |
-| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 아니요 |
+| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 아닙니다. |
 | connectionString | **connectionString** 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
@@ -172,7 +172,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |아니요<br />(**dataset**의 **tableName**이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |아닙니다.<br />(**dataset**의 **tableName**이 지정된 경우) |
 
 ### <a name="oraclesink"></a>파이프라인
 
@@ -180,10 +180,10 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |**timespan**<br/><br/> 예제: 00:30:00(30분) |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |**timespan**<br/><br/> 예제: 00:30:00(30분) |아닙니다. |
 | writeBatchSize |버퍼 크기가 **writeBatchSize** 값에 도달하면 SQL 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 100) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
-| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다.  다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName**에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아닙니다. |
+| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다. 다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName**에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |아닙니다. |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>다른 곳에서 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 JSON 예제
 
@@ -217,7 +217,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-비디오: Linux에서 Azure File Storage 사용
+**비디오: Linux에서 Azure File Storage 사용**
 
 ```json
 {
@@ -405,7 +405,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-비디오: Linux에서 Azure File Storage 사용
+**비디오: Linux에서 Azure File Storage 사용**
 
 ```json
 {
@@ -557,7 +557,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 **오류 메시지**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **가능한 원인**
 
@@ -566,10 +566,10 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 **해결 방법**
 
-* Oracle용 .NET Provider를 설치하지 않은 경우 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/downloads/)한 다음, 시나리오를 다시 시도합니다.
+* Oracle용 .NET Provider를 설치하지 않은 경우 [해당 항목을 설치](https://www.oracle.com/technetwork/topics/dotnet/downloads/)한 다음, 시나리오를 다시 시도합니다.
 * 공급자를 설치한 후에도 오류 메시지가 표시되면 다음 단계를 완료합니다.
-   1. <시스템 디스크\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 폴더에서 .NET 2.0에 대한 머신 구성 파일을 엽니다.
-   2. **.NET용 Oracle Data Provider**를 검색합니다. **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`에서 다음 샘플에서와 같이 항목을 찾을 수 있습니다
+    1. <시스템 디스크\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 폴더에서 .NET 2.0에 대한 머신 구성 파일을 엽니다.
+    2. **.NET용 Oracle Data Provider**를 검색합니다. **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`에서 다음 샘플에서와 같이 항목을 찾을 수 있습니다
 * 이 항목을 .NET 4.0 폴더 즉, <시스템 디스크\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config의 machine.config 파일에 복사합니다. 그런 다음, 버전을 4.xxx.x.x로 변경합니다.
 * **gacutil /i[공급자 경로]** 를 실행하여 GAC(글로벌 어셈블리 캐시)에 <ODP.NET 설치된 경로\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll을 설치합니다.
 

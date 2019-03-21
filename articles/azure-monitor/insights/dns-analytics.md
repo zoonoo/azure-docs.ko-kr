@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103930"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -43,9 +43,9 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
@@ -66,7 +66,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 - **허용 목록에 포함된 도메인 이름**. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
 
- 목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
+  목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
 
 - **Talkative 클라이언트 임계값** 조회 요청 수에 대한 임계값을 초과하는 DNS 클라이언트는 **DNS 클라이언트** 블레이드에서 강조 표시됩니다. 기본 임계값은 1,000입니다. 이 임계값은 편집할 수 있습니다.
 
@@ -142,7 +142,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 **이름 등록 요청**. 위쪽 타일에는 성공 또는 실패한 DNS 동적 업데이트의 추세가 표시됩니다. 아래쪽 타일에는 DNS 서버로 실패한 DNS 업데이트 요청을 보낸 상위 10개 클라이언트가 실패 횟수별로 정렬되어 표시됩니다.
 
-![이름 등록 요청 블레이드 ](./media/dns-analytics/name-reg-req-blade.png)
+![이름 등록 요청 블레이드](./media/dns-analytics/name-reg-req-blade.png)
 
 **샘플 DDI 분석 쿼리** 원시 분석 데이터를 직접 가져오는 가장 일반적인 검색 쿼리 목록이 포함되어 있습니다.
 

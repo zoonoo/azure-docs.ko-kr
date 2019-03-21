@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078162"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -59,10 +59,10 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/wi
 #### <a name="azure-powershell"></a>Azure PowerShell
 사용자는 클래식 PowerShell cmdlet을 사용하여 더 이상 사용되고 있지 않은 스토리지 계정을 삭제하려고 합니다. 다음과 같은 메시지가 표시됩니다.
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount : BadRequest: 스토리지 계정 myclassicaccount에 활성 이미지 및/또는 디스크(예:  
-myclassicaccount)가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: 스토리지 계정 myclassicaccount에 활성 이미지 및/또는 디스크(예:  
+> myclassicaccount)가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>스토리지 컨테이너를 삭제할 수 없음
 
@@ -77,9 +77,9 @@ Azure Portal은 컨테이너의 *.vhd 페이지 blob 파일을 가리키는 "디
 #### <a name="azure-powershell"></a>Azure PowerShell
 사용자가 PowerShell을 사용하여 삭제하도록 선택하면 다음 오류가 발생합니다. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : 원격 서버에서 오류를 반환했습니다. (412) 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : 원격 서버에서 오류를 반환했습니다. (412) 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>vhd를 삭제할 수 없음 
 
@@ -99,9 +99,9 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 #### <a name="azure-powershell"></a>Azure PowerShell 
 사용자가 PowerShell을 사용하여 삭제하도록 선택하면 다음 오류가 발생합니다. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : 원격 서버에서 오류를 반환했습니다. (412) 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : 원격 서버에서 오류를 반환했습니다. (412) 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
 
 
 ## <a name="resolution-steps"></a>해결 단계:

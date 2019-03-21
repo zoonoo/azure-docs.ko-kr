@@ -1,19 +1,18 @@
 ---
 title: FAQ - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 질문과 대답을 제공합니다.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/25/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661839"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892764"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -44,12 +43,14 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | --- | --- |--- |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| RHEL | 7.6 | OS 및 데이터 디스크* |
 | RHEL | 7.5 | OS 및 데이터 디스크* |
 | RHEL | 7.4 | OS 및 데이터 디스크* |
 | RHEL | 7.3 | OS 및 데이터 디스크* |
 | RHEL | 7.2 | OS 및 데이터 디스크* |
 | RHEL | 6.8 | 데이터 디스크* |
 | RHEL | 6.7 | 데이터 디스크* |
+| CentOS | 7.5 | OS 및 데이터 디스크 |
 | CentOS | 7.4 | OS 및 데이터 디스크 |
 | CentOS | 7.3 | OS 및 데이터 디스크 |
 | CentOS | 7.2n | OS 및 데이터 디스크 |
@@ -72,6 +73,18 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 
 예, Windows 및 Linux IaaS VM용 부팅 볼륨과 데이터 볼륨을 암호화할 수 있습니다. Windows VM의 경우 OS 볼륨을 먼저 암호화하지 않으면 데이터 볼륨을 암호화할 수 없습니다. Linux VM의 경우 OS 볼륨을 먼저 암호화하지 않고도 데이터 볼륨을 암호화할 수 있습니다. Linux용 OS 볼륨을 암호화하면 Linux IaaS VM용 OS 볼륨에 대한 암호화 사용 해제가 지원되지 않습니다.
+
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용 하 여 탑재 된 볼륨을 암호화할 수 있나요?
+
+아니요, Azure Disk Encryption는만 탑재 된 볼륨을 암호화합니다.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>암호 또는 암호화 키 회전 하는 방법
+
+암호를 회전, 디스크 암호화를 사용 하도록 원래 사용 했던 동일한 명령을 호출 하는 다른 키 자격 증명 모음을 지정 합니다. 주요 암호화 키를 회전 하려면 원래 사용 했던 디스크 암호화를 사용 하도록 설정 하려면 새 키 암호화를 지정 하는 동일한 명령을 호출 합니다. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>추가 하거나 어떻게 키 암호화 키를 처음 사용 하지 않은 경우 제거?
+
+키 암호화 키를 추가 하려면 키 암호화 키 매개 변수를 전달 다시 사용 하도록 설정 명령을 호출 합니다. 키 암호화 키를 제거할 키 암호화 키 매개 변수 없이 다시 설정 명령을 호출 합니다.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk Encryption에서 BYOK(Bring Your Own Key)를 가져올 수 있나요?
 
@@ -133,10 +146,17 @@ Windows용 "Bek volume" 또는 Linux용 "/mnt/azure_bek_disk"는 암호화된 Az
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure Disk Encryption에는 어떤 암호화 방법이 사용되나요?
 
-Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 이전 버전의 경우 AES256WithDiffuser)이 사용됩니다. Linux의 경우 ADE에 256비트 볼륨 마스터 키와 함께 aes-xts-plain64의 dmcrypt 기본값이 사용됩니다.
+Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 이전 버전의 경우 AES256WithDiffuser)이 사용됩니다. Linux, ADE 암호 해독에 대 한 기본값인 plain64 xts-aes-256 비트 볼륨 마스터 키로 사용합니다.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll을 사용하고 모든 볼륨 유형을 지정하면 이미 암호화한 데이터 드라이브에서 데이터가 지워지나요?
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.        
+
+## <a name="is-xfs-filesystem-supported"></a>XFS 파일 시스템 지원 되나요?
+데이터 디스크 암호화에 대 한 XFS 볼륨은 지원 됩니다. XFS를 사용 하 여 현재 포맷 된 볼륨을 암호화 하려면 EncryptFormatAll 옵션을 지정 합니다. 이 볼륨을 다시 포맷 됩니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>백업 및 암호화 된 VM을 복원할 수 있나요? 
+
+Azure 백업은 백업 및 암호화 된 VM의 동일한 구독 및 지역 내에서 복원 하는 메커니즘을 제공 합니다.  지침을 참조 하세요 [백업 및 Azure Backup을 사용 하 여 암호화 된 가상 머신 복원](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)합니다.  암호화 된 VM을 다른 지역으로 복원 현재 지원 되지 않습니다.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>질문을 하거나 의견을 제출할 수 있는 곳은 어디인가요?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f73f6a9cf274de207305cfd90e089a549088dd06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088743"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -55,27 +55,27 @@ ms.locfileid: "55817617"
 
 ## <a name="installation-error-codes"></a>설치 오류 코드
 
-| 오류 코드 | 의미 |
-| --- | --- |
+| 오류 코드 | 의미 | |
+| --- | --- | --- |
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
-| 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
-| 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
-| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
-| 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
-| 19 | OMI 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
-| 20 | SCX 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
-| 21 | 공급자 키트 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
-| 22 | 번들 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
-| 23 | SCX 또는 OMI 패키지가 이미 설치되어 있습니다. `--install` 대신 `--upgrade`를 사용하여 셸 번들을 설치하세요. |
-| 30 | 내부 번들 오류가 있습니다. 출력의 세부 정보를 포함하여 [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출하세요. |
-| 55 | 지원되지 않는 openssl 버전이거나, Log Analytics 서비스에 연결할 수 없거나, dpkg가 잠겨 있거나, curl 프로그램이 없습니다. |
-| 61 | Python ctypes 라이브러리가 없습니다. Python ctypes 라이브러리 또는 패키지(python-ctypes)를 설치합니다. |
-| 62 | tar 프로그램이 없습니다. tar를 설치하세요. |
-| 63 | sed 프로그램이 없습니다. sed를 설치하세요. |
-| 64 | curl 프로그램이 없습니다. curl을 설치하세요. |
-| 65 | gpg 프로그램이 없습니다. gpg를 설치하세요. |
+| 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. | |
+| 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. | |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. | |
+| 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. | |
+| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-\*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-\*x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. | |
+| 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. | |
+| 19 | OMI 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. | |
+| 20 | SCX 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. | |
+| 21 | 공급자 키트 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. | |
+| 22 | 번들 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. | |
+| 23 | SCX 또는 OMI 패키지가 이미 설치되어 있습니다. `--install` 대신 `--upgrade`를 사용하여 셸 번들을 설치하세요. | |
+| 30 | 내부 번들 오류가 있습니다. 출력의 세부 정보를 포함하여 [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출하세요. | |
+| 55 | 지원되지 않는 openssl 버전이거나, Log Analytics 서비스에 연결할 수 없거나, dpkg가 잠겨 있거나, curl 프로그램이 없습니다. | |
+| 61 | Python ctypes 라이브러리가 없습니다. Python ctypes 라이브러리 또는 패키지(python-ctypes)를 설치합니다. | |
+| 62 | tar 프로그램이 없습니다. tar를 설치하세요. | |
+| 63 | sed 프로그램이 없습니다. sed를 설치하세요. | |
+| 64 | curl 프로그램이 없습니다. curl을 설치하세요. | |
+| 65 | gpg 프로그램이 없습니다. gpg를 설치하세요. | |
 
 ## <a name="onboarding-error-codes"></a>온보딩 오류 코드
 
@@ -161,17 +161,17 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 ### <a name="resolution"></a>해결 방법
 1. 다음 명령과 `-v` 옵션을 사용하여 Linux용 Log Analytics 에이전트가 있는 Log Analytics 서비스에 다시 등록합니다. 이렇게 하면 프록시를 통해 Log Analytics 서비스에 연결하는 에이전트에 대한 자세한 출력이 허용됩니다. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 Log Analytics 엔드포인트가 허용 목록에 있는지 한 번 더 확인합니다.
+1. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
+1. 다음 Log Analytics 엔드포인트가 허용 목록에 있는지 한 번 더 확인합니다.
 
-    |에이전트 리소스| 포트 | 방향 |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
-    |*.oms.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
-    |\*.blob.core.windows.net | 포트 443| 인바운드 및 아웃바운드 |  
-    |* .azure-automation.net | 포트 443| 인바운드 및 아웃바운드 | 
+     |에이전트 리소스| 포트 | 방향 |
+     |------|---------|----------|  
+     |*.ods.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
+     |*.oms.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
+     |\*.blob.core.windows.net | 포트 443| 인바운드 및 아웃바운드 |  
+     |* .azure-automation.net | 포트 443| 인바운드 및 아웃바운드 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 
@@ -366,15 +366,15 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * **다음 구성을 Linux 서버에 적용** 설정을 선택하지 않았습니다.
 * omsconfig가 서비스의 최신 사용자 지정 로그 구성을 선택하지 않았습니다.
 * 권한이 없어서 또는 사용자 지정 로그가 없어서 Linux 사용자용 Log Analytics 에이전트 `omsagent`가 사용자 지정 로그에 액세스할 수 없습니다.  다음 오류가 표시될 수 있습니다.
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Linux용 Log Analytics 에이전트 버전 1.1.0-217에서 수정된 경합 조건 문제입니다.
 
 ### <a name="resolution"></a>해결 방법
 1. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 파일이 있는지 확인하여 Log Analytics 등록이 성공했는지 확인합니다. 실패한 경우 둘 중 하나를 수행합니다.  
 
-  1. omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
-  2. Azure Portal의 **고급 설정** 아래에서 **다음 구성을 Linux 서버에 적용** 설정을 사용합니다.  
+   1. omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
+   2. Azure Portal의 **고급 설정** 아래에서 **다음 구성을 Linux 서버에 적용** 설정을 사용합니다.  
 
 2. `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` 명령을 실행하여 `omsconfig` 에이전트가 Log Analytics 서비스와 통신할 수 있는지 확인합니다.  이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Log Analytics 서비스와 통신하여 최신 구성을 검색하도록 강제합니다.
 
@@ -408,9 +408,9 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>해결 방법 
 다음 단계에 따라 문제를 해결합니다.
 1. Azure Portal에서 확장을 제거합니다.
-2. [지침](../../azure-monitor/learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
-3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
-* 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
+1. [지침](../../azure-monitor/learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
+1. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
+1. 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>문제: Log Analytics 에이전트 주문형 업그레이드

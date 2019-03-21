@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301862"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102437"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 Azure AD를 사용 하 여 배포 해야 [다중 테 넌 트 활성화](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK 설치 합니다.
 
-> [!NOTE]  
+> [!NOTE]
 > Azure Stack 등록에 사용 된 도메인 이름을 포털에 추가 되어야 하는 Azure Stack 포털에 로그인 할 Azure Stack 등록을 사용 하는 것 이외의 도메인의 관리자 또는 사용자 계정이 사용 되 면 url입니다. 예를 들어 fabrikam.onmicrosoft.com Azure Stack에 등록 된 경우 사용자 계정 로그인 이며 admin@contoso.com에 사용자 포털에 로그인 하는 데 url: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,15 +3,15 @@ title: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구�
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 재해 복구를 위해 VMware VM 복제를 사용하도록 설정하는 방법을 설명합니다.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 1/29/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098698"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -39,6 +39,12 @@ VMware 가상 머신을 복제하는 경우:
 
 ## <a name="enable-replication"></a>복제 사용
 
+>[!NOTE]
+>* Azure Site Recovery는 이제 모든 새 복제에 대 한 Managed Disks로 직접 복제합니다. 프로세스 서버는 대상 지역의 캐시 저장소 계정에 복제 로그를 기록합니다. 이러한 로그 복제본 관리 디스크의 복구 지점을 만드는 데 사용 됩니다. 
+>* 장애 조치 시 고객이 선택한 복구 지점이 대상 관리 되는 디스크를 만드는 데 사용 됩니다.
+>* 대상 저장소 계정에 복제 하도록 이전에 구성 된 Vm에는 영향이 없습니다. 
+>* 새 컴퓨터에 대 한 저장소 계정에 대 한 복제만 REST API 및 Powershell을 통해 제공 됩니다. 저장소 계정에 복제 하기 위한 API 버전 2016-08-10 또는 2018-01-10을 사용 합니다.
+
 1. **2단계: 애플리케이션 복제** > **원본**을 클릭합니다. 처음으로 복제를 활성화한 후 자격 증명 모음에서 **+복제**를 클릭하여 추가 컴퓨터에 대해 복제를 활성화합니다.
 2. **원본** 페이지 > **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **Virtual Machines** 또는 **물리적 컴퓨터**를 선택합니다.
@@ -49,36 +55,30 @@ VMware 가상 머신을 복제하는 경우:
 
 6. **대상**에서 장애 조치 가상 머신을 만들려는 구독 및 리소스 그룹을 선택합니다. 장애 조치 가상 머신에 대해 Azure에서 사용하려는 배포 모델을 선택합니다.
 
-7. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 
+7. 장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 네트워크가 없는 경우 만들어야 합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 해당하는 경우 서브넷을 선택하고 **확인**을 클릭합니다.
+   
+   ![복제 대상 설정 사용](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-    > [!NOTE]
-
-    >   * 프리미엄 또는 표준 저장소 계정을 선택할 수 있습니다. 프리미엄 계정을 선택하는 경우 지속적인 복제 로그를 위한 추가 표준 저장소 계정을 지정해야 합니다. 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
-    >   * 다른 저장소 계정을 사용하려면 [새로 만들](../storage/common/storage-create-storage-account.md)면 됩니다. Resource Manager 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 
-
-8. 장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 네트워크가 없는 경우 만들어야 합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 해당하는 경우 서브넷을 선택하고 **확인**을 클릭합니다.
-
-    ![복제 대상 설정 사용](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
+8. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
 
     ![복제 사용 가상 머신 선택](./media/vmware-azure-enable-replication/enable-replication5.png)
-10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용되는 계정을 선택합니다.  
-11. 기본적으로 모든 디스크가 복제됩니다. 디스크를 복제에서 제외하려면 **모든 디스크**를 클릭하고 복제하지 않으려는 디스크를 지웁니다.  그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다. 디스크 제외에 대해 [자세히 알아보세요](vmware-azure-exclude-disk.md).
+
+9. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용되는 계정을 선택합니다. 또한 원하는 복제 하 여 데이터를 기반으로 관리 디스크를 대상 유형의 변동 패턴을 선택 합니다.
+10. 기본적으로 원본 컴퓨터의 모든 디스크가 복제 됩니다. 복제에서 디스크를 제외 하려면 선택 취소 **Include** 복제 하지 않으려는 모든 디스크에 대 한 확인란을 선택 합니다.  그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다. 디스크 제외에 대해 [자세히 알아보세요](vmware-azure-exclude-disk.md).
 
     ![복제 사용 속성 구성](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-12. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책 설정을 수정할 수 있습니다. 정책에 적용하는 변경 내용은 복제 및 새 컴퓨터에도 적용됩니다.
-13. 컴퓨터를 복제 그룹으로 수집하려는 경우 **다중 VM 일관성**을 사용합니다. 그룹에 대한 이름을 지정하고 **확인**을 클릭합니다. 
+11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책 설정을 수정할 수 있습니다. 정책에 적용하는 변경 내용은 복제 및 새 컴퓨터에도 적용됩니다.
+12. 컴퓨터를 복제 그룹으로 수집하려는 경우 **다중 VM 일관성**을 사용합니다. 그룹에 대한 이름을 지정하고 **확인**을 클릭합니다. 
 
     > [!NOTE]
-
+    > 
     >    * 복제 그룹의 컴퓨터는 함께 복제되고 장애 조치(failover) 시 공유 크래시 일관성 및 앱 일관성 복구 지점을 갖습니다.
     >    * 워크로드를 미러링하도록 VM 및 물리적 서버를 함께 수집합니다. 다중 VM 일관성을 사용하면 워크로드 성능에 영향을 줄 수 있습니다. 컴퓨터가 동일한 워크로드를 실행하고 일관성이 필요한 경우에만 사용합니다.
 
     ![복제 사용](./media/vmware-azure-enable-replication/enable-replication7.png)
-14. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
-
-
+    
+13. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 ## <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
 
@@ -87,17 +87,17 @@ VMware 가상 머신을 복제하는 경우:
 1. **설정** > **복제된 항목**을 클릭하고 컴퓨터를 선택합니다. **Essentials** 페이지는 컴퓨터 설정 및 상태에 대한 정보를 표시합니다.
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
 3. **컴퓨팅 및 네트워크** > **컴퓨팅 속성**에서 여러 VM 속성을 변경할 수 있습니다.
-* Azure VM 이름 - 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다.
-* 대상 VM 크기 또는 유형 - 원본 VM 크기를 기준으로 기본 VM 크기가 선택됩니다. 장애 조치(failover) 전에 언제든지 필요에 따라 다른 VM 크기를 선택할 수 있습니다. 원본 디스크도 VM 디스크 크기의 기준이 됩니다. VM 디스크 크기는 장애 조치(failover) 후에만 변경할 수 있습니다. [디스크에 대한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md) 문서에서 디스크 크기 및 IOPS에 대해 자세히 알아봅니다.
+   * Azure VM 이름 - 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다.
+   * 대상 VM 크기 또는 VM 유형-기본 VM 크기를 기준으로 선택 됩니다 원본 VM 크기입니다. 장애 조치(failover) 전에 언제든지 필요에 따라 다른 VM 크기를 선택할 수 있습니다. 원본 디스크도 VM 디스크 크기의 기준이 됩니다. VM 디스크 크기는 장애 조치(failover) 후에만 변경할 수 있습니다. [디스크에 대한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md) 문서에서 디스크 크기 및 IOPS에 대해 자세히 알아봅니다.
 
-    ![계산 및 네트워크 속성](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![계산 및 네트워크 속성](./media/vmware-azure-enable-replication/vmproperties.png)
 
-*  리소스 그룹 - 사후 장애 조치(failover)에 포함되는 컴퓨터가 속한 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(Failover) 전에 언제든지 이 설정을 변경할 수 있습니다. 사후 장애 조치(Failover) 시 컴퓨터를 다른 리소스 그룹으로 마이그레이션하는 경우 해당 컴퓨터의 보호 설정이 중단됩니다.
-* 가용성 세트 - 컴퓨터가 사후 장애 조치(failover)에 포함되어야 하는 경우 [가용성 세트](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)를 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음에 유의하세요.
+   * 리소스 그룹 - 사후 장애 조치(failover)에 포함되는 컴퓨터가 속한 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(Failover) 전에 언제든지 이 설정을 변경할 수 있습니다. 사후 장애 조치(Failover) 시 컴퓨터를 다른 리소스 그룹으로 마이그레이션하는 경우 해당 컴퓨터의 보호 설정이 중단됩니다.
+   * 가용성 세트 - 컴퓨터가 사후 장애 조치(failover)에 포함되어야 하는 경우 [가용성 세트](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)를 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음에 유의하세요.
 
-    * 지정된 리소스 그룹에 속하는 가용성 집합만 나열됩니다.  
-    * 다른 가상 네트워크를 사용하는 컴퓨터는 동일한 가용성 집합에 속할 수 없습니다.
-    * 동일한 크기의 가상 머신만 가용성 집합의 일부가 될 수 있습니다.
+       * 지정된 리소스 그룹에 속하는 가용성 집합만 나열됩니다.  
+       * 다른 가상 네트워크를 사용하는 컴퓨터는 동일한 가용성 집합에 속할 수 없습니다.
+       * 동일한 크기의 가상 머신만 가용성 집합의 일부가 될 수 있습니다.
 4. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당된 IP 주소에 대한 정보를 보고 추가할 수 있습니다.
 5. **디스크**에서 복제될 VM의 운영 체제 및 데이터 디스크를 볼 수 있습니다.
 

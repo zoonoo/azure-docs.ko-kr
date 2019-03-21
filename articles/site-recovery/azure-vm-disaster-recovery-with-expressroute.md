@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087876"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -91,11 +91,11 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
     - **원본 vNet2**: 10.2.0.0/24.
     - 각 스포크 가상 네트워크는 **허브 vNet**에 연결됩니다.
 - **허브 vNet**. 허브 vNet **원본 허브 vNet**: 10.10.10.0/24가 있습니다.
-    - 이 허브 vNet은 게이트키퍼 역할을 합니다.
-    - 서브넷 간 통신은 모두 이 허브를 통해 이루어집니다.
- - ****허브 vNet 서브넷**. 허브 vNet에는 두 개의 서브넷에 있습니다.
-     - **NVA 서브넷**: 10.10.10.0/25. 이 서브넷은 NVA(10.10.10.10)를 포함합니다.
-     - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 개인 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
+  - 이 허브 vNet은 게이트키퍼 역할을 합니다.
+  - 서브넷 간 통신은 모두 이 허브를 통해 이루어집니다.
+    - ****허브 vNet 서브넷**. 허브 vNet에는 두 개의 서브넷에 있습니다.
+    - **NVA 서브넷**: 10.10.10.0/25. 이 서브넷은 NVA(10.10.10.10)를 포함합니다.
+    - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 개인 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
 - 온-프레미스 데이터 센터에는 홍콩의 파트너 에지를 통해 ExpressRoute 회로에 연결됩니다.
 - 모든 라우팅은 Azure 경로 테이블(UDR)을 통해 제어됩니다.
 - vNet 간 또는 온-프레미스 데이터 센터에 대한 모든 아웃바운드 트래픽은 NVA를 통해 라우팅됩니다.

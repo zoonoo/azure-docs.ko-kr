@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091990"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 
@@ -42,10 +42,10 @@ ms.locfileid: "57775291"
 
 Azure Stack 월별 업데이트 확인 워크플로 실행 중인 경우 OEM 업데이트 패키지의 버전은 1810 이상의 OEM 업데이트 단계를 가져오면는 오류가 발생 합니다. 이 버그입니다. 수정 프로그램은 개발 중입니다. 완화 단계를 아래와 같습니다.
 
-1.  OEM 업데이트가 정상적으로 실행 합니다.
-2.  패키지의 응용 프로그램 성공 후 AzureStack 테스트를 실행 하 고 출력을 저장 합니다.
-3.  테스트를 취소 합니다.
-4.  저장 된 출력을 보낼 VaaSHelp@microsoft.com 실행에 대 한 전달 결과 받을 수 있습니다.
+1. OEM 업데이트가 정상적으로 실행 합니다.
+2. 패키지의 응용 프로그램 성공 후 AzureStack 테스트를 실행 하 고 출력을 저장 합니다.
+3. 테스트를 취소 합니다.
+4. 저장 된 출력을 보낼 VaaSHelp@microsoft.com 실행에 대 한 전달 결과 받을 수 있습니다.
 
 ## <a name="version-402"></a>버전 4.0.2
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084813"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -82,7 +82,7 @@ Spout를 조정하도록 다음 설정을 수정할 수 있습니다.
 
 - **보류 중인 최대 Spout: topology.max.spout.pending** 이 설정은 언제든지 Spout 스레드당 처리할 수 있는(토폴로지의 모든 노드에서 아직 승인되지 않은) 튜플 수를 결정합니다.
 
- 수행할 수 있는 적절한 계산은 각 튜플의 크기를 예상하는 것입니다. 그런 다음 한 개의 Spout 스레드에 지정된 메모리 양을 파악합니다. 스레드에 할당된 총 메모리를 이 값으로 나누어 보류 중인 최대 Spout 매개 변수에 대한 상한을 제공합니다.
+  수행할 수 있는 적절한 계산은 각 튜플의 크기를 예상하는 것입니다. 그런 다음 한 개의 Spout 스레드에 지정된 메모리 양을 파악합니다. 스레드에 할당된 총 메모리를 이 값으로 나누어 보류 중인 최대 Spout 매개 변수에 대한 상한을 제공합니다.
 
 ## <a name="tune-the-bolt"></a>Bolt 조정
 Data Lake Storage Gen1에 기록할 경우 크기 동기화 정책(클라이언트 쪽에서 버퍼)을 4MB로 설정합니다. 그러면 버퍼 크기가 이 값일 때만 플러시 또는 hsync()가 수행됩니다. 사용자가 hsync()를 명시적 수행하지 않으면 작업자 VM의 Data Lake Storage Gen1 드라이버는 이 버퍼링을 자동으로 수행합니다.
@@ -98,7 +98,7 @@ Storm에서 Spout는 튜플이 Bolt에 의해 명시적으로 승인될 때까�
 최상의 Data Lake Storage Gen1 성능을 위해 Bolt가 4MB의 튜플 데이터를 버퍼링합니다. 그런 다음 Data Lake Storage Gen1 백 엔드에 하나의 4MB 쓰기로 작성합니다. hflush()를 호출하여 저장소에 데이터를 성공적으로 기록한 후에 Bolt가 데이터를 Spout으로 다시 승인할 수 있습니다. 여기에 제공된 Bolt 예제에서 이 작업을 수행합니다. 또한 hflush() 호출을 수행하고 튜플을 승인하기 전에 많은 수의 튜플을 보유하는 것도 가능합니다. 하지만 이 경우 Spout이 보유해야 하는 진행 중인 튜플 수가 증가하므로 JVM당 필요한 메모리 양이 늘어납니다.
 
 > [!NOTE]
-애플리케이션에는 기타 성능 이외의 이유로 더욱 자주(4MB 미만의 데이터 크기로) 튜플을 승인하도록 요청해야 합니다. 그러나 저장소 백 엔드에 대한 I/O 처리량에 영향을 줄 수 있습니다. Bolt의 I/O 성능에 대해 이러한 균형 유지를 신중하게 평가합니다.
+> 애플리케이션에는 기타 성능 이외의 이유로 더욱 자주(4MB 미만의 데이터 크기로) 튜플을 승인하도록 요청해야 합니다. 그러나 저장소 백 엔드에 대한 I/O 처리량에 영향을 줄 수 있습니다. Bolt의 I/O 성능에 대해 이러한 균형 유지를 신중하게 평가합니다.
 
 들어오는 튜플 비율이 높지 않으므로 4MB 버퍼를 채우는 데 시간이 오래 걸리고 다음과 같은 방법으로 이를 완화하는 것을 고려합니다.
 * Bolt 수를 줄이면 채울 버퍼 수가 줄어듭니다.

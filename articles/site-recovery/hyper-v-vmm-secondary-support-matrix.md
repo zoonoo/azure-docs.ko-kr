@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103097"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -58,10 +58,10 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니요 
-게스트 VM - NIC 팀 | 아니요
+호스트 - IPv6 | 아닙니다. 
+게스트 VM - NIC 팀 | 아닙니다.
 게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니요
+게스트 VM - IPv6 | 아닙니다.
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
 게스트 VM - 다중 NIC | 예
 
@@ -72,7 +72,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 **Storage(호스트)** | **지원됨**
 --- | --- 
-NFS | 해당 없음
+NFS | N/A
 SMB 3.0 |  예
 SAN(ISCSI) | 예
 다중 경로(MPIO) | 예
@@ -81,19 +81,19 @@ SAN(ISCSI) | 예
 
 **구성** | **지원됨**
 --- | --- | 
-VMDK |  해당 없음
+VMDK |  N/A
 VHD/VHDX | 예(최대 16개 디스크)
 2세대 VM | 예
-공유 클러스터 디스크 | 아니요
-암호화된 디스크 | 아니요
-UEFI| 해당 없음
-NFS | 아니요
-SMB 3.0 | 아니요
-RDM | 해당 없음
+공유 클러스터 디스크 | 아닙니다.
+암호화된 디스크 | 아닙니다.
+UEFI| N/A
+NFS | 아닙니다.
+SMB 3.0 | 아닙니다.
+RDM | N/A
 디스크 > 1TB | 예
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
 저장소 공간 | 예
-디스크 핫 추가/제거 | 아니요
+디스크 핫 추가/제거 | 아닙니다.
 디스크 제외 | 예
 다중 경로(MPIO) | 예
 
@@ -101,15 +101,15 @@ RDM | 해당 없음
 
 **작업** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아닙니다.
+리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다.
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
 **최신** | **업데이트**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 
 

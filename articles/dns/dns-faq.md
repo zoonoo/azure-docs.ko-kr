@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511975"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098096"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -42,7 +42,7 @@ Azure는 유효한 DNS 요청에 대해 100%의 시간 동안 하나 이상의 A
 
 도메인은 Domain Name System의 고유 이름입니다. 예를 들어 contoso.com이 있습니다.
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 레코드에는 메일 서버에 대한 mail.contoso.com과 웹 사이트에 대한 www.contoso.com이 포함될 수 있습니다. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
+DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 레코드를 메일 서버에 www mail.contoso.com 포함 될 수 있습니다\.contoso.com 웹 사이트에 대 한 합니다. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
 
 도메인 이름은 *단지 이름일 뿐입니다*. DNS 영역은 도메인 이름의 DNS 레코드를 포함하는 데이터 리소스입니다. Azure DNS를 사용하여 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 또한 인터넷의 DNS 쿼리에 응답하기 위해 DNS 이름 서버를 제공합니다.
 
@@ -239,7 +239,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 예. 먼저 개인 영역에서 연결을 해제하지 않고 등록 또는 확인 가상 네트워크를 삭제하면 삭제 작업이 성공합니다. 그렇지만 가상 네트워크가 개인 영역에서 자동으로 연결 해제되지는 않습니다. 수동으로 개인 영역에서 가상 네트워크 연결을 해제해야 합니다. 이러한 이유로, 연결을 삭제하기 전에 먼저 개인 영역에서 가상 네트워크의 연결을 해제합니다.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>기본 FQDN(internal.cloudapp.net)을 사용하는 DNS 확인은 개인 영역(예: contoso.local)이 가상 네트워크에 연결되어 있어도 제대로 작동하나요?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>DNS 확인의 기본 FQDN (internal.cloudapp.net)를 사용 하 여 계속 작동 개인 영역 (예를 들어 private.contoso.com) 가상 네트워크에 연결 된 경우에?
 
 예. 개인 영역은 Azure에서 제공한 internal.cloudapp.net 영역을 사용하여 기본 DNS 확인을 대체하지 않습니다. 이 영역은 추가 기능 또는 향상된 기능으로 제공됩니다. Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 개인 영역을 신뢰하는지에 관계없이 확인하려는 영역의 FQDN을 사용하도록 합니다. 
 
@@ -262,7 +262,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>개인 영역의 영역 또는 레코드에 대해 할당량 또는 제한이 있나요?
 
-개인 영역의 구독당 허용되는 영역 수에는 제한이 없습니다. 개인 영역에 대한 영역당 레코드 집합 수에는 제한이 없습니다. 공용 및 개인 영역은 전체 DNS 제한을 초과하지 않습니다. 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md#dns-limits)을 참조하세요.
+개인 영역의 구독당 허용되는 영역 수에는 제한이 없습니다. 개인 영역에 대한 영역당 레코드 집합 수에는 제한이 없습니다. 공용 및 개인 영역은 전체 DNS 제한을 초과하지 않습니다. 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md#azure-dns-limits)을 참조하세요.
 
 ### <a name="is-there-portal-support-for-private-zones"></a>개인 영역에 대한 포털 지원이 있나요?
 

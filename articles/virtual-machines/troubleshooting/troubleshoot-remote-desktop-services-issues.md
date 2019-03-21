@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215119"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003147"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -44,7 +44,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
     **작업 범주**: 없음</br>
     **수준**:         오류</br>
     **키워드**:      클래식</br>
-    **사용자**:          해당 없음</br>
+    **사용자**:          N/A</br>
     **컴퓨터**: vm.contoso.com</br>
     **설명**: 원격 데스크톱 서비스가 시작 시 멈춤. 
 
@@ -58,7 +58,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 - TermService 서비스가 **사용 안 함**으로 설정됩니다. 
 - TermService 서비스가 충돌하거나 중단됩니다. 
-- TermService가 잘못된 구성으로 인해 시작되지 않습니다.
+- 잘못 된 구성에는 TermService이 때문에 시작 되지 않음.
 
 ## <a name="solution"></a>해결 방법
 
@@ -99,7 +99,8 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
     |  오류 |  제안 |
     |---|---|
-    |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termService-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스 사용 안 함](#termService-service-is-disabled)을 참조하세요.  |  
+    |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termService-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스 사용 안 함](#termService-service-is-disabled)을 참조하세요.  |  
     |1058 - ERROR_SERVICE_DISABLED  |[TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요.  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.|
     |1067 - ERROR_PROCESS_ABORTED  |[TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요.  |
@@ -108,7 +109,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
     |1070 - ERROR_SERVICE_START_HANG   | [TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요. |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | [TermService 서비스 사용 안 함](#termService-service-is-disabled)을 참조하세요.  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. |
-    |1753   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.   |   |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termService-service-is-stopped-because-of-an-access-denied-error)을 참조하세요. |
+    |1753   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>액세스 거부 문제로 인해 TermService 서비스가 중지됨
 
@@ -205,7 +206,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 디스크 관리 콘솔에서 연결된 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
-3.  관리자 권한 명령 프롬프트 인스턴스를 엽니다(**관리자 권한으로 실행**). 그런 다음, 다음 스크립트를 실행합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 **F**라고 가정합니다. 사용자 VM의 적절한 값으로 바꿉니다. 
+3. 관리자 권한 명령 프롬프트 인스턴스를 엽니다(**관리자 권한으로 실행**). 그런 다음, 다음 스크립트를 실행합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 **F**라고 가정합니다. 사용자 VM의 적절한 값으로 바꿉니다. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
