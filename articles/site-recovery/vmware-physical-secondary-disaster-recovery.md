@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 29ced587022bc15e82c756cb5f1b80554cfcceb2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009417"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -50,11 +50,11 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 --|--|--
 **필수 구성 요소** |복제된 머신의 모바일 서비스. 온-프레미스 구성 서버, 프로세스 서버, 마스터 대상 서버. 장애 복구를 위한 Azure의 임시 프로세스 서버.|모바일 서비스, 프로세스 서버, 구성 서버 및 마스터 대상
 **구성 및 오케스트레이션** |Azure Portal의 Recovery Services 자격 증명 모음 | vContinuum 사용 
-**복제됨**|디스크(Windows 및 Linux) |볼륨-Windows<br> 디스크-Linux
-**공유된 디스크 클러스터**|지원되지 않음|지원됨
+**복제됨** |디스크(Windows 및 Linux) |볼륨-Windows<br> 디스크-Linux
+**공유된 디스크 클러스터** |지원되지 않음|지원됨
 **데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세히 알아보기](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
 **모니터링** |Azure Portal에서|CX(구성 서버)에서
-**지원 매트릭스**| [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
+**지원 매트릭스** | [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -81,52 +81,52 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 >모든 Scout 구성 요소의 파일 업데이트 버전이 업데이트 .zip 파일에서 같지 않을 수 있습니다. 이전 버전인 경우는 이 업데이트의 이전 업데이트 이후에 구성 요소가 변경되지 않았음을 나타냅니다.
 
 [업데이트](https://aka.ms/asr-scout-update7) .zip 파일 및 [MySQL 및 PHP 업그레이드](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) 구성 파일을 다운로드합니다. 업데이트 .zip 파일은 모든 기본 이진 파일 및 다음 구성 요소의 누적 업그레이드 이진 파일을 포함합니다. 
-  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
-  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
-  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-1. .zip 파일의 압축을 풉니다.
-2. **RX 서버**: **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz**를 RX 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
-4. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 새 설치에 동일한 파일을 사용할 수도 있습니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다.
+- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  1. .zip 파일의 압축을 풉니다.
+  2. **RX 서버**: **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz**를 RX 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+  4. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 새 설치에 동일한 파일을 사용할 수도 있습니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다.
   **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-5. **vContinuum 서버**:  **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
-6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 Linux 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
-8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-9. 위에 언급한 설치 관리자를 사용하여 구성 서버, 프로세스 서버 및 RX 서버를 업그레이드한 후 PHP 및 MySQL 라이브러리는 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)의 섹션 7.4에 설명된 단계를 사용하여 수동으로 업그레이드되어야 합니다.
+  5. **vContinuum 서버**:  **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+  6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 Linux 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
+  8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  9. 위에 언급한 설치 관리자를 사용하여 구성 서버, 프로세스 서버 및 RX 서버를 업그레이드한 후 PHP 및 MySQL 라이브러리는 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)의 섹션 7.4에 설명된 단계를 사용하여 수동으로 업그레이드되어야 합니다.
 
 ## <a name="enable-replication"></a>복제 사용
 
@@ -159,7 +159,7 @@ Scout 업데이트 7은 새 설치 및 이전 업데이트(업데이트1~업데�
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>CS,PS 및 RX에서 PHP 및 MySQL에 대한 수동 업그레이드
 PHP 스크립팅 플랫폼은 구성 서버, 프로세스 서버 및 RX 서버에서 7.2.10 버전으로 업그레이드되어야 합니다.
 MySQL 데이터베이스 관리 시스템은 구성 서버, 프로세스 서버 및 RX 서버에서 5.7.23 버전으로 업그레이드되어야 합니다.
-[빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)에서 제공된 수동 단계를 따라 PHP 및 MySQL 버전을 업그레이드합니다.
+에 지정 된 수동 단계를 따르세요 합니다 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide) PHP 및 MySQL 버전을 업그레이드 합니다.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
 업데이트: 2017년 10월 12일
@@ -183,23 +183,23 @@ Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 
 >모든 Scout 구성 요소의 파일 업데이트 버전이 업데이트 .zip 파일에서 같지 않을 수 있습니다. 이전 버전인 경우는 이 업데이트의 이전 업데이트 이후에 구성 요소가 변경되지 않았음을 나타냅니다.
 
 [update](https://aka.ms/asr-scout-update6) zip 파일을 다운로드합니다. 파일에는 다음 구성 요소가 포함됩니다. 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-1. .zip 파일의 압축을 풉니다.
-2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
-4. **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
+- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. .zip 파일의 압축을 풉니다.
+  2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+  4. **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
   **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-5. **vContinuum 서버**:  **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
-    **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
-    업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
-8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  5. **vContinuum 서버**:  **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+  **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+  6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+  7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
+  업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
+  8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 
 
 > [!NOTE]
@@ -276,9 +276,9 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** 기본 패키지에 포함된 항목:
-    * 업데이트된 구성 서버 기본 설치 관리자(**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-    * Windows 마스터 대상 기본 설치 관리자(**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-    * 모든 새 설치에서는 새 구성 서버 및 Windows 마스터 대상 GA 비트를 사용합니다.
+>     * 업데이트된 구성 서버 기본 설치 관리자(**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * Windows 마스터 대상 기본 설치 관리자(**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * 모든 새 설치에서는 새 구성 서버 및 Windows 마스터 대상 GA 비트를 사용합니다.
 > * 업데이트 4는 8.0.1 GA에 직접 적용할 수 있습니다.
 > * 구성 서버 및 RX 업데이트는 적용된 후에 롤백할 수 없습니다.
 

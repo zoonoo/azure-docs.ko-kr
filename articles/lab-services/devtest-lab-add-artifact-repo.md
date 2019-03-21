@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852494"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
@@ -30,7 +30,7 @@ Microsoft는 그대로 배포하거나 랩에 맞게 사용자 지정할 수 있
 VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사용자 지정한 다음 나중에 추가 VM을 만들 수 있습니다. 사용자 지정 Resource Manager 템플릿을 저장할 개인 리포지토리를 만들어야 합니다.  
 
 * GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
-* Git 리포지토리를 가진 Azure DevOps Services 프로젝트를 만드는 방법을 알아보려면 [Azure DevOps Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+* Git 리포지토리를 가진 Azure DevOps 서비스 프로젝트를 만드는 방법에 알아보려면 참조 [Azure DevOps 서비스에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)합니다.
 
 다음 그림은 아티팩트가 잇는 리포지토리가 GitHub에서 어떻게 표시되는지 보여 주는 예입니다.  
 
@@ -78,18 +78,18 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 두 번째 **리포지토리** 페이지에서 다음 정보를 지정합니다.
-  1. **이름**. 리포지토리의 이름을 입력합니다.
-  2. **Git Clone Url**. 이전에 GitHub 또는 Azure DevOps Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
-  3. **분기**. 정의를 가져오려면 분기를 입력합니다.
-  4. **개인 액세스 토큰**. 이전에 GitHub 또는 Azure DevOps Services에서 가져온 개인 액세스 토큰을 입력합니다.
-  5. **폴더 경로**. 아티팩트 또는 Resource Manager 템플릿 정의가 포함된 복제 URL에 상대적인 폴더 경로를 하나 이상 입력합니다. 하위 디렉터리를 지정하는 경우 폴더 경로에 슬래시를 포함해야 합니다.
+   1. **이름**. 리포지토리의 이름을 입력합니다.
+   2. **Git Clone Url**. 이전에 GitHub 또는 Azure DevOps Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
+   3. **분기**. 정의를 가져오려면 분기를 입력합니다.
+   4. **개인 액세스 토큰**. 이전에 GitHub 또는 Azure DevOps Services에서 가져온 개인 액세스 토큰을 입력합니다.
+   5. **폴더 경로**. 아티팩트 또는 Resource Manager 템플릿 정의가 포함된 복제 URL에 상대적인 폴더 경로를 하나 이상 입력합니다. 하위 디렉터리를 지정하는 경우 폴더 경로에 슬래시를 포함해야 합니다.
 
-     ![리포지토리 영역](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![리포지토리 영역](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. **저장**을 선택합니다.
 
 ### <a name="related-blog-posts"></a>관련 블로그 게시물
 * [DevTest Labs에서 실패한 아티팩트 문제 해결](devtest-lab-troubleshoot-artifact-failure.md)
-* [DevTest Labs에서 Resource Manager 템플릿을 사용하여 기존 Active Directory 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [DevTest Labs에서 Resource Manager 템플릿을 사용하여 기존 Active Directory 도메인에 VM 가입](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
