@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 46a12307a70125973d36cf0a09b44b32d3279a97
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: a4596b711cd90610051faee0d09501c075548062
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991896"
 ---
-<a name="prerequisites-for-application-curation"></a>애플리케이션 큐레이션을 위한 필수 구성 요소
-===============================
+# <a name="prerequisites-for-application-curation"></a>애플리케이션 큐레이션을 위한 필수 구성 요소
 
 Microsoft에서는 다음 요구 사항이 충족되었는지 유효성을 검사하기 위해 특정 검토를 요구하고 있습니다.
 
@@ -43,4 +42,5 @@ Microsoft에서는 다음 요구 사항이 충족되었는지 유효성을 검�
 - 모델(코드 및 테스트)
 - 마케팅 콘텐츠
 
-자세한 내용은 [앱 큐레이션을 위한 필수 구성 요소](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions)를 참조하세요.
+기술 및 프로세스 요구 사항에 대 한 자세한 내용은 참조 하세요. [Finance and Operations에 대 한 응용 프로그램의 유효성을 검사](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions)합니다.  아직 수행 하는 경우 다음도 검토 합니다 [Office 365, Dynamics 365, PowerApps 및 Power BI 제품 게시 가이드](../appsource-offer-publishing-guide.md)합니다.
+

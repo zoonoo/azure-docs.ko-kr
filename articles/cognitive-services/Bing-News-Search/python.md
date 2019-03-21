@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f6ae2315c14a92d72d2efa03b96397512120ab06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866239"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076720"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>빠른 시작: Python 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -84,4 +84,4 @@ HTML("<table>"+rows+"</table>")
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)
+> [단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

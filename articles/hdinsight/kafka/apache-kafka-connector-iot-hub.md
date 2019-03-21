@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093391"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -168,32 +168,32 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
 
 1. Event Hub 호환 엔드포인트 및 IoT Hub에 대한 Event Hub 호환 엔드포인트 이름을 가져옵니다. 이 정보를 가져오려면 다음 방법 중 하나를 사용합니다.
 
-    * __[Azure Portal](https://portal.azure.com/)__ 에서 다음 단계를 사용하세요.
+   * __[Azure Portal](https://portal.azure.com/)__ 에서 다음 단계를 사용하세요.
 
-        1. IoT Hub로 이동하고  __엔드포인트__를 선택합니다.
-        2. __기본 제공 엔드포인트__에서 __이벤트__를 선택합니다.
-        3. __속성__에서 다음 필드의 값을 복사합니다.
+     1. IoT Hub로 이동하고  __엔드포인트__를 선택합니다.
+     2. __기본 제공 엔드포인트__에서 __이벤트__를 선택합니다.
+     3. __속성__에서 다음 필드의 값을 복사합니다.
 
-            * __Event Hub 호환 이름__
-            * __Event Hub 호환 엔드포인트__
-            * __파티션__
+         * __Event Hub 호환 이름__
+         * __Event Hub 호환 엔드포인트__
+         * __파티션__
 
         > [!IMPORTANT]  
         > 포털에서 엔드포인트 값이 이 예제에서 필요하지 않은 추가 텍스트를 포함할 수 있습니다. 이 패턴 `sb://<randomnamespace>.servicebus.windows.net/`과 일치하는 텍스트를 추출합니다.
 
-    * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
+   * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
 
-        ```azure-cli
-        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
-        ```
+       ```azure-cli
+       az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
+       ```
 
-        `myhubname`을 IoT Hub 이름으로 바꿉니다. 응답은 다음 텍스트와 비슷합니다.
+       `myhubname`을 IoT Hub 이름으로 바꿉니다. 응답은 다음 텍스트와 비슷합니다.
 
-        ```json
-        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
-        "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
-        "Partitions": 2
-        ```
+       ```json
+       "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
+       "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
+       "Partitions": 2
+       ```
 
 2. __공유 액세스 정책__ 및 __키__를 가져옵니다. 이 예에서는 __서비스__ 키를 사용합니다. 이 정보를 가져오려면 다음 방법 중 하나를 사용합니다.
 
@@ -239,16 +239,16 @@ IoT Hub와 작동하도록 원본을 구성하려면 SSH 연결에서 에지 노
 
     편집기에서 다음 항목을 찾아 변경합니다.
 
-    * `Kafka.Topic=PLACEHOLDER`: 을 `iotin`로 바꿉니다. IoT Hub에서 받은 메시지는 `iotin` 항목에 배치됩니다.
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 이름으로 바꿉니다.
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 엔드포인트로 바꿉니다.
-    * `IotHub.Partitions=PLACEHOLDER`: `PLACEHOLDER`를 이전 단계의 파티션 수로 바꿉니다.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: 을 `service`로 바꿉니다.
-    * `IotHub.AccessKeyValue=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책의 기본 키로 바꿉니다.
-    * `IotHub.StartType=PLACEHOLDER`: `PLACEHOLDER`를 UTC 날짜로 바꿉니다. 이 날짜는 커넥터가 메시지에 대한 검사를 시작할 때입니다. 날짜 형식은 `yyyy-mm-ddThh:mm:ssZ`입니다.
-    * `BatchSize=100`: 을 `5`로 바꿉니다. 이 변경으로 인해 IoT Hub에 5개의 새 메시지가 있는 경우 커넥터가 메시지를 Kafka로 읽어 들일 수 있습니다.
+   * `Kafka.Topic=PLACEHOLDER`: 을 `iotin`로 바꿉니다. IoT Hub에서 받은 메시지는 `iotin` 항목에 배치됩니다.
+   * `IotHub.EventHubCompatibleName=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 이름으로 바꿉니다.
+   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 엔드포인트로 바꿉니다.
+   * `IotHub.Partitions=PLACEHOLDER`: `PLACEHOLDER`를 이전 단계의 파티션 수로 바꿉니다.
+   * `IotHub.AccessKeyName=PLACEHOLDER`: 을 `service`로 바꿉니다.
+   * `IotHub.AccessKeyValue=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책의 기본 키로 바꿉니다.
+   * `IotHub.StartType=PLACEHOLDER`: `PLACEHOLDER`를 UTC 날짜로 바꿉니다. 이 날짜는 커넥터가 메시지에 대한 검사를 시작할 때입니다. 날짜 형식은 `yyyy-mm-ddThh:mm:ssZ`입니다.
+   * `BatchSize=100`: 을 `5`로 바꿉니다. 이 변경으로 인해 IoT Hub에 5개의 새 메시지가 있는 경우 커넥터가 메시지를 Kafka로 읽어 들일 수 있습니다.
 
-    예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)을 참조합니다.
+     예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)을 참조합니다.
 
 3. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
@@ -272,10 +272,10 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
 
     편집기에서 다음 항목을 찾아 변경합니다.
 
-    * `topics=PLACEHOLDER`: 을 `iotout`로 바꿉니다. `iotout` 항목에 기록된 메시지는 IoT Hub로 전달됩니다.
-    * `IotHub.ConnectionString=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책에 대한 연결 문자열로 바꿉니다.
+   * `topics=PLACEHOLDER`: 을 `iotout`로 바꿉니다. `iotout` 항목에 기록된 메시지는 IoT Hub로 전달됩니다.
+   * `IotHub.ConnectionString=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책에 대한 연결 문자열로 바꿉니다.
 
-    예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.
+     예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.
 
 3. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 

@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075478"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -56,35 +56,35 @@ Mongoose는 MongoDB 및 Node.js에 사용되는 ODM(개체 데이터 모델링) 
 
 1. 다음 코드를 **mongo.js** 파일에 복사합니다. 이 코드는 다음과 같은 기능을 제공합니다.
 
-    * Mongoose가 필요합니다.
-    * ES6/ES2015 이상 버전에 빌드된 기본 프라미스를 사용하도록 Mongo 프라미스를 재정의합니다.
-    * 준비, 프로덕션, 개발 중 어떤 단계에 있는지에 따라 특정 작업을 설정할 수 있는 env 파일을 호출합니다. 이 파일은 다음 섹션에서 만들 것입니다.
-    * env 파일에서 설정되는 MongoDB 연결 문자열을 포함합니다.
-    * Mongoose를 호출하는 연결 함수를 만듭니다.
+   * Mongoose가 필요합니다.
+   * ES6/ES2015 이상 버전에 빌드된 기본 프라미스를 사용하도록 Mongo 프라미스를 재정의합니다.
+   * 준비, 프로덕션, 개발 중 어떤 단계에 있는지에 따라 특정 작업을 설정할 수 있는 env 파일을 호출합니다. 이 파일은 다음 섹션에서 만들 것입니다.
+   * env 파일에서 설정되는 MongoDB 연결 문자열을 포함합니다.
+   * Mongoose를 호출하는 연결 함수를 만듭니다.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. 탐색기 창에서 **server** 아래에 **environment**라는 폴더를 만듭니다. **environment** 폴더에 **environment.js**라는 파일을 만듭니다.
 

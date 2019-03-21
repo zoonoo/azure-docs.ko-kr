@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108231"
 ---
 # <a name="start-monitoring-your-website"></a>웹 사이트 모니터링 시작
 
@@ -87,7 +87,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. ``hello_world.html``을 편집하고 계측 키를 추가합니다.
@@ -127,7 +127,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 5. 페이지가 여러 개 있는 좀 더 복잡한 웹 사이트를 계측하는 경우 [**사용자 흐름**](../../azure-monitor/app/usage-flows.md) 도구가 유용합니다. **사용자 흐름** 도구를 사용하면 방문자가 웹 사이트의 여러 부분을 탐색하는 경로를 추적할 수 있습니다.
 
-  ![사용자 흐름 시각화](./media/website-monitoring/user-flows.png)
+   ![사용자 흐름 시각화](./media/website-monitoring/user-flows.png)
 
 웹 사이트 모니터링을 위한 고급 구성에 대해 자세히 알아보려면 [JavaScript SDK API 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)를 확인하세요.
 

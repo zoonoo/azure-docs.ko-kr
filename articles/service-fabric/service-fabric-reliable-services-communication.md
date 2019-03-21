@@ -1,6 +1,6 @@
 ---
 title: Reliable Services 통신 개요 | Microsoft Docs
-description: 서비스에서 수신기 열기, 끝점 확인 및 서비스 간 통신을 비롯한 Reliable Services 통신 모델의 개요입니다.
+description: 서비스에서 수신기 열기, 엔드포인트 확인 및 서비스 간 통신을 비롯한 Reliable Services 통신 모델의 개요입니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 62c81368b8a3129b42262cb99cf23a5021744c1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 49f5a74c2fcd45d03119bffbffad6fcf30e72440
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210762"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570558"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
 플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 애플리케이션 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
 
 ## <a name="set-up-service-communication"></a>서비스 통신 설정
-Reliable Services API는 서비스 통신을 위해 간단한 인터페이스를 사용합니다. 서비스에 대한 끝점을 열려면 다음 인터페이스를 구현하기만 하면 됩니다.
+Reliable Services API는 서비스 통신을 위해 간단한 인터페이스를 사용합니다. 서비스에 대한 엔드포인트를 열려면 다음 인터페이스를 구현하기만 하면 됩니다.
 
 ```csharp
 
@@ -96,7 +96,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-두 경우 모두 수신기의 컬렉션을 반환합니다. 이렇게 하면 서비스가 여러 수신기를 사용하여 서로 다른 프로토콜을 잠재적으로 사용하는 다수의 끝점에서 수신할 수 있게 됩니다. 예를 들어 HTTP 수신기 및 별도의 WebSocket 수신기가 있을 수 있습니다. 각 수신기는 이름을 가져오며 *이름 : 주소* 쌍의 결과 콜렉션은 클라이언트가 서비스 인스턴스 또는 파티션에 대한 수신 주소를 요청하는 경우 JSON 개체로 표현됩니다.
+두 경우 모두 수신기의 컬렉션을 반환합니다. 이렇게 하면 서비스가 여러 수신기를 사용하여 서로 다른 프로토콜을 잠재적으로 사용하는 다수의 엔드포인트에서 수신할 수 있게 됩니다. 예를 들어 HTTP 수신기 및 별도의 WebSocket 수신기가 있을 수 있습니다. 각 수신기는 이름을 가져오며 *이름 : 주소* 쌍의 결과 콜렉션은 클라이언트가 서비스 인스턴스 또는 파티션에 대한 수신 주소를 요청하는 경우 JSON 개체로 표현됩니다.
 
 상태 비저장 서비스에서는 재정의가 ServiceInstanceListeners의 컬렉션을 반환합니다. `ServiceInstanceListener`에는 `ICommunicationListener(C#) / CommunicationListener(Java)`를 만들고 이름을 부여하는 함수가 포함되어 있습니다. 상태 저장 서비스에서는 재정의가 ServiceReplicaListeners의 컬렉션을 반환합니다. 이는 `ServiceReplicaListener`에 보조 복제본에서 `ICommunicationListener`를 여는 옵션이 있기 때문에 해당 상태 비저장에 상응하는 것과는 약간 다릅니다. 서비스에서 여러 통신 수신기를 사용할 수 있을 뿐만 아니라 보조 복제본에서 요청을 수락하는 수신기와 주 복제본에서만 수신하는 수신기를 지정할 수도 있습니다.
 
@@ -125,7 +125,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-마지막으로 끝점의 섹션에 있는 [서비스 매니페스트](service-fabric-application-and-service-manifests.md) 에서 서비스에 필요한 끝점을 설명합니다.
+마지막으로 엔드포인트의 섹션에 있는 [서비스 매니페스트](service-fabric-application-and-service-manifests.md) 에서 서비스에 필요한 엔드포인트를 설명합니다.
 
 ```xml
 <Resources>
@@ -137,7 +137,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-통신 수신기는 `ServiceContext`의 `CodePackageActivationContext`에서 할당된 끝점 리소스에 액세스할 수 있습니다. 그런 다음 수신기가 열릴 때 요청을 수신하기 시작할 수 있습니다.
+통신 수신기는 `ServiceContext`의 `CodePackageActivationContext`에서 할당된 엔드포인트 리소스에 액세스할 수 있습니다. 그런 다음 수신기가 열릴 때 요청을 수신하기 시작할 수 있습니다.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -151,7 +151,7 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 ```
 
 > [!NOTE]
-> 끝점 리소스는 전체 서비스 패키지에 공통되며 서비스 패키지가 활성화될 때 서비스 패브릭에서 할당합니다. 동일한 ServiceHost에서 호스팅되는 여러 서비스 복제본은 동일한 포트를 공유할 수 있습니다. 이는 통신 수신기가 포트 공유를 지원해야 한다는 의미입니다. 이에 대한 권장 방법은 통신 수신기가 수신 주소를 생성할 때 파티션 ID 및 복제본/인스턴스 ID를 사용하도록 하는 것입니다.
+> 엔드포인트 리소스는 전체 서비스 패키지에 공통되며 서비스 패키지가 활성화될 때 서비스 패브릭에서 할당합니다. 동일한 ServiceHost에서 호스팅되는 여러 서비스 복제본은 동일한 포트를 공유할 수 있습니다. 이는 통신 수신기가 포트 공유를 지원해야 한다는 의미입니다. 이에 대한 권장 방법은 통신 수신기가 수신 주소를 생성할 때 파티션 ID 및 복제본/인스턴스 ID를 사용하도록 하는 것입니다.
 >
 >
 
@@ -204,8 +204,8 @@ Service Fabric은 클라이언트 및 기타 서비스가 서비스 이름별로
 ## <a name="communicating-with-a-service"></a>서비스와 통신
 Reliable Services API는 서비스와 통신하는 클라이언트를 작성하도록 다음 라이브러리를 제공합니다.
 
-### <a name="service-endpoint-resolution"></a>서비스 끝점 확인
-서비스와 통신하는 첫 번째 단계는 통신하려는 서비스의 파티션 또는 인스턴스의 끝점 주소를 확인하는 것입니다. `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` 유틸리티 클래스는 클라이언트가 런타임 시 서비스의 끝점을 확인할 수 있게 도와주는 기본 항목입니다. 서비스 패브릭 용어로 서비스의 끝점을 결정하는 프로세스를 *서비스 끝점 확인*이라고 합니다.
+### <a name="service-endpoint-resolution"></a>서비스 엔드포인트 확인
+서비스와 통신하는 첫 번째 단계는 통신하려는 서비스의 파티션 또는 인스턴스의 엔드포인트 주소를 확인하는 것입니다. ph x="1" /&gt; 유틸리티 클래스는 클라이언트가 런타임 시 서비스의 엔드포인트를 확인할 수 있게 도와주는 기본 항목입니다. 서비스 패브릭 용어로 서비스의 엔드포인트를 결정하는 프로세스를 *서비스 엔드포인트 확인*이라고 합니다.
 
 클러스터 내의 서비스에 연결하려면 기본 설정을 사용하여 ServicePartitionResolver를 만들 수 있습니다. 다음은 대부분의 상황에 대한 권장 사용법입니다.
 
@@ -216,7 +216,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 끝점으로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 끝점은 동일한 클러스터에 연결하기 위한 다른 끝점입니다. 예: 
+다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예: 
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -269,9 +269,9 @@ CompletableFuture<ResolvedServicePartition> partition =
 일반적으로 클라이언트 코드는 ServicePartitionResolver와 직접 연동할 필요가 없습니다. 이 코드가 생성되면 Reliable Services API의 통신 클라이언트 팩터리에 전달됩니다. 팩터리는 내부적으로 해결 프로그램을 사용하여 서비스와 통신하는 데 사용할 수 있는 클라이언트 개체를 생성합니다.
 
 ### <a name="communication-clients-and-factories"></a>통신 클라이언트 및 팩터리
-통신 팩터리 라이브러리는 확인된 서비스 끝점에 대한 연결을 다시 시도하도록 하는 일반적인 오류 처리 재시도 패턴을 구현합니다. 오류 처리기를 제공하는 동안 팩터리 라이브러리는 재시도 메커니즘을 제공합니다.
+통신 팩터리 라이브러리는 확인된 서비스 엔드포인트에 대한 연결을 다시 시도하도록 하는 일반적인 오류 처리 재시도 패턴을 구현합니다. 오류 처리기를 제공하는 동안 팩터리 라이브러리는 재시도 메커니즘을 제공합니다.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`은 Service Fabric 서비스와 통신할 수 있는 클라이언트를 생성하는 통신 클라이언트 팩터리에서 구현되는 기본 인터페이스를 정의합니다. CommunicationClientFactory의 구현은 클라이언트가 통신하려고 하는 서비스 패브릭 서비스에서 사용하는 통신 스택에 따라 달라집니다. Reliable Services API는 `CommunicationClientFactoryBase<TCommunicationClient>`를 제공합니다. 이는 CommunicationClientFactory 인터페이스의 기본 구현을 제공하고 모든 통신 스택에 공통된 작업을 수행합니다. 이러한 작업은 ServicePartitionResolver를 사용하여 서비스 끝점을 확인하는 것을 포함합니다. 클라이언트는 일반적으로 추상 CommunicationClientFactoryBase 클래스를 구현하여 통신 스택에 특정된 논리를 처리합니다.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`은 Service Fabric 서비스와 통신할 수 있는 클라이언트를 생성하는 통신 클라이언트 팩터리에서 구현되는 기본 인터페이스를 정의합니다. CommunicationClientFactory의 구현은 클라이언트가 통신하려고 하는 서비스 패브릭 서비스에서 사용하는 통신 스택에 따라 달라집니다. Reliable Services API는 `CommunicationClientFactoryBase<TCommunicationClient>`를 제공합니다. 이는 CommunicationClientFactory 인터페이스의 기본 구현을 제공하고 모든 통신 스택에 공통된 작업을 수행합니다. 이러한 작업은 ServicePartitionResolver를 사용하여 서비스 엔드포인트를 확인하는 것을 포함합니다. 클라이언트는 일반적으로 추상 CommunicationClientFactoryBase 클래스를 구현하여 통신 스택에 특정된 논리를 처리합니다.
 
 통신 클라이언트는 주소를 수신하고 서비스에 연결하는 데 사용합니다. 클라이언트는 원하는 모든 프로토콜을 사용할 수 있습니다.
 
@@ -345,8 +345,8 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 
 * **다시 시도 불가능** 예외는 단순히 다시 호출자로 throw됩니다.
 * **다시 시도 가능** 예외는 **일시적** 및 **영구** 예외로 더 세분화됩니다.
-  * **일시적** 예외는 서비스 끝점 주소를 다시 확인하지 않고 다시 시도할 수 있는 예외입니다. 일시적인 네트워크 문제 또는 서비스 끝점 주소가 존재하지 않음을 나타내는 것 이외의 서비스 오류 응답을 포함합니다.
-  * **영구** 예외는 다시 확인할 서비스 끝점 주소를 필요로 하는 예외입니다. 이는 서비스 끝점에 도달하지 못했음을 나타내는 예외를 포함하며 이는 서비스가 다른 노드로 이동되었음을 나타냅니다.
+  * **일시적** 예외는 서비스 엔드포인트 주소를 다시 확인하지 않고 다시 시도할 수 있는 예외입니다. 일시적인 네트워크 문제 또는 서비스 엔드포인트 주소가 존재하지 않음을 나타내는 것 이외의 서비스 오류 응답을 포함합니다.
+  * **영구** 예외는 다시 확인할 서비스 엔드포인트 주소를 필요로 하는 예외입니다. 이는 서비스 엔드포인트에 도달하지 못했음을 나타내는 예외를 포함하며 이는 서비스가 다른 노드로 이동되었음을 나타냅니다.
 
 `TryHandleException` 은 주어진 예외에 대한 결정을 내립니다. 예외에 대해 어떤 결정을 내릴지 **모르는** 경우 **false**를 반환해야 합니다. 어떤 결정을 내릴지 **아는** 경우 결과를 적절하게 설정하여 **true**를 반환해야 합니다.
 
@@ -374,7 +374,7 @@ class MyExceptionHandler : IExceptionHandler
 public class MyExceptionHandler implements ExceptionHandler {
 
     @Override
-    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {
 
         /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
          */

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b69fc8ea3f0c65ad9ab460d1302d4f5690782420
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 96a2e9f2f6e114c9a4b74111cd6a6d085022a4c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872673"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>빠른 시작: Computer Vision에서 Node.js와 함께 REST API를 사용하여 원격 이미지 분석
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. 예: `node analyze-image.js`
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');
@@ -69,7 +69,7 @@ const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
 
 const imageUrl =
-    'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+    'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 // Request parameters.
 const params = {
