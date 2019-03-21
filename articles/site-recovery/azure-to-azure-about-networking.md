@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001087"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -101,7 +101,8 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    프랑스 남부 | 52.136.139.227 |52.136.136.62
    오스트레일리아 중부| 20.36.34.70 | 20.36.46.142
    오스트레일리아 중부 2| 20.36.69.62 | 20.36.74.130
-
+   남아프리카 서부 | 102.133.72.51 | 102.133.26.128
+   남아프리카 북부 | 102.133.160.44 | 102.133.154.128
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
 
 이 예제에서는 복제할 VM에 대한 NSG 규칙을 구성하는 방법을 보여 줍니다.
@@ -163,4 +164,4 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 ## <a name="next-steps"></a>다음 단계
 - [Azure 가상 머신을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 - Azure 가상 머신 장애 조치(failover)를 위한 [IP 주소 보존](site-recovery-retain-ip-azure-vm-failover.md)에 대해 자세히 알아보세요.
-- [ExpressRoute를 사용하는 Azure 가상 머신](azure-vm-disaster-recovery-with-expressroute.md)의 재해 복구에 대해 자세히 알아보세요.
+- 재해 복구에 자세히 알아보려면 [ExpressRoute 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)합니다.

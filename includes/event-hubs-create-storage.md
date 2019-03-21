@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e499a0f7bec47e672c599c729a15cc3e3d04a28a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125227"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>이벤트 처리기 호스트에 대한 저장소 계정 만들기
 이벤트 처리기 호스트는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 병렬 수신을 수행하는 지능형 에이전트입니다. 검사점 지정을 위해 이벤트 처리기 호스트에는 저장소 계정이 필요합니다. 다음 예제에서는 저장소 계정을 만들고 액세스를 위해 키를 가져오는 방법을 보여 줍니다.
@@ -26,18 +26,18 @@ ms.locfileid: "49471667"
 
 3. **저장소 계정 만들기** 페이지에서 다음 단계를 수행합니다. 
 
-    1. 저장소 계정의 이름을 입력합니다. 
-    2. 이벤트 허브를 포함하는 Azure 구독을 선택합니다.
-    3. 이벤트 허브가 있는 리소스 그룹을 선택합니다.
-    4. 리소스를 만들 위치를 선택합니다. 
-    5. **검토 + 만들기**를 클릭합니다.
+   1. 저장소 계정의 이름을 입력합니다. 
+   2. 이벤트 허브를 포함하는 Azure 구독을 선택합니다.
+   3. 이벤트 허브가 있는 리소스 그룹을 선택합니다.
+   4. 리소스를 만들 위치를 선택합니다. 
+   5. **검토 + 만들기**를 클릭합니다.
    
-    ![저장소 계정 만들기 - 페이지](./media/event-hubs-create-storage/create-storage2.png)
+      ![저장소 계정 만들기 - 페이지](./media/event-hubs-create-storage/create-storage2.png)
 
 4. **검토 + 만들기** 페이지에서 값을 검토하고 **만들기**를 선택합니다. 
 
     ![저장소 계정 설정 검토 및 만들기](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. **배포 성공** 메시지가 표시되면 페이지의 위쪽에서 **리소스로 이동**을 선택합니다. 리소스 목록에서 저장소 계정을 선택하여 [저장소 계정] 페이지를 시작할 수도 있습니다.  
+5. 표시 되 면 합니다 **배포 성공** 메시지를 선택 **리소스로 이동** 페이지의 맨 위에 있는 합니다. 리소스 목록에서 저장소 계정을 선택하여 [저장소 계정] 페이지를 시작할 수도 있습니다.  
 
     ![배포에서 저장소 계정 선택](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. **Essentials** 창에서 **Blob**을 선택합니다. 

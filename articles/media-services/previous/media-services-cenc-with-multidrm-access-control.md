@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894362"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 
 
@@ -28,7 +28,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 
 이 문서는 OTT 또는 온라인 스트리밍/멀티 스크린 솔루션의 DRM 하위 시스템에서 작업 중인 엔지니어 또는 DRM 하위 시스템에 관심이 있는 모든 독자를 대상으로 합니다. 독자는 PlayReady, Widevine, FairPlay 또는 Adobe Access 등 한 가지 이상의 DRM 기술에 대해 잘 알고 있다고 가정합니다.
 
-이 DRM에 대한 설명에는 다중 DRM의 CENC(일반적인 암호화)도 포함됩니다. 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 다중 기본 DRM의 CENC를 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
+이 DRM에 대한 설명에는 다중 DRM의 CENC(일반적인 암호화)도 포함됩니다. 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 다중 기본 DRM의 CENC를 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
 
 다중 DRM의 CENC 이점은 다음과 같습니다.
 
@@ -156,7 +156,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **키 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 애플리케이션 |
 
-즉, IDP와 STS 둘 다 Azure AD에서 사용됩니다. 플레이어로는 [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Media Services와 Media Player는 모두 다중 DRM의 DASH 및 CENC를 지원합니다.
+즉, IDP와 STS 둘 다 Azure AD에서 사용됩니다. 플레이어로는 [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Media Services와 Media Player는 모두 다중 DRM의 DASH 및 CENC를 지원합니다.
 
 다음 다이어그램에서는 이전 기술 매핑을 사용하는 전체적인 구조 및 흐름을 보여 줍니다.
 
@@ -208,7 +208,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만듭니다. [Azure Media Player의 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
+8. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만듭니다. [Azure Media Player의 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
 
 9. 다음 표에서는 테스트 매트릭스를 보여 줍니다.
 

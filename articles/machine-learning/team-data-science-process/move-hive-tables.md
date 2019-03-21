@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840650"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -36,7 +36,7 @@ Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Ha
 
 **NYC Taxi Trip Data**로 연습하려면 다음을 수행해야 합니다.
 
-* **NYC Taxi Trip Data** 파일(12개의 Trip 파일과 12개의 Fare 파일)을 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) 합니다.
+* **NYC Taxi Trip Data** 파일(12개의 Trip 파일과 12개의 Fare 파일)을 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) 합니다.
 * **압축을 풉니다** .
 * Azure Storage 계정의 기본값(또는 해당 컨테이너)에 **업로드**합니다. 해당 계정에 대한 옵션은 [Azure HDInsight 클러스터에서 Azure Storage 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) 항목을 참조하세요. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](hive-walkthrough.md#upload)에 나와 있습니다.
 

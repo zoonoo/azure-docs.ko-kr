@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893053"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(Integration Runtime)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -51,7 +51,7 @@ Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 Azure 통합 런타임은 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- 공용 네트워크에서 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, HDInsight Streaming 작업, Machine Learning 배치 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .Net 사용자 지정 작업, 웹 작업, 조회 작업 및 메타데이터 가져오기 작업
+- 공용 네트워크에서 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, HDInsight 스트리밍 작업, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 활동, 저장 프로시저 작업 Data Lake Analytics U-SQL 작업,.NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 Azure 통합 런타임은 공개 액세스 가능한 엔드포인트가 있는 공용 네트워크에서 데이터 소스에 연결 및 계산 서비스를 지원합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
@@ -69,7 +69,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업 실행.
-- 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업(BYOC-Bring Your Own Cluster), HDInsight Pig 작업(BYOC), HDInsight MapReduce 작업(BYOC), HDInsight Spark 작업(BYOC), HDInsight Streaming 작업(BYOC), Machine Learning 배치 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 조회 작업 및 메타데이터 가져오기 작업
+- 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업 (BYOC 가져올 사용자 고유의 클러스터), HDInsight Pig 작업 (BYOC), HDInsight MapReduce 작업 (BYOC), HDInsight Spark 작업 (BYOC), HDInsight 스트리밍 작업 (BYOC), Machine Learning Batch 실행 작업, Machine Learning 리소스 활동, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업,.NET 사용자 지정 작업, 조회 작업 및 메타 데이터 가져오기 작업을 업데이트 합니다.
 
 > [!NOTE] 
 > 자체 호스팅 통합 런타임을 사용하여 SAP Hana, MySQL 등 BYOD(bring-your-own driver)를 요구하는 데이터 저장소를 지원합니다.  자세한 내용은 [지원되는 데이터 소스](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

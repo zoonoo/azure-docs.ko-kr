@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894379"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
@@ -113,37 +113,37 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 1. 관리자 권한으로 PowerShell을 엽니다. 그런 후 C:\Program Files\Microsoft Azure Log Integration으로 이동합니다.
 2. Azure Log Integration cmdlet을 가져옵니다. 이러한 cmdlet을 가져오려면 스크립트 `LoadAzlogModule.ps1`을 실행합니다. `.\LoadAzlogModule.ps1`을 입력한 후 Enter 키를 누릅니다(이 명령에서 **.\\** 사용). 아래 그림과 같이 표시됩니다.
 
-  ![LoadAzlogModule.ps1 명령의 출력 스크린샷](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![LoadAzlogModule.ps1 명령의 출력 스크린샷](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. 이제 특정 Azure 환경을 사용하도록 Azure Log Integration을 구성합니다. *Azure 환경*은 작업하려는 Azure 클라우드 데이터 센터의 유형입니다. Azure 환경이 여러 개 있지만 현재, 관련 옵션은 **AzureCloud** 또는 **AzureUSGovernment**입니다. 관리자 권한으로 PowerShell을 실행하여 C:\Program Files\Microsoft Azure Log Integration\ 위치에 있는지 확인합니다. 그런 후 다음 명령을 실행합니다.
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud`(**AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud`(**AzureCloud**)
   
-  US Government Azure 클라우드를 사용하려면 **-Name** 변수로 **AzureUSGovernment**를 사용합니다. 현재, 다른 Azure 클라우드는 지원되지 않습니다.  
+   US Government Azure 클라우드를 사용하려면 **-Name** 변수로 **AzureUSGovernment**를 사용합니다. 현재, 다른 Azure 클라우드는 지원되지 않습니다.  
 
-  > [!NOTE]
-  > 명령이 성공하면 피드백이 수신되지 않습니다. 
+   > [!NOTE]
+   > 명령이 성공하면 피드백이 수신되지 않습니다. 
 
 4. 시스템을 모니터링하려면 Azure 진단에 사용 중인 저장소 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
 
-  ![Azure 진단 설정 창 스크린샷](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Azure 진단 설정 창 스크린샷](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![게스트 수준 모니터링 사용 단추 스크린샷](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![게스트 수준 모니터링 사용 단추 스크린샷](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > 가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 이전 이미지에 나와 있는 것처럼 사용하도록 설정할 수 있습니다.
+   > [!NOTE]
+   > 가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 이전 이미지에 나와 있는 것처럼 사용하도록 설정할 수 있습니다.
 
 5. 이제 Azure Log Integration 컴퓨터로 돌아갑니다. Azure Log Integration을 설치한 컴퓨터에서 Storage 계정에 연결되어 있는지 확인합니다. Azure Log Integration 서비스를 실행하는 컴퓨터에서 모니터링되는 각 시스템에서 Azure 진단이 기록한 정보를 검색하려면 저장소 계정에 대한 액세스 권한이 필요합니다. 연결을 확인하려면 
-  1. [Azure Storage 탐색기를 다운로드](http://storageexplorer.com/)합니다.
-  2. 설치를 완료합니다.
-  3. 설치가 완료되면 **다음**을 선택합니다. **Microsoft Azure 저장소 탐색기 시작** 확인란을 선택된 상태로 둡니다.  
-  4. Azure에 로그인합니다.
-  5. Azure 진단용으로 구성된 저장소 계정이 표시되는지 확인합니다. 
+   1. [Azure Storage 탐색기를 다운로드](https://storageexplorer.com/)합니다.
+   2. 설치를 완료합니다.
+   3. 설치가 완료되면 **다음**을 선택합니다. **Microsoft Azure 저장소 탐색기 시작** 확인란을 선택된 상태로 둡니다.  
+   4. Azure에 로그인합니다.
+   5. Azure 진단용으로 구성된 저장소 계정이 표시되는지 확인합니다. 
 
    ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
+   1. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
 
-  가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 앞서 설명된 것처럼 사용하도록 설정할 수 있습니다.
+   가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 앞서 설명된 것처럼 사용하도록 설정할 수 있습니다.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Windows VM 로그 통합
@@ -156,36 +156,36 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 * **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
 
 저장소 키를 가져오려면 다음 단계를 수행합니다.
-1. [Azure 포털](http://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 탐색 창에서 **모든 서비스**를 선택합니다.
 3. **필터** 상자에 **저장소**를 입력합니다. 그런 후 **저장소 계정**을 선택합니다.
 
-  ![모든 서비스의 저장소 계정을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/filter.png)
+   ![모든 서비스의 저장소 계정을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/filter.png)
 
 4. 저장소 계정 목록이 나타납니다. 로그 저장소에 할당한 계정을 두 번 클릭합니다.
 
-  ![저장소 계정 목록을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![저장소 계정 목록을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. **설정** 아래에서 **액세스 키**를 선택합니다.
 
-  ![메뉴의 액세스 키 옵션을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![메뉴의 액세스 키 옵션을 표시하는 스크린샷](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. **key1**을 복사하여 다음 단계에서 액세스할 수 있는 안전한 위치에 저장합니다.
 7. Azure Log Integration을 설치한 서버에서 관리자 권한으로 명령 프롬프트 창을 엽니다. (관리자로 PowerShell이 아닌 명령 프롬프트 창을 열어야 합니다.)
 8. C:\Program Files\Microsoft Azure Log Integration으로 이동합니다.
 9. 다음 명령을 실행합니다. `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  예제:
+   예제:
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  이벤트 XML에 구독 id를 표시하려면 이름에 구독 ID를 추가합니다.
+   이벤트 XML에 구독 id를 표시하려면 이름에 구독 ID를 추가합니다.
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  예제:
+   예제:
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > 최대 60분 정도 기다렸다가 저장소 계정에서 가져온 이벤트를 확인합니다. 이벤트를 보려면 Azure Log Integration에서 **이벤트 뷰어** > **Windows 로그** > **전달된 이벤트**를 선택합니다.
@@ -200,11 +200,11 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 
 1. Azure Log Integration 서비스를 실행하는 컴퓨터를 확인합니다. Azure에 액세스할 수 있는지 확인합니다. 연결을 테스트하려면 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 사용자 계정 AzLog에 users\Azlog 폴더에 대한 쓰기 권한이 있는지 확인합니다.
-  1. 파일 탐색기를 엽니다.
-  2. C:\users로 이동합니다.
-  3. C:\users\Azlog를 마우스 오른쪽 단추로 클릭합니다.
-  4. **보안**을 선택합니다.
-  5. **NT Service\Azlog**를 선택합니다. 계정에 대한 사용 권한을 확인합니다. 이 탭에서 계정이 누락되거나 적절한 사용 권한이 표시되지 않은 경우 이 탭에서 계정 권한을 부여할 수 있습니다.
+   1. 파일 탐색기를 엽니다.
+   2. C:\users로 이동합니다.
+   3. C:\users\Azlog를 마우스 오른쪽 단추로 클릭합니다.
+   4. **보안**을 선택합니다.
+   5. **NT Service\Azlog**를 선택합니다. 계정에 대한 사용 권한을 확인합니다. 이 탭에서 계정이 누락되거나 적절한 사용 권한이 표시되지 않은 경우 이 탭에서 계정 권한을 부여할 수 있습니다.
 3. `Azlog source list` 명령을 실행할 때 `Azlog source add` 명령에 추가된 저장소 계정이 출력에 표시되는지 확인합니다.
 4. Azure Log Integration 서비스에서 오류가 보고되었는지 확인하려면 **이벤트 뷰어** > **Windows 로그** > **응용 프로그램**으로 이동합니다.
 
@@ -224,15 +224,15 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 2. 다음 명령을 실행합니다. ```azlog createazureid```
 
     이 명령은 사용자에게 Azure 로그인을 요구합니다. 그런 다음 로그인한 사용자가 관리자, 공동 관리자 또는 소유자인 Azure 구독을 호스트하는 Azure AD 테넌트에 Azure Active Directory 서비스 주체를 만듭니다. 로그인한 사용자가 Azure AD 테넌트의 게스트 사용자이면 명령이 실패합니다. Azure에 대한 인증은 Azure AD를 통해 수행됩니다. Azure 로그 통합에 대한 서비스 주체를 만들면 Azure 구독을 읽을 수 있는 Azure AD ID가 생성됩니다.
-3.  다음 명령을 실행하여 이전 단계에서 만든 Azure Log Integration 서비스 주체가 구독에 대한 활동 로그 읽기에 액세스할 수 있도록 권한을 부여합니다. 명령을 실행하려면 구독에 대해 소유자여야 합니다.
+3. 다음 명령을 실행하여 이전 단계에서 만든 Azure Log Integration 서비스 주체가 구독에 대한 활동 로그 읽기에 액세스할 수 있도록 권한을 부여합니다. 명령을 실행하려면 구독에 대해 소유자여야 합니다.
 
-    ```Azlog.exe authorize subscriptionId``` 예제:
+   ```Azlog.exe authorize subscriptionId``` 예제:
 
-```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+   ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인합니다.
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. 다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인합니다.
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > SIEM(보안 정보 및 이벤트 관리) 시스템으로 JSON 파일에서 정보를 가져오는 것과 관련한 특정 지침은 해당 SIEM 공급업체에 문의하세요.
@@ -248,5 +248,5 @@ Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하�
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md) 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.
 * [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure Log Integration을 구성하는 방법을 보여 줍니다. SIEM 구성 요소를 구성하는 방법에 대한 최신 지침을 제공합니다. 자세한 내용은 SIEM 공급업체에 문의하세요.
 * [Azure Log Integration FAQ(질문과 대답)](security-azure-log-integration-faq.md). 이 FAQ는 Azure Log Integration에 대해 자주 묻는 질문과 대답입니다.
-* [Azure Log Integration에 Azure Security Center 경고 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) 이 문서에서는 Azure 진단 및 Azure 활동 로그에서 수집된 보안 센터 경고 및 가상 머신 보안 이벤트를 동기화하는 방법을 보여 줍니다. Azure Log Analytics 또는 SIEM 솔루션을 사용하여 로그를 동기화합니다.
+* [Azure Log Integration에 Azure Security Center 경고 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) 이 문서에서는 Azure 진단 및 Azure 활동 로그에서 수집된 보안 센터 경고 및 가상 머신 보안 이벤트를 동기화하는 방법을 보여 줍니다. Azure Monitor 로그 또는 SIEM 솔루션을 사용 하 여 로그를 동기화 합니다.
 * [Azure 진단 및 Azure 감사 로그에 대한 새로운 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.

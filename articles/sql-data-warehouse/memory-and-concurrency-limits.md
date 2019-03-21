@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890798"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다. 자세한 내용을 참고하고 워크로드 관리 계획에 이러한 기능을 적용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 확인하세요. 
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 | DW6000            | 60            | 1                              | 1,440                           |
 
 ## <a name="concurrency-maximums"></a>동시성 최대값
-각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 이 시스템은 쿼리를 큐에 추가하여 충분한 [동시성 슬롯](resource-classes-for-workload-management.md#concurrency-slots)을 사용할 수 있을 때까지 기다리도록 합니다. 또한 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
+각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯 수에 따라 큐에 쿼리를 추가 합니다. 쿼리 큐에서 기다립니다 충분 한 동시성 슬롯을 사용할 수 있습니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 동시성 슬롯 CPU 우선 순위를 결정 합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
 
 ### <a name="gen2"></a>2세대
  
@@ -78,7 +78,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 다음 표에는 각 [정적 리소스 클래스](resource-classes-for-workload-management.md)에 대한 최대 동시 쿼리 수 및 동시성 슬롯 수가 나와 있습니다.  
 
-| 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 | Staticrc10에서 사용 되는 슬롯 | Staticrc20에서 사용 되는 슬롯 | Staticrc30에서 사용 되는 슬롯 | Staticrc40에서 사용 되는 슬롯 | Staticrc50에서 사용 되는 슬롯 | Staticrc60에서 사용 되는 슬롯 | Staticrc70에서 사용 되는 슬롯 | Staticrc80으로 사용 되는 슬롯 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 다음 표에는 **1세대**의 각 [정적 리소스 클래스](resource-classes-for-workload-management.md)에 대한 최대 동시 쿼리 수 및 동시성 슬롯 수가 나와 있습니다.
 
-| 서비스 수준 | 최대 동시 쿼리 수 | 최대 동시성 슬롯 수 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 서비스 수준 | 최대 동시 쿼리 수 | 최대 동시성 슬롯 수 | Staticrc10에서 사용 되는 슬롯 | Staticrc20에서 사용 되는 슬롯 | Staticrc30에서 사용 되는 슬롯 | Staticrc40에서 사용 되는 슬롯 | Staticrc50에서 사용 되는 슬롯 | Staticrc60에서 사용 되는 슬롯 | Staticrc70에서 사용 되는 슬롯 | Staticrc80으로 사용 되는 슬롯 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 다음 표에는 **1세대**의 각 [동적 리소스 클래스](resource-classes-for-workload-management.md)에 대한 최대 동시 쿼리 수 및 동시성 슬롯 수가 나와 있습니다.
 
-| 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 | smallrc | mediumrc | largerc | xlargerc |
+| 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 | smallrc에서 사용되는 슬롯 | mediumrc에서 사용되는 슬롯 | largerc에서 사용되는 슬롯 | xlargerc에서 사용되는 슬롯 |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

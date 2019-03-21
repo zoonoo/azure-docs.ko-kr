@@ -7,19 +7,19 @@ author: suchiagicha
 manager: timlt
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d2f45b6f0db15773615710a4345e85ab09f7d559
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 8bfeebb882d1252e21c800f7b65120878bb3af93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834610"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
@@ -83,7 +83,7 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
-  <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Section Name="TransportSettings">
       <Parameter Name="SecurityCredentialsType" Value="X509" />
       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
@@ -99,41 +99,41 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
   </Settings>
    ```
 
-  * 보조 인증서로 보안 행위자 서비스/클라이언트에 대한 FabricTransport 설정 구성.
+* 보조 인증서로 보안 행위자 서비스/클라이언트에 대한 FabricTransport 설정 구성.
   CertificateFindValuebySecondary 매개 변수를 추가하여 보조 인증서 정보를 추가할 수 있습니다.
   다음은 수신기 TransportSettings에 대한 예제입니다.
 
-    ```xml
-    <Section Name="TransportSettings">
-    <Parameter Name="SecurityCredentialsType" Value="X509" />
-    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-    <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
-    <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
-    <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
-    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-    <Parameter Name="CertificateStoreName" Value="My" />
-    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-    </Section>
-     ```
-     다음은 클라이언트 TransportSettings에 대한 예제입니다.
+  ```xml
+  <Section Name="TransportSettings">
+  <Parameter Name="SecurityCredentialsType" Value="X509" />
+  <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+  <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+  <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+  <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+  <Parameter Name="CertificateStoreName" Value="My" />
+  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+  </Section>
+   ```
+   다음은 클라이언트 TransportSettings에 대한 예제입니다.
 
-    ```xml
-   <Section Name="TransportSettings">
-    <Parameter Name="SecurityCredentialsType" Value="X509" />
-    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-    <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
-    <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
-    <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
-    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-    <Parameter Name="CertificateStoreName" Value="My" />
-    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-    </Section>
-     ```
-    * 주체 이름을 사용한 행위자 서비스/클라이언트 보안을 위한 FabricTransport 설정 구성.
+  ```xml
+  <Section Name="TransportSettings">
+  <Parameter Name="SecurityCredentialsType" Value="X509" />
+  <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+  <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+  <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+  <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+  <Parameter Name="CertificateStoreName" Value="My" />
+  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+  </Section>
+   ```
+  * 주체 이름을 사용한 행위자 서비스/클라이언트 보안을 위한 FabricTransport 설정 구성.
     사용자는 FindBySubjectName,add CertificateIssuerThumbprints 및 CertificateRemoteCommonNames 값으로 findType을 제공해야 합니다.
-  다음은 수신기 TransportSettings에 대한 예제입니다.
+    다음은 수신기 TransportSettings에 대한 예제입니다.
 
-     ```xml
+    ```xml
     <Section Name="TransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
@@ -145,16 +145,16 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-  다음은 클라이언트 TransportSettings에 대한 예제입니다.
+    다음은 클라이언트 TransportSettings에 대한 예제입니다.
 
-    ```xml
-     <Section Name="TransportSettings">
-    <Parameter Name="SecurityCredentialsType" Value="X509" />
-    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
-    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
-    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-    <Parameter Name="CertificateStoreName" Value="My" />
-    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
-    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-    </Section>
-     ```
+  ```xml
+   <Section Name="TransportSettings">
+  <Parameter Name="SecurityCredentialsType" Value="X509" />
+  <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+  <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
+  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+  <Parameter Name="CertificateStoreName" Value="My" />
+  <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
+  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+  </Section>
+   ```

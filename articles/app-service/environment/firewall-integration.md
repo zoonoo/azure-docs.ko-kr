@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/12/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121709"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -91,7 +91,6 @@ Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션
 - 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다. 
 - Linux 종속성은 Linux 응용 프로그램을 ASE에 배포하는 경우에만 문제가 됩니다. Linux 응용 프로그램을 ASE에 배포하지 않는 경우 이러한 주소는 방화벽에 추가할 필요가 없습니다. 
 
-
 #### <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 지원 종속성 
 
 | 엔드포인트 |
@@ -106,6 +105,14 @@ Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션
 |----------| ----- |
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
 | \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단된 경우 일부 문제는 분류가 어려울 수 있지만 ASE는 계속 작동합니다. |
+| 40.77.24.27:80 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 40.77.24.27:443 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 13.90.249.229:80 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 13.90.249.229:443 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 104.45.230.69:80 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 104.45.230.69:443 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 13.82.184.151:80 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
+| 13.82.184.151:443 | 모니터 및 경고 ASE 문제를 해결 하는 데 필요한 |
 
 Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동으로 가져옵니다. 
 
@@ -140,7 +147,8 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
-|global.metrics.nsatc.net:80   |
+|global.metrics.nsatc.net:80 |
+|global.metrics.nsatc.net:443 |
 |az-prod.metrics.nsatc.net:443 |
 |antares.metrics.nsatc.net:443 |
 |azglobal-black.azglobal.metrics.nsatc.net:443 |
@@ -175,12 +183,6 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-|grmdsprod\*mini\*.servicebus.windows.net:443 |
-|grmdsprod\*lini\*.servicebus.windows.net:443 |
-|grsecprod\*mini\*.servicebus.windows.net:443 |
-|grsecprod\*lini\*.servicebus.windows.net:443 |
-|graudprod\*mini\*.servicebus.windows.net:443 |
-|graudprod\*lini\*.servicebus.windows.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux 종속성 
 

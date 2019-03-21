@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113933"
 ---
 Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사용하여 Azure 리소스 및 워크로드를 배포하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
@@ -31,7 +31,7 @@ Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사
 > 
 
 | Task | 리소스 관리자 |
-| --- | --- | --- |
+| --- | --- |
 | 가장 기본적인 VM 만들기 |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하세요.) |
 | Linux VM 만들기 |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Windows VM 만들기 |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

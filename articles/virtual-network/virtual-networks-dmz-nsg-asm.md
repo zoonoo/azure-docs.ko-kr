@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993336"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>예제 1 – 클래식 PowerShell로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -37,7 +37,7 @@ ms.locfileid: "23125501"
 ## <a name="environment-description"></a>환경 설명
 이 예에서 구독은 다음 리소스를 포함합니다.
 
-* 두 클라우드 서비스: "FrontEnd001" 및 "BackEnd001"
+* 두 개의 클라우드 서비스: “FrontEnd001” 및 “BackEnd001”
 * "FrontEnd" 및 "BackEnd"의 두 서브넷을 포함하는 Virtual Network "CorpNetwork"
 * 서브넷 모두에 적용되는 네트워크 보안 그룹
 * 애플리케이션 웹 서버("IIS01")를 나타내는 Windows 서버
@@ -98,15 +98,15 @@ ms.locfileid: "23125501"
    * "Priority"는 트래픽 흐름이 평가되는 순서를 설정합니다. 번호가 낮을수록 우선순위가 높습니다. 특정 트래픽 흐름에 규칙이 적용되는 경우 더 이상 규칙이 처리되지 않습니다. 따라서 우선순위 1인 규칙에서는 트래픽을 허용하고 우선순위 2인 규칙에서는 트래픽을 거부하고 두 규칙 모두 트래픽에 적용된다면 트래픽 흐름이 허용됩니다(규칙 1의 우선순위가 높으므로 해당 규칙이 적용되고 다른 규칙은 적용되지 않음).
    * "Action"은 이 규칙의 영향을 받는 트래픽을 차단하거나 허용할지를 나타냅니다.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. 이 규칙은 RDP 트래픽이 인터넷에서 바인딩된 서브넷에 있는 모든 서버의 RDP 포트로 흐르도록 허용합니다. 이 규칙은 "VIRTUAL_NETWORK" 및 "INTERNET"이라는 두 가지 특별한 주소 접두사 형식을 사용합니다. 이러한 태그는 주소 접두사로 더 큰 범주의 주소를 간편하게 지정하는 쉬운 방법입니다.
 
@@ -171,7 +171,7 @@ ms.locfileid: "23125501"
 ## <a name="traffic-scenarios"></a>트래픽 시나리오
 #### <a name="allowed-internet-to-web-server"></a>(*허용*) 인터넷에서 웹 서버
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청합니다(인터넷 연결 클라우드 서비스).
-2. 클라우드 서비스는 포트 80에서 열린 끝점을 통해 IIS01(웹 서버)로 트래픽을 전달합니다.
+2. 클라우드 서비스는 포트 80에서 열린 엔드포인트를 통해 IIS01(웹 서버)로 트래픽을 전달합니다.
 3. 프런트 엔드 서브넷에서 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
    2. NSG 규칙 2(RDP)가 적용되지 않고 다음 규칙으로 이동합니다.
@@ -236,18 +236,18 @@ ms.locfileid: "23125501"
 
 #### <a name="denied-web-to-backend-server"></a>(*거부*) 웹 - 백 엔드 서버
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 AppVM01에서 파일에 액세스하려고 합니다.
-2. 파일 공유를 위해 열린 끝점이 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.
+2. 파일 공유를 위해 열린 엔드포인트가 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.
 
 #### <a name="denied-web-dns-look-up-on-dns-server"></a>(*거부*) DNS 서버에서 웹 DNS 조회
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 DNS01에서 내부 DNS 레코드를 조회하려고 합니다.
-2. DNS를 위해 열린 끝점이 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.(참고: 규칙 1(DNS)은 두 가지 이유로 적용되지 않습니다. 첫째, 원본 주소가 인터넷입니다. 이 규칙은 로컬 VNet에만 원본으로 적용됩니다. 또한 이 규칙은 허용 규칙이므로 트래픽을 거부하지 않습니다.)
+2. DNS를 위해 열린 엔드포인트가 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.(참고: 규칙 1(DNS)은 두 가지 이유로 적용되지 않습니다. 첫째, 원본 주소가 인터넷입니다. 이 규칙은 로컬 VNet에만 원본으로 적용됩니다. 또한 이 규칙은 허용 규칙이므로 트래픽을 거부하지 않습니다.)
 
 #### <a name="denied-web-to-sql-access-through-firewall"></a>(*거부*) 방화벽을 통해 웹에서 SQL 액세스
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 SQL 데이터를 요청합니다(인터넷 연결 클라우드 서비스).
-2. SQL을 위해 열린 끝점이 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 방화벽에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 프런트엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
+2. SQL을 위해 열린 엔드포인트가 없으므로 이 트래픽은 클라우드 서비스를 전달하지 않고 방화벽에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 프런트엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
    2. NSG 규칙 2(RDP)가 적용되지 않고 다음 규칙으로 이동합니다.
    3. NSG 규칙 3(인터넷에서 IIS01로)이 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 업데이트된 위치로 이 xml 파일을 저장하고 이 파일에 대한 링크를 앞의 스크립트에 있는 $NetworkConfigFile 변수에 추가합니다.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="sample-application-scripts"></a>샘플 애플리케이션 스크립트
-이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하는 방법은 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]
+이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하려는 경우 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]
 
 ## <a name="next-steps"></a>다음 단계
 * 업데이트 및 XML 파일 저장

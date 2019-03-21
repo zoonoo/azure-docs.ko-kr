@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995122"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
@@ -68,7 +68,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 5. 새 네임스페이스를 클릭하고 네임스페이스 창에서 **이벤트 허브**를 클릭합니다.
 
-   ![새 이벤트 허브를 만들기 위한 이벤트 허브 추가 단추 ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![새 이벤트 허브를 만들기 위한 이벤트 허브 추가 단추](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. 새 이벤트 허브 이름을 `asa-eh-frauddetection-demo`로 지정합니다. 다른 이름을 사용할 수 있습니다. 이 경우 나중에 이름이 필요하기 때문에 메모해 둡니다. 지금 당장은 이벤트 허브에 다른 옵션을 설정하지 않아도 됩니다.
 
@@ -114,20 +114,20 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 
 ### <a name="configure-the-telcogenerator-app"></a>TelcoGenerator 앱 구성
 
-1.  연결 문자열을 복사한 편집기에서 `EntityPath` 값을 기록해둔 후 `EntityPath` 쌍을 제거합니다(앞에 있는 세미콜론을 반드시 제거). 
+1. 연결 문자열을 복사한 편집기에서 `EntityPath` 값을 기록해둔 후 `EntityPath` 쌍을 제거합니다(앞에 있는 세미콜론을 반드시 제거). 
 
-2.  TelcoGenerator.zip 파일의 압축을 푼 폴더에서 편집기로 telcodatagen.exe.config 파일을 엽니다. (둘 이상의 .config 파일이 있으므로 해당 파일을 열어야 함)
+2. TelcoGenerator.zip 파일의 압축을 푼 폴더에서 편집기로 telcodatagen.exe.config 파일을 엽니다. (둘 이상의 .config 파일이 있으므로 해당 파일을 열어야 함)
 
-3.  `<appSettings>` 요소에서 다음을 수행합니다.
+3. `<appSettings>` 요소에서 다음을 수행합니다.
 
-    * `EventHubName` 키 값을 이벤트 허브 이름으로 설정합니다(즉, 엔터티 경로 값).
-    * `Microsoft.ServiceBus.ConnectionString` 키 값을 연결 문자열로 설정합니다. 
+   * `EventHubName` 키 값을 이벤트 허브 이름으로 설정합니다(즉, 엔터티 경로 값).
+   * `Microsoft.ServiceBus.ConnectionString` 키 값을 연결 문자열로 설정합니다. 
 
-    `<appSettings>` 섹션은 다음 예제와 같습니다. (쉽게 이해할 수 있도록 줄이 래핑되고 권한 부여 토큰에서 일부 문자를 제거했음)
+   `<appSettings>` 섹션은 다음 예제와 같습니다. (쉽게 이해할 수 있도록 줄이 래핑되고 권한 부여 토큰에서 일부 문자를 제거했음)
 
    ![TelcoGenerator 구성 파일이 이벤트 허브 이름 및 연결 문자열을 표시함](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  파일을 저장합니다. 
+4. 파일을 저장합니다. 
 
 ### <a name="start-the-app"></a>앱 시작
 1.  명령 창을 열고 TelcoGenerator 앱이 압축 해제된 폴더로 변경합니다.
@@ -191,6 +191,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
    |이벤트 허브 네임스페이스  |  asa-eh-ns-demo |  이벤트 허브 네임스페이스의 이름을 입력합니다.   |
    |이벤트 허브 이름  | asa-eh-frauddetection-demo | 이벤트 허브의 이름을 선택합니다.   |
    |이벤트 허브 정책 이름  | asa-policy-manage-demo | 이전에 만든 액세스 정책을 선택합니다.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -337,13 +338,13 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
 이벤트 스트림, 이벤트를 수집할 이벤트 허브 입력 및 스트림 변환을 수행할 쿼리를 정의했습니다. 마지막 단계는 작업의 출력 싱크(즉, 변환된 스트림을 기록할 위치)를 정의하는 것입니다. 
 
-SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이벤트 허브 등 많은 리소스를 출력 싱크로 사용할 수 있습니다. 이 자습서에서는 구조화되지 않은 데이터를 수용하므로 추가 분석을 위한 이벤트 정보를 수집하는 데 일반적으로 사용되는 Azure Blob 저장소에 스트림을 기록합니다.
+SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이벤트 허브 등 많은 리소스를 출력 싱크로 사용할 수 있습니다. 이 자습서에서는 구조화되지 않은 데이터를 수용하므로 추가 분석을 위한 이벤트 정보를 수집하는 데 일반적으로 사용되는 Azure Blob Storage에 스트림을 기록합니다.
 
 기존 Blob Storage 계정이 있는 경우 기존 계정을 사용할 수 있습니다. 이 자습서에서는 새 저장소 계정을 만드는 방법을 배웁니다.
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. 저장소 계정 작업 페이지에서 **이름**을"asaehstorage"로 설정하고, **위치**는 "미국 동부"로 설정하고, **리소스 그룹**을 "asa-eh-ns-rg"로 설정합니다(향상된 성능을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정 호스트). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. 스토리지 계정 작업 페이지에서 **이름**을"asaehstorage"로 설정하고, **위치**는 "미국 동부"로 설정하고, **리소스 그룹**을 "asa-eh-ns-rg"로 설정합니다(향상된 성능을 위해 스트리밍 작업과 동일한 리소스 그룹의 스토리지 계정 호스트). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
 
    ![Azure Portal에서 스토리지 계정 만들기](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
@@ -351,7 +352,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 3. **작업 토폴로지** 섹션에서 **출력** 상자를 클릭합니다.
 
-4. **출력** 창에서 **추가**를 클릭하고 **Blob 저장소**를 선택합니다. 그런 후 다음 정보로 새 출력 페이지를 채웁니다.
+4. **출력** 창에서 **추가**를 클릭하고 **Blob Storage**를 선택합니다. 그런 후 다음 정보로 새 출력 페이지를 채웁니다.
 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
@@ -359,6 +360,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
    |구독   |  \<구독\> |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
    |Storage 계정  |  asaehstorage |  만든 저장소 계정의 이름을 입력합니다. |
    |컨테이너  | asa-fraudulentcalls-demo | 새로 만들기를 선택하고 컨테이너 이름을 입력합니다. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
@@ -383,7 +385,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 이 자습서를 완료하기 위해 Streaming Analytics 작업으로 캡처된 데이터를 살펴보려 할 수 있습니다. 데이터는 청크(파일)로 Azure Blob Storage에 기록됩니다. Azure Blob Storage를 읽는 데 아무 도구나 사용할 수 있습니다. 필수 조건 섹션에서 설명한 대로, Visual Studio에서 Azure 확장을 사용하거나 [Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)과 같은 도구를 사용할 수 있습니다. 
 
-Blob 저장소에서 파일 내용을 검사할 때 다음과 같은 항목이 표시됩니다.
+Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표시됩니다.
 
    ![Streaming Analytics 출력이 있는 Azure Blob Storage](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  

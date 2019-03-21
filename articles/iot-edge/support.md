@@ -4,17 +4,17 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190008"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -36,15 +36,15 @@ Azure IoT Edge는 컨테이너로 구현되므로 모듈을 시작할 컨테이�
 </center>
 
 ## <a name="operating-systems"></a>운영 체제
-Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체제에서 실행되지만 모두가 동일하게 지원되지는 않습니다. 운영 체제는 사용자가 사용할 수 있는 지원 수준을 나타내는 계층으로 그룹화됩니다.
-* 계층 1 시스템은 공식적으로 지원된다고 간주할 수 있습니다. 즉, Microsoft에서는
+Azure IoT Edge; 컨테이너를 실행할 수 있는 대부분의 운영 체제에서 실행 됩니다. 그러나 이러한 시스템은 모두 동일 하 게 사용할 수 없습니다. 운영 체제는 사용자가 사용할 수 있는 지원 수준을 나타내는 계층으로 그룹화됩니다.
+* 계층 1 시스템은 공식적으로 지원된다고 간주할 수 있습니다. 계층 1 시스템용 Microsoft:
     * 자동화된 테스트에서 이 운영 체제를 사용하고
     * 해당 운영 체제에 대한 설치 패키지를 제공합니다.
-* 계층 2 시스템은 Azure IoT Edge와 호환 가능하다고 간주할 수 있고 상대적으로 쉽게 사용할 수 있습니다. 이는 다음을 의미합니다.
+* 계층 2 시스템은 Azure IoT Edge와 호환 가능하다고 간주할 수 있고 상대적으로 쉽게 사용할 수 있습니다. 2 계층 시스템:
     * Microsoft은 플랫폼에서 임시 테스트를 수행한 또는 플랫폼에서 Azure IoT Edge를 성공적으로 실행 하는 파트너의 인식
     * 다른 플랫폼에 대한 설치 패키지는 다음 플랫폼에서 작동할 수 있습니다.
     
-호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows를 사용하는 경우 프로세스 격리 컨테이너만 지원되고 hyper-v 격리 컨테이너는 지원되지 않습니다.  
+호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows, 격리 된 컨테이너는 지원 되는 유일한 프로세스를 사용 하는 경우 Hyper-v가 컨테이너를 격리 합니다.  
 
 <br>
 <center>
@@ -57,19 +57,19 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 
 | 운영 체제 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | 아니요 | 예.|
-| Ubuntu Server 16.04 | 예 | 아니요 |
-| Ubuntu Server 18.04 | 예 | 아니요 |
+| Raspbian-stretch | 아닙니다. | 예|
+| Ubuntu Server 16.04 | 예 | 아닙니다. |
+| Ubuntu Server 18.04 | 예 | 아닙니다. |
 
 공개 미리 보기
 
 | 운영 체제 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core 빌드 17763 | 예 | 아니요 |
-| Windows 10 IoT Enterprise 빌드 17763 | 예 | 아니요 |
-| Windows Server 2019 | 예 | 아니요 |
+| Windows 10 IoT Core, 17763 빌드 | 예 | 아닙니다. |
+| Windows 10 IoT Enterprise 17763 빌드 | 예 | 아닙니다. |
+| Windows Server 2019 | 예 | 아닙니다. |
 
-위의 Windows OS는 Windows에서 Windows 컨테이너를 실행하는 디바이스의 요구 사항입니다. 이것이 프로덕션에서 지원되는 유일한 구성입니다. Windows용 Azure IoT Edge 설치 패키지를 통해 Windows에서 Linux 컨테이너를 사용할 수 있지만 개발 및 테스트 전용입니다. Windows에서 Linux 컨테이너를 사용하는 것은 프로덕션에서 지원되는 구성이 아닙니다. 이 개발 시나리오에서는 Windows 10 빌드 14393 이상 및 Windows Server 2016 이상의 임의 버전을 사용할 수 있습니다.
+위에 나열 된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행 하는 장치에 대 한 요구 사항입니다. 이 구성은 프로덕션 환경에만 지원 되는 구성이입니다. Windows에서 Linux 컨테이너의 사용을 허용 하는 Windows에 대 한 Azure IoT Edge 설치 패키지 그러나이 구성은 개발 및 테스트 전용입니다. Windows에서 Linux 컨테이너를 사용하는 것은 프로덕션에서 지원되는 구성이 아닙니다. 이 개발 시나리오에서는 Windows 10 빌드 14393 이상 및 Windows Server 2016 이상의 임의 버전을 사용할 수 있습니다.
 
 ### <a name="tier-2"></a>계층 2
 
@@ -77,16 +77,16 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | 예 | 예 |
 | Debian 8 | 예 | 예 |
-| Debian 9 | 예 | 예. |
+| Debian 9 | 예 | 예 |
 | RHEL 7.5 | 예 | 예 |
 | Ubuntu 18.04 | 예 | 예 |
-| Ubuntu 16.04 | 예. | 예 |
-| Wind River 8 | 예 | 아니요 |
-| Yocto | 예 | 아니요 |
+| Ubuntu 16.04 | 예 | 예 |
+| Wind River 8 | 예 | 아닙니다. |
+| Yocto | 예 | 아닙니다. |
 
 
 ## <a name="virtual-machines"></a>Virtual Machines
-가상 머신에서 Azure IoT Edge를 실행할 수 있습니다. 일반적으로 고객이 에지 인텔리전스를 사용하여 기존 인프라를 보강하려는 경우에 사용됩니다. 호스트 VM OS 제품군은 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 이는 Azure IoT Edge가 디바이스에서 직접 실행될 때와 동일한 요구 사항입니다. Azure IoT Edge는 기본 가상화 기술에 중립적이며, Hyper-V 및 vSphere와 같은 플랫폼을 통해 구동되는 VM에서 작동합니다.
+가상 머신에서 Azure IoT Edge를 실행할 수 있습니다. 가상 컴퓨터를 사용 하 여 IoT Edge로 장치 일반적인 경우 고객은 기존 인프라에 지 인텔리전스를 사용 하 여 보강 하고자 합니다. 호스트 VM OS 제품군은 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 이 요구 사항은 Azure IoT Edge 장치에서 직접 실행 될 때와 같습니다. Azure IoT Edge는 기본 가상화 기술에 중립적이며, Hyper-V 및 vSphere와 같은 플랫폼을 통해 구동되는 VM에서 작동합니다.
 
 <br>
 <center>
@@ -95,6 +95,14 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 </center>
 
 ## <a name="minimum-system-requirements"></a>최소 시스템 요구 사항
-Azure IoT Edge는 Raspberry Pi3만큼 작은 디바이스부터 서버 등급 하드웨어까지 잘 실행됩니다. 시나리오에 적합한 하드웨어 선택은 실행하려는 워크로드에 따라 다릅니다. 최종 디바이스 결정은 복잡할 수 있습니다. 그러나 기존 노트북이나 데스크톱에서 쉽게 솔루션 프로토타입 생성을 시작할 수 있습니다.
+Azure IoT Edge는 Raspberry Pi3만큼 작은 디바이스부터 서버 등급 하드웨어까지 잘 실행됩니다. 시나리오에 맞는 하드웨어를 선택 하면 실행 하려는 워크 로드에 따라 달라 집니다. 최종 디바이스 결정은 복잡할 수 있습니다. 그러나 기존 노트북이나 데스크톱에서 쉽게 솔루션 프로토타입 생성을 시작할 수 있습니다.
 
-프로토타입 생성 경험은 최종 디바이스 선택에 도움이 됩니다. 고려해야 하는 질문에는 워크로드를 구성하는 모듈 수, 모듈의 컨테이너가 공유하는 계층 수, 모듈이 작성된 언어, 모듈에서 처리할 데이터의 양, 모듈의 워크로드 액세스에 특수 하드웨어가 필요한지 여부, 원하는 솔루션의 성능 특성, 하드웨어 예산 등이 포함됩니다.
+프로토타입 생성 경험은 최종 디바이스 선택에 도움이 됩니다. 고려해 야 하는 질문은 다음과 같습니다. 
+
+* 워크 로드에서 모듈은 몇 개 인가요?
+* 모듈 컨테이너에는 얼마나 많은 계층이 공유 하나요?
+* 어떤 언어 모듈 기록 됩니다. 
+* 데이터의 양을 모듈을 처리 하는?
+* 모듈 워크 로드를 가속화 하는 것에 대 한 모든 특수 한 하드웨어가 필요 합니까?
+* 솔루션의 원하는 성능 특징은 무엇입니까?
+* 하드웨어 예산의 란?

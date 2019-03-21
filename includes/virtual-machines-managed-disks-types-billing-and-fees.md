@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 3e303ce2b6f28500406bacf5b66d26f9c78ba46d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443357"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783443"
 ---
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
-**트랜잭션**: 표준 관리형 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다. Azure에서는 표준 HDD 트랜잭션 10만 건당 $0.0036가 청구됩니다. 트랜잭션에는 저장소에 대한 읽기 및 쓰기 작업이 모두 포함됩니다.
+**트랜잭션**: 표준 관리형 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다.
 
-표준 SSD는 256KB의 IO 단위 크기를 사용합니다. 전송되는 데이터가 256KB 미만일 경우 I/O 단위 하나로 간주됩니다. 더 큰 I/O 크기는 256KB 크기의 여러 I/O로 계산됩니다. 예를 들어, 1,100KB I/O는 I/O 단위 5개로 계산됩니다.
-
-프리미엄 관리 디스크에 대한 트랜잭션 비용은 없습니다.
-
-Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조하세요.
+트랜잭션 비용을 포함 하 여 Managed Disks에 대 한 가격 책정에 대 한 자세한 내용은 참조 하세요 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)합니다.
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM 예약 요금
 

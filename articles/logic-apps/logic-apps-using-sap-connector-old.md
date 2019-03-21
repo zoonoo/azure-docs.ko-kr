@@ -2,7 +2,6 @@
 title: SAP 시스템에 연결 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps에서 워크플로를 자동화하여 SAP 리소스에 액세스하고 관리하는 방법
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,25 +10,24 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170839"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 > [!NOTE]
-> 이 SAP 커넥터는 곧 사용 중단될 예정입니다. 새로운 고급 SAP 커넥터가 출시되었으니 [새 SAP 커넥터](./logic-apps-using-sap-connector.md)를 선택하거나 전환할 것을 권장합니다.
->  
+> 이 SAP 커넥터는 사용 중단 될 예정입니다. 사용 하거나 마이그레이션하는 [새롭고 더 많은 고급 SAP 커넥터](./logic-apps-using-sap-connector.md)합니다. 
 
 이 문서에서는 SAP 애플리케이션 서버 및 SAP 메시지 서버 커넥터를 사용하여 논리 앱 내부에서 SAP 리소스에 액세스할 수 있는 방법을 보여 줍니다. 이런 식으로 작업, 프로세스 및 논리 앱을 만들어 SAP 데이터 및 리소스를 관리하는 워크플로를 자동화할 수 있습니다.
 
 이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 논리 앱은 IDoc(중간 문서)를 SAP 서버로 전송하고, 논리 앱을 호출한 요청자에게 응답을 반환합니다.
 현재 SAP 커넥터에는 작업만 있고 트리거가 없으므로 이 예제에서는 논리 앱 워크플로의 첫 번째 단계로 [HTTP 요청 트리거](../connectors/connectors-native-reqres.md)를 사용합니다. SAP 커넥터 관련 기술 정보는 다음 참조 문서를 참조하세요. 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">SAP 응용 프로그램 서버 커넥터</a>
+* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">SAP 애플리케이션 서버 커넥터</a>
 * <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">SAP 메시지 서버 커넥터</a>
 
 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
@@ -38,9 +36,9 @@ ms.locfileid: "50230899"
 
 이 문서를 따르려면 다음 항목이 필요합니다.
 
-* SAP 시스템에 액세스하려는 논리 앱과 논리 앱의 워크플로를 시작하는 트리거. SAP 커넥터는 현재 작업만 제공합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+* SAP 시스템에 액세스하려는 논리 앱과 논리 앱의 워크플로를 시작하는 트리거. SAP 커넥터는 현재 작업만 제공합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-* <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 응용 프로그램 서버</a> 또는 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 메시지 서버</a>
+* <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 애플리케이션 서버</a> 또는 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 메시지 서버</a>
 
 * 온-프레미스 컴퓨터에서 최신 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 다운로드하여 설치합니다. 계속 진행하기 전에 Azure Portal에서 게이트웨이를 설정하세요. 게이트웨이는 온-프레미스의 데이터 및 리소스에 안전하게 액세스하는 데 도움이 됩니다. 자세한 내용은 [Azure Logic Apps용 온-프레미스 데이터 게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md)를 참조하세요.
 
@@ -67,7 +65,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 1. Azure Portal에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 
 
-2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 **요청 - HTTP 요청을 수신하는 경우** 트리거를 선택합니다.
+2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **요청 - HTTP 요청을 수신하는 경우**
 
    ![HTTP 요청 트리거 추가](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -90,10 +88,10 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 2. 검색 상자에 “sql server”를 필터로 입력합니다. 작업 목록에서 SAP 서버에 대한 작업을 선택합니다. 
 
-   * **SAP 응용 프로그램 서버 - SAP로 보내기**
+   * **SAP 애플리케이션 서버 - SAP로 보내기**
    * **SAP 메시지 서버 - SAP로 보내기**
 
-   이 예제에서는 **SAP 애플리케이션 서버 - SAP로 보내기** 작업을 사용합니다.
+   이 예제에서는이 작업을 사용합니다. **SAP 애플리케이션 서버 - SAP로 보내기**
 
    ![“SAP 애플리케이션 서버” 또는 “SAP 메시지 서버” 선택](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -106,7 +104,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    2. SAP 서버에 대한 연결 정보를 입력합니다. 
    **게이트웨이** 속성에서 게이트웨이 설치에 대해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다. 예를 들면 다음과 같습니다.
 
-      **SAP 응용 프로그램 서버**
+      **SAP 애플리케이션 서버**
 
       ![SAP 애플리케이션 서버 연결 만들기](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
 
@@ -154,7 +152,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 논리 앱 디자이너에서 SAP 작업 아래의 **새 단계** > **작업 추가**를 선택합니다.
 
-2. 검색 상자에 “응답”을 필터로 입력합니다. 작업 목록에서 **요청 - 응답** 작업을 선택합니다.
+2. 검색 상자에 “응답”을 필터로 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **요청 - 응답**
 
 3. **본문** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 해당 목록에서 **SAP로 보내기** 아래의 **본문** 필드를 선택합니다. 
 
@@ -192,7 +190,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 커넥터의 Swagger 파일에 설명된 커넥터에 대한 기술 정보는 다음 참조 문서를 참조하세요. 
 
-* [SAP 응용 프로그램 서버](/connectors/sapapplicationserver/)
+* [SAP 애플리케이션 서버](/connectors/sapapplicationserver/)
 * [SAP 메시지 서버](/connectors/sapmessageserver/)
 
 ## <a name="get-support"></a>지원 받기
