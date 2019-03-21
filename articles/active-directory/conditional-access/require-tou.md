@@ -17,12 +17,12 @@ ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea60b0de0cf21c1d23669543f3c1daa367aea7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5375f86e9ac9c26646e6e8560775d2dea3a2d1ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170975"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 
 
@@ -136,7 +136,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-    ![Name](./media/require-tou/71.png)
+    ![이름](./media/require-tou/71.png)
 
 2. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 

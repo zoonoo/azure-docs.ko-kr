@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117458"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 ADE(Azure Disk Encryption) 사용 가능 가상 머신 복제
 
@@ -123,8 +123,8 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
 
 
 2. 아래의 기본 설정을 수정하려면 ‘암호화 설정’ 옆의 **사용자 지정:** 을 클릭합니다.
-    - **대상 디스크 암호화 키 자격 증명 모음**에서 구독의 대상 위치에 있는 모든 키 자격 증명 모음 목록에서 대상 디스크 암호화 키 자격 증명 모음을 선택합니다.
-  - **대상 키 암호화 키 자격 증명 모음**에서 구독의 대상 위치에 있는 모든 키 자격 증명 모음 목록에서 대상 키 암호화 키 자격 증명 모음을 선택합니다.
+   - **대상 디스크 암호화 키 자격 증명 모음**에서 구독의 대상 위치에 있는 모든 키 자격 증명 모음 목록에서 대상 디스크 암호화 키 자격 증명 모음을 선택합니다.
+     - **대상 키 암호화 키 자격 증명 모음**에서 구독의 대상 위치에 있는 모든 키 자격 증명 모음 목록에서 대상 키 암호화 키 자격 증명 모음을 선택합니다.
 
 3. **대상 리소스 만들기** > **복제 사용**을 클릭합니다.
 4. VM이 복제에 대해 사용하도록 설정된 후 **복제된 항목**에서 VM 상태를 확인할 수 있습니다.

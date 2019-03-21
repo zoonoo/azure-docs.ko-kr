@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887088"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
-이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
+이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. 커넥터는 온-프레미스 ECC 및 S/4 HANA 시스템을 사용 하 여 작동합니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
 
-SAP ECC 커넥터는 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP NCo(.Net Connector) 라이브러리</a>를 사용하고 다음과 같은 작업 또는 동작을 제공합니다.
+SAP ECC 커넥터는 사용 된 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET Connector (NCo) 라이브러리</a> 하 고 이러한 작업 또는 동작이 제공:
 
 - **SAP로 보내기**: SAP 시스템의 tRFC를 통해 IDoc를 보내거나 BAPI 함수를 호출합니다.
 - **SAP에서 수신**: SAP 시스템의 tRFC를 통해 IDoc 또는 BAPI 함수 호출을 수신합니다.

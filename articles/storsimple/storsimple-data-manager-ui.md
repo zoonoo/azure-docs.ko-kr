@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121505"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
@@ -46,19 +46,19 @@ StorSimple 데이터 관리자 서비스를 만들려면 다음 단계를 수행
 
 3. 새 서비스의 경우 다음을 지정합니다.
 
-    1. StorSimple 데이터 관리자에 대한 고유한 **서비스 이름**을 제공합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
+   1. StorSimple 데이터 관리자에 대한 고유한 **서비스 이름**을 제공합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
 
-    2. 드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 구독이 하나만 있는 경우 이 필드가 자동으로 채워집니다(선택할 수 없음).
+   2. 드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 구독이 하나만 있는 경우 이 필드가 자동으로 채워집니다(선택할 수 없음).
 
-    3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
+   3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
 
-    4. 저장소 계정 및 StorSimple 데이터 관리자 서비스를 저장하는 서비스의 **위치**를 지정합니다. StorSimple 디바이스 관리자 서비스, 데이터 관리자 서비스 및 연결된 저장소 계정은 모두 지원되는 지역에 있어야 합니다.
+   4. 저장소 계정 및 StorSimple 데이터 관리자 서비스를 저장하는 서비스의 **위치**를 지정합니다. StorSimple 디바이스 관리자 서비스, 데이터 관리자 서비스 및 연결된 저장소 계정은 모두 지원되는 지역에 있어야 합니다.
     
-    5. 이 서비스에 대한 링크를 대시보드로 가져오려면 **대시보드에 고정**을 선택합니다.
+   5. 이 서비스에 대한 링크를 대시보드로 가져오려면 **대시보드에 고정**을 선택합니다.
     
-    6. **만들기**를 클릭합니다.
+   6. **만들기**를 클릭합니다.
 
-    ![StorSimple 데이터 관리자 서비스 만들기 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![StorSimple 데이터 관리자 서비스 만들기 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 서비스 생성은 몇 분 정도가 소요됩니다. 서비스가 성공적으로 만들어지면 알림이 표시되고 새 서비스가 표시됩니다.
 
@@ -88,33 +88,33 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
 
     ![새 데이터 리포지토리 추가](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. **StorSimple 8000 시리즈 관리자**를 데이터 저장소 형식으로 선택합니다.
+   1. **StorSimple 8000 시리즈 관리자**를 데이터 저장소 형식으로 선택합니다.
     
-    2. 원본 데이터 리포지토리에 대한 이름을 입력합니다.
+   2. 원본 데이터 리포지토리에 대한 이름을 입력합니다.
     
-    3. 드롭다운 목록에서 StorSimple 디바이스 관리자 서비스와 연결된 구독을 선택합니다.
+   3. 드롭다운 목록에서 StorSimple 디바이스 관리자 서비스와 연결된 구독을 선택합니다.
     
-    4. **리소스**에 대한 StorSimple 디바이스 관리자의 이름을 제공합니다.
+   4. **리소스**에 대한 StorSimple 디바이스 관리자의 이름을 제공합니다.
 
-    5. StorSimple 디바이스 관리자 서비스에 대한 **서비스 데이터 암호화** 키를 입력합니다. 
+   5. StorSimple 디바이스 관리자 서비스에 대한 **서비스 데이터 암호화** 키를 입력합니다. 
 
-    ![원본 데이터 리포지토리 구성 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![원본 데이터 리포지토리 구성 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    완료되면 **확인**을 클릭합니다. 데이터 저장소가 저장됩니다. 이러한 매개 변수를 다시 입력하지 않고도 다른 작업 정의에서 이 StorSimple 디바이스 관리자를 다시 사용합니다. **확인**을 클릭한 후에 새로 만든 원본 데이터 리포지토리가 드롭다운에 표시되는 데 몇 초 정도가 걸립니다.
+      완료되면 **확인**을 클릭합니다. 데이터 저장소가 저장됩니다. 이러한 매개 변수를 다시 입력하지 않고도 다른 작업 정의에서 이 StorSimple 디바이스 관리자를 다시 사용합니다. **확인**을 클릭한 후에 새로 만든 원본 데이터 리포지토리가 드롭다운에 표시되는 데 몇 초 정도가 걸립니다.
 
 7. **데이터 리포지토리**에 대한 드롭다운 목록에서 만든 데이터 리포지토리를 선택합니다. 
 
-    1. 관심 있는 데이터를 포함하는 StorSimple 8000 시리즈 디바이스 이름을 입력합니다.
+   1. 관심 있는 데이터를 포함하는 StorSimple 8000 시리즈 디바이스 이름을 입력합니다.
 
-    2. 관심 있는 데이터가 있는 StorSimple 디바이스의 볼륨 이름을 지정합니다.
+   2. 관심 있는 데이터가 있는 StorSimple 디바이스의 볼륨 이름을 지정합니다.
 
-    3. **필터** 하위 섹션에서 관심 있는 데이터를 포함하는 루트 디렉터리를 _\MyRootDirectory\Data_ 형식으로 입력합니다. _\C:\Data_와 같은 드라이브 문자는 지원되지 않습니다. 여기에서 파일 필터를 추가할 수 있습니다.
+   3. **필터** 하위 섹션에서 관심 있는 데이터를 포함하는 루트 디렉터리를 _\MyRootDirectory\Data_ 형식으로 입력합니다. _\C:\Data_와 같은 드라이브 문자는 지원되지 않습니다. 여기에서 파일 필터를 추가할 수 있습니다.
 
-    4. 데이터 변환 서비스는 스냅숏을 통해 Azure까지 푸시되는 데이터에서 작동합니다. 이 작업을 실행할 때 최신 데이터에서 작동하도록 작업을 실행할 때마다 백업을 사용하거나 보관된 데이터를 사용하는 경우 클라우드에서 최신 기존 백업을 사용할 수 있습니다.
+   4. 데이터 변환 서비스는 스냅숏을 통해 Azure까지 푸시되는 데이터에서 작동합니다. 이 작업을 실행할 때 최신 데이터에서 작동하도록 작업을 실행할 때마다 백업을 사용하거나 보관된 데이터를 사용하는 경우 클라우드에서 최신 기존 백업을 사용할 수 있습니다.
 
-    5. **확인**을 클릭합니다.
+   5. **확인**을 클릭합니다.
 
-    ![원본 데이터 리포지토리 구성 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![원본 데이터 리포지토리 구성 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. 다음으로, 대상 데이터 리포지토리를 구성해야 합니다. 저장소 계정을 선택하여 해당 계정에서 Blob에 파일을 배치합니다. 드롭다운 목록에서 **새로 추가** 및 **설정 구성** 차례로 선택합니다.
 

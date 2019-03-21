@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115618"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-향후 릴리스에서는 개인적으로 정의된 **-Publisher**, **-Offer** 및 **-Sku** 값을 사용하여 이미지 정의를 찾아서 지정한 후 일치하는 이미지 정의의 최신 이미지 버전을 사용하여 VM을 만들 수 있습니다. 예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
+### <a name="using-publisher-offer-and-sku"></a>게시자, 제품 및 SKU를 사용 하 여 
+공유 이미지를 구현 하려는 고객을 위한 **예정 된 릴리스에서**, 개인 정의 사용할 수 있습니다 **-게시자**에 **-제공** 및 **-Sku** 값을 찾을 이미지 정의 지정 하 고 일치 하는 최신 이미지 버전을 사용 하 여 VM을 만들 이미지 정의 합니다. 예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
 |이미지 정의|게시자|제안|SKU|
 |---|---|---|---|
@@ -83,10 +83,9 @@ $galleryImage = New-AzGalleryImageDefinition `
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|테스트|standardOffer|testSku|
 
-이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 향후 릴리스에서는 특정 이미지의 최신 버전을 요청하기 위해 이러한 값을 조합할 수 있습니다. 
+이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다. **향후 릴리스에서**, 특정 이미지의 최신 버전을 요청 하기 위해 이러한 값을 결합 하는 일을 할 수 있습니다. **현재 릴리스에서 작동 하지**, 하지만 나중에 사용할 수 있습니다. 원본 이미지를 설정 하려면 다음 구문을 사용 하 여를 사용 해야 릴리스되면 *myImage1* 위 테이블에서.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,9 +93,9 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-이 방법은 현재 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md)에 대해 이러한 값을 지정하여 VM을 만드는 방법과 비슷합니다. 이러한 사실을 토대로, 각 이미지 정의에는 이러한 값의 고유한 세트를 지정해야 합니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다. 
+지정 하는 방법을 현재 사용 하 여 게시자, 제품 및 SKU에 대 한 비슷합니다 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md) Marketplace 이미지의 최신 버전을 가져올 수 있습니다. 이러한 사실을 토대로, 각 이미지 정의에는 이러한 값의 고유한 세트를 지정해야 합니다.  
 
-##<a name="create-an-image-version"></a>이미지 버전 만들기
+## <a name="create-an-image-version"></a>이미지 버전 만들기
 
 [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 관리되는 이미지에서 이미지 버전을 만듭니다. 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 2da5e4653c345464ef11a2ceac89fc6650c69e5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164474"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58114761"
 ---
 1. 서버에 설치를 복사한 다음 설치 관리자를 엽니다.
 2. **설치 옵션**에서 **Mobility Service 설치**를 선택합니다.

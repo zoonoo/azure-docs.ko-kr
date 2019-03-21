@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833504"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
@@ -28,7 +28,8 @@ ms.locfileid: "53183474"
 
 ## <a name="sizing-the-vhds"></a>VHD 크기 조정
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> 운영 체제(및 선택적으로 추가 서비스)로 미리 구성된 VM 중 하나를 선택한 경우 [가상 머신 SKU 탭](./cpp-skus-tab.md)에서 설명한 대로 표준 Azure VM 크기를 선택했습니다.  사전 구성된 OS로 솔루션을 시작하는 것이 좋습니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+운영 체제 (및 필요에 따라 추가 서비스)를 사용 하 여 사전 구성 Vm 중 하나를 선택한 경우에 설명 된 대로 표준 Azure VM 크기를을 이미 선택 했습니다 [가상 머신 Sku 탭](./cpp-skus-tab.md)합니다.  사전 구성된 OS로 솔루션을 시작하는 것이 좋습니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
 
 - Windows의 경우 운영 체제 VHD는 127-128GB의 고정 형식 VHD로 만들어야 합니다. 
 - Linux의 경우 이 VHD는 30-50GB의 고정 형식 VHD로 만들어야 합니다.
@@ -44,7 +45,7 @@ ms.locfileid: "53183474"
 
 Windows Server 2016의 경우 **업데이트 확인** 명령을 실행합니다.  이와 달리 이전 버전의 Windows의 경우 [Windows 업데이트를 통해 업데이트를 구하는 방법](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update)을 참조하세요.  Windows 업데이트는 중요한 최신 보안 업데이트를 자동으로 설치합니다.
 
-Linux 배포판의 경우 일반적으로 명령줄 도구 또는 그래픽 유틸리티를 통해 업데이트를 다운로드하고 설치합니다.  예를 들어 Ubuntu Linux는 [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) 명령과 [업데이트 관리자](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) 도구를 제공하여 OS를 업데이트합니다.
+Linux 배포판의 경우 일반적으로 명령줄 도구 또는 그래픽 유틸리티를 통해 업데이트를 다운로드하고 설치합니다.  예를 들어 Ubuntu Linux는 [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) 명령과 [업데이트 관리자](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) 도구를 제공하여 OS를 업데이트합니다.
 
 
 ## <a name="perform-additional-security-checks"></a>추가 보안 검사 수행
@@ -65,14 +66,14 @@ Linux 사용자 지정에 대한 자세한 내용은 [Linux용 가상 머신 확
 
 Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 있어야 합니다. 이 재사용을 달성하려면 운영 체제 VHD가 *일반화*되어야 합니다. 이 작업은 VM에서 인스턴스 관련 식별자와 소프트웨어 드라이버를 모두 제거합니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 사용하여 일반화됩니다. 나중에 OS를 업데이트하거나 재구성하면 sysprep을 다시 실행해야 합니다. 
 
 > [!WARNING]
 >  업데이트가 자동으로 실행될 수 있으므로 sysprep을 실행한 후에는 배포될 때까지 VM을 해제해야 합니다.  이렇게 종료하면 이후 업데이트에서 VHD OS 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다.
 
-sysprep 실행에 대한 자세한 내용은 [VHD를 일반화하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd))를 참조하세요.
+Sysprep을 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [VHD를 일반화 하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

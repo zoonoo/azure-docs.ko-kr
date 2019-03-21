@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124221"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -133,8 +133,9 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * 사용자가 자신을 대신하여 애플리케이션을 승인하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 엔터프라이즈 애플리케이션에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션으로 이동합니다.
   2. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음**을 **아니요**로 변경합니다. 
-      > [!NOTE]
-      > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.    
+     
+     > [!NOTE]
+     > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.    
 * 사용자가 자신의 애플리케이션을 등록하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 Azure Active Directory에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) 섹션으로 이동합니다.
   2. **사용자가 애플리케이션을 등록할 수 있음**을 **아니요**로 변경합니다.

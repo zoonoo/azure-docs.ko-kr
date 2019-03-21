@@ -5,17 +5,17 @@ description: 인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 51a743e7578ea5bbc2acb9094bbf704a09f3cd6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858801"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
 
@@ -36,9 +36,9 @@ ms.locfileid: "56453939"
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 알고리즘 치트 시트 관련 참고 사항 및 용어 정의
 
-* 알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘의 원칙과 데이터를 생성한 시스템에 대한 이해가 필요합니다.
+* 알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘 및 데이터를 생성 하는 시스템의 원칙을 이해 하는 데 맬웨어에 단순히 있습니다.
 
-* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
+* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](https://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
 
 * Machine Learning의 세 가지 주요 범주는 **감독 학습**, **자율 학습** 및 **보충 학습**입니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "56453939"
 
 * **승격된 의사 결정 트리 회귀 모델**은 기능 겹침 또는 기능 간의 상호 작용을 활용합니다. 즉, 지정된 데이터 요소에서 한 기능의 값은 다른 기능의 값을 다소 예측합니다. 예를 들어 일일 최고/최저 온도 데이터에서 최저 온도를 알면 최고 온도를 적절하게 추측할 수 있습니다. 두 기능에 포함된 정보는 다소 중복됩니다.
 
-* 본질적으로 다중 클래스 분류자를 사용하거나 두 클래스 분류자 집합을 하나의 **앙상블**로 결합하면 데이터를 세 개 이상의 범주로 분류할 수 있습니다. 앙상블 접근 방식에서는 각 클래스에 대해 별도의 두 클래스 분류자가 있습니다. 각 분류자는 데이터를 두 개의 범주, 즉 "이 클래스" 및 "이 클래스 아님"으로 구분합니다. 그런 다음 이러한 분류자는 데이터 요소의 올바른 할당에 투표합니다. 이는 [One-vs-All Multiclass][one-vs-all-multiclass]의 작동 원리입니다.
+* 기본적으로 다중 클래스 분류자를 사용 하 여 또는 두 클래스 분류자 집합을 결합 하 여 데이터를 두 개 이상의 범주로 분류을 수행할 수 있습니다는 **앙상블**합니다. 앙상블 접근 방식에서는 각 클래스에 대해 별도의 두 클래스 분류자가 있습니다. 각 분류자는 데이터를 두 개의 범주, 즉 "이 클래스" 및 "이 클래스 아님"으로 구분합니다. 그런 다음 이러한 분류자는 데이터 요소의 올바른 할당에 투표합니다. 이는 [One-vs-All Multiclass][one-vs-all-multiclass]의 작동 원리입니다.
 
 * 로지스틱 회귀 및 Bayes 지점 컴퓨터를 포함한 몇 가지 메서드는 **선형 클래스 경계**를 가정합니다. 즉, 클래스 간의 경계가 대략 직선(또는 보다 일반적인 경우 초평면)이라고 가정합니다. 대체는 이는 구분하려고 시도할 때까지 알 수 없는 데이터 특성이지만, 일반적으로 미리 시각화하여 학습할 수 있는 것입니다. 클래스 경계가 매우 불규칙한 경우 의사 결정 트리, 의사 결정 정글, 지원 벡터 컴퓨터 또는 신경망 방법을 유지합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "56453939"
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass
