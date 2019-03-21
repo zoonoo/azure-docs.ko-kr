@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245551"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450450"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -212,9 +212,9 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 
 ## <a name="monitoring"></a>모니터링
 
-공용 및 내부 [표준 Load Balancer](load-balancer-standard-overview.md)는 Azure Monitor를 통해 엔드포인트 및 백 엔드 인스턴스별 상태를 다차원 메트릭으로 공개합니다. 이러한 메트릭은 다른 Azure 서비스나 타사 애플리케이션에서 사용할 수 있습니다. 
+공용 및 내부 [표준 Load Balancer](load-balancer-standard-overview.md)는 Azure Monitor를 통해 엔드포인트 및 백 엔드 인스턴스별 상태를 다차원 메트릭으로 공개합니다. 이러한 메트릭은 다른 Azure 서비스 또는 파트너 응용 프로그램에서 사용할 수 있습니다. 
 
-기본 공용 Load Balancer는 Log Analytics를 통해 백 엔드 풀별로 요약된 상태 프로브 상태를 공개합니다.  내부 기본 Load Balancer에는 Log Analytics를 사용할 수 없습니다.  [Log Analytics](load-balancer-monitor-log.md)를 사용하여 공용 부하 분산 장치의 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
+기본 공용 Load Balancer 상태 프로브 로그 Azure Monitor를 통해 백 엔드 풀 당 요약을 표시 합니다.  Azure Monitor 로그 내부 기본 부하 분산 장치에 대 한 제공 되지 않습니다.  사용할 수 있습니다 [Azure Monitor 로그](load-balancer-monitor-log.md) 공용 부하 분산 장치 프로브 상태를 확인 및 프로브 수. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

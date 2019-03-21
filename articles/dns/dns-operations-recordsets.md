@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991398"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888817"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -238,7 +238,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `Add-AzDnsRecordConfig`의 `-Ipv4Address` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 [추가 레코드 형식 예제](#additional-record-type-examples)에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
+위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `Add-AzDnsRecordConfig`의 `-Ipv4Address` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
 
 'CNAME' 또는 'SOA' 형식의 레코드 집합은 둘 이상의 레코드를 포함할 수 없습니다. 이 제약 조건은 DNS 표준에서 발생합니다. Azure DNS의 제한 사항이 아닙니다.
 
@@ -272,7 +272,7 @@ Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyR
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-적절한 형식 특정 매개 변수를 `Remove-AzDnsRecordSet`에 전달하여 다른 레코드 형식을 지원합니다. 각 레코드 형식의 매개 변수는 위의 [추가 레코드 형식 예제](#additional-record-type-examples)에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
+적절한 형식 특정 매개 변수를 `Remove-AzDnsRecordSet`에 전달하여 다른 레코드 형식을 지원합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
 
 
 ## <a name="modify-an-existing-record-set"></a>기존 레코드 집합 수정

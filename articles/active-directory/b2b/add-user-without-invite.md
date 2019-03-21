@@ -1,5 +1,5 @@
 ---
-title: 초대 없이 Azure Active Directory에 B2B 공동 작업 사용자 추가 | Microsoft Docs
+title: 초대 링크 없이 전자 메일-Azure Active Directory B2B 공동 작업 사용자 추가 | Microsoft Docs
 description: 게스트 사용자가 Azure Active Directory B2B 공동 작업에서 초대를 사용하지 않고 Azure AD에 다른 게스트 사용자를 추가하도록 할 수 있습니다.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182598"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337671"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>초대 없이 B2B 공동 작업 게스트 사용자 추가
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B 공동 작업 게스트 사용자를 초대 링크 없이 전자 메일 추가
 
 이제 공유 앱에 대한 직접 링크를 전송하여 게스트 사용자를 초대할 수 있습니다. 이 방법을 사용하면 게스트 사용자가 특별한 경우를 제외하고 초대 이메일을 사용하지 않아도 됩니다. 게스트 사용자는 앱 링크를 클릭하고, 개인 정보 보호 방침을 확인 및 수락한 다음, 자연스럽게 앱에 액세스합니다. 자세한 내용은 [B2B 공동 작업 초대 상환](redemption-experience.md)을 참조하세요.   
 

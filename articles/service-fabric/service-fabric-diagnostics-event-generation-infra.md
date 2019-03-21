@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 58bad793ba44ae91d75324257f55648cf3207cd0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
+ms.openlocfilehash: 90ec06b01b11b5cbe119f41483eaf794af4e991b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291451"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243094"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
@@ -90,13 +90,13 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 클러스터에 대한 성능 데이터 수집을 설정하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * **에이전트 사용**  
-이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. 클러스터 VM 및 배포된 컨테이너의 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나인 Log Analytics 에이전트에 대해 자세히 알아보려면 Service Fabric의 [Log Analytics 통합](service-fabric-diagnostics-event-analysis-oms.md) 및 [Log Analytics 에이전트 설정](../log-analytics/log-analytics-windows-agent.md)에서 Log Analytics를 제공하는 Azure Monitor와 관련된 문서를 참조하세요.
+이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor를 제공 하는 Azure Monitor에 대 한 읽기 Service Fabric의 로그인 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 하 고 [Log Analytics 에이전트 설정](../log-analytics/log-analytics-windows-agent.md) Log Analytics 에이전트에 대 한 자세한 내용을 보려면는 하나의 모니터링 에이전트인은 클러스터 Vm에 대 한 성능 데이터를 선택 하 고 컨테이너를 배포 하는 경우
 
 * **Azure Table Storage대한 성능 카운터**  
 성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure 진단 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Service Fabric의 [Log Analytics 통합](service-fabric-diagnostics-event-analysis-oms.md)에 대해 알아본 후에 클러스터 진단을 수집하고 사용자 지정 쿼리와 경고를 만듭니다.
+* Service Fabric에 대해 알아보세요 [Azure Monitor 통합 로그](service-fabric-diagnostics-event-analysis-oms.md) 클러스터 진단 수집을 사용자 지정 쿼리 및 경고 만들기
 * Service Fabric의 기본 제공 진단 환경인 [EventStore](service-fabric-diagnostics-eventstore.md)에 대해 알아봅니다.
 * Service Fabric에서 몇 가지 [일반적인 진단 시나리오](service-fabric-diagnostics-common-scenarios.md)를 살펴봅니다.

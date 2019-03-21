@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180542"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193758"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -62,7 +62,7 @@ Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQ
 ![스테이징 서버](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> 일부 고객은 이 시나리오를 위해 기본적으로 서너 대의 서버를 유지합니다. 스테이징 서버가 업그레이드되면, [재해 복구](how-to-connect-sync-operations.md#disaster-recovery)를 위한 백업 서버가 없습니다. 서너 대의 서버가 있으면 새 버전의 기본/대기 서버 집합을 준비할 수 있으므로 스테이징 서버가 항상 준비된 상태로 유지됩니다.
+> 일부 고객은 이 시나리오를 위해 기본적으로 서너 대의 서버를 유지합니다. 스테이징 서버가 업그레이드되면, [재해 복구](how-to-connect-sync-staging-server.md#disaster-recovery)를 위한 백업 서버가 없습니다. 서너 대의 서버가 있으면 새 버전의 기본/대기 서버 집합을 준비할 수 있으므로 스테이징 서버가 항상 준비된 상태로 유지됩니다.
 
 또한 이러한 단계는 Azure AD Sync에서 전환하거나 FIM과 Azure AD 커넥터를 사용하는 솔루션일 경우에도 작동합니다. 이러한 단계는 DirSync에서 작동하지 않지만 DirSync 단계를 사용하는 동일한 스윙 마이그레이션 방법(병렬 배포라고도 함)은 [Azure Active Directory 동기화(DirSync) 업그레이드](how-to-dirsync-upgrade-get-started.md)에서 확인할 수 있습니다.
 
@@ -71,8 +71,8 @@ Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQ
 2. 일부 사용자 지정 구성을 적용했는데 스테이징 서버에 해당 구성이 없는 경우 [활성 서버에서 스테이징 서버로 사용자 지정 구성 이동](#move-a-custom-configuration-from-the-active-server-to-the-staging-server)에 설명된 단계를 따릅니다.
 3. Azure AD Connect의 이전 릴리스에서 업그레이드하는 경우 스테이징 서버를 최신 버전으로 업그레이드합니다. Azure AD Sync에서 전환하는 경우 스테이징 서버에 Azure AD Connect를 설치합니다.
 4. 동기화 엔진에서 전체 가져오기를 실행하고 준비 서버에서 전체 동기화를 실행합니다.
-5. [서버의 구성 확인](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server)에서 "확인" 아래의 단계를 사용하여 새 구성으로 인해 예기치 않은 변경이 발생하지 않았는지 확인합니다. 올바르지 않은 항목이 있을 경우 단계를 따라 수정하고, 가져오기 및 동기화를 실행하고, 데이터가 올바르게 될 때까지 확인합니다.
-6. 스테이징 서버를 활성 서버로 전환합니다. 이는 [서버의 구성 확인](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server)에서 마지막 단계인 "활성 서버 전환" 단계입니다.
+5. [서버의 구성 확인](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)에서 "확인" 아래의 단계를 사용하여 새 구성으로 인해 예기치 않은 변경이 발생하지 않았는지 확인합니다. 올바르지 않은 항목이 있을 경우 단계를 따라 수정하고, 가져오기 및 동기화를 실행하고, 데이터가 올바르게 될 때까지 확인합니다.
+6. 스테이징 서버를 활성 서버로 전환합니다. 이는 [서버의 구성 확인](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)에서 마지막 단계인 "활성 서버 전환" 단계입니다.
 7. Azure AD Connect를 업그레이드하는 경우 이제 준비 모드의 서버를 최신 릴리스로 업그레이드합니다. 이전과 동일한 단계에 따라 데이터 및 구성을 업그레이드합니다. Azure AD Sync에서 업그레이드 한 경우, 이제 이전 서버를 끄고 서비스 해제를 할 수 있습니다.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>활성 서버에서 스테이징 서버로 사용자 지정 구성 이동

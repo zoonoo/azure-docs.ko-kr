@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159488"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225011"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -166,7 +166,8 @@ ms.locfileid: "54159488"
 > 이러한 단계는 Office 365 Outlook을 사용하지만 Logic Apps에서 지원하는 이메일 공급자를 사용할 수 있습니다. 
 > [여기에 있는 커넥터 목록을 확인](https://docs.microsoft.com/connectors/)합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다. 
 
-1. 빈 논리 앱을 만듭니다. Logic Apps 디자이너의 검색 상자에서 **모두**를 선택합니다. "되풀이"를 검색합니다. 트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정**
+1. 빈 논리 앱을 만듭니다. Logic Apps 디자이너의 검색 상자에서 **모두**를 선택합니다. "되풀이"를 검색합니다. 
+   트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정**
 
    !["되풀이 - 일정" 트리거 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ ms.locfileid: "54159488"
    | **시간 선택** | 8 |
    ||| 
 
-1. 트리거 아래에서 **새 단계**를 선택합니다. "변수"를 검색하고 다음 작업을 선택합니다. **변수 초기화 - 변수**
+1. 트리거 아래에서 **새 단계**를 선택합니다. 
+   "변수"를 검색하고 다음 작업을 선택합니다. **변수 초기화 - 변수**
 
    !["변수 초기화 - 변수" 작업 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -202,7 +204,8 @@ ms.locfileid: "54159488"
 
    !["Until" 루프 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. **Limit** 변수 및 **같음** 연산자를 선택하여 루프의 종료 조건을 작성합니다. 비교 값으로 **10**을 입력합니다.
+1. **Limit** 변수 및 **같음** 연산자를 선택하여 루프의 종료 조건을 작성합니다. 
+   비교 값으로 **10**을 입력합니다.
 
    ![루프를 중지하기 위한 종료 조건 작성](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ ms.locfileid: "54159488"
 
 1. **이름**에 대해 **Limit** 변수를 선택합니다. **값**에 대해 "1"을 입력합니다. 
 
-   !["Limit"를 1씩 증가](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     !["Limit"를 1씩 증가](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. 루프 외부 및 아래에서 **새 단계**를 선택합니다. 
 
-1. 검색 상자에서 **모두**를 선택합니다. 이메일을 보내는 작업을 찾아서 추가합니다. 예를 들면 다음과 같습니다. 
+1. 검색 상자에서 **모두**를 선택합니다. 
+     이메일을 보내는 작업을 찾아서 추가합니다. 예를 들면 다음과 같습니다. 
 
-   ![이메일을 보내는 작업 추가](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![이메일을 보내는 작업 추가](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. 메시지가 표시되면 이메일 계정에 로그인합니다.
 
 1. 이메일 작업의 속성을 설정합니다. **Limit** 변수를 제목에 추가합니다. 이렇게 하면 변수의 현재 값이 지정된 조건을 충족하는지 확인할 수 있습니다. 예를 들어 다음과 같습니다.
 
-    ![이메일 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![이메일 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | 자산 | 값 | 설명 |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
-    | **제목** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
-    | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
-    |||| 
+      | 자산 | 값 | 설명 |
+      | -------- | ----- | ----------- | 
+      | **To** | *<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **제목** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
+      | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
+      |||| 
 
 1. 논리 앱을 저장합니다. 논리 앱을 수동으로 테스트하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
 
-    논리 앱이 실행되기 시작하면 지정한 내용이 포함된 이메일을 받습니다.
+      논리 앱이 실행되기 시작하면 지정한 내용이 포함된 이메일을 받습니다.
 
-    ![받은 이메일](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![받은 이메일](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>무한 루프 방지
 

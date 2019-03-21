@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263631"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213554"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS 애플리케이션 제품
 
@@ -36,6 +36,9 @@ Microsoft Marketplace에 애플리케이션을 나열하는 이점 중 일부는
 - 영업 팀 확장: 전 세계의 비즈니스 사용자를 연결하여 최종 사용자의 참여를 이끌어내고, 잠재 고객을 창출하는 데 도움이 되고, 업계의 새로운 고객과 대화를 시작하는 영업 채널을 확보합니다.
 
 - 실행 가능한 인사이트 획득: AppSource에서 앱이 수행되는 방법, 효율적으로 작동하는 기능 및 영업 절차를 더욱 향상시키는 방법에 대한 인사이트를 공유합니다.
+ 
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
 
 ## <a name="publishing-process-workflow"></a>게시 프로세스 워크플로 
 

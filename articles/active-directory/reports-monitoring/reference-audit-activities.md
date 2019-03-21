@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164060"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453646"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
@@ -66,10 +66,10 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |액세스 검토|액세스 검토 업데이트|
 |액세스 검토|Azure AD 액세스 검토 온보딩 상태 업데이트|
 |액세스 검토|액세스 검토 메일 알림 설정 업데이트|
-|액세스 검토|액세스 검토 재발 횟수 설정 업데이트|
-|액세스 검토|액세스 검토 재발 횟수 기간(일) 설정 업데이트|
-|액세스 검토|액세스 검토 재발 종료 형식 설정 업데이트|
-|액세스 검토|액세스 검토 재발 형식 설정 업데이트|
+|액세스 검토|액세스 검토 되풀이 수 설정 업데이트|
+|액세스 검토|액세스 검토 되풀이 기간(일 단위) 설정 업데이트|
+|액세스 검토|액세스 검토 되풀이 끝 유형 설정 업데이트|
+|액세스 검토|액세스 검토 되풀이 유형 설정 업데이트|
 |액세스 검토|액세스 검토 미리 알림 설정 업데이트|
 |액세스 검토|프로그램 업데이트|
 |액세스 검토|요청 승인 업데이트|

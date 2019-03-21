@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2364152cc897ac02c3fcdff68423c64737bb1a78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ ForeSee CX Suite와 Azure AD의 통합을 구성하려면 다음 항목이 필�
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
- 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ForeSee CX Suite 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -120,7 +120,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![ForeSee CX Suite 도메인 및 URL Single Sign-On 정보](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. **서비스 공급자 메타데이터 파일**이 없는 경우 다음 단계를 수행합니다.
+1. 없다면 **서비스 공급자 메타 데이터 파일**, 다음 단계를 수행 합니다.
 
     ![ForeSee CX Suite 도메인 및 URL Single Sign-On 정보](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

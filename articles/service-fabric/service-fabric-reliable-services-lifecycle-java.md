@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3254b29ed380b526be6d5fe5f671adeccbd8ea46
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 4d97803117a875514fb36f770d551204ece0e55c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54196708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448954"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 수명 주기
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Reliable Services에서 이벤트 순서는 신뢰할 수 있는 서비스가 �
 
 1. 이러한 이벤트는 병렬로 수행됩니다.
     - 열려 있는 수신기가 모두 닫힙니다. `CommunicationListener.closeAsync()`가 각 수신기에서 호출됩니다.
-    - `runAsync()`에 전달된 취소 토큰은 취소됩니다. 취소 토큰의 `isCancelled()` 메서드에 대한 호출은 `true`를 반환하고, 호출되는 경우 토큰의 `throwIfCancellationRequested()` 메서드에서 `OperationCanceledException`이 발생(throw)합니다.
+    - `runAsync()`에 전달된 취소 토큰이 취소됩니다. 취소 토큰의 `isCancelled()` 메서드에 대한 호출은 `true`를 반환하고, 호출되는 경우 토큰의 `throwIfCancellationRequested()` 메서드에서 `OperationCanceledException`이 발생(throw)합니다.
 2. `closeAsync()`가 각 수신기에서 완료되고 `runAsync()`도 완료되면 서비스의 `StatefulServiceBase.onChangeRoleAsync()`가 호출됩니다(있는 경우). 이 호출은 서비스에서 드물게 재정의됩니다.
 
    > [!NOTE]  
