@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 3/5/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416278"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570099"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -43,6 +43,17 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 | **지원되는 최소 런타임**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
+* Client#close()에서 리소스 누수에 대 한 픽스 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* 추가 된 연속 토큰이 지원에 대 한 파티션 간 쿼리에 합니다.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* 직접 모드에서 몇 가지 버그도를 수정 되었습니다.
+* 직접 모드에서 향상 된 로깅입니다.
+* 향상 된 연결 관리 합니다.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * 이제 직접 모드 연결이 GA(일반 공급)로 출시되었습니다. 직접 모드 연결을 사용하는 샘플은 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 리포지토리를 참조하세요.
@@ -135,6 +146,9 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.4.3](#2.4.3) |2019 년 3 월 5 일|--- |
+| [2.4.2](#2.4.2) |2019 년 3 월 1 일|--- |
+| [2.4.1](#2.4.1) |2019 년 2 월 20 일|--- |
 | [2.4.0](#2.4.0) |2019년 2월 8일|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |2019년 2월 4일|--- |
 | [2.3.1](#2.3.1) |2019년 1월 15일|--- |
