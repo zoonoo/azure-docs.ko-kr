@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000392"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-추가 설치 정보에 대해서는 [Debian/Ubuntu에 설치](http://docs.grafana.org/installation/debian/)를 참조하세요.
+추가 설치 정보에 대해서는 [Debian/Ubuntu에 설치](https://docs.grafana.org/installation/debian/)를 참조하세요.
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>ElasticSearch 서버를 데이터 원본으로 추가
 

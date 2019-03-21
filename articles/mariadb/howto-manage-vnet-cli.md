@@ -6,18 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/20/2018
-ms.openlocfilehash: bfa55c0a91473a4adc6b9fb02ac9697208ef39f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: a86b755770dc59f196c57f1d86e7f29200ce25e3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540064"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962063"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트 만들기 및 관리
-
-> [!IMPORTANT]
-> VNet 서비스 엔드포인트 기능은 공개 미리 보기로 제공됩니다.
 
 VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의 개인 주소 공간을 Azure Database for MariaDB 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for MariaDB VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MariaDB 서버 VNet 서비스 엔드포인트](concepts-data-access-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MariaDB에 대해 지원되는 모든 지역에서 사용할 수 있습니다.
 

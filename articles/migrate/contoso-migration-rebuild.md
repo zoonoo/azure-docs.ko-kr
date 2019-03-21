@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002504"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437317"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 마이그레이션: Azure에 온-프레미스 앱 다시 빌드
 
@@ -154,7 +154,7 @@ Contoso 관리자는 AKS 및 ACR(Azure Container Registry)을 사용하여 관�
 
 ### <a name="prerequisites"></a>필수 조건
 
-1. 여기서 설명하는 작업을 시작하기 전에 Contoso는 배포용으로 사용 중인 개발 머신에 필수 소프트웨어가 모두 설치되어 있는지 확인합니다.
+1. 시작 하기 전에 Contoso 관리자 배포에 사용 되는 개발 컴퓨터에서 모든 필수 구성 요소 소프트웨어가 설치 되어 있는지 확인 합니다.
 2. 그리고 Git을 사용(**git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**)하여 개발 머신에 로컬로 리포지토리를 복제합니다.
 
 
@@ -448,7 +448,7 @@ Contoso 관리자는 Azure Portal을 사용하여 웹앱을 프로비전합니�
 
 Contoso 관리자는 Azure Portal에서 Function App을 프로비전합니다.
 
-1. **함수 앱**을 선택합니다.
+1. **Function App**을 선택합니다.
 
     ![함수 앱 만들기](./media/contoso-migration-rebuild/function-app1.png)
 
@@ -595,7 +595,7 @@ Contoso 관리자는 다음과 같이 앱을 배포합니다.
 7. 템플릿의 기본값을 적용합니다.
 8. **트리거**에서 **연속 통합 사용**을 선택하고 **저장 및 큐**를 클릭하여 빌드를 시작합니다.
 9. 빌드가 정상적으로 완료되면 **Azure App Service 배포 및 슬롯**을 추가하여 릴리스 파이프라인을 빌드합니다.
-10. 환경 이름을 **Prod**로 지정하고 구독을 선택합니다. **앱 유형**은 **함수 앱**으로 설정하고 앱 서비스 이름은 **smarthotelpetchecker**로 설정합니다.
+10. 환경 이름을 **Prod**로 지정하고 구독을 선택합니다. **앱 유형**은 **Function App**으로 설정하고 앱 서비스 이름은 **smarthotelpetchecker**로 설정합니다.
 
     ![함수 앱](./media/contoso-migration-rebuild/petchecker2.png)
 

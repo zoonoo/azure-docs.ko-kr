@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193488"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>자습서: Syncplicity와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Syncplicity와 Azure AD의 통합을 구성하려면 다음 항목이 필요합�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Syncplicity 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -206,7 +206,7 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 애플리케이션에 �
    
     ![사용자 관리](./media/syncplicity-tutorial/ic769764.png "사용자 관리")
 
-1. 프로비전하려는 AAD 계정의 **이메일 주소**를 입력하고, **사용자**를 **역할**로 선택하고, **다음**을 클릭합니다.
+1. 형식 합니다 **전자 메일 주소** 프로 비전 하려는 AAD 계정의 선택 **사용자** 으로 **역할**를 클릭 하 고 **다음**합니다.
    
     ![계정 정보](./media/syncplicity-tutorial/ic769765.png "계정 정보")
    

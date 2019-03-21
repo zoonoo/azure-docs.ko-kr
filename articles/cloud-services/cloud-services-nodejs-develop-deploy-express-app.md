@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 260c63ed55b5cb2535567038f27626aa7a085550
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574611"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550654"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
 
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
-개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 애플리케이션을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 애플리케이션을 만듭니다.
+개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 애플리케이션을 만들기 위한 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 애플리케이션을 만들어봅니다.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
@@ -57,7 +57,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
     npm 명령의 출력이 아래 결과와 비슷하게 표시되어야 합니다. 
    
     ![express 설치 npm 명령의 출력을 표시하는 Windows PowerShell](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. 디렉터리를 **WebRole1** 디렉터리로 변경하고 express 명령을 사용하여 새 애플리케이션을 만듭니다.
+2. 디렉터리를 **WebRole1** 디렉터리로 변경하고 express 명령을 사용하여 새 애플리케이션을 생성합니다.
    
         PS C:\node\expressapp\WebRole1> express
    
@@ -121,8 +121,8 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)를 참조하세요.
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
 

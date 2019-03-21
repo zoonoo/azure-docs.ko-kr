@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61603ad5920b6242c3e36429173744125b9eb59e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206748"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>자습서: Palo Alto Networks - Aperture와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Palo Alto Networks - Aperture와의 Azure AD 통합을 구성하려면 다음 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Palo Alto Networks - Aperture 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -149,7 +149,7 @@ Palo Alto Networks - Aperture에서 Azure AD Single Sign-On을 구성하고 테�
     
     ![인증 탭](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-    a. **Single Sign-On** 필드에서 **Single Sign-On 사용(지원되는 SSP 공급자는 Okta, Onelogin)** 을 선택합니다.
+    a. 확인 합니다 **사용 Single Sign-On(Supported SSP Providers are Okta, One login)** 에서 **Single Sign-on** 필드입니다.
 
     b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 ID** 텍스트 상자에 붙여넣습니다.
 

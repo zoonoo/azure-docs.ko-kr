@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094175"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451980"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 클러스터는 잠재적으로 수천 개의 노드를 포함할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
@@ -81,7 +81,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 노드 형식 규모 확장 또는 축소 프로세스는 주 노드 형식인지 아닌지에 따라 달라집니다.
 
 ### <a name="scaling-non-primary-node-types"></a>주가 아닌 노드 형식 크기 조정
-필요한 리소스를 사용하여 새 노드 형식을 만듭니다.  새 노드 형식을 포함하도록 실행 중인 서비스의 배치 제약 조건을 업데이트합니다.  클러스터의 안정성에 영향을 주지 않도록 점진적으로(한 번에 하나씩) 이전 노드 형식 인스턴스의 수를 0까지 줄입니다.  이전 노드 형식이 서비스 해제될 때 서비스는 새 노드 형식으로 점진적으로 마이그레이션됩니다.
+필요한 리소스를 사용하여 새 노드 형식을 만듭니다.  새 노드 형식을 포함하도록 실행 중인 서비스의 배치 제약 조건을 업데이트합니다.  클러스터의 안정성에 영향을 주지 않도록 점진적으로(한 번에 하나씩) 이전 노드 형식 인스턴스의 수를 0까지 줄입니다.  이전 노드 형식이 서비스 해제 되었습니다.으로 새 노드 형식에 서비스 점진적으로 마이그레이션됩니다.
 
 ### <a name="scaling-the-primary-node-type"></a>주 노드 형식 크기 조정
 주 노드 형식의 VM SKU는 변경하지 않는 것이 좋습니다. 클러스터 용량이 더 필요한 경우 인스턴스를 더 추가하는 것이 좋습니다. 

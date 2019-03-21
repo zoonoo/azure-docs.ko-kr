@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407947"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226728"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>보안 정보 등록 결합 사용 (미리 보기)
 
@@ -44,6 +44,12 @@ ms.locfileid: "57407947"
 
 > [!NOTE]
 > 결합 된 등록을 사용 하는 한 번 등록 또는 MFA 및 SSPR 정책에서 이러한 메서드를 사용할 수 있으면 해당 전화 번호 또는 새 환경을 통해 모바일 앱에 사용할 수 MFA 및 SSPR을 확인 하는 사용자입니다. 이전 SSPR 등록으로 이동 하는 사용자 페이지에서 다음에이 환경을 비활성화 하면 `https:/aka.ms/ssprsetup` 페이지에 액세스 하기 전에 multi-factor authentication을 수행 해야 합니다.
+
+Internet Explorer에서 사이트 할당 목록 영역을 구성한 경우 동일한 영역에 다음 사이트 여야 합니다.
+
+* [https://login.microsoftonline.com](https://login.microsoftonline.com)
+* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
 ## <a name="next-steps"></a>다음 단계
 

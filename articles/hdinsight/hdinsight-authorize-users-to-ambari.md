@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725272"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224025"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
 [ESP(Enterprise Security Package) 사용 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 [새 사용자를 동기화](hdinsight-sync-aad-users-to-cluster.md)하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. [Apache Ambari](https://ambari.apache.org/)의 사용자, 그룹, 권한 작업은 ESP HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
 
-Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자체 도메인 자격 증명을 사용하여 [Hue](https://gethue.com/), Ambari 보기, ODBC, JDBC, PowerShell, REST API 등의 승인된 다른 엔드포인트와 클러스터의 상호 작용을 인증할 수 있습니다.
+Active Directory 사용자는 자신의 도메인 자격 증명을 사용 하 여 클러스터 노드에 로그인 수 있습니다. 또한 자체 도메인 자격 증명을 사용하여 [Hue](https://gethue.com/), Ambari 보기, ODBC, JDBC, PowerShell, REST API 등의 승인된 다른 엔드포인트와 클러스터의 상호 작용을 인증할 수 있습니다.
 
 > [!WARNING]  
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
@@ -51,24 +51,24 @@ Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://te
 
 **다음 그룹에게 권한 부여** ![다음 그룹에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. 사용자를 추가하려면 **사용자 추가** 단추를 선택합니다.
+1. 사용자를 추가하려면 **사용자 추가** 단추를 선택합니다.
 
-    * 사용자 이름 입력을 시작하면 이전에 정의한 이름의 드롭다운 목록이 표시될 것입니다.
+   * 사용자 이름 입력을 시작하면 이전에 정의한 이름의 드롭다운 목록이 표시될 것입니다.
 
-    ![사용자 자동 완성](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![사용자 자동 완성](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * 사용자 이름을 선택하거나 직접 입력합니다. 이 사용자 이름을 새 사용자로 추가하려면 **새로 만들기** 단추를 선택합니다.
+   * 사용자 이름을 선택하거나 직접 입력합니다. 이 사용자 이름을 새 사용자로 추가하려면 **새로 만들기** 단추를 선택합니다.
 
-    * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
+   * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
 
-    ![사용자 입력됨](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![사용자 입력됨](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. 그룹을 추가하려면 **그룹 추가** 단추를 선택합니다.
+1. 그룹을 추가하려면 **그룹 추가** 단추를 선택합니다.
 
-    * 그룹 이름 입력을 시작합니다. 기존 그룹 이름을 선택하거나 새 그룹을 추가하는 프로세스는 사용자를 추가하는 프로세스와 똑같습니다.
-    * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
+   * 그룹 이름 입력을 시작합니다. 기존 그룹 이름을 선택하거나 새 그룹을 추가하는 프로세스는 사용자를 추가하는 프로세스와 똑같습니다.
+   * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
 
-    ![그룹 입력됨](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![그룹 입력됨](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 보기를 사용할 사용자에게 권한을 할당하되, 해당 사용자를 추가 권한이 있는 그룹 구성원으로 할당하지 않으려면 보기에 사용자를 직접 추가하는 것이 좋습니다. 관리 오버헤드를 줄이려는 경우 그룹에 권한을 할당하는 것이 좀 더 간단할 수 있습니다.
 

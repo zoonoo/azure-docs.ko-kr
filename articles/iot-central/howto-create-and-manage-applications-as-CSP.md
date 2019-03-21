@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 22e9954e66c05bfb2e425a01ffa6f9e3b93b761e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200295"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313721"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션 만들기 및 관리 
 
@@ -25,7 +25,7 @@ CSP로서 고객을 대신해 [Microsoft 파트너 센터](https://partnercenter
 
 ![Microsoft 파트너 센터, 고객 보기](media/howto-create-application-asCSP/image1.png)
 
-Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. 새 애플리케이션을 만들거나 이 고객에 대해 기존 애플리케이션을 관리하려면 페이지에서 Azure IoT Central 링크를 클릭합니다.
+Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. 새 응용 프로그램을 만들거나이 고객에 대 한 기존 응용 프로그램 관리 페이지에서 Azure IoT Central 링크를 선택 합니다.
 
 ![관리할 수 있는 Azure IoT Central](media/howto-create-application-asCSP/image2.png)
 
@@ -33,7 +33,7 @@ Azure IoT Central 애플리케이션 관리자 페이지로 이동합니다. Azu
 
 ![CSP를 위한 관리자 만들기](media/howto-create-application-asCSP/image3.png)
 
-Azure IoT Central 애플리케이션을 만들려면 **새 애플리케이션** 타일을 클릭합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
+Azure IoT Central 응용 프로그램을 만들려면 선택 합니다 **새 응용 프로그램** 바둑판식으로 배열 합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
 ![CSP에 대한 애플리케이션 페이지 만들기](media/howto-create-application-asCSP/image4.png)
 

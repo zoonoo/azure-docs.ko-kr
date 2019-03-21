@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207231"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438077"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -69,7 +69,7 @@ Azure AD 애플리케이션 프록시가 역방향 프록시이기 때문에 백
 
 최첨단 보안 보호를 가져옵니다.
 
-애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 어떤 로그인 시도가 위험이 높은지 판단하기 위해 여러 요소를 고려합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
+애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 로그인 시도 하는 위험 수준이 높은 확인 하려면 여러 요인을 고려 수행 합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
 
 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
 

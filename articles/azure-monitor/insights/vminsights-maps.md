@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187748"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984852"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 애플리케이션 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 애플리케이션 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
@@ -39,7 +39,7 @@ VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일
 
 ![컴퓨터의 시스템 속성](./media/vminsights-maps/properties-pane-01.png)
 
-오른쪽 창에서 **로그 이벤트** 아이콘을 클릭하여 VM에서 수집된 데이터가 Log Analytics로 전송되고 쿼리에 사용할 수 있는 테이블 목록을 표시하도록 창의 포커스를 전환합니다.  나열된 레코드 형식 중 하나를 클릭하면 **로그** 페이지를 열어서 특정 가상 머신에 대해 필터링된 미리 구성된 쿼리를 사용하여 해당 형식에 대한 결과를 봅니다.  
+오른쪽 창에서 클릭 하 여 **로그 이벤트** VM에서 수집 된 데이터는 테이블의 목록을 표시 하려면 창의 포커스를 전환 하려면 아이콘 Azure Monitor에 전송한 되며 쿼리에 사용할 수 있습니다.  나열된 레코드 형식 중 하나를 클릭하면 **로그** 페이지를 열어서 특정 가상 머신에 대해 필터링된 미리 구성된 쿼리를 사용하여 해당 형식에 대한 결과를 봅니다.  
 
 ![속성 창의 로그 검색 목록](./media/vminsights-maps/properties-pane-logs-01.png)
 

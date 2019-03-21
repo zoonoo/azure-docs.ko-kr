@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121450"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448393"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
 
@@ -56,7 +56,7 @@ HockeyApp 브리지 필드가 나타납니다.
 이제 사용할 수 있는 이러한 기능을 각각 간단히 검토하겠습니다.
 
 ## <a name="analytics"></a>분석
-분석은 데이터를 임시 쿼리하는 강력한 도구이며 이를 통해 원격 분석을 진단하고 분석하며 근본 원인 및 패턴을 신속하게 검색할 수 있습니다.
+Analytics는 임시 쿼리를 진단 및 분석을 신속 하 게 근본 원인 및 패턴을 검색할 수 있도록 데이터를 위한 강력한 도구입니다.
 
 ![분석](./media/hockeyapp-bridge-app/05.png)
 

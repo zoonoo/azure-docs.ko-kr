@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 2c768790421ac74fa483877f09e66b1b4b5d5f35
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476617"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181319"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 
 이벤트 데이터가 예상되는 [Event Grid 스키마](event-schema.md)와 일치하지 않는 경우 계속 Event Grid를 사용하여 구독자에 이벤트를 라우팅할 수 있습니다. 이 문서에서는 Event Grid 스키마로 사용자의 스키마를 매핑하는 방법을 설명합니다.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>미리 보기 기능 설치
 

@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/01/2019
 ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448095"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213486"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 >
-> 2019년 2월 기준으로, Azure Active Directory Graph API는 사용되지 않고 Microsoft Graph API로 대체됩니다.  
+> 2019 년 2 월을 기준으로 Microsoft Graph API를 위해 Azure Active Directory Graph API의 일부 이전 버전의 사용을 중단 하는 프로세스를 시작 했습니다. 
 >
-> 전환하기 쉽도록 이전 버전의 Azure AD Graph API가 최신 버전보다 먼저 서비스 해제됩니다.  
->
-> 자세한 내용, 업데이트 및 시간 프레임은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
+> 세부 정보, 업데이트 및 기간을 참조 하세요 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) Office 개발자 센터에서.
 >
 > 앞으로 애플리케이션은 Microsoft Graph API를 사용해야 합니다. 
 

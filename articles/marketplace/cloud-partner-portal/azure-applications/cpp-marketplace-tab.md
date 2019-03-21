@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195807"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870740"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure 애플리케이션 Marketplace 탭
 
@@ -66,7 +66,7 @@ Marketplace 탭을 사용하여 Azure 애플리케이션을 설명하고 마케�
 
 다음 화면 캡처에는 Marketplace 검색 결과의 예가 나와 있습니다.
 
-![Marketplace 제품 검색 결과 ](./media/azureapp-marketplace-example-browse.png)
+![Marketplace 제품 검색 결과](./media/azureapp-marketplace-example-browse.png)
 
 다음 이미지는 고객이 검색 결과에서 제품 타일을 클릭한 후 Marketplace에 제품이 어떻게 표시되는지 보여 줍니다.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107823"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338283"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
@@ -77,8 +77,8 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 
 [Site Recovery Deployment Planner](site-recovery-deployment-planner.md)를 실행하여 복제(초기 복제 및 델타)에 필요한 대역폭을 계산한 다음, 복제에 사용되는 대역폭 양을 제어할 수 있는 옵션은 다음과 같이 두 가지입니다.
 
-* **대역폭을 제한하기**: Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행되는 머신에서 대역폭을 제한할 수 있습니다.
-* **대역폭에 영향을 주기**: 몇 가지 레지스트리 키를 사용하면 복제에 사용되는 대역폭에 영향을 줄 수 있습니다.
+* **대역폭 제한**: Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행되는 머신에서 대역폭을 제한할 수 있습니다.
+* **대역폭 영향**: 몇 가지 레지스트리 키를 사용하면 복제에 사용되는 대역폭에 영향을 줄 수 있습니다.
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** 레지스트리 값은 디스크의 데이터 전송(초기 또는 델타 복제)에 사용되는 스레드 수를 지정합니다. 값이 높을수록 복제에 사용되는 네트워크 대역폭이 증가합니다.
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** 레지스트리 값은 장애 복구(failback) 중에 데이터 전송에 사용되는 스레드 수를 지정합니다.
 
@@ -114,7 +114,7 @@ Site Recovery 인프라를 설정하기 전에 환경에 액세스하여 호환�
 1. 이러한 매개 변수를 측정하려면 사용자 환경에서 Site Recovery Deployment Planner를 실행합니다. 유용한 지침은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요.
 2. [구성 서버의 권장 크기](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)에 맞는 구성 서버를 배포합니다. 프로덕션 워크로드가 650개 가상 머신을 초과하는 경우 다른 구성 서버를 배포합니다.
 3. 측정된 일일 데이터 변경률을 기준으로 [크기 지침](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server)에 따라 [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md#download-installation-file)를 배포합니다.
-4. 디스크 가상 머신의 데이터 변경률이 2MBps를 넘을 것으로 예상되는 경우 [Premium Storage 계정을 설정](tutorial-prepare-azure.md#create-a-storage-account)합니다. Site Recovery Deployment Planner는 특정 기간 동안 실행됩니다. 다른 시간의 데이터 변경률 최고치는 보고서에 캡처되지 않을 수 있습니다.
+4. 데이터 변경 률 2 MBps를 초과 하는 디스크 가상 머신에 대 한 예상 되는 경우 프리미엄 managed disks를 사용 하는 확인 합니다. Site Recovery Deployment Planner는 특정 기간 동안 실행됩니다. 다른 시간의 데이터 변경률 최고치는 보고서에 캡처되지 않을 수 있습니다.
 5. 달성하려는 RPO에 따라 [네트워크 대역폭을 설정](site-recovery-plan-capacity-vmware.md#control-network-bandwidth)합니다.
 6. 인프라가 설정되면 워크로드에 대한 재해 복구를 활성화합니다. 방법을 알아보려면 [Azure 복제에 대한 VMware의 원본 환경 설정](vmware-azure-set-up-source.md)을 참조하세요.
 

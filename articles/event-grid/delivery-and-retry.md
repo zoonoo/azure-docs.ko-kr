@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465516"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991209"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -24,17 +24,20 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 �
 
 ## <a name="retry-schedule-and-duration"></a>예약 및 기간 재시도
 
-Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. 엔드포인트가 응답하지 않거나 오류 코드를 반환하는 경우 Event Grid는 다음 예약에 따라 전송을 다시 시도합니다.
+Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. 끝점이 응답 하지 않거나 오류 코드가 반환, Event Grid를 최상의 기준으로 다음 일정에 따라 배달을 다시 시도 합니다.
 
 1. 10초
-2. 30초
-3. 1분
-4. 5분
-5. 10분
-6. 30분
-7. 1시간
+1. 30초
+1. 1분
+1. 5분
+1. 10분
+1. 30분
+1. 1시간
+1. 최대 24 시간 동안 1 시간 마다
 
-Event Grid는 약간의 불규칙을 모든 재시도 간격에 추가합니다. 한 시간 후에 이벤트 배달은 한 시간에 한 번 다시 시도됩니다.
+Event Grid는 약간의 불규칙을 모든 재시도 단계를 추가 및 끝점 긴 기간 동안 다운 일관 되 게 정상 되지 않거나 무력화 될 것 이므로 경우에 선택적으로 특정 재시도 건너뛸 수 있습니다.
+
+결정적 동작에 대 한 라이브 이벤트 시간을 설정 하 고 최대 배달 시도에 [구독 다시 시도 정책](manage-event-delivery.md)합니다.
 
 기본적으로 Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다. 이벤트 구독을 만들 때 [재시도 정책을 사용자 지정](manage-event-delivery.md)할 수 있습니다. 최대 배달 시도 횟수(기본값: 30)와 이벤트 TTL(Time to Live, 기본값: 1440분)을 제공합니다.
 

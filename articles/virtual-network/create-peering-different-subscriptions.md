@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 11ef6f2f09aacc175f095f7118ddb26ec77b2446
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5ce816c9e8bec716de840cc5f6fdd546b6abd298
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268365"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649784"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -106,7 +106,7 @@ ms.locfileid: "56268365"
 - Azure CLI 버전 2.0.4 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 - Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 설치](/cli/azure/install-azure-cli-windows)를 참조하세요.
 
-CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 선택하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다. 
+CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 선택하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다.
 
 1. CLI 세션을 열고 `azure login` 명령을 사용하여 사용자 A로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 2. 다음 스크립트를 PC의 텍스트 편집기에 복사하고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체한 다음 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다. 구독 ID를 모르는 경우 'az account show' 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다.
@@ -130,9 +130,9 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
       --role "Network Contributor" \
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
-    
+
 3. `az logout` 명령을 사용하여 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
-4. myVnetB를 만듭니다. 2 단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경하고 모든 A를 B로, 모든 B를 A로 바꿉니다. 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 
+4. myVnetB를 만듭니다. 2 단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경하고 모든 A를 B로, 모든 B를 A로 바꿉니다. 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다.
 5. 사용자 B로 Azure에서 로그아웃하고 사용자 A로 Azure에 로그인합니다.
 6. myVnetA에서 myVnetB로의 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트 내용을 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 바꿉니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 Enter를 누릅니다.
 
@@ -174,33 +174,36 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 12. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에 설명된 단계를 완료합니다.
 
 어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
- 
+
 ## <a name="powershell"></a>피어링 만들기 - PowerShell
 
-이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다. 가상 네트워크가 서로 다른 구독에 있고 구독이 다른 Azure Active Directory 테넌트에 연결되어 있으면 계속하기 전에 다음 단계를 완료합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다.
+가상 네트워크가 서로 다른 구독에 있고 구독이 다른 Azure Active Directory 테넌트에 연결되어 있으면 계속하기 전에 다음 단계를 완료합니다.
  - 각 Active Directory 테넌트의 사용자를 다른 쪽 Azure Active Directory 테넌트의 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 추가합니다.
  - 각 사용자는 다른 쪽 Active Directory 테넌트의 게스트 사용자 초대를 수락해야 합니다.
 
-1. 버전 6.5.0 이상이 있는지 확인합니다. 이 작업을 하려면 `Get-Module -Name AzureRm`을 실행합니다. 최신 버전의 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 
+1. Azure PowerShell 버전 1.0.0 했는지 확인 이상. 실행 하 여이 수행할 수는 `Get-Module -Name Az` 최신 버전의 PowerShell 설치 하는 것이 좋습니다 [Az 모듈](/powershell/azure/install-az-ps)합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 
 2. PowerShell 세션을 시작합니다.
-3. PowerShell에서 `Connect-AzureRmAccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
-4. 리소스 그룹 및 가상 네트워크 A를 만듭니다. 다음 스크립트를 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 A의 ID로 바꿉니다. 구독 ID를 모르는 경우 `Get-AzureRmSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
+3. PowerShell에서 `Connect-AzAccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
+4. 리소스 그룹 및 가상 네트워크 A를 만듭니다. 다음 스크립트를 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 A의 ID로 바꿉니다. 구독 ID를 모르는 경우 `Get-AzSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 
     ```powershell
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name MyResourceGroupA `
       -Location eastus
 
     # Create virtual network A.
-    $vNetA = New-AzureRmVirtualNetwork `
+    $vNetA = New-AzVirtualNetwork `
       -ResourceGroupName MyResourceGroupA `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
 
     # Assign UserB permissions to myVnetA.
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -210,20 +213,20 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 6. 4단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경합니다. 모든 A를 B로, 모든 B를 A로 변경합니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
 7. 사용자 B로 Azure에서 로그아웃하고 사용자 A로 로그인합니다.
 8. myVnetA에서 myVnetB로의 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 교체합니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
- 
-    ```powershell
-    # Peer myVnetA to myVnetB.
-    $vNetA=Get-AzureRmVirtualNetwork -Name myVnetA -ResourceGroupName myResourceGroupA
-    Add-AzureRmVirtualNetworkPeering `
-      -Name 'myVnetAToMyVnetB' `
-      -VirtualNetwork $vNetA `
-      -RemoteVirtualNetworkId "/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB"
-    ```
+
+   ```powershell
+   # Peer myVnetA to myVnetB.
+   $vNetA=Get-AzVirtualNetwork -Name myVnetA -ResourceGroupName myResourceGroupA
+   Add-AzVirtualNetworkPeering `
+     -Name 'myVnetAToMyVnetB' `
+     -VirtualNetwork $vNetA `
+     -RemoteVirtualNetworkId "/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB"
+   ```
 
 9. MyVnetA의 피어링 상태를 확인합니다.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName myResourceGroupA `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -233,7 +236,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 10. 사용자 A로 Azure에서 로그아웃하고 사용자 B로 로그인합니다.
 11. myVnetB에서 myVnetA로의 피어링을 만듭니다. 8단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 교체하고 모든 A를 B로, 모든 B를 A로 변경합니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
-12. MyVnetB의 피어링 상태를 확인합니다. 9단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹 및 가상 네트워크 이름에 대해 A를 B로 변경합니다. 스크립트를 실행하려면 수정된 스크립트를 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다. 상태는 **Connected**입니다. **myVnetB**에서 **myVnetA**로의 피어링을 만든 후에는 **myVnetA**의 피어링 상태가 **Connected**로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 9단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다. 
+12. MyVnetB의 피어링 상태를 확인합니다. 9단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹 및 가상 네트워크 이름에 대해 A를 B로 변경합니다. 스크립트를 실행하려면 수정된 스크립트를 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다. 상태는 **Connected**입니다. **myVnetB**에서 **myVnetA**로의 피어링을 만든 후에는 **myVnetA**의 피어링 상태가 **Connected**로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 9단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다.
 
     > [!NOTE]
     > 두 가상 네트워크 모두에 대해 피어링 상태가 **Connected**가 될 때까지는 피어링이 설정되지 않습니다.
@@ -248,12 +251,12 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 가상 네트워크가 서로 다른 구독에 있고 구독이 다른 Azure Active Directory 테넌트에 연결되어 있으면 계속하기 전에 다음 단계를 완료합니다.
  - 각 Active Directory 테넌트의 사용자를 다른 쪽 Azure Active Directory 테넌트의 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 추가합니다.
  - 각 사용자는 다른 쪽 Active Directory 테넌트의 게스트 사용자 초대를 수락해야 합니다.
- 
+
 1. 가상 네트워크를 만들고 적절한 [사용 권한](virtual-network-manage-peering.md#permissions)을 할당하려면 이 문서의 [포털](#portal), [Azure CLI](#cli) 또는 [PowerShell](#powershell) 섹션에 나오는 단계를 완료합니다.
 2. 다음에 나오는 텍스트를 로컬 컴퓨터의 파일에 저장합니다. `<subscription ID>`를 사용자 A의 구독 ID로 바꿉니다. 예를 들어 파일을 vnetpeeringA.json으로 저장할 수 있습니다.
 
-    ```json
-    {
+   ```json
+   {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -277,13 +280,13 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
             }
             }
         ]
-    }
-    ```
+   }
+   ```
 
 3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-templates-stored-locally) 또는 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
 4. 2단계의 예제 json 파일을 컴퓨터에 복사하고 다음으로 시작하는 줄을 변경합니다.
-    - **이름**: *myVnetA/myVnetAToMyVnetB*를 *myVnetB/myVnetBToMyVnetA*로 변경합니다.
-    - **ID**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB*를 *myVnetA*로 변경합니다.
+   - **이름**: *myVnetA/myVnetAToMyVnetB*를 *myVnetB/myVnetBToMyVnetA*로 변경합니다.
+   - **ID**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB*를 *myVnetA*로 변경합니다.
 5. 3단계를 다시 완료하고 UserB로 Azure에 로그인합니다.
 6. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 7. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 이 문서의 [리소스 삭제](#delete) 섹션에 설명된 단계를 완료합니다.
@@ -304,30 +307,31 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 1. 사용자 A로 Azure에 로그인하고 다음 명령을 실행합니다.
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupA --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupA --yes
+   ```
+
 2. 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 로그인합니다.
 3. 다음 명령을 실행합니다.
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupB --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupB --yes
+   ```
 
 ### <a name="delete-powershell"></a>PowerShell
 
 1. 사용자 A로 Azure에 로그인하고 다음 명령을 실행합니다.
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupA -force
-    ```
+   ```powershell
+   Remove-AzResourceGroup -Name myResourceGroupA -force
+   ```
 
 2. 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 로그인합니다.
 3. 다음 명령을 실행합니다.
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupB -force
-    ```
+   ```powershell
+   Remove-AzResourceGroup -Name myResourceGroupB -force
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

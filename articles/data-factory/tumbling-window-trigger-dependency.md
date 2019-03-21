@@ -3,22 +3,21 @@ title: Azure Data Factory에서 연속 창 트리거 종속성 만들기 | Micro
 description: Azure Data Factory에서 연속 창 트리거에 대한 종속성을 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: douglasl
-ms.openlocfilehash: c51c1056869cbd7741fae2ed1a554a7c794d1a39
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: f3a547f5b953262d7263d1be0897161cf4091a1d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966853"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574392"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 
@@ -78,8 +77,8 @@ ms.locfileid: "55966853"
 | **속성 이름** | **설명**  | **형식** | **필수** |
 |---|---|---|---|
 | 트리거  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | TumblingWindowTrigger | 예 |
-| Offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식으로 값을 제공합니다. 음수 및 양수 오프셋이 둘 다 허용됩니다. 이 매개 변수는 트리거가 자체 종속적인 경우에만 필수이고, 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. | Timespan | 자체 종속성: 예, 기타: 아니요 |
-| 창 크기 | 종속성 연속 창의 크기입니다. 시간 범위 형식으로 값을 입력합니다. 이 매개 변수는 선택 사항입니다. | Timespan | 아니요  |
+| Offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식으로 값을 제공합니다. 음수 및 양수 오프셋이 둘 다 허용됩니다. 이 매개 변수는 트리거가 자체 종속적인 경우에만 필수이고, 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. | Timespan | 자체 종속성: 예, 기타: 아닙니다. |
+| 창 크기 | 종속성 연속 창의 크기입니다. 시간 범위 형식으로 값을 입력합니다. 이 매개 변수는 선택 사항입니다. | Timespan | 아닙니다.  |
 |||||
 
 ## <a name="tumbling-window-self-dependency-properties"></a>연속 창 자체 종속성 속성

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 78c92f8d738dd675ac20c31bd8171bd4370a56f6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406248"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241326"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 준수 IaaS 웹 애플리케이션
 
@@ -34,7 +34,7 @@ ms.locfileid: "49406248"
 관리 요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. *참조 아키텍처 서브넷으로 데이터를 가져오는 작업 및 관리 작업용으로 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.*
 
 
-![NIST SP 800-171 준수 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/nist171-iaaswa-architecture.png "NIST SP 800-171 준수 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
+![NIST SP 800-171 준수 IaaS 웹 애플리케이션 참조 아키텍처 다이어그램](images/nist171-iaaswa-architecture.png "NIST SP 800-171 준수 IaaS 웹 애플리케이션 참조 아키텍처 다이어그램")
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 자세한 내용은 [배포 아키텍처](#deployment-architecture) 섹션을 참조하세요.
 
@@ -59,11 +59,10 @@ ms.locfileid: "49406248"
 - Azure Active Directory
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor
+- Azure 모니터 (로그)
 - Azure 리소스 관리자
 - Azure Security Center
 - Azure Storage
-- Azure Log Analytics
 - Azure Automation
 - 클라우드 감시
 - Recovery Services 자격 증명 모음
@@ -71,7 +70,7 @@ ms.locfileid: "49406248"
 ## <a name="deployment-architecture"></a>배포 아키텍처
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
 
-**배스천 호스트**: 배스천 호스트는 사용자가 이 환경에서 배포된 리소스에 액세스하는 데 사용할 수 있는 단일 진입점입니다. 배스천 호스트는 수신 허용 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. 원격 데스크톱 트래픽을 허용하려면 트래픽의 원본을 NSG(네트워크 보안 그룹)에 정의해야 합니다.
+**요새 호스트**: 요새 호스트에는 사용자가이 환경에서 배포 된 리소스에 액세스 하는 데 사용할 수 있는 항목의 단일 지점입니다. 배스천 호스트는 수신 허용 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. 원격 데스크톱 트래픽을 허용하려면 트래픽의 원본을 NSG(네트워크 보안 그룹)에 정의해야 합니다.
 
 이 솔루션은 다음 구성을 사용하여 도메인 조인 배스천 호스트로 VM을 만듭니다.
 -   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)
@@ -83,7 +82,7 @@ ms.locfileid: "49406248"
 ### <a name="virtual-network"></a>가상 네트워크
 아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
 
-**네트워크 보안 그룹**: 이 솔루션은 가상 네트워크 내에서 웹, 데이터베이스, Active Directory 및 관리용으로 각기 별도의 서브넷이 있는 아키텍처에 리소스를 배포합니다. 서브넷은 개별 서브넷에 적용된 NSG 규칙에 의해 논리적으로 구분됩니다. 이러한 규칙은 시스템 및 관리 기능에 필요한 트래픽만 서브넷 간에 전송되도록 제한합니다.
+**네트워크 보안 그룹**: 이 솔루션은 웹, 데이터베이스, Active Directory 및 가상 네트워크 내의 관리에 대 한 별도 서브넷이 있는 아키텍처에 리소스를 배포 합니다. 서브넷은 개별 서브넷에 적용된 NSG 규칙에 의해 논리적으로 구분됩니다. 이러한 규칙은 시스템 및 관리 기능에 필요한 트래픽만 서브넷 간에 전송되도록 제한합니다.
 
 이 솔루션으로 배포된 [NSG](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json)에 대한 구성을 참조하세요. 조직은 [이 문서](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)를 참조해서 위의 파일을 편집하여 NSG를 구성할 수 있습니다.
 
@@ -100,16 +99,16 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 ### <a name="data-at-rest"></a>미사용 데이터
 이 아키텍처는 여러 조치를 통해 미사용 데이터를 보호합니다. 이러한 조치에는 암호화 및 데이터베이스 감사가 포함됩니다.
 
-**Azure Storage**: 모든 [Storage](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption)을 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
+**Azure Storage**: 모든 [스토리지](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [스토리지 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
 
-**Azure Disk Encryption**: Disk Encryption은 Windows IaaS VM 디스크를 암호화하는 데 사용됩니다. [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 사용하여 운영 체제 및 데이터 디스크에 볼륨 암호화를 제공합니다. 이 솔루션은 디스크 암호화 키를 쉽게 제어 및 관리할 수 있도록 Key Vault와 통합됩니다.
+**Azure Disk Encryption**: 디스크 암호화는 암호화 된 Windows IaaS VM 디스크에 사용 됩니다. [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 사용하여 운영 체제 및 데이터 디스크에 볼륨 암호화를 제공합니다. 이 솔루션은 디스크 암호화 키를 쉽게 제어 및 관리할 수 있도록 Key Vault와 통합됩니다.
 
 **SQL Server**: SQL Server 인스턴스에서 사용하는 데이터베이스 보안 조치는 다음과 같습니다.
 -   [SQL Server 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017)는 데이터베이스 이벤트를 추적하고 감사 로그에 기록합니다.
 -   [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)는 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. 투명한 데이터 암호화를 사용하는 경우 저장된 데이터에 무단으로 액세스할 수 없습니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [암호화된 열](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-wizard?view=sql-server-2017)을 사용하면 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 표시되지 않습니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
-- [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017)은 권한이 없는 사용자 또는 응용 프로그램을 대상으로 데이터를 마스킹하여 중요한 데이터가 노출되지 않도록 제한합니다. 이 기능은 중요할 가능성이 있는 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 동적 데이터 마스킹을 사용하면 무단 액세스로 인해 중요한 데이터가 데이터베이스 외부로 유출되지 않도록 액세스 횟수를 줄일 수 있습니다. *고객은 데이터베이스 스키마를 준수하도록 설정을 조정할 책임이 있습니다.*
+- [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017)은 권한이 없는 사용자 또는 애플리케이션을 대상으로 데이터를 마스킹하여 중요한 데이터가 노출되지 않도록 제한합니다. 이 기능은 중요할 가능성이 있는 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 동적 데이터 마스킹을 사용하면 무단 액세스로 인해 중요한 데이터가 데이터베이스 외부로 유출되지 않도록 액세스 횟수를 줄일 수 있습니다. *고객은 데이터베이스 스키마를 준수하도록 설정을 조정할 책임이 있습니다.*
 
 ### <a name="identity-management"></a>ID 관리
 Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제공하는 기술은 다음과 같습니다.
@@ -120,7 +119,7 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직 ID에 영향을 주는 잠재적 취약성을 검색하며, 조직 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성합니다. 또한 의심스러운 인시던트를 조사하며 해결을 위해 적절한 작업을 수행합니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
+**비밀 관리**: 솔루션 사용 [Key Vault](https://azure.microsoft.com/services/key-vault/) 키 및 비밀 관리에 대 한 합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
 - Key Vault 액세스 정책은 키와 비밀에 대한 최소 필수 권한으로 정의됩니다.
 - Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.
@@ -130,11 +129,11 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 - 키에 허용되는 암호화 작업은 필요한 것으로 제한됩니다
 - 이 솔루션은 Key Vault와 통합되어 IaaS VM 디스크 암호화 키와 비밀을 관리합니다.
 
-**패치 관리**: 이 참조 아키텍처의 일부로 배포된 Windows VM은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 또한 이 솔루션에는 필요한 경우 VM을 패치하기 위해 업데이트된 배포를 만들 수 있는 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) 서비스가 포함되어 있습니다.
+**패치 관리**: 이 참조 아키텍처의 일부분으로 배포 하는 Windows Vm은 Windows 업데이트 서비스에서 자동 업데이트를 수신 하려면 기본적으로 구성 됩니다. 또한 이 솔루션에는 필요한 경우 VM을 패치하기 위해 업데이트된 배포를 만들 수 있는 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) 서비스가 포함되어 있습니다.
 
-**맬웨어 방지**: VM용 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 무료 실시간 보호 기능을 제공합니다. 고객은 알려진 악성 소프트웨어 또는 원치 않는 소프트웨어가 보호된 VM에서 설치 또는 실행을 시도할 때 생성되는 경고를 구성할 수 있습니다.
+**맬웨어 방지**: [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware) Vm에 대 한 실시간 보호 기능을 통해 식별 하 고 바이러스, 스파이웨어 및 기타 악성 소프트웨어 제거를 제공 합니다. 고객은 알려진 악성 소프트웨어 또는 원치 않는 소프트웨어가 보호된 VM에서 설치 또는 실행을 시도할 때 생성되는 경고를 구성할 수 있습니다.
 
-**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용/관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
+**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용 및 관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
 
 Security Center는 다양한 검색 기능을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. Security Center에는 위협 또는 의심스러운 활동이 발생할 때 트리거되는 미리 정의된 [보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 집합이 있습니다. 고객은 [사용자 지정 경고 규칙](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)을 사용하여 환경에서 이미 수집된 데이터를 기반으로 하는 새 보안 경고를 정의할 수 있습니다.
 
@@ -142,12 +141,12 @@ Security Center는 우선 순위가 지정된 보안 경고 및 인시던트를 
 
 이 참조 아키텍처는 Security Center에서 [취약성 평가](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) 기능을 사용합니다. 이 아키텍처를 구성하고 나면 Qualys 등의 파트너 에이전트가 파트너 관리 플랫폼에 취약성 데이터를 보고합니다. 차례로 파트너의 관리 플랫폼은 취약성 및 상태 모니터링 데이터를 Security Center에 다시 제공합니다. 고객은 이 정보를 사용하여 취약한 VM을 빠르게 파악할 수 있습니다.
 
-**Azure Application Gateway**: 이 아키텍처는 웹 응용 프로그램 방화벽이 구성되고 OWASP 규칙 집합이 사용하도록 설정된 응용 프로그램 게이트웨이를 사용하여 보안 취약성의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
+**Azure Application Gateway**: 아키텍처는 웹 응용 프로그램 방화벽 구성 및 사용 하도록 설정 하는 OWASP 규칙 집합을 사용 하 여 응용 프로그램 게이트웨이 사용 하 여 보안 취약성의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
 
 - [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL 오프로드](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal) 사용
 - [TLS v1.0 및 v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) 사용 안 함
-- [웹 응용 프로그램 방화벽](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)(방지 모드)
+- [웹 애플리케이션 방화벽](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)(방지 모드)
 - [방지 모드](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal), OWASP 3.0 규칙 집합 사용
 - [진단 로깅](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics) 사용
 - [사용자 지정 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
@@ -155,25 +154,25 @@ Security Center는 우선 순위가 지정된 보안 경고 및 인시던트를 
 
 ### <a name="business-continuity"></a>비즈니스 연속성
 
-**고가용성**: 이 솔루션은 모든 VM을 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)에 배포합니다. 가용성 집합을 사용하면 VM을 격리된 여러 하드웨어 클러스터에 분산하여 가용성을 높일 수 있습니다. 계획되거나 계획되지 않은 유지 관리 이벤트 중에 99.95% Azure SLA를 충족하는 VM을 하나 이상 사용할 수 있습니다.
+**고가용성**: 솔루션 배포의 모든 Vm을 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)합니다. 가용성 집합을 사용하면 VM을 격리된 여러 하드웨어 클러스터에 분산하여 가용성을 높일 수 있습니다. 계획되거나 계획되지 않은 유지 관리 이벤트 중에 99.95% Azure SLA를 충족하는 VM을 하나 이상 사용할 수 있습니다.
 
 **Recovery Services 자격 증명 모음**: [Recovery Services 자격 증명 모음](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)은 백업 데이터를 저장하며, 이 아키텍처에 있는 Azure Virtual Machines의 모든 구성을 보호합니다. Recovery Services 자격 증명 모음을 사용하면 전체 VM을 복원하지 않고도 IaaS VM에서 파일과 폴더를 복원할 수 있습니다. 이 프로세스를 수행하면 복원 시간을 줄일 수 있습니다.
 
-**클라우드 감시**: [클라우드 감시](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)는 Azure를 중재 지점으로 사용하는 Windows Server 2016의 장애 조치(failover) 클러스터 쿼럼 감시의 한 유형입니다. 다른 모든 쿼럼 감시와 마찬가지로 클라우드 감시는 투표를 받고 쿼럼 계산에 참여할 수 있으며 공개적으로 사용 가능한 표준 Azure Blob Storage를 사용합니다. 이러한 방식이 사용되므로 공용 클라우드에서 호스팅되는 VM에 대한 추가적인 유지 관리 오버헤드가 필요하지 않습니다.
+**클라우드 감시**: [클라우드 감시](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) 장애 조치 클러스터 쿼럼 감시는 중재 지점으로 Azure를 사용 하는 Windows Server 2016에서의 형식입니다. 다른 모든 쿼럼 감시와 마찬가지로 클라우드 감시는 투표를 받고 쿼럼 계산에 참여할 수 있으며 공개적으로 사용 가능한 표준 Azure Blob Storage를 사용합니다. 이러한 방식이 사용되므로 공용 클라우드에서 호스팅되는 VM에 대한 추가적인 유지 관리 오버헤드가 필요하지 않습니다.
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
 Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위하게 기록합니다.
-- **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 초기자, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
-- **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
+- **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+- **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
 
-**Log Analytics**: 이러한 로그는 처리, 저장, 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Log Analytics와 통합됩니다. 고객은 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스한 다음 다른 서비스의 데이터와 결합할 수 있습니다.
+**Azure Monitor 로그**: 이러한 로그에 통합 됩니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 처리, 저장 및 대시보드를 보고 합니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Azure Monitor 로그와 통합 됩니다. 고객에 게 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터를 액세스 하 고 다른 서비스의 데이터와 결합 하 수 있습니다.
 
-다음 Log Analytics [관리 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)은 이 아키텍처의 일부로 포함됩니다.
+다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 이 아키텍처의 일부로 포함 됩니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 고객에게 제공합니다.
 - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포된 에이전트의 수와 에이전트의 지리적 분산을 보고합니다. 또한 응답하지 않는 에이전트의 수와 작동 데이터를 제출하는 에이전트의 수도 보고합니다.
--   [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
+-   [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 구독에서 활동 로그를 분석하는 데 도움을 줍니다.
 
 **Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)은 Runbook을 저장, 실행 및 관리합니다. 이 솔루션에서 Runbook은 SQL Server에서 로그를 수집하는 데 도움이 됩니다. 고객은 Automation [변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking) 솔루션을 사용하여 환경의 변경 내용을 쉽게 파악할 수 있습니다.
 
@@ -183,13 +182,13 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 아래에 나와 있으며 [다운로드](https://aka.ms/nist171-iaaswa-tm)할 수도 있습니다. 고객은 이 모델을 통해 수정 시 시스템 인프라에서 발생 가능한 위험 요소를 파악할 수 있습니다.
 
-![NIST SP 800-171 준수 IaaS 웹 응용 프로그램 위협 모델](images/nist171-iaaswa-threat-model.png "NIST SP 800-171 준수 IaaS 웹 응용 프로그램 위협 모델")
+![NIST SP 800-171 준수 IaaS 웹 애플리케이션 위협 모델](images/nist171-iaaswa-threat-model.png "NIST SP 800-171 준수 IaaS 웹 애플리케이션 위협 모델")
 
 ## <a name="compliance-documentation"></a>규정 준수 설명서
 
 [Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 고객 책임 매트릭스](https://aka.ms/nist171-crm)에는 NIST SP 800-171에서 요구하는 모든 보안 제어가 나와 있습니다. 이 매트릭스는 각 제어의 구현이 Microsoft, 고객 또는 둘 모두의 책임인지 여부를 자세히 설명합니다.
 
-[Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 IaaS 웹 응용 프로그램 컨트롤 구현 매트릭스](https://aka.ms/nist171-iaaswa-cim)는 IaaS 웹 응용 프로그램 아키텍처를 통해 적용되는 NIST SP 800-171 컨트롤에 대한 정보를 제공합니다. 이 매트릭스에는 포함되는 각 컨트롤의 요구 사항을 구현이 충족하는 방식에 대한 상세 설명이 포함되어 있습니다.
+[Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 IaaS 웹 애플리케이션 컨트롤 구현 매트릭스](https://aka.ms/nist171-iaaswa-cim)는 IaaS 웹 애플리케이션 아키텍처를 통해 적용되는 NIST SP 800-171 컨트롤에 대한 정보를 제공합니다. 이 매트릭스에는 포함되는 각 컨트롤의 요구 사항을 구현이 충족하는 방식에 대한 상세 설명이 포함되어 있습니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute

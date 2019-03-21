@@ -3,7 +3,7 @@ title: Azure Service Fabric 클러스터에서 EventStore API를 사용하여 �
 description: Azure Service Fabric EventStore API를 사용하여 플랫폼 이벤트를 쿼리하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/29/2018
-ms.author: dekapur
-ms.openlocfilehash: 556b3375a0f5d138255ba4c46b034894b1037da0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 491f113a3f08293b5f978242d27714b576d85d6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722329"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818802"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 
@@ -43,8 +43,8 @@ EventStore API는 REST 엔드포인트를 통해 직접 액세스하거나 프�
 * 클러스터: `/EventsStore/Cluster/Events`
 * 노드(전체): `/EventsStore/Nodes/Events`
 * 노드(특정): `/EventsStore/Nodes/<NodeName>/$/Events`
-* 응용프로그램(전체): `/EventsStore/Applications/Events`
-* 응용 프로그램(특정): `/EventsStore/Applications/<AppName>/$/Events`
+* 애플리케이션(전체): `/EventsStore/Applications/Events`
+* 애플리케이션(특정): `/EventsStore/Applications/<AppName>/$/Events`
 * 서비스(전체): `/EventsStore/Services/Events`
 * 서비스(특정): `/EventsStore/Services/<ServiceName>/$/Events`
 * 파티션(전체): `/EventsStore/Partitions/Events`
@@ -53,8 +53,8 @@ EventStore API는 REST 엔드포인트를 통해 직접 액세스하거나 프�
 * 복제본(특정): `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
->응용 프로그램 또는 서비스 이름을 참조할 때 쿼리에 "fabric:/" 접두사가 포함될 필요가 없습니다. 또한 응용 프로그램 또는 서비스 이름에 "/"가 있는 경우 쿼리를 계속 작동하려면 "~"로 전환합니다. 예를 들어 응용 프로그램이 "fabric:/App1/FrontendApp"으로 표시되면 응용 프로그램 특정 쿼리가 `/EventsStore/Applications/App1~FrontendApp/$/Events`로 구성됩니다.
->또한 현재 서비스에 대한 상태 보고서가 해당 응용 프로그램 아래에 표시되므로 적절한 응용 프로그램 엔터티에 대한 `DeployedServiceHealthReportCreated` 이벤트도 쿼리할 수 있습니다. 
+>애플리케이션 또는 서비스 이름을 참조할 때 쿼리에 "fabric:/" 접두사가 포함될 필요가 없습니다. 또한 애플리케이션 또는 서비스 이름에 "/"가 있는 경우 쿼리를 계속 작동하려면 "~"로 전환합니다. 예를 들어 애플리케이션이 "fabric:/App1/FrontendApp"으로 표시되면 애플리케이션 특정 쿼리가 `/EventsStore/Applications/App1~FrontendApp/$/Events`로 구성됩니다.
+>또한 현재 서비스에 대한 상태 보고서가 해당 애플리케이션 아래에 표시되므로 적절한 애플리케이션 엔터티에 대한 `DeployedServiceHealthReportCreated` 이벤트도 쿼리할 수 있습니다. 
 
 ## <a name="query-the-eventstore-via-rest-api-endpoints"></a>REST API 엔드포인트를 통해 EventStore 쿼리
 
@@ -190,17 +190,17 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 지난 며칠 동안 변경된 노드 상태, 즉 플랫폼, 카오스 서비스 또는 사용자 입력에 따라 노드가 위/아래로 이동하거나 활성화되거나 비활성화된 경우를 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*응용 프로그램 이벤트:*
+*애플리케이션 이벤트:*
 
-최근의 응용 프로그램 배포 및 업그레이드를 추적할 수도 있습니다. 클러스터의 애플리케이션 이벤트를 모두 표시하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+최근의 애플리케이션 배포 및 업그레이드를 추적할 수도 있습니다. 클러스터의 애플리케이션 이벤트를 모두 표시하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*응용 프로그램에 대한 과거 상태:*
+*애플리케이션에 대한 과거 상태:*
 
-응용 프로그램 수명 주기 이벤트만 보는 것 외에도, 특정 응용 프로그램의 상태에 대한 기록 데이터를 볼 수도 있습니다. 이 작업은 데이터를 수집하려는 응용 프로그램 이름을 지정하여 수행할 수 있습니다. 응용 프로그램 상태 이벤트를 모두 가져오려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport` 만료되었을(TTL(Time to Live)이 경과된 경우) 수 있는 상태 이벤트를 포함하려면 쿼리의 끝에 `,ApplicationHealthReportExpired`를 추가하여 두 가지 유형의 이벤트를 필터링합니다.
+애플리케이션 수명 주기 이벤트만 보는 것 외에도, 특정 애플리케이션의 상태에 대한 기록 데이터를 볼 수도 있습니다. 이 작업은 데이터를 수집하려는 애플리케이션 이름을 지정하여 수행할 수 있습니다. 애플리케이션 상태 이벤트를 모두 가져오려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport` 만료되었을(TTL(Time to Live)이 경과된 경우) 수 있는 상태 이벤트를 포함하려면 쿼리의 끝에 `,ApplicationHealthReportExpired`를 추가하여 두 가지 유형의 이벤트를 필터링합니다.
 
 *"myApp"의 모든 서비스에 대한 과거 상태:*
 
-서비스에 대한 상태 보고서 이벤트는 현재 해당 응용 프로그램 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대한 서비스의 수행 방식을 확인하려면 다음 쿼리를 사용합니다. `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+서비스에 대한 상태 보고서 이벤트는 현재 해당 애플리케이션 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대한 서비스의 수행 방식을 확인하려면 다음 쿼리를 사용합니다. `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *파티션 재구성:*
 

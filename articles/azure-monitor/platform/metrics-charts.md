@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310940"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337078"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -21,7 +21,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-[Azure Monitor의 메트릭](data-collection.md#metrics)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 애플리케이션 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
+[Azure Monitor의 메트릭](data-collection.md#metrics)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭을 사용 하 여 응용 프로그램에서 Azure로 전송 됩니다 반면 합니다 [사용자 지정 이벤트 및 메트릭 용 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 [Windows Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), 또는 [Azure REST API 모니터링](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)합니다.
 
 ## <a name="create-a-new-chart"></a>새 차트 만들기
 
@@ -76,16 +76,16 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 5. 동일한 차트에 여러 필터를 적용하려면 1~4단계를 반복하면 됩니다.
 
-## <a name="segment-a-chart"></a>차트 분할
+## <a name="apply-splitting-to-a-chart"></a>차트에 분할 적용
 
 차원별로 메트릭 분할하여 메트릭의 다른 세그먼트가 서로 비교되는 방법을 시각화하고 차원의 외부 세그먼트를 식별할 수 있습니다. 
 
-### <a name="to-segment-a-chart"></a>차트를 분할하려면
+### <a name="to-apply-splitting"></a>분할을 적용 하려면
 
 1. 차트 위쪽의 **분할 적용**을 클릭합니다.
  
    > [!NOTE]
-   > 단일 차트에 여러 개의 필터가 있을 수 있지만 분할/세그먼트화는 하나만 가능합니다.
+   > 여러 메트릭 차트를 사용 하 여 분할을 사용할 수 없습니다. 또한 단일 차트에 적용 하는 하나의 분할 차원 이지만 여러 필터 할 수 있습니다.
 
 2. 차트를 분할하려는 차원을 선택합니다.
 

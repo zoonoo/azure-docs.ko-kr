@@ -5,19 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: c7622252cd5b375e8c580bfcf7a45806d219d828
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900564"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887270"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
-
-
-> [!IMPORTANT]
-> 읽기 복제본 기능은 공개 미리 보기로 있습니다.
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서비스의 마스터와 같은 Azure 지역 내에서 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 해당 기능은 현재 공개 미리 보기로 제공됩니다.
 
@@ -40,18 +36,18 @@ ms.locfileid: "54900564"
 
 4. **복제본 추가**를 선택합니다.
 
-   ![Azure Database for MySQL - 복제 ](./media/howto-read-replica-portal/add-replica.png)
+   ![Azure Database for MySQL - 복제](./media/howto-read-replica-portal/add-replica.png)
 
 5. 복제본 서버의 이름을 입력하고 **확인**을 클릭하여 복제본 만들기를 확인합니다.
 
-   ![Azure Database for MySQL - 복제본 만들기 ](./media/howto-read-replica-portal/create-replica.png)
+   ![Azure Database for MySQL - 복제본 만들기](./media/howto-read-replica-portal/create-replica.png)
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터와 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 마스터의 구성 값 이상으로 유지하는 것이 좋습니다.
 
 생성된 복제본 서버는 **복제** 블레이드에서 확인할 수 있습니다.
 
-   ![Azure Database for MySQL - 복제본 나열 ](./media/howto-read-replica-portal/list-replica.png)
+   ![Azure Database for MySQL - 복제본 나열](./media/howto-read-replica-portal/list-replica.png)
 
 ## <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
 
@@ -66,15 +62,15 @@ Azure Portal에서 마스터와 복제본 서버 간의 복제를 중지하려�
 
 3. 복제를 중지할 복제본 서버를 선택합니다.
 
-   ![Azure Database for MySQL - 복제 중지 서버 선택 ](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![Azure Database for MySQL - 복제 중지 서버 선택](./media/howto-read-replica-portal/stop-replication-select.png)
 
 4. **복제 중지**를 선택합니다.
 
-   ![Azure Database for MySQL - 복제 중지 ](./media/howto-read-replica-portal/stop-replication.png)
+   ![Azure Database for MySQL - 복제 중지](./media/howto-read-replica-portal/stop-replication.png)
 
 5. **확인**을 클릭하여 복제 중지를 확인합니다.
 
-   ![Azure Database for MySQL - 복제 중지 확인 ](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![Azure Database for MySQL - 복제 중지 확인](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## <a name="delete-a-replica-server"></a>복제본 서버 삭제
 
@@ -86,15 +82,15 @@ Azure Portal에서 읽기 복제본 서버를 삭제하려면 다음 단계를 �
 
 3. 삭제할 복제본 서버를 선택합니다.
 
-   ![Azure Database for MySQL - 복제본 삭제 서버 선택 ](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![Azure Database for MySQL - 복제본 삭제 서버 선택](./media/howto-read-replica-portal/delete-replica-select.png)
 
 4. **복제본 삭제**를 선택합니다.
 
-   ![Azure Database for MySQL - 복제본 삭제 ](./media/howto-read-replica-portal/delete-replica.png)
+   ![Azure Database for MySQL - 복제본 삭제](./media/howto-read-replica-portal/delete-replica.png)
 
 5. 복제본의 이름을 입력하고 **삭제**를 클릭하여 복제본 삭제를 확인합니다.  
 
-   ![Azure Database for MySQL - 복제본 삭제 확인 ](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Azure Database for MySQL - 복제본 삭제 확인](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## <a name="delete-a-master-server"></a>마스터 서버 삭제
 
@@ -107,11 +103,11 @@ Azure Portal에서 마스터 서버를 삭제하려면 다음 단계를 수행�
 
 2. **개요**에서 **삭제**를 선택합니다.
 
-   ![Azure Database for MySQL - 마스터 삭제 ](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![Azure Database for MySQL - 마스터 삭제](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. 마스터 서버의 이름을 입력하고 **삭제**를 클릭하여 마스터 서버 삭제를 확인합니다.  
 
-   ![Azure Database for MySQL - 마스터 삭제 ](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Azure Database for MySQL - 마스터 삭제](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>복제 모니터링
 
@@ -121,15 +117,15 @@ Azure Portal에서 마스터 서버를 삭제하려면 다음 단계를 수행�
 
 3. 사용 가능한 메트릭의 드롭다운 목록에서 **복제 지연 시간(초)** 를 선택합니다. 
 
-   ![복제 지연 시간 선택 ](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   ![복제 지연 시간 선택](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 
 4. 확인할 시간 범위를 선택합니다. 아래 그림에서는 시간 범위로 30분이 선택되어 있습니다.
 
-   ![시간 범위 선택 ](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   ![시간 범위 선택](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
 5. 선택한 시간 범위의 복제 지연 시간을 확인합니다. 아래 그림에는 지난 30분 동안의 복제 지연 시간이 표시되어 있습니다.
 
-   ![시간 범위 선택 ](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![시간 범위 선택](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>다음 단계
 

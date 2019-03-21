@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d1ff4b44ff352742ee91b61c0c774cfe7c3f9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181357"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226966"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -46,7 +46,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 시스템 할당 관리 ID를 사용하도록 설정된 Azure VM을 만들려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
-1. 다음 Azure VM 퀵 스타트 중 하나를 참조하여 필요한 섹션만 완료하세요("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기").
+1. 다음 Azure VM 빠른 시작, ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기") 필요한 섹션만 완료 중 하나를 참조 하십시오.
     
     "VM 만들기" 섹션으로 이동하려면 [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 시스템 할당 ID가 사용된 VM을 프로비전하려면 `-AssignIdentity:$SystemAssigned` 매개 변수를 추가해야 합니다. 예를 들면 다음과 같습니다.
       
@@ -57,14 +57,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    - [PowerShell을 사용하여 Windows 가상 머신 만들기](../../virtual-machines/windows/quick-create-powershell.md)
    - [PowerShell을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (선택 사항) [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet에서 `-Type` 매개 변수를 사용하여 Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단될 예정)을 추가합니다. VM 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다. Azure 리소스에 대한 관리 ID VM 확장은 2019년 1월에 사용 중단될 예정입니다. 
+> [!NOTE]
+> Azure 리소스 VM 확장에 대 한 관리 되는 id 필요에 따라 프로 비전 할 수 있지만 곧 사용 되지 것입니다. Azure 인스턴스 메타 데이터 id 끝점을 사용 하 여 인증 하는 것이 좋습니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS 엔드포인트로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>기존 Azure VM에서 시스템 할당 관리 ID를 사용하도록 설정
 
@@ -83,14 +77,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (선택 사항) [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet에서 `-Type` 매개 변수를 사용하여 Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단될 예정)을 추가합니다. VM 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다. 기존 VM의 위치와 일치하는 올바른 `-Location` 매개 변수를 지정해야 합니다.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.
+> [!NOTE]
+> Azure 리소스 VM 확장에 대 한 관리 되는 id 필요에 따라 프로 비전 할 수 있지만 곧 사용 되지 것입니다. Azure 인스턴스 메타 데이터 id 끝점을 사용 하 여 인증 하는 것이 좋습니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS 엔드포인트로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>그룹에 VM 시스템이 할당한 ID 추가
 
@@ -146,11 +134,8 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Azure 리소스에 대한 관리 ID VM 확장을 제거하려면 -Name 스위치를 [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet과 함께 사용하여 확장을 추가할 때 사용한 것과 같은 이름을 지정합니다.
-
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
+> [!NOTE]
+> (사용 되지 않음)에 VM 확장을 Azure 리소스에 대 한 관리 되는 id를 프로 비전 하는 경우 사용 하 여 제거 해야 합니다 [제거 AzVMExtension](/powershell/module/az.compute/remove-azvmextension)합니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
@@ -160,7 +145,7 @@ Azure 리소스에 대한 관리 ID VM 확장을 제거하려면 -Name 스위치
 
 VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 및 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
-1. 다음 Azure VM 퀵 스타트 중 하나를 참조하여 필요한 섹션만 완료하세요("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기"). 
+1. 다음 Azure VM 빠른 시작, ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기") 필요한 섹션만 완료 중 하나를 참조 하십시오. 
   
     “VM 만들기” 섹션으로 이동할 때 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID ` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예: 
     
@@ -171,14 +156,8 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
     - [PowerShell을 사용하여 Windows 가상 머신 만들기](../../virtual-machines/windows/quick-create-powershell.md)
     - [PowerShell을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (선택 사항) [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet에서 `-Type` 매개 변수를 사용하여 Azure 리소스에 대한 관리 ID VM 확장을 추가합니다. VM 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다. 기존 VM의 위치와 일치하는 올바른 `-Location` 매개 변수를 지정해야 합니다.
-      > [!NOTE]
-    > 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다. Azure 리소스에 대한 관리 ID VM 확장은 2019년 1월에 사용 중단될 예정입니다.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Azure 리소스 VM 확장에 대 한 관리 되는 id 필요에 따라 프로 비전 할 수 있지만 곧 사용 되지 것입니다. Azure 인스턴스 메타 데이터 id 끝점을 사용 하 여 인증 하는 것이 좋습니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS 엔드포인트로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>기존 Azure VM에 사용자 할당 관리 ID 할당
 
@@ -193,7 +172,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 2. [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet을 사용하여 사용자 할당 관리 ID를 만듭니다.  다음 단계에서 필요하므로 출력에서 `Id`를 메모해 둡니다.
 
    > [!IMPORTANT]
-   > 사용자 할당 관리 ID 만들기는 영숫자와 하이픈(0-9 또는 a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 대한 할당이 제대로 작동하려면 이름의 길이가 24자로 제한되어야 합니다. 업데이트를 다시 확인하세요. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+   > 만드는 사용자 할당 관리 되는 id만 지원 영숫자, 밑줄 및 하이픈 (0-9 또는 a-z 또는 A-z, \_ 또는-) 문자입니다. 또한 이름은 3에서 제대로 작동 하려면 VM/VMSS에 대 한 할당에 대해 128 문자 길이를 제한 해야 합니다. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -208,12 +187,8 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet에서 `-Type` 매개 변수를 사용하여 Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단될 예정)을 추가합니다. VM 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다. 기존 VM의 위치와 일치하는 올바른 `-Location` 매개 변수를 지정합니다.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Azure 리소스 VM 확장에 대 한 관리 되는 id 필요에 따라 프로 비전 할 수 있지만 곧 사용 되지 것입니다. Azure 인스턴스 메타 데이터 id 끝점을 사용 하 여 인증 하는 것이 좋습니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS 엔드포인트로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 관리 ID 제거
 

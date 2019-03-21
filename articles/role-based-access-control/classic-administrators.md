@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447517"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889327"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -91,7 +91,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [서비스 관리자 변경에 대한 제한 사항](#limits)을 점검하여 시나리오가 지원되는지 확인합니다.
+1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오 지원 되는지 확인 합니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -109,7 +109,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 ### <a name="account-center"></a>계정 센터
 
-1. [서비스 관리자 변경에 대한 제한 사항](#limits)을 점검하여 시나리오가 지원되는지 확인합니다.
+1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오 지원 되는지 확인 합니다.
 
 1. [계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
 
@@ -133,8 +133,8 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
   | 로그인 방법 | Microsoft 계정 사용자를 서비스 관리자로 추가하나요? | 서비스 관리자와 동일한 조직에 회사 또는 학교 계정을 추가하나요? | 다른 조직의 회사 또는 학교 계정을 서비스 관리자로 추가하나요? |
   | --- | --- | --- | --- |
-  |  Microsoft 계정 |예 |아니요 |아니요 |
-  |  회사 또는 학교 계정 |예 |예 |아니요 |
+  |  Microsoft 계정 |예 |아니오 |아닙니다. |
+  |  회사 또는 학교 계정 |예 |예 |아닙니다. |
 
 ## <a name="view-the-account-administrator"></a>계정 관리자 보기
 
@@ -156,3 +156,4 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 * [Azure의 다양한 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)
+* [Azure 구독 관리자 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)

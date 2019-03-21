@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084830"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199327"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용
 
@@ -175,8 +175,6 @@ TPC-DS는 빅 데이터 시스템을 포함하여 다양한 의사 결정 지원
 * [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md). Hue는 Apache Pig 및 Hive 작업을 쉽게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
 
 * [HDInsight Hadoop 클러스터에 Apache Giraph 설치 및 Giraph를 사용하여 대규모 그래프 처리](hdinsight-hadoop-giraph-install-linux.md). 클러스터 사용자 지정을 사용하여 Hadoop 기반 HDInsight 클러스터에 Giraph를 설치합니다. Giraph를 사용하면 Hadoop을 사용하여 그래프 처리를 수행할 수 있습니다. Azure HDInsight에서도 사용할 수 있습니다.
-
-* [HDInsight Hadoop 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md). 클러스터 사용자 지정을 사용하여 Hadoop 기반 HDInsight 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에 대해 강력한 검색 작업을 수행할 수 있습니다.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

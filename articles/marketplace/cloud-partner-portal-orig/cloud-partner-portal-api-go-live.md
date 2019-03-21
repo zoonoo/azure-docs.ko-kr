@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807230"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594681"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -67,7 +67,7 @@ ms.locfileid: "48807230"
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드** |  ** 설명**                                                                        |
+| **코드** |  **설명**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` - 요청이 성공적으로 수락되었습니다. 응답에는 작업 상태 추적을 위한 위치가 포함됩니다. |
 |  400     | `Bad/Malformed request` -응답 본문 내에서 추가 오류 정보가 확인되었습니다. |

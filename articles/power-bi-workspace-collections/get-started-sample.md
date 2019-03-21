@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885184"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 작업 영역 컬렉션 시작 샘플
 
@@ -28,7 +28,7 @@ ms.locfileid: "56237963"
 
 * [샘플 작업 영역 웹앱](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI 작업 영역 컬렉션 API 참조](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472)(NuGet을 통해 사용 가능)
+* [Power BI.NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (NuGet을 통해 사용 가능)
 * [JavaScript Report Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Checking import state... Succeeded
 
 ## <a name="explore-the-sample-code"></a>샘플 코드 탐색
 
-**Microsoft Power BI 작업 영역 컬렉션** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여주는 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 사용자 입력에 따른 작업을 Model, View 및 Control이라는 별도의 세 가지 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](http://www.asp.net/mvc)를 참조하세요.
+**Microsoft Power BI 작업 영역 컬렉션** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여주는 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 사용자 입력에 따른 작업을 Model, View 및 Control이라는 별도의 세 가지 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](https://www.asp.net/mvc)를 참조하세요.
 
 **Microsoft Power BI 작업 영역 컬렉션** 샘플 코드는 다음과 같이 구분됩니다. 각 섹션에는 샘플 코드를 쉽게 찾을 수 있도록 PowerBI-embedded.sln 솔루션에 파일 이름이 포함되어 있습니다.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)

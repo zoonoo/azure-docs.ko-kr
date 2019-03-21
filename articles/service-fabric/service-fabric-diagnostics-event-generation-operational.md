@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
-ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102055"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244590"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 이벤트 목록 
 
-Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)로 클러스터의 상태를 알리도록 클러스터 이벤트의 기본 집합을 노출합니다. 노드 및 클러스터의 Service Fabric에서 수행하는 작업 또는 클러스터 소유자/연산자에서 만드는 관리 결정을 기반으로 합니다. 이러한 이벤트는 [클러스터에서 Log Analytics를 구성](service-fabric-diagnostics-oms-setup.md)하거나 [EventStore](service-fabric-diagnostics-eventstore.md)를 쿼리하는 등 여러 가지 방법으로 구성하여 액세스 할 수 있습니다. Windows 머신에서 이러한 이벤트는 EventLog에 반영되므로 이벤트 뷰어에서 Service Fabric 이벤트를 볼 수 있습니다. 
+Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)로 클러스터의 상태를 알리도록 클러스터 이벤트의 기본 집합을 노출합니다. 노드 및 클러스터의 Service Fabric에서 수행하는 작업 또는 클러스터 소유자/연산자에서 만드는 관리 결정을 기반으로 합니다. 이러한 이벤트를 포함 한 여러 가지 구성에서 구성 하 여 액세스할 수 있습니다 [클러스터를 사용 하 여 Azure Monitor 기록](service-fabric-diagnostics-oms-setup.md), 또는 쿼리에 [EventStore](service-fabric-diagnostics-eventstore.md)합니다. Windows 머신에서 이러한 이벤트는 EventLog에 반영되므로 이벤트 뷰어에서 Service Fabric 이벤트를 볼 수 있습니다. 
 
 이러한 이벤트에 대한 몇 가지 특징은 다음과 같습니다.
 * 각 이벤트는 클러스터의 특정 엔터티(예: 애플리케이션, 서비스, 노드, 복제본)에 연결됩니다.
@@ -40,7 +40,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 클러스터 업그레이드에 대한 자세한 내용은 [여기](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level | 
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | 업그레이드 | 클러스터 업그레이드가 시작되었습니다. | CM | 정보 제공 |
 | 29628 | ClusterUpgradeCompleted | 업그레이드 | 클러스터 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
@@ -52,7 +52,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **노드 수명 주기 이벤트** 
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level |
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | 노드 비활성화가 완료되었습니다. | FM | 정보 제공 | 
 | 18603 | NodeUp | StateTransition | 클러스터에서 노드가 시작되었음을 감지했습니다. | FM | 정보 제공 | 
@@ -69,7 +69,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **애플리케이션 수명 주기 이벤트**
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level | 
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | 새 애플리케이션이 만들어졌습니다. | CM | 정보 제공 | 
 | 29625 | ApplicationDeleted | LifeCycle | 기존 애플리케이션이 삭제되었습니다. | CM | 정보 제공 | 
@@ -79,7 +79,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 애플리케이션 업그레이드에 대한 자세한 내용은 [여기](service-fabric-application-upgrade.md)를 참조하세요.
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level | 
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | 업그레이드 | 애플리케이션 업그레이드가 시작되었습니다. | CM | 정보 제공 | 
 | 29622 | ApplicationUpgradeCompleted | 업그레이드 | 애플리케이션 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
@@ -91,7 +91,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **서비스 수명 주기 이벤트**
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level | 
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | 새 서비스가 만들어졌습니다. | FM | 정보 제공 | 
 | 18658 | ServiceDeleted | LifeCycle | 기존 서비스가 삭제되었습니다. | FM | 정보 제공 | 
@@ -100,7 +100,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **파티션 이동 이벤트**
 
-| EventId | Name | Category | 설명 |원본(태스크) | Level | 
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | 파티션 재구성이 완료되었습니다. | RA | 정보 제공 | 
 
@@ -108,7 +108,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **컨테이너 수명 주기 이벤트** 
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | 컨테이너가 시작되었습니다. | Hosting | 정보 제공 | 1 |
 | 23075 | ContainerDeactivated | 컨테이너가 중지되었습니다. | Hosting | 정보 제공 | 1 |
@@ -124,21 +124,21 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **클러스터 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | 새 클러스터 상태 보고서를 사용할 수 있습니다. | HM | 정보 제공 | 1 |
 | 54437 | ClusterHealthReportExpired | 기존 클러스터 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **노드 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | 새 노드 상태 보고서를 사용할 수 있습니다. | HM | 정보 제공 | 1 |
 | 54432 | NodeHealthReportExpired | 기존 노드 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **애플리케이션 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | 새 애플리케이션 상태 보고서가 만들어졌습니다. 배포되지 않은 애플리케이션에 대한 보고서입니다. | HM | 정보 제공 | 1 |
 | 54426 | DeployedApplicationNewHealthReport | 새로 배포된 애플리케이션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
@@ -149,21 +149,21 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **서비스 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | 새 서비스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54433 | ServiceHealthReportExpired | 기존 서비스 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **파티션 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | 새 파티션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54431 | PartitionHealthReportExpired | 기존 파티션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **복제본 상태 보고서 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | 상태 저장 복제본 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54430 | StatelessInstanceNewHealthReport | 새 상태 비저장 인스턴스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
@@ -174,28 +174,28 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **카오스 세션 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | 카오스 테스트 세션이 시작되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50023 | ChaosStopped | 카오스 테스트 세션이 중지되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 노드 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | 노드가 카오스 테스트 세션의 일부로 다시 시작하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50087 | ChaosNodeRestartCompleted | 노드가 카오스 테스트 세션의 일부로 다시 시작되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 애플리케이션 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | 코드 패키지 다시 시작이 카오스 테스트 세션 중에 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | 코드 패키지 다시 시작이 카오스 테스트 세션 중에 완료되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 파티션 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | 주 파티션이 카오스 테스트 세션의 일부로 이동하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | 보조 파티션이 카오스 테스트 세션의 일부로 이동하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
@@ -203,7 +203,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **카오스 복제본 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | 복제본 다시 시작이 카오스 테스트 세션의 일부로 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | 복제본 제거가 카오스 테스트 세션의 일부로 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
@@ -213,7 +213,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **상관 관계 이벤트**
 
-| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | 상관 관계가 검색되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
@@ -221,7 +221,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 다음은 버전 6.2 이전의 Service Fabric이 제공하는 이벤트의 포괄적인 목록입니다.
 
-| EventId | Name | 원본(태스크) | 수준 |
+| EventId | 이름 | 원본(태스크) | 수준 |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | 정보 제공 |
 | 25621 | NodeOpenedSuccess | FabricNode | 정보 제공 |

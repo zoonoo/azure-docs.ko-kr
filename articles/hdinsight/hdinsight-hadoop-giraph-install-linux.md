@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201724"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Apache Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
@@ -171,5 +171,3 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다.
-
-* [HDInsight 클러스터에 Apache Solr을 설치](hdinsight-hadoop-solr-install-linux.md)합니다.

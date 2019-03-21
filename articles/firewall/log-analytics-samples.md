@@ -1,28 +1,30 @@
 ---
-title: Azure Firewall Log Analytics 샘플
-description: Azure Firewall Log Analytics 샘플
+title: Azure 방화벽 log analytics 샘플
+description: Azure 방화벽 log analytics 샘플
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233398"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534006"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure Firewall Log Analytics 샘플
+# <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 log analytics 샘플
 
-다음 Log Analytics 샘플을 Azure Firewall 로그를 분석하는 데 사용할 수 있습니다. 샘플 파일은 Log Analytics 뷰 디자이너에서 빌드되며, [Log Analytics 뷰 디자이너](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) 문서에 뷰 디자인 개념에 대한 자세한 정보가 나와 있습니다.
+다음 Azure Monitor 로그 샘플 Azure 방화벽 로그를 분석에 사용할 수 있습니다. Azure Monitor에서 뷰 디자이너에 샘플 파일을 기본 제공 되는 [Azure Monitor에서 뷰 디자이너](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) 기술 자료 문서에 뷰 디자인 개념에 대 한 자세한 정보.
 
-## <a name="log-analytics-view"></a>Log Analytics 보기
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Log Analytics 시각화 예제를 구성하는 방법은 다음과 같습니다. [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) 리포지토리에서 시각화 예제를 다운로드할 수 있습니다. 가장 쉬운 방법은 이 페이지의 하이퍼링크를 마우스 오른쪽 단추로 클릭하고 *다른 이름으로 저장*을 클릭한 후, **AzureFirewall.omsview**와 같은 이름을 입력합니다. 
+## <a name="azure-monitor-logs-view"></a>Azure Monitor 로그 보기
 
-다음 단계를 실행하여 Log Analytics 작업 영역에 보기를 추가합니다.
+Azure Monitor 로그 시각화 예제를 구성 하는 방법을 다음과 같습니다. [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) 리포지토리에서 시각화 예제를 다운로드할 수 있습니다. 가장 쉬운 방법은 이 페이지의 하이퍼링크를 마우스 오른쪽 단추로 클릭하고 *다른 이름으로 저장*을 클릭한 후, **AzureFirewall.omsview**와 같은 이름을 입력합니다. 
+
+Log Analytics 작업 영역에 뷰를 추가 하려면 다음 단계를 실행 합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역을 엽니다.
 2. **일반** 아래에서 **뷰 디자이너**를 엽니다.
@@ -98,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>네트워크 규칙 로그 데이터 쿼리
 
-아래 쿼리는 네트워크 규칙 로그 데이터를 구문 분석합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
+다음 쿼리는 네트워크 규칙 로그 데이터를 구문 분석합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
 
 ```Kusto
 AzureDiagnostics
@@ -149,6 +151,21 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
+## <a name="threat-intelligence-log-data-query"></a>위협 인텔리전스 로그 데이터 쿼리
+
+다음 쿼리는 위협 인텔리전스 규칙 로그 데이터를 구문 분석:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-Azure Firewall 모니터링 및 진단에 대한 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.
+Azure 방화벽이 모니터링 및 진단 하는 방법에 대 한 자세한 참조 [자습서: Azure 방화벽 로그와 메트릭 모니터링](tutorial-diagnostics.md)합니다.

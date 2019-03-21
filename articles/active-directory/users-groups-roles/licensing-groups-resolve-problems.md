@@ -1,5 +1,5 @@
 ---
-title: 그룹에 대한 라이선스 할당 문제 해결 - Azure Active Directory | Microsoft Docs
+title: 그룹-Azure Active Directory에 대 한 라이선스 할당 문제 해결 | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스를 사용할 때 라이선스 할당 문제를 식별하고 해결하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207503"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201537"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -33,21 +33,21 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 ## <a name="how-to-find-license-assignment-errors"></a>라이선스 할당 오류를 찾는 방법
 **라이선스 할당 오류를 찾으려면**
 
-   1. 특정 그룹에서 오류 상태인 사용자를 찾으려면 그룹의 창을 엽니다. 오류 상태인 사용자가 있는 경우 **라이선스** 아래에서 알림이 표시됩니다.
+1. 특정 그룹에서 오류 상태인 사용자를 찾으려면 그룹의 창을 엽니다. 오류 상태인 사용자가 있는 경우 **라이선스** 아래에서 알림이 표시됩니다.
 
-   ![그룹, 오류 알림](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![그룹 및 오류 알림 메시지](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. 알림을 선택하면 영향을 받는 모든 사용자 목록이 열립니다. 자세한 내용을 보려면 개별적으로 각 사용자를 선택하면 됩니다.
+2. 알림을 선택하면 영향을 받는 모든 사용자 목록이 열립니다. 자세한 내용을 보려면 개별적으로 각 사용자를 선택하면 됩니다.
 
-   ![그룹, 오류 상태인 사용자의 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![라이선스 오류 상태인 그룹의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
+3. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
 
-   ![개요, 오류 상태인 그룹에 대한 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![개요 및 오류 상태인 그룹에 대 한 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. 오류가 발생한 모든 그룹의 목록을 보려면 상자를 선택합니다. 자세한 내용은 각 그룹을 선택하면 됩니다.
+4. 오류가 발생한 모든 그룹의 목록을 보려면 상자를 선택합니다. 자세한 내용은 각 그룹을 선택하면 됩니다.
 
-   ![개요, 오류가 발생한 그룹의 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![개요 및 오류 그룹의 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 다음 섹션에서는 잠재적인 문제 및 문제 해결 방법을 설명합니다.
@@ -104,9 +104,9 @@ Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일�
 
 > [!TIP]
 > 중복 프록시 주소가 있는지를 확인하려면 Exchange Online에 대해 다음과 같은 PowerShell cmdlet을 실행합니다.
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보도 포함됩니다. [Azure AD에 proxyAddresses 특성을 채우는 방법](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)에 대한 자세한 내용은 이 문서를 참조하세요.
 
 영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.

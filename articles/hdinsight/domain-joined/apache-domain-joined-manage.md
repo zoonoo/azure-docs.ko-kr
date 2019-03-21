@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200024"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -143,7 +143,7 @@ Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 �
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>ESP가 포함된 HDInsight 클러스터의 사용자
 비ESP HDInsight 클러스터에는 클러스터를 만드는 중에 생성되는 두 개의 사용자 계정이 있습니다.
 
-* **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 https://&lt;clustername>.azurehdinsight.net에서 Ambari에 로그온할 때 사용할 수 있습니다. 또한 Ambari 뷰에서 쿼리를 실행하고, 외부 도구(예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행하고, Hive ODBC 드라이버와 BI 도구(예: Excel, PowerBI 또는 Tableau)를 인증할 때에도 사용할 수 있습니다.
+* **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 https:// Ambari에 로그인 할 수&lt;clustername >. azurehdinsight.net. Ambari 뷰에서 쿼리를 실행 하 고, 외부 도구 (예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행 하 고, Hive ODBC 드라이버와 BI 도구 (예: Excel, Power BI 또는 Tableau)를 사용 하 여 인증 하려면 데도 수 있습니다.
 
 ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의 새로운 사용자가 있습니다.
 
@@ -179,9 +179,9 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 ## <a name="open-the-ambari-management-ui"></a>Ambari 관리 UI 열기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. HDInsight 클러스터를 엽니다. [클러스터 나열 및 표시](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)를 참조하세요.
+2. HDInsight 클러스터를 엽니다.
 3. 위쪽 메뉴에서 **대시보드** 를 클릭하여 Ambari를 엽니다.
-4. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용하여 Ambari에 로그온합니다.
+4. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용 하 여 Ambari에 로그인 합니다.
 5. 오른쪽 상단 모서리에서 **관리자** 드롭다운 메뉴를 클릭한 다음 **Ambari 관리**를 클릭합니다.
 
     ![ESP HDInsight Ambari 관리](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)

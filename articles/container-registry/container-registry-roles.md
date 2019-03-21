@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193393"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593627"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
 Azure Container Registry 서비스는 Azure Container Registry에 대한 다양한 수준의 권한을 제공하는 Azure 역할 세트를 지원합니다. Azure RBAC([역할 기반 액세스 제어](../role-based-access-control/index.yml))를 사용하여 레지스트리를 조작해야 하는 사용자 또는 서비스 주체에 특정 권한을 할당합니다.
 
-| 역할/권한       | [Resource Manager 액세스](#access-resource-manager)| [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| 소유자 | X | X | X | X | X |  |  
-| 참가자 | X | X | X | X | X |  |  
-| 판독기 | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터를 삭제 합니다.](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| 소유자 | X | X | X | X | X | X |  |  
+| 참가자 | X | X | X |  X | X | X |  |  
+| 판독기 | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>사용자 및 서비스 구별
 
@@ -58,6 +58,10 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 ## <a name="pull-image"></a>이미지 풀
 
 보장되지 않은 이미지를 `docker pull`하거나, Helm 차트와 같은 [지원되는 다른 아티팩트](container-registry-image-formats.md)를 레지스트리에 풀하는 기능입니다. 인증된 ID를 사용하여 레지스트리에 [인증](container-registry-authentication.md)해야 합니다.
+
+## <a name="delete-image-data"></a>이미지 데이터 삭제
+
+수 [컨테이너 이미지 또는 리포지토리 삭제](container-registry-delete.md)합니다.
 
 ## <a name="change-policies"></a>정책 변경
 
