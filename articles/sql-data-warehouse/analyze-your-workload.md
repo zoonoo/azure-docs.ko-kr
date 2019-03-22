@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896809"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310730"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
 
@@ -67,7 +67,7 @@ SQL Data Warehouse에 다음과 같은 대기 형식이 있습니다.
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 있는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내부에 있는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.
 * **DmsConcurrencyResourceType**: 데이터 이동 작업으로 인해 발생하는 대기
-* **BackupConcurrencyResourceType**: 데이터베이스를 백업 중임을 나타내는 대기 이 리소스 유형에 대한 최대값은 1입니다. 여러 백업을 동시에 요청한 경우 다른 백업 요청은 큐에 저장됩니다.
+* **BackupConcurrencyResourceType**: 데이터베이스를 백업 중임을 나타내는 대기 이 리소스 유형에 대한 최대값은 1입니다. 여러 백업을 동시에 요청한 경우 다른 백업 요청은 큐에 저장됩니다. 일반적으로 10 분의 연속 스냅숏 사이의 최소 시간을 사용 하는 것이 좋습니다. 
 
 `sys.dm_pdw_waits` DMV는 요청이 대기 중인 리소스를 알아내는 데 사용할 수 있습니다.
 

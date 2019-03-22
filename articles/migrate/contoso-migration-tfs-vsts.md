@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100243"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314113"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 마이그레이션:  Team Foundation Server 배포를 Azure DevOps Services로 리팩터링
 
@@ -156,7 +156,7 @@ Contoso 관리자는 마이그레이션 전에 ContosoDev 컬렉션 데이터베
 
 2. Contoso는 도구를 실행하고 프로젝트 컬렉션의 URL을 지정하여 유효성을 검사합니다.
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator /collection:http 유효성 검사:\//contosotfs:8080 tfs/ContosoDev**
 
 
 3. 도구가 오류를 표시합니다.
@@ -175,7 +175,7 @@ Contoso 관리자는 마이그레이션 전에 ContosoDev 컬렉션 데이터베
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. 유효성 검사 명령을 다시 실행하는데, 이번에는 Azure AD 이름과 함께 다음 값을 포함합니다. **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. 유효성 검사 명령을 다시 실행하는데, 이번에는 Azure AD 이름과 함께 다음 값을 포함합니다. **TfsMigrator /collection:http의 유효성을 검사 합니다.\//tenantDomainName:contosomigration.onmicrosoft.com /contosotfs:8080/tfs ContosoDev**합니다.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -195,7 +195,7 @@ Contoso 관리자는 마이그레이션 전에 ContosoDev 컬렉션 데이터베
 
 1. 도구에서 준비 단계를 실행합니다.
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator /collection:http 준비:\//contosotfs:8080 tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![준비](./media/contoso-migration-tfs-vsts/prep1.png)
 

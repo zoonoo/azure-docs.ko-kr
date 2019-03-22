@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838717"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314453"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -202,7 +202,7 @@ StorSimple 프로덕션 디바이스에서 클라우드 연결에 실패하면 �
 | StorSimple 서비스를 시작하지 못했습니다. |데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 'Data0'에 대한 중복 IP 주소가 검색되었습니다. | |시스템에서 IP 주소 '10.0.0.1'에 대한 충돌을 발견했습니다. 디바이스 *<device1>* 의 네트워크 리소스 'Data0'이 오프라인 상태입니다. 이 IP 주소가 이 네트워크의 다른 엔터티에서 사용되지 않음을 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. 이 문제 해결에 대한 도움은 네트워크 관리자에게 문의합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 'Data0'에 대한 IPv4(또는 IPv6) 주소가 오프라인 상태입니다. | |IP 주소가 '10.0.0.1'이고 접두사 길이가 ‘22’면서 *<device1>* 디바이스에 있는 네트워크 리소스 'Data0'이(가) 오프라인입니다. 이 인터페이스가 연결된 스위치 포트가 작동하는지 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. |
-| 인증 서비스에 연결할 수 없습니다. |데이터 경로 오류 |인증에 사용되는 URL에 연결할 수 없습니다. 방화벽 규칙에 StorSimple 디바이스에 대해 지정된 URL 패턴이 포함되어 있는지 확인합니다. Azure portal의 URL 패턴에 대 한 자세한 내용은 이동 https://aka.ms/ss-8000-network-reqs합니다. Azure Government 클라우드를 사용 하는 경우의 URL 패턴으로 https://aka.ms/ss8000-gov-network-reqs입니다.|
+| 인증 서비스에 연결할 수 없습니다. |데이터 경로 오류 |인증에 사용되는 URL에 연결할 수 없습니다. 방화벽 규칙에 StorSimple 디바이스에 대해 지정된 URL 패턴이 포함되어 있는지 확인합니다. Azure portal의 URL 패턴에 대 한 자세한 내용은 https로 이동:\//aka.ms/ss-8000-network-reqs. Azure Government 클라우드를 사용 하는 경우 https의 URL 패턴으로 이동:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>성능 경고
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109242"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337928"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -62,6 +62,9 @@ Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 Azure Stack 등록은 사용자가 Azure Active Directory에서 사용자 서비스의 소유자입니다. Azure Stack 등록 된 사용자만 Azure Stack 등록을 수정할 수 있습니다. 사용자 등록 서비스의 소유자가 아닌 관리자가 아닌 사용자를 등록 하거나 다시 Azure Stack을 등록 하 려, 403 응답을 발생할 수 있습니다. 403 응답을 나타냅니다 사용자 작업을 완료할 수 있는 권한이 없습니다.
 
 이러한 요구 사항을 충족 하는 Azure 구독이 없으면 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.
+
+> [!NOTE]
+> 둘 이상의 Azure Stack에 있는 경우 각 Azure Stack 자체 구독을 등록 하는 것이 좋습니다. 이 쉽게 사용을 추적할 수 있습니다.
 
 ### <a name="powershell-language-mode"></a>PowerShell 언어 모드
 
@@ -240,7 +243,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 2. 등록 토큰을 가져오려면 다음 PowerShell cmdlet을 실행 합니다.  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Get-AzsRegistrationToken cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.

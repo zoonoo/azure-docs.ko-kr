@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSPR(셀프 서비스 암호 재설정) 심층 분석
+title: 셀프 서비스 암호 재설정 딥 다이브 분석-Azure Active Directory
 description: SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: HT
+ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214761"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313960"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
 

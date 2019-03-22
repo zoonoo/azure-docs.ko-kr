@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 및 타사 VPN 고급 시나리오
+title: Azure MFA 및 타사 Vpn-Azure Active Directory를 사용 하 여 고급 시나리오
 description: Azure MFA가 Cisco, Citrix 및 Juniper와 통합하기 위한 단계별 구성 가이드입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1d1f0857ddf0b3f1a888e51418ffabe8cf61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174846"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314402"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure Multi-Factor Authentication 및 타사 VPN 솔루션을 사용한 고급 시나리오
 

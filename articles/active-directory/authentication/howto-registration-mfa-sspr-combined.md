@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR 및 MFA (미리 보기)를 위한 결합 된 등록 시작
+title: Azure AD SSPR 및 MFA (미리 보기)-Azure Active Directory에 대 한 결합 된 등록 시작
 description: Azure AD 다단계 인증을 결합 하는 사용 하도록 설정 하 고 셀프 서비스 암호 재설정 등록 (미리 보기)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226728"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317445"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>보안 정보 등록 결합 사용 (미리 보기)
 

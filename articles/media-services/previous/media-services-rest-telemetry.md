@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292584"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317649"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "58292584"
 - 알림 엔드포인트 가져오기
 - 모니터링을 위한 알림 엔드포인트 만들기 
 
-    알림 엔드포인트를 만들려면 EndPointType을 AzureTable(2)로 설정하고 endPontAddress를 저장소 테이블(예: https://telemetryvalidationstore.table.core.windows.net/))로 설정합니다.
+    알림 끝점을 만들려면 EndPointType AzureTable (2) 하 고 endPontAddress를 저장소 테이블 집합으로 설정 합니다 (예: https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - 모니터링 구성 가져오기
 
@@ -121,12 +121,12 @@ ms.locfileid: "58292584"
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> “https://telemetryvalidationstore.table.core.windows.net” 값을 사용자의 저장소 계정으로 변경해야 합니다.
+> 변경 해야 합니다 "https:\//telemetryvalidationstore.table.core.windows.net" 저장소 계정에는 값입니다.
 
 ### <a name="response"></a>response
 

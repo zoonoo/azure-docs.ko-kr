@@ -2,19 +2,19 @@
 title: Azure SQL Database에 Azure Stream Analytics 출력
 description: Azure Stream Analytics에서 SQL Azure로 데이터를 출력하여 쓰기 처리량 속도를 높이는 방법을 알아봅니다.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303278"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338431"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL Database에 Azure Stream Analytics 출력
 
@@ -33,7 +33,7 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 
 - **일괄 처리 크기** - SQL 출력 구성을 사용하면 대상 테이블/워크로드의 특성에 따라 Azure Stream Analytics SQL 출력의 최대 일괄 처리 크기를 지정할 수 있습니다. 일괄 처리 크기는 모든 대량 삽입 트랜잭션에서 전송된 최대 레코드 수입니다. 클러스터형 columnstore 인덱스에서 약 [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)의 일괄 처리 크기를 사용하면 더 많은 병렬 처리, 최소 로깅 및 잠금 최적화가 가능합니다. 디스크 기반 테이블에서는 일괄 처리 크기가 크면 대량 삽입하는 동안 잠금 에스컬레이션이 트리거될 수 있으므로 솔루션에 적합한 크기는 10K(기본값) 이하입니다.
 
-- **입력 메시지 튜닝** - 분할 상속 및 일괄 처리 크기를 사용하여 최적화한 경우 메시지/파티션당 입력 이벤트 수를 늘리면 쓰기 처리량을 추가로 높일 수 있습니다. 입력 메시지 튜닝을 사용하면 Azure Stream Analytics의 일괄 처리 크기를 지정된 일괄 처리 크기까지 늘릴 수 있으며, 따라서 처리량을 높일 수 있습니다. 이렇게 하려면 [압축](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 또는 Premium EventHub SKU에 제공되는 더 큰 메시지 크기를 사용하면 됩니다.
+- **입력 메시지 튜닝** - 분할 상속 및 일괄 처리 크기를 사용하여 최적화한 경우 메시지/파티션당 입력 이벤트 수를 늘리면 쓰기 처리량을 추가로 높일 수 있습니다. 입력 메시지 튜닝을 사용하면 Azure Stream Analytics의 일괄 처리 크기를 지정된 일괄 처리 크기까지 늘릴 수 있으며, 따라서 처리량을 높일 수 있습니다. 사용 하 여 수행할 수 있습니다 [압축](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 하거나 Blob 또는 EventHub의 입력된 메시지 크기를 늘리십시오.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory 및 메모리 내 테이블
 
-- **임시 테이블인 메모리 내 테이블** – [메모리 내 테이블](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)을 사용하면 데이터를 매우 빠르게 로드할 수 있지만 데이터가 데이터에 맞아야 합니다. 벤치마크 결과, 메모리 내 테이블에서 디스크 기반 테이블로 대량 로드하는 방법이 단일 작성기를 사용하여 ID 열과 클러스터형 인덱스가 있는 디스크 기반 테이블에 직접 대량 삽입하는 방법보다 약 10배 빠른 것으로 나타났습니다. 이 대량 삽입 성능을 활용하려면 [Azure Data Factory를 사용하여 메모리 내 테이블에서 디스크 기반 테이블로 데이터를 복사하는 복사 작업](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database)을 설정하세요.
+- **임시 테이블의 메모리 내 테이블로** – [메모리 내 테이블](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) 초고속 데이터 로드에 대 한 허용 하지만 데이터를 메모리에 적합 해야 합니다. 벤치마크 결과, 메모리 내 테이블에서 디스크 기반 테이블로 대량 로드하는 방법이 단일 작성기를 사용하여 ID 열과 클러스터형 인덱스가 있는 디스크 기반 테이블에 직접 대량 삽입하는 방법보다 약 10배 빠른 것으로 나타났습니다. 이 대량 삽입 성능을 활용하려면 [Azure Data Factory를 사용하여 메모리 내 테이블에서 디스크 기반 테이블로 데이터를 복사하는 복사 작업](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database)을 설정하세요.
+
+## <a name="avoiding-performance-pitfalls"></a>성능 문제를 방지
+데이터 대량 삽입 하기 때문에 단일 삽입을 사용 하 여 데이터를 로드할 때 보다 훨씬 빠릅니다 반복 되는 데이터를 전송, insert 문을 구문 분석 하 고, 문을 실행 하 고 트랜잭션 레코드 발급 오버 헤드가 발생 하지 않습니다. 대신, 보다 효율적인 경로 데이터를 스트리밍하려면 저장소 엔진에 사용 됩니다. 하지만이 경로의 설치 비용 디스크 기반 테이블의 단일 insert 문을 보다 훨씬 높습니다. 손익 분기점은 일반적으로 약 100 개의 행을 초과 된 대량 로드는 거의 항상 더 효율적입니다. 
+
+수신 이벤트 비율이 낮은 경우 쉽게 만들 수 일괄 처리 크기 대량 삽입을 비효율적인 사용 하면 너무 많은 디스크 공간을 사용 하는 100 개 행 보다 낮습니다. 이 제한을 해결 하려면 다음이 작업 중 하나를 수행할 수 있습니다.
+* Instead OF를 만듭니다 [트리거](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) 모든 행에 대 한 간단한 삽입을 사용 하도록 합니다.
+* 이전 섹션에 설명 된 대로 메모리 내 임시 테이블을 사용 합니다.
+
+이러한 시나리오는 다른 작은 대량 삽입 인덱스를 중단 시키는 세그먼트가 너무 많이 만들 수 있는 비클러스터형 columnstore 인덱스 (NCCI)를 쓸 때 발생 합니다. 이 경우 것이 좋습니다 대신 클러스터형 Columnstore 인덱스를 사용 하는 것입니다.
 
 ## <a name="summary"></a>요약
 

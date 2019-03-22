@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 645fb4e939e308eecdd2b6933197493919c2dd1d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996546"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338584"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
@@ -80,7 +80,7 @@ Azure 리소스에 대한 관리 ID를 사용하면 스크립트 클라이언트
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 서비스의 리소스 ID
 
-Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스 ID를 사용하여 테스트된 리소스의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스 ID를 사용하여 테스트된 리소스의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 ## <a name="error-handling-guidance"></a>오류 처리 지침 
 

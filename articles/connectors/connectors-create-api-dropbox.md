@@ -1,65 +1,79 @@
 ---
-title: Dropbox에 연결 - Azure Logic Apps | Microsoft Docs
+title: Dropbox-Azure Logic Apps에 연결
 description: Dropbox REST API 및 Azure Logic Apps를 사용하여 파일 업로드 및 관리
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094441"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314419"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Dropbox 커넥터 시작
-Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>업로드 하 고 Azure Logic Apps를 사용 하 여 Dropbox의 파일 관리
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
+Dropbox 커넥터 및 Azure Logic Apps를 사용 하 여 업로드 하 고 Dropbox 계정의 파일을 관리 하는 자동화 된 워크플로 만들 수 있습니다. 
 
-## <a name="connect-to-dropbox"></a>Dropbox에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 제공해야 합니다. 따라서 Dropbox 예제에서는 Dropbox에 대한 연결을 만들기 위해 Dropbox 계정에 대한 자격 증명이 필요합니다. 
+이 문서에서는 논리 앱에서 Dropbox에 연결 하 여 다음 Dropbox를 추가 하는 방법을 보여 줍니다 **파일을 만들면** 트리거와 Dropbox **경로 사용 하 여 파일 콘텐츠 가져오기** 작업 합니다.
 
-### <a name="create-a-connection-to-dropbox"></a>Dropbox에 대한 연결 만들기
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="use-a-dropbox-trigger"></a>Dropbox 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-이 예제에서는 **파일을 만들 때** 트리거를 사용합니다. 이 트리거가 발생하면 **경로를 사용하여 파일 콘텐츠 가져오기** Dropbox 작업을 호출합니다. 
+* A [Dropbox 계정](https://www.dropbox.com/)는 무료로 등록할 수 있습니다. 계정 자격 증명은 논리 앱과 Dropbox 계정 간에 연결을 만드는 데 필요한 합니다.
 
-1. Logic Apps 디자이너의 검색 상자에 *dropbox*를 입력한 후 **Dropbox - 파일을 만들 때** 트리거를 선택합니다.      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. 파일 생성을 추적할 폴더를 선택합니다. ...(빨간색 상자에 표시)를 선택하고 트리거의 입력을 선택할 폴더를 찾습니다.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 이 예에서는 빈 논리 앱이 필요합니다.
 
-## <a name="use-a-dropbox-action"></a>Dropbox 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+## <a name="add-trigger"></a>트리거 추가
 
-이제 트리거가 추가되었고 다음 단계에 따라 새 파일의 콘텐츠를 가져올 작업을 추가합니다.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. **+ 새 단계**를 선택하여 새 파일을 만들 때 수행할 작업을 추가합니다.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. **작업 추가**를 선택합니다. 수행할 동작을 검색할 수 있는 검색 상자가 열립니다.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. *dropbox*를 입력하여 Dropbox와 관련된 작업을 검색합니다.  
-4. 선택한 Dropbox 폴더에서 새 파일이 생성될 때 수행할 작업으로 **Dropbox - 경로를 사용하여 파일 콘텐츠 가져오기**를 선택합니다. 작업 제어 블록이 열립니다. 논리 앱에 Dropbox 계정에 액세스하기 위한 권한을 아직 부여하지 않았으면 이러한 권한을 부여하라는 메시지가 표시됩니다.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. ...(**파일 경로** 컨트롤의 오른쪽에 있음)를 선택하고 사용할 파일 경로를 찾습니다. 또는 **파일 경로** 토큰을 사용하여 빠르게 논리 앱을 만들 수 있습니다.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. 작업을 저장하고 Dropbox에 새 파일을 만들어 워크플로를 활성화합니다.  
+1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에 필터로 "dropbox"를 입력합니다.
+트리거 목록에서 다음 트리거를 선택합니다. **파일을 만들 때**
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+   ![Dropbox 트리거 선택](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-[커넥터 세부 정보](/connectors/dropbox/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+1. Dropbox 계정 자격 증명을 사용하여 로그인하고, Dropbox 데이터에 대한 액세스 권한을 Azure Logic Apps에 부여합니다.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+1. 트리거에 필요한 정보를 입력합니다. 
+
+   이 예제에서는 파일 생성을 추적 하려는 폴더를 선택 합니다. 폴더를 이동할 폴더 아이콘을 옆에 선택 합니다 **폴더** 상자입니다.
+
+## <a name="add-action"></a>작업 추가
+
+이제 모든 새 파일에서 콘텐츠를 가져오는 작업을 추가 합니다.
+
+1. 트리거 아래에서 **다음 단계**를 선택합니다. 
+
+1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에 필터로 "dropbox"를 입력합니다.
+작업 목록에서 다음 작업을 선택합니다. **경로를 사용하여 파일 콘텐츠 가져오기**
+
+1. Azure 논리 앱이 Dropbox 액세스 권한이 이미 하지 않은 경우 이제 액세스 권한을 부여 합니다.
+
+1. 옆에 사용 하려면 원하는 파일 경로 이동 하는 **파일 경로** 상자에서 줄임표 (**...** ) 단추입니다. 
+
+   내에서 클릭할 수도 있습니다는 **파일 경로** 상자의 및 동적 콘텐츠 목록에서 선택 **파일 경로**, 이전 섹션에서 추가한 트리거에서 출력 값은 사용할 수 있습니다.
+
+1. 완료되면 논리 앱을 저장합니다.
+
+1. 논리 앱을 트리거하기 위해 Dropbox에 새 파일을 만듭니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+트리거, 작업 및 커넥터의 OpenAPI에 설명 된 대로 제한 등의 기술 세부 정보에 대 한 (이전의 Swagger) 파일, 참조를 [커넥터의 참조 페이지](/connectors/dropbox/)합니다.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

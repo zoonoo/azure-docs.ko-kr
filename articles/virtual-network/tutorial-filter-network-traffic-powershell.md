@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649937"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317727"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -277,7 +277,7 @@ mstsc /v:myvmWeb
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-IIS 설치가 완료된 후 *myVmWeb* VM 연결을 끊으면 *myVmMgmt* VM 원격 데스크톱 연결이 종료됩니다. IIS 시작 화면을 보려면 인터넷 브라우저를 열고 http://myVmWeb으로 이동합니다.
+IIS 설치가 완료된 후 *myVmWeb* VM 연결을 끊으면 *myVmMgmt* VM 원격 데스크톱 연결이 종료됩니다. IIS 시작 화면을 보려면 인터넷 브라우저를 열고 http:\//myVmWeb 합니다.
 
 *myVmMgmt* VM과의 연결을 끊습니다.
 

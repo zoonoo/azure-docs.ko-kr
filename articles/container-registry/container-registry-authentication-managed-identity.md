@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984208"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338465"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -31,7 +31,7 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.55 이�
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 
-Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 관리 ID를 사용하여 가상 머신을 포함하여 [특정 Azure 리소스](../active-directory/managed-identities-azure-resources/services-support-msi.md)를 구성할 수 있습니다. 그런 다음, ID를 사용하여 코드 또는 스크립트에서 자격 증명을 전달하지 않고 다른 Azure 리소스에 액세스할 수 있습니다.
+Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 관리 ID를 사용하여 가상 머신을 포함하여 [특정 Azure 리소스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 구성할 수 있습니다. 그런 다음, ID를 사용하여 코드 또는 스크립트에서 자격 증명을 전달하지 않고 다른 Azure 리소스에 액세스할 수 있습니다.
 
 관리 ID에는 다음과 같은 두 가지 유형이 있습니다.
 
@@ -41,7 +41,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 개인 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. (전체 레지스트리 역할 목록은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.) 하나 이상의 리소스에는 ID 액세스 권한을 제공할 수 있습니다.
 
-그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다.
+그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다.
 
 * HTTP 또는 REST 호출을 사용하여 프로그래밍 방식으로 [Azure AD 액세스 토큰 획득](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-가상 머신에서 CLI에 로그인할 때 이후 단계에서 ID의 ID가 필요하므로 다음 값을 표시합니다.
+가상 컴퓨터에서 CLI에 로그인 할 때 이후 단계에서이 id의 ID를 필요 하기 때문에 값을 보여 줍니다.
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에 구성된 ID를 사용하여 [az login][az-login]으로 Azure CLI에 로그인합니다. <userID>의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
+먼저 Azure CLI를 사용 하 여 인증할 [az login][az-login], VM에 구성 된 id를 사용 하 여 합니다. <userID>의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-그런 다음, [az acr login][az-acr-login]을 사용하여 레지스트리에 로그인합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음 사용 하 여 레지스트리에 인증할 [az acr login][az-acr-login]합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에서 시스템 할당 ID를 사용하여 [az login][az-login]으로 Azure CLI에 로그인합니다.
+먼저 Azure CLI를 사용 하 여 인증 [az login][az-login], VM에서 시스템 할당 id를 사용 하 여 합니다.
 
 ```azurecli
 az login --identity
 ```
 
-그런 다음, [az acr login][az-acr-login]을 사용하여 레지스트리에 로그인합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음 사용 하 여 레지스트리에 인증할 [az acr login][az-acr-login]합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry

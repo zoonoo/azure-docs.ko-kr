@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895834"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314572"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
-실행 중인 컨테이너에 연결합니다. 포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 열기 IP 주소를 가리키는 웹 브라우저를 반환 포트 4000에서 예를 들어 "http:\//localhost:4000"입니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -271,9 +271,9 @@ https://github.com/Azure-Samples/service-fabric-containers/의 템플릿에 제�
 ./install.sh
 ```
 
-브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿈). 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http에서 Service Fabric Explorer로 이동:\//localhost:19080 / 탐색기 (Mac OS X에서 Vagrant를 사용 하는 경우 VM의 개인 IP 사용 하 여 대체 로컬 호스트). 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-실행 중인 컨테이너에 연결합니다. 포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 열기 IP 주소를 가리키는 웹 브라우저를 반환 포트 4000에서 예를 들어 "http:\//localhost:4000"입니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 

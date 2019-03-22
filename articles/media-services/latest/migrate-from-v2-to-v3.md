@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841126"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317751"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -29,7 +29,7 @@ ms.locfileid: "57841126"
 현재 비디오 서비스가 [레거시 Media Services v2 API](../previous/media-services-overview.md) 위에 배포된 경우 v3 API로 마이그레이션하기 전에 다음 지침 및 고려 사항을 검토해야 합니다. v3 API에는 개발자 경험과 Media Services 기능을 향상하는 여러 이점과 새 기능이 있습니다. 그러나 이 문서의 [알려진 문제](#known-issues) 섹션에서 언급했듯이, API 버전 간의 변경 사항으로 인해 몇 가지 제한이 있습니다. Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다. 
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Media Services v3의 혜택
 

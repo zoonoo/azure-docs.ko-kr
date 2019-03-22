@@ -1,5 +1,5 @@
 ---
-title: IIS 인증 및 Azure MFA 서버 | Microsoft Docs
+title: IIS 인증 및 Azure MFA 서버-Azure Active Directory
 description: IIS 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c268b5952f2276dc718df955c125c59c51d356
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: beeeea13c46c489fbd0e5c26d18d3d8c7994dccd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014712"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314238"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
