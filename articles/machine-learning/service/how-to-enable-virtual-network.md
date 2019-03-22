@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118108"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840446"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전하게 실험 및 유추 실행
 
 이 문서에서는 가상 네트워크 내에서 실험 및 유추를 실행하는 방법을 알아봅니다. 가상 네트워크는 공용 인터넷에서 Azure 리소스를 격리하는 보안 경계의 역할을 합니다. Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수도 있습니다. 이렇게 하면 모델을 안전하게 학습하고, 배포한 모델에 액세스하여 추론을 수행할 수 있습니다.
 
 Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리소스를 얻습니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 이러한 컴퓨팅 대상을 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Microsoft Data Science Virtual Machine을 사용하여 모델을 학습시킨 다음, AKS(Azure Kubernetes Service)에 모델을 배포할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 조건
+
+이 문서에서는 Azure 가상 네트워크 및 IP 네트워킹 일반적 잘 알고 있다고 가정 합니다. 이 문서는 또한는 만든 가상 네트워크 및 계산 리소스를 사용 하는 서브넷을 가정 합니다. Azure Virtual Network를 사용 하 여 잘 모르는 경우에 서비스에 대해 자세히 알아보려면 다음 문서를 읽어보세요.
+
+* [IP 주소 지정](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [빠른 시작: 가상 네트워크 만들기](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정
 
@@ -51,15 +60,17 @@ Azure Machine Learning 서비스 작업 영역을 만들 때는 Azure Storage �
 
     - 부하 분산 장치 1개
 
-   이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-subscription-service-limits)으로 제한됩니다.
+  이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-subscription-service-limits)으로 제한됩니다.
 
 ### <a id="mlcports"></a> 필수 포트
 
 Machine Learning 컴퓨팅은 현재 Azure Batch 서비스를 사용하여 지정된 가상 네트워크에 VM을 프로비전합니다. 서브넷은 Batch 서비스에서의 인바운드 통신을 허용해야 합니다. 이 통신은 Machine Learning 컴퓨팅 노드에서 실행을 예약하고 Azure Storage 및 기타 리소스와 통신하는 데 사용됩니다. Batch는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
-- 29876 및 29877 포트에서 Batch 서비스 역할 IP 주소로부터의 인바운드 TCP 트래픽 
+- 인바운드 TCP 트래픽을 포트 29876 및 29877에서에 __서비스 태그__ 의 __BatchNodeManagement__합니다.
+
+    ![BatchNodeManagement 서비스 태그를 사용 하 여 인바운드 규칙을 보여 주는 Azure portal의 이미지](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- 원격 액세스를 허용하기 위한 포트 22의 인바운드 TCP 트래픽
+- (선택 사항) 원격 액세스를 허용 하도록 22 포트에서 인바운드 TCP 트래픽을 합니다. SSH를 사용 하 여 공용 IP에서 연결 하려는 경우에 필요 합니다.
  
 - 가상 네트워크에 대한 모든 포트의 아웃바운드 트래픽
 
@@ -151,7 +162,7 @@ except ComputeTargetException:
 
     * __원본 서비스 태그__: __AzureMachineLearning__을 선택합니다.
 
-    * __원본 포트 범위__: __*__ 를 선택합니다.
+    * __원본 포트 범위__: *__ 를 선택합니다.
 
     * __대상__: __모두__를 선택합니다.
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881303"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877703"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
-Speech Service의 기능을 탐색하기 시작했나요? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
+있습니다 하기 시작 음성 서비스의 기능을 살펴보고? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
@@ -30,7 +30,7 @@ Speech Service의 기능을 탐색하기 시작했나요? 애플리케이션에 
 
 ## <a name="stay-informed"></a>최신 소식 수신
 
-Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. Speech Service에 대한 최신 정보는 [Speech Service 블로그](https://azure.microsoft.com/blog/tag/speech-service/)를 추적하세요.
+Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대 한 최신 정보를 추적 합니다 [Speech Services 블로그](https://azure.microsoft.com/blog/tag/speech-service/)합니다.
 
 ## <a name="search"></a>검색
 
@@ -61,11 +61,11 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 |구성 요소/영역  |태그들  |
 |---------|---------|
-|음성 인식 |[[microsoft-cognitive+speech-to-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|음성 합성 |[[microsoft-cognitive+text-to-speech]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|음성 의도 |[[microsoft-cognitive+luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|음성 인식 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|음성 합성 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|음성 의도 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
@@ -103,7 +103,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
  - OS [예: Windows, Linux, Android, iOS, ...] - 구체적으로 작성해 주세요.
  - 하드웨어 - x64, x86, ARM, ...
- - 브라우저 [예: Chrome, Safari](있는 경우) - 구체적으로 작성해 주세요.
+ - 브라우저 [예: Chrome, Safari]\(있는 경우) - 구체적으로 작성해 주세요.
 
 **추가 컨텍스트**
 

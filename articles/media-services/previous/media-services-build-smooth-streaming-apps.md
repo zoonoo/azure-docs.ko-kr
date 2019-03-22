@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57882729"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
-Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 애플리케이션을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](http://playerframework.codeplex.com/)를 참조하세요. 
+Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 애플리케이션을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](https://playerframework.codeplex.com/)를 참조하세요. 
 
 이 자습서에는 4개 단원이 포함되어 있습니다.
 
@@ -38,7 +38,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 
 * Windows 8 32비트 또는 64비트.
 * Visual Studio 버전 2012~2015.
-* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
+* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
 각 단원에 대해 완성된 솔루션은 MSDN 개발자 코드 샘플(코드 갤러리)에서 다운로드할 수 있습니다. 
 
@@ -66,11 +66,11 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. [새 프로젝트] 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-| Name | 값 |
+| 이름 | 값 |
 | --- | --- |
 | 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
 | Template |새 응용 프로그램(XAML) |
-| Name |SSPlayer |
+| 이름 |SSPlayer |
 | 위치 |C:\SSTutorials |
 | 솔루션 이름 |SSPlayer |
 | 솔루션에 대한 디렉터리 만들기 |(선택됨) |
@@ -82,10 +82,10 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 1. [솔루션 탐색기]에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 2. 다음 값을 입력하거나 선택합니다.
 
-| Name | 값 |
+| 이름 | 값 |
 | --- | --- |
 | 참조 그룹 |Windows/Extensions |
-| 참고 자료 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
+| 참조 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
 
 1. **확인**을 클릭합니다. 
 
@@ -107,7 +107,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -203,7 +203,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
          }
          # endregion
    ```
-여기에는 sliderProgress_PointerPressed 이벤트 처리기가 정의되어 있습니다.  작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
+   여기에는 sliderProgress_PointerPressed 이벤트 처리기가 정의되어 있습니다.  작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
 6. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 완성된 코드 숨김 파일은 다음과 같이 표시됩니다.
@@ -807,7 +807,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             changeStreams(selectedStreams);
         }
    ```
-**애플리케이션을 컴파일 및 테스트하려면**
+   **애플리케이션을 컴파일 및 테스트하려면**
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
 2. **F5** 키를 눌러 애플리케이션을 실행합니다.
@@ -1009,7 +1009,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             changeStreams(selectedStreams);
          }
    ```
-**애플리케이션을 컴파일 및 테스트하려면**
+   **애플리케이션을 컴파일 및 테스트하려면**
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
 2. **F5** 키를 눌러 애플리케이션을 실행합니다.
@@ -1026,8 +1026,8 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>기타 리소스:
-* [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 애플리케이션을 빌드하는 방법](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [부드러운 스트리밍 기술 개요](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 애플리케이션을 빌드하는 방법](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [부드러운 스트리밍 기술 개요](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

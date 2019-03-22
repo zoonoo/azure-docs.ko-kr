@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457268"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338601"
 ---
 <a name="logic-app-test-drive"></a>논리 앱 Test Drive
 ====================
@@ -137,6 +137,10 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 **Azure AD 앱 키 -** *[필수 필드]* 마지막 필드에서는 인증 키를 생성합니다. 키 아래에 키 설명을 추가하고 기간을 만료 기한 제한 없음으로 설정한 후에 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음 필요한 Test Drive 필드에 붙여넣습니다.
 
 ![Azure Active Directory 키 섹션](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> 현재 base64로 인코딩된 키를 생성 하지 않습니다 때문에 Azure 앱 등록 미리 보기를 사용할 수 없습니다.
+
 
 <a name="next-steps"></a>다음 단계
 ----------

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110285"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 비용 계산 및 크기 조정 모범 사례
 
@@ -40,17 +40,18 @@ ms.locfileid: "55700641"
 
 - **Azure 가격 계산기**: VM 및 스토리지와 같이 예상하려는 제품을 선택합니다. 가격 계산기에 비용을 입력하여 추정 비용을 산출합니다.
 
- ![Azure 가격 계산기](./media/migrate-best-practices-costs/pricing.png) *Azure 가격 계산기*
+  ![Azure 가격 계산기](./media/migrate-best-practices-costs/pricing.png) *Azure 가격 계산기*
 
 - **Azure Migrate**: 비용을 추정하려면 Azure에서 워크로드를 실행하는 데 필요한 모든 리소스를 검토하고 설명해야 합니다. 이 데이터를 획득하려면 서버, VM, 데이터베이스 및 스토리지를 포함한 자산의 인벤토리를 만듭니다. Azure Migrate를 사용하여 이 정보를 수집할 수 있습니다.
 
- - Azure Migrate는 온-프레미스 환경을 검색 및 평가하여 인벤토리를 제공합니다.
- - Azure Migrate는 VM 간의 종속성을 매핑하고 표시하여 전체 그림을 제공할 수 있습니다.
- - Azure Migrate 평가에는 예상 비용이 포함됩니다.
+  - Azure Migrate는 온-프레미스 환경을 검색 및 평가하여 인벤토리를 제공합니다.
+  - Azure Migrate는 VM 간의 종속성을 매핑하고 표시하여 전체 그림을 제공할 수 있습니다.
+  - Azure Migrate 평가에는 예상 비용이 포함됩니다.
     - 컴퓨팅 비용: Azure Migrate는 평가를 만들 때 추천되는 Azure VM 크기를 사용하여 청구 API를 통해 월별 예상 VM 비용을 계산합니다. 추정에서는 운영 체제, 소프트웨어 보증, 예약 인스턴스, VM 가동 시간, 위치 및 통화 설정을 고려합니다. 평가에서 모든 VM의 비용을 집계하고 월별 총 컴퓨팅 비용을 계산합니다.
     - 스토리지 비용: Azure Migrate는 평가에서 모든 VM의 스토리지 비용을 집계하여 월별 총 스토리지 비용을 계산합니다. 특정 머신의 월별 스토리지 비용은 연결된 모든 디스크의 월별 비용을 집계하여 계산할 수 있습니다. 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Azure Migrate 평가*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *Azure Migrate 평가*
 
 **자세한 정보:**
 - Azure 가격 계산기 [사용](https://azure.microsoft.com/pricing/calculator/)
@@ -92,13 +93,13 @@ Azure VM을 배포하여 워크로드를 지원할 때 여러 가지 옵션을 �
 
 Azure는 다양한 형식의 스토리지 데이터를 제공합니다.
 
-**데이터 형식** | **세부 정보** | **사용 현황** 
---- | --- |  ---
-**Blob** | 텍스트 또는 이진 데이터와 같은 비정형 개체를 대량으로 저장하도록 최적화되었습니다.<br/><br/> | 어디서나 HTTP/HTTPS를 통해 데이터에 액세스합니다. | 스트리밍 및 임의 액세스 시나리오에 사용합니다. 예를 들어 이미지와 문서를 브라우저에 직접 제공하고, 비디오와 오디오를 스트림하며, 백업 및 재해 복구 데이터를 저장합니다.
-**파일** | SMB 3.0을 통해 관리 파일 공유에 액세스합니다. | 온-프레미스 파일 공유를 마이그레이션할 때 사용하여 파일 데이터에 대한 여러 액세스/연결을 제공합니다.
-**디스크** | 페이지 Blob을 기반으로 합니다.<br/><br/> 디스크 유형(속도): 표준(HDD 또는 SSD) 또는 프리미엄(SSD).<br/><br/>디스크 관리: 비관리(디스크 설정 및 스토리지 관리) 또는 관리(디스크 유형 선택 및 Azure에서 디스크 관리). | VM용 프리미엄 디스크를 사용합니다. 간단한 관리 및 크기 조정을 위해 관리 디스크를 사용합니다.
-**큐** | 인증된 호출(HTTP 또는 HTTPS)을 통해 액세스되는 많은 수의 메시지를 저장 및 검색합니다. | 비동기 메시지 큐를 사용하여 애플리케이션 구성 요소를 연결합니다.
-**테이블** | 테이블을 저장합니다. | 이제는 Azure Cosmos DB Table API의 일부입니다.
+| **데이터 형식** | **세부 정보** | **사용 현황** |
+|--- | --- |  --- |
+|**Blob** | 텍스트 또는 이진 데이터와 같은 비정형 개체를 대량으로 저장하도록 최적화되었습니다.<br/>어디서나 HTTP/HTTPS를 통해 데이터에 액세스합니다. | 스트리밍 및 임의 액세스 시나리오에 사용합니다. 예를 들어 이미지와 문서를 브라우저에 직접 제공하고, 비디오와 오디오를 스트림하며, 백업 및 재해 복구 데이터를 저장합니다.|
+|**파일** | SMB 3.0을 통해 관리 파일 공유에 액세스합니다. | 온-프레미스 파일 공유를 마이그레이션할 때 사용하여 파일 데이터에 대한 여러 액세스/연결을 제공합니다.|
+|**디스크** | 페이지 Blob을 기반으로 합니다.<br/><br/> 디스크 유형(속도): 표준(HDD 또는 SSD) 또는 프리미엄(SSD).<br/><br/>디스크 관리: 비관리(디스크 설정 및 스토리지 관리) 또는 관리(디스크 유형 선택 및 Azure에서 디스크 관리). | VM용 프리미엄 디스크를 사용합니다. 간단한 관리 및 크기 조정을 위해 관리 디스크를 사용합니다.|
+|**큐** | 인증된 호출(HTTP 또는 HTTPS)을 통해 액세스되는 많은 수의 메시지를 저장 및 검색합니다. | 비동기 메시지 큐를 사용하여 애플리케이션 구성 요소를 연결합니다.|
+|**테이블** | 테이블을 저장합니다. | 이제는 Azure Cosmos DB Table API의 일부입니다.|
 
 
 
@@ -211,19 +212,21 @@ Cost Management에서 수행할 수 있는 작업은 다음과 같습니다.
 
 
 - **예산 만들기**: 독립 채산 방식의 예산을 만듭니다.
-    - 특정 기간(월별, 분기별, 연도별) 및 범위(구독/리소스 그룹)에 대해 사용하거나 구독하는 서비스를 설명할 수 있습니다. 예를 들어 월별, 분기별 또는 연도별 기간에 대한 Azure 구독 예산을 만들 수 있습니다.
-    - 예산이 만들어지면 비용 분석에 표시됩니다. 현재 지출에 대비하여 예산을 확인하는 것은 비용과 지출을 분석할 때 필요한 첫 번째 단계 중 하나입니다.
-    - 예산 임계값에 도달하면 이메일 알림을 보낼 수 있습니다.
-    - 분석을 위해 비용 관리 데이터를 Azure 스토리지에 내보낼 수 있습니다.
+  - 특정 기간(월별, 분기별, 연도별) 및 범위(구독/리소스 그룹)에 대해 사용하거나 구독하는 서비스를 설명할 수 있습니다. 예를 들어 월별, 분기별 또는 연도별 기간에 대한 Azure 구독 예산을 만들 수 있습니다.
+  - 예산이 만들어지면 비용 분석에 표시됩니다. 현재 지출에 대비하여 예산을 확인하는 것은 비용과 지출을 분석할 때 필요한 첫 번째 단계 중 하나입니다.
+  - 예산 임계값에 도달하면 이메일 알림을 보낼 수 있습니다.
+  - 분석을 위해 비용 관리 데이터를 Azure 스토리지에 내보낼 수 있습니다.
 
-    ![Cost Management 예산](./media/migrate-best-practices-costs/budget.png) *Azure Cost Management 예산*
+    ![비용된 관리 예산](./media/migrate-best-practices-costs/budget.png)
+    *Azure Cost Management 예산*
 
 - **비용 분석 수행**: 비용 분석을 통해 조직 비용을 검색 및 분석하여 비용이 발생하는 방식을 이해하고 지출 추세를 파악할 수 있습니다.
-    - EA 사용자가 비용 분석을 사용할 수 있습니다.
-    - 부서, 계정, 구독 또는 리소스 그룹별로 다양한 범위의 비용 분석 데이터를 볼 수 있습니다.
-    - 당월의 총 비용과 누적된 일별 비용을 보여 주는 비용 분석을 얻을 수 있습니다. 
+  - EA 사용자가 비용 분석을 사용할 수 있습니다.
+  - 부서, 계정, 구독 또는 리소스 그룹별로 다양한 범위의 비용 분석 데이터를 볼 수 있습니다.
+  - 당월의 총 비용과 누적된 일별 비용을 보여 주는 비용 분석을 얻을 수 있습니다. 
 
-    ![Cost Management 분석](./media/migrate-best-practices-costs/analysis.png) *Azure Cost Management 분석*
+    ![비용 관리 분석](./media/migrate-best-practices-costs/analysis.png)
+    *Azure Cost Management 분석*
 - **추천 사항 가져오기**: 효율성을 최적화하고 향상시킬 수 는 방법을 보여 주는 Advisor 추천 사항을 가져옵니다.
 
 

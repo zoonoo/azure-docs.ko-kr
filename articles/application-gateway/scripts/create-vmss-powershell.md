@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹 트래픽 관리 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 애플리케이션 게이트웨이 및 가상 머신 확장 집합을 사용하여 웹 트래픽을 관리합니다.
+title: Azure PowerShell Script Sample - Manage web traffic | Microsoft Docs
+description: Azure PowerShell Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway
 documentationcenter: networking
 author: vhorne
@@ -14,61 +14,61 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ef6a4171c582e3eb82fbcc73171797e1c806de05
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fc35d442be7eea0406e4ba55876c53d7d94fee01
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770607"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310151"
 ---
-# <a name="manage-web-traffic-with-azure-powershell"></a>Azure PowerShell을 사용하여 웹 트래픽 관리
+# <a name="manage-web-traffic-with-azure-powershell"></a>Manage web traffic with Azure PowerShell
 
-이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 애플리케이션 게이트웨이를 테스트할 수 있습니다.
+This script creates an application gateway that uses a virtual machine scale set for backend servers. The application gateway can then be configured to manage web traffic. After running the script, you can test the application gateway using its public IP address.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>샘플 스크립트
+## <a name="sample-script"></a>Sample script
 
 [!code-powershell[main](../../../powershell_scripts/application-gateway/create-vmss/create-vmss.ps1 "Create application gateway")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>Clean up deployment 
 
-다음 명령을 실행하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+Run the following command to remove the resource group, application gateway, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroupAG
+Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="script-explanation"></a>스크립트 설명
+## <a name="script-explanation"></a>Script explanation
 
-이 스크립트는 다음 명령을 사용하여 배포합니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
+This script uses the following commands to create the deployment. Each item in the table links to command specific documentation.
 
-| 명령 | 메모 |
+| Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. |
-| [새-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 서브넷 구성을 사용하여 가상 네트워크를 만듭니다. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 애플리케이션 게이트웨이의 공용 IP 주소를 만듭니다. |
-| [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) | 서브넷을 애플리케이션 게이트웨이에 연결하는 구성을 만듭니다. |
-| [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) | 애플리케이션 게이트웨이에 공용 IP 주소를 할당하는 구성을 만듭니다. |
-| [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) | 애플리케이션 게이트웨이에 액세스하는 데 사용할 포트를 할당합니다. |
-| [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) | 애플리케이션 게이트웨이의 백 엔드 풀을 만듭니다. |
-| [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) | 백 엔드 풀에 대한 설정을 구성합니다. |
-| [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) | 수신기를 만듭니다. |
-| [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) | 라우팅 규칙을 만듭니다. |
-| [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) | 애플리케이션 게이트웨이의 계층 및 용량을 지정합니다. |
-| [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) | 애플리케이션 게이트웨이를 만듭니다. |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/azurerm.compute/set-azurermvmssstorageprofile) | 확장 집합의 저장소 프로필을 만듭니다. |
-| [Set-AzureRmVmssOsProfile](/powershell/module/azurerm.compute/set-azurermvmssosprofile) | 확장 집합의 운영 체제를 정의합니다. |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/azurerm.compute/add-azurermvmssnetworkinterfaceconfiguration) | 확장 집합의 네트워크 인터페이스를 정의합니다. |
-| [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm) | 가상 머신 확장 집합을 만듭니다. |
-| [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) | 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. |
-|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. | 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Creates the subnet configuration. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Creates the virtual network using with the subnet configurations. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates the public IP address for the application gateway. |
+| [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | Creates the configuration that associates a subnet with the application gateway. |
+| [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | Creates the configuration that assigns a public IP address to the application gateway. |
+| [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | Assigns a port to be used to access the application gateway. |
+| [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | Creates a backend pool for an application gateway. |
+| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings) | Configures settings for a backend pool. |
+| [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | Creates a listener. |
+| [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | Creates a routing rule. |
+| [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | Specify the tier and capacity for an application gateway. |
+| [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | Create an application gateway. |
+| [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | Create a storage profile for the scale set. |
+| [Set-AzVmssOsProfile](/powershell/module/az.compute/set-azvmssosprofile) | Define the operating system for the scale set. |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | Define the network interface for the scale set. |
+| [New-AzVmss](/powershell/module/az.compute/new-azvm) | Create a virtual machine scale set. |
+| [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Gets the public IP address of an application gateway. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. | 
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Next steps
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-추가 애플리케이션 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.
+Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).

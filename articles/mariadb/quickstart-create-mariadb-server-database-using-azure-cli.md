@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Database for MariaDB 서버 만들기 - Azure CLI'
-description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법을 살펴봅니다.
+title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
+description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,107 +8,107 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842297"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Create an Azure Database for MariaDB server by using the Azure CLI
 
-Azure CLI를 사용하여 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB를 만드는 방법을 살펴봅니다. 
+You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하는 경우 이 빠른 시작에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
+If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+## <a name="create-a-resource-group"></a>Create a resource group
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) by using the [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
-다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+The following example creates a resource group named `myresourcegroup` in the `westus` location:
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버 만들기
+## <a name="create-an-azure-database-for-mariadb-server"></a>Create an Azure Database for MariaDB server
 
-[az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) 명령을 사용하여 Azure Database for MariaDB 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
+Create an Azure Database for MariaDB server by using the [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-설정 | 샘플 값 | 설명
+Setting | Sample value | Description
 ---|---|---
-이름 | **mydemoserver** | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
-resource-group | **myresourcegroup** | Azure 리소스 그룹의 이름을 입력합니다.
-sku-name | **GP_Gen5_2** | SKU의 이름입니다. *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 축약형으로 따릅니다. **sku-name** 매개 변수에 대한 자세한 내용은 이 표 다음에 나오는 섹션을 참조하세요.
-backup-retention | **7** | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위: 7 ~ 35 
-geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
-location | **westus** | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | **사용** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
-storage-size | **51200** | 서버의 저장소 용량입니다(단위는 메가바이트). 유효한 저장소 크기는 5,120MB(최소)이고 1,024MB 단위로 증가합니다. 저장소 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요. 
-버전 | **10.2** | MariaDB 주 엔진 버전입니다.
-admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
+name | **mydemoserver** | Enter a unique name that identifies your Azure Database for MariaDB server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
+resource-group | **myresourcegroup** | Enter the name of the Azure resource group.
+sku-name | **GP_Gen5_2** | The name of the SKU. Follows the convention *pricing tier*\_*compute generation*\_*vCores* in shorthand. For more information about the **sku-name** parameter, see the section after this table.
+backup-retention | **7** | How long a backup should be retained. The unit is days. Range: 7 to 35. 
+geo-redundant-backup | **Disabled** | Whether geo-redundant backups should be enabled for this server. Allowed values: **Enabled**, **Disabled**.
+location | **westus** | The Azure location for the server.
+ssl-enforcement | **Enabled** | Whether SSL should be enabled for this server. Allowed values: **Enabled**, **Disabled**.
+storage-size | **51200** | The storage capacity of the server (the unit is megabytes). Valid storage sizes are 5,120 MB (minimum) with increases in 1,024-MB increments. For more information about storage size limits, see [Pricing tiers](./concepts-pricing-tiers.md). 
+version | **10.2** | The MariaDB major engine version.
+admin-user | **myadmin** | The user name for the administrator login. The **admin-user** parameter can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+admin-password | *your password* | The password of the administrator user. Your password must contain between 8 and 128 characters. It must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
-+ `--sku-name B_Gen5_1`은 기본, 5세대 및 1개 vCore에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
-+ `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
-+ `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
-지역 및 계층별로 유효한 값에 대한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
+For information about valid values by region and for tiers, see [Pricing tiers](./concepts-pricing-tiers.md).
 
-다음 예제는 미국 서부 지역에 **mydemoserver**라는 서버를 만듭니다. 이 서버는 리소스 그룹 **myresourcegroup**에 있으며 서버 관리자 로그인 **myadmin**을 갖고 있습니다. 이 서버는 범용 가격 책정 계층의 Gen 5 서버와 vCore 2개를 갖고 있습니다. 서버 이름은 DNS 이름에 매핑되며 Azure에서 글로벌하게 고유해야 합니다. `<server_admin_password>`를 자신의 서버 관리자 암호로 바꾸세요.
+The following example creates a server named **mydemoserver** in the West US region. The server is in the resource group **myresourcegroup** and has the server admin login **myadmin**. The server is a Gen 5 server in the General Purpose pricing tier and it has 2 vCores. A server name maps to a DNS name and must be globally unique in Azure. Substitute `<server_admin_password>` with your own server admin password.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
 
 > [!NOTE]
-> 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.
+> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
 > 
 
-## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
+## <a name="configure-a-firewall-rule"></a>Configure a firewall rule
 
-[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall. 
 
-다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꾸세요. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from. 
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
 > [!NOTE]
-> Azure Database for MariaDB에 대한 연결은 포트 3306을 통해 통신합니다. 회사 네트워크 내에서 연결하려고 하면 3306 포트를 통한 아웃바운드 트래픽이 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 3306 포트를 열어야만 서버에 연결할 수 있습니다.
+> Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from inside a corporate network, outbound traffic over port 3306 might not be allowed. In this case, you can connect to your server only if your IT department opens port 3306.
 > 
 
-## <a name="configure-ssl-settings"></a>SSL 설정 구성
+## <a name="configure-ssl-settings"></a>Configure SSL settings
 
-기본적으로 서버와 클라이언트 애플리케이션 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
+By default, SSL connections between your server and client applications are enforced. This default setting ensures security of "in-motion" data by encrypting the data stream over the internet. For this quickstart, disable SSL connections for your server. Disabling SSL is not recommended for production servers. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
 
-다음 예제에서는 Azure Database for MariaDB 서버에 적용되는 SSL을 사용하지 않습니다.
+The following example disables SSL enforcing on your Azure Database for MariaDB server:
  
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
 
-## <a name="get-connection-information"></a>연결 정보 가져오기
+## <a name="get-connection-information"></a>Get connection information
 
-서버에 연결하려면 호스트 정보와 액세스 자격 증명을 제공해야 합니다. 연결 정보를 가져오려면 다음 명령을 실행합니다.
+To connect to your server, you need to provide host information and access credentials. To get the connection information, run the following command:
 
 ```azurecli-interactive
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-결과는 JSON 형식입니다. **fullyQualifiedDomainName** 및 **administratorLogin** 값을 기록해 둡니다.
+The result is in JSON format. Make a note of the values for **fullyQualifiedDomainName** and **administratorLogin**.
 
 ```json
 {
@@ -139,106 +139,106 @@ az mariadb server show --resource-group myresourcegroup --name mydemoserver
 }
 ```
 
-## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>mysql 명령줄 도구를 사용하여 서버에 연결
+## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Connect to the server by using the mysql command-line tool
 
-mysql 명령줄 도구를 사용하여 서버에 연결합니다. 명령줄 도구를 [다운로드](https://dev.mysql.com/downloads/)하여 컴퓨터에 설치할 수 있습니다. 이 문서의 코드 샘플에서 **사용해보기** 단추를 선택하여 명령줄 도구에 액세스할 수도 있습니다. 명령줄 도구에 액세스하는 또 다른 방법은 Azure Portal의 오른쪽 위 도구 모음에서 **>_** 단추를 선택하여 **Azure Cloud Shell**을 여는 것입니다.
+Connect to your server by using the mysql command-line tool. You can [download](https://dev.mysql.com/downloads/) the command-line tool and install it on your computer. You can also access the command-line tool by selecting the **Try It** button on a code sample in this article. Another way to access the command-line tool is to select the **>_** button on the upper-right toolbar in the Azure portal to open **Azure Cloud Shell**.
 
-mysql 명령줄 도구를 사용하여 서버에 연결하려면:
+To connect to the server by using the mysql command-line tool:
 
-1. 서버에 연결합니다.
+1. Connect to the server:
 
-  ```azurecli-interactive
-  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  ```
+   ```azurecli-interactive
+   mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
-2. `mysql>` 프롬프트에서 서버 상태를 봅니다.
+2. View the server status at the `mysql>` prompt:
 
-  ```sql
-  status
-  ```
-  다음 텍스트와 비슷한 내용이 표시됩니다.
+   ```sql
+   status
+   ```
+   You should see something similar to the following text:
 
-  ```bash
-  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  Enter password: ***********
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 65512
-  Server version: 5.6.39.0 MariaDB Server
+   ```bash
+   C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   Enter password: ***********
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+   Your MySQL connection id is 65512
+   Server version: 5.6.39.0 MariaDB Server
 
-  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+   Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+   Oracle is a registered trademark of Oracle Corporation and/or its
+   affiliates. Other names may be trademarks of their respective
+   owners.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  mysql> status
-  --------------
-  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+   mysql> status
+   --------------
+   mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
 
-  Connection id:          64681
-  Current database:
-  Current user:           myadmin@40.118.201.21
-  SSL:                    Cipher in use is AES256-SHA
-  Current pager:          stdout
-  Using outfile:          ''
-  Using delimiter:        ;
-  Server version:         5.6.39.0 MariaDB Server
-  Protocol version:       10
-  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-  Server characterset:    latin1
-  Db     characterset:    latin1
-  Client characterset:    utf8
-  Conn.  characterset:    utf8
-  TCP port:               3306
-  Uptime:                 1 day 3 hours 28 min 50 sec
+   Connection id:          64681
+   Current database:
+   Current user:           myadmin@40.118.201.21
+   SSL:                    Cipher in use is AES256-SHA
+   Current pager:          stdout
+   Using outfile:          ''
+   Using delimiter:        ;
+   Server version:         5.6.39.0 MariaDB Server
+   Protocol version:       10
+   Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+   Server characterset:    latin1
+   Db     characterset:    latin1
+   Client characterset:    utf8
+   Conn.  characterset:    utf8
+   TCP port:               3306
+   Uptime:                 1 day 3 hours 28 min 50 sec
 
-  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
-  --------------
+   Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+   --------------
 
-  mysql>
-  ```
+   mysql>
+   ```
 
 > [!TIP]
-> 다른 명령은 [MySQL 5.7 참조 설명서 - 4.5.1장](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)을 참조하세요.
+> For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 서버에 연결
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Connect to the server by using MySQL Workbench
 
-1.  클라이언트 컴퓨터에서 MySQL Workbench를 엽니다. 설치되어 있지 않은 경우 애플리케이션을 [다운로드](https://dev.mysql.com/downloads/workbench/)하여 설치합니다.
+1. Open MySQL Workbench on your client computer. If it's not already installed, [download](https://dev.mysql.com/downloads/workbench/) and install the application.
 
-2.  **새 연결 설정** 대화 상자의 **매개 변수** 탭에서 다음 정보를 입력합니다.
+2. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
 
- ![새 연결 설정](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-  | 설정 | 제안 값 | 설명 |
-  |---|---|---|
-  | 연결 이름 | **데모 연결** | 이 연결의 레이블 입력(아무 연결 이름이나 가능) |
-  | 연결 방법 | **표준(TCP/IP)** | TCP/IP 프로토콜을 사용하여 Azure Database for MariaDB에 연결 |
-  | 호스트 이름 | **mydemoserver.mariadb.database.azure.com** | 앞에서 기록한 서버 이름. |
-  | 포트 | **3306** | Azure Database for MariaDB의 기본 포트. |
-  | 사용자 이름 | **myadmin@mydemoserver** | 앞에서 기록한 서버 관리자 로그인. |
-  | 암호 | *사용자 암호* | 이전에 설정한 관리자 계정 암호를 사용합니다. |
+   | Setting | Suggested value | Description |
+   |---|---|---|
+   | Connection Name | **Demo connection** | Enter a label for this connection (the connection name can be anything) |
+   | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
+   | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
+   | Port | **3306** | The default port for Azure Database for MariaDB. |
+   | Username | **myadmin\@mydemoserver** | The server admin login that you noted earlier. |
+   | Password | *your password* | Use the admin account password that you set up earlier. |
 
-3. 모든 매개 변수가 올바르게 구성되었는지 테스트하려면 **연결 테스트**를 선택합니다.
+3. To check whether all parameters are configured correctly, select **Test Connection**.
 
-4. 연결을 선택하여 서버에 연결합니다.
+4. Select the connection to successfully connect to the server.
 
-## <a name="clean-up-resources"></a>리소스 정리
+## <a name="clean-up-resources"></a>Clean up resources
 
-이 빠른 시작에서 사용한 리소스가 다른 빠른 시작 또는 자습서에 필요 없는 경우 다음 명령을 수행하여 삭제할 수 있습니다. 
+If you don't need the resources that you used in this quickstart for another quickstart or tutorial, you can delete them by running the following command: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-이 빠른 시작에서 만든 서버만 삭제하려면 [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete)을 실행합니다.
+If you want to delete only the server that you created in this quickstart, run the [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete) command:
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Next steps
 
 > [!div class="nextstepaction"]
-> [Azure CLI로 MariaDB 데이터베이스 디자인](./tutorial-design-database-cli.md)
+> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-cli.md)

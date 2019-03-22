@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 사용자 지정 항목 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 사용자 지정 항목 만들기
+title: Azure PowerShell script sample - Create custom topic | Microsoft Docs
+description: Azure PowerShell script sample - Create custom topic
 services: event-grid
 documentationcenter: na
 author: tfitzmac
@@ -12,32 +12,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d5b8dc21e40f38aee8f082e84a5a5bea1baf11c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 20ad58c2e7209f8bed8014d5ce1dff094907590c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182509"
 ---
-# <a name="create-event-grid-custom-topic-with-powershell"></a>PowerShell을 사용하여 Event Grid 사용자 지정 항목 만들기
+# <a name="create-event-grid-custom-topic-with-powershell"></a>Create Event Grid custom topic with PowerShell
 
-이 스크립트는 Event Grid 사용자 지정 항목을 만듭니다.
+This script creates an Event Grid custom topic.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>샘플 스크립트
+## <a name="sample-script"></a>Sample script
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/create-custom-topic/create-custom-topic.ps1 "Create custom topic")]
 
-## <a name="script-explanation"></a>스크립트 설명
+## <a name="script-explanation"></a>Script explanation
 
-이 스크립트는 다음 명령을 사용하여 사용자 지정 항목을 만듭니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+This script uses the following command to create the custom topic. Each command in the table links to command-specific documentation.
 
-| 명령 | 메모 |
+| Command | Notes |
 |---|---|
-| [New-AzureRmEventGridTopic](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridtopic) | Event Grid 사용자 지정 항목을 만듭니다. |
+| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Create an Event Grid custom topic. |
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Next steps
 
-* 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.
+* For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
+* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).

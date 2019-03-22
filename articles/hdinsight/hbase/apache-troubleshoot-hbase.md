@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091548"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336434"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
 
@@ -344,7 +344,7 @@ HMaster 서비스의 알려진 문제입니다. 일반 클러스터 시작 작�
 
 ### <a name="issue"></a>문제
 
-영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 애플리케이션이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
+영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 애플리케이션이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
 
 Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시작하면 영역 서버가 다운되지만 바로 다시 시작되지 않는 것을 보게 됩니다. 
 

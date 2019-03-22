@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821969"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339247"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "55821969"
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-이 프로시저 구성 값은 이전에 HDInsight에서 설정한 값입니다. 설정해야 하는 Spark 구성 및 값을 결정하려면 Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인을 참조하세요. 
+Spark 구성 값을 조정할 수 있습니다는 Apache Spark 응용 프로그램 OutofMemoryError 예외를 방지 합니다. 다음 단계에서는 Azure HDInsight에서 기본 Spark 구성 값 보여 줍니다. 
 
 1. 클러스터 목록에서 **Spark2**를 선택합니다.
 
@@ -85,8 +85,7 @@ ms.locfileid: "55821969"
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
@@ -100,7 +99,7 @@ ms.locfileid: "55821969"
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>클러스터에서 Apache Livy를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
@@ -117,8 +116,7 @@ ms.locfileid: "55821969"
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>클러스터에서 spark-submit을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
@@ -134,7 +132,7 @@ ms.locfileid: "55821969"
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인
@@ -205,12 +203,12 @@ java.lang.OutOfMemoryError
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    모든 실행기에서 사용하는 총 메모리를 계산하려면: 
+    모든 실행 기에서 사용 하는 총 메모리를 계산 합니다. 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   드라이버에서 사용하는 총 메모리를 계산하려면:
+   드라이버를 사용 하는 총 메모리를 계산 합니다.
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ java.lang.OutOfMemoryError
 ### <a name="additional-reading"></a>추가 참조 자료
 
 - [Apache Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>관련 항목
 [Azure HDInsight를 사용하여 문제 해결](../../hdinsight/hdinsight-troubleshoot-guide.md)
-

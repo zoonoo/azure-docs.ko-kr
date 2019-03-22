@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242894"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317785"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Business Intelligence
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 Microsoft Azure Virtual Machine 갤러리에는 SQL Server 설치가 포함된 이미지가 들어 있습니다. 갤러리 이미지에서 지원되는 SQL Server 버전은 온-프레미스 컴퓨터와 가상 머신에 설치할 수 있는 동일한 설치 파일입니다. 이 항목은 가상 머신이 프로비전된 후 필요한 구성 단계 및 이미지에 설치된 SQL Server BI(비즈니스 인텔리전스) 기능을 요약합니다. 이 항목은 BI 기능에 대해 지원되는 배포 토폴로지 및 모범 사례도 설명합니다.
 
@@ -78,11 +78,11 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 
 | SQL Server BI 기능 | 갤러리 이미지에 설치 | 메모 |
 | --- | --- | --- |
-| **Reporting Services 기본 모드** |yes |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
-| **Reporting Services SharePoint 모드** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
-| **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |yes |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
-| **Analysis Services 테이블 형식** |아니요 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
-| **SharePoint용 Analysis Services 파워 피벗** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **Reporting Services 기본 모드** |예 |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
+| **Reporting Services SharePoint 모드** |아닙니다. |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |예 |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
+| **Analysis Services 테이블 형식** |아닙니다. |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
+| **SharePoint용 Analysis Services 파워 피벗** |아닙니다. |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 
 <sup>1</sup> SharePoint 및 Azure Virtual Machines에 대한 추가 정보는 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Microsoft Azure Virtual Machines에 SharePoint 배포](https://www.microsoft.com/download/details.aspx?id=34598)를 참조하세요.
 
@@ -97,7 +97,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 * 디스크 관리에 대한 모범 사례는 **C**: 및 **D**: 이외의 드라이브에서 데이터를 저장하고 파일을 기록 및 백업하는 것입니다. 예를 들어 데이터 디스크 **E**: 및 **F**:를 만듭니다.
   
   * 기본 드라이브 **C**:에 대한 드라이브 캐싱 정책은 데이터 작업에 적합하지 않습니다.
-  * **D**: 드라이브는 페이지 파일에 주로 사용되는 임시 드라이브입니다. **D**: 드라이브는 지속되지 않고 Blob 저장소에 저장되지 않습니다. 관리 작업(예: 가상 머신 크기 변경)은 **D**: 드라이브를 재설정합니다. tempdb를 비롯한 데이터베이스 파일의 경우 **D**: 드라이브를 사용하지 **않는** 것이 좋습니다.
+  * **D**: 드라이브는 페이지 파일에 주로 사용되는 임시 드라이브입니다. Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다. 관리 작업(예: 가상 머신 크기 변경)은 **D**: 드라이브를 재설정합니다. tempdb를 비롯한 데이터베이스 파일의 경우 **D**: 드라이브를 사용하지 **않는** 것이 좋습니다.
     
     디스크 만들기 및 연결에 대한 자세한 내용은 [Virtual Machine에 데이터 디스크를 연결하는 방법](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 * 사용하지 않으려는 서비스를 중지하거나 제거합니다. 예를 들어 가상 머신이 Reporting Services에만 사용되는 경우 Analysis Services 및 SQL Server Integration Services를 중지하거나 제거합니다. 다음 이미지는 기본적으로 시작되는 서비스의 예입니다.
@@ -107,7 +107,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
   > [!NOTE]
   > 지원되는 BI 시나리오에서는 SQL Server 데이터베이스 엔진이 필요합니다. 단일 서버 VM 토폴로지에서는 데이터베이스 엔진이 동일한 VM에서 실행되어야 합니다.
   
-    자세한 내용은 [Reporting Services 제거](https://msdn.microsoft.com/library/hh479745.aspx) 및 [Analysis Services의 인스턴스 제거](https://msdn.microsoft.com/library/ms143687.aspx)를 참조하세요.
+    자세한 내용은  [Reporting Services 제거](https://msdn.microsoft.com/library/hh479745.aspx) 하 고 [Analysis services 인스턴스 제거](https://msdn.microsoft.com/library/ms143687.aspx)합니다.
 * **Windows 업데이트**에서 새 '중요 업데이트'를 확인합니다. Microsoft Azure Virtual Machines 이미지는 자주 새로 고쳐집니다. 그러나 중요 업데이트는 VM 이미지가 마지막으로 새로 고쳐진 후 **Windows 업데이트**에서 사용 가능해질 수 있습니다.
 
 ## <a name="example-deployment-topologies"></a>배포 토폴로지 예
@@ -217,7 +217,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 구성을 확인하려면 VM에서 보고서 관리자로 이동합니다.
 
 1. VM에서 관리자 권한으로 Internet Explorer를 시작합니다.
-2. VM에서 http://localhost/reports로 이동합니다.
+2. Http로 찾아보기: \/ /localhost/VM에서 보고 합니다.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>2014 및 2012용 원격 웹 포털 또는 보고서 관리자에 연결하려면
 원격 컴퓨터에서 가상 컴퓨터의 2014 및 2012용 보고서 관리자 또는 웹 포털에 연결하려는 경우 새 가상 컴퓨터 TCP 엔드포인트를 만듭니다. 기본적으로 보고서 서버는 **포트 80**에서 HTTP 요청을 수신합니다. 다른 포트를 사용하도록 보고서 서버 URL을 구성하는 경우 다음 지침에서 해당 포트 번호를 지정해야 합니다.
@@ -233,15 +233,15 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>보고서를 만들고 Azure Virtual Machine에 게시하려면
 다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure Virtual Machine에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
 
-* **보고서 작성기**: 가상 컴퓨터는 SQL 2014 및 2012용 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. SQL 2016이 있는 가상 머신에서 처음으로 보고서 작성기를 시작하려면:
+* **보고서 작성기**: 가상 컴퓨터 포함-SQL 2014 및 2012 용 Microsoft SQL Server 보고서 작성기의 버전에 한 번입니다. SQL 2016이 있는 가상 머신에서 처음으로 보고서 작성기를 시작하려면:
   
   1. 관리자 권한으로 브라우저를 시작합니다.
   2. 웹 포털로 이동하고 가상 컴퓨터에서 오른쪽 위에 있는 **다운로드** 아이콘을 선택합니다.
   3. **보고서 작성기**를 선택합니다.
      
      자세한 내용은 [보고서 작성기 시작](https://msdn.microsoft.com/library/ms159221.aspx)을 참조하세요.
-* **SQL Server Data Tools**: VM: SQL Server Data Tools가 가상 컴퓨터에 설치되어 있으므로 가상 컴퓨터에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 머신의 보고서 서버에 게시할 수 있습니다.
-* **SQL Server Data Tools: 원격**: 로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
+* **SQL Server Data Tools**: VM:  SQL Server Data Tools 가상 컴퓨터에 설치 되 고 만드는 데 사용할 수 있습니다 **보고서 서버 프로젝트** 및 가상 컴퓨터에는 보고서입니다. SQL Server Data Tools는 보고서를 가상 머신의 보고서 서버에 게시할 수 있습니다.
+* **SQL Server Data Tools: 원격**:  로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
   
     ![SSRS 프로젝트의 SSDT 프로젝트 속성](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * 보고서가 포함되는 .VHD 하드 드라이브를 만든 다음 드라이브를 업로드하고 연결합니다.
@@ -317,7 +317,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
   * 표시된 포트(*)에 가상 머신 엔드포인트를 만듭니다.
 * Azure 가상 네트워킹 같은 VPN 터널을 사용하여 가상 머신이 도메인에 가입되어 있는 경우 엔드포인트가 필요하지 않습니다. 그러나 VM의 방화벽에서 포트를 엽니다.
   
-  | 포트 | type | 설명 |
+  | 포트 | Type | 설명 |
   | --- | --- | --- |
   | **80** |TCP |보고서 서버 원격 액세스(*) |
   | **1433** |TCP |SQL Server Management Studio(*) |
@@ -328,8 +328,8 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 엔드포인트를 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* 엔드포인트 만들기:[Virtual Machine에 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* SQL Server: [Azure에서 SQL Server Virtual Machine 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)의 "SQL Server Management Studio를 사용하여 가상 머신에 연결하는 구성 단계 완료"를 참조하세요.
+* 엔드포인트 만들기:[Virtual Machine에 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* SQL Server: "SQL Server Management Studio 사용 하 여 가상 머신에 연결 하는 단계 전체 구성" 섹션을 참조 하세요 [Azure에서 SQL Server 가상 컴퓨터를 프로 비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)합니다.
 
 다음 다이어그램에서는 VM의 기능 및 구성 요소에 대한 원격 액세스를 허용하기 위해 VM 방화벽에서 열 포트를 보여 줍니다.
 

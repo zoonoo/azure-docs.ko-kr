@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure BizTalk Services를 사용하여 EDIFACT 송장 처리 | Microsoft Docs'
+title: '자습서: Azure BizTalk Services를 사용 하 여 EDIFACT 송장 처리 | Microsoft Docs'
 description: Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure App Service의 논리 앱에서 사용하는 방법
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244494"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550125"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>자습서: Azure BizTalk Services를 사용하여 EDIFACT 송장 처리
 
@@ -55,11 +55,11 @@ BizTalk Services 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배
 시나리오를 완료하려면 Service Bus 큐를 사용하여 Contoso에서 Northwind로 송장을 보내거나 Northwind로부터 승인을 받습니다. 이러한 큐는 다운로드로 제공되며 이 자습서의 일부로 사용 가능한 샘플 패키지에 포함된 클라이언트 애플리케이션을 사용하여 만들 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-* Service Bus 네임스페이스가 있어야 합니다. 네임스페이스를 만드는 방법에 대한 지침은 [방법: Service Bus 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh674478.aspx)을 참조하세요. **edifactbts**라는 프로비전된 Service Bus 네임스페이스가 있다고 가정합니다.
+* Service Bus 네임스페이스가 있어야 합니다. 네임 스페이스를 만드는 방법에 대 한 지침을 참조 하세요. [방법: 만들기 또는 수정 된 Service Bus 서비스 Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx)합니다. **edifactbts**라는 프로비전된 Service Bus 네임스페이스가 있다고 가정합니다.
 * BizTalk Services 구독이 있어야 합니다. 이 자습서의 경우 **contosowabs**라는 BizTalk Services 구독을 보유했다고 가정합니다.
 * BizTalk Services 포털에서 BizTalk Services 구독을 등록합니다. 자세한 내용은 [BizTalk Services 포털에서 BizTalk Services 배포 등록](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio가 설치되어 있어야 합니다.
-* BizTalk Services SDK가 설치되어 있어야 합니다. [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)에서 SDK를 다운로드할 수 있습니다.  
+* BizTalk Services SDK가 설치되어 있어야 합니다. [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)에서 SDK를 다운로드할 수 있습니다.  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>1단계: Service Bus 큐 만들기
 이 솔루션에서는 Service Bus 큐를 사용하여 거래 업체 간에 메시지를 교환합니다. Contoso와 Northwind는 EAI 및/또는 EDI 브리지를 사용할 위치에서 큐에 메시지를 보냅니다. 이 솔루션에서는 세 개의 Service Bus 큐가 필요합니다.
@@ -71,14 +71,14 @@ BizTalk Services 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배
 샘플 패키지에 포함된 클라이언트 애플리케이션을 사용하여 이러한 Service Bus 큐를 만들 수 있습니다.  
 
 1. 샘플을 다운로드한 위치에서 **자습서: BizTalk Services EDI Bridges.sln을 사용하여 송장 전송**을 엽니다.
-2. **F5** 키를 눌러 빌드하고 **자습서 클라이언트** 응용 프로그램을 시작합니다.
+2. **F5** 키를 눌러 빌드하고 **자습서 클라이언트** 애플리케이션을 시작합니다.
 3. 화면에서 Service Bus ACS 네임스페이스, 발급자 이름 및 발급자 키를 입력합니다.
    
    ![][2]  
 4. Service Bus 네임스페이스에서 세 개의 큐가 만들어진다는 메시지 상자가 나타납니다. **확인**을 클릭합니다.
 5. 자습서 클라이언트를 실행 상태로 둡니다. 열고 **Service Bus** > ***Service Bus 네임스페이스*** > **큐**를 클릭하고 세 개의 큐가 생성되었는지 확인합니다.  
 
-## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>2단계: 거래 업체 규약 만들기 및 배포
+## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>2단계: 거래 파트너 규약 만들기 및 배포
 Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 규약은 사용할 메시지 스키마, 사용할 메시징 프로토콜 등과 같은 두 비즈니스 파트너 간의 거래 규약을 정의합니다. 거래 업체 규약은 거래 업체에 메시지를 보내는 브리지(**EDI 송신 브리지**)와 거래 업체로부터 메시지를 수신하는 브리지(**EDI 수신 브리지**)의 두 개의 EDI 브리지를 포함합니다.
 
 이 솔루션의 컨텍스트에서 규약의 송신 측에 해당하는 EDI 송신 브리지는 Contoso에서 Northwind로 EDIFACT 송장을 보내는 데 사용됩니다. 마찬가지로 규약의 수신 측에 해당하는 EDI 수신 브리지는 Northwind로부터 승인을 받는 데 사용됩니다.  
@@ -106,7 +106,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
    3. **스키마** 섹션 아래의 **프로토콜** 탭에서 **EFACT_D93A_INVOIC.xsd** 스키마를 업로드합니다. 이 스키마는 샘플 패키지와 함께 사용할 수 있습니다.
       
       ![][4]  
-   4. **전송** 탭에서 Service Bus 큐에 대한 세부 정보를 지정합니다. 송신 측 규약의 경우 **northwindreceive** 큐를 사용하여 Northwind에 EDIFACT 송장을 보내고 **일시 중단** 큐를 사용하여 처리하는 동안 실패 및 일시 중단된 모든 메시지를 라우팅합니다. 이 항목의 **1단계: Service Bus 큐 만들기** 에서 해당 큐를 만들었습니다.
+   4. **전송** 탭에서 Service Bus 큐에 대한 세부 정보를 지정합니다. 송신 측 규약의 경우 **northwindreceive** 큐를 사용하여 Northwind에 EDIFACT 송장을 보내고 **일시 중단** 큐를 사용하여 처리하는 동안 실패 및 일시 중단된 모든 메시지를 라우팅합니다. 이러한 큐를 만든 **1 단계: Service Bus 큐 만들기** (이 항목에서).
       
       ![][5]  
       
@@ -246,7 +246,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>5단계(선택): 일괄 처리로 EDIFACT 송장 보내기
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>5단계(선택 사항): 일괄 처리에서 EDIFACT 송장 보내기
 BizTalk Services EDI 브리지는 나가는 메시지의 일괄 처리도 지원합니다. 이 기능은 개별 메시지 대신 일괄 처리 메시지(특정 조건 충족) 수신을 선호하는 수신 파트너에게 유용합니다.
 
 일괄 처리로 작업할 때 가장 중요한 부분은 릴리스 조건이라고도 하는 실제 일괄 처리 릴리스입니다. 릴리스 조건은 수신 파트너가 원하는 메시지를 받는 방식에 따라 다를 수 있습니다. 일괄 처리가 활성화되는 경우 EDI 브리지는 릴리스 조건이 충족될 때까지 수신 파트너에게 나가는 메시지를 보내지 않습니다. 예를 들어 메시지 크기에 따른 일괄 처리 기준은 'n' 메시지가 일괄 처리된 경우에만 일괄 처리를 디스패치합니다. 일괄 처리가 매일 정해진 시간에 전송되도록 일괄 처리 조건은 시간 기반이 될 수도 있습니다. 이 솔루션에서는 조건에 따라 메시지 크기를 시도합니다.
