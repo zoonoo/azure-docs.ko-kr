@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896707"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션이란?
 
-**Power BI 작업 영역 컬렉션**을 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다.
+**Power BI 작업 영역 컬렉션**을 사용하면 Power BI 보고서를 웹 또는 모바일 애플리케이션에 통합할 수 있습니다.
 
 ![애플리케이션 다이어그램](media/what-are-power-bi-workspace-collections/what-is.png)
 
@@ -48,11 +48,11 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="workspace"></a>작업 영역
 
-**작업 영역** 은 데이터 집합 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 세트를 만든 다음 응용 프로그램 내에서 보고서를 만들 수 있습니다.
+**작업 영역** 은 데이터 세트 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 집합을 만든 다음 애플리케이션 내에서 보고서를 만들 수 있습니다.
 
 ## <a name="using-workspace-collections-and-workspaces"></a>작업 영역 컬렉션 및 작업 영역 사용
 
-**작업 영역 컬렉션** 및 **작업 영역**은 빌드할 응용 프로그램의 디자인에 가장 적합한 방법으로 사용되거나 구성되는 콘텐츠의 컨테이너입니다. 컨테이너 내에서 콘텐츠를 정렬할 수 있는 다양한 방법이 있습니다. 하나의 작업 영역 내에 모든 콘텐츠를 배치한 다음 나중에 앱 토큰을 사용하여 고객 간 콘텐츠를 더 세분화하는 방법을 선택할 수 있습니다. 또한 고객이 어느 정도 구분이 되도록 모든 고객을 분할된 작업 영역에 배치하는 방법을 선택할 수 있습니다. 또는 고객이 아닌 지역으로 사용자를 구성하는 방법을 선택할 수 있습니다. 이 유연한 디자인을 사용하면 콘텐츠를 구성할 가장 좋은 방법을 선택할 수 있습니다.
+**작업 영역 컬렉션** 및 **작업 영역**은 빌드할 애플리케이션의 디자인에 가장 적합한 방법으로 사용되거나 구성되는 콘텐츠의 컨테이너입니다. 컨테이너 내에서 콘텐츠를 정렬할 수 있는 다양한 방법이 있습니다. 하나의 작업 영역 내에 모든 콘텐츠를 배치한 다음 나중에 앱 토큰을 사용하여 고객 간 콘텐츠를 더 세분화하는 방법을 선택할 수 있습니다. 또한 고객이 어느 정도 구분이 되도록 모든 고객을 분할된 작업 영역에 배치하는 방법을 선택할 수 있습니다. 또는 고객이 아닌 지역으로 사용자를 구성하는 방법을 선택할 수 있습니다. 이 유연한 디자인을 사용하면 콘텐츠를 구성할 가장 좋은 방법을 선택할 수 있습니다.
 
 ## <a name="cached-datasets"></a>캐시된 데이터 세트
 
@@ -60,11 +60,11 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
 
-**Microsoft Power BI 작업 영역 컬렉션**은 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 애플리케이션은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **애플리케이션 인증 토큰(앱 토큰)** 을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
+**Microsoft Power BI 작업 영역 컬렉션**은 애플리케이션에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 애플리케이션은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **애플리케이션 인증 토큰(앱 토큰)** 을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
 
 ![앱 토큰 사용 다이어그램](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**응용 프로그램 인증 토큰(앱 토큰)** 은 **Microsoft Power BI 작업 영역 컬렉션**에 대한 인증에 사용됩니다.  다음과 같은 세 가지 형식의 **앱 토큰**이 있습니다.
+**애플리케이션 인증 토큰(앱 토큰)** 은 **Microsoft Power BI 작업 영역 컬렉션**에 대한 인증에 사용됩니다.  다음과 같은 세 가지 형식의 **앱 토큰**이 있습니다.
 
 1. 프로비전 토큰 - 새 **작업 영역**을 **작업 영역 컬렉션**에 프로비전할 때 사용
 2. 개발 토큰 - **Power BI REST API**
@@ -87,4 +87,4 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 [PowerBI-CSharp Git 리포지토리](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 리포지토리](https://github.com/Microsoft/PowerBI-Node)  
 
-궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999533"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -68,7 +68,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 | 오류 코드 | 오류 메시지 | 권장되는 단계 | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | 잘못된 코드를 입력했거나 OATH 코드가 올바르지 않습니다. | 오류가 아닙니다. 사용자가 잘못된 코드를 입력했습니다. | 사용자가 잘못된 코드를 입력했습니다. 새 코드를 요청하거나 다시 로그인하여 다시 시도하도록 합니다. | 
+| **OathCodeIncorrect** | 잘못된 코드를 입력했거나 OATH 코드가 올바르지 않습니다. | 사용자가 잘못된 코드를 입력했습니다. 새 코드를 요청하거나 다시 로그인하여 다시 시도하도록 합니다. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | 허용되는 최대 코드 다시 시도 횟수에 도달했습니다. | 사용자가 너무 여러 번 확인 요청에 실패했습니다. 설정에 따라 관리자가 차단을 해제해야 할 수 있습니다.  |
 | **SMSAuthFailedWrongCodeEntered** | 잘못된 코드를 입력했거나 텍스트 메시지 OTP가 올바르지 않습니다. | 사용자가 잘못된 코드를 입력했습니다. 새 코드를 요청하거나 다시 로그인하여 다시 시도하도록 합니다. |
 

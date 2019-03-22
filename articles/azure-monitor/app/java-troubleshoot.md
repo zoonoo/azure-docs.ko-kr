@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995586"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -105,18 +105,39 @@ XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작
 
 API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.xml 구성 파일의 루트 노드에 `<SDKLogger/>`를 추가합니다.
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 파일에 출력하도록 로거에 지시할 수도 있습니다.
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-Tomcat 서버의 경우 `%temp%\javasdklogs` 또는 `java.io.tmpdir` 아래에서 파일을 찾을 수 있습니다.
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
+Application Insights Spring Boot Starter를 사용 하 여 Spring Boot 앱을 사용 하 여 SDK 로깅을 사용 하려면 다음을 추가 합니다 `application.properties` 파일.:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Java Agent
+
+업데이트 JVM 에이전트 로깅을 사용 하도록 설정 합니다 [Ai-agent.xml 파일이](java-agent.md)합니다.
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>Azure 시작 화면
 **[Azure Portal](https://portal.azure.com)을 보고 있습니다. 맵에 내 앱에 대한 정보가 표시되나요?**

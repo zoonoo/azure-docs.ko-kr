@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b0ae144cce1213b5476ba1cccc94d994ebeda60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904187"
 ---
 # <a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "55464129"
 SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 몇 가지 샘플 SQL 스크립트는 다음과 같습니다.
 
 > [!NOTE]
-> 실용적인 예제에는 [NYC Taxi 데이터 세트](http://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> 실용적인 예제에는 [NYC Taxi 데이터 세트](https://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 > 
 > 
 
@@ -82,7 +82,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 ### <a name="sql-featurerollout"></a>단일 열에서 기능 롤아웃
 이 섹션에서는 테이블의 단일 열을 롤아웃하여 추가 기능을 생성하는 방법을 보여 줍니다. 이 예제에서는 기능을 생성하려는 테이블에 위도 또는 경도 열이 있는 것으로 가정합니다.
 
-다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow [위도 및 경도의 정확도를 측정하는 방법](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
+다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow [위도 및 경도의 정확도를 측정하는 방법](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
 
 * 부호는 지구에서 현재 위치의 방위(북쪽, 남쪽, 동쪽 또는 서쪽)를 알려 줍니다.
 * 0이 아닌 100자리수는 위도가 아니라 경도를 사용하고 있음을 알려 줍니다.
@@ -129,7 +129,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 아래 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
+Python의 [Pandas 라이브러리](https://pandas.pydata.org/) 에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 아래 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

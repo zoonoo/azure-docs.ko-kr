@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077414"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
@@ -37,7 +37,7 @@ Enterprise State Roaming을 사용하도록 설정하면 Azure Information Prote
 
 1. **사용자가 디바이스에서 설정 및 앱 데이터를 동기화할 수 있습니다.** 를 선택합니다. 자세한 내용은 [디바이스 설정을 구성하는 방법](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)을 참조하세요.
   
-  ![사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있습니다.라고 레이블이 지정된 디바이스 설정 이미지](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있습니다.라고 레이블이 지정된 디바이스 설정 이미지](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Enterprise State Roaming 서비스를 사용하는 Windows 10 디바이스의 경우 Azure AD ID를 사용하여 디바이스를 인증해야 합니다. 디바이스가 Azure AD에 조인된 경우 사용자의 기본 로그인 ID는 해당 Azure AD ID이므로 추가 구성이 필요하지 않습니다. 디바이스에서 온-프레미스 Active Directory를 사용하는 경우 IT 관리자가 [하이브리드 Azure Active Directory 조인 디바이스를 구성](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps)해야 합니다. 
 
@@ -64,11 +64,11 @@ APAC 국가(예: 오스트레일리아 또는 뉴질랜드) | 아시아 내 하�
 
 1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 디바이스**를 선택하여 동기화 상태를 표시합니다.
   
-  ![디바이스 동기화 데이터 설정의 이미지](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![디바이스 동기화 데이터 설정의 이미지](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. 이 사용자에게 동기화된 디바이스가 있는 경우 여기에 표시된 대로 디바이스가 표시됩니다.
   
-  ![디바이스 동기화 열 형식 데이터의 이미지](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![디바이스 동기화 열 형식 데이터의 이미지](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>데이터 보존
 Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 데이터는 수동으로 삭제되거나 문제의 데이터가 부실하다고 판단될 때까지 유지됩니다. 

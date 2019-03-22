@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: af72b0255c8e01398048f075134efb452f28b81e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 00c50f95324e18f738740a9bec572ca676ab9165
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417570"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010618"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
 
@@ -154,7 +154,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>새 SKU를 사용할 수 있는 지역은 어디인가요?
 
-Azure 가용성 영역이 있는 Azure 지역(미국 중부, 프랑스 중부, 유럽 북부, 유럽 서부 및 미국 서부 2 지역)에서 새 SKU를 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
+참조 [가용성 영역](../availability-zones/az-overview.md#regions-that-support-availability-zones) 최신 사용 가능한 지역 목록은 합니다.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

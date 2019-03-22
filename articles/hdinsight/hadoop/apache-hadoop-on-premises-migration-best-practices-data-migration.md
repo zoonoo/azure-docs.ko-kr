@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003459"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -34,9 +34,9 @@ ms.locfileid: "53433426"
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 
-|**데이터 수량**|**네트워크 대역폭**|||
-|---|---|---|---|
-|| **45Mbps(T3)**|**100Mbps**|**1Gbps**|**10Gbps**
+|**데이터 수량**|**네트워크 대역폭**||||
+|---|---|---|---|---|
+|| **45Mbps(T3)**|**100Mbps**|**1Gbps**|**10Gbps**|
 |1TB|2일|1일| 2시간|14분|
 |10TB|22일|10일|1일|2시간|
 |35TB|76일|34일|3일|8시간|
@@ -94,7 +94,7 @@ Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 
 
 #### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive metastore 마이그레이션
 
-1. 온-프레미스 Hive metastore에서 Hive DDL을 생성합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
+1. 온-프레미스 Hive metastore에서 Hive Ddl을 생성 합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
 1. 생성된 DDL을 편집하여 HDFS url을 WASB/ADLS/ABFS URL로 바꿉니다.
 1. HDInsight 클러스터의 metastore에서 업데이트된 DDL을 실행합니다.
 1. Hive metastore 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
@@ -111,7 +111,7 @@ Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - 온-프레미스 Ranger 정책을 xml 파일로 내보냅니다.
-- XSLT 같은 도구를 사용하여 온-프레미스 HDFS 기반 경로를 WASB/ADLS로 변환합니다.
+- 온-프레미스 HDFS 기반 특정 경로 XSLT와 같은 도구를 사용 하 여 WASB/ADLS를 변환 합니다.
 - HDInsight에서 실행되는 Ranger로 정책을 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계

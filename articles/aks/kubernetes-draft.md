@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 5169b8856155df5e62b1e85d291ce6c1b54c8a87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011938"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
 
@@ -110,7 +110,7 @@ $ draft create
 --> Ready to sail
 ```
 
-AKS 클러스터에서 샘플 애플리케이션을 실행하려면 `draft up` 명령을 사용합니다. 이 명령은 Dockerfile을 빌드하여 컨테이너 이미지를 만들고 이미지를 ACR로 푸시하고 마지막으로 Helm 차트를 설치하여 AKS에서응용 프로그램을 시작합니다.
+AKS 클러스터에서 샘플 애플리케이션을 실행하려면 `draft up` 명령을 사용합니다. 이 명령은 Dockerfile을 빌드하여 컨테이너 이미지를 만들고 이미지를 ACR로 푸시하고 마지막으로 Helm 차트를 설치하여 AKS에서애플리케이션을 시작합니다.
 
 처음으로 이 명령을 실행하면 컨테이너 이미지의 밀어넣기 및 끌어오기 작업에 다소 시간이 걸릴 수 있습니다. 기본 계층이 캐시되면 애플리케이션을 배포하는 데 걸리는 시간이 크게 줄어듭니다.
 
@@ -126,7 +126,7 @@ Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 
 Docker 이미지 밀어넣기 중에 문제가 발생하는 경우 [az acr login][az-acr-login] 명령을 사용하여 ACR 레지스트리에 성공적으로 로그인되었는지 확인한 후 `draft up` 명령을 다시 실행합니다.
 
-## <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+## <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 애플리케이션을 테스트하려면 `draft connect` 명령을 사용합니다. 이 명령은 Kubernetes Pod로의 보안 연결을 프록시합니다. 완료되면 제공된 URL에서 애플리케이션에 액세스할 수 있습니다.
 
@@ -144,18 +144,18 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-애플리케이션에 액세스하려면 `draft connect` 출력에 지정된 주소 및 포트로 웹 브라우저를 엽니다(예: *http://localhost:49804*). 
+주소 및 포트에 지정 된 웹 브라우저를 열고 응용 프로그램에 액세스 하는 `draft connect` 와 같은 출력 `http://localhost:49804`합니다. 
 
 ![Draft를 사용하여 실행 중인 샘플 Java 앱](media/kubernetes-draft/sample-app.png)
 
 `Control+C`를 사용하여 프록시 연결을 중지합니다.
 
 > [!NOTE]
-> `draft up --auto-connect` 명령을 사용하여 응용 프로그램을 빌드 및 배포한 후, 실행 중인 첫 번째 컨테이너에 즉시 연결할 수 있습니다.
+> `draft up --auto-connect` 명령을 사용하여 애플리케이션을 빌드 및 배포한 후, 실행 중인 첫 번째 컨테이너에 즉시 연결할 수 있습니다.
 
 ## <a name="access-the-application-on-the-internet"></a>인터넷의 애플리케이션 액세스
 
-이전 단계에서는 AKS 클러스터에 애플리케이션 pod에 대한 프록시 연결을 만들었습니다. 애플리케이션을 개발하고 테스트할 때는 인터넷에서 애플리케이션을 사용할 수 있도록 하는 것이 좋습니다. 인터넷에서 응용 프로그램에 노출하려면 [LoadBalancer][kubernetes-service-loadbalancer] 형식으로 Kubernetes 서비스를 만들거나 [수신 컨트롤러] [kubernetes-ingress]를 만듭니다. *LoadBalancer* 서비스를 만들어보겠습니다.
+이전 단계에서는 AKS 클러스터에 애플리케이션 pod에 대한 프록시 연결을 만들었습니다. 애플리케이션을 개발하고 테스트할 때는 인터넷에서 애플리케이션을 사용할 수 있도록 하는 것이 좋습니다. 인터넷에서 애플리케이션에 노출하려면 [LoadBalancer][kubernetes-service-loadbalancer] 형식으로 Kubernetes 서비스를 만들거나 [수신 컨트롤러][kubernetes-ingress]를 만듭니다. *LoadBalancer* 서비스를 만들어보겠습니다.
 
 먼저 *values.yaml* Draft 팩을 업데이트하여 *LoadBalancer* 형식의 서비스가 만들어지도록 지정합니다.
 
@@ -233,7 +233,7 @@ public class Hello {
 }
 ```
 
-`draft up` 명령을 실행하여 응용 프로그램을 재배포합니다.
+`draft up` 명령을 실행하여 애플리케이션을 재배포합니다.
 
 ```console
 $ draft up
