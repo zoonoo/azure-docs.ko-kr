@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Windows VM을 사용하여 Azure SQL에 액세스</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">토큰 획득을 위해 Azure VM 사용</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">관리 ID를 지원하는 서비스</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">관리 ID를 지원하는 서비스</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>자세히 보기 &gt;</i></a>
                                                         </p>
                                                         <br><br>

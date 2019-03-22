@@ -103,9 +103,10 @@ items:
     - name: 제작 주기
       href: luis-concept-app-iteration.md
     - name: 공동 작업
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: 버전 관리
+      displayName: import
       href: luis-concept-version.md
   - name: 디자인 모델
     items:
@@ -149,17 +150,19 @@ items:
   - name: Enterprise
     items:
     - name: 디자인 전략
+      displayName: import
       href: luis-concept-enterprise.md
   - name: 보안
     items:
     - name: 앱 액세스
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: 제작 및 엔드포인트 키
       href: luis-concept-keys.md
 - name: 방법 가이드
   items:
   - name: 새 앱 시작
+    displayName: import
     href: luis-how-to-start-new-app.md
   - name: 모델 빌드
     items:
@@ -168,6 +171,7 @@ items:
     - name: 발언에 엔터티 추가
       href: luis-how-to-add-example-utterances.md
     - name: 발언 없이 엔터티 추가
+      displayName: import
       href: luis-how-to-add-entities.md
     - name: 미리 작성된 모델 사용
       items:
@@ -225,6 +229,7 @@ items:
     - name: 대화형 테스트
       href: luis-interactive-test.md
     - name: 일괄 테스트
+      displayName: import
       href: luis-how-to-batch-test.md
   - name: 게시
     href: luis-how-to-publish-app.md
@@ -238,8 +243,9 @@ items:
       href: luis-how-to-azure-subscription.md
     - name: 버전 관리
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: 작성자 및 공동 작업자 관리
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: 작성 키 관리
       href: luis-how-to-account-settings.md
@@ -250,7 +256,7 @@ items:
   - name: 컨테이너 사용
     items:
     - name: 컨테이너 설치 및 실행
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: 컨테이너 구성
       href: luis-container-configuration.md
@@ -390,6 +396,7 @@ items:
   - name: 용어
     href: luis-glossary.md
   - name: 문제 해결
+    displayName: FAQ, import
     href: troubleshooting.md
   - name: 가격 책정 및 제한
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
@@ -403,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: 기술 자료
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 59950ced82f3b50ec5d0fe340157016954d2ff0b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e684b58a3c7106f8ceca3e225b0b904d243984b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779762"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337904"
