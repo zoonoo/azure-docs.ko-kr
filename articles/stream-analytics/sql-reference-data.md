@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084313"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
 
@@ -134,21 +134,46 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 델타 쿼리를 사용하는 경우 [Azure SQL Database의 temporal 테이블](../sql-database/sql-database-temporal-tables.md)을 사용하는 것이 좋습니다.
 
-1. 스냅숏 쿼리를 작성합니다. 
+1. Azure SQL Database에서 temporal 테이블을 만듭니다.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. 스냅숏 쿼리를 작성합니다. 
 
-   **@snapshotTime** 매개 변수를 사용하여 시스템 타임에 유효한 SQL Database temporal 테이블에서 참조 데이터 세트를 가져오도록 Stream Analytics 런타임에 지시합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅숏 쿼리 예제는 아래에 나와 있습니다.
-
-   ![Stream Analytics 스냅숏 쿼리](./media/sql-reference-data/snapshot-query.png)
+   사용 된  **\@snapshotTime** SQL 데이터베이스 temporal 테이블에서 시스템 시간에서 올바른 참조 데이터 집합을 가져오려면 Stream Analytics 런타임 매개 변수입니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅숏 쿼리 예제는 아래에 나와 있습니다.
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. 델타 쿼리를 작성합니다. 
    
-   이 쿼리는 시작 시간, **@deltaStartTime** 및 종료 시간 **@deltaEndTime** 내에 삽입되었거나 삭제된 SQL Database의 모든 행을 검색합니다. 델타 쿼리는 스냅숏 쿼리와 동일한 열 뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **@deltaStartTime**과 **@deltaEndTime** 사이에 삽입되었는지 또는 삭제되었는지 정의합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
+   모든 삽입 또는 시작 시간을 내에서 삭제 된 SQL database에 행을 검색 하는이 쿼리입니다  **\@deltaStartTime**, 종료 시간  **\@deltaEndTime**합니다. 델타 쿼리는 스냅숏 쿼리와 동일한 열 뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 행이 삽입 되거나 사이 삭제 하는 경우이 열을 정의  **\@deltaStartTime** 하 고  **\@deltaEndTime**합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅숏에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
-   ![Stream Analytics 델타 쿼리](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅숏 쿼리를 주기적으로 실행할 수 있습니다.
+   Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅숏 쿼리를 주기적으로 실행할 수 있습니다.
 
 ## <a name="faqs"></a>FAQ
 
@@ -158,7 +183,7 @@ Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microso
 
 **참조 데이터 스냅숏이 SQL DB에서 쿼리되고 Azure Stream Analytics 작업에 사용되는지를 어떻게 알 수 있나요?**
 
-SQL Database 참조 데이터 입력의 상태를 모니터링하는 데 사용할 수 있는 2개의 메트릭이 메트릭 Azure Portal 아래에 논리 이름별로 필터링되어 표시됩니다.
+두 가지 메트릭이 있습니다 (아래에서 메트릭을 Azure Portal) SQL 데이터베이스 참조 데이터 입력의 상태를 모니터링 하는 데 사용할 수 있는 논리적 이름으로 필터링 합니다.
 
    * InputEvents: 이 메트릭은 SQL Database 참조 데이터 세트에서 로드된 레코드 수를 측정합니다.
    * InputEventBytes: 이 메트릭은 Stream Analytics 작업의 메모리에 로드된 참조 데이터 스냅숏의 크기를 측정합니다. 

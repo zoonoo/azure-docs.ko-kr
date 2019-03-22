@@ -5,10 +5,12 @@ items:
   items:
   - name: Azure Stack이란?
     href: azure-stack-poc.md
+  - name: 주요 기능 및 개념
+    href: azure-stack-key-features.md
   - name: 릴리스 정보
     items:
     - name: 최근 업데이트
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: 1902 업데이트
       href: azure-stack-update-1902.md
     - name: 1901 업데이트
@@ -113,10 +115,6 @@ items:
         href: azure-stack-integrate-security.md
       - name: 장치 감사
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: 서비스 정책
-    href: azure-stack-servicing-policy.md
-  - name: 주요 기능 및 개념
-    href: azure-stack-key-features.md
   - name: 관리 기본 사항
     href: azure-stack-manage-basics.md
 - name: 방법 가이드
@@ -286,8 +284,10 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: 시작하기 전에
       href: azure-stack-app-service-before-you-get-started.md
-    - name: App Service 리소스 공급자 배포
+    - name: App Service 배포
       href: azure-stack-app-service-deploy.md
+    - name: 고가용성을 위해 App Service 배포
+      href: app-service-deploy-ha.md
     - name: App Service 오프라인 배포
       href: azure-stack-app-service-deploy-offline.md
     - name: App Service를 업데이트 합니다.
@@ -399,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: ed6de4a1839c8fe60248e79e5349d8077193d052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774271"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223328"

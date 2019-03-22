@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086108"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -84,7 +84,7 @@ Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
 Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
+> 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
 ## <a name="policy"></a>정책
 
@@ -136,7 +136,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
-| Name           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
+| 이름           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
 | 형식           | 열거형 값 | 미리 보기의 유효한 값은 `Lifecycle`입니다. |
 | 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. |
 
@@ -155,10 +155,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -190,7 +190,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스는 `blockBlob`만 지원합니다. | 예 |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어, "https://myaccount.blob.core.windows.net/container1/foo/..." 아래의 모든 Blob을 일치시키려는 경우 규칙에 대한 prefixMatch는 `container1/foo`입니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아니요 |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob를 일치 시킬 "<https://myaccount.blob.core.windows.net/container1/foo/>..." 규칙은 prefixMatch는 `container1/foo`합니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -204,8 +204,8 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
 | delete        | 지원됨                                   | 지원됨     |
 
->[!NOTE] 
-동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
+> [!NOTE]
+> 동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
 
 미리 보기에서 작업 실행 조건은 보존 기간을 기반으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅숏은 스냅숏 생성 시간을 사용하여 보존 기간을 추적합니다.
 
@@ -224,23 +224,22 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -253,22 +252,21 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": { 
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -282,21 +280,20 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -309,22 +306,21 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {            
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+    "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -337,4 +333,4 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 실수로 삭제된 데이터를 복구하는 방법을 알아봅니다.
 
-- [Azure Storage Blob에 대한 일시 삭제](../blobs/storage-blob-soft-delete.md)
+- [Azure Storage blob에 대 한 일시 삭제](../blobs/storage-blob-soft-delete.md)

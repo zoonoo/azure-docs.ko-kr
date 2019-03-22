@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235975"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105525"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -144,9 +144,9 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
 커널에 포함되어야 패치는 다음과 같습니다. 이 목록은 모든 배포에 대해 완전할 수 없습니다.
 
 * [ata_piix: 기본적으로 Hyper-V 드라이버로 디스크 연기](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: RESET 경로의 전송 중인 패킷용 계정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: RESET 경로의 전송 중인 패킷 용 계정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: WRITE_SAME을 사용하지 마세요.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: RAID 및 가상 호스트 어댑터 드라이버에 대한 WRITE SAME 해제](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: RAID 및 가상 호스트 어댑터 드라이버에 대 한 WRITE SAME 해제](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 * [storvsc: NULL 포인터 역참조 수정](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: 링 버퍼 오류로 I/O가 중지됨](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: __scsi_remove_device 이중 실행 방지](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
@@ -172,13 +172,13 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
     ```
     모든 로그를 직렬 포트로 전송하려는 클라우드 환경에서는 그래픽 및 자동 부팅이 유용하지 않습니다. `crashkernel` 옵션은 필요한 경우 구성한 상태로 유지할 수 있지만, 이 매개 변수는 VM에서 사용 가능한 메모리 양을 128MB 이상 줄여주므로 VM 크기가 이 크기보다 작은 경우 문제가 될 수 있습니다.
 
-2. Azure Linux 에이전트를 설치합니다.
+1. Azure Linux 에이전트를 설치합니다.
   
     Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다.  많은 배포판에서 에이전트를 RPM 또는 Deb 패키지(일반적으로 'WALinuxAgent' 또는 'walinuxagent'라고 함)로 제공합니다.  [Linux 에이전트 가이드](../extensions/agent-linux.md)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
 
-3. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  일반적으로 이 구성이 기본값입니다.
+1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  일반적으로 이 구성이 기본값입니다.
 
-4. OS 디스크에 스왑 공간을 만들지 않습니다.
+1. OS 디스크에 스왑 공간을 만들지 않습니다.
   
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며, VM의 프로비전을 해제할 때 비울 수 있습니다. Azure Linux 에이전트를 설치한 후(위의 2단계) 필요에 따라 /etc/waagent.conf에서 다음 매개 변수를 수정합니다.
     ```  
@@ -188,15 +188,15 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* 다음 명령을 실행하여 가상 머신의 프로비전을 해제합니다.
+1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제합니다.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > Virtualbox에서 `[Errno 5] Input/output error`라는 `waagent -force -deprovision`을 실행한 후에 다음 오류가 표시될 수 있습니다. 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > Virtualbox에서 `[Errno 5] Input/output error`라는 `waagent -force -deprovision`을 실행한 후에 다음 오류가 표시될 수 있습니다. 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
 
 * 가상 머신을 종료하고 Azure에 VHD를 업로드합니다.
 

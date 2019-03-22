@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 71463b523f0afdf63a7c89ff2b3137ae8d091b3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086703"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>BizTalk 서비스 상태를 사용하여 수행할 수 있는 작업과 수행할 수 없는 작업
 
@@ -48,11 +48,11 @@ BizTalk 서비스의 현재 상태에 따라 BizTalk 서비스에서 수행할 �
 | 일시 중단 실패 <br/> 계속 실패|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | 생성 실패 <br/> 복원 실패 |  |  |  |  |  | ✔ | |  |  | 
 | 구성 업데이트 실패  |  |  | ✔ |  |  | ✔ | |✔ | |
-| 크기 조정 실패 |  |  |  |  |  | ✔ |✔ | |  |  | 
+| 크기 조정 실패 |  |  |  |  |  | ✔ |✔ | |  |
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [BizTalk Services의 대시보드, 모니터 및 크기 조정 탭에서 수행할 수 있는 작업](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services의 Developer, Basic, Standard 및 Premium Edition에서 제공되는 기능](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [BizTalk Services를 백업 및 복원하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

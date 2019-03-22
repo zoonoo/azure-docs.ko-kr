@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986059"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081511"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -220,12 +220,12 @@ Marketplace에서 Kubernetes를 추가 합니다.
 1. [https://slack.botframework.com](`Custom Script for Linux`) 을 입력합니다.
 
 1. 다음 프로필을 사용 하 여 스크립트를 선택 합니다.
-    - **제품**: Linux 2.0에 대 한 사용자 지정 스크립트
-    - **버전**: 2.0.6 (또는 최신 버전)
-    - **게시자**: Microsoft Corp
+   - **제품**: Linux 2.0에 대 한 사용자 지정 스크립트
+   - **버전**: 2.0.6 (또는 최신 버전)
+   - **게시자**: Microsoft Corp
 
-    > [!Note]  
-    > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 항목의 마지막 버전을 추가 해야 합니다.
+     > [!Note]  
+     > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 항목의 마지막 버전을 추가 해야 합니다.
 
 1. 선택 **다운로드 합니다.**
 

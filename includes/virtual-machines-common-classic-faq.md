@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: bc3590e90cacfa4966f0d1f64aa1c8d49483cb1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264443"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "58114352"
 ---
 이 문서에서는 클래식 배포 모델을 사용하여 만든 Azure 가상 머신에 대한 사용자의 일부 일반적인 질문을 해결합니다.
 
@@ -107,7 +107,7 @@ Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하�
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>백업 및 복구에 대한 나의 옵션은 무엇입니까?
 Azure Backup은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 머신 백업](../articles/backup/backup-azure-arm-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure Marketplace를 검색합니다.
 
-추가 옵션은 blob 저장소의 스냅샷 기능을 사용하는 것입니다. 이렇게 하려면, blob 스넵샷에 의존하는 모든 작업을 하기전에 VM을 종료해야 합니다. 이는 보류중인 데이터 쓰기를 저장하고 파일 시스템을 일관된 상태에 넣습니다.
+추가 옵션은 Blob Storage의 스냅샷 기능을 사용하는 것입니다. 이렇게 하려면, blob 스넵샷에 의존하는 모든 작업을 하기전에 VM을 종료해야 합니다. 이는 보류중인 데이터 쓰기를 저장하고 파일 시스템을 일관된 상태에 넣습니다.
 
 ## <a name="how-does-azure-charge-for-my-vm"></a>내 VM에 대한 Azure 청구를 수행하는 방법
 Azure는 VM의 크기와 운영 체제에 기반한 시간당 가격을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 사전 설치된 특정 소프트웨어를 포함하는 VM 이미지로 VM을 만드는 경우, 추가 시간당 소프트웨어 요금이 적용될 수 있습니다. Azure는 VM의 운영 체제 및 데이터 디스크용 저장소에 대해 별도로 요금을 청구합니다. 임시 디스크 저장소는 무료입니다.
@@ -136,5 +136,5 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 [Azure CLI로 Linux VM 만들기 및 관리](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure PowerShell을 사용하여 Windows VM 만들기 및 관리](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure PowerShell 사용 하 여 Windows Vm 만들기 및 관리](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

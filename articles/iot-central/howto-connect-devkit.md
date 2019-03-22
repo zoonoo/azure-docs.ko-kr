@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에 DevKit 장치 연결 | Microsoft 
 description: 장치 개발자로서 Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치를 연결하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113200"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
 
@@ -26,48 +26,42 @@ ms.locfileid: "54198731"
 1. **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
 
+## <a name="sample-devkits-application"></a>샘플 Devkits 애플리케이션
 
-## <a name="sample-devkits-application"></a>**샘플 Devkits** 애플리케이션
+**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다.
 
-**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다. 
-
-- 디바이스에 대한 측정값 **습도**, **온도**, **압력**, **Magnometer**(X, Y, Z 축을 따라 측정됨), **Accelorometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
+- 디바이스에 대한 측정값 **습도**, **온도**, **압력**, **Magnetometer**(X, Y, Z 축을 따라 측정됨), **Accelerometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
 - **디바이스 상태**에 대한 예제 측정을 포함하는 상태입니다.
 - **단추 B 누름** 이벤트를 사용하여 이벤트 측정을 제공합니다. 
 - **전압**, **현재**, **팬 속도** 및 **IR** 토글을 보여주는 설정입니다.
 - 위치 속성이자 **제조 일자** 클라우드 속성인 **다이 번호** 및 **디바이스 위치**라는 디바이스 속성을 포함하는 속성입니다. 
 
-
-구성에 대한 자세한 내용은 [MXChip 디바이스 템플릿 세부 정보](howto-connect-devkit.md#mxchip-device-template-details)를 참조하세요.
+구성에 대한 자세한 내용은 [MXChip 디바이스 템플릿 세부 정보](#mxchip-device-template-details)를 참조하세요.
 
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 애플리케이션에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID 및 기본 키**)를 기록해 둡니다.
 
-1. Device Explorer에서 **실제 디바이스**를 추가하고 **+새로 만들기 &gt; 실제 디바이스**를 클릭하여 실제 디바이스를 추가합니다.
-    * 디바이스 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 디바이스 ID를 사용합니다.
-    * 디바이스 이름을 입력하거나 제안된 이름을 사용합니다.
-    
-    ![디바이스 추가](media/concepts-connectivity/add-device.png)
+1. 추가 **실제 장치** Device Explorer 선택 **+ 새로 만들기 > 실제** 실제 장치를 추가 합니다.
 
+   * 디바이스 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 디바이스 ID를 사용합니다.
+   * 디바이스 이름을 입력하거나 제안된 이름을 사용합니다.
 
-1. 디바이스 페이지에서 **연결**을 클릭하여 추가 디바이스의 **범위 ID, 디바이스 ID 및 기본 키** 같은 연결 정보를 가져옵니다.
- 
-    ![연결 정보](media/concepts-connectivity/device-connect.PNG)
+     ![디바이스 추가](media/howto-connect-devkit/add-device.png)
 
-3. DevKit 디바이스를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다. 
+1. 같은 연결 세부 정보를 가져오는 **범위 ID, 장치 ID 및 기본 키** 를 선택 하 여 추가 장치에 대 한 **Connect** 장치 페이지에서.
 
+    ![연결 정보](media/howto-connect-devkit/device-connect.png)
+
+1. DevKit 디바이스를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다.
 
 ### <a name="prepare-the-devkit-device"></a>DevKit 디바이스 준비
 
 > [!NOTE]
 > 이전에 디바이스를 사용했고 WiFi 자격 증명을 저장했으며 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 디바이스를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>DevKit 디바이스를 준비하려면:
-
+#### <a name="to-prepare-the-devkit-device"></a>DevKit 디바이스를 준비하려면
 
 1. GitHub의 [릴리스](https://aka.ms/iotcentral-docs-MXChip-releases) 페이지에서 MXChip의 최신 사전 빌드 Azure IoT Central 펌웨어를 다운로드합니다.
 1. USB 케이블을 사용하여 DevKit 디바이스를 개발 컴퓨터에 연결합니다. Windows에서, DevKit 디바이스의 저장소에 매핑된 드라이브에서 파일 탐색기 창이 열립니다. 예를 들어 드라이브 이름이 **AZ3166 (D:)** 일 수 있습니다.
@@ -78,12 +72,12 @@ Azure IoT Central 애플리케이션에서 **MXChip** 장치 템플릿으로 실
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > 화면이 다른 요소를 표시하는 경우 디바이스를 다시 설정하고 디바이스에서 **A** 및 **B** 단추를 동시에 눌러 디바이스를 다시 부팅합니다. 
+    > 화면이 다른 요소를 표시하는 경우 디바이스를 다시 설정하고 디바이스에서 **A** 및 **B** 단추를 동시에 눌러 디바이스를 다시 부팅합니다.
 
 1. 이제 디바이스가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 디바이스에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
 
@@ -178,7 +172,7 @@ Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 
 
 샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 `AZ3166` 폴더에 있는 **readme.md** 파일을 참조하세요.
 
-## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보 
+## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보
 
 샘플 Devkits 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 MXChip 장치가 포함됩니다.
 
@@ -230,11 +224,11 @@ Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 
 
 ### <a name="properties"></a>properties
 
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 디바이스 속성 | 디바이스 위치   | location  | location    |
-| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
+| 텍스트            | 제조 일자     | manufacturedIn   | N/A       |
 
 
 

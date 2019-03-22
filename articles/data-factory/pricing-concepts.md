@@ -10,20 +10,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085340"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
 
-## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>AWS S3에서 Azure Blob 저장소로 매시간 데이터 복사
+## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>AWS S3에서 Azure Blob Storage로 매시간 데이터 복사
 
-이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob 저장소로 데이터를 복사하려고 합니다.
+이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob Storage로 데이터를 복사하려고 합니다.
 
 시나리오를 달성하려면 다음 항목을 사용하여 파이프라인을 만들어야 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "54017755"
 
 3. 파이프라인을 1시간마다 실행하는 일정 트리거
 
- ![시나리오 1](media/pricing-concepts/scenario1.png)
+   ![시나리오 1](media/pricing-concepts/scenario1.png)
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -56,7 +56,7 @@ ms.locfileid: "54017755"
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>데이터를 복사하고 Azure Databricks를 사용하여 시간별 변환
 
-이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob 저장소로 데이터를 복사하고 Azure Databricks를 사용하여 매시간 일정으로 데이터를 변환하려고 합니다.
+이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob Storage로 데이터를 복사하고 Azure Databricks를 사용하여 매시간 일정으로 데이터를 변환하려고 합니다.
 
 시나리오를 달성하려면 다음 항목을 사용하여 파이프라인을 만들어야 합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "54017755"
 
 ## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>데이터를 복사하고 동적 매개 변수를 사용하여 시간별 변환
 
-이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob 저장소로 데이터를 복사하고 Azure Databricks(스크립트의 동적 매개 변수와 함께)를 사용하여 매시간 일정으로 변환하려고 합니다.
+이 시나리오에서는 매시간 일정으로 AWS S3에서 Azure Blob Storage로 데이터를 복사하고 Azure Databricks(스크립트의 동적 매개 변수와 함께)를 사용하여 매시간 일정으로 변환하려고 합니다.
 
 시나리오를 달성하려면 다음 항목을 사용하여 파이프라인을 만들어야 합니다.
 

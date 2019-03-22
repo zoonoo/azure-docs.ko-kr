@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862015"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295286"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption
 
@@ -81,6 +81,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 * 기본 계층 IaaS VM
 * Linux IaaS VM에 대한 OS 드라이브에서 암호화 사용 안 함
 * OS 드라이브가 Linux IaaS VM에 대해 암호화되는 경우 데이터 드라이브에 암호화 사용 안 함
+* Linux 가상 머신 확장에 대 한 OS 드라이브 암호화를 설정합니다.
 * 클래식 VM 만들기 방법을 사용하여 만든 IaaS VM
 * Linux IaaS VM에서 고객 사용자 지정 이미지의 암호화 사용
 * 온-프레미스 키 관리 시스템과의 통합

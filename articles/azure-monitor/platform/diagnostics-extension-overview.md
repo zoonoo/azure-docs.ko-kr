@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078542"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. 현재 Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric이 지원됩니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
@@ -26,7 +26,7 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 | 데이터 원본 | 설명 |
 | --- | --- |
 | 성능 카운터 메트릭 |운영 체제 및 사용자 지정 성능 카운터 |
-| 애플리케이션 로그 전송 사용 |애플리케이션에서 작성한 메시지 추적 |
+| 애플리케이션 로그 |애플리케이션에서 작성한 메시지 추적 |
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |
@@ -50,6 +50,9 @@ Azure Monitor 메트릭 시계열 데이터베이스에 데이터를 보낼 수�
 * 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리.  예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 VM의 각 논리 디스크(C:)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
 이 싱크를 구성하는 방법을 자세히 알아보려면 [Azure 진단 스키마 문서](diagnostics-extension-schema-1dot3.md)를 참조하세요.
+
+## <a name="costs"></a>비용
+위의 옵션 중 각 비용이 발생할 수 있습니다. 예기치 않은 청구서가 발생 하지 않도록 조사 해야 합니다.  Application Insights에서 이벤트 허브와 Azure Storage가 수집을 사용 하 여 연결 된 별도 비용 및 시간으로 저장 합니다. 특히 Azure Storage는 데이터가 영구적으로 비용을 절감 하려면 특정 시간 기간 후 오래 된 데이터를 제거 해야 할 수 있습니다.    
 
 ## <a name="versioning-and-configuration-schema"></a>버전 관리 및 구성 스키마
 [Azure 진단 버전 기록 및 스키마](diagnostics-extension-schema.md)를 참조하세요.

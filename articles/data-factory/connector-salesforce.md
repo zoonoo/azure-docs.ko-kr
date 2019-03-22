@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544531"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 - 동시 요청 수가 이 제한을 초과하면 제한이 발생하며 임의 오류가 표시됩니다.
 - 총 요청 수가 이 제한을 초과하면 Salesforce 계정은 24시간 동안 차단됩니다.
 
-두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 "API 요청 제한" 섹션을 참조하세요.
+두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
 ## <a name="get-started"></a>시작하기
 
@@ -63,7 +63,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아닙니다. |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | 암호 |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정 및 가져오기 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
@@ -186,7 +186,7 @@ Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **SalesforceSource**로 설정해야 합니다. | 예 |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
-| readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll**입니다.  | 아니요 |
+| readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll**입니다.  | 아닙니다. |
 
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 **API 이름**에 "__c" 부분이 필요합니다.
@@ -291,7 +291,7 @@ Salesforce에서 데이터를 복사할 때 SOQL 쿼리 또는 SQL 쿼리를 사
 
 | 구문 | SOQL 모드 | SQL 모드 |
 |:--- |:--- |:--- |
-| 열 선택 | 쿼리에 복사할 필드를 열거해야 합니다. 예: `SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
+| 열 선택 | 예를 들어 쿼리에서 복사할 필드를 열거 해야 합니다. `SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
 | 날짜/시간 형식 |  자세한 내용은 [여기](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) 및 다음 섹션의 샘플을 참조하세요. | 자세한 내용은 [여기](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) 및 다음 섹션의 샘플을 참조하세요. |
 | 부울 값 | `False` 및 `True`로 표시됩니다. 예: `SELECT … WHERE IsDeleted=True` | 0 또는 1로 표시됩니다. 예: `SELECT … WHERE IsDeleted=1` |
@@ -313,15 +313,15 @@ Salesforce에서 데이터를 복사할 경우 Salesforce 데이터 형식에서
 |:--- |:--- |
 | 자동 번호 |문자열 |
 | 확인란 |BOOLEAN |
-| 통화 |10진수 |
-| Date |Datetime |
-| 날짜/시간 |Datetime |
+| 통화 |Decimal |
+| Date |DateTime |
+| 날짜/시간 |DateTime |
 | Email |문자열 |
 | Id |문자열 |
 | 관계 조회 |문자열 |
 | 다중 선택 선택 목록 |문자열 |
-| Number |10진수 |
-| 백분율 |10진수 |
+| Number |Decimal |
+| 백분율 |Decimal |
 | Phone |문자열 |
 | 선택 목록 |문자열 |
 | 텍스트 |문자열 |

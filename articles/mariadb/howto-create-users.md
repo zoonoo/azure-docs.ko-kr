@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089882"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기 
 이 문서에서는 Azure Database for MariaDB 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -80,7 +80,7 @@ Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사�
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-사용자 계정 관리에 대한 자세한 내용은 [사용자 계정 관리](https://mariadb.com/kb/en/library/user-account-management/), [GRANT 구문](https://mariadb.com/kb/en/library/grant/) 및 [권한](https://mariadb.com/kb/en/library/grant/#privilege-levels)에 대한 MariaDB 설명서를 참조하세요.
+   사용자 계정 관리에 대한 자세한 내용은 [사용자 계정 관리](https://mariadb.com/kb/en/library/user-account-management/), [GRANT 구문](https://mariadb.com/kb/en/library/grant/) 및 [권한](https://mariadb.com/kb/en/library/grant/#privilege-levels)에 대한 MariaDB 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 새 사용자의 머신 IP 주소에 대한 방화벽을 열고 연결하도록 설정합니다. [Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리](howto-manage-firewall-portal.md)  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080984"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -27,6 +27,8 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 이 문서에서는 GitHub에서 기존 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 다운로드 및 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 과정을 안내합니다.
 
 변경하지 않고 GitHub에서 직접 템플릿을 배포하는 경우 GitHub에서 템플릿 배포로 건너뜁니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>시나리오
 
@@ -53,16 +55,16 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 1. 저장한 파일을 열고 줄에서 **parameters** 아래의 내용을 확인합니다.
 1. Azure 리소스 관리자 템플릿 매개 변수는 배포하는 동안 채울 수 있는 값에 대한 자리 표시자를 제공합니다.
 
-  | 매개 변수 | 설명 |
-  | --- | --- |
-  | **subnetPrefix** |애플리케이션 게이트웨이 서브넷에 대한 CIDR 블록 |
-  | **applicationGatewaySize** | Application Gateway의 크기.  WAF는 중형 및 대형만 허용합니다. |
-  | **backendIpaddress1** |첫 번째 웹 서버의 IP 주소 |
-  | **backendIpaddress2** |두 번째 웹 서버의 IP 주소 |
-  | **wafEnabled** | WAF가 사용되도록 설정되어 있는지를 결정하는 설정|
-  | **wafMode** | 웹 애플리케이션 방화벽의 모드  사용 가능한 옵션은 **방지** 또는 **검색**입니다.|
-  | **wafRuleSetType** | WAF에 대한 규칙 집합 유형.  현재 OWASP만 지원되는 옵션입니다. |
-  | **wafRuleSetVersion** |규칙 집합 버전. OWASP CRS 2.2.9 및 3.0이 현재 지원되는 옵션입니다. |
+   | 매개 변수 | 설명 |
+   | --- | --- |
+   | **subnetPrefix** |애플리케이션 게이트웨이 서브넷에 대한 CIDR 블록 |
+   | **applicationGatewaySize** | Application Gateway의 크기.  WAF는 중형 및 대형만 허용합니다. |
+   | **backendIpaddress1** |첫 번째 웹 서버의 IP 주소 |
+   | **backendIpaddress2** |두 번째 웹 서버의 IP 주소 |
+   | **wafEnabled** | WAF가 사용되도록 설정되어 있는지를 결정하는 설정|
+   | **wafMode** | 웹 애플리케이션 방화벽의 모드  사용 가능한 옵션은 **방지** 또는 **검색**입니다.|
+   | **wafRuleSetType** | WAF에 대한 규칙 집합 유형.  현재 OWASP만 지원되는 옵션입니다. |
+   | **wafRuleSetVersion** |규칙 집합 버전. OWASP CRS 2.2.9 및 3.0이 현재 지원되는 옵션입니다. |
 
 1. **resources** 아래의 내용을 확인하고 다음 속성을 검토합니다.
 
@@ -75,44 +77,44 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 1. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 1. 저장한 파일을 열고 매개 변수 값을 편집합니다. 다음 값을 사용하여 이 시나리오에 설명된 애플리케이션 게이트웨이를 배포합니다.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. 파일을 저장합니다. [JSlint.com](https://www.jslint.com/)같은 JSON 유효성 검사 도구를 사용하여 JSON 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
 
@@ -123,13 +125,13 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 1. PowerShell에 로그인
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. 계정에 대한 구독을 확인합니다.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
@@ -137,19 +139,19 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 1. 사용할 Azure 구독을 선택합니다.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. 필요한 경우 **New-AzureResourceGroup** cmdlet을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 미국 동부 위치에 AppgatewayRG라고 하는 리소스 그룹을 만듭니다.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. **New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 위에서 다운로드한 후 수정한 이전의 템플릿 및 매개 변수 파일을 사용하여 새 가상 네트워크를 배포합니다.
+1. 실행 된 **새로 만들기-AzResourceGroupDeployment** 다운로드 한 후 수정한 이전의 템플릿 및 매개 변수를 사용 하 여 새 가상 네트워크를 배포 하는 cmdlet 파일.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -203,7 +205,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -215,7 +217,7 @@ echo $cert
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

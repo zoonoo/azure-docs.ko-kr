@@ -17,14 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a8a92645a0a0c4b35d06dc6397219e5ff25e25e9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a6c91587905a8f7086b46b275a5078197939eb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429526"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649954"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 가상 네트워크 피어링을 사용하여 가상 네트워크를 서로 연결할 수 있습니다. 가상 네트워크가 피어링되면 두 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대기 시간 및 대역폭으로 서로 통신할 수 있습니다. 이 문서에서는 다음 방법을 설명합니다.
 
@@ -37,91 +39,91 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+이 문서에는 Azure PowerShell 모듈 버전 1.0.0 설치 하 고 PowerShell을 로컬로 사용 하려는 경우 이상. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
-$virtualNetwork1 = New-AzureRmVirtualNetwork `
+$virtualNetwork1 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork1 `
   -AddressPrefix 10.0.0.0/16
 ```
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
+사용 하 여 서브넷 구성을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork1
 ```
 
-[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork)를 사용하여 가상 네트워크에 서브넷 구성을 씁니다. 그러면 서브넷이 만들어집니다.
+사용 하 여 가상 네트워크에 서브넷 구성을 기록 [집합 AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), 그러면 서브넷이 만들어집니다.
 
 ```azurepowershell-interactive
-$virtualNetwork1 | Set-AzureRmVirtualNetwork
+$virtualNetwork1 | Set-AzVirtualNetwork
 ```
 
 10.1.0.0/16 주소 접두사 및 서브넷 1개를 사용하여 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 # Create the virtual network.
-$virtualNetwork2 = New-AzureRmVirtualNetwork `
+$virtualNetwork2 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork2 `
   -AddressPrefix 10.1.0.0/16
 
 # Create the subnet configuration.
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork2
 
 # Write the subnet configuration to the virtual network.
-$virtualNetwork2 | Set-AzureRmVirtualNetwork
+$virtualNetwork2 | Set-AzVirtualNetwork
 ```
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
-[Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)을 사용하여 피어링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
+사용 하 여 피어 링을 만드는 [추가 AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)합니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork1-myVirtualNetwork2 `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 ```
 
-이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Initiated*로 표시됩니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만듭니다. 
+이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Initiated*로 표시됩니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2*에서 *myVirtualNetwork1*으로 피어링을 만듭니다.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork2-myVirtualNetwork1 `
   -VirtualNetwork $virtualNetwork2 `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering)을 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected*로 변경되었는지 확인합니다.
+이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. 확인에 대 한 피어 링 상태는 *myVirtualNetwork1-myVirtualNetwork2* 변경 피어 링 *연결 됨* 사용 하 여 [Get AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkPeering `
+Get-AzVirtualNetworkPeering `
   -ResourceGroupName myResourceGroup `
   -VirtualNetworkName myVirtualNetwork1 `
   | Select PeeringState
 ```
 
-두 가상 네트워크의 피어링에 대한 **PeeringState**가 *Connected*가 될 때까지, 한 가상 네트워크의 리소스는 다른 가상 네트워크의 리소스와 통신할 수 없습니다. 
+두 가상 네트워크의 피어링에 대한 **PeeringState**가 *Connected*가 될 때까지, 한 가상 네트워크의 리소스는 다른 가상 네트워크의 리소스와 통신할 수 없습니다.
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
@@ -129,10 +131,10 @@ Get-AzureRmVirtualNetworkPeering `
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1*인 VM을 만듭니다. `-AsJob` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다. 메시지가 나타나면 VM에 로그인할 사용자 이름과 암호를 입력합니다.
+[New-AzVM](/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1*인 VM을 만듭니다. `-AsJob` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다. 메시지가 나타나면 VM에 로그인할 사용자 이름과 암호를 입력합니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork1" `
@@ -145,7 +147,7 @@ New-AzureRmVm `
 ### <a name="create-the-second-vm"></a>두 번째 VM 만들기
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork2" `
@@ -158,10 +160,10 @@ VM을 만드는 데 몇 분이 걸립니다. Azure에서 VM을 만들고 출력�
 
 ## <a name="communicate-between-vms"></a>VM 간 통신
 
-인터넷에서 VM의 공용 IP 주소에 연결할 수 있습니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 다음 예제에서는 *myVm1* VM의 공용 IP 주소를 반환합니다.
+인터넷에서 VM의 공용 IP 주소에 연결할 수 있습니다. [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 다음 예제에서는 *myVm1* VM의 공용 IP 주소를 반환합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
@@ -198,10 +200,10 @@ ping 10.0.0.4
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
+사용 하 여 더 이상 필요 [제거 AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 리소스 그룹 및 포함 된 리소스를 모두 제거 합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

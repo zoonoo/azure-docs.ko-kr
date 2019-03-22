@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080457"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위가 지정된 그룹 상태에 따라 작업 실행
 
@@ -54,7 +54,7 @@ ms.locfileid: "50233075"
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다(아직 로그인하지 않은 경우). 빈 논리 앱을 만듭니다.
 
-1. **간격** = "1" 및 **빈도** = "분" 설정이 있는 **일정 - 되풀이** 트리거를 추가합니다.
+1. 추가 된 **일정-되풀이** 이러한 설정 사용 하 여 트리거: **간격** = "1" 및 **빈도** = "분"
 
    !["일정 - 되풀이" 트리거 설정](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -83,15 +83,16 @@ ms.locfileid: "50233075"
       | **Waypoint 2** | <*end*> | 경로의 도착지를 입력합니다. | 
       | **Avoid** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
       | **Optimize** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
-      | **Distance unit** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예에서는 "마일" 값을 사용합니다. | 
+      | **Distance unit** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예제에서는이 값을 사용합니다. "마일" | 
       | **Travel mode** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
       | **Transit Date-Time** | 없음 | 대중교통 모드에만 적용됩니다. | 
       | **Transit Date-Type Type** | 없음 | 대중교통 모드에만 적용됩니다. | 
       ||||  
 
-1. 운행과 관련된 현재 이동 시간이 지정된 시간을 초과하는지 확인하는 [조건을 추가](../logic-apps/logic-apps-control-flow-conditional-statement.md)합니다. 이 예제에서는 다음 단계를 따릅니다.
+1. 운행과 관련된 현재 이동 시간이 지정된 시간을 초과하는지 확인하는 [조건을 추가](../logic-apps/logic-apps-control-flow-conditional-statement.md)합니다. 
+   이 예제에서는 다음 단계를 따릅니다.
 
-   1. **운행 시간이 지정된 시간을 초과하는 경우**라는 설명이 포함되도록 조건 이름을 바꿉니다.
+   1. 이 설명이 포함 되도록 조건을 이름을 바꿉니다. **트래픽 시간 지정 된 시간 보다 큰 경우**
 
    1. 맨 왼쪽 열에서 **값 선택** 상자 내부를 클릭하면 동적 콘텐츠 목록이 표시됩니다. 이 목록에서 초 단위의 **운행 기간 트래픽** 필드를 선택합니다. 
 
@@ -99,13 +100,14 @@ ms.locfileid: "50233075"
 
    1. 가운데 상자에서 **보다 큼** 연산자를 선택합니다.
 
-   1. 맨 오른쪽 열에서 비교 값으로 **600**을 입력합니다. 이 값은 초 단위이며 10분과 동일합니다.
+   1. 맨 오른쪽 열에는 시간 (초) 및 10 분에 해당 하는이 비교 값을 입력 합니다. **600**
 
       여기까지 마쳤으면 조건이 다음 예제와 비슷하게 표시됩니다.
 
       ![완성된 조건](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. **If true**(참인 경우) 분기에서 이메일 공급자에 대한 "이메일 보내기" 작업을 추가합니다. 이 이미지 아래의 단계에 따라 이 작업을 설정합니다.
+1. **If true**(참인 경우) 분기에서 이메일 공급자에 대한 "이메일 보내기" 작업을 추가합니다. 
+   이 이미지 아래의 단계에 따라 이 작업을 설정합니다.
 
    !["If true" 분기에 "이메일 보내기" 작업 추가](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ ms.locfileid: "50233075"
    1. 동적 콘텐츠 목록에서 **식**을 선택합니다.
 
    1. **div()** 함수를 찾아서 선택합니다. 
-   함수의 괄호 내부에 커서를 놓습니다.
+      함수의 괄호 내부에 커서를 놓습니다.
 
    1. 커서를 함수의 괄호 안에 놓은 상태에서 **동적 콘텐츠**를 선택하여 동적 콘텐츠 목록을 표시합니다. 
    
@@ -144,11 +146,11 @@ ms.locfileid: "50233075"
 
    1. 작업을 완료하면 **확인**을 선택합니다.
 
-  1. 식이 확인되면 선행 공백이 있는 ``` minutes``` 텍스트를 추가합니다.
+   1. 식이 확인 되 면 선행 공백 사용 하 여이 텍스트를 추가 합니다. ``` minutes```
   
-     이제 **본문** 필드가 다음 예와 같습니다.
+       이제 **본문** 필드가 다음 예와 같습니다.
 
-     !["본문" 필드 완성](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       !["본문" 필드 완성](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. 논리 앱을 저장합니다.
 
@@ -179,7 +181,7 @@ ms.locfileid: "50233075"
 
    ![추가된 범위](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. **범위가 실패한 경우**라는 설명이 포함되도록 조건 이름을 바꿉니다.
+1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. 이 설명이 포함 되도록 조건을 이름을 바꿉니다. **범위가 실패 한 경우**
 
    ![범위 상태를 확인하는 조건 추가](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

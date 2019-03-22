@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>자습서: SpringCM과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ SpringCM과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SpringCM 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -212,9 +212,9 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 
 1. **저장**을 클릭합니다.
 
-  >[!NOTE]
-  >다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.  
-  > 
+   >[!NOTE]
+   >다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -249,7 +249,7 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
- 
+ 
 액세스 패널에서 SpringCM 타일을 클릭하면 SpringCM 애플리케이션에 자동으로 로그온됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 

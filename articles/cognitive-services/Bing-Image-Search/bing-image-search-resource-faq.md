@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: troubleshooting
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: af592e47d443caac23a3ba51a8e4b37fec069bc9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876490"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539023"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -65,4 +65,4 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 
- [스택 오버플로: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [스택 오버플로: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

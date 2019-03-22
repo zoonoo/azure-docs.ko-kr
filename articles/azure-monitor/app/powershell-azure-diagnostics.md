@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: f929c58d38cbae4ba5f8aea73a2acf30d8bbe7d2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121433"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317784"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell을 사용하여 Azure 웹앱에서 Application Insights 설정
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [Microsoft Azure](https://azure.com)는 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)에 [Azure 진단을 보내도록 구성](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)될 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
 ## <a name="azure-template"></a>Azure 템플릿
@@ -56,9 +59,9 @@ ms.locfileid: "54121433"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
      -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
        -StorageAccountName $diagnostics_storagename `
        -StorageAccountKey $primary_storagekey
 
@@ -90,9 +93,9 @@ ms.locfileid: "54121433"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
          -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
         -StorageAccountName $diagnostics_storagename `
         -StorageAccountKey $primary_storagekey
 

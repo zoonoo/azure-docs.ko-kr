@@ -1,26 +1,26 @@
 ---
 title: 기술 자료 게시
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: 기술 자료 게시는 기술 자료를 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: 기술 자료를 질문 응답 끝점으로 사용할 수 있도록 하는 마지막 단계는 QnA Maker API 서비스를 사용 하 여 기술 자료를 게시 합니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091956"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>QnA Maker 포털을 사용하여 기술 자료 게시
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>QnA Maker API 서비스 포털을 사용 하 여 기술 자료 게시
 
-기술 자료를 게시하는 것은 기술 자료를 클라이언트 애플리케이션에 대해 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 
+기술 자료를 질문 응답 끝점으로 사용할 수 있도록 하는 마지막 단계는 QnA Maker API 서비스를 사용 하 여 기술 자료를 게시 합니다. 
 
 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
 

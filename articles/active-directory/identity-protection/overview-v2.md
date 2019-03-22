@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c3543b217339c39ad79c2125afdef8f087a70b3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204511"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336689"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>갱신된 Azure Active Directory ID 보호 소개
 
@@ -58,6 +58,7 @@ Azure AD ID 보호는 이러한 위협에 대응할 수 있도록 다음 작업�
 
 Azure Active Directory Premium P2의 기능인 Azure AD ID 보호를 사용하면 사용자 ID가 손상되거나 계정 소유자가 아닌 사람이 소유자 ID를 사용해 로그인을 시도할 때 자동으로 대응하는 정책을 구성할 수 있습니다. 이러한 정책과 Azure AD에서 제공되는 기타 조건부 액세스 제어 기능을 함께 사용하면 액세스를 자동으로 차단하거나 암호 재설정, Multi-Factor Authentication 적용 등의 완화 작업을 시작할 수 있습니다. 또한 ID 보호에서는 조직의 위험 및 손상 가능성을 더욱 심층적으로 파악할 수 있는 모니터링 및 보고 기능도 제공됩니다. 
 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## <a name="risk-events"></a>위험 이벤트
@@ -211,11 +212,11 @@ ID 보호에서는 배포 전반에 걸쳐 관리 활동을 균형 있게 수행
 
 | 기능 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 사용자 위험 정책 | 예 | 아니요 | 아니요 |
-| 로그인 위험 정책 | 예 | 아니요 | 아니요 |
+| 사용자 위험 정책 | 예 | 아니오 | 아닙니다. |
+| 로그인 위험 정책 | 예 | 아니오 | 아닙니다. |
 | 위험한 사용자 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 위험한 로그인 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| MFA 등록 정책 | 예 | 아니요 | 아니요 |
+| MFA 등록 정책 | 예 | 아니오 | 아닙니다. |
 
 
 

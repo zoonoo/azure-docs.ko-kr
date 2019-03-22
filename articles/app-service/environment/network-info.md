@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124136"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -54,6 +54,7 @@ ILB ASE가 있는 경우에는 ILB의 주소가 HTTP/S, FTP/S, 웹 배포 및 �
 |  HTTP/HTTPS  | 사용자 구성 가능 |  80, 443 |
 |  FTP/FTPS    | 사용자 구성 가능 |  21, 990, 10001-10020 |
 |  Visual Studio 원격 디버깅  |  사용자 구성 가능 |  4020, 4022, 4024 |
+|  웹 서비스 배포 | 사용자 구성 가능 | 8172 |
 
 외부 ASE를 사용하든, ILB ASE를 사용하든 위 표에 나와 있는 포트가 사용됩니다. 외부 ASE를 사용하는 경우 공용 VIP에서 해당 포트에 액세스합니다. ILB ASE를 사용하는 경우에는 ILB에서 해당 포트에 액세스합니다. 포트 443을 잠그면 포털에 표시되는 일부 기능이 영향을 받을 수 있습니다. 자세한 내용은 [포털 종속성](#portaldep)을 참조하세요.
 

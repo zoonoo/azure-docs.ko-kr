@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 01709bf7bdf4812802ab983729cc628101810f43
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108919"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
 
@@ -54,7 +54,7 @@ MABS V3은 정식 릴리스이며, Windows Server 2016, Windows Server 2019에 �
 
 
 > [!NOTE]
-
+> 
 > MABS에는 System Center Data Protection Manager와 동일한 코드베이스가 있습니다. MABS v3은 Data Protection Manager 1807에 해당합니다.
 
 ## <a name="next-steps"></a>다음 단계

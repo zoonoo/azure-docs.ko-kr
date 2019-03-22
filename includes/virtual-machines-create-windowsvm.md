@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958914"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115086"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "29958914"
 
 2. **사용자 이름** 및 VM에서 로컬 계정을 만드는 데 사용되는 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다. 이 예제에서 _azureuser_는 사용자 이름입니다.
 
- 암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../articles/virtual-machines/windows/faq.md)을 참조하세요.
+   암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../articles/virtual-machines/windows/faq.md)을 참조하세요.
 
 3. **구독**은 선택 사항입니다. 일반적인 설정 중 하나는 "종량제"입니다.
 
@@ -70,4 +70,4 @@ VM 크기를 선택하고 **선택**을 클릭하여 계속 진행합니다. 이
 
 가상 머신이 만들어지면 포털의 **모든 리소스** 아래에 새 가상 머신이 나열되고, 대시보드에 가상 머신의 타일이 표시됩니다. 해당 클라우드 서비스 및 저장소 계정도 생성되고 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
 
- ![가상 머신의 VM 에이전트 및 끝점 구성](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+ ![가상 머신의 VM 에이전트 및 엔드포인트 구성](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

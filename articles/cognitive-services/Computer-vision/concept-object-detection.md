@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873889"
 ---
 # <a name="object-detection"></a>개체 감지
 
-개체 검색은 [태깅](concept-tagging-images.md)과 유사하지만, API는 검색된 각 개체에 대해 경계 상자 좌표(픽셀 단위)를 반환합니다. 예를 들어 이미지에 개, 고양이 및 사람이 포함된 경우 검색 작업을 실행하면 해당 개체를 해당 좌표와 함께 이미지에 나열합니다. 이 기능을 사용하여 이미지의 개체 간 관계를 처리할 수 있습니다. 또한 이 기능을 통해 이미지에 동일한 태그의 다중 인스턴스가 있는 지 확인할 수 있습니다.
+개체 검색은 [태깅](concept-tagging-images.md)과 유사하지만, API는 검색된 각 개체에 대해 경계 상자 좌표(픽셀 단위)를 반환합니다. 예를 들어 이미지에 개, 고양이 및 사람이 포함된 경우 검색 작업을 실행하면 해당 개체를 해당 좌표와 함께 이미지에 나열합니다. 이 기능을 사용하여 이미지의 개체 간 관계를 처리할 수 있습니다. 또한 이미지에 동일한 태그의 인스턴스가 여러 개 있는지 여부를 확인할 수 있습니다.
 
-Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되는 생물에 적용합니다. 이 시점에서 태깅에 사용되는 분류와 개체 검색에 사용되는 분류 간에 공식적인 관계는 없습니다. 개념 수준에서 Detect API는 개체 및 생물만 검색하지만 Tag API는 경계 상자로 지역화할 수 없는 “실내”와 같은 개념 용어를 포함할 수도 있습니다.
+Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되는 생물에 적용합니다. 이 시점에서 관계가 없습니다 정식 태그 분류 사이의 개체 검색 분류 합니다. 개념 수준에서 검색 API를 검색 한 다음 개체 및 생물, 동안 태그 API를 사용 하 여 경계 상자의 지역화할 수 없습니다는 "실내" 등의 상황에 맞는 용어를 포함할 수도 있습니다.
 
 ## <a name="object-detection-example"></a>개체 검색 예제
 
@@ -89,13 +89,15 @@ Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되
 
 ## <a name="limitations"></a>제한 사항
 
-거짓 부정(누락된 개체) 및 제한된 세부 정보의 영향을 방지하거나 완화할 수 있도록 개체 검색 기능의 제한 사항에 유의해야 합니다.
-* 일반적으로 개체는 매우 작으면 검색되지 않습니다(이미지의 5% 미만).
-* 일반적으로 개체는 매우 긴밀하게 배열되어 있으면 검색되지 않습니다(예: 접시 더미).
+것을 방지 하거나 제한 세부 정보 및 거짓 부정 (누락 된 개체)의 영향을 줄일 수 있도록 개체 검색의 제한 사항에 유의 해야 합니다.
+
+* 개체는 일반적으로 검색 되지 경우 작은 (5% 미만의 이미지).
+* 개체는 일반적으로 검색 되지 않습니다 서로 긴밀 하 게 정렬 하는 경우 (예를 들어 접시 스택).
 * 개체는 브랜드 또는 제품 이름으로 구분되지 않습니다(예: 상점 선반에 있는 다양한 유형의 탄산 음료). 그러나 [브랜드 검색](concept-brand-detection.md) 기능을 사용하여 이미지에서 브랜드 정보를 가져올 수 있습니다.
 
 ## <a name="use-the-api"></a>API 사용
-개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 전체 JSON 응답을 받으면 `"objects"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+
+개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 전체 JSON 응답을 받으면의 내용에 대 한 문자열을 구문 분석 된 `"objects"` 섹션입니다.
 
 * [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)

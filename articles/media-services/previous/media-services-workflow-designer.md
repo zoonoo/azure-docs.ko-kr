@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080204"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기  
 ## <a name="overview"></a>개요
@@ -37,8 +37,6 @@ ms.locfileid: "55993710"
 
 > [!NOTE]
 > Workflow Designer 도구의 복사본을 얻으려면 mepd@microsoft.com에 문의하세요.
-> 
-> 
 
 워크플로 파일을 만든 후 이를 자산으로 업로드한 다음 미디어 파일을 인코딩하는 데 사용할 수 있습니다. **.NET**을 사용하여 **미디어 인코더 Premium 워크플로**에서 인코딩하는 방법에 대한 자세한 내용은 [미디어 인코더 Premium 워크플로 사용하여 고급 인코딩](media-services-encode-with-premium-workflow.md)을 참조하세요.
 
@@ -90,6 +88,6 @@ Media Services 학습 경로를 검토합니다.
 
 지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com로 메일을 보내주세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866783"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874888"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
@@ -44,7 +44,7 @@ LUIS는 앱당 최대 10개의 구 목록을 허용합니다.
 
 5. 추가된 구 목록 값이 서로 교환해서 사용할 수 있는 대체 값이면 **These values are interchangeable**(서로 교환 가능한 값)을 클릭합니다.
 
-    ![구 목록 제안된 값 - 교환 가능한 상자 선택 ](./media/luis-add-features/interchangeable.png)
+    ![구 목록 제안된 값 - 교환 가능한 상자 선택](./media/luis-add-features/interchangeable.png)
 
 6. **저장**을 클릭합니다. "Cities" 구 목록이 **구 목록** 페이지에 추가됩니다.
 

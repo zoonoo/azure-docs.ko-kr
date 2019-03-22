@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 4cb73ea08060336710207e026bb5bcc5a251efc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877924"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric에서 정기적인 백업 및 복원 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ## <a name="prerequisites"></a>필수 조건
 * Fabric 버전 6.2 이상을 포함하는 Service Fabric 클러스터. 클러스터는 Windows 서버에 설치해야 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 저장소에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
-* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .Net Core 2.0을 대상으로 하는 애플리케이션은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
+* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 응용 프로그램에 대 한 응용 프로그램 사용 하 여 빌드되어야 Service Fabric SDK 버전 3.1 이상.
 * 애플리케이션 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
 
 ## <a name="enabling-backup-and-restore-service"></a>Backup 및 Restore 서비스 사용
@@ -115,7 +115,7 @@ Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 �
 
 첫 번째 단계는 백업 일정, 백업 데이터의 대상 스토리지, 정책 이름, 전체 백업을 트리거하기 전에 허용할 최대 증분 백업 및 백업 스토리지를 위한 보존 정책을 설명하는 백업 정책을 만드는 것입니다. 
 
-백업 저장소의 경우 위에서 만든 Azure Storage 계정을 사용합니다. `backup-container` 컨테이너는 백업을 저장하기 위해 구성됩니다. 백업 업로드 중이 이 이름의 컨테이너가 만들어집니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채우고 `account-name`을 저장소 계정 이름으로 바꾸며 `account-key`를 저장소 계정 키로 바꿉니다.
+백업 스토리지의 경우 위에서 만든 Azure Storage 계정을 사용합니다. `backup-container` 컨테이너는 백업을 저장하기 위해 구성됩니다. 백업 업로드 중이 이 이름의 컨테이너가 만들어집니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채우고 `account-name`을 스토리지 계정 이름으로 바꾸며 `account-key`를 스토리지 계정 키로 바꿉니다.
 
 필요한 REST API를 호출하여 새 정책을 만들려면 다음 PowerShell 스크립트를 실행합니다. `account-name`을 저장소 계정의 이름으로 바꾸고 `account-key`를 저장소 계정 키로 바꿉니다.
 

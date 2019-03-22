@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4c90b6f9fd8b968ceb0e241649ddbcf1c2e1cb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a15284b0176b7148055812ce5a642ec38e67d53b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189120"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>자습서: TrackVia와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ TrackVia와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 TrackVia 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -136,7 +136,7 @@ TrackVia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
 1. 다른 웹 브라우저 창에서 TrackVia 회사 사이트에 관리자로 로그인합니다.
 
-1. Trackvia **내 계정** 설정을 클릭한 다음, **Single Sign-On** 탭에서 다음 단계를 수행합니다.
+1. 클릭 추적을 통해 **내 계정** 설정을 선택한 후 **Single Sign On** 탭에서 다음 단계를 수행 합니다.
 
     ![TrackVia 구성](./media/trackvia-tutorial/configure1.png)
 

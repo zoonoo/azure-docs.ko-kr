@@ -2,17 +2,17 @@
 title: Azure Site Recovery를 사용한 온-프레미스 물리적 서버와 Azure 간 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
 description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088913"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -50,7 +50,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 4. **서버 추가** 페이지에서 다운로드 단추를 클릭하여 등록 키를 다운로드합니다. 구성 서버 설치 동안 Azure Site Recovery 서비스에 등록하기 위해 이 키가 필요합니다.
 5. **Microsoft Azure Site Recovery 통합 설치 다운로드** 링크를 클릭하여 구성 서버의 최신 버전을 다운로드합니다.
 
-  ![다운로드 페이지](./media/physical-manage-configuration-server/downloadcs.png)
+   ![다운로드 페이지](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>서버 설치 및 등록
@@ -77,7 +77,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 9. **설치 위치**에서 이진 파일을 설치하고 캐시를 저장할 위치를 선택합니다. 최소 5GB의 디스크 공간이 있는 드라이브를 선택해야 하지만 600GB 이상의 사용 가능한 공간이 있는 캐시 드라이브를 선택하는 것이 좋습니다.
 
     ![설치 위치](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. **네트워크 선택**에서 구성 서버가 복제 데이터를 전송 및 수신할 수신기(네트워크 어댑터 및 SSL 포트)를 지정합니다. 9443 포트는 복제 트래픽을 보내고 받는 데 사용되는 기본 포트이지만, 환경의 요구 사항에 맞게 이 포트 번호를 수정할 수 있습니다. 9443 포트 외에도 웹 서버에서 복제 작업을 조정하기 위해 사용하는 443 포트를 엽니다. 복제 트래픽을 보내거나 받는 데 443 포트를 사용하면 안 됩니다.
+10. **네트워크 선택**, 먼저 원본 컴퓨터에서 모바일 서비스의 검색 및 푸시 설치에 대 한 기본 제공 프로세스 서버를 사용 하는 NIC를 선택 하 고 선택한 다음 연결을 위한 구성 서버를 사용 하는 NIC azure. 9443 포트는 복제 트래픽을 보내고 받는 데 사용되는 기본 포트이지만, 환경의 요구 사항에 맞게 이 포트 번호를 수정할 수 있습니다. 9443 포트 외에도 웹 서버에서 복제 작업을 조정하기 위해 사용하는 443 포트를 엽니다. 복제 트래픽을 보내거나 받는 데 443 포트를 사용하면 안 됩니다.
 
     ![네트워크 선택](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -153,40 +153,40 @@ ProxyPassword="Password"
 3. **자격 증명 모음 등록** 탭을 클릭합니다.
 4. 포털에서 새 자격 증명 모음 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 새 프록시 세부 정보를 제공하고 **등록** 단추를 클릭합니다.
 6. 관리자 PowerShell 명령 창을 엽니다.
 7. 다음 명령 실행:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  이 구성 서버에 추가 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)해야 합니다.
+   > [!WARNING]
+   > 이 구성 서버에 추가 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)해야 합니다.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>동일한 자격 증명 모음에 구성 서버 다시 등록
-  1. 구성 서버에 로그인 합니다.
-  2. 데스크톱에서 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
-  3. **자격 증명 모음 등록** 탭을 클릭합니다.
-  4. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. 프록시 서버 세부 정보를 제공하고 **등록** 단추를 클릭합니다.  
-  6. 관리자 PowerShell 명령 창을 엽니다.
-  7. 다음 명령을 실행합니다.
+1. 구성 서버에 로그인 합니다.
+2. 데스크톱에서 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
+3. **자격 증명 모음 등록** 탭을 클릭합니다.
+4. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. 프록시 서버 세부 정보를 제공하고 **등록** 단추를 클릭합니다.  
+6. 관리자 PowerShell 명령 창을 엽니다.
+7. 다음 명령을 실행합니다.
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  여러 프로세스 서버가 있는 경우 [다시 등록](vmware-azure-manage-process-server.md#reregister-a-process-server)해야 합니다.
+   > [!WARNING]
+   > 여러 프로세스 서버가 있는 경우 [다시 등록](vmware-azure-manage-process-server.md#reregister-a-process-server)해야 합니다.
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>다른 자격 증명 모음에 구성 서버 등록
 
@@ -246,22 +246,22 @@ ProxyPassword="Password"
 4. **예**를 클릭하여 서버 삭제를 확인합니다.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>구성 서버 및 해당 종속성 제거
-  > [!TIP]
-  Azure Site Recovery에서 구성 서버를 다시 사용하려는 경우에는 4단계로 직접 건너뛸 수 있습니다.
+> [!TIP]
+>   Azure Site Recovery에서 구성 서버를 다시 사용하려는 경우에는 4단계로 직접 건너뛸 수 있습니다.
 
 1. 관리자 권한으로 구성 서버에 로그온합니다.
 2. 제어판 > 프로그램 > 프로그램 제거 열기
 3. 다음 순서로 프로그램을 제거합니다.
-  * Microsoft Azure Recovery Services 에이전트
-  * Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버
-  * Microsoft Azure Site Recovery 공급자
-  * Microsoft Azure Site Recovery 구성 서버/프로세스 서버
-  * Microsoft Azure Site Recovery 구성 서버 종속성
-  * MySQL Server 5.5
+   * Microsoft Azure Recovery Services 에이전트
+   * Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버
+   * Microsoft Azure Site Recovery 공급자
+   * Microsoft Azure Site Recovery 구성 서버/프로세스 서버
+   * Microsoft Azure Site Recovery 구성 서버 종속성
+   * MySQL Server 5.5
 4. 관리자 명령 프롬프트에서 다음 명령을 실행합니다.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>구성 서버 삭제 또는 등록 취소(PowerShell)
 

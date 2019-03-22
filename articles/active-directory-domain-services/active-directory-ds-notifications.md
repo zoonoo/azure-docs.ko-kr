@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
-ms.subservice: domains
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: d2cdff4b0b961083d8f8ac6e2eb8b1b46d30c06b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 85fcd28b5964cbe0246a7c79fa6d24d756f7bd35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086567"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Domain Services의 알림 설정
 
@@ -47,7 +47,6 @@ ms.locfileid: "55159217"
 
 > [!WARNING]
 > 항상 이메일의 링크를 클릭하기 전에 확인된 Microsoft 보낸 사람이 보낸 이메일인지 확인합니다. 이메일은 항상 이메일 azure-noreply@microsoft.com에서 제공됩니다.
->
 
 
 ## <a name="why-would-i-receive-email-notifications"></a>이메일 알림을 수신하는 이유

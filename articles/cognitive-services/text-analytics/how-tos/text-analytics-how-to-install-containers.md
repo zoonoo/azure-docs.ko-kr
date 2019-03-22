@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977103"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294147"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-Text Analytics 컨테이너를 실행하려면 다음이 필요합니다.
+Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터 및 컨테이너 환경 있어야 합니다.
 
 ## <a name="preparation"></a>준비
 
@@ -46,11 +46,14 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 다음 표에서는 각 Text Analytics 컨테이너에 할당할 CPU 코어(2.6GHz 이상) 수 및 메모리(GB) 양에 대한 최소 및 권장 크기에 대해 설명합니다.
 
-| 컨테이너 | 최소 | 권장 |
-|-----------|---------|-------------|
-|핵심 문구 추출 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
-|언어 검색 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
-|감정 분석 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
+| 컨테이너 | 최소 | 권장 | TPS<br>(최소, 최대)|
+|-----------|---------|-------------|--|
+|핵심 문구 추출 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
+|언어 검색 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
+|감정 분석 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
+
+* 각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* TP-초당 트랜잭션 수
 
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
@@ -64,7 +67,7 @@ Text Analytics에 대한 컨테이너 이미지는 Microsoft Container Registry�
 |언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
 |감정 분석 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft Container Registry에서 컨테이너 이미지를 다운로드합니다.
+사용 된 [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드 하는 명령입니다.
 
 Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설명은 Docker 허브의 다음 컨테이너를 참조하세요.
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 이 명령은 다음을 수행합니다.
 
 * 컨테이너 이미지에서 핵심 구 컨테이너를 실행합니다.
-* CPU 코어 1개와 4GB 메모리 할당
+* 1개 CPU 코어 및 4GB 메모리 할당
 * 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
@@ -134,11 +137,13 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000을 사용합니다.
+컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 

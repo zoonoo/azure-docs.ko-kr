@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
-ms.openlocfilehash: 093c60287b16073a6c04e824dc439f5dc069ec96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863672"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765173"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 
@@ -95,6 +95,9 @@ LUIS에는 현재 2개의 엔드포인트가 있음: 하나는 작성용이고 �
 |appID|URL 경로에 사용되며 앱 대시보드에서 발견된 LUIS 앱 ID|
 |q|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
 
+## <a name="failover-regions"></a>장애 조치 지역
+
+각 지역에 장애 조치를 보조 지역에 있습니다. 오스트레일리아 및 유럽 내 over 장애 조치 하는 유럽 실패 오스트레일리아 내에서.
 
 ## <a name="next-steps"></a>다음 단계
 

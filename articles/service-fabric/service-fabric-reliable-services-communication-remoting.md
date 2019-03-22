@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 366ab452d1693315e7e71301d953248008c1eac8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820677"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079131"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -128,28 +128,28 @@ Remoting V2는 V1(이전 Remoting 스택)과 호환되지 않습니다. 서비�
 
 1. 서비스 매니페스트의 `"ServiceEndpoint"`에서 `"ServiceEndpointV2"`로 엔드포인트 리소스를 변경합니다.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` 확장 메서드를 사용하여 원격 수신기를 만듭니다(V1 및 V2에 모두 동일).
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. `FabricTransportServiceRemotingProvider` 특성으로 원격 인터페이스를 포함하는 어셈블리를 표시합니다.
 
-  ```csharp
-  [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 클라이언트 프로젝트에는 변경이 필요하지 않습니다.
 이전에 표시된 어셈블리 특성이 사용되었는지 확인하기 위해 인터페이스 어셈블리를 사용하여 클라이언트 어셈블리를 빌드합니다.
@@ -162,18 +162,18 @@ V2 스택은 어셈블리 특성을 사용하는 대신 명시적 V2 클래스�
 
 1. 서비스 매니페스트의 `"ServiceEndpoint"`에서 `"ServiceEndpointV2"`로 엔드포인트 리소스를 변경합니다.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` 네임스페이스에서 [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)를 사용합니다.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -184,16 +184,16 @@ V2 스택은 어셈블리 특성을 사용하는 대신 명시적 V2 클래스�
             })
         };
     }
-  ```
+   ```
 
 3. `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` 네임스페이스에서 [FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용하여 클라이언트를 만듭니다.
 
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
               return new FabricTransportServiceRemotingClientFactory();
           });
-  ```
+   ```
 
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2"></a>Remoting V1에서 Remoting V2로 업그레이드
 
@@ -248,29 +248,29 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 
 1. 서비스 매니페스트에서 Endpoint Resource를 “ServiceEndpointV2_1”이라는 이름으로 추가합니다.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. 원격 확장 메서드를 사용하여 원격 수신기를 만듭니다.
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. 원격 인터페이스에 [어셈블리 특성](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet)을 추가합니다.
 
-  ```csharp
+   ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
 
-  ```
+   ```
 
 클라이언트 프로젝트에는 변경이 필요하지 않습니다.
 이전 어셈블리 특성이 사용 중인지 확인하기 위해 인터페이스 어셈블리를 사용하여 클라이언트 어셈블리를 빌드합니다.
@@ -281,18 +281,18 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 
 1. 서비스 매니페스트에서 Endpoint Resource를 “ServiceEndpointV2_1”이라는 이름으로 추가합니다.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. [Remoting V2 수신기](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet)를 사용합니다. 사용된 기본 서비스 엔드포인트 리소스 이름은 “ServiceEndpointV2_1”이며 서비스 매니페스트에서 정의해야 합니다.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -305,17 +305,17 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
             })
         };
     }
-  ```
+   ```
 
 3. V2 [클라이언트 팩터리](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용합니다.
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
             var settings = new FabricTransportRemotingSettings();
             settings.UseWrappedMessage = true;
             return new FabricTransportServiceRemotingClientFactory(settings);
           });
-  ```
+   ```
 
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Remoting V1에서 Remoting V2(인터페이스 호환 가능)로 업그레이드
 
@@ -527,8 +527,8 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
 
 2. 원격 수신기에 대해 `JsonSerializationProvider`로 기본 serialization 공급자를 재정의합니다.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
    {
        return new[]
        {
@@ -539,7 +539,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
            })
        };
    }
-  ```
+   ```
 
 3. 원격 클라이언트 팩터리에 대해 `JsonSerializationProvider`로 기본 serialization 공급자를 재정의합니다.
 

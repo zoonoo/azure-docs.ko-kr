@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3bfc3072f819a92bdceb1721bb7737a3dc04cf8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078859"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure Stack에서 Python 사용
 
@@ -57,8 +57,59 @@ Azure Stack을 사용 하 여 Python Azure SDK를 사용 하려면 다음 값을
 | 클라이언트 ID | AZURE_CLIENT_ID | 주 응용 프로그램 ID 저장이 문서의 이전 섹션에서 서비스 주체를 만들 때 서비스입니다. |
 | 구독 ID | AZURE_SUBSCRIPTION_ID | 합니다 [구독 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
 | 클라이언트 암호 | AZURE_CLIENT_SECRET | 서비스 주체를 만들 때 저장 서비스 주 응용 프로그램 암호입니다. |
-| Resource Manager 끝점 | ARM_ENDPOINT | 참조 된 [Azure Stack 리소스 관리자 끝점](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
+| Resource Manager 끝점 | ARM_ENDPOINT | 참조 된 [Azure Stack Resource Manager 끝점](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
 | 리소스 위치 | AZURE_RESOURCE_LOCATION | Azure Stack 환경 리소스 위치입니다.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
+
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+
+#### <a name="windows"></a>Windows
+
+1. Python 컴퓨터에 인증서 저장소 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    인증서의 저장소 위치 메모를 확인 합니다. 예를 들어 *~/lib/python3.5/site-packages/certifi/cacert.pem*합니다. 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+
+2. 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> Virtualenv 아래에 설명 된 대로 Python SDK를 사용한 개발을 사용 하는 경우 가상 환경의 인증서 저장소에 위의 인증서를 추가 해야 합니다. 경로 비슷하게 보일 수 있습니다. "... \mytestenv\Lib\site-packages\certifi\cacert.pem "
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>Azure Stack에 대 한 Python 샘플
 
@@ -133,7 +184,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. 이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-Datacenter 이미지는 Azure Stack marketplace에 있는 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](../azure-stack-download-azure-marketplace-item.md)에 추가 합니다 [플랫폼 이미지 리포지토리에](../azure-stack-add-vm-image.md)합니다.
+8. 이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-DataCenter 이미지는 Azure Stack marketplace에 있는 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](../azure-stack-download-azure-marketplace-item.md)에 추가 합니다 [플랫폼 이미지 리포지토리에](../azure-stack-add-vm-image.md)합니다.
 
 9. 샘플을 실행합니다.
 

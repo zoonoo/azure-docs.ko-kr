@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753591"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871539"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -152,7 +152,6 @@ Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애
 4. VM을 삭제한 이후에 해당하는 **마지막 동기화 시간**이 업데이트될 때까지 기다립니다. 장애 조치(failover)가 발생할 때 보조 엔드포인트가 VHD 파일로 완전히 업데이트되지 않은 경우 새 주 지역에서 VM이 제대로 작동하지 않을 수 있으므로 이 단계가 필요합니다.
 5. 계정 장애 조치(failover)를 시작합니다.
 6. 계정 장애 조치(failover)가 완료되고 보조 지역이 새 주 지역이 될 때까지 기다립니다.
-6. 새 주 지역의 스토리지 계정을 만들고 관리되지 않는 디스크를 복사합니다.
 7. 새 주 지역에서 VM을 만들고 VHD를 다시 연결합니다.
 8. 새 VM을 시작합니다.
 

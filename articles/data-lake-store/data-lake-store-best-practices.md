@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745846"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961893"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -101,10 +101,10 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 |  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
 |**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아니요         | 아니요         |
+|**델타 복사 지원**     |   예      | 아니오         | 아닙니다.         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
-|**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | 윈도우 10         |
+|**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | 윈도우 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
@@ -140,7 +140,7 @@ Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight�
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 동일한 정보는 Log Analytics 또는 로그가 Data Lake Storage Gen1 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달되는 위치에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
+속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. Azure Monitor 로그 또는 로그에 전달 되는 위치에서이 동일한 정보를 모니터링할 수도 있습니다는 [진단](data-lake-store-diagnostic-logs.md) 데이터 레이크 저장소 Gen1 계정 블레이드입니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행
 

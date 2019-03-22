@@ -6,18 +6,18 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182135"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
-이 방법 가이드에서는 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. CLI를 사용하여 솔루션을 배포합니다. azureiotsuite.com에서 웹 기반 UI를 사용하여 솔루션을 배포할 수도 있습니다. 이 옵션에 대해 알아보려면 [원격 모니터링 솔루션 가속기 배포](quickstart-remote-monitoring-deploy.md) 빠른 시작을 참조하세요.
+이 방법 가이드에서는 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. CLI를 사용하여 솔루션을 배포합니다. 이 옵션 참조에 대해 자세히 알아보려면 azureiotsolutions.com에서 웹 기반 UI를 사용 하 여 솔루션을 배포할 수도 있습니다는 [원격 모니터링 솔루션 가속기 배포](quickstart-remote-monitoring-deploy.md) 빠른 시작 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,7 +66,7 @@ pcs login
 
 기본 배포는 Azure 구독에 다음 서비스를 만듭니다.
 
-| 개수 | 리소스                       | type         | 용도 |
+| 카운트 | 리소스                       | Type         | 용도 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 디바이스 관리 및 통신 |
@@ -85,7 +85,7 @@ pcs login
 
 표준 배포는 Azure 구독에 다음 서비스를 만듭니다.
 
-| 개수 | 리소스                                     | SKU/크기      | 용도 |
+| 카운트 | 리소스                                     | SKU/크기      | 용도 |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 완전 관리형 Kubernetes 컨테이너 오케스트레이션 서비스를 사용하세요. 기본값은 에이전트 3개입니다.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 디바이스 관리, 명령 및 제어 |

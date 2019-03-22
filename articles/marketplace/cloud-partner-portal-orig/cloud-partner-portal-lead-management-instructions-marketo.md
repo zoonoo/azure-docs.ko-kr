@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113115"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "48807190"
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  클라우드 파트너 포털의 Marketo 필드에서 **서버 ID**, **Munchkin ID** 및 **양식 ID**를 구성할 수 있도록 embed 태그에 표시된 값을 복사합니다.
+1. 클라우드 파트너 포털의 Marketo 필드에서 **서버 ID**, **Munchkin ID** 및 **양식 ID**를 구성할 수 있도록 embed 태그에 표시된 값을 복사합니다.
 
 다음 예제를 참조하여 Marketo embed 태그 예제에서 필요한 ID를 가져옵니다.
 

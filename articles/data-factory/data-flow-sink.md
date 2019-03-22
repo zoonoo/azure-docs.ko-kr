@@ -3,16 +3,15 @@ title: Azure Data Factory Mapping Data Flow 싱크 변환
 description: Azure Data Factory Mapping Data Flow 싱크 변환
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852443"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mapping Data Flow 싱크 변환
 
@@ -35,27 +34,17 @@ Azure Storage Blob 또는 Data Lake 싱크 형식의 경우, 변환된 데이터
 
 ![싱크 옵션](media/data-flow/opt001.png "싱크 옵션")
 
-### <a name="output-settings"></a>출력 설정
-
-덮어쓰기를 수행하면 테이블이 있는 경우 해당 테이블을 자른 후 다시 만들고 데이터를 로드합니다. 추가를 수행하면 새 행이 삽입됩니다. 데이터 세트 테이블 이름의 테이블이 대상 ADW에 전혀 존재하지 않으면 데이터 흐름은 테이블을 만든 후 데이터를 로드합니다.
-
-"자동 매핑"을 선택 취소하면 수동으로 필드를 대상 테이블에 매핑할 수 있습니다.
-
-![ADW 싱크 옵션](media/data-flow/adw2.png "adw 싱크")
-
-#### <a name="field-mapping"></a>필드 매핑
+## <a name="field-mapping"></a>필드 매핑
 
 싱크 변환의 매핑 탭에서 들어오는(왼쪽) 열을 대상(오른쪽)에 매핑할 수 있습니다. 데이터 흐름을 파일에 싱크하는 경우 ADF는 항상 폴더에 새 파일을 씁니다. 데이터베이스 데이터 세트에 매핑하는 경우 이 스키마로 새 테이블을 생성하거나(저장 정책을 "덮어쓰기"로 설정) 기존 테이블에 새 행을 삽입하고 필드를 기존 스키마에 매핑하도록 선택할 수 있습니다.
 
-매핑 테이블에서 다중 선택을 사용하여 클릭 한 번으로 여러 열을 연결하거나, 여러 열의 연결을 해제하거나, 여러 행을 동일한 열 이름에 매핑할 수 있습니다.
+매핑 테이블에 한 번의 클릭을 사용 하 여 여러 열을 연결, 여러 열을 사용 중인 또는 여러 행을 동일한 열 이름을 매핑할 다중 선택에 사용할 수 있습니다.
+
+항상 들어오는 필드 집합을 수행 하 고으로 대상에 매핑할 수 하려는 경우-"스키마 드리프트 허용" 설정을 인 합니다.
 
 ![필드 매핑](media/data-flow/multi1.png "여러 옵션")
 
 열 매핑을 다시 설정하려는 경우 "다시 매핑" 단추를 눌러 매핑을 다시 설정합니다.
-
-![연결](media/data-flow/maxcon.png "연결")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>ADF V2 GA 버전의 싱크 변환 업데이트
 
 ![싱크 옵션](media/data-flow/sink1.png "싱크 1")
 
@@ -65,7 +54,7 @@ Azure Storage Blob 또는 Data Lake 싱크 형식의 경우, 변환된 데이터
 
 * 폴더를 선택 취소합니다. ADF는 해당 대상 폴더에 대상 파일을 쓰기 전에 싱크 폴더 콘텐츠를 자릅니다.
 
-* 파일 이름 옵션
+## <a name="file-name-options"></a>파일 이름 옵션
 
    * Default: Spark에서 PART 기본값에 따라 파일 이름을 지정하도록 허용
    * 패턴 출력 파일의 이름 입력
@@ -75,14 +64,19 @@ Azure Storage Blob 또는 Data Lake 싱크 형식의 경우, 변환된 데이터
 > [!NOTE]
 > 파일 작업은 데이터 흐름 디버그 모드가 아닌 데이터 흐름 실행 작업을 실행할 때만 실행됩니다.
 
-SQL 싱크 형식을 사용하여 다음을 설정할 수 있습니다.
+## <a name="database-options"></a>데이터베이스 옵션
 
-* 테이블 자르기
-* 테이블 다시 만들기(삭제/만들기 수행)
-* 대량 데이터 로드의 일괄 처리 크기 청크에 대한 버킷 쓰기 수를 입력합니다.
+* Insert, update, delete, upsert를 허용 합니다. 삽입을 허용 하는 기본값은입니다. 삽입 행, 삽입 또는 업데이트 하려는 경우 해당 특정 작업에 대 한 태그 행에는 alter 행 변환의 먼저 추가 해야 합니다.
+* (대상 테이블에서 데이터 흐름을 완료 하기 전에 모든 행을 제거) 하는 테이블 자르기
+* 테이블을 (대상 테이블의 드롭/생성 데이터 흐름을 완료 하기 전에 수행)를 다시 만듭니다.
+* 대량 데이터 로드의 일괄 처리 크기 버킷 쓰기 청크로 숫자를 입력
+* 준비를 사용 합니다. 이 싱크 데이터 집합으로 Azure Data Warehouse에 로드 하는 경우 Polybase를 사용 하는 ADF 지시
 
-![필드 매핑](media/data-flow/sql001.png "SQL 옵션")
+![SQL 싱크 옵션](media/data-flow/alter-row2.png "SQL 옵션")
+
+> [!NOTE]
+> 를 업데이트 하거나 데이터베이스 싱크에에서 행을 삭제할 때 키 열을 설정 해야 합니다. 이 따라서 Alter 행이 DML에서 고유 행을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 흐름을 만들었으므로 이제 [파이프라인에 데이터 흐름 실행 작업](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview)을 추가합니다.
+데이터 흐름을 만들었으므로 이제 [파이프라인에 데이터 흐름 실행 작업](concepts-data-flow-overview.md)을 추가합니다.

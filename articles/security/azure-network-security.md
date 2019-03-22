@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121590"
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
@@ -90,7 +90,7 @@ VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로
 
 - **피어링:** 같은 Azure 지역 내의 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
 
- ![피어링](media/azure-network-security/azure-network-security-fig-3.png)
+  ![피어링](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet 간 연결:** 같거나 서로 다른 Azure 지역에서 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. 피어링과 달리, 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다.
 
@@ -318,19 +318,19 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 다음 섹션에서는 Azure Virtual Network에 대한 라우팅 테이블 및 경로의 현재 제한 사항을 나열합니다.
 
--   각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
+- 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
- -  **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결
+  -  **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결
 
- - **온-프레미스 경로:** Azure VPN 게이트웨이로
+  - **온-프레미스 경로:** Azure VPN 게이트웨이로
 
- -  **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+  -  **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 
--   사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
+- 사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 
--   가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
+- 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 
--   강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
+- 강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
 
 - ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다.
 
@@ -393,7 +393,7 @@ Application Gateway WAF는 탐지 또는 방지 모드에서 실행할 수 있�
 
 JSON 형식 로그는 고객의 저장소 계정으로 직접 이동됩니다. 이러한 로그를 완전히 제어하고 자체 보존 정책을 적용할 수 있습니다.
 
-[Azure 로그 통합](https://aka.ms/AzLog)을 사용하여 이러한 로그를 분석 시스템으로 수집할 수도 있습니다. 또한 WAF 로그는 [Log Analytics](../log-analytics/log-analytics-overview.md)와 통합되므로 Log Analytics를 사용하여 정교하고 세분화된 쿼리를 실행할 수 있습니다.
+[Azure 로그 통합](https://aka.ms/AzLog)을 사용하여 이러한 로그를 분석 시스템으로 수집할 수도 있습니다. 또한 WAF 로그와 통합 되 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 정교 하 고 세분화 된 쿼리를 실행 하려면 Azure Monitor 로그를 사용할 수 있습니다.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure WAF(웹 애플리케이션 방화벽)
 
@@ -507,7 +507,7 @@ Azure는 네트워크 보안 이벤트를 모니터링하고, 예방하고, 검�
 
 -   네트워크 리소스 수준 모니터링
 
--   Log Analytics
+-   Azure Monitor 로그
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -597,17 +597,17 @@ Network Watcher는 [진단 로그](https://docs.microsoft.com/azure/network-watc
 
 #### <a name="diagnostic-logs"></a>진단 로그
 
-정기적이고 자동적인 이벤트가 네트워크 리소스에서 만들어지고 저장소 계정에 기록되어 이벤트 허브 또는 Log Analytics로 전송됩니다. 이러한 로그는 리소스 상태에 대한 정보를 제공하며, Power BI 및 Log Analytics와 같은 도구에서 볼 수 있습니다. 진단 로그를 보는 방법을 알아보려면 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)를 방문하세요.
+정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 이벤트 허브로 전송 되는 저장소 계정에 로그인 하거나 Azure Monitor를 기록 합니다. 이러한 로그는 리소스 상태에 대한 정보를 제공하며, Power BI 및 Azure Monitor 로그와 같은 도구에서 이러한 로그를 볼 수 있습니다. 진단 로그를 보는 방법에 알아보려면 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)합니다.
 
 진단 로그는 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), 경로 및 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)에서 사용할 수 있습니다.
 
 Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진단 로깅을 지원하는 모든 네트워킹 리소스가 포함됩니다. 이 보기에서 네트워킹 리소스를 빠르고 편리하게 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 클라우드 및 온-프레미스 환경을 모니터링하여 가용성 및 성능을 유지하는 Azure의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
+[Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 는 클라우드를 모니터링 하 고 온-프레미스 환경의 해당 가용성 및 성능을 유지 하는 Azure의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
 
-Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔루션을 제공합니다.
+Azure Monitor 로그는 네트워크 모니터링에 대 한 다음 솔루션을 제공 합니다.
 
 -   NPM(네트워크 성능 모니터)
 
@@ -627,7 +627,7 @@ Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔�
 -   다중 계층 애플리케이션의 다양한 계층을 호스팅하는 서브넷.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Log Analytics의 Azure Application Gateway 분석
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure Monitor 로그에서 azure application gateway 분석
 
 Application Gateway에는 다음 로그가 지원됩니다.
 
@@ -641,7 +641,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 -   5분 처리량
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Log Analytics의 Azure 네트워크 보안 그룹 분석
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Azure Monitor 로그에서 azure 네트워크 보안 그룹 분석
 
 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)에는 다음 로그가 지원됩니다.
 
@@ -652,7 +652,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 ## <a name="next-steps"></a>다음 단계
 다음과 같은 심층적인 일부 보안 항목을 참조하여 보안에 대한 자세한 내용을 확인할 수 있습니다.
 
--   [NSG(네트워크 보안 그룹)에 대한 Log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [네트워크 보안 그룹 (Nsg)에 대 한 azure Monitor 로그](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [클라우드 중단을 유도하는 네트워킹 혁신](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

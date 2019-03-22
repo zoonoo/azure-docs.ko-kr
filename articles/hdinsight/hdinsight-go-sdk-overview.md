@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769321"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224790"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 관리 SDK 미리 보기
 
@@ -71,7 +71,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Azure Portal을 통해 HDInsight Cluster를 만드는 등 다른 함수를 사용하여 HDInsight Resource Provider를 등록하지 않은 경우, 이를 먼저 수행해야 인증할 수 있습니다. 이 작업은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 다음 명령을 실행하여 수행할 수 있습니다.
+> 경우 등록 하지 않은 이미 HDInsight 리소스 공급자를 다른 함수로 (같은 Azure portal 통해 HDInsight 클러스터를 만들어)를 인증할 수 전에 되 면이 작업을 수행 해야 합니다. 이 작업은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 다음 명령을 실행하여 수행할 수 있습니다.
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

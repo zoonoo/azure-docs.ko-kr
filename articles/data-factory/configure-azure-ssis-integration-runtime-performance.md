@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989085"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576874"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -95,7 +95,7 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. Standard_D1_v2 노드의 경우 노드당 1-4개의 병렬 실행이 지원되며, 다른 모든 유형의 노드의 경우 노드당 1-8개의 병렬 실행이 지원됩니다.
 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
 
-| 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
+| 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |

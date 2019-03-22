@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961190"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244913"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Windows Server 및 Linux의 Azure 및 독립 실행형 Service Fabric 클러스터 비교
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -33,7 +33,7 @@ Azure에서는 클러스터의 작업 및 관리를 더 용이하고 안정적�
 * **Azure Resource Manager:** Azure Resource Manager를 사용하면 클러스터에서 사용하는 모든 리소스를 하나의 단위로 쉽게 관리할 수 있기 때문에 비용 추적 및 청구가 간소화됩니다.
 * **Azure 리소스로서의 Service Fabric 클러스터** Service Fabric 클러스터는 Azure 리소스이므로 Azure의 다른 리소스와 같이 모델링할 수 있습니다.
 * **Azure 인프라와의 통합** 서비스 패브릭은 OS, 네트워크 및 그 밖에 애플리케이션의 가용성 및 안정성을 개선하기 위한 업그레이드에 맞게 기본 Azure 인프라를 조정합니다.  
-* **진단:** Azure에서는 Azure 진단과 Log Analytics가 통합됩니다.
+* **진단:** Azure에서 Azure 진단 사용 하 여 통합을 제공 하 고 Azure Monitor 기록 합니다.
 * **자동 크기 조정:** Azure의 클러스터는 Virtual Machine 확장 집합으로 인해 자동 크기 조정 기능이 기본적으로 제공됩니다. 온-프레미스 및 다른 클라우드 환경에서는 사용자 고유 자동 크기 조정 기능을 빌드하거나 서비스 패브릭에서 클러스터 크기 조정을 위해 제공하는 API를 사용하여 수동으로 조정해야 합니다.
 
 ## <a name="benefits-of-standalone-clusters"></a>독립 실행형 클러스터의 이점

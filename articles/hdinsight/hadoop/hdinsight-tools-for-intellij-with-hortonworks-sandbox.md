@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118326"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -53,20 +53,20 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
    1. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
    2. **빌드 도구** 목록에서 시나리오에 따라 다음 중 하나를 선택합니다.
 
-    * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
-    * **SBT**: 종속성 관리 및 Scala 프로젝트에 대한 빌드의 경우
+      * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
+      * **SBT**: 종속성 관리 및 Scala 프로젝트에 대한 빌드의 경우
 
    ![새 프로젝트 대화 상자](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. **다음**을 선택합니다.
 3. 다음 **새 프로젝트** 대화 상자에서 다음 단계를 완료합니다.
 
-    1. **프로젝트 이름** 상자에 프로젝트 이름을 입력합니다.
-    2. **프로젝트 위치** 상자에 프로젝트 위치를 입력합니다.
-    3. **프로젝트 SDK** 드롭다운 목록 옆의 **새로 만들기**를 선택하고 **JDK**를 선택한 다음 Java JDK 버전 1.7 이상의 폴더를 지정합니다. Spark 2.x 클러스터에 대해 **Java 1.8**을 선택합니다. Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다. 기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
-    4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
+   1. **프로젝트 이름** 상자에 프로젝트 이름을 입력합니다.
+   2. **프로젝트 위치** 상자에 프로젝트 위치를 입력합니다.
+   3. **프로젝트 SDK** 드롭다운 목록 옆의 **새로 만들기**를 선택하고 **JDK**를 선택한 다음 Java JDK 버전 1.7 이상의 폴더를 지정합니다. Spark 2.x 클러스터에 대해 **Java 1.8**을 선택합니다. Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다. 기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
+   4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
     
-    ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. **마침**을 선택합니다.

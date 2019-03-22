@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857117"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213979"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -28,7 +28,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../azure-monitor/platform/data-collection.md)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. 통해 메트릭에 액세스 하거나 할 수 있습니다 합니다 [Azure portal](https://portal.azure.com), 또는 Azure Monitor Api (REST 및.NET) 및 Azure Monitor 로그 및 Event Hubs 같은 분석 솔루션 사용 합니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../azure-monitor/platform/data-collection.md)을 참조하세요.
 
 메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)에서 구성합니다.
 
@@ -46,7 +46,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
+Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석용 Azure Monitor 로그로 메트릭 데이터를 스트리밍할 경우에 Azure Monitor 로그에 청구 됩니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -61,11 +61,11 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+| 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ### <a name="user-errors"></a>사용자 오류
 
@@ -79,18 +79,18 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
-| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+|들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
+|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
 

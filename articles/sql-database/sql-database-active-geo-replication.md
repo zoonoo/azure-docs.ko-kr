@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995066"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295252"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>활성 지역 복제를 사용하여 읽기 가능한 보조 데이터베이스 만들기
+# <a name="creating-and-using-active-geo-replication"></a>만들기 및 활성 지역 복제를 사용 합니다.
 
 활성 지역 복제는 동일하거나 다른 데이터 센터(Azure 지역)의 SQL Database 서버에 개별 데이터베이스의 읽기 가능한 보조 데이터베이스를 만들 수 있는 Azure SQL Database 기능입니다.
 
@@ -52,9 +52,6 @@ ms.locfileid: "55995066"
 > [!IMPORTANT]
 > 장애 조치(failover) 전에 주 데이터베이스의 중요한 변경 내용이 보조 데이터베이스에 복제되도록 보장하려면 동기화를 강제 적용하여 중요한 변경 내용(예: 암호 업데이트)이 복제되도록 할 수 있습니다. 강제 동기화는 모든 커밋된 트랜잭션이 복제될 때까지 호출 스레드를 차단하므로 성능에 영향을 주게 됩니다. 자세한 내용은 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync)를 참조하세요. 주 데이터베이스와 지역 보조 데이터베이스 간의 복제 지연을 모니터링하려면 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 참조하세요.
 
-
-
-
 다음 그림은 미국 중북부 지역에 주 데이터베이스, 미국 중남부 지역에 보조 데이터베이스가 구성된 활성 지역 복제의 예입니다.
 
 ![지역에서 복제 관계](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
@@ -72,7 +69,7 @@ ms.locfileid: "55995066"
 
 - **자동 비동기 복제**
 
- 보조 데이터베이스는 기존 데이터베이스에 추가하는 방법으로만 만들 수 있습니다. 보조 데이터베이스는 모든 Azure SQL Database 서버에 만들 수 있습니다. 한번 만들면 보조 데이터베이스는 주 데이터베이스에서 복사된 데이터로 채워집니다. 이 프로세스를 시드라고 합니다. 보조 데이터베이스가 생성 및 시드되면 주 데이터베이스에 대한 업데이트가 보조 데이터베이스에 자동으로 비동기적으로 복사됩니다. 비동기 복제에서는 트랜잭션이 보조 데이터베이스에 복제되기 전에 주 데이터베이스에 커밋됩니다.
+  보조 데이터베이스는 기존 데이터베이스에 추가하는 방법으로만 만들 수 있습니다. 보조 데이터베이스는 모든 Azure SQL Database 서버에 만들 수 있습니다. 한번 만들면 보조 데이터베이스는 주 데이터베이스에서 복사된 데이터로 채워집니다. 이 프로세스를 시드라고 합니다. 보조 데이터베이스가 생성 및 시드되면 주 데이터베이스에 대한 업데이트가 보조 데이터베이스에 자동으로 비동기적으로 복사됩니다. 비동기 복제에서는 트랜잭션이 보조 데이터베이스에 복제되기 전에 주 데이터베이스에 커밋됩니다.
 
 - **읽기 가능한 보조 데이터베이스**
 
@@ -110,7 +107,7 @@ ms.locfileid: "55995066"
 
 - **자격 증명 및 방화벽 규칙의 동기화 유지**
 
-  지역에서 복제된 데이터베이스에 [데이터베이스 방화벽 규칙](sql-database-firewall-configure.md)을 사용할 것을 권장합니다. 데이터베이스 방화벽 규칙을 데이터베이스와 함께 복제하면 모든 보조 데이터베이스가 주 데이터베이스와 동일한 방화벽 규칙을 갖기 때문입니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
+사용 하는 것이 좋습니다 [데이터베이스 수준 방화벽 규칙 IP](sql-database-firewall-configure.md) 모든 보조 데이터베이스에는 주 데이터베이스와 동일한 IP 방화벽 규칙을 확인 하기 위해 데이터베이스를 사용 하 여 이러한 규칙을 복제할 수 있도록 지리적으로 복제 된 데이터베이스에 대 한 합니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>주 데이터베이스 업그레이드 또는 다운그레이드
 
@@ -119,12 +116,28 @@ ms.locfileid: "55995066"
 > [!NOTE]
 > 장애 조치 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운그레이드하지 않는 것이 좋습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
 
+> [!IMPORTANT]
+> 장애 조치 그룹에서 주 데이터베이스는 보조 데이터베이스를 먼저 더 높은 계층으로 확장 하지 않는 한 상위 계층으로 확장할 수 없습니다. 보조 데이터베이스의 크기를 조정 하기 전에 주 데이터베이스를 확장 하려는 경우 다음 오류가 발생할 수 있습니다.
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
+
 ## <a name="preventing-the-loss-of-critical-data"></a>중요한 데이터 손실 방지
 
 광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. **sp_wait_for_database_copy_sync** 호출은 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송될 때까지 호출 스레드를 차단합니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. **sp_wait_for_database_copy_sync**는 그 범위가 특정 연속 복사 링크로 한정됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync**는 장애 조치 후 데이터 손실을 방지하지만 읽기 액세스를 위한 전체 동기화를 보장하지 않습니다. **sp_wait_for_database_copy_sync** 프로시저 호출로 인한 지연은 심각할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라집니다.
+
+## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 모니터링
+
+RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열의 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 주 데이터베이스에서. 주 복제본에서 커밋 및 보조 복제본에서 지속형 트랜잭션 간의 초 지연 보여 줍니다. 예: 지연의 값은 1 초, 즉, 주 지금은 가동 중단의 영향을 받는 경우 장애 조치가 시작한을 1 초의 최신 transtions 저장 되지 않습니다. 
+
+즉, 보조 데이터베이스에서 읽을 수 있는 보조 데이터베이스에 적용 된 주 데이터베이스에서 변경 내용에 대해 지연 시간을 측정 하려면 비교 *last_commit* 주 복제본에서 동일한 값을 사용 하 여 보조 데이터베이스 시간 데이터베이스입니다.
+
+> [!NOTE]
+> 때로는 *replication_lag_sec* 주 데이터베이스에 주 데이터베이스는 현재 얼마나 보조가 알지 즉 NULL 값이 있습니다.   프로세스 다시 시작 해야 된 후 일반적으로 발생이 일시적인 현상일 수 있습니다. 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다.는 *replication_lag_sec* 오랜 시간에 대 한 NULL을 반환 합니다. 보조 데이터베이스 영구 연결 오류로 인해 주 데이터베이스와 통신할 수 없습니다를 나타냅니다. 도 간의 차이 일으킬 수 있는 조건이 있습니다 *last_commit* 커질 주 데이터베이스 및 보조 복제본에서 시간입니다. 예: 커밋 후 오랜 기간 동안 변경 하지 않고 주 복제본에서 설정 되는 경우 차이점 0를 빠르게 반환 하기 전에 큰 값까지 이동 합니다. 이러한 두 값 간의 차이 오랜 시간 동안 큰 유지 되 면 오류 조건을 고려 합니다.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
 
@@ -148,13 +161,17 @@ ms.locfileid: "55995066"
 
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+
 | Cmdlet | 설명 |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Azure SQL Database와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다. |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
+| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
+| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
+| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
+| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Azure SQL Database와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다. |
 |  | |
 
 > [!IMPORTANT]

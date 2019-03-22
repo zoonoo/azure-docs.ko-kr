@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010555"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
-다음 예제는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼 애플리케이션에서 사용자에게 전화 통화 값을 묻습니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시 된 것 처럼 응용 프로그램에서 전화 통화 값에 대 한 사용자를 묻습니다.
 
 ![Twilio 및 Java를 사용하는 Azure 통화 양식][twilio_java]
 
@@ -162,7 +162,7 @@ ms.locfileid: "52426896"
     </body>
     </html>
 
-전화 걸기와 함께, makecall.jsp는 Twilio 엔드포인트, API 버전 및 통화 상태를 표시합니다. 다음 스크린샷에 예가 있습니다.
+전화 걸기와 함께, makecall.jsp는 Twilio 엔드포인트, API 버전 및 통화 상태를 표시합니다. 예로 다음 스크린샷과 같습니다.
 
 ![Twilio 및 Java를 사용하는 Azure 통화 응답][twilio_java_response]
 
@@ -173,7 +173,7 @@ ms.locfileid: "52426896"
 2. **startup.cmd** 를 수정하여 TwilioCloud WAR의 압축을 풉니다.
 3. 계산 에뮬레이터에 대해 애플리케이션을 컴파일합니다.
 4. 계산 에뮬레이터에서 배포를 시작합니다.
-5. 브라우저를 열고 **http://localhost:8080/TwilioCloud/callform.jsp**를 실행합니다.
+5. 브라우저를 열고 실행 `http://localhost:8080/TwilioCloud/callform.jsp`합니다.
 6. 양식에 값을 입력하고 **Make this call**을 클릭한 다음 makecall.jsp의 결과를 확인합니다.
 
 Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name*의 값 대체).
@@ -181,14 +181,14 @@ Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴�
 ## <a name="next-steps"></a>다음 단계
 이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예: 
 
-* 웹 양식을 사용하는 대신, Azure 저장소 Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 저장소 Blob 사용에 대한 내용은 [Java에서 Blob 저장소 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
+* 웹 양식을 사용하는 대신, Azure 저장소 Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
 * makecall.jsp에서 값을 하드 코딩하는 대신, **RoleEnvironment.getConfigurationSettings** 를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. **RoleEnvironment** 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용][azure_runtime_jsp] 및 Azure 서비스 런타임 패키지 설명서([http://dl.windowsazure.com/javadoc][azure_javadoc])를 참조하세요.
 * makecall.jsp 코드는 Twilio 제공 URL인 [https://twimlets.com/message][twimlet_message_url]를 **Url** 변수에 할당합니다. 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환되는 TwiML에는 통화 수신자에게 말하는 텍스트에 나타나는 **&lt;Say&gt;** 동사가 포함될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml]에서, **&lt;Say&gt;** 및 기타 Twilio 동사에 대한 정보는 [https://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
 * [https://www.twilio.com/docs/security][twilio_docs_security]에서 Twilio 보안 지침을 읽어보세요.
 
 Twilio에 대한 추가 정보는 [https://www.twilio.com/docs][twilio_docs]를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]
 * [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]
 

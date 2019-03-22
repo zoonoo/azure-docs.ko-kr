@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002194"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
 기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 가상 네트워크 및 서브넷이 만들어집니다. *Kubenet*을 사용하면 노드는 가상 네트워크 서브넷의 IP 주소를 얻습니다. 그런 다음, NAT(Network Address Translation)이 노드에서 구성되며 pod가 노드 IP 뒤에 “숨겨진” IP 주소를 받습니다. 이 방법을 사용하면 네트워크 공간에서 pod가 사용하도록 예약해야 하는 IP 주소의 수가 줄어듭니다.
 
-[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 다시 빌드해야 할 수 있습니다.
+[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 다시 빌드해야 할 수 있습니다.
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
@@ -64,7 +64,7 @@ AKS 클러스터에서 노드당 최대 Pod 수는 110개입니다. 노드당 *�
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | 예(최대: 110개) |
 | Resource Manager 템플릿 | 110 | 30 | 예(최대: 110개) |
-| 포털 | 110 | 30 | 아니요 |
+| 포털 | 110 | 30 | 아닙니다. |
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 
@@ -139,11 +139,11 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 * *내 클러스터 서브넷에 VM을 배포할 수 있나요?*
 
-   아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 가상 네트워크의 다른 서브넷에 배포할 수 있습니다.
+  아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 가상 네트워크의 다른 서브넷에 배포할 수 있습니다.
 
 * *Pod별 네트워크 정책을 구성할 수 있나요?*
 
-   아니요. Pod별 네트워크 정책은 현재 지원되지 않습니다.
+  Kubernetes 네트워크 정책은 현재 AKS에서 미리 보기 기능으로 사용할 수입니다. 시작 하려면 참조 [AKS에 네트워크 정책을 사용 하 여 pod 간에 트래픽을 보호][network-policy]합니다.
 
 * *구성 가능한 노드로 배포할 수 있는 Pod의 최대 수는 얼마나 되나요?*
 
@@ -201,3 +201,4 @@ AKS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

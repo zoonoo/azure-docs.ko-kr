@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3258f4d36d80c2a501e4ceba3b428128fc3f781b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201010"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -56,7 +56,7 @@ ms.locfileid: "55816444"
     - **도구**: HDInsight 관련 도구에 대한 도움말 정보입니다.
 
 - **설정 메뉴**  
-  - **클러스터 크기**: 클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
+  - **클러스터 크기**: 클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)을 참조하세요.
   - **할당량 한도**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
   - **SSH + 클러스터 로그인**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
   - **Data Lake Storage Gen1**: Data Lake Storage Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
@@ -71,9 +71,9 @@ ms.locfileid: "55816444"
 
 - **모니터링 메뉴**
   - **경고**: 경고와 작업을 관리합니다.
-  - **메트릭**: Azure Log Analytics에서 클러스터 메트릭을 모니터링합니다.
+  - **메트릭**: Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.
   - **진단 설정**: 진단 메트릭을 저장하는 위치에 대한 설정입니다.
-  - **Operations Management Suite**:  Azure OMS(Operations Management Suite) 및 Azure Log Analytics에서 클러스터를 모니터링합니다.
+  - **Operations Management Suite**:  Azure Operations Management Suite (OMS) 및 Azure Monitor 로그에서 클러스터를 모니터링 합니다.
 
 - **지원 + 문제 해결 메뉴**
   - **리소스 상태**: [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.
@@ -186,7 +186,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
 * 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
-* Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
+* Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 * Azure 클래식 CLI 사용 [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 * HDInsight .NET SDK 사용 [Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
@@ -250,7 +250,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | Name |“SSH 암호 변경” |
+   | 이름 |“SSH 암호 변경” |
    | Bash 스크립트 URI |Changepassword.sh 파일에 대한 URI |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자, Zookeeper 등) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |

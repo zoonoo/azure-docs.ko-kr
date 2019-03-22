@@ -5,16 +5,16 @@ description: Custom Translator에서 설정을 관리하고, 작업 영역을 �
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227083"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766804"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -45,7 +45,7 @@ Custom Translator 설정 페이지 내에서 새 작업 영역을 만들고, 작
     ![구독 키를 추가하는 방법](media/how-to/how-to-add-subscription-key.png)
 
 3. 대화 상자에서 번역기 구독에 대한 키를 입력한 다음, “추가” 단추를 클릭합니다.
- 
+
     ![구독 키를 추가하는 방법](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  키를 추가한 후에는 언제든지 키를 수정하거나 삭제할 수 있습니다.
 
@@ -53,29 +53,29 @@ Custom Translator 설정 페이지 내에서 새 작업 영역을 만들고, 작
 
 ## <a name="manage-your-workspace"></a>작업 영역 관리
 
-작업 영역이란 사용자 지정 번역 시스템을 구성하고 빌드하기 위한 작업 구축에 대 한 작업 공간입니다. 적업 영역은 여러 프로젝트, 모델 및 문서를 포함할 수 있습니다. 
+작업 영역이란 사용자 지정 번역 시스템을 구성하고 빌드하기 위한 작업 구축에 대 한 작업 공간입니다. 적업 영역은 여러 프로젝트, 모델 및 문서를 포함할 수 있습니다.
 
-작업의 다른 부분을 다른 사람들과 공유해야 하는 경우 여러 작업 영역을 만드는 것이 유용할 수 있습니다. 
+작업의 다른 부분을 다른 사람들과 공유해야 하는 경우 여러 작업 영역을 만드는 것이 유용할 수 있습니다.
 
 ## <a name="create-a-new-workspace"></a>새 작업 영역 만들기
 
 1.  작업 영역 “설정” 페이지로 이동합니다.
 2.  “새 작업 영역 만들기” 섹션에서 “새 작업 영역” 단추를 클릭합니다.
-    
+
     ![새 작업 영역 만들기](media/how-to/create-new-workspace.png)
 
 4.  대화 상자에서 새 작업 영역의 이름을 입력합니다.
 5.  “만들기”를 클릭합니다.
-    
+
     ![새 작업 영역 만들기 대화 상자](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>작업 영역 공유
 
-Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유해야 하는 경우 작업 영역을 다른 사용자와 공유할 수 있습니다. 
+Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유해야 하는 경우 작업 영역을 다른 사용자와 공유할 수 있습니다.
 
 1.  작업 영역 “설정” 페이지로 이동합니다.
 2.  “공유 설정” 섹션에서 “공유” 단추를 클릭합니다.
-    
+
     ![작업 영역 공유](media/how-to/share-workspace.png)
 
 3.  대화 상자에서 이 작업 영역을 공유할 이메일 주소의 목록을 쉼표로 구분하여 입력합니다. Custom Translator에 로그인하는 데 사용하는 이메일 주소를 공유해야 합니다. 그런 다음, 공유 권한의 적절한 수준을 선택합니다.
@@ -85,7 +85,7 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="sharing-permissions"></a>공유 권한
 
-1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있습니다. 
+1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있습니다.
 
 2.  **편집자:** 작업 영역의 편집자는 문서를 추가하고, 모델을 학습시키고, 문서 및 프로젝트를 삭제할 수 있습니다. 구독 키를 추가할 수는 있지만 작업 영역을 공유하는 사람을 수정하거나 작업 영역을 삭제하거나 작업 영역 이름을 변경할 수는 없습니다.
 

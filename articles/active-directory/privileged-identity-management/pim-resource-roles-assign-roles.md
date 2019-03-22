@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086193"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 할당
 
@@ -32,8 +32,8 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 - 보안 관리자
 - 보안 관리자 등
 
->[!NOTE]
-소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure 리소스용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
+> [!NOTE]
+> 소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure 리소스용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
 
 ## <a name="assign-a-role"></a>역할 할당
 

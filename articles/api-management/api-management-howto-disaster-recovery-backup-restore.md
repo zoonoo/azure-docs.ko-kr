@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968376"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728644"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -33,6 +33,8 @@ API Management 서비스를 호스트하는 지역에 영향을 주는 가용성
 >
 > 각 백업은 30일 후에 만료됩니다. 30일의 만료 기간이 만료된 후에 백업을 복원하려고 하면 `Cannot restore: backup expired` 메시지와 함께 복원이 실패합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>Azure 리소스 관리자 요청 인증
@@ -42,28 +44,28 @@ API Management 서비스를 호스트하는 지역에 영향을 주는 가용성
 
 Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작업은 다음 단계를 사용하여 Azure Active Directory에서 인증되어야 합니다.
 
-* 응용 프로그램을 Azure Active Directory 테넌트에 추가합니다.
-* 추가한 응용 프로그램에 대한 권한을 설정합니다.
+* 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
+* 추가한 애플리케이션에 대한 권한을 설정합니다.
 * Azure 리소스 관리자에 대한 요청을 인증하기 위한 토큰을 가져옵니다.
 
-### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
+### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory**의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
 
     > [!NOTE]
     > Azure Active Directory 기본 디렉터리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요.
-3. **새 응용 프로그램 등록**을 클릭합니다.
+3. **새 애플리케이션 등록**을 클릭합니다.
 
     **만들기** 창이 오른쪽에 나타납니다. 여기에 AAD 앱 관련 정보를 입력합니다.
-4. 응용 프로그램의 이름을 입력합니다.
-5. 응용 프로그램 형식에서 **네이티브**를 선택합니다.
-6. **리디렉션 URI**로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 응용 프로그램을 저장하려면 이 확인란을 클릭합니다.
+4. 애플리케이션의 이름을 입력합니다.
+5. 애플리케이션 형식에서 **네이티브**를 선택합니다.
+6. **리디렉션 URI**로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
 7. **만들기**를 클릭합니다.
 
-### <a name="add-an-application"></a>응용 프로그램 추가
+### <a name="add-an-application"></a>애플리케이션 추가
 
-1. 응용 프로그램을 만들면 **설정**을 클릭합니다.
+1. 애플리케이션을 만들면 **설정**을 클릭합니다.
 2. **필수 사용 권한**을 클릭합니다.
 3. **+추가**를 클릭합니다.
 4. **API 선택**을 누릅니다.
@@ -72,7 +74,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
     ![권한 추가](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. 새로 추가된 응용 프로그램 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
+7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
 9. **권한 부여**를 클릭합니다.
 
@@ -111,7 +113,7 @@ namespace GetTokenResourceManagerRequests
 
     ![엔드포인트][api-management-endpoint]
 2. **설정** 페이지로 이동하여 `{application id}`를 가져온 값으로 바꿉니다.
-3. `{redirect uri}`를 Azure Active Directory 응용 프로그램의 **리디렉션 URI** 탭에 있는 값으로 바꿉니다.
+3. `{redirect uri}`를 Azure Active Directory 애플리케이션의 **리디렉션 URI** 탭에 있는 값으로 바꿉니다.
 
     값이 지정되면 코드 예제에서는 다음 예제와 유사한 토큰을 반환해야 합니다.
 
@@ -207,7 +209,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> PowerShell *Backup-AzureRmApiManagement* 및 *Restore-AzureRmApiManagement* 명령을 통해 백업 및 복원 작업을 각각 수행할 수도 있습니다.
+> PowerShell을 사용 하 여 백업 및 복원 작업을 수행할 수도 있습니다 *백업 AzApiManagement* 하 고 *복원 AzApiManagement* 각각 명령입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

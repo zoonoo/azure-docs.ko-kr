@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311208"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225096"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 
@@ -55,18 +55,13 @@ Azure Storage 탐색기는 다음 버전의 macOS에서 지원됩니다.
 
 Azure Storage 탐색기는 다음 Linux 배포에서 지원됩니다.
 
-* Ubuntu 16.04 x64(권장)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure Storage 탐색기는 다른 배포에서 작동할 수도 있지만 위에 나열된 항목만 공식적으로 지원됩니다.
 
-또한 Linux에서 Azure Storage 탐색기를 실행하려면 다음 종속성/라이브러리가 설치되어 있어야 합니다.
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret(참고: libsecret-1.so.0이 시스템에서 사용 가능해야 합니다. 다른 버전의 libsecret을 설치한 경우 해당 .so 파일을 libsecret-1.so.0에 연결해 보십시오.)
-* libgconf-2-4
-* 최신 GCC
+Linux에서 Storage 탐색기를 설치 하는 자세한 도움말을 참조 하세요. 합니다 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)합니다.
 
 Azure Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포에 대한 특정 단계를 포함합니다.
 

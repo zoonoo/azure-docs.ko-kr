@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847266"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223481"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용 하는 Azure 가상 머신 확장에서 Azure 리소스에 대 한 관리 되는 id를 구성 합니다.
 
@@ -49,7 +49,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스 또는 수정된 리소스를 배포하는 기능을 제공합니다. 다음을 비롯한 로컬 및 포털 기반 템플릿 편집 및 배포에 여러 가지 옵션이 제공됩니다.
 
-   - [Azure Marketplace의 사용자 지정 템플릿](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
+   - 사용 하는 [Azure Marketplace에서 사용자 지정 템플릿을](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), 템플릿을 처음부터 만들거나 기존의 공통 기반으로 할 수 있는 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)합니다.
    - [원본 배포](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) 또는 [배포의 현재 상태](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)에서 템플릿을 내보내 기존 리소스 그룹에서 템플릿을 파생합니다.
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
    - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 템플릿을 만들고 배포합니다.  
@@ -71,29 +71,9 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    }
    ```
 
-3. (선택 사항) Azure 리소스 확장에 대한 가상 머신 확장 집합 관리 ID를 `extensionsProfile` 요소로 추가합니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  다음 구문을 사용합니다.
+> [!NOTE]
+> Azure 리소스 가상 머신 확장 집합에서 지정 하 여 확장에 대 한 관리 되는 id를 프로 비전 필요에 따라 수는 `extensionProfile` 템플릿의 요소입니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
-   >[!NOTE] 
-   > 다음 예제에서는 Windows 가상 머신 확장 집합 확장(`ManagedIdentityExtensionForWindows`)이 배포되고 있다고 가정합니다. 또한 `"name"` 및 `"type"` 요소에 `ManagedIdentityExtensionForLinux`를 대신 사용하여 Linux에 대해 구성할 수도 있습니다.
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. 완료되면 다음과 같은 모양으로 템플릿의 리소스 섹션에 다음 섹션을 추가해야 합니다.
 
@@ -112,6 +92,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -214,26 +195,8 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
    }
    ``` 
-
-2. (선택 사항) `extensionProfile` 요소 아래에 다음 항목을 추가하여 Azure 리소스 확장에 대한 관리 ID를 VMSS에 추가합니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다. 다음 구문을 사용합니다.
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> Azure 리소스 가상 머신 확장 집합에서 지정 하 여 확장에 대 한 관리 되는 id를 프로 비전 필요에 따라 수는 `extensionProfile` 템플릿의 요소입니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
 3. 완료되면 템플릿은 다음과 같이 표시됩니다.
    
@@ -257,6 +220,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -299,6 +263,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {

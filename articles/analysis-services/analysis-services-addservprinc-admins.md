@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5089083862f243a6a6847a58ac0777c52f978e73
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189731"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730225"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
@@ -42,7 +42,7 @@ ms.locfileid: "54189731"
 
 
 > [!NOTE]
-> AzureRm cmdlet을 사용하는 서버 작업에서, 스케줄러를 실행하는 서비스 사용자는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 리소스에 대한 **소유자**에도 속해야 합니다. 
+> Azure PowerShell cmdlet을 사용 하 여 서버 작업에 대 한 서비스 주체 실행 중인 스케줄러에도 속해 있어야 합니다 **소유자** 리소스에 대 한 역할 [azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)합니다. 
 
 ## <a name="related-information"></a>관련 정보
 

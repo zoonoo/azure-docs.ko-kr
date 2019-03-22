@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088692"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
@@ -102,8 +102,8 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 - **해결 방법**. 오류의 특정 원인을 찾으려면 Windows Installer 로그를 생성하고 검토합니다. 명령 프롬프트에서 로깅을 켤 수 있습니다. 예를 들어 다운로드한 설치 파일이 `SQLDataSyncAgent-2.0-x86-ENU.msi`인 경우 다음 명령줄을 사용하여 로그 파일을 생성하고 검사합니다.
 
-    -   설치 시: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-    -   제거 시: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - 설치 시: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - 제거 시: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     또한 Windows Installer에서 수행한 모든 설치에 대한 로깅을 켤 수 있습니다. Microsoft 기술 자료 문서 [Windows Installer 로깅을 설정하는 방법](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)은 Windows Installer에 대한 로깅을 켜기 위한 원클릭 솔루션을 제공합니다. 또한 로그의 위치도 제공합니다.
 
@@ -326,7 +326,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 문서를 참조하
         -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
--   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+-   모니터- [기록 하는 Azure Monitor를 사용 하 여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 -   동기화 스키마 업데이트
     -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](sql-database-update-sync-schema.md)

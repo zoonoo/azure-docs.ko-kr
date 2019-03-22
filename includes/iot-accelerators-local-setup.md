@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55147958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113940"
 ---
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
 
@@ -53,16 +53,16 @@ git submodule foreach git pull origin master
     ```
 
 1. **start.cmd** 스크립트를 실행합니다. 스크립트에서 다음 정보를 요구하는 메시지가 표시됩니다.
-    * 솔루션 이름
-    * 사용할 Azure 구독입니다.
-    * 사용할 Azure 데이터 센터의 위치
+   * 솔루션 이름
+   * 사용할 Azure 구독입니다.
+   * 사용할 Azure 데이터 센터의 위치
 
-    스크립트는 솔루션 이름을 사용하여 Azure에서 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용하는 Azure 리소스가 포함됩니다. 해당 리소스가 더 이상 필요하지 않으면 이 리소스 그룹을 삭제할 수 있습니다.
+     스크립트는 솔루션 이름을 사용하여 Azure에서 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용하는 Azure 리소스가 포함됩니다. 해당 리소스가 더 이상 필요하지 않으면 이 리소스 그룹을 삭제할 수 있습니다.
 
-    또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. Docker 컨테이너 또는 마이크로 서비스 프로젝트를 로컬로 시작하면 이러한 환경 변수에서 해당 구성 값을 읽습니다.
+     또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. Docker 컨테이너 또는 마이크로 서비스 프로젝트를 로컬로 시작하면 이러한 환경 변수에서 해당 구성 값을 읽습니다.
 
-    > [!TIP]
-    > 스크립트가 완료되면 **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env**라는 파일에 환경 변수를 저장합니다. 나중에 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+     > [!TIP]
+     > 스크립트가 완료되면 **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env**라는 파일에 환경 변수를 저장합니다. 나중에 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
 
 1. 명령줄 환경에서 나갑니다.
 

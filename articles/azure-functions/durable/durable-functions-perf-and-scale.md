@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138119"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286383"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -60,7 +60,7 @@ ms.locfileid: "58138119"
 
 ## <a name="storage-account-selection"></a>저장소 계정 선택
 
-지속형 함수에 사용되는 큐, 테이블 및 Blob는 구성된 Azure Storage 계정에 의해 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
+큐, 테이블 및 blob Durable Functions에서 사용 하는 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

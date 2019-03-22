@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3881026c1877059639b550f3d0342674b2f8b29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089814"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 Azure AD(Azure Active Directory) 테넌트에서 새 사용자를 추가하거나 기존 사용자를 삭제합니다.
@@ -37,17 +37,17 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
     ![새 사용자 추가, 사용자 정보가 있는 사용자 페이지](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
+   - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
 
-    - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com 
+   - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com 
     
-        사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](add-custom-domain.md)을 참조하세요.
+       사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](add-custom-domain.md)을 참조하세요.
 
-    - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](active-directory-users-profile-azure-portal.md)을 참조하세요.
+   - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](active-directory-users-profile-azure-portal.md)을 참조하세요.
 
-    - **그룹.** 원할 경우, 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다. 사용자를 그룹에 추가하는 방법에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
+   - **그룹.** 원할 경우, 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다. 사용자를 그룹에 추가하는 방법에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
 
-    - **디렉터리 역할.** 원할 경우, 사용자를 디렉터리 역할에 추가할 수 있습니다. 사용자를 전역 관리자로 할당하거나 Azure AD의 다른 관리자 역할 중 하나 이상에 할당할 수 있습니다. 역할 할당에 대한 자세한 내용은 [사용자에게 역할을 할당하는 방법](active-directory-users-assign-role-azure-portal.md)을 참조하세요.
+   - **디렉터리 역할.** 원할 경우, 사용자를 디렉터리 역할에 추가할 수 있습니다. 사용자를 전역 관리자로 할당하거나 Azure AD의 다른 관리자 역할 중 하나 이상에 할당할 수 있습니다. 역할 할당에 대한 자세한 내용은 [사용자에게 역할을 할당하는 방법](active-directory-users-assign-role-azure-portal.md)을 참조하세요.
 
 4. **암호** 상자에 제공된 자동 생성된 암호를 복사합니다. 초기 로그인 프로세스를 수행하려면 사용자에게 이 암호를 제공해야 합니다.
 

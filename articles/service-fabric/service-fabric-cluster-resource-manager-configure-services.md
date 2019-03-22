@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 55d75bb0bae4bf3feb370b7fdf4d80dc43bdc0ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054794"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736892"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric 서비스에 대한 클러스터 리소스 관리자 설정 구성
 Service Fabric 클러스터 리소스 관리자를 사용하면 개별적으로 명명된 모든 서비스를 관리하는 규칙을 세밀하게 제어할 수 있습니다. 명명된 각 서비스 인스턴스는 클러스터에서 할당되는 방식에 대한 규칙을 지정할 수 있습니다. 명명된 각 서비스는 해당 서비스에 대해 갖는 중요도를 포함하여 보고하려는 메트릭 집합도 정의할 수 있습니다. 서비스 구성은 세 가지 작업으로 구분됩니다.

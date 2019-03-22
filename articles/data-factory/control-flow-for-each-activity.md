@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092007"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
@@ -73,8 +73,8 @@ ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. �
 -------- | ----------- | -------------- | --------
 이름 | for-each 작업의 이름입니다. | 문자열 | 예
 형식 | **ForEach**로 설정되어야 합니다. | 문자열 | 예
-isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | BOOLEAN |  아니요. 기본값은 False입니다.
-batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). | 정수(최대값 50) |  아니요. 기본값은 20입니다.
+isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | BOOLEAN | 아니요. 기본값은 False입니다.
+batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). | 정수(최대값 50) | 아니요. 기본값은 20입니다.
 항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환)  | 예
 활동 | 실행할 작업 | 작업 목록 | 예
 
@@ -474,7 +474,7 @@ ForEach 작업에서는 여러 작업(예: 복사 및 웹 작업)에 대해 반�
 
 ## <a name="aggregating-outputs"></a>출력 집계
 
-__foreach__ 작업의 출력을 집계하려면 _Variable_s 및 _변수 추가_ 작업을 활용하세요.
+집계 출력에 __foreach__ 활동을 활용 하시기 바랍니다 _변수_ 하 고 _변수 추가_ 활동입니다.
 
 먼저, 파이프라인에서 `array` _변수_를 선언합니다. 그런 다음, 각 __foreach__ 루프 내에서 _변수 추가_ 작업을 호출합니다. 이후에 배열에서 집계를 검색할 수 있습니다.
 

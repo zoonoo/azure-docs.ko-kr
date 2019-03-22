@@ -1,22 +1,22 @@
 ---
-title: 쿼리 및 인덱싱을 위한 파티션 및 복제본 할당 - Azure Search
+title: Azure Search 확장에 대해 파티션과 복제본의 쿼리 및 인덱싱-
 description: Azure Search에서 파티션 및 복제본 컴퓨터 리소스를 조정하고 이 곳에서 각 리소스가 청구 가능한 검색 단위로 가격이 책정됩니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316117"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775325"
 ---
-# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search에서 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 할당
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>쿼리 및 인덱싱 작업에서 Azure Search에 대해 파티션과 복제본 확장
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
 
 리소스 구성은 [기본 계층](https://aka.ms/azuresearchbasic) 또는 [표준 계층](search-limits-quotas-capacity.md) 중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
@@ -26,8 +26,8 @@ ms.locfileid: "53316117"
 > [!Note]
 > 서비스를 삭제하면 해당 서비스에 있는 모든 것이 삭제됩니다. Azure Search에는 유지되는 검색 데이터를 백업하고 복원하는 기능이 없습니다. 기존 인덱스를 새 서비스에 다시 배포하려면 처음에 인덱스를 만들고 로드할 때 사용한 프로그램을 실행 해야 합니다. 
 
-## <a name="terminology-partitions-and-replicas"></a>용어: 파티션 및 복제본
-파티션 및 복제본은 검색 서비스를 지지하는 기본 리소스입니다.
+## <a name="terminology-replicas-and-partitions"></a>용어: 복제본 및 파티션
+복제본 및 파티션 검색 서비스를 지지 하는 주요 리소스가 있습니다.
 
 | 리소스 | 정의 |
 |----------|------------|
@@ -38,22 +38,67 @@ ms.locfileid: "53316117"
 > 복제본에서 실행되는 인덱스를 직접 조작하거나 관리할 방법은 없습니다. 모든 복제본에서 각 인덱스의 사본 하나가 서비스 아키텍처의 일부입니다.
 >
 
-## <a name="how-to-allocate-partitions-and-replicas"></a>파티션 및 복제본을 할당하는 방법
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>복제본 및 파티션의 할당 하는 방법
 Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성된 최소 수준의 리소스가 할당됩니다. 이것을 지원하는 계층에 대해 저장소 및 I/O가 더 필요하거나 쿼리 볼륨을 늘리거나 성능을 높이기 위해 복제본을 더 추가하는 경우 파티션을 늘려 계산 리소스를 증분 조정할 수 있습니다. 단일 서비스에는 모든 워크로드(인덱싱 및 쿼리)를 처리할 만큼 충분한 리소스가 있어야 합니다. 여러 서비스 간에 워크로드를 세분화할 수 없습니다.
 
-복제본 및 파티션의 할당을 늘리거나 변경하려면 Azure Portal을 사용하는 것이 좋습니다. 포털은 최대 제한 미만으로 유지하는 허용 가능한 조합에 대해 강제로 한도를 적용합니다.
+복제본 및 파티션의 할당을 늘리거나 변경하려면 Azure Portal을 사용하는 것이 좋습니다. 포털에는 최대 제한 미만으로 유지 하는 허용 가능한 조합에 대 한 제한 적용 합니다. 스크립트 또는 코드 기반 프로 비전 방법은 필요한 경우는 [Azure PowerShell](search-manage-powershell.md) 또는 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) 대체 솔루션입니다.
+
+일반적으로 검색 애플리케이션에는 파티션보다 더 많은 복제본이 필요하며 특히 서비스 작업이 쿼리 워크로드를 중심으로 하는 경우 더욱 그렇습니다. [고가용성](#HA) 섹션에 그 이유가 설명되어 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인하고 검색 서비스를 선택합니다.
-2. **설정**에서 **크기 조정** 블레이드를 열고 슬라이더를 사용하여 파티션 및 복제본의 수를 늘리거나 줄입니다.
+2. **설정을**오픈를 **확장** 복제본 및 파티션의 수정 하는 페이지입니다. 
 
-스크립트 기반 또는 코드 기반 프로비전 접근 방식이 필요한 경우 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services)가 포털의 대안입니다.
+   다음 스크린샷은 표준 서비스 복제본 및 파티션 하나를 사용 하 여 프로 비전 합니다. 맨 아래에서 수식을 검색 단위의 사용된 (1)를 나타냅니다. 단가 $100 (실제 가격 없습니다) 인 경우이 서비스를 실행 하는 월간 비용 것 100 달러 평균입니다.
 
-일반적으로 검색 응용 프로그램에는 파티션보다 더 많은 복제본이 필요하며 특히 서비스 작업이 쿼리 워크로드를 중심으로 하는 경우 더욱 그렇습니다. [고가용성](#HA) 섹션에 그 이유가 설명되어 있습니다.
+   ![현재 값을 표시 하는 크기 조정 페이지](media/search-capacity-planning/1-initial-values.png "현재 값을 표시 하는 크기 조정 페이지")
+
+3. 슬라이더를 사용 하 여 파티션 수를 늘리거나 합니다. 맨 아래에서 수식을 검색 단위의 수를 사용 하는 것을 나타냅니다.
+
+   두 개의 복제본을 사용 하 여 용량을 두 배로 증가 하 고 각 분할 하는이 예제. 을 검색 단위 수를 확인 합니다. 네 개의 청구 수식 partitions (2 x 2)를) 곱한 복제본 이므로. 서비스를 실행 하는 비용은 두 배가 이상 용량을 두 배로 높일 경우. 검색 단위 비용은 $100 인 경우 새 월별 청구서는 이제 400 달러 것입니다.
+
+   현재 기본 각 계층의 단위 비용에 대 한 참조를 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)합니다.
+
+   ![추가 복제본 및 파티션의](media/search-capacity-planning/2-add-2-each.png "복제본 및 파티션 추가")
+
+3. 클릭 **저장할** 변경을 확인 합니다.
+
+   ![확장 및 대금 청구 변경 내용을 확인](media/search-capacity-planning/3-save-confirm.png "확장 및 대금 청구 변경 내용 확인")
+
+   용량에서 변경은 완료 하는 데 몇 시간. 프로세스가 시작 된 후 복제본 및 파티션 조정에 대 한 실시간 모니터링 하지는 취소할 수 없습니다. 그러나 변경 내용을 진행 되는 동안 다음과 같은 메시지가 표시 남아 있습니다.
+
+   ![포털에서 상태 메시지](media/search-capacity-planning/4-updating.png "포털에서 상태 메시지")
+
 
 > [!NOTE]
 > 서비스가 프로비전된 후에는 상위 SKU로 업그레이드할 수 없습니다. 새 계층에서 검색 서비스를 만들고 인덱스를 다시 로드해야 합니다. 서비스 프로비전에 대한 도움말은 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
 >
 >
+
+<a id="chart"></a>
+
+## <a name="partition-and-replica-combinations"></a>파티션 및 복제본 조합
+
+기본 서비스는 정확히 한 개의 파티션과 최대 세 개의 복제본을 가질 수 있으며 최대 세 개의 SU로 제한됩니다. 유일하게 조정할 수 있는 리소스는 복제본입니다. 쿼리에서 고가용성을 위해 최소 두 개의 복제본이 필요합니다.
+
+모든 표준 서비스 복제본 및 파티션의 36 개의 SU 제한에 따라 다음과 같은 조합을 가질 수 있습니다. 
+
+|   | **파티션 1개** | **파티션 2개** | **파티션 3개** | **파티션 4개** | **파티션 6개** | **파티션 12개** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **복제본 1개.** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
+| **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
+| **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
+| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
+| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **복제본 12개** |12 SU |24 SU |36 SU |N/A |해당 사항 없음 |N/A |
+
+SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
+
+> [!NOTE]
+> 복제본 및 파티션 수는 12를 고르게 나눌 수 있는 값입니다(특히 1, 2, 3, 4, 6, 12). Azure Search에서 각 인덱스를 모든 파티션 사이에 고르게 분할할 수 있도록 12개의 부분으로 미리 나누기 때문입니다. 예를 들어, 서비스에 파티션이 세 개 있는 상태에서 인덱스를 하나 만들 경우 각 파티션에는 분할된 인덱스가 4개가 포함됩니다. Azure Search에서 인덱스를 분할하는 방법은 구현에 관한 세부 정보이며 이후 릴리스에서 변경될 수 있습니다. 지금은 그 숫자가 12이지만 이후에 12가 아닌 값으로 바뀔 수도 있습니다.
+>
+
 
 <a id="HA"></a>
 
@@ -89,36 +134,11 @@ Azure Search의 고가용성은 인덱스 다시 작성을 포함하지 않는 �
 워크로드에 대한 QPS를 측정하는 지침은 [Azure Search 성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조하세요.
 
 ## <a name="increase-indexing-performance-with-partitions"></a>파티션으로 인덱싱 성능 향상
-거의 실시간으로 진행되는 데이터 새로 고침을 필요로 하는 검색 응용 프로그램은 복제본보다 비례적으로 더 많은 파티션이 필요합니다. 파티션을 추가하면 많은 수의 계산 리소스로 읽기/쓰기 작업이 분산됩니다. 또한 추가 인덱스와 문서를 저장하기 위한 더 많은 디스크 공간이 보장됩니다.
+거의 실시간으로 진행되는 데이터 새로 고침을 필요로 하는 검색 애플리케이션은 복제본보다 비례적으로 더 많은 파티션이 필요합니다. 파티션을 추가하면 많은 수의 계산 리소스로 읽기/쓰기 작업이 분산됩니다. 또한 추가 인덱스와 문서를 저장하기 위한 더 많은 디스크 공간이 보장됩니다.
 
 인덱스가 클수록 쿼리하는 데 더 오래 걸립니다. 따라서 파티션을 증분 방식으로 증가시킬 때마다 더 작지만 비례적으로 복제본도 늘려야 합니다. 쿼리의 복잡성과 쿼리 용량은 쿼리 실행이 얼마나 빠르게 진행되는지에 영향을 줍니다.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>기본 계층: 파티션 및 복제본 조합
-기본 서비스는 정확히 한 개의 파티션과 최대 세 개의 복제본을 가질 수 있으며 최대 세 개의 SU로 제한됩니다. 유일하게 조정할 수 있는 리소스는 복제본입니다. 쿼리에서 고가용성을 위해 최소 두 개의 복제본이 필요합니다.
 
-<a id="chart"></a>
+## <a name="next-steps"></a>다음 단계
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>표준 계층: 파티션 및 복제본 조합
-이 테이블은 모든 표준 계층에 대해 36개의 SU 제한에 따라 복제본 및 파티션의 조합을 지원하는 데 필요한 SU를 보여 줍니다.
-
-|   | **파티션 1개** | **파티션 2개** | **파티션 3개** | **파티션 4개** | **파티션 6개** | **파티션 12개** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **복제본 1개.** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
-| **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
-| **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 없음 |
-| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 없음 |
-| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |해당 없음 |
-| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |해당 없음 |해당 없음 |
-
-SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
-
-> [!NOTE]
-> 복제본 및 파티션 수는 12를 고르게 나눌 수 있는 값입니다(특히 1, 2, 3, 4, 6, 12). Azure Search에서 각 인덱스를 모든 파티션 사이에 고르게 분할할 수 있도록 12개의 부분으로 미리 나누기 때문입니다. 예를 들어, 서비스에 파티션이 세 개 있는 상태에서 인덱스를 하나 만들 경우 각 파티션에는 분할된 인덱스가 4개가 포함됩니다. Azure Search에서 인덱스를 분할하는 방법은 구현에 관한 세부 정보이며 이후 릴리스에서 변경될 수 있습니다. 지금은 그 숫자가 12이지만 이후에 12가 아닌 값으로 바뀔 수도 있습니다.
->
->
-
-## <a name="billing-formula-for-replica-and-partition-resources"></a>복제본 및 파티션 리소스에 대한 청구 수식
-특정 조합에 사용되는 SU 수를 계산하는 수식은 복제본과 파티션의 곱(P X R = SU)입니다. 예를 들어 복제본 3개에 파티션 3개를 곱하여 SU 9개가 청구됩니다.
-
-SU당 비용은 계층에 따라 결정됩니다. 단위당 청구 요금은 표준보다 기본이 적습니다. 각 계층에 대한 요금은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있습니다.
+[Azure Search에 대 한 가격 책정 계층 선택](search-sku-tier.md)

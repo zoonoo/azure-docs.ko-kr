@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Azure Data Lake Storage Gen1에서의 계정 관리 작업 | Microsoft Docs'
+title: 'REST API: 계정 관리 작업 Azure 데이터 레이크 저장소 Gen1 | Microsoft Docs'
 description: Azure Data Lake Storage Gen1 및 WebHDFS REST API를 사용하여 Data Lake Storage Gen1 계정에서 계정 관리 작업을 수행하는 방법을 설명합니다.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7f22fe7d1c3962e59922bc4e2795ed4f899e3eca
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121671"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530129"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "46121671"
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](https://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
@@ -76,5 +76,5 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
 

@@ -4,16 +4,16 @@ description: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure 파일
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 084a5c8113e73590e3e7b9603542a0d866606f96
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818960"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772333"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Azure Files에 파일 공유 만들기
  [Azure Portal](https://portal.azure.com/), Azure Storage PowerShell cmdlet, Azure Storage 클라이언트 라이브러리 또는 Azure Storage REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.

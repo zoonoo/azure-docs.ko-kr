@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166352"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58114660"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Windows 컴퓨터에서 푸시 설치 준비
 
@@ -17,7 +17,7 @@ ms.locfileid: "50166352"
 1. 프로세스 서버가 컴퓨터에 액세스하는 데 사용할 수 있는 계정을 작성합니다. 계정에는 관리자 권한(로컬 또는 도메인)이 있어야 합니다. 강제 설치 및 에이전트 업데이트의 경우에만 이 계정을 사용합니다.
 
    > [!NOTE]
-   > 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 원격 사용자 액세스 제어를 사용하지 않도록 설정하려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키 아래에서 새로운 DWORD인 **LocalAccountTokenFilterPolicy**를 추가합니다. 값을 **1**로 설정합니다. 명령 프롬프트에서 이 태스크를 수행하려면 다음 명령을 실행합니다.  
+   > 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키 아래에 있는 원격 사용자 액세스 제어를 사용 하지 않도록 설정 하려면 새 DWORD를 추가 합니다. **LocalAccountTokenFilterPolicy**를 추가합니다. 값을 **1**로 설정합니다. 명령 프롬프트에서 이 태스크를 수행하려면 다음 명령을 실행합니다.  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >

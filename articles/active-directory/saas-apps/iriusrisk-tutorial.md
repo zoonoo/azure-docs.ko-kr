@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>자습서: IriusRisk와 Azure Active Directory 통합
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 IriusRisk와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- IriusRisk Single Sign-On이 설정된 구독
+- IriusRisk에서 single sign-on이 설정 된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -51,7 +51,7 @@ IriusRisk와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 IriusRisk 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -89,7 +89,7 @@ IriusRisk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[IriusRisk 테스트 사용자 만들기](#create-a-iriusrisk-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 IriusRisk에 만듭니다.
+1. **[IriusRisk 테스트 사용자 만들기](#create-a-iriusrisk-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 IriusRisk에 있습니다.
 1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
@@ -164,7 +164,7 @@ IriusRisk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     d. **만들기**를 클릭합니다.
  
-### <a name="create-a-iriusrisk-test-user"></a>IriusRisk 테스트 사용자 만들기
+### <a name="create-an-iriusrisk-test-user"></a>IriusRisk 테스트 사용자 만들기
 
 이 섹션은 IriusRisk에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. IriusRisk는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 IriusRisk에 액세스하는 동안 만들어집니다.
 

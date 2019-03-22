@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119087"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107800"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "54119087"
 
 - 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
 
- Azure Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만들어진 가상 네트워크에 Azure SSIS 통합 런타임을 조인할 수 있습니다. 
+  Azure Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만들어진 가상 네트워크에 Azure SSIS 통합 런타임을 조인할 수 있습니다. 
 
 > [!IMPORTANT]
 > 클래식 가상 네트워크는 현재 사용되지 않으므로, 대신 Azure Resource Manager 가상 네트워크를 사용하세요.  이미 클래식 가상 네트워크를 사용하고 있다면, 가능한 한 빨리 Azure Resource Manager 가상 네트워크를 사용하도록 전환하시기 바랍니다.
@@ -83,9 +83,9 @@ Azure-SSIS 통합 런타임을 만드는 사용자에게는 다음 권한이 있
 
 - SSIS IR를 Azure Resource Manager 가상 네트워크에 연결하는 경우 다음 두 가지 옵션이 있습니다.
 
-  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 *Microsoft.Network/\** 권한이 제공됩니다.
+  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
 
-  - 필요한 *Microsoft.Network/virtualNetworks/\*/join/action* 권한만 포함하는 사용자 지정 역할을 만듭니다. 
+  - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 
 
 - SSIS IR을 클래식 가상 네트워크에 연결하는 경우에는 기본 제공 ‘클래식 가상 머신 참가자’ 역할을 사용하는 것이 좋습니다. 그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
 
@@ -280,6 +280,8 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="configure-a-virtual-network"></a>가상 네트워크 구성
 먼저 가상 네트워크를 구성해야 Azure-SSIS IR을 가상 네트워크에 조인할 수 있습니다. 조인할 Azure-SSIS 통합 런타임에 대한 가상 네트워크 권한/설정을 자동으로 구성하려면 다음 스크립트를 추가합니다.
 
@@ -289,16 +291,16 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
@@ -326,7 +328,7 @@ $SubnetName = "<the name of subnet in your virtual network>"
 가상 네트워크에 조인하려면 먼저 Azure-SSIS 통합 런타임을 중지합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
 
 ```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                             -DataFactoryName $DataFactoryName `
                                             -Name $AzureSSISName `
                                             -Force 
@@ -339,25 +341,25 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
         Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### <a name="configure-the-azure-ssis-ir"></a>Azure-SSIS IR 구성
-가상 네트워크에 조인하도록 Azure-SSIS 통합 런타임을 구성하려면 `Set-AzureRmDataFactoryV2IntegrationRuntime` 명령을 실행합니다. 
+가상 네트워크에 조인하도록 Azure-SSIS 통합 런타임을 구성하려면 `Set-AzDataFactoryV2IntegrationRuntime` 명령을 실행합니다. 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Type Managed `
@@ -369,7 +371,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 Azure-SSIS 통합 런타임을 시작하려면 다음 명령을 실행합니다. 
 
 ```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

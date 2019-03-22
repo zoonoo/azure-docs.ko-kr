@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086584"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -51,13 +51,13 @@ Azure Functions에는 Azure App Service에서 제공하는 전체 범위의 지�
 
 + **Azure Portal에서:**
 
-    1. [Azure Portal](https://portal.azure.com)에 로그인하고 함수 앱으로 이동합니다.
+  1. [Azure Portal](https://portal.azure.com)에 로그인하고 함수 앱으로 이동합니다.
 
-    2. **개요** 탭에서 **앱 콘텐츠 다운로드**를 선택합니다. 다운로드 옵션을 선택한 다음, **다운로드**를 선택합니다.
+  2. **개요** 탭에서 **앱 콘텐츠 다운로드**를 선택합니다. 다운로드 옵션을 선택한 다음, **다운로드**를 선택합니다.
 
-        ![함수 앱 프로젝트 다운로드](./media/deployment-zip-push/download-project.png)
+      ![함수 앱 프로젝트 다운로드](./media/deployment-zip-push/download-project.png)
 
-    .zip 푸시 배포를 사용하여 함수 앱에 다시 게시하려면 다운로드한 .zip 파일 형식이 필요합니다. 포털 다운로드는 Visual Studio에서 직접 함수 앱을 여는 데 필요한 파일을 추가할 수도 있습니다.
+     .zip 푸시 배포를 사용하여 함수 앱에 다시 게시하려면 다운로드한 .zip 파일 형식이 필요합니다. 포털 다운로드는 Visual Studio에서 직접 함수 앱을 여는 데 필요한 파일을 추가할 수도 있습니다.
 
 + **REST API 사용:**
 

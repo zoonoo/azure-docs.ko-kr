@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 773e600577b35019b8a3619c7eec3e93b77a4382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085799"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정
 
@@ -51,9 +51,11 @@ PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 
 | $sharepath      | 경로를 입력 합니다 **백업 저장소 위치**합니다. 별도 장치에서 호스트 되는 파일 공유 경로 대 한 범용 명명 규칙 (UNC) 문자열을 사용 해야 합니다. UNC 문자열로 공유 파일 또는 장치와 같은 리소스의 위치를 지정합니다. 백업 데이터의 가용성을 보장 하기 장치 별도 위치에 있어야 합니다. |
 | $frequencyInHours | 빈도 시간 빈도 결정 백업은 만들어집니다. 기본값은 12입니다. Scheduler는 최대 12 및 4 개를 지원합니다.|
 | $retentionPeriodInDays | 일의 보존 기간 외부 위치에 유지 됩니다 백업 기간 (일)을 결정 합니다. 기본값은 7입니다. Scheduler는 최대 14 및 2 개를 지원합니다. 백업 보존 기간 보다 오래 된 가져올 외부 위치에서 자동으로 삭제 됩니다.|
-| $encryptioncertpath | 암호화 인증서 경로 파일 경로를 지정 합니다. 데이터 암호화에 사용 된 공개 키를 사용 하 여 CER 파일입니다. |
+| $encryptioncertpath | 1901 이상에 적용 됩니다.  매개 변수는 Azure Stack 모듈 버전 1.7 이상 사용할 수 있습니다. 암호화 인증서 경로 파일 경로를 지정 합니다. 데이터 암호화에 사용 된 공개 키를 사용 하 여 CER 파일입니다. |
+| $encryptionkey | 1811 빌드에 적용 하거나 이전 합니다. 매개 변수는 Azure Stack 모듈 버전 1.6 또는 이전 버전에서에서 사용할 수 있습니다. 데이터 암호화에 사용 되는 암호화 키입니다. 사용 하 여는 [새로 만들기-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet은 새 키를 생성 합니다. |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>인증서를 사용 하 여 이상 1901에서 백업을 사용 하도록 설정
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -80,6 +82,25 @@ PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>1811 또는 사용 하 여 이전 인증서의 백업을 사용 하도록 설정
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>백업 설정 확인
 
@@ -119,7 +140,7 @@ PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
 인프라 백업을 구성 하는 PowerShell cmdlet 집합 AzsBackupConfiguration 됩니다. 이전 릴리스에서 cmdlet 집합 AzsBackupShare 했습니다. 이 cmdlet을 사용 하려면 인증서를 제공 합니다. 암호화 키를 사용 하 여 인프라 백업이 구성 된 경우에 암호화 키를 업데이트 하거나 속성을 볼 수 없습니다. 관리자 PowerShell의 버전 1.6을 사용 해야 합니다. 
 
 인프라 백업 1901를 업데이트 하기 전에 구성 된 경우에 설정 하 고 암호화 키를 보려면 관리자 PowerShell의 버전 1.6을 사용할 수 있습니다. 버전 1.6은 인증서 파일에 암호화 키에서 업데이트할 수 없습니다.

@@ -13,35 +13,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189141"
 ---
 # <a name="virtual-network-tap"></a>가상 네트워크 TAP
 
 Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트워크 패킷 수집기 또는 분석 도구로 가상 머신 네트워크 트래픽을 지속적으로 스트리밍할 수 있습니다. 수집기 또는 분석 도구는 [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 파트너를 통해 제공됩니다. 가상 네트워크 TAP 사용의 유효성이 검사된 파트너 솔루션 목록은 [파트너 솔루션](#virtual-network-tap-partner-solutions)을 참조하세요.
 
 > [!IMPORTANT]
-> 가상 네트워크 TAP은 현재 WestCentralUS Azure 지역에서 개발자 미리 보기 상태에 있습니다. 가상 네트워크 TAP을 사용하려면 구독 ID를 통해 이메일을 <azurevnettap@microsoft.com>에 보내 미리 보기에 등록해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 개발자 미리 보기는 서비스 수준 약정(Service Level Agreement)없이 제공되므로 프로덕션 워크로드에 사용해서는 안 됩니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 가상 네트워크 탭은 현재 모든 Azure 지역에서 미리 보기로 제공 가상 네트워크 TAP를 사용 하려면 등록 해야 합니다는 미리 보기에서 전자 메일을 보내 <azurevnettap@microsoft.com> 를 구독 ID 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기 서비스 수준 약정 없이 제공 되 고 프로덕션 워크 로드에 쓰일 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 참조 된 [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 세부 정보에 대 한 합니다.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>가상 네트워크 TAP 파트너 솔루션
 
 ### <a name="network-packet-brokers"></a>네트워크 패킷 브로커
 
 - [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>보안 분석, 네트워크/응용 프로그램 성능 관리
 
+- [절전 모드 해제 보안](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch 클라우드](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)

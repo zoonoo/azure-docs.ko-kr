@@ -5,22 +5,22 @@ description: Custom Translator에서 프로젝트를 만드는 방법
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218107"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762707"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
-프로젝트는 각종 모델, 문서, 테스트를 담는 컨테이너입니다. 각 프로젝트에는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드된 모든 문서가 자동으로 포함됩니다. 
+프로젝트는 각종 모델, 문서, 테스트를 담는 컨테이너입니다. 각 프로젝트에는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드된 모든 문서가 자동으로 포함됩니다.
 
-프로젝트 만들기는 모델을 빌드할 때 수행해야 하는 첫 번째 단계입니다. 
+프로젝트 만들기는 모델을 빌드할 때 수행해야 하는 첫 번째 단계입니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기:
 

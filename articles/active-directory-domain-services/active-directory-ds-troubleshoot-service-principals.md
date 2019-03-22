@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5bed5dd19f6b736aca7ed2d551c8be0e6f03a810
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094544"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
 
@@ -41,7 +41,7 @@ ms.locfileid: "55191332"
 3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 애플리케이션 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
 
 | 애플리케이션 UI | 해결 방법 |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [PowerShell을 사용하여 누락된 서비스 주체 다시 만들기](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |

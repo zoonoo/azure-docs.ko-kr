@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 2990ce7a555fae54b8628f11cd90124860a5b983
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 56cf7f19ef3a3cebf705beceadf8f02681b2e2af
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656739"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730191"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화
 
@@ -51,13 +51,23 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -Assig
 ```
 
 ```azurecli-interactive
-az storage account \
-    --account-name <account_name> \
+az storage account update \
+    --name <account_name> \
     --resource-group <resource_group> \
     --assign-identity
 ```
 
-다음 PowerShell 또는 Azure CLI 명령을 실행하여 일시 삭제 및 삭제 안 함을 사용하도록 설정할 수 있습니다.
+Keyvault가 없는 경우에 포털, Powershell 또는 CLI에서에서 만들 수 있습니다.
+
+```powershell
+New-AzKeyVault -Name <vault_name> -ResourceGroupName <resource_group> -Location <location>
+```
+
+```azurecli-interactive
+az keyvault create -n <vault_name> -g <resource_group> -l <region> --enable-soft-delete --enable-purge-protection
+```
+
+기존 key vault를 사용 하는 경우 다음 PowerShell 또는 Azure CLI 명령을 실행 하 여 자격 증명 모음에서 일시 삭제 및 삭제 안 함를 사용 하도록 설정 해야 합니다.
 
 ```powershell
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
@@ -74,13 +84,7 @@ $resource.Properties
 ```
 
 ```azurecli-interactive
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enableSoftDelete=true
-
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enablePurgeProtection=true
+az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
 
 ### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>3단계: 고객 관리 키로 암호화 사용
@@ -104,7 +108,7 @@ URI에서 키를 지정하려면 다음 단계를 수행합니다.
 
 #### <a name="specify-a-key-from-a-key-vault"></a>Key Vault에서 키 지정
 
-Key Vault에서 키를 지정하려면 다음 단계를 수행합니다.
+해당 key vault는 key vault 및 키에 해야 합니다. Key Vault에서 키를 지정하려면 다음 단계를 수행합니다.
 
 1. **Key Vault에서 선택** 옵션을 선택합니다.
 2. 사용하려는 키가 포함된 Key Vault를 선택합니다.
@@ -135,6 +139,13 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVersion $key.Version `
     -KeyVaultUri $keyVault.VaultUri
 ```
+
+```azurecli-interactive
+kv_uri=$(az keyvault show -n <vault_name> -g <resource_group> --query properties.vaultUri -o tsv)
+key_version=$(az keyvault key list-versions -n <key_name> --vault-name <vault_name> --query [].kid -o tsv | cut -d '/' -f 6)
+az storage account update -n <account_name> -g <resource_group> --encryption-key-name <key_name> --encryption-key-version $key_version --encryption-key-source Microsoft.Keyvault --encryption-key-vault $kv_uri 
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>5단계: 스토리지 계정에 데이터 복사
 
@@ -168,7 +179,7 @@ Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Az
 아니요. 저장소 계정 및 Azure Key Vault/키는 동일한 지역에 있어야 합니다.
 
 **저장소 계정을 만들면서 SSE용 고객 관리 키를 사용하도록 설정할 수 있나요?**  
- 아니요. 저장소 계정을 처음 만들 때는 SSE에 Microsoft에서 관리하는 키만 사용할 수 있습니다. 고객 관리 키를 사용하려면 저장소 계정 속성을 업데이트해야 합니다. REST 또는 저장소 클라이언트 라이브러리 중 하나를 사용하여 프로그래밍 방식으로 저장소 계정을 업데이트하거나 계정을 만든 후 Azure Portal을 사용하여 저장소 계정 속성을 업데이트할 수 있습니다.
+아니요. 저장소 계정을 처음 만들 때는 SSE에 Microsoft에서 관리하는 키만 사용할 수 있습니다. 고객 관리 키를 사용하려면 저장소 계정 속성을 업데이트해야 합니다. REST 또는 저장소 클라이언트 라이브러리 중 하나를 사용하여 프로그래밍 방식으로 저장소 계정을 업데이트하거나 계정을 만든 후 Azure Portal을 사용하여 저장소 계정 속성을 업데이트할 수 있습니다.
 
 **SSE에서 고객 관리 키를 사용하면서 암호화를 사용하지 않을 수 있나요?**  
 아니요. 암호화를 사용하지 않도록 설정할 수 없습니다. 암호화는 Azure Blob Storage, Azure Files, Azure Queue 및 Azure Table Storage에 대해 기본적으로 사용하도록 설정됩니다. 경우에 따라, Microsoft 관리 키에서 고객 관리 키로 또는 그 반대로 사용 방식을 전환할 수 있습니다.

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876683"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 마이그레이션 인프라 배포
 
@@ -101,10 +101,10 @@ Azure에 대한 약정 금액이 지불된 후에는 Contoso에서 Azure 구독�
 - Azure 기업 등록계약은 회사에서 Azure 서비스를 만들고 사용하는 방법을 정의하고 핵심 거버넌스 구조를 정의합니다.
 - 첫 번째 단계로서, Contoso는 기업 등록 계약을 위한 엔터프라이즈 등록이라고 하는 구조를 결정했습니다. Contoso는 스캐폴드를 이해하고 설계하는 데 도움을 받기 위해 [이 문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance)를 사용했습니다.
 - 지금은 Contoso에서 구독을 관리하기 위해 기능적 접근 방식을 사용하도록 결정했습니다.
-    - 회사 내부에서 Azure 예산을 통제하는 단일 IT 부서를 사용합니다. 이 부서는 구독이 있는 유일한 그룹이 됩니다.
-    - Contoso는 앞으로 이 모델을 확장하여 다른 회사 그룹도 기업 등록 계약에 속한 부서로 조인할 수 있습니다.
-    - Contoso는 IT 부서 내에 프로덕션 및 개발이라는 두 개의 구독을 구성했습니다.
-    - 나중에 구독이 추가로 필요한 경우 Contoso에서 해당 구독에 대한 액세스, 정책 및 준수를 관리해야 합니다. Contoso는 [Azure 관리 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview)을 구독 위의 추가 계층으로 도입하여 이러한 작업을 수행합니다.
+  - 회사 내부에서 Azure 예산을 통제하는 단일 IT 부서를 사용합니다. 이 부서는 구독이 있는 유일한 그룹이 됩니다.
+  - Contoso는 앞으로 이 모델을 확장하여 다른 회사 그룹도 기업 등록 계약에 속한 부서로 조인할 수 있습니다.
+  - Contoso는 IT 부서 내에 프로덕션 및 개발이라는 두 개의 구독을 구성했습니다.
+  - 나중에 구독이 추가로 필요한 경우 Contoso에서 해당 구독에 대한 액세스, 정책 및 준수를 관리해야 합니다. Contoso는 [Azure 관리 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview)을 구독 위의 추가 계층으로 도입하여 이러한 작업을 수행합니다.
 
     ![회사 구조](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ IAM(ID 및 액세스 관리)을 사용하여 Azure 리소스에 대한 사용자
 
 Contoso는 Azure 구독에 포함된 Azure AD Free 버전을 사용하고 있습니다. Contoso 관리자는 다음과 같이 AD 디렉터리를 설정합니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **리소스 만들기** > **ID** > **Azure Active Directory**로 차례로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** > **ID** > **Azure Active Directory**로 차례로 이동합니다.
 2. **디렉터리 만들기**에서 디렉터리 이름, 초기 도메인 이름 및 Azure AD 디렉터리를 만들어야 하는 지역을 지정합니다.
 
     ![Azure AD 만들기](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -310,7 +310,7 @@ Contoso에서 지역 설계를 통해 네트워킹 전략을 고려할 준비가
 
 Contoso는 Azure와 온-프레미스 데이터 센터 간의 하이브리드 네트워킹에 대한 [아키텍처의 수](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)를 고려했습니다. 비교 옵션에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations).
 
-참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 지점은 인터넷 경유 IPSec VPN 터널을 통해 데이터 센터에 연결됩니다.
+참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 분기는 다음 IPSec VPN 터널을 통해 데이터 센터에 인터넷을 통해 연결 됩니다.
 
 ![Contoso 네트워크](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -451,7 +451,7 @@ Azure IaaS 구성 요소는 프로덕션 네트워크에 있습니다. 각 응�
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | 프런트 엔드/웹 계층 VM
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | 응용 프로그램 계층 VM
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | 데이터베이스 VM
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | 도메인 컨트롤러 VM
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | 도메인 컨트롤러 VM
 
 
 ![허브 네트워크 아키텍처](./media/contoso-migration-infrastructure/azure-networks-eus2.png)
@@ -581,18 +581,18 @@ CUS | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
 
 1. Azure Portal에서 새 Windows Server VM을 새 VNet에 배포합니다.
 2. VM의 각 위치에 가용성 집합을 만듭니다. 가용성 집합에서 수행하는 작업은 다음과 같습니다.
-    - Azure 패브릭에서 Azure 지역의 다른 인프라로 VM을 분리하는지 확인합니다. 
-    -  Contoso는 Azure의 VM에 99.95% SLA를 적용할 수 있습니다.  [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Azure 패브릭에서 Azure 지역의 다른 인프라로 VM을 분리하는지 확인합니다. 
+   - Contoso는 Azure의 VM에 99.95% SLA를 적용할 수 있습니다.  [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![가용성 그룹](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![가용성 그룹](./media/contoso-migration-infrastructure/availability-group.png) 
 3. VM이 배포되면 VM에 대한 네트워크 인터페이스를 엽니다. 사설 IP 주소를 정적으로 설정하고 유효한 주소를 지정합니다.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. 이제 새 데이터 디스크를 VM에 연결합니다. 이 디스크에는 Active Directory 데이터베이스와 sysvol 공유가 포함됩니다. 
-    - 디스크의 크기에 따라 지원되는 IOPS 수가 결정됩니다.
-    - 시간이 지남에 따라 환경이 커질수록 디스크 크기가 증가해야 할 수도 있습니다.
-    - 호스트 캐싱을 위해 드라이브를 읽기/쓰기로 설정하면 안됩니다. Active Directory 데이터베이스는 이 기능을 지원하지 않습니다.
+   - 디스크의 크기에 따라 지원되는 IOPS 수가 결정됩니다.
+   - 시간이 지남에 따라 환경이 커질수록 디스크 크기가 증가해야 할 수도 있습니다.
+   - 호스트 캐싱을 위해 드라이브를 읽기/쓰기로 설정하면 안됩니다. Active Directory 데이터베이스는 이 기능을 지원하지 않습니다.
 
      ![Active Directory 디스크](./media/contoso-migration-infrastructure/ad-disk.png)
 

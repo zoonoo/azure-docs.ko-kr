@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197796"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592930"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI를 사용하여 모든 가용성 영역에 VM 부하 분산
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>영역 중복 공용 IP Standard 만들기
-인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 영역 중복 공용 IP 주소를 만듭니다. 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. 영역 중복 공용 IP 주소를 사용 하 여 만드는 [az network public ip 만들기](/cli/azure/network/public-ip#az-network-public-ip-create)합니다. 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
 
 다음 예제에서는 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 영역 중복 공용 IP 주소를 만듭니다.
 

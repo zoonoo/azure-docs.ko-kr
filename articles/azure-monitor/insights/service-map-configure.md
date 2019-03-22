@@ -1,24 +1,24 @@
 ---
 title: Azure에서 서비스 맵 구성 | Microsoft Docs
 description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
-ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: magoedte
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995137"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -28,8 +28,10 @@ ms.locfileid: "55822710"
 ## <a name="supported-azure-regions"></a>지원되는 Azure 지역
 서비스 맵은 현재 다음과 같은 Azure 지역에서 사용할 수 있습니다.
 - 미국 동부
-- 서유럽
 - 미국 중서부
+- 캐나다 중부
+- 영국 남부
+- 서유럽
 - 동남아시아
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
@@ -40,6 +42,7 @@ ms.locfileid: "55822710"
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -59,17 +62,13 @@ ms.locfileid: "55822710"
 - 기본 및 SMP Linux 커널 릴리스만 지원됩니다.
 - PAE 및 Xen과 같은 비표준 커널 릴리스는 Linux 배포판에 대해 지원되지 않습니다. 예를 들어 "2.6.16.21-0.8-xen"의 릴리스 문자열이 있는 시스템은 지원되지 않습니다.
 - 표준 커널의 재컴파일을 포함한 사용자 지정 커널은 지원되지 않습니다.
-- CentOSPlus 커널은 지원되지 않습니다.
+- CentOSPlus 커널은 지원 됩니다.
 - Oracle UEK(Unbreakable Enterprise Kernel)에 대해서는 이 문서의 뒷부분에서 다룹니다.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,55 +77,42 @@ ms.locfileid: "55822710"
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| OS 버전 | 커널 버전 |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Unbreakable Enterprise Kernel을 갖춘 Oracle Enterprise Linux 6
-| OS 버전 | 커널 버전
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300(UEK R1) |
-| 6.3 | Oracle 2.6.39-200(UEK R2) |
-| 6.4 | Oracle 2.6.39-400(UEK R2) |
-| 6.5 | Oracle 2.6.39-400(UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400(UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Unbreakable Enterprise Kernel을 갖춘 Oracle Enterprise Linux 5
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | OS 버전 | 커널 버전
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400(UEK R2) |
-| 5.11 | Oracle 2.6.39-400(UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | OS 버전 | 커널 버전
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>연결된 소스
@@ -137,7 +123,7 @@ ms.locfileid: "55822710"
 | Windows 에이전트 | 예 | 서비스 맵은 Windows 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 지원되는 운영 체제를 참조하세요. |
 | Linux 에이전트 | 예 | 서비스 맵은 Linux 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 지원되는 운영 체제를 참조하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
-| Azure Storage 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아닙니다. | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager와 Log Analytics는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.  
 
@@ -173,6 +159,8 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="installation"></a>설치
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Azure VM 확장
 Windows(DependencyAgentWindows)와 Linux(DependencyAgentLinux) 모두에 사용할 수 있는 확장이 있으며, [Azure VM 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 사용하여 Azure VM에 Dependency Agent를 쉽게 배포할 수 있습니다.  Azure VM 확장을 사용하면 PowerShell 스크립트를 사용하거나 VM의 Azure Resource Manager 템플릿을 사용하여 직접 Dependency Agent를 Windows 및 Linux VM에 배포할 수 있습니다.  Azure VM 확장을 통해 에이전트를 배포하는 경우 에이전트가 자동으로 최신 버전으로 업데이트됩니다.
 
@@ -188,7 +176,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +186,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }

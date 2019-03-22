@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091650"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery의 서비스 업데이트
 조직으로서 계획되거나 계획되지 않은 정전이 발생한 경우 데이터 그리고 실행 중인 앱/워크로드를 안전하게 유지하는 방법을 알아야 합니다. Azure Site Recovery는 사이트의 작동이 중단된 경우에도 VM 및 물리적 서버에서 실행 중인 앱을 계속 사용할 수 있도록 하여 BCDR 전략에 기여합니다. Site Recovery는 VM 및 물리적 서버에서 실행 중인 워크로드를 복제하여 기본 사이트를 사용할 수 없게 된 경우 보조 위치에서 계속 사용할 수 있도록 합니다. 사이트가 복구되어 다시 실행되면 워크로드를 기본 사이트로 복구합니다.
@@ -108,7 +108,7 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 모든 최신 변경 내용이 원본 컴퓨터에 로드되도록 모바일 에이전트를 업그레이드할 때마다 다시 부팅하는 것이 좋습니다. 그러나 이 작업은 **필수는 아닙니다**. 마지막 다시 부팅 동안의 에이전트 버전과 현재 버전 간의 차이가 4보다 큰 경우 반드시 다시 부팅해야 합니다. 자세한 설명을 보려면 다음 표를 참조하세요.
 
 |**마지막 다시 부팅하는 동안의 에이전트 버전** | **업그레이드 대상 버전** | **다시 부팅 필수 여부**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | 필수 아님|
 |9.16 | 9.19 | 필수 아님|
 | 9.16 | 9.20 | 필수 아님
@@ -124,7 +124,7 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 |[업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[업데이트 롤업 28 ](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
+|[업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
 | [업데이트 롤업 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007601"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441563"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure Search의 단순 쿼리 구문
 Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) 및 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 구현합니다. Azure Search에서 단순 쿼리 구문에서는 유사 항목 검색 옵션이 제외됩니다.  
@@ -46,7 +46,7 @@ Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucen
 
 ## <a name="operators-in-simple-search"></a>단순 검색의 연산자
 
-쿼리 문자열에 연산자를 포함하여 일치하는 문서를 찾을 수 있는 보다 풍부한 조건 세트를 작성할 수 있습니다. 
+다양 한 일치 하는 문서 발견 되는 조건 작성 하는 쿼리 문자열에 연산자를 포함할 수 있습니다. 
 
 ## <a name="and-operator-"></a>AND 연산자 `+`
 
