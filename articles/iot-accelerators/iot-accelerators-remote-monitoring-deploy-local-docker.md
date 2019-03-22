@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993043"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
@@ -96,7 +96,7 @@ docker rmi <list_of_images>
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스하려면 브라우저에서 [http://localhost:8080](http://localhost:8080)으로 이동합니다. 이제 웹 UI와 로컬 마이크로 서비스를 사용할 수 있습니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 `http://localhost:8080` 브라우저에서 합니다. 이제 웹 UI와 로컬 마이크로 서비스를 사용할 수 있습니다.
 
 ## <a name="clean-up"></a>정리
 

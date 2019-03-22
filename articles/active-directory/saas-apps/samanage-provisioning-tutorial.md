@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092381"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
 
@@ -108,9 +108,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **관리자 자격 증명** 섹션에 Samanage 계정의 **관리자 사용자 이름** 및 **관리자 암호**를 입력합니다. 이러한 값의 예는 다음과 같습니다.
 
-    *   **관리자 사용자 이름** 필드에서 Samanage 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
+   * **관리자 사용자 이름** 필드에서 Samanage 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
 
-    *   **관리자 암호** 필드에서 관리자 사용자 이름에 해당하는 관리자 계정의 암호를 채웁니다.
+   * **관리자 암호** 필드에서 관리자 사용자 이름에 해당하는 관리자 계정의 암호를 채웁니다.
 
 6. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 Samanage에 연결할 수 있는지 확인합니다. 연결에 실패하면 Samanage 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 

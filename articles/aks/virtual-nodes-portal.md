@@ -3,15 +3,16 @@ title: AKS(Azure Kubernetes Service)에서 포털을 사용하여 가상 노드 
 description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164445"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -19,6 +20,16 @@ ms.locfileid: "54845404"
 
 > [!IMPORTANT]
 > AKS에 사용되는 가상 노드는 현재 **미리 보기**입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+
+## <a name="preview-limitations"></a>미리 보기 제한 사항
+
+이 기능은 미리 보기 상태인 동안에 다음 지역 배포에 대 한 지원 됩니다.
+
+* 오스트레일리아 동부 (australiaeast)
+* 미국 동부(eastus)
+* 미국 중서부 (westcentralus)
+* 유럽 서부(westeurope)
+* 미국 서부(westus)
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -184,7 +195,7 @@ $ curl -L 10.241.0.4
 [aks-network]: ./networking-overview.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107477"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Security Center에서 인시던트 및 경고 조사(미리 보기)
 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
@@ -29,10 +29,10 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 해당 기능은 조사 중인 인시던트와 관련된 모든 엔터티([보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), 사용자, 컴퓨터 및 인시던트)를 연결하여 조사 프로세스를 용이하게 하기 위해 사용합니다.  Security Center는 포함된 엔터티와 관련 데이터의 상관 관계를 지정하고 개체를 탐색하고 관련 정보를 시각화하는 데 도움이 되는 라이브 그래프를 사용하는 이 상관 관계를 노출하여 이를 수행할 수 있습니다.
 
+
 > [!NOTE]
-> [사용자 지정 경고](security-center-custom-alert.md)는 Security Center의 조사 기능에서 지원되지 않습니다.
->
->
+> * [사용자 지정 경고](security-center-custom-alert.md)는 Security Center의 조사 기능에서 지원되지 않습니다.
+> * Windows 서버에서 수집 된 데이터를 기반으로 경고에 대 한 조사만 지원 됩니다.
 
 
 ## <a name="how-investigation-works"></a>조사 작동 방식
@@ -96,7 +96,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 ## <a name="how-to-perform-an-investigation"></a>조사를 수행 하는 방법
 
-보안 인시던트 또는 경고에서 조사를 시작할 수 있습니다. 선택한 옵션은 필요에 따라 달라집니다. 다음 단계는 경고에서 조사를 시작하는 데 사용됩니다.
+보안 인시던트 또는 경고에서 조사를 시작할 수 있습니다. 선택한 옵션은 필요에 따라 달라집니다. 다음 단계는 경고에서 조사를 시작 하는 데 사용 됩니다.
 
 1.  **Security Center** 대시보드를 엽니다.
 2.  **보안 경고**를 클릭하여 조사하려는 인시던트를 선택합니다.

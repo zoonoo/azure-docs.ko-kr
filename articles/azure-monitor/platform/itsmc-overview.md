@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813129"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118053"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -52,24 +52,24 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 연결을 만들기 전에 ITSM 커넥터 솔루션을 추가해야 합니다.
 
-1.  Azure Portal에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+1. Azure Portal에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![Azure 새 리소스](media/itsmc-overview/azure-add-new-resource.png)
+   ![Azure 새 리소스](media/itsmc-overview/azure-add-new-resource.png)
 
-2.  Marketplace의 **IT 서비스 관리 커넥터**를 검색하고 **만들기**를 클릭합니다.
+2. Marketplace의 **IT 서비스 관리 커넥터**를 검색하고 **만들기**를 클릭합니다.
 
-    ![ITSMC 솔루션 추가](media/itsmc-overview/add-itsmc-solution.png)
+   ![ITSMC 솔루션 추가](media/itsmc-overview/add-itsmc-solution.png)
 
-3.  **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
+3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
-4.  **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
+4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
-    ![ITSMC 작업 영역](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
+   ![ITSMC 작업 영역](media/itsmc-overview/itsmc-solution-workspace.png)
+   >[!NOTE]
+   >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 
-5.  **만들기**를 클릭합니다.
+5. **만들기**를 클릭합니다.
 
 솔루션 리소스를 배포할 때 창의 오른쪽 상단에 알림이 표시됩니다.
 
@@ -89,22 +89,22 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니다.
 
-1.  **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
-2.  왼쪽 창의 **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
-    ![ITSM 연결](media/itsmc-overview/itsm-connections.png)
+1. **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
+2. 왼쪽 창의 **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
+   ![ITSM 연결](media/itsmc-overview/itsm-connections.png)
 
-    이 페이지에는 연결 목록이 표시됩니다.
-3.  **연결 추가**를 클릭합니다.
+   이 페이지에는 연결 목록이 표시됩니다.
+3. **연결 추가**를 클릭합니다.
 
-    ![ITSM 연결 추가](media/itsmc-overview/add-new-itsm-connection.png)
+   ![ITSM 연결 추가](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.  [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](../../azure-monitor/platform/itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
+4. [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](../../azure-monitor/platform/itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
 
-    > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
-
-    ![연결 새로 고침](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![연결 새로 고침](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>솔루션 사용
@@ -138,8 +138,8 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > ITSM 작업의 가격 책정에 대한 자세한 내용은 작업 그룹의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 
@@ -172,7 +172,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 다음 정보는 ITSMC에서 수집된 데이터 예제를 보여 줍니다.
 
 > [!NOTE]
-
+> 
 > Log Analytics로 가져온 작업 항목 형식에 따라 **ServiceDesk_CL**에는 다음 필드가 포함됩니다.
 
 **작업 항목:** **인시던트**  
@@ -284,17 +284,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>ITSM 연결 문제 해결
-1.  연결된 원본의 UI에서 **연결을 저장하는 동안 오류 발생** 메시지와 함께 연결에 실패하는 경우 다음 단계를 수행합니다.
- - ServiceNow, Cherwell 및 Provence 연결의 경우  
-    - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
-    - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
- - Service Manager 연결의 경우  
-    - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
+1. 연결된 원본의 UI에서 **연결을 저장하는 동안 오류 발생** 메시지와 함께 연결에 실패하는 경우 다음 단계를 수행합니다.
+   - ServiceNow, Cherwell 및 Provence 연결의 경우  
+   - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
+   - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
+   - Service Manager 연결의 경우  
+   - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터를 사용 하 여 성공적으로 연결 되어를 확인 하려면 설정 설명서에 설명 된 대로 웹 앱 URL을 방문 합니다 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)합니다.  
 
-2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
-3.  Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
- -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태**를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색**으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
- - **로그 검색** 페이지: `*`ServiceDeskLog_CL`*` 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
+2. ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
+3. Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
+   -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태**를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색**으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
+   - **로그 검색** 페이지: `*`ServiceDeskLog_CL`*` 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 240895f4e8567426fec8e270b96b9e6528392a46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103080"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -37,11 +37,11 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 
 ## <a name="what-you-need"></a>필요한 항목
 
- * 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
-
-   * 활성 Azure 구독.
-   * 구독 중인 Azure IoT Hub
-   * 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
+* 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
+  
+  * 활성 Azure 구독.
+  * 구독 중인 Azure IoT Hub
+  * 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 
 * Power BI 계정 ([Power BI를 무료로 사용해 보기](https://powerbi.microsoft.com/))
 

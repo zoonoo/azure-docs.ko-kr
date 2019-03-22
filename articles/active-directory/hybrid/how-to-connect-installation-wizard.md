@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168955"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191990"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
 처음으로 Azure AD Connect 설치 마법사를 실행하는 경우 설치를 구성하는 방법을 안내합니다. 설치 마법사를 다시 실행하는 경우 유지 관리에 대한 옵션을 제공합니다.
@@ -73,7 +73,7 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 ![환경에서 모든 디렉터리의 목록이 있는 페이지](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>준비 모드 구성
-이 옵션을 사용하면 서버에서 준비 모드를 설정하거나 해제할 수 있습니다. 준비 모드 및 사용 방법에 대한 자세한 내용은 [작업](how-to-connect-sync-operations.md#staging-mode)에서 찾을 수 있습니다.
+이 옵션을 사용하면 서버에서 준비 모드를 설정하거나 해제할 수 있습니다. 준비 모드 및 사용 방법에 대한 자세한 내용은 [작업](how-to-connect-sync-staging-server.md)에서 찾을 수 있습니다.
 
 옵션은 현재 준비를 설정하는지 또는 해제하는지를 표시합니다.  
 ![준비 모드의 현재 상태도 표시하는 옵션](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

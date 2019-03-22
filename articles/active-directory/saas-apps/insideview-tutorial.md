@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0885a469877d0ea9f52f6191b4cd894ddbbce5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>자습서: InsideView와 Azure Active Directory 통합
 
@@ -39,7 +39,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 InsideView와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- InsideView Single Sign-On이 설정된 구독
+- InsideView에서 single sign-on이 설정 된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -50,7 +50,7 @@ InsideView와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 InsideView 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -91,7 +91,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[InsideView 테스트 사용자 만들기](#creating-a-insideview-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 InsideView에 만듭니다.
+1. **[InsideView 테스트 사용자 만들기](#creating-a-insideview-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 InsideView 합니다.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -116,7 +116,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 이 값을 가져오려면 [InsideView 지원 팀](mailto:support@insideview.com)에 문의하세요.
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 연락처 [InsideView 지원 팀](mailto:support@insideview.com) 이 값을 가져와야 합니다.
  
 1. **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -191,7 +191,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     d. **만들기**를 클릭합니다.
  
-### <a name="creating-a-insideview-test-user"></a>InsideView 테스트 사용자 만들기
+### <a name="creating-an-insideview-test-user"></a>InsideView 테스트 사용자 만들기
 
 Azure AD 사용자가 InsideView에 로그인할 수 있도록 하려면 InsideView로 프로비전되어야 합니다. InsideView의 경우 프로비저닝은 수동 작업입니다.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f72f75013d69533eeda0e69acbff1c4f7047f509
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193686"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452116"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 지역 가용성 및 데이터 상주는 나머지 Azure에서 Azure AD B2C에 다르게 적용되는 두 가지 매우 다른 개념입니다. 이 문서에서는 이러한 두 개념의 차이점을 설명하고 이러한 개념이 Azure 및 Azure AD B2C에 적용되는 방식을 비교합니다.
@@ -37,7 +37,7 @@ Azure AD B2C는 사용자 데이터를 미국 또는 유럽에 저장합니다.
 
 데이터 상주는 [Azure AD B2C 테넌트](active-directory-b2c-get-started.md)를 만들 때 선택된 국가/지역에 따라 결정됩니다.
 
-![미리 보기 테넌트의 스크린 샷](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![미리 보기 테 넌 트의 스크린 샷](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
 다음 국가/지역의 경우 데이터는 미국에 상주합니다.
 
@@ -58,4 +58,4 @@ Azure AD B2C 미리 보기 기간 동안 B2C 테넌트를 만든 경우 **테넌
 > 미리 보기 B2C 테넌트로부터 프로덕션 규모 B2C 테넌트로의 마이그레이션 경로가 없습니다. 미리 보기 B2C 테넌트를 삭제하고 동일한 도메인 이름으로 프로덕션 규모 B2C 테넌트를 다시 만들어야 하는 경우 알려진 문제가 발생합니다. 다른 도메인 이름으로 프로덕션 규모 B2C 테넌트를 만들어야 합니다.
 
 
-![미리 보기 테넌트의 스크린 샷](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![미리 보기 테 넌 트의 스크린 샷](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

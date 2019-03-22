@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116812"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -186,12 +186,12 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 ```
 
 * `FromSeverityLevel` 유효한 값은 다음과 같습니다.
- *  OFF             - 모든 추적 필터링
- *  TRACE           - 필터링하지 않음 추적 수준과 같음
- *  INFO            - TRACE 수준 필터링
- *  WARN            - TRACE 및 INFO 필터링
- *  ERROR           - WARN, INFO, TRACE 필터링
- *  CRITICAL        - CRITICAL를 제외하고 모두 필터링
+  *  OFF             - 모든 추적 필터링
+  *  TRACE           - 필터링하지 않음 추적 수준과 같음
+  *  INFO            - TRACE 수준 필터링
+  *  WARN            - TRACE 및 INFO 필터링
+  *  ERROR           - WARN, INFO, TRACE 필터링
+  *  CRITICAL        - CRITICAL를 제외하고 모두 필터링
 
 
 ## <a name="custom-filters"></a>사용자 지정 필터

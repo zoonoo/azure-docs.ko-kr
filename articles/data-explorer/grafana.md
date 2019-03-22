@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531955"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
 
@@ -23,7 +23,7 @@ Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 �
 
 이 방법을 완료하려면 다음 사항이 필요합니다.
 
-* 운영 체제용 [Grafana 버전 5.3.0 이상](http://docs.grafana.org/installation/)
+* 운영 체제용 [Grafana 버전 5.3.0 이상](https://docs.grafana.org/installation/)
 
 * Grafana용 [Azure Data Explorer 플러그 인](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation)
 

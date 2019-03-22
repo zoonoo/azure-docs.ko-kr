@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182849"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293909"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -46,6 +46,8 @@ ms.locfileid: "58182849"
 * 쿼리 풀의 복제본이 없는 경우에 동기화가 허용 됩니다. 주 서버에서 처리 작업에서 새 데이터를 사용 하 여 하나 이상의 복제본에 0에서 확장 하는 경우 쿼리 풀에서 복제본이 없는 동기화를 먼저 수행 하 고 스케일 아웃 합니다. 스케일 아웃 하기 전에 동기화 새로 추가 된 복제본의 중복 하이드레이션 피할 수 있습니다.
 
 * 주 서버에서 모델 데이터베이스를 삭제 하는 경우이 자동으로 삭제 되지 쿼리 풀의 복제본에서. 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스에 대 한 파일/s를 제거 하 고 다음 쿼리 풀의 복제본에서 model 데이터베이스를 삭제 하는 동기화 작업을 수행 해야 합니다.
+
+* 주 서버에서 데이터베이스의 이름을 바꾸면 데이터베이스 복제본을 동기화 제대로 확인 하는 데 필요한 추가 단계가 있습니다. 이름 바꾸기 후 지정 하는 동기화를 수행 합니다 `-Database` 이전 데이터베이스 이름 가진 매개 변수입니다. 이 동기화 모든 복제본에서 데이터베이스 및 이전 이름 가진 파일을 제거합니다. 그런 다음 다른 동기화 지정을 수행 합니다 `-Database` 매개 변수를 새 데이터베이스 이름입니다. 두 번째 동기화 파일의 두 번째 집합에 새로 명명된 된 데이터베이스를 복사 하 고 모든 복제본을 하이드레이션 합니다. 포털에서 동기화 모델 명령을 사용 하 여 이러한 동기화를 수행할 수 없습니다.
 
 ### <a name="separate-processing-from-query-pool"></a>쿼리 풀에서 처리 구분
 

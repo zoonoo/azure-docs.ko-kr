@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100414"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
 
@@ -65,7 +65,7 @@ RDP 수신기가 잘못 구성되었습니다.
 
 ### <a name="serial-console"></a>직렬 콘솔
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1단계: 직렬 콘솔의 CMD 인스턴스 열기
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1단계: 직렬 콘솔에 열려 있는 CMD 인스턴스
 
 1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
@@ -77,7 +77,7 @@ RDP 수신기가 잘못 구성되었습니다.
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2단계: RDP 레지스트리 키를 값 확인하기:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2단계: 레지스트리 키를 RDP의 값을 확인 합니다.
 
 1. RDP가 정책에서 비활성화되어 있는지 확인합니다.
 
@@ -164,17 +164,17 @@ RDP 수신기가 잘못 구성되었습니다.
 
 문제가 계속되면 2단계로 이동합니다.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>2단계: 원격 데스크톱 서비스 사용
+#### <a name="step-2-enable-remote-desktop-services"></a>2단계: 원격 데스크톱 서비스를 사용 하도록 설정
 
 자세한 내용은 [Azure VM에서 원격 데스크톱 서비스가 시작되지 않음](troubleshoot-remote-desktop-services-issues.md)을 참조하세요.
 
-#### <a name="step-3-reset-rdp-listener"></a>3단계: RDP 수신기 다시 설정
+#### <a name="step-3-reset-rdp-listener"></a>3단계: RDP 수신기를 다시 설정
 
 자세한 내용은 [Azure VM에서 원격 데스크톱 연결이 자주 끊김](troubleshoot-rdp-intermittent-connectivity.md)을 참조하세요.
 
 ### <a name="offline-repair"></a>오프라인 복구
 
-#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
+#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 설정
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
@@ -229,16 +229,16 @@ RDP 수신기가 잘못 구성되었습니다.
 
       정책 정의\Windows 구성 요소\원격 데스크톱 서비스\원격 데스크톱 세션 호스트\연결\사용자가 원격 데스크톱 서비스를 사용하여 원격으로 연결하도록 허용
   
-7. 복구 VM에서 디스크를 분리합니다.
-8. [디스크에서 새 VM을 만듭니다](../windows/create-vm-specialized.md).
+1. 복구 VM에서 디스크를 분리합니다.
+1. [디스크에서 새 VM을 만듭니다](../windows/create-vm-specialized.md).
 
 문제가 계속되면 2단계로 이동합니다.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>2단계: 원격 데스크톱 서비스 사용
+#### <a name="step-2-enable-remote-desktop-services"></a>2단계: 원격 데스크톱 서비스를 사용 하도록 설정
 
 자세한 내용은 [Azure VM에서 원격 데스크톱 서비스가 시작되지 않음](troubleshoot-remote-desktop-services-issues.md)을 참조하세요.
 
-#### <a name="step-3-reset-rdp-listener"></a>3단계: RDP 수신기 다시 설정
+#### <a name="step-3-reset-rdp-listener"></a>3단계: RDP 수신기를 다시 설정
 
 자세한 내용은 [Azure VM에서 원격 데스크톱 연결이 자주 끊김](troubleshoot-rdp-intermittent-connectivity.md)을 참조하세요.
 

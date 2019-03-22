@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242756"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258074"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Text Analytics(미리 보기)에서 명명된 엔터티 인식을 사용하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "56242756"
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>엔터티 링크 및 명명된 엔터티 인식
 
-Text Analytics의 `entities` 엔드포인트는 명명된 엔터티 인식(NER) 및 엔터티 링크를 둘 다 지원합니다.
+텍스트 분석 ' `entities` 둘 다 명명 된 엔터티 인식 (NER) 및 엔터티 연결 끝점 지원 합니다.
 
 ### <a name="entity-linking"></a>엔터티 연결
 엔터티 링크 설정은 텍스트에서 찾은 엔터티의 ID를 식별하고 명확하게 구분하는 기능입니다(예: "Mars"가 행성 또는 로마의 전쟁의 신으로 사용되고 있는지 확인). 이 프로세스를 수행하려면 인식된 엔터티가 연결되는 기술 자료가 있어야 합니다. Wikipedia가 `entities` 엔드포인트 텍스트 분석의 기술 자료로 사용됩니다.
@@ -62,8 +62,9 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 | DateTime      | 기간      | "1 minute and 45 seconds"   | 
 | DateTime      | 설정           | "every Tuesday"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | 해당 없음\*         | "http://www.bing.com"    |
+| URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
+
 \* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.
 
 
@@ -74,7 +75,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 현재 지원되는 언어는 [이 목록](../text-analytics-supported-languages.md)을 참조하세요.
 
-문서 크기는 문서당 5,000자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문을 통해 제출됩니다. 다음 예제는 엔터티 링크 설정 끝에 제출할 수 있는 콘텐츠에 대한 설명입니다.
+문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 엔터티 링크 설정 끝에 제출할 수 있는 콘텐츠에 대한 설명입니다.
 
 ```
 {"documents": [{"id": "1",

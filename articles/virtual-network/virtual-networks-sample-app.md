@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884509"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>DMZ에 사용할 샘플 애플리케이션
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -42,7 +42,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 이 스크립트는 다음과 같은 기능을 수행합니다.
 
 1. 손쉬운 테스트를 위해 로컬 서버 Windows 방화벽에서 IMCPv4(Ping)를 엽니다.
-2. IIS 및 .Net Framework v4.5를 설치합니다.
+2. IIS를 설치 하는.NET Framework v4.5
 3. ASP.NET 웹 페이지와 Web.config 파일을 만듭니다.
 4. 파일에 쉽게 액세스할 수 있도록 기본 애플리케이션 풀을 변경합니다.
 5. 관리자 계정과 암호에 익명 사용자를 설정합니다.
@@ -61,7 +61,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 
 # Install IIS
-    Write-Host "Installing IIS and .Net 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
+    Write-Host "Installing IIS and .NET 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
     add-windowsfeature Web-Server, Web-WebServer, Web-Common-Http, Web-Default-Doc, Web-Dir-Browsing, Web-Http-Errors, Web-Static-Content, Web-Health, Web-Http-Logging, Web-Performance, Web-Stat-Compression, Web-Security, Web-Filtering, Web-App-Dev, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Net-Ext, Web-Net-Ext45, Web-Asp-Net45, Web-Mgmt-Tools, Web-Mgmt-Console
 
 # Create Web App Pages
@@ -105,7 +105,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Image File Linked from the Internet</b>:<br />
             <br />
-            <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
+            <img src="https://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
         </div>
       </form>
     </body>
@@ -152,12 +152,12 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 2. 웹 사이트에 대한 디렉터리를 만듭니다.
 3. 웹 페이지에서 원격으로 액세스할 텍스트 파일을 만듭니다.
 4. 디렉터리와 파일에 익명으로 액세스할 수 있는 권한을 설정합니다.
-5. 이 서버에서 쉽게 탐색할 수 있도록 IE의 강화된 보안을 해제합니다. 
+5. 이 서버에서 쉽게 탐색할 수 있도록 IE의 강화된 보안을 해제합니다.
 
 > [!IMPORTANT]
 > **모범 사례**: 프로덕션 서버에서 IE의 보안 강화를 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
-> 
-> 
+>
+>
 
 이 PowerShell 스크립트는 AppVM01에 RDP 처리된 동안 로컬로 실행해야 합니다. 관리자가 성공적 실행을 보장하기 위해 PowerShell을 실행해야 합니다.
 

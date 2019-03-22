@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096727"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+Azure Functions 런타임에서 지원 [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)합니다.
+
+이 가이드는 Java 사용 하 여 Azure 함수를 작성 하는 복잡성에 대 한 정보를 포함 합니다.
+
+Java 함수는 `public` 주석을 사용 하 여 데코레이팅된 메서드 `@FunctionName`합니다. 이 메서드는 java 함수에 대 한 항목을 정의 하 고 지정된 된 패키지에서 고유 해야 합니다. 
+
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 첫 번째 만들려면 Functions 빠른 시작을 완료 해야 함수를 사용 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 하거나 [maven을 사용 하 여](functions-create-first-java-maven.md)입니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
 [트리거 및 바인딩](functions-triggers-bindings.md)의 개념은 Azure Functions의 기본입니다. 트리거는 코드 실행을 시작합니다. 바인딩을 사용하면 사용자 지정 데이터 액세스 코드를 작성하지 않고도 데이터를 함수에 전달하고 함수에서 데이터를 반환할 수 있습니다.
-
-함수는 입력을 처리하고 출력을 생성하는 상태 비저장 메서드입니다. 함수는 클래스의 인스턴스 필드에 종속되지 않습니다. 메서드 이름이 함수에 대한 항목을 정의하는 경우 모든 함수 메서드는 `public`이며 주석이 @FunctionName인 메서드는 고유해야 합니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -387,6 +391,6 @@ Azure Function Java 개발에 대한 자세한 내용은 다음 리소스를 참
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-- [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) 및 [Eclipse](functions-create-maven-eclipse.md)를 사용하여 로컬로 개발하고 디버그합니다. 
+* [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) 및 [Eclipse](functions-create-maven-eclipse.md)를 사용하여 로컬로 개발하고 디버그합니다. 
 * [Visual Studio Code를 사용하여 Java Azure Functions 원격 디버그](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Azure Functions의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - `azure-functions:add` 목적을 통해 함수 생성을 간소화하고 [ZIP 파일 배포](deployment-zip-push.md)에 대한 준비 디렉터리를 준비합니다.

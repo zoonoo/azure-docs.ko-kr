@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 5b7aa618df63bf813e0ab0d77025cf57cfe55c3a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: a8b4e3038bfa6a2e937de91804159e340ed13224
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964571"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554157"
 ---
 | 리소스 | 대상 |
 |----------|---------------|
 | 단일 테이블의 최대 크기 | 500TiB |
-| 최대 테이블 엔터티 크기 | 1MiB |
-| 테이블 엔터티의 최대 속성 수 | 255개(3개의 시스템 속성 즉, PartitionKey, RowKey 및 Timestamp 포함) |
-| 테이블별로 저장된 액세스 정책 최대 수 | 5 |
-| 저장소 계정당 최대 요청 속도 | 초당 20,000개 트랜잭션(1KiB 엔터티 크기로 가정) |
-| 단일 테이블 파티션의 목표 처리량(1KiB 엔터티) | 초당 최대 2,000개 엔터티 |
+| 테이블 엔터티의 최대 크기 | 1MiB |
+| 테이블 엔터티에서 속성의 최대 수 | 255 세 가지 시스템 속성이 포함 되어 있습니다. PartitionKey, RowKey 및 Timestamp |
+| 테이블 별로 저장 된 액세스 정책 최대 수 | 5 |
+| 저장소 계정당 최대 요청 속도 | 1-(1kib 엔터티 크기로 가정 초당 20,000 개 트랜잭션 |
+| (1 (1kib 엔터티)는 단일 테이블 파티션의 목표 처리량 | 초당 최대 2,000 개 엔터티 |

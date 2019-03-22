@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338815"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535550"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기
 
@@ -108,9 +108,9 @@ az monitor activity-log list --resource-group pharma-sales-projectforecast --sta
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md)는 모든 Azure 리소스에 대해 RBAC 변경 내용을 수집하고 분석하는 데 사용할 수 있는 도구입니다. 로그 분석에는 다음과 같은 이점이 있습니다.
+[Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 수집 하 고 모든 Azure 리소스에 대 한 RBAC 변경을 분석 하 여 다른 도구입니다. Azure Monitor 로그에는 다음과 같은 이점이 있습니다.
 
 - 복잡한 쿼리 및 로직 작성
 - 경고, Power BI 및 기타 도구와 통합
@@ -123,9 +123,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/collect-activity-logs.md#configuration)합니다.
 
-1. [작업 로그를 봅니다](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
+1. [작업 로그를 봅니다](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Activity Log Analytics 솔루션 개요 페이지로 이동 하는 빠른 방법은 클릭 하는 것은 **Log Analytics** 옵션입니다.
 
-   ![포털의 Log Analytics 옵션](./media/change-history-report/azure-log-analytics-option.png)
+   ![포털에서 azure Monitor 로그 옵션](./media/change-history-report/azure-log-analytics-option.png)
 
 1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](../azure-monitor/log-query/get-started-portal.md)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../azure-monitor/log-query/portals.md)을 참조하세요.
 

@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119176"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -53,38 +53,36 @@ Azure Migrate 프로젝트를 삭제하면 마이그레이션 프로젝트와 �
 
 1. 컴퓨터에 *armclient* 설치(아직 설치하지 않은 경우):
 
-  a. 관리자 명령 프롬프트 창에서 다음 명령을 실행합니다. ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. 관리자 명령 프롬프트 창에서 다음 명령을 실행합니다. ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. 관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```choco install armclient```
+   b. 관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```choco install armclient```
 
-2.  Azure Migrate REST API를 사용하여 평가 보고서의 다운로드 URL 구하기
+2. Azure Migrate REST API를 사용하여 평가 보고서의 다운로드 URL 구하기
 
-  a.    관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```armclient login```
+   a.    관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```armclient login```
 
-  Azure 로그인 팝업이 열리면 Azure에 로그온합니다.
+   Azure 로그인 팝업이 열리면 Azure에 로그온합니다.
 
-  b.    동일한 PowerShell 창에서 다음 명령을 실행하여 평가 보고서의 다운로드 URL을 구합니다(URI 매개 변수를 적절한 값, 아래의 샘플 API 요청으로 바꾸기).
+   b.    동일한 PowerShell 창에서 다음 명령을 실행하여 평가 보고서의 다운로드 URL을 구합니다(URI 매개 변수를 적절한 값, 아래의 샘플 API 요청으로 바꾸기).
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       샘플 요청 및 출력:
+      샘플 요청 및 출력:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. 응답에서 URL을 복사하고 브라우저에서 열어서 평가 보고서를 다운로드합니다.
 
 4. 보고서가 다운로드되면 Excel을 사용하여 다운로드한 폴더로 이동하여 Excel에서 파일을 열어서 확인합니다.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>디스크 및 네트워크 어댑터의 성능 데이터가 0을 표시
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>CPU, 메모리 및 디스크에 대 한 성능 데이터가 0으로 표시 됩니다.
 
-vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상이 발생할 수 있습니다. 3 이상에서는 vCenter가 VM의 계산, 저장소 및 네트워크 성능 기록을 저장합니다. 3 미만에서는 vCenter가 저장소 및 네트워크 데이터를 저장하지 않고 CPU 및 메모리 데이터만 저장합니다. 이 시나리오에서는 Azure Migrate 에서 성능 데이터가 0으로 표시되고, Azure Migrate는 온-프레미스 컴퓨터에서 수집된 메타데이터를 기반으로 디스크 및 네트워크에 대한 권장 크기를 제공합니다.
-
-디스크 및 네트워크 성능 데이터 수집을 사용하려면 통계 설정 수준을 3으로 변경하세요. 그런 다음 환경을 검색하고 평가를 마칠 때까지 하루 이상 기다립니다.
+Azure Migrate는 온-프레미스 Vm의 성능 데이터를 수집 하도록 온-프레미스 환경을 지속적으로 프로필입니다. 사용자 환경의 검색을 방금 시작한 경우 수행 해야 하는 성능 데이터 수집에 대 한 하루 이상 기다려야 해야 합니다. 1 일 때까지 기다리지 않고 평가 만들어지면 성능 메트릭에 0으로 표시 됩니다. 하루를 기다린 후 새 평가 만들기 또는 평가 보고서에서 '다시 계산' 옵션을 사용 하 여 기존 평가 업데이트 합니다.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>마이그레이션 프로젝트를 만들 때 Azure 지역을 지정했습니다. 검색된 메타데이터가 저장되는 정확한 Azure 지역은 어떻게 확인할 수 있나요?
 
@@ -99,9 +97,9 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 1. 해당 해시 값을 확인하여 Azure Migrate Collector OVA 파일이 올바르게 다운로드되는지 확인합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
 2. 여전히 실패하고 VMware vSphere 클라이언트를 OVF 배포에 사용하는 경우 vSphere Web Client를 통해 배포를 시도합니다. 그래도 실패하는 경우 다른 웹 브라우저를 사용해 보세요.
 3. vSphere 웹 클라이언트를 사용 중이며 vCenter Server 6.5 또는 6.7에서 해당 클라이언트를 배포하려는 경우 다음 단계에 따라 ESXi 호스트에서 직접 OVA 배포를 시도합니다.
-  - 웹 클라이언트(https://<*host IP Address*>/ui)를 사용하여 ESXi 호스트에 직접 연결합니다(vCenter Server 대신).
-  - 홈 > 인벤토리로 이동합니다.
-  - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
+   - 웹 클라이언트(https://<*host IP Address*>/ui)를 사용하여 ESXi 호스트에 직접 연결합니다(vCenter Server 대신).
+   - 홈 > 인벤토리로 이동합니다.
+   - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
 
@@ -163,10 +161,34 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
-   
-   e. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 수집기 애플리케이션은 PowerCLI에 필요한 버전을 자동으로 다운로드하고 설치해야 합니다.
 
-3. 위의 단계로 문제가 해결되지 않는 경우 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)를 수동으로 설치하고 문제가 해결되었는지 확인합니다.
+   e. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램을 다운로드 하 고 필요한 버전의 PowerCLI 설치 해야 합니다.
+
+3. 위의 문제를 해결 되지 않으면 다음과 같이 위의 c 후 다음 단계를 사용 하 여 어플라이언스에서 PowerCLI를 수동으로 설치 합니다.
+
+   a. 설치 파일에서 다음 단계를 완료 되지 않은 PowerCLI 정리 #a 위의 2 단계에서 #c 하 합니다.
+
+   b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
+
+   다. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (유형 확인을 위해 요청 하는 경우 ' A')
+
+   d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
+
+   e. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램을 다운로드 하 고 필요한 버전의 PowerCLI 설치 해야 합니다.
+
+4. 방화벽 문제로 인해 기기 모듈을 다운로드할 수 없는 경우 다운로드 하 고 다음 단계를 사용 하 여 인터넷 액세스 권한이 있는 컴퓨터에서 모듈을 설치 합니다.
+
+    a. 설치 파일에서 다음 단계를 완료 되지 않은 PowerCLI 정리 #a 위의 2 단계에서 #c 하 합니다.
+
+    b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
+
+    다. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (유형 확인을 위해 요청 하는 경우 ' A')
+
+    d. 수집기 VM에서 동일한 위치에 "C:\Program Files (x86) \WindowsPowerShell\Modules"에서 "VMware"로 시작 하는 모든 모듈을 복사 합니다.
+
+    e. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
+
+    f. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램을 다운로드 하 고 필요한 버전의 PowerCLI 설치 해야 합니다.
 
 ### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
 
@@ -222,14 +244,14 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해서는 Azure Migrate의 종속성을 시각화할 수 없나요?
-Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Log Analytics를 사용하여 더 긴 기간 동안 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)할 수 있습니다.
+Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor의 로그를 사용할 수 있습니다 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 더 긴 기간 동안.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
 [그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.
 * 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
-* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자 차단 보내는 Azure Monitor 트래픽을 이러한 컴퓨터에서 로그를 하지 않는 한 Azure Migrate 서비스 맵 종속성 데이터를 사용 하 여 온-프레미스 컴퓨터를 연결 하지는 않습니다 및 종속성을 보는 대신 에이전트를 설치 하는 사용자에 게 요청 합니다.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Azure 준비 상태 문제 해결
 
@@ -279,15 +301,15 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
 1. 브라우저를 열고 [포털](https://portal.azure.com)을 탐색하여 로그인합니다.
 2. F12 키를 눌러 개발자 도구를 시작합니다. 필요한 경우 **탐색에 대한 항목 지우기** 설정을 선택 취소합니다.
 3. **네트워크** 탭을 클릭하고 네트워크 트래픽 캡처를 시작합니다.
- - 크롬에서 **Preserve log**를 클릭합니다. 자동으로 기록이 시작됩니다. 빨간색 원은 트래픽을 캡처하고 있다는 뜻입니다. 빨간색 원이 나타나지 않으면 검은색 원을 클릭하여 시작합니다.
- - Microsoft Edge/IE에서는 자동으로 기록이 시작됩니다. 자동으로 시작되지 않으면 녹색 재생 단추를 클릭합니다.
+   - 크롬에서 **Preserve log**를 클릭합니다. 자동으로 기록이 시작됩니다. 빨간색 원은 트래픽을 캡처하고 있다는 뜻입니다. 빨간색 원이 나타나지 않으면 검은색 원을 클릭하여 시작합니다.
+   - Microsoft Edge/IE에서는 자동으로 기록이 시작됩니다. 자동으로 시작되지 않으면 녹색 재생 단추를 클릭합니다.
 4. 오류를 재현해 봅니다.
 5. 기록하는 동안 오류가 발생하면 기록을 중지하고 기록된 활동의 복사본을 저장합니다.
- - 크롬에서는 마우스 오른쪽 단추로 클릭하고 **Save as HAR with content**를 클릭합니다. 그러면 로그가 .har 파일로 압축되어 내보내집니다.
- - Microsoft Edge/IE에서는 **캡처된 트래픽 내보내기** 아이콘을 클릭합니다. 그러면 로그가 압축되어 내보내집니다.
+   - 크롬에서는 마우스 오른쪽 단추로 클릭하고 **Save as HAR with content**를 클릭합니다. 그러면 로그가 .har 파일로 압축되어 내보내집니다.
+   - Microsoft Edge/IE에서는 **캡처된 트래픽 내보내기** 아이콘을 클릭합니다. 그러면 로그가 압축되어 내보내집니다.
 6. **콘솔** 탭으로 이동하여 경고 또는 오류를 확인합니다. 콘솔 로그를 저장하려면:
- - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. **다른 이름으로 저장**을 선택하여 로그를 내보내고 압축합니다.
- - Microsoft Edge/IE의 경우 오류를 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
+   - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. **다른 이름으로 저장**을 선택하여 로그를 내보내고 압축합니다.
+   - Microsoft Edge/IE의 경우 오류를 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 7. 개발자 도구를 닫습니다.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>수집기 오류 코드 및 권장 작업

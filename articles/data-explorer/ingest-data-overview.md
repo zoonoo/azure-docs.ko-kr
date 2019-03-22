@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133130"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -53,7 +53,7 @@ Azure Data Explorer는 현재 다음을 지원합니다.
 
 ### <a name="ingestion-using-integration-services"></a>통합 서비스를 사용한 수집
 
-* ADF(Azure Data Factory) - Azure Data Explorer에(서) 데이터를 복사하기 위한 Azure 분석 워크로드에 대한 완전 관리형 데이터 통합 서비스입니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Explorer에(서) 데이터 복사](/azure/data-factory/connector-azure-data-explorer)를 참조하세요.
+* Azure 데이터 팩터리 (ADF)를 azure에서 사용 하 여 Azure 데이터 탐색기에서 데이터를 복사 하는 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스 [지원 되는 데이터 저장소 및 형식](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Explorer에(서) 데이터 복사](/azure/data-factory/connector-azure-data-explorer)를 참조하세요.
 
 ### <a name="programmatic-ingestion"></a>프로그래밍 방식 수집
 
@@ -81,7 +81,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 * Azure 데이터 탐색기 엔진에 직접 데이터 수집(탐색 및 프로토타입에 가장 적합):
 
-  * **인라인 수집**: 대역 내 데이터를 포함하는 제어 명령(.ingest inline)이 임시 테스트 목적으로 사용됩니다.
+  * **인라인 수집**: 제어 명령은 (.ingest 인라인)에서 데이터가 포함 된 임시 테스트 목적으로 만들어졌습니다.
 
   * **쿼리에서 수집**: 쿼리 결과를 가리키는 제어 명령(.set, .set-or-append, .set-or-replace)이 보고서 또는 작은 임시 테이블을 생성하는 데 사용됩니다.
 

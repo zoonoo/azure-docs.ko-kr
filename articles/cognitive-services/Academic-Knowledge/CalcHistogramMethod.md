@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100482"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 메서드
 
@@ -27,21 +27,21 @@ ms.locfileid: "55879023"
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
 ## <a name="request-parameters"></a>요청 매개 변수
 
-Name  |값 | Required?  |설명
+이름  |값 | Required?  |설명
 -----------|----------|--------|----------
 **expr**    |텍스트 문자열 | 예  |히스토그램을 계산할 엔터티를 지정하는 쿼리 식입니다.
-**model** |텍스트 문자열 | 아니요 |쿼리할 모델 이름을 선택합니다.  현재 기본값은 *최신*입니다.
-**attributes** | 텍스트 문자열 | 아니요<br>기본값: | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
-**count** |Number | 아니요<br>Default: 10 |반환할 결과의 수입니다.
-**offset**  |Number | 아니요<br>Default: 0 |반환할 첫 번째 결과의 인덱스입니다.
-**timeout**  |Number | 아니요<br>Default: 1000 |시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
+**model** |텍스트 문자열 | 아닙니다. |쿼리할 모델 이름을 선택합니다.  현재 기본값은 *최신*입니다.
+**attributes** | 텍스트 문자열 | 아닙니다.<br>기본값: | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
+**count** |Number | 아닙니다.<br>Default: 10 |반환할 결과의 수입니다.
+**offset**  |Number | 아닙니다.<br>Default: 0 |반환할 첫 번째 결과의 인덱스입니다.
+**timeout**  |Number | 아닙니다.<br>Default: 1000 |시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
 
 ## <a name="response-json"></a>응답(JSON)
 
-Name | 설명
+이름 | 설명
 --------|---------
 **expr**  |요청의 expr 매개 변수입니다.
 **num_entities** | 일치하는 항목의 총 수입니다.

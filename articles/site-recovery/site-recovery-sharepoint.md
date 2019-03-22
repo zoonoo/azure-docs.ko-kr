@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848479"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443490"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -29,7 +29,7 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 애플리케이션을 보호하는 방법을 자세히 설명합니다. 그리고 3계층 SharePoint 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-아래에 나온 비디오에서 Azure에 다중 계층 애플리케이션을 복구하는 방법을 볼 수 있습니다.
+볼 수는 아래 비디오를 다중 계층 응용 프로그램을 Azure로 복구 하는 방법에 대 한 합니다.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -62,10 +62,10 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | yes | yes
-**VMware** | yes | yes
-**물리적 서버** | yes | yes
-**Azure** | 해당 없음 | yes
+**Hyper-V** | 예 | 예
+**VMware** | 예 | 예
+**물리적 서버** | 예 | 예
+**Azure** | 해당 없음 | 예
 
 ### <a name="sharepoint-versions"></a>SharePoint 버전
 다음 SharePoint Server 버전이 지원됩니다.

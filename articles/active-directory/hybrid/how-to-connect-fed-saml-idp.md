@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096948"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -30,16 +30,16 @@ ms.locfileid: "56167799"
 
 Microsoft는 Office 365와 같은 Microsoft 클라우드 서비스를 올바르게 구성된 SAML 2.0 프로필 기반 IdP에 통합하는 방식으로 이러한 로그온 환경을 지원합니다. SAML 2.0 ID 공급자는 타사 제품이므로 Microsoft는 이와 관련된 배포, 구성, 문제 해결 모범 사례를 지원하지 않습니다. SAML 2.0 ID 공급자와의 통합이 구성된 후에는 Microsoft 연결 분석기 도구를 사용하여 구성이 적절한지 테스트할 수 있습니다. 이 도구에 대해서는 아래에 자세히 설명되어 있습니다. SAML 2.0 SP-Lite 프로필 기반 ID 공급자에 대한 자세한 내용은 해당 공급자를 제공하는 조직에 문의하세요.
 
->[!IMPORTANT]
->SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서는 제한된 클라이언트 집합만 사용할 수 있습니다. 여기에는 다음이 포함됩니다.
-
->- Outlook Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트
-- 기본 인증 및 IMAP, POP, Active Sync, MAPI 등의 지원되는 Exchange 액세스 방법을 사용하는 풍부한 전자 메일 기능을 제공하는 클라이언트(향상된 클라이언트 프로토콜 끝점을 배포해야 함). 여기에는 다음이 포함됩니다.
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone(다양한 iOS 버전)
-    - 다양한 Google Android 디바이스
-    - Windows Phone 7, Windows Phone 7.8 및 Windows Phone 8.0
-    - Windows 8 메일 클라이언트 및 Windows 8.1 메일 클라이언트
-    - Windows 10 메일 클라이언트
+> [!IMPORTANT]
+> SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서는 제한된 클라이언트 집합만 사용할 수 있습니다. 여기에는 다음이 포함됩니다.
+> 
+> - Outlook Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트
+> - 기본 인증 및 IMAP, POP, Active Sync, MAPI 등의 지원되는 Exchange 액세스 방법을 사용하는 풍부한 전자 메일 기능을 제공하는 클라이언트(향상된 클라이언트 프로토콜 끝점을 배포해야 함). 여기에는 다음이 포함됩니다.
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone(다양한 iOS 버전)
+>     - 다양한 Google Android 디바이스
+>     - Windows Phone 7, Windows Phone 7.8 및 Windows Phone 8.0
+>     - Windows 8 메일 클라이언트 및 Windows 8.1 메일 클라이언트
+>     - Windows 10 메일 클라이언트
 
 다른 모든 클라이언트는 SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서 사용할 수 없습니다. 예를 들어 Lync 2010 데스크톱 클라이언트에서 Single Sign-On용으로 구성된 SAML 2.0 ID 공급자를 사용해서 서비스에 로그인할 수 없습니다.
 
@@ -194,9 +194,9 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 “Set-MsolDomainAuthentication”에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
->“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS””는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
+>실행 해야 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` id 공급자에 대해 ECP 확장을 설정 하는 경우에 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
 
-페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
+페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure AD/Office 365로 사용자 계정 프로비전
 Office 365에서 사용자를 인증하려면 먼저 SAML 2.0 클레임의 어설션에 해당하는 사용자 계정으로 Azure AD를 프로비전해야 합니다. 이러한 사용자 계정이 사전에 Azure AD에 알려져 있지 않으면 페더레이션 로그인에 사용할 수 없습니다. Azure AD Connect 또는 Windows PowerShell을 사용하여 사용자 계정을 프로비전할 수 있습니다.

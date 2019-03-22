@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5802634fe070f5d71fae01706c3cb4e83e04a72e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192067"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285635"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 4. **MDM policy - West** 그룹을 선택한 후 **관리** 영역에서 **속성**을 선택합니다.
 
-    ![멤버 수 및 멤버 옵션이 강조 표시된 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![멤버 옵션 및 강조 표시 정보를 사용 하 여 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. 다음을 포함하여 필요에 따라 **일반 설정** 정보를 업데이트합니다.
 

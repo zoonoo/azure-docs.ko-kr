@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318982"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820028"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -70,7 +70,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
     ```
 
 > [!Note]
-> 방화벽이 그룹 정책 개체를 통해 설정되는 경우 이 명령은 로컬 레지스트리 항목만 변경하므로 이 방법이 작동하지 않습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
+> 방화벽은 그룹 정책 개체를 통해 설정 되 면이 명령은 로컬 레지스트리 항목만 변경 되기 때문에이 메서드가 작동 하지 않습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
 
 #### <a name="mitigation-3-pstools-commands"></a>해결 방법 3: PSTools 명령
 
@@ -118,7 +118,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 어떤 방법으로도 VM에 연결할 수 없는 경우 사용자 지정 스크립트 확장이 실패할 것이며, 시스템 디스크를 통해 직접 작업하여 오프라인 모드로 작업해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md)
+1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 

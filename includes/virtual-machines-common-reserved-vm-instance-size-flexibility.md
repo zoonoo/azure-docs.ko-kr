@@ -1,15 +1,15 @@
 ---
-author: manish-shukla01
+author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 0a8b4f9821164cca943064b20f1ec1a87981a172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114133"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
@@ -142,7 +142,7 @@ ms.locfileid: "54906330"
 |Standard_D32s_v3|16|
 |Standard_D64s_v3|32|
 
-자세한 내용은 [범용 가상 머신 크기](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)를 참조하세요.
+자세한 내용은 [범용 가상 머신 크기](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)를 참조하세요.
 
 ## <a name="dv2-series"></a>Dv2 시리즈
 
@@ -179,7 +179,7 @@ ms.locfileid: "54906330"
 |Standard_D32_v3|16|
 |Standard_D64_v3|32|
 
-자세한 내용은 [범용 가상 머신 크기](../articles/virtual-machines/windows/sizes-general.md#dv3-series-sup1sup)를 참조하세요.
+자세한 내용은 [범용 가상 머신 크기](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)를 참조하세요.
 
 ## <a name="esv3-series"></a>ESv3 시리즈
 
@@ -194,12 +194,13 @@ ms.locfileid: "54906330"
 |Standard_E16s_v3|8|
 |Standard_E16-4s_v3|8|
 |Standard_E16-8s_v3|8|
+|Standard_E20s_v3|10|
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
-|Standard_E64s_v3|32|
-|Standard_E64-16s_v3|32|
-|Standard_E64-32s_v3|32|
+|Standard_E64s_v3|28.8|
+|Standard_E64-16s_v3|28.8|
+|Standard_E64-32s_v3|28.8|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)를 참조하세요.
 
@@ -211,6 +212,7 @@ ms.locfileid: "54906330"
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
+|Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
 
@@ -238,7 +240,7 @@ Standard_F16|16|
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fs-series-sup1sup)를 참조하세요.
+자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1)를 참조하세요.
 
 ## <a name="fsv2-series"></a>Fsv2 시리즈
 
@@ -252,7 +254,7 @@ Standard_F16|16|
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-sup1sup)를 참조하세요.
+자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1)를 참조하세요.
 
 ## <a name="h-series"></a>H 시리즈
 

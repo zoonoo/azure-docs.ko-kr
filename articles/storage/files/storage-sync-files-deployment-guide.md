@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465829"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405490"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -83,7 +83,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 > 저장소 동기화 서비스는 배포된 구독 및 리소스 그룹에서 액세스 권한을 상속합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
-저장소 동기화 서비스를 배포하려면 [Azure Portal](https://portal.azure.com/)로 이동하여 *새로 만들기*를 클릭한 후 Azure 파일 동기화를 검색합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
+저장소 동기화 서비스를 배포 하려면로 이동 합니다 [Azure portal](https://portal.azure.com/), 클릭 *리소스 만들기* Azure File sync를 검색 하 고 합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
 

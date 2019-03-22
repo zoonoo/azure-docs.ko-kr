@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302066"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960219"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 설계 가이드: 확장성 있는 고성능 테이블 설계
 
@@ -213,7 +213,7 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 * 두 번째로 좋은 방법은 **PartitionKey**를 사용하고 **RowKey** 값 범위를 필터링하여 둘 이상의 엔터티를 반환하는 ***Range Query***입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 세 번째로 좋은 방법은 **PartitionKey**를 사용하고 키가 아닌 다른 속성을 필터링하여 둘 이상의 엔터티를 반환하는 ***파티션 검색***입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***테이블 검색***은 **PartitionKey**를 포함하지 않으며, 테이블을 구성하는 모든 파티션에서 일치하는 모든 엔터티를 검색하기 때문에 비효율적입니다. 필터에서 **RowKey**를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
-* 여러 엔터티를 반환하는 Azure Table Storage 쿼리는 **PartitionKey**와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey**를 선택합니다. Azure Cosmso DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+* 여러 엔터티를 반환하는 Azure Table Storage 쿼리는 **PartitionKey**와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey**를 선택합니다. 파티션 키 또는 행 키로 Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 "**or**"을 사용하여 **RowKey** 값을 기반으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 다음과 같은 필터를 사용하는 쿼리는 피해야 합니다. $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -255,7 +255,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 Table service에서 반환되는 쿼리 결과는 **PartitionKey**를 기준으로 오름차순으로 정렬된 다음, **RowKey**를 기준으로 정렬됩니다.
 
 > [!NOTE]
-> Azure Cosmso DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> 파티션 키 또는 행 키로 Azure DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 Azure Storage 테이블의 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **RowKey**로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123**에서 **00000123**으로 변환해야 합니다. 
 
@@ -723,7 +723,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
 
 > [!NOTE]
-> Azure Cosmso DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> Azure DB에서 Azure Table API에서 반환한 쿼리 결과 파티션 키 또는 행 키로 정렬 되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  

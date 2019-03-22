@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117611"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
@@ -39,12 +39,10 @@ ms.locfileid: "55180690"
 
 > [!WARNING]
 > **동기화 범위를 변경하면 관리되는 도메인이 다시 동기화됩니다.**
->
- * 관리되는 도메인의 동기화 범위를 변경하면 전체 다시 동기화가 수행됩니다.
- * 관리되는 도메인에서 더 이상 필요하지 않은 개체는 삭제됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
- * 다시 동기화는 관리되는 도메인 및 Azure AD 디렉터리의 개체(사용자, 그룹 및 그룹 멤버십) 수에 따라 완료하는 데 오래 걸릴 수 있습니다. 수십만 개의 많은 개체가 있는 큰 디렉터리의 경우 다시 동기화에 며칠이 걸릴 수 있습니다.
->
->
+> 
+>  * 관리되는 도메인의 동기화 범위를 변경하면 전체 다시 동기화가 수행됩니다.
+>  * 관리되는 도메인에서 더 이상 필요하지 않은 개체는 삭제됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
+>  * 다시 동기화는 관리되는 도메인 및 Azure AD 디렉터리의 개체(사용자, 그룹 및 그룹 멤버십) 수에 따라 완료하는 데 오래 걸릴 수 있습니다. 수십만 개의 많은 개체가 있는 큰 디렉터리의 경우 다시 동기화에 며칠이 걸릴 수 있습니다.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>새 관리형 도메인 만들기 및 Azure Portal을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
@@ -58,46 +56,46 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
 다음 단계를 완료하여 관리되는 도메인에 대한 그룹 기반 범위 동기화를 구성합니다.
 
 1. 다음 작업을 완료합니다.
-  * [작업 1: 필수 PowerShell 모듈 설치](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules)
-  * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)
-  * [작업 3: ‘AAD DC Administrators’ 그룹 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group)
-  * [작업 4: Azure AD Domain Services 리소스 공급자 등록](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider)
-  * [작업 5: 리소스 그룹 만들기](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group)
-  * [작업 6: 가상 네트워크 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network)
+   * [작업 1: 필수 PowerShell 모듈 설치](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules)
+   * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)
+   * [작업 3: ‘AAD DC Administrators’ 그룹 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group)
+   * [작업 4: Azure AD Domain Services 리소스 공급자 등록](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider)
+   * [작업 5: 리소스 그룹 만들기](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group)
+   * [작업 6: 가상 네트워크 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network)
 
 2. 동기화할 그룹을 선택하고 관리되는 도메인에 동기화할 그룹의 표시 이름을 제공합니다.
 
 3. [다음 섹션의 스크립트](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1)를 ```Select-GroupsToSync.ps1``` 파일에 저장합니다. 다음과 같이 스크립트를 실행합니다.
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **‘AAD DC 관리자’ 그룹을 포함해야 합니다.**
-  >
-  > 범위 동기화를 위해 구성된 그룹 목록에 ‘AAD DC 관리자’ 그룹을 포함해야 합니다. 이 그룹을 포함하지 않으면 관리되는 도메인을 사용할 수 없습니다.
-  >
+   > [!WARNING]
+   > **‘AAD DC 관리자’ 그룹을 포함해야 합니다.**
+   >
+   > 범위 동기화를 위해 구성된 그룹 목록에 ‘AAD DC 관리자’ 그룹을 포함해야 합니다. 이 그룹을 포함하지 않으면 관리되는 도메인을 사용할 수 없습니다.
+   >
 
 4. 이제 관리되는 도메인을 만들고 관리되는 도메인의 그룹 기반 범위 동기화를 사용하도록 설정합니다. ```Properties``` 매개 변수에 ```"filteredSync" = "Enabled"``` 속성을 포함합니다. 예를 들어, [작업 7: Azure AD Domain Services 관리되는 도메인 프로비전](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)에서 복사한 다음 스크립트 조각을 참조하세요.
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > ```-Properties``` 매개 변수에 ```"filteredSync" = "Enabled"```를 포함해야 관리되는 도메인에 범위 동기화를 사용할 수 있습니다.
+   > [!TIP]
+   > ```-Properties``` 매개 변수에 ```"filteredSync" = "Enabled"```를 포함해야 관리되는 도메인에 범위 동기화를 사용할 수 있습니다.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>관리되는 도메인에 동기화할 그룹을 선택하는 스크립트(Select-GroupsToSync.ps1)

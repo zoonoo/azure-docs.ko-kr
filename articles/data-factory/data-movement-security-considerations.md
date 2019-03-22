@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099987"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서�
 Azure Data Factory는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
 Data Factory는 다음에 대해 인증을 받았습니다.
+
 | **[CSA STAR 인증](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
@@ -45,12 +46,14 @@ Data Factory는 다음에 대해 인증을 받았습니다.
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 http://aka.ms/AzureCompliance를 확인하세요.
+Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance를 확인하세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
 - **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
 - **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 개인 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
 
@@ -89,10 +92,10 @@ Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으
 Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3은 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요.
+Amazon S3은 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요.
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 
+Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
@@ -109,9 +112,9 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 - **자격 증명을 로컬로 저장**합니다. 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화하고 저장하려면 [Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르십시오. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다. 
 
-   **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용하여 연결된 서비스 자격 증명을 암호화하고 연결된 서비스의 중요한 세부 정보를 암호화합니다. 그런 다음, **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 사용하여 연결된 서비스를 만드는 데 반환된 JSON(연결 문자열의 **EncryptedCredential** 요소 사용)을 사용할 수 있습니다.  
+   사용 된 **새로 만들기-AzDataFactoryV2LinkedServiceEncryptedCredential** 연결 된 서비스 자격 증명 및 연결된 된 서비스의 중요 한 세부 정보를 암호화 하는 cmdlet입니다. 반환 된 JSON을 사용할 수 있습니다 (사용 하 여는 **EncryptedCredential** 연결 문자열의 요소)를 사용 하 여 연결된 된 서비스를 만들려면 합니다 **집합 AzDataFactoryV2LinkedService** cmdlet.  
 
-- **Azure Data Factory 관리 저장소에 저장**합니다. JSON의 연결 문자열 및 자격 증명 인라인과 함께 직접 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 사용하는 경우 연결된 서비스는 Azure Data Factory 관리 저장소에서 암호화되고 저장됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
+- **Azure Data Factory 관리 저장소에 저장**합니다. 직접 사용 하는 경우는 **집합 AzDataFactoryV2LinkedService** cmdlet은 연결 문자열 및 자격 증명 인라인과 JSON에서, 연결된 된 서비스는 암호화 되며 Azure Data Factory 관리 저장소에 저장 합니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
 
 
 
@@ -184,7 +187,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Storage](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114113"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535215"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -28,7 +28,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 준수를 보고하는 메서드를 살펴보기 전에 호환성 정보가 업데이트되는 시기 및 평가 주기를 트리거하는 빈도 및 이벤트를 살펴보겠습니다.
 
 > [!WARNING]
-> 준수 상태가 **‘등록되지 않음’** 으로 보고된 경우 [여기](../overview.md#rbac-permissions-in-azure-policy)에 설명된 대로 **Microsoft.PolicyInsights** 리소스 공급자가 등록되어 있고 사용자에게 적절한 RBAC(역할 기반 액세스 제어) 권한이 있는지 확인합니다.
+> 으로 준수 상태로 보고 되는 경우 **등록 되어 있지**, 되어 있는지 확인 합니다 **Microsoft.PolicyInsights** 리소스 공급자가 등록 되어 있고 사용자는 적절 한 역할 기반 액세스 제어 ( 에 설명 된 대로 RBAC) 사용 권한 [Azure Policy에 대 한 RBAC](../overview.md#rbac-permissions-in-azure-policy)합니다.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 ![정책 준수 활동 로그](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>변경 기록(미리 보기)
+### <a name="understand-non-compliance"></a>호환 되지 않는 이해
 
-새 **공개 미리 보기**의 일부로, 지난 14일의 변경 기록을 비 규격 리소스에 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 검색은 비 규격 리소스의 Resource Manager 속성이 추가, 제거 또는 변경될 때 트리거됩니다.
+<a name="change-history-preview"></a>
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
-
-1. **개요** 또는 **규정 준수** 페이지에서 _비 규격_ 정책을 선택합니다.
-
-1. **정책 준수** 페이지의 **리소스 준수** 탭에서 _비 규격_ 리소스를 선택합니다.
-
-1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
-
-   ![정책 변경 기록 - 탭](../media/getting-compliance-data/change-history-tab.png)
-
-1. 검색된 변경 중 하나를 선택합니다. 비 규격 리소스의 _시각적 차이_는 **변경 기록** 페이지에 표시됩니다.
-
-   ![정책 변경 기록 - 시각적 차이](../media/getting-compliance-data/change-history-visual-diff.png)
-
-_시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색된 변경 내용과 리소스가 선택된 정책을 준수하지 않는 원인 사이에 아무 관련이 없을 수도 있습니다.
+리소스를 것으로 확인 되는 경우 **호환 되지 않는**, 여러 가지 가능한 이유가 있습니다. 리소스는 이유를 확인 **비준수** 변경 책임, 참조 또는 [호환 되지 않는 확인](./determine-non-compliance.md)합니다.
 
 ## <a name="command-line"></a>명령 줄
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-`AzureActivity` 솔루션이 구독에 연결된 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 작업 영역이 있는 경우 간단한 Azure Data Explorer 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 규정을 준수하지 않는 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+있는 경우는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 사용 하 여 `AzureActivity` 에서 합니다 [Activity Log Analytics 솔루션](../../../azure-monitor/platform/collect-activity-logs.md) 구독에 연결을 확인할 수도 있습니다 사용 하 여 평가 주기에서 호환 되지 않는 결과 간단한 Kusto 쿼리 및 `AzureActivity` 테이블입니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 ![Azure Monitor 로그를 사용한 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
 

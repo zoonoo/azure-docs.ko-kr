@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a168ca3aafc171e4ed9b9f7572ee60b2ac7c350
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893207"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.
@@ -63,7 +63,7 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 1. 다음을 수행하여 새 애플리케이션을 만듭니다.
    - **이름**에서 **B2CUserMigratioin** 또는 원하는 다른 이름을 사용합니다.
    - **애플리케이션 종류**에는 **웹앱/API**를 사용합니다.
-   - **로그온 URL**에서 **https://localhost**(이 애플리케이션에 관련되지 않기 때문에)를 사용합니다.
+   - 에 대 한 **로그온 URL**를 사용 하 여 `https://localhost` (아니므로이 응용 프로그램에 관련)입니다.
    - **만들기**를 선택합니다.
    
 1. 애플리케이션을 만든 후 **애플리케이션** 목록에서 새로 만든 **B2CUserMigration** 애플리케이션을 선택합니다.
@@ -94,7 +94,7 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 디렉터리 데이터 읽기 및 쓰기 권한에는 사용자를 삭제하는 권한이 포함되지 *않습니다*. 애플리케이션에 사용자를 삭제할 수 있는 권한을 부여하려면(환경을 정리하기 위해) PowerShell을 실행하여 사용자 계정 관리자 권한을 설정해야 하는 추가 단계를 수행해야 합니다. 그렇지 않으면 다음 섹션으로 건너뛸 수 있습니다.
 
 > [!IMPORTANT]
-> B2C 테넌트에 대해 *로컬*인 B2C 테넌트 Administrator 계정을 사용해야 합니다. 계정 이름 구문은 *admin@contosob2c.onmicrosoft.com*입니다.
+> B2C 테넌트에 대해 *로컬*인 B2C 테넌트 Administrator 계정을 사용해야 합니다. 계정 이름 구문은 *admin\@contosob2c.onmicrosoft.com*합니다.
 
 >[!NOTE]
 > 다음 PowerShell 스크립트에는 [Azure Active Directory PowerShell 버전 2][AD-Powershell]가 필요합니다.
@@ -370,4 +370,4 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration
+[UserMigrationSample]: https://github.com/yoelhor/Azure-AD-B2C-UserMigration

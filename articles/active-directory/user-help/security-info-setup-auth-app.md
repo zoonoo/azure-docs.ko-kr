@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102386"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>인증 앱을 사용하도록 보안 정보(미리 보기) 설정
 다음 단계에 따라 2단계 인증 및 암호 재설정 메서드를 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
@@ -36,11 +36,11 @@ ms.locfileid: "56456863"
 
 1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
 
-    ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile.png)
+    ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **메서드 추가** 페이지의 드롭다운 목록에서 **Authenticator 앱**을 선택한 다음, **추가**를 선택합니다.
 
@@ -52,10 +52,10 @@ ms.locfileid: "56456863"
 
     ![앱을 받고 시작하기 페이지](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Microsoft Authenticator 앱 이외의 인증 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
-    
-    >조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
+   > [!Note]
+   > Microsoft Authenticator 앱 이외의 인증 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
+   > 
+   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
 
 5. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지를 열어 둡니다.
 
@@ -81,9 +81,9 @@ ms.locfileid: "56456863"
 
 8. Microsoft Authenticator 앱에서 알림을 승인하고, **다음**을 선택합니다.
 
-    ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    2단계 인증 또는 암호 재설정을 사용하면 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
+     2단계 인증 또는 암호 재설정을 사용하면 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>보안 정보 메서드에서 Authenticator 앱 삭제
 인증 앱을 보안 정보 메서드로 더 이상 사용하지 않으려는 경우 **보안 정보** 페이지에서 제거할 수 있습니다. 이 기능은 Microsoft Authenticator 앱뿐만 아니라 모든 인증 앱에도 작동합니다. 앱을 삭제한 후에는 모바일 디바이스의 인증 앱으로 이동하여 계정을 삭제해야 합니다.

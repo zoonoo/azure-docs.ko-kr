@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014907"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295626"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
 초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
 
-![Azure AD B2b 초대 전자 메일](media/invitation-email-elements/invitation-email.png)
+![B2B 초대 전자 메일을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>전자 메일 설명
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
@@ -51,12 +51,12 @@ ms.locfileid: "58014907"
 
 자신의 프로필 사진을 아직 설정하지 않은 경우 다음과 같이 사진 대신 초대자의 이니셜이 있는 아이콘이 표시됩니다.
 
-  ![초대자의 이니셜 표시](media/invitation-email-elements/inviters-initials.png)
+  ![표시 되는 이니셜 초대를 사용 하 여 초대를 보여 주는 스크린샷](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>본문
 본문에는 초대자가 [게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대](add-users-administrator.md)할 때 또는 [초대 API를 사용하여](customize-invitation-api.md) 작성하는 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
 
-  ![전자 메일 본문의 그림](media/invitation-email-elements/invitation-email-body.png)
+  ![초대 전자 메일의 본문을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>바닥글 섹션
 바닥글에는 Microsoft 회사 브랜드가 포함되며, 받는 사람은 이를 통해 전자 메일이 모니터링되지 않은 별칭에서 전송되었는지 여부를 알 수 있습니다. 
@@ -65,12 +65,12 @@ ms.locfileid: "58014907"
 
 - 초대자에게 초대 테넌시의 전자 메일 주소가 없습니다.
 
-  ![초대자 사진에 초대 테넌시의 전자 메일 주소가 없습니다.](media/invitation-email-elements/inviter-no-email.png)
+  ![초대 자가 초대 테 넌 트에 전자 메일을 없을 때 스크린 샷](media/invitation-email-elements/inviter-no-email.png)
 
 
 - 받는 사람이 초대를 충전할 필요가 없습니다.
 
-  ![받는 사람이 초대를 충전할 필요가 없는 경우](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![수신자를 초대를 충전할 필요가 없는 경우 스크린 샷](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>언어를 결정하는 방법
 초대 이메일에서 게스트 사용자에게 표시되는 언어는 다음 설정에 의해 결정됩니다. 이러한 설정은 우선 순위 순서대로 나열됩니다. 설정이 구성되지 않은 경우 목록의 다음 설정이 언어를 결정합니다. 

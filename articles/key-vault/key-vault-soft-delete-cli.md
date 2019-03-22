@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - CLI로 일시 삭제를 사용하는 방법
 description: CLI 코드 캡처를 통한 일시 삭제의 사용 사례 예제
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
-ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097613"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -167,19 +167,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 키와 마찬가지로 비밀도 자체의 명령을 사용하여 관리됩니다.
 
 - SQLPassword라는 비밀 삭제: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - Key Vault의 모든 삭제된 비밀 나열: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - 삭제된 상태의 비밀 복구: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - 삭제된 상태의 비밀 제거: 
 
@@ -195,7 +195,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > 키 자격 증명 모음 또는 포함된 해당 개체 중 하나를 제거하면 영구적으로 삭제되며, 이는 복구할 수 없습니다!
 
-제거 함수는 이전에 일시 삭제되었던 키 자격 증명 모음 개체 또는 전체 키 자격 증명 모음을 영구적으로 삭제하는 데 사용됩니다. 이전 섹션에서 설명한 대로 일시 삭제 기능을 사용하도록 설정된 키 자격 증명 모음에 저장된 개체는 다음과 같이 여러 가지 상태를 거칠 수 있습니다.
+제거 함수는 키 자격 증명 모음 개체 또는 전체 key vault가 이전에 일시 삭제는 영구적으로 삭제 됩니다. 이전 섹션에서 설명한 대로 일시 삭제 기능을 사용하도록 설정된 키 자격 증명 모음에 저장된 개체는 다음과 같이 여러 가지 상태를 거칠 수 있습니다.
 
 - **활성**: 삭제 전
 - **일시 삭제**: 삭제 후 목록에 나열되고 활성 상태로 다시 복구할 수 있습니다.

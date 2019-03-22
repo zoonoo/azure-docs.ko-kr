@@ -5,26 +5,31 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816325"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247225"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>사설 도메인에 Azure DNS 사용
 
 DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. DNS 도메인에 대한 호스팅 서비스인 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. 인터넷 연결 DNS 도메인 지원 외에도 Azure DNS는 이제 사설 DNS 도메인을 미리 보기 기능으로 지원합니다.
 
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
 Azure DNS는 사용자 지정 DNS 솔루션을 추가하지 않고도 가상 네트워크의 도메인 이름을 관리하고 확인할 수 있는 안정적이고 신뢰할 수 있는 DNS 서비스를 제공합니다. 사설 DNS 영역을 사용하면 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 사용할 수 있습니다. 사용자 지정 도메인 이름을 사용하면 조직의 요구 사항에 가장 적합하도록 가상 네트워크 아키텍처를 조정할 수 있습니다. 가상 네트워크 내에서 그리고 가상 네트워크 간에 VM(가상 머신)에 대한 이름을 확인할 수 있게 해줍니다. 또한 분할-수평 보기를 사용해 영역을 구성할 수도 있습니다. 그러면 개인 DNS 영역과 공용 DNS 영역이 이름을 공유할 수 있습니다.
+
+가상 네트워크에 사설 DNS 영역에 게시하려면 영역 내에서 레코드를 확인하도록 허용된 가상 네트워크 목록을 지정합니다. 이것을 *확인 가상 네트워크*라고 합니다. 또한 VM이 생성되고, IP가 변경되고, 삭제될 때마다 Azure DNS가 호스트 이름 레코드를 유지 관리하게 되는 가상 네트워크를 지정할 수 있습니다. 이것을 *등록 가상 네트워크*라고 합니다.
 
 등록 가상 네트워크를 지정하는 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없지만 VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
 
 ![DNS 개요](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> 모범 사례로, 사설 DNS 영역에 대 한.local 도메인을 사용 하지 마십시오. 일부 운영 체제는이 지원 합니다.
 
 ## <a name="benefits"></a>이점
 

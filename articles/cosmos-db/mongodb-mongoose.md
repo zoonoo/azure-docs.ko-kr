@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105950"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
@@ -49,15 +49,15 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
 
 1. 폴더에 새 파일을 추가하고 이름을 ```index.js```로 지정합니다.
 1. ```npm install``` 옵션 중 하나를 사용하여 필요한 패키지를 설치합니다.
-    * Mongoose: ```npm install mongoose@5 --save```
+   * Mongoose: ```npm install mongoose@5 --save```
 
-    > [!Note]
-    > 아래의 Mongoose 예제 연결은 이전 버전 이후로 변경된 Mongoose 5 이상을 기반으로 합니다.
+     > [!Note]
+     > 아래의 Mongoose 예제 연결은 이전 버전 이후로 변경된 Mongoose 5 이상을 기반으로 합니다.
     
-    * Dotenv(.env 파일에서 비밀을 로드하려는 경우): ```npm install dotenv --save```
+   * Dotenv(.env 파일에서 비밀을 로드하려는 경우): ```npm install dotenv --save```
 
-    >[!Note]
-    > ```--save``` 플래그는 package.json 파일에 종속성을 추가합니다.
+     >[!Note]
+     > ```--save``` 플래그는 package.json 파일에 종속성을 추가합니다.
 
 1. index.js 파일의 종속성을 가져옵니다.
     ```JavaScript
@@ -161,29 +161,29 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
     ```
 
 1. 이제 다른 스키마와 개체를 만들겠습니다. 이번에는 가족이 관심을 가질 만한 ‘Vacation Destinations’에 대한 항목을 만들겠습니다.
-    1. 이전과 마찬가지로 스키마를 만들겠습니다.
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+   1. 이전과 마찬가지로 스키마를 만들겠습니다.
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. 샘플 개체(이 스키마에 여러 개체를 추가할 수 있음)를 만들고 저장합니다.
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. 샘플 개체(이 스키마에 여러 개체를 추가할 수 있음)를 만들고 저장합니다.
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
 1. 이제 Azure Portal로 이동하면 Cosmos DB에 두 개의 컬렉션이 생성된 것을 확인할 수 있습니다.
 
-    ![Node.js 자습서 - 컬렉션 이름을 강조 표시한 Azure Cosmos DB 계정을 표시하는 Azure Portal 스크린샷 - 노드 데이터베이스][multiple-coll]
+    ![Node.js 자습서-Azure 포털 스크린샷, 여러 컬렉션 이름을 강조 표시를 사용 하 여 Azure Cosmos DB 계정을 보여 주는-노드 데이터베이스][multiple-coll]
 
 1. 마지막으로, Cosmos DB에서 데이터를 읽겠습니다. 기본 Mongoose 운영 모델을 사용하고 있으므로 읽기는 Mongoose를 사용한 다른 읽기와 동일합니다.
 
@@ -251,44 +251,44 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
     ```
 
 1. 마지막으로, 모델에 대한 개체를 만들고 저장합니다.
-    1. ‘Family’ 모델에 개체를 추가하겠습니다.
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+   1. ‘Family’ 모델에 개체를 추가하겠습니다.
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. 그런 다음 ‘VacationDestinations’ 모델에 개체를 추가하고 저장하겠습니다.
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. 그런 다음 ‘VacationDestinations’ 모델에 개체를 추가하고 저장하겠습니다.
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
 1. 이제 Azure Portal로 돌아가면 ‘Family’ 및 ‘VacationDestinations’ 데이터가 둘 다 포함된 ```alldata```라는 하나의 컬렉션만 표시됩니다.
 
-    ![Node.js 자습서 - 강조 표시된 컬렉션 이름 - 노드 데이터베이스와 함께 Azure Cosmos DB 계정을 표시하는 Azure Portal 스크린샷][alldata]
+    ![Node.js 자습서-Azure 포털 스크린샷, 컬렉션 이름을 강조 표시를 사용 하 여 Azure Cosmos DB 계정을 보여 주는-노드 데이터베이스][alldata]
 
 1. 또한 각 개체에 ```__type```이라는 다른 특성이 있습니다. 이 특성은 두 가지 개체 모델을 구별하는 데 도움이 됩니다.
 

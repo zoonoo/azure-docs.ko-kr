@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328217"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295575"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -46,15 +46,14 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 이 컨테이너는 설정에 대한 최소 및 권장 값을 지원합니다.
 
-|설정| 최소 | 권장 |
-|-----------|---------|-------------|
-|코어 수<BR>`--cpus`|1 코어|1 코어|
-|메모리<BR>`--memory`|2GB|4GB|
-|초당 트랜잭션 수<BR>(TPS)|20 TPS|40 TPS|
+|컨테이너| 최소 | 권장 | TPS<br>(최소, 최대)|
+|-----------|---------|-------------|--|
+|LUIS|1개 코어, 2GB 메모리|1개 코어, 4GB 메모리|20,40|
 
-각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* 각 코어는 속도가 2.6GHz 이상이어야 합니다.
+* TP-초당 트랜잭션 수
 
-`--cpus` 및 `--memory` 설정은 `docker run` 명령의 일부로 사용됩니다.
+`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -248,6 +247,8 @@ ApiKey={ENDPOINT_KEY}
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 > ApiKey 값은 LUIS 포털의 키 및 엔드포인트 페이지에서 **키**이며 Azure Language Understanding 리소스 키 페이지에서도 사용할 수 있습니다.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 게시된(스테이징 또는 프로덕션) 앱에 대한 엔드포인트는 학습된 앱에 대한 엔드포인트와 경로가 _다릅니다_. 
@@ -263,7 +264,7 @@ ApiKey={ENDPOINT_KEY}
 
 |쿼리 매개 변수|Type|목적|
 |--|--|--|
-|`q`|string|사용자의 발화입니다.|
+|`q`|문자열|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104440"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
@@ -93,16 +93,16 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
     
     이 파일 연결을 만들려면
 
-    1. FileConnection 설정에서 **<New Connection...>** 을 선택합니다.
-    2. **사용 유형**을 **기존 파일**로 설정하고, **파일**을 기존 파일의 파일 경로로 설정합니다.
+   1. FileConnection 설정에서 **<New Connection...>** 을 선택합니다.
+   2. **사용 유형**을 **기존 파일**로 설정하고, **파일**을 기존 파일의 파일 경로로 설정합니다.
 
-        ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. **연결 관리자** 보기에서 방금 만든 파일 연결을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+   3. **연결 관리자** 보기에서 방금 만든 파일 연결을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
-    4. **속성** 창에서 **식**을 확장하고 **ConnectionString**을 Foreach 루프 컨테이너에 정의된 변수(예: `@[User::FileName]`)로 설정합니다.
+   4. **속성** 창에서 **식**을 확장하고 **ConnectionString**을 Foreach 루프 컨테이너에 정의된 변수(예: `@[User::FileName]`)로 설정합니다.
 
-        ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. **AzureDataLakeAnalyticsConnection**을 작업이 제출될 Azure Data Lake Analytics 계정으로 설정합니다. [Azure Data Lake Analytics 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)에 대해 자세히 알아보세요.
 

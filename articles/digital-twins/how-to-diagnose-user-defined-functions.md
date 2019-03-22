@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119224"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961417"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -29,10 +29,10 @@ Azure Digital Twins 인스턴스 내에서 발생하는 문제를 진단하는 �
 
 ### <a name="enable-log-analytics-for-your-instance"></a>인스턴스에 로그 분석 사용
 
-Azure Digital Twins 인스턴스에 대한 로그 및 메트릭은 Azure Monitor에 표시됩니다. 이 설명서에서는 [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) 또는 [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)을 통해 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 작업 영역을 만들었다고 가정합니다.
+Azure Digital Twins 인스턴스에 대한 로그 및 메트릭은 Azure Monitor에 표시됩니다. 이 설명서 만들었다고 가정 합니다는 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 를 통해 작업 영역을 [Azure Portal](../azure-monitor/learn/quick-create-workspace.md)을 통해 [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), 또는 [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)합니다.
 
 > [!NOTE]
-> Azure Log Analytics에 이벤트를 처음으로 보낼 때 5분 지연이 발생할 수 있습니다.
+> 처음으로 Azure Monitor 로그로 이벤트를 전송 하는 경우 5 분 지연이 발생할 수 있습니다.
 
 Azure Digital Twins 리소스에 대한 모니터링 및 로깅을 구성하려면 [모니터링 및 로깅을 구성하는 방법](./how-to-configure-monitoring.md)을 참조하세요.
 
@@ -43,11 +43,11 @@ Azure Portal, Azure CLI 또는 PowerShell을 통해 Azure Digital Twins에서 �
 
 ### <a name="trace-sensor-telemetry"></a>센서 원격 분석 추적
 
-센서 원격 분석을 추적하려면 Azure Digital Twins 인스턴스에 대해 진단 설정이 활성화되어 있는지 확인합니다. 그런 다음 원하는 모든 로그 범주가 선택되어 있는지 확합니다. 마지막으로, 원하는 로그가 Azure Log Analytics로 전송되고 있는지 확인합니다.
+센서 원격 분석을 추적하려면 Azure Digital Twins 인스턴스에 대해 진단 설정이 활성화되어 있는지 확인합니다. 그런 다음 원하는 모든 로그 범주가 선택되어 있는지 확합니다. 마지막으로 원하는 로그는 Azure Monitor 로그로 전송 되 고 있는지 확인 합니다.
 
 센서 원격 분석 메시지를 해당 로그에 일치시키려면 보내는 이벤트 데이터에 대한 상관 관계 ID를 지정할 수 있습니다. 이렇게 하려면 `x-ms-client-request-id` 속성을 GUID로 설정합니다.
 
-원격 분석을 보낸 후 Azure Log Analytics를 열고 설정된 상관 관계 ID를 사용하여 로그를 쿼리합니다.
+원격 분석을 보낸 후 log analytics 집합을 사용 하 여 로그에 대 한 쿼리를 열고 상관 관계 ID:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 이벤트 데이터에 대해 지정된 상관 관계 ID |
 
-사용자 정의 함수에 대한 로깅을 사용하면 해당 로그는 Azure Log Analytics 인스턴스에 범주 `UserDefinedFunction`으로 나타납니다. 이들을 검색하려면 Azure Log Analytics에 다음 쿼리 조건을 입력합니다.
+해당 로그 범주를 사용 하 여 로그 분석 인스턴스 사용자 정의 함수에 대 한 로깅을 사용 하도록 설정 하면 나타나는 `UserDefinedFunction`합니다. 를 검색 하려면 log analytics에서 다음 쿼리 조건을 입력 합니다.
 
 ```Kusto
 AzureDiagnostics

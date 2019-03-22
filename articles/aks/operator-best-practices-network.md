@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176585"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -116,7 +116,7 @@ spec:
 
 ![Azure App Gateway와 같은 WAF(웹 애플리케이션 방화벽)로 AKS 클러스터에 대한 트래픽을 보호하고 분산할 수 있음](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure Application Gateway][app-gateway]는 트래픽이 AKS 클러스터 및 애플리케이션에 도달하기 전에 이러한 보안 기능을 제공하기 위해 AKS 클러스터와 통합될 수 있는 WAF입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
+WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure Application Gateway] [ app-gateway] (AKS에서 현재 미리 보기)는 WAF는 트래픽을 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 이러한 보안 기능을 제공 하 여 AKS 클러스터를 통합할 수 있습니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
 
 부하 분산 장치 또는 수신 리소스는 트래픽 분산을 미세 조정하기 위해 AKS 클러스터에서 계속 실행됩니다. App Gateway는 리소스 정의를 사용하여 중앙에서 수신 컨트롤러로 관리될 수 있습니다. 시작하려면 [Application Gateway 수신 컨트롤러를 만드세요][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추
 
 **모범 사례 지침** - 네트워크 정책을 사용하여 pod에 트래픽을 허용하거나 거부합니다. 기본적으로 모든 트래픽이 클러스터 내에서 pod 간에 허용됩니다. 보안 향상을 위해 pod 통신을 제한하는 규칙을 정의합니다.
 
-네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책을 통해 트래픽 흐름을 제어하는 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다. Pod 간 트래픽을 제어하는 데 Azure 네트워크 보안 그룹을 사용하지 말고, 네트워크 정책을 사용합니다.
+네트워크 정책 (현재 AKS에서 미리 보기) 기능은 Kubernetes pod 간의 트래픽 흐름을 제어할 수 있도록 합니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책을 통해 트래픽 흐름을 제어하는 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다. Pod 간 트래픽을 제어하는 데 Azure 네트워크 보안 그룹을 사용하지 말고, 네트워크 정책을 사용합니다.
 
 네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다.
 

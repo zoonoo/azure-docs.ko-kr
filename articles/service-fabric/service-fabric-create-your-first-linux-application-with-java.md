@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 094f706878b82956398cd08100b3daf76b9f6cbc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ddde1570534801d394ace23973e4d755a1af7017
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443218"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -243,7 +243,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
     watch -n 1 ./testclient.sh
     ```
 
-2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  서비스 상태의 변경 사항은 보조 복제본에 복제되고 아래 스크린샷의 0 및 1노드에서 실행됩니다.
+2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  서비스 상태의 변경 사항은 다음 아웃 노드 0 및 아래 스크린샷에 1에서 실행 중인 보조 복제본에 복제 됩니다.
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 

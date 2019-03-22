@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567091"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866830"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 엔드포인트 변경
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567091"
 [데이터베이스 감사](sql-database-auditing.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다. BLOB 감사 메서드를 사용하는 경우에는 해당 리디렉션이 적용되지 않습니다.
 
 ## <a id="subheading-1"></a>하위 클라이언트 지원
+
 TDS 7.4를 구현하는 모든 클라이언트는 리디렉션도 지원해야 합니다. 이에 대한 예외에는 리디렉션 기능이 완전히 지원되지 않는 JDBC 4.0 및 리디렉션이 구현되지 않은 Node.JS용 Tedious가 포함됩니다.
 
 TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결 문자열에서 서버 FQDN을 수정해야 합니다.
@@ -46,6 +47,7 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 **주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
 ## <a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 엔드포인트 변경
+
 테이블 감사를 사용하도록 설정하면 데이터베이스의 IP 엔드포인트가 변경됩니다. 엄격한 방화벽 설정이 있으면 해당 방화벽 설정을 적절하게 업데이트하세요.
 
 새 데이터베이스 IP 엔드포인트는 데이터베이스 지역에 따라 달라집니다.
@@ -78,5 +80,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 미국 중서부 |52.161.29.186, 52.161.27.213 |
 | 캐나다 중부 |13.88.248.106, 13.88.248.110 |
 | 캐나다 동부 |40.86.227.82, 40.86.225.194 |
-| 영국 북부 |13.87.101.18, 13.87.100.232 |
-| 영국 남부 2 |13.87.32.202, 13.87.32.226 |
+| 영국 남부 |13.87.32.202, 13.87.32.226 |

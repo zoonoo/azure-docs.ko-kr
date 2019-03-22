@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202455"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -57,7 +57,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 * **Ambari(웹)** - https://&lt;clustername>.azurehdinsight.net
 
-    클러스터 관리자 계정 및 암호를 사용하여 인증하고 Ambari에 로그인합니다.
+    클러스터 관리자 사용자 이름 및 암호를 사용 하 여 인증 하 고 Ambari에 로그인 합니다.
 
     인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
@@ -114,7 +114,8 @@ Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 �
 
 HDInsight에서 데이터 스토리지 리소스(Azure Blob Storage 및 Azure Data Lake Storage)는 컴퓨팅 리소스와는 분리됩니다. 따라서 필요에 따라 계산을 수행하는 HDInsight 클러스터를 만들고 나중에 작업이 완료되면 클러스터를 삭제할 수 있습니다. 그 동안 데이터 파일은 클라우드 저장소에서 필요한 시간 동안 안전하게 유지됩니다.
 
-### <a name="uri-and-scheme"></a>URI 및 구성표
+
+### <a name="URI-and-scheme"></a>URI 및 구성표
 
 일부 명령에서는 파일에 액세스할 때 URI의 일부로 구성표를 지정해야 할 수도 있습니다. 예를 들어 Storm-HDFS 구성 요소를 사용하려면 구성표를 지정해야 합니다. 기본값이 아닌 저장소(클러스터에 "추가" 저장소로 추가된 저장소)를 사용할 때는 항상 URI의 일부로 구성표를 사용해야 합니다.
 
@@ -248,7 +249,7 @@ HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
-HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 문제를 발견하면 실패한 노드를 삭제하고 이 노드를 대체할 노드를 만들 수 있습니다. 클러스터에 Hue(또는 다른 Hadoop 구성 요소)를 수동으로 설치하는 경우 이 작업이 수행될 때 유지되지 않습니다. 대신 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster.md)을 사용합니다. 스크립트 동작을 사용하여 다음과 같이 변경할 수 있습니다.
+HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 문제를 발견하면 실패한 노드를 삭제하고 이 노드를 대체할 노드를 만들 수 있습니다. 클러스터에 Hue(또는 다른 Hadoop 구성 요소)를 수동으로 설치하는 경우 이 작업이 수행될 때 유지되지 않습니다. 대신 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)을 사용합니다. 스크립트 동작을 사용하여 다음과 같이 변경할 수 있습니다.
 
 * 서비스 또는 웹 사이트를 설치하고 구성합니다.
 * 클러스터의 여러 노드에 대한 구성을 변경할 필요가 있는 구성 요소를 설치하고 구성합니다.
@@ -256,7 +257,6 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 스크립트 동작은 Bash 스크립트입니다. 스크립트는 클러스터를 만드는 동안 실행되며, 추가 구성 요소를 설치 및 구성하는 데 사용됩니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 

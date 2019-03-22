@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814829"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194081"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -70,7 +70,7 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 [여러 공용 IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)된 경우 이러한 공용 IP 주소가 아웃바운드 흐름의 후보가 되며 그 중 하나가 임의로 선택됩니다.  
 
-[Load Balancer에 대한 Log Analytics](load-balancer-monitor-log.md) 및 SNAT 포트 소모 메시지를 모니터링하기 위한 경고 [이벤트 로그](load-balancer-monitor-log.md#alert-event-log)를 사용하여 Load Balancer 기본을 통한 아웃바운드 연결의 상태를 모니터링할 수 있습니다.
+Load Balancer 기본을 사용 하 여 아웃 바운드 연결의 상태를 모니터링 하려면 사용할 수 있습니다 [부하 분산 장치에 대 한 Azure Monitor 로그](load-balancer-monitor-log.md) 하 고 [경고 이벤트 로그](load-balancer-monitor-log.md#alert-event-log) SNAT 포트 소모 메시지를 모니터링 합니다.
 
 ### <a name="defaultsnat"></a>시나리오 3: 인스턴스 수준 공용 IP 주소가 없는 독립 실행형 VM
 

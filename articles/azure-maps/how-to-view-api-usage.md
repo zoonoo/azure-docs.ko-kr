@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079881"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure Maps API 사용량 보기
 
@@ -37,10 +37,10 @@ Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 �
 
 4. **메트릭** 창에서 다음 중 하나를 선택합니다.
 
-    1. **가용성** - 일정 기간 동안의 API 가용성에 대한 *평균*을 보여 줍니다.
-    2. **사용량** - 계정에 대한 사용 *개수*를 보여 줍니다.
+   1. **가용성** - 일정 기간 동안의 API 가용성에 대한 *평균*을 보여 줍니다.
+   2. **사용량** - 계정에 대한 사용 *개수*를 보여 줍니다.
 
-    ![Azure Maps 메트릭 창](media/how-to-view-api-usage/portal-metrics.png)
+      ![Azure Maps 메트릭 창](media/how-to-view-api-usage/portal-metrics.png)
 
 5. 다음으로, **지난 24시간(자동)** 을 클릭하여 *시간 범위*를 선택할 수 있습니다. 기본적으로 시간 범위는 24시간으로 설정됩니다. 클릭하면 선택 가능한 시간 범위가 모두 표시됩니다. *시간 단위*를 선택하고, 동일한 드롭다운에서 시간을 *로컬* 또는 *GMT*로 표시하도록 선택할 수 있습니다. **적용**을 클릭합니다.
 

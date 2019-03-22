@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59f07b9ba8116cb1a4b5ab50382d89d01a78853b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357693"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316203"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -134,7 +134,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](resource-manager-templates-parameters.md)을 참조하세요.
+템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](resource-group-authoring-templates.md#parameters)을 참조하세요.
 
 <a id="too-many-resource-groups" />
 

@@ -1,5 +1,5 @@
 ---
-title: '지점 및 사이트 간에 대한 인증서 생성 및 내보내기: MakeCert: Azure | Microsoft Docs'
+title: '지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기: MakeCert: Azure | Microsoft Docs'
 description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102080"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -28,16 +28,16 @@ ms.locfileid: "44297862"
 다음 단계에서는 MakeCert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
 1. [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 및 설치합니다.
-2. 설치가 끝나면 일반적으로 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>' 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
+2. 설치가 끝나면 일반적으로이 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. 사용자 컴퓨터의 개인 인증서 저장소에 인증서를 만들고 설치합니다. 다음 예제에서는 P2S를 구성할 때 Azure에 업로드하는 해당 *.cer* 파일을 만듭니다. 'P2SRootCert' 및 'P2SRootCert.cer'을 인증서에 사용하려는 이름으로 바꿉니다. 인증서는 'Certificates - Current User\Personal\Certificates'에 있습니다.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>공개 키(.cer) 내보내기
 
@@ -61,14 +61,14 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
  
 1. 자체 서명된 인증서를 만드는 데 사용한 동일한 컴퓨터에서 관리자로 명령 프롬프트를 엽니다.
 2. 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다.
-  * *"P2SRootCert"* 는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다. 루트 인증서의 이름을 사용하고 있는지 확인합니다. 이 경우에 'CN=' 값은 자체 서명된 루트를 만들 때 지정한 값입니다.
-  * *P2SChildCert*는 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
+   * *"P2SRootCert"* 는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다. 루트 인증서의 이름을 사용하고 있는지 확인합니다. 이 경우에 'CN=' 값은 자체 서명된 루트를 만들 때 지정한 값입니다.
+   * *P2SChildCert*는 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
 
-  다음 예제를 수정하지 않고 실행하면 루트 인증서 P2SRootCert에서 생성된 클라이언트 인증서 P2SChildcert가 개인 인증서 저장소에 저장됩니다.
+   다음 예제를 수정하지 않고 실행하면 루트 인증서 P2SRootCert에서 생성된 클라이언트 인증서 P2SChildcert가 개인 인증서 저장소에 저장됩니다.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>클라이언트 인증서 내보내기
 

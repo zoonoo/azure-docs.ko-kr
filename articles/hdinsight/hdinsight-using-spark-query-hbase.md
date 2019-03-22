@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188036"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260137"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -25,7 +25,7 @@ Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 A
 * 별도 두 HDInsight 클러스터, HBase 및 Spark 사용 하 여 적어도 Spark 2.1 (HDInsight 3.6)이 설치 되어 있습니다.
 * Spark 클러스터는 대기 시간을 최소화하면서 HBase 클러스터와 직접 통신해야 하므로 동일한 가상 네트워크에 두 클러스터를 모두 배포하는 구성 권장 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-* 합니다 [URI 체계](/hdinsight-hadoop-linux-information#URI-and-scheme.md) 클러스터 기본 저장소에 대 한 합니다. Wasb 것: / / Azure Blob storage, abfs: / / Azure Data Lake 저장소 Gen2 또는 adl: / / Azure Data Lake 저장소 Gen1에 대 한 합니다. URI wasbs 것에 대해 Blob Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우: / / 또는 abfss: / / 각각도 참조 하세요 [보안 전송](../storage/common/storage-require-secure-transfer.md)합니다.
+* 합니다 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터 기본 저장소에 대 한 합니다. Wasb 것: / / Azure Blob storage, abfs: / / Azure Data Lake 저장소 Gen2 또는 adl: / / Azure Data Lake 저장소 Gen1에 대 한 합니다. URI wasbs 것에 대해 Blob Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우: / / 또는 abfss: / / 각각도 참조 하세요 [보안 전송](../storage/common/storage-require-secure-transfer.md)합니다.
 
 
 ## <a name="overall-process"></a>전체 프로세스

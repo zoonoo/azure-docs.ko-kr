@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285705"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305129"
 ---
-가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다.
+가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 가상 네트워크 게이트웨이 Sku Azure 가용성 영역에서 대해서 [Azure 가용성 영역 게이트웨이 Sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)합니다.
 
 ###  <a name="benchmark"></a>터널, 연결 및 처리량별 게이트웨이 SKU
 
@@ -29,7 +29,7 @@ ms.locfileid: "51285705"
 
 | **SKU**| **기능**|
 | ---    | ---         |
-|**기본**(\*\*)   | **경로 기반 VPN**: S2S/연결 터널 10개, P2S에 대한 RADIUS 인증 없음, P2S에 대한 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): S2S/연결 터널 1개, P2S 없음|
+|**기본**(\*\*)   | **경로 기반 VPN**: S2S/연결에 대 한 10 개의 터널 P2S에 대 한 RADIUS 인증 없음 P2S 용 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): S2S/연결 1 개의 터널; P2S 없음|
 | **VpnGw1, VpnGw2 및 VpnGw3** | **경로 기반 VPN**: 최대 30개의 터널( * ),P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
 

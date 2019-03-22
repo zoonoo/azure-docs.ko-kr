@@ -1,5 +1,5 @@
 ---
-title: 언어 지원 - Speech Service API
+title: 언어 지원-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: Azure Speech Services는 음성 번역과 함께 음성-텍스트 변환 및 텍스트-음성 변환을 위해 다양한 언어를 지원합니다. 이 문서에서는 서비스별 언어 지원에 대한 종합 목록을 제공합니다.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225436"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
+# <a name="language-and-region-support-for-the-speech-services"></a>음성 서비스에 대 한 언어 및 지역 지원
 
 Speech Service 기능마다 다른 언어가 지원됩니다. 다음 표에서는 언어 지원을 요약합니다.
 
@@ -28,36 +28,36 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 
   코드 | 언어 | [음향 적응](how-to-customize-acoustic-models.md) | [언어 적응](how-to-customize-language-model.md) | [발음 적응](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | 아랍어(이집트), 현대 표준 | 아니요 | 예 | 아니요
- ca-ES | 카탈로니아어(스페인) | 아니요 | 아니요 | 아니요
- da-DK | 덴마크어(덴마크) | 아니요 | 아니요 | 아니요
- de-DE | 독일어(독일) | 예 | 예 | 아니요
- en-AU | 영어(오스트레일리아) | 아니요 | 예 | 예
- en-CA | 영어(캐나다) | 아니요 | 예 | 예
- en-GB | 영어(영국) | 아니요 | 예 | 예
+ ar-EG | 아랍어(이집트), 현대 표준 | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ ca-ES | 카탈로니아어(스페인) | 아닙니다. | 아니요 | 아닙니다.
+ da-DK | 덴마크어(덴마크) | 아닙니다. | 아니요 | 아닙니다.
+ de-DE | 독일어(독일) | 예 | 예 | 아닙니다.
+ en-AU | 영어(오스트레일리아) | 아닙니다. | 예 | 예
+ en-CA | 영어(캐나다) | 아닙니다. | 예 | 예
+ en-GB | 영어(영국) | 아닙니다. | 예 | 예
  en-IN | 영어(인도) | 예 | 예 | 예
- en-NZ | 영어(뉴질랜드) | 아니요 | 예 | 예  
+ en-NZ | 영어(뉴질랜드) | 아닙니다. | 예 | 예  
  en-US | 영어(미국) | 예 | 예 | 예
- es-ES | 스페인어(스페인) | 예 | 예 | 아니요
- es-MX | 스페인어(멕시코) | 아니요 | 예 | 아니요
- fi-FI | 핀란드어(핀란드) | 아니요 | 아니요 | 아니요
- fr-CA | 프랑스어(캐나다) | 아니요 | 예 | 아니요
- fr-FR | 프랑스어(프랑스) | 예 | 예 | 아니요
- hi-IN | 힌디어(인도) | 아니요 | 예 | 아니요
- it-IT | 이탈리아어(이탈리아) | 예 | 예 | 아니요
- ja-JP | 일본어(일본) | 아니요 | 예 | 아니요
- en-US | 한국어(한국) | 아니요 | 예 | 아니요
- nb-NO | 노르웨이어(복말)(노르웨이) | 아니요 | 아니요 | 아니요
- nl-NL | 네덜란드어(네덜란드) | 아니요 | 예 | 아니요
- pl-PL | 폴란드어(폴란드) | 아니요 | 아니요 | 아니요
- pt-BR | 포르투갈어(브라질) | 예 | 예 | 아니요
- pt-PT | 포르투갈어(포르투갈) | 아니요 | 예 | 아니요
- ru-RU | 러시아어(러시아) | 예 | 예 | 아니요
- sv-SE | 스웨덴어(스웨덴) | 아니요 | 아니요 | 아니요
- zh-CN | 중국어(북경어, 간체) | 예 | 예 | 아니요
- zh-HK | 중국어(북경어, 번체) | 아니요 | 예 | 아니요
- zh-TW | 중국어(대만어) | 아니요 | 예 | 아니요
- th-TH | 태국어(태국) | 아니요 | 아니요 | 아니요
+ es-ES | 스페인어(스페인) | 예 | 예 | 아닙니다.
+ es-MX | 스페인어(멕시코) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ fi-FI | 핀란드어(핀란드) | 아닙니다. | 아니요 | 아닙니다.
+ fr-CA | 프랑스어(캐나다) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ fr-FR | 프랑스어(프랑스) | 예 | 예 | 아닙니다.
+ hi-IN | 힌디어(인도) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ it-IT | 이탈리아어(이탈리아) | 예 | 예 | 아닙니다.
+ ja-JP | 일본어(일본) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ en-US | 한국어(한국) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ nb-NO | 노르웨이어(복말)(노르웨이) | 아닙니다. | 아니요 | 아닙니다.
+ nl-NL | 네덜란드어(네덜란드) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ pl-PL | 폴란드어(폴란드) | 아닙니다. | 아니요 | 아닙니다.
+ pt-BR | 포르투갈어(브라질) | 예 | 예 | 아닙니다.
+ pt-PT | 포르투갈어(포르투갈) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ ru-RU | 러시아어(러시아) | 예 | 예 | 아닙니다.
+ sv-SE | 스웨덴어(스웨덴) | 아닙니다. | 아니요 | 아닙니다.
+ zh-CN | 중국어(북경어, 간체) | 예 | 예 | 아닙니다.
+ zh-HK | 중국어(북경어, 번체) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ zh-TW | 중국어(대만어) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ th-TH | 태국어(태국) | 아닙니다. | 아니요 | 아닙니다.
 
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
@@ -76,13 +76,18 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 인공신경망 음성 및 국가별 가용성 전체 목록은 [지역](regions.md#neural-voices)을 참조하세요.
 
 | 로캘 | 언어 | 성별 | 서비스 이름 매핑|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | 독일어(독일) | Female | "Microsoft Server Speech 텍스트를 음성 음성 (DE-DE KatjaNeural)" |
 | en-US | 영어(미국) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | 영어(미국) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| it-IT | 이탈리아어(이탈리아) | Female | "Microsoft Server Speech 텍스트를 음성 음성 (IT-IT, ElsaNeural)" |
 | zh-CN | 중국어 | Female | "Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
-> Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)은 동남 아시아 엔드포인트(https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1)를 통해서만 제공됩니다.
+> Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)는 동남 아시아 엔드포인트(https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1)를 통해서만 제공됩니다.
+
+> [!IMPORTANT]
+> Microsoft Server 음성 텍스트에서 음성을 음성 (DE-DE KatjaNeural) 및 Microsoft Server 음성 텍스트 음성 음성 (IT-IT, ElsaNeural)를 통해서만 사용할 수는 유럽 서 부 끝점: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1합니다.
 
 ### <a name="standard-voices"></a>표준 음성
 
@@ -179,7 +184,7 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 음성 사용자 지정은 미국 영어(en-US), 본토 중국어(zh-CN), 프랑스어(fr-FR), 독일어(de-DE) 및 이탈리아어(it-IT)로 사용할 수 있습니다.
 
 > [!NOTE]
-> 프랑스어, 독일어 및 이탈리아 음성 학습은 2,000개 이상의 발화가 있는 데이터 세트로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
+> 프랑스어, 독일어와 이탈리아어 음성 교육 데이터 집합을 2,000 개 이상의 길이 발언을 사용 하 여 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
 
 ## <a name="speech-translation"></a>음성 번역
 
@@ -255,5 +260,5 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [Speech Services 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 * [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

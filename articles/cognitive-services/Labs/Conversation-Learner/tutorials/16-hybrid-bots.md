@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117441"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>다른 봇 빌드 기술과 함께 Conversation Learner를 사용하는 방법
 
@@ -119,11 +119,11 @@ Conversation Learner를 일부 초기 상태 및 반환 값을 가져오는 함�
 2. '안녕하세요'를 입력합니다.  `isOpen` 값이 설정되지 않았으므로 봇은 "I’m sorry we’re closed"라고 말하고 세션을 닫습니다.
 
 #### <a name="scenario-2-store-is-open"></a>시나리오 2: 저장소가 열림
-3. 'open store'를 입력합니다.  이렇게 하면 `isOpen`이 true로 설정됩니다.
-4. 'shop'을 입력합니다.
-5. '안녕하세요'를 입력합니다.  `isOpen` 값이 true로 설정되어 있으므로 봇은 "What would you like to buy?"라고 말합니다.
-6. 'chair'를 입력합니다. 'chair'는 CL 메모리에 엔터티 `purchaseItem`으로 저장됩니다. 이 값을 대화 저장소로 복사하는 세션 종료 콜백이 호출됩니다.
-7. 'history'를 입력합니다.  이것이 마지막 `purchaseItem`이므로 봇은 'You bought chair'라고 말합니다.
+1. 'open store'를 입력합니다.  이렇게 하면 `isOpen`이 true로 설정됩니다.
+1. 'shop'을 입력합니다.
+1. '안녕하세요'를 입력합니다.  `isOpen` 값이 true로 설정되어 있으므로 봇은 "What would you like to buy?"라고 말합니다.
+1. 'chair'를 입력합니다. 'chair'는 CL 메모리에 엔터티 `purchaseItem`으로 저장됩니다. 이 값을 대화 저장소로 복사하는 세션 종료 콜백이 호출됩니다.
+1. 'history'를 입력합니다.  이것이 마지막 `purchaseItem`이므로 봇은 'You bought chair'라고 말합니다.
 
 ## <a name="conclusion"></a>결론
 

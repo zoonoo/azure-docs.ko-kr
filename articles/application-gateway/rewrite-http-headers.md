@@ -7,27 +7,29 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119295"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. 이러한 HTTP 헤더를 다시 쓰면 HSTS/ X-XSS-보호와 같은 보안 관련 헤더 필드 추가 또는 백 엔드 서버 이름과 같은 중요한 정보를 표시할 수 있는 응답 헤더 필드 제거와 같은 여러 중요한 시나리오를 수행할 수 있습니다.
 
 Application Gateway는 이제 들어오는 HTTP 요청뿐 아니라 나가는 HTTP 응답의 헤더를 다시 쓰는 기능도 지원합니다. 요청/응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 표준 및 비표준 헤더 필드를 모두 다시 쓸 수 있습니다.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > HTTP 헤더 다시 쓰기 지원은 [새 SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에만 제공됩니다.
 
 Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니다.
 
 - **글로벌 헤더 다시 쓰기**: 사이트와 관련된 모든 요청 및 응답에 대한 특정 헤더를 다시 쓸 수 있습니다.
-- **경로 기반 헤더 다시 쓰기**: 이 유형의 다시 쓰기는 특정 사이트 영역에만 관련된 요청 및 응답(예: /cart/*로 표시된 쇼핑 카트 영역)의 헤더 다시 쓰기를 지원합니다.
+- **경로 기반 헤더 재작성**:이 형식의 다시 쓰기 요청 및 응답에 속하는 특정 사이트 영역 에서만 /cart/로 쇼핑 카트 영역을 표시 하는 예를 들어 헤더 다시 쓰기를 사용 하면\*합니다.
 
 이렇게 변경하려면 다음 작업을 수행해야 합니다.
 
@@ -48,7 +50,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
   *예제:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - 다른 헤더의 값. 
@@ -56,7 +58,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
   *예제 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
   *예제 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
   *예제:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

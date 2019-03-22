@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199247"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure 구독 및 리소스 그룹(제한된 공개 미리 보기)에서 Recovery Services 자격 증명 모음 이동
 
 이 문서에서는 Azure 구독 간에 또는 동일한 구독의 다른 리소스 그룹에 Azure Backup에 대해 구성된 Recovery Services 자격 증명 모음을 이동하는 방법을 설명합니다. Azure Portal 또는 PowerShell을 사용하여 Recovery Services 자격 증명 모음을 이동할 수 있습니다.
+
+> [!NOTE]
+> Recovery Services 자격 증명 모음 및 해당 관련된 리소스와 다른 리소스 그룹으로 이동 하려면 해야 먼저 [원본 구독을 등록](#register-the-source-subscription-to-move-your-recovery-services-vault)합니다.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>자격 증명 모음 이동을 위한 필수 구성 요소
 
@@ -38,9 +41,7 @@ ms.locfileid: "56007511"
 
 > [!NOTE]
 >
-**Azure Site Recovery**와 함께 사용하도록 구성된 Recovery Services 자격 증명 모음은 아직 이동할 수 없습니다. **Azure Site Recovery**를 사용하여 재해 복구에 대해 VM(Azure IaaS, Hyper-V, VMware) 또는 물리적 머신을 구성한 경우 이동 작업이 차단됩니다. Site Recovery 서비스에 대한 리소스 이동 기능을 아직 사용할 수 없습니다.
->
->
+> **Azure Site Recovery**와 함께 사용하도록 구성된 Recovery Services 자격 증명 모음은 아직 이동할 수 없습니다. **Azure Site Recovery**를 사용하여 재해 복구에 대해 VM(Azure IaaS, Hyper-V, VMware) 또는 물리적 머신을 구성한 경우 이동 작업이 차단됩니다. Site Recovery 서비스에 대한 리소스 이동 기능을 아직 사용할 수 없습니다.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>원본 구독을 등록하여 Recovery Services 자격 증명 모음 이동
 
@@ -48,26 +49,26 @@ ms.locfileid: "56007511"
 
 1. Azure 계정에 로그인
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  등록하려는 구독 선택
+2. 등록하려는 구독 선택
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  이 구독 등록
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. 이 구독 등록
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. 명령 실행
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 Azure Portal 또는 PowerShell을 사용하여 이동 작업을 시작하기 전에 구독이 허용 목록에 추가되도록 30분 정도 기다립니다.
 
@@ -78,27 +79,27 @@ Azure Portal 또는 PowerShell을 사용하여 이동 작업을 시작하기 전
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Recovery Services 자격 증명 모음**의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
-  ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  자격 증명 모음에 대한 **Essentials** 정보가 표시되지 않는 경우 드롭다운 아이콘을 클릭합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
+   자격 증명 모음에 대한 **Essentials** 정보가 표시되지 않는 경우 드롭다운 아이콘을 클릭합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
 
-  ![Essentials 정보 탭](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![Essentials 정보 탭](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. 자격 증명 모음 개요 메뉴에서 **리소스 그룹** 옆의 **변경**을 클릭하여 **리소스 이동** 블레이드를 엽니다.
 
-  ![리소스 그룹 변경](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![리소스 그룹 변경](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. **리소스 이동** 블레이드에서 선택한 자격 증명 모음의 경우 다음 이미지처럼 확인란을 선택하여 관련된 옵션 리소스를 이동하는 것이 좋습니다.
 
-  ![구독 이동](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![구독 이동](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. 대상 리소스 그룹을 추가하려면 **리소스 그룹** 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새 그룹 만들기** 옵션을 클릭합니다.
 
-  ![리소스 만들기](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![리소스 만들기](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. 리소스 그룹을 추가한 후 **새 리소스 ID를 사용하려는 경우 이동한 리소스와 연결된 도구 및 스크립트를 업데이트하지 않으면 정상적으로 작동하지 않는다는 점을 이해합니다.** 옵션을 확인한 다음, **확인**을 클릭하여 자격 증명 모음 이동을 완료합니다.
 
-  ![확인 메시지](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![확인 메시지](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 다른 구독으로 이동
@@ -116,16 +117,16 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 
 3. 자격 증명 모음 개요 메뉴에서 **구독** 옆의 **변경**을 클릭하여 **리소스 이동** 블레이드를 엽니다.
 
-  ![구독 변경](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![구독 변경](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. 이동할 리소스를 선택합니다. 여기에서 **모두 선택** 옵션을 사용하여 나열된 모든 선택적 리소스를 선택하는 것이 좋습니다.
 
-  ![리소스 이동](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![리소스 이동](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. 자격 증명 모음을 이동하려는 **구독** 드롭다운 목록에서 대상 구독을 선택합니다.
 6. 대상 리소스 그룹을 추가하려면 **리소스 그룹** 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새 그룹 만들기** 옵션을 클릭합니다.
 
-  ![구독 추가](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![구독 추가](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. **새 리소스 ID를 사용하려는 경우 이동한 리소스와 연결된 도구 및 스크립트를 업데이트하지 않으면 정상적으로 작동하지 않는다는 점을 이해합니다.** 옵션을 클릭하여 확인한 다음, **확인**을 클릭합니다.
 

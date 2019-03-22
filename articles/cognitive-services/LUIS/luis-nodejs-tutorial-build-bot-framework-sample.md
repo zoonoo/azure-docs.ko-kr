@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087111"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 Node.js의 LUIS 봇
 
@@ -45,16 +45,16 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
     ![웹앱 봇을 선택하여 리소스 생성 프로세스 시작](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. **Bot Service** 블레이드에서 필요한 정보를 제공하고 **만들기**를 선택합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)를 사용하려면 봇을 만들기 전에 [지역 요구 사항](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)을 검토합니다. 
-    * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
-    * **봇 템플릿**의 경우 다음을 선택합니다.
-        * **SDK v3**
-        * **Node.JS**
-        * **언어 이해**
-    * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역][LUIS]입니다.
-    * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
+   * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
+   * **봇 템플릿**의 경우 다음을 선택합니다.
+       * **SDK v3**
+       * **Node.JS**
+       * **언어 이해**
+   * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역][LUIS]입니다.
+   * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
 
-    ![Bot Service 블레이드](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot Service 블레이드](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Bot Service가 배포되었는지 확인합니다.
@@ -247,7 +247,8 @@ Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스�
 
 ## <a name="next-steps"></a>다음 단계
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Help, Cancel 및 Greeting 같은 다른 의도를 LUIS 앱에 추가해 볼 수 있습니다. 그런 다음, 새 의도의 대화 상자를 추가하고 봇을 사용하여 의도를 테스트합니다. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+LUIS 앱 도움말, Cancel 및 Greeting와 같은 다른 의도 추가할 시도할 수 있습니다. 그런 다음, 새 의도의 대화 상자를 추가하고 봇을 사용하여 의도를 테스트합니다. 
 
 <!-- 
 > [!NOTE] 

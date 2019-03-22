@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 5eb80051052138924cdb30655609215974435839
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188966"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729919"
 ---
 # <a name="create-hierarchies"></a>계층 구조 만들기
 
-이 단원에서는 계층 구조를 만듭니다. 계층은 수준별로 정렬된 열 그룹입니다. 예를 들어 Geography 계층 구조는 Country, State, County 및 City에 대한 하위 수준을 포함할 수 있습니다. 계층 구조는 보고 클라이언트 애플리케이션 필드 목록에서 다른 열과 별도로 표시될 수 있으므로 클라이언트 사용자가 보고서에서 쉽게 탐색 및 포함할 수 있습니다. 자세한 내용은 [계층 구조](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)를 참조하세요.
+이 단원에서는 계층 구조를 만듭니다. 계층은 수준별로 정렬된 열 그룹입니다. 예를 들어 Geography 계층 구조는 Country, State, County 및 City에 대한 하위 수준을 포함할 수 있습니다. 계층은 보고 클라이언트 애플리케이션 필드 목록에서 다른 열과는 별도로 표시되므로 클라이언트 사용자가 손쉽게 탐색하여 보고서에 포함할 수 있습니다. 자세한 내용은 [계층 구조](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)를 참조하세요.
   
 계층 구조를 만들려면 *다이어그램 뷰*에서 모델 디자이너를 사용합니다. 데이터 뷰에서 계층 구조 만들기 및 관리는 지원되지 않습니다.  
   
@@ -37,7 +37,7 @@ ms.locfileid: "54188966"
 3.  **Category** 계층 구조에서 **ProductCategoryName** > **이름 바꾸기**를 마우스 오른쪽 단추로 클릭한 후 **Category**를 입력합니다.  
   
     > [!NOTE]  
-    > 계층 구조에서 열 이름을 변경해도 테이블의 열 이름은 변경되지 않습니다. 계층 구조의 열은 테이블의 열을 표현한 것일 뿐입니다.  
+    > 계층에서 열 이름을 바꿔도 테이블의 열 이름은 바뀌지 않습니다. 계층 구조의 열은 테이블의 열을 표현한 것일 뿐입니다.  
   
 4.  **ProductSubcategoryName** 열을 클릭하여 **Category** 계층 구조로 끌어옵니다. **Subcategory**로 이름을 바꿉니다. 
   
@@ -72,7 +72,7 @@ ms.locfileid: "54188966"
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## <a name="whats-next"></a>다음 작업
+## <a name="whats-next"></a>다음 작업
 [단원 10: 파티션 만들기](../tutorials/aas-lesson-10-create-partitions.md) 
   
   

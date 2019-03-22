@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 28bb6fbc3b6b9552850244d608e6587e8a9052de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891004"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure Key Vault의 고객 관리형 키를 사용하여 Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
 
-[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)와 Azure Key Vault를 통합하면 TDE 보호기라는 고객 관리형 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다. 일반적으로 투명한 데이터 암호화를 위한 BYOK(Bring Your Own Key) 지원이라고도 합니다.  BYOK 시나리오에서 TDE 보호기는 고객이 소유하고 관리하는 Azure 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. TDE 보호기는 키 자격 증명 모음에 의해 [생성](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates)되거나 온-프레미스 HSM 디바이스에서 키 자격 증명 모음으로 [전송](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)될 수 있습니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 항상 Azure Key Vault에 저장되어 있는 TDE 보호기를 통해 암호화 및 암호 해독됩니다.  SQL Database가 DEK를 암호화 및 암호 해독하려면 고객 소유의 Key Vault에 대한 권한이 부여되어야 합니다. Key Vault에 대한 논리 SQL 서버의 권한이 철회되면 데이터베이스에 액세스할 수 없게 되고 모든 데이터가 암호화됩니다. Azure SQL Database의 경우 TDE 보호기는 논리 SQL 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)의 경우 TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
+[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)와 Azure Key Vault를 통합하면 TDE 보호기라는 고객 관리형 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다. 일반적으로 투명한 데이터 암호화를 위한 BYOK(Bring Your Own Key) 지원이라고도 합니다.  BYOK 시나리오에서 TDE 보호기는 고객이 소유하고 관리하는 Azure 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. TDE 보호기 수 [생성](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) key vault에서 또는 [전송](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) 온-프레미스 HSM 장치에서 키 자격 증명 모음입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 항상 Azure Key Vault에 저장되어 있는 TDE 보호기를 통해 암호화 및 암호 해독됩니다.  SQL Database가 DEK를 암호화 및 암호 해독하려면 고객 소유의 Key Vault에 대한 권한이 부여되어야 합니다. Key Vault에 대한 논리 SQL 서버의 권한이 철회되면 데이터베이스에 액세스할 수 없게 되고 모든 데이터가 암호화됩니다. Azure SQL Database의 경우 TDE 보호기는 논리 SQL 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)의 경우 TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 TDE와 Azure Key Vault가 통합되면 사용자는 키 회전, Key Vault 권한, 키 백업을 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고, 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하고, 보안 정책 규정을 준수하도록 키 관리와 데이터 관리의 책임을 분리합니다.  
 
@@ -38,6 +38,10 @@ TDE와 Azure Key Vault를 통합하면 다음과 같은 이점이 있습니다.
 > Key Vault를 사용하여 시작하려는 사용자가 서비스 관리 TDE를 사용하는 경우 Key Vault에서 TDE 보호기로 전환하는 과정에서 TDE는 활성화된 상태로 유지됩니다. 데이터베이스 파일의 가동 중지 시간 또는 다시 암호화가 없습니다. 서비스 관리 키에서 Key Vault 키로 전환하는 경우 빠른 온라인 작업인 DEK(데이터베이스 암호화 키)만 다시 암호화하면 됩니다.
 
 ## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Azure Key Vault와 통합된 TDE는 어떻게 작업을 지원하나요?
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
 
 ![Key Vault에 대한 서버 인증](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -62,17 +66,18 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
   - **복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다.
 - 이 중요한 리소스를 삭제할 수 있는 사용자를 제어하고 실수 또는 무단으로 삭제하지 못하도록 방지하기 위해 키 자격 증명 모음에 리소스 잠금을 설정합니다.  [리소스 잠금에 대한 자세한 정보](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Azure AD(Azure Active Directory) ID를 사용하여 키 자격 증명 모음에 대한 액세스 권한을 SQL Database 서버에 부여합니다.  포털 UI를 사용하면 Azure AD ID가 자동으로 만들어지고 키 자격 증명 모음 액세스 권한이 서버에 부여됩니다.  PowerShell을 사용하여 BYOK 기반 TDE를 구성하면 Azure AD ID가 만들어져야 하고 완료가 확인되어야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-azure-sql-configure.md) 및 [Managed Instance에 대해 BYOK 기반 TDE 구성](http://aka.ms/sqlmibyoktdepowershell)을 참조하세요.
+- Azure AD(Azure Active Directory) ID를 사용하여 키 자격 증명 모음에 대한 액세스 권한을 SQL Database 서버에 부여합니다.  포털 UI를 사용하면 Azure AD ID가 자동으로 만들어지고 키 자격 증명 모음 액세스 권한이 서버에 부여됩니다.  PowerShell을 사용하여 BYOK 기반 TDE를 구성하면 Azure AD ID가 만들어져야 하고 완료가 확인되어야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-azure-sql-configure.md) 및 [Managed Instance에 대해 BYOK 기반 TDE 구성](https://aka.ms/sqlmibyoktdepowershell)을 참조하세요.
 
   > [!NOTE]
   > Azure AD Identity가 **실수로 삭제되거나 키 자격 증명 모음의 액세스 정책을 사용하여 서버의 권한이 철회**되는 경우 서버의 키 자격 증명 모음에 대한 액세스 권한이 손실되고 TDE로 암호화된 데이터베이스는 24시간 내에 액세스할 수 없게 됩니다.
 
-- Azure Key Vault와 함께 방화벽 및 가상 네트워크를 사용하는 경우 다음을 구성해야 합니다. - 신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용 - [예] 선택
+- Azure Key Vault와 함께 방화벽 및 가상 네트워크를 사용하는 경우 다음을 구성해야 합니다. 
+  - 신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용 - 예 선택
 
- > [!NOTE]
- > TDE로 암호화된 SQL 데이터베이스가 방화벽을 바이패스할 수 없어 키 자격 증명 모음에 대한 액세스 권한을 잃게 되면 24시간 내에 데이터베이스에 액세스할 수 없게 됩니다.
+  > [!NOTE]
+  > TDE 암호화 된 SQL database 방화벽을 우회 하지 때문에 key vault에 액세스 하지 못할 경우 24 시간 내의 데이터베이스에 액세스할 수 없습니다.
 
-- 모든 암호화 키에 대한 감사 및 보고 사용: Key Vault는 다른 SIEM(보안 정보 및 이벤트 관리) 도구에 쉽게 삽입되는 로그를 제공합니다. OMS(Operations Management Suite) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)는 이미 통합된 서비스의 한 예입니다.
+- 모든 암호화 키에 대한 감사 및 보고 사용: Key Vault는 다른 SIEM(보안 정보 및 이벤트 관리) 도구에 쉽게 삽입되는 로그를 제공합니다. Operations Management Suite (OMS) [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) 는 이미 통합 되어 있는 서비스의 한 예입니다.
 - 암호화된 데이터베이스의 고가용성을 보장하려면 서로 다른 지역에 있는 두 개의 Azure Key Vault로 각 SQL Database 서버를 구성합니다.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>TDE 보호기(비대칭 키) 구성을 위한 지침
@@ -86,11 +91,11 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 - 만료 날짜가 없는 키를 사용하고, 이미 사용 중인 키에는 만료 날짜를 설정하지 마세요. **키가 만료되면 암호화된 데이터베이스는 TDE 보호기에 대한 액세스 권한을 잃고 24시간 내에 액세스할 수 없게 됩니다**.
 - 키를 사용하도록 설정되어 있고 *가져오기*, *키 래핑* 및 *키 래핑 해제* 작업을 수행할 수 있는 권한이 있는지 확인합니다.
-- Azure Key Vault에서 처음으로 키를 사용하기 전에 Azure Key Vault 키 백업을 만듭니다. [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) 명령에 대해 자세히 알아보세요.
+- Azure Key Vault에서 처음으로 키를 사용하기 전에 Azure Key Vault 키 백업을 만듭니다. 에 대 한 자세한 정보를 [백업 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 명령입니다.
 - 키가 변경될 때마다(예: ACL 추가, 태그 추가, 키 특성 추가) 새 백업을 만듭니다.
 - 키를 회전할 때 키 자격 증명 모음에서 **이전 버전의 키를 유지**합니다. 그러면 이전 데이터베이스 백업을 복원할 수 있습니다. 데이터베이스에 대한 TDE 보호기가 변경되면 데이터베이스의 이전 백업이 최신 TDE 보호기를 사용하도록 **업데이트되지 않습니다**.  각 백업에는 복원할 때 만든 TDE 보호기가 필요합니다. 키 회전은 [PowerShell을 사용하여 투명한 데이터 암호화 방지 프로그램 회전](transparent-data-encryption-byok-azure-sql-key-rotation.md)에 나와 있는 지침에 따라 수행할 수 있습니다.
 - 서비스 관리 키로 다시 변경한 후에는 이전에 사용한 모든 키를 Azure Key Vault에 유지합니다.  이렇게 하면 Azure Key Vault에 저장된 TDE 보호기를 사용하여 데이터베이스 백업을 복원할 수 있습니다.  Azure Key Vault에서 만든 TDE 보호기는 서비스 관리 키를 사용하여 저장된 모든 백업이 만들어질 때까지 유지해야 합니다.  
-- [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1)를 사용하여 이러한 키의 복구 가능한 백업 복사본을 만듭니다.
+- 사용 하 여 이러한 키의 복구 가능한 백업 복사본을 만듭니다 [백업 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey)합니다.
 - 데이터가 손실될 위험 없이 보안 인시던트 중에 잠재적으로 손상될 수 있는 키를 제거하려면 [잠재적으로 손상될 수 있는 키 제거](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)의 단계를 따릅니다.
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>고가용성, 지역 복제 및 백업/복원
@@ -99,7 +104,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터베이스와 SQL Database 서버의 구성에 따라 다르며, 다음 두 가지 경우에 권장되는 구성입니다.  첫 번째 경우는 지리적 중복이 구성되지 않은 독립 실행형 데이터베이스 또는 SQL Database 서버입니다.  두 번째 경우는 장애 조치(failover) 그룹 또는 지리적 중복으로 구성된 데이터베이스 또는 SQL Database 서버이며, 각 지리적 중복 복사본에는 지역 장애 조치(failover) 작업을 보장하기 위해 장애 조치(failover) 그룹 내에 로컬 Azure Key Vault가 있어야 합니다.
 
-첫 번째 경우에서 지리적 중복이 구성되지 않은 데이터베이스와 SQL Database 서버의 고가용성이 필요한 경우 동일한 키 자료를 사용하여 서로 두 지역에서 서로 다른 두 개의 키 자격 증명 모음을 사용하도록 서버를 구성하는 것이 좋습니다. 이 작업은 SQL Database 서버와 동일한 지역에 공동 배치된 기본 Key Vault를 통해 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제하여, 데이터베이스가 가동되어 실행되는 동안 기본 키 자격 증명 모음이 중단되면 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 함으로써 수행할 수 있습니다. Backup-AzureKeyVaultKey cmdlet을 사용하여 기본 키 자격 증명 모음에서 암호화된 형식의 키를 검색한 다음, Restore-AzureKeyVaultKey cmdlet을 사용하여 두 번째 지역의 키 자격 증명 모음을 지정합니다.
+첫 번째 경우에서 지리적 중복이 구성되지 않은 데이터베이스와 SQL Database 서버의 고가용성이 필요한 경우 동일한 키 자료를 사용하여 서로 두 지역에서 서로 다른 두 개의 키 자격 증명 모음을 사용하도록 서버를 구성하는 것이 좋습니다. 이 작업은 SQL Database 서버와 동일한 지역에 공동 배치된 기본 Key Vault를 통해 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제하여, 데이터베이스가 가동되어 실행되는 동안 기본 키 자격 증명 모음이 중단되면 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 함으로써 수행할 수 있습니다. 백업 AzKeyVaultKey cmdlet을 사용 하 여 기본 key vault에서 암호화 된 형식으로 키를 검색 및 그런 다음 복원 AzKeyVaultKey cmdlet을 사용 하 고 두 번째 지역에서 key vault를 지정 합니다.
 
 ![단일 서버 HA 및 Geo-DR 없음](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -117,14 +122,14 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 ### <a name="azure-key-vault-configuration-steps"></a>Azure Key Vault 구성 단계
 
-- [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)을 설치합니다.
+- 설치 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - PowerShell을 사용하여 서로 다른 두 역에 두 개의 Azure Key Vault를 만들어 [키 자격 증명 모음에서 "일시 삭제" 속성을 사용하도록 설정](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)합니다. 이 옵션은 AKV 포털에서 아직 사용할 수 없지만 SQL에서 필요합니다.
 - 키의 백업 및 복원이 작동하려면 두 개의 Azure Key Vault가 모두 동일한 Azure 지역에서 사용할 수 있는 두 지역에 있어야 합니다.  SQL Geo-DR 요구 사항에 따라 두 개의 Key Vault를 서로 다른 지역에 배치해야 하는 경우 온-프레미스 HSM에서 키를 가져올 수 있는 [BYOK 프로세스](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)를 따릅니다.
 - 첫 번째 키 자격 증명 모음에 다음과 같은 새 키를 만듭니다.  
   - RSA/RSA-HSA 2048 키
   - 만료 날짜 없음
   - 사용하도록 설정되고 가져오기, 키 래핑 및 키 래핑 해제 작업을 수행할 수 있는 권한이 있는 키입니다.
-- 기본 키를 백업하고, 해당 키를 두 번째 키 자격 증명 모음에 복원합니다.  [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) 및 [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0)를 참조하세요.
+- 기본 키를 백업하고, 해당 키를 두 번째 키 자격 증명 모음에 복원합니다.  참조 [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 하 고 [복원 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey)합니다.
 
 ### <a name="azure-sql-database-configuration-steps"></a>Azure SQL Database 구성 단계
 
@@ -172,10 +177,10 @@ Key Vault에서 TDE 보호기로 암호화된 백업을 복원하려면 키 자�
 
 백업을 복원하는 데 필요할 수 있는 키가 더 이상 원래의 키 자격 증명 모음에 없으면 다음 오류 메시지가 반환됩니다. "대상 서버 `<Servername>`은 <Timestamp #1> ~ <Timestamp #2> 사이에 생성된 모든 AKV Uris에 액세스할 수 없습니다. 모든 AKV URI를 복원한 후 작업을 다시 시도하십시오."
 
-이 문제를 완화하려면 [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdlet을 실행하여 서버에 추가된 Key Vault의 키 목록을 반환합니다(사용자가 삭제하지 않은 경우). 모든 백업을 복원할 수 있도록 하려면 백업 대상 서버에서 이러한 모든 키에 액세스할 수 있는지 확인합니다.
+이 문제를 완화 하려면를 실행 합니다 [Get AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) (하지 않는 한 사용자가 삭제) 서버에 추가 된 Key Vault에서 키 목록을 반환 하는 cmdlet입니다. 모든 백업을 복원할 수 있도록 하려면 백업 대상 서버에서 이러한 모든 키에 액세스할 수 있는지 확인합니다.
 
 ```powershell
-Get-AzureRmSqlServerKeyVaultKey `
+Get-AzSqlServerKeyVaultKey `
   -ServerName <LogicalServerName> `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```

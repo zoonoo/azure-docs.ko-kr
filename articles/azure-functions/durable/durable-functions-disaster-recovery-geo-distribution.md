@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108208"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>재해 복구 및 지역 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336938"
 Durable Functions에서 모든 상태는 Azure Storage에 유지됩니다. [작업 허브](durable-functions-task-hubs.md)는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
 설명된 시나리오는 가용성을 높여 주는 배포 옵션을 제안하고, 재해 복구 작업 동안 작동 중단을 최소화합니다.
 
-이러한 시나리오는 Azure Storage를 사용하면서 진행되므로 활성-수동 구성을 기준으로 한다는 점을 알아야 합니다. 이 패턴은 다른 지역으로의 백업(수동) 함수 앱 배포로 구성됩니다. Traffic Manager는 기본(활성) 함수 앱의 가용성을 모니터링합니다. 기본 함수 앱이 실패하면 백업 함수 앱으로 장애 조치(Failover)됩니다. 자세한 내용은 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)의 [우선 순위 트래픽 라우팅 방법](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)을 참조하세요.
+이러한 시나리오는 Azure Storage를 사용하면서 진행되므로 활성-수동 구성을 기준으로 한다는 점을 알아야 합니다. 이 패턴은 다른 지역으로의 백업(수동) 함수 앱 배포로 구성됩니다. Traffic Manager는 기본(활성) 함수 앱의 가용성을 모니터링합니다. 기본 함수 앱이 실패하면 백업 함수 앱으로 장애 조치(Failover)됩니다. 자세한 내용은 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)의 [우선 순위 트래픽 라우팅 방법](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)을 참조하세요.
 
 >[!NOTE]
 >
@@ -51,7 +51,7 @@ Traffic Manager는 기본 함수 앱의 문제를 감지하고, 보조 지역의
 - 이 시나리오에서는 계산 인프라의 작동 중단을 다루지만, 저장소 계정이 계속해서 함수 앱에 대한 단일 실패 지점이 될 수 있습니다. 저장소가 작동 중단되면 애플리케이션 가동이 중지됩니다.
 - 함수 앱이 장애 조치(Failover)되면 여러 지역에 걸쳐 해당 저장소 계정에 액세스하게 되므로 대기 시간이 증가합니다.
 - 다른 지역에 있는 저장소 서비스에 액세스하게 되면 네트워크 송신 트래픽으로 인해 더 높은 비용이 발생합니다.
-- 이 시나리오는 Traffic Manager에 따라 달라집니다. [Traffic Manager 작동 방식](../../traffic-manager/traffic-manager-how-it-works.md)을 고려한다면 약간의 시간이 경과된 후에, 지속형 함수를 사용하는 클라이언트 응용 프로그램이 Traffic Manager에서 함수 앱 주소를 다시 쿼리해야 할 필요가 발생할 수 있습니다.
+- 이 시나리오는 Traffic Manager에 따라 달라집니다. [Traffic Manager 작동 방식](../../traffic-manager/traffic-manager-how-it-works.md)을 고려한다면 약간의 시간이 경과된 후에, 지속형 함수를 사용하는 클라이언트 애플리케이션이 Traffic Manager에서 함수 앱 주소를 다시 쿼리해야 할 필요가 발생할 수 있습니다.
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>시나리오 2 - 지역 저장소에서 계산 부하 분산
 
@@ -90,4 +90,4 @@ Traffic Manager는 기본 함수 앱의 문제를 감지하고, 보조 지역의
 
 ## <a name="next-steps"></a>다음 단계
 
-[RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계](../../storage/common/storage-designing-ha-apps-with-ragrs.md)에 대해 자세히 읽어볼 수 있습니다.
+[RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../../storage/common/storage-designing-ha-apps-with-ragrs.md)에 대해 자세히 읽어볼 수 있습니다.

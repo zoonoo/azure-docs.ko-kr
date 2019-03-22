@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189396"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
 Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
@@ -109,27 +109,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## <a name="workload-management"></a>워크로드 관리
-테이블 파티션 결정 시 고려해야 하는 마지막 부분이 [워크로드 관리](resource-classes-for-workload-management.md)입니다. SQL Data Warehouse의 워크로드 관리는 주로 메모리 및 동시성에 대한 관리입니다. Microsoft Azure SQL Data Warehouse에서 쿼리 실행 중 각 배포에 할당된 최대 메모리는 리소스 클래스에 의해 제어됩니다. 이상적으로 파티션은 클러스터형 columnstore 인덱스 빌드에 필요한 메모리 등의 다른 요소를 고려해서 크기가 조정됩니다. 더 많은 메모리가 할당되면 클러스터형 columnstore 인덱스에 훨씬 유리합니다. 따라서 파티션 인덱스 다시 작성이 메모리를 부족하게 하지 않아야 합니다. 쿼리에 사용할 수 있는 메모리의 양을 늘리면 기본 역할, smallrc에서 다른 역할 중 하나(예: largerc)로 전환하여 구현할 수 있습니다.
-
-배포 당 메모리의 할당에 관한 정보는 Resource Governor 동적 관리 뷰를 쿼리하여 사용할 수 있습니다. 실제로 메모리 부여는 다음 쿼리의 결과보다 작습니다. 하지만 이 쿼리는 데이터 관리 작업에 대한 파티션의 크기를 조정할 때 사용할 수 있는 수준의 지침을 제공합니다. 초대형 리소스 클래스에서 제공하는 메모리를 초과하는 파티션의 크기는 피합니다. 파티션이 이 수치를 초과하면 메모가 부족하여 압축 효율이 떨어질 위험이 있습니다.
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## <a name="partition-switching"></a>파티션 전환
 SQL Data Warehouse는 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) 문을 사용하여 실행됩니다.
 
@@ -166,15 +145,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> 통계 개체를 만들면 테이블 메타 데이터가 더 정확해집니다. 통계를 생략하면 SQL Data Warehouse는 기본값을 사용합니다. 통계에 대한 자세한 내용은 [통계](sql-data-warehouse-tables-statistics.md)를 검토하세요.
-> 
-> 
 
 다음 쿼리는 `sys.partitions` 카탈로그 뷰를 사용하여 행 수를 찾습니다.
 
@@ -252,6 +223,31 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>1 단계에서 데이터를 포함 하는 파티션으로 새 데이터를 로드 합니다.
+파티션 전환을 사용 하 여 파티션 데이터 로드는 편리 단계 사용자에 게 표시 되지 않는 테이블에 새 데이터 새 데이터의 스위치입니다.  파티션 전환을 사용 하 여 연결 된 잠금 경합을 사용 하 여 처리 하기 위해 사용 중인 시스템에 어려울 수 있습니다.  파티션에의 기존 데이터를 지울는 `ALTER TABLE` 데이터를 전환 해야 하는 데 사용 합니다.  그런 다음 다른 `ALTER TABLE` 스위치 인 새 데이터에 필요 했습니다.  SQL Data Warehouse에는 `TRUNCATE_TARGET` 옵션은 지원는 `ALTER TABLE` 명령입니다.  사용 하 여 `TRUNCATE_TARGET` 는 `ALTER TABLE` 새 데이터로 기존 파티션의 데이터를 덮어씁니다.  사용 하는 예로 `CTAS` 에서 대상 테이블로 기존 데이터를 덮어쓰지 스위치는 모든 데이터 다시 기존 데이터를 사용 하 여 새 테이블을 만들려면 새 데이터를 삽입 합니다.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### <a name="table-partitioning-source-control"></a>소스 제어를 분할하는 테이블

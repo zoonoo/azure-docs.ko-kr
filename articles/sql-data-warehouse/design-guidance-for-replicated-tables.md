@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465982"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259570"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 복제 테이블 사용에 대한 디자인 지침
 이 문서는 SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
@@ -32,22 +32,23 @@ ms.locfileid: "55465982"
 - 데이터 웨어하우스에 팩트 및 차원 테이블이 있나요?   
 
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
-복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.
+복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB 하드 제한은 없습니다.  데이터는 정적 이며 변경 되지 않습니다, 경우에 더 큰 테이블을 복제할 수 있습니다.
 
 다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여 주는 다이어그램입니다. SQL Data Warehouse에서 복제 테이블은 각 Compute 노드의 배포 데이터베이스로 완벽하게 복사됩니다. 
 
 ![복제 테이블](media/guidance-for-using-replicated-tables/replicated-table.png "복제 테이블")  
 
-복제 테이블은 별모양 스키마의 작은 차원 테이블에 효과적입니다. 차원 테이블은 대개 여러 복사본을 저장하고 유지 관리하기에 적당한 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 느리게 변하는 데이터의 특성으로 인해 복제 테이블을 다시 빌드하는 경우가 줄어듭니다. 
+복제 테이블은 별모양 스키마의 차원 테이블에 적합 합니다. 차원 테이블은 일반적으로 차원 테이블을 다른 방식으로 배포 되는 팩트 테이블에 조인 됩니다.  차원은 일반적으로 저장 하 고 여러 복사본을 유지할 수 있도록 하는 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 느린 변경 데이터의 특성 복제 된 테이블의 유지 관리가 적게 발생 합니다. 
 
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
 - 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 라운드 로빈 테이블로의 해시 분산 테이블과 같이 동일한 열에 배포되지 않은 테이블을 조인하는 경우 쿼리를 완료하려면 데이터 이동이 필요합니다.  테이블 중 하나가 작은 경우 복제된 테이블을 고려합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 쿼리 계획에서 데이터 이동 작업을 보려면 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)를 사용합니다.  BroadcastMoveOperation은 복제된 테이블을 사용하여 제거할 수 있는 일반적인 데이터 이동 작업입니다.  
-  복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
+ 
+복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
 - 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다. 이러한 DML(데이터 조작 언어) 작업에는 복제 테이블 다시 빌드가 필요합니다. 다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
-- 데이터 웨어하우스의 크기가 자주 조정됩니다. 데이터 웨어하우스의 크기를 조정하면 Compute 노드의 수가 변경되고 이로 인해 다시 빌드가 필요해집니다.
+- 데이터 웨어하우스의 크기가 자주 조정됩니다. 복제 된 테이블을 다시 작성을 유발 하는 계산 노드의 수를 변경 데이터 웨어하우스를 확장 합니다.
 - 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요하면 SQL Data Warehouse는 요청된 열의 데이터만 이동합니다. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>단순 쿼리 조건자로 복제 테이블 사용
@@ -58,7 +59,7 @@ ms.locfileid: "55465982"
 
 CPU를 많이 사용하는 쿼리는 모든 Compute 노드에 작업이 분산되면 성능이 가장 좋아집니다. 예를 들어 테이블의 각 행에서 계산을 실행하는 쿼리는 복제 테이블에 비해 분산 테이블에서 성능이 더 높습니다. 복제 테이블은 각 Compute 노드에 전체가 저장되므로 복제 테이블에 대해 CPU를 많이 사용하는 쿼리는 각 Compute 노드의 전체 테이블에 대해 실행됩니다. 추가 계산은 쿼리 성능을 저하시킬 수 있습니다.
 
-예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  이 쿼리는 공급자가 복제 테이블이 아니라 분산 테이블일 때 실행 속도가 빨라집니다. 이 예제에서 공급자는 라운드 로빈 분산 테이블일 수 있습니다.
+예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  더 빠르게 실행 됩니다 데이터 복제 테이블이 아니라 분산된 테이블의 경우. 이 예제에서는 데이터 라운드 로빈 분산 될 수 있습니다.
 
 ```sql
 
@@ -69,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>기존의 라운드 로빈 테이블을 복제 테이블로 변환
-라운드 로빈 테이블이 이미 있는 경우 이 문서에 설명된 조건을 충족한다면 복제 테이블로 변환하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다. 
+라운드 로빈 테이블에 이미 있는 경우이 문서에 설명 된 조건을 충족 하는 경우 복제 된 테이블을 변환 하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다. 
 
 이 예제는 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 DimSalesTerritory 테이블을 복제 테이블로 변경합니다. 이 예제는 DimSalesTerritory가 해시 분산이거나 라운드 로빈이거나 상관없이 작동합니다.
 
@@ -83,13 +84,6 @@ WITH
 AS SELECT * FROM [dbo].[DimSalesTerritory]
 OPTION  (LABEL  = 'CTAS : DimSalesTerritory_REPLICATE') 
 
---Create statistics on new table
-CREATE STATISTICS [SalesTerritoryKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryKey]);
-CREATE STATISTICS [SalesTerritoryAlternateKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryAlternateKey]);
-CREATE STATISTICS [SalesTerritoryRegion] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryRegion]);
-CREATE STATISTICS [SalesTerritoryCountry] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryCountry]);
-CREATE STATISTICS [SalesTerritoryGroup] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryGroup]);
-
 -- Switch table names
 RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
 RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
@@ -102,7 +96,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 복제 테이블은 각각의 Compute 노드에 전체 테이블이 이미 존재하기 때문에 조인을 위해 데이터를 이동할 필요가 없습니다. 차원 테이블이 라운드 로빈 분산이면 조인은 각각의 Compute 노드에 차원 테이블 전체를 복사합니다. 데이터를 이동하려면 쿼리 계획에 BroadcastMoveOperation이라는 작업이 포함됩니다. 이런 유형의 데이터 이동 작업은 쿼리 성능을 저하시키며 복제 테이블을 사용하면 필요가 없어집니다. 쿼리 계획 단계를 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 시스템 카탈로그 보기를 사용합니다. 
 
 예를 들어 AdventureWorks 스키마에 대한 다음 쿼리에서 ` FactInternetSales` 테이블은 해시 분산입니다. `DimDate` 및 `DimSalesTerritory` 테이블은 작은 차원 테이블입니다. 이 쿼리는 회계 연도 2004년에 대한 북아메리카 지역의 총 매출을 반환합니다.
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +132,7 @@ SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테�
 
 ### <a name="use-indexes-conservatively"></a>신중하게 인덱스 사용
 표준 인덱싱 작업은 복제 테이블에 적용됩니다. SQL Data Warehouse는 다시 빌드의 일환으로 각 복제 테이블 인덱스를 다시 빌드합니다. 인덱스는 해당 성능이 인덱스를 다시 빌드하는 비용보다 높은 경우에만 사용합니다.  
- 
+ 
 ### <a name="batch-data-loads"></a>Batch 데이터 로드
 복제 테이블로 데이터를 로드하는 경우 로드를 함께 일괄 처리하여 다시 빌드를 최소화하는 것이 좋습니다. select 문을 실행하기 전에 일괄 처리된 모든 로드를 수행합니다.
 
@@ -170,20 +164,20 @@ SQL Data Warehouse는 테이블의 마스터 버전을 유지하여 복제 테�
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 다시 빌드를 트리거하려면 이전 출력의 각 테이블에서 다음 명령문을 실행합니다. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>다음 단계 
 복제 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 

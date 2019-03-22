@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854176"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765920"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
 
@@ -46,7 +46,7 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 
 프로필 페이지에서 언제든지 사용자 ID를 변경할 수 있습니다.
 
-사용자 ID는 4개 이상의 문자, 숫자 및 하이픈으로 구성되어야 합니다. 다른 문자는 허용되지 않으며 사용자 ID는 하이픈으로 시작하거나 끝날 수 없으며, 행에 여러 개의 하이픈을 사용할 수 없습니다.
+사용자 ID 4 대 및 16 개 문자, 숫자 및 하이픈 간에 구성 되어야 합니다. 다른 문자는 허용되지 않으며 사용자 ID는 하이픈으로 시작하거나 끝날 수 없으며, 행에 여러 개의 하이픈을 사용할 수 없습니다. 모든 Azure Notebooks 계정에서 사용자 Id 고유 이기 때문에 메시지가 표시 될 수 있습니다, 그리고 "사용자 ID가 이미 사용에서 합니다." (메시지 나타나기도 Microsoft 상표 사용자 ID로 사용 하려는 경우) 이러한 경우에는 다른 사용자 ID를 선택 합니다.
 
 > [!Important]
 > ID를 변경하는 경우 이전 ID를 사용하여 공유한 URL을 사용할 수 없습니다. 사용자 ID를 이전 ID로 다시 변경하여 링크의 유효성을 다시 검사할 수 있습니다. 하지만 다른 사용자는 사용하지 않는 ID를 클레임할 수 있습니다.

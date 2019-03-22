@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164462"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
@@ -60,7 +60,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 | 자산                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
 | 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
-| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
 | linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
@@ -71,7 +71,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트하는 데 사용할 수 있는 iLearner 파일입니다.
+- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일.
 - **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스

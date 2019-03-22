@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110361"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
 
@@ -107,9 +107,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **관리자 자격 증명** 섹션에 BlueJeans 계정의 **관리자 사용자 이름** 및 **관리자 암호**를 입력합니다. 이러한 값의 예는 다음과 같습니다.
 
-    *   **관리자 사용자 이름** 필드에 BlueJeans 테넌트에서 관리자 계정의 사용자 이름을 채웁니다. 예: admin@contoso.com.
+   * **관리자 사용자 이름** 필드에 BlueJeans 테넌트에서 관리자 계정의 사용자 이름을 채웁니다. 예: admin@contoso.com.
 
-    *   **관리자 암호** 필드에 관리자 사용자 이름에 해당하는 암호를 채웁니다.
+   * **관리자 암호** 필드에 관리자 사용자 이름에 해당하는 암호를 채웁니다.
 
 6. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 BlueJeans에 연결할 수 있는지 확인합니다. 연결에 실패하면 BlueJeans 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 

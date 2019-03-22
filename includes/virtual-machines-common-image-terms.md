@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19a78b772d2813c263017515f18da06fdb20aa70
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: 50d71a3967e61e5d531f4bfeae3582b56230a0d2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082268"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825528"
 ---
 ## <a name="terminology"></a>용어
 
 Azure의 Marketplace 이미지에는 다음과 같은 특성이 있습니다.
 
 * **게시자**: 이미지를 만든 조직입니다. 예제: Canonical, MicrosoftWindowsServer
-* **제품**: 게시자가 만든 관련 이미지 그룹의 이름입니다. 예제: Ubuntu Server, WindowsServer
+* **제품**: 게시자가 만든 관련 이미지 그룹의 이름입니다. 예제: UbuntuServer, WindowsServer
 * **SKU**: 제품의 인스턴스(예: 배포의 주 릴리스)입니다. 예제: 18.04-LTS, 2019-Datacenter
 * **버전**: 이미지 SKU의 버전 번호입니다. 
 

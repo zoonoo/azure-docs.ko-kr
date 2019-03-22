@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f0d7907fa755483ef5a92b3376c18d54467cc7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120417"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -50,7 +50,7 @@ SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 �
 먼저 SharePoint 웹 애플리케이션이 로컬 시스템, 로컬 서비스 또는 네트워크 서비스가 아닌 도메인 계정으로 실행되고 있는지 확인합니다. SPN(서비스 사용자 이름)을 이 계정에 연결하려면 이 작업을 수행해야 합니다. SPN은 Kerberos 프로토콜이 서로 다른 서비스를 식별하는 방법입니다. 나중에 KCD를 구성하려면 계정이 필요합니다.
 
 > [!NOTE]
-서비스에 대해 이전에 생성된 Azure AD 계정이 있어야 합니다. 자동 암호 변경을 허용하는 것이 좋습니다. 전체 단계 집합 및 문제 해결에 대한 자세한 내용은 [SharePoint에서 자동 암호 변경 구성](https://technet.microsoft.com/library/ff724280.aspx)을 참조하세요.
+> 서비스에 대해 이전에 생성된 Azure AD 계정이 있어야 합니다. 자동 암호 변경을 허용하는 것이 좋습니다. 전체 단계 집합 및 문제 해결에 대한 자세한 내용은 [SharePoint에서 자동 암호 변경 구성](https://technet.microsoft.com/library/ff724280.aspx)을 참조하세요.
 
 사이트가 정의된 서비스 계정으로 실행되는지 확인하려면 다음 단계를 수행합니다.
 
@@ -58,7 +58,7 @@ SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 �
 2. **보안**으로 이동하고 **서비스 계정 구성**을 선택합니다.
 3. **웹 애플리케이션 풀 – SharePoint – 80**을 선택합니다. 옵션은 기본적으로 웹 풀에서 SSL을 사용하는 경우 또는 웹 풀의 이름에 따라 약간 다를 수 있습니다.
 
-  ![서비스 계정 구성 옵션](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
+   ![서비스 계정 구성 옵션](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. **이 구성 요소에 대한 계정을 선택하세요.** 필드가 **로컬 서비스** 또는 **네트워크 서비스**인 경우 계정을 만들어야 합니다. 그렇지 않은 경우 작업이 끝났으며 다음 섹션으로 진행하면 됩니다.
 5. **새 관리되는 계정을 등록하세요.** 를 선택합니다. 계정이 생성되면 계정을 사용하기 전에 **웹 애플리케이션 풀**을 설정해야 합니다.
@@ -108,7 +108,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 6. SPN 목록에서 서비스 계정에 대해 이전에 만든 SPN을 선택합니다.
 7. **확인**을 클릭합니다. **확인**을 다시 클릭하여 변경 내용을 저장합니다.
   
-  ![위임 설정](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
+   ![위임 설정](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
 ## <a name="step-2-configure-azure-ad-proxy"></a>2단계: Azure AD 프록시 구성
 
@@ -142,18 +142,18 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 1. **SharePoint 관리 셸**을 시작합니다.
 2. 다음 스크립트를 실행하여 웹 애플리케이션을 엑스트라넷 영역으로 확장하고 Kerberos 인증을 사용하도록 설정합니다.
 
-  ```powershell
-  # Replace "http://spsites/" with the URL of your web application
-  # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
-  $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
-  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
-  ```
+   ```powershell
+   # Replace "http://spsites/" with the URL of your web application
+   # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
+   $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
+   Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
+   ```
 
 3. **SharePoint 중앙 관리** 사이트를 엽니다.
 4. **시스템 설정** 아래에서 **대체 액세스 매핑 구성**을 선택합니다. 대체 액세스 매핑 상자가 열립니다.
 5. 사이트(예: **SharePoint – 80**)를 선택합니다. 지금은 엑스트라넷 영역에 내부 URL이 제대로 설정되어 있지 않습니다.
 
-  ![대체 액세스 매핑 상자](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![대체 액세스 매핑 상자](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 6. **내부 URL 추가**를 클릭합니다.
 7. **URL 프로토콜, 호스트 및 포트** 텍스트 상자에 Azure AD 프록시에 구성된 **내부 URL**(예: <https://SharePoint/>)을 입력합니다.
@@ -161,7 +161,7 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 9. **저장**을 클릭합니다.
 10. 이제 대체 액세스 매핑이 다음과 같이 표시됩니다.
 
-  ![대체 액세스 매핑 수정](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+    ![대체 액세스 매핑 수정](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
 ## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>4단계: 엑스트라넷 영역의 IIS 사이트에 대해 HTTPS 인증서가 구성되었는지 확인
 
@@ -170,13 +170,13 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 1. Windows PowerShell 콘솔을 엽니다.
 2. 다음 스크립트를 실행하여 자체 서명된 인증서를 생성하고 컴퓨터 MY 저장소에 추가합니다.
 
-  ```powershell
-  # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
-  New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
-  ```
+   ```powershell
+   # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
+   New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
+   ```
 
-  > [!NOTE]
-  자체 서명된 인증서는 테스트 목적으로만 적합합니다. 프로덕션 환경에서는 인증 기관에서 발급한 인증서를 대신 사용하는 것이 좋습니다.
+   > [!NOTE]
+   > 자체 서명된 인증서는 테스트 목적으로만 적합합니다. 프로덕션 환경에서는 인증 기관에서 발급한 인증서를 대신 사용하는 것이 좋습니다.
 
 3. “인터넷 정보 서비스 관리자” 콘솔을 엽니다.
 4. 트리 뷰에서 서버를 확장하고 “사이트”를 확장한 다음, “SharePoint - AAD 프록시” 사이트를 선택하고 **바인딩**을 클릭합니다.

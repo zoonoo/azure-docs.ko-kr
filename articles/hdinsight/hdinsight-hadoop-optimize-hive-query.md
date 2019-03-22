@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202744"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
@@ -196,10 +196,8 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
-* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
-* [HDInsight의 Apache Hadoop에서 Apache Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hadoop/apache-hive-analyze-sensor-data.md)
-* [HDInsight와 함께 Apache Hive를 사용하여 웹 사이트의 로그 분석](hadoop/apache-hive-analyze-website-log.md)
+* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

@@ -7,28 +7,28 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111415"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공
 
-Azure DNS는 사용자 지정 도메인을 지원하거나 FQDN(정규화된 도메인 이름)이 있는 모든 Azure 리소스에 대해 사용자 지정 도메인용 DNS를 제공합니다. 예를 들어, Azure 웹앱이 있으며 사용자가 contoso.com 또는 www.contoso.com을 FQDN으로 사용하여 액세스하도록 설정하려고 합니다. 이 문서에서는 사용자 지정 도메인을 사용하기 위해 Azure DNS로 Azure 서비스를 구성하는 과정을 안내합니다.
+Azure DNS는 사용자 지정 도메인을 지원하거나 FQDN(정규화된 도메인 이름)이 있는 모든 Azure 리소스에 대해 사용자 지정 도메인용 DNS를 제공합니다. 예로 Azure 웹 앱을 있고 사용자가 여 액세스 하려는 contoso.com 또는 www를 사용 하 여\.contoso.com을 FQDN으로 합니다. 이 문서에서는 사용자 지정 도메인을 사용하기 위해 Azure DNS로 Azure 서비스를 구성하는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 사용자 지정 도메인에 대해 Azure DNS를 사용하려면 먼저 도메인을 Azure DNS에 위임해야 합니다. 위임을 위해 이름 서버를 구성하는 방법에 대한 지침은 [도메인을 Azure DNS에 위임](./dns-delegate-domain-azure-dns.md)을 참조하세요. 도메인이 Azure DNS 영역에 위임되면 필요한 DNS 레코드를 구성할 수 있습니다.
 
-[Azure 함수 앱](#azure-function-app), [공용 IP 주소](#public-ip-address), [App Service(Web Apps)](#app-service-web-apps), [Blob Storage](#blob-storage) 및 [Azure CDN](#azure-cdn)에 대해 베니티 또는 사용자 지정 도메인을 구성할 수 있습니다.
+[Azure Function App](#azure-function-app), [공용 IP 주소](#public-ip-address), [App Service(Web Apps)](#app-service-web-apps), [Blob Storage](#blob-storage) 및 [Azure CDN](#azure-cdn)에 대해 베니티 또는 사용자 지정 도메인을 구성할 수 있습니다.
 
 ## <a name="azure-function-app"></a>Azure Function App
 
 Azure 함수 앱에 대해 사용자 지정 도메인을 구성하기 위해 함수 앱 자체의 구성은 물론 CNAME 레코드가 생성됩니다.
  
-**함수 앱**으로 이동하고 함수 앱을 선택합니다. **플랫폼 기능**을 클릭하고 **네트워킹** 아래에서 **사용자 지정 도메인**을 클릭합니다.
+**Function App**으로 이동하고 함수 앱을 선택합니다. **플랫폼 기능**을 클릭하고 **네트워킹** 아래에서 **사용자 지정 도메인**을 클릭합니다.
 
 ![함수 앱 블레이드](./media/dns-custom-domain/functionapp.png)
 
@@ -38,10 +38,10 @@ Azure 함수 앱에 대해 사용자 지정 도메인을 구성하기 위해 함
 
 DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레코드 집합 추가** 블레이드에서 다음 정보를 입력하고 **확인**을 클릭하여 만듭니다.
 
-|자산  |값  |설명  |
+|자산  |값  |Description  |
 |---------|---------|---------|
 |이름     | myfunctionapp        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | adatumfunction.azurewebsites.net        | 이 예에서 별칭을 만드는 DNS 이름은 함수 앱에 기본적으로 제공된 DNS 이름인 adatumfunction.azurewebsites.net입니다.        |
@@ -54,7 +54,7 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 ## <a name="public-ip-address"></a>공용 IP 주소
 
-Application Gateway, Load Balancer, Cloud Service, Resource Manager VM, 클래식 VM처럼 공용 IP 주소 리소스를 사용하는 서비스에 대해 사용자 지정 도메인을 구성하기 위해 CNAME 레코드가 사용됩니다.
+Resource Manager Vm, 클라우드 서비스, Load Balancer, Application Gateway와 같은 리소스를 해결 하는 공용 IP를 사용 하는 서비스 및 클래식 Vm의 경우 A 레코드는에 대 한 사용자 지정 도메인을 구성 합니다.
 
 **네트워킹** > **공용 IP 주소**로 이동하고 공용 IP 리소스를 선택하고 **구성**을 클릭합니다. 표시된 IP 주소를 기록해 둡니다.
 
@@ -63,10 +63,10 @@ Application Gateway, Load Balancer, Cloud Service, Resource Manager VM, 클래�
 DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레코드 집합 추가** 블레이드에서 다음 정보를 입력하고 **확인**을 클릭하여 만듭니다.
 
 
-|자산  |값  |설명  |
+|자산  |값  |Description  |
 |---------|---------|---------|
 |이름     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|type     | A        | 리소스가 IP 주소이므로 A 레코드를 사용합니다.        |
+|Type     | A        | 리소스가 IP 주소이므로 A 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |IP 주소     | <your ip address>       | 공용 IP 주소입니다.|
@@ -90,10 +90,10 @@ A 레코드가 생성되면 `nslookup`을 실행하여 레코드 확인의 유�
 DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레코드 집합 추가** 블레이드에서 다음 정보를 입력하고 **확인**을 클릭하여 만듭니다.
 
 
-|자산  |값  |설명  |
+|자산  |값  |Description  |
 |---------|---------|---------|
 |이름     | mywebserver        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다. 리소스에서 IP 주소를 사용한 경우 A 레코드가 사용됩니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다. 리소스에서 IP 주소를 사용한 경우 A 레코드가 사용됩니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | webserver.azurewebsites.net        | 이 예에서 별칭을 만드는 DNS 이름은 웹앱에 기본적으로 제공된 DNS 이름인 webserver.azurewebsites.net입니다.        |
@@ -113,7 +113,7 @@ App Service에 사용자 지정 도메인을 매핑하는 방법에 대한 자�
 
 사용자 지정 도메인을 구매해야 하는 경우 App Service 도메인에 대해 자세히 알아보려면 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구입](../app-service/manage-custom-dns-buy-domain.md)을 참조하세요.
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blob 저장소
 
 다음 단계에서는 asverify 메서드를 사용하여 Blob Storage 계정에 대해 CNAME 레코드를 구성하는 과정을 안내합니다. 이 메서드는 가동 중지 시간이 없음을 보장합니다.
 
@@ -124,10 +124,10 @@ App Service에 사용자 지정 도메인을 매핑하는 방법에 대한 자�
 DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레코드 집합 추가** 블레이드에서 다음 정보를 입력하고 **확인**을 클릭하여 만듭니다.
 
 
-|자산  |값  |설명  |
+|자산  |값  |Description  |
 |---------|---------|---------|
 |이름     | asverify.mystorageaccount        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 이 예에서 별칭을 만드는 DNS 이름은 저장소 계정에 기본적으로 제공된 DNS 이름인 asverify.adatumfunctiona9ed.blob.core.windows.net입니다.        |
@@ -152,10 +152,10 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레코드 집합 추가** 블레이드에서 다음 정보를 입력하고 **확인**을 클릭하여 만듭니다.
 
-|자산  |값  |설명  |
+|자산  |값  |Description  |
 |---------|---------|---------|
 |이름     | cdnverify.mycdnendpoint        | 이 값과 도메인 이름 레이블을 함께 사용하면 사용자 지정 도메인 이름에 대한 FQDN입니다.        |
-|type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
+|Type     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | 이 예에서 별칭을 만드는 DNS 이름은 저장소 계정에 기본적으로 제공된 DNS 이름인 cdnverify.adatumcdnendpoint.azureedge.net입니다.        |

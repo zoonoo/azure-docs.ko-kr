@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429267"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443048"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
 이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 및 Linux 파일, Windows 레지스트리 키, Windows 서비스 및 Linux 디먼의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
-모니터링되는 서버에 있는 설치된 소프트웨어, Windows 서비스, Windows 레지스트리/파일 및 Linux 디먼에 대한 변경 내용은 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
+Linux 디먼 모니터링 되는 서버에 설치 된 소프트웨어, Windows 서비스, Windows 레지스트리 및 파일을 변경 처리를 위해 클라우드에서 Azure Monitor 서비스에 전송 됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 
@@ -155,6 +155,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
 
 * Windows Server 2016 Core RS3 컴퓨터에서 핫픽스 업데이트가 수집되지 않습니다.
+* Linux 데몬 변경 된 경우에 변경 된 상태를 표시할 수 있습니다. 이 방법으로 인해는 `SvcRunLevels` 필드 캡처됩니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
 
@@ -261,7 +262,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 ## <a name="search-logs"></a>로그 검색
 
-포털에서 제공하는 세부 정보 외에도 로그에 대한 검색을 수행할 수 있습니다. **변경 내용 추적** 페이지가 열린 상태에서 **Log Analytics**를 클릭하면 **로그 검색** 페이지가 열립니다.
+포털에서 제공하는 세부 정보 외에도 로그에 대한 검색을 수행할 수 있습니다. 사용 하 여는 **변경 내용 추적** 페이지 열기를 클릭 **Log Analytics**, 그러면 합니다 **로그** 페이지.
 
 ### <a name="sample-queries"></a>샘플 쿼리
 
@@ -314,5 +315,5 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 > [!div class="nextstepaction"]
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
-* [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* 사용 하 여 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
 

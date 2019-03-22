@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5a24bf415cd575ebf62a2843207872c66bbeb021
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989873"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177639"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net-legacy"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성(레거시)
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성 
 
 이 문서는 .NET SDK를 사용하여 AMS(Azure Media Services) 원격 분석을 구성할 때 수행할 수 있는 일반적인 단계를 설명합니다. 
 

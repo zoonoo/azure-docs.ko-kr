@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428910"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984206"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
@@ -78,7 +78,9 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>이후 반복에서 구문 목록 및 패턴 추가
 
-앱이 테스트되기 전에는 이러한 방법을 적용하지 않는 것이 좋습니다. 문구 목록 및 패턴을 추가하기 전에 앱이 어떻게 작동하는지 이해해야 합니다. 사례를 적용하지 않은 상태에서 앱이 어떻게 작동하는지 이해했으면 앱에 적용되는 각 기능을 추가합니다. 각 [반복](luis-concept-app-iteration.md)에서 이러한 기능을 추가하거나, 각 버전에서 기능을 변경할 필요가 없습니다. 
+앱이 테스트되기 전에는 이러한 방법을 적용하지 않는 것이 좋습니다. 이러한 기능 예제 표현 보다 더 많은 가중치가 적용 및 신뢰도 왜곡 시킵니다 있으므로 구 목록 및 패턴을 추가 하기 전에 앱의 동작 방식 이해 해야 합니다. 
+
+사례를 적용하지 않은 상태에서 앱이 어떻게 작동하는지 이해했으면 앱에 적용되는 각 기능을 추가합니다. 각 [반복](luis-concept-app-iteration.md)에서 이러한 기능을 추가하거나, 각 버전에서 기능을 변경할 필요가 없습니다. 
 
 모델 디자인을 시작할 때 기능을 추가해도 아무 문제 없지만, 모델이 발화로 테스트된 후에 각 기능이 결과를 어떻게 바꾸는지 확인하는 것이 더 편리합니다. 
 

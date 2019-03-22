@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117322"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. Azure portal
 
@@ -94,17 +94,17 @@ ms.locfileid: "55700539"
 
 1. 가상 네트워크 게이트웨이가 생성된 후에는 가상 네트워크 게이트웨이 페이지의 **설정** 섹션으로 이동합니다. **설정** 섹션에서 **지점 및 사이트 간 구성**을 클릭합니다.
 
-  ![지점 및 사이트 간 페이지](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![지점 및 사이트 간 페이지](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. **지금 구성**을 클릭하여 구성 페이지를 엽니다.
 
-  ![지금 구성](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![지금 구성](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. **지점 및 사이트 간 구성** 페이지의 **주소 풀** 상자에서 사용하려는 개인 IP 주소 범위를 추가합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
 
-  ![클라이언트 주소 풀](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![클라이언트 주소 풀](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >포털의 이 페이지에 터널 종류 또는 인증 형식이 표시되지 않으면 게이트웨이에서 기본 SKU를 사용 중인 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
-  >
+   >[!NOTE]
+   >포털의 이 페이지에 터널 종류 또는 인증 형식이 표시되지 않으면 게이트웨이에서 기본 SKU를 사용 중인 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
+   >
 
 ## <a name="tunneltype"></a>7. 터널 종류 구성
 
@@ -126,13 +126,13 @@ ms.locfileid: "55700539"
 2. 루트 인증서를 Base-64 인코딩된 X.509(.cer) 파일로 내보내야 합니다. 이 형식으로 내보내야 텍스트 편집기에서 인증서를 열 수 있습니다.
 3. 메모장과 같은 텍스트 편집기에서 인증서를 엽니다. 인증서 데이터를 복사하는 경우 캐리지 리턴 또는 줄 바꿈 없이 하나의 연속 줄로 텍스트를 복사합니다. 캐리지 리턴 및 줄 바꿈을 보려면 '기호 표시/모든 문자 표시'에 대한 텍스트 편집기의 보기를 수정해야 할 수도 있습니다. 하나의 연속 줄로만 다음 섹션을 복사합니다.
 
-  ![인증서 데이터](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![인증서 데이터](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. 인증서 데이터를 **공용 인증서 데이터** 필드에 붙여 넣습니다. 인증서의 **이름을 지정**한 다음 **저장**을 클릭합니다. 최대 20개의 신뢰할 수 있는 루트 인증서를 추가할 수 있습니다.
 
-  ![인증서 업로드](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![인증서 업로드](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. 페이지 위쪽에서 **저장**을 클릭하여 모든 구성 설정을 저장합니다.
 
-  ![저장](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![저장](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. 내보낸 클라이언트 인증서 설치
 
@@ -159,10 +159,10 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 
 2. **연결** 상태 페이지에서 **연결**을 클릭하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
 
-  ![VPN 클라이언트에서 Azure에 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![VPN 클라이언트에서 Azure에 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. 연결이 설정되었습니다.
 
-  ![설정된 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![설정된 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>Windows P2S 연결 문제 해결
 
@@ -183,8 +183,8 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음 예제와 비슷합니다.
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -194,7 +194,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>가상 컴퓨터에 연결하려면
 

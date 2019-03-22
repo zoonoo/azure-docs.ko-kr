@@ -3,7 +3,6 @@ title: Log Analytics의 Azure SQL Analytics 솔루션 | Microsoft Docs
 description: Azure SQL 분석 솔루션을 통해 Azure SQL Database 관리
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
@@ -11,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170227"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -38,10 +37,10 @@ Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azur
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
 | [Azure 진단](../platform/collect-azure-metrics-logs.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
-| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../platform/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Log Analytics로 직접 연결은 솔루션에서 사용되지 않습니다. |
+| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | 아닙니다. | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아닙니다. | Operations Manager 에이전트에서 Log Analytics로 직접 연결은 솔루션에서 사용되지 않습니다. |
 
 ## <a name="configuration"></a>구성
 
@@ -67,9 +66,13 @@ Azure SQL 분석 솔루션을 Azure 대시보드에 추가하려면 다음 단�
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
-솔루션을 작업 영역에 추가하면 Azure SQL Analytics 타일이 작업 영역에 추가되고 개요에 표시됩니다. 타일에는 솔루션에서 진단 원격 분석을 수신하는 Azure SQL Databases, Managed Instances 및 Managed Instance의 데이터베이스 수가 표시됩니다.
+솔루션을 작업 영역에 추가하면 Azure SQL Analytics 타일이 작업 영역에 추가되고 개요에 표시됩니다. 요약 보기 타일 콘텐츠를 로드 하는 링크를 선택 합니다.
 
-![Azure SQL Analytics 타일](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL 분석 요약 타일](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+로드 되 면 타일에는 솔루션에서 진단 원격 분석을 수신 하는 관리 되는 인스턴스에서 Azure SQL 데이터베이스, 탄력적 풀에서 관리 되는 인스턴스 및 데이터베이스의 수를 표시 합니다.
+
+![Azure SQL Analytics 타일](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 솔루션에서는 Azure SQL Database 및 탄력적 풀을 모니터링하는 보기 및 Managed Instance 및 Managed Instance의 데이터베이스를 모니터링하는 보기와 같은 두 개의 개별 보기를 제공합니다.
 
@@ -114,8 +117,8 @@ Managed Instance 보기를 선택하면 Managed Instance 사용률, 포함된 �
 | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
 | 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
-| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
+| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아닙니다. |
+| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아닙니다. |
 | 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 예 |
 | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
@@ -146,14 +149,16 @@ Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기
 
 ### <a name="creating-a-custom-role-in-portal"></a>포털에서 사용자 지정 역할 만들기
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 일부 조직은 Azure에서 엄격하게 권한을 제어합니다. Azure Portal에서 Azure SQL 분석을 최대로 사용하는 데 필요한 최소 읽기 및 쓰기 권한만 있는 사용자 지정 역할 “SQL 분석 모니터링 운영자”를 만드는 다음 PowerShell 스크립트를 찾아보세요.
 
 아래 스크립트의 “{SubscriptionId}”를 Azure 구독 ID로 바꾸고, Azure에서 소유자 또는 기여자 역할로 로그인된 스크립트를 실행합니다.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +177,7 @@ Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 새 역할이 만들어지면 Azure SQL 분석을 사용하기 위한 사용자 지정 권한을 부여해야 하는 각 사용자에게 이 역할을 할당합니다.

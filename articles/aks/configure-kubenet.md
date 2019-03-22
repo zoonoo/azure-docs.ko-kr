@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701616"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011350"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
 기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 Azure Virtual Network 및 서브넷이 만들어집니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다. 이 방법을 사용하면 네트워크 공간에서 pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
-[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다.
+[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다.
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
@@ -78,6 +78,9 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 - UDR을 관리하지 않으려고 합니다.
 - 가상 노드 또는 네트워크 정책과 같은 고급 기능이 필요합니다.
 
+> [!NOTE]
+> Kuberouter 수 있도록 kubenet를 사용 하는 경우 네트워크 정책을 사용 하도록 설정 하 고 AKS 클러스터에서 daemonset으로 설치할 수 있습니다. 주의 하십시오 kube-라우터는 아직 베타 버전 및 지원 되지 않습니다 프로젝트에 대해 Microsoft에서 제공 됩니다.
+
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
 
 *kubenet*과 사용자 고유의 가상 네트워크 서브넷을 사용하려면 먼저 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
@@ -126,7 +129,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-이제 [az role assignment create][az-role-assignment-create] 명령을 사용하여 가상 네트워크에 대해 AKS 클러스터 *참가자* 권한을 서비스 주체에 할당합니다. 이전 명령의 출력에 표시된 고유한 */<appId/>* 를 입력하여 서비스 주체를 만듭니다.
+이제 [az role assignment create][az-role-assignment-create] 명령을 사용하여 가상 네트워크에 대해 AKS 클러스터 *참가자* 권한을 서비스 주체에 할당합니다. 직접 제공할  *\<appId >* 서비스 주체를 만들려면 이전 명령의 출력에 표시 된 대로:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +137,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>가상 네트워크에서 AKS 클러스터 만들기
 
-지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시된 고유한 서비스 주체 */<appId/>* 및 */<password/>* 를 정의합니다.
+지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 고유한 서비스 주체를 정의  *\<appId >* 하 고  *\<암호 >* 서비스 주체를 만들려면 이전 명령의 출력에 표시 된 것 처럼 합니다.
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 

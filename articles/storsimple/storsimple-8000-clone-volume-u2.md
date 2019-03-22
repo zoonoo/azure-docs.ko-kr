@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26333205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097238"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 복제
 
@@ -66,9 +66,9 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
    3. 시간 범위를 지정합니다.
    4. **적용**을 클릭하여 이 쿼리를 실행합니다.
 
-    선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
+      선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
    
-    ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. 백업 세트를 확장하여 연결된 볼륨을 보고 백업 세트에서 볼륨을 선택합니다. 마우스 오른쪽 단추를 클릭하고 상황에 맞는 메뉴에서 **복제**를 선택합니다.
 
@@ -76,21 +76,21 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
 
 3. **복제** 블레이드에서 다음 단계를 수행합니다.
    
-    1. 대상 디바이스를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 디바이스를 선택하거나 다른 디바이스를 지정할 수 있습니다.
+   1. 대상 디바이스를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 디바이스를 선택하거나 다른 디바이스를 지정할 수 있습니다.
 
       > [!NOTE]
       > 복제에 필요한 용량은 대상 디바이스에서 사용 가능한 용량보다 작아야 합니다.
        
-    2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
+   2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
       
-        > [!NOTE]
-        > 로컬로 고정된 볼륨을 복제하더라도 **다른 이름으로 볼륨 복제** 필드는 **계층화됨**이 됩니다. 이 설정을 변경할 수 없습니다. 그러나 로컬로 고정된 복제된 볼륨도 필요한 경우 복제본을 성공적으로 만든 후 로컬로 고정된 볼륨으로 복제본을 변환할 수 있습니다. 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 방법에 대한 자세한 내용은 [볼륨 유형 변경](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)으로 이동하세요.
+       > [!NOTE]
+       > 로컬로 고정된 볼륨을 복제하더라도 **다른 이름으로 볼륨 복제** 필드는 **계층화됨**이 됩니다. 이 설정을 변경할 수 없습니다. 그러나 로컬로 고정된 복제된 볼륨도 필요한 경우 복제본을 성공적으로 만든 후 로컬로 고정된 볼륨으로 복제본을 변환할 수 있습니다. 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 방법에 대한 자세한 내용은 [볼륨 유형 변경](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)으로 이동하세요.
           
-    3. **연결된 호스트** 아래에서 클론에 대한 ACR(액세스 제어 레코드)을 지정합니다. 새 ACR을 추가하거나 기존 목록에서 선택할 수 있습니다. ACR은 이 클론에 액세스할 수 있는 호스트를 결정합니다.
+   3. **연결된 호스트** 아래에서 클론에 대한 ACR(액세스 제어 레코드)을 지정합니다. 새 ACR을 추가하거나 기존 목록에서 선택할 수 있습니다. ACR은 이 클론에 액세스할 수 있는 호스트를 결정합니다.
       
-        ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. **복제**를 클릭하여 작업을 완료합니다.
+   4. **복제**를 클릭하여 작업을 완료합니다.
 
 4. 클론 작업이 시작되고 클론이 성공적으로 만들어지면 알림이 표시됩니다. 작업 알림을 클릭하거나 **작업** 블레이드로 이동하여 복제 작업을 모니터링합니다.
 
@@ -119,5 +119,5 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
 
 ## <a name="next-steps"></a>다음 단계
 * [백업 세트에서 StorSimple 볼륨을 복원](storsimple-8000-restore-from-backup-set-u2.md)하는 방법에 대해 알아봅니다.
-* [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
 

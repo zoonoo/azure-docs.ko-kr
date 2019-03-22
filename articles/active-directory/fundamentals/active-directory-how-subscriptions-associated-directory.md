@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993909"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285009"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -62,11 +62,10 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
     구독의 디렉터리가 변경되며 성공 메시지가 표시됩니다.
 
-    ![성공 메시지](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![디렉터리 변경에 대 한 성공 메시지](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. 사용 된 **디렉터리 전환기** 새 디렉터리로 이동 합니다. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.
 
-4. 디렉터리 전환기를 사용하여 새 디렉터리로 이동합니다. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.
-
-    ![디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![샘플 정보를 사용 하 여 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 계정 관리자는 [계정 센터](https://account.azure.com/subscriptions)에서 서비스 관리자를 계속 변경할 수 있습니다. 원래 디렉터리를 삭제하려면 구독 청구 소유권을 새 계정 관리자로 이전해야 합니다. 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../billing/billing-subscription-transfer.md)을 참조하세요. 
 

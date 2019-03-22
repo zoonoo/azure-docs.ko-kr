@@ -4,17 +4,17 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331253"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115837"
 ---
 VM(가상 머신)에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. VM에서 디스크를 분리하는 경우 디스크는 저장소에서 제거되지 않습니다. 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 VM에 다시 연결할 수 있습니다.  
 
 > [!NOTE]
-> Azure의 VM은 운영 체제 디스크, 로컬 임시 디스크, 선택적 데이터 디스크 등 다양한 유형의 디스크를 사용합니다. 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하십시오. 또한 VM을 삭제하지 않는 한 운영 체제 디스크를 분리할 수 없습니다.
+> Azure의 VM은 운영 체제 디스크, 로컬 임시 디스크, 선택적 데이터 디스크 등 다양한 유형의 디스크를 사용합니다. 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하십시오. 또한 VM을 삭제하지 않는 한 운영 체제 디스크를 분리할 수 없습니다.
 
 ## <a name="find-the-disk"></a>디스크 찾기
 VM에서 디스크를 분리하기 전에 분리할 디스크에 대한 식별자인 LUN 번호를 확인해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
@@ -81,7 +81,7 @@ Linux 게스트에서 디스크를 분리하기 전에 디스크의 모든 파�
     /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
     ```
 
-5. **/etc/fstab** 파일에서 장치 경로 또는 분리할 디스크에 대한 모든 파티션의 UUID와 연결된 항목을 제거합니다.  이 예제에서는 해당 항목이 다음과 같을 수 있습니다.
+5. **/etc/fstab** 파일에서 디바이스 경로 또는 분리할 디스크에 대한 모든 파티션의 UUID와 연결된 항목을 제거합니다.  이 예제에서는 해당 항목이 다음과 같을 수 있습니다.
 
     ```sh  
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2

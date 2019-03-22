@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898689"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 
@@ -25,7 +25,7 @@ WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](../storage-im
 
 - **컴퓨터 구성**
   - Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제
-  - .NET Framework 4가 설치되어 있어야 합니다. .Net Framework가 컴퓨터에 설치되어 있는지 확인하는 방법은 [FAQ](#faq)를 참조하세요.
+  - .NET Framework 4가 설치되어 있어야 합니다. 참조 [FAQ](#faq) .NET Framework를 컴퓨터에 설치 되어 있는지 확인 하는 방법에 있습니다.
 - **Storage 계정 키** - Storage 계정의 계정 키가 하나 이상 필요합니다.
 
 ### <a name="preparing-disk-for-import-job"></a>가져오기 작업을 위한 디스크 준비
@@ -151,12 +151,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 데이터가 InitialDriveset에 지정한 드라이브에 맞지 않으면 도구를 사용하여 동일한 복사 세션에 추가 드라이브를 추가할 수 있습니다. 
 
->[!NOTE] 
->세션 ID는 이전 세션 ID와 일치해야 합니다. 저널 파일은 이전 세션에서 지정한 파일과 일치해야 합니다.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> 세션 ID는 이전 세션 ID와 일치해야 합니다. 저널 파일은 이전 세션에서 지정한 파일과 일치해야 합니다.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **예제:**
 
@@ -364,7 +364,7 @@ BitLocker에서 TPM을 사용하지 않도록 설정하려면 다음 단계를 �
 
 모든 Microsoft .NET Framework 버전은 %windir%\Microsoft.NET\Framework\ 디렉터리에 설치됩니다.
 
-도구를 실행해야 하는 대상 컴퓨터에서 위에서 언급한 부분으로 이동합니다. "v4"로 시작하는 폴더 이름을 찾습니다. 이러한 디렉터리가 없으면 컴퓨터에 .NET 4가 설치되지 않은 것입니다. [Microsoft .NET Framework 4(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=17851)를 사용하면 컴퓨터에 .Net 4를 다운로드할 수 있습니다.
+도구를 실행해야 하는 대상 컴퓨터에서 위에서 언급한 부분으로 이동합니다. "v4"로 시작하는 폴더 이름을 찾습니다. 이러한 디렉터리가 없으면 컴퓨터에 .NET 4가 설치되지 않은 것입니다. 사용 하 여 컴퓨터에.NET 4를 다운로드할 수 있습니다 [Microsoft.NET Framework 4 (웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=17851)합니다.
 
 ### <a name="limits"></a>제한
 

@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 5ac2b6972c224f5e987bbd2b0e667a26d2edea1c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114240"
+---
 ### <a name="prerequisites"></a>필수 조건
 * [Trello](http://trello.com) 계정 
 
-논리 앱에서 Trello 계정을 사용하려면 먼저 Trello 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다. 
+논리 앱에서 Trello 계정을 사용하려면 먼저 Trello 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다. 
 
 Trello 계정에 연결하도록 논리 앱에 권한을 부여하는 단계는 다음과 같습니다.
 

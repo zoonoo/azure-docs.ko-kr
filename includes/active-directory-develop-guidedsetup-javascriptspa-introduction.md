@@ -4,22 +4,22 @@ description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a6fcbc0e8adac75f17d7379ff512ba650d0bb118
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203313"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 Microsoft Graph API 호출
 
@@ -27,7 +27,7 @@ ms.locfileid: "52978763"
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
-![이 가이드에서 생성된 샘플 앱의 작동 원리](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
+![이 자습서 작동 하 여 샘플 앱을 생성 하는 방법을 보여 줍니다.](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro-updated.png)
 
 <!--start-collapse-->
 ### <a name="more-information"></a>추가 정보

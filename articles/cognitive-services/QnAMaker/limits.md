@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859354"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960057"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 QnA Maker에 대한 포괄적인 제한 목록입니다.
@@ -52,7 +52,7 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
 * 최대 대체 질문 수: 100
-* 질문-응답 쌍의 최대 수: 선택한 [Azure Search 계층](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)에 따라 다름 
+* 질문-응답 쌍의 최대 수: 종속 된 [Azure Search 계층](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) 선택 합니다. 질문 및 답변 쌍을 Azure Search 인덱스에서 문서에 매핑됩니다. 
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기
 이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
@@ -71,6 +71,6 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 
 서비스 계층을 변경해야 하는 시기와 변경 방법을 알아봅니다.
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): 기술 자료에 포함해야 하는 질문과 대답의 수가 현재 계층에서 허용되는 수보다 많으면 QnA Maker 서비스 가격 책정 계층을 업그레이드합니다.
-* [검색](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - 기술 자료가 클라이언트 앱의 요청을 더 많이 처리해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드합니다.
-* [앱 서비스](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): 기술 자료를 많이 포함하려는 경우 Azure Search 서비스 가격 책정 계층을 업그레이드합니다.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): 때 소스 파일이 더 있는 해야 하거나 더 큰 문서에 현재 계층을 벗어난 여 기술 자료의 가격 책정 계층 QnA Maker 서비스를 업그레이드 합니다.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): 기술 자료에서 클라이언트 앱에서 더 많은 요청을 처리해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드하세요.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): 많은 기술 자료를 포함할 계획인 경우 Azure Search 서비스 가격 책정 계층을 업그레이드하세요.

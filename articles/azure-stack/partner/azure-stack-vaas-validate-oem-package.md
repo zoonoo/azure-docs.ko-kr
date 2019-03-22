@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113285"
 ---
 # <a name="validate-oem-packages"></a>OEM 패키지 유효성 검사
 
@@ -185,30 +185,30 @@ VaaS에 필요한 최소 액세스 수준 패키지 유효성 검사 워크플�
 
     OEM 확장 패키지 확인 수동 두 단계로 분할 됩니다. Azure Stack Update 및 OEM 업데이트 합니다.
 
-    1. **선택** precheck 스크립트를 실행 하는 UI에서 "실행" 합니다. 이 자동화 된 테스트는 완료 하려면 약 5 분 걸립니다 및 작업이 필요 하지 않습니다.
+   1. **선택** precheck 스크립트를 실행 하는 UI에서 "실행" 합니다. 이 자동화 된 테스트는 완료 하려면 약 5 분 걸립니다 및 작업이 필요 하지 않습니다.
 
-    1. Precheck 스크립트가 완료 되 면 수동 단계를 수행 합니다. **설치** 최신 사용 가능한 Azure Stack 업데이트를 Azure Stack 포털을 사용 합니다.
+   1. Precheck 스크립트가 완료 되 면 수동 단계를 수행 합니다. **설치** 최신 사용 가능한 Azure Stack 업데이트를 Azure Stack 포털을 사용 합니다.
 
-    1. **실행** 테스트-AzureStack 스탬프에. 오류가 발생 한 경우 진행 하지 마십시오 테스트 및 연락처 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com)합니다.
+   1. **실행** 테스트-AzureStack 스탬프에. 오류가 발생 한 경우 진행 하지 마십시오 테스트 및 연락처 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com)합니다.
 
-        테스트-azurestack의 경우 명령을 실행 하는 방법에 대 한 자세한 내용은 [의 유효성을 검사 하는 Azure Stack 시스템 상태](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)합니다.
+       테스트-azurestack의 경우 명령을 실행 하는 방법에 대 한 자세한 내용은 [의 유효성을 검사 하는 Azure Stack 시스템 상태](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)합니다.
 
-    1. **선택** postcheck 스크립트를 실행 하려면 "다음"입니다. 이 자동화 된 테스트 및 Azure Stack 업데이트 프로세스의 끝을 표시 합니다.
+   1. **선택** postcheck 스크립트를 실행 하려면 "다음"입니다. 이 자동화 된 테스트 및 Azure Stack 업데이트 프로세스의 끝을 표시 합니다.
 
-    1. **선택** OEM 업데이트용 precheck 스크립트를 실행 하려면 "실행" 합니다.
+   1. **선택** OEM 업데이트용 precheck 스크립트를 실행 하려면 "실행" 합니다.
 
-    1. 사전 검사를 완료 되 면 수동 단계를 수행 합니다. **설치** 포털을 통해 OEM 확장 패키지입니다.
+   1. 사전 검사를 완료 되 면 수동 단계를 수행 합니다. **설치** 포털을 통해 OEM 확장 패키지입니다.
 
-    1. **실행** 테스트-AzureStack 스탬프에.
+   1. **실행** 테스트-AzureStack 스탬프에.
 
-        > [!NOTE]
-        > 이전과 마찬가지로 테스트 및 연락처를 사용 하 여 계속 하지 마세요 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) 실패 한 경우. 이 단계는 중요 한 재배포 절약 될 것입니다.
+      > [!NOTE]
+      > 이전과 마찬가지로 테스트 및 연락처를 사용 하 여 계속 하지 마세요 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) 실패 한 경우. 이 단계는 중요 한 재배포 절약 될 것입니다.
 
-    1. **선택** postcheck 스크립트를 실행 하려면 "다음"입니다. 이 OEM update 단계의 끝을 표시 합니다.
+   1. **선택** postcheck 스크립트를 실행 하려면 "다음"입니다. 이 OEM update 단계의 끝을 표시 합니다.
 
-    1. 테스트의 끝에 나머지 모든 질문에 답변 하 고 **선택** "제출".
+   1. 테스트의 끝에 나머지 모든 질문에 답변 하 고 **선택** "제출".
 
-    1. 이 대화형 테스트의 끝을 표시 합니다.
+   1. 이 대화형 테스트의 끝을 표시 합니다.
 
 5. OEM 확장 패키지 확인에 대 한 결과 검토 합니다. 테스트 성공 되 면 클라우드 시뮬레이션 엔진 실행을 예약 합니다.
 

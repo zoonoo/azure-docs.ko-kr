@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009076"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225827"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 고가용성 애플리케이션 설계
 
@@ -123,7 +123,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
     이 시나리오에서는 모든 읽기 요청이 기본 엔드포인트를 먼저 시도하고, 시간 제한이 만료되기를 기다린 다음, 보조 엔드포인트로 전환하기 때문에 성능 저하가 있습니다.
 
-이 시나리오에서는 기본 엔드포인트에 계속되는 문제가 있는지 식별하고 **LocationMode** 속성을 **SecondaryOnly**로 설정하여 모든 읽기 요청을 보조 엔드포인트로 바로 보내야 합니다. 이 때 애플리케이션을 읽기 전용 모드에서 실행하도록 변경해야 합니다. 이 방법은 [회로 차단기 패턴](https://msdn.microsoft.com/library/dn589784.aspx)이라고 합니다.
+이 시나리오에서는 기본 엔드포인트에 계속되는 문제가 있는지 식별하고 **LocationMode** 속성을 **SecondaryOnly**로 설정하여 모든 읽기 요청을 보조 엔드포인트로 바로 보내야 합니다. 이 때 애플리케이션을 읽기 전용 모드에서 실행하도록 변경해야 합니다. 이 방법은 [회로 차단기 패턴](/azure/architecture/patterns/circuit-breaker)이라고 합니다.
 
 ### <a name="update-requests"></a>업데이트 요청
 

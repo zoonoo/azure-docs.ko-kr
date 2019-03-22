@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168088"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>검사점
 
-*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에 이라는 기능이 [공평 분배](automation-runbook-execution.md#fair-share), 다른 runbook을 실행할 수 있도록 3 시간 동안 실행 되는 모든 runbook 언로드되는 위치입니다. 결국 언로드된 runbook을 다시 로드 됩니다 하 고 runbook에서 수행 된 마지막 검사점에서 실행을 재개 되 면 합니다. Runbook 됩니다 최종적으로 완료 하는 작업을 보장 하기 위해 3 시간 미만 동안 실행 되는 간격으로 검사점을 추가 해야 합니다. 각 실행 하는 동안 새 검사점을 추가 되 고 오류로 인해 3 시간 후 runbook을 가져옵니다 제거 후 runbook 됩니다 다시 시작할 수 무기한.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 

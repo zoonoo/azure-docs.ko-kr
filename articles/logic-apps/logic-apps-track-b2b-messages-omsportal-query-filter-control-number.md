@@ -1,5 +1,5 @@
 ---
-title: Log Analytics에서 B2B 메시지의 추적 쿼리 만들기 - Azure Logic Apps | Microsoft Docs
+title: Azure Monitor 로그-Azure Logic Apps에서에서 B2B 메시지 추적 쿼리를 만들 | Microsoft Docs
 description: Azure Logic Apps용 Azure Log Analytics에서 AS2, X12 및 EDIFACT 메시지를 추적하는 쿼리 만들기
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,21 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995314"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194914"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Azure Logic Apps용 Azure Log Analytics에서 B2B 메시지의 추적 쿼리 만들기
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Monitor 로그에서 B2B 메시지 추적 쿼리 만들기
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 추적 중인 AS2, X12 또는 EDIFACT 메시지를 찾기 위해 특정 조건에 따라 작업을 필터링하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다.
+메시지 찾기 위해 AS2, X12 또는 EDIFACT를 사용 하 여 추적 중인 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md), 특정 조건에 따라 작업을 필터링 하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다.
 
 > [!NOTE]
 > 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,7 +31,7 @@ ms.locfileid: "52995314"
 
 * 모니터링 및 로깅을 사용하여 설정된 통합 계정. [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 및 [해당 계정에 대한 모니터링 및 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-b2b-message.md)을 알아봅니다.
 
-* 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)하고 [Log Analytics에서 메시지 추적을 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
+* 이미 않았다면 [Azure Monitor 로그에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 하 고 [Azure Monitor 로그에서 메시지 추적을 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
 ## <a name="create-queries-with-filters"></a>필터를 사용하여 쿼리 만들기
 
@@ -53,7 +55,7 @@ ms.locfileid: "52995314"
 1. 쿼리 편집 상자에 찾으려는 필드 이름을 입력합니다. 입력을 시작하면 쿼리 편집기에 사용할 수 있는 가능한 일치 및 작업이 표시됩니다. 쿼리를 만든 후에 **실행**을 선택하거나 Enter 키를 누릅니다.
 
    이 예제에서는 **LogicAppB2B**의 일치 항목을 검색합니다. 
-   [Log Analytics에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+   에 대해 자세히 알아보세요 [Azure Monitor 로그에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)합니다.
 
    ![쿼리 문자열 입력 시작](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095520"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack 용량 계획
 Azure Stack 솔루션을 평가할 때 Azure Stack 클라우드에의 한 전체 용량에 직접 영향을 주는 하드웨어 구성을 선택할 수 있습니다. 이 CPU, 메모리 밀도, 저장소 구성 및 전반적인 솔루션 확장 또는 서버 수가 클래식 선택 항목입니다. 기존의 가상화 솔루션과 달리 이러한 구성 요소가 사용 가능한 용량을 확인할 수의 간단한 산술 연산을 적용 되지 않습니다. 첫 번째 이유는 Azure Stack 솔루션 자체 내에서 인프라 또는 관리 구성 요소를 호스트 하도록 설계 되는 경우 복원 력; 지원 하기 위해 예약 되어 솔루션의 용량 중 두 번째 이유는 테 넌 트 워크 로드의 중단을 최소화 하는 방법에 대 한 솔루션의 소프트웨어 업데이트 합니다.
@@ -49,7 +49,7 @@ Azure Stack 인프라를 호스트 하 고 전체적으로 208 GB에 대 한 124
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> 표준 D2 Vm.
-
+> 
 > <sup>2</sup> 가상 코어 대 실제 코어 비율입니다.
 
 위에서 설명한 대로 VM 용량 사용 가능한 메모리에 의해 결정 됩니다. 실제 코어 비율 대 가상 코어를 사용 가능한 CPU 용량 (다른 CPU이 선택 됨) 하는 실제 코어 수가 많으면 솔루션 생성 하지 않는 한 VM 밀도 어떻게 변경 보여 줍니다. 저장소 용량 및 저장소 캐시 용량도 마찬가지입니다.

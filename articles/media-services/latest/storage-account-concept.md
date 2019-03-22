@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337871"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960222"
 ---
 # <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
 
@@ -31,14 +31,14 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 
 핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
 
+다양 한 Sku를 저장소 계정에 대해 선택할 수 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 
+
 ## <a name="assets-in-a-storage-account"></a>저장소 계정의 자산
 
-Media Services v3에서는 Storage API를 사용하여 파일을 업로드합니다.
+Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 데 사용 됩니다. 자세한 내용은 [자산 개념](assets-concept.md)합니다.
 
 > [!Note]
 > Media Service API를 사용하지 않고 Media Services SDK에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
-
-Media Services에서 Storage API를 사용하여 입력 파일을 업로드하는 방법을 보려면 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조하세요. 
  
 ## <a name="next-steps"></a>다음 단계
 

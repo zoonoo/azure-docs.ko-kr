@@ -1,19 +1,19 @@
 ---
 title: Azure용 Ansible 모듈 및 버전 매트릭스
 description: Azure용 Ansible 모듈 및 버전 매트릭스
-ms.service: ansible
+ms.service: azure
 keywords: Ansible, 역할, 매트릭스, 버전, Azure, DevOps
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f1dccfd5b91205d0673c2b82ad7cfa673f61f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810221"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791820"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 

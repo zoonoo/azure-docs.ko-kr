@@ -1,19 +1,19 @@
 ---
 title: IoT Hub에 대한 개발자 가이드 | Microsoft Docs
 description: Azure IoT Hub 개발자 가이드는 엔드포인트의 토론, 보안, ID 레지스트리, 디바이스 관리, 직접 메서드, 디바이스 쌍, 파일 업로드, 작업, IoT Hub 쿼리 언어 및 메시징을 포함합니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: ecbec614bd0d1b043faf6ad002b05d4acdcc4ab4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041750"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450994"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
 
@@ -35,15 +35,15 @@ Azure IoT Hub는 다음을 제공합니다.
 
 * [장치-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) - 장치-클라우드 메시지, 장치 쌍의 보고된 속성, 파일 업로드 중에 하나를 선택하도록 도와줍니다.
 
-* [클라우드-장치 통신 지침](iot-hub-devguide-c2d-guidance.md) - 직접 메서드, 장치 쌍의 원하는 속성, 클라우드-장치 메시지 중 하나를 선택하도록 도와줍니다.
+* [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md) - 직접 메서드, 디바이스 쌍의 원하는 속성, 클라우드-디바이스 메시지 중 하나를 선택하도록 도와줍니다.
 
-* [IoT Hub를 사용한 장치-클라우드 및 클라우드-장치 메시징](iot-hub-devguide-messaging.md) - IoT Hub가 노출하는 메시징 기능(장치-클라우드 및 클라우드-장치)을 설명합니다.
+* [IoT Hub를 사용한 디바이스-클라우드 및 클라우드-디바이스 메시징](iot-hub-devguide-messaging.md) - IoT Hub가 노출하는 메시징 기능(디바이스-클라우드 및 클라우드-디바이스)을 설명합니다.
 
-  * [IoT Hub에 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md).
+  * [IoT Hub에 디바이스-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md).
 
-  * [기본 제공 엔드포인트에서 장치-클라우드 메시지 읽기](iot-hub-devguide-messages-read-builtin.md).
+  * [기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기](iot-hub-devguide-messages-read-builtin.md).
 
-  * [장치-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md).
+  * [디바이스-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md).
 
   * [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md).
 
@@ -55,7 +55,7 @@ Azure IoT Hub는 다음을 제공합니다.
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) - 장치 및 클라우드 구성 요소에 대한 IoT Hub 기능에 액세스 권한을 부여하는 데 사용되는 보안 모델을 설명합니다. 이 문서에서는 토큰 및 X.509 인증서 사용에 대한 정보와 부여할 수 있는 권한 정보를 포함합니다.
 
-* [장치 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md) - ‘장치 쌍’ 개념을 설명합니다. 이 문서에서는 디바이스 쌍과 디바이스 동기화 등, 디바이스 쌍이 노출하는 기능에 대해서도 설명합니다. 이 문서는 디바이스 쌍에 저장된 데이터에 대한 정보도 포함합니다.
+* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md) - ‘디바이스 쌍’ 개념을 설명합니다. 장치 쌍과 장치 동기화 등 쌍 노출 기능 장치를 설명 합니다. 이 문서는 디바이스 쌍에 저장된 데이터에 대한 정보도 포함합니다.
 
 * [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md) - 직접 메서드의 수명 주기에 대해 설명합니다. 이 문서에서는 백엔드 앱으로부터 디바이스에 대한 메서드를 호출하고 디바이스에서 직접 메서드를 처리하는 방법에 대해 설명합니다.
 

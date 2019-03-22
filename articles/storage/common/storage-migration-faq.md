@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110412"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -37,7 +37,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **동일한 지역 내의 동일한 저장소 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
- 아니요. 이 프로세스에는 요금이 부과되지 않습니다.
+아니요. 이 프로세스에는 요금이 부과되지 않습니다.
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
@@ -193,7 +193,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 **저장소 계정의 복제를 지역 중복 저장소에서 로컬 중복 저장소로 변경하기 위한 필수 구성 요소가 있나요?**
 
- 아니요. 
+아니요. 
 
 **Azure Files 중복 저장소에 액세스하려면 어떻게 할까요?**
 
@@ -282,7 +282,7 @@ Azure CLI를 사용할 수 있습니다.
 
     - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
-**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https://mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https://www.contoso.com/images/image.gif"로 보이도록 하려면 어떻게 해야 합니까?**
+**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "<https://mystorageaccountname.blob.core.windows.net/images/image.gif>"를 "<https://www.contoso.com/images/image.gif>"로 보이도록 하려면 어떻게 해야 합니까?**
 
 SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원되지 않습니다.
 하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob Storage 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.

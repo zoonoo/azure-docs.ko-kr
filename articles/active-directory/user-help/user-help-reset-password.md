@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106486"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -93,15 +93,15 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 - **Authenticator 앱의 코드를 사용하여 암호 재설정.** 인증 앱에서 제공한 임의의 코드를 수락합니다. 관리자가 보안 정보 환경을 설정한 경우 [인증 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md) 문서에서 코드를 제공하도록 Authenticator 앱을 설정하는 방법에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 코드를 제공하도록 Authenticator 앱을 설정하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-    1. **Authenticator 앱의 코드 입력**을 선택하고 **알림 보내기**를 선택합니다.
+  1. **Authenticator 앱의 코드 입력**을 선택하고 **알림 보내기**를 선택합니다.
 
-    2. Authenticator 앱을 열고, 계정 확인 코드를 상자에 입력하고, **다음**을 선택합니다.
+  2. Authenticator 앱을 열고, 계정 확인 코드를 상자에 입력하고, **다음**을 선택합니다.
 
-    3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
+  3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
-    4. 암호가 재설정되었다는 메시지가 표시되면 새 암호를 사용하여 계정에 로그인 할 수 있습니다.
+  4. 암호가 재설정되었다는 메시지가 표시되면 새 암호를 사용하여 계정에 로그인 할 수 있습니다.
         
-    여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
+     여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
 
 암호를 재설정한 후 "Microsoft가 \<*귀하의 조직*>을 대신하여"와 같은 확인 이메일이 계정에 도착할 수 있습니다. 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
 
@@ -113,7 +113,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 주로 Office 포털을 통해 앱에 액세스하는 경우 이 방법을 사용하세요.
 
-1. 기존 암호를 사용하여 [Office 365 계정](https://www.office.com)에 로그인합니다.
+1. 기존 암호를 사용하여 [Office 365 계정](https://portal.office.com)에 로그인합니다.
 
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **계정 보기**를 선택합니다.
 
@@ -163,9 +163,6 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 |사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대해 암호 재설정 기능을 설정했지만, 사용자가 서비스를 사용하도록 등록하지 않았습니다. 암호 재설정을 등록하려면 확인 방법에 따라 다음 문서 중 하나를 참조하세요. [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md).<br><br>2. 관리자가 조직에 대해 암호 재설정을 설정하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
-
-- [보안 정보 관리(미리 보기)](security-info-manage-settings.md) 문서에서 보안 정보를 편집하여 인증 방법을 추가하거나 변경합니다. 
-
 - [보안 정보(미리 보기) 개요](user-help-security-info-overview.md) 문서에서 보안 정보에 대해 자세히 알아봅니다.
 
 - [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다. 

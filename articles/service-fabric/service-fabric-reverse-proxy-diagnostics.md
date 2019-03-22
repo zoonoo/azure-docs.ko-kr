@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 662fc124af71c1ce976037a3544f59e3cea54ef0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121488"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>역방향 프로세스에서의 요청 처리 모니터링 및 진단 
 
@@ -32,83 +32,84 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
 1. 역방향 프록시에서 응답 상태 코드 504(시간 제한) 반환
 
     서비스가 요청 시간 제한 안에 응답하지 못하는 것이 한 원인이 될 수 있습니다.
-아래의 첫 번째 이벤트는 역방향 프록시에서 수신한 요청의 상세 정보를 기록합니다. 두 번째 이벤트는 서비스로 전달하는 도중 "internal error = ERROR_WINHTTP_TIMEOUT"으로 인해 요청이 실패했음을 표시합니다. 
+   아래의 첫 번째 이벤트는 역방향 프록시에서 수신한 요청의 상세 정보를 기록합니다. 
+   두 번째 이벤트는 서비스로 전달하는 도중 "internal error = ERROR_WINHTTP_TIMEOUT"으로 인해 요청이 실패했음을 표시합니다. 
 
     페이로드는 다음을 포함합니다.
 
-    *  **traceId**: 이 GUID를 사용하여 단일 요청에 해당하는 모든 이벤트를 상관 지을 수 있습니다. 아래 두 이벤트에서 traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**은 이들이 같은 요청에 속함을 나타냅니다.
-    *  **requestUrl**: 요청이 전송된 UR (역방향 프록시 URL)입니다.
-    *  **verb**: HTTP 동사입니다.
-    *  **remoteAddress**: 요청을 보내는 클라이언트의 주소입니다.
-    *  **resolvedServiceUrl**: 수신 요청이 확인된 서비스 끝점 URL입니다. 
-    *  **errorDetails**: 실패에 대한 추가 정보입니다.
+   * **traceId**: 이 GUID는 단일 요청에 해당 하는 모든 이벤트를 상관 관계를 사용할 수 있습니다. 아래 두 이벤트에서 traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**은 이들이 같은 요청에 속함을 나타냅니다.
+   * **requestUrl**: URL (역방향 프록시 URL)을 요청을 보냈습니다.
+   * **verb**: HTTP 동사입니다.
+   * **remoteAddress**: 요청을 보내는 클라이언트의 주소입니다.
+   * **resolvedServiceUrl**: 들어오는 요청을 해결 된 서비스 끝점 URL입니다. 
+   * **errorDetails**: 오류에 대 한 추가 정보입니다.
 
-    ```
-    {
-      "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
-      "ProviderName": "Microsoft-ServiceFabric",
-      "Id": 51477,
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
-      "ProcessId": 57696,
-      "Level": "Informational",
-      "Keywords": "0x1000000000000021",
-      "EventName": "ReverseProxy",
-      "ActivityID": null,
-      "RelatedActivityID": null,
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
-        "verb": "GET",
-        "remoteAddress": "::1",
-        "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
-        "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
-      }
-    }
+     ```
+     {
+     "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
+     "ProviderName": "Microsoft-ServiceFabric",
+     "Id": 51477,
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
+     "ProcessId": 57696,
+     "Level": "Informational",
+     "Keywords": "0x1000000000000021",
+     "EventName": "ReverseProxy",
+     "ActivityID": null,
+     "RelatedActivityID": null,
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
+      "verb": "GET",
+      "remoteAddress": "::1",
+      "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
+      "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
+     }
+     }
 
-    {
-      "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
-      ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
-      ...
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "statusCode": 504,
-        "description": "Reverse Proxy Timeout",
-        "sendRequestPhase": "FinishSendRequest",
-        "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
-      }
-    }
-    ```
+     {
+     "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
+     ...
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+     ...
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "statusCode": 504,
+      "description": "Reverse Proxy Timeout",
+      "sendRequestPhase": "FinishSendRequest",
+      "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
+     }
+     }
+     ```
 
 2. 역방향 프록시가 응답 상태 코드 404(없음)를 반환합니다. 
     
-    다음은 역방향 프록시가 일치하는 서비스 끝점을 찾지 못해 404를 반환하는 예제입니다.
+    다음은 역방향 프록시가 일치하는 서비스 엔드포인트를 찾지 못해 404를 반환하는 예제입니다.
     몇 가지 흥미로운 페이로드 항목은 다음과 같습니다.
-    *  **processRequestPhase**: 요청을 처리하는 도중(***TryGetEndpoint***), 즉 전달할 서비스 끝점을 가져오려고 시도하는 중에 실패가 발생한 단계입니다. 
-    *  **errorDetails**: 끝점 검색 조건을 나열합니다. 여기서 listenerName specified = **FrontEndListener**이고 복제본 끝점목록은 이름 **OldListener**를 포함하는 수신기만 포함합니다. 
+   * **processRequestPhase**: 오류가 발생 한 요청을 처리 하는 도중 ***TryGetEndpoint*** 즉, 전달할 서비스 엔드포인트를 가져오려고 시도하는 중에 실패가 발생한 단계입니다. 
+   * **errorDetails**: 끝점 검색 조건을 나열합니다. 여기서 listenerName specified = **FrontEndListener**이고 복제본 엔드포인트 목록은 이름 **OldListener**를 포함하는 수신기만 포함합니다.
     
-    ```
-    {
+     ```
+     {
+     ...
+     "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
+     "ProcessId": 57696,
+     "Level": "Warning",
+     "EventName": "ReverseProxy",
+     "Payload": {
+      "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
       ...
-      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
-      "ProcessId": 57696,
-      "Level": "Warning",
-      "EventName": "ReverseProxy",
-      "Payload": {
-        "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
-        ...
-        "processRequestPhase": "TryGetEndoint",
-        "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
-      }
-    }
-    ```
-    역방향 프록시가 404 Not Found를 반환할 수 있는 다른 예로는 ApplicationGateway\Http configuration parameter **SecureOnlyMode**가 true로 설정되었고 역방향 프록시가 **HTTPS**에서 수신 대기하나 모든 복제본 끝점이 보호되지 않는 경우(HTTP에서 응답)입니다.
-    요청을 전달하기 위해 HTTPS에서 수신 대기하는 끝점을 찾을 수 없으므로 역방향 프록시가 404를 반환합니다. 이벤트 페이로드의 매개 변수를 분석하면 문제의 범위를 좁히는 데 도움이 됩니다.
+      "processRequestPhase": "TryGetEndoint",
+      "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
+     }
+     }
+     ```
+     역방향 프록시가 404를 반환할 수 있는 또 다른 예로 찾을 수 없습니다. ApplicationGateway\Http configuration 매개 변수 **SecureOnlyMode** 역방향 프록시를 사용 하 여 true로 설정에서 수신 대기 **HTTPS**이지만 모든 복제본 끝점 (HTTP 수신) 보호 되지 않습니다.
+     요청을 전달하기 위해 HTTPS에서 수신 대기하는 엔드포인트를 찾을 수 없으므로 역방향 프록시가 404를 반환합니다. 이벤트 페이로드의 매개 변수를 분석하면 문제의 범위를 좁히는 데 도움이 됩니다.
     
-    ```
-        "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
-    ```
+     ```
+      "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
+     ```
 
 3. 역방향 프록시 요청이 시간 제한 오류로 실패합니다. 
     이벤트 로그에 수신된 요청 상세 정보와 이벤트가 포함됩니다(여기에 표시 안 됨).
@@ -182,7 +183,7 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
     ```
 5. 역방향 프록시는 404 FABRIC_E_SERVICE_DOES_NOT_EXIST를 반환합니다.
 
-    서비스 매니페스트에서 서비스 끝점에 대해 URI 체계를 지정하지 않으면 FABRIC_E_SERVICE_DOES_NOT_EXIST 오류가 반환됩니다.
+    서비스 매니페스트에서 서비스 엔드포인트에 대해 URI 체계를 지정하지 않으면 FABRIC_E_SERVICE_DOES_NOT_EXIST 오류가 반환됩니다.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>

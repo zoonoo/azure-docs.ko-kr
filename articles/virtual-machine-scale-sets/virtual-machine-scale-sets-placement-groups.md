@@ -12,15 +12,15 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123439"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
@@ -83,7 +83,7 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>여러 배치 그룹을 확장하기 위해 기존 확장 집합을 변환
 기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 크기 집합을 볼 수 있습니다.
 
->[!NOTE] 
-단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다.
+> [!NOTE]
+> 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다.
 
 

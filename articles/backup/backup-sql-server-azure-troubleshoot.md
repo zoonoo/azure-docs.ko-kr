@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007174"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286017"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "58007174"
 
 ## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
 
-기능 고려 사항 보기, 문서를 참조 [Azure Vm에서 SQL Server에 대 한 백업](backup-sql-server-azure-vms.md#feature-consideration-and-limitations)합니다.
+기능 고려 사항 보기, 문서를 참조 [Azure Vm에서 SQL Server에 대 한 백업](backup-azure-sql-database.md#feature-consideration-and-limitations)합니다.
 
 ## <a name="sql-server-permissions"></a>SQL Server 사용 권한
 
@@ -80,7 +80,7 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 데이터 원본의 트랜잭션 로그가 꽉 차서 백업을 수행할 수 없습니다. | 데이터베이스 트랜잭션 로그 공간이 꽉 찼습니다. | 이 문제를 해결하려면 [SQL 설명서](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)를 참조하세요. |
-| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | Always On AG 보조 복제본은 전체 및 차등 백업을 지원하지 않습니다. | <ul><li>임시 백업, 실행 하는 경우에 주 노드에서 백업을 트리거하십시오.</li><li>백업이 정책에 따라 예약된 경우 주 노드가 등록되어 있는지 확인합니다. 노드를 등록하려면 [ SQL Server 데이터베이스를 검색하는 단계를 수행하십시오](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | Always On AG 보조 복제본은 전체 및 차등 백업을 지원하지 않습니다. | <ul><li>임시 백업, 실행 하는 경우에 주 노드에서 백업을 트리거하십시오.</li><li>백업이 정책에 따라 예약된 경우 주 노드가 등록되어 있는지 확인합니다. 노드를 등록하려면 [ SQL Server 데이터베이스를 검색하는 단계를 수행하십시오](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>복원 실패
 

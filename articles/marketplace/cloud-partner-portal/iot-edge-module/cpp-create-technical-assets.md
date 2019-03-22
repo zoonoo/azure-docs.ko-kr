@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884157"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -45,7 +45,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 IoT Edge에서 지원되는 모든 계층 1 플랫폼을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 조건을 충족하는 모듈이 소개됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다.
-- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 디바이스](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `http://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
+- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 디바이스](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `https://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
   
@@ -61,9 +61,9 @@ IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)�
 - 모듈은 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그에서 **하나 이상의 IoT Edge 인증** 디바이스를 사용하여 작업해야 합니다.
 - **최소 하드웨어 요구 사항**은 제품의 설명에서 마지막 단락으로 문서화되어야 합니다([Marketplace 탭](./cpp-marketplace-tab.md) 아래). 필요에 따라 크게 다를 경우 권장되는 하드웨어 요구 사항을 나열할 수도 있습니다. 예를 들어 제품 설명의 끝에 다음 섹션을 추가합니다.
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>구성
 
@@ -128,7 +128,8 @@ IoT 모듈 SDK는 실행되는 모듈 인스턴스의 번호에 대한 원격 �
 
 ## <a name="recertification-process"></a>재인증 프로세스
 
-<!-- Add legal time windows--> 파트너는 다음과 같은 해당 모듈에 영향을 주는 호환성이 손상되는 변경이 있을 때마다 알림을 받게 됩니다.
+<!-- Add legal time windows-->
+파트너와 같은 해당 모듈에 영향을 주는 주요 변경 될 때마다 라는 알림을 받게 됩니다.
 
 - IoT Edge에서 지원되는 계층 1 운영 체제/아키텍처 지원 매트릭스
 - IoT 모듈 SDK

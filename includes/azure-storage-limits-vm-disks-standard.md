@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7639e4b4c02ace067887cd678f773a745ef08640
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcd85a42deab2ea5f7d8587b276eca106f6dd97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279793"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553805"
 ---
-**표준 관리되지 않는 가상 머신 디스크: 디스크 한도당**
+**표준 관리 되지 않는 가상 머신 디스크: 디스크 당 제한**
 
 | VM 계층 | 기본 계층 VM | 표준 계층 VM |
 | --- | --- | --- |
 | 디스크 크기 |4,095GB |4,095GB |
 | 영구 디스크당 최대 8KB IOPS |300 |500 |
-| 최대 IOPS를 수행하는 최대 디스크 수 |66 |40 |
+| 최대 IOPS를 수행 하는 디스크의 최대 수 |66 |40 |
 

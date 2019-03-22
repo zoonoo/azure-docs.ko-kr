@@ -8,14 +8,16 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 04726249809656344c8f81164d5deed5af321e71
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 450b27d21cf4079bdef6fc20c3f2e83f4e47cbd2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355230"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806578"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
+
+[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
 IoT Central [Application Manager](https://aka.ms/iotcentral) 페이지에서 IoT Central 애플리케이션을 만들고 관리할 수 있을 뿐 아니라 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 사용하여 애플리케이션을 관리할 수도 있습니다.
 

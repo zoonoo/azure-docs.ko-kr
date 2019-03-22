@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221966"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879784"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
 
@@ -92,7 +92,7 @@ Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Reco
 
 * 고정 IP를 사용하는 경우 **대상 IP** 텍스트 상자에 VM이 사용할 IP를 지정합니다.
 
-    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![네트워크 설정](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. 복구 계획 만들기

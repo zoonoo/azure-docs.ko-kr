@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: b9524f7aff7ae9de37835985787b5d4d9c3cf9b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478239"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883844"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 ## <a name="overview"></a>개요
@@ -86,15 +86,15 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 
 | 작업(Operation) | 컨테이너 ETag 값 반환 | 추가 헤더 수락 |
 |:--- |:--- |:--- |
-| 컨테이너 만들기 |예 |아니요 |
-| 컨테이너 속성 가져오기 |예 |아니요 |
-| 컨테이너 메타데이터 가져오기 |예 |아니요 |
+| 컨테이너 만들기 |예 |아닙니다. |
+| 컨테이너 속성 가져오기 |예 |아닙니다. |
+| 컨테이너 메타데이터 가져오기 |예 |아닙니다. |
 | 컨테이너 메타데이터 설정 |예 |예 |
-| 컨테이너 ACL 가져오기 |예 |아니요 |
+| 컨테이너 ACL 가져오기 |예 |아닙니다. |
 | 컨테이너 ACL 설정 |예 |예(*) |
-| 컨테이너 삭제 |아니요 |예 |
+| 컨테이너 삭제 |아닙니다. |예 |
 | 컨테이너 임대 |예 |예 |
-| Blob 나열 |아니요 |아니요 |
+| Blob 나열 |아닙니다. |아닙니다. |
 
 (*) SetContainerACL이 정의하는 권한은 캐시되며 이러한 권한에 대한 업데이트가 전파되려면 30초가 걸립니다. 이 시간 동안에는 업데이트의 일관성이 보장되지 않습니다.  
 
@@ -111,11 +111,11 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 | Blob 임대(*) |예 |예 |
 | Blob 스냅숏 |예 |예 |
 | Blob 복사 |예 |예(원본 및 대상 Blob의 경우) |
-| Blob 복사 중단 |아니요 |아니요 |
-| Blob 삭제 |아니요 |예 |
-| 블록 배치 |아니요 |아니요 |
+| Blob 복사 중단 |아닙니다. |아닙니다. |
+| Blob 삭제 |아닙니다. |예 |
+| 블록 배치 |아닙니다. |아닙니다. |
 | 블록 목록 배치 |예 |예 |
-| 블록 목록 가져오기 |예 |아니요 |
+| 블록 목록 가져오기 |예 |아닙니다. |
 | 페이지 가져오기 |예 |예 |
 | 페이지 범위 가져오기 |예 |예 |
 
@@ -193,7 +193,7 @@ catch (StorageException ex)
 
 * [Blob 서비스 작업의 조건부 헤더 지정](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [컨테이너 임대](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Blob 임대 ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Blob 임대](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>테이블 서비스에서 동시성 관리
 낙관적 동시성 검사를 수행하도록 명시적으로 선택해야 하는 Blob 서비스에서와는 달리 테이블 서비스에서는 엔터티로 작업할 때 낙관적 동시성 검사를 기본 동작으로 사용합니다. 테이블 서비스와 Blob 서비스의 또 다른 차이점은, 테이블 서비스에서는 엔터티의 동시성 동작만 관리할 수 있는 반면 Blob 서비스에서는 컨테이너와 Blob의 동시성을 모두 관리할 수 있다는 것입니다.  
@@ -237,13 +237,13 @@ customer.ETag = "*";
 
 | 작업(Operation) | ETag 값 반환 | If-Match 요청 헤더 필요 여부 |
 |:--- |:--- |:--- |
-| 엔터티 쿼리 |예 |아니요 |
-| 엔터티 삽입 |예 |아니요 |
+| 엔터티 쿼리 |예 |아닙니다. |
+| 엔터티 삽입 |예 |아닙니다. |
 | 엔터티 업데이트 |예 |예 |
 | 엔터티 병합 |예 |예 |
-| 엔터티 삭제 |아니요 |예 |
-| 엔터티 삽입 또는 바꾸기 |예 |아니요 |
-| 엔터티 삽입 또는 병합 |예 |아니요 |
+| 엔터티 삭제 |아닙니다. |예 |
+| 엔터티 삽입 또는 바꾸기 |예 |아닙니다. |
+| 엔터티 삽입 또는 병합 |예 |아닙니다. |
 
 **엔터티 삽입 또는 바꾸기**와 **엔터티 삽입 또는 병합** 작업에서는 테이블 서비스에 ETag 값을 보내지 않으므로 동시성 검사를 수행하지 *않습니다*.  
 

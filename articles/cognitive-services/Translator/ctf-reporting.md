@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 69fbcad92d31744cae798b7ff376e77f655f6440
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123422"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
 > [!NOTE]
 > 이 메서드는 더 이상 사용되지 않습니다. Translator Text API V3.0에서는 사용할 수 없습니다.
-
+> 
 > 이전에 Translator Text API V2.0에서 사용할 수 있었던 CTF(Collaborative Translation Framework)는 2018년 2월 1일부터 더 이상 사용되지 않습니다. AddTranslation 및 AddTranslationArray 함수를 사용하면 사용자가 Collaborative Translation Framework를 통해 수정할 수 있습니다. 2018년 1월 31일 이후에는 이러한 두 함수가 새 문장 제출을 허용하지 않고 사용자에게 오류 메시지가 표시됩니다. 이러한 함수는 사용 중지되며 대체되지 않습니다.
-
->Translator Hub API에서 사용 가능한 유사한 기능을 통해 고유한 용어 및 스타일로 사용자 지정 번역 시스템을 빌드하고, Translator Text API의 범주 ID를 사용하여 호출할 수 있습니다. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Translator Hub API에서 사용 가능한 유사한 기능을 통해 고유한 용어 및 스타일로 사용자 지정 번역 시스템을 빌드하고, Translator Text API의 범주 ID를 사용하여 호출할 수 있습니다. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어의 통계 및 실제 콘텐츠를 반환합니다. 이 API는 다음과 같은 점에서 GetTranslations() 메서드와 다릅니다.
 * 계정(appId 또는 Azure Marketplace 계정)에서 번역된 콘텐츠와 해당 총수만 반환합니다.
@@ -32,11 +32,11 @@ Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어�
 * 자동 번역(기계 번역)을 반환하지 않습니다.
 
 ## <a name="endpoint"></a>엔드포인트
-CTF 보고 API의 엔드포인트는 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
+CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
 
 
 ## <a name="methods"></a>메서드
-| Name |    설명|
+| 이름 |    설명|
 |:---|:---|
 | GetUserTranslationCounts 메서드 | 사용자가 만든 번역 개수를 가져옵니다. |
 | GetUserTranslations 메서드 | 사용자가 만든 번역을 검색합니다. |
@@ -56,21 +56,21 @@ CTF 보고 API의 엔드포인트는 http://api.microsofttranslator.com/v2/beta/
 **구문**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user,
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **매개 변수**
 
@@ -98,7 +98,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | 필드 | 설명 |
 |:---|:---|
-| 개수| 검색된 결과 수입니다.|
+| 카운트| 검색된 결과 수입니다.|
 | 원본 | 원본 언어입니다.|
 | 등급| AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
 | 받는 사람| 대상 언어입니다.|
@@ -127,21 +127,21 @@ UserTranslationCount[]GetUserTranslationCounts(
 **구문**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user,
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take);
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **매개 변수**
 

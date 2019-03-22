@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458300"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339745"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>내 프로필(미리 보기) 포털에서 조직 관리
 **내 프로필** 포털의 **조직** 페이지에서 조직을 관리할 수 있습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "56458300"
 
 2. 왼쪽 탐색 창에서 **조직**을 선택하거나 **조직** 블록에서 **조직 관리** 링크를 선택합니다.
 
-    ![강조 표시된 조직 링크를 보여주는 내 프로필 페이지](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![강조 표시된 조직 링크를 보여주는 내 프로필 페이지](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. **홈 조직**에 대한 정보를 검토합니다. 
 
@@ -57,4 +57,4 @@ ms.locfileid: "56458300"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 최근 로그인 활동을 확인한 후 [보안 정보](user-help-security-info-overview.md), [최근 로그인 활동](myprofile-portal-recent-activity-page.md), 연결된 [디바이스](myprofile-portal-devices-page.md)를 보거나 관리하도록 선택하거나 조직 [데이터 사용](myprofile-portal-privacy-page.md) 방법을 확인하도록 선택할 수 있습니다.
+- 조직 내를 검토 한 후 보거나 관리 하도록 선택할 수 있습니다 하 [보안 정보](user-help-security-info-overview.md)연결 된 [장치](myprofile-portal-devices-page.md), 또는 뷰 어떻게 조직 [데이터를 사용 하 여](myprofile-portal-privacy-page.md).

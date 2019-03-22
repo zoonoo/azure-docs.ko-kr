@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7f162412a099078302bb348dab9ad3171f9e2913
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199497"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 
@@ -33,7 +33,7 @@ HDInsight에서 [Apache HBase](https://hbase.apache.org/) 클러스터를 만들
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase 클러스터 만들기
 다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
+1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 서식 파일에 위치한 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)합니다.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
@@ -111,7 +111,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다.  자세한 내용은 [대량 로드](https://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
-샘플 데이터 파일은 공용 Blob 컨테이너인 *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*에 있습니다.  데이터 파일 내용은 다음과 같습니다.
+공용 blob 컨테이너에서 샘플 데이터 파일을 찾을 수 있습니다 *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*합니다.  데이터 파일 내용은 다음과 같습니다.
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
-2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
+1. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. 다음 명령을 사용하여 두 열 패밀리가 있는 새 HBase 테이블을 만듭니다.
+1. 다음 명령을 사용하여 두 열 패밀리가 있는 새 HBase 테이블을 만듭니다.
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
     ```
 
     스키마는 JSon 형식으로 제공됩니다.
-4. 다음 명령을 사용하여 데이터 일부를 삽입합니다.
+1. 다음 명령을 사용하여 데이터 일부를 삽입합니다.
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -212,7 +212,7 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single)를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
-5. 다음 명령을 사용하여 행을 가져옵니다.
+1. 다음 명령을 사용하여 행을 가져옵니다.
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 2. 왼쪽 메뉴에서 **HBase**를 클릭합니다.
 3. 페이지 위쪽에서 **빠른 링크**를 클릭하고 활성 Zookeeper 노드 링크를 가리킨 다음 **HBase Master UI**를 클릭합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
-  ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase Master UI에는 다음 섹션이 포함되어 있습니다.
+   HBase Master UI에는 다음 섹션이 포함되어 있습니다.
 
-  - 지역 서버
-  - 백업 마스터
-  - 테이블
-  - 태스크
-  - 소프트웨어 특성
+   - 지역 서버
+   - 백업 마스터
+   - 테이블
+   - 태스크
+   - 소프트웨어 특성
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
@@ -272,8 +272,6 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight HBase 개요][hdinsight-hbase-overview]: Apache HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Apache Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: https://hbase.apache.org/book.html#importtsv

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109344"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -197,6 +197,12 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -320,13 +326,13 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 3. **실행 계정** 속성 페이지에서 삭제하려는 실행 계정 또는 클래식 실행 계정을 선택합니다. 그런 다음 선택한 계정의 **속성** 창에서 **삭제**를 클릭합니다.
 
- ![실행 계정 삭제](media/manage-runas-account/automation-account-delete-runas.png)
+   ![실행 계정 삭제](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. 계정이 삭제되는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.
 
 1. 계정이 삭제되면 **실행 계정** 속성 페이지에서 **Azure 실행 계정** 만들기 옵션을 선택하여 계정을 다시 만들 수 있습니다.
 
- ![Automation 실행 계정 다시 만들기](media/manage-runas-account/automation-account-create-runas.png)
+   ![Automation 실행 계정 다시 만들기](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>자체 서명된 인증서 갱신
 

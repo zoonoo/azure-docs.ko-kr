@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c94c564434df0e9c48facedba1d2232f9510662e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182611"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -87,7 +87,7 @@ Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직
 
 일부 경우에 그렇습니다.
 
-Azure 관리자를 위한 Multi-Factor Authentication에서는 비용 없이 Azure 및 Office 365 관리자 포털 등의 Microsoft 온라인 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
+Multi-factor Authentication for Azure Administrators 비롯 한 Microsoft online services에 대 한 액세스를 무료로 Azure MFA 기능의 하위 집합을 제공 합니다 [Azure portal](https://portal.azure.com) 고 [Microsoft 365 관리 센터](https://admin.microsoft.com). 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
 
 Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 등의 Office 365 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다.
 

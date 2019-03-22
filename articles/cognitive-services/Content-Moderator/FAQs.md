@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: faq
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: 174e382fca780c778b3dfc020052015dd0e212e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 99b95a26a91d14edbef264ac3b107f8462e0ef5e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864454"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762180"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -32,7 +32,7 @@ API를 사용할 경우 이미지 크기는 최소 128픽셀, 최대 파일 크�
 제출된 콘텐츠의 소유권은 제출자에게 있으며 Microsoft는 소유자의 동의 없이 콘텐츠를 보관하지 않습니다. Microsoft는 업계 최고 수준의 보안 조치를 사용하여 콘텐츠를 보호합니다.
 
 #### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>Content Moderator를 사용하여 불법 아동 착취물 이미지를 차단할 수 있나요?
- 아니요. 그러나 인증된 조직에서 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
+아니요. 그러나 인증된 조직에서 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
 
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>사용자는 최대 몇 개의 검토 팀에 조인할 수 있나요? 사용자가 팀을 바꿀 수 있나요?
 사용자는 한 번에 한 팀에만 조인할 수 있습니다.

@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183342"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -59,7 +59,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 - - -
 **Q: 보고서에서 내 Azure AD 사용자 라이선스가 만료되는 시기를 표시하나요?**
 
-**A:**  아니요.  현재는 제공되지 않습니다.
+**A:** 아니요.  현재는 제공되지 않습니다.
 
 - - -
 
@@ -88,7 +88,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 - - -
 **Q: Azure AD에서 내 조직의 사용자에 대한 셀프 서비스 포털을 제공하나요?**
 
-**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객인 경우 Office 365 포털에서 동일한 기능을 많이 찾을 수 있습니다.
+**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객 인 경우에 동일한 기능이 많이 찾을 수 있습니다 합니다 [Office 365 포털](https://portal.office.com)합니다.
 
 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
@@ -210,4 +210,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q:  Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:**   아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다. 그러나 Azure AD Domain Services를 사용하여 보안 LDAP를 구성할 수 있습니다.
+**A:**  아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다. 그러나 Azure AD Domain Services를 사용하여 보안 LDAP를 구성할 수 있습니다.

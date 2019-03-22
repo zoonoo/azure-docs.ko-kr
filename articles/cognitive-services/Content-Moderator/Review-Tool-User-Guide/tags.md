@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118411"
 ---
 # <a name="create-and-use-moderation-tags"></a>조정 태그 만들기 및 사용
 
@@ -23,15 +23,15 @@ ms.locfileid: "55206284"
 
 ## <a name="create-tags"></a>태그 만들기
 
-1.  [설정] 탭에서 태그를 선택합니다.
+1. [설정] 탭에서 태그를 선택합니다.
 
-  ![Content Moderation 태그](images/tags-1.png)
+   ![Content Moderation 태그](images/tags-1.png)
 
-2.  태그에 대한 두 글자 길이의 짧은 코드를 입력합니다.
-3.  태그 이름을 입력합니다. 이름은 짧고 구체적이어야 합니다. 예를 들면 **isbullying**입니다.
-4.  설명을 입력합니다.
-5.  추가를 클릭합니다.
-6.  태그 만들기가 끝났으면 [저장]을 클릭합니다.
+2. 태그에 대한 두 글자 길이의 짧은 코드를 입력합니다.
+3. 태그 이름을 입력합니다. 이름은 짧고 구체적이어야 합니다. 예를 들면 **isbullying**입니다.
+4. 설명을 입력합니다.
+5. 추가를 클릭합니다.
+6. 태그 만들기가 끝났으면 [저장]을 클릭합니다.
 
 ![Content Moderation 태그 정의](images/tags-2-define.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8e18822fff852a82b367acfa45e3d55048b4e54c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170040"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -73,4 +73,4 @@ ms.locfileid: "54232603"
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [이미지 계층 추가](./map-add-image-layer.md)
+> [이미지 레이어를 추가 합니다.](./map-add-image-layer.md)

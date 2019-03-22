@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852765"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -59,7 +59,7 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 
 첫 단계로 분할되어야 하는 상태의 구조에 대해 생각하는 것이 좋습니다.
 
-간단한 예를 살펴봅시다. 카운티 단위의 투표에 대한 서비스를 구축하는 경우 카운티의 각 도시에 대한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
+간단한 예를 살펴봅시다. County 전체 설문 조사에 대 한 서비스를 빌드 하려는 경우에 군에 있는 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
 
 ![간단한 파티션](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -113,7 +113,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 
 적절한 배포 해시 알고리즘의 특징은 계산하기 쉽고 충돌이 적고 키를 균등하게 배분하는 것입니다. 효율적인 해시 알고리즘의 좋은 예로 [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) 해시 알고리즘이 있습니다.
 
-일반적인 해시 코드 알고리즘 선택에 대한 좋은 리소스는 [해시 기능에 대한 Wikipedia 페이지](http://en.wikipedia.org/wiki/Hash_function)입니다.
+일반적인 해시 코드 알고리즘 선택에 대한 좋은 리소스는 [해시 기능에 대한 Wikipedia 페이지](https://en.wikipedia.org/wiki/Hash_function)입니다.
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>여러 파티션으로 상태 저장 서비스 구축
 여러 파티션으로 첫 번째 신뢰할 수 있는 상태 저장 서비스를 만들어 보겠습니다. 이 예에서 동일한 파티션에 동일한 문자로 시작하는 모든 성을 저장하려는 매우 간단한 애플리케이션을 작성합니다.

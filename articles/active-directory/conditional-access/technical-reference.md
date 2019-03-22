@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7687cb4eb6cacd604a05a820e04f71755e0b66b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170618"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -51,25 +51,43 @@ ms.locfileid: "56201417"
 
 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
 
-- Azure Information Protection - [자세한 정보](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL Database - [자세한 정보](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 및 Project Online 포함)
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL Database 및 Data Warehouse- [자세한 정보](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights 분석
+- Microsoft Azure Information Protection- [자세한 정보](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure 관리- [자세한 정보](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure 구독 관리
+- Microsoft Cloud App Security
+- Microsoft Commerce Access Control 포털 도구
+- Microsoft Commerce 도구 인증 서비스
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune 등록
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Microsoft Bing 검색
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft 팀 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- 비즈니스 온라인용 Skype
+- 가상 사설망 (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft 팀
+
 
 
 ### <a name="other-applications"></a>다른 애플리케이션 
@@ -97,7 +115,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 - Windows Phone
 
--  Windows
+- Windows
 
 - macOS
 
@@ -151,7 +169,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Name | 1 |
+|이름 | 1 |
 |Type | REG_SZ (String) |
 |Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -160,7 +178,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Name | 1 |
+|이름 | 1 |
 |Type | REG_SZ (String) |
 |Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 

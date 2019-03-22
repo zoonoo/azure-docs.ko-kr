@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001173"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749922"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -47,8 +47,7 @@ Azure Functions는 프로그램 및 스크립트를 실행하는 다른 방법�
 | 웹앱이 실행되는 모든 인스턴스에서 실행됩니다. 필요에 따라 WebJob을 단일 인스턴스로 제한할 수 있습니다. |Azure에서 부하 분산을 위해 선택한 단일 인스턴스에서 실행합니다.|
 | 원격 디버깅을 지원합니다. | 원격 디버깅을 지원하지 않습니다.|
 
-> [!NOTE]
-> 웹앱이 20분 동안 작동하지 않으면 시간이 초과될 수 있습니다. 실제 웹앱에 대한 요청만 타이머를 다시 설정합니다. Azure Portal에서 앱의 구성을 보거나 고급 도구 사이트(https://<app_name>.scm.azurewebsites.net)에 요청을 수행해도 타이머가 다시 설정되지 않습니다. 앱이 연속 또는 예약된 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정하여 WebJobs를 안정적으로 실행합니다. 이 기능은 기본, 표준 및 프리미엄 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에서만 사용할 수 있습니다.
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 지원되는 파일 형식
 
@@ -181,10 +180,9 @@ when making changes in one don't forget the other two.
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성을 **변경된 내용만 복사**로 표시합니다.
+자세한 내용은 참조 하세요 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)합니다.
 
 ## <a name="ViewJobHistory"></a>작업 기록 보기
 
