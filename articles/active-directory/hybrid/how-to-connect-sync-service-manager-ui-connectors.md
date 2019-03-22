@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431175"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
 
@@ -86,7 +86,7 @@ ms.locfileid: "56205599"
 3. AD DS 계정을 사용하도록 구성된 AD 커넥터를 선택합니다.
 4. 작업 아래에서 **속성**을 선택합니다.
 5. 팝업 대화 상자에서 Active Directory 포리스트에 연결을 선택합니다.
-6. 포리스트 이름은 해당 온-프레미스 AD를 나타냅니다.
+6. 포리스트 이름은 해당 온-프레미스 AD 나타냅니다.
 7. 사용자 이름은 동기화에 사용되는 AD DS 계정을 나타냅니다.
 8. 암호 텍스트 상자에 AD DS 계정의 새 암호를 입력합니다. ![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. 확인을 클릭하여 새 암호를 저장하고 동기화 서비스를 다시 시작하여 메모리 캐시에서 이전 암호를 제거합니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849910"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317428"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -82,6 +82,7 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - Azure Backup은 Core OS Linux를 지원하지 않습니다.
 - Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
 - Bring your own 다른 Linux 배포판 적합할 수으로 [Linux 용 Azure VM 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VM에서 사용 가능 하 고 Python은 지원 하기만 합니다.
+- Azure Backup을 실행 하는 VM을 지원 하지 않습니다  **Python 버전 2.6* 만** 구성 된 프록시를 사용 합니다.
 
 
 

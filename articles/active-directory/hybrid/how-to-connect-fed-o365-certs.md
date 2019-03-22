@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200363"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177724"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>토큰 서명 인증서에 대한 AD FS의 기본 구성
 토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며 1년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover**라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용하는 경우는 인증서가 만료되기 전에 Office 365 및 Azure AD에서 자동으로 인증서를 업데이트합니다.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Office 365 포털 또는 전자 메일로 갱신 알림
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Microsoft 365 관리 센터 또는 전자 메일로 갱신 알림
 > [!NOTE]
 > Office용 인증서를 갱신하도록 요청하는 전자 메일 또는 포털 알림을 받은 경우 [토큰 서명 인증서에 대한 변경 내용 관리](#managecerts) 를 참조하여 조치를 취해야 하는지를 확인합니다. Microsoft에서는 아무 조치도 필요하지 않은 경우에도 인증서 갱신에 대한 알림이 보내지도록 이끌 수 있는 가능한 문제에 주의를 기울입니다.
 >
@@ -44,8 +44,8 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 
 Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데이터를 모니터링하고 토큰 서명 인증서를 업데이트하려고 합니다. 토큰 서명 인증서 만료 30일 전에 Azure AD는 페더레이션 메타데이터를 폴링하여 새 인증서를 사용할 수 있는지를 확인합니다.
 
-* 페더레이션 메타데이터를 성공적으로 폴링하고 새 인증서를 검색할 수 있는 경우 사용자에게 전자 메일 알림 또는 Office 365 포털 내의 경고가 주어지지 않습니다.
-* 페더레이션 메타데이터가 연결할 수 없거나 자동 인증서 롤오버를 사용할 수 없기 때문에 새 토큰 서명 인증서를 검색할 수 없는 경우 Azure AD는 전자 메일 알림과 Office 365 포털 내의 경고를 발생합니다.
+* 성공적으로 페더레이션 메타 데이터를 폴링하고 하 고 새 인증서를 검색할 수 있습니다, 하는 경우 전자 메일 알림을 나 Microsoft 365 관리 센터에서 경고 없이 사용자에 게 발급 됩니다.
+* 새 토큰 서명 인증서를 검색할 수 없는 경우 하거나 페더레이션 메타 데이터를 연결할 수 없거나 자동 인증서 롤오버를 사용 하지 않으면 때문에 Azure AD에서 발행는 전자 메일 알림 및 Microsoft 365 관리 센터에 경고 합니다.
 
 ![Office 365 포털 알림](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -99,8 +99,8 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 조치 |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |아닙니다. |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 아닙니다. |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091480"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -119,9 +119,9 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 
 그림x에서 보여준 다이어그램에서 각 상호 작용은 Azure AD에서 다룰 수 있는 하나의 액세스 제어 시나리오를 나타냅니다. 아래에서 각 시나리오에 대해 설명합니다.
 
-  1. 온-프레미스에서 호스팅되는 애플리케이션에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 애플리케이션에 대한 액세스 정책이 포함된 등록된 디바이스를 사용할 수 있습니다.
+1. 온-프레미스에서 호스팅되는 애플리케이션에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 애플리케이션에 대한 액세스 정책이 포함된 등록된 디바이스를 사용할 수 있습니다.
 
-  2. Azure Portal에 대한 액세스 제어:  Azure에서는 RBAC(역할 기반 액세스 제어)를 사용하여 포털에 대한 액세스를 제어할 수도 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure Portal에서 수행할 수 있는 작업의 수를 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
+2. Azure Portal에 대한 액세스 제어:  Azure에서는 RBAC(역할 기반 액세스 제어)를 사용하여 포털에 대한 액세스를 제어할 수도 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure Portal에서 수행할 수 있는 작업의 수를 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
    - 그룹 기반 역할 할당: 로컬 Active Directory에서 동기화할 수 있는 Azure AD 그룹에 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
    - Azure의 기본 제공 역할 사용: 소유자, 기여자 및 읽기 권한자의 세 가지 역할을 사용하여 사용자 및 그룹이 작업 수행에 필요한 작업만 수행하는 권한을 보유하는지 확인할 수 있습니다.
@@ -131,9 +131,9 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
    > 애플리케이션을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 경우 권한 부여를 위해 Azure AD 애플리케이션 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
 
 
-  3. Microsoft Intune을 사용하여 Office 365 애플리케이션에 대해 조건부 액세스:  IT 관리자는 조건부 액세스 디바이스 정책을 프로비전하여 회사 리소스를 보호하는 동시에 정보 작업자가 규정 준수 디바이스에서 서비스에 액세스할 수 있게 합니다. 
+3. Microsoft Intune을 사용하여 Office 365 애플리케이션에 대해 조건부 액세스:  IT 관리자는 조건부 액세스 디바이스 정책을 프로비전하여 회사 리소스를 보호하는 동시에 정보 작업자가 규정 준수 디바이스에서 서비스에 액세스할 수 있게 합니다. 
   
-  4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 애플리케이션별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 애플리케이션에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 애플리케이션에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
+4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 애플리케이션별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 애플리케이션에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 애플리케이션에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 
 액세스 제어에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 리소스에 대한 액세스를 제어하기 위해 필요한 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
@@ -171,5 +171,5 @@ Azure AD는 사용자 활동을 모니터링하여 환경의 잠재적인 보안
 ## <a name="next-steps"></a>다음 단계
 [하이브리드 ID 관리 작업 결정](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592697"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445911"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -79,7 +79,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
-    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
+    **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
 2. *QSTodoListViewController.m*의 `viewDidLoad`에 있는 `[self refresh]`를 다음 코드로 바꿉니다.
 
@@ -110,7 +110,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  _appname_을 1단계에서 사용한 urlScheme 값으로 바꿉니다.
+   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  대체는 _appname_ 1 단계에서 사용한 urlScheme 값입니다.
 
 5. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -165,7 +165,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
-    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
+    **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
 2. *ToDoTableViewController.swift*에 있는 `viewDidLoad()`의 끝에서 `self.refreshControl?.beginRefreshing()` 및 `self.onRefresh(self.refreshControl)` 줄을 제거합니다. 그 자리에 `loginAndGetData()` 에 대한 호출을 추가합니다.
 
@@ -188,7 +188,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    _appname_을 1단계에서 사용한 urlScheme 값으로 바꿉니다.
+    대체는 _appname_ 1 단계에서 사용한 urlScheme 값입니다.
 
 4. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -212,12 +212,12 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
 5. *Run*을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 항목에 대한 자세한 내용은 [Apple 설명서][2]를 참조하세요.
+App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 주제에 대 한 자세한 내용은 참조는 [Apple 설명서][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 [iOS 빠른 시작]: app-service-mobile-ios-get-started.md
 

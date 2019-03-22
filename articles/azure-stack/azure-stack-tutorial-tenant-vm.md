@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117135"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>자습서: 사용자에 게 가상 머신을 사용할 수 있는 Azure Stack
 
@@ -129,8 +129,8 @@ Marketplace에 다양 한 항목을 추가 하는 방법에 대 한 내용은 [T
    사용자 포털에서 새 구독을 사용 하 여 가상 컴퓨터 프로 비전 할 수 있습니다.
 
    a. 사용자 계정 사용 하 여 사용자 포털에 로그인 합니다.
-      - 통합된 시스템에 대 한 URL을 연산자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식 이어야 합니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-   - Azure Stack 개발 키트를 사용 하는 경우 포털 주소가 https://portal.local.azurestack.external합니다.
+   - 통합된 시스템에 대 한 URL을 연산자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식 이어야 합니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
+     - Azure Stack 개발 키트를 사용 하는 경우 포털 주소가 https://portal.local.azurestack.external합니다.
 
    b.  대시보드에서 선택 **+ 리소스 만들기** > **계산** > **Windows Server 2016 Datacenter 평가판**를 선택한 다음 **만들**합니다.
 

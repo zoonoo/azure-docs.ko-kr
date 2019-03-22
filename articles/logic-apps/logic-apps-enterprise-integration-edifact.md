@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876853"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
@@ -38,7 +38,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1. [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 
 
 2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
@@ -65,7 +65,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
    | 자산 | 설명 |
    | --- | --- |
-   | Name |규약 이름 |
+   | 이름 |규약 이름 |
    | 규약 유형 | EDIFACT여야 함 |
    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -82,7 +82,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 1. **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-   **수신 설정**은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
+   **수신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 컨트롤 번호, 유효성 검사 및 내부 설정 합니다.
 
    !["수신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    **송신 설정**은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
+    **송신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 봉투 (envelope), 문자 집합 및 구분 기호, 컨트롤 번호 및 유효성 검사 합니다.
 
     !["송신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

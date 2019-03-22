@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995834"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 
 분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다.  [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>분할-병합 패키지 다운로드
-1. [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
+1. [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
 2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다. 다운로드에는 PowerShell 명령이 포함됩니다.
 3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다.
    ```

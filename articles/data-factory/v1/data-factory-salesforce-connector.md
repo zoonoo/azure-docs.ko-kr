@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999014"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 - 동시 요청 수가 이 제한을 초과하면 제한이 발생하며 임의 오류가 표시됩니다.
 - 총 요청 수가 이 제한을 초과하면 Salesforce 계정은 24시간 동안 차단됩니다.
 
-두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류가 나타날 수도 있습니다. 자세한 내용은 [Salesforce 개발자 제한](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 “API 요청 제한” 섹션을 참조하세요.
+두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류가 나타날 수도 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 “API 요청 제한” 섹션을 참조하세요.
 
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 Salesforce의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
@@ -70,7 +70,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 형식 |type 속성을 다음으로 설정해야 합니다. **Salesforce**. |예 |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 "[https://login.salesforce.com](https://login.salesforce.com)"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 "[https://login.salesforce.com](https://login.salesforce.com)"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아닙니다. |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | 암호 |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -283,6 +283,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 
 ### <a name="type-mapping-for-salesforce"></a>Salesforce에 대한 형식 매핑
+
 | Salesforce 형식 | .NET 기반 형식 |
 | --- | --- |
 | 자동 번호 |문자열 |

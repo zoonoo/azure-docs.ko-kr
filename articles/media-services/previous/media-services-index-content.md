@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 4bc11e4f622943cdb72253ecd758c27a026495fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189107"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer를 사용하여 미디어 파일 인덱싱
 Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.  
@@ -247,7 +247,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 ### <a id="preset"></a> Azure Media Indexer의 태스크 미리 설정
 태스크와 함께 태스크 미리 설정을 제공하여 Azure Media Indexer의 처리를 사용자 지정할 수 있습니다.  다음은 이 구성 xml의 형식을 설명합니다.
 
-| Name | 필요 | 설명 |
+| 이름 | 필요 | 설명 |
 | --- | --- | --- |
 | **input** |false |인덱싱할 자산 파일입니다.</p><p>Azure Media Indexer에서 지원되는 미디어 파일 형식은 MP4, WMV, MP3, M4A, WMA, AAC, WAV입니다.</p><p>아래에서 보여 주듯이 **입력** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 파일을 지정하지 않으면 기본 파일이 선택됩니다. 기본 자산 파일이 설정되지 않은 경우 입력 자산의 첫 번째 파일이 인덱싱됩니다.</p><p>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br/>`<input name="TestFile.wmv">`<br/><br/>한 번에 여러 자산 파일을 인덱싱할 수도 있습니다(최대 10개 파일). 다음을 수행합니다.<br/><br/><ol class="ordered"><li><p>텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다. </p></li><li><p>입력 자산에 있는 모든 자산 파일의 이름 목록을 이 매니페스트 파일에 추가합니다. </p></li><li><p>자산에 매니페스트 파일을 추가(업로드)합니다.  </p></li><li><p>입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br/>`<input list="input.lst">`</li></ol><br/><br/>참고: 매니페스트 파일에 10개를 초과하는 파일을 추가하면 인덱싱 작업이 실패하며 2006 오류 코드가 표시됩니다. |
 | **metadata** |false |어휘 적응에 사용되는 지정된 자산 파일에 대한 메타데이터입니다.  적절한 명사와 같은 비표준 어휘 단어를 인식하는 인덱서를 준비하는 경우 유용합니다.<br/>`<metadata key="..." value="..."/>` <br/><br/>미리 정의된 **키**에 대해 **값**을 제공할 수 있습니다. 현재 다음 키가 지원됩니다.<br/><br/>"title" 및 "description" - 어휘 적응에서 작업에 대한 언어 모델을 조정하고 음성 인식 정확도를 향상하는 데 사용됩니다.  값 시드 인터넷으로 인덱싱 태스크 기간 동안 내부 디렉터리를 보강할 콘텐츠를 사용하여 문맥적으로 관련된 텍스트 문서를 검색하여 찾습니다.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
@@ -256,7 +256,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 ### <a id="error_codes"></a>오류 코드
 오류 발생 시 Azure Media Indexer는 다음 오류 코드 중 하나를 다시 보고해야 합니다.
 
-| 코드 | Name | 가능한 이유 |
+| 코드 | 이름 | 가능한 이유 |
 | --- | --- | --- |
 | 2000 |유효하지 않은 구성 |유효하지 않은 구성 |
 | 2001 |유효하지 않은 입력 자산 |입력 자산 유실 또는 빈 자산. |

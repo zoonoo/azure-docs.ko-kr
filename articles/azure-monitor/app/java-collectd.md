@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011195"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
@@ -26,14 +26,12 @@ Linux 시스템 성능 메트릭을[Application Insights](../../azure-monitor/ap
 
 이미 [Application Insights로 Java 웹 서비스를 계측][java]한 경우 일반적으로 collectd를 사용합니다. 앱의 성능을 향상시키거나 문제를 진단할 수 있도록 더 많은 데이터를 제공합니다. 
 
-![예제 차트](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>계측 키 가져오기
 [Microsoft Azure Portal](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스를 엽니다. (또는 [새 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).)
 
 리소스를 식별하는 계측 키의 복사본을 만듭니다.
 
-![모두 찾아보고, 프로그램 리소스를 연 다음, Essentials 드롭다운 목록에서 계측 키 선택 및 복사](./media/java-collectd/02-props.png)
+![모두 찾아보고, 프로그램 리소스를 연 다음, Essentials 드롭다운 목록에서 계측 키 선택 및 복사](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Collectd 및 플러그인을 설치합니다.
 Linux 서버 컴퓨터에서:
@@ -93,9 +91,7 @@ Linux 서버 컴퓨터에서:
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하기][metrics]를 열고, 사용자 지정 범주에서 보려는 메트릭을 선택합니다.
-
-![](./media/java-collectd/result.png)
+Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metrics], 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
 
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 

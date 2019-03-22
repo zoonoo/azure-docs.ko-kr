@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 앱에 대한 Azure MFA 소프트웨어 개발 키트
+title: 사용자 지정 앱-Azure Active Directory에 대 한 azure MFA 소프트웨어 개발 키트
 description: 이 문서에서는 Azure MFA SDK를 다운로드하고 사용하여 사용자 지정 앱에 대한 2단계 확인을 사용하는 방법을 보여 줍니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46287e75a4f4717722c398cf4133b6409c75aa8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b6f5def70dcb2564e92c04e53b5d2ef5f0631fd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178926"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310866"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
 

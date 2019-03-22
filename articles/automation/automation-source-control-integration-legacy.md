@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901545"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 
@@ -66,22 +66,22 @@ ms.locfileid: "54434872"
      | **매개 변수** | **값** |
      |:--- |:--- |
      | 이름 |Microsoft.Azure.Automation.SourceControl.Connection |
-     | type |문자열 |
+     | Type |문자열 |
      | 값 |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
-    * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
+     * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
 
-    |**매개 변수**            |**값** |
-    |:---|:---|
-    | 이름  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | type | 알수 없음(암호화됨) |
-    | 값 | <*암호화된 OAuthToken*> |  
+     |**매개 변수**            |**값** |
+     |:---|:---|
+     | 이름  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | 알수 없음(암호화됨) |
+     | 값 | <*암호화된 OAuthToken*> |  
 
-    ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 애플리케이션으로 추가됩니다. 애플리케이션을 보려면: GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
+     * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 애플리케이션으로 추가됩니다. 애플리케이션을 보려면: GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
 
-    ![Git 애플리케이션](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Git 애플리케이션](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>자동화에서 원본 제어 사용
@@ -124,10 +124,6 @@ Runbook 체크 인을 사용하면 Azure Automation에서 Runbook에 대한 변�
 
     > [!NOTE] 
     > 원본 제어의 동기화는 현재 원본 제어에 있는 **모든** Runbook에 대한 Automation 계정에 현재 존재하는 Runbook의 초안 버전을 덮어씁니다. 동기화에 해당하는 Git 명령줄 명령은 **git pull**입니다.
-
-
-## <a name="troubleshooting-source-control-problems"></a>원본 제어 문제 해결
-체크 인 또는 동기화 작업에 오류가 있으면 작업 상태가 '일시 중단됨'이어야 하고 작업 페이지에서 오류에 대한 자세한 정보를 볼 수 있습니다.  **모든 로그** 부분에서는 해당 작업과 관련된 모든 PowerShell 스트림이 표시됩니다. 이렇게 하면 체크 인 또는 동기화 관련 문제를 해결하는 데 필요한 세부 정보가 제공됩니다. 또한 Runbook을 동기화하거나 체크 인하는 동안 발생한 일련의 작업을 보여 줍니다.  
 
 ![AllLogs 이미지](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

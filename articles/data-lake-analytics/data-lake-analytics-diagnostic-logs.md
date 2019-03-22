@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045484"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959136"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -41,7 +41,7 @@ ms.locfileid: "43045484"
 
      * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍**을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-     * __Log Analytics로 보내기__를 선택하여 데이터를 Log Analytics 서비스로 보냅니다. Log Analytics를 사용하여 로그를 수집하고 분석하려는 경우 이 옵션을 사용합니다.
+     * 선택 __Log Analytics에 보내기__ Azure Monitor 서비스에 데이터를 보내려고 합니다. Azure Monitor 로그를 사용 하 여 수집 하 고 로그를 분석 하려는 경우이 옵션을 사용 합니다.
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.  요청 로그는 모든 API 요청을 캡처합니다. 감사 로그는 해당 API 요청에 의해 트리거되는 모든 작업을 기록합니다.
 
    * __저장소 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "43045484"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| Name | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
@@ -139,7 +139,7 @@ ms.locfileid: "43045484"
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| Name | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -177,7 +177,7 @@ ms.locfileid: "43045484"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| Name | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 식별자 |
@@ -195,7 +195,7 @@ ms.locfileid: "43045484"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| Name | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | JobId |문자열 |작업에 할당된 ID |
 | JobName |문자열 |작업에 대해 제공된 이름 |

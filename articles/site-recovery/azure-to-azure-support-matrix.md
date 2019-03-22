@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용한 Azure 지역 간 Azure IaaS VM 재해 복구에 대한 Azure Site Recovery 지원 매트릭스 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure 지역 간에 Azure Vm의 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
 description: 재해 복구(DR) 요구 사항에 따라 지역 간에 Azure VM(가상 머신)을 Azure Site Recovery 복제하기 위한 구성 및 지원되는 운영 체제를 요약합니다.
 services: site-recovery
 author: rayne-wiselman
@@ -8,33 +8,33 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287199"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312821"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>다른 지역 간에 Azure Vm을 복제 하기 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM의 복제, 장애 조치(Failover) 및 복구를 포함하는 재해 복구를 배포할 때 지원되는 구성 및 구성 요소를 요약하여 설명합니다.
 
 
 ## <a name="deployment-method-support"></a>배포 방법 지원 여부
 
-**배포 방법** |  **지원됨/지원되지 않음**
+**배포** |  **지원**
 --- | ---
-**Azure Portal** | 지원됨
-**PowerShell** | [PowerShell을 사용한 Azure 간 복제](azure-to-azure-powershell.md)
-**REST API** | 지원됨
+**Azure Portal** |  지원됩니다.
+**PowerShell** |  지원됩니다. [자세히 알아보기](azure-to-azure-powershell.md)
+**REST API** |  지원됩니다.
 **CLI** | 현재 지원되지 않음
 
 
 ## <a name="resource-support"></a>리소스 지원
 
 **리소스 작업** | **세부 정보**
---- | --- 
-**리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음
+--- | --- | ---
+**자격 증명 모음 리소스 그룹 간에 이동** | 지원되지 않음
 **리소스 그룹 간에 계산/저장소/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 저장소/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
@@ -57,12 +57,12 @@ Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 �
 
 >[!NOTE]
 >
-> - **브라질 남부** 지역의 경우 복제한 후 다음 중 하나로 장애 조치(failover)할 수 있습니다. 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중북부 지역 Site Recovery는 브라질 남부만 VM을 보호할 수 있는 원본 지역으로 사용할 수 있도록 설정했습니다. 미국 중남부와 같은 Azure 지역의 경우 **대상 DR 지역으로 사용할 수 없습니다**. 지리적 거리로 인한 대기 시간이 확인되므로 브라질 남부 이외의 아메리카 지역을 선택하는 것이 좋습니다.
->
-> - **자격 증명 모음을 만들려면** **지역을 볼 수 없으면** 구독이 해당 지역에 리소스를 만들 수 있는 권한이 있는지 확인합니다. 예:  프랑스 남부에서 자격 증명 모음을 만들 수 없는 경우 구독이 프랑스 남부 지역에 액세스할 수 없는 것입니다. 문제 유형 "구독 관리" 및 문제 유형 "기타 일반 질문"에서 제목을 "XXX Azure 지역의 구독을 허용 목록에 추가"로 지정하여 지원 티켓을 접수합니다.
->
-> - **복제를 사용하도록 설정하는 동안** 지리적 클러스터 내의 **지역을 볼 수 없는 경우** 구독이 해당 지역에서 가상 머신을 만들 수 있는 액세스 권한이 있는지 확인합니다. 예:  프랑스 중부에서 프랑스 남부로의 가상 머신을 보호하려고 하며 지역 드롭다운 아래에 프랑스 남부가 표시되지 않으면 구독에 VM을 해당 지역에 배포하기 위한 액세스 권한이 없는 것입니다. 문제 유형 "구독 관리" 및 문제 유형 "기타 일반 질문"에서 제목을 "XXX Azure 지역의 구독을 허용 목록에 추가"로 지정하여 지원 티켓을 접수합니다.
-> - 위에서 언급한 지리적 클러스터 간의 지역은 선택할 수 없습니다.
+> - 에 대 한 **브라질 남부**를 복제 하 고 이러한 지역에 장애 조치할 수 있습니다. 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부 2 및 미국 중 북부
+> - 브라질 남부는 Vm Site Recovery를 사용 하 여 복제할 수 원본 지역으로 사용할 수 있습니다. 대상 지역으로 작동할 수 없습니다. 지리적 거리도 인 한 대기 시간 문제 때문입니다. 
+> - 적절 한 액세스 권한이 있는 지역 내에서 작업할 수 있습니다.
+> - 자격 증명 모음을 만들려면 원하는 지역을 표시 되지 않으면 구독의 해당 지역에 리소스를 만드는 권한이 있는지 확인 합니다. 
+> - 볼 수 없는 경우 지리적 클러스터 내의 지역 복제를 사용 하도록 설정 하면, 사용자 구독에는 해당 지역에서 Vm을 만들 수 있는 권한이 있는지 확인 합니다. 
+
 
 
 ## <a name="cache-storage"></a>캐시 저장소
@@ -195,7 +195,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 Windows OS용 ADE(Azure Disk Encryption) | [Azure AD 앱을 사용한 암호화](https://aka.ms/ade-aad-app)를 사용할 수 있도록 설정된 VM은 지원됩니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
 디스크 핫 추가/제거 | 지원되지 않음 | VM에서 데이터 디스크를 추가하거나 제거하는 경우 해당 VM에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
-디스크 제외 | [PowerShell을 통해 지원됨](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   임시 디스크는 기본적으로 제외됩니다.
+디스크 제외 | 이 옵션을 지원 합니다. 사용 해야 합니다 [Powershell](azure-to-azure-exclude-disks.md) 구성 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
 직접 저장소 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
@@ -203,17 +203,22 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 ['신뢰할 수 있는 Microsoft 서비스를 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)해야 합니다.
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 하는 경우 저장소 계정에 대 한 가상 네트워크 액세스 제한, 사용 하도록 설정 [Allow Microsoft services 신뢰할 수 있는](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)합니다.
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아닙니다. | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
-> [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
+> 성능 문제를 방지 하려면에 대 한 VM 디스크 확장성 및 성능 목표를 따르는 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 하거나 [Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm. 기본 설정을 사용 하는 경우 Site Recovery에 필요한 디스크 및 원본 구성에 따라 저장소 계정을 만듭니다. 사용자 지정 하 고 고유한 설정을 선택 하는 경우 원본 Vm에 대 한 디스크 확장성 및 성능 목표를 수행 합니다.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>복제 데이터 변경률에 대한 Azure Site Recovery 제한
-다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다. 디스크 데이터 변동별 및 가상 머신 데이터 변동별 고려해야 할 두 가지 제한 사항이 있습니다.
-예를 들어 아래 테이블에서 프리미엄 P20 디스크를 보면 Site Recovery는 VM당 25MB/s 총 변동 제한으로 인해 VM당 이러한 최대 5개의 디스크로 디스크당 5MB/s 변동을 처리할 수 있습니다.
+## <a name="limits-and-data-change-rates"></a>제한 및 데이터 변경 률
 
-**복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
+다음 표에서 Site Recovery 제한 합니다.
+
+- 이러한 제한은 테스트를 기반으로 하지만 물론 모든 가능한 응용 프로그램 I/O 조합을 포함 되지 않습니다.
+- 실제 결과 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다.
+- 디스크당 데이터 변동 및 당 가상 머신 데이터 변동 고려해 야 할 두 가지 제한이 있습니다.
+- 예를 들어 아래 표에 설명 된 대로 프리미엄 P20 디스크를 사용 하는 경우 Site Recovery 처리할 수 있습니다 디스크 변동 5mb를 사용 하 여 최대 25 MB/s는 VM 당 총 변동 제한으로 인해, VM 당 이러한 5 개의 디스크.
+
+**저장소 대상** | **평균 원본 디스크 I/O** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
 ---|---|---|---
 Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 8KB  | 2MB/초 | 디스크당 168GB
@@ -222,7 +227,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20 MB/s | 디스크당 1684 GB
 ## <a name="replicated-machines---networking"></a>복제된 컴퓨터 - 네트워킹
-**구성** | **지원** | **세부 정보**
+**설정** | **지원** | **세부 정보**
 --- | --- | ---
 NIC | 특정 Azure VM 크기에 대해 지원되는 최대 수 | 장애 조치(failover) 동안 VM이 만들어지면 NIC가 만들어집니다.<br/><br/> 장애 조치(failover) VM의 NIC 수는 복제를 사용하도록 설정한 당시에 원본 VM의 NIC 수에 따라 다릅니다. 복제를 사용하도록 설정한 후에 NIC를 추가하거나 제거하는 경우 장애 조치(failover) 후 복제된 VM의 NIC 수에는 영향을 주지 않습니다.
 인터넷 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결합니다.
@@ -235,15 +240,15 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.    
+인증되지 않은 프록시 | 지원됨 | [자세한 정보]. (site-recovery-azure-to-azure-networking-guidance.md)   
 인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
-온-프레미스를 사용하는 사이트 간 VPN(ExpressRoute 사용 또는 사용 안 함)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.  
-VNet 간 연결 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.  
+온-프레미스 VPN 사이트 간 연결<br/><br/>(사용 하 여 또는 ExpressRoute 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
+VNet 간 연결 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)  
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
-가속 네트워킹 | 지원됨 | 소스 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure VM 복제를 위한 네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 자세히 알아봅니다.
+- 읽기 [네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md) Azure Vm을 복제 합니다.
 - [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 재해 복구를 배포합니다.

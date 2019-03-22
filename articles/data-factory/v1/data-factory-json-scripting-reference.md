@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3fcc2e31431f0deb15332aec7636e2bfefeffe9b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891259"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317547"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -1482,7 +1482,7 @@ Azure Table Storage에서 데이터를 복사하는 경우 복사 활동의 **so
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. | 아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
+| AzureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. |아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 | azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |아닙니다. |
 
 #### <a name="example"></a>예
@@ -2978,7 +2978,7 @@ Cassandra에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 tableName 및 keyspace가 정의된 경우) |
-| consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. | 아니요. 기본값은 ONE입니다. |
+| consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
 
 #### <a name="example"></a>예
 
@@ -3869,10 +3869,10 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | 포트 |SFTP 서버가 수신하는 포트입니다. 기본값은 다음과 같습니다. 21 |아닙니다. |
 | authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 기본 인증 사용 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
-| skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. |  아니요. 기본값: false |
+| skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
-| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. |  아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
 #### <a name="example-using-basic-authentication"></a>예제: 기본 인증 사용
 
@@ -4077,7 +4077,7 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **익명**, **기본**, **다이제스트**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
 | enableServerCertificateValidation | 소스가 HTTPS 웹 서버인 경우 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. | 아니요. 기본값은 True입니다. |
 | gatewayName | 온-프레미스 HTTP 소스에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에는 필수입니다. |
-| encryptedCredential | HTTP 엔드포인트 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 인증 정보를 구성할 때 자동 생성됩니다. |  아니요. 온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| encryptedCredential | HTTP 엔드포인트 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 인증 정보를 구성할 때 자동 생성됩니다. | 아니요. 온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>예제: Basic, Digest 또는 Windows 인증 사용
 `authenticationType`을 `Basic`, `Digest` 또는 `Windows`로 설정하고, 위에서 소개한 HTTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
@@ -4162,7 +4162,7 @@ HTTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Http*
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"` | 아닙니다. |
-| requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 또는 **POST**입니다. |  아니요. 기본값은 `GET`입니다. |
+| requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 또는 **POST**입니다. | 아니요. 기본값은 `GET`입니다. |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아닙니다. |
 | requestBody | HTTP 요청의 본문입니다. | 아닙니다. |
 | format | 데이터를 구문 분석하지 않고 **HTTP 엔드포인트에서 데이터를 그대로 검색**하려면 이 서식 설정을 건너뜁니다. <br><br> 복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. |아닙니다. |
@@ -4217,7 +4217,7 @@ HTTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source typ
 
 | 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. |  아니요. 기본값: 00:01:40 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요. 기본값: 00:01:40 |
 
 
 #### <a name="example"></a>예
@@ -4595,7 +4595,7 @@ Salesforce 연결된 서비스를 정의하려면 연결된 서비스의 **type*
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 "[https://login.salesforce.com](https://login.salesforce.com)"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아닙니다. |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https:\//login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아닙니다. |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | 암호 |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -4746,7 +4746,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 |데이터 세트의 형식입니다. **데이터 집합** |예 |
-| 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. | 아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
+| 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 HTML 페이지에서 테이블의 인덱스 가져오기 섹션을 참조하세요. |예 |
 
 #### <a name="example"></a>예

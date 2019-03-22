@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898825"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -119,7 +119,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code> 명령을 실행합니다.
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
@@ -132,7 +132,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다. ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다. ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
@@ -144,7 +144,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인**을 클릭합니다.
-4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code> 명령을 실행합니다.
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
@@ -235,6 +235,28 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 
 ![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### <a name="quick-agent-installation-in-multiple-servers"></a>여러 서버에서 빠른 에이전트 설치
+1. 암호를 사용 하 여 Azure AD에서 사용자 계정을 만듭니다.
+2. 할당 된 **소유자** 이 로컬 AAD 계정 포털에서 Azure AD Connect Health에 대 한 역할입니다. 단계를 따릅니다 [여기](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)합니다. 모든 서비스 인스턴스에 역할을 할당 합니다. 
+3. 설치에 대 한 로컬 도메인 컨트롤러에서.exe MSI 파일을 다운로드 합니다.
+4. 등록 하려면 다음 스크립트를 실행 합니다. 만든 새 사용자 계정 및 암호를 사용 하 여 매개 변수를 대체 합니다. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. 완료 되 면 다음 중 하나 이상을 수행 하 여 로컬 계정에 대 한 액세스를 제거할 수 있습니다. 
+    * AAD Connect Health에 대 한 로컬 계정에 대 한 역할 할당 제거
+    * 로컬 계정의 암호를 회전 합니다. 
+    * AAD 로컬 계정 사용 안 함
+    * AAD 로컬 계정 삭제  
 
 ## <a name="agent-registration-using-powershell"></a>PowerShell을 사용한 에이전트 등록
 적합한 에이전트 setup.exe를 설치한 후 역할에 따라 다음 PowerShell 명령을 사용하여 에이전트 등록 단계를 수행할 수 있습니다. PowerShell 창을 열고 적합한 명령을 실행합니다.
