@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293978"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335983"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
 소스 제어를 사용 하면 runbook을 유지할 수 있습니다 자동화 계정에 GitHub 또는 Azure 리포지토리 소스 제어 리포지토리에서 스크립트를 사용 하 여 최신 상태입니다. 원본 제어를 사용하면 팀과 쉽게 공동 작업하고 변경 내용을 추적하며 이전 버전의 Runbook으로 롤백할 수 있습니다. 예를 들어, 소스 제어를 사용하면 소스 제어의 여러 다른 분기를 개발, 테스트 또는 프로덕션 Automation 계정과 동기화할 수 있습니다. 이렇게 하면 개발 환경에서 테스트한 코드를 프로덕션 Automation 계정으로 쉽게 승격할 수 있습니다. Automation 사용 하 여 소스 제어 통합 소스 제어 리포지토리에서 단방향 동기화를 지원 합니다.
 
-Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
+Azure Automation에서는 세 가지 유형의 소스 제어를 지원합니다.
 
 * GitHub
 * Azure 리포지토리 (Git)
@@ -30,6 +30,7 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 
 * 소스 제어 리포지토리 (GitHub 또는 Azure 리포지토리)
 * [실행 계정](manage-runas-account.md)
+* 했는지 확인 합니다 [최신 Azure 모듈로](automation-update-azure-modules.md) Automation 계정에서
 
 > [!NOTE]
 > 소스 제어 동기화 작업은 사용자 Automation 계정에서 실행되며 다른 Automation 작업과 동일한 요금으로 청구됩니다.
@@ -49,10 +50,10 @@ Automation 계정 내에서 선택 **소스 제어** 를 클릭 하 고 **+ 추�
 |소스 제어 이름     | 소스 제어의 친숙한 이름        |
 |소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure 리포지토리 (Git)</br> Azure 리포지토리 (TFVC)        |
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 처음 200 개 리포지토리 반환 됩니다. 리포지토리를 검색 하려면 필드에 이름을 입력 하 고 클릭 **GitHub에 대 한 검색**합니다.|
-|Branch     | 소스 파일을 끌어올 분기입니다. 분기 대상 지정은 TFVC 소스 제어 형식에는 사용할 수 없습니다.          |
+|Branch     | 소스 파일을 끌어올 분기입니다. 분기를 대상으로 하는 TFVC 소스 제어 형식에 대해 사용할 수 없습니다.          |
 |폴더 경로     | 동기화할 Runbook이 포함된 폴더입니다. 예: /Runbooks </br>*지정 된 폴더에만 runbook이 동기화 됩니다. 재귀 지원 되지 않습니다.*        |
 |자동 동기화     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
-|Runbook 게시     | **켜짐**으로 설정된 경우 소스 제어에서 Runbook이 동기화되면 자동으로 게시됩니다.         |
+|Runbook 게시     | 경우로 **에서**runbook은 자동으로 게시 될 수는 소스 제어에서 동기화 한 후, 합니다.         |
 |설명     | 추가 정보를 제공하는 텍스트 필드        |
 
 ![소스 제어 요약](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Automation 계정 내에서 선택 **소스 제어** 를 클릭 하 고 **+ 추�
 
 ## <a name="configure-source-control---powershell"></a>소스 제어-PowerShell 구성
 
-또한 Azure Automation에서 원본 제어를 구성 하려면 PowerShell을 사용할 수 있습니다. PowerShell cmdlet을 사용 하 여 소스 제어를 구성 하는 [개인용 액세스 토큰 (PAT)](#personal-access-token) 필요 합니다. 사용할 합니다 [새로 만들기-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) 원본 제어 연결을 만듭니다. Cmdlet의 개인 액세스 토큰, 보안 문자열을 만듭니다, 참조 하는 방법을 알아보려면 보안 문자열이 필요 [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)합니다.
+또한 Azure Automation에서 원본 제어를 구성 하려면 PowerShell을 사용할 수 있습니다. 소스 제어에서 PowerShell cmdlet을 구성 하려면 개인용 액세스 토큰 (PAT) 필요 합니다. 사용할 합니다 [새로 만들기-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) 원본 제어 연결을 만듭니다. Cmdlet의 개인 액세스 토큰, 보안 문자열을 만듭니다, 참조 하는 방법을 알아보려면 보안 문자열이 필요 [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)합니다.
 
 ### <a name="azure-repos-git"></a>Azure 리포지토리 (Git)
 
@@ -113,7 +114,7 @@ Azure 리포지토리에서 개인 액세스 토큰을 만드는 방법에 대 �
 |작업 항목(읽기)    |
 |서비스 연결(읽기, 쿼리 및 관리)<sup>1</sup>    |
 
-<sup>1</sup>the Service 연결 권한이 전용인 autosync 설정한 경우 필요 합니다.
+<sup>1</sup> the Service 연결 권한이 전용인 autosync 설정한 경우 필요 합니다.
 
 ## <a name="syncing"></a>동기화 중
 
@@ -168,7 +169,7 @@ Source Control Sync Summary:
 
 ## <a name="encoding"></a>Encoding
 
-다른 편집기를 사용 하 여 여러 사용자 runbook 원본 제어 리포지토리에 편집 하는 경우 인코딩 문제 직면할 가능성이 있습니다. Runbook에서 잘못 된 문자가 삽입 수 있습니다. 이 대 한 자세한 내용은를 참조 하세요. [일반적인 원인은 인코딩 문제](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+여러 사용자를 편집 하는 runbook 원본 제어 리포지토리에 다른 편집기를 사용 하 여 인코딩 문제 발생할 수가 있습니다. Runbook에 잘못 된 문자이 상황이 발생할 수 있습니다. 이 대 한 자세한 내용은를 참조 하세요. [일반적인 원인은 인코딩 문제](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>다음 단계
 

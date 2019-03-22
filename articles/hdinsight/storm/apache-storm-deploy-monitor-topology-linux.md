@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635408"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317275"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리 
 
@@ -215,15 +215,15 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### <a name="base-uri"></a>기본 URI
 
-Linux 기반 HDInsight 클러스터에서 REST API의 기본 URI는 **https://HEADNODEFQDN:8744/api/v1/** 에 있는 헤드 노드에서 사용할 수 있습니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
+Linux 기반 HDInsight 클러스터에서 REST API에 대 한 기본 URI가 있는 헤드 노드에서 사용할 수 있습니다 **https:\//HEADNODEFQDN:8744/api/v1/** 합니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
 
 다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
 
 * **SSH 세션에서**: SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다.
 * **Ambari 웹에서**: 페이지 맨 위에서 **서비스**를 선택한 다음, **Storm**을 선택합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다.
-* **Ambari REST API에서**: `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 메시지가 표시되면 로그인(관리자) 계정에 대한 암호를 입력합니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
+* **Ambari REST API에서**: `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 메시지가 표시되면 로그인(관리자) 계정에 대한 암호를 입력합니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 

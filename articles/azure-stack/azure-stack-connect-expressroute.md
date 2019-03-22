@@ -10,22 +10,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f23f62554ce7f4b90b4116fdd6085027e71650d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770172"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339604"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-이 문서는 Azure Stack virtual network를 사용 하 여 Azure virtual network에 연결 하는 방법을 보여 줍니다.는 [Microsoft Azure ExpressRoute](/azure/expressroute/) 직접 연결 합니다.
+이 문서는 Azure Stack virtual network를 사용 하 여 Azure virtual network에 연결 하는 방법에 설명 합니다는 [Microsoft Azure ExpressRoute](/azure/expressroute/) 직접 연결 합니다.
 
 이 문서를 자습서로 사용 하 고 동일한 테스트 환경을 설정 하는 예제를 사용 하 여 수 있습니다. 또는 고유한 ExpressRoute 환경을 설정 하는 과정을 안내 하는 연습으로 문서를 사용할 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 4. 아래 **추천**를 선택 **Virtual network**합니다.
 
-5. 아래 **가상 네트워크 만들기**, 해당 필드에 다음 표에 나와 있는 값을 입력 합니다.
+5. 아래 **가상 네트워크 만들기**, 해당 필드에는 다음 표에 표시 된 값을 입력 합니다.
 
    |필드  |값  |
    |---------|---------|
@@ -144,7 +144,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 #### <a name="create-the-local-network-gateway"></a>로컬 네트워크 게이트웨이 만들기
 
-로컬 네트워크 게이트웨이 리소스에 VPN 연결의 반대쪽 끝에 있는 원격 게이트웨이 식별합니다. 예를 들어 연결의 원격 끝에 ExpressRoute 라우터의 LAN 하위 인터페이스가 됩니다. 테 넌 트 1, 2, 그림에 표시 된 원격 주소 10.60.3.255는입니다.
+로컬 네트워크 게이트웨이 리소스에 VPN 연결의 반대쪽 끝에 있는 원격 게이트웨이 식별합니다. 예를 들어 연결의 원격 끝에는 ExpressRoute 라우터의 LAN 하위 인터페이스입니다. 테 넌 트 1, 2, 그림에 표시 된 원격 주소 10.60.3.255는입니다.
 
 1. 선택한 사용자 계정으로 Azure Stack 사용자 포털에 로그인 **+ 리소스 만들기**합니다.
 1. 아래 **Azure Marketplace**를 선택 **네트워킹**합니다.
@@ -159,7 +159,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
    > [!IMPORTANT]
    > 이 예제에서는 Azure Stack 게이트웨이 및 ExpressRoute 라우터 간의 사이트 간 VPN 연결에 대 한 정적 경로 사용 하 고 있는지를 가정 합니다.
 
-1. 확인 프로그램 **구독**를 **리소스 그룹**, 및 **위치** 올바른지 합니다. 그런 다음, **만들기**를 클릭합니다.
+1. 확인 프로그램 **구독**를 **리소스 그룹**, 및 **위치** 올바른지 합니다. 그런 다음 **만들기**를 선택합니다.
 
 #### <a name="create-the-connection"></a>연결 만들기
 
@@ -176,7 +176,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>가상 네트워크 게이트웨이 공용 IP 주소 가져오기
 
-가상 네트워크 게이트웨이 만든 후에 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 배포에 대 한 나중에 필요한 경우에이 주소를 기록해 둡니다. 배포에 따라이 주소는으로 사용 합니다 **내부 IP 주소**합니다.
+가상 네트워크 게이트웨이 만든 후에 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 배포에 대 한 나중에 필요한 경우에이 주소의 참고를 확인 합니다. 배포에 따라이 주소는으로 사용 합니다 **내부 IP 주소**합니다.
 
 1. Azure Stack 사용자 포털에서 선택 **모든 리소스**합니다.
 1. 아래 **모든 리소스**에 가상 네트워크 게이트웨이 선택 **GW1** 예제에서.
@@ -223,14 +223,14 @@ VPN 연결을 통한 데이터 트래픽이 테스트 가상 컴퓨터는 Azure 
 > [!IMPORTANT]
 > 이 섹션은 Azure Stack 개발 키트 (ASDK) 배포에만 해당 합니다. 다중 노드 배포에 대 한 NAT 필요 하지 않습니다.
 
-Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트워크에서 격리 합니다. VIP 네트워크에 게이트웨이가 연결 된 외부 이면 네트워크 주소 변환 (NAT)를 수행 하는 라우터 뒤에 숨겨져 있습니다.
+Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트워크에서 격리 합니다. VIP 네트워크에 게이트웨이가 연결 된 외부; 아닙니다. 네트워크 주소 변환 (NAT)를 수행 하는 라우터 뒤에 숨겨져 있습니다.
 
 라우터는 Windows Server 가상 컴퓨터를 (AzS-BGPNAT01) 라우팅 및 원격 액세스 서비스 (RRAS) 역할을 실행 합니다. 양쪽 끝에 연결 하려면 사이트 간 VPN 연결을 사용 하려면 AzS-BGPNAT01 가상 머신에서 NAT를 구성 해야 합니다.
 
 #### <a name="configure-the-nat"></a>NAT 구성
 
 1. 관리자 계정으로 Azure Stack 호스트 컴퓨터에 로그인 합니다.
-1. 복사 하 고 다음 PowerShell 스크립트를 편집 합니다. 대체 `"your administrator password"` 관리자 암호와 다음을 관리자 권한으로 PowerShell ISE에서 스크립트를 실행 합니다. 이 스크립트를 반환 하면 **외부 BGPNAT 주소**합니다.
+1. 복사 하 고 다음 PowerShell 스크립트를 편집 합니다. 대체 `your administrator password` 관리자 암호와 다음을 관리자 권한으로 PowerShell ISE에서 스크립트를 실행 합니다. 이 스크립트를 반환 하면 **외부 BGPNAT 주소**합니다.
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
@@ -243,7 +243,7 @@ Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트�
     -Password $Password
    ```
 
-1. NAT를 구성 하려면 복사한 다음 PowerShell 스크립트를 편집 합니다. 대체 하는 스크립트를 편집 합니다 `'External BGPNAT address'` 및 `'Internal IP address'` 와 다음 예제 값:
+1. NAT를 구성 하려면 복사한 다음 PowerShell 스크립트를 편집 합니다. 대체 하는 스크립트를 편집 합니다 `External BGPNAT address` 및 `Internal IP address` 와 다음 예제 값:
 
    * 에 대 한 *외부 BGPNAT 주소* 10.10.0.62 사용
    * 에 대 한 *내부 IP 주소* 192.168.102.1 사용
@@ -289,7 +289,6 @@ Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트�
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
-
    ```
 
 ## <a name="configure-azure"></a>Azure 구성
@@ -367,7 +366,7 @@ Azure Stack에서 사이트 간 VPN 연결을 종료 하는 IKEv2 VPN 및 BGP를
 
 다음 Cisco ASR 1000 시리즈 집계 서비스 라우터 구성 예제에 표시 하는 네트워크 인프라를 지원 합니다 *ExpressRoute 라우터 구성* 다이어그램.
 
-```
+```shell
 ip vrf Tenant 1
  description Routing Domain for PRIVATE peering to Azure for Tenant 1
  rd 1:1
@@ -628,7 +627,7 @@ New-NetFirewallRule `
 1. 테 넌 트 계정을 사용 하 여 Azure Stack 사용자 포털에 로그인 하 고 선택 **모든 리소스**합니다.
 1. VPN Gateway에 대 한 리소스 그룹으로 이동 하 고 선택 합니다 **연결** 개체 유형입니다.
 1. 선택 된 **ConnectToAzure** 목록에서 연결 합니다.
-1. 아래 **연결**>**개요**에 대 한 통계를 볼 수 있습니다 **데이터를** 및 **데이터**입니다. 일부 0이 아닌 값이 표시 됩니다.
+1. 아래 **연결** > **개요**에 대 한 통계를 볼 수 있습니다 **데이터를** 및 **데이터**입니다. 일부 0이 아닌 값이 표시 됩니다.
 
    ![데이터 및 데이터 출력](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

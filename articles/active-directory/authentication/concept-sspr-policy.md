@@ -1,5 +1,5 @@
 ---
-title: Azure AD 셀프 서비스 암호 재설정 정책
+title: Azure AD 셀프 서비스 암호 재설정 정책-Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정 정책 옵션 구성
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901147"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311903"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 

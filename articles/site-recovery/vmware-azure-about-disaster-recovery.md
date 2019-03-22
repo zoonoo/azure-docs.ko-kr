@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용한 VMware VM에서 Azure로의 재해 복구 정보 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 수행되는 VMware VM에서 Azure로의 재해 복구 개요를 제공합니다.
-author: mayurigupta13
+author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339677"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311201"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 

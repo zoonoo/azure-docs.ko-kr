@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006517"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317360"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -158,7 +158,7 @@ VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저�
 데이터 디스크의 경우 표준 스토리지 계정에 일부 데이터 디스크(예: 냉각 스토리지가 있는 디스크)를 보관할 수 있지만, 프로덕션 워크로드에서 Premium Storage를 사용하도록 모든 데이터를 이동할 것을 권장합니다.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>3단계. AzCopy 또는 PowerShell을 사용하여 VHD 복사
-컨테이너 경로 및 저장소 계정 키를 찾아서 이러한 두 옵션 중 하나를 처리해야 합니다. 컨테이너 경로 및 저장소 계정 키는 **Azure Portal** > **저장소**에서 찾을 수 있습니다. 컨테이너 URL은 "https://myaccount.blob.core.windows.net/mycontainer/"와 유사합니다.
+컨테이너 경로 및 저장소 계정 키를 찾아서 이러한 두 옵션 중 하나를 처리해야 합니다. 컨테이너 경로 및 저장소 계정 키는 **Azure Portal** > **저장소**에서 찾을 수 있습니다. 컨테이너 URL은 같은 "https:\//myaccount.blob.core.windows.net/mycontainer/"입니다.
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>옵션 1: AzCopy를 사용하여 VHD 복사(비동기 복사)
 AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
@@ -171,7 +171,7 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
 
-    예:
+    예제:
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
@@ -203,7 +203,7 @@ $destinationContext = New-AzStorageContext  –StorageAccountName <dest-account>
 Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
 ```
 
-예:
+예제:
 
 ```powershell
 C:\PS> $sourceBlobUri = "https://sourceaccount.blob.core.windows.net/vhds/myvhd.vhd"
@@ -268,7 +268,7 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
 
-    예:
+    예제:
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
@@ -307,7 +307,7 @@ VHD를 원하는 저장소 계정에 업로드 또는 복사한 후에는 이 �
 1. VHD 디스크 복사가 완료될 때까지 기다립니다.
 2. Premium Storage를 마이그레이션하는 지역에서 사용할 수 있는지 확인합니다.
 3. 사용할 새 VM 시리즈를 결정합니다. Premium Storage를 지원해야 하며, 크기는 해당 지역의 제품 제공 여부와 사용자 요구 사항에 따라 결정해야 합니다.
-4. 사용할 정확한 VM 크기를 결정합니다. VM 크기는 현재 포함하고 있는 데이터 디스크 수를 지원할 만큼 충분히 커야 합니다. 예를 들어 데이터 디스크가 4개 있는 경우 VM은 2개 이상의 코어를 포함해야 합니다. 또한 처리 능력, 메모리 및 네트워크 대역폭 요구 사항을 고려합니다.
+4. 사용할 정확한 VM 크기를 결정합니다. VM 크기는 현재 포함하고 있는 데이터 디스크 수를 지원할 만큼 충분히 커야 합니다. 예: 데이터 디스크가 4개 있는 경우 VM은 2개 이상의 코어를 포함해야 합니다. 또한 처리 능력, 메모리 및 네트워크 대역폭 요구 사항을 고려합니다.
 5. 대상 지역에 Premium Storage 계정을 만듭니다. 새 VM에 사용할 계정입니다.
 6. 디스크 및 해당 VHD Blob의 목록을 포함하여 도움이 될 현재 VM 세부 정보를 포함합니다.
 
@@ -751,7 +751,7 @@ Update-AzureVM  -VM $vm
 디스크 성능 향상을 위해 애플리케이션을 튜닝하는 방법은 [고성능을 위한 디자인](../../virtual-machines/windows/premium-storage-performance.md) 문서의 애플리케이션 성능 최적화를 참조하세요.
 
 ### <a name="application-migrations"></a>애플리케이션 마이그레이션
-데이터베이스 및 기타 복잡한 애플리케이션에는 애플리케이션 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예를 들어 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
+데이터베이스 및 기타 복잡한 애플리케이션에는 애플리케이션 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예: 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 가상 머신 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 확인합니다.

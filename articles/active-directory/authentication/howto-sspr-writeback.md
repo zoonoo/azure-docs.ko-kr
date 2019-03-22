@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR에 비밀번호 쓰기 저장을 구성하는 방법
+title: Azure AD SSPR-Azure Active Directory에 대 한 비밀 번호 쓰기 저장을 구성 하는 방법
 description: Azure AD와 Azure AD Connect를 사용하여 온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209339"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312294"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 

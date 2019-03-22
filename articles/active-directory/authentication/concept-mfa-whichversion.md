@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버 또는 서비스, 온-프레미스, 클라우드 중 무엇인가요?
+title: Azure MFA 서버 또는 서비스, 온-프레미스, 클라우드 중 무엇인가요? - Azure Active Directory
 description: Azure AD 관리자로서 어떤 MFA 버전을 배포해야 하는지 궁금합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dbbcb46c3449750b6ea9ccdbd9a5103be715d8f7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870476"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312073"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>우리 조직에 적합한 Azure MFA 버전은 무엇입니까?
 

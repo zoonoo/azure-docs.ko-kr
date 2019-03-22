@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551826"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337700"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -27,8 +27,27 @@ Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **일반**
+
+## <a name="blog-post"></a>블로그 게시물
+DevTest Labs 팀 블로그에서 20 년 3 월 2019 기준으로 만료 되었습니다. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>앞으로 기능 업데이트를 추적 해야 하나요?
+앞으로 우리가 드리며 기능 업데이트 및/또는 블로그 게시물 Azure 블로그의 하 고 Azure 업데이트 합니다. 다음 블로그 게시물 설명서 연결도 필요한 모든 위치.
+
+구독 합니다 [DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) 및 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab) DevTest Labs의 새로운 기능에 대 한 정보를 받을.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>기존 블로그 게시물에 어떻게 되나요?
+기존 블로그 게시물을 마이그레이션 (중단 업데이트 제외)에 사용할 현재 우리의 [DevTest Labs 설명서](devtest-lab-overview.md)합니다. MSDN 블로그를 더 이상 사용 되지 경우 DevTest Labs에 대 한 설명서 개요로 리디렉션할 수 됩니다. 리디렉션 후 찾고자 하는 '필터' 제목에 문서를 검색할 수 있습니다. 참고에서는 모든 게시물 아직 마이그레이션되지 않은 하지만 이번 달의 끝에서 수행 해야 합니다. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>중단 업데이트는 어디서 확인할 수 있나요?
+앞으로 이동 하 여 Twitter 핸들을 사용 하 여 중단 업데이트 드리며 했습니다. 가동 중단 및 알려진된 버그에 대 한 최신 업데이트는 Twitter에서 팔 로우 합니다.
+
+### <a name="twitter"></a>Twitter 
+이 Twitter 핸들: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
-찾는 질문이 여기에 없으면 저희에게 알려주세요. 답변을 찾을 수 있도록 도와드리겠습니다.
+질문이 여기 나열 되지 않으면, 알려주세요을 도와 드리겠습니다 답변을 찾을 수 있습니다.
 
 * 이 FAQ의 끝에 질문을 게시합니다. 이 문서에 대해 Azure Cache 팀 및 다른 커뮤니티 구성원들이 참여합니다.
 * 더 광범위한 대상에 도달하기 위해 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
@@ -41,7 +60,7 @@ Azure DevTest Labs를 통해 팀 시간과 비용을 절약할 수 있습니다.
 걱정할 필요가 없는 셀프 서비스는 개발자와 테스터가 필요에 따라 자신의 고유한 환경을 만드는 것을 의미합니다. 관리자는 DevTest Labs가 낭비를 최소화하고 비용을 제어할 수 있도록 하는 것을 인식하는 보안을 갖습니다. 관리자는 허용되는 VM 크기, VM의 최대 수 및 VM의 시작 및 종료 시기를 지정할 수 있습니다. 또한 랩 리소스가 사용되는 방식을 인식하기 위해 DevTest Labs를 통해 쉽게 비용을 모니터링하고 경고를 설정합니다.
 
 ## <a name="how-can-i-use-devtest-labs"></a>DevTest Labs를 어떻게 사용할 수 있나요?
-DevTest Labs는 개발 또는 테스트 환경이 필요할 때마다 그리고 신속하게 재현 또는 비용 절감 정책을 사용하여 관리하려고 하는 경우 유용합니다.
+DevTest Labs는 개발 요구 또는 테스트 환경에서는 및를 신속 하 게 재현 또는 비용 절감 정책을 사용 하 여 관리 하려면 언제 든 지에 유용 합니다.
 
 고객이 DevTest Labs를 사용하는 몇 가지 시나리오는 다음과 같습니다.
 
@@ -106,8 +125,8 @@ Azure DevOps를 사용하는 경우 [DevTest Labs 작업 확장](https://marketp
 
 
 **가상 머신**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Virtual Machines 블레이드에서 DevTest Labs에서 보이는 VM을 볼 수 없는 이유는 무엇인가요?
-DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한이 제공됩니다. 랩 블레이드 및 **Virtual Machines** 블레이드에서 VM을 볼 수 있습니다. DevTest Labs 랩 사용자 역할에 할당된 사용자는 랩의 **모든 Virtual Machines** 블레이드의 랩에서 만들어진 모든 VM을 볼 수 있습니다. 그러나 DevTest Labs 랩 사용자 역할이 있는 사용자에게는 다른 사용자가 만든 VM 리소스에 대한 읽기 액세스 권한이 자동으로 부여되지 않습니다. 따라서 이러한 VM은 **Virtual Machines** 블레이드에 표시되지 않습니다.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>DevTest Labs에서 표시 하는 가상 머신 페이지에서 Vm을 볼 수 없습니다는 이유
+DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한이 제공됩니다. Labs 페이지와 VM을 볼 수는 **가상 머신** 페이지입니다. DevTest Labs 랩 사용자 역할에 할당 된 사용자는 랩의 랩에서 만들어진 모든 Vm을 볼 수 있습니다 **모든 Virtual Machines** 페이지입니다. 그러나 DevTest Labs 랩 사용자 역할이 있는 사용자에게는 다른 사용자가 만든 VM 리소스에 대한 읽기 액세스 권한이 자동으로 부여되지 않습니다. 따라서 이러한 Vm에 표시 되지 않습니다 합니다 **가상 머신** 페이지입니다.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>사용자 지정 이미지와 수식 간의 차이는 무엇입니까?
 사용자 지정 이미지는 VHD(가상 하드 디스크)입니다. 수식은 추가 설정을 사용하여 구성한 다음 저장하고 재현할 수 있는 이미지입니다. 사용자 지정 이미지는 동일한 기본, 변경할 수 없는 이미지를 사용하여 여러 환경을 신속하게 만들려는 경우 적합할 수 있습니다. 수식은 최신 비트, 가상 네트워크 또는 서브넷의 일부 또는 특정 크기의 VM으로 구성을 재현하려는 경우 더 나을 수 있습니다. 더 자세한 설명은 [DevTest Labs에서 사용자 지정 이미지와 수식 비교](devtest-lab-comparing-vm-base-image-types.md)를 참조하세요.
@@ -184,7 +203,7 @@ Azure Portal의 랩에서 VM을 삭제할 수 있습니다. 또한 PowerShell �
 
 **아티팩트**
 ## <a name="what-are-artifacts"></a>아티팩트는 무엇입니까?
-아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. VM을 만들 때 VM에 아티팩트를 연결합니다. VM이 프로비전되면 아티팩트는 VM을 배포하고 구성합니다. [공용 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)에서 다양한 기존 아티팩트를 사용할 수 있습니다. [사용자 고유의 아티팩트를 작성](devtest-lab-artifact-author.md)할 수도 있습니다.
+아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. VM을 만들 때 VM에 아티팩트를 연결합니다. VM이 프로비전되면 아티팩트는 VM을 배포하고 구성합니다. 사용할 수 있는 다양 한 기존 아티팩트가 우리의 [공개 GitHub 리포지토리에](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)합니다. [사용자 고유의 아티팩트를 작성](devtest-lab-artifact-author.md)할 수도 있습니다.
 
 
 **랩 구성**
@@ -232,7 +251,7 @@ Microsoft 계정이란 Microsoft 디바이스 및 서비스를 가지고 하는 
 리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 사용하여 VM을 배포하는 데 Resource Manager 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 오류 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors)을 참조하세요.
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM 배포에 실패하면 오류 정보를 어디에서 더 찾을 수 있나요?
-VM 배포 오류는 활동 로그에 캡처됩니다. 랩 VM 활동 로그는 랩의 VM 블레이드(블레이드는 **내 가상 머신** 목록에서 VM을 선택한 후에 표시됨)에 있는 리소스 메뉴에서 **감사 로그** 또는 **가상 머신 진단** 아래에서 찾을 수 있습니다.
+VM 배포 오류는 활동 로그에 캡처됩니다. 랩 VM 활동 로그에서 찾을 수 있습니다 **감사 로그** 하거나 **가상 머신 진단** 랩의 VM에 대 한 페이지 리소스 메뉴에서 (에서 VM을 선택 하면 표시 되는 **내 가상 컴퓨터** 목록).
 
 경우에 따라 VM 배포가 시작되기 전에 배포 오류가 발생합니다. 예는 VM을 사용하여 만든 리소스에 대한 구독 제한을 초과하는 경우입니다. 이 경우 오류 세부 정보는 랩 수준 활동 로그에 캡처됩니다. 활동 로그는 **구성 및 정책** 설정의 맨 아래에 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 

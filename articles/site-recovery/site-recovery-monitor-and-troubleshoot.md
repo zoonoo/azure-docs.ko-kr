@@ -1,20 +1,20 @@
 ---
 title: Azure Site Recovery 모니터링 | Microsoft Docs
 description: 포털을 사용하여 Azure Site Recovery 복제 및 작업을 모니터링하고 문제를 해결합니다.
-author: bsiva
-manager: abhemra
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: bsiva
-ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.topic: conceptual
+ms.date: 03/18/2019
+ms.author: rayne-wiselman
+ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098477"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316646"
 ---
-# <a name="monitor-and-troubleshoot-site-recovery"></a>Site Recovery 모니터링 및 문제 해결
+# <a name="monitor-site-recovery"></a>Site Recovery 모니터링
 
 이 문서에서는 모니터링 및 문제 해결을 위해 기본 제공된 Azure Site Recovery 모니터링 기능을 사용하는 방법에 대해 설명합니다. 
 

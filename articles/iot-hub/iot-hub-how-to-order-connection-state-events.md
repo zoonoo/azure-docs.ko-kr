@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540014"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337530"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -24,9 +24,9 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.
 
-* 활성 Azure Cosmos DB SQL API 계정입니다. 아직 만들지 않았다면, [데이터베이스 계정 만들기](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account)를 연습으로 참조하세요.
+* 활성 Azure Cosmos DB SQL API 계정입니다. 아직 만들지 않았다면, [데이터베이스 계정 만들기](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account)를 연습으로 참조하세요.
 
-* 데이터베이스의 컬렉션입니다. [컬렉션 추가](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection)를 연습으로 참조하세요.
+* 데이터베이스의 컬렉션입니다. [컬렉션 추가](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection)를 연습으로 참조하세요.
 
 * Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-hub/iot-hub-csharp-csharp-getstarted.md)을 참조하세요. 
 
@@ -350,5 +350,3 @@ Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 �
 * [IoT Hub 이벤트 자습서를 시도해 봅니다.](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * [Event Grid](../event-grid/overview.md)로 수행할 수 있는 다른 작업에 대해 알아보기
-
-

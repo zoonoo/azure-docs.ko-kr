@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902844"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316221"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio Code
 
@@ -25,7 +25,7 @@ ms.locfileid: "57902844"
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ### <a name="machine-setup"></a>머신 설치
 
@@ -79,7 +79,7 @@ npm install
 npm start
 ```
 
-시작이 완료되면 브라우저에 **http://localhost:3000/dashboard** 페이지가 표시됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저 페이지를 표시 하는 **http:\//localhost:3000 / 대시보드**합니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
@@ -92,7 +92,7 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스하려면 브라우저에서 [http://localhost:9000](http://localhost:9000)으로 이동합니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 http로 이동:\//localhost:9000 브라우저에서 합니다.
 
 ## <a name="clean-up"></a>정리
 

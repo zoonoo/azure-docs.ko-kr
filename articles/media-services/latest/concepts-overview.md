@@ -9,19 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994099"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311274"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
 이 항목에서는 Azure Media Services 개념의 간략 한 개요를 제공 하 고 심층적인 설명은 Media Services v3 개념 및 기능을 사용 하 여 문서에 대 한 링크를 제공 합니다. 이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.
+
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
 

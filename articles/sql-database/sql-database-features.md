@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: a7f247ba0e13d75c6556508fb432b59c3e4ecdef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82ed8783444a414d4706f97c8c9b6ea18734561e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881302"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311750"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -97,6 +97,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [MDS(Master Data Services)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 아닙니다. | 아닙니다. |
 | [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아닙니다. | 아닙니다. |
 | [시스템 데이터 수정](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 아닙니다. | 예 |
+| [OLE Automation](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | 아닙니다. | 아닙니다. |
 | [온라인 인덱스 작업](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 예 | 예 |
 | [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|아닙니다.|예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조|
 | [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|예|예|

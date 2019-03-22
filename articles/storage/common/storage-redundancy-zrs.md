@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337887"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ ZRS 간의 마이그레이션에는 두 가지 기본 옵션이 있습니다.
 
 수동 마이그레이션을 사용하면 결국 애플리케이션 가동 중지 시간이 발생할 수 있습니다. 애플리케이션에 고가용성이 필요한 경우 Microsoft에서는 실시간 마이그레이션 옵션도 제공합니다. 실시간 마이그레이션은 즉각적인 마이그레이션입니다. 
 
-실시간 마이그레이션 중 원본 및 대상 스토리지 스탬프 간에 데이터를 마이그레이션하면서 스토리지 계정을 사용할 수 있습니다. 마이그레이션 프로세스 중에 일반적으로 수행하는 것과 동일한 수준의 내구성 및 가용성 SLA가 유지됩니다.
+실시간 마이그레이션 중 원본 및 대상 스토리지 스탬프 간에 데이터를 마이그레이션하면서 스토리지 계정을 사용할 수 있습니다. 마이그레이션 과정에서 동일한 수준의 내구성 및 가용성 SLA와 일반적으로 수행 해야 합니다.
 
 실시간 마이그레이션에 대한 다음과 같은 제한에 유의하십시오.
 
@@ -88,7 +88,33 @@ ZRS 간의 마이그레이션에는 두 가지 기본 옵션이 있습니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
 
-지원 담당자가 사용자에게 연락하여 필요한 모든 지원을 제공합니다. 
+지원 담당자가 사용자에게 연락하여 필요한 모든 지원을 제공합니다.
+
+## <a name="live-migration-to-zrs-faq"></a>실시간 마이그레이션을 ZRS FAQ
+
+**해야 계획 가동 중지 시간 마이그레이션 중?**
+
+마이그레이션으로 인 한 가동 중지 시간 없이 있습니다. 실시간 마이그레이션 중 데이터 원본 및 대상 저장소 스탬프 간에 마이그레이션하는 동안 저장소 계정 작업을 계속할 수 있습니다. 마이그레이션 과정에서 동일한 수준의 내구성 및 가용성 SLA와 일반적으로 수행 해야 합니다.
+
+**마이그레이션과 관련 된 데이터 손실을 있나요?**
+
+마이그레이션과 관련 된 데이터 손실 되지 않습니다. 마이그레이션 과정에서 동일한 수준의 내구성 및 가용성 SLA와 일반적으로 수행 해야 합니다.
+
+**마이그레이션이 완료 되 면 응용 프로그램에 필요한 업데이트?**
+
+마이그레이션이 완료 되 면 계정 복제 유형의 "영역 중복 저장소 (ZRS)"으로 바뀝니다. 서비스 끝점에 SAS 키를 액세스 하 고 다른 계정 구성 옵션이 변경 되지 않은 한 그대로 유지 합니다.
+
+**내 범용 v1 계정 ZRS로의 실시간 마이그레이션을 요청할 수 있나요?**
+
+ZRS는 범용 v2 계정을 업그레이드 하도록 내릴 ZRS로 실시간 마이그레이션에 대 한 요청을 제출 하기 전에 범용 v2 계정 지원 합니다. 참조 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 하 고 [범용 v2 저장소 계정으로 업그레이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 대 한 자세한 내용은 합니다.
+
+**내 읽기 액세스 지역 중복 저장소 (RA-GRS) 계정 ZRS로의 실시간 마이그레이션을 요청할 수 있나요?**
+
+제출 하기 전에 ZRS로 실시간 마이그레이션에 대 한 요청을 응용 프로그램 또는 워크 로드에 더 이상 보조 읽기 전용 끝점에 대 한 액세스를 하며 지역 중복 저장소 (GRS) 복제 유형의 storage 계정 변경에 있는지 확인 합니다. 참조 [복제 전략 변경](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) 대 한 자세한 내용은 합니다.
+
+**다른 지역에 내 저장소 계정 ZRS로의 실시간 마이그레이션을 요청할 수 있나요?**
+
+데이터 소스 계정의 지역에서 다른 지역에 ZRS 계정으로 마이그레이션하려는 경우 수동 마이그레이션을 수행 해야 합니다.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS 클래식: 블록 Blob 중복성을 위한 레거시 옵션
 > [!NOTE]
@@ -101,6 +127,8 @@ ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비
 ZRS 클래식은 GPv1(범용 V1) 저장소 계정의 **블록 Blob**에서만 사용할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage 탐색기, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
+
+ZRS 클래식 계정을 포털 또는 사용 하 여 Azure PowerShell 또는 Azure CLI에서 ZRS로 업그레이드할 수도 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 - [Azure Storage 복제](storage-redundancy.md)

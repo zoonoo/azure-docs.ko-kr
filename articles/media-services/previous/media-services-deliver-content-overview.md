@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173079"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316238"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -92,22 +92,22 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HLS(HTTP 라이브 스트리밍) V4 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HLS(HTTP 라이브 스트리밍) V3 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷
 기본적으로 오디오 전용 트랙은 HLS 매니페스트에 포함되어 있습니다. 셀룰러 네트워크에 대한 Apple 스토어 인증이 필요합니다. 이 경우 클라이언트가 충분한 대역폭이 없거나 2G 이상으로 연결되지 않은 경우 재생이 오디오 전용으로 전환됩니다. 이를 통해 콘텐츠 스트리밍이 버퍼링 없이 제공되지만 화면은 표시되지 않습니다. 일부 시나리오에서 오디오 전용 화면보다는 어느 정도 버퍼링이 발생하는 것이 나을 수도 있습니다. 오디오 전용 트랙을 제거하려는 경우 URL에 **audio-only=false** 를 추가합니다.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 자세한 내용은 [동적 매니페스트 컴퍼지션 지원 및 HLS 출력 추가 기능](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조하세요.
 
@@ -116,14 +116,14 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 예제:
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>부드러운 스트리밍 2.0 매니페스트(레거시 매니페스트)
 기본적으로 부드러운 스트리밍 매니페스트 형식에는 반복 태그(r 태그)가 포함됩니다. 그러나 일부 플레이어에서는 r 태그를 지원하지 않습니다. 이러한 플레이어를 사용하는 클라이언트는 r 태그를 사용하지 않도록 설정하는 형식을 사용할 수 있습니다.
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>점진적 다운로드
 점진적 다운로드를 사용하면 전체 파일이 다운로드되기 전에 미디어 재생을 시작할 수 있습니다. .ism*(ismv, isma, ismt, ismc) 파일을 점진적으로 다운로드할 수 없습니다.

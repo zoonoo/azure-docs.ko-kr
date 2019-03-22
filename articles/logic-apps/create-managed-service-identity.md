@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807272"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337598"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
 
@@ -152,7 +152,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 1. 요청 **메서드** 및 호출할 리소스의 **URI** 위치와 같이 해당 작업에 필요한 세부 정보를 제공합니다.
 
-   예를 들어 [Azure AD를 지원하는 이러한 Azure 서비스 중 하나](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 통해 Azure AD(Azure Active Directory) 인증을 사용한다고 가정해 봅시다. 
+   예를 들어 [Azure AD를 지원하는 이러한 Azure 서비스 중 하나](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 통해 Azure AD(Azure Active Directory) 인증을 사용한다고 가정해 봅시다. 
    **URI** 상자에 해당 Azure 서비스의 엔드포인트 URL을 입력합니다. 
    Azure Resource Manager를 사용하는 경우 **URI** 속성에 이 값을 입력합니다.
 
@@ -167,7 +167,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
    > [!IMPORTANT]
    > 
    > **대상** 속성에서, 리소스 ID 값은 필수 후행 슬래시를 포함하여 Azure AD의 예상과 정확히 일치해야 합니다. 
-   > 이러한 리소스 ID 값은 [Azure AD를 지원하는 Azure 서비스에 대해 설명하는 표](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)에서 찾을 수 있습니다. 
+   > 이러한 리소스 ID 값은 [Azure AD를 지원하는 Azure 서비스에 대해 설명하는 표](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에서 찾을 수 있습니다. 
    > 예를 들어 Azure Resoruce Manager 리소스 ID를 사용하는 경우 URI에 후행 슬래시가 있어야 합니다.
 
 1. 논리 앱을 원하는 방식으로 계속 빌드합니다.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285841"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319451"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -33,9 +33,9 @@ Application gateway는 전용된 가상 네트워크에 배포 합니다. 가상
 
 #### <a name="size-of-the-subnet"></a>서브넷 크기
 
-Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. 또한 Azure에서는 내부 사용을 위해 각 서브넷에서 처음 4개 및 마지막 IP 주소를 예약합니다. 예를 들어, application gateway는 세 개의 인스턴스와 없는 개인 프런트 엔드 IP로 설정 된, 경우 최소한 8 개의 IP 주소 서브넷-내부 사용에 대 한 5 개의 IP 주소 및 application gateway의 세 가지 인스턴스에 대 한 3 개의 IP 주소에에서 필요한 됩니다. 따라서이 경우에 / 29 서브넷 크기 이상이 필요 합니다. 세 개의 인스턴스가 있고 9 개의 IP 주소 필요 됩니다 개인 프런트 엔드 IP 구성에 대 한 IP 주소 3 개의 IP 주소가 application gateway의 세 가지 인스턴스에 대 한 개인 프런트 엔드 IP와 5 개의 IP에 대 한 하나의 IP 주소에 대 한 주소 내부 사용량입니다. 따라서이 경우에 / 28 서브넷 크기 이상이 필요 합니다.
+Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. Azure는-5 개의 IP 주소를 예약 하는 또한 처음 4 개 및 마지막 IP 주소-내부 사용에 대 한 각 서브넷에 있습니다. 예를 들어, 응용 프로그램 게이트웨이 인스턴스 15 개 및 없는 개인 프런트 엔드 IP로 설정 되어 있는 경우 적어도 20 개의 IP 주소 서브넷-내부 사용에 대 한 5 개의 IP 주소 및 application gateway의 인스턴스를 15 개 15 IP 주소에에서 필요한 됩니다. 따라서이 경우/27 서브넷 크기 이상이 필요 합니다. 27 인스턴스가 있고는 IP 주소에 대 한 개인 프런트 엔드 IP 구성을 33 ip가 필요한 수 하는 경우 개인 프런트 엔드 IP와 5 개의 IP에 대 한 하나의 IP 주소 27 인스턴스의 application gateway에 대 한 27 IP 주소 내부 사용에 대 한 주소입니다. 따라서이 경우에 / 26 서브넷 크기 이상이 필요 합니다.
 
-모범 사례로, 적어도/28을 사용 하 여 서브넷 크기입니다. 이렇게 하면 11 주소만 사용할 수 있습니다. 응용 프로그램 부하 10 개가 넘는 인스턴스를 요구 하는 경우/27 또는/26 고려해 야 서브넷 크기입니다.
+하나 이상의/28을 사용 하는 것이 좋습니다. 서브넷 크기입니다. 이렇게 하면 11 주소만 사용할 수 있습니다. 응용 프로그램 부하 10 개가 넘는 인스턴스를 요구 하는 경우/27 또는/26 고려해 야 서브넷 크기입니다.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 지원 되는 네트워크 보안 그룹
 

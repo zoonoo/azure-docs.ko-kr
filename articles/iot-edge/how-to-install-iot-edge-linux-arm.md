@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555645"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316102"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치
 
@@ -22,7 +22,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에서는 Linux ARM32v7/armhf Edge 디바이스에 Azure IoT Edge 런타임을 설치하는 단계가 나열합니다. 예를 들어 다음 단계는 Raspberry Pi 디바이스에서 작동합니다. 현재 지원되는 ARM32 운영 체제 목록은 [Azure IoT Edge 지원](support.md#operating-systems)을 참조하세요. 
+이 문서에서는 Linux ARM32v7/armhf IoT Edge 장치에서 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. 예를 들어 다음 단계는 Raspberry Pi 디바이스에서 작동합니다. 지원 되는 ARM32 운영 체제의 목록을 참조 하세요 [Azure IoT Edge 지원](support.md#operating-systems)합니다. 
 
 >[!NOTE]
 >Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
@@ -31,10 +31,9 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
 Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에 제공된 [Moby 기반](https://mobyproject.org/) 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 기반 런타임과 호환 가능합니다.
 
-아래 명령은 Moby 기반 엔진 및 CLI(명령줄 인터페이스)를 모두 설치합니다. CLI는 개발에 유용하지만 프로덕션 배포에서는 선택 사항입니다.
+다음 명령을 모 비 기반 엔진 및 명령줄 인터페이스 (CLI)를 모두 설치합니다. CLI는 개발에 유용하지만 프로덕션 배포에서는 선택 사항입니다.
 
 ```bash
-
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
 
@@ -46,12 +45,11 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 
 # Run apt-get fix
 sudo apt-get install -f
-
 ```
 
 ## <a name="install-the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼 설치
 
-**IoT Edge 보안 디먼**은 Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
+합니다 **IoT Edge 보안 디먼** 제공 하 고 IoT Edge 장치의 보안 표준을 유지 관리 합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
 
 
 ```bash
@@ -72,14 +70,13 @@ sudo apt-get install -f
 
 물리적 디바이스를 Azure IoT Hub에 있는 디바이스 ID와 연결하도록 IoT Edge 런타임을 구성합니다. 
 
-디먼은 `/etc/iotedge/config.yaml`에 있는 구성 파일을 사용하여 구성할 수 있습니다. 이 파일은 기본적으로 쓰기 금지되어 있습니다 편집하려면 관리자 권한이 필요합니다.
+디먼은 `/etc/iotedge/config.yaml`에 있는 구성 파일을 사용하여 구성할 수 있습니다. 파일 이므로 기본적으로 쓰기 금지 상승 된 권한을 편집 해야 할 수 있습니다.
 
 IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 IoT Edge 디바이스를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 디바이스를 프로비전할 수 있습니다. 이는 많은 디바이스를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
 
 ### <a name="option-1-manual-provisioning"></a>옵션 1: 수동 프로비전
 
-디바이스를 수동으로 프로비전하려면 IoT Hub에 새 디바이스를 등록하여 만들 수 있는 [디바이스 연결 문자열](how-to-register-device-portal.md)을 디바이스에 프로비전해야 합니다.
-
+수동으로 장치를 프로 비전을 사용 하 여 제공 해야는 [장치 연결 문자열](how-to-register-device-portal.md) IoT hub에 새 IoT Edge 장치를 등록 하 여 만들 수 있습니다.
 
 구성 파일을 엽니다. 
 
@@ -89,21 +86,21 @@ sudo nano /etc/iotedge/config.yaml
 
 파일의 프로비전 섹션을 찾아서 **수동** 프로비전 모드의 주석 처리를 제거합니다. **device_connection_string**의 값을 IoT Edge 디바이스의 연결 문자열로 업데이트합니다.
 
-   ```yaml
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```yaml
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   # provisioning: 
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
-   ```
+# provisioning: 
+#   source: "dps"
+#   global_endpoint: "https://global.azure-devices-provisioning.net"
+#   scope_id: "{scope_id}"
+#   registration_id: "{registration_id}"
+```
 
 파일을 저장하고 닫습니다. 
 
-   `CTRL + X`, `Y`, `Enter`
+`CTRL + X`, `Y`, `Enter`
 
 구성 파일에서 프로비전 정보를 입력한 후 디먼을 다시 시작합니다.
 
@@ -123,21 +120,21 @@ sudo nano /etc/iotedge/config.yaml
 
 파일의 프로비전 섹션을 찾아서 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id** 값을 IoT Hub 디바이스 프로비전 서비스 및 TPM이 있는 IoT Edge 디바이스의 값으로 업데이트합니다. 
 
-   ```yaml
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```yaml
+# provisioning:
+#   source: "manual"
+#   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   provisioning: 
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
-   ```
+provisioning: 
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "{scope_id}"
+  registration_id: "{registration_id}"
+```
 
 파일을 저장하고 닫습니다. 
 
-   `CTRL + X`, `Y`, `Enter`
+`CTRL + X`, `Y`, `Enter`
 
 구성 파일에서 프로비전 정보를 입력한 후 디먼을 다시 시작합니다.
 
@@ -147,7 +144,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 디바이스에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 디바이스를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Linux 가상 머신에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)을 참조하세요.
+이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 디바이스에 성공적으로 프로비전하고 실행해야 합니다. 또는 사용 하는 경우는 **자동 구성을** 단계, 런타임이 사용자 대신 IoT hub를 사용 하 여 장치를 등록할 수 있도록 몇 가지 추가 단계를 완료 해야 합니다. 다음 단계를 참조 하세요. [만들기 및 Linux 가상 컴퓨터에서 시뮬레이션된 된 TPM IoT Edge 장치를 프로 비전](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)합니다.
 
 다음을 사용하여 IoT Edge 디먼의 상태를 확인할 수 있습니다.
 
@@ -208,6 +205,6 @@ sudo apt-get remove --purge moby-engine
 
 런타임을 설치하여 IoT Edge 디바이스를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
-Edge 런타임을 제대로 설치하는 데 문제가 있으면 [문제 해결](troubleshoot.md#stability-issues-on-resource-constrained-devices) 페이지를 참조하세요.
+IoT Edge 런타임이 제대로 설치를 사용 하 여 문제가 되는 경우 참조를 [문제 해결](troubleshoot.md#stability-issues-on-resource-constrained-devices) 페이지입니다.
 
 기존 설치를 최신 버전의 IoT Edge로 업데이트하려면 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.

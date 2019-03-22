@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 7872ed2c9d6f094907ae4d11adef6bc7a99be8e4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782890"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339570"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -29,7 +29,7 @@ ms.locfileid: "57782890"
 
 [할당량](azure-stack-plan-offer-quota-overview.md#plans) 사용자 구독 프로 비전 하거나 사용할 수 있는 리소스의 한계를 정의 합니다. 예를 들어 할당량 사용자 최대 5 개의 Vm을 만들 수 있습니다. 각 리소스에는 자체 할당량 유형을 가질 수 있습니다.
 
-## <a name="compute-quota-types"></a>계산 할당량 형식 
+## <a name="compute-quota-types"></a>계산 할당량 형식
 
 | **형식** | **기본값** | **설명** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ ms.locfileid: "57782890"
 | 최대 용량 (GB)의 표준 관리 디스크 | 2048 | 이 위치에서 만든 표준 관리 디스크의 최대 용량입니다. |
 | 프리미엄 관리 디스크의 최대 용량 (GB)의 | 2048 | Premium의 최대 용량이이 위치에 만든 디스크를 관리 합니다. |
 
-## <a name="storage-quota-types"></a>저장소 할당량 유형 
+## <a name="storage-quota-types"></a>저장소 할당량 유형
 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
-| 최대 용량 (GB) |2048 |총 저장소 용량 (blob 및 모든 assiociated 스냅숏, 테이블, 큐 등)이이 위치에서 구독을 사용할 수 있습니다. |
+| 최대 용량 (GB) |2048 |총 저장소 용량 (blob와 연결 된 모든 스냅숏, 테이블, 큐 등)이이 위치에 구독에서 사용할 수 있는입니다. |
 | 저장소 계정의 총 수 |20 |이 위치에서 구독을 만들 수 있는 저장소 계정의 최대 수입니다. |
 
 > [!NOTE]  
 > 저장소 할당량을 적용 하기 전에 최대 2 시간이 걸릴 수 있습니다.
-
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
 
@@ -69,10 +68,10 @@ ms.locfileid: "57782890"
 
 ### <a name="plans"></a>요금제
 
-1.  관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
-2.  해당 이름을 클릭 하 여에 대 한 세부 정보를 확인 하려는 계획을 선택 합니다.
-3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
-4.  클릭 하 여 확인 하려는 할당량을 선택 합니다 **이름을** 열입니다.
+1. 관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
+2. 해당 이름을 클릭 하 여에 대 한 세부 정보를 확인 하려는 계획을 선택 합니다.
+3. 열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
+4. 클릭 하 여 확인 하려는 할당량을 선택 합니다 **이름을** 열입니다.
 
     [![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ ms.locfileid: "57782890"
 
 ### <a name="edit-a-plan"></a>계획을 편집 합니다.
 
-1.  관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
-2.  해당 이름을 클릭 하 여 할당량을 편집 하려는 계획을 선택 합니다.
-3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
-4.  클릭 하 여 편집 하려는 할당량을 선택 합니다 **이름을** 열입니다.
+1. 관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
+2. 해당 이름을 클릭 하 여 할당량을 편집 하려는 계획을 선택 합니다.
+3. 열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
+4. 클릭 하 여 편집 하려는 할당량을 선택 합니다 **이름을** 열입니다.
     [![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  열리는 블레이드에서 선택 **계산에서 편집**를 **네트워크에서 편집**, 또는 **저장소에서 편집**합니다.
-    ![할당량](media/azure-stack-quota-types/quotas3.png "할당량 보기")    
+5. 열리는 블레이드에서 선택 **계산에서 편집**를 **네트워크에서 편집**, 또는 **저장소에서 편집**합니다.
+    ![할당량](media/azure-stack-quota-types/quotas3.png "할당량 보기")
 
 또는 할당량을 편집 하는이 절차를 따를 수 있습니다.
 
@@ -106,9 +105,9 @@ ms.locfileid: "57782890"
 
 ### <a name="edit-original-configuration"></a>원래 구성 편집
   
-대신 할당량의 원래 구성 편집 하도록 선택할 수 있습니다 [는 추가 요금제를 사용 하 여](create-add-on-plan.md)입니다. 할당량을 편집할 때 새 구성이 자동으로 적용 전역적으로 해당 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 있습니다. 할당량 편집 하는 것은 사용자가 구독할 수 있는 수정 된 할당량을 제공 하는 추가 요금제를 사용 하면 다릅니다. 
+대신 할당량의 원래 구성 편집 하도록 선택할 수 있습니다 [는 추가 요금제를 사용 하 여](create-add-on-plan.md)입니다. 할당량을 편집할 때 새 구성이 자동으로 적용 전역적으로 해당 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 있습니다. 할당량 편집 하는 것은 사용자가 구독할 수 있는 수정 된 할당량을 제공 하는 추가 요금제를 사용 하면 다릅니다.
 
-할당량에 대 한 새 값의 수정 된 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 전역적으로 적용 합니다. 
+할당량에 대 한 새 값의 수정 된 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 전역적으로 적용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

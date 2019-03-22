@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010498"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319519"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -85,6 +85,8 @@ ms.locfileid: "58010498"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   Azure Marketplace PAYG RHEL 이미지에는 풀을 연결 하면 됩니다 효과적으로 두 번 청구 RHEL 사용량에 대 한: 종 량 제 이미지에 한 번씩 및 한 번 연결 풀에서 RHEL 자격에 대 한 합니다. 이 문제를 완화 하려면 Azure BYOS RHEL를 이미지 이제 제공 합니다. 자세한 내용은 [여기](https://aka.ms/rhel-byos)합니다.
+
 1. **[A]** SAP 리포지토리에 RHEL 사용
 
    필수 패키지를 설치하려면 다음 리포지토리를 사용하도록 설정합니다.
@@ -144,10 +146,10 @@ ms.locfileid: "58010498"
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ ms.locfileid: "58010498"
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
 1. <https://portal.azure.com>으로 이동합니다.
-1. Azure Active Directory 블레이드 열기  
-   속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
+1. 속성 및 여 Directory ID 기록으로 이동 하 여 Azure Active Directory 블레이드를 엽니다 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
 1. 추가를 클릭합니다.
-1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예를 들어 `http://localhost`) 만들기를 클릭 합니다.
+1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예: http:\//localhost) 만들기를 클릭 합니다.
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭

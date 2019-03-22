@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3f42aa57a4db445f0fb222905a6350b57c2c2a62
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847062"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315618"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -39,16 +39,12 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 영역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
-[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[공용 미국 중서부](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 
 이 표는 서비스 업데이트가 있거나 지원되는 새 버전을 사용할 수 있을 때 업데이트됩니다.
-
-> [!NOTE]
-> 2018-10-01은 현재 배포되고 있으며 곧 다른 지역에서도 제공될 예정입니다. 이 표는 서비스 업데이트가 있거나 지원되는 새 버전을 사용할 수 있을 때 업데이트됩니다.
 
 Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
 
@@ -355,7 +351,7 @@ resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-res
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 계획 | [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) 에서 VM에 대 한 해당 Azure Marketplace 이미지를 이름, 제품 및 게시자를 포함 합니다. | 2018-04-02
 provider | VM의 공급자 | 2018-10-01
-publicKeys | VM 및 경로에 할당된 공개 키 컬렉션[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] | 2018-04-02
+publicKeys | [공개 키의 컬렉션](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) VM 및 경로에 할당 | 2018-04-02
 vmScaleSetName | 가상 머신 확장 집합의 [Virtual Machine ScaleSet 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02

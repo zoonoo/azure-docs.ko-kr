@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894022"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316597"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -84,11 +84,11 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 필터가 있는 MPEG DASH URL
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
 
 필터가 있는 부드러운 스트리밍 URL
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
 콘텐츠를 전달하고 스트리밍 URL을 빌드하는 방법에 대한 자세한 내용은 [콘텐츠 배달 개요](media-services-deliver-content-overview.md)를 참조하세요.

@@ -3,7 +3,7 @@ title: Azure Service Fabric 네트워킹 소개 | Microsoft Docs
 description: Service Fabric Mesh에서 네트워크, 게이트웨이 및 인텔리전트 트래픽 라우팅에 대해 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/26/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d9f5c71d05477094d733fd6b798831b3ff02ce1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893447"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339264"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Service Fabric Mesh 애플리케이션의 네트워킹 소개
 이 문서에서는 다양한 유형의 부하 분산 장치, 게이트웨이가 사용자 애플리케이션을 사용하는 네트워크를 다른 네트워크에 연결하는 방법 및 애플리케이션에서 서비스 간에 트래픽이 라우팅되는 방법을 설명합니다.

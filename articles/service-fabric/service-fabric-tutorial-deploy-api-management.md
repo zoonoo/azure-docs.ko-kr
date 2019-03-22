@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844210"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312226"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -142,7 +142,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 문서에서는 "<http://servicefabric>"입니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어가이 문서에 대 한 "http:\//servicefabric"입니다.
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.

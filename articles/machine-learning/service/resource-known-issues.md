@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58171060"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336272"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -57,7 +57,7 @@ Databricks 및 Azure Machine Learning 문제.
 자세한 패키지를 설치할 때 Azure Databricks에서 azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 동결 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning 서비스 SDK 아니라 Databricks에 관련 되어 있습니다. 다른 라이브러리를 사용 하 여이 문제는 너무 발생할 수 있습니다. 예제:
 
 ```python
-pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
 또는 Python 라이브러리를 사용 하 여 설치 문제가 유지 하는 경우 초기화 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)합니다.

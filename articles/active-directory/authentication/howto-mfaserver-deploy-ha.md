@@ -1,5 +1,5 @@
 ---
-title: 고가용성을 위한 Azure MFA 서버 구성 | Microsoft Docs
+title: 고가용성-Azure Active Directory에 대 한 Azure MFA 서버를 구성 합니다.
 description: 고가용성을 제공하는 구성에서 Azure Multi-Factor Authentication 서버의 여러 인스턴스를 배포합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26216131b461a395d3c87895a055d3ae30abf87c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198816"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316306"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837748"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316918"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
@@ -73,7 +73,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Azure Portal을 사용하여 v3 리소스를 관리할 수 있나요?
 
-아직 없습니다. 지원되는 SDK 중 하나를 사용할 수 있습니다. 이 문서 집합에 있는 자습서와 샘플을 참조하세요.
+현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 

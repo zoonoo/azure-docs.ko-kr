@@ -3,18 +3,18 @@ title: Azure Service Fabric Mesh 앱의 확장성 | Microsoft Docs
 description: Azure Service Fabric Mesh에서 서비스 크기 조정에 대해 알아봅니다.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c58961011231f74b09abdf313b8624ddc8ad52c1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893406"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339086"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Service Fabric Mesh 애플리케이션 크기 조정
 
@@ -22,7 +22,7 @@ Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주�
 
 ## <a name="manual-scaling-instances"></a>인스턴스 수동 크기 조정
 
-애플리케이션 리소스에 대한 배포 템플릿에서, 각 서비스에는 서비스 배포 횟수를 설정하는 데 사용할 수 있는 *replicaCount* 속성이 있습니다. 애플리케이션은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *replicaCount* 수가 있습니다. 서비스 복제본의 수를 조정하려면 배포 템플릿 또는 매개 변수 파일에서 조정하려는 서비스의 *replicaCount* 값을 수정합니다. 그런 다음, 애플리케이션을 업그레이드합니다.
+애플리케이션 리소스에 대한 배포 템플릿에서, 각 서비스에는 서비스 배포 횟수를 설정하는 데 사용할 수 있는 *replicaCount* 속성이 있습니다. 애플리케이션은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *replicaCount* 수가 있습니다. 서비스 복제본의 수를 조정하려면 배포 템플릿 또는 매개 변수 파일에서 조정하려는 서비스의 *replicaCount* 값을 수정합니다. 그런 후 애플리케이션을 업그레이드합니다.
 
 서비스 인스턴스 수동 크기 조정의 예제에 대한 자세한 내용은 [수동으로 서비스 크기 확대 또는 축소](service-fabric-mesh-tutorial-template-scale-services.md)를 참조하세요.
 
@@ -39,4 +39,4 @@ Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주�
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 모델에 대한 자세한 내용은 [Service Fabric 리소스](service-fabric-mesh-service-fabric-resources.md)를 참조하세요.
+애플리케이션 모델에 대한 자세한 내용은 [Service Fabric 리소스](service-fabric-mesh-service-fabric-resources.md)를 참조하세요.

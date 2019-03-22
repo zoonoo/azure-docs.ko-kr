@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086108"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315150"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -190,7 +190,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스는 `blockBlob`만 지원합니다. | 예 |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob를 일치 시킬 "<https://myaccount.blob.core.windows.net/container1/foo/>..." 규칙은 prefixMatch는 `container1/foo`합니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아닙니다. |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob을 검색 하려면 "https:\//myaccount.blob.core.windows.net/container1/foo/..." 규칙은 prefixMatch는 `container1/foo`합니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업
 

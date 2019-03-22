@@ -4,17 +4,17 @@ description: Azure IoT Edge 런타임에서 디바이스에 대한 보고, 모�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230427"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311602"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -24,15 +24,15 @@ IoT Edge 런타임은 IoT Edge 디바이스에서 다음 기능을 수행합니�
 
 * 디바이스에 워크로드를 설치하고 업데이트합니다.
 * 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
-* [IoT Edge 모듈](iot-edge-modules.md)이 항상 실행되도록 합니다.
+* 했는지 [IoT Edge 모듈](iot-edge-modules.md) 항상 실행 됩니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
-* 다운스트림 리프 디바이스와 IoT Edge 디바이스 간의 통신을 용이하게 합니다.
-* IoT Edge 디바이스의 모듈 간 통신을 용이하게 합니다.
-* IoT Edge 디바이스와 클라우드 간 통신을 용이하게 합니다.
+* 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이 하 게 합니다.
+* IoT Edge 장치의 모듈 간 통신을 용이 하 게 합니다.
+* IoT Edge 장치와 클라우드 간의 통신을 용이 하 게 합니다.
 
 ![런타임은 인사이트 및 모듈 상태를 IoT Hub에 전달합니다.](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. IoT Edge 허브는 통신을 담당하고, IoT Edge 에이전트는 모듈 배포 및 모니터링을 관리합니다. 
+IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. 합니다 *IoT Edge 허브* 통신을 담당 하는 동안 합니다 *IoT Edge 에이전트* 배포 하 고 모듈을 모니터링 합니다. 
 
 IoT Edge 허브와 IoT Edge 에이전트는 모두 IoT Edge 디바이스에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
 
@@ -52,11 +52,11 @@ IoT Edge 허브는 IoT Edge 솔루션에서 사용하는 대역폭을 줄이기 
 
 ![IoT Edge 허브는 물리적 디바이스와 IoT Hub 간의 게이트웨이입니다.](./media/iot-edge-runtime/Gateway.png)
 
- IoT Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 IoT Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 IoT Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 저장 용량이 있는 동안에는 증가합니다. 
+IoT Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 IoT Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 IoT Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 저장 용량이 있는 동안에는 증가합니다. 
 
 ### <a name="module-communication"></a>모듈 통신
 
- IoT Edge 허브는 모듈 간 통신을 용이하게 합니다. IoT Edge 허브를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
+IoT Edge 허브는 모듈 간 통신을 용이하게 합니다. IoT Edge 허브를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
 
 ![IoT Edge 허브는 모듈 간 통신을 용이하게 합니다](./media/iot-edge-runtime/module-endpoints.png)
 

@@ -4,18 +4,16 @@ description: Beeline 클라이언트를 사용하여 HDInsight에서 Hadoop과 H
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: beeline hive,hive beeline
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200484"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336000"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -24,8 +22,11 @@ ms.locfileid: "58200484"
 Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
 * __헤드 노드 또는 에지 노드에 대한 SSH 연결에서 Beeline 사용__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+
 * __Azure Virtual Network를 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Azure Virtual Network를 통해 HDInsight ESP(Enterprise Security Package) 클러스터에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
+
+* __Azure Virtual Network를 통해 HDInsight ESP(Enterprise Security Package) 클러스터에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+
 * __공용 인터넷을 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -37,7 +38,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 >
 > 가상 네트워크를 통해 클러스터에 연결할 때 `<headnode-FQDN>`을 클러스터 헤드 노드의 정규화된 도메인 이름으로 바꿉니다.
 >
-> ESP(Enterprise Security Package) 클러스터에 연결하는 경우 `<AAD-Domain>`을 클러스터가 조인된 AAD(Azure Active Directory)의 이름으로 바꿉니다. `<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다.
+> ESP(Enterprise Security Package) 클러스터에 연결하는 경우 `<AAD-DOMAIN>`을 클러스터가 조인된 AAD(Azure Active Directory)의 이름으로 바꿉니다. 에 대 한 대문자 문자열을 사용 하 여는 `<AAD-DOMAIN>` 값 그렇지 않은 경우 자격 증명을 찾을 수 없습니다. 확인 `/etc/krb5.conf` 필요한 경우 영역 이름에 대 한 합니다. `<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. 
 
 ## <a id="prereq"></a>필수 조건
 

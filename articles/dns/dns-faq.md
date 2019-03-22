@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098096"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337118"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -103,9 +103,11 @@ TXT 레코드에 대해 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 영역 
 ## <a name="alias-records"></a>별칭 레코드
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>별칭 레코드는 어떤 시나리오에서 유용한가요?
+
 [Azure DNS 별칭 레코드 개요](dns-alias.md)의 시나리오 섹션을 참조하세요.
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>별칭 레코드 집합에 지원되는 레코드 유형은 무엇인가요?
+
 Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지원됩니다.
  
 - A 
@@ -116,30 +118,36 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 - **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
 - **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
+- **Azure 콘텐츠 배달 네트워크 (CDN) 끝점을 가리키도록**합니다. Azure storage 및 Azure CDN을 사용 하 여 정적 웹 사이트를 만들 때 유용 합니다.
 - **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Azure Portal에서 별칭 레코드를 만들고 업데이트할 수 있나요?
+
 예. Azure REST API, PowerShell, CLI 및 SDK와 함께 Azure Portal에서 별칭 레코드를 만들거나 관리할 수 있습니다.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>별칭 레코드를 사용하면 기본 공용 IP가 삭제될 때 DNS 레코드 집합이 삭제되는지 확인할 수 있나요?
+
 예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 애플리케이션의 사용자를 위한 잠재적인 중단을 방지하는 데 도움이 됩니다.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>별칭 레코드를 사용하면 기본 공용 IP 주소가 변경될 때 DNS 레코드가 올바른 IP 주소로 업데이트되는지 확인할 수 있나요?
+
 예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 애플리케이션의 사용자를 위한 잠재적인 중단 또는 보안 위험을 방지하는 데 도움이 됩니다.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>A 또는 AAAA 레코드에 대한 별칭 레코드 집합을 사용하여 Traffic Manager를 가리키는 경우 제한 사항이 있나요?
+
 예. A 또는 AAAA 레코드 집합의 별칭으로 Traffic Manager 프로필을 가리키려면 Traffic Manager 프로필이 외부 엔드포인트만 사용해야 합니다. Traffic Manager에서 외부 엔드포인트를 만들 때 엔드포인트의 실제 IP 주소를 제공해야 합니다.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>별칭 레코드를 사용하기 위한 추가 비용이 있나요?
+
 별칭 레코드는 유효한 DNS 레코드 집합으로 한정됩니다. 별칭 레코드에 대한 추가 비용은 청구되지 않습니다.
 
 ## <a name="use-azure-dns"></a>Azure DNS 사용
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Azure DNS 및 다른 DNS 공급자를 사용하여 도메인을 공동 호스트할 수 있나요?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>공동 호스트할 수 있나요 도메인을 Azure DNS 및 다른 DNS 공급자를 사용 하 여?
 
 예. Azure DNS에서는 다른 DNS 서비스와의 도메인 공동 호스팅을 지원합니다.
 
-공동 호스팅을 설정하려면 두 공급자의 이름 서버를 가리키도록 도메인의 NS 레코드를 수정합니다. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+공동 호스팅을 설정 하려면 두 공급자의 이름 서버를 가리키도록 도메인의 NS 레코드를 수정 합니다. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
 
@@ -271,10 +279,9 @@ API, PowerShell, CLI 및 SDK를 통해 이미 만든 개인 영역은 Azure Port
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure DNS에 대해 자세히 알아봅니다](dns-overview.md).
-<br>
-- [개인 도메인에 Azure DNS를 사용하는 방법에 대해 자세히 알아봅니다](private-dns-overview.md).
-<br>
-- [DNS 영역 및 레코드에 대해 자세히 알아봅니다](dns-zones-records.md).
-<br>
-- [Azure DNS 시작](dns-getstarted-portal.md)
 
+- [개인 도메인에 Azure DNS를 사용하는 방법에 대해 자세히 알아봅니다](private-dns-overview.md).
+
+- [DNS 영역 및 레코드에 대해 자세히 알아봅니다](dns-zones-records.md).
+
+- [Azure DNS 시작](dns-getstarted-portal.md)

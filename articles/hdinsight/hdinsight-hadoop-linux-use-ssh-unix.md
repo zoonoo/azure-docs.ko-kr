@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724326"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337819"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -57,7 +57,7 @@ Microsoft Windows는 기본적으로 SSH 클라이언트를 설치하지 않습�
 
 * [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about): `ssh` 및 `scp` 명령은 Windows 명령줄에서 Bash를 통해 사용할 수 있습니다.
 
-* [OpenSSH 클라이언트(베타)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Windows 10 Fall Creators Update에 도입된 선택적 기능입니다.
+* [OpenSSH 클라이언트(베타)](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Windows 10 Fall Creators Update에 도입된 선택적 기능입니다.
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell은 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
 

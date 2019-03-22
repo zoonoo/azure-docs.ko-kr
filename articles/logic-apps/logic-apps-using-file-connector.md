@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870997"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316969"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
@@ -48,7 +48,7 @@ ms.locfileid: "57870997"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **파일을 만들 때** 
+1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **파일을 만들 때**
 
    ![Dropbox 트리거 선택](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "57870997"
    | **gateway** | 예 | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 | 
    ||| 
 
-1. 작업을 완료하면 **만들기**를 선택합니다. 
+1. 작업을 완료하면 **만들기**를 선택합니다.
 
    Logic Apps는 연결을 구성하고 테스트하여 제대로 작동되는지 확인합니다. 
    연결이 제대로 설정되면 이전에 선택한 작업에 대한 옵션이 표시됩니다. 

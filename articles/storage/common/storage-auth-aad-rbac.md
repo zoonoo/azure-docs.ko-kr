@@ -1,19 +1,19 @@
 ---
-title: Azure portal을 사용 하 여 컨테이너 및 RBAC (미리 보기)-Azure Storage를 사용 하 여 큐에 Azure AD 액세스 권한을 관리 하려면 | Microsoft Docs
+title: 컨테이너 및 RBAC (미리 보기)-Azure Storage를 사용 하 여 큐에 Azure AD 액세스 권한을 관리 하려면 Azure portal을 사용 합니다.
 description: Azure portal에서 역할 기반 액세스 제어 (RBAC)를 사용 하 여 컨테이너 및 보안 주체에는 큐에 대 한 액세스를 할당 합니다. Azure Storage는 Azure AD 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431859"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319502"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Azure 컨테이너 및 Azure portal (미리 보기)에서 RBAC 사용 하 여 큐 액세스 권한 부여
 
@@ -101,14 +101,6 @@ Azure portal에서 Azure AD 자격 증명을 사용 하 여 blob 및 큐 리소�
 
 > [!NOTE]
 > 읽기 권한자 역할을 할당 하는 것은 blob 또는 Azure portal을 사용 하 여 큐에 액세스 해야 하는 사용자에만 필요 합니다. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>포털을 사용 하 여 Azure AD 자격 증명을 사용 합니다.
-
-Blob 또는 Azure AD 자격 증명을 사용 하 여 Azure portal에서 큐에 액세스 하려면 다음 이미지에 표시 된 미리 보기 링크를 사용 합니다.
-
-![포털에서 Azure AD 자격 증명을 사용 하 여 큐 또는 blob 액세스](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-미리 보기 링크 대신 프로덕션 링크를 사용 하 여 blob 또는 큐 데이터에 액세스 하는 경우 Azure portal 계정 키를 사용 하 여 Azure AD를 사용 하는 것이 아니라 액세스 권한을 부여 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

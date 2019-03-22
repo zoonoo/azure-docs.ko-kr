@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000277"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311019"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
 
@@ -291,7 +291,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>OAuth 액세스 토큰 획득
 
-`adal` 패키지를 사용하여(`pip install adal`) MSFT 테넌트에서 인증 컨텍스트를 만들고 OAuth 액세스 토큰을 획득합니다. ADLS의 경우 토큰 요청의 리소스는 대부분의 다른 Azure 리소스와는 달리 ‘ https://datalake.azure.net ’에 있어야 합니다.
+`adal` 패키지를 사용하여(`pip install adal`) MSFT 테넌트에서 인증 컨텍스트를 만들고 OAuth 액세스 토큰을 획득합니다. ADLS에 대 한 토큰 요청에 리소스에 대 한 있어야 ' https:\//datalake.azure.net', 대부분의 다른 Azure 리소스와에서는 달리 합니다.
 
 ```python
 import adal

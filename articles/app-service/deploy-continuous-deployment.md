@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725238"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337547"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 이 문서에서는 [Azure App Service](overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
@@ -47,6 +47,16 @@ GitHub를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure P
 ### <a name="option-1-use-app-service-kudu-build-server"></a>옵션 1: App Service Kudu 빌드 서버 사용
 
 **구성** 페이지에서 지속적으로 배포하려는 조직, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+
+GitHub 조직에서 리포지토리의 배포 하려면 GitHub로 이동 하 고 이동할 **설정을** > **응용 프로그램** > **권한이 부여 된 OAuth 앱**. "Azure App Service"를 클릭 합니다.
+
+![설정 > 응용 프로그램 > 권한 있는 OAuth 앱 > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+다음 페이지의 오른쪽에 있는 "권한 부여" 단추를 클릭 하 여 조직의 리포지토리에 앱 서비스 액세스를 부여 합니다.
+
+![조직의 리포지토리에 앱 서비스 액세스 권한을 부여 하려면 "권한 부여"를 클릭 합니다.](media/app-service-continuous-deployment/grant-access.png)
+
+이제 조직에서 "조직" 목록에 표시 합니다 **구성** 배포 센터 페이지입니다.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>옵션 2: Azure Pipelines(미리 보기) 사용
 

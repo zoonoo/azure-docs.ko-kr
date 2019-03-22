@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097613"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336078"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -94,7 +94,7 @@ az keyvault delete --name ContosoVault
 ```azurecli
 az keyvault list-deleted
 ```
-- *ID*를 사용하여 복구 또는 제거할 때 리소스를 식별할 수 있습니다. 
+- *ID* 복구 또는 제거 하는 경우 해당 리소스를 식별할 수 있습니다. 
 - *리소스 ID*는 이 자격 증명 모음의 원본 리소스 ID입니다. 이제 이 Key Vault가 삭제된 상태로 있으므로 해당 리소스 ID를 사용하는 리소스가 없습니다. 
 - *예약된 제거 날짜*는 어떤 작업도 수행되지 않는 경우 자격 증명 모음이 영구적으로 삭제되는 시기입니다. *예약된 제거 날짜*를 계산하는 데 사용되는 기본 보존 기간은 90일입니다.
 
@@ -222,6 +222,24 @@ az keyvault purge --location westus --name ContosoVault
 
 >[!IMPORTANT]
 >해당 *예약된 제거 날짜* 필드에 의해 트리거되는 제거된 자격 증명 모음 개체가 영구적으로 삭제됩니다. 이는 복구할 수 없습니다!
+
+## <a name="enabling-purge-protection"></a>보호 제거를 사용 하도록 설정
+
+보호 제거 삭제 된 자격 증명 모음 또는 개체에 설정 된 경우 90 일의 보존 기간이 경과 될 때까지 상태를 비울 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 이 기능을 사용 하면 자격 증명 모음 또는 개체가 될 수 없습니다 영구적으로 추가 된 보증 경과할 때까지 보존 기간을 삭제 합니다.
+
+일시 삭제를 함께 사용 하는 경우에 보호 제거를 사용할 수 있습니다. 
+
+모두 일시 삭제를 설정 하 고 자격 증명 모음을 만들 때 보호 제거를 사용 합니다 [az keyvault 만들기](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+보호 제거 (이미 있는 일시 삭제가 활성화 되어)는 기존 자격 증명 모음에 추가를 사용 합니다 [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) 명령:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>기타 리소스
 

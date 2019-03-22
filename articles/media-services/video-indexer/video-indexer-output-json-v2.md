@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: feb74b923a1f15105a2d80f8fefb09184162cb9b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990465"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314878"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>v2 API에서 생성된 Video Indexer 출력 검사
 
@@ -35,7 +35,7 @@ ms.locfileid: "55990465"
 
 ## <a name="root-elements"></a>루트 요소
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
@@ -95,7 +95,7 @@ ms.locfileid: "55990465"
 
 ## <a name="videos"></a>videos
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
@@ -200,7 +200,7 @@ id|블록의 ID입니다.|
 
 #### <a name="transcript"></a>대본
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -238,41 +238,33 @@ id|블록의 ID입니다.|
 
 #### <a name="ocr"></a>ocr
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
 |언어|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
+|height|OCR 사각형의 높이|
+|top|Px 상위 위치|
+|left| Px 왼쪽된 위치|
+|width|OCR 사각형의 너비|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }
@@ -281,7 +273,7 @@ id|블록의 ID입니다.|
 
 #### <a name="keywords"></a>키워드
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -328,7 +320,7 @@ id|블록의 ID입니다.|
 
 #### <a name="faces"></a>얼굴
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|얼굴 ID입니다.|
 |이름|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
@@ -373,7 +365,7 @@ id|블록의 ID입니다.|
 
 #### <a name="labels"></a>레이블
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|레이블 ID입니다.|
 |이름|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -432,7 +424,7 @@ id|블록의 ID입니다.|
 
 #### <a name="shots"></a>샷
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
@@ -491,7 +483,7 @@ id|블록의 ID입니다.|
 
 음성 텍스트 변환 전사 및/또는 Video OCR에서 감지된 비즈니스 및 제품 브랜드 이름입니다. 여기에는 브랜드 또는 로고 감지의 시각적 인식이 포함되지 않습니다.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|브랜드 ID입니다.|
 |이름|브랜드 이름입니다.|
@@ -550,7 +542,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -560,7 +552,7 @@ id|블록의 ID입니다.|
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|오디오 효과 ID입니다.|
 |형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
@@ -589,7 +581,7 @@ id|블록의 ID입니다.|
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -628,7 +620,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 비공개 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|
@@ -664,7 +656,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|텍스트 콘텐츠 조정 ID입니다.|
 |bannedWordsCount |금지된 단어의 수입니다.|
@@ -674,7 +666,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 Video Indexer는 음성 및 오디오 신호에 따라 감정을 식별합니다. 식별된 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|감정 ID입니다.|
 |형식|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
@@ -764,7 +756,7 @@ Video Indexer는 음성 및 오디오 신호에 따라 감정을 식별합니다
 
 Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우 [IPTC](https://iptc.org/standards/media-topics/) 수준 1 분류가 포함됩니다. 
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |id|주제 ID입니다.|
 |이름|주제 이름입니다. 예: "제약"|

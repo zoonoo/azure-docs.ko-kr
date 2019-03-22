@@ -1,5 +1,5 @@
 ---
-title: Azure AD 암호 보호 작업 및 보고
+title: Azure AD 암호 보호 작업 및 보고-Azure Active Directory
 description: Azure AD 암호 보호 배포 후 작업 및 보고
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285805"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312430"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 암호 보호 운영 절차
 

@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시는, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898085"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339587"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
 이 가이드는 Azure Dev Spaces를 사용할 때 발생할 수 있는 일반적인 문제에 대한 정보를 포함합니다.
+
+Azure 개발 공간을 사용할 때 문제가 있으면 만들는 [Azure 개발 공간 GitHub 리포지토리에 문제](https://github.com/Azure/dev-spaces/issues)합니다.
 
 ## <a name="enabling-detailed-logging"></a>자세한 로깅 사용
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 가상 노드에 대한 ‘컨테이너 이미지 빌드 대기 중...’ 단계에서 Dev Spaces가 시간 초과됩니다.
 
 ### <a name="reason"></a>이유
-이 오류는 Dev Spaces를 사용하여 [AKS 가상 노드](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)에서 실행되도록 구성된 서비스를 실행하려고 할 때 발생합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
+실행 하도록 구성 된 서비스를 실행 하려면 개발자 공간을 사용 하려고 할 때이 시간 초과 발생을 [AKS 가상 노드](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
 
 `--verbose` 스위치를 사용하여 `azds up`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-이는 가상 노드인 *virtual-node-aci-linux*에 서비스의 Pod가 할당되었음을 보여 줍니다.
+위의 명령은 서비스의 pod를 할당할 수 있음을 보여 줍니다 *가상-노드-aci-linux*, 가상 노드는 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 서비스에 대한 Helm 차트를 업데이트하여 가상 노드에서 서비스를 실행할 수 있도록 하는 *nodeSelector* 및/또는 *tolerations* 값을 제거합니다. 이러한 값은 일반적으로 차트의 `values.yaml` 파일에서 정의됩니다.

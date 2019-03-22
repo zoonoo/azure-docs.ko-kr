@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161364"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315354"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 C# Service Fabric 애플리케이션 개발
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>VS Code에서 응용 프로그램 열기
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 시작 메뉴에서 VS Code 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 디버거를 서비스에 연결하려면 관리자 권한으로 VS Code를 실행해야 합니다.
 
 ### <a name="linux"></a>Linux
@@ -70,11 +70,11 @@ sudo code . --user-data-dir='.'
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. 배포가 완료되면 브라우저를 시작하고 http://localhost:19080/Explorer의 Service Fabric Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
+4. 배포가 완료 되 면 브라우저를 시작 하 고 Service Fabric Explorer를 엽니다: http:\//localhost:19080 / 탐색기입니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
    ![Service Fabric Explorer의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. 애플리케이션이 실행되고 있는지 확인한 후 브라우저를 시작하고 http://localhost:31002 페이지를 엽니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
+4. 응용 프로그램이 실행 중인지를 확인 한 후 브라우저를 시작 하 고이 페이지를 열려면: http:\//localhost:31002 합니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
 
    ![브라우저의 Counter Service 응용 프로그램](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ VS Code에서 응용 프로그램을 디버그할 때 응용 프로그램은 로
 
    ![VS Code 작업 영역의 디버그 아이콘](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 브라우저에서 Service Fabric Explorer를 엽니다(http://localhost:19080/Explorer). **애플리케이션**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
+3. 브라우저에서 Service Fabric Explorer를 열어: http:\//localhost:19080 / 탐색기입니다. **애플리케이션**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
 
    ![CounterService의 주 노드](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

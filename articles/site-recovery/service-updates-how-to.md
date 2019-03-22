@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091650"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311155"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery의 서비스 업데이트
 조직으로서 계획되거나 계획되지 않은 정전이 발생한 경우 데이터 그리고 실행 중인 앱/워크로드를 안전하게 유지하는 방법을 알아야 합니다. Azure Site Recovery는 사이트의 작동이 중단된 경우에도 VM 및 물리적 서버에서 실행 중인 앱을 계속 사용할 수 있도록 하여 BCDR 전략에 기여합니다. Site Recovery는 VM 및 물리적 서버에서 실행 중인 워크로드를 복제하여 기본 사이트를 사용할 수 없게 된 경우 보조 위치에서 계속 사용할 수 있도록 합니다. 사이트가 복구되어 다시 실행되면 워크로드를 기본 사이트로 복구합니다.
@@ -118,17 +118,18 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 
 |업데이트 롤업  |공급자  |통합 설치| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[업데이트 롤업 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[ 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - 핫픽스     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[업데이트 롤업 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[업데이트 롤업 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [업데이트 롤업 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
-
 
 ## <a name="previous-update-rollups"></a>이전 업데이트 롤업
+
+- [업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [업데이트 롤업 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [업데이트 롤업 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [업데이트 롤업 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [업데이트 롤업 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 

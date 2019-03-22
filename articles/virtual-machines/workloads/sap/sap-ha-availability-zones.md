@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094755"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339493"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -93,7 +93,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 > 앞서 설명한 측정이 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 지원하는 모든 Azure 지역에서 다른 결과를 제공할 수 있습니다. 네트워크 대기 시간에 대한 요구 사항은 같더라도, 영역 간 네트워크 대기 시간이 다를 수 있으므로 Azure 지역마다 다른 배포 전략을 채택해야 할 수 있습니다. 일부 Azure 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 크게 다를 수 있습니다. 반면에 다른 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 좀 더 균일할 수 있습니다. 항상 1~2밀리초 사이의 네트워크 대기 시간이 나타난다는 주장은 맞지 않습니다. Azure 지역의 가용성 영역 간 네트워크 대기 시간은 일반화할 수 없습니다.
 
 ## <a name="activeactive-deployment"></a>액티브/액티브 배포
-이 배포 아키텍처는 2개 또는 3개 영역에 걸쳐 액티브 SAP 대화 상자 인스턴스를 배포하므로 액티브/액티브라고 지칭합니다. 큐에 넣기 복제를 사용하는 SAP Central Services 인스턴스는 두 영역 간에 배포됩니다. SAP Central Services와 동일한 영역 간에 배포되는 DBMS 계층의 경우도 마찬가지입니다.
+이 배포 아키텍처는 두 가지 또는 세 가지 영역에서 활성 SAP 응용 프로그램 서버를 배포 하기 때문에 능동/능동 라고 합니다. 큐에 넣기 복제를 사용하는 SAP Central Services 인스턴스는 두 영역 간에 배포됩니다. SAP Central Services와 동일한 영역 간에 배포되는 DBMS 계층의 경우도 마찬가지입니다.
 
 이러한 구성을 고려하려면 지역에서 사용자의 워크로드와 동기 DBMS 복제에 적합한 영역 간 네트워크 대기 시간을 제공하는 2개의 가용성 영역을 찾아야 합니다. 또한 선택한 영역 내의 네트워크 대기 시간과 영역 간 네트워크 대기 시간 간의 델타를 너무 크게 유지하지 않으려고 할 것입니다. 이것은 작업이 DBMS 서버가 있는 영역 내에서 실행되는지 또는 영역에 걸쳐 수행되는지에 따라, 비즈니스 프로세스 또는 일괄 처리 작업의 실행 시간이 크게 달라지는 것을 원하지 않기 때문입니다. 약간의 차이 정도는 허용될 수 있습니다.
 

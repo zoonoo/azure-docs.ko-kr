@@ -1,5 +1,5 @@
 ---
-title: Azure MFA NPS 확장을 사용하여 원격 데스크톱 게이트웨이 통합 | Microsoft Docs
+title: Azure MFA NPS 확장-Azure Active Directory를 사용 하 여 원격 데스크톱 게이트웨이 통합
 description: Microsoft Azure용 네트워크 정책 서버 확장을 사용하여 원격 데스크톱 게이트웨이 인프라를 Azure MFA와 통합
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e540eeecf49f8fb00df4a03de95c5063da360229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0fe61766daa0edc8436bce34afaaa69759eea5ca
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124051"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316452"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ| Microsoft Docs
+title: Azure Multi-factor Authentication FAQ-Azure Active Directory
 description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182611"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313229"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889792"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316896"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
 
@@ -87,12 +87,12 @@ ms.locfileid: "57889792"
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대 한 자세한 내용은 참조 하세요. <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database 작업 구성 요소 및 가격 책정</a>합니다.</td>
 </tr>
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Standard 버전에 대한 계산 크기를 제공합니다. 이 매개 변수의 기본값은 S0입니다. 매개 변수 값... /.. /.. /.. / S9/S12 Azure SQL database가 해당 계산 크기를 사용 하는 허용 됩니다. SQL Database 계산 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>Standard 버전에 대한 계산 크기를 제공합니다. 이 매개 변수의 기본값은 S0입니다. 매개 변수 값... /.. /.. /.. / S9/S12 Azure SQL database가 해당 계산 크기를 사용 하는 허용 됩니다. SQL Database 계산 크기에 대한 자세한 내용은 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database 작업 구성 요소 및 가격</a>을 참조하세요.</td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ ms.locfileid: "57889792"
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대 한 자세한 내용은 참조 하세요. <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database 작업 구성 요소 및 가격 책정</a>합니다.</td>
 </tr>
 
 </table>

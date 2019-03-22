@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a94039b70ceb1cffabe90df09282f840f45f7d32
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 43740118c4379c3b30843575840a000e89cd820b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033505"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294997"
 documentType: LandingData
 title: Azure Cosmos DB 설명서
 metadata:
@@ -35,11 +35,11 @@ sections:
     columns: 3
     items:
     - href: /azure/cosmos-db/distribute-data-globally/
-      html: <p>모든 Azure Cosmos DB API에 적용되는 글로벌 배포, 분할, 인덱싱 및 기타 개념에 알아봅니다.</p>
+      html: <p>모든 Azure Cosmos DB API에 적용되는 글로벌 배포, 분할, 프로비저닝된 할당량, 인덱싱 및 기타 개념에 대해 알아봅니다.</p>
       image:
         src: media/index/azure-cosmos-db-icon.png
       title: 개념
-    - href: /azure/cosmos-db/sql-api-introduction/
+    - href: /azure/cosmos-db/sql-api-query-reference/
       html: <p>새 비관계형 문서 데이터베이스를 빌드하고 익숙한 SQL 구문을 사용하여 쿼리하려는 경우 SQL API를 사용합니다.</p>
       image:
         src: media/index/sql-api.svg
@@ -55,7 +55,7 @@ sections:
         src: media/index/mongodb-api.svg
       title: Azure Cosmos DB의 API for MongoDB
     - href: /azure/cosmos-db/table-introduction/
-      html: <p>Azure Table 저장소에서 Azure Cosmos DB의 프리미엄 테이블 제품으로 데이터를 마이그레이션하는 경우 Table API를 사용합니다.</p>
+      html: <p>Azure Table Storage에서 Azure Cosmos DB의 프리미엄 테이블 제품으로 데이터를 마이그레이션하는 경우 Table API를 사용합니다.</p>
       image:
         src: media/index/table-api.svg
       title: 테이블 API
@@ -102,7 +102,7 @@ sections:
       - href: 
       - href: 
       - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-    - title: Azure Cosmos DB의 API for MongoDB
+    - title: MongoDB용 API
       values:
       - href: /azure/cosmos-db/create-mongodb-java
       - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -157,12 +157,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: " 크기 조정하도록 빌드된 Azure Cosmos DB 데이터베이스 만들기"
+    - title: " 크기를 조정하도록 빌드된 Azure Cosmos 데이터베이스 만들기"
       href: /learn/modules/create-cosmos-db-for-scale/
       image:
         src: /learn/achievements/create-cosmos-db-for-scale.svg
         href: /learn/modules/create-cosmos-db-for-scale/
-    - title: Azure Cosmos DB 데이터베이스에서 데이터 삽입 및 쿼리
+    - title: Azure Cosmos 데이터베이스에서 데이터 삽입 및 쿼리
       href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
       image:
         src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg

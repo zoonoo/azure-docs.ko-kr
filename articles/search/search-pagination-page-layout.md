@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849281"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339298"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search에서 검색 결과 작업 방법
 이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 데이터 또는 정보를 검색 결과에 적용하는 페이지 관련 옵션은 Azure Search Service에 전송된 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정됩니다. 
@@ -25,8 +25,8 @@ REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 �
 몇 가지 코드 샘플에는 웹 프런트 엔드 인터페이스가 포함되어 있으며 다음에서 확인할 수 있습니다. [New York City 작업 데모 앱](https://azjobsdemo.azurewebsites.net/) 및 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)
 
 > [!NOTE]
-> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 참조 하세요. [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 참조 하세요. [Azure Search 서비스 REST](https://docs.microsoft.com/rest/api/searchservice)합니다.
+>
 
 ## <a name="total-hits-and-page-counts"></a>총 적중 수 및 페이지 수
 쿼리에서 반환된 결과의 총 수를 표시한 후 해당 결과를 더 작은 청크로 반환하는 것은 모든 검색 페이지의 기반이 됩니다.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892764"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339502"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -152,7 +152,7 @@ Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 �
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.        
 
 ## <a name="is-xfs-filesystem-supported"></a>XFS 파일 시스템 지원 되나요?
-데이터 디스크 암호화에 대 한 XFS 볼륨은 지원 됩니다. XFS를 사용 하 여 현재 포맷 된 볼륨을 암호화 하려면 EncryptFormatAll 옵션을 지정 합니다. 이 볼륨을 다시 포맷 됩니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
+XFS 볼륨 데이터 디스크 암호화는 EncryptFormalAll 에서만 지원 됩니다. 이전에 있는 모든 데이터를 지우지 볼륨을 다시 포맷 됩니다이 합니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>백업 및 암호화 된 VM을 복원할 수 있나요? 
 

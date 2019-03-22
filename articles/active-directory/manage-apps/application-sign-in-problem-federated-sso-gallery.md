@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013086"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312702"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리케이션에 로그인하는 문제
 
@@ -33,7 +33,7 @@ ms.locfileid: "58013086"
 
 ## <a name="application-not-found-in-directory"></a>애플리케이션을 디렉터리에서 찾을 수 없습니다
 
-*오류 AADSTS70001: 식별자가 'https://contoso.com'인 애플리케이션이 디렉터리에 없습니다*.
+*오류 AADSTS70001: 식별자를 사용 하 여 응용 프로그램 ' https:\//contoso.com' 디렉터리에서 찾을*합니다.
 
 **가능한 원인**
 
@@ -63,7 +63,7 @@ ms.locfileid: "58013086"
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않음
 
-*오류 AADSTS50011: 'https://contoso.com' 회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다*.
+*오류 AADSTS50011: 회신 주소 ' https:\//contoso.com' 응용 프로그램에 대해 구성 된 회신 주소가 일치 하지 않습니다*
 
 **가능한 원인**
 

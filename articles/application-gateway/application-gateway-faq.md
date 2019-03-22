@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286196"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319417"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -59,7 +59,7 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 ### <a name="in-what-order-are-listeners-processed"></a>수신기는 어떤 순서로 처리되나요?
 
-수신기는 표시된 순서대로 처리됩니다. 이러한 이유로 기본 수신기에서 들어오는 요청과 일치하는 경우 이 요청을 먼저 처리합니다.  트래픽이 올바른 백 엔드로 라우팅되려면 다중 사이트 수신기를 기본 수신기보다 먼저 구성해야 합니다.
+참조 [수신기 처리 순서](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners)합니다.
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Application Gateway의 IP 및 DNS는 어디에서 확인하나요?
 
@@ -83,16 +83,13 @@ Application Gateway에서는 공용 IP 주소가 하나만 지원됩니다.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Application Gateway에 대해 얼마나 큰 서브넷을 만들어야 하나요?
 
-Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. 또한 Azure에서는 내부 사용을 위해 각 서브넷에서 처음 4개 및 마지막 IP 주소를 예약합니다.
-예를 들어 Application Gateway가 인스턴스 3개로 설정되어 있으며 개인 프런트 엔드 IP는 없는 경우 서브넷 크기는 /29 이상이어야 합니다. 이 경우 Application Gateway는 IP 주소 3개를 사용합니다. 개인 프런트엔드 IP 구성에 세 개의 인스턴스 및 하나의 IP 주소가 있는 경우 네 개의 IP 주소가 필요하므로 /28 서브넷 크기 이상이 필요합니다.
-
-모범 사례로, 적어도/28을 사용 하 여 서브넷 크기입니다. 이렇게 하면 11 주소만 사용할 수 있습니다. 응용 프로그램 부하 10 개가 넘는 인스턴스를 요구 하는 경우/27 또는/26 고려해 야 서브넷 크기입니다.
+참조 [Application Gateway 서브넷 크기 고려 사항](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) 배포에 필요한 서브넷 크기를 알아야 합니다.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?
 
 예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 애플리케이션 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
 
-동일한 서브넷에서 Standard_v2와 표준 Application Gateway의 혼합은 지원되지 않습니다. 또한 자동 크기 조정을 사용하도록 설정하는 경우 하나의 서브넷에 애플리케이션 게이트웨이 하나만 있을 수 있습니다.
+동일한 서브넷에서 Standard_v2와 표준 Application Gateway의 혼합은 지원되지 않습니다.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -152,13 +149,7 @@ Application Gateway는 IP 연결이으로 있는 가상 네트워크 외부에�
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되나요?
 
-NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되지만, 다음과 같은 제한 사항이 있습니다.
-
-* Application Gateway v1 SKU의 경우 포트 65503-65534에서, v2 SKU의 경우에는 포트 65200-65535에서 들어오는 트래픽에 대한 예외를 적용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
-
-* 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙이 인터넷 연결을 이미 허용합니다. 기본 아웃 바운드 규칙을 제거 하지는 및 아웃 바운드 인터넷 연결을 거부 하는 다른 아웃 바운드 규칙을 만들지 않는 하는 것이 좋습니다.
-
-* AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
+참조 [Application Gateway 서브넷에 대 한 네트워크 보안 그룹 제한이](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) 지원 응용 프로그램 게이트웨이 서브넷에 네트워크 보안 그룹에 알아봅니다.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
 
@@ -190,7 +181,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되
 
 ### <a name="how-are-rules-processed"></a>규칙은 어떻게 처리되나요?
 
-규칙은 구성된 순서대로 처리됩니다. 기본 규칙은 다중 사이트 규칙보다 먼저 포트를 기준으로 트래픽과 일치하는지 평가되므로 트래픽이 잘못된 백 엔드로 라우팅될 가능성을 줄이려면 기본 규칙보다 먼저 다중 사이트 규칙을 구성하는 것이 좋습니다.
+참조 [처리 규칙의 순서](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) 는 Application Gateway에서 프로세스를 라우팅 규칙 하는 방법을 알아야 합니다.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?
 
@@ -356,7 +347,7 @@ Azure Monitor 로그, Excel, Power BI 등의 여러 메커니즘을 통해 액�
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>백 엔드 상태에서 알 수 없는 상태를 반환할 경우 이 상태의 원인은 무엇인가요?
 
-백 엔드에 액세스하는 가장 일반적인 이유는 NSG 또는 사용자 지정 DNS로 차단되는 경우입니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
+가장 일반적인 원인에 대 한 액세스는 백 엔드 NSG를 사용자 지정 DNS에 의해 차단 됩니다 또는 응용 프로그램 게이트웨이 서브넷에서 UDR을 해야 합니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

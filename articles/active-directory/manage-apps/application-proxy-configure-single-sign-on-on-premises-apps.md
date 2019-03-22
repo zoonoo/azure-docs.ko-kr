@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840599"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336221"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML에서 single sign-on 응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한
 
@@ -54,8 +54,8 @@ SAML 토큰 암호화 기능을 사용 하 여 응용 프로그램 프록시를 
 
      ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-     > [!NOTE]
-     > 백 엔드 응용 프로그램에서 예상 하는 경우는 **회신 URL** 내부 URL 되도록 사용자 장치에서 My Apps 보안 로그인 확장을 설치 해야 합니다. 이 확장은 적절 한 응용 프로그램 프록시 서비스를 자동으로 리디렉션됩니다. 확장을 설치 하려면 [My Apps 보안 로그인 확장](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension)합니다.
+    > [!NOTE]
+    > 백 엔드 응용 프로그램에서 예상 하는 경우는 **회신 URL** 내부 URL 되도록 사용자 장치에서 My Apps 보안 로그인 확장을 설치 해야 합니다. 이 확장은 적절 한 응용 프로그램 프록시 서비스를 자동으로 리디렉션됩니다. 확장을 설치 하려면 [My Apps 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)합니다.
 
 ## <a name="test-your-app"></a>앱 테스트
 

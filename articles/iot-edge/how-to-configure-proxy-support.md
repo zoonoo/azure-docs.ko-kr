@@ -4,17 +4,17 @@ description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774203"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312991"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -35,7 +35,7 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 * **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼은 컨테이너 레지스트리 설정에 따라 프로토콜 중 하나를 사용할 수 있지만, IoT Edge 디먼 및 런타임 컨테이너는 항상 HTTPS를 사용해야 합니다.
 
-* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에서 인증이 필요한 경우 **사용자**:**암호**\@**proxy_host** 형식에서 proxy_host의 일부로 자격 증명을 제공할 수 있습니다.
+* **proxy_host**는 프록시 서버의 주소입니다. 프록시 호스트의 일부로 다음 형식으로 자격 증명을 제공할 수 있습니다 프록시 서버에 인증이 필요한 경우: **사용자**:**암호**\@**proxy_host** .
 
 * **proxy_port**는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다.
 
@@ -43,7 +43,7 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다.
 
-Windows 디바이스에 IoT Edge 런타임을 설치하는 경우 프록시 서버를 통해 설치 관리자 스크립트 파일을 다운로드한 다음, 설치 중에 다시 프록시 서버를 통해 필요한 구성 요소를 다운로드해야 합니다. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
+Windows 장치에서 IoT Edge 런타임을 설치 중인 경우 프록시 서버를 두 번 통과 해야 합니다. 첫 번째 연결이 설치 관리자 스크립트 파일을 다운로드 하 고 두 번째 연결이 필요한 구성 요소를 다운로드 하려면 설치 하는 동안. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,20 +64,22 @@ IoT Edge 런타임이 설치되면 다음 섹션을 사용하여 프록시 정�
 
 ## <a name="configure-the-daemons"></a>디먼 구성
 
-IoT Edge 디바이스에서 실행되는 Docker 및 IoT Edge 디먼이 프록시 서버를 사용하도록 구성해야 합니다. Docker 디먼은 웹 요청을 수행하여 컨테이너 레지스트리에서 컨테이너 이미지를 끌어옵니다. IoT Edge 디먼은 웹 요청을 전송하여 IoT Hub와 통신합니다.
+IoT Edge 장치에서 실행 중인 모 비 및 IoT Edge 디먼을 프록시 서버를 사용 하도록 구성 해야 합니다. 모 비 디먼 하면 컨테이너 레지스트리에서 컨테이너 이미지 웹 요청 합니다. IoT Edge 디먼은 웹 요청을 전송하여 IoT Hub와 통신합니다.
 
-### <a name="docker-daemon"></a>Docker 디먼
+### <a name="moby-daemon"></a>모 비 데몬
 
-환경 변수를 사용하여 Docker 디먼을 구성하려면 Docker 설명서를 참조하세요. DockerHub 및 Azure Container Registry를 비롯한 대부분의 컨테이너 레지스트리는 HTTPS 요청을 지원하므로 **HTTPS_PROXY** 매개 변수를 설정해야 합니다. TLS(전송 계층 보안)를 지원하지 않는 레지스트리에서 이미지를 끌어오는 경우에는 **HTTP_PROXY** 매개 변수를 설정해야 합니다. 
+모 비는 Docker를 기반으로 하므로 환경 변수를 사용 하 여 모 비 디먼을 구성 하려면 Docker 설명서를 참조 하십시오. DockerHub 및 Azure Container Registry를 비롯한 대부분의 컨테이너 레지스트리는 HTTPS 요청을 지원하므로 **HTTPS_PROXY** 매개 변수를 설정해야 합니다. TLS(전송 계층 보안)를 지원하지 않는 레지스트리에서 이미지를 끌어오는 경우에는 **HTTP_PROXY** 매개 변수를 설정해야 합니다. 
 
-사용 중인 Docker 버전에 적용되는 문서를 선택하세요. 
+IoT Edge 장치 운영 체제에 적용 되는 문서를 선택 합니다. 
 
-* [Linux 용 docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Windows용 Docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+* [Linux에서 Docker 디먼 구성](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * Linux 장치에서 모 비 디먼을 Docker 이름을 유지합니다.
+* [Windows에서 Docker 디먼 구성](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * Windows 장치의 모 비 디먼 iotedge 모 비 라고 합니다. Windows 장치에서 Docker 데스크톱과 모 비를 병렬로 실행할 수 있기 때문에 이름은 서로 다릅니다. 
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 디먼
 
-IoT Edge 디먼은 Docker 디먼과 비슷한 방식으로 구성됩니다. IoT Edge가 IoT Hub로 보내는 모든 요청은 HTTPS를 사용합니다. 사용 중인 운영 체제에 따라 다음 단계를 수행하여 서비스에 대한 환경 변수를 설정합니다. 
+IoT Edge 디먼 모 비 디먼에 비슷한 방식으로 구성 됩니다. IoT Edge가 IoT Hub로 보내는 모든 요청은 HTTPS를 사용합니다. 사용 중인 운영 체제에 따라 다음 단계를 수행하여 서비스에 대한 환경 변수를 설정합니다. 
 
 #### <a name="linux"></a>Linux
 

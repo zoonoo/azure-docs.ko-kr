@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871496"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339561"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -42,10 +42,10 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 | 스택     | 예상 값                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | 시작 하는 명령을 프로그램 `.jar` 응용 프로그램                                    |
-| Tomcat    | 앱에 대 한 모든 필요한 configruations를 수행 하는 스크립트의 위치 |
-| Node.js   | PM2 구성 파일 또는 스크립트 파일                                |          
+| Tomcat    | 앱에 대 한 모든 구성을 실행 하는 스크립트의 위치          |
+| Node.js   | PM2 구성 파일 또는 스크립트 파일                                |
 | .NET Core | 로 컴파일된 DLL 이름 `dotnet <myapp>.dll`                                 |
-| Ruby      | 사용 하 여 앱을 초기화 하려면 Ruby 스크립트를                     
+| Ruby      | 사용 하 여 앱을 초기화 하려면 Ruby 스크립트를                     |
 
 ## <a name="management"></a>관리
 

@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438128"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317326"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -34,8 +34,7 @@ Media Services를 사용하는 라이브 인코딩에 대한 자세한 내용은
 Media Services는 RTMP이 출력으로 포함된 다음 라이브 인코더 중 하나를 사용하도록 권장합니다. 지원되는 URL 체계는 `rtmp://` 또는 `rtmps://`입니다.
 
 > [!NOTE]
- > RTMP를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검사하여 아웃바운드 TCP 포트 1935 및 1936이 열려 있는지 확인합니다.<br/>
- RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검사하여 아웃바운드 TCP 포트 2935 및 2936이 열려 있는지 확인합니다.
+> RTMP를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검사하여 아웃바운드 TCP 포트 1935 및 1936이 열려 있는지 확인합니다.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB

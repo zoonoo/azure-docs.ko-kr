@@ -1,19 +1,19 @@
 ---
 title: 일반적인 질문 - Azure Site Recovery를 사용하여 VMware에서 Azure로 재해 복구 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의 온-프레미스 VMware VM 재해 복구를 설정할 때 발생하는 일반적인 질문을 요약하고 있습니다.
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: raynew
+ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901851"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319383"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -166,6 +166,10 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 Azure에 복제 하는 경우 복제 트래픽이 Azure Storage의 공용 엔드포인트에 도달 하므로 복제할 수 있습니다만 ExpressRoute (공용 피어 링)를 사용 하 여 공용 인터넷을 통해 및 VPN 작동 하지 않습니다.
 
+### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Riverbed SteelHeads 복제에 사용할 수 있나요?
+
+Riverbed, 파트너, Azure Site Recovery를 사용 하 여 작업의 자세한 지침을 제공 합니다. 하세요 자신의 [솔루션 가이드](https://community.riverbed.com/s/article/DOC-4627)합니다.
+
 ### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
 복제의 경우 VMware VM에서 지원되는 운영 체제를 실행해야 합니다. 또한 VM에서 Azure VM에 대한 요구 사항을 충족해야 합니다. 지원 매트릭스에서 [자세히 알아보세요](vmware-physical-azure-support-matrix.md##replicated-machines).
@@ -225,7 +229,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
- 아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
+아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
 가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 이로 인해 대기 시간이 늘어나고 진행 중인 복제에 영향을 줄 수 있습니다.
@@ -251,7 +255,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 아니요, 등록 문제를 방지하기 위해 새 구성 서버를 설치해야 합니다.
 
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>구성 서버에 등록된 자격 증명 모음을 변경할 수 있나요?
- 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다. 재등록 단계는 [이 문서](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)를 검토하세요.
+아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다. 재등록 단계는 [이 문서](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)를 검토하세요.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
 예, 하지만 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.

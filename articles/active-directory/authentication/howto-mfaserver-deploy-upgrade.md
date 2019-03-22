@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버 업그레이드
+title: Azure MFA 서버-Azure Active Directory로 업그레이드
 description: Azure Multi-factor Authentication 서버를 최신 버전으로 업그레이드하는 단계 및 지침입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faf04c870ec72f7ff62234b5bcaadde0b8a0a144
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190078"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315664"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 

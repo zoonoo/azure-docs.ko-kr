@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295643"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337649"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -20,9 +20,9 @@ Azure DNS 별칭 레코드는 DNS 레코드 집합에서 한정됩니다. DNS �
 
 별칭 레코드 집합은 Azure DNS 영역의 다음 레코드 유형에 대해 지원됩니다. 
 
-- A 
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > A 또는 AAAA 레코드 유형에 대해 별칭 레코드를 사용하여 [Azure Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 가리키려면 Traffic Manager 프로필에 [외부 엔드포인트](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)만 있는지 확인해야 합니다. Traffic Manager의 외부 엔드포인트에 IPv4 또는 IPv6 주소를 제공해야 합니다. 이상적으로는 고정 IP 주소를 사용합니다.
@@ -32,7 +32,7 @@ Azure DNS 별칭 레코드는 DNS 레코드 집합에서 한정됩니다. DNS �
 - **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다. 공용 IP 주소가 변경되거나 삭제되면 DNS 레코드 집합이 자동으로 설정됩니다. 잘못된 IP 주소를 가리키는 현수 DNS 레코드가 방지됩니다.
 
 - **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. A/AAAA 또는 CNAME 레코드 집합을 만들고 별칭 레코드를 사용하여 Traffic Manager 프로필을 가리킬 수 있습니다. 영역 루트에서 트래픽을 라우팅해야 하는 경우에 특히 유용합니다. 기존 CNAME 레코드는 영역 루트에 대해 지원되지 않기 때문입니다. 예를 들어 Traffic Manager 프로필이 myprofile.trafficmanager.net이고 비즈니스 DNS 영역이 contoso.com이라고 가정하겠습니다. contoso.com(영역 루트)에 대해 A/AAAA 유형의 별칭 레코드 집합을 만들고 myprofile.trafficmanager.net을 가리킬 수 있습니다.
-
+- **Azure 콘텐츠 배달 네트워크 (CDN) 끝점을 가리키도록**합니다. Azure storage 및 Azure CDN을 사용 하 여 정적 웹 사이트를 만들 때 유용 합니다.
 - **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
 
 ## <a name="scenarios"></a>시나리오
@@ -61,6 +61,7 @@ DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 �
 예를 들어 contoso.com 및 www\.contoso.com은 동일한 Traffic Manager 프로필에 가리킬 수 있습니다. Azure Traffic Manager 프로필을 사용하여 별칭 레코드를 사용하는 방법에 대한 자세한 내용을 보려면 다음 단계 섹션을 참조하세요.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Azure CDN 끝점에 영역 apex 지점
+
 Traffic Manager 프로필을 마찬가지로 DNS 영역 apex에 Azure CDN 끝점을 가리키도록 별칭 레코드에도 사용할 수 있습니다. Azure storage 및 Azure CDN을 사용 하 여 정적 웹 사이트를 만들 때 유용 합니다. 그런 다음 DNS 이름으로 "www" 앞에 추가 하지 않고 웹 사이트를 액세스할 수 있습니다.
 
 예를 들어 정적 웹 사이트 이름이 www.contoso.com 인 경우 사용자가 DNS 이름에는 www 앞에 추가할 필요 없이 contoso.com을 사용 하 여 사이트에 액세스할 수 있습니다.

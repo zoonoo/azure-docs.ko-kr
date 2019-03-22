@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233177"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313138"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux용 SMT 서버 설정
 SAP HANA 대규모 인스턴스는 인터넷에 직접 연결되지 않습니다. 이러한 유닛을 운영 체제 공급자에 등록하고 업데이트를 다운로드하여 적용하는 것은 간단한 프로세스가 아닙니다. SUSE Linux용 솔루션은 Azure 가상 머신에 SMT 서버를 설정하는 것입니다. HANA 큰 인스턴스에 연결되는 Azure 가상 네트워크에서 가상 머신을 호스팅합니다. 이러한 SMT 서버를 사용하면 HANA 큰 인스턴스 유닛이 업데이트를 등록하고 다운로드할 수 있습니다. 
@@ -84,7 +84,7 @@ SMT 패키지를 설치하려면 YAST 도구를 사용할 수도 있습니다. Y
 ![YAST의 SMT 스크린샷](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동합니다. 앞에서 검색한 SUSE 고객 센터의 조직 자격 증명을 입력합니다. 또한 Azure 가상 머신 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서 해당 URL은 https://smtserver입니다.
+smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동합니다. 앞에서 검색한 SUSE 고객 센터의 조직 자격 증명을 입력합니다. 또한 Azure 가상 머신 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https의:\//smtserver 합니다.
 
 ![SMT 서버 구성의 스크린샷](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891106"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314929"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -119,7 +119,7 @@ App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 관리되는 단일 SQL 데이터베이스, [탄력적 풀](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)의 관리되는 SQL 데이터베이스 및 SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)(공개 미리 보기)를 제공합니다. [동적으로 확장 가능한 성능](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)을 제공하고 고도의 분석 및 보고를 위한 [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다.
+SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 관리되는 단일 SQL 데이터베이스, [탄력적 풀](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)의 관리되는 SQL 데이터베이스 및 SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)(공개 미리 보기)를 제공합니다. [동적으로 확장 가능한 성능](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다.
 
 이 청사진의 Azure SQL Database
 

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 20d13f3df730ff4a81c7304ae1ad7e4158403521
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383256"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337785"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight에서 Apache Hadoop의 인덱스 문제 해결 문서
 문서는 오류의 유형별로 구성됩니다.
@@ -25,7 +25,7 @@ ms.locfileid: "53383256"
 
 ## <a name="apache-hive-query-performance"></a>Apache Hive 쿼리 성능
 * [HDInsight에서 Apache Hadoop에 대한 Apache Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md) 이 문서에서는 Hive 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법 중 몇 가지를 설명합니다.
-* [HDInsight Hadoop 클러스터에서 Apache Hive 쿼리 성능 문제를 해결합니다](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+* [Azure HDInsight를 사용 하 여 Apache Hive를 문제 해결](hdinsight-troubleshoot-hive.md)합니다.
 
 ## <a name="more-troubleshooting-articles"></a>추가 문제 해결 문서
 * [Linux에서 HDInsight 사용에 관한 정보](hdinsight-hadoop-linux-information.md)

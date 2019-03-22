@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871046"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337717"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack의 지역 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "56871046"
 
 개념을 사용 하는 azure Stack *지역*에 Azure Stack 인프라를 구성 하는 하드웨어 리소스로 구성 하는 논리적 엔터티입니다. 지역 관리에서 Azure Stack 인프라를 성공적으로 작동 하는 데 필요한 모든 리소스를 찾을 수 있습니다.
 
-시스템 배포를 통합 하는 하나 (라고 하는 *Azure Stack 클라우드에*) 단일 영역 구성 합니다. 각 Azure Stack Development Kit 라는 한 지역에 **로컬**합니다. 에 두 번째 Azure Stack 통합 시스템을 배포 하거나 별도 하드웨어 개발 키트의 다른 인스턴스를 설정 하는 경우이 Azure Stack 클라우드는 서로 다른 영역입니다.
+시스템 배포를 통합 하는 하나 (라고 하는 *Azure Stack 클라우드에*) 단일 영역 구성 합니다. 각 Azure Stack 개발 키트 (ASDK) 라는 한 지역에 **로컬**합니다. 에 두 번째 Azure Stack 통합 시스템을 배포 하거나 별도 하드웨어 개발 키트의 다른 인스턴스를 설정 하는 경우이 Azure Stack 클라우드는 서로 다른 영역입니다.
 
 ## <a name="information-available-through-the-region-management-tile"></a>지역 관리 타일을 통해 제공 되는 정보
 
@@ -43,7 +43,7 @@ Azure Stack에서 사용할 수 있는 지역 관리 기능 집합이 합니다 
 
 1. **리소스 메뉴**합니다. 특정 인프라 관리 영역에 액세스 하 고 보려면 저장소 계정 및 가상 네트워크와 같은 사용자 리소스를 관리 합니다.
 
-2. **경고**. 시스템 수준 경고를 나열 하 고 각 경고에 자세히 설명 합니다.
+2. **경고**. 시스템 수준 경고를 나열 하 고 각 경고의 세부 정보를 제공 합니다.
 
 3. **업데이트**. 업데이트 기록 및 사용 가능한 업데이트를 사용 하는, Azure Stack 인프라의 현재 버전을 봅니다. 또한 통합된 시스템을 업데이트할 수 있습니다.
 

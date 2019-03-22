@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314808"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339434"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 
@@ -84,7 +84,7 @@ Edm.GeographyPoint는 패싯 탐색에 사용할 수 없습니다. 패싯은 사
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
-중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
+중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
 
 ## <a name="add-facet-filters-to-a-query"></a>쿼리에 패싯 필터 추가
 
@@ -128,4 +128,3 @@ Azure Search에서 패싯 탐색의 과제 중 하나는 패싯이 현재 결과
 + [Azure Search의 필터](search-filters.md)
 + [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

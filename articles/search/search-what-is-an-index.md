@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537595"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337870"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
@@ -46,7 +46,7 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 
 6. 계속해서 코드를 사용하여 설계를 반복하세요.  
 
-물리적 구조체는 서비스 내에 생성되므로 기존 필드 정의의 재질을 변경할 때마다 [인덱스를 삭제하고 다시 만들어야 합니다](search-howto-reindex.md). 즉, 개발하는 동안 다시 작성이 자주 이루어질 것을 예상해야 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다. 
+물리적 구조 서비스에서 만들어지므로 [삭제 하 고 인덱스를 다시 만드는](search-howto-reindex.md) 변화가 기존 필드 정의를 변경할 때마다 반드시 합니다. 즉, 개발하는 동안 다시 작성이 자주 이루어질 것을 예상해야 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다. 
 
 반복 설계에는 포털 방식보다 코드를 권장합니다. 인덱스 정의에 포털을 사용하는 경우 다시 작성할 때마다 인덱스 정의를 채워야 합니다. 대안으로 사용 가능한 [Postman 및 REST API](search-fiddler.md) 같은 도구는 개발 프로젝트의 초기 단계에서 개념 증명 테스트에 도움이 됩니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
 

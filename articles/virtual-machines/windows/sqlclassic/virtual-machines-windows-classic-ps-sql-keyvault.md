@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329874"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312447"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ PowerShell을 사용하여 Azure Key Vault 통합을 구성합니다. 다음 섹
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| **$akvURL** |**키 자격 증명 모음 URL** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**키 자격 증명 모음 URL** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**서비스 주체 이름** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**서비스 주체 암호** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**자격 증명 이름**: AKV 통합은 VM이 주요 자격 증명 모음에 액세스할 수 있도록 SQL Server 내에 자격 증명을 만듭니다. 이 자격 증명의 이름을 선택하세요. |"mycred1" |
@@ -65,7 +65,7 @@ PowerShell을 사용하여 Azure Key Vault 통합을 구성합니다. 다음 섹
 
 1. 이 항목의 이전 섹션에서 설명한 대로, 먼저 Azure PowerShell에서 특정 값을 사용하여 입력 매개 변수를 구성합니다. 다음은 스크립트 예입니다.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

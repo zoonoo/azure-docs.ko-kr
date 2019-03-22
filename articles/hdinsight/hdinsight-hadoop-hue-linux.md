@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 9a5a3e7354d3d89a53e94553ed504df7c8117922
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202693"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314997"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -95,7 +95,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Hue 웹 사이트가 위치한 기본 헤드의 호스트 이름입니다.
-4. 브라우저를 사용하여 http://HOSTNAME:8888 에서 Hue 포털을 엽니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
+4. 브라우저를 사용 하 여 http에서 Hue 포털을 엽니다.\//HOSTNAME:8888 합니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
 
    > [!NOTE]  
    > 처음으로 로그인할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217294"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311138"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 업그레이드
 
@@ -29,14 +29,14 @@ ms.locfileid: "57217294"
 2. 저장소 계정으로 이동합니다.
 3. **설정** 섹션에서 **구성**을 클릭합니다.
 4. **계정 종류** 아래에서 **업그레이드**를 클릭합니다.
-5. **업그레이드 확인**에서 계정 이름을 입력합니다. 
+5. **업그레이드 확인**에서 계정 이름을 입력합니다.
 6. 블레이드 하단에서 **업그레이드**를 클릭합니다.
 
 ## <a name="upgrade-with-powershell"></a>Powershell로 업그레이드
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요. 
+PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요.
 
 다음으로, 리소스 그룹의 이름 및 저장소 계정을 대신하여 계정을 업그레이드하도록 다음 명령을 호출합니다.
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Azure CLI를 사용하여 업그레이드
 
-Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. 
+Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 다음으로, 리소스 그룹의 이름 및 저장소 계정을 대신하여 계정을 업그레이드하도록 다음 명령을 호출합니다.
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Blob 데이터에 대한 액세스 계층을 지정합니다.
 
-범용 v2 계정은 모든 Azure Storage 서비스 및 데이터 개체를 지원하지만 액세스 계층은 Blob Storage의 블록 blob에 대해서만 사용할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드할 때 blob 데이터에 대한 액세스 계층을 지정할 수 있습니다. 
+범용 v2 계정은 모든 Azure Storage 서비스 및 데이터 개체를 지원하지만 액세스 계층은 Blob Storage의 블록 blob에 대해서만 사용할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드할 때 blob 데이터에 대한 액세스 계층을 지정할 수 있습니다.
 
 액세스 계층을 사용하면 예상된 사용량 패턴에 따라 가장 비용 효율적인 저장소를 선택할 수 있습니다. 블록 Blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
@@ -96,7 +96,7 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
     - 저장소 계정에 저장되는 데이터의 양
     - 월간 데이터 볼륨 변경 추이, 새 데이터가 기존 데이터를 계속 대체하는지 여부
 * 다음을 포함한 Blob Storage 데이터에 대한 기본 액세스 패턴:
-    - 읽어오는 데이터의 양과 저장소 계정에 기록되는 데이터의 양 
+    - 읽어오는 데이터의 양과 저장소 계정에 기록되는 데이터의 양
     - 저장소 계정의 데이터에서 발생하는 읽기 작업 대 쓰기 작업의 수
 
 요구 사항에 가장 적합한 액세스 계층을 결정하려면 Blob 데이터 용량 및 해당 데이터를 사용하는 방법을 결정하는 것이 좋습니다. 이렇게 하려면 계정에 대한 모니터링 메트릭을 살펴보는 것이 가장 좋습니다.
@@ -108,7 +108,7 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
 자세한 내용은 [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/azure/hh343258.aspx) 및 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
 > [!NOTE]
-> Blob Storage 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다. 
+> Blob Storage 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다.
 
 Blob Storage에 대한 스토리지 사용량을 모니터링하려면 용량 메트릭을 활성화해야 합니다.
 이를 활성화하면 용량 데이터는 저장소 계정의 Blob service에 대해 매일 기록되고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.
@@ -120,7 +120,7 @@ Blob Storage에 대한 데이터 액세스 패턴을 모니터링하려면 API�
 
 데이터 소비 및 액세스 패턴을 대략적으로 파악하려면 정기적 사용을 나타내는 메트릭의 보존 기간을 선택하고 추정하는 것이 좋습니다. 한 가지 옵션은 7일 동안 메트릭 데이터를 보유하고 월말에 분석을 위해 매주 데이터를 수집하는 것입니다. 또 다른 옵션은 지난 30일 동안의 메트릭 데이터를 보존하고 30일 기간이 끝날 때 데이터를 수집하고 분석하는 것입니다.
 
-메트릭 데이터 사용, 수집 및 보기에 대한 자세한 내용은 [Azure Storage 메트릭 사용 및 메트릭 데이터 보기](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+사용에 대 한 세부 정보를 수집 및 메트릭 데이터 보기 참조 [저장소 분석 메트릭](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
 > [!NOTE]
 > 분석 데이터 저장, 액세스 및 다운로드는 일반 사용자 데이터와 마찬가지로 청구됩니다.

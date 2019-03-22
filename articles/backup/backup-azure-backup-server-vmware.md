@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226524"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319366"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -171,7 +171,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![사용자 및 그룹 옵션](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    **vCenter 사용자 및 그룹** 패널이 나타납니다.
+    합니다 **vCenter 사용자 및 그룹** 패널을 표시 합니다.
 
 
 2. **vCenter 사용자 및 그룹** 패널에서 **사용자** 탭을 선택한 다음 사용자 추가 아이콘(+ 기호)을 클릭합니다.
@@ -365,13 +365,13 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
   Windows 레지스트리 편집기 버전 5.00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
 
 
 ## <a name="next-steps"></a>다음 단계

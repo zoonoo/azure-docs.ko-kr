@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118768"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335847"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -163,7 +163,7 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 | 데이터베이스   | 드라이버 클래스 이름                             | JDBC 드라이버                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Drvier`                        | [다운로드](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [다운로드](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [다운로드](https://dev.mysql.com/downloads/connector/j/)(“플랫폼 독립적” 선택) |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 

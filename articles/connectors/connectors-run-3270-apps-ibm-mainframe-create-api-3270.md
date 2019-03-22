@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878383"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313195"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 Azure를 사용 하 여 IBM 메인프레임에서 3270 화면 기반 앱 통합
 
@@ -402,7 +402,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 1. 완료 되 면 저장 하 고 논리 앱을 실행 합니다.
 
    후 논리 앱을 실행 하 고 실행된 나타납니다에서 단계를 완료 합니다. 
-   성공한 단계는 실패 한 단계는 문자 "X"를 표시 하는 동안 확인 표시를 보여 줍니다.
+   실패 한 단계는 문자 "X"를 표시 하는 동안 성공한 단계에서 확인 표시를 보여 줍니다.
 
 1. 각 단계의 입출력을 검토 하려면 해당 단계를 확장 합니다.
 
@@ -410,7 +410,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 openapi 설명 되어 있는 트리거와 작업을 제한 하는 방법에 대 한 기술 정보 (이전의 Swagger) 설명 커넥터의 참조 페이지를 검토 합니다. [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/)합니다.
+커넥터의 openapi 설명 되어 있는 트리거와 작업을 제한 하는 방법에 대 한 기술 정보 (이전의 Swagger) 설명을 검토 합니다 [커넥터의 참조 페이지](/connectors/si3270/)합니다.
 
 ## <a name="get-support"></a>지원 받기
 

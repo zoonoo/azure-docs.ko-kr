@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2ca2fdc2627245a8b7676ed0d6d5877788eb7930
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889259"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336799"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight 클러스터를 모니터링 하려면 로그 쿼리 Azure 모니터링
 
@@ -125,5 +125,5 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 ## <a name="see-also"></a>참고 항목
 
-* [OMS Log Analytics: 뷰 디자이너](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 뷰 만들기](../azure-monitor/platform/view-designer.md)
 * [만들기, 보기 및 Azure Monitor를 사용 하 여 메트릭 경고 관리](../azure-monitor/platform/alerts-metric.md)

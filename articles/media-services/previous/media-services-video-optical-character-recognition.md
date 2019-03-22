@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c1983f14a23f8929091f5b7ae43e24bb9a834034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857745"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315133"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환  
 ## <a name="overview"></a>개요

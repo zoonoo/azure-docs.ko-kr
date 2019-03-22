@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202591"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315388"
 ---
 # <a name="restore-azure-vms"></a>Azure VM 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "58202591"
 VM을 복원 하려면 필요한 했는지 확인 [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 권한.
 
 > [!NOTE]
-> 없는 경우 [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 권한 수행할 수 있습니다 [디스크 복원](backup-azure-arm-restore-vms.md#create-new-restore-disks) 사용 하 여 VM을 만듭니다 [템플릿 배포](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) 기능입니다.
+> 없는 경우 [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 권한 수행할 수 있습니다 [디스크 복원](backup-azure-arm-restore-vms.md#create-new-restore-disks) 사용 하 여 VM을 만듭니다 [템플릿 배포](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) 기능입니다.
 
 ### <a name="restore-options"></a>복원 옵션
 

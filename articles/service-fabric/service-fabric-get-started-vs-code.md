@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121029"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316071"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -107,7 +107,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 **Service Fabric: 응용 프로그램 배포** 명령은 로컬 클러스터에 Service Fabric 응용 프로그램을 배포 합니다. 이 명령을 사용하기 전에 로컬 클러스터가 실행되고 있는지 확인합니다. 
 
 1. 선택 된 **Service Fabric: 응용 프로그램 배포** 명령
-2. Service Fabric Explorer(http://localhost:19080/Explorer))를 사용하여 로컬 클러스터에 애플리케이션이 설치되어 있는지 확인합니다. 다소 시간이 소요되니 기다려 주세요.
+2. Service Fabric Explorer를 사용 하 여 로컬 클러스터를 확인 (http:\//localhost:19080 / 탐색기) 응용 프로그램이 설치 되어 있는지 확인 합니다. 다소 시간이 소요되니 기다려 주세요.
 3. 사용할 수도 있습니다 **Service Fabric: 응용 프로그램 게시** Cloud.json 파일에서 설정 하 여 로컬 클러스터에 배포 하는 매개 변수 없이 명령을 합니다.
 
 > [!NOTE]

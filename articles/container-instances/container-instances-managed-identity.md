@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311566"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336527"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "56311566"
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 
-실행 중인 컨테이너에서 관리 ID를 사용하면 컨테이너 코드에서 자격 증명을 관리하지 않고, [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)에서 인증을 받을 수 있습니다. AD 인증을 지원하지 않는 서비스의 경우, Azure Key Vault에 비밀을 저장하고, 관리 ID를 통해 Key Vault에 액세스하여 자격 증명을 검색할 수 있습니다. 관리 ID 사용에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+실행 중인 컨테이너에서 관리 ID를 사용하면 컨테이너 코드에서 자격 증명을 관리하지 않고, [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에서 인증을 받을 수 있습니다. AD 인증을 지원하지 않는 서비스의 경우, Azure Key Vault에 비밀을 저장하고, 관리 ID를 통해 Key Vault에 액세스하여 자격 증명을 검색할 수 있습니다. 관리 ID 사용에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다. 현재, 관리 ID는 Linux 컨테이너 인스턴스에서만 지원됩니다.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-이제 이 액세스 토큰을 사용하여 Key Vault에서 인증을 받고 암호를 읽습니다. URL의 Key Vault 이름을 대체해야 합니다(*https://mykeyvault.vault.azure.net/...*).
+이제 이 액세스 토큰을 사용하여 Key Vault에서 인증을 받고 암호를 읽습니다. URL의 key vault의 이름으로 대체 해야 합니다. (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

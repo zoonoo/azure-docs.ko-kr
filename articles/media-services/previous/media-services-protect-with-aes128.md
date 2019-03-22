@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: HT
+ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257673"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317156"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 > [!div class="op_single_selector"]
@@ -164,7 +164,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 
 HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다. 
 
-예를 들어 루트 매니페스트는 http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)입니다. 여기에는 세그먼트 파일 이름의 목록이 포함됩니다.
+예를 들어 루트 매니페스트는: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) 합니다. 여기에는 세그먼트 파일 이름의 목록이 포함됩니다.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -173,7 +173,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-세그먼트 파일 중 하나를 텍스트 편집기에서 열면(예: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl) 파일이 암호화된 것을 나타내는 #EXT-X-KEY가 포함되어 있습니다.
+세그먼트 파일 중 하나에서 열면 텍스트 편집기 (예: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), #EXT-X-키 파일이 암호화 되었음을 나타내는 포함 합니다.
 
     #EXTM3U
     #EXT-X-VERSION:4

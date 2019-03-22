@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080068"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315303"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -82,7 +82,7 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 ### <a name="connect-to-the-internet-via-a-proxy"></a>프록시를 통해 인터넷에 연결
 
 - 프록시 서버에 인증이 필요한 경우 Collector를 설정할 때 사용자 이름과 암호를 지정할 수 있습니다.
-- 프록시 서버의 IP 주소/FQDN은 *http://IPaddress* 또는 *http://FQDN*으로 지정해야 합니다.
+- 프록시 서버의 IP 주소/FQDN으로 지정할 *http:\//IPaddress* 하거나 *http:\//FQDN*합니다.
 - HTTP 프록시만 지원됩니다. HTTPS 기반 프록시 서버는 Collector에서 지원되지 않습니다.
 - 프록시 서버가 가로채는 프록시인 경우에는 Collector VM으로 프록시 인증서를 가져와야 합니다.
   1. Collector VM에서 **시작 메뉴** > **컴퓨터 인증서 관리**로 이동합니다.

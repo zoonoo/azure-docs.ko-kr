@@ -1,8 +1,6 @@
 ---
 title: Azure HDInsight의 HBase란?
 description: Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다.
-keywords: BigTable, NoSQL, HBase란?, Apache HBase, HBase, HBase 개요
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46b201b2b5d8a3ee774f759326afae885ad6cb30
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651847"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337349"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>HDInsight의 Apache HBase: Apache Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
 [Apache HBase](https://hbase.apache.org/)는 [Apache Hadoop](https://hadoop.apache.org/)을 기반으로 하고 [Google BigTable](https://cloud.google.com/bigtable/) 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.
@@ -62,8 +60,3 @@ HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하�
 * [Apache HBase](https://hbase.apache.org/)
 * [Apache HBase Reference Guide](https://hbase.apache.org/book.html)(Apache HBase 참조 설명서)
 * [Bigtable: 구조화된 데이터의 분산 저장소 시스템](https://research.google.com/archive/bigtable.html)
-* [Apache HBase/Phoenix – Tips , Tricks & Best Practices in Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)(Apache HBase/Phoenix – Azure HDInsight의 팁, 요령 및 모범 사례)
-
-
-
-

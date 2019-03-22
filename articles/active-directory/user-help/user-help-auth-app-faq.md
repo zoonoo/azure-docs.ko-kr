@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 996b4df9d8723da3d1df799ea9f8656debb1395b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996556"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311937"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
@@ -50,7 +50,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 |Apple Watch용 Microsoft Authenticator 도우미 앱이 동기화되지 않거나 Watch에 표시되지 않는 이유는 무엇인가요?|앱이 Watch에 표시되지 않는 경우 다음 방법을 시도합니다. <ol><li>Watch가 watchOS 4.0 이상을 실행 중인지 확인합니다.</li><li>Watch를 다시 동기화합니다.</li></ol>|
 |Apple Watch 도우미 앱이 충돌했습니다. 크래시 로그를 보내서 조사할 수 있나요? |먼저 분석 정보를 Microsoft와 공유하도록 선택했는지 확인합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br><br>등록을 마친 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Microsoft Authenticator 앱을 열고, 앞에서 복사한 텍스트를 **로그 보내기** 페이지의 **앱 개발자와 공유** 텍스트 상자에 붙여넣습니다.</li></ol>|
 |앱 잠금 기능이란 무엇이며 보안을 강화하는 데 어떤 도움이 되나요?|일회용 암호, 앱 정보 및 앱 설정을 더욱 안전하게 유지하려는 경우 Microsoft Authenticator 앱에서 앱 잠금 기능을 설정하면 됩니다. Microsoft Authenticator 앱의 **설정** 화면에서 앱 잠금을 설정하면 Microsoft Authenticator 앱을 열 때마다 PIN이나 생체 인식 정보를 사용하여 인증하라는 메시지가 표시됩니다. 이 기능은 추가적인 보호를 제공하기 위한 것이며 Microsoft Authenticator 앱에서 알림을 승인하는 방식은 변경되지 않습니다.<br><br>**참고**<br>30초 이내에 Android 디바이스에서 실행 중인 Microsoft Authenticator 앱으로 돌아오면 다시 인증하라는 메시지가 표시되지 않습니다.|
-|내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요?|개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경하려면 https://account.live.com/SecurityNotifications/Update에 로그인합니다.
+|내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요?|개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경 하려면 로그인을 https:\//account.live.com/SecurityNotifications/Update 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

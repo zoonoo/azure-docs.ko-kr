@@ -4,30 +4,19 @@ description: 이 문서에는 Azure Site Recovery를 사용하여 다른 Azure �
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008661"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312056"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
 
 이 문서에서는 Azure Site Recovery를 사용하여 Azure VM의 재해 복구(DR)를 다른 Azure 지역에 배포할 때 발생하는 일반적인 질문에 대한 답변을 제공합니다. 이 문서를 읽은 후 질문이 있으면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
-
-
-## <a name="in-this-article"></a>이 문서에서는 다음을 수행합니다. 
-1.  **[Azure 간 복제에 대한 일반적인 질문](#general)** 
-1.  **[복제](#replication)** 
-1.  **[복제 정책](#replication-policy)** 
-1.  **[다중 VM 일관성](#multi-vm-consistency)** 
-1.  **[복구 계획](#recovery-plan)** 
-1.  **[다시 보호 및 장애 복구(failback)](#reprotection-and-failback)** 
-2.  **[Capacity](#capacity)**
-1.  **[보안](#security)** 
 
 
 ## <a name="general"></a>일반
@@ -186,7 +175,7 @@ Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>가상 머신 장애 조치(failover)의 RTO는 어떻게 되나요?
 Site Recovery의 [RTO는 2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 그러나 대부분의 경우 Site Recovery는 몇 분 내에 가상 머신을 장애 조치(failover)합니다. VM이 작동할 때까지 걸린 시간이 표시되는 장애 조치(failover) 작업으로 이동하여 RTO를 계산할 수 있습니다. 복구 계획 RTO의 경우에는 아래 섹션을 참조하세요. 
 
-## <a name="recovery-plan"></a>복구 계획
+## <a name="recovery-plans"></a>복구 계획
 
 ### <a name="what-is-a-recovery-plan"></a>복구 플랜은 무엇인가요?
 Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정합니다. 복구 플랜을 통해 복구가 일관성 있게 정확하고, 반복 가능하며, 자동화되도록 유지할 수 있습니다. 복구 플랜은 사용자의 다음 요구 사항을 처리합니다.
@@ -210,7 +199,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>복구 플랜에 자동화 Runbook을 추가할 수 있나요?
 예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구(failback) 
+## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구 
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>주 지역에서 재해 복구 지역으로 장애 조치(failover)를 수행한 후에는 DR 지역의 VM이 자동으로 보호되나요?
 아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.

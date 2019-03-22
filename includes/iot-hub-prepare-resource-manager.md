@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011774"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319770"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager 요청 인증 준비
 Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
@@ -41,8 +41,8 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 3. 다음 명령을 사용하여 새 Azure Active Directory 애플리케이션을 만듭니다. 자리 표시자는 바꿉니다.
    
    * **{표시 이름}:****MySampleApp**과 같은 애플리케이션의 표시 이름입니다.
-   * **{홈페이지 URL}:** 앱의 홈페이지에 대한 URL입니다(예: **http://mysampleapp/home**). 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
-   * **{애플리케이션 식별자}:** **http://mysampleapp**과 같은 고유 식별자입니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
+   * **{홈페이지 URL}:** 와 같은 앱의 홈 페이지 URL **http:\/mysampleapp/홈**합니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
+   * **{애플리케이션 식별자}:** 고유 식별자와 같은 **http:\//mysampleapp**합니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
    * **{암호}:** 앱 인증에 사용하는 암호입니다.
      
      ```powershell

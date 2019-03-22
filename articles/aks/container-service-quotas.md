@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: c8a2c0cac963fcc0622cff547e85593a13aa076a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ef1ecf4419733e908445f9cf4fe47797d430433f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243842"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337462"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량 및 지역 가용성
 
@@ -34,6 +34,7 @@ AKS(Azure Kubernetes Service)는 다음 지역에서 제공됩니다.
 - 오스트레일리아 남동부
 - 캐나다 중부
 - 캐나다 동부
+- 인도 중부
 - 미국 중부
 - 동아시아
 - 미국 동부

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457338"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316119"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -59,7 +59,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 
 응용 프로그램이 실행 되는 동안 클라이언트 쪽도 도구:
 * 수신 하 고 AKS에서 실행 중인 응용 프로그램에서 stderr 및 stdout를 표시 합니다.
-* 사용 하 여 [포트 정방향](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) 사용 하 여 응용 프로그램에 대 한 웹 액세스를 허용 하도록 http://locahost합니다.
+* 사용 하 여 [포트 정방향](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) http를 사용 하 여 응용 프로그램에 대 한 웹 액세스를 허용 하도록:\//localhost 합니다.
 * AKS에서 실행 중인 응용 프로그램에 디버거를 연결합니다.
 * 신속 하 게 반복할 수 있게 하는 증분 빌드에 대 한 변경이 감지 될 때 소스 개발 공간에는 코드를 동기화 합니다.
 

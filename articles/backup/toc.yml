@@ -160,7 +160,7 @@ items:
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: Azure Portal에서 DPM 작업 준비
+    - name: Azure Portal에서 DPM 워크로드 준비
       href: backup-azure-dpm-introduction.md
     - name: Exchange 서버를 백업하기 위해 DPM 사용
       href: backup-azure-backup-exchange-server.md
@@ -174,12 +174,14 @@ items:
     items:
     - name: Azure Portal의 Azure VM
       href: backup-azure-vms-automation.md
-    - name: Azure Portal의 DPM
+    - name: Azure Portal에서 DPM
       href: backup-dpm-automation.md
     - name: Azure Portal의 Windows Server
       href: backup-client-automation.md
-    - name: Azure Portal에서 Azure 파일 공유
+    - name: Azure Portal의 Azure 파일 공유
       href: backup-azure-afs-automation.md
+    - name: Azure VM 백업의 SQL
+      href: backup-azure-sql-automation.md
   - name: Azure Backup REST API 사용
     items:
     - name: Recovery Services 자격 증명 모음 만들기
@@ -195,7 +197,7 @@ items:
   - name: Azure VM에 SQL Server 데이터베이스 백업
     items:
     - name: Azure VM의 SQL Server 백업 정보
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Azure VM의 SQL Server 데이터베이스 백업
       href: backup-sql-server-database-azure-vms.md
     - name: Azure VM의 SQL Server 데이터베이스 복원
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014664"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284972"

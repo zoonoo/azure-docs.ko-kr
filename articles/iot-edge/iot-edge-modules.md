@@ -4,21 +4,21 @@ description: Azure IoT Edge 모듈은 IoT Edge 디바이스에서 비즈니스 �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229628"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311104"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리하는 방법을 이해하려면 모듈을 구성하는 4가지 개념적 요소를 고려하는 것이 좋습니다.
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈은 개발, 배포 및 유지 관리, 모듈의 네 가지 개념적 요소 생각할 수 있습니다 하는 방법을 이해 합니다.
 
 * **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
 * **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
@@ -43,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>모듈 ID
 
 새로운 모듈 인스턴스가 IoT Edge 런타임에 의해 생성되면 인스턴스가 해당 모듈 ID와 연관됩니다. 모듈 ID는 IoT Hub에 저장되며 특정 모듈 인스턴스의 모든 로컬 및 클라우드 통신에 대한 주소 지정 및 보안 범위로 사용됩니다.
+
 모듈 인스턴스와 연관된 ID는 인스턴스가 실행 중인 디바이스의 ID와 솔루션의 해당 모듈에 제공한 이름에 따라 다릅니다. 예를 들어 Azure Stream Analytics를 사용하는 `insight` 모듈을 호출하여 `Hannover01`이라는 디바이스에 배포하면 IoT Edge 런타임에서 `/devices/Hannover01/modules/insight`이라는 해당 모듈 ID를 만듭니다.
 
 동일한 디바이스에 하나의 모듈 이미지를 여러 번 배포해야 하는 경우 동일한 이미지를 다른 이름으로 여러 번 배포할 수 있습니다.
@@ -68,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>오프라인 기능
 
-Azure IoT Edge는 IoT Edge 디바이스에서 오프라인 작업을 지원합니다. 현재는 이러한 기능이 제한됩니다. 
+Azure IoT Edge는 IoT Edge 디바이스에서 오프라인 작업을 지원합니다. 현재는 이러한 기능이 제한됩니다. 추가 오프라인 기능은 공개 미리 보기로 제공됩니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동안 오프라인일 수 있습니다. 
 
@@ -77,11 +78,8 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 * **오프라인 동안 메시지를 전송한 모듈은 연결이 다시 시작될 때 여전히 작동 중입니다**. IoT Hub에 재연결 시 IoT Edge 허브는 모듈 메시지를 전달하기 전에 새 모듈 토큰의 유효성을 검사해야 합니다(이전 토큰이 만료된 경우). 모듈에서 새 토큰을 제공할 수 없는 경우 IoT Edge 허브는 모듈의 저장된 메시지에서 역할을 수행할 수 없습니다. 
 * **IoT Edge 허브에는 메시지를 저장할 디스크 공간이 있습니다**. 기본적으로 메시지는 IoT Edge 허브 컨테이너의 파일 시스템에 저장됩니다. 메시지를 대신 저장할 탑재된 볼륨을 지정하는 구성 옵션이 있습니다. 두 경우에서 IoT Hub에 지연된 전송에 대한 메시지를 저장할 수 있는 공간이 있어야 합니다.  
 
-추가 오프라인 기능은 공개 미리 보기로 제공됩니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
  - [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해](module-development.md)
  - [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)
 
-<!-- Images -->
-[2]: ./media/iot-edge-modules/identity.png

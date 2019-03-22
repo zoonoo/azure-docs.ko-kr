@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744448"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311682"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -112,7 +112,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
     ![HDInsight 기본 사항 창](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
 
-7. **저장소** 창에서 기본 저장소 유형을 **Azure Storage**로 두고 **새로 만들기**를 선택한 후 새 계정에 대한 이름을 제공합니다.
+7. **스토리지** 창에서 기본 스토리지 유형을 **Azure Storage**로 두고 **새로 만들기**를 선택한 후 새 계정에 대한 이름을 제공합니다.
 
     ![HDInsight 저장소 계정 설정](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
@@ -150,7 +150,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 2. 다음으로 이동하여 헤드 노드의 Ambari로 이동하여 터널이 작동되는지 확인합니다.
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Ambari 내에서 **Oozie 웹 콘솔**에 액세스하려면 **Oozie**, **빠른 링크**를 선택한 후 **Oozie 웹 콘솔**을 선택합니다.
 
@@ -176,7 +176,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 이제 샘플 데이터를 사용할 수 있습니다. 그러나 파이프라인에는 들어오는 데이터(`rawFlights`)와 요약된 데이터(`flights`)를 처리하는 2개의 Hive 테이블이 필요합니다. 다음과 같이 Ambari에 이러한 테이블을 만듭니다.
 
-1. [http://headnodehost:8080](http://headnodehost:8080)으로 이동하여 Ambari로 로그인합니다.
+1. Http로 이동 하 여 Ambari에 로그인:\//headnodehost:8080 합니다.
 2. 서비스 목록에서 **Hive**를 선택합니다.
 
     ![Ambari에서 하이브 선택](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

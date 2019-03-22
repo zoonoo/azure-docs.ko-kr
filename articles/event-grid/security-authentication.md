@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316072"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -88,7 +88,7 @@ HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락�
 
 ### <a name="checklist"></a>검사 목록
 
-이벤트 구독을 만드는 동안 “제공된 엔드포인트 https://your-endpoint-here에 대한 유효성 검사 시도가 실패했습니다. https://aka.ms/esvalidation을 방문하세요”와 같은 오류 메시지가 표시되면 유효성 검사 핸드셰이크에서 오류가 있다는 뜻입니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+이벤트 구독 만들기와 같은 오류 메시지가 표시 되 면 하는 동안 "제공 된 끝점 https의 유효성을 검사 하려고:\//your-endpoint-here 실패 했습니다. 자세한 내용은 방문 https:\//aka.ms/esvalidation ", 유효성 검사 핸드셰이크에서 오류가 임을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
 * 대상 엔드포인트에서 애플리케이션 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 애플리케이션 코드에 액세스할 수 있습니까?
 * 애플리케이션 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.

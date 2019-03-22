@@ -1,7 +1,7 @@
 ---
-title: 실험 및 학습 메트릭 추적
+title: 교육 실행 하는 동안 로그 메트릭
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용하면 실험을 추적하고 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킬 수 있습니다. 학습 스크립트에 로깅을 추가하는 방법, 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다.
+description: 실험을 추적할 수 있으며 모델 생성 프로세스를 향상 시키기 위해 메트릭을 모니터링할 수 있습니다. 학습 스크립트에 로깅을 추가하는 방법, 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008828"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336598"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 및 학습 메트릭 추적
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
 
 Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킬 수 있습니다. 이 문서에서는 학습 스크립트에 로깅 추가, 실험 실행을 제출, 실행, 모니터링 및 실행의 결과 확인 하는 방법에 알아봅니다.
 
@@ -218,7 +218,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
    ```
 
 ## <a name="cancel-a-run"></a>실행 취소
-실행이 제출된 후 실험 이름과 실행 ID만 알고 있으면 개체 참조가 손실된 경우에도 실행을 취소할 수 있습니다. 
+실행 되는 제출 되 면 실험 이름을 알고 있고 실행 id 개체에 대 한 참조를 잃어버린 경우에 취소할 수 있습니다. 
 
 ```python
 from azureml.core import Experiment

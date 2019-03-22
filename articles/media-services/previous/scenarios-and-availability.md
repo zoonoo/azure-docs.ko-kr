@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f62e2d482ca6258821cb800d2650a5f0c6a27e7c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3576a50cd1510a4da562981ff9ae98e12a357fc9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762523"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317016"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -164,7 +164,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 ### <a name="ams-accounts"></a>AMS 계정
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
 
@@ -172,16 +172,16 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미엄** 스트리밍 엔드포인트를 선택할 수 있습니다. 자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 |이름|상태|데이터 센터
 |---|---|---|
-|표준|GA|모두 보기|
-|프리미엄|GA|모두 보기|
+|Standard|GA|모두|
+|Premium|GA|모두|
 
 ### <a name="live-encoding"></a>라이브 인코딩
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 다음을 제외한 모든 데이터 센터에서 사용할 수 있습니다. 독일, 브라질 남부, 인도 서부, 인도 남부 및 인도 중부. 
 
@@ -189,43 +189,43 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **Media Encoder Premium 워크플로**를 제공합니다. 자세한 내용은 [Azure 주문형 미디어 인코더의 개요 및 비교](media-services-encode-asset.md)를 참조하세요. 
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
-|미디어 인코더 표준|GA|모두 보기|
-|Media Encoder Premium Workflow|GA|중국을 제외한 모든 지역|
+|미디어 인코더 표준|GA|모두|
+|미디어 인코더 Premium 워크플로|GA|중국을 제외한 모든 지역|
 
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
 
 미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
-|Azure 미디어 얼굴 탐지기|미리 보기|모두 보기|
-|Azure 미디어 Hyperlapse|미리 보기|모두 보기|
-|Azure Media Indexer|GA|모두 보기|
-|Azure 미디어 동작 탐지기|미리 보기|모두 보기|
-|Azure 미디어 OCR|미리 보기|모두 보기|
-|Azure Media Redactor|미리 보기|모두 보기|
-|Azure Media Stabilizer|미리 보기|모두 보기|
-|Azure 미디어 비디오 미리 보기|미리 보기|모두 보기|
+|Azure 미디어 얼굴 탐지기|미리 보기|모두|
+|Azure 미디어 Hyperlapse|미리 보기|모두|
+|Azure Media Indexer|GA|모두|
+|Azure 미디어 동작 탐지기|미리 보기|모두|
+|Azure 미디어 OCR|미리 보기|모두|
+|Azure Media Redactor|미리 보기|모두|
+|Azure Media Stabilizer|미리 보기|모두|
+|Azure 미디어 비디오 미리 보기|미리 보기|모두|
 |Azure Media Indexer 2|미리 보기|중국 및 연방 정부 지역을 제외한 모든 지역|
 
 ### <a name="protection"></a>보호
 
 Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. 자세한 내용은 [AMS 콘텐츠 보호](media-services-content-protection-overview.md)를 참조하세요.
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 |암호화|상태|데이터 센터|
 |---|---|---| 
-|Storage|GA|모두 보기|
-|AES-128 키|GA|모두 보기|
-|Fairplay|GA|모두 보기|
-|PlayReady|GA|모두 보기|
+|Storage|GA|모두|
+|AES-128 키|GA|모두|
+|Fairplay|GA|모두|
+|PlayReady|GA|모두|
 |Widevine|GA|독일, 연방 정부 및 중국을 제외한 모든 지역
 
 ### <a name="reserved-units-rus"></a>RU(예약 단위)
@@ -234,7 +234,7 @@ Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 저
 
 자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 모든 데이터 센터에서 사용할 수 있습니다.
 
@@ -244,11 +244,11 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
 
-#### <a name="availability"></a>사용 가능
+#### <a name="availability"></a>가용성
 
 |RU 형식 이름|상태|데이터 센터
 |---|---|---|
-|S1|GA|모두 보기|
+|S1|GA|모두|
 |S2|GA|브라질 남부 및 인도 서부를 제외한 모든 지역|
 |S3|GA|인도 서부를 제외한 모든 지역|
 

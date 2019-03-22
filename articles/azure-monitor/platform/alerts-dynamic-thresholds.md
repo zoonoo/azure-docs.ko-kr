@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008908"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339009"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure Monitor의 동적 임계값을 사용한 메트릭 경고(공개 미리 보기)
 
@@ -83,7 +83,7 @@ ms.locfileid: "57008908"
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>얼마나 많은 데이터 경고를 트리거하는 데 필요한가?
 
-동적 임계값에는 적어도 3 일 분량의 데이터를 정확 하 게 임계값 경고를 트리거하기 전에 필요 합니다.
+새 리소스 또는 누락 된 메트릭 데이터에 있는 경우에 동적 임계값 3 일 분량의 데이터를 사용할 정확한 임계값을 확인 하기 전에 경고를 트리거하지 않습니다.
 
 ## <a name="dynamic-thresholds-best-practices"></a>동적 임계값 모범 사례
 

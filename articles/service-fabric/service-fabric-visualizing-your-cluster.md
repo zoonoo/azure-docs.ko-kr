@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674670"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317394"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -46,7 +46,7 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>클러스터에서 Service Fabric Explorer 실행
 
-Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작하려면 아무 브라우저에서나 클러스터의 HTTP 관리 엔드포인트로 이동합니다(예: https://clusterFQDN:19080).
+Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 클러스터의 HTTP 관리 끝점에서 이동 브라우저용-예: https:\//clusterFQDN:19080 합니다.
 
 개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 

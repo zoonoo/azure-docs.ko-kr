@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875071"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336765"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -153,7 +153,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-실행 중인 컨테이너에 연결합니다. 반환된 IP 주소(예: "<http://172.31.194.61>")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 열기 IP 주소를 가리키는 웹 브라우저를 반환, 예를 들어 "http:\//172.31.194.61"입니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -360,10 +360,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 * IsDefaultContainerRepositoryPasswordEncrypted(bool)
 * DefaultContainerRepositoryPasswordType(문자열) --- 6.4 런타임부터 지원됨
 
-ClusterManifestTemplate.json 파일의 `Hosting` 섹션 내에서 추가할 수 있는 예제는 다음과 같습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
+ClusterManifestTemplate.json 파일의 `Hosting` 섹션 내에서 추가할 수 있는 예제는 다음과 같습니다. `Hosting` 클러스터 생성 시 또는 구성 업그레이드의 뒷부분에 나오는 섹션을 추가할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ ClusterManifestTemplate.json 파일의 `Hosting` 섹션 내에서 추가할 수 
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>컨테이너를 강제로 종료하기 전 시간 간격 구성
 
-서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
+서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. `Hosting` 클러스터 생성 시 또는 구성 업그레이드의 뒷부분에 나오는 섹션을 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           },
           ...
         ]
-}
+    }
+]
 ```
 기본 시간 간격은 10초로 설정됩니다. 이 구성은 동적이므로 클러스터에 대한 구성 전용 업그레이드만 시간 제한을 업데이트합니다. 
 
@@ -641,7 +647,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 삭제하지 말아야 하는 이미지의 경우 `ContainerImagesToSkip` 매개 변수 아래에 지정할 수 있습니다.  
@@ -666,7 +675,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동하는 컨테이너 이미지를 다운로드하고 추출하는 데 20분을 할당합니다. 큰 이미지의 경우 또는 네트워크 연결이 느린 경우, 이미지 다운로드 및 추출을 중단하기 전에 기다리는 시간을 늘려야 할 수 있습니다. 이 시간 제한은 다음 코드 조각과 같이 클러스터 매니페스트의 **Hosting** 섹션에 있는 **ContainerImageDownloadTimeout** 특성을 사용하여 설정합니다.
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>다음 단계

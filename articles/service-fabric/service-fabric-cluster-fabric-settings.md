@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836966"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311869"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -614,13 +614,13 @@ ms.locfileid: "57836966"
 ## <a name="security"></a>보안
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" 등 기본값이 아닌 환경용으로 지정되는 AAD 인증서 엔드포인트 형식입니다(기본값: Azure Commercial). |
+|AADCertEndpointFormat|string, 기본값: ""|공용|AAD 인증서 끝점 형식으로 기본 Azure 상용 Azure Government와 같은 기본이 아닌 환경에 지정 된 "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|string, 기본값: ""|공용|Fabric 클라이언트를 나타내는 Native Client 애플리케이션 이름 또는 ID |
 |AADClusterApplication|string, 기본값: ""|공용|클러스터를 나타내는 Web API 애플리케이션 이름 또는 ID |
-|AADLoginEndpoint|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us" 등 기본값이 아닌 환경용으로 지정되는 AAD 로그인 엔드포인트입니다(기본값: Azure Commercial). |
+|AADLoginEndpoint|string, 기본값: ""|공용|AAD 로그인 끝점에 Azure 상용 기본 Azure Government와 같은 기본이 아닌 환경에 지정 된 "https:\//login.microsoftonline.us" |
 |AADTenantId|string, 기본값: ""|공용|테넌트 ID(GUID) |
 |AdminClientCertThumbprints|string, 기본값: ""|동적|관리자 역할의 클라이언트에서 사용하는 인증서의 지문입니다. 쉼표로 구분된 이름 목록입니다. |
-|AADTokenEndpointFormat|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us/{0}" 등 기본값이 아닌 환경용으로 지정되는 AAD 토큰 엔드포인트입니다(기본값: Azure Commercial). |
+|AADTokenEndpointFormat|string, 기본값: ""|공용|AAD 토큰 끝점에 Azure 상용 기본 Azure Government와 같은 기본이 아닌 환경에 지정 된 "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, 기본값: ""|동적|모든 가능한 클레임은 관리자 클라이언트에서 예상되는 모든 가능한 클레임이며, ClientClaims와 동일한 형식입니다. 이 목록은 ClientClaims에 내부적으로 추가되므로 ClientClaims에 동일한 항목을 추가할 필요가 없습니다. |
 |AdminClientIdentities|string, 기본값: ""|동적|관리자 역할의 패브릭 클라이언트에 대한 Windows ID이며, 권한 있는 패브릭 작업에 대한 권한을 부여하는 데 사용됩니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. 편의상 fabric.exe를 실행하는 계정에 관리자 역할이 자동으로 할당됩니다. ServiceFabricAdministrators 그룹도 마찬가지입니다. |
 |AppRunAsAccountGroupX509Folder|string, 기본값: /home/sfuser/sfusercerts |공용|AppRunAsAccountGroup X509 인증서와 개인 키가 있는 폴더 |

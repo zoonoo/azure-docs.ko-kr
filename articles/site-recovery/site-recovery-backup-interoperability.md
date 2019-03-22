@@ -1,46 +1,29 @@
 ---
-title: Azure Site Recovery-백업 상호 운용성 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure backup에 대 한 지원 | Microsoft Docs
 description: 어떻게 Azure Site Recovery 및 Azure Backup과 함께 사용할 수 있는 개요를 제공 합니다.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731875"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312889"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Site Recovery 및 Backup 상호 운용성에 대 한
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Site Recovery를 사용 하 여 Azure backup에 대 한 지원
 
-이 문서에서는 Azure IaaS VM Backup 및 Azure VM 재해 복구를 성공적으로 사용 하기 위한 지침을 제공 합니다.
+이 문서에 사용 하기 위한 지원이 요약 되어 있습니다.는 [Site Recovery 서비스](site-recovery-overview.md) 함께 합니다 [Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview)합니다.
 
-## <a name="azure-backup"></a>Azure Backup
-
-Azure Backup은 온-프레미스 서버, 가상 머신, 가상화 된 워크 로드, SQL server, SharePoint 서버 등에 대 한 데이터를 보호 합니다. Azure Site Recovery는 오케스트레이션 하 고 Azure Vm, 온-프레미스 Vm 및 물리적 서버에 대 한 재해 복구를 관리 합니다.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-VM 또는 Vm의 그룹에 Azure Backup 및 Azure Site Recovery를 구성 하는 것이 가능 합니다. 상호 운용 가능한 제품은 모두입니다. Backup 및 Azure Site Recovery 간의 상호 운용성이 중요 한 몇 가지 시나리오는 다음과 같습니다.
-
-### <a name="file-backuprestore"></a>파일 백업/복원
-
-백업 및 복제를 둘 다 사용 하도록 설정 하 고 백업을 수행한 경우에 원본 측 VM 또는 Vm의 그룹에 모든 파일을 복원 하 여 없습니다 문제가 있습니다. 복제는 복제 상태 변경 없이 정상적으로 계속 됩니다.
-
-### <a name="disk-backuprestore"></a>디스크 백업/복원
-
-디스크 백업에서 복원 하는 경우 가상 컴퓨터의 보호에 다시 사용 하도록 설정 합니다.
-
-### <a name="vm-backuprestore"></a>VM 백업/복원
-
-VM 또는 Vm 그룹의 백업 및 복원은 지원 되지 않습니다. 작동을 위해 보호 다시 사용 하도록 설정 해야 합니다.
-
-**시나리오** | **Azure Site Recovery에서 지원 되나요?** | **문제를 해결 하려면 있는 경우**  
+**작업** | **Site Recovery 지원** | **세부 정보**
 --- | --- | ---
-파일/폴더 백업 | 예 | 해당 없음
-디스크 백업 | 현재는 아닙니다 | 사용 하지 않도록 설정 하 고 보호를 사용 하도록 설정
-VM 백업 | 아닙니다. | 사용 하지 않도록 설정 하 고 보호를 사용 하도록 설정
+**서비스를 함께 배포** | 지원됨 | 서비스 상호 운용 가능한 고 함께 구성할 수 있습니다.
+**파일 백업/복원** | 지원됨 | 백업 및 복제는 VM에 대해 사용 하도록 설정 하 고 백업 하는 경우 문제가 발생 하지 않습니다 원본 측 Vm 또는 Vm 그룹의 파일을 복원 합니다. 복제는 복제 상태 변경 없이 정상적으로 계속 됩니다.
+**디스크 백업/복원** | 현재 지원 되지 않습니다 | 백업 된 디스크를 복원 하는 경우 사용 하지 않도록 설정 하 고 다시 VM에 대 한 복제를 다시 사용 하도록 설정 해야 합니다.
+**VM 백업/복원** | 현재 지원 되지 않습니다 | 를 백업 또는 VM 또는 Vm 그룹을 복원 하는 경우 사용 하지 않도록 설정 하 고 VM에 대 한 복제를 다시 사용 하도록 설정 해야 합니다.  
+
+

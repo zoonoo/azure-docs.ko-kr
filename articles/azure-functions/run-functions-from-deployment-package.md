@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990903"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336731"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -44,7 +44,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 | 값  | 설명  |
 |---------|---------|
-| **`1`**  | Windows에서 실행 되는 함수 앱에 대 한 것이 좋습니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 그렇지 않은 경우 [zip를 사용 하 여 배포 배포] (#integration와-zip-배포],이 옵션을 사용 하려면 라는 파일을 폴더 `packagename.txt`합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
+| **`1`**  | Windows에서 실행 되는 함수 앱에 대 한 것이 좋습니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 그렇지 않은 경우 [zip를 사용 하 여 배포 배포](#integration-with-zip-deployment)에서이 옵션을 사용 하려면 라는 파일을 폴더 `packagename.txt`합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
 |**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 개인 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다.         |
 
 > [!CAUTION]

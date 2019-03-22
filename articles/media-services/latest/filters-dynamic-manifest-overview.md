@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861437"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314810"
 ---
 # <a name="dynamic-manifests"></a>동적 매니페스트
 
@@ -64,7 +64,7 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 
 ![변환 필터링 예제][renditions2]
 
-다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 다음 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다. HLS, MPEG DASH 및 부드러운 스트리밍  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. “ott” 필터는 1Mbps 미만의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
+다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 될 수 있습니다 [동적으로 패키징](dynamic-packaging-overview.md) 다음 스트리밍 프로토콜 중 하나로: HLS, MPEG DASH 및 부드러운 스트리밍  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. “ott” 필터는 1Mbps 미만의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
 
 ![변환 필터링][renditions1]
 
@@ -122,12 +122,16 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 
 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 를 참조하세요.
 
+## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
+
+스트리밍 로케이터를 사용 하 여 적용할 자산 또는 계정 필터 목록을 지정할 수 있습니다. 합니다 [동적 packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [dyanamic 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
+
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
 - **forceEndTimestamp**, **presentationWindowDuration** 및 **liveBackoffDuration**의 값은 VoD 필터에 대해서는 설정해서는 안 됩니다. 라이브 필터 시나리오에만 사용됩니다. 
 - 동적 매니페스트는 GOP 경계(키 프레임)에서 작동하므로 트리밍에는 GOP 정확도가 있습니다. 
 - 계정 필터와 자산 필터에 동일한 필터 이름을 사용할 수 있습니다. 자산 필터의 우선 순위가 더 높으며 계정 필터에 우선합니다.
-- 필터를 업데이트 하는 경우, 규칙을 새로 고치는 스트리밍 엔드포인트에서 최대 2분이 소요될 수 있습니다. 콘텐츠가 일부 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이들 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.
+- 필터를 업데이트 하는 경우 규칙을 새로 고치는 스트리밍 끝점에 대 한 최대 2 분까지 걸릴 수 있습니다. 콘텐츠가 일부 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이들 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.
 - 고객은 수동으로 매니페스트를 다운로드하고 정확한 startTimestamp 및 시간 간격을 구문 분석해야 합니다.
     
     - 자산의 트랙의 속성을 확인하려면 [매니페스트 파일 가져오기 및 검사](#get-and-examine-manifest-files)를 참조하세요.

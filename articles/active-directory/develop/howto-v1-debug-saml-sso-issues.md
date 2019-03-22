@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104508"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336080"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
@@ -29,7 +29,7 @@ ms.locfileid: "58104508"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[내 앱 보안 로그인 확장](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)을 설치하는 것이 좋습니다. 이 브라우저 확장 쉽게 single sign on을 사용 하 여 문제를 해결 하 고 SAML 요청 해야 하는 SAML 응답 정보를 수집 합니다. 확장을 설치할 수 없는 경우 이 문서에서는 확장이 설치되거나 설치되지 않았을 때의 문제를 해결하는 방법을 보여줍니다.
+[내 앱 보안 로그인 확장](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension)을 설치하는 것이 좋습니다. 이 브라우저 확장 쉽게 single sign on을 사용 하 여 문제를 해결 하 고 SAML 요청 해야 하는 SAML 응답 정보를 수집 합니다. 확장을 설치할 수 없는 경우 이 문서에서는 확장이 설치되거나 설치되지 않았을 때의 문제를 해결하는 방법을 보여줍니다.
 
 내 앱 보안 로그인 확장을 다운로드하고 설치하려면 다음 링크 중 하나를 사용합니다.
 
@@ -64,7 +64,7 @@ SAML 기반 single sign-on 테스트 Azure AD 사이 대상 응용 프로그램:
 
 이 오류를 디버그하려면 오류 메시지 및 SAML 요청이 필요합니다. 내 앱 보안 로그인 확장은 자동으로 이 정보를 수집하고 Azure AD에 해결 지침을 표시합니다. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>사용 하 여 MyApps 보안 로그인 오류를 해결 하려면 로그인 확장 설치
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>내 앱 보안 로그인 확장을 사용 하 여 로그인 오류를 해결 하려면 설치
 
 1. 오류가 발생 하는 경우 확장 리디렉션됩니다 다시 Azure AD로 **single sign-on 테스트** 블레이드입니다. 
 1. 에 **single sign-on 테스트** 블레이드에서 **SAML 요청을 다운로드**합니다. 
@@ -73,14 +73,14 @@ SAML 기반 single sign-on 테스트 Azure AD 사이 대상 응용 프로그램:
 
 로그인 오류에 대 한 해결 방법이 없습니다 제공 하는 경우에 사용 하 여 피드백 텍스트 상자에 알려 주세요 하는 것이 좋습니다.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>MyApps 보안 로그인 확장을 설치 하지 않고 오류를 해결 하려면
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 설치 하지 않고 오류를 해결 하려면
 
 1. 페이지의 오른쪽 아래 모서리에서 오류 메시지를 복사합니다. 오류 메시지에는 다음이 포함됩니다.
     - CorrelationID 및 TimeStamp. 이러한 값은 엔지니어가 문제를 식별하고 문제에 대한 정확한 해결책을 제공하는 데 유용하므로 Microsoft를 통해 지원 사례를 만들 때 중요합니다.
     - 문제의 근본 원인을 확인하는 명령문입니다.
 1. Azure AD로 다시 돌아가 **Single Sign-On 테스트** 블레이드를 찾습니다.
 1. 위의 **해결 지침 가져오기** 텍스트 상자에서 오류 메시지를 붙여넣습니다.
-1. **해결 지침 가져오기**를 클릭하여 문제 해결을 위한 단계를 표시합니다. 이 지침은 SAML 요청 또는 SAML 응답에서 정보를 요구할 수 있습니다. 내 앱 보안 로그인 확장을 사용하지 않는 경우 SAML 요청 및 응답을 검색하려면 [Fiddler](https://www.telerik.com/fiddler) 같은 도구가 필요할 수 있습니다.
+1. **해결 지침 가져오기**를 클릭하여 문제 해결을 위한 단계를 표시합니다. 이 지침은 SAML 요청 또는 SAML 응답에서 정보를 요구할 수 있습니다. 와 같은 도구 들 내 앱 보안 로그인 확장을 사용 하지 않는 경우 해야 할 수 있습니다 [Fiddler](https://www.telerik.com/fiddler) SAML 요청 및 응답을 검색 하려면.
 1. SAML Single Sign-on 서비스 URL에 Azure AD에서 가져온 대상 SAML 요청에 해당 하는지 확인 합니다.
 1. SAML 요청의 발급자가 Azure AD에서 응용 프로그램에 대해 구성한 동일한 식별자를 확인 합니다. Azure AD는 사용자 디렉터리에서 애플리케이션을 찾는 데 발급자를 사용합니다.
 1. AssertionConsumerServiceURL는 응용 프로그램에서 Azure AD에서 SAML 토큰을 받을 예상 위치를 확인 합니다. Azure AD에서이 값을 구성할 수 있습니다 하지만 필수적이 지 않습니다 SAML 요청의 일부인 경우.

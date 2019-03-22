@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f777ab238ed0774c4ad6afd862da1584cb06b94
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099647"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317377"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -247,7 +247,7 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vau
 
 | 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |<https://contosokeyvault.vault.azure.net/> |
+| **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |https:\//contosokeyvault.vault.azure.net/ |
 | **주체 이름** |Azure Active Directory 서비스 주체 이름. 이 이름을 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **주체 암호** |Azure Active Directory 서비스 주체 암호입니다. 이 암호를 클라이언트 암호라고도 합니다. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **자격 증명 이름** |**자격 증명 이름**: AKV 통합은 VM이 주요 자격 증명 모음에 액세스할 수 있도록 SQL Server 내에 자격 증명을 만듭니다. 이 자격 증명의 이름을 선택하세요. |mycred1 |

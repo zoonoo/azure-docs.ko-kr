@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884679"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317021"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -144,9 +144,9 @@ X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
-Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
+Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결할 https로 찾아보기:\//-vm-ip:8000 랩톱 또는 데스크톱에서 사용자 이름 및 VM을 만들고 로그인에 사용한 암호를 입력 합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
 
-Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/user/your-username/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스 하려면 JupyterHub에 로그인 한 다음 찾아보기 URL https:\//-vm-ip:8000/사용자/사용자 사용자 이름/랩입니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
 
     c.Spawner.default_url = '/lab'
 

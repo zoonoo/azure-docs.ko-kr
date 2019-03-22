@@ -1,5 +1,5 @@
 ---
-title: Azure AD 셀프 서비스 암호 재설정 Windows 7 및 8.1
+title: Windows 7 및 8.1-Azure Active Directory에 azure AD 셀프 서비스 암호 재설정
 description: Windows 7 또는 8.1 로그온 화면에서 암호를 사용하여 셀프 서비스 암호 재설정을 사용하는 방법
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217822"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316357"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>방법: Windows 7, 8 및 8.1에서 암호 재설정 사용
 

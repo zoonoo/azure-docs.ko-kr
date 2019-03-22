@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854469"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315594"
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
 이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-애플리케이션을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 애플리케이션의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000 )에서 Node.js 애플리케이션에 액세스할 수 있습니다.
+응용 프로그램이 성공적으로 로컬 클러스터에 게시 되 면에서는 Node.js 응용 프로그램-예를 들어 http의 서비스 매니페스트에 입력 한 포트에서 Node.js 응용 프로그램을 액세스할 수 있습니다:\//localhost:3000 합니다.
 
 이 자습서에서는 간편하게 두 기존 애플리케이션을 하나의 서버 패브릭 애플리케이션으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 

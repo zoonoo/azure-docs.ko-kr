@@ -1,5 +1,5 @@
 ---
-title: Azure AD 셀프 서비스 암호 재설정 사용자 지정
+title: 사용자 지정 Azure AD 셀프 서비스 암호 재설정-Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정의 사용자 지정 옵션
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106953"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316459"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
