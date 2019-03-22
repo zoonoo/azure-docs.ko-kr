@@ -1,5 +1,5 @@
 ---
-title: 'Azure 인증서 인증용 P2S VPN 클라이언트 구성 파일 만들기 및 설치: Azure | Microsoft Docs'
+title: 'Azure 인증서 인증용 P2S VPN 클라이언트 구성 파일 만들기 및 설치: Azure'
 description: P2S 인증서 인증용 Windows, Linux, Linux(strongSwan) 및 Mac OS X VPN 클라이언트 구성 파일을 만들고 설치합니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8bc0ad7c5113f8ffdcda0ae9e6b1df43975bbcb
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294946"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313943"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 

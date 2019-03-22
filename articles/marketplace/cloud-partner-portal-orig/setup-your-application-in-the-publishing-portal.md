@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847130"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310020"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
@@ -53,7 +53,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 게시자 프로필 내에서 제품의 고유 ID입니다. 이 ID는 제품 URL에 표시됩니다. 소문자 영숫자 문자 또는 대시(-)로만 구성할 수 있습니다. ID는 대시로 끝내면 안 되며 최대 50문자를 포함할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-예를 들어, 게시자 **“contoso”** 가 제품 ID가 **“sample-WebApp”** 인 제품을 만드는 경우 AppSource에 “https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”로 표시됩니다.
+예를 들어 게시자 **"contoso"** 게시자는 제품 ID를 사용 하 여 제품을 만듭니다 **"샘플 WebApp"**,으로 AppSource에 뜹니다 "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>게시자 ID
 

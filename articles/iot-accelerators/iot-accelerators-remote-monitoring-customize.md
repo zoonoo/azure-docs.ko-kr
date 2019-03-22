@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565431"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317598"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -73,7 +73,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
     npm start
     ```
 
-1. 이전 명령은 http://localhost:3000/dashboard에서 UI를 로컬로 실행합니다. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
+1. 이전 명령을 로컬로 실행 되는 UI http:\//localhost:3000 / 대시보드. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
 
 ## <a name="customize-the-layout"></a>레이아웃 사용자 지정
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery의 VMware와 Azure 간 재해 복구 아키텍처 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM과 Azure 간 재해 복구를 설정할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
-author: mayurigupta13
+author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/13/2019
+ms.author: raynew
+ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340444"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310764"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 

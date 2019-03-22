@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Auth 공급자는 언제, 어떻게 사용하나요?
+title: Azure Multi-Factor Auth 공급자는 언제, 어떻게 사용하나요? - Azure Active Directory
 description: Auth 공급자는 언제 Azure MFA에 사용하나요?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f6cca8158cdb0bd2eec99e6e23e285b976db96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dfababeae15ee18a140042d9a6ca10be40e41339
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205412"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310645"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 

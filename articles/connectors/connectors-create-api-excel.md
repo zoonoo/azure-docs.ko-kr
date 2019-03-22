@@ -1,25 +1,25 @@
 ---
-title: Excel Online에 연결 - Azure Logic Apps | Microsoft Docs
+title: Online-Azure Logic Apps에 Excel 연결
 description: Excel Online REST API 및 Azure Logic Apps를 사용하여 데이터 관리
-ms.service: logic-apps
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 917b9abd4a32b7951313c5555f4111dff990078c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230954"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314522"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Excel Online 데이터 관리
 
-Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 OneDrive용 Excel Online에서 데이터 기반 자동화된 작업 및 워크플로를 만들 수 있습니다. 이 커넥터는 데이터를 사용하고 스프레드시트를 관리하는 데 도움이 되는 작업을 제공합니다. 예를 들어 다음과 같습니다. 
+Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 OneDrive용 Excel Online에서 데이터 기반 자동화된 작업 및 워크플로를 만들 수 있습니다. 이 커넥터는 데이터를 사용하고 스프레드시트를 관리하는 데 도움이 되는 작업을 제공합니다. 예를 들어 다음과 같습니다.
 
 * 새 워크시트와 테이블을 만듭니다.
 * 워크시트, 테이블 및 행을 가져오고 관리합니다.
@@ -34,9 +34,9 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-* 작업 계정 또는 개인 Microsoft 계정에 대한 [Office 365 계정](https://www.office.com/) 
+* 작업 계정 또는 개인 Microsoft 계정에 대한 [Office 365 계정](https://www.office.com/)
 
   Excel 데이터는 저장소 폴더(예: OneDrive)에 쉼표로 구분된 값(CSV)으로 존재할 수 있습니다. 
   또한 동일한 CSV 파일을 [플랫 파일 커넥터](../logic-apps/logic-apps-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
@@ -53,7 +53,7 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 1. 검색 상자에서 필터로 “excel”을 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-1. Office 365 계정에 로그인하라는 메시지가 표시되면 **로그인**을 선택합니다. 
+1. Office 365 계정에 로그인하라는 메시지가 표시되면 **로그인**을 선택합니다.
 
    자격 증명을 통해 Excel Online에 대한 연결을 만들고 데이터에 액세스하는 권한이 논리 앱에 부여됩니다.
 
@@ -61,10 +61,10 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에서 설명한 것처럼 작업 및 제한과 같은 기술 세부 정보는 커넥터의 참조 페이지를 참조하세요.
+트리거, 작업 및 커넥터의 OpenAPI에 설명 된 대로 제한 등의 기술 세부 정보에 대 한 (이전의 Swagger) 파일을 이러한 커넥터 참조 페이지를 참조 하세요.
 
-* [비즈니스용 Excel Online](/connectors/excelonlinebusiness/) 
-* [OneDrive용 Excel Online](/connectors/excelonline/) 
+* [비즈니스용 Excel Online](/connectors/excelonlinebusiness/)
+* [OneDrive용 Excel Online](/connectors/excelonline/)
 
 ## <a name="get-support"></a>지원 받기
 

@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085374"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309591"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -45,16 +45,16 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | 애플리케이션 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
-| 액세스 패널 | https://myapps.microsoft.com/contoso.com |
-| 웹용 Outlook | https://outlook.office365.com/contoso.com |
-| Office 365 포털 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| 액세스 패널 | https:\//myapps.microsoft.com/contoso.com |
+| 웹용 Outlook | https:\//outlook.office365.com/contoso.com |
+| Office 365 포털 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-응용 프로그램이 테 넌 트-즉,로 설정 하는 Azure AD 끝점에 로그인 요청을 보내면 사용자 자동 로그온 환경을 가져올 뿐만 https://login.microsoftonline.com/contoso.com/<..> 나 https://login.microsoftonline.com/<tenant_ID>/<..> -Azure AD의 공통 끝점-즉, 대신 https://login.microsoftonline.com/common/<...>합니다. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
+또한 만료 된 자동 로그온 환경을 응용 프로그램이 보내면 Azure AD 끝점에 대 한 로그인 요청 설정 테 넌 트-즉, https:\//login.microsoftonline.com/contoso.com/ <... > 또는 https:\//login.microsoftonline.com/ < tenant_ID > / <... >-대신 Azure AD의 공통 끝점, 즉 https:\//login.microsoftonline.com/common/ <... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
 | 애플리케이션 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure portal | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure portal | https:\//portal.azure.com/contoso.com |
 
 위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 애플리케이션 URL로 이동합니다.
 

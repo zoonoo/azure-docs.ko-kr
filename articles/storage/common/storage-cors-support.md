@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002961"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313654"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
 2013-08-15 버전부터 Azure 저장소 서비스는 Blob, 테이블, 큐 및 파일 서비스에 대해 CORS(원본 간 리소스 공유)를 지원합니다. CORS는 특정 도메인에서 실행되는 웹 애플리케이션이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 웹 브라우저는 웹 페이지가 다른 도메인의 API를 호출할 수 없도록 하는 [동일 원본 정책](https://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다. CORS는 특정 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다. CORS에 대한 자세한 내용은 [CORS 사양](https://www.w3.org/TR/cors/)을 참조하세요.
@@ -67,7 +67,7 @@ CORS 규칙은 서비스 수준에서 설정되므로 Blob, 큐, 테이블 등�
 
 아래에는 CORS 규칙에 포함된 각 요소에 대한 설명이 나와 있습니다.
 
-* **AllowedOrigins**: CORS를 통해 스토리지 서비스 서비스에 요청을 할 수 있는 원본 도메인입니다. 원본 도메인에서 요청이 시작됩니다. 이 원본은 사용자가 서비스로 보내는 원본과 대/소문자까지 정확하게 일치해야 합니다. 와일드카드 문자 '*'를 사용하여 모든 원본 도메인이 CORS를 통해 요청을 수행하도록 허용할 수도 있습니다. 위의 예에서 도메인 [http://www.contoso.com](http://www.contoso.com) 및 [http://www.fabrikam.com](http://www.fabrikam.com)은 CORS를 사용하여 서비스에 대한 요청을 만들 수 있습니다.
+* **AllowedOrigins**: CORS를 통해 스토리지 서비스 서비스에 요청을 할 수 있는 원본 도메인입니다. 원본 도메인에서 요청이 시작됩니다. 이 원본은 사용자가 서비스로 보내는 원본과 대/소문자까지 정확하게 일치해야 합니다. 와일드카드 문자 '*'를 사용하여 모든 원본 도메인이 CORS를 통해 요청을 수행하도록 허용할 수도 있습니다. 도메인 http 위의 예제에서:\//www.contoso.com 및 http: \/ /www.fabrikam.com CORS를 사용 하 여 서비스에 대해 요청할 수 있습니다.
 * **AllowedMethods**: 원본 도메인이 CORS 요청에 사용할 수 있는 메서드(HTTP 요청 동사)입니다. 위의 예제에서는 PUT 및 GET 요청만 허용됩니다.
 * **AllowedHeaders**: 원본 도메인이 CORS 요청에 대해 지정할 수 있는 요청 헤더입니다. 위 예제에서는 x-ms-meta-data, x-ms-meta-target 및 x-ms-meta-abc로 시작하는 모든 메타데이터 헤더를 지정할 수 있습니다. 와일드카드 문자 '*'는 지정한 접두사로 시작하는 모든 헤더가 허용됨을 나타냅니다.
 * **ExposedHeaders**: CORS 요청에 대한 응답에 포함하여 전송할 수 있으며 브라우저에서 요청 발급자에게 표시할 수 있는 응답 헤더입니다. 위의 예제에서 브라우저는 x-ms-meta로 시작하는 모든 헤더를 표시하도록 지정됩니다.
@@ -130,9 +130,9 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 | 요청 |  |  | response |  |
 | --- | --- | --- | --- | --- |
 | **메서드** |**원본** |**요청 헤더** |**일치하는 규칙** |**결과** |
-| **PUT** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |첫 번째 규칙 |성공 |
-| **GET** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |두 번째 규칙 |성공 |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |두 번째 규칙 |실패 |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-콘텐츠-유형 |첫 번째 규칙 |성공 |
+| **GET** |http:\//www.contoso.com |x-ms-blob-콘텐츠-유형 |두 번째 규칙 |성공 |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |두 번째 규칙 |실패 |
 
 첫 번째 요청은 첫 번째 규칙과 일치합니다. 원본 도메인이 허용되는 도메인과 일치하고, 메서드가 허용되는 메서드와 일치하며, 헤더가 허용되는 헤더와 일치하므로 해당 요청은 성공합니다.
 
