@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870149"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -401,13 +401,13 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 앞서 설명한 대로 PdM에 대한 모델 운영화는 다른 기능과 다릅니다. 일반적으로 변칙 검색 및 오류 감지가 포함된 시나리오에서는 _온라인 점수 매기기_(_실시간 점수 매기기_라고도 함)를 구현합니다. 여기에서 모델은 들어오는 각 레코드의 _점수를 매기고_ 예측을 반환합니다. 변칙 검색의 경우 예측은 비정상적으로 발생했음을 나타냅니다(예: 1클래스 SVM). 오류 검색의 경우 오류의 형식이나 클래스가 검색됩니다.
 
-반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 세트의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](http://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
+반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 세트의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](https://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
 - 스트리밍 데이터 엔진은 기간 동안 메모리를 집계하도록 지원합니다. 따라서 온라인 점수 매기기를 지원한다고 할 수 있습니다. 하지만 이러한 시스템은 짧은 기간에 집중된 데이터 또는 긴 기간 동안 희소한 요소에 적합합니다. PdM 시나리오에서와 볼 수 있듯이 긴 기간 동안 집중된 데이터를 측정할 수 없습니다.
 - 일괄 처리 점수 매기기가 지원되지 않는 경우 한 번에 작은 일괄 처리로 새 데이터를 처리하도록 온라인 점수 매기기를 조정하는 방법이 있습니다.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>예측 유지 관리에 대한 솔루션 템플릿
 
-이 가이드의 마지막 섹션에서는 Azure에서 구현된 PdM 솔루션 템플릿을, 자습서 및 실험의 목록을 제공합니다. 이러한 PdM 애플리케이션은 경우에 따라 몇 분 안에 Azure 구독에 배포될 수 있습니다. 개념 증명 데모, 대안을 실험하는 샌드박스 또는 실제 프로덕션 구현을 위한 촉매제로 사용할 수 있습니다. 이러한 템플릿은 [Azure AI Gallery](http://gallery.azure.ai) 또는 [Azure GitHub](https://github.com/Azure)에 위치합니다. 이러한 여러 샘플은 시간이 지남에 따라 이 솔루션 템플릿에 포함됩니다.
+이 가이드의 마지막 섹션에서는 Azure에서 구현된 PdM 솔루션 템플릿을, 자습서 및 실험의 목록을 제공합니다. 이러한 PdM 애플리케이션은 경우에 따라 몇 분 안에 Azure 구독에 배포될 수 있습니다. 개념 증명 데모, 대안을 실험하는 샌드박스 또는 실제 프로덕션 구현을 위한 촉매제로 사용할 수 있습니다. 이러한 템플릿은 [Azure AI Gallery](https://gallery.azure.ai) 또는 [Azure GitHub](https://github.com/Azure)에 위치합니다. 이러한 여러 샘플은 시간이 지남에 따라 이 솔루션 템플릿에 포함됩니다.
 
 | # | 제목 | 설명 |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure는 일반적인 AI 개념과 연습에 대한 콘텐츠 및 학�
 | [Azure의 AI 개발자](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 공용 |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | 공용 |
 | [GitHub의 Azure AI 학습](https://github.com/Azure/connectthedots/blob/master/readme.md) | 공용 |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | 공용 |
-| [Microsoft AI YouTube 웨비나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 공용 |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 공용 |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | 공용 |
+| [Microsoft AI YouTube 웨 비 나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 공용 |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | 공용 |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | 파트너 |
 | [Microsoft 파트너 네트워크](https://learningportal.microsoft.com) | 파트너 |
 

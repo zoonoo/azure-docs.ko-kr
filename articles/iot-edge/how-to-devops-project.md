@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122895"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps Projects(미리 보기)를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기
 
@@ -127,7 +127,7 @@ DevOps Projects에서 Azure Repos에 프로젝트의 Git 리포지토리를 만�
 
 12. 릴리스 파이프라인에 대한 메뉴에서 **작업**을 선택한 다음, 드롭다운 목록에서 **개발** 단계를 선택합니다. DevOps Projects에서는 IoT Hub를 만들고, 해당 허브에서 IoT Edge 디바이스를 만들고, 빌드 파이프라인의 샘플 모듈을 배포하고, IoT Edge 디바이스로 실행될 가상 머신을 프로비전하는 릴리스 단계를 만들었습니다. CD에 대한 Azure IoT Edge 작업의 자세한 내용은 [지속적인 배포를 위한 Azure Pipelines 구성](how-to-ci-cd.md#configure-continuous-deployment)을 참조하세요.
 
-   ![지속적인 배포 작업 보기](media/how-to-devops-project/dev-release.png)
+    ![지속적인 배포 작업 보기](media/how-to-devops-project/dev-release.png)
 
 13. 오른쪽에서 **릴리스 보기**를 선택합니다. 이 보기에는 릴리스의 기록이 표시됩니다.
 

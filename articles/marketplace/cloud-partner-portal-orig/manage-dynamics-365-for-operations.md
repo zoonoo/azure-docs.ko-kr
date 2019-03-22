@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877330"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>클라우드 파트너 포털을 통해 Dynamics 365 for Operations 제품을 만드는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "51245089"
 
 모든 필수 구성 요소를 갖추었다면 Dynamics 365 for Operations 제품 작성을 시작할 준비가 완료된 것입니다.
 
-1. [클라우드 파트너 포털](http://cloudpartner.azure.com/)에 로그인합니다.
+1. [클라우드 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 2. 왼쪽 탐색 모음에서 \"+ 새 제품\"을 클릭하고 \"Dynamics 365 for Operations\"를 선택합니다.
 3. 새 제품 \"편집기\" 보기가 열립니다. 이제 작성을 시작할 준비가 되었습니다.
 4. 작성해야 할 \"양식\"은 \"편집기\" 보기 내의 왼쪽에 표시됩니다. 각 \"양식\"은 작성해야 할 필드 집합으로 구성됩니다. 필수 필드는 빨간색 별표(\*)로 표시됩니다.
@@ -51,7 +51,7 @@ Dynamics 365 for Operations를 작성하려면 다음의 4가지 기본 양식�
 
 게시자 프로필 내에서 제품의 고유 ID입니다. 이 ID는 제품 URL에 표시됩니다. 소문자 영숫자 문자 또는 대시(-)로만 구성할 수 있습니다. ID는 대시로 끝내면 안 되며 최대 50문자를 포함할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-예를 들어 contoso 게시자가 제품 ID *sample-dynamics365 for operations*로 만드는 제품은 AppSource에 \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics 365 for operations*?tab=Overview\"로 표시됩니다.
+예를 들어 게시자 contoso 게시자는 제품을 만드는 경우 제품 ID *작업에 대 한 샘플 dynamics365*,으로 AppSource에 뜹니다 `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`합니다.
 
 ### <a name="publisher-id"></a>게시자 ID
 
@@ -138,7 +138,7 @@ Dynamics 365 for Operations를 작성하려면 다음의 4가지 기본 양식�
 
 ### <a name="leads-management"></a>잠재 고객 관리
 
-잠재 고객을 저장할 CRM 시스템을 선택합니다. Salesforce, Marketo, Microsoft Dynamics CRM 중 하나가 있는 경우 여기서 \"Azure Table\"을 선택합니다. AppSource에서 게시자의 앱 평가판을 사용하는 최종 사용자(잠재 고객)의 세부 정보가 여기서 선택하는 CRM 시스템에 작성됩니다. 선택하는 CRM 시스템에 따라 아래의 해당 URL을 클릭하여 다음 필드 집합을 작성하는 방법에 대한 정보를 확인하세요.
+잠재 고객을 저장할 CRM 시스템을 선택합니다. 선택 \"Azure Table\" 여기 있는 다음 CRM 시스템의 경우: Salesforce, Marketo, Microsoft Dynamics CRM. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 사용해 보는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택하는 CRM 시스템에 따라 아래의 해당 URL을 클릭하여 다음 필드 집합을 작성하는 방법에 대한 정보를 확인하세요.
 
 ![잠재 고객 관리 세부 정보](./media/publish_d365_new_offer/leads.png)
 

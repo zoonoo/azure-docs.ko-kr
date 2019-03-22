@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56b3bffc7aca1ace4dfae78cdcd4394daae9360e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0a13d86afe3d395cb34f592b03c1eb9daa18076b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872797"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454858"
 ---
 # <a name="automate-moderation-reviews-with-workflows"></a>워크플로 사용하여 조정 검토 자동화
 
@@ -243,4 +243,4 @@ Content Moderator의 워크플로 기능은 사용자 지정 워크플로의 정
 
 [워크플로 API 콘솔](try-review-api-job.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 
 
-마지막으로 [작업 API 콘솔](try-review-api-job.md) 및 [작업 .NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)에 표시된 것처럼 **Job** 작업으로 사용자 지정 워크플로를 사용합니다.
+마지막으로 사용 하 여 사용자 지정 워크플로 사용 합니다 **작업** 에 표시 된 대로 operations [작업 API 콘솔](try-review-api-job.md) 및 [작업.NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)합니다.

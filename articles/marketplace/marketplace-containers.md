@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e81f2b42e725e50473c09622a486586fb6721ad5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076385"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214846"
 ---
 # <a name="containers-offer-publishing-guide"></a>컨테이너 제품 게시 가이드
 
@@ -42,7 +42,6 @@ Microsoft는 현재 무료 및 BYOL(사용자 라이선스 필요) 라이선스 
 | Dockerfile에서 작성된 이미지 | 컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다.<ul> <li>Docker 이미지를 빌드하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage)에 있는 사용법 섹션으로 이동합니다.</li> </ul> |  
 | ACR에서 호스팅 | 컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다.<ul> <li>ACR을 사용하는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)에 있는 빠른 시작: Azure Portal 페이지를 사용하여 컨테이너 레지스트리 만들기로 이동합니다.</li> </ul> |  
 | 이미지 태그 지정 | 컨테이너 이미지는 최소 1개 태그를 포함해야 합니다(최대 태그: 16).<ul> <li>이미지를 태그하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag)에 있는 Docker 태그 페이지로 이동합니다.</li> </ul> |  
-
 
 ## <a name="next-steps"></a>다음 단계
 

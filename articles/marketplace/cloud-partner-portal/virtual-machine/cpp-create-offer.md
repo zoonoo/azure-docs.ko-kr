@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a875b69a10f6305b4ffe32b63d3db5b508faf01
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888811"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtual Machine 제안 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "49639533"
 
 ## <a name="new-offer-form"></a>새 제안 양식
 
-[Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인하면 왼쪽 메뉴 모음에서 **+ 새 제안** 항목을 클릭합니다. 결과 메뉴에서 **Virtual Machines**를 클릭하여 **새 제안** 양식을 표시하고, 새 VM 제안에 대한 자산을 정의하는 프로세스를 시작합니다. 
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인하면 왼쪽 메뉴 모음에서 **+ 새 제안** 항목을 클릭합니다. 결과 메뉴에서 **Virtual Machines**를 클릭하여 **새 제안** 양식을 표시하고, 새 VM 제안에 대한 자산을 정의하는 프로세스를 시작합니다. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![새 가상 머신 제안에 대한 사용자 인터페이스 선택](./media/publishvm_003.png)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 6f8cf8a597bc50bb52818968c6f6ea0e7a6941a4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792466"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225334"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 업데이트
 
@@ -51,13 +51,13 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - **1809**: [4481548 – Azure Stack 1.1809.12.114 핫픽스 (kb)](https://support.microsoft.com/help/4481548/)
 - **1811**: 현재 핫픽스 사용 가능 합니다.
-- **1901**: 현재 핫픽스 사용 가능 합니다.
-- **1902**: 현재 핫픽스 사용 가능 합니다.
+- **1901**: [4481548 – Azure Stack 1.1901.2.103 핫픽스 (kb)](https://support.microsoft.com/help/4494720)
+- **1902**: [4481548 – Azure Stack 1.1902.2.73 핫픽스 (kb)](https://support.microsoft.com/help/4494719)
 
 ## <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-- 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1902를 업데이트 하기 전에 1901 (있는 경우)에 대 한 합니다.
+> - 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1902를 업데이트 하기 전에 1901 (있는 경우)에 대 한 합니다.
 
 - 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결:
 
@@ -84,23 +84,49 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- 오프 라인 수집에 대 한 더 쉽게 관리 뿐만 아니라 패키지 무결성 및 보안 향상을 위해 Microsoft는.zip 파일에.exe 및.bin 파일에서 업데이트 패키지 형식의 변경 되었습니다. 때때로 업데이트 준비 상태를 일으킬 수 있는 압축 풀기 프로세스의 추가 안정성을 추가 하는 새 형식입니다. 동일한 패키지 형식으로 OEM에서 패키지 업데이트에 적용 됩니다.
-- 환경을 개선 하기 위해 Azure Stack 연산자 AzureStack 테스트를 실행 하는 경우, 연산자 이제 사용할 수 있습니다 단순히, "테스트 AzureStack-그룹 UpdateReadiness"는 Include 문을 후 10 개의 추가 매개 변수를 전달 하는 대신 합니다.
+- 오프 라인 수집에 대 한 관리를 쉽게 패키지 무결성 및 보안 향상을 위해 Microsoft는.zip 파일에.exe 및.bin 파일에서 업데이트 패키지 형식의 변경 되었습니다. 새 형식 때때로 업데이트 준비 상태를 일으킬 수 있는 압축 프로세스에 추가 안정성을 추가 합니다. 동일한 패키지 형식으로 OEM에서 패키지 업데이트에 적용 됩니다.
+
+- 실행 하는 경우 Azure Stack 운영자 경험을 개선 하기 위해 **테스트 AzureStack**, 연산자 이제 사용할 수 있습니다 단순히 `Test-AzureStack -Group UpdateReadiness` 후 10 개의 추가 매개 변수를 전달 하는 대신는 `include` 문. 예: 
 
   ```powershell
-    Test-AzureStack -Group UpdateReadiness  
-  ```  
-  
-- 을 개선 하기 위해 전체적인 안정성과 가용성의 핵심 인프라 서비스에서 업데이트 프로세스 중 업데이트 작업 계획의 일환으로 네이티브 업데이트 리소스 공급자는 감지 하 고 필요에 따라 자동 전역 재구성을 호출 합니다. 전역 수정 "복구" 워크플로 다음과 같습니다.
-    - 최적이 아닌 상태가 되며 필요에 따라 복구 하려고 하는 인프라 가상 컴퓨터에 대 한 확인 
-    - 컨트롤 계획의 일환으로 SQL 서비스 문제에 대 한 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 네트워크 컨트롤러 (NC)의 일부로 소프트웨어 부하 분산 장치 (SLB) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 네트워크 컨트롤러 (NC) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
-    - XRP 서비스 패브릭 노드의 상태를 확인 하 고 필요에 따라 복구
-    - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
+  Test-AzureStack -Group UpdateReadiness  
+  ```
 
+- 업데이트 과정에서 전체적인 안정성과 핵심 인프라 서비스의 가용성 향상을 하려면 네이티브 업데이트 작업 계획의 일부로 감지 하 고 필요에 따라 자동 전역 재구성을 호출 하는 대로 리소스 공급자를 업데이트 합니다. 전역 수정 "복구" 워크플로 다음과 같습니다.
 
+  - 최적이 아닌 상태가 되며 필요에 따라 복구 하려고 하는 인프라 가상 컴퓨터를 확인 합니다.
+  - 컨트롤 계획의 일환으로 SQL 서비스 문제에 대 한 확인 하 고 필요에 따라 복구 하려고 합니다.
+  - 네트워크 컨트롤러 (NC)의 일부로 소프트웨어 부하 분산 장치 (SLB) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
+  - 네트워크 컨트롤러 (NC) 서비스의 상태를 확인 하 고 필요에 따라 복구를 시도 합니다.
+  - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
+  - XRP 서비스 패브릭 노드의 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
+  - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
+
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- 실행 상태를 "늘리는 저장소"에서 배율 단위 상태를 전환 하는 경우 노드를 추가 하는 동안 용량 확장의 안정성 개선 합니다.    
+
+<!-- 
+1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
+1396607 3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage Diagnostics
+1404529 3835749: Enable Group Policy Diagnostic Logs    Diagnostics
+1436561 Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag  Diagnostics
+1404512 3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug   Diagnostics 
+-->
+- Azure의 향상 된 기능 스택 로그 컬렉션 안정성 및 성능을 개선 하는 진단 도구입니다. 네트워킹 및 id 서비스에 대 한 로깅을 추가 합니다. 
+
+<!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
+- 안정성 개선 **테스트 AzureStack** 비밀 회전 준비 상태 테스트에 대 한 합니다.
+
+<!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
+- 고객의 Active Directory 환경과 통신 하는 경우 AD Graph 안정성을 높이기 위해 개선 되었습니다.
+
+<!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
+- 향상 된 하드웨어 인벤토리 컬렉션 **Get AzureStackStampInformation**합니다.
+
+- ERCS 인프라에서 실행 중인 작업의 안정성 향상을 위해 각 ERCS 인스턴스에 대 한 메모리를 8GB에서 12 g B로 증가 합니다. Azure Stack 통합 시스템 설치 하는 경우이 인해 12GB 증가 하는 전체.
+
+> [!IMPORTANT]
+> 를 패치 및 업데이트 프로세스를 최소한의 테 넌 트의 가동 중지 시간 발생 했는지 확인 하 여 Azure Stack 스탬프 12GB 이상에서 사용 가능한 공간에 있는지를 확인 합니다 **용량** 블레이드입니다. 에 반영 증가이 메모리를 볼 수 있습니다 합니다 **용량** 블레이드에서 업데이트의 설치를 완료 합니다.
 
 ## <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 
@@ -135,7 +161,6 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 - [CVE-2019-0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 이러한 취약점에 대 한 자세한 내용은 위의 링크를 클릭 하거나 Microsoft 기술 자료 문서를 참조 하세요 [4487006](https://support.microsoft.com/en-us/help/4487006)합니다.
 
@@ -195,9 +220,18 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM은 SSH 키를 사용 하 여 로그인 할 수 없습니다. 이 문제를 해결 하려면 Linux 확장에 대 한 VM 액세스 프로 비전 한 후 SSH 키를 구현 하는 데 또는 암호 기반 인증을 사용 합니다.
 
-- 에서는 1902, VM 8GB에서 12GB로 증가 된 ERCS 인프라에 필요한 메모리를 작성 합니다. ASDK에이 인해 4GB 증가 합니다. Azure Stack 통합 시스템 설치, 12GB 증가 하는 것입니다.
+- 하드웨어 수명 주기 호스트 (HLH) 없는 경우 1902 빌드 전에 그룹 정책을 설정 해야 **컴퓨터 구성 설정 \ 보안 설정 \ 로컬 정책 \ 보안 옵션** 에 **lm NTLM –협상하는경우NTLMv2세션보안사용**. 1902 빌드 후 두어야 그대로 **정의 되어 있지** 로 설정 하거나 **NTLMv2 응답만 보내기** (기본값은)는입니다. 그렇지 않으면 PowerShell 원격 세션을 설정할 수 없습니다 하 고 받을 수는 **액세스가 거부 되었습니다.** 오류:
 
-   를 패치 및 업데이트 프로세스를 최소한의 테 넌 트의 가동 중지 시간 발생 했는지 확인 하 여 Azure Stack 스탬프 12GB 이상에서 사용 가능한 공간에 있는지를 확인 합니다 **용량** 블레이드입니다. 에 반영 증가이 메모리를 볼 수 있습니다 합니다 **용량** 블레이드에서 업데이트의 설치를 완료 합니다.
+   ```shell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
 
 ### <a name="networking"></a>네트워킹  
 
@@ -220,19 +254,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 - 네트워크 보안 그룹 (Nsg) 동일한 방식으로 전체 Azure에서 Azure Stack에서 작동 하지 않습니다. Azure에서 하나의 NSG 규칙에서 여러 포트를 설정할 수 있습니다 (포털, PowerShell을 사용 하 여 및 Resource Manager 템플릿). 그러나 Azure Stack에서 설정할 수 없습니다 여러 포트에서 포털을 통해 NSG 규칙을 하나입니다. 이 문제를 해결 하려면 이러한 추가 규칙을 설정 하는 Resource Manager 템플릿 또는 PowerShell을 사용 합니다.
 
 <!-- 3203799 - IS, ASDK -->
-- Azure Stack 인스턴스 크기에 관계 없이 현재 4 개 이상의 네트워크 인터페이스 (Nic) VM 인스턴스에 연결 하는 것을 지원 하지 않습니다.
-
-- 문제는 1450 바이트를 초과를 내부 부하 분산 장치 (ILB) 패킷을 확인 되었습니다. 문제는 1901 기준으로 호스트에 옮겨졌습니다는 역할을 트래버스하는 VXLAN 캡슐화 패킷을 수용 하기 위해 너무 부족 호스트에서 MTU 설정 되었기 때문입니다. 가지 표출이 문제는 살펴본 두 개 이상 발생할 수 있는 시나리오가 있습니다.
-
-  - SQL 쿼리 뒤에 부하 분산 장치 ILB (내부), 이며 660 바이트를 초과 하는 SQL Always On입니다.
-  - Kubernetes 배포에는 여러 마스터를 사용 하도록 설정 하려고 하면 실패 합니다.  
-
-  동일한 가상 네트워크에 있지만 서로 다른 서브넷에 VM 및 ILB 간의 통신 해야 하는 경우 문제가 발생 합니다. ASDK 호스트에서 관리자 권한 명령 프롬프트에서 다음 명령을 실행 하 여이 문제를 해결할 수 있습니다.
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
+- Azure Stack 인스턴스 크기에 관계 없이 현재 4 개 이상의 네트워크 인터페이스 (Nic) 하 여 VM 인스턴스에 연결 하는 것을 지원 하지 않습니다.
 
 <!-- ### SQL and MySQL-->
 

@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870933"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 계산 리소스 관리
 
@@ -57,14 +57,14 @@ SQL Data Warehouse에 Azure Function App을 사용하려면 데이터 웨어하�
 
 4. 일정 영역에서 원하는 SQL Data Warehouse 강화 주기를 반영하도록 CRON 식의 시간을 추가합니다. 
 
-  ![함수 일정 변경](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![함수 일정 변경](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  `schedule`의 값은 이러한 6개 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   `schedule`의 값은 이러한 6개 필드를 포함하는 [CRON 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  예를 들어 *"0 30 9 * * 1-5"* 는 평일 오전 9시 30분에 트리거를 반영합니다. 자세한 내용은 Azure Functions [일정 예][schedule examples]를 방문하세요.
+   예를 들어 *"0 30 9 * * 1-5"* 는 평일 오전 9시 30분에 트리거를 반영합니다. 자세한 내용은 Azure Functions [일정 예][schedule examples]를 방문하세요.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>크기 조정 작업의 시간 변경

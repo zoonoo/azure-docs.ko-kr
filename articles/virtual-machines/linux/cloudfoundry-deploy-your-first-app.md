@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 9a0b12ec9d825fc665bd5beb89e911b80ed3889f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013884"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
-[Cloud Foundry](http://cloudfoundry.org)는 Microsoft Azure에서 사용할 수 있는 인기 있는 오픈 소스 응용 프로그램 플랫폼입니다. 이 문서에서는 Azure 환경에서 Cloud Foundry의 애플리케이션을 배포 및 관리하는 방법을 보여줍니다.
+[Cloud Foundry](https://cloudfoundry.org)는 Microsoft Azure에서 사용할 수 있는 인기 있는 오픈 소스 애플리케이션 플랫폼입니다. 이 문서에서는 Azure 환경에서 Cloud Foundry의 애플리케이션을 배포 및 관리하는 방법을 보여줍니다.
 
 ## <a name="create-a-cloud-foundry-environment"></a>Cloud Foundry 환경 만들기
 
@@ -33,7 +33,7 @@ Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습
 
 - Azure Marketplace에서 [Pivotal Cloud Foundry 제품][pcf-azuremarketplace]을 사용하여 PCF Ops Manager 및 Azure Service Broker를 포함하는 표준 환경을 만듭니다. Pivotal 설명서에서 마켓플레이스 제품을 배포하기 위한 [전체 지침][pcf-azuremarketplace-pivotaldocs]을 찾을 수 있습니다.
 - [Pivotal Cloud Foundry를 수동으로 배포][pcf-custom]하여 사용자 지정된 환경을 만듭니다.
-- [BOSH](http://bosh.io) 디렉터, Cloud Foundry 환경의 배포를 조정하는 VM을 설정하여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh]합니다.
+- [BOSH](https://bosh.io) 디렉터, Cloud Foundry 환경의 배포를 조정하는 VM을 설정하여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh]합니다.
 
 > [!IMPORTANT] 
 > Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. 마켓플레이스 배포의 경우 SYSTEMDOMAINURL은 https://system.*ip-address*.cf.pcfazure.com 형식입니다.
@@ -55,7 +55,7 @@ Cloud Foundry는 네임스페이스로 *조직* 및 *공간*을 제공하여 공
 
 ## <a name="create-an-org-and-space"></a>조직 및 공간 만들기
 
-`cf apps`를 입력하는 경우 시스템 조직 내에서 시스템 공간에 배포된 시스템 응용 프로그램 집합이 표시됩니다. 
+`cf apps`를 입력하는 경우 시스템 조직 내에서 시스템 공간에 배포된 시스템 애플리케이션 세트이 표시됩니다. 
 
 조직 및 공간을 만들어 샘플 애플리케이션을 저장하도록 시스템 애플리케이션에 대해 예약된 *시스템* 조직을 유지해야 합니다.
 
@@ -77,7 +77,7 @@ cf target -o testorg -s dev
 
 ## <a name="deploy-an-application"></a>애플리케이션 배포
 
-Java로 작성되며 [Spring Framework](http://spring.io) 및 [Spring Boot](http://projects.spring.io/spring-boot/)를 기반으로 하는 Hello Spring Cloud라는 샘플 Cloud Foundry 애플리케이션을 사용해 봅시다.
+Java로 작성되며 [Spring Framework](https://spring.io) 및 [Spring Boot](https://projects.spring.io/spring-boot/)를 기반으로 하는 Hello Spring Cloud라는 샘플 Cloud Foundry 애플리케이션을 사용해 봅시다.
 
 ### <a name="clone-the-hello-spring-cloud-repository"></a>Hello Spring Cloud 리포지토리 복제
 
@@ -90,7 +90,7 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>애플리케이션 빌드
 
-[Apache Maven](http://maven.apache.org)을 사용하여 앱을 빌드합니다.
+[Apache Maven](https://maven.apache.org)을 사용하여 앱을 빌드합니다.
 
 ```bash
 mvn clean package
@@ -98,7 +98,7 @@ mvn clean package
 
 ### <a name="deploy-the-application-with-cf-push"></a>cf 밀어넣기로 애플리케이션 배포
 
-`push` 명령을 사용하여 대부분의 응용 프로그램을 Cloud Foundry에 배포할 수 있습니다.
+`push` 명령을 사용하여 대부분의 애플리케이션을 Cloud Foundry에 배포할 수 있습니다.
 
 ```bash
 cf push
@@ -113,7 +113,7 @@ hello-spring-cloud 애플리케이션을 보려면 브라우저에서 제공된 
 ![Hello Spring Cloud용 기본 UI][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> `cf push` 처리 과정에 대한 자세한 내용을 보려면 Cloud Foundry 설명서에서 [응용 프로그램 준비 방법][cf-push-docs]을 참조하세요.
+> `cf push` 처리 과정에 대한 자세한 내용을 보려면 Cloud Foundry 설명서에서 [애플리케이션 준비 방법][cf-push-docs]을 참조하세요.
 
 ## <a name="view-application-logs"></a>애플리케이션 로그 보기
 
@@ -133,7 +133,7 @@ cf logs --recent hello-spring-cloud
 
 ## <a name="scale-the-application"></a>애플리케이션 크기 조정
 
-기본적으로 `cf push`만 애플리케이션의 단일 인스턴스를 만듭니다. 고가용성을 보장하고 높은 처리량을 위해 규모 확장을 활성화하려면 일반적으로 애플리케이션의 둘 이상의 인스턴스를 실행합니다. `scale` 명령을 사용하여 이미 배포된 응용 프로그램을 쉽게 확장할 수 있습니다.
+기본적으로 `cf push`만 애플리케이션의 단일 인스턴스를 만듭니다. 고가용성을 보장하고 높은 처리량을 위해 규모 확장을 활성화하려면 일반적으로 애플리케이션의 둘 이상의 인스턴스를 실행합니다. `scale` 명령을 사용하여 이미 배포된 애플리케이션을 쉽게 확장할 수 있습니다.
 
 ```bash
 cf scale -i 2 hello-spring-cloud
@@ -158,7 +158,7 @@ cf scale -i 2 hello-spring-cloud
 [cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
-[spring-framework]: http://spring.io
+[spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org
 [vsts-plugin]: https://github.com/Microsoft/vsts-cloudfoundry

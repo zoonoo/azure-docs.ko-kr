@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968450"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437347"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps에서 지원되는 범주
 
@@ -45,7 +45,7 @@ ms.locfileid: "38968450"
 | COLLEGE\_UNIVERSITY | 주니어 칼리지/커뮤니티 대학, 칼리지/대학, 칼리지, 대학 예비 학교, 대학 |
 | COMMERCIAL\_BUILDING | 사무실 건물, 공원 본부, 상업용 건물 |
 | COMMUNITY\_CENTER | 커뮤니티 센터 |
-| COMPANY | 전자 제품, 제조업, 컴퓨터 데이터 서비스, 공중 보건 기술, 다양한 금융, 동물 보호소, 항공사, 장비 임대, 서비스, 우편/소포/화물 운송, 버스 노선, 가전 제품 수리, 청소 용역, OEM, 세금 공제, 석유 천연 가스, 법률 서비스, 건설, 통신, 교통, 자동차 제조, 화학 물질, 장례식 영안실, 교량 터널 운영, 자동차, 기계 공학, 서비스, 투자 고문, 광고/마케팅, 이사 창고 보관, 저축 기관, 보험, 컴퓨터 소프트웨어, 제약 회사, 출장 요리, 예식 서비스, 농업 기술, 부동산, 택시, 리무진 셔틀 서비스, 버스 전세 대여, 광업, 출판 기술, 케이블 전화, 수입/수출 분포, 회사, 보호 시설, 탄광, 사유지, 양조장, 금광 |
+| COMPANY | electronics, 제조, 컴퓨터 데이터 서비스, 공중 보건 기술, 분산된 금융, 동물 환경적인, 항공사, 장비 차량 대 여, 서비스, 운송/패키지/메일 배달, 버스 선, services, oem, 정리 홈 어플라이언스 복구 세금 서비스, 석유 천연 가스, 법률 서비스, 생성, 통신, 전송, 자동차 제조, 화학 물질, 장례식 서비스 영안실, 브리지 터널 작업, 자동차, 기계 공학, 서비스, 투자 조언자의 입장에서 광고/마케팅, 저장소, 비용 절감 교육 기관, 보험, 컴퓨터 소프트웨어 이동 pharmaceuticals 이며, 결혼 서비스, agricultural 기술, 부동산, 택시, 리무진 셔틀 서비스 버스 헌장에 자전거 대 여, 마이닝, 게시 기술, 케이블 전화, import/export 배포, 회사, asylum, 석탄 mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | 법원 청사 |
 | CULTURAL\_CENTER | 문화 센터 |
 | DENTIST | 치과 |

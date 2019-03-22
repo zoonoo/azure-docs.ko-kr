@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005899"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
@@ -32,12 +32,18 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 ### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
-3. **pg_qs.query_capture_mode** 매개 변수를 검색합니다.
-4. 값을 NONE에서 TOP으로 업데이트하고 저장합니다.
+3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
+4. 값을 설정 합니다 `TOP` 하 고 **저장**합니다.
 
-또는 Azure CLI를 사용하여 이 매개 변수를 설정할 수 있습니다.
+쿼리 저장소에서 대기 통계 수 있도록 합니다. 
+1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
+1. 값을 설정 합니다 `ALL` 하 고 **저장**합니다.
+
+
+또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 데이터의 첫 번째 배치가 azure_sys 데이터베이스에서 지속되는 데 최대 20분이 걸립니다.
@@ -81,6 +87,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 쿼리 저장소를 사용하도록 설정하면 데이터가 15분 집계 창에 저장되고 각 창에는 최대 500개의 고유 쿼리가 포함됩니다. 
 
 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
+
 | **매개 변수** | **설명** | **기본값** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
@@ -89,6 +96,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | pg_qs.track_utility | 유틸리티 명령을 추적할지 여부를 설정합니다. | on | on, off |
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
+
 | **매개 변수** | **설명** | **기본값** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | 없음 | none, all|

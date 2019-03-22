@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: f054cf101f24d7cc571e9f90943122e42beb9dc6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122946"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory Federated Services를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -55,105 +55,105 @@ Id 솔루션으로 AD FS를 사용 하는 경우 서비스 주체를 설정 하 
 
 1. Azure Stack 관리자에 게 인증서와 서비스 주체에 대 한 정보를 제공합니다.
 
-    - 서비스 주체 정보는 같습니다.
+   - 서비스 주체 정보는 같습니다.
 
-    ```Text  
-        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-        PSComputerName        : azs-ercs01
-        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-    ```
+     ```Text  
+       ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+       ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+       Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+       ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+       PSComputerName        : azs-ercs01
+       RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+     ```
 
-    - 인증서의 확장명이 됩니다 `.pfx`합니다. 인증서 keyvault에 비밀로 저장 됩니다.
+   - 인증서의 확장명이 됩니다 `.pfx`합니다. 인증서 keyvault에 비밀로 저장 됩니다.
 
 2. 구독에 새 서비스 주체에 참가자 역할을 할당 합니다. 자세한 내용은 [역할 할당](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)합니다.
 
 3. 배포에 대 한 인증서를 저장할 key vault를 만듭니다. 포털 대신 다음 PowerShell 스크립트를 사용 합니다.
 
-    - 다음 가지 정보가 필요합니다.
+   - 다음 가지 정보가 필요합니다.
 
-        | 값 | 설명 |
-        | ---   | ---         |
-        | Azure Resource Manager 끝점 | Microsoft Azure 리소스 관리자는 관리자가 배포, 관리 및 Azure 리소스를 모니터링할 수 있도록 관리 합니다. Azure Resource Manager 그룹으로 대신 개별적으로 단일 작업에서 이러한 작업을 처리할 수 있습니다.<br>Azure Stack 개발 키트 (ASDK)의 끝점 상태 `https://management.local.azurestack.external/`<br>통합된 시스템에서 끝점을 다음과 같습니다. `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | 구독 ID | 합니다 [구독 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
-        | 사용자 이름 | 와 같은 사용자 이름만 아닌 도메인 이름 및 사용자 이름 사용 `username` 대신 `azurestack\username`합니다. |
-        | 리소스 그룹 이름  | 기존 리소스 그룹을 선택 또는 새 리소스 그룹의 이름입니다. 리소스 이름은 영숫자 및 소문자 있어야 합니다. |
-        | Keyvault 이름 | 자격 증명 모음의 이름입니다.<br> Regex 패턴: `^[a-zA-Z0-9-]{3,24}$` |
-        | 리소스 그룹 위치 | 리소스 그룹의 위치입니다. Azure Stack 설치에 대해 선택 하는 지역입니다. |
+       | 값 | 설명 |
+       | ---   | ---         |
+       | Azure Resource Manager 끝점 | Microsoft Azure 리소스 관리자는 관리자가 배포, 관리 및 Azure 리소스를 모니터링할 수 있도록 관리 합니다. Azure Resource Manager 그룹으로 대신 개별적으로 단일 작업에서 이러한 작업을 처리할 수 있습니다.<br>Azure Stack 개발 키트 (ASDK)의 끝점 상태 `https://management.local.azurestack.external/`<br>통합된 시스템에서 끝점을 다음과 같습니다. `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | 구독 ID | 합니다 [구독 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
+       | 사용자 이름 | 와 같은 사용자 이름만 아닌 도메인 이름 및 사용자 이름 사용 `username` 대신 `azurestack\username`합니다. |
+       | 리소스 그룹 이름  | 기존 리소스 그룹을 선택 또는 새 리소스 그룹의 이름입니다. 리소스 이름은 영숫자 및 소문자 있어야 합니다. |
+       | Keyvault 이름 | 자격 증명 모음의 이름입니다.<br> Regex 패턴: `^[a-zA-Z0-9-]{3,24}$` |
+       | 리소스 그룹 위치 | 리소스 그룹의 위치입니다. Azure Stack 설치에 대해 선택 하는 지역입니다. |
 
-    - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
+   - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-    ```PowerShell  
-        $armEndpoint="<Azure Resource Manager Endpoint>"
-        $subscriptionId="<Your Subscription ID>"
-        $username="<your user name >"
-        $resource_group_name = "<the resource group name >"
-        $key_vault_name = "<keyvault name>"
-        $resource_group_location="<resource group location>"
+     ```PowerShell  
+       $armEndpoint="<Azure Resource Manager Endpoint>"
+       $subscriptionId="<Your Subscription ID>"
+       $username="<your user name >"
+       $resource_group_name = "<the resource group name >"
+       $key_vault_name = "<keyvault name>"
+       $resource_group_location="<resource group location>"
         
-        # Login Azure Stack Environment
-        Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-        $mycreds = Get-Credential
-        Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+       # Login Azure Stack Environment
+       Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+       $mycreds = Get-Credential
+       Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
         
-        # Create new Resource group and key vault
-        New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
+       # Create new Resource group and key vault
+       New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
-        # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
+       # Note, Do not omit -EnabledForTemplateDeployment flag
+       New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
-        # Obtain the security identifier(SID) of the active directory user
-        $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
-        $objectSID = $adUser.SID.Value
-        # Set the key vault access policy
-        Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
-    ```
+       # Obtain the security identifier(SID) of the active directory user
+       $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
+       $objectSID = $adUser.SID.Value
+       # Set the key vault access policy
+       Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
+     ```
 
 4. Key vault에 인증서를 업로드 합니다.
 
-    - 다음 가지 정보가 필요합니다.
+   - 다음 가지 정보가 필요합니다.
 
-        | 값 | 설명 |
-        | ---   | ---         |
-        | 인증서 경로 | 인증서에 FQDN 또는 파일 경로입니다. |
-        | 인증서 암호 | 인증서 암호입니다. |
-        | 비밀 이름 | 자격 증명 모음에 저장 된 인증서를 참조 하는 데 비밀 이름입니다. |
-        | 키 자격 증명 모음 이름 | 이전 단계에서 만든 key vault의 이름입니다. |
-        | Azure Resource Manager 끝점 | Azure Stack 개발 키트 (ASDK)의 끝점 상태 `https://management.local.azurestack.external/`<br>통합된 시스템에서 끝점을 다음과 같습니다. `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | 구독 ID | 합니다 [구독 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
+       | 값 | 설명 |
+       | ---   | ---         |
+       | 인증서 경로 | 인증서에 FQDN 또는 파일 경로입니다. |
+       | 인증서 암호 | 인증서 암호입니다. |
+       | 비밀 이름 | 자격 증명 모음에 저장 된 인증서를 참조 하는 데 비밀 이름입니다. |
+       | 키 자격 증명 모음 이름 | 이전 단계에서 만든 key vault의 이름입니다. |
+       | Azure Resource Manager 끝점 | Azure Stack 개발 키트 (ASDK)의 끝점 상태 `https://management.local.azurestack.external/`<br>통합된 시스템에서 끝점을 다음과 같습니다. `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | 구독 ID | 합니다 [구독 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
 
-    - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
+   - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-    ```PowerShell  
+     ```PowerShell  
         
-    # upload the pfx to key vault
-    $tempPFXFilePath = "<certificate path>"
-    $password = "<certificate password>"
-    $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<key vault name>"
-    $armEndpoint="<Azure Resource Manager Endpoint>"
-    $subscriptionId="<Your Subscription ID>"
-    # Login Azure Stack Environment
-    Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-    $mycreds = Get-Credential
-    Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+     # upload the pfx to key vault
+     $tempPFXFilePath = "<certificate path>"
+     $password = "<certificate password>"
+     $keyVaultSecretName = "<secret name>"
+     $keyVaultName = "<key vault name>"
+     $armEndpoint="<Azure Resource Manager Endpoint>"
+     $subscriptionId="<Your Subscription ID>"
+     # Login Azure Stack Environment
+     Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+     $mycreds = Get-Credential
+     Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
     
-    $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
-    $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    $jsonObject = @"
-    {
-    "data": "$pfxAsBase64EncodedString",
-    "dataType" :"pfx",
-    "password": "$password"
-    }
-    "@
-    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
-    ```
+     $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
+     $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+     $jsonObject = @"
+     {
+     "data": "$pfxAsBase64EncodedString",
+     "dataType" :"pfx",
+     "password": "$password"
+     }
+     "@
+     $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+     $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+     $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+     $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
+     ```
 
 ## <a name="deploy-kubernetes"></a>Kubernetes 배포
 

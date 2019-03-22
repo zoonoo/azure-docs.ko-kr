@@ -3,20 +3,20 @@ title: Azure Data Factory에서 자체 호스팅 통합 런타임 만들기 | Mi
 description: 데이터 팩터리가 개인 네트워크의 데이터 스토리지에 액세스할 수 있도록 Azure Data Factory에서 자체 호스팅 통합 런타임을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838802"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -25,11 +25,13 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 이 문서에서는 자체 호스팅 IR을 만들고 구성하는 방법을 설명합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>자체 호스팅 IR을 설치하는 대략적인 단계
 1. 자체 호스팅 통합 런타임을 만듭니다. 이 작업에는 Azure Data Factory UI를 사용할 수 있습니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. 로컬 컴퓨터에서 자체 호스팅 통합 런타임을 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)하여 설치합니다.
@@ -37,7 +39,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 3. 인증 키를 검색한 다음 해당 키를 사용하여 자체 호스팅 통합 런타임을 등록합니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Azure Resource Manager 템플릿(자동화)을 사용하여 Azure VM에 자체 호스팅 IR 설정
@@ -59,7 +61,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항
 
 - 단일 자체 호스팅 통합 런타임을 여러 온-프레미스 데이터 원본에 사용할 수 있습니다. 각 자체 호스팅 통합 런타임은 같은 Azure Active Directory 테넌트 내의 다른 데이터 팩터리와만 공유할 수 있습니다. 자세한 내용은 [자체 호스팅 통합 런타임 공유](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)를 참조하세요.
-- 각 컴퓨터에는 자체 호스팅 통합 런타임 인스턴스를 하나씩만 설치할 수 있습니다. 온-프레미스 데이터 원본에 액세스해야 하는 데이터 팩터리가 두 개라면 두 대의 온-프레미스 컴퓨터에 자체 호스팅 통합 런타임을 설치해야 합니다. 즉, 자체 호스팅 통합 런타임은 특정 데이터 팩터리에 연결됩니다.
+- 각 컴퓨터에는 자체 호스팅 통합 런타임 인스턴스를 하나씩만 설치할 수 있습니다. 온-프레미스 데이터 원본에 액세스 해야 하는 두 가지 데이터 팩터리를 만든 경우 두 개의 온-프레미스 컴퓨터에서 각 데이터 팩터리가에서 자체 호스팅된 integration runtime을 설치 하거나 사용 하 여 [자체 호스팅 IR 공유 기능](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)자체 호스팅된 통합 런타임을 다른 Data Factory를 사용 하 여 공유할 수 있습니다.  
 - 자체 호스팅 통합 런타임이 데이터 원본과 같은 컴퓨터에 있을 필요는 없습니다. 그러나 자체 호스팅 통합 런타임이 데이터 원본에 가까울수록 데이터 원본에 연결하는 시간이 줄어듭니다. 온-프레미스 데이터 원본을 호스트하는 컴퓨터와는 다른 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다. 자체 호스팅 통합 런타임과 데이터 원본이 서로 다른 컴퓨터에 있으면 자체 호스팅 통합 런타임과 데이터 원본 간에 리소스 경합이 발생하지 않습니다.
 - 서로 다른 컴퓨터의 여러 자체 호스팅 통합 런타임이 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다. 두 자체 호스팅 통합 런타임이 두 데이터 팩터리를 처리하는데 두 데이터 팩터리에 동일한 온-프레미스 데이터 원본에 등록되어 있는 경우를 예로 들 수 있습니다.
 - 컴퓨터에 Power BI 시나리오를 처리할 게이트웨이가 이미 설치된 경우 별도의 Azure Data Factory용 자체 호스팅 통합 런타임을 다른 컴퓨터에 설치합니다.
@@ -96,7 +98,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 9. Azure PowerShell을 사용하여 인증 키를 가져옵니다. 인증 키 검색을 위한 PowerShell 예제는 다음과 같습니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. 컴퓨터에서 실행되는 Microsoft 통합 런타임 구성 관리자의 **통합 런타임(자체 호스팅) 등록** 페이지에서 다음 단계를 수행합니다.
 
@@ -112,7 +114,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 * 최대 4개의 노드를 연결하여 장애 시에도 작업을 계속할 수 있으므로 클라우드 데이터와 Azure Data Factory 통합 또는 빅 데이터 솔루션에서 더 이상 단일 장애 지점이 발생하지 않습니다. 따라서 자체 호스팅 통합 런타임의 가용성이 높아집니다.
 * 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능 및 처리량을 향상시킵니다. 자세한 내용은 [성능 비교](copy-activity-performance.md)를 참조하세요.
 
-[다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 통합 런타임 소프트웨어를 설치해 여러 노드를 연결할 수 있습니다. 그런 다음 [자습서](tutorial-hybrid-copy-powershell.md)의 설명에 따라 **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet을 통해 가져온 인증 키 중 하나를 사용하여 소프트웨어를 등록합니다.
+[다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 통합 런타임 소프트웨어를 설치해 여러 노드를 연결할 수 있습니다. 다음, 등록에서 얻은 인증 키 중 하나를 사용 하 여는 **새로 만들기-AzDataFactoryV2IntegrationRuntimeKey** 에 설명 된 대로 cmdlet는 [자습서](tutorial-hybrid-copy-powershell.md)합니다.
 
 > [!NOTE]
 > 각 노드 연결을 위해 자체 호스팅 통합 런타임을 새로 만들 필요는 없습니다. 자체 호스팅 통합 런타임을 다른 컴퓨터에서 설치하고 동일한 인증 키를 사용하여 등록할 수 있습니다. 
@@ -143,7 +145,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.  
 
 > [!NOTE]
-> 이 인증서는 **노드 간 통신**(상태 동기화용)에 사용되고 로컬 네트워크 내에서 **연결된 서비스 자격 증명 설정을 위해 PowerShell cmdlet을 사용하는** 동안 자체 호스팅 IR 노드에서 포트를 암호화하는 데 사용됩니다. 개인 네트워크 환경이 안전하지 않거나 개인 네트워크 내의 노드 간 통신을 보호하려는 경우 이 인증서를 사용하는 것이 좋습니다. 자체 호스팅된 IR에서 다른 데이터 저장소로 전송되는 데이터 이동은이 인증서의 설정 여부와 관계 없이 항상 암호화된 채널을 사용하여 이루어집니다. 
+> 이 인증서는 암호화에 사용 되는 자체 호스팅 IR 노드의 포트에 사용 됩니다 **노드 간 통신** (에 대 한 연결 된 서비스를 포함 하는 동기화 상태 노드에서 동기화 자격 증명) 및 while **PowerShell을 사용 하 여 연결 된 서비스에 대 한 cmdlet credential 설정을** 에서 로컬 네트워크 내에서. 개인 네트워크 환경이 안전하지 않거나 개인 네트워크 내의 노드 간 통신을 보호하려는 경우 이 인증서를 사용하는 것이 좋습니다. 자체 호스팅된 IR에서 다른 데이터 저장소로 전송되는 데이터 이동은이 인증서의 설정 여부와 관계 없이 항상 암호화된 채널을 사용하여 이루어집니다. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>여러 데이터 팩터리와 자체 호스팅 통합 런타임 공유
 
@@ -197,8 +199,6 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 * 연결된 IR을 만드는 데이터 팩터리에는 [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)가 있어야 합니다. 기본적으로 Azure Portal 또는 PowerShell cmdlet에서 만든 데이터 팩터리에서는 MSI가 암시적으로 생성됩니다. 그러나 Azure Resource Manager 템플릿 또는 SDK를 통해 데이터 팩터리를 만들 때는 Azure Resource Manager가 MSI를 포함하는 데이터 팩터리를 만들도록 **Identity** 속성을 명시적으로 설정해야 합니다. 
 
 * 이 기능을 지원하는 Azure Data Factory .NET SDK는 버전 1.1.0 이상입니다.
-
-* 이 기능을 지원하는 Azure PowerShell 버전은 6.6.0 이상(AzureRM.DataFactoryV2, 0.5.7 이상)입니다.
 
 * 권한을 부여하려면 사용자에게 소유자 역할 또는 공유된 IR이 있는 데이터 팩터리의 상속된 소유자 역할이 있어야 합니다.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > 자격 증명 관리자 애플리케이션은 Azure Data Factory V2에서 자격 증명을 암호화하는 데 아직 사용할 수 없습니다.  
 
-자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않는 경우 자격 증명 설정 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet을 사용할 수 있습니다.
+자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않는 경우 자격 증명 설정 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 사용할 수 있습니다 합니다 **새로 만들기-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 
 
 ## <a name="next-steps"></a>다음 단계

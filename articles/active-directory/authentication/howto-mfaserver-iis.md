@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8326e7bc4b03c8e2828e74e13fc00d6a63f78e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35c268b5952f2276dc718df955c125c59c51d356
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014712"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
@@ -30,7 +30,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
 2. **양식 기반** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: https://localhost/contoso/auth/login.aspx)을 입력하고 **확인**을 클릭합니다.
+4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색 하려면 로그인 URL을 입력 합니다 (같은 `https://localhost/contoso/auth/login.aspx`) 클릭 및 양식 기반 웹 사이트 대화 상자 내에서 **확인**합니다.
 5. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 양식 기반 웹 사이트 자동 구성 대화 상자에서 **수동으로 지정**을 클릭합니다.
 7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 Submit URL(URL 제출) 필드에 로그인 페이지의 URL을 입력하고 애플리케이션 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
@@ -39,9 +39,9 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 10. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 다단계 인증을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 11. **고급**을 클릭하여 다음을 포함하는 고급 설정을 검토합니다.
 
-  - 사용자 지정 거부 페이지 파일 선택
-  - 쿠키를 사용하여 일정 기간 동안 웹 사이트로 성공한 인증 캐시
-  - Windows 도메인, LDAP 디렉터리에 대해 기본 자격 증명을 인증할지 여부를 선택합니다. 또는 RADIUS 서버입니다.
+    - 사용자 지정 거부 페이지 파일 선택
+    - 쿠키를 사용하여 일정 기간 동안 웹 사이트로 성공한 인증 캐시
+    - Windows 도메인, LDAP 디렉터리에 대해 기본 자격 증명을 인증할지 여부를 선택합니다. 또는 RADIUS 서버입니다.
 
 12. **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다.
 13. **확인**을 클릭합니다.
@@ -53,7 +53,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
 2. **HTTP** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. Add Base URL(기준 URL 추가) 대화 상자에서 HTTP 인증이 수행되는 웹 사이트의 URL(예: http://localhost/owa)을 입력하고 애플리케이션 이름을 제공합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+4. 기준 URL 추가 대화 상자에서 HTTP 인증이 수행 되는 웹 사이트에 대 한 URL을 입력 (같은 <http://localhost/owa>) 하 고 (선택 사항) 응용 프로그램 이름을 제공 합니다. 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 기본값이 충분하지 않으면 유휴 제한 시간 및 최대 세션 시간을 조정합니다.
 6. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 **쿠키 캐시** 상자를 선택합니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1133bdb3c5d708710a556f68e4ac5c57d2dc3dc9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089372"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: 로그 수집
 
@@ -44,31 +44,31 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
 1. RP 파일(예: SignUpOrSignin.xml)을 엽니다.
 1. 다음 속성을 `<TrustFrameworkPolicy>` 요소에 추가합니다.
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. 이미 존재하지 않는 경우 자식 노드 `<UserJourneyBehaviors>`을 `<RelyingParty>` 노드에 추가합니다. `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`의 바로 다음에 위치해야 합니다.
 2. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. `{Your Application Insights Key}`를 이전 섹션의 Application Insights에서 가져온 **계측 키**로 바꿔야 합니다.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"`은 ApplicationInsights가 프로세스 파이프라인을 통해 원격 분석 데이터를 신속하게 처리하도록 지시하여 개발에는 적합하지만 높은 볼륨에서 제한됩니다.
-  * `ClientEnabled="true"`은 페이지 보기 및 클라이언트 쪽 오류(필요 없음)을 추적하는 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다.
-  * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
-샘플:
+   * `DeveloperMode="true"`은 ApplicationInsights가 프로세스 파이프라인을 통해 원격 분석 데이터를 신속하게 처리하도록 지시하여 개발에는 적합하지만 높은 볼륨에서 제한됩니다.
+   * `ClientEnabled="true"`은 페이지 보기 및 클라이언트 쪽 오류(필요 없음)을 추적하는 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다.
+   * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
+   샘플:
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -76,8 +76,8 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. 정책을 업로드합니다.
 

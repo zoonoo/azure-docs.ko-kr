@@ -5,16 +5,16 @@ description: Custom Translator에 대한 질문과 대답입니다.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227491"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760327"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -25,7 +25,6 @@ ms.locfileid: "55227491"
 파일 크기, 모델 학습 및 모델 배포에 대해 제한 사항 및 제한이 있습니다. Custom Translator에서 모델을 빌드하도록 학습을 설정할 때 이러한 제한 사항을 염두에 두십시오.
 
 - 제출된 파일 크기는 100MB 미만이어야 합니다.
-
 - 단일어 데이터는 지원되지 않습니다.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>학습을 수행한 번역 시스템에 대한 배포는 언제 요청해야 하나요?

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850720"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure 테이블에 대한 리드 관리 지침
 
@@ -38,7 +38,7 @@ ms.locfileid: "53193589"
     
     ![Azure 저장소 키](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-[Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/) 또는 다른 도구를 사용하여 저장소 테이블의 데이터를 확인할 수 있습니다. Azure 테이블의 데이터를 내보낼 수도
+[Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/) 또는 다른 도구를 사용하여 저장소 테이블의 데이터를 확인할 수 있습니다. Azure 테이블의 데이터를 내보낼 수도
 있습니다.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(선택 사항)** Azure 테이블에서 Microsoft Flow 사용

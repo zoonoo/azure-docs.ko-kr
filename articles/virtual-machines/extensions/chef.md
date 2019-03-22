@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 159ce1b565068e2cfdb3cb1cb2e5b5f72ff6848f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089168"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
@@ -69,10 +69,10 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 ### <a name="core-property-values"></a>핵심 속성 값
 
 | 이름 | 값/예제 | 데이터 형식
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | 문자열(날짜) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| 형식 | `LinuxChefClient`(Linux), `ChefClient`(Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | 문자열 |
+| 형식 | `LinuxChefClient`(Linux), `ChefClient`(Windows) | 문자열 |
 | typeHandlerVersion | `1210.12` | 문자열(double) |
 
 ### <a name="settings"></a>설정
@@ -80,14 +80,14 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 | 이름 | 값/예제 | 데이터 형식 | Required?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 문자열(URL) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| settings/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | 문자열 | Y |
+| settings/runlist | `recipe[mycookbook::default]` | 문자열 | Y |
 
 ### <a name="protected-settings"></a>보호 설정
 
 | 이름 | 예 | 데이터 형식 | Required?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 문자열 | Y |
 
 <!--
 ### Linux-specific settings

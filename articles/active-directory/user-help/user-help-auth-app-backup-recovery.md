@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077771"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -27,8 +27,10 @@ ms.locfileid: "56167833"
 
 Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관련 앱 설정을 클라우드에 백업합니다. 백업 후에는 앱을 사용하여 정보를 새 디바이스에 복구하면 계정이 잠기거나 계정을 다시 만들어야 하는 문제를 피할 수 있습니다.
 
->[!IMPORTANT]
-> 각 백업 저장소 위치에 개인 Microsoft 계정 하나와 iCloud 계정 하나가 필요합니다. 하지만 해당 저장 위치 내에서 여러 계정을 백업할 수 있습니다. 예를 들어 개인 계정, 학교 계정 그리고 Facebook, Google 등의 타사 계정을 사용할 수 있습니다.<br><br>사용자의 개인 및 타사 계정 자격 증명만 저장되며, 여기에는 신원을 증명하는 데 필요한 사용자 이름 및 계정 확인 코드가 포함됩니다. 이메일 또는 파일을 포함하여 계정에 연결된 기타 정보는 저장되지 않습니다. 또한 계정을 어떤 방식으로든, 어떤 제품 또는 서비스에도 연결하거나 공유하지 않습니다. 마지막으로, IT 관리자는 이러한 계정에 대한 정보를 얻을 수 없습니다.
+> [!IMPORTANT]
+> 각 백업 저장소 위치에 개인 Microsoft 계정 하나와 iCloud 계정 하나가 필요합니다. 하지만 해당 저장 위치 내에서 여러 계정을 백업할 수 있습니다. 예를 들어 개인 계정, 학교 계정 그리고 Facebook, Google 등의 타사 계정을 사용할 수 있습니다.
+> 
+> 사용자의 개인 및 타사 계정 자격 증명만 저장되며, 여기에는 신원을 증명하는 데 필요한 사용자 이름 및 계정 확인 코드가 포함됩니다. 이메일 또는 파일을 포함하여 계정에 연결된 기타 정보는 저장되지 않습니다. 또한 계정을 어떤 방식으로든, 어떤 제품 또는 서비스에도 연결하거나 공유하지 않습니다. 마지막으로, IT 관리자는 이러한 계정에 대한 정보를 얻을 수 없습니다.
 
 ## <a name="back-up-your-account-credentials"></a>계정 자격 증명 백업
 자격 증명을 백업하려면 다음 두 가지가 필요합니다.
@@ -84,7 +86,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
     ![QR 코드를 검사할 수 있는 Microsoft Authenticator 앱](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)을 참조하세요.
+    >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)을 참조하세요.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>백업 및 복구 문제 해결
 백업을 사용할 수 없는 몇 가지 이유가 있습니다.
@@ -98,10 +100,12 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 -   **기존 Microsoft Authenticator 계정.** Microsoft Authenticator 앱에서 이미 계정을 설정한 경우 앱이 백업된 계정을 복구할 수 없습니다. 계정을 복구하지 못하게 하는 이유는 계정 세부 정보를 오래된 정보로 덮어쓰지 않게 방지하기 위함입니다. 이 경우 Authenticator 앱의 기존 계정에서 기존 계정 정보를 모두 제거해야 백업을 복구할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-계정 자격 증명을 백업하고 새 디바이스에 복구했으니, 계속해서 Microsoft Authenticator 앱을 사용하여 ID를 확인할 수 있습니다.
+계정 자격 증명을 백업하고 새 디바이스에 복구했으니, 계속해서 Microsoft Authenticator 앱을 사용하여 ID를 확인할 수 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 사용 하 여 계정에 로그인](user-help-sign-in.md)합니다.
 
 ## <a name="related-topics"></a>관련된 항목
-- [Microsoft Authenticator 앱 시작](user-help-auth-app-download-install.md)  
+
+- [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md)
+
 - [Microsoft Authenticator 앱 FAQ](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

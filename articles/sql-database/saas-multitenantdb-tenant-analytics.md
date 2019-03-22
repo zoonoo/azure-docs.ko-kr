@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888181"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
  
@@ -94,7 +94,7 @@ ms.locfileid: "47055049"
     - columnstore가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-mt-\<User\>** 서버와 **catalog-mt-\<User\>** 서버를 연결합니다. 이때 Login = *developer*, Password = *P@ssword1*입니다.
+사용 하 여 응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터를 사용 하 여 입력 했으므로 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 연결할 **tenants1-mt-\<사용자\>**  및 **catalog-mt-\<사용자\>**  로그인을 사용 하 여 서버 = *개발자*, 암호 = *P\@ssword1*합니다.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -176,7 +176,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 패널에서 **데이터베이스**를 선택하고 user name = *developer*, password = *P@ssword1*을 입력합니다. **Connect**를 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
@@ -241,6 +241,6 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="additional-resources"></a>추가 리소스
 
-[Wingtip SaaS 응용 프로그램을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
+[Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [탄력적 작업](sql-database-elastic-jobs-overview.md).
 - [추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱](saas-tenancy-tenant-analytics.md) 

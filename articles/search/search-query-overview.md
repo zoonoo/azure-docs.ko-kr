@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136515"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
@@ -38,15 +38,15 @@ Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청의 
 예제는 새로운 개념을 소개하는 데 유용합니다. [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)로 작성된 대표 쿼리인 이 예제는 [부동산 데모 인덱스](search-get-started-portal.md)를 대상으로 하고 공통 매개 변수를 포함합니다.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** 은 파서를 설정하는데 Azure Search에서는 이것이 [간단한 기본 쿼리 파서](search-query-simple-examples.md)이거나 고급 쿼리 구문(예: 정규식, 근접 검색, 유사 항목 검색 및 와일드 카드 검색)에 사용되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md)일 수 있습니다.
@@ -146,7 +146,7 @@ Azure Search는 광범위한 쿼리 유형을 지원합니다.
 
 + **`searchMode=any`**(기본값)를 **`searchMode=all`** 로 변경하면 임의의 조건이 아닌 모든 조건이 일치해야 합니다. 부울 연산자가 쿼리에 포함되는 경우 특히 이렇게 합니다.
 
-+ 텍스트 또는 어휘 분석이 필요한데, 쿼리 형식이 언어 처리를 금지하는 경우 쿼리 방법을 변경합니다. 전체 텍스트 검색에서 텍스트 또는 어휘 분석은 맞춤법 오류, 단어의 단수-복수형 및 불규칙 동사 또는 명사를 자동으로 수정합니다. 유사 항목 또는 와일드카드 검색과 같은 일부 쿼리의 경우 텍스트 분석이 쿼리 구문 분석 파이프라인에 속하지 않습니다. 일부 시나리오에서는 정규식이 해결 방법으로 사용되고 있습니다. 
++ 텍스트 또는 어휘 분석이 필요한데, 쿼리 형식이 언어 처리를 금지하는 경우 쿼리 방법을 변경합니다. 전체 텍스트 검색, 텍스트 또는 어휘 분석 치유 맞춤법 오류, 단수형 복수 단어 형태 및도 불규칙 한 동사 또는 명사가 있습니다. 유사 항목 또는 와일드카드 검색과 같은 일부 쿼리의 경우 텍스트 분석이 쿼리 구문 분석 파이프라인에 속하지 않습니다. 일부 시나리오에서는 정규식이 해결 방법으로 사용되고 있습니다. 
 
 ### <a name="paging-results"></a>페이징 결과
 Azure Search를 사용하면 검색 결과의 페이징을 구현하기가 쉽습니다. **`top`** 및 **`skip`** 매개 변수를 사용하면 검색 요청을 원활하게 처리하여 검색 결과의 전체 집합을 다루기 쉽고 순서가 지정된 하위 집합으로 받을 수 있기 때문에 유용한 검색 UI 환경을 쉽게 구현할 수 있습니다. 이러한 작은 하위 집합 결과를 받을 때 총 검색 결과 집합에서 문서 수도 수신할 수 있습니다.
@@ -167,4 +167,4 @@ Azure Search에서 검색 쿼리와 일치하는 검색 결과의 정확한 부�
 + [Azure Search에서 전체 텍스트 검색이 작동하는 원리(아키텍처를 구문 분석하는 쿼리)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)
 + [.NET에서 쿼리를 수행하는 방법](search-query-dotnet.md)
-+ [REST에서 쿼리를 수행하는 방법](search-query-rest-api.md)
++ [REST에서 쿼리를 수행하는 방법](search-create-index-rest-api.md)

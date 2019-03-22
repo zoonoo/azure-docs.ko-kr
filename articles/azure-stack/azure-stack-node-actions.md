@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090970"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -42,15 +42,15 @@ ms.locfileid: "55240458"
 3. 결과에서 배율 단위를 선택 합니다.
 4. 왼쪽 아래 **일반**를 선택 **노드**합니다.
 
-  다음 정보를 보려면
+   다음 정보를 보려면
 
-  - 개별 노드 목록
-  - 작업 상태 (아래 목록 참조)
-  - 전원 상태 (실행 중 또는 중지)
-  - 서버 모델
-  - 베이스 보드 관리 컨트롤러 (BMC)의 IP 주소
-  - 총 코어 수
-  - 총 메모리 양
+   - 개별 노드 목록
+   - 작업 상태 (아래 목록 참조)
+   - 전원 상태 (실행 중 또는 중지)
+   - 서버 모델
+   - 베이스 보드 관리 컨트롤러 (BMC)의 IP 주소
+   - 총 코어 수
+   - 총 메모리 양
 
 ![배율 단위는 상태](media/azure-stack-node-actions/multinodeactions.png)
 

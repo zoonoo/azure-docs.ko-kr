@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991974"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
 
@@ -81,7 +81,7 @@ BUILD SUCCESSFUL in 10s
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-브라우저에서 http://localhost:8080으로 이동합니다.
+브라우저에서 `http://localhost:8080`으로 이동합니다.
 
 ![기본 데이터가 있는 봄 음악 앱](media/music-app.png)
 
@@ -184,12 +184,12 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 애플리케이션에서 여전히 *mongodb* 프로필과 *mongodb://* 로 시작하는 URI를 사용하여 Cosmos DB 데이터베이스에 연결합니다. [MongoDB용 Azure Cosmos DB API](../cosmos-db/mongodb-introduction.md)는 이 호환성을 제공합니다. 애플리케이션에서 MongoDB 데이터베이스를 사용하는 것처럼 계속 작동할 수 있지만, 실제로는 Cosmos DB를 사용합니다.
 
-브라우저에서 http://localhost:8080으로 이동합니다. 기본 데이터가 복원되었습니다. 몇 개의 기존 앨범을 삭제하고 몇 개를 새로 만들면서 상호 작용합니다. 애플리케이션을 중지하고, 다시 시작하며, 브라우저에서 다시 이동하여 변경 내용이 유지되는지 확인할 수 있습니다. 변경 내용이 여전히 유지되고 있습니다. 변경 내용은 Open Service Broker for Azure를 사용하여 만든 Cosmos DB에 유지됩니다.
+브라우저에서 `http://localhost:8080`으로 이동합니다. 기본 데이터가 복원되었습니다. 몇 개의 기존 앨범을 삭제하고 몇 개를 새로 만들면서 상호 작용합니다. 애플리케이션을 중지하고, 다시 시작하며, 브라우저에서 다시 이동하여 변경 내용이 유지되는지 확인할 수 있습니다. 변경 내용이 여전히 유지되고 있습니다. 변경 내용은 Open Service Broker for Azure를 사용하여 만든 Cosmos DB에 유지됩니다.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>AKS 클러스터에서 애플리케이션 실행
 
-[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure Dev Spaces는 Dockefile 및 Helm 차트와 같은 아티팩트를 생성하고 AKS에서 애플리케이션을 배포하고 실행하는 데 도움이 됩니다.
+[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure 개발 공간을 사용 하면 Dockerfile 및 Helm 차트 등의 아티팩트를 생성 하 고 배포 하 고 AKS에서 응용 프로그램을 실행 합니다.
 
 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하려면 다음을 수행합니다.
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201435"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -22,8 +22,6 @@ ms.locfileid: "57539550"
 ## <a name="iot-hub-names"></a>IoT Hub 이름
 
 포털의 허브 **개요** 페이지에서 엔드포인트를 호스트하는 IoT 허브의 호스트 이름을 찾을 수 있습니다. 기본적으로 IoT Hub의 DNS 이름은 다음과 같은 형태입니다. `{your iot hub name}.azure-devices.net`.
-
-Azure DNS를 사용하여 IoT Hub에 대한 사용자 지정 DNS 이름을 만들 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../dns/dns-custom-domain.md)을 참조하세요.
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>기본 제공 IoT Hub 엔드포인트 목록
 

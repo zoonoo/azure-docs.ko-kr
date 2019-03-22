@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853174"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
@@ -38,7 +38,7 @@ ms.locfileid: "56237876"
 
 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
 
 애플리케이션을 학습하는 데 도움이 필요한 경우 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서로 시작하는 것이 좋습니다.
 
@@ -73,41 +73,41 @@ ms.locfileid: "56237876"
 
 ### <a name="essential-notification-items"></a>중요 알림 항목
 
--   **제목** - 알림의 설명이 포함된 제목
+- **제목** - 알림의 설명이 포함된 제목
 
   * 예제 - **애플리케이션 프록시 설정**
 
--   **설명** – 작업의 결과로 발생한 문제에 대한 설명
+- **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
-    -   예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
+  -   예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
 
--   **알림 ID** - 알림의 고유 ID
+- **알림 ID** - 알림의 고유 ID
 
-    -   예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
+- **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
 
-    -   예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
+- **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
 
-    -   예제 – **2017-03-23T19:50:43.7583681Z**
+  -   예제 – **2017-03-23T19:50:43.7583681Z**
 
--   **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
+- **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
 
-    -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – 작업을 수행한 사용자
+- **UPN** – 작업을 수행한 사용자
 
-    -   예제 – **tperkins@f128.info**
+  -   예 – **tperkins\@f128.info**
 
--   **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
+- **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
-    -   예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
+- **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
 
-    -   예제 – **17f84be4-51f8-483a-b533-383791227a99**
+  -   예제 – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>자세한 알림 항목
 
@@ -125,7 +125,7 @@ ms.locfileid: "56237876"
 
 -   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-    -   예제 – **내부 url 'https://bing.com/'은 이미 사용 중이므로 유효하지 않습니다.**
+    -   예 – **내부 url `https://bing.com/` 이미 사용 중 이므로 잘못 되었습니다**
 
 -   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
 -   엔지니어

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471201"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217872"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 
@@ -99,7 +99,7 @@ Saas(Software as a Service) 모델에서 회사는 소프트웨어에 대한 *�
 
 ![탄력적 풀을 사용하여 테넌트별 데이터베이스가 있는 다중 테넌트 앱 디자인][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database는 공유를 구성, 모니터링 및 관리하는 데 필요한 도구를 제공합니다.  풀 수준 및 데이터베이스 수준 성능 메트릭을 Azure Portal 및 Log Analytics을 통해 사용할 수 있습니다.  이러한 메트릭을 통해 집계 및 테넌트별 성능을 보다 잘 이해할 수 있습니다.  개별 데이터베이스를 풀 간에 이동하여 특정 테넌트에 예약된 리소스를 제공할 수 있습니다.  이러한 도구를 사용하여 비용 효율적인 방식으로 좋은 성능을 보장할 수 있습니다.
+Azure SQL Database는 공유를 구성, 모니터링 및 관리하는 데 필요한 도구를 제공합니다.  두 풀 수준 및 데이터베이스 수준 성능 메트릭을 Azure Monitor 로그를 통해 Azure portal에 사용할 수 있습니다.  이러한 메트릭을 통해 집계 및 테넌트별 성능을 보다 잘 이해할 수 있습니다.  개별 데이터베이스를 풀 간에 이동하여 특정 테넌트에 예약된 리소스를 제공할 수 있습니다.  이러한 도구를 사용하여 비용 효율적인 방식으로 좋은 성능을 보장할 수 있습니다.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>테넌당 데이터베이스의 작업 규모 조정
 

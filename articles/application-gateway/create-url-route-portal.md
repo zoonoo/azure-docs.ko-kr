@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 4d8c389055b81c355de6e1c9120230e1f04443cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087060"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -49,20 +49,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
-    - *myResourceGroupAG* - 새 리소스 그룹의 이름
+   - *myAppGateway* - 애플리케이션 게이트웨이의 이름
+   - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
-    ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
+     ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
 
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
-    - *myVNet* - 가상 네트워크 이름
-    - *10.0.0.0/16* - 가상 네트워크 주소 공간
-    - *myAGSubnet* - 서브넷 이름
-    - *10.0.0.0/24* - 서브넷 주소 공간
+   - *myVNet* - 가상 네트워크 이름
+   - *10.0.0.0/16* - 가상 네트워크 주소 공간
+   - *myAGSubnet* - 서브넷 이름
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
-    ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -99,6 +99,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="install-iis"></a>IIS 설치
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 대화형 셸을 열고 **PowerShell**로 설정되어 있는지 확인합니다.
 
     ![사용자 지정 확장 설치](./media/create-url-route-portal/application-gateway-extension.png)
@@ -107,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -118,7 +120,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       -Settings $publicSettings
     ```
 
-3. 가상 머신을 두 개 더 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension에서 VMName의 값과 이름에 *myVM2* 및 *myVM3*의 이름을 입력합니다.
+3. 가상 머신을 두 개 더 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. 이름을 입력 *myVM2* 하 고 *myVM3* 집합 AzVMExtension에서 VMName의 값과 이름에 대 한 합니다.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 

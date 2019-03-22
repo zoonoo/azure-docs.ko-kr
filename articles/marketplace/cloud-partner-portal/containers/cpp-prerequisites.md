@@ -3,7 +3,7 @@ title: Azure 컨테이너 제품 필수 구성 요소 | Microsoft Docs
 description: Azure 컨테이너를 게시하기 위한 필수 구성 요소입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990719"
 ---
 # <a name="container-publishing-prerequisites"></a>컨테이너 게시 필수 구성 요소
 
-이 문서에서는 Azure Marketplace에 컨테이너 제품을 게시하기 위한 필수 구성 요소를 설명합니다.
+이 문서에서는 Azure Marketplace에 컨테이너 제품을 게시하기 위한 필수 구성 요소를 설명합니다.  아직 수행 하는 경우 검토 해야 합니다 [컨테이너 제공 게시 가이드](../../marketplace-containers.md)합니다.
 
 ## <a name="publishing-prerequisites"></a>게시 필수 구성 요소
 
@@ -35,12 +35,11 @@ ms.locfileid: "50980212"
 - 컨테이너 메타데이터를 사용할 수 있도록 준비합니다. 예를 들어 다음은 완전하지 않은 목록입니다.
   - 제목
   - 설명(HTML 형식)
-  - 로고 이미지(PNG 형식) 및 이러한 고정 이미지 크기에서: 40x40 px, 90x90 px, 115x 115 px 및 255x115 px
-- 사용 약관 및 개인정보처리방침
-- 문서화
+  - 로고 이미지(PNG 형식) 및 고정된 이미지 (40x40 px, 90x90 px, 115x115 580 및 255 x 115 픽셀입니다.
+- A *사용 약관* 와 *개인 정보 취급 방침* 문
+- 컨테이너 솔루션 설명서
 - 지원 연락처
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컨테이너 기술 자산 준비](./cpp-create-technical-assets.md)
-- [컨테이너 제품 만들기](./cpp-create-offer.md) 
+아직 수행 하는 경우 수행 해야 합니다 [컨테이너 기술 자산을 준비](./cpp-create-technical-assets.md) 하기 전에 [컨테이너 제품 만들기](./cpp-create-offer.md)합니다.  

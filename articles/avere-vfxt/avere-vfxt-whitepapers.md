@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188131"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure vFTX for Azure 백서 및 기타 리소스 
 
@@ -25,7 +25,7 @@ ms.locfileid: "56246316"
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>데이터시트: Avere vFXT for Azure
 
-**링크:** [Avere vFXT for Azure 데이터시트](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
+**링크:** [Avere vFXT for Azure 데이터시트](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
 
 두 페이지 분량의 이 브리핑에는 Avere vFXT for Azure를 여러 사용 사례에 사용하는 방법을 설명하는 기본 정보와 다이어그램이 포함되어 있습니다.
 

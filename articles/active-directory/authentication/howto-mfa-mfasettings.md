@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856263"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -64,7 +64,7 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **MFA** > **사용자 차단/차단 해제**로 이동합니다.
 3. **추가**를 선택하여 사용자를 차단합니다.
-4. **복제 그룹**을 선택합니다. 차단된 사용자에 대한 사용자 이름을 **username@domain.com**으로 입력합니다. **이유** 필드에 주석을 입력합니다.
+4. **복제 그룹**을 선택합니다. 사용자 이름으로 차단된 된 사용자에 대 한 입력 **사용자 이름\@domain.com**합니다. **이유** 필드에 주석을 입력합니다.
 5. **추가**를 선택하여 사용자 차단을 완료합니다.
 
 ### <a name="unblock-a-user"></a>사용자 차단 해제
@@ -154,7 +154,7 @@ _일회성 바이패스_ 기능을 통해 사용자는 2단계 인증을 수행�
 2. **Azure Active Directory** > **MFA** > **일회성 바이패스**로 이동합니다.
 3. **추가**를 선택합니다.
 4. 필요한 경우 바이패스에 대한 복제 그룹을 선택합니다.
-5. 사용자 이름을 **username@domain.com**으로 입력합니다. 바이패스가 지속되는 초 수를 입력합니다. 바이패스에 대한 이유를 입력합니다.
+5. 사용자 이름을 입력 **사용자 이름\@domain.com**합니다. 바이패스가 지속되는 초 수를 입력합니다. 바이패스에 대한 이유를 입력합니다.
 6. **추가**를 선택합니다. 시간 제한은 즉시 적용됩니다. 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
 
 ### <a name="view-the-one-time-bypass-report"></a>일회성 바이패스 보고서 보기
@@ -252,7 +252,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 사용자가 초기 등록을 하는 동안 앱 암호를 만들 수 있습니다. 사용자가 등록 프로세스의 끝에서 앱 암호를 만드는 옵션이 있습니다.
 
-사용자는 등록 후 앱 암호를 만들 수도 있습니다. Azure Portal 또는 Office 365 포털에서 해당 설정을 통해 앱 암호를 변경할 수 있습니다. 사용자에 대한 자세한 내용과 세부 단계는 [Azure Multi-factor Authentication에서 앱 암호란?](../user-help/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
+사용자는 등록 후 앱 암호를 만들 수도 있습니다. 사용자에 대한 자세한 내용과 세부 단계는 [Azure Multi-factor Authentication에서 앱 암호란?](../user-help/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
 

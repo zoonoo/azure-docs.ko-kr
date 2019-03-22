@@ -16,19 +16,19 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a5876a3f77eb0764edc5ce833f4b74284dda66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852972"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
 
 Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
 
-* .Net 및 PowerShell의 필수 버전입니다. 서버에는 DirSync에서보다 최신 버전이 필요합니다.
+* .NET 및 PowerShell의 필수 버전입니다. 서버에는 DirSync에서보다 최신 버전이 필요합니다.
 * 프록시 서버 구성입니다. 프록시 서버를 사용하여 인터넷에 연결하는 경우 업그레이드하기 전에 이 설정을 구성해야 합니다. DirSync을 설치하는 사용자를 위해 구성된 프록시 서버를 항상 사용하지만 Azure AD Connect는 대신 컴퓨터 설정을 사용합니다.
 * URL은 프록시 서버에서 열려야 합니다. 또한 기본 시나리오의 경우 해당 시나리오는 DirSync에서 지원되며 요구 사항은 동일합니다. Azure AD Connect에 포함된 새로운 기능 중 일부를 사용하려는 경우 몇 가지 새 URL이 열려 있어야 합니다.
 
@@ -41,7 +41,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이 3시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이 3시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
 
 | 시나리오 |
-| --- | --- |
+| --- |
 | [전체 업그레이드](#in-place-upgrade) |
 | [병렬 배포](#parallel-deployment) |
 
@@ -71,7 +71,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 
 ![업그레이드 차단](./media/how-to-dirsync-upgrade-get-started/analysisblocked.png)
 
-이러한 경우 [준비 모드](how-to-connect-sync-operations.md#staging-mode) 에서 새 Azure AD Connect 서버를 설치하고 이전 DirSync 및 새 Azure AD Connect 구성을 확인하는 것이 좋습니다. [Azure AD Connect 동기화 사용자 지정 구성](how-to-connect-sync-whatis.md)에서 설명한 대로 사용자 지정 구성을 사용하여 변경 내용을 다시 적용합니다.
+이러한 경우 [준비 모드](how-to-connect-sync-staging-server.md) 에서 새 Azure AD Connect 서버를 설치하고 이전 DirSync 및 새 Azure AD Connect 구성을 확인하는 것이 좋습니다. [Azure AD Connect 동기화 사용자 지정 구성](how-to-connect-sync-whatis.md)에서 설명한 대로 사용자 지정 구성을 사용하여 변경 내용을 다시 적용합니다.
 
 서비스 계정에 DirSync에서 사용한 암호는 검색할 수 없고 마이그레이션되지 않습니다. 이러한 암호는 업그레이드하는 동안 다시 설정됩니다.
 
@@ -161,12 +161,12 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
      이러한 옵션은 이 화면에서 볼 수 있습니다.  
      ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. **다음**을 클릭합니다.
-8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 를 선택한 상태로 둡니다. 서버가 이제 [준비 모드](how-to-connect-sync-operations.md#staging-mode) 이므로 변경 내용을 Azure AD로 내보내지 않습니다.
+8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 를 선택한 상태로 둡니다. 서버가 이제 [준비 모드](how-to-connect-sync-staging-server.md) 이므로 변경 내용을 Azure AD로 내보내지 않습니다.
 9. **Install**을 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
 > [!NOTE]
-> Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다. 이 상태를 [준비 모드](how-to-connect-sync-operations.md#staging-mode)라고 합니다.
+> Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다. 이 상태를 [준비 모드](how-to-connect-sync-staging-server.md)라고 합니다.
 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect가 동기화를 시작할 준비가 되었는지 확인
 Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하려면 시작 메뉴에서 **Azure AD Connect** 그룹의 **동기화 서비스 관리자**를 열어야 합니다.
@@ -182,7 +182,7 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하�
 
 이러한 작업에서 결과를 검토하고 오류가 없는지 확인합니다.
 
-Azure AD로 내보낼 변경 내용을 확인하고 검사하려는 경우 [준비 모드](how-to-connect-sync-operations.md#staging-mode)에서 구성을 확인하는 방법을 읽습니다. 예상하지 못한 것이 나타나지 않을 때까지 필요한 구성을 변경합니다.
+Azure AD로 내보낼 변경 내용을 확인하고 검사하려는 경우 [준비 모드](how-to-connect-sync-staging-server.md)에서 구성을 확인하는 방법을 읽습니다. 예상하지 못한 것이 나타나지 않을 때까지 필요한 구성을 변경합니다.
 
 이러한 단계를 완료하고 결과에 만족하면 DirSync에서 Azure AD로 전환할 준비가 되었습니다.
 

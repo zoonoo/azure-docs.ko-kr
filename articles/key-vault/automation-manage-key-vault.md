@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 85a0c05719ba374ed213212db6f094d75e433183
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073444"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224876"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure Automation을 사용하여 Azure Key Vault 관리
 
@@ -34,7 +34,7 @@ Azure Automation에서 자동으로 실행되도록 클라우드 관리 작업�
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Azure Automation을 통해 Azure Key Vault를 쉽게 관리하려면 어떻게 해야 하나요?
 
-Key Vault는 [AzureRM Key Vault cmdlet](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 및 [Azure 클래식 Key Vault cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 Azure Automation으로 관리될 수 있습니다. 클래식 Key Vault 관리를 위한 Azure 모듈은 Azure Automation에 자동으로 제공되며, 서비스 내에서 많은 Key Vault 관리 작업을 수행할 수 있도록, [AzureRM-KeyVault 모듈](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 을 Azure Automation으로 가져올 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Key Vault는 [AzureRM Key Vault cmdlet](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 및 [Azure 클래식 Key Vault cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 Azure Automation으로 관리될 수 있습니다. 클래식 Key Vault 관리를 위한 Azure 모듈은 Azure Automation에 자동으로 제공되며, 서비스 내에서 많은 Key Vault 관리 작업을 수행할 수 있도록, [AzureRM-KeyVault 모듈](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 을 Azure Automation으로 가져올 수 있습니다. Azure Automation으로 모듈을 가져오는 방법에 대 한 자세한 내용은 참조 하세요 [Azure Automation에서 모듈을 관리](../automation/shared-resources/modules.md) 에서 복잡 한 작업을 자동화 하려면 다른 Azure 서비스용 cmdlet 사용 하 여 Azure Automation에서 이러한 cmdlet도 페어링할 수 있습니다 Azure 서비스와 타사 시스템입니다.
 
 Azure Key Vault cmdlet을 사용하여 다음과 같은 작업을 수행할 수 있습니다. 
 

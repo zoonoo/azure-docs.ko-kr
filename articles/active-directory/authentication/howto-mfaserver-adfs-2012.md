@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f35010b5072c89779b8030055a2d37beb58b0d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 80a35182af3c4a7992ef416fcee038240e2bdfca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074951"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -46,21 +46,29 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 3. 조직에 대해 지정하려는 추가 옵션을 선택합니다.
 4. **AD FS 어댑터 설치**를 클릭합니다.
    
-   <center>![클라우드](./media/howto-mfaserver-adfs-2012/server.png)</center>
+   <center>
+   
+   ![클라우드](./media/howto-mfaserver-adfs-2012/server.png)</center>
 
 5. Active Directory 창이 표시되는 경우 다음 두 가지를 의미합니다. 컴퓨터가 도메인에 연결되어 있고 AD FS 어댑터와 Multi-Factor Authentication 서비스 간의 통신 보안 유지를 위한 Active Directory 구성이 완료되지 않습니다. **다음**을 클릭하여 이 구성을 자동으로 완료하거나, **자동 Active Directory 구성을 건너뛰고 수동으로 설정 구성** 확인란을 선택합니다. **다음**을 클릭합니다.
 6. 로컬 그룹 창이 표시되는 경우 두 가지를 의미합니다. 컴퓨터가 도메인에 가입되지 않고 AD FS 어댑터와 Multi-Factor Authentication 서비스 간의 통신 보안 유지를 위한 로컬 그룹 구성이 완료되지 않습니다. **다음**을 클릭하여 이 구성을 자동으로 완료하거나, **자동 로컬 그룹 구성을 건너뛰고 수동으로 설정 구성** 확인란을 선택합니다. **다음**을 클릭합니다.
 7. 설치 마법사에서 **다음**을 클릭합니다. Azure Multi-Factor Authentication 서버는 PhoneFactor Admins 그룹을 만들고 AD FS 서비스 계정을 PhoneFactor Admins 그룹에 추가합니다.
-   <center>![클라우드](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
+   <center>
+   
+   ![클라우드](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. **설치 관리자 시작** 페이지에서 **다음**을 클릭합니다.
 9. Multi-Factor Authentication AD FS 어댑터 설치 관리자에서 **다음**을 클릭합니다.
 10. 설치가 완료되면 **닫기** 를 클릭합니다.
 11. 어댑터가 설치되면 이를 AD FS에 등록해야 합니다. Windows PowerShell을 열고 다음 명령을 실행합니다.<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>![클라우드](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+    <center>
+    
+    ![클라우드](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
 12. 새로 등록된 어댑터를 사용하려면 AD FS에서 전역 인증 정책을 편집합니다. AD FS 관리 콘솔에서 **인증 정책** 노드로 이동합니다. **Multi-factor Authentication** 섹션에서 **전역 설정** 섹션 옆에 있는 **편집** 링크를 클릭합니다. **전역 인증 정책 편집** 창에서 추가 인증 방법으로 **Multi-Factor Authentication**을 선택하고 **확인**을 클릭합니다. 어댑터는 WindowsAzureMultiFactorAuthentication으로 등록됩니다. 등록이 적용되려면 AD FS 서비스를 다시 시작합니다.
 
-<center>![클라우드](./media/howto-mfaserver-adfs-2012/global.png)</center>
+<center>
+
+![클라우드](./media/howto-mfaserver-adfs-2012/global.png)</center>
 
 이제 Multi-Factor Authentication 서버가 AD FS와 함께 사용할 수 있도록 추가 인증 공급자로 설정됩니다.
 
@@ -80,7 +88,7 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 다음 단계를 따라 MultiFactorAuthenticationAdfsAdapter.config 파일을 편집합니다.
 
 1. **UseWebServiceSdk** 노드를 **true**로 설정합니다.  
-2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예를 들어 *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*가 있으며, 여기서 *certificatename*은 인증서의 이름입니다.  
+2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예를 들어: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>* 여기서 *certificatename* 인증서의 이름입니다.  
 3. Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집하고 `Register-AdfsAuthenticationProvider` 명령 끝에 `-ConfigurationFilePath &lt;path&gt;`를 추가합니다. 여기서 *&lt;path&gt;* 는 MultiFactorAuthenticationAdfsAdapter.config 파일의 전체 경로입니다.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>사용자 이름 및 암호를 사용하여 Web Service SDK 구성

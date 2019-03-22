@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243113"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194931"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용한 B2B 엔터프라이즈 통합 시나리오
 
@@ -70,5 +70,5 @@ Azure Logic Apps의 B2B 기능을 사용하는 [완벽하게 작동하는 샘플
 * [엔터프라이즈 통합 커넥터](../connectors/apis-list.md "엔터프라이즈 통합 팩 커넥터에 대해 알아보기")
 * [통합 계정 메타데이터](../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 메타데이터에 대해 알아보기")
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md "B2B 메시지를 모니터링하는 방법에 대해 알아보기")
-* [Azure Log Analytics에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md "Azure Log Analytics에서 B2B 메시지 추적에 대해 자세히 알아보기")
+* [Azure Monitor 로그에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md "Azure Monitor 로그에서 B2B 메시지 추적에 대해 자세히 알아보기")
 
