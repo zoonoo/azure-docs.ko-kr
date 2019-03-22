@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199327"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258346"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용
 
-이 문서에서는 스크립트 동작을 사용하여 Hadoop 기반 Adobe HDInsight 클러스터에 Presto를 설치하는 방법에 대해 설명합니다. 또한 기존 Presto HDInsight 클러스터에 Airpal을 설치하는 방법에 대해 알아봅니다.
+이 문서에서는 스크립트 동작을 사용 하 여 Azure HDInsight Hadoop 기반 클러스터에 Presto를 설치 하는 방법에 설명 합니다. 또한 기존 Presto HDInsight 클러스터에 Airpal을 설치하는 방법에 대해 알아봅니다.
 
 HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플리케이션을 제공합니다. 자세한 내용은 [Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)를 참조하세요.
 

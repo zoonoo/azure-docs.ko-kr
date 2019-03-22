@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077822"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tableau Online 구성
 
@@ -106,13 +106,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **도메인 자격 증명** 섹션 아래에서 Tableau Online 계정의 **도메인**, **관리 사용자 이름**, **관리자 암호** 및 **콘텐츠 URL**을 입력합니다.
 
-    *   **도메인** 필드에서 6단계에 기반한 하위 도메인을 채웁니다.
+   * **도메인** 필드에서 6단계에 기반한 하위 도메인을 채웁니다.
 
-    *   **관리자 사용자 이름** 필드에서 Clarizen 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
+   * **관리자 사용자 이름** 필드에서 Clarizen 테넌트의 관리자 계정에 대한 사용자 이름을 채웁니다. 예: admin@contoso.com.
 
-    *   **관리자 암호** 필드에서 관리자 사용자 이름에 해당하는 관리자 계정의 암호를 채웁니다.
+   * **관리자 암호** 필드에서 관리자 사용자 이름에 해당하는 관리자 계정의 암호를 채웁니다.
 
-    *   **콘텐츠 URL** 필드에서 6단계에 기반한 하위 도메인을 채웁니다.
+   * **콘텐츠 URL** 필드에서 6단계에 기반한 하위 도메인을 채웁니다.
 
 6. Tableau Online에 대한 관리 계정에 로그인한 후에 **도메인** 및 **콘텐츠 URL**에 대한 값을 관리 페이지의 URL에서 추출할 수 있습니다.
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903796"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>최대 100TB의 하이퍼스케일 서비스 계층(미리 보기)
 
@@ -112,7 +112,7 @@ Azure Storage 노드는 페이지 서버에 있는 데이터의 최종 대상입
 
 ## <a name="create-a-hyperscale-database"></a>하이퍼스케일 데이터베이스 만들기
 
-하이퍼스케일 데이터베이스는 [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용하여 만들 수 있습니다. 하이퍼스케일 데이터베이스는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용해야만 사용이 가능합니다.
+사용 하 여 대규모 데이터베이스를 만들 수 있습니다 합니다 [Azure portal](https://portal.azure.com)를 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)를 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)합니다. 하이퍼스케일 데이터베이스는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용해야만 사용이 가능합니다.
 
 다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>기존 Azure SQL Database를 하이퍼스케일 서비스 계층으로 마이그레이션
 
-[Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)를 사용하여 기존 Azure SQL Database를 하이퍼스케일로 이동할 수 있습니다. 공개 미리 보기에서는 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. 프로덕션 데이터베이스의 복사본을 만들어서 POC(개념 증명)용으로 하이퍼스케일에 마이그레이션하는 것이 좋습니다.
+대규모 사용 하 여 기존 Azure SQL database를 이동할 수는 [Azure portal](https://portal.azure.com)를 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)를 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)합니다. 공개 미리 보기에서는 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. 프로덕션 데이터베이스의 복사본을 만들어서 POC(개념 증명)용으로 하이퍼스케일에 마이그레이션하는 것이 좋습니다.
 
 다음 T-SQL 명령은 하이퍼스케일 서비스 계층으로 데이터베이스를 이동합니다. `ALTER DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다.
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 다음 Azure 지역에서 사용할 수 있습니다. EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 다음 Azure 지역에서 사용할 수 있습니다. 1 미국 동부, 미국 동부 2, 미국 서 부 2, 미국 중부, 북유럽 CentralU S, 유럽 서 부, 유럽 북부, 오스트레일리아 동부, 오스트레일리아 남동부, 동남 아시아, 일본 동부, 및 대한민국 중부
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 

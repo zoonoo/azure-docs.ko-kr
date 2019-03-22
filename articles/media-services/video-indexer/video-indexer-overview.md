@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890793"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -24,7 +24,7 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 
 - **얼굴 감지**: 비디오에 표시되는 얼굴을 감지하고 그룹화합니다.
 - **유명인 식별**: Video Indexer는 전 세계의 리더, 배우, 운동 선수, 연구원, 비즈니스 및 기술 리더와 같은 100만 명 이상의 유명인을 자동으로 식별합니다. 이러한 유명인에 대한 데이터는 다양한 유명 웹사이트(예: IMDB 및 Wikipedia)에서도 찾아볼 수 있습니다.
-- **계정 기반 얼굴 인식**: Video Indexer는 특정 계정에 대한 모델을 학습합니다. 그런 다음, 해당 계정의 비디오에 대해 특별히 학습된 모델을 기반으로 하여 비디오의 얼굴을 인식합니다.
+- **계정 기반 얼굴 인식**: Video Indexer는 특정 계정에 대한 모델을 학습합니다. 그런 다음 학습 된 모델을 기반으로 비디오에서 얼굴 인식 합니다. 자세한 내용은 [Video Indexer 웹 사이트에서 사용자 모델을 사용자 지정](customize-person-model-with-website.md) 하 고 [Video Indexer API를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-api.md)합니다.
 - **얼굴의 썸네일 추출**(“최적 얼굴”): 각 얼굴 그룹에서 가장 잘 캡처된 얼굴을 자동으로 식별하고(품질, 크기 및 정면 위치 기준) 이미지 자산으로 추출합니다.
 - **시각적 텍스트 인식**(OCR): 비디오에서 시각적으로 표시되는 텍스트를 추출합니다.
 - **시각적 콘텐츠 조정**: 성인 및/또는 외설 시각적 개체를 검색합니다.
@@ -40,7 +40,7 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 - **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 - **두 채널 처리**: 자동으로 감지하고, 개별적으로 전사하고, 단일 타임라인에 병합합니다.
 - **노이즈 감소**: 전화 통신 오디오 또는 노이즈가 많은 녹음을 지웁니다(Skype 필터 기준).
-- **전사 사용자 지정**(CRIS): 확장된 사용자 지정 음성 텍스트 변환 모델을 학습하고 실행하여 산업별 전사를 만듭니다.
+- **전사 사용자 지정**(CRIS): 사용자 지정 음성 산업별 성적 증명서를 만들려면 텍스트 모델을 학습 합니다. 자세한 내용은 [Video Indexer 웹 사이트에서 언어 모델을 사용자 지정](customize-language-model-with-website.md) 하 고 [Video Indexer Api를 사용 하 여 언어 모델을 사용자 지정](customize-language-model-with-api.md)합니다.
 - **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다.
 - **화자 통계**: 화자 음성 비율에 대한 통계를 제공합니다.
 - **텍스트 콘텐츠 조정**: 오디오 전사에서 명시적 텍스트를 검색합니다.
@@ -58,8 +58,6 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 - **아티팩트**: 각 모델에 대한 풍부한 아티팩트 세트(“다음 수준의 세부 정보”)를 추출합니다.
 - **감정 분석**: 음성 및 시각적 텍스트에서 긍정적, 부정적 및 중립적 감정을 식별합니다.
  
-  
- 
 Video Indexer의 처리 및 분석이 완료되면 비디오 인사이트를 검토, 큐레이팅, 검색 및 게시할 수 있습니다.
 
 사용자의 역할이 콘텐츠 관리자 또는 개발자인지에 관계없이 Video Indexer 서비스는 사용자의 요구 사항을 처리할 수 있습니다. 콘텐츠 관리자는 한 줄의 코드도 작성하지 않고 Video Indexer 웹 포털을 사용하여 서비스를 사용할 수 있습니다. [Video Indexer 웹 사이트 시작](video-indexer-get-started.md)을 참조하세요. 개발자는 API를 활용하여 규모에 맞게 콘텐츠를 처리할 수 있습니다. [Video Indexer REST API 사용](video-indexer-use-apis.md)을 참조하세요. 또한 고객은 이 서비스를 통해 위젯을 사용하여 자신의 애플리케이션에서 비디오 스트림과 추출된 인사이트를 게시할 수 있습니다. [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)을 참조하세요.
@@ -75,8 +73,6 @@ Video Indexer가 유용할 수 있는 몇 가지 시나리오는 다음과 같�
 - 수익 창출 – Video Indexer는 비디오의 가치를 향상시킬 수 있습니다. 예를 들어 광고 수입에 의존하는 산업(예: 뉴스 미디어, 소셜 미디어 등)은 추출된 인사이트를 광고 서버에 대한 추가 신호로 사용하여 관련성이 더 높은 광고를 제공할 수 있습니다(스포츠화는 축구 경기와 수영 경기의 중간에 광고하는 것이 더 적절함).
 
 - 사용자 참여 – 비디오 인사이트는 사용자에게 관련 비디오 시점을 배치하여 사용자 참여를 향상시키는 데 사용할 수 있습니다. 예를 들어 처음 30분 동안 구에 대해 설명하고 다음 30분 동안 각뿔에 대해 설명하는 교육용 비디오를 생각해 보세요. 각뿔을 참조하려는 학생의 경우 비디오가 30분 표식에서 시작하도록 배치되면 더 많은 이점을 누릴 수 있습니다.
-
-자세한 내용은 [이 블로그](https://aka.ms/videoindexerblog)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

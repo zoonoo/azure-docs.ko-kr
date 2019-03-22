@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961842"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449379"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T를 사용하여 Cosmos 계정에 연결
 
@@ -43,7 +43,7 @@ Cosmos 계정을 Studio 3T 연결 관리자에 추가하려면 다음 단계를 
     ![Studio 3T 연결 관리자 SSL 탭의 스크린샷](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. **연결 테스트** 단추를 클릭하여 연결 정보의 유효성을 검사하고 **확인**을 클릭하여 새 연결 창으로 돌아간 다음 **저장**을 클릭합니다.
 
-    ![Studio 3T 연결 테스트 창의 스크린샷](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Studio 3T 스크린샷 테스트 연결 창](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서 만들기
 Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려면 다음 단계를 수행합니다.
@@ -107,7 +107,7 @@ Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
         }
 7. 샘플 쿼리를 실행합니다. 예를 들어 'Andersen' 성을 가진 가족을 검색하고 부모 및 상태 필드를 반환합니다.
 
-    ![MongoChef 쿼리 결과의 스크린샷](./media/mongodb-mongochef/QueryDocument1.png)
+    ![스크린 샷: Mongochef 쿼리 결과](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>다음 단계
 

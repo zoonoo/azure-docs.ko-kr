@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 클라우드-장치 메시징 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub를 사용하여 클라우드-장치 메시징을 사용하는 방법입니다. 메시지 수명 주기 및 구성 옵션에 대한 정보를 포함합니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585648"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010245"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-장치 메시지 보내기
 
@@ -29,13 +29,13 @@ ms.locfileid: "47585648"
 
 ## <a name="the-cloud-to-device-message-lifecycle"></a>클라우드-장치 메시지 수명 주기
 
-메시지 전달을 한 번 이상 보장하기 위해 IoT Hub는 장치 별 큐에 클라우드-장치 메시지를 유지합니다. IoT Hub가 큐에서 메시지를 제거하기 위해 디바이스가 *완료*를 명시적으로 인정해야 합니다. 이 방법은 연결 및 디바이스 오류로부터 복원력을 보장합니다.
+메시지 전달을 한 번 이상 보장하기 위해 IoT Hub는 장치 별 큐에 클라우드-장치 메시지를 유지합니다. IoT Hub가 큐에서 메시지를 제거하기 위해 디바이스가 *완료* 를 명시적으로 인정해야 합니다. 이 방법은 연결 및 디바이스 오류로부터 복원력을 보장합니다.
 
 다음 다이어그램은 IoT Hub에서 클라우드-장치 메시지에 대한 수명 주기 상태 그래프를 보여 줍니다.
 
 ![클라우드-장치 메시지 수명 주기](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-IoT Hub 서비스가 디바이스에 메시지를 보내면 서비스는 메시지 상태를 **큐에 넣음**으로 설정합니다. 디바이스가 메시지를 *수신*하려고 하면 IoT Hub는 상태를 **숨김**으로 설정하여 메시지를 *잠그고* 디바이스에 있는 다른 스레드가 다른 메시지 수신을 시작하도록 허용합니다. 디바이스 스레드가 메시지의 처리를 완료하면 IoT Hub에 메시지를 *완료*했다고 알립니다. 그런 다음 IoT Hub는 상태를 **완료**로 설정합니다.
+IoT Hub 서비스가 디바이스에 메시지를 보내면 서비스는 메시지 상태를 **큐에 넣음**으로 설정합니다. 디바이스가 메시지를 *수신*하려고 하면 IoT Hub는 상태를 **숨김**으로 설정하여 메시지를 *잠그고* 디바이스에 있는 다른 스레드가 다른 메시지 수신을 시작하도록 허용합니다. 디바이스 스레드가 메시지의 처리를 완료하면 IoT Hub에 메시지를 *완료* 했다고 알립니다. 그런 다음 IoT Hub는 상태를 **완료**로 설정합니다.
 
 디바이스는 다음을 선택할 수도 있습니다.
 
@@ -49,7 +49,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 
 [IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md)에서는 클라우드에서 클라우드-장치 메시지를 보내고 장치에서 수신하는 방법을 보여 줍니다.
 
-일반적으로 메시지 손실이 응용 프로그램 논리에 영향을 주지 않으면 디바이스가 클라우드-디바이스 메시지를 완료합니다. 예를 들어 디바이스가 메시지 콘텐츠를 로컬에 유지하거나 작업을 성공적으로 실행한 경우입니다. 또한 메시지가 임시 정보를 전달하고 있으므로 손실되더라도 애플리케이션의 기능에 영향을 주지 않을 수도 있습니다. 경우에 따라 장기 실행 작업에 다음을 수행할 수 있습니다.
+일반적으로 메시지 손실이 애플리케이션 논리에 영향을 주지 않으면 장치가 클라우드-장치 메시지를 완료합니다. 예를 들어 디바이스가 메시지 콘텐츠를 로컬에 유지하거나 작업을 성공적으로 실행한 경우입니다. 또한 메시지가 임시 정보를 전달하고 있으므로 손실되더라도 애플리케이션의 기능에 영향을 주지 않을 수도 있습니다. 경우에 따라 장기 실행 작업에 다음을 수행할 수 있습니다.
 
 * 로컬 저장소에 작업 설명을 보관한 후 클라우드-장치 메시지를 완료합니다.
 
@@ -97,8 +97,8 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-장치 메시지의 **MessageId**입니다. |
 | StatusCode         | 필수 문자열 IoT Hub에 의해 생성된 피드백 메시지에서 사용됩니다. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Rejected' <br/> 'Purged' |
 | 설명        | **StatusCode**에 대한 문자열 값입니다. |
-| deviceId           | 피드백의 해당 부분과 관련된 클라우드-장치 메시지에서 대상 장치의 **DeviceId**입니다. |
-| DeviceGenerationId | 피드백의 해당 부분과 관련된 클라우드-장치 메시지에서 대상 장치의 **DeviceGenerationId**입니다. |
+| deviceId           | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 **DeviceId**입니다. |
+| DeviceGenerationId | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 **DeviceGenerationId**입니다. |
 
 서비스는 원본 메시지와 해당 피드백을 상호 연결하기 위해 클라우드-장치 메시지에 대한 **MessageId** 를 지정해야 합니다.
 
@@ -127,10 +127,10 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 
 | 자산                  | 설명 | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | 클라우드-장치 메시지에 대한 기본 TTL | 최대 2D(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |
-| maxDeliveryCount          | 클라우드-장치 장치 단위 큐에 대한 최대 전달 수입니다. | 1에서 100까지입니다. 기본값은 10입니다. |
-| feedback.ttlAsIso8601     | 서비스 바인딩 피드백 메시지에 대한 보존 기간입니다. | 최대 2D(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |
-| feedback.maxDeliveryCount |피드백 큐에 대한 최대 전달 수입니다. | 1에서 100까지 입니다. 기본값은 100입니다. |
+| defaultTtlAsIso8601       | 클라우드-장치 메시지에 대한 기본 TTL | 최대 2D(최소 1 분)까지 ISO_8601 간격입니다. Default: 1시간 |
+| maxDeliveryCount          | 클라우드-장치 장치 단위 큐에 대한 최대 전달 수입니다. | 1에서 100까지입니다. Default: 10. |
+| feedback.ttlAsIso8601     | 서비스 바인딩 피드백 메시지에 대한 보존 기간입니다. | 최대 2D(최소 1 분)까지 ISO_8601 간격입니다. Default: 1시간 |
+| feedback.maxDeliveryCount |피드백 큐에 대한 최대 전달 수입니다. | 1에서 100까지입니다. Default: 100 |
 
 이러한 구성 옵션을 설정하는 방법에 대한 자세한 내용은 [IoT Hub 만들기](iot-hub-create-through-portal.md)를 참조하세요.
 

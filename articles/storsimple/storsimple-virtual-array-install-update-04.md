@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007328"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.4 설치
 
@@ -48,7 +48,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
+1. Internet Explorer를 시작하고 [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
@@ -103,7 +103,7 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
-설치가 완료된 후(작업 상태 100%로 표시) StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 선택한 다음 서비스에 연결된 장치 목록에서 업데이트하려는 장치를 선택하고 클릭합니다. **설정** 블레이드에서 **관리** 섹션으로 이동하여 **장치 업데이트**를 선택합니다. 표시된 소프트웨어 버전은 **10.0.10289.0**이어야 합니다.
+설치가 완료된 후(작업 상태 100%로 표시) StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택한 다음, 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다. **설정** 블레이드에서 **관리** 섹션으로 이동하여 **디바이스 업데이트**를 선택합니다. 표시된 소프트웨어 버전은 **10.0.10289.0**이어야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

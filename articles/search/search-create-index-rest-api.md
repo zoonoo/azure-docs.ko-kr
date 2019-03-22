@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223413"
+ms.locfileid: "58285137"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>빠른 시작: PowerShell 및 REST API를 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -162,6 +162,8 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertT
 
 > [!Tip]
 > 확인을 위해 수도 포털에서 인덱스 목록을 확인 하거나 보려면 서비스 연결을 확인 하는 데 사용 하 여 명령을 다시 실행 합니다 *호텔* 인덱스 컬렉션에서 인덱스를 나열 합니다.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2-문서를 로드 합니다.
 

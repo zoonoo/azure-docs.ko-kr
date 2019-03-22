@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012265"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
@@ -53,7 +53,7 @@ Data Box Blob Storage에서 지원되는 Azure Storage 서비스 API 버전은 �
 |     클라이언트 라이브러리     |     Data Box Blob Storage 지원되는 버전     |     링크             |     엔드포인트 사양         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    6.2.0~8.7.0.                         |    NuGet 패키지: https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config 파일                 |
-|    자바                |    4.1.0~6.1.0                          |    Maven 패키지: http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases                                                      |    연결 문자열 설정         |
+|    자바                |    4.1.0~6.1.0                          |    Maven 패키지: https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases                                                      |    연결 문자열 설정         |
 |    Node.js             |    1.1.0~2.7.0                          |    NPM 링크:   https://www.npmjs.com/package/azure-storage(예: “npm install azure-storage@2.7.0” 실행)   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases                            |    서비스 인스턴스 선언    |
 |    C++                 |    2.4.0~3.1.0                          |    NuGet 패키지: https://www.nuget.org/packages/wastorage.v140/   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-cpp/releases                                                                            |    연결 문자열 설정         |
 |    PHP                 |    0.15.0~1.0.0                         |    GitHub 릴리스: https://github.com/Azure/azure-storage-php/releases   <br>작성기를 통해 설치(아래 세부 정보 참조)                                                                                                   |    연결 문자열 설정         |
@@ -69,7 +69,7 @@ Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 �
 | 클라이언트 라이브러리     |Data Box Blob Storage 지원되는 버전     | 링크   |     엔드포인트 사양      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    NuGet 패키지: https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config 파일                 |
-|    자바                |    6.1.0                                           |    Maven 패키지: http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    연결 문자열 설정         |
+|    자바                |    6.1.0                                           |    Maven 패키지: https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    연결 문자열 설정         |
 |    Node.js             |    2.7.0                                           |    NPM 링크:   https://www.npmjs.com/package/azure-storage(실행: npm install azure-storage@2.7.0)   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    서비스 인스턴스 선언    |
 |    C++                 |    3.1.0                                           |    NuGet 패키지: https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    연결 문자열 설정         |
 |    PHP                 |    1.0.0                                           |    GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>작성기를 통해 설치( 자세한 내용은 아래 세부 정보 참조)                                                                                                             |    연결 문자열 설정         |
@@ -96,7 +96,7 @@ Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 �
 
 ### <a name="endpoint-declaration"></a>엔드포인트 선언
 
-Azure Data Box Blob Storage 엔드포인트에는 지역 이름과 Data Box 도메인의 두 부분이 포함됩니다. Data Box Blob Storage SDK에서 기본 엔드포인트는 <serial no. of the device>.microsoftdatabox.com입니다.  Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
+Azure Data Box Blob Storage 엔드포인트에는 지역 이름과 Data Box 도메인의 두 부분이 포함됩니다. 데이터 상자 Blob storage SDK에 기본 끝점은 \<일련 번호입니다. 장치 >. microsoftdatabox.com 합니다.  Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
  
 ## <a name="examples"></a>예
 

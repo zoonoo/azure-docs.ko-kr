@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: da6be839f5e7c1bfd885015c9b0206945feb77d1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889790"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -31,7 +31,7 @@ ms.locfileid: "54452788"
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs)을 통해 몇 분 이내에 평가판 계정을 만들 수 있습니다.
 
-이 가이드에서는 [Node.js](http://nodejs.org) 애플리케이션에서 직접 Azure Notification Hubs를 통해 푸시 알림을 보내는 방법을 보여 줍니다.
+이 가이드에서는 [Node.js](https://nodejs.org) 애플리케이션에서 직접 Azure Notification Hubs를 통해 푸시 알림을 보내는 방법을 보여 줍니다.
 
 시나리오는 다음 플랫폼에서 애플리케이션에 푸시 알림을 보내기를 포함합니다.
 
@@ -60,7 +60,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 4. 이 폴더에서 알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는 **Azure** 패키지를 찾습니다.
 
 > [!NOTE]
-> 자세한 내용은 공식 [NPM 블로그](http://blog.npmjs.org/post/85484771375/how-to-install-npm)에서 NPM 설치에 대해 자세히 알아볼 수 있습니다.
+> 자세한 내용은 공식 [NPM 블로그](https://blog.npmjs.org/post/85484771375/how-to-install-npm)에서 NPM 설치에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="import-the-module"></a>모듈 가져오기
 
@@ -107,7 +107,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대한 자세한 내용은 **GCM 서버 구현** 문서의 [페이로드](http://developer.android.com/google/gcm/server.html#payload) 섹션을 참조하세요.
+페이로드 형식에 대한 자세한 내용은 **GCM 서버 구현** 문서의 [페이로드](https://developer.android.com/google/gcm/server.html#payload) 섹션을 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 
@@ -132,7 +132,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 - **Payload** - 메시지의 JSON 또는 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대한 자세한 내용은 **로컬 및 푸시 알림 프로그래밍 가이드** 문서의 [알림 페이로드](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) 섹션을 참조하세요.
+페이로드 형식에 대한 자세한 내용은 **로컬 및 푸시 알림 프로그래밍 가이드** 문서의 [알림 페이로드](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) 섹션을 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `ApnsService` 인스턴스를 사용하여 모든 클라이언트에 경고 메시지를 보냅니다.
 
@@ -221,9 +221,9 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

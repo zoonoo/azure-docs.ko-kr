@@ -6,20 +6,20 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
-ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704650"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674636"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Backup에서 제공하는 역할은 Azure Portal 또는 Recovery Services 자격 증명 모음 PowerShell cmdlet에서 수행할 수 있는 작업으로 제한됩니다. Azure 백업 에이전트 클라이언트 UI, System Center Data Protection Manager UI 또는 Azure Backup Server UI에서 실행되는 작업은 이러한 역할의 제어를 받지 않습니다.
+> Azure Backup에서 제공 하는 역할은 Azure portal에서 또는 REST API를 통해 수행할 수 있는 작업으로 제한 됩니다. 또는 Recovery Services vault CLI 또는 PowerShell cmdlet. Azure 백업 에이전트 클라이언트 UI, System Center Data Protection Manager UI 또는 Azure Backup Server UI에서 실행되는 작업은 이러한 역할의 제어를 받지 않습니다.
 
 Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역할을 3개 제공합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
 
@@ -63,9 +63,9 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역�
 > VM 리소스 범위에서 VM 기여자를 지정하고 VM 설정의 일환으로 백업을 클릭하면 VM이 이미 백업되었다 하더라도 ‘백업 사용’ 화면이 열립니다. 백업 상태를 확인하기 위한 호출은 구독 수준에서만 작동하기 때문입니다. 이를 방지하려면 자격 증명 모음으로 이동하여 VM의 백업 항목을 열거나, 구독 수준에서 VM 기여자 역할을 지정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
+* [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [역할 기반 Access Control 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
+* [역할 기반 액세스 제어 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제 해결에 대한 제안을 구합니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106953"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -68,8 +68,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-    * `whr` 매개 변수를 암호 재설정 페이지에 전달(예: “https://login.microsoftonline.com/?whr=contoso.com”)
-    * `username` 매개 변수를 암호 재설정 페이지에 전달(예: “https://login.microsoftonline.com/?username=admin@contoso.com”)
+    * 전달 하 여는 `whr` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?whr=contoso.com`
+    * 전달 하 여는 `username` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 

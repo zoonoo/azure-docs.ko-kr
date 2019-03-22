@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075819"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Apache Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     이 명령은 사용자 ID 4에 대해 생성된 권장을 조사합니다.
 
-    * **user-ratings.txt** 파일은 등급이 평가된 영화를 검색하는 데 사용됩니다.
+   * **user-ratings.txt** 파일은 등급이 평가된 영화를 검색하는 데 사용됩니다.
 
-    * **moviedb.txt** 파일은 영화의 이름을 검색하는 데 사용됩니다.
+   * **moviedb.txt** 파일은 영화의 이름을 검색하는 데 사용됩니다.
 
-    * **recommendations.txt** 파일은 이 사용자의 영화 권장을 검색하는데 사용됩니다.
+   * **recommendations.txt** 파일은 이 사용자의 영화 권장을 검색하는데 사용됩니다.
 
      이 명령의 출력은 다음 텍스트와 비슷합니다.
 
-        Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
+       Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
 
 ## <a name="delete-temporary-data"></a>임시 데이터 삭제
 

@@ -1,31 +1,28 @@
 ---
-title: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리
+title: API Management를 사용 하 여 웹 서비스 관리
 titleSuffix: Azure Machine Learning Studio
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488512"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852895"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
 이 가이드에서는 API Management를 빠르게 시작하여 Azure Machine Learning Studio 웹 서비스를 관리하는 방법을 보여줍니다.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management란?
-Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
-
-## <a name="what-is-azureml"></a>AzureML이란?
-AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수 있도록 하는 기계 학습을 위한 Azure 서비스입니다. AzureML에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/machine-learning/) 를 클릭하세요.
+Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](/azure/api-management/import-and-publish)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 가이드를 완료하려면 다음이 필요합니다.
@@ -185,11 +182,11 @@ API를 만들려면:
 
 **데이터 변환** 및 **조작**을 확장하고 **데이터 세트의 열 선택**을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰**를 **데이터 세트의 열 선택**에 연결합니다.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![책 리뷰 데이터 집합 모듈 프로젝트 열 모듈에 연결](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 **데이터 세트의 열 선택**, **열 선택기 시작**을 차례로 클릭하고 **Col2**를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![열 이름을 사용 하 여 열 선택](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 **텍스트 분석**을 확장하고 **기능 해싱**을 실험으로 끌어서 놓습니다. **데이터 세트의 열 선택**을 **기능 해싱**에 연결합니다.
 

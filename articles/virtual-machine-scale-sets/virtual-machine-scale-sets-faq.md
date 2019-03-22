@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999553"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -134,7 +134,7 @@ PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 �
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>VM을 중지(할당 취소)한 경우 VM이 자동 크기 조정 작업의 일부로 시작되었나요?
 
- 아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
+아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
 
 
 
@@ -234,8 +234,8 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 ```
 
 linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
---- | --- | --- | --- |  ---
-ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+--- | --- | --- | --- 
+ssh | 아닙니다. | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
 경로 | 예 | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
@@ -309,7 +309,7 @@ Azure Key Vault 설명서에 따르면, 버전이 지정되지 않은 경우 Get
 
 방법 | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 {*secret-name*}을 검색하려는 비밀의 이름으로 바꾸고 {*secret-version*}을 해당 버전으로 바꿉니다. 암호 버전은 제외할 수도 있습니다. 이 경우 현재 버전이 검색됩니다.
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 `$vmss`에서 extensionName 값을 찾을 수 있습니다.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제가 있나요?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>가상 머신 확장 집합 Azure Monitor 로그와 통합 되는 템플릿 예제가 있나요?
 
-Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 경우 [Log Analytics를 사용하여 Azure Service Fabric 클러스터 배포 및 모니터링 사용](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)의 두 번째 예제를 참조하세요.
+가상 머신 확장 집합 템플릿 예제의 Azure Monitor 로그와 통합 되는의 두 번째 예제를 참조 하세요 [Azure Service Fabric 클러스터를 배포 하 고 Azure Monitor 로그를 사용 하 여 모니터링을 사용 하도록 설정](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)합니다.
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>여러 확장이 가상 머신 확장 집합에서 병렬로 실행되는 것 같습니다. 이로 인해 사용자 지정 스크립트 확장이 실패합니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -535,7 +535,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>가상 머신 확장 집합에 포함된 첫 번째 VM의 IP 주소를 템플릿의 출력에 추가하려면 어떻게 하나요?
 
-가상 머신 확장 집합에 포함된 첫 번째 VM의 IP 주소를 템플릿의 출력에 추가하려면 [Azure Resource Manager: 가상 머신 확장 집합 개인 IP 가져오기](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)를 참조하세요.
+가상 머신 확장 집합에 포함된 첫 번째 VM의 IP 주소를 템플릿의 출력에 추가하려면 [Azure Resource Manager: 가상 머신 확장 집합 개인 IP 가져오기](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)를 참조하세요.
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>가속 네트워킹을 포함한 확장 집합을 사용할 수 있나요?
 
@@ -658,15 +658,18 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 자세한 내용은 [가상 머신 크기 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Log Analytics와 확장 집합을 통합할 수 있나요?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 확장 집합을 통합할 수는?
 
-예, 확장 집합 VM에서 Log Analytics 확장을 설치하여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
+예, 설정할 수 있습니다 확장에서 Azure 모니터링 확장을 설치 하 여 Vm. Azure CLI 예는 다음과 같습니다.
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
 
-참고: 확장 집합 _upgradePolicy_를 수동으로 설정한 경우 이에 대한 업그레이드를 호출하여 집합의 모든 VM에 확장을 적용해야 합니다. CLI에서는 _az vmss update-instances_입니다.
+> [!NOTE]
+> 크기 집합이 _upgradePolicy_ 설정할지를 수동으로에 업그레이드를 호출 하 여 확장 집합의 모든 Vm을 적용 해야 합니다. CLI에서는 _az vmss update-instances_입니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -718,3 +721,26 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 - 가상 머신 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.
   - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 종단 간 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 머신 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 머신 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>스냅숏으로 VMSS 인스턴스를 가져올 방법 있나요?
+VMSS 인스턴스에서 스냅숏을 만듭니다.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+스냅숏에서 관리 디스크를 만듭니다.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

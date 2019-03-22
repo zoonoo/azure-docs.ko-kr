@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900083"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 컨테이너 제품 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "50980228"
 
 ## <a name="new-offer-form"></a>새 제안 양식 
 
-[Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. 새 제품 메뉴에서 **컨테이너**를 선택하여 **새 제품** 양식을 표시하고 새 컨테이너 제품에 대한 자산을 정의하는 과정을 시작합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. 새 제품 메뉴에서 **컨테이너**를 선택하여 **새 제품** 양식을 표시하고 새 컨테이너 제품에 대한 자산을 정의하는 과정을 시작합니다.
 
 ![새 제품에 대해 컨테이너 옵션 선택](./media/azure-container-offer.png)
 

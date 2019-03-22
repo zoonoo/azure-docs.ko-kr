@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996330"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -75,7 +75,9 @@ Office 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사�
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2의 AD FS에 새 또는 기존 팜을 사용하는 페더레이션
 페더레이션 로그인을 통해 사용자는 온-프레미스 암호로 Azure AD 기반 서비스에 로그인할 수 있습니다. 회사 네트워크에 있는 동안 자신의 암호를 입력할 필요가 없습니다. AD FS와 페더레이션 옵션을 사용하여 Windows Server 2012 R2의 AD FS로 새 또는 기존 팜을 배포할 수 있습니다. 기존 팜에 지정하려는 경우 Azure AD Connect는 사용자가 로그인 할 수 있도록 팜 및 Azure AD 간의 트러스트를 구성합니다.
 
-<center>![Windows Server 2012 R2의 AD FS와 페더레이션](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Windows Server 2012 R2의 AD FS로 페더레이션](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2의 AD FS로 페더레이션 배포
 
@@ -152,6 +154,7 @@ Azure AD 디렉터리의 사용자 지정 도메인 상태와 UPN 접미사가 �
 다음 정보의 경우, 온-프레미스 디렉터리에서 UPN의 일환(예: user@contoso.com)으로 사용되는 UPN 접미사 contoso.com를 우려한다고 가정합니다.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Express 설정/암호 해시 동기화
+
 | 시스템 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
 |:---:|:--- |
 | 추가되지 않음 |이 경우에 contoso.com에 대한 사용자 지정 도메인은 Azure AD 디렉터리에서 추가되지 않습니다. 접미사 @contoso.com이 포함된 UPN 온-프레미스를 가진 사용자는 해당 온-프레미스 UPN을 사용하여 Azure에 로그인할 수 없습니다. 대신 기본 Azure AD 디렉터리에 대한 접미사를 추가하여 Azure AD에서 제공한 새 UPN을 사용해야 합니다. 예를 들어 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 사용자를 동기화하는 경우 온-프레미스 사용자 user@contoso.com은 지정된 user@azurecontoso.onmicrosoft.com의 UPN입니다. |

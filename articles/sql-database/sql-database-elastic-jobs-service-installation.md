@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889792"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565482"
 
 [**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 PowerShell이나 Azure Portal을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
 
-포털을 통해 기존 **탄력적 풀**에서 **Elastic Database 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **Elastic Database 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
+이미 설치한 경우 **Elastic Database 작업** 기존 포털을 통해 **탄력적 풀**, 최신 PowerShell 미리 보기에는 기존 설치를 업그레이드 하는 스크립트를 포함 합니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **Elastic Database 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Azure PowerShell. [웹 플랫폼 설치 관리자](https://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
-* [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 Elastic Database 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
+* [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 Elastic Database 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 https://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Elastic Database 작업 PowerShell 패키지 다운로드 및 가져오기
 1. Microsoft Azure PowerShell 명령 창을 시작하고 NuGet 명령줄 유틸리티(nuget.exe)를 다운로드한 디렉터리로 이동합니다.
@@ -75,9 +75,7 @@ ms.locfileid: "55565482"
     <td>새로 만든 Azure 구성 요소를 포함하기 위해 생성된 Azure 리소스 그룹 이름을 제공합니다. 이 매개 변수의 기본값은 "__ElasticDatabaseJob"입니다. 이 값은 변경하지 않는 것이 좋습니다.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>새로 만든 Azure 구성 요소에 사용할 Azure 위치를 제공합니다. 이 매개 변수의 기본값은 미국 중부 위치입니다.</td>
 </tr>
@@ -85,28 +83,24 @@ ms.locfileid: "55565482"
 <tr>
     <td>ServiceWorkerCount</td>
     <td>설치할 서비스 작업자 수를 제공합니다. 이 매개 변수의 기본값은 1입니다. 작업자 수를 늘려 서비스를 확장하고 고가용성을 제공할 수 있습니다. 서비스의 고가용성이 필요한 배포에는 "2"를 사용하는 것이 좋습니다.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 작업자 역할이 각각 ExtraSmall/Small/Medium/Large 크기를 사용하도록 하는 매개 변수 값 A0/A1/A2/A3이 허용됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Standard 버전에 대한 계산 크기를 제공합니다. 이 매개 변수의 기본값은 S0입니다. Azure SQL Database에서 해당 계산 크기로 사용하도록 허용되는 매개 변수 값은 S0/S1/S2/S3/S4/S6/S9/S12입니다. SQL Database 계산 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>Standard 버전에 대한 계산 크기를 제공합니다. 이 매개 변수의 기본값은 S0입니다. 매개 변수 값... /.. /.. /.. / S9/S12 Azure SQL database가 해당 계산 크기를 사용 하는 허용 됩니다. SQL Database 계산 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>새로 만든 Azure SQL Database 서버에 대한 관리자 사용자 이름을 제공합니다. 지정되지 않은 경우 자격 증명을 요청하는 PowerShell 자격 증명 창이 열립니다.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>새로 만든 Azure SQL Database 서버에 대한 관리자 암호를 제공합니다. 제공되지 않은 경우 자격 증명을 요청하는 PowerShell 자격 증명 창이 열립니다.</td>
 </tr>
@@ -131,24 +125,19 @@ ms.locfileid: "55565482"
   <th>설명</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Elastic Database 작업 구성 요소를 처음 설치할 때 사용한 Azure 리소스 그룹 이름을 식별합니다. 이 매개 변수의 기본값은 "__ElasticDatabaseJob"입니다. 이 값은 변경하지 않는 것이 좋으므로 이 매개 변수를 지정할 필요가 없습니다.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>설치할 서비스 작업자 수를 제공합니다.  이 매개 변수의 기본값은 1입니다.  작업자 수를 늘려 서비스를 확장하고 고가용성을 제공할 수 있습니다.  서비스의 고가용성이 필요한 배포에는 "2"를 사용하는 것이 좋습니다.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 작업자 역할이 각각 ExtraSmall/Small/Medium/Large 크기를 사용하도록 하는 매개 변수 값 A0/A1/A2/A3이 허용됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>클라우드 서비스 내에서 사용할 VM 크기를 제공합니다. 이 매개 변수의 기본값은 A0입니다. 매개 변수 값... /.. / A3 작업자 역할이 각각 ExtraSmall/소규모/Medium/Large 크기를 사용 하 여 허용 됩니다. 작업자 역할 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
 </tr>
 
 </table>

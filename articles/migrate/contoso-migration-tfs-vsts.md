@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100243"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 마이그레이션:  Team Foundation Server 배포를 Azure DevOps Services로 리팩터링
 
@@ -225,11 +225,11 @@ Contoso 관리자는 마이그레이션 전에 ContosoDev 컬렉션 데이터베
 
 6. 가져오기를 수행하는 동안 Azure DevOps Services로 가져올 계정을 표시하는 ID 로그 맵 파일을 검토합니다. 
 
-    - 활성 ID는 가져오기 후 Azure DevOps Services에서 사용자가 될 ID를 참조합니다.
-    - Azure DevOps Services에서 이러한 ID는 라이선스가 발급되고, 마이그레이션 후 조직에서 사용자로 표시됩니다.
-    - 이러한 ID는 파일의 **예상 가져오기 상태** 열에 **활성**으로 표시됩니다.
+   - 활성 ID는 가져오기 후 Azure DevOps Services에서 사용자가 될 ID를 참조합니다.
+   - Azure DevOps Services에서 이러한 ID는 라이선스가 발급되고, 마이그레이션 후 조직에서 사용자로 표시됩니다.
+   - 이러한 ID는 파일의 **예상 가져오기 상태** 열에 **활성**으로 표시됩니다.
 
-    ![준비](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![준비](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

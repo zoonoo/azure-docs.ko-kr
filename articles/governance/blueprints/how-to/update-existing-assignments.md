@@ -1,6 +1,6 @@
 ---
-title: 기존 할당을 업데이트하는 방법
-description: Azure Blueprint에서 기존 할당을 업데이트하는 메커니즘을 알아봅니다.
+title: 포털에서 기존 할당을 업데이트 하는 방법
+description: Azure Blueprint에서 포털에서 기존 할당을 업데이트 하기 위한 메커니즘에 알아봅니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999854"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -26,21 +26,21 @@ ms.locfileid: "53314833"
 
 ## <a name="updating-assignments"></a>할당 업데이트
 
-1. **모든 서비스**를 클릭하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 **할당 업데이트** 단추를 클릭하거나, 청사진 할당을 마우스 오른쪽 단추로 클릭하고 **할당 업데이트**를 선택합니다.
+1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 클릭 합니다 **할당 업데이트할** 단추 또는 blueprint 할당을 마우스 오른쪽 단추로 클릭 하 고 선택 **할당을 업데이트**합니다.
 
    ![할당 업데이트](../media/update-existing-assignments/update-assignment.png)
 
-1. 원래 할당의 모든 값으로 미리 채워진 **청사진 할당** 페이지가 로드됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
+1. 합니다 **할당 blueprint** 페이지는 원래 할당의 모든 값으로 미리 채워진 로드 됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
    ![업데이트된 할당 - 잠김](../media/update-existing-assignments/updated-assignment.png)
 
-1. 드롭다운을 사용하여 다른 **할당 작업**에 대한 세부 정보를 살펴봅니다. 선택한 할당 작업으로 업데이트된 **관리되는 리소스** 테이블.
+1. 다른 방법에 대 한 세부 정보를 찾는 **할당 작업** 드롭다운을 사용 하 여 합니다. 목차 **관리 되는 리소스** 선택한 할당 작업에 의해 업데이트 합니다.
 
    ![할당 작업](../media/update-existing-assignments/assignment-operations.png)
 
@@ -72,5 +72,5 @@ ms.locfileid: "53314833"
 - [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](../concepts/resource-locking.md)을 사용하는 방법 확인
+- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
 - [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

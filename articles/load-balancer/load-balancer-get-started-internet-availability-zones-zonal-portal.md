@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856861"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 
@@ -36,7 +36,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>영역별 프런트 엔드 IP 주소가 있는 부하 분산 장치 만들기
 
-1. 브라우저에서 Azure Portal [http://portal.azure.com](http://portal.azure.com)로 이동하고 Azure 계정으로 로그인합니다.
+1. 브라우저에서 Azure Portal [https://portal.azure.com](https://portal.azure.com)로 이동하고 Azure 계정으로 로그인합니다.
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
 3. **부하 분산 장치 만들기** 페이지에서 **이름**에 **myLoadBalancer**를 입력합니다.
 4. **형식**에서 **Public**을 선택합니다.
@@ -46,8 +46,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 >[!NOTE] 
 > 이 단계에서 만든 공용 IP는 기본적으로 표준 SKU입니다.
 
-7. **리소스 그룹**에서 **새로 만들기**를 클릭하고 리소스 그룹의 이름으로 **myResourceGroupZLB**를 입력합니다.
-8. **위치**로 **유럽 서부**를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치에서 배포를 시작하며 배포를 완료하는 데 몇 분 정도가 걸립니다.
+1. **리소스 그룹**에서 **새로 만들기**를 클릭하고 리소스 그룹의 이름으로 **myResourceGroupZLB**를 입력합니다.
+1. **위치**로 **유럽 서부**를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치에서 배포를 시작하며 배포를 완료하는 데 몇 분 정도가 걸립니다.
 
     ![Azure Portal을 사용하여 영역 중복 표준 Load Balancer 만들기](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: eefe624462609a69296ec6d6e409d72745da0846
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880163"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus 메시징 샘플
+Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재는 다음 위치에서 샘플을 찾을 수 있습니다.
 
-Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재, 다음과 같은 두 위치에서 샘플을 찾을 수 있습니다.
-
-- [.NET 및 Java](https://github.com/Azure/azure-service-bus/tree/master/samples) .NET 샘플의 설명은 리포지토리의 [.NET 추가 정보](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md)를, Java 샘플의 설명은 [Java 추가 정보](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)를 참조하세요.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| 프로그래밍 언어 | SDK 또는 샘플 위치 |
+| -------------------- | ----------------------- |
+| .NET, Java 및 관리 | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Service Bus 탐색기
 

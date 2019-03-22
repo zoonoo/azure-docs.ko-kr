@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891106"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -57,9 +57,8 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 - API 앱
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Azure 모니터 (로그)
 - Application Insights
-- Log Analytics
 - Azure 리소스 관리자
 - Azure Security Center
 - Azure SQL Database
@@ -169,11 +168,11 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 ### <a name="monitoring-logging-and-audit"></a>모니터링, 로깅 및 감사
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 클라우드 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집 및 분석하도록 도와주는 Azure의 서비스입니다.
+[Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 는 클라우드 리소스에서 생성 된 데이터 수집 및 분석 하도록 도와주는 Azure의 서비스 및 온-프레미스 환경입니다.
 
-#### <a name="log-analytics-in-this-blueprint"></a>이 청사진의 Log Analytics
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>이 blueprint에서 azure Monitor 로그
 
 - SQL 평가
 - Key Vault 진단
@@ -220,7 +219,7 @@ Crown Commercial Service(영국 정부의 상업 및 조달 활동을 향상시�
 
 이 청사진은 영국 NCSC(National Cyber Security Centre)에서 검토되었으며 NCSC 14개 클라우드 보안 원칙에 부합합니다.
 
-자동화 템플릿은 UK Customer Success Unit Azure 클라우드 솔루션 설계 팀과 Microsoft 파트너인 [Ampliphae](http://www.ampliphae.com/)에서 테스트되었습니다.
+자동화 템플릿은 UK Customer Success Unit Azure 클라우드 솔루션 설계 팀과 Microsoft 파트너인 [Ampliphae](https://www.ampliphae.com/)에서 테스트되었습니다.
 
 
 ## <a name="deploy-the-solution"></a>솔루션 배포

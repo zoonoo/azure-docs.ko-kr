@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000415"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
@@ -72,16 +72,18 @@ ms.locfileid: "54078017"
 ----
 
 ## <a name="container-offer-requirements"></a>컨테이너 제품 요구 사항
+
 |  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
 |1 |제품 설정 | <br>• 제품 ID: 최대 50자 <br>• 게시자 ID: 드롭다운에서 선택 <br>• 이름: 최대 50자 | 설명에서 이미 사용 가능한 이름 스타일을 미러링하고 자세한 이름을 사용하지 않음 | 
-| 2 | SKU | 파트너가 새 SKU를 클릭함| 설명에서 이미 사용 가능한 이름 스타일을 미러링하고 자세한 이름을 사용하지 않음  |  |
+| 2 | SKU | 파트너가 새 SKU를 클릭함| 설명에서 이미 사용 가능한 이름 스타일을 미러링하고 자세한 이름을 사용하지 않음  |
 | 3 | Marketplace 아티팩트 | 로고가 올바르게 표시됨 |<br>• 로고가 Azure Portal의 큰 형식 이미지에 해당하는 “대표 이미지”를 포함함 <br>• 로고: 소형(48x48) 및 대형(216x216)은 요구 사항임 <br>• 대표 이미지 요구 사항: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• 스크린샷(최대 5개):  CPP를 사용하면 1280 x 720 해상도의 .png 이미지가 필요합니다.|
 | 4 | 잠재 고객 관리 |<br>• 잠재 고객 관리: 잠재 고객을 저장할 시스템 선택 <br>• [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)에서 CRM 시스템을 연결하는 방법 알아보기 | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>컨설팅 제품 요구 사항
+
 |  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
 |:--- |:--- |:--- |:--- |
 | 1 | 제품 이름  |  <br>• 지속 기간 형식으로 서비스 유형 및 지속 기간을 명확하게 나열해야 합니다. 이름: 기간 형식. (즉, “Offer Engagement: 1-Week Proof-of-Concept”)  | <br>• 게시자 이름을 반복하지 않음 <br>• 설명에서 이미 사용 가능한 이름 스타일을 미러링하고 자세한 이름을 사용하지 않음 | 
@@ -103,4 +105,4 @@ ms.locfileid: "54078017"
 *   [솔루션에 대한 열거 유형 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
----  
+---

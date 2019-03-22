@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업에 대한 초대 위임 | Microsoft Docs
+title: B2B 공동 작업-Azure Active Directory에 대 한 초대 위임 | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업 사용자 속성은 구성 가능합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28ac32a97f4c42040d538829e9870a43b508f50e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 18d40397f30b471699f42878a38c88efebcc6305
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164739"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674528"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업에 대한 초대 위임
 

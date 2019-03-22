@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>자습서: Replicon과 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Replicon과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Replicon 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -196,7 +196,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![사용자 프로필](./media/replicon-tutorial/ic777808.png "사용자 프로필")
 
-    a. **로그인 이름** 텍스트 상자에 프로비전하려는 Azure AD 사용자의 Azure AD 메일 주소를 입력합니다(예: **BrittaSimon@contoso.com**).
+    a. 에 **로그인 이름** 텍스트 상자에 같은 프로 비전 하려는 Azure AD 사용자의 이메일 주소 입력 Azure AD **BrittaSimon\@contoso.com**합니다.
 
     b. **인증 유형**으로 **SSO**를 선택합니다.
 

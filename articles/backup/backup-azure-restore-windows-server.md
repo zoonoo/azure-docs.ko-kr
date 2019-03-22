@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110820"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 Windows에 파일 복원
 
@@ -48,14 +48,14 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구 마법사 시작 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. **복구 모드 선택** 창에서 **개별 파일 및 폴더** > **다음**을 선택합니다.
+4. 에 **복구 모드 선택** 페이지에서 **개별 파일 및 폴더** > **다음**합니다.
 
     ![데이터 복구 마법사 복구 모드 선택 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > 개별 파일 및 폴더를 복원하는 옵션에는 .NET Framework 4.5.2 이상이 필요합니다. **개별 파일 및 폴더** 옵션이 표시되지 않는 경우 .NET Framework를 4.5.2 이상 버전으로 업그레이드하고 다시 시도해야 합니다.
+   > [!IMPORTANT]
+   > 개별 파일 및 폴더를 복원하는 옵션에는 .NET Framework 4.5.2 이상이 필요합니다. **개별 파일 및 폴더** 옵션이 표시되지 않는 경우 .NET Framework를 4.5.2 이상 버전으로 업그레이드하고 다시 시도해야 합니다.
 
-  > [!TIP]
-  > **개별 파일 및 폴더** 옵션을 사용하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 크기가 80GB 이하인 개별 파일을 복구하는 데 적합하며 복구 중에 최대 6MBps의 전송 또는 복사 속도를 제공합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 빠른 전송 속도(최대 60MBps)를 제공하므로 대용량 데이터 또는 전체 볼륨을 복구하는 데 적합합니다.
+   > [!TIP]
+   > **개별 파일 및 폴더** 옵션을 사용하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 크기가 80GB 이하인 개별 파일을 복구하는 데 적합하며 복구 중에 최대 6MBps의 전송 또는 복사 속도를 제공합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 빠른 전송 속도(최대 60MBps)를 제공하므로 대용량 데이터 또는 전체 볼륨을 복구하는 데 적합합니다.
 
 5. **볼륨 및 날짜 선택** 페이지에서 복원할 파일 및 폴더가 들어있는 볼륨을 선택합니다.
 

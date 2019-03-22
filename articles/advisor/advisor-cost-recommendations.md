@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900729"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
@@ -21,7 +21,7 @@ Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
 
-특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 14일 동안 가상 머신 사용량을 모니터링하고 사용률이 낮은 가상 머신을 식별합니다. 4일 이상 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 머신은 사용률이 낮은 가상 머신으로 간주됩니다.
+특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 7 일 동안 가상 머신 사용량을 모니터링 하 고 사용률이 낮은 가상 컴퓨터를 식별 합니다. 가상 컴퓨터 사용률이 낮은 경우 해당 CPU 사용률이 5% 이하인 것으로 간주 됩니다 및 해당 네트워크 사용률은 2% 보다 작으면 또는 더 작은 가상 머신 크기에서 현재 워크 로드를 수용할 수 있는지 표시 합니다.
 
 Advisor에는 가상 머신을 계속 실행할 때의 예상 비용이 표시되므로 해당 가상 머신을 종료하거나 크기를 조정하도록 선택할 수 있습니다.
 
@@ -40,6 +40,10 @@ Advisor는 90 일 넘게 유휴 상태를 유지한 가상 네트워크 게이�
 Advisor는 지난 30일 동안 가상 머신 사용량을 검토하고Azure 예약을 구매하여 비용을 절감할 수 있는지 확인합니다. Advisor는 잠재적으로 가장 절약할 수 있는 지역 및 크기를 보여주고, 예약 구매로 예상되는 절감을 보여줍니다. 
 
 Azure 예약을 사용하여 가상 머신에 대한 기본 비용을 미리 구입할 수 있습니다. 할인은 예약과 동일한 크기 및 지역이 있는 새로운 또는 기존 VM에 자동으로 적용됩니다. [Azure Reserved VM Instances에 대한 자세한 정보](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>비용을 절약 하려면 연결 되지 않은 공용 IP 주소를 삭제 합니다.
+
+Advisor는 부하 분산 장치 또는 Vm과 같은 Azure 리소스에 현재 연결 되어 있지 않은 공용 IP 주소를 식별 합니다. 이러한 공용 IP 주소는 명목 요금이 부과 함께 제공 합니다. 비용 절감 사용 하지 않으려는 경우 삭제 될 수 있습니다.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996438"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -25,8 +25,8 @@ IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 �
 
 이 문서에는 Windows x64(AMD/Intel) 시스템에 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. Windows 지원은 현재 미리 보기로 제공되고 있습니다.
 
->[!NOTE]
-Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
+> [!NOTE]
+> Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,6 +52,8 @@ Linux 컨테이너가 포함된 Azure IoT Edge의 최신 버전은 다음 버전
 
 Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔진을 사용합니다. 프로덕션 시나리오에서는 설치 스크립트에 포함된 Moby 엔진을 사용하여 Windows 디바이스에서 Windows 컨테이너를 실행합니다. 개발 및 테스트의 경우 Windows 디바이스에서 Linux 컨테이너를 실행할 수 있지만 IoT Edge를 설치하기 전에 컨테이너 엔진을 설치하고 구성해야 합니다. 두 시나리오 모두, 디바이스를 준비하기 위한 필수 조건은 다음 섹션을 참조하세요. 
 
+가상 컴퓨터에서 IoT Edge를 설치 하려는 경우 중첩 된 가상화를 사용 하도록 설정 하 고 최소 2GB 메모리를 할당 합니다. 중첩 된 가상화를 사용 하는 방법에 사용 하 여 하이퍼바이저에 따라 달라 집니다. Hyper-v에 대 한 2 세대 가상 컴퓨터는 중첩 된 가상화 기본적으로 사용 하도록 설정 합니다. VMWare 가상 컴퓨터에 기능을 사용 하도록 설정/해제가 됩니다. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Windows 컨테이너용 Moby 엔진
 
 프로덕션 시나리오에서 IoT Edge를 실행하는 Windows 디바이스의 경우 Moby가 공식적으로 지원되는 유일한 컨테이너 엔진입니다. 설치 스크립트는 IoT Edge를 설치하기 전에 자동으로 디바이스에 Moby 엔진을 설치합니다. 컨테이너 기능을 켜서 디바이스를 준비합니다. 
@@ -64,7 +66,7 @@ Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔
 
 Windows를 사용하여 Linux 디바이스용 컨테이너를 개발 및 테스트하는 경우 [Windows용 Docker](https://www.docker.com/docker-windows)를 컨테이너 엔진으로 사용할 수 있습니다. [Linux 컨테이너를 사용](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)하도록 Docker를 구성할 수 있습니다. IoT Edge를 설치하기 전에 Docker를 설치하고 구성해야 합니다. 프로덕션의 Windows 디바이스에서는 Linux 컨테이너가 지원되지 않습니다. 
 
-IoT Edge 디바이스가 Windows 컴퓨터인 경우 Hyper-V에 대한 [시스템 요구 사항](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)을 충족하는지 확인합니다. 가상 머신인 경우 [중첩된 가상화](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 사용하도록 설정하고 최소 2GB 메모리를 할당합니다.
+IoT Edge 디바이스가 Windows 컴퓨터인 경우 Hyper-V에 대한 [시스템 요구 사항](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)을 충족하는지 확인합니다.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>새 디바이스에 IoT Edge 설치
 
@@ -213,6 +215,34 @@ Get-WinEvent -ea SilentlyContinue `
 ```powershell
 iotedge list
 ```
+
+새로 설치를 실행 하는 것을 표시만 모듈 뒤 **edge 에이전트**합니다. 한 후 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md), 다른 사용자가 표시 됩니다. 
+
+## <a name="manage-module-containers"></a>모듈 컨테이너 관리
+
+IoT Edge 서비스는 장치에서 실행 하는 컨테이너 엔진에 필요 합니다. 장치에 모듈을 배포할 때 IoT Edge 런타임에서 컨테이너 엔진을 사용 하 여 클라우드에서 레지스트리에서 컨테이너 이미지를 끌어옵니다. IoT Edge 서비스 모듈을 사용 하 여 상호 작용 하 고 로그를 검색할 수 있습니다 하지만 컨테이너 엔진을 사용 하 여 컨테이너 자체와 상호 작용 하도록 하려는 경우가 있습니다. 
+
+모듈 개념에 대 한 자세한 내용은 참조 하세요. [이해 Azure IoT Edge 모듈](iot-edge-modules.md)합니다. 
+
+Windows IoT Edge 장치에서 Windows 컨테이너를 실행 하는 경우 IoT Edge 설치 모 비 컨테이너 엔진을 포함 합니다. Windows 개발 컴퓨터에 Linux 컨테이너를 개발 하는 경우 Docker 데스크톱 사용할 수 있습니다. 모 비 Docker와 같은 표준을 기반 엔진과 동일한 Docker 데스크톱 컴퓨터에서 병렬로 실행 하도록 설계 되었습니다. 이런 이유로 모 비 엔진에 의해 관리 되는 대상 컨테이너 하려는 경우 특히 Docker 대신 해당 엔진을 대상으로 합니다. 
+
+예를 들어, 모든 Docker 이미지를 나열 하려면 다음 명령을 사용 합니다.
+
+```powershell
+docker images
+```
+
+모든 모 비 이미지를 나열 하려면 모 비 엔진에 대 한 포인터를 사용 하 여 동일한 명령을 수정 합니다. 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+URI 엔진 설치 스크립트의 출력에 나열 된 또는 config.yaml 파일에 대 한 컨테이너 런타임 설정 섹션에서 찾을 수 있습니다. 
+
+![config.yaml moby_runtime uri](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+컨테이너 및 장치에서 실행 되는 이미지와 상호 작용 하 여 명령에 대 한 자세한 내용은 참조 [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/docker/)합니다.
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
 

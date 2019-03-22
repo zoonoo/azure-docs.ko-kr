@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7605a8cee265822f133b3f72ce5de90add5fc0d0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993382"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.
@@ -51,9 +51,9 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
     
       * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 없습니다.
       
-      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
+      * Active Directory 그룹을 해당 proxyAddress 속성의 값을 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* Azure AD에서 메일을 사용할 수 있습니다.
       
-      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup","smtp:johndoe@contoso.com"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수도 있습니다.
+      * Active Directory 그룹을 해당 proxyAddress 속성의 값을 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"을 (를)* Azure AD에서 메일을 사용할 수도 있습니다.
 
 ## <a name="contacts"></a>연락처
 연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이것은 **In from AD – 연락처 조인**규칙에서 구성됩니다. **AD에서 들어오기 – 연락처 일반**이라는 규칙도 있는데 **sourceObjectType** 메타 버스 특성에 대한 특성 흐름과 **연락처** 상수를 가지고 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 어떤 사용자 개체가 동일한 메타버스 개체에 조인된 경우에는 **In from AD – 사용자 일반** 규칙이 User 값을 이 특성에 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734439"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764936"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -115,7 +115,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-*리소스의 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
+리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스를 기존 태그를 유지 하지 않도록*, 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +125,7 @@ foreach ($g in $groups)
 }
 ```
 
-*리소스의 중복되지 않는 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
+리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *중복 되지 않는 리소스를 기존 태그를 유지*, 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +222,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-*리소스의 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
+리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스를 기존 태그를 유지 하지 않도록*, 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -238,7 +238,7 @@ do
 done
 ```
 
-리소스 그룹의 모든 태그를 리소스에 적용하고 *리소스의 기존 태그를 유지*하려면 다음 스크립트를 사용합니다.
+리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스의 기존 태그를 유지*, 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -279,4 +279,4 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 ## <a name="next-steps"></a>다음 단계
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](tag-support.md)을 참조하세요.
-* 포털 사용에 대한 소개는 [Azure Portal을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.  
+* 포털 사용에 대한 소개는 [Azure Portal을 사용하여 Azure 리소스 관리](manage-resource-groups-portal.md)를 참조하세요.  

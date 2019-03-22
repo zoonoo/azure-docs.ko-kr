@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900593"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 머신을 배포하는 방법을 보여줍니다. 그런 후 가상 머신을 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인에 가입하는 방법을 보여줍니다.
@@ -107,7 +107,7 @@ Windows Server 가상 머신을 Azure AD DS에서 관리되는 도메인에 조�
 
 7. 다음 방법 중 하나로 자격 증명을 지정할 수 있습니다.
 
-   * **UPN 형식**: (권장) Azure AD에 구성된 대로 사용자 계정에 대한 UPN(사용자 계정 이름) 접미사를 지정합니다. 이 예제에서 사용자 *bob*의 UPN 접미사는 *bob@domainservicespreview.onmicrosoft.com*입니다.
+   * **UPN 형식**: (권장) Azure AD에 구성된 대로 사용자 계정에 대한 UPN(사용자 계정 이름) 접미사를 지정합니다. 이 예제에서는 사용자의 UPN 접미사 *bob* 됩니다 *bob\@domainservicespreview.onmicrosoft.com*합니다.
 
    * **SAMAccountName 형식**: SAMAccountName 형식으로 계정 이름을 지정할 수 있습니다. 이 예제에서 사용자 *bob*은 *CONTOSO100\bob*을 입력해야 합니다.
 
@@ -146,7 +146,7 @@ Windows Server 가상 머신을 Azure AD DS에서 관리되는 도메인에 조�
 
 * 관리되는 도메인에 대해 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)했는지 확인합니다.
 
-* Azure AD에 구성된 대로 사용자의 UPN(예: *bob@domainservicespreview.onmicrosoft.com*)을 사용하여 로그인했는지 확인합니다.
+* Azure AD에 구성 된 대로 사용자의 UPN을 사용 했는지 확인 합니다. (예를 들어 *bob\@domainservicespreview.onmicrosoft.com*)에 로그인 합니다.
 
 * 시작 가이드에서 지정한 대로 암호 동기화가 완료될 때까지 충분히 기다립니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Mesh 애플리케이션에서 고가용성 Service Fabric Reliable Disk Volume 사용| Microsoft Docs
+title: Azure Service Fabric 망상 조직 응용 프로그램에서 항상 사용 가능한 서비스 패브릭 신뢰할 수 있는 디스크 볼륨을 사용 하 여 | Microsoft Docs
 description: Azure CLI를 사용하여 컨테이너 내부에서 볼륨에 기반한 Service Fabric Reliable Disk를 탑재하여 Azure Service Fabric Mesh 애플리케이션에 상태를 저장하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850856"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
 컨테이너 앱을 사용하여 상태를 유지하는 일반적인 방법은Azure File Storage와 같은 원격 스토리지 또는 Azure Cosmos DB와 같은 데이터베이스를 사용하는 것입니다. 이 경우 원격 저장소에 대한 상당한 읽기 및 쓰기 네트워크 지연이 발생합니다.
@@ -47,7 +47,7 @@ az account set --subscription "<subscriptionID>"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-응용 프로그램을 배포할 리소스 그룹을 만듭니다. 다음 명령은 미국 동부 위치에서 이름이 `myResourceGroup`인 리소스 그룹을 만듭니다. 아래 명령에서 리소스 그룹 이름을 변경하는 경우, 다음에 나오는 모든 명령에서 리소스 그룹 이름을 변경해야 합니다.
+애플리케이션을 배포할 리소스 그룹을 만듭니다. 다음 명령은 미국 동부 위치에서 이름이 `myResourceGroup`인 리소스 그룹을 만듭니다. 아래 명령에서 리소스 그룹 이름을 변경하는 경우, 다음에 나오는 모든 명령에서 리소스 그룹 이름을 변경해야 합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group deployment show --name counter.sfreliablevolume.linux --resource-group 
 
 `Microsoft.ServiceFabricMesh/gateways`와 리소스 형식 같은 게이트웨이 리소스의 이름을 확인합니다. 이 앱의 공용 IP 주소 가져오는 데 사용됩니다.
 
-## <a name="open-the-application"></a>응용 프로그램 열기
+## <a name="open-the-application"></a>애플리케이션 열기
 
 애플리케이션이 성공적으로 배포되면 앱에 대한 게이트웨이 리소스의 ipAddress를 가져옵니다. 위의 섹션에서 알게 게이트웨이 이름을 사용합니다.
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az mesh gateway show --resource-group myResourceGroup --gateway-name counterGate
 
 출력에 서비스 엔드포인트에 대한 공용 IP 주소인 `ipAddress` 속성이 있어야 합니다. 브라우저에서 속성을 엽니다. 카운터 값이 1초마다 업데이트되는 웹 페이지가 표시됩니다.
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>응용 프로그램에서 볼륨을 사용할 수 있는지 확인
+## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>애플리케이션에서 볼륨을 사용할 수 있는지 확인
 
 애플리케이션은 `counter/counterService` 폴더 내 볼륨에서 `counter.txt`라는 이름의 파일을 만듭니다. 이 파일의 콘텐츠는 웹 페이지에 표시되는 카운터 값입니다.
 

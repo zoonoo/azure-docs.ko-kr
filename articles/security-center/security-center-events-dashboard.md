@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075768"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Azure Security Center에서 보안 이벤트 모니터링 및 처리
 이벤트 대시보드에서는 시간별로 수집된 보안 이벤트 수의 개요와, 확인해야 할 수 있는 주목할 만한 이벤트의 목록이 제공됩니다.  
@@ -28,6 +28,8 @@ ms.locfileid: "56114062"
 > 이 기능을 사용하려면 작업 영역이 Log Analytics 버전 2를 실행해야 하며, Security Center 표준 계층이 적용되어 있어야 합니다. 표준 계층에 대한 자세한 내용은 Security Center [가격 책정 페이지](security-center-pricing.md)를 참조하세요.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>보안 이벤트란?
 Security Center에서는 Microsoft Monitoring Agent를 사용하여 컴퓨터에서 다양한 보안 관련 구성과 이벤트를 수집한 다음 작업 영역에 저장합니다. 이러한 데이터의 예로는 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, Security Center와 통합된 보안 솔루션의 이벤트 등이 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -55,30 +57,30 @@ Security Center 주 메뉴 또는 Security Center **개요** 블레이드에서 
 1. **Security Center** 주 메뉴에서 **이벤트**를 선택합니다.
 2. **이벤트 대시보드** 작업 영역 선택기가 열릴 수 있습니다. 작업 영역이 하나뿐이면 이 작업 영역 선택기는 표시되지 않습니다. 작업 영역이 여러 개이면 처리된 이벤트 세부 정보를 확인할 작업 영역을 선택해야 합니다. 작업 영역이 여러 개인 경우 목록에서 작업 영역을 선택합니다.
 
-  ![작업 영역 목록][3]
+   ![작업 영역 목록][3]
 
 3. **이벤트 대시보드**가 열리고 선택한 작업 영역에 대한 이벤트 세부 정보가 표시됩니다. 주목할 만한 이벤트 및 유형별 모든 이벤트를 확인할 수 있습니다.  이 예제에서는 **주목할 만한 이벤트**를 선택했습니다.
 
-  ![주목할 만한 이벤트][4]
+   ![주목할 만한 이벤트][4]
 
 4. 이벤트 유형을 선택하여 작업 영역 아래에서 더 많은 데이터를 쿼리할 수 있습니다. 이 예제에서는 **SecurityEvent**를 선택했습니다.
 
-  ![이벤트 유형 선택][5]
+   ![이벤트 유형 선택][5]
 
 5. 해당 이벤트 유형에 대한 추가 세부 정보가 포함된 **로그 검색**이 열립니다.
 
-  ![로그 검색][6]
+   ![로그 검색][6]
 
 ## <a name="add-a-notable-event"></a>주목할 만한 이벤트 추가
-Security Center에서는 몇 가지 주목할 만한 이벤트가 기본적으로 제공됩니다. [Log Analytics 쿼리 언어](../log-analytics/log-analytics-search-reference.md)를 사용하여 직접 작성한 쿼리를 기준으로 주목할 만한 이벤트를 추가할 수 있습니다. 여기서는 **이벤트 대시보드**로 돌아가 주목할 만한 이벤트를 추가하겠습니다.
+Security Center에서는 몇 가지 주목할 만한 이벤트가 기본적으로 제공됩니다. 사용 하 여 사용자 고유의 쿼리를 기반으로 하는 주목할 만한 이벤트를 추가할 수 있습니다 합니다 [Kusto 쿼리 언어](../log-analytics/log-analytics-search-reference.md)합니다. 여기서는 **이벤트 대시보드**로 돌아가 주목할 만한 이벤트를 추가하겠습니다.
 
 1. **주목할 만한 이벤트 추가**를 선택합니다.
 
-  ![주목할 만한 이벤트 추가][7]
+   ![주목할 만한 이벤트 추가][7]
 
 2. **사용자 지정 주목할 만한 이벤트 추가**가 열립니다.  **표시 이름** 아래에 주목할 만한 이벤트의 이름을 입력합니다. **검색 쿼리** 아래에 이벤트에 대한 쿼리를 입력합니다.
 
-  ![쿼리 입력][8]
+   ![쿼리 입력][8]
 
 4. **확인**을 선택합니다.
 
@@ -94,7 +96,7 @@ Security Center에서 이벤트 처리 기능을 사용하려면 작업 영역�
 - 비어 있음 - 작업 영역이 요구 사항을 충족하며, 작업 영역을 선택하면 대시보드로 이동합니다.
 
 > [!NOTE]
-> **이벤트 대시보드** 아래의 **이벤트** 열에는 각 작업 영역의 이벤트 수가 표시됩니다.  Security Center의 무료 계층이 적용되는 작업 영역의 경우에는 이 열이 비어 있습니다. 무료 계층에서도 Security Center가 이벤트를 수집하기는 하지만, 이벤트가 Log Analytics에 저장되지는 않으며 대시보드에서도 사용할 수 없습니다.
+> **이벤트 대시보드** 아래의 **이벤트** 열에는 각 작업 영역의 이벤트 수가 표시됩니다.  Security Center의 무료 계층이 적용되는 작업 영역의 경우에는 이 열이 비어 있습니다. 무료 계층에서 Security Center가 이벤트를 수집 하지만 이벤트를 Azure Monitor 로그에 저장 되지 않으며 대시보드에서 사용할 수 없는 합니다.
 >
 >
 
@@ -102,26 +104,26 @@ Security Center에서 이벤트 처리 기능을 사용하려면 작업 영역�
 1. **업데이트 필요**가 표시된 작업 영역을 선택합니다.
 2. **업그레이드 검색**이 열립니다. **지금 업그레이드**를 선택합니다.
 
-  ![지금 업그레이드][10]
+   ![지금 업그레이드][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Security Center의 표준 계층으로 업그레이드
 1. **업그레이드 계획**이 표시된 작업 영역을 선택합니다.
 2. **이벤트 대시보드**가 열립니다. **이벤트 대시보드 체험**을 선택합니다.
 
-  ![대시보드 사용해 보기][11]
+   ![대시보드 사용해 보기][11]
 
 3. **고급 보안으로 온보딩** 아래에서 업그레이드할 작업 영역을 선택합니다.
 4. **가격 책정** 아래에서 **표준**을 선택합니다.
 5. **저장**을 선택합니다.
 
-  ![표준 계층으로 업그레이드][12]
+   ![표준 계층으로 업그레이드][12]
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 이벤트 대시보드를 사용하는 방법에 대해 알아보았습니다. 대시보드의 작동 방식에 대해 자세히 알아보고 이벤트 쿼리를 직접 작성하려면 다음 항목을 참조하세요.
 
-- [Log Analytics란?](../log-analytics/log-analytics-overview.md) - Log Analytics의 개요를 제공합니다.
-- [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) - Log Analytics에서 로그 검색이 사용되는 방식에 대해 설명하고, 로그 검색을 만들기 전에 이해해야 하는 개념을 제시합니다.
-- [Log Analytics 검색 참조](../log-analytics/log-analytics-search-reference.md) – Log Analytics에서 쿼리 언어를 사용하여 이벤트 쿼리를 직접 작성하는 방법을 설명합니다.
+- [Azure Monitor 로그 란?](../log-analytics/log-analytics-overview.md) – Azure Monitor 로그에 대 한 개요
+- [Kusto의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) -Azure Monitor 로그에서 로그 검색 사용 하는 방법에 대해 설명 하 고 로그 검색을 만들기 전에 이해 해야 하는 개념을 제공
+- [Kusto 검색 참조](../log-analytics/log-analytics-search-reference.md) – 로그의 쿼리 언어를 사용 하 여 사용자 고유의 이벤트 쿼리를 작성 하는 방법 알아보기
 
 Security Center에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 

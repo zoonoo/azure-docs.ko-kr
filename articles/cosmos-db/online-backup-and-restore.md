@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041818"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991821"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 
@@ -20,11 +20,18 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 ## <a name="automatic-and-online-backups"></a>자동 온라인 백업
 
-Azure Cosmos DB를 사용하면 데이터뿐만 아니라 데이터의 백업도 지역 재해에 대해 중복성 및 복원력이 뛰어납니다. 이러한 자동화된 백업은 현재 4시간마다 수행되고 항상 최근 2개의 백업이 저장됩니다. 실수로 데이터가 삭제되거나 손상된 경우 Azure Cosmos DB 팀이 백업에서 데이터를 복구하는 데 도움을 드릴 수 있도록 8시간 이내에 [Azure 지원](https://azure.microsoft.com/support/options/)에 연락해야 합니다.
+Azure Cosmos DB를 사용하면 데이터뿐만 아니라 데이터의 백업도 지역 재해에 대해 중복성 및 복원력이 뛰어납니다. 다음 단계는 Azure Cosmos DB 데이터 백업을 수행 하는 방법을 보여줍니다.
 
-백업은 애플리케이션의 성능이나 가용성에 영향을 주지 않고 수행됩니다. Azure Cosmos DB는 프로비전된 추가 처리량(RU)을 사용하지 않으며 데이터베이스의 성능 및 가용성에 영향을 주지 않고 백그라운드에서 데이터 백업을 수행합니다.
+* Azure Cosmos DB는 자동으로 데이터베이스의 백업을 4 시간 마다 하 고 언제 든 지 시간의 최근 2 개의 백업이 저장 됩니다. 단, 컨테이너 또는 데이터베이스가 삭제된 경우 Azure Cosmos DB는 지정된 컨테이너 또는 데이터베이스의 기존 스냅숏을 30일 동안 유지합니다.
 
-Azure Cosmos DB에서 실제 데이터는 Azure Cosmos DB 내에 로컬로 상주하는 반면, 자동 백업은 Azure Blob Storage에 저장됩니다. 낮은 대기 시간을 보장하기 위해 백업 스냅숏이 Cosmos DB 데이터베이스 계정의 현재 쓰기 지역(또는 다중 마스터 구성이 있는 경우 쓰기 지역 중 한 곳)과 동일한 지역에 있는 Azure Blob Storage에 저장됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅숏은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB는 백업 복원이 시작된 경우에만 이 백업을 사용하게 됩니다.
+* Azure Cosmos DB는 실제 데이터를 Azure Cosmos DB 내에 로컬로 상주 하는 반면 이러한 백업은 Azure Blob 저장소에 저장 합니다.
+
+*  짧은 대기 시간을 보장 하기 위해 백업의 스냅숏이 현재 쓰기 지역과 동일한 지역의 Azure Blob storage에 저장 됩니다 (쓰기 지역 중 하나 또는 다중 마스터 구성이 있는 경우) 데이터베이스 계정에 Azure Cosmos입니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅숏은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB는 백업 복원이 시작된 경우에만 이 백업을 사용하게 됩니다.
+
+* 백업은 애플리케이션의 성능이나 가용성에 영향을 주지 않고 수행됩니다. Azure Cosmos DB는 프로비전된 추가 처리량(RU)을 사용하지 않으며 데이터베이스의 성능 및 가용성에 영향을 주지 않고 백그라운드에서 데이터 백업을 수행합니다.
+
+* 실수로 삭제 되거나 데이터 손상 있어야 하는 경우 문의 [Azure 지원](https://azure.microsoft.com/support/options/) 8 시간 이내 Azure Cosmos DB 팀 도움을 줄 수 있도록 하는 데이터 백업에서 복원 합니다.
+
 다음 이미지는 미국 서부의 기본 실제 파티션 3개를 모두 포함하는 Azure Cosmos 컨테이너가 미국 서부의 원격 Azure Blob Storage 계정에 백업된 다음, 미국 동부에 복제되는 과정을 보여줍니다.
 
 ![GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업](./media/online-backup-and-restore/automatic-backup.png)

@@ -1,6 +1,6 @@
 ---
 title: Azure(큰 인스턴스)에서 SAP HANA 설치 | Microsoft Docs
-description: Azure의 SAP HANA(대규모 인스턴스)를 설치하는 방법입니다.
+description: SAP HANA on Azure (큰 인스턴스)에서 SAP HANA를 설치 하는 방법입니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999829"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "56446395"
 SAP HANA 설치는 사용자의 책임입니다. Azure 가상 네트워크와 HANA 대규모 인스턴스 단위 간의 연결을 설정한 후 Azure의 SAP HANA(대규모 인스턴스) 설치를 새로 시작할 수 있습니다. 
 
 > [!Note]
-> SAP 정책에 따라, SAP HANA 설치 인증 시험인 Certified SAP Technology Associate 시험을 통과했거나 SAP 인증 SI(시스템 통합업체)인 사람이 SAP HANA 설치를 수행해야 합니다.
+> SAP 정책에 따라 SAP HANA 설치는 SAP 인증 SI (시스템 통합자)는 또는 Certified SAP Technology Associate 시험, SAP HANA 설치 인증 시험 인 경과 하는 사용자가 수행 되어야 합니다.
 
 HANA 2.0을 설치하려는 경우 [SAP 지원 참고 사항 #2235581 - SAP HANA: 지원되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)에서 OS가 설치할 SAP HANA 릴리스에서 지원되는지 확인하세요. HANA 2.0에서 지원되는 OS는 HANA 1.0에서 지원되는 OS보다 더 제한적입니다. 
 
@@ -50,7 +50,7 @@ HANA 대규모 인스턴스를 받고 인스턴스에 대한 액세스 및 연�
 
 HANA 대규모 인스턴스 단위는 SMT 인스턴스에 연결할 수 있습니다. 자세한 내용은 [SUSE Linux용 SMT 서버를 설정하는 방법](hana-setup-smt.md)을 참조하세요. 또는 연결해야 하는 Red Hat Subscription Manager에 Red Hat OS를 등록해야 합니다. 자세한 내용은 [Azure의 SAP HANA(대규모 인스턴스)란?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명을 참조하세요. 
 
-이 단계는 OS 패치를 적용하는 데도 필요하며, 고객의 책임입니다. SUSE의 경우, [SMT 설치](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)와 관련된 이 페이지에서 SMT 설치 및 구성에 대한 문서를 확인하세요.
+이 단계는 고객의 책임은 OS의 패치 적용을 위해 필요 합니다. SUSE의 경우, [SMT 설치](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)와 관련된 이 페이지에서 SMT 설치 및 구성에 대한 문서를 확인하세요.
 
 **두 번째 단계**는 특정 OS 릴리스/버전의 새 패치 및 수정을 확인하는 것입니다. HANA 대규모 인스턴스의 패치 수준이 최신 상태인지 확인합니다. 최신 패치가 포함되지 않은 경우가 있을 수 있습니다. HANA 대규모 인스턴스 단위를 받은 후 패치를 적용해야 하는지 여부를 확인해야 합니다.
 
@@ -80,6 +80,7 @@ RHEL 6.3부터 모든 RHEL 릴리스에서는 다음 사항에 유의하세요.
 
 **다섯 번째 단계**는 etc/hosts를 확인하는 것입니다. 인계 시 블레이드에는 각기 다른 용도로 할당된 여러 IP 주소가 있습니다. etc/hosts 파일을 확인합니다. 기존 테넌트에 단위를 추가한 경우 새로 배포된 시스템의 etc/hosts가 이전에 제공된 시스템의 IP 주소로 올바르게 유지되지 않을 수 있습니다. 새로 배포된 인스턴스가 이전에 테넌트에 배포한 단위와 상호 작용하고 이름을 확인할 수 있도록 하는 것은 고객의 책임입니다. 
 
+
 ## <a name="operating-system"></a>운영 체제
 
 > [!IMPORTANT] 
@@ -95,17 +96,17 @@ SLES의 SAP HANA 배포와 관련된 몇 가지 유용한 리소스(고가용성
 
 - [SUSE Linux의 SAP HANA 사이트](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [SAP 관련 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP - SAP용 SLES 바이러스 방지](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)(영문)
+- [ClamSAP - SAP용 SLES 바이러스 방지](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)(영문)
 
 다음은 SLES 12의 SAP HANA 구현에 적용할 수 있는 SAP Support Note입니다.
 
-- [SAP Support Note #1944799 – SLES 운영 체제 설치에 대한 SAP HANA 지침](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)(영문)
+- [SAP Support Note #1944799 – SLES 운영 체제 설치에 대한 SAP HANA 지침](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)(영문)
 - [SAP Support Note #2205917 – SAP HANA DB: SLES 12 for SAP Applications에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)(영문)
 - [SAP Support Note #1984787 – SUSE Linux Enterprise Server 12: 설치 노트](https://launchpad.support.sap.com/#/notes/1984787)(영문)
 - [SAP 지원 참고 사항 #171356 – Linux의 SAP 소프트웨어:  일반 정보](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
-[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 네이티브 Azure VM에 비해 HANA 대규모 인스턴스는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 릴리스를 사용하는 것이 좋습니다.
+[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. Note, RHEL 7.2 및 최신 릴리스만 지원 되는 네이티브 Azure Vm와는 달리 HANA 큰 인스턴스는 RHEL 6.7을도 지원지 않습니다. 그러나 RHEL 7.x 릴리스를 사용하는 것이 좋습니다.
 
 다음은 Red Hat의 SAP와 관련된 유용한 추가 링크입니다.
 - [Red Hat Linux 사이트의 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)
@@ -142,7 +143,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 ## <a name="storage"></a>Storage
 
-Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SAP 권장 지침에 따라 Azure의 SAP HANA 서비스 관리를 통해 구성됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
+Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SAP 권장 지침에 따라 Azure의 SAP HANA 서비스 관리를 통해 구성됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
 각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 문서화되어 있습니다.
 
@@ -200,6 +201,17 @@ S72m HANA 대규모 인스턴스 단위에 대한 df -h 명령의 출력은 다�
 SAP HANA 1.0 버전 SPS12까지는 [SAP Note #2267798 - SAP HANA 데이터베이스의 구성](https://launchpad.support.sap.com/#/notes/2267798)에 설명된 대로 SAP HANA 데이터베이스 설치 중에 이러한 매개 변수를 설정할 수 있습니다.
 
 hdbparam 프레임워크를 사용하여 SAP HANA 데이터베이스 설치 후 매개 변수를 구성할 수도 있습니다. 
+
+HANA 큰 인스턴스에서 사용 되는 저장소에 파일 크기 제한이 있습니다. 합니다 [크기 제한은 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) 파일당 합니다. 달리 EXT3 파일 시스템에서 파일 크기 제한에 HANA 아닙니다 HANA 큰 인스턴스 저장소에서 적용 하는 저장소 제한을 암시적으로 인식 합니다. 결과적으로 HANA 자동으로 만들지 않습니다 새 데이터 파일을 파일 크기는 16TB에 도달 하는 경우. HANA를 16TB 벗어난 파일 증가 하려고 하는 대로 HANA 오류 및 인덱스 서버 끝에서 충돌을 보고 합니다.
+
+> [!IMPORTANT]
+> HANA 큰 인스턴스 저장소의 16TB 파일 크기 제한 초과 데이터 파일 증가 하는 동안 HANA를 방지 하기 위해 SAP HANA global.ini 구성 파일에 다음 매개 변수를 설정 해야
+> 
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - SAP 참고 참고 [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP note에 주의 [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+
 
 SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP 참고 사항 #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
 

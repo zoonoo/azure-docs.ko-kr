@@ -6,6 +6,7 @@ documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
 editor: ''
+ms.service: marketplace
 ms.assetid: ''
 ms.workload: ''
 ms.tgt_pltfrm: ''
@@ -13,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2ff5b9e5bbae15b37726ea066474120d9417feba
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826025"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790919"
 ---
 # <a name="add-bank-and-tax-information"></a>은행 및 세금 정보 추가  
 은행 및 세금 정보는 거래 목록 유형을 사용하는 모든 상용 제품에 필요합니다.  
@@ -42,7 +43,7 @@ ms.locfileid: "34826025"
 
 4.  다음 단추를 클릭합니다. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>세금 정보 추가  
 1.  Microsoft ID를 사용하여 Dev Center에 로그인합니다.  
@@ -59,4 +60,4 @@ ms.locfileid: "34826025"
 ## <a name="next-steps"></a>다음 단계
 *   [Azure Marketplace 및 AppSource 게시자 가이드](./marketplace-publishers-guide.md) 페이지를 방문합니다.  
  
----  
+---

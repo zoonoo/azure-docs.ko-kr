@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 4392dc0ab53304c172bbf4c29a50a64757ec9b77
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996481"
 ---
 # <a name="provider-resource-usage-api"></a>공급자 리소스 사용 API
 
@@ -39,6 +39,7 @@ ms.locfileid: "57760446"
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-버전 = 2015-06-01-미리 보기 & continuationToken = {토큰-value} |
 
 ### <a name="arguments"></a>인수
+
 | **인수** | **설명** |
 | --- | --- |
 | *armendpoint* |Azure Stack 환경과의 azure Resource Manager 끝점입니다. Azure Stack 규칙은 Azure Resource Manager 끝점의 이름 형식으로 `https://adminmanagement.{domain-name}`입니다. 예를 들어 개발 키트용, 도메인 이름이 *local.azurestack.external*, Resource Manager 끝점은 `https://adminmanagement.local.azurestack.external`합니다. |
@@ -80,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>응답 세부 정보
+
 | **인수** | **설명** |
 | --- | --- |
 | *id* |사용 현황 집계의 고유 ID입니다. |
@@ -102,9 +104,10 @@ meterID1",
 1. [Azure Stack 용 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
 2. [Azure Stack 사용자 구성](user/azure-stack-powershell-configure-user.md) 또는 [Azure Stack 운영자](azure-stack-powershell-configure-admin.md) PowerShell 환경 
 3. 사용 현황 데이터를 검색 하려면 사용 합니다 [Get UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>REST API
 
 Microsoft.Commerce.Admin 서비스를 호출 하 여 삭제 된 구독에 대 한 사용 정보를 수집할 수 있습니다. 

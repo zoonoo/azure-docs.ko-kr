@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077210"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -33,7 +33,7 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | **logonIdentifier_email** | 메일 주소 |
 | **requiredField_email** | 이메일을 입력하세요. |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | 사용자 이름으로 로그인 |
 | **logonIdentifier_username** | 사용자 이름 |
 | **requiredField_username** | 사용자 이름을 입력하세요. |
@@ -120,7 +120,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **ver_incorrect_format** | 잘못된 형식 |
 | **ver_but_edit** | 이메일 변경 |
 | **ver_but_verify** | 코드 확인 |
-| **alert_no** | 아니요 |
+| **alert_no** | 아닙니다. |
 | **ver_info_msg** | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 | **day** | 일 |
 | **ver_fail_throttled** | 이 이메일 주소를 확인해 달라는 요청이 너무 많습니다. 잠시 기다렸다가 다시 시도하세요. |

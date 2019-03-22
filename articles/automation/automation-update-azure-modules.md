@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009771"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
@@ -41,7 +41,7 @@ Automation 계정의 Azure 모듈을 업데이트하려면 현재 오픈 소스�
 
 * 원래 이름이 `Update-AutomationAzureModulesForAccount`인 이 Runbook을 가져오면 이 이름을 가진 내부 Runbook을 재정의합니다. 따라서 **Azure 모듈 업데이트** 단추를 누르거나 Azure Resource Manager API를 통해 직접 이 Runbook을 이 Automation 계정에 대해 호출할 경우 가져온 Runbook이 실행됩니다.
 
-* `Azure` 및 `AzureRM.*` 모듈만 현재 지원됩니다. 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)은 아직 지원되지 않습니다.
+* 이 runbook만 업데이트를 지원 합니다 **Azure** 하 고 **AzureRm** 현재 모듈입니다. [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az) Automation 계정에서 지원 되지만이 runbook을 사용 하 여 업데이트할 수 없습니다.
 
 * Az 모듈이 포함된 Automation 계정에서 이 Runbook을 시작하지 마세요.
 
@@ -58,32 +58,36 @@ Automation 계정의 Azure 모듈을 업데이트하려면 현재 오픈 소스�
 
 1. Automation 계정의 모듈 계정 페이지에는 **Azure 모듈 업데이트**라는 옵션이 있습니다. 이 옵션은 항상 사용됩니다.<br><br> ![모듈 페이지의 Azure 모듈 업데이트 옵션](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > Azure 모듈을 업데이트하기 전에 테스트 Automation 계정에서 업데이트하여 Azure 모듈을 업데이트하기 전에 기존 스크립트가 예상대로 작동하는지 확인하는 것이 좋습니다.
-  >
-  > **Azure 모듈 업데이트** 단추는 공용 클라우드에서만 사용할 수 있으며, [소버린 지역](https://azure.microsoft.com/global-infrastructure/)에서는 사용할 수 없습니다. Azure 모듈을 업데이트하려면 **Update-AutomationAzureModulesForAccount** Runbook을 사용하세요. [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드할 수 있습니다. 오픈 소스 Runbook을 사용하는 방법에 대한 자세한 내용은 [오픈 소스 Runbook을 사용하여 Azure 모듈 업데이트](#open-source)를 참조하세요.
+   > [!NOTE]
+   > Azure 모듈을 업데이트하기 전에 테스트 Automation 계정에서 업데이트하여 Azure 모듈을 업데이트하기 전에 기존 스크립트가 예상대로 작동하는지 확인하는 것이 좋습니다.
+   >
+   > **Azure 모듈 업데이트** 단추는 공용 클라우드에서만 사용할 수 있으며, [소버린 지역](https://azure.microsoft.com/global-infrastructure/)에서는 사용할 수 없습니다. Azure 모듈을 업데이트하려면 **Update-AutomationAzureModulesForAccount** Runbook을 사용하세요. [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드할 수 있습니다. 오픈 소스 Runbook을 사용하는 방법에 대한 자세한 내용은 [오픈 소스 Runbook을 사용하여 Azure 모듈 업데이트](#open-source)를 참조하세요.
 
 2. **Azure 모듈 업데이트**를 클릭하면 계속 진행할 것인지 묻는 확인 알림이 나타납니다.<br><br> ![Azure 모듈 업데이트 알림](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. **예**를 클릭하면 모듈 업데이트 프로세스가 시작됩니다. 업데이트 프로세스에서 다음 모듈을 업데이트하는 데 15-20분 정도 걸립니다.
 
-  * Azure
-  * Azure.Storage
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    모듈이 이미 최신 상태이면 프로세스가 몇 초 이내에 완료됩니다. 업데이트 프로세스가 완료되면 알림이 표시됩니다.<br><br> ![Azure 모듈 업데이트 상태 업데이트](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     모듈이 이미 최신 상태이면 프로세스가 몇 초 이내에 완료됩니다. 업데이트 프로세스가 완료되면 알림이 표시됩니다.<br><br> ![Azure 모듈 업데이트 상태 업데이트](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    .NET Core AzureRm 모듈(AzureRm.*.Core)은 Azure Automation에서 지원되지 않으므로 가져올 수 없습니다.
+     .NET Core AzureRm 모듈(AzureRm.*.Core)은 Azure Automation에서 지원되지 않으므로 가져올 수 없습니다.
 
 > [!NOTE]
 > Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다.  
 
 Runbook에서 이러한 Azure PowerShell 모듈의 cmdlet을 사용하는 경우 최신 모듈을 사용하도록 매달 이 업데이트 프로세스를 수행하는 것이 좋습니다. Azure Automation은 `AzureRunAsConnection` 연결을 사용하여 모듈을 업데이트할 때 인증합니다. 서비스 주체가 만료되거나 구독 수준에서 더 이상 존재하지 않는 경우 모듈 업데이트에 실패합니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+0부터 시작 하는 숫자 이름의 리소스 그룹에 있는 Automation 계정에는 AzureRM 모듈을 업데이트 하는 알려진된 문제가 있습니다. Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 리소스 그룹에 이어야 합니다. 0부터 시작 하는 숫자 이름의 리소스 그룹에 AzureRM 모듈을 업데이트할 수 없는 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

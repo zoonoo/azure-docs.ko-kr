@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461171"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549190"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live) 
 
@@ -30,7 +30,7 @@ TTL(Time to Live) 값은 초 단위로 설정되며 항목이 마지막으로 �
 
    - 표시되고 값이 숫자(“n”)로 설정된 경우 항목은 마지막으로 수정된 시간으로부터 “n”초 후에 만료됩니다.
 
-2. **항목에서 TTL(Time to Live)**(`TimeToLive` 사용하여 설정):
+2. **항목에서 TTL(Time to Live)**(`ttl` 사용하여 설정):
 
    - 이 속성은 `DefaultTimeToLive`가 표시되고 부모 컨테이너에 대해 null로 설정되지 않은 경우에만 적용할 수 있습니다.
 
@@ -48,6 +48,6 @@ TTL을 기준으로 항목을 삭제하는 것은 무료입니다. TTL 만료의
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서 TTL(Time to Live)을 구성하는 방법에 대해 알아봅니다.
+다음 문서에서 Time to Live 구성 하는 방법에 알아봅니다.
 
 * [TTL(Time to Live) 구성 방법](how-to-time-to-live.md)

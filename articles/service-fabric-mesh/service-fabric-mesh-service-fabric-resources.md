@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903677"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
 
@@ -84,7 +84,7 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 ## <a name="packaging-and-deployment"></a>패키징 및 배포
 
-리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Mesh 애플리케이션을 Azure Service Fabric Mesh로 배포한 경우 애플리케이션을 설명하는 데 사용된 JSON은 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  Mesh 애플리케이션을 Service Fabric 클러스터(독립 실행형 또는 Azure 호스팅)에 배포할 때 애플리케이션을 설명하는 데 사용된 JSON은 Azure Resource Manager 템플릿과 유사한 형식입니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
+리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시 망상 조직 응용 프로그램을 배포 하는 경우 응용 프로그램에 설명 하는 데 JSON은는 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  망상 조직 응용 프로그램을 Service Fabric 클러스터를 배포 하는 경우 (독립 실행형 또는 Azure 호스팅), 응용 프로그램에 설명 하는 데 JSON은 Azure Resource Manager 템플릿과 유사 합니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계 

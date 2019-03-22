@@ -5,23 +5,23 @@ description: 온-프레미스 SQL Server 데이터베이스의 데이터를 사�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888351"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스를 사용하여 Azure Machine Learning Studio로 분석 수행
 
-온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
+온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. Azure Machine Learning Studio는 이제 온-프레미스 SQL Server 데이터베이스에서 데이터를 읽 및 학습 한 다음이 데이터를 사용 하 여 모델 점수 매기기를 지원 합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
 
-이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning Studio로 수신하는 방법을 대략적으로 설명합니다. 여기서는 사용자가 작업 영역, 모듈, 데이터 세트, 실험 *등*의 Azure Machine Learning 개념에 익숙하다고 가정하겠습니다.
+이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning Studio로 수신하는 방법을 대략적으로 설명합니다. 작업 영역, 모듈, 데이터 집합, 실험, Studio 개념을 잘 알고 있다고 가정 *등*합니다.
 
 > [!NOTE]
 > 이 기능을 무료 작업 영역에서는 사용할 수 없습니다. Machine Learning 가격 책정 및 계층에 대한 자세한 내용은 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "55511159"
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory 자체 호스팅 통합 런타임 설치
-Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 액세스하려면 Data Factory 자체 호스팅 통합 런타임(이전의 데이터 관리 게이트웨이)을 다운로드하고 설치해야 합니다. Machine Learning Studio에서 연결을 구성할 때 아래에 설명된 **데이터 게이트웨이 다운로드 및 등록** 대화 상자를 사용하여 IR(Integration Runtime)을 다운로드하고 설치할 수 있습니다.
+Azure Machine Learning Studio에는 온-프레미스 SQL Server 데이터베이스에 액세스 하려면 다운로드 하는 Data Factory 자체 호스팅 Integration Runtime을 이전의 데이터 관리 게이트웨이 설치 해야 합니다. Machine Learning Studio에서 연결을 구성할 때 아래에 설명된 **데이터 게이트웨이 다운로드 및 등록** 대화 상자를 사용하여 IR(Integration Runtime)을 다운로드하고 설치할 수 있습니다.
 
 
 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하고 실행하여 IR을 미리 설치할 수도 있습니다. MSI를 사용하여 모든 설정을 유지하면서 기존 IR을 최신 버전으로 업그레이드할 수도 있습니다.
@@ -51,21 +51,21 @@ Data Factory 자체 호스팅 통합 런타임을 설정하고 사용하는 경�
 * 단일 컴퓨터에 IR 인스턴스를 한 개만 설치할 수 있습니다.
 * 여러 온-프레미스 데이터 원본에 대해 단일 IR을 사용할 수 있습니다.
 * 서로 다른 컴퓨터의 여러 IR을 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다.
-* 한 번에 하나의 작업 영역에 대해서만 IR을 구성합니다. 현재, 작업 영역 간에 IR을 공유할 수는 없습니다.
-* 단일 작업 영역에 대해 여러 IR을 구성할 수 있습니다. 예를 들어, 개발 중에는 테스트 데이터 원본에 연결된 IR을 사용하고, 운영할 준비가 되면 프로덕션 IR을 사용할 수 있습니다.
+* 한 번에 하나의 작업 영역에 대 한를 IRs를 구성합니다. 현재, 작업 영역 간에 IR을 공유할 수는 없습니다.
+* 단일 작업 영역에 대해 여러 IR을 구성할 수 있습니다. 예를 들어, 다음 운영할 준비가 되었습니다. 개발 및 IR 프로덕션 중에 테스트 데이터 원본에 연결 되어 있는 IR 프로그램을 사용 하는 것이 좋습니다.
 * IR이 데이터 원본과 동일한 머신에 있을 필요는 없습니다. 그러나 게이트웨이를 데이터 원본 가까이에 배치하면 게이트웨이가 데이터 원본에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 게이트웨이와 데이터 원본이 리소스를 경합하지 않도록 온-프레미스 데이터 원본을 호스트하는 머신이 아닌 다른 머신에 IR을 설치하는 것이 좋습니다.
-* 컴퓨터에 Power BI 또는 Azure Data Factory 시나리오를 처리할 IR이 이미 설치되어 있는 경우, 다른 컴퓨터에 Azure Machine Learning을 위한 별도의 IR을 설치합니다.
+* Power BI 또는 Azure Data Factory 시나리오를 처리 하는 컴퓨터에 설치 하는 IR에 이미 있는 경우 다른 컴퓨터에 Azure Machine Learning Studio에 대 한 별도 IR을 설치 합니다.
 
   > [!NOTE]
   > 동일한 컴퓨터에서 Data Factory 자체 호스팅 통합 런타임과 Power BI Gateway를 실행할 수는 없습니다.
   >
   >
-* 다른 데이터에 Azure ExpressRoute를 사용하는 경우에도 Azure Machine Learning에는 Data Factory 자체 호스팅 통합 런타임을 사용해야 합니다. ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. Data Factory 자체 호스팅 통합 런타임을 사용하여 Machine Learning과 데이터 원본 간의 연결을 설정합니다.
+* 다른 데이터에 대 한 Azure ExpressRoute를 사용 하는 경우에 Azure Machine Learning Studio에 대 한 Data Factory 자체 호스팅 Integration Runtime을 사용 해야 합니다. ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. Data Factory 자체 호스팅 통합 런타임을 사용하여 Machine Learning과 데이터 원본 간의 연결을 설정합니다.
 
 [Data Factory의 통합 런타임](../../data-factory/concepts-integration-runtime.md) 문서에서 설치 필수 조건, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>온-프레미스 SQL Server 데이터베이스의 데이터를 Azure 기계 학습으로 수신
-이 연습에서는 Azure Machine Learning 작업 영역에서 Azure Data Factory Integration Runtime을 설정하고, 구성한 다음, 온-프레미스 SQL Server 데이터베이스에서 데이터를 읽습니다.
+이 연습에서는 Azure Machine Learning 작업 영역에서 Azure Data Factory Integration Runtime 설정, 구성, 하 고 온-프레미스 SQL Server 데이터베이스에서 데이터를 읽습니다.
 
 > [!TIP]
 > 시작하기 전에 `studio.azureml.net`에 대한 브라우저의 팝업 차단을 사용하지 않도록 설정합니다. Google Chrome 브라우저를 사용하는 경우 Google Chrome 웹 저장소 [Click Once App Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions)에서 사용할 수 있는 일부 플러그 인 중에서 하나를 다운로드하여 설치합니다.
@@ -115,17 +115,17 @@ Data Factory 자체 호스팅 통합 런타임을 설정하고 사용하는 경�
 
     ![자세한 로깅 정보 표시 사용](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Azure Machine Learning의 게이트웨이 설정 프로세스를 마쳤습니다.
+Azure Machine Learning Studio에서 게이트웨이 설정 프로세스를 완료 했습니다.
 이제 온-프레미스 데이터를 사용할 준비가 되었습니다.
 
-각 작업 영역에 대한 스튜디오에서 여러 게이트웨이를 만들고 설정할 수 있습니다. 예를 들어 개발 중에는 테스트 데이터 원본에 연결하기 위한 게이트웨이를 사용하고 프로덕션 데이터 원본에 연결할 때는 다른 게이트웨이를 사용할 수 있습니다. Azure Machine Learning 기능을 사용하면 회사 환경에 따라 여러 게이트웨이를 유연하게 설정할 수 있습니다. 현재는 작업 영역 간에 게이트웨이를 공유할 수 없으며 단일 컴퓨터에 게이트웨이 하나만 설치할 수 있습니다. 자세한 내용은 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)을 참조하세요.
+각 작업 영역에 대한 스튜디오에서 여러 게이트웨이를 만들고 설정할 수 있습니다. 예를 들어 개발 중에는 테스트 데이터 원본에 연결하기 위한 게이트웨이를 사용하고 프로덕션 데이터 원본에 연결할 때는 다른 게이트웨이를 사용할 수 있습니다. Azure Machine Learning Studio 회사 환경에 따라 여러 게이트웨이 설정 하는 데 유연성을 제공 합니다. 현재는 작업 영역 간에 게이트웨이를 공유할 수 없으며 단일 컴퓨터에 게이트웨이 하나만 설치할 수 있습니다. 자세한 내용은 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)을 참조하세요.
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2단계: 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 데이터 읽기
 게이트웨이를 설정한 후에 실험에 온-프레미스 SQL Server 데이터베이스의 데이터를 입력하는 **데이터 가져오기** 모듈을 추가할 수 있습니다.
 
 1. Machine Learning 스튜디오에서 **실험** 탭을 선택하고 왼쪽 아래 모서리에서 **+새로 만들기**를 클릭한 후 **빈 실험**을 선택합니다(또는 사용할 수 있는 몇 가지 샘플 실험 중 하나를 선택).
 2. **데이터 가져오기** 모듈을 찾아 실험 캔버스로 끌어 놓습니다.
-3. 캔버스 아래에서 **다른 이름으로 저장** 을 클릭합니다. 실험 이름으로 "Azure Machine Learning 온-프레미스 SQL Server 자습서"를 입력하고 작업 영역을 선택한 후 **확인** 표시를 클릭합니다.
+3. 캔버스 아래에서 **다른 이름으로 저장** 을 클릭합니다. "Azure Machine Learning Studio 온-프레미스 SQL Server 자습서"를 실험 이름 입력 하는 작업 영역을 선택 하 고 클릭 합니다 **확인** 확인란 합니다.
 
    ![실험을 새 이름으로 저장](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. **데이터 가져오기** 모듈을 클릭하여 선택하고 캔버스 오른쪽에 있는 **속성** 창의 **데이터 원본** 드롭다운 목록에서 "온-프레미스 SQL Database"를 선택합니다.
@@ -137,7 +137,7 @@ Azure Machine Learning의 게이트웨이 설정 프로세스를 마쳤습니다
 
    ![데이터베이스 자격 증명 입력](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   "값 필요" 메시지가 녹색 확인 표시가 있는 "값 설정"으로 변경됩니다. 데이터베이스 정보 또는 암호를 변경하지 않는 한, 자격 증명은 한 번만 입력하면 됩니다. Azure Machine Learning은 사용자가 게이트웨이 설치할 때 지정한 인증서를 사용하여 클라우드에서 자격 증명을 암호화합니다. Azure는 암호화되지 않은 온-프레미스 자격 증명을 절대 저장하지 않습니다.
+   "값 필요" 메시지가 녹색 확인 표시가 있는 "값 설정"으로 변경됩니다. 데이터베이스 정보 또는 암호를 변경하지 않는 한, 자격 증명은 한 번만 입력하면 됩니다. Azure Machine Learning Studio는 클라우드에서 자격 증명을 암호화 하려면 게이트웨이 설치할 때 제공한 인증서를 사용 합니다. Azure는 암호화되지 않은 온-프레미스 자격 증명을 절대 저장하지 않습니다.
 
    ![데이터 모듈 속성 가져오기](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. **실행** 을 클릭하여 실험을 실행합니다.

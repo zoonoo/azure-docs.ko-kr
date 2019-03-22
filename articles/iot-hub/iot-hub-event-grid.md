@@ -2,21 +2,22 @@
 title: Azure IoT Hub 및 Azure Event Grid | Microsoft Docs
 description: IoT Hub에서 발생하는 작업을 기반으로 프로세스를 트리거하려면 Azure Event Grid를 사용합니다.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249471"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673856"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
-Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 애플리케이션을 구성합니다. 예를 들어 새 IoT 디바이스가 IoT 허브에 등록될 때마다 데이터베이스를 업데이트하고, 티켓을 만들고, 이메일 알림을 전달하는 것과 같은 여러 작업을 수행하는 응용 프로그램을 빌드합니다. 
+Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 애플리케이션을 구성합니다. 예를 들어, 데이터베이스를 업데이트, 작업 티켓을 만들고, IoT hub에 새 IoT 장치가 등록 될 때마다 전자 메일 알림을 제공 하는 응용 프로그램을 빌드하십시오. 
 
 [Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요. 
 
@@ -118,7 +119,7 @@ IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 �
 }]
 ```
 
-각 속성에 대한 상세한 설명은 [IoT Hub에 대한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)를 참조하세요.
+각 속성에 대 한 자세한 설명을 참조 하세요 [IoT Hub에 대 한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)합니다.
 
 ## <a name="filter-events"></a>이벤트 필터링
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-디바이스 연결됨 및 디바이스 연결 끊김 이벤트를 받으려면 디바이스에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출하여 C2D 링크를 열 수 있습니다. 
+디바이스 연결됨 및 디바이스 연결 끊김 이벤트를 받으려면 디바이스에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP에 대 한 호출 하 여 C2D 링크를 열 수를 [비동기 API 수신](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)합니다. 
 
-원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 디바이스 연결이 불안정하면(예: 디바이스가 자주 연결되고 연결이 끊어짐) 단일 연결 상태를 모두 전송하지 않지만 1분마다 스냅샷이 생성된 연결 상태를 게시합니다. IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
+원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 장치 연결 깜박이 경우 즉, 장치 연결 및 자주 연결에서는 모든 단일 연결 상태를 보내지 않습니다 하지만 1 분 마다 스냅샷을 작성에는 연결 상태를 게시 합니다. IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
 
 IoT Hub 이벤트를 처리하는 애플리케이션은 다음 권장 사항을 따라야 합니다.
 
-* 동일한 이벤트 처리기에 이벤트를 라우팅하도록 여러 구독을 구성할 수 있습니다. 따라서 이벤트가 특정 소스에서 온 것으로 가정하지 않는 것이 중요합니다. 항상 메시지 항목을 확인하여 예상한 IoT 허브에서 온 개체인지 확인합니다. 
+* 특정 원본에서 이벤트는 가정 하지 마십시오 하므로 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독을 구성할 수 있습니다. 항상 메시지 항목을 확인하여 예상한 IoT 허브에서 온 개체인지 확인합니다. 
 
 * 받은 모든 이벤트가 예상대로의 형식일 것이라고 가정하지 마십시오. 메시지를 처리하기 전에 eventType을 항상 확인합니다.
 
@@ -148,6 +149,6 @@ IoT Hub 이벤트를 처리하는 애플리케이션은 다음 권장 사항을 
 ## <a name="next-steps"></a>다음 단계
 
 * [IoT Hub 이벤트 자습서를 시도해 봅니다.](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [장치 연결됨 및 장치 연결 끊김 이벤트를 정렬하는 방법 알아보기](iot-hub-how-to-order-connection-state-events.md)
+* [디바이스 연결 및 연결 해제 이벤트를 정렬하는 방법](iot-hub-how-to-order-connection-state-events.md)에 대해 알아봅니다.
 * [Event Hubs에 대한 자세한 정보](../event-grid/overview.md)
 * [IoT Hub 이벤트 라우팅 및 메시지 간의 차이점 비교](iot-hub-event-grid-routing-comparison.md)

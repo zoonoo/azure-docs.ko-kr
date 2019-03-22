@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838258"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -45,7 +45,7 @@ EA 고객을 제외한 모든 고객은 다음 사용자 역할 중 하나를 �
 
 ### <a name="opt-in"></a> 사용자가 청구서를 다운로드하도록 허용
 
-팀의 멤버에게 적절할 역할을 할당한 후, 계정 관리자가 Azure Portal에서 청구서를 다운로드할 수 있는 평가를 켜야 합니다. 2016년 12월보다 오래된 청구서는 계정 관리자만 사용할 수 있습니다.
+팀의 구성원에 게 적절 한 역할을 할당 하 고 나면 계정 관리자가 Azure portal에서 청구서 다운로드에 대 한 액세스 설정 해야 합니다. 2016년 12월보다 오래된 청구서는 계정 관리자만 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 계정 관리자는 Azure Portal의 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
@@ -106,4 +106,4 @@ EA 고객은 계정 소유자 또는 부서 관리자가 청구 읽기 권한자
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

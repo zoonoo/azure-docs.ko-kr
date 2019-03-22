@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993432"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 자동 진공 최적화 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 효과적으로 최적화하는 방법을 설명합니다.
@@ -43,6 +43,7 @@ XYZ라는 테이블에 있는 데드 및 라이브 튜플 수를 식별하도록
 - 시작한 후에 얼마나 정리해야 하나요?
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
+
 매개 변수|설명|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|자동 진공 작업에 사용되는 비용 제한 
 autovacuum_vacuum_cost_delay|자동 진공 작업에 사용되는 비용 지연 값을 지정합니다. -1을 지정하면 기본 vacuum_cost_delay 값이 사용됩니다. 기본값은 20밀리초입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|20밀리초
 autovacuum_nap_time|지정된 데이터베이스에서 자동 진공 실행 사이의 최소 지연 시간을 지정합니다. 각 라운드에서 디먼은 데이터베이스를 검사하고, 해당 데이터베이스의 테이블에 필요한 대로 VACUUM 및 ANALYZE 명령을 실행합니다. 지연 시간은 초 단위로 측정되며, 기본값은 1분(1min)입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다.|15초
 autovacuum_max_workers|한 번에 실행할 수 있는 자동 진공 프로세스(자동 진공 시작 관리자 제외)의 최대 개수를 지정합니다. 기본값은 3입니다. 이 매개 변수는 서버 시작 시에만 설정합니다.|3
+
 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다. 
 
 ## <a name="autovacuum-cost"></a>자동 진공 비용

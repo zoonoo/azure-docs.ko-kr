@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008910"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 감사 기록 보기
 Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 있는 모든 역할에 대한 지정된 기간의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 �
 ## <a name="navigate-to-audit-history"></a>감사 기록으로 이동
 [Azure Portal](https://portal.azure.com) 대시보드에서 **Azure AD Privileged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **권한 있는 역할 관리** > **감사 기록**을 클릭하여 감사 기록에 액세스합니다.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![감사 기록](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-[작업]별로 데이터를 정렬하고 "활성화 승인됨"을 찾습니다.
+> [!NOTE]
+> [작업]별로 데이터를 정렬하고 "활성화 승인됨"을 찾습니다.
 
 
 ## <a name="audit-history-graph"></a>감사 기록 그래프

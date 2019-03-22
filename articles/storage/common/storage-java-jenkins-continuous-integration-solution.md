@@ -5,15 +5,16 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992160"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
 
@@ -39,7 +40,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
   
     Jenkins CI 솔루션이 아직 없으면 다음 방법을 통해 Jenkins CI 솔루션을 실행할 수 있습니다.
   
-  1. Java를 사용할 수 있는 컴퓨터에서 <http://jenkins-ci.org>로부터 jenkins.war를 다운로드합니다.
+  1. Java를 사용할 수 있는 컴퓨터에서 <https://jenkins-ci.org>로부터 jenkins.war를 다운로드합니다.
   2. jenkins.war를 포함하는 폴더로 열려 있는 명령 프롬프트에서 다음을 실행합니다.
      
       `java -jar jenkins.war`
@@ -47,7 +48,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
   3. 브라우저에서 `http://localhost:8080/`을 열면 Azure Storage 플러그 인을 설치 및 구성하게 될 Jenkins 대시보드가 열립니다.
      
       일반적인 Jenkins CI 솔루션은 서비스로 실행하도록 설정되지만, 이 자습서에서는 Jenkins war를 명령줄에서 실행하는 것으로 충분합니다.
-* Azure 계정. <http://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
+* Azure 계정. <https://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
 * Azure 저장소 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-quickstart-create-account.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 * Jenkins CI 솔루션에 익숙하면 좋지만 반드시 그러해야 하는 것은 아닙니다. 아래에서는 Jenkins CI 빌드 아티팩트를 위한 리포지토리로 Blob service를 사용할 때 필요한 단계를 보여 주기 위해 기본적인 예를 사용합니다.
 
@@ -117,7 +118,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 1. 작업 구성의 **빌드** 섹션에서 **빌드 단계 추가**를 선택한 후 **Azure Blob Storage에서 다운로드**를 선택합니다.
 2. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 3. **Container name**에서 다운로드할 Blob이 있는 컨테이너의 이름을 지정합니다. 환경 변수를 사용할 수 있습니다.
-4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **project\*** 는 이름이 **project** 로 시작하는 모든 Blob을 지정합니다.
+4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **프로젝트\\*** 이름의 시작 하는 모든 blob를 지정 하는 **프로젝트**합니다.
 5. [옵션] **Download path**에서 Azure Blob Storage로부터 파일을 다운로드할 Jenkins 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. ( **Download path**에 값을 제공하지 않으면 Azure Blob Storage의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.)
 
 Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.

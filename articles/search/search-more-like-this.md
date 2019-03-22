@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 1b91fbbcc025456b48ac8fcfcb3f286ede893541
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314502"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569045"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>Azure Search의 moreLikeThis(미리 보기)
 
@@ -25,18 +25,18 @@ ms.locfileid: "53314502"
 
 다음은 moreLikeThis 쿼리의 예입니다. 이 쿼리는 해당 설명 필드가 `moreLikeThis` 매개 변수로 지정된 대로 소스 문서의 필드에 가장 유사한 문서를 찾습니다.
 
-```  
+```
 Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
-```  
+```
 
-```  
+```
 POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
-    {  
-      "moreLikeThis": "1002",  
-      "searchFields": "description"  
-    }  
-```  
+    {
+      "moreLikeThis": "1002",
+      "searchFields": "description"
+    }
+```
 
 ## <a name="feature-availability"></a>기능 가용성
 
-moreLikeThis 기능은 현재 미리 보기에 있으며 미리 보기 api-version `2015-02-28-Preview` 및 `2016-09-01-Preview`에서만 지원됩니다. 요청 시 API 버전이 지정되므로 동일한 앱에서 일반적으로 사용할 수 있는 (GA) 및 미리 보기 API를 결합할 수 있습니다. 그러나 미리 보기 API는 SLA가 적용되지 않으며 기능이 변경될 수 있으므로 프로덕션 응용 프로그램에서 사용하지 않는 것이 좋습니다.
+moreLikeThis 기능은 현재 미리 보기에 있으며 미리 보기 api-version `2015-02-28-Preview` 및 `2016-09-01-Preview`에서만 지원됩니다. 요청 시 API 버전이 지정되므로 동일한 앱에서 일반적으로 사용할 수 있는 (GA) 및 미리 보기 API를 결합할 수 있습니다. 그러나 미리 보기 API는 SLA가 적용되지 않으며 기능이 변경될 수 있으므로 프로덕션 애플리케이션에서 사용하지 않는 것이 좋습니다.

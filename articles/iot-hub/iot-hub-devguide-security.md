@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 보안 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 앱 및 백 엔드 앱용 IoT Hub에 대한 액세스를 제어하는 방법입니다. 보안 토큰 및 X.509 인증서에 대한 지원 관련 정보가 포함됩니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563935"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534370"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -57,7 +57,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
 > [!NOTE]
 > 자세한 내용은 [사용 권한](#iot-hub-permissions)을 참조하세요.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 증명에 대한 토큰을 확인하여 엔드포인트에 대한 액세스를 부여합니다.
 
@@ -74,7 +74,7 @@ Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 �
 
 MQTT를 사용하는 경우 CONNECT 패킷에는 사용자 이름 필드의 ClientId, `{iothubhostname}/{deviceId}`에 deviceId, 암호 필드에 SAS 토큰이 있습니다. `{iothubhostname}`은 IoT Hub의 전체 CName이어야 합니다(예: contoso.azure devices.net).
 
-[AMQP](https://www.amqp.org/) 사용 시 IoT Hub는 [SASL PLAIN](http://tools.ietf.org/html/rfc4616) 및 [AMQP 클레임-기반-보안](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)을 지원합니다.
+[AMQP](https://www.amqp.org/) 사용 시 IoT Hub는 [SASL PLAIN](https://tools.ietf.org/html/rfc4616) 및 [AMQP 클레임-기반-보안](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)을 지원합니다.
 
 AMQP 클레임-기반-보안을 사용하는 경우 표준은 해당 토큰을 전송하는 방법을 지정합니다.
 

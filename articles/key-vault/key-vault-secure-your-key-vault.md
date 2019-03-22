@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118516"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862865"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -28,7 +28,7 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 ## <a name="access-model-overview"></a>액세스 모델 개요
 
-Key Vault에 대한 액세스는 두 인터페이스, 즉 *관리 평면* 및 *데이터 평면*을 통해 제어됩니다. 관리 평면에서는 Key Vault 자체를 관리합니다. 이 평면의 작업에는 Key Vault 만들기와 삭제, Key Vault 속성 검색 및 액세스 정책 업데이트가 포함됩니다. 데이터 평면에서는 Key Vault에 저장된 데이터로 작업을 수행합니다. 키, 비밀 및 인증서를 추가, 삭제 및 수정할 수 있습니다.
+Key Vault에 대한 액세스는 두 인터페이스, 즉 **관리 평면** 및 **데이터 평면**을 통해 제어됩니다. 관리 평면에서는 Key Vault 자체를 관리합니다. 이 평면의 작업에는 Key Vault 만들기와 삭제, Key Vault 속성 검색 및 액세스 정책 업데이트가 포함됩니다. 데이터 평면에서는 Key Vault에 저장된 데이터로 작업을 수행합니다. 키, 비밀 및 인증서를 추가, 삭제 및 수정할 수 있습니다.
 
 두 평면에서 key vault에 액세스하려면 모든 호출자(사용자 또는 애플리케이션)에게 적절한 인증 및 권한이 있어야 합니다. 인증은 호출자의 ID를 설정합니다. 권한은 호출자가 실행할 수 있는 작업을 결정합니다. 
 
@@ -62,7 +62,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 ## <a name="management-plane-and-rbac"></a>관리 평면 및 RBAC
 
-관리 평면에서 RBAC를 사용하여 호출자가 실행할 수 있는 작업에 대해 권한을 부여합니다. RBAC 모델에서 각 Azure 구독에는 Azure AD의 인스턴스가 있습니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용합니다.
+관리 평면 RBAC (역할 기반 Access Control)를 사용 하 여 호출자에 게 실행할 수 있습니다 작업 권한을 부여 합니다. RBAC 모델에서 각 Azure 구독에는 Azure AD의 인스턴스가 있습니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용합니다.
 
 Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를 관리합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절한 RBAC 역할을 할당하여 특정 범위 수준에서 액세스 권한을 부여합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. 다음 범위 수준을 RBAC 역할에 할당할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894124"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 
@@ -88,7 +88,7 @@ HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고
    - **받는 사람** - 유효한 이메일 주소를 하나 이상 입력합니다.
    - **제목** - Flow에서는 다음 화면 캡처의 **LeadSource**와 같이 동적 콘텐츠를 추가하는 옵션이 제공됩니다.
 
-    ![동적 콘텐츠를 사용하여 이메일 작업 추가](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![동적 콘텐츠를 사용하여 이메일 작업 추가](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **본문** - 동적 콘텐츠 목록에서 원하는 정보를 이메일의 본문에 추가합니다. 예를 들어, LastName, FirstName, Email 및 Company입니다.
 
@@ -117,7 +117,7 @@ JSON 테스트 예제에서는 다음 스키마를 사용합니다.
 
 ``` json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "definitions": {},
   "id": "http://example.com/example.json",
   "properties": {

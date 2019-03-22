@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 메시징 이해 | Microsoft 문서
 description: 개발자 가이드 - IoT Hub를 사용한 디바이스-클라우드 및 클라우드-디바이스 메시징 메시지 형식 및 지원되는 통신 프로토콜에 대한 정보가 포함됩니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: d3a7284555fb592956d4e1dc3f56137c88d108e1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: f56332fa7f53c729ffaa28ea375f043d1b4a3678
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584396"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010874"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>IoT Hub를 사용한 디바이스-클라우드 및 클라우드-디바이스 메시지 보내기
 
@@ -37,7 +37,7 @@ IoT Hub 메시징 기능의 핵심 속성은 메시지의 안정성 및 내구�
 
 디바이스 앱에서 시계열 원격 분석 및 경고를 보내려면 디바이스-클라우드 메시지를 사용하고 디바이스 앱에 단방향 알림을 보내려면 클라우드-디바이스 메시지를 사용합니다.
 
-* [장치-클라우드 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance)을 참조하여 장치-클라우드 메시지, 보고된 속성 또는 파일 업로드 중에서 선택합니다.
+* [디바이스-클라우드 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance)을 참조하여 디바이스-클라우드 메시지, 보고된 속성 또는 파일 업로드 중에서 선택합니다.
 
 * [클라우드-장치 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance)을 참조하여 클라우드-장치 메시지, 원하는 속성 또는 직접 메서드 중에서 선택합니다.
 

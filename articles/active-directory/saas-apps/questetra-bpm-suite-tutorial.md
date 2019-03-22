@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>자습서: Questetra BPM Suite와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Questetra BPM Suite와 Azure AD의 통합을 구성하려면 다음 항목이 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Questetra BPM Suite 추가
 1. Azure AD Single Sign-On 구성 및 테스트
@@ -210,9 +210,9 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     ![테스트 사용자 만들기][300] 
    
-    a. **이름** 텍스트 상자에 사용자 **britta.simon@contoso.com**의 **이름**을 입력합니다.
+    a. 에 **이름을** 텍스트 상자에 입력 **이름** 사용자의 **britta.simon\@contoso.com**합니다.
    
-    b. **메일** 텍스트 상자에 사용자 **britta.simon@contoso.com**의 **메일** 주소를 입력합니다.
+    b. 에 **전자 메일** 텍스트 상자에 입력 **전자 메일** 사용자의 **britta.simon\@contoso.com**
    
     다. **암호** 텍스트 상자에 사용자의 **암호**를 입력합니다.
     

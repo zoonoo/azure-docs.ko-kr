@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005428"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -38,7 +38,7 @@ Unknown_user_type: Unknown User Type
 
 무엇이 문제인지 확인하기 위해 다음 단계를 수행하세요.  
 
-1. 특수 문자가 없는지 확인합니다. 이러한 문자로 **@** 문자가 Azure에 연결하는 데 사용하는 Automation 자격 증명 자산 이름에 포함됩니다.  
+1. 특수 문자가 없는지 확인합니다. 이러한 문자로 **\@** 문자가 Azure에 연결하는 데 사용하는 Automation 자격 증명 자산 이름에 포함됩니다.  
 2. Azure Automation 자격 증명에 저장된 사용자 이름 및 암호를 로컬 PowerShell ISE 편집기에서 사용할 수 있는지 확인합니다. PowerShell ISE에서 다음 cmdlet을 실행하여 사용자 이름과 암호가 올바른지 확인할 수 있습니다.  
 
    ```powershell
@@ -133,7 +133,7 @@ Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서�
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
 
-###<a name="child-runbook-object"></a>출력 스트림에 단순 데이터 형식이 아닌 개체가 포함되어 있으면 자식 Runbook에서 오류를 반환합니다.
+### <a name="child-runbook-object"></a>출력 스트림에 단순 데이터 형식이 아닌 개체가 포함되어 있으면 자식 Runbook에서 오류를 반환합니다.
 
 #### <a name="issue"></a>문제
 
@@ -303,7 +303,7 @@ The job was tried three times but it failed
 
 3. 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않은 경우에 이 오류가 발생할 수 있습니다. 일반적으로 Runbook에서 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다."라는 메시지를 반환합니다.
 
-4. Azure 샌드박스에서 실행되는 Runbook의 실행 파일 또는 하위 프로세스를 Runbook에서 호출하려고 했습니다. 이 시나리오는 Azure 샌드박스에서 지원되지 않습니다.
+4. Runbook 호출 실행 파일 또는 샌드박스를 Azure에서 실행 되는 runbook에서 subprocess 하려고 시도 합니다. 이 시나리오는 Azure 샌드박스에서 지원되지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 

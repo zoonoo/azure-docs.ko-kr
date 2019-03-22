@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996990"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>예약된 IP 주소(클래식 배포)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228184"
 IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니다. 예약된 IP는 VIP로만 사용할 수 있으므로 리소스가 종료 또는 중지(할당 취소)된 때에도 클라우드 서비스의 IP 주소가 동일하게 유지됩니다. 또한 VIP로 사용하는 기존의 동적 IP를 예약된 IP 주소로 변환할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](virtual-network-ip-addresses-overview-arm.md)을 사용하여 고정 공용 IP 주소를 예약하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](virtual-network-ip-addresses-overview-arm.md)을 사용하여 고정 공용 IP 주소를 예약하는 방법을 알아봅니다.
 
 Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-classic.md)를 확인하세요.
 
@@ -83,7 +83,7 @@ Get-AzureReservedIP
     OperationStatus      : Succeeded
 
 >[!NOTE]
->PowerShell을 사용하여 예약된 IP 주소를 만들 때 예약된 IP를 만들 리소스 그룹을 지정할 수 없습니다. Azure에서 *Default-Networking*이라는 리소스 그룹에 자동으로 추가합니다. [Azure Portal](http://portal.azure.com)을 사용하여 예약된 IP를 만드는 경우 원하는 어떤 리소스 그룹도 지정할 수 있습니다. 그러나 *Default-Networking* 이외의 리소스 그룹에서 예약된 IP를 만드는 경우 `Get-AzureReservedIP` 및 `Remove-AzureReservedIP`와 같은 명령으로 예약된 IP를 참조할 때마다 이름 *Group resource-group-name reserved-ip-name*을 참조해야 합니다.  예를 들어 *myResourceGroup* 리소스 그룹에 *myReservedIP*라는 예약된 IP를 만드는 경우 예약된 IP의 이름을 *Group myResourceGroup myReservedIP*로 참조해야 합니다.   
+>PowerShell을 사용하여 예약된 IP 주소를 만들 때 예약된 IP를 만들 리소스 그룹을 지정할 수 없습니다. Azure에서 *Default-Networking*이라는 리소스 그룹에 자동으로 추가합니다. [Azure Portal](https://portal.azure.com)을 사용하여 예약된 IP를 만드는 경우 원하는 어떤 리소스 그룹도 지정할 수 있습니다. 그러나 *Default-Networking* 이외의 리소스 그룹에서 예약된 IP를 만드는 경우 `Get-AzureReservedIP` 및 `Remove-AzureReservedIP`와 같은 명령으로 예약된 IP를 참조할 때마다 이름 *Group resource-group-name reserved-ip-name*을 참조해야 합니다.  예를 들어 *myResourceGroup* 리소스 그룹에 *myReservedIP*라는 예약된 IP를 만드는 경우 예약된 IP의 이름을 *Group myResourceGroup myReservedIP*로 참조해야 합니다.   
 
 
 IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결됩니다. 다음과 같이 예약된 IP를 삭제합니다.

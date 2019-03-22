@@ -11,21 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905065"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 **Elastic Database 작업** (미리 보기)에 PowerShell API를 사용하면 스크립트를 실행할 데이터베이스 그룹을 정의할 수 있습니다. 이 문서는 PowerShell cmdlet을 사용하여 **Elastic Database 작업** 을 만들고 관리하는 방법을 보여줍니다. [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -34,9 +34,9 @@ ms.locfileid: "55472655"
 * **Elastic Database 작업** PowerShell 패키지: [Elastic Database 작업 설치](sql-database-elastic-jobs-service-installation.md) 참조
 
 ### <a name="select-your-azure-subscription"></a>Azure 구독 선택
-구독을 선택하려면 구독 ID **-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 cmdlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
+구독을 선택하려면 구독 ID **-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개인 경우 실행할 수 있습니다 합니다 **Get AzSubscription** 결과에서 원하는 구독 정보를 설정 하는 cmdlet을 복사 합니다. 구독 정보가 준비되면 다음 cmdlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) 를 사용하여 Elastic Database 작업에 대한 PowerShell 스크립트를 개발 및 실행하는 것이 좋습니다.
 

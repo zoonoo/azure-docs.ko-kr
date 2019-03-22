@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732161"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311902"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
@@ -66,7 +66,7 @@ Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 �
 ### <a name="guidance"></a>지침
 
 * 이러한 설정에 대해서는 "슬롯 설정"을 선택하지 않습니다. 배포 슬롯을 교환하면 함수가 손상됩니다.
-* 자동화된 배포 사용 시에는 이러한 설정을 지정하지 않습니다.
+* 자동화 된 배포의 일부로 이러한 설정을 수정 하지 마십시오.
 * 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함하지 않는 자동화된 배포를 사용하는 경우 나중에 설정을 추가하더라도 앱이 작동하지 않습니다.
 
 ## <a name="storage-account-credentials-invalid"></a>저장소 계정 자격 증명이 잘못됨
@@ -84,7 +84,7 @@ Function App은 저장소 계정에 액세스할 수 있어야 합니다. Functi
 
 매일 실행 할당량을 구성한 경우 Function App이 일시적으로 비활성화되고 포털 컨트롤은 대부분 사용할 수 없게 됩니다. 
 
-* 확인하려면 포털에서 플랫폼 기능 열기 > 함수 앱 설정을 확인하세요. 할당량을 초과한 경우 다음 메시지가 표시됩니다.
+* 확인하려면 포털에서 플랫폼 기능 열기 &gt; Function App 설정을 확인하세요. 할당량을 초과한 경우 다음 메시지가 표시됩니다.
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * 할당량을 제거하고 앱을 다시 시작하여 문제를 해결합니다.
 

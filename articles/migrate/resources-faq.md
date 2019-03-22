@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003726"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -21,7 +21,7 @@ ms.locfileid: "56416193"
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure Migrate가 VMware 워크로드의 평가만 지원하나요?
 
-예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. Hyper-V 및 물리적 서버에 대한 지원은 향후 제공될 예정입니다.
+예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. 지원 미리 보기에서 Hyper-v에 등록 하세요 [여기](https://aka.ms/migratefuture) 미리 보기에 대 한 액세스를 가져오려고 합니다. 물리적 서버에 대 한 지원은 나중에 사용 됩니다.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
 
@@ -42,7 +42,7 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware에서 Azure로의 마이그레이션**: 온-프레미스 워크로드를 Azure로 마이그레이션하려는 경우 마이그레이션 계획에 Azure Migrate를 사용합니다. Azure Migrate는 온-프레미스 워크로드를 평가하고 Azure로 마이그레이션하는 데 유용한 지침, 통찰력 및 메커니즘을 제공합니다. 마이그레이션 계획이 준비되면 Azure Site Recovery 및 Azure Database Migration Service 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 
-**Hyper-V에서 Azure로의 마이그레이션**: Azure Migrate는 현재 Azure로의 마이그레이션에 대해 VMware 가상 머신에 대한 평가만 지원합니다. Hyper-V에 대한 지원은 Azure Migrate에 대해 준비 중입니다. 그때까지는 Site Recovery Deployment Planner를 사용할 수 있습니다. Azure Migrate에서 Hyper-V 지원을 사용할 수 있게 되면 Hyper-V 워크로드의 마이그레이션 계획에 Azure Migrate를 사용할 수 있습니다.
+**Hyper-V에서 Azure로의 마이그레이션**: 현재 Azure Migrate의 일반 공급 버전 Azure로의 마이그레이션을 위해 VMware virtual machines의 평가 지원합니다. 지원 Hyper-v는 현재 프로덕션 지원 미리 보기에 대 한 합니다. 미리 보기 사용해 보려는 경우 등록 하세요 [여기](https://aka.ms/migratefuture)합니다.
 
 **VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
@@ -104,7 +104,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
   - 네트워크 입력
   - 네트워크 출력
 
-에이전트 기반 검색은 어플라이언스 기반 검색의 최상위에서 사용할 수 있는 옵션으로, 고객이 온-프레미스 VM의 [종속성을 시각화](how-to-create-group-machine-dependencies.md)하는 데 유용합니다. 종속성 에이전트는 FQDN, OS, IP 주소, MAC 주소, VM 내부에서 실행되는 프로세스 및 VM에서 들어오거나 나가는 TCP 연결과 같은 세부 사항을 수집합니다. 에이전트 기반 검색은 선택 사항으로, VM의 종속성을 시각화하지 않을 경우에는 에이전트를 설치하지 않도록 선택할 수 있습니다.
+에이전트 기반 검색은 어플라이언스 기반 검색을 기반으로 사용할 수 있는 옵션 및 고객이 [종속성을 시각화](how-to-create-group-machine-dependencies.md) 온-프레미스 Vm입니다. 종속성 에이전트는 FQDN, OS, IP 주소, MAC 주소, VM 내부에서 실행되는 프로세스 및 VM에서 들어오거나 나가는 TCP 연결과 같은 세부 사항을 수집합니다. 에이전트 기반 검색은 선택 사항으로, VM의 종속성을 시각화하지 않을 경우에는 에이전트를 설치하지 않도록 선택할 수 있습니다.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>분석되는 ESXi 호스트 환경의 성능에 대한 영향
 
@@ -120,7 +120,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>연속 프로파일링의 경우 Azure Migrate에 의해 업로드되는 데이터 볼륨은 무엇인가요?
 
-Azure Migrate로 전송되는 데이터 볼륨은 여러 매개 변수에 따라 달라집니다. 수치로 표현한다면, 10개의 머신(각각 디스크 1개와 NIC 1개가 있음)이 있는 프로젝트는 하루에 약 50MB를 보냅니다. 이는 근사값이며, NIC 및 디스크의 데이터 요소 수에 따라 변경됩니다(머신, NIC 또는 디스크 수가 증가할 경우 전송되는 데이터는 비선형임). 
+Azure Migrate로 전송되는 데이터 볼륨은 여러 매개 변수에 따라 달라집니다. 수치로 표현한다면, 10개의 머신(각각 디스크 1개와 NIC 1개가 있음)이 있는 프로젝트는 하루에 약 50MB를 보냅니다. 이는 근사값이며, NIC 및 디스크의 데이터 요소 수에 따라 변경됩니다(머신, NIC 또는 디스크 수가 증가할 경우 전송되는 데이터는 비선형임).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
@@ -176,11 +176,11 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용하면 평가를 실행하기 전에 머신 종속성을 교차 확인하여 마이그레이션할 VM 그룹을 보다 확실하게 평가할 수 있습니다. 종속성 시각화를 사용하면 하나도 놓치지 않고 모두 처리하여 Azure로 마이그레이션할 때 예기치 않은 작동 중단이 발생하지 않도록 도와줍니다. Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 종속성 시각화를 지원합니다.
+종속성 시각화를 사용하면 평가를 실행하기 전에 머신 종속성을 교차 확인하여 마이그레이션할 VM 그룹을 보다 확실하게 평가할 수 있습니다. 종속성 시각화를 사용하면 하나도 놓치지 않고 모두 처리하여 Azure로 마이그레이션할 때 예기치 않은 작동 중단이 발생하지 않도록 도와줍니다. Azure Migrate는 종속성 시각화를 사용 하도록 설정 하려면 Azure Monitor 로그에서 서비스 맵 솔루션을 활용 합니다.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>종속성 시각화 기능을 사용하면 비용을 지불해야 하나요?
 
- 아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
+아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>종속성 시각화를 사용하려면 무엇을 설치해야 하나요?
 
@@ -217,7 +217,7 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해 Azure Migrate의 종속성을 시각화할 수 있나요?
-아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Log Analytics를 사용하여 더 긴 기간 동안 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)할 수 있습니다.
+아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor의 로그를 사용할 수 있습니다 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 더 긴 기간 동안.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>종속성 시각화가 10대를 초과하는 VM을 사용하는 그룹에 지원되나요?
 최대 10개의 VM이 있는 [그룹에 대한 종속성을 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)할 수 있습니다. VM이 10개보다 많은 그룹이 있는 경우 더 작은 그룹으로 분할하여 종속성을 시각화하는 것이 좋습니다.

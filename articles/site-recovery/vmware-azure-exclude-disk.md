@@ -1,19 +1,19 @@
 ---
 title: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구를 위한 복제에서 디스크 제외 | Microsoft Docs
 description: VMware와 Azure 간 재해 복구를 위한 복제에서 VM 디스크를 제외하는 이유와 방법을 설명합니다.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002892"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>VMware VM과 Azure 간 복제에서 디스크 제외
 
@@ -38,7 +38,7 @@ ms.locfileid: "52848173"
 1. 단일 가상 디스크를 두 개의 가상 디스크로 분할합니다. 한 가상 디스크에는 운영 체제가 있고 다른 하나에는 페이징 파일이 있습니다.
 2. 복제에서 페이징 파일 디스크를 제외합니다.
 
-마찬가지로, Microsoft SQL Server tempdb 파일 및 시스템 데이터베이스 파일이 모두 있는 디스크를 최적화하기 위해 다음 단계를 사용할 수 있습니다.
+마찬가지로 Microsoft SQL Server tempdb 파일 및 시스템 데이터베이스 파일이 모두 있는 디스크를 최적화하기 위해 다음 단계를 사용할 수 있습니다.
 
 1. 별도의 두 디스크에 tempdb와 시스템 데이터베이스를 유지합니다.
 2. 복제에서 tempdb 디스크를 제외합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "52848173"
 > * 이미 모바일 서비스가 설치된 VM에서만 디스크를 제외할 수 있습니다. 모바일 서비스는 복제를 사용하도록 설정된 후 푸시 메커니즘만 사용하여 설치되기 때문에 모바일 서비스를 수동으로 설치해야 합니다.
 > * 기본 디스크만 복제에서 제외할 수 있습니다. 운영 체제 또는 동적 디스크를 제외할 수 없습니다.
 > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
-> * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
+> * 애플리케이션 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 애플리케이션이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
 > * Window 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다.
 > * Linux 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
 >
@@ -80,7 +80,7 @@ ms.locfileid: "52848173"
 DB-Disk0-OS | DISK0 | C:\ | 운영 체제 디스크
 DB-Disk1| Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 DB-Disk2(보호에서 디스크 제외됨) | Disk2 | E:\ | 임시 파일
-DB-Disk3(보호에서 디스크 제외됨) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\) </br /> </br />장애 조치 전에 폴더 경로를 적어둡니다.
+DB-Disk3(보호에서 디스크 제외됨) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\)) <br /> <br />장애 조치 전에 폴더 경로 적어둡니다.
 DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 
 가상 머신의 디스크 두 개에 나타난 데이터 변동은 일시적이므로 SalesDB 가상 머신을 보호하는 동안 Disk2 및 Disk3을 복제에서 제외합니다. Azure Site Recovery는 해당 디스크를 복제하지 않습니다. 장애 조치(failover) 시 해당 디스크는 Azure에서 장애 조치(failover) 가상 머신에 표시되지 않습니다.
@@ -90,7 +90,7 @@ DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+Disk1 | E:\ | 임시 저장소<br /> <br />Azure는이 디스크를 추가 하 고 첫 번째 사용 가능한 드라이브 문자를 할당 합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -154,7 +154,7 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+Disk1 | E:\ | 임시 저장소<br /> <br />Azure는이 디스크를 추가 하 고 첫 번째 사용 가능한 드라이브 문자를 할당 합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -193,7 +193,7 @@ VMware에서 Azure에서 가상 머신의 장애 조치 후 Azure Virtual Machin
 **디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | 운영 체제 디스크
-DB-Disk1 | Disk1 | D:\ | 임시 저장소</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | 임시 저장소<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | 사용자 데이터 1
 DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
@@ -220,10 +220,10 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 VMware에서 Azure에서 가상 머신의 장애 조치 후 Azure Virtual Machine의 디스크는 다음과 같습니다.
 
-**디스크 이름**| **게스트 운영 체제 디스크#**| **드라이브 문자** | **디스크 데이터 형식**
+**디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |운영 체제 디스크
-DB-Disk1 | Disk1 | D:\ | 임시 저장소</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | 임시 저장소<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | 사용자 데이터 1
 DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 

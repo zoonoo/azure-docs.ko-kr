@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884526"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 
 다중 모델 데이터베이스를 사용하면 관계형 데이터, 그래프, JSON/XML 문서, 키-값 쌍 등의 여러 데이터 형식으로 표시되는 데이터를 저장하고 사용할 수 있습니다.
 
-Azure SQL Database는 다양한 범용 애플리케이션에서 대부분의 경우 최상의 성능을 제공하는 관계형 모델을 사용하도록 설계되었습니다. 그러나 Azure SQL Database는 관계형 데이터만으로 제한되지 않습니다. Azure SQL Database를 사용하면 관계형 모델에 완전 통합된 다양한 비관계형 형식을 사용할 수 있습니다. Azure SQL은 다음 다중 모델 기능을 제공합니다.
+## <a name="when-to-use-multi-model-capabilities"></a>다중 모델 기능을 사용 하는 경우
+
+Azure SQL Database는 다양한 범용 애플리케이션에서 대부분의 경우 최상의 성능을 제공하는 관계형 모델을 사용하도록 설계되었습니다. 그러나 Azure SQL Database는 관계형 데이터만으로 제한되지 않습니다. Azure SQL Database를 사용하면 관계형 모델에 완전 통합된 다양한 비관계형 형식을 사용할 수 있습니다.
+다음 경우에 Azure SQL Database의 다중 모델 기능을 사용 하는 것이 좋습니다.
+- 몇 가지 정보 또는 NoSQL 모델에 맞게 되는 구조 별도 NoSQL 데이터베이스를 사용 하지 않으려는 합니다.
+- 대부분의 데이터는 관계형 모델에 적합 하 고 NoSQL 스타일의 데이터 일부를 모델링 해야 합니다.
+- 다양 한 TRANSACT-SQL 언어를 쿼리하고 분석 관계형 및 NoSQL 데이터를 활용 하 고 다양 한 도구와 SQL 언어를 사용할 수 있는 프로그램을 사용 하 여 통합 하려고 합니다.
+- 와 같은 데이터베이스 기능을 적용 하려는 [메모리 내 기술을](sql-database-in-memory.md) 분석 프로그램의 성능을 향상 시키거나 사용 하면 NoSQL 데이터 strucutres 처리 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 또는[읽기 가능한 복제본](sql-database-read-scale-out.md) 다른 곳에 데이터의 복사본을 만들고 주 데이터베이스에서 일부 분석 워크 로드를 오프 로드 합니다.
+
+## <a name="overview"></a>개요
+
+Azure SQL은 다음 다중 모델 기능을 제공합니다.
 - [그래프 기능](#graph-features)을 사용하면 데이터를 노드 및 에지 세트로 표시하고 그래프 `MATCH` 연산자로 향상된 표준 Transact-SQL 쿼리를 사용하여 그래프 데이터를 쿼리할 수 있습니다.
 - [JSON 기능](#json-features)을 사용하면 JSON 문서를 테이블에 넣고, 관계형 데이터를 JSON 문서로 변환하거나 그 반대로 변환할 수 있습니다. JSON 함수로 향상된 표준 Transact-SQL 언어를 문서 구문 분석에 사용하고, 비클러스터형 인덱스, columnstore 인덱스 또는 메모리 최적화 테이블을 사용하여 쿼리를 최적화할 수 있습니다.
 - [공간 기능](#spatial-features)을 사용하면 지리적 및 기하학적 데이터를 저장하고, 공간 인덱스를 사용하여 해당 데이터를 인덱싱하고, 공간 쿼리를 사용하여 데이터를 검색할 수 있습니다.
@@ -56,7 +67,7 @@ Azure SQL Database는 데이터베이스에서 다 대 다 관계를 모델링�
 
 ## <a name="json-features"></a>JSON 기능
 
-Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
+Azure SQL Database를 사용하면 [JSON](https://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
 
 JSON은 최신 웹 및 모바일 애플리케이션에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/))에는 JSON을 반환하거나 사용하는 REST 엔드포인트가 있습니다.
 
@@ -124,7 +135,7 @@ CREATE TABLE Collection (
 
 제약 조건 없이 필요에 맞게 이 키-값 구조를 사용자 지정할 수 있습니다. 예를 들어 값은 `nvarchar(max)` 형식 대신 XML 문서일 수 있습니다. 값이 JSON 문서인 경우 JSON 콘텐츠의 유효성을 확인하는 `CHECK` 제약 조건을 넣을 수 있습니다. 하나의 키에 관련된 여러 값을 추가 열에 넣고, 계산 열 및 인덱스를 추가하여 데이터 액세스를 간소화 및 최적화하고, 테이블을 메모리/최적화 스키마 전용 테이블로 정의하여 성능을 개선할 수 있습니다.
 
-실제로 관계형 모델을 키-값 쌍 솔루션으로 효과적으로 사용할 수 있는 방법의 예로, 초당 1.200.000개 배치를 수행한 ASP.NET 캐싱 솔루션에 대한 [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)(BWin이 메모리 내 OLTP를 사용하여 전례 없는 성능 및 규모를 사용하는 방법)을 참조하세요.
+실제로 관계형 모델을 키-값 쌍 솔루션으로 효과적으로 사용할 수 있는 방법의 예로, 초당 1.200.000개 배치를 수행한 ASP.NET 캐싱 솔루션에 대한 [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)(BWin이 메모리 내 OLTP를 사용하여 전례 없는 성능 및 규모를 사용하는 방법)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure SQL Database의 다중 모델 기능도 Azure SQL Database와 SQL Server 간에 공유되는 핵심 SQL Server 데이터베이스 엔진 기능입니다. 이러한 기능에 대한 자세한 내용을 보려면 SQL 관계형 데이터베이스 설명서 페이지를 방문하세요.

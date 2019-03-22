@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b3855386f89eda71e145df6dd83d1b1e7e093735
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878077"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
@@ -53,7 +53,7 @@ Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 
 - Azure PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기인 *SaaSFeedback@microsoft.com*에 구독 ID를 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 *SaaSFeedback@microsoft.com*에 문의해야 합니다.
+> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려는 경우에 구독 ID를 제공 *SaaSFeedback\@microsoft.com* subject = 탄력적인 작업 미리 보기. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적 으로만 제공 되므로 문의 *SaaSFeedback\@microsoft.com* 관련된 질문이 있거나 지원이 대 한 합니다.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
@@ -173,5 +173,5 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-다음 단계로 [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md)를 참고하여 여러 테넌트 데이터베이스에서 분산 쿼리를 실행하는 방법을 알아보세요.
+다음 단계로 합니다 [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md) 탐색 데이터베이스 테 넌 트에서 분산된 쿼리를 실행 합니다.
 

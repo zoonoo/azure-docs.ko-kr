@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077023"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
@@ -109,7 +109,7 @@ ms.locfileid: "54020152"
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-필수 구성 요소 단계가 완료되면 이제 복사 마법사를 사용하여 복사 활동을 구성할 수 있습니다.
+  필수 구성 요소 단계가 완료되면 이제 복사 마법사를 사용하여 복사 활동을 구성할 수 있습니다.
 
 ## <a name="launch-copy-wizard"></a>복사 마법사 시작
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -199,7 +199,7 @@ ms.locfileid: "54020152"
 
     오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
-    다음 스크린샷처럼 Azure Blob Storage에서 SQL Data Warehouse로 1TB를 복사하는 데는 14분이 걸려서 실제로 1.22GBps 처리량을 얻었습니다.
+    다음 스크린샷에서 보시는 14 분이 걸려서 실제로 1.22gbps 처리량 걸린 Azure Blob Storage에서 SQL Data Warehouse로 1TB를 복사!
 
     ![복사 마법사 - 성공 대화 상자](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

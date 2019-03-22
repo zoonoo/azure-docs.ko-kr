@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000212"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
@@ -56,7 +56,7 @@ ms.locfileid: "55453674"
 
 1. Azure Portal에서 Wingtip Tickets SaaS 테넌트당 데이터베이스 배포 템플릿을 열려면 **Azure에 배포**를 선택합니다.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. 템플릿에 필수 매개 변수의 값을 입력합니다.
 
@@ -186,9 +186,9 @@ Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-mana
 
 4. `$OneTime = $false`의 경우 부하 생성기는 백그라운드 작업을 시작한 다음, 계속 실행합니다. 10초마다 프로비전되는 새 테넌트에 대해 모니터링합니다. `$OneTime = $true`를 설정하는 경우 LoadGenerator가 백그라운드 작업을 시작한 다음, 포그라운드에서 실행을 중지합니다. 이 자습서에서는 `$OneTime = $false`를 사용하지 않습니다.
 
-  로드 생성기를 중지하거나 다시 시작하려면 Ctrl+C 또는 Ctrl+Break를 사용하세요.
+   로드 생성기를 중지하거나 다시 시작하려면 Ctrl+C 또는 Ctrl+Break를 사용하세요.
 
-  로드 생성기를 포그라운드에서 실행하는 경우 다른 PowerShell ISE 인스턴스를 사용하여 다른 PowerShell 스크립트를 실행합니다.
+   로드 생성기를 포그라운드에서 실행하는 경우 다른 PowerShell ISE 인스턴스를 사용하여 다른 PowerShell 스크립트를 실행합니다.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1.  [Azure Portal](http://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음,  **catalog-dpt-&lt;USER&gt;**  서버를 엽니다.
+1.  [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음,  **catalog-dpt-&lt;USER&gt;**  서버를 엽니다.
     - 카탈로그 서버에는 두 가지 데이터베이스인 **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 템플릿 데이터베이스)가 포함됩니다.
 
    ![데이터베이스](./media/saas-dbpertenant-get-started-deploy/databases.png)

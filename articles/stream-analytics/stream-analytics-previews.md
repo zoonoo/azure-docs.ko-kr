@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902878"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -22,6 +22,10 @@ ms.locfileid: "55768565"
 ## <a name="public-previews"></a>공개 미리 보기
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
+
+### <a name="anomaly-detection"></a>이상 감지
+
+Azure Stream Analytics에는 양방향, 느린 긍정 및 느린 부정 추세 검색 외에도 *spike* 및 *dips* 검색을 지원하는 새로운 기계 학습 모델이 도입되었습니다. 자세한 내용은 [Azure Stream Analytics의 변칙 검색](stream-analytics-machine-learning-anomaly-detection.md)합니다.
 
 ### <a name="sql-database-reference-data"></a>SQL Database 참조 데이터
 
@@ -47,10 +51,6 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 다음 기능은 비공개 미리 보기에 있습니다.
 
-### <a name="anomaly-detection"></a>이상 감지
-
-Azure Stream Analytics에는 양방향, 느린 긍정 및 느린 부정 추세 검색 외에도 *spike* 및 *dips* 검색을 지원하는 새로운 기계 학습 모델이 도입되었습니다.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics용 C# 사용자 지정 역직렬 변환기
 
 개발자는 이제 Azure Stream Analytics에서 수신한 이벤트를 역직렬화하기 위해 C#에서 사용자 지정 역직렬 변환기를 구현할 수 있습니다. 역직렬화할 수 있는 형식의 예로는 Parquet, Protobuf, XML 또는 임의의 이진 형식이 있습니다.
@@ -61,7 +61,7 @@ Azure Data Lake Storage Gen1에 쓰는 동안 Azure 리소스 기반 인증을 �
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다.
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. 에 대 한 액세스 비공개 미리 보기 기능을 도구에 문의 *ASAToolsfeedback\@microsoft.com*합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

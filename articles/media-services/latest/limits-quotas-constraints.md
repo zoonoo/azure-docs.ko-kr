@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897567"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -37,10 +37,11 @@ ms.locfileid: "56190962"
 | 단일 구독의 Media Services 계정 | 25(고정) |
 | LiveEvent당 실행 중인 상태의 라이브 출력 |3|
 | Storage 계정 | 100<sup>(4)</sup>(고정) |
-| Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2|
+| Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2 (고정)|
 | 스트리밍 정책 | 100 <sup>(3)</sup> |
 | Media Services 계정당 변환 | 100(고정)|
 | 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(5)</sup>(수정됨) |
+| 콘텐츠 키 정책 |30 | 
 
 <sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. 그러나 서비스에서 사용되는 VM 크기에 따라 Azure Media Services에 추가 제한이 적용됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 260GB 제한보다 큰 4K 콘텐츠가 있는 경우 시나리오 지원을 위해 amshelp@microsoft.com에 잠재적인 완화 방법을 문의하세요.
 

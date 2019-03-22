@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978088"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004111"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
@@ -44,7 +44,7 @@ ms.locfileid: "55978088"
 
 1. 원격 모니터링 솔루션이 컴퓨터에서 로컬로 실행되고 있는지 확인합니다.
 2. Postman을 다운로드한 곳을 찾아 엽니다.
-3. Postman에서 GET에 다음 값을 입력합니다. http://localhost:8080/iothubmanager/v1/status.
+3. Postman에서 GET에 다음 값을 입력합니다. `http://localhost:8080/iothubmanager/v1/status`.
 4. 반환을 보고 "상태": "OK:Alive and Well"을 확인해야 합니다.
 
     ![Alive and Well Postman 메시지](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에
     ```
 
 3. Postman을 다운로드한 곳을 찾아 엽니다.
-4. Postman에서 GET에 다음 요청을 입력합니다. http://localhost:8080/iothubmanager/v1/status. 이제 "상태": "OK: New Edits Made Here!"가 표시됩니다.
+4. Postman에서 GET에 다음 요청을 입력합니다. `http://localhost:8080/iothubmanager/v1/status`. 이제 "상태": "OK: New Edits Made Here!"가 표시됩니다.
 
 ![New Edits Made Here postman 메시지](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

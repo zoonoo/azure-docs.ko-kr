@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858187"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -43,7 +43,7 @@ Azure Stack 포털을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를
 
    Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 SSH 클라이언트에 대 한 액세스가 없을 수 있습니다. 클라이언트에 필요한 경우에 SSH 클라이언트를 포함 하는 여러 개의 패키지가 있습니다. 예를 들어, PuTTY SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 합니다. 사용 가능한 패키지에 대 한 자세한 내용은 다음 Azure 문서를 읽어보세요. [Azure에서 Windows 사용 하 여 사용 하 여 SSH 키 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
 
-   이 빠른 시작에서는 SSH 키를 생성 하 고 Linux server 가상 머신에 연결할 PuTTY를 사용 합니다. PuTTY 다운로드 및 설치로 이동 [ https://www.putty.org/ ](http://www.putty.org)합니다.
+   이 빠른 시작에서는 SSH 키를 생성 하 고 Linux server 가상 머신에 연결할 PuTTY를 사용 합니다. PuTTY 다운로드 및 설치로 이동 [ https://www.putty.org/ ](https://www.putty.org)합니다.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -77,8 +77,8 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 
 4. 가상 머신 정보를 입력 합니다. **인증 유형**으로 **SSH 공용 키**를 선택합니다. 클릭 하 여 저장 하는 SSH 공개 키를 붙여 넣습니다 **확인**합니다.
 
-   >[!NOTE]
- 키에 대 한 모든 선행 또는 후행 공백을 제거 해야 합니다.
+   > [!NOTE]
+   > 키에 대 한 모든 선행 또는 후행 공백을 제거 해야 합니다.
 
    ![기본 패널-가상 컴퓨터를 구성 합니다.](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 
 6. 에 **설정을** 페이지에서 기본값을 원하는 대로 변경 합니다.
    
-    - Azure Stack 버전 1808부터 구성할 수 있습니다 **스토리지** 사용 하도록 선택할 수 있는 *관리 디스크*합니다. 이전 버전 1808 관리 되지 않는 디스크에만 사용할 수 있습니다.    
-      ![관리 되는 디스크에 대 한 저장소 구성](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - Azure Stack 버전 1808부터 구성할 수 있습니다 **스토리지** 사용 하도록 선택할 수 있는 *관리 디스크*합니다. 이전 버전 1808 관리 되지 않는 디스크에만 사용할 수 있습니다.    
+     ![관리 되는 디스크에 대 한 저장소 구성](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    구성 준비 되 면 선택 **확인** 를 계속 합니다.
+     구성 준비 되 면 선택 **확인** 를 계속 합니다.
 
 7. 에 **요약** 페이지에서 클릭 **확인** 가상 머신 배포를 시작 합니다.  
    ![배포](media/azure-stack-quick-linux-portal/deploy.png)

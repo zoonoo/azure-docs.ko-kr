@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733136"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452193"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -113,7 +113,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 ## <a name="optimize-by-changing-indexing-policy"></a>인덱싱 정책을 변경하여 최적화 
 
-기본적으로 Azure Cosmos DB는 모든 레코드의 모든 속성을 자동으로 인덱싱합니다. 이 방식은 개발을 용이하게 하고, 다양한 유형의 임시 쿼리에 대해 뛰어난 성능을 보장하기 위한 것입니다. 수천 개의 속성이 있는 대규모 레코드를 사용하는 경우 모든 속성을 인덱싱하기 위한 처리량 비용을 지불하는 것은 유용하지 않을 수 있습니다. 특히 이러한 속성 중에서 10개 또는 20개만 쿼리하는 경우에는 더욱 비효율적입니다. 특정 워크로드를 보다 적절히 처리할 수 있으면 인덱스 정책을 조정하는 것이 좋습니다. Azure Cosmos DB 인덱싱 정책에 대한 자세한 내용은 [여기](indexing-policies.md)에서 찾을 수 있습니다. 
+기본적으로 Azure Cosmos DB는 모든 레코드의 모든 속성을 자동으로 인덱싱합니다. 이 쉬운 개발 및 다양 한 임시 쿼리 우수한 성능을 유지 하기 위한 것입니다. 수천 개의 속성이 있는 대규모 레코드를 사용하는 경우 모든 속성을 인덱싱하기 위한 처리량 비용을 지불하는 것은 유용하지 않을 수 있습니다. 특히 이러한 속성 중에서 10개 또는 20개만 쿼리하는 경우에는 더욱 비효율적입니다. 특정 워크로드를 보다 적절히 처리할 수 있으면 인덱스 정책을 조정하는 것이 좋습니다. Azure Cosmos DB 인덱싱 정책에 대한 자세한 내용은 [여기](indexing-policies.md)에서 찾을 수 있습니다. 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>프로비전 및 사용된 처리량 모니터링 
 
@@ -159,7 +159,7 @@ Azure Cosmos DB를 사용할 경우 다음 단계를 따르면 가용성이 뛰�
 
 2. 애플리케이션에 필요한 예약된 처리량을 예측하는 한 가지 방법은 애플리케이션에서 사용하는 대표적인 Azure Cosmos 컨테이너 또는 데이터베이스에 대해 실행되는 일반 작업과 연결된 요청 단위 RU 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다. 일반 쿼리 및 해당 사용량도 측정하여 포함해야 합니다. 프로그래밍 방식으로 또는 포털을 사용하여 쿼리의 RU 비용을 추정하는 방법을 알아보려면 [쿼리 비용 최적화](online-backup-and-restore.md)를 참조하세요. 
 
-3. 작업을 수행하고 RU 비용을 청구받는 또 다른 방법은 작업/기간 및 요청 요금의 분석 결과를 제공하는 Log Analytics를 사용하도록 설정하는 것입니다. Azure Cosmos DB는 모든 작업에 대해 요청 요금을 제공하므로, 모든 작업 요금이 응답에서 다시 저장된 후 분석에 사용될 수 있습니다. 
+3. Ru에 작업 및 해당 비용을 가져오는 다른 방법은 작업/기간 및 요청 요금 분석 결과 제공 하는 Azure Monitor 로그를 사용 하는 것입니다. Azure Cosmos DB는 모든 작업에 대해 요청 요금을 제공하므로, 모든 작업 요금이 응답에서 다시 저장된 후 분석에 사용될 수 있습니다. 
 
 4. 프로비전된 처리량 규모를 워크로드 요구에 맞게 필요한 만큼 탄력적으로 확장 및 축소할 수 있습니다. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845004"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -57,7 +57,7 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 
 애플리케이션 예제를 실행하려면 먼저 Azure AD에 등록하고 애플리케이션이 대신 Service Bus에 액세스할 수 있도록 허가하는 동의 확인 프롬프트를 승인해야 합니다.
 
-애플리케이션 예제는 콘솔 애플리케이션이므로 네이티브 애플리케이션을 등록하고 **Microsoft.ServiceBus**에 대한 API 사용 권한을 “필요한 권한” 집합에 추가해야 합니다. 네이티브 애플리케이션은 ID 역할을 하는 Azure AD의 **리디렉션 URI**가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `http://servicebus.microsoft.com`을 사용합니다.
+애플리케이션 예제는 콘솔 애플리케이션이므로 네이티브 애플리케이션을 등록하고 **Microsoft.ServiceBus**에 대한 API 사용 권한을 “필요한 권한” 집합에 추가해야 합니다. 네이티브 애플리케이션은 ID 역할을 하는 Azure AD의 **리디렉션 URI**가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `https://servicebus.microsoft.com`을 사용합니다.
 
 자세한 등록 단계는 [이 자습서](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)에 설명되어 있습니다. **네이티브** 앱을 등록하는 단계를 수행한 다음, **Microsoft.ServiceBus** API를 필요한 권한에 추가하는 업데이트 지시를 수행합니다. 단계를 수행하면서 **TenantId** 및 **ApplicationId**를 기록해 두어야 합니다. 이러한 값은 애플리케이션을 실행하는 데 필요합니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886629"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214004"
 
 Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털의 모든 기능은 이제 Azure Portal의 일부입니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다!
 
-Azure 상용 클라우드 및 Azure 미국 정부 클라우드에 대한 **OMS 포털이 2019년 1월 15일 공식적으로 만료**되며, OMS 포털은 **2019년 3월 30일에 공식적으로 만료됩니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 **LAUpgradeFeedback@microsoft.com**에 대한 우려를 보냅니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
+Azure 상용 클라우드 및 Azure 미국 정부 클라우드에 대한 **OMS 포털이 2019년 1월 15일 공식적으로 만료**되며, OMS 포털은 **2019년 3월 30일에 공식적으로 만료됩니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
 
 ## <a name="what-is-changing"></a>변경되는 내용 
 다음 변경 사항은 OMS 포털의 사용 중단으로 공지되었습니다. 각 변경에 대한 자세한 설명은 아래 섹션에 자세히 나와 있습니다.
@@ -47,7 +47,7 @@ Azure 상용 클라우드 및 Azure 미국 정부 클라우드에 대한 **OMS �
 - [사용자 권한을 Azure Portal로 마이그레이션](#user-access-and-role-migration)해야 합니다.
 - 업데이트 관리 솔루션 전환에 대한 세부 정보는 [OMS 업데이트 배포를 Azure로 마이그레이션](../../automation/migrate-oms-update-deployments.md)을 참조하세요.
 
-Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](oms-portal-faq.md)을 참조하세요. 모든 피드백, 질문 또는 **LAUpgradeFeedback@microsoft.com**에 대한 우려를 보냅니다.
+Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](oms-portal-faq.md)을 참조하세요. 모든 피드백, 질문 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다.
 
 ## <a name="user-access-and-role-migration"></a>사용자 액세스 및 역할 마이그레이션
 Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log Analytics에서 액세스 관리에 대한 자세한 내용은 [작업 영역 관리](manage-access.md#manage-accounts-and-users)를 참조하세요.

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427069"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822824"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -37,13 +37,45 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 ![Azure Automation 페이지의 스크린샷](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Log Analytics로 보고 데이터 가져오기
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Azure Monitor 로그로 보고 데이터 가져오기
 
-Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내도록 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Log Analytics에 Azure Automation 상태 구성 보고 데이터 전달](automation-dsc-diagnostics.md)을 참조하세요.
+Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내도록 Azure Automation 상태 구성을 구성할 수 있습니다. Log Analytics 작업 영역에 상태 구성 상태 데이터를 보내는 방법에 알아보려면 참조 [앞으로 Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그](automation-dsc-diagnostics.md)합니다.
 
-## <a name="network-planning"></a>네트워크 구성
+## <a name="prerequisites"></a>필수 조건
 
-상태 구성(DSC)이 Automation과 통신하려면 다음 포트와 URL이 필요합니다.
+Azure Automation 상태 구성 (DSC)를 사용 하는 경우 다음 요구 사항을 고려 하십시오.
+
+### <a name="operating-system-requirements"></a>운영 체제 요구 사항
+
+Windows를 실행 하는 노드를 다음 버전 지원 됩니다.
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- 윈도우 10
+- Windows 8.1
+- Windows 7
+
+Linux를 실행 하는 노드를 다음 배포판/버전 지원 됩니다.
+
+DSC Linux 확장은 모든 Linux 배포판을 지원 [azure 보증](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 제외:
+
+배포 | 버전
+-|-
+Debian  | 모든 버전
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC의 요구 사항
+
+Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
+
+Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 온 보 딩 하는 동안 설치 됩니다.
+
+### <a name="network-planning"></a>개인 네트워크를 구성 합니다.
+
+노드에 개인 네트워크 내에 있는 경우 다음 포트와 Url이에 대 한 상태 구성 (DSC) Automation과 통신 하려면 필요 합니다.
 
 * 포트: 아웃바운드 인터넷 액세스에는 443 TCP 포트만 필요합니다.
 * 글로벌 URL: *.azure-automation.net
@@ -85,7 +117,7 @@ Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상
 > [!NOTE]
 > 이 비디오에 언급된 개념 및 수명 주기는 정확하지만 이 비디오가 기록된 이후에 Azure Automation 상태 구성은 많이 발전되었습니다. 일반적으로 사용할 수 있고 Azure 포털의 UI는 보다 강력해졌으며 더 많은 기능을 제공하고 있습니다.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003608"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -26,6 +26,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 활동 개요
 감사 로그의 **B2C** 범주에는 다음 유형의 활동이 포함됩니다.
+
 |활동 유형 |설명  |
 |---------|---------|
 |권한 부여 |B2C 리소스에 액세스하는 사용자(예: B2C 정책 목록에 액세스하는 관리자)에 대한 권한 부여와 관련된 활동         |
@@ -33,7 +34,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 |애플리케이션 | B2C 애플리케이션에 대한 CRUD 작업 |
 |키 |B2C 키 컨테이너에 저장된 키에 대한 CRUD 작업 |
 |리소스 |B2C 리소스에 대한 CRUD 작업(예: 정책 및 ID 공급자)
-|인증 |사용자 자격 증명 및 토큰 발행에 대한 유효성 검사|
+|Authentication |사용자 자격 증명 및 토큰 발행에 대한 유효성 검사|
 
 > [!NOTE]
 > 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.

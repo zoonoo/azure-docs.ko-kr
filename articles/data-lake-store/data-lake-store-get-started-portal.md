@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005690"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -76,9 +76,9 @@ Azure Key Vault의 키를 사용하여 Data Lake Storage Gen1 계정의 암호�
 
 > [!NOTE]
 > Azure Resource Manager 템플릿을 사용하여 Data Lake Storage Gen1 계정을 만들 수도 있습니다. 이러한 템플릿은에서 [Azure QuickStart 템플릿](https://azure.microsoft.com/resources/templates/?term=data+lake+store)에서 액세스할 수 있습니다.
-    - 데이터 암호화 미포함 [데이터 암호화 기능을 포함하지 않고 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Data Lake Storage Gen1을 사용하는 데이터 암호화 포함 [암호화 기능(Data Lake)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Azure Key Vault를 사용하는 데이터 암호화 포함: [암호화 기능(Key Vault)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - 데이터 암호화 미포함 [데이터 암호화 기능을 포함하지 않고 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - Data Lake Storage Gen1을 사용하는 데이터 암호화 포함 [암호화 기능(Data Lake)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - Azure Key Vault를 사용하는 데이터 암호화 포함: [암호화 기능(Key Vault)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
