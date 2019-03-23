@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315490"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369788"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -35,7 +35,6 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | UserNotProperlyConfigured = 14 | 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 다시 액세스할 수 잇게 되면 필요한 정보를 등록해야 합니다. 정보를 등록하려면 [셀프 서비스 암호 재설정 등록](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) 문서의 단계를 따르세요. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](howto-sspr-authenticationdata.md)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
 | OnPremisesAdminActionRequired = 29 | 조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. 잠재적 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)을 참조하세요. | SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. |
 | OnPremisesConnectivityError = 30 | 조직에 대한 연결 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 지금 바로 수행할 작업이 없지만 나중에 다시 시도하면 문제를 해결할 수 있습니다. 문제가 계속되면 관리자에게 문의하고 조사하도록 요청하세요. 연결 문제에 대해 알아보려면 [비밀번호 쓰기 저장 연결 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)을 참조하세요. | SSPR_0030: 온-프레미스 환경과의 불안정한 연결로 인해 암호를 재설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Azure Portal에서 암호 재설정 구성 문제 해결
 
@@ -94,7 +93,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 
 ## <a name="password-writeback-event-log-error-codes"></a>비밀번호 쓰기 저장 이벤트 로그 오류 코드
 
-비밀번호 쓰기 저장과 관련된 문제를 해결할 때 모범 사례는 Azure AD Connect 컴퓨터에서 해당 애플리케이션 이벤트 로그를 검사하는 것입니다. 이 이벤트 로그는 비밀번호 쓰기 저장에 관심을 둔 두 개의 원본에서 비롯된 이벤트를 포함합니다. PasswordResetService 원본은 비밀번호 쓰기 저장 작업에 관련된 작업 및 문제를 설명합니다. ADSync 소스는 Active Directory 환경에서 암호 설정과 관련된 작업 및 문제를 설명합니다.
+비밀 번호 쓰기 저장 문제를 해결할 때 모범 사례는 Azure AD Connect 컴퓨터에서 응용 프로그램 이벤트 로그를 검사 방법은입니다. 이 이벤트 로그는 비밀번호 쓰기 저장에 관심을 둔 두 개의 원본에서 비롯된 이벤트를 포함합니다. PasswordResetService 원본은 비밀번호 쓰기 저장 작업에 관련된 작업 및 문제를 설명합니다. ADSync 소스는 Active Directory 환경에서 암호 설정과 관련된 작업 및 문제를 설명합니다.
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>이벤트의 원본이 ADSync인 경우
 
@@ -168,8 +167,8 @@ Azure AD Connect의 비밀번호 쓰기 저장 구성 요소로 서비스 중단
 
 Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아웃바운드 HTTPS 액세스가 필요합니다.
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 세분성의 경우 수요일마다 업데이트되는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 참조하고 다음 월요일에 적용할 수 있습니다.
 
@@ -184,7 +183,7 @@ Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아�
 1. **Microsoft Azure AD Sync** 항목을 찾습니다.
 1. 서비스 항목을 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 선택한 후 작업이 완료되기를 기다립니다.
 
-   ![Azure AD Sync 서비스 다시 시작][Service restart]
+   ![GUI를 사용 하 여 Azure AD Sync 서비스를 다시 시작][Service restart]
 
 이러한 단계는 클라우드 서비스를 사용하여 연결을 재설정하고 사용자에게 발생한 중단을 해결할 수 있습니다. AD Sync 서비스를 다시 시작해도 문제가 해결되지 않으면 비밀번호 쓰기 저장 기능을 사용하지 않도록 설정했다가 다시 사용하도록 설정하는 것이 좋습니다.
 
@@ -215,7 +214,6 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 Active 
 
 > [!WARNING]
 > 상자 동기화 규칙을 사용자 지정하면 *업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포합니다*.
->
 
 1. [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 최신 버전의 Azure AD Connect를 다운로드합니다.
 1. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
@@ -231,33 +229,27 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 Active 
 
 1. Azure AD Connect 서버에 로그인하고 **시작** > **동기화 서비스**를 선택하여 **Synchronization Service Manager**를 시작합니다.
 1. **커넥터** 탭 아래에서 온-프레미스 **Active Directory Domain Services** 커넥터를 선택한 후 **속성**을 선택합니다.  
-   ![유효 권한 - 2단계](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![속성을 편집 하는 방법을 보여 주는 동기화 서비스 관리자](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. 팝업 창에서 **Active Directory 포리스트에 연결**을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이 속성은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다. Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다.  
-   
-   ![유효 권한 - 3단계](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![동기화 서비스가 Active Directory 사용자 계정 찾기](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 애플리케이션을 시작합니다.
 1. **보기**를 선택하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
-   
-   ![유효 권한 - 5단계](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory Users and Computers 고급 기능을 보여 줍니다.](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. 확인할 Active Directory 사용자 계정을 검색합니다. 계정 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
-   
-   ![유효 권한 - 6단계](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. 팝업 창에서 **보안** 탭으로 이동하고 **고급**을 선택합니다.  
-   
-   ![유효 권한 - 7단계](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. **관리자에 대한 고급 보안 설정** 팝업 창에서 **유효한 액세스** 탭으로 이동합니다.
 1. **사용자 선택**을 선택하고 Azure AD Connect에서 사용되는 AD DS 계정(3단계 참조)를 선택한 후 **유효한 액세스 보기**를 선택합니다.
 
-   ![유효 권한 - 9단계](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![유효한 액세스 탭에 나와 있는 동기화 계정](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목에 선택 표시가 있는 경우 AD DS 계정에 선택한 Active Directory 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
-   
-   ![유효 권한 - 10단계](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![동기화 계정 재설정 암호 권한이 있는지 유효성 검사](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD 포럼
 
@@ -272,17 +264,17 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 * **오류에 대한 일반적인 설명**: 오류란 무엇인가요? 어떤 동작이 발견되었습니까? 오류를 재현하려면 어떻게 해야 합니까? 최대한 많은 세부 정보를 제공해주세요.
 * **페이지**: 어떤 페이지에서 오류가 나타났나요? 가능하면 URL 및 페이지 스크린샷을 포함해주세요.
 * **지원 코드**: 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
-  * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
+   * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
 
-    ![화면 아래쪽에서 지원 코드 찾기][Support code]
+   ![화면 아래쪽에서 지원 코드 찾기][Support code]
 
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 선택하고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
 * **날짜, 시간 및 표준 시간대**: 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.
 * **사용자 ID**: 어떤 사용자에게서 오류가 나타났나요? 예로 *사용자\@contoso.com*합니다.
-    * 페더레이션된 사용자입니까?
-    * 통과 인증 사용자입니까?
-    * 암호 해시 동기화 사용자인가요?
-    * 클라우드 전용 사용자인가요?
+   * 페더레이션된 사용자입니까?
+   * 통과 인증 사용자입니까?
+   * 암호 해시 동기화 사용자인가요?
+   * 클라우드 전용 사용자인가요?
 * **라이선스**: 사용자에게 Azure AD Premium 또는 Azure AD Basic 라이선스가 할당되어 있나요?
 * **애플리케이션 이벤트 로그**: 비밀번호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 애플리케이션 이벤트 로그의 복사본을 압축하여 보내주세요.
 

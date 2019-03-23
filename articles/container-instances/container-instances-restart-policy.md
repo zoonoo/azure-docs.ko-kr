@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321036"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369979"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>완료될 때까지 실행 예제
 
-다시 시작 정책의 작동 방식을 보려면 [microsoft/aci-wordcount][aci-wordcount-image] 이미지에서 컨테이너 인스턴스를 만들고 `OnFailure` 다시 시작 정책을 지정합니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
+작업 다시 시작 정책의 작동 방식을 보려면을 Microsoft에서 컨테이너 인스턴스를 만듭니다 [aci wordcount] [ aci-wordcount-image] 이미지 및 지정 된 `OnFailure` 다시 시작 정책입니다. 이 예제 컨테이너는 기본적으로 셰익스피어의 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 텍스트를 분석하고, 가장 많이 쓰이는 10개의 단어를 STDOUT에 쓰고 종료하는 Python 스크립트를 실행합니다.
 
 다음 [az container create][az-container-create] 명령으로 예제 컨테이너를 실행합니다.
 
@@ -54,11 +54,11 @@ az container create \
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances는 컨테이너를 시작한 다음 응용 프로그램(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated**으로 설정됩니다. [az container show][az-container-show] 명령을 사용하여 컨테이너의 상태를 확인할 수 있습니다.
+Azure Container Instances는 컨테이너를 시작한 다음, 애플리케이션(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated**으로 설정됩니다. [az container show][az-container-show] 명령을 사용하여 컨테이너의 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -117,7 +117,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 ## <a name="environment-variables"></a>환경 변수
 
-컨테이너에서 실행하는 응용 프로그램 또는 스크립트의 동적 구성을 제공하려면 컨테이너에 환경 변수를 설정합니다. 이는 `docker run`에 대한 `--env` 명령줄 인수와 유사합니다.
+컨테이너에서 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공하려면 컨테이너에 환경 변수를 설정합니다. 이는 `docker run`에 대한 `--env` 명령줄 인수와 유사합니다.
 
 예를 들어 컨테이너 인스턴스를 만들 때 다음 환경 변수를 지정하여 예제 컨테이너에서 스크립트의 동작을 수정할 수 있습니다.
 
@@ -129,7 +129,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

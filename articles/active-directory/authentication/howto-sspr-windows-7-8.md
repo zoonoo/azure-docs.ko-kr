@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316357"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370451"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>방법: Windows 7, 8 및 8.1에서 암호 재설정 사용
 
@@ -46,7 +46,7 @@ Windows 10 머신과 달리 Windows 7, 8 및 8.1 머신에는 암호 재설정�
 1. 다시 부팅한 후에 로그온 화면에서 사용자를 선택하고 "암호 찾기"를 클릭합니다. 암호 재설정 워크플로를 시작하려면
 1. 암호를 재설정하는 화면 단계를 따라 워크플로를 완료합니다.
 
-![예제 Windows 7 "암호 찾기" 클릭 셀프 서비스 암호 재설정 흐름](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![예제 Windows 7 "암호 찾기" 클릭 SSPR 흐름](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>자동 설치
 
@@ -67,13 +67,11 @@ Windows 10 머신과 달리 Windows 7, 8 및 8.1 머신에는 암호 재설정�
 
 Azure AD 이벤트에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 
-![예제 Windows 7 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Azure AD 감사 로그의 예제에서는 Windows 7 암호](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 추가 로깅이 필요한 경우 머신의 레지스트리 키를 변경하여 자세한 정보 표시 로깅을 사용할 수 있습니다. 문제 해결에 대해서만 자세한 정보 표시 로깅을 사용합니다.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * 자세한 정보 표시 로깅을 사용하려면 REG_DWORD: "EnableLogging"을 만들고, 1로 설정합니다.
 * 자세한 정보 표시 로깅을 사용하지 않으려면 REG_DWORD: "EnableLogging"을 0으로 변경합니다.
@@ -82,4 +80,4 @@ Windows 7, 8 및 8.1 컴퓨터가 프록시 서버 또는 방화벽 뒤에 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Windows 10 사용자가 로그온 화면에서 해당 암호를 재설정할 수 있습니다](tutorial-sspr-windows.md).
+* [Windows 10 사용자가 로그온 화면에서 해당 암호를 재설정할 수 있습니다](tutorial-sspr-windows.md).

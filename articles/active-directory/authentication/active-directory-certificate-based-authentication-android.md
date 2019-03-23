@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314505"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368292"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
@@ -35,16 +35,16 @@ Android 장치는 연결할 때 자신의 장치에서 클라이언트 인증서
 
 | 앱 | 지원 |
 | --- | --- |
-| Azure Information Protection 앱 |![확인][1] |
-| Intune 회사 포털 |![확인][1] |
-| Microsoft 팀 |![확인][1] |
-| OneNote |![확인][1] |
-| OneDrive |![확인][1] |
-| Outlook |![확인][1] |
-| Power BI |![확인][1] |
-| 비즈니스용 Skype |![확인][1] |
-| Word / Excel / PowerPoint |![확인][1] |
-| Yammer |![확인][1] |
+| Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Microsoft 팀 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| OneNote |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| OneDrive |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Outlook |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Power BI |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| 비즈니스용 Skype |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Word / Excel / PowerPoint |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Yammer |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
 
 ### <a name="implementation-requirements"></a>구현 요구 사항
 

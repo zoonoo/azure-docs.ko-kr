@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170689"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370689"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 * **SSPR 테이블 텐트**: 사용자가 등록을 완료하도록 하기 위해 간이 식당, 회의실 또는 책상에 놓을 수 있는 테이블 카드입니다.
 * **SSPR 스티커**: 사용자 지정하고 인쇄할 수 있는 스티커 템플릿으로, SSPR에 액세스하는 방법을 상기시키기 위해 랩톱, 모니터, 키보드 또는 휴대폰에 배치할 수 있습니다.
 
-![SSPR 이메일 샘플][Email]
+![사용자에 게 출시에 대 한 SSPR 전자 메일 샘플][Email]
 
 ## <a name="create-your-own-password-portal"></a>고유 암호 포털 만들기
 

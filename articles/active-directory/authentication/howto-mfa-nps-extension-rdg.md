@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe61766daa0edc8436bce34afaaa69759eea5ca
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316452"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371046"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -31,11 +31,11 @@ Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 고객이 Azu
 
 NPS(네트워크 정책 및 액세스 서비스)는 조직에 다음과 같은 기능을 제공합니다.
 
-* 연결할 수 있는 사용자, 연결이 허용되는 시간, 연결 기간 및 클라이언트에서 연결에 사용해야 하는 보안 수준 등을 지정하여 네트워크 요청을 관리하고 제어할 수 있는 중앙 위치를 정의합니다. 이러한 정책은 각 VPN 또는 RD(원격 데스크톱) 게이트웨이 서버에 지정하는 대신 중앙 위치에 한 번만 지정하면 됩니다. RADIUS 프로토콜은 중앙 집중식 AAA(인증, 권한 부여 및 계정 관리)를 제공합니다. 
+* 연결할 수 있는 사용자, 연결이 허용되는 시간, 연결 기간 및 클라이언트에서 연결에 사용해야 하는 보안 수준 등을 지정하여 네트워크 요청을 관리하고 제어할 수 있는 중앙 위치를 정의합니다. 이러한 정책은 각 VPN 또는 RD(원격 데스크톱) 게이트웨이 서버에 지정하는 대신 중앙 위치에 한 번만 지정하면 됩니다. RADIUS 프로토콜은 중앙 집중식 AAA(인증, 권한 부여 및 계정 관리)를 제공합니다.
 * 디바이스가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
 * 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.
 
-일반적으로 조직에서는 NPS(RADIUS)를 사용하여 VPN 정책 관리를 간소화하고 중앙 집중화합니다. 그러나 많은 조직에서는 NPS를 사용하여 RD CAP(원격 데스크톱 연결 권한 부여 정책) 관리를 단순화하고 중앙 집중화합니다.
+일반적으로 조직 간소화 하 고 VPN 정책 관리를 중앙 집중화 NPS (RADIUS)를 사용 합니다. 그러나 많은 조직에서는 NPS를 사용하여 RD CAP(원격 데스크톱 연결 권한 부여 정책) 관리를 단순화하고 중앙 집중화합니다.
 
 또한 조직에서는 NPS를 Azure MFA와 통합하여 보안을 향상시키고 높은 수준의 규정을 제공할 수도 있습니다. 이렇게 하면 사용자가 원격 데스크톱 게이트웨이에 로그인하기 위한 2단계 인증을 설정할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 정보와 함께 사용자 이름/암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하며, 휴대폰 번호, 유선 전화 번호, 모바일 장치의 애플리케이션 등과 같이 쉽게 복제할 수 없습니다. 지원되는 인증 방법에 대한 자세한 내용은 [사용자가 사용할 수 있는 인증 방법을 결정](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use) 섹션을 참조하세요.
 
@@ -45,7 +45,7 @@ Azure용 NPS 확장을 사용하기 전에 통합된 NPS 및 Azure MFA 환경에
 
 ## <a name="authentication-flow"></a>인증 흐름
 
-사용자가 원격 데스크톱 게이트웨이를 통해 네트워크 리소스에 대한 액세스 권한을 부여받으려면 RD CAP(RD 연결 권한 부여 정책) 및 RD RAP(RD 리소스 권한 부여 정책)에 지정된 조건을 충족해야 합니다. RD CAP는 RD 게이트웨이에 연결할 수 있는 권한이 있는 사용자를 지정합니다. RD RAP는 사용자가 RD 게이트웨이를 통해 연결할 수 있는 원격 데스크톱 또는 원격 앱과 같은 네트워크 리소스를 지정합니다. 
+사용자가 원격 데스크톱 게이트웨이를 통해 네트워크 리소스에 대한 액세스 권한을 부여받으려면 RD CAP(RD 연결 권한 부여 정책) 및 RD RAP(RD 리소스 권한 부여 정책)에 지정된 조건을 충족해야 합니다. RD CAP는 RD 게이트웨이에 연결할 수 있는 권한이 있는 사용자를 지정합니다. RD RAP는 사용자가 RD 게이트웨이를 통해 연결할 수 있는 원격 데스크톱 또는 원격 앱과 같은 네트워크 리소스를 지정합니다.
 
 RD 게이트웨이는 RD CAP용 중앙 정책 저장소를 사용하도록 구성할 수 있습니다. RD RAP는 RD 게이트웨이에서 처리되므로 중앙 정책을 사용할 수 없습니다. RD CAP용 중앙 정책 저장소를 사용하도록 구성된 RD 게이트웨이의 예는 중앙 정책 저장소로 사용되는 다른 NPS 서버에 대한 RADIUS 클라이언트입니다.
 
@@ -72,10 +72,10 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>RDS(원격 데스크톱 서비스) 인프라
 
-작동 중인 RDS(원격 데스크톱 서비스) 인프라가 있어야 합니다. 없는 경우 [원격 데스크톱 세션 컬렉션 배포 만들기](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment)에 있는 빠른 시작 템플릿을 사용하여 Azure에서 이 인프라를 빠르게 만들 수 있습니다. 
+작동 중인 RDS(원격 데스크톱 서비스) 인프라가 있어야 합니다. 이렇게 하지 않으면 다음 신속 하 게 만들면이 인프라 다음 빠른 시작 템플릿을 사용 하 여 Azure에서: [원격 데스크톱 세션 컬렉션 배포 만들기](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment)에 있는 빠른 시작 템플릿을 사용하여 Azure에서 이 인프라를 빠르게 만들 수 있습니다.
 
-테스트를 위해 온-프레미스 RDS 인프라를 수동으로 빨리 만들려면 다음 단계에 따라 배포합니다. 
-**자세한 정보**: [Azure 빠른 시작으로 RDS 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) 및 [기본 RDS 인프라 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure) 
+테스트를 위해 온-프레미스 RDS 인프라를 수동으로 빨리 만들려면 다음 단계에 따라 배포합니다.
+**자세한 정보**: [Azure 빠른 시작을 사용 하 여 RDS를 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) 하 고 [기본 RDS 인프라 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)합니다.
 
 ### <a name="azure-mfa-license"></a>Azure MFA 라이선스
 
@@ -99,7 +99,7 @@ NPS 확장을 사용하려면 온-프레미스 사용자가 Azure AD와 동기�
 
 NPS 확장을 설치하려면 Azure AD의 GUID를 알고 있어야 합니다. Azure AD의 GUID를 찾기 위한 지침은 아래에 나와 있습니다.
 
-## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성 
+## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
 이 섹션에서는 Azure MFA와 원격 데스크톱 게이트웨이를 통합하기 위한 지침에 대해 설명합니다. 사용자는 관리자로서 다단계 인증 장치 또는 애플리케이션을 직접 등록하기 전에 먼저 Azure MFA 서비스를 구성해야 합니다.
 
@@ -124,26 +124,21 @@ NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 
 1. **속성**을 선택합니다.
 1. [속성] 블레이드에서 아래와 같이 디렉터리 ID 옆에 있는 **복사** 아이콘을 클릭하여 클립보드에 해당 ID를 복사합니다.
 
-   ![properties](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Azure portal에서 디렉터리 ID 가져오기](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
 NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 NPS 확장을 설치합니다. 이 확장은 설계 목적에 맞는 RADIUS 서버로 작동합니다.
 
->[!Important]
+> [!Important]
 > NPS 확장을 원격 데스크톱 게이트웨이 서버에 설치하지 않았는지 확인해야 합니다.
 >
 
-1. [NPS 확장](https://aka.ms/npsmfa)을 다운로드합니다. 
+1. [NPS 확장](https://aka.ms/npsmfa)을 다운로드합니다.
 1. 설치 실행 파일(NpsExtnForAzureMfaInstaller.exe)을 NPS 서버에 복사합니다.
 1. NPS 서버에서 **NpsExtnForAzureMfaInstaller.exe**를 두 번 클릭합니다. 메시지가 표시되면 **실행**을 클릭합니다.
 1. Azure MFA용 NPS 확장 설치 대화 상자에서 소프트웨어 사용 조건을 검토하고, **사용 약관에 동의함**을 선택한 다음, **설치**를 클릭합니다.
-
-   ![Azure MFA 설치](./media/howto-mfa-nps-extension-rdg/image2.png)
-
 1. Azure MFA용 NPS 확장 설치 대화 상자에서 **닫기**를 클릭합니다.
-
-   ![Azure MFA용 NPS 확장](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>PowerShell 스크립트를 사용하여 NPS 확장에서 사용할 인증서 구성
 
@@ -165,19 +160,19 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 1. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
 1. `.\AzureMfaNpsExtnConfigSetup.ps1`을 입력하고 **ENTER** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
-   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Azure AD PowerShell에서 실행 중인 AzureMfaNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. 스크립트에서 PowerShell 모듈 설치를 확인한 후에 Azure Active Directory PowerShell 모듈 대화 상자를 표시합니다. 대화 상자에서 Azure AD 관리자 자격 증명 및 암호를 입력하고 **로그인**을 클릭합니다.
 
-   ![Powershell 계정 열기](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![PowerShell에서 Azure AD로 인증](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. 메시지가 표시되면 앞에서 복사한 테넌트 ID를 클립보드에 붙여넣고 **Enter** 키를 누릅니다.
+1. 메시지가 표시 되 면 이전에 클립보드에 복사한 디렉터리 id 및 키를 눌러 **ENTER**합니다.
 
-   ![테넌트 ID 입력](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![PowerShell에서 디렉터리 ID를 입력합니다.](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. 스크립트에서 자체 서명된 인증서를 만들고 다른 구성 변경 작업을 수행합니다. 출력은 아래에 표시된 이미지와 같아야 합니다.
 
-   ![자체 서명된 인증서](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![자체 서명 된 인증서를 표시 하는 PowerShell의 출력](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이에서 NPS 구성 요소 구성
 
@@ -191,18 +186,12 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
 1. RD 게이트웨이 서버에서 **서버 관리자**를 엽니다.
 1. 메뉴에서 **도구**를 클릭하고 **원격 데스크톱 서비스**를 가리킨 다음 **원격 데스크톱 게이트웨이 관리자**를 클릭합니다.
-
-   ![원격 데스크톱 서비스](./media/howto-mfa-nps-extension-rdg/image8.png)
-
 1. [RD 게이트웨이 관리자]에서 **\[서버 이름\](로컬)** 을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-
-   ![서버 이름](./media/howto-mfa-nps-extension-rdg/image9.png)
-
 1. 속성 대화 상자에서 **RD CAP 저장소** 탭을 선택합니다.
 1. [RD CAP 저장소] 탭에서 **NPS를 실행하는 중앙 서버**를 선택합니다. 
 1. **NPS를 실행하는 서버의 이름 또는 IP 주소 입력** 필드에서 NPS 확장을 설치한 서버의 IP 주소 또는 서버 이름을 입력합니다.
 
-   ![이름 또는 IP 주소 입력](./media/howto-mfa-nps-extension-rdg/image10.png)
+   ![이름 또는 NPS 서버의 IP 주소를 입력 합니다.](./media/howto-mfa-nps-extension-rdg/image10.png)
   
 1. **추가**를 클릭합니다.
 1. **공유 비밀** 대화 상자에서 공유 비밀을 입력한 다음 **확인**을 클릭합니다. 이 공유 비밀을 기록하여 안전하게 저장해 둡니다.
@@ -211,7 +200,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
    >공유 비밀은 RADIUS 서버와 클라이언트 간의 신뢰 관계를 설정하는 데 사용됩니다. 길고 복잡한 비밀을 만드세요.
    >
 
-   ![공유 비밀](./media/howto-mfa-nps-extension-rdg/image11.png)
+   ![트러스트를 설정 하려면 공유 비밀 만들기](./media/howto-mfa-nps-extension-rdg/image11.png)
 
 1. **확인**을 클릭하여 대화 상자를 닫습니다.
 
@@ -219,10 +208,10 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
 사용자의 자격 증명에 대한 유효성을 검사하고, 2단계 인증을 수행하며, 응답을 수신하고, RADIUS 메시지에 응답할 시간을 보장하려면 RADIUS 시간 제한 값을 조정해야 합니다.
 
-1. RD 게이트웨이 서버에서 서버 관리자를 엽니다. 메뉴에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
+1. RD 게이트웨이 서버에서 서버 관리자를 엽니다. 메뉴에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다.
 1. **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트 및 서버**를 펼치고 **원격 RADIUS 서버**를 선택합니다.
 
-   ![원격 RADIUS 서버](./media/howto-mfa-nps-extension-rdg/image12.png)
+   ![원격 RADIUS 서버를 표시 하는 네트워크 정책 서버 관리 콘솔](./media/howto-mfa-nps-extension-rdg/image12.png)
 
 1. 세부 정보 창에서 **TS 게이트웨이 서버 그룹**을 두 번 클릭합니다.
 
@@ -230,15 +219,15 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
    >이 RADIUS 서버 그룹은 NPS 정책에 대한 중앙 서버를 구성할 때 만들어졌습니다. 그룹에 하나 이상의 서버가 있는 경우 RD 게이트웨이에서는 RADIUS 메시지를 이러한 서버 또는 서버 그룹으로 전달합니다.
    >
 
-1. **TS 게이트웨이 서버 그룹 속성** 대화 상자에서 RD CAP를 저장하도록 구성된 NPS 서버의 IP 주소 또는 이름을 선택한 다음 **편집**을 클릭합니다. 
+1. **TS 게이트웨이 서버 그룹 속성** 대화 상자에서 RD CAP를 저장하도록 구성된 NPS 서버의 IP 주소 또는 이름을 선택한 다음 **편집**을 클릭합니다.
 
-   ![TS 게이트웨이 서버 그룹](./media/howto-mfa-nps-extension-rdg/image13.png)
+   ![IP 또는 이전에 구성한 NPS 서버의 이름을 선택 합니다.](./media/howto-mfa-nps-extension-rdg/image13.png)
 
 1. **RADIUS 서버 편집** 대화 상자에서 **부하 분산** 탭을 선택합니다.
 1. **부하 분산** 탭의 **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 필드에서 3인 기본값을 30초에서 60초 사이의 값으로 변경합니다.
 1. **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)** 필드에서 30초인 기본값을 이전 단계에서 지정한 값보다 크거나 같은 값으로 변경합니다.
 
-   ![Radius 서버 편집](./media/howto-mfa-nps-extension-rdg/image14.png)
+   ![부하 분산 탭에 Radius 서버 시간 제한 설정 편집](./media/howto-mfa-nps-extension-rdg/image14.png)
 
 1. **확인**을 두 번 클릭하여 대화 상자를 닫습니다.
 
@@ -251,7 +240,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 1. **TS 게이트웨이 권한 부여 정책 속성** 대화 상자에서 **설정** 탭을 클릭합니다.
 1. **설정** 탭의 [연결 요청 전달]에서 **인증**을 클릭합니다. RADIUS 클라이언트에서 인증 요청을 전달하도록 구성됩니다.
 
-   ![인증 설정](./media/howto-mfa-nps-extension-rdg/image15.png)
+   ![서버 그룹을 지정 하는 인증 설정을 구성 합니다.](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. **취소**를 클릭합니다.
 
@@ -268,7 +257,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 1. [네트워크 정책 서버] 콘솔에서 **NPS(로컬)** 를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 클릭합니다.
 1. **확인**을 두 번 클릭합니다.
 
-   ![AD에 서버 등록](./media/howto-mfa-nps-extension-rdg/image16.png)
+   ![Active Directory에서 NPS 서버 등록](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. 다음 절차를 위해 콘솔을 열어 둡니다.
 
@@ -278,12 +267,12 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 
 1. NPS 확장이 설치된 NPS 서버의 **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 클릭합니다.
 
-   ![새 RADIUS 클라이언트](./media/howto-mfa-nps-extension-rdg/image17.png)
+   ![NPS 콘솔에서 새 RADIUS 클라이언트 만들기](./media/howto-mfa-nps-extension-rdg/image17.png)
 
-1. **새 RADIUS 클라이언트** 대화 상자에서 _게이트웨이_와 같은 친숙한 이름과 원격 데스크톱 게이트웨이 서버의 IP 주소 또는 DNS 이름을 제공합니다. 
+1. **새 RADIUS 클라이언트** 대화 상자에서 _게이트웨이_와 같은 친숙한 이름과 원격 데스크톱 게이트웨이 서버의 IP 주소 또는 DNS 이름을 제공합니다.
 1. **공유 비밀** 및 **공유 비밀 확인** 필드에서 이전에 사용한 것과 동일한 비밀을 입력합니다.
 
-   ![이름 및 주소](./media/howto-mfa-nps-extension-rdg/image18.png)
+   ![친숙 한 이름 및 IP 또는 DNS 주소를 구성 합니다.](./media/howto-mfa-nps-extension-rdg/image18.png)
 
 1. **확인**을 클릭하여 새 RADIUS 클라이언트 대화 상자를 닫습니다.
 
@@ -294,28 +283,25 @@ Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지
 1. NPS 서버에서 NPS(로컬) 콘솔을 열고 **정책**을 펼쳐서 **네트워크 정책**을 클릭합니다.
 1. **다른 액세스 서버 연결**을 마우스 오른쪽 단추로 클릭하고 **중복된 정책**을 클릭합니다.
 
-   ![중복된 정책](./media/howto-mfa-nps-extension-rdg/image19.png)
+   ![다른 액세스 서버 정책에 대 한 연결이 중복](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. **Copy of Connections to other access servers(다른 액세스 서버 연결 복사본)** 를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-
-   ![네트워크 속성](./media/howto-mfa-nps-extension-rdg/image20.png)
-
 1. **다른 액세스 서버 연결 복사본** 대화 상자의 **정책 이름**에서 적합한 이름(예: _RDG_CAP_)을 입력합니다. **정책 사용**을 선택하고 **액세스 허용**을 선택합니다. 필요에 따라 **네트워크 액세스 서버 형식**에서 **원격 데스크톱 게이트웨이**를 선택하거나 **지정되지 않음**으로 그대로 둘 수 있습니다.
 
-   ![연결 복사본](./media/howto-mfa-nps-extension-rdg/image21.png)
+   ![정책 이름, 사용 및 액세스 권한 부여](./media/howto-mfa-nps-extension-rdg/image21.png)
 
 1. **제약 조건** 탭을 클릭하고 **인증 방법을 협상하지 않고 클라이언트가 연결할 수 있음**을 선택합니다.
 
-   ![클라이언트 연결 허용](./media/howto-mfa-nps-extension-rdg/image22.png)
+   ![클라이언트가 연결할 수 있도록 인증 메서드를 수정 합니다.](./media/howto-mfa-nps-extension-rdg/image22.png)
 
 1. 필요에 따라 **조건** 탭을 클릭하고 특정 Windows 그룹의 멤버 자격과 같이 연결 권한을 부여받기 위해 충족해야 하는 조건을 추가합니다.
 
-   ![조건](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![필요에 따라 연결 조건 지정](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. **확인**을 클릭합니다. 해당 도움말 항목을 볼 것인지 묻는 메시지가 표시되면 **아니요**를 클릭합니다.
 1. 새 정책이 목록의 맨 위에 있는지, 정책을 사용하도록 설정되었는지 및 액세스 권한을 부여하는지를 확인합니다.
 
-   ![네트워크 정책](./media/howto-mfa-nps-extension-rdg/image24.png)
+   ![정책 목록 맨 위로 이동](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>구성 확인
 
@@ -323,19 +309,19 @@ Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지
 
 아래 이미지와 같이 **원격 데스크톱 웹 액세스** 페이지를 사용할 수 있습니다.
 
-![원격 데스크톱 웹 액세스](./media/howto-mfa-nps-extension-rdg/image25.png)
+![원격 데스크톱 웹 액세스에서 테스트](./media/howto-mfa-nps-extension-rdg/image25.png)
 
 기본 인증에 대한 자격 증명을 성공적으로 입력하면 [원격 데스크톱 연결] 대화 상자에서 아래와 같이 원격 연결 시작 중 상태가 표시됩니다. 
 
 Azure MFA에서 이전에 구성한 보조 인증 방법으로 성공적으로 인증하면 해당 리소스에 연결됩니다. 그러나 보조 인증이 실패하면 리소스에 대한 액세스가 거부됩니다. 
 
-![원격 연결 시작](./media/howto-mfa-nps-extension-rdg/image26.png)
+![원격 연결을 시작 하는 원격 데스크톱 연결](./media/howto-mfa-nps-extension-rdg/image26.png)
 
 아래 예에서 Windows Phone의 Authenticator 앱이 보조 인증을 제공하는 데 사용됩니다.
 
-![계정](./media/howto-mfa-nps-extension-rdg/image27.png)
+![예제에서는 Windows Phone Authenticator 앱 표시 확인](./media/howto-mfa-nps-extension-rdg/image27.png)
 
-보조 인증 방법을 사용하여 성공적으로 인증하면 원격 데스크톱 게이트웨이에 정상적으로 로그인됩니다. 그러나 신뢰할 수 있는 디바이스에서 모바일 앱을 사용하여 보조 인증 방법을 사용해야 하므로 로그인 프로세스가 그렇지 않은 경우보다 더 안전합니다.
+보조 인증 방법을 사용하여 성공적으로 인증하면 원격 데스크톱 게이트웨이에 정상적으로 로그인됩니다. 그러나 신뢰할 수 있는 장치에서 모바일 앱을 사용 하 여 보조 인증 방법을 사용 하는 데 필요한 이기 때문에 로그인 프로세스는 그렇지 않은 것 보다 더 안전 합니다.
 
 ### <a name="view-event-viewer-logs-for-successful-logon-events"></a>성공적인 로그온 이벤트에 대한 이벤트 뷰어 로그 보기
 
@@ -343,58 +329,58 @@ Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인
 
 _Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational_ 게이트웨이 작업 로그에서 성공적인 로그인 이벤트를 쿼리하려면 다음 PowerShell 명령을 사용합니다.
 
-* _Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational_ | where {$_.ID -eq '300'} | FL 
+* `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * 이 명령에서는 사용자가 RD RAP(리소스 권한 부여 정책 요구 사항)를 충족하고 액세스 권한이 부여되었음을 보여 주는 Windows 이벤트가 표시됩니다.
 
-![이벤트 뷰어 보기](./media/howto-mfa-nps-extension-rdg/image28.png)
+![PowerShell을 사용 하 여 이벤트 보기](./media/howto-mfa-nps-extension-rdg/image28.png)
 
-* _Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational_ | where {$_.ID -eq '200'} | FL
+* `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '200'} | FL`
 * 이 명령에서는 사용자가 연결 권한 부여 정책 요구 사항을 충족한 경우를 보여 주는 이벤트가 표시됩니다.
 
-![연결 권한 부여](./media/howto-mfa-nps-extension-rdg/image29.png)
+![PowerShell을 사용 하 여 연결 권한 부여 정책 보기](./media/howto-mfa-nps-extension-rdg/image29.png)
 
 또한 이 로그를 보고 300 및 200 이벤트 ID에서 필터링할 수도 있습니다. 보안 이벤트 뷰어 로그에서 성공적인 로그온 이벤트를 쿼리하려면 다음 명령을 사용합니다.
 
-* _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL 
-* 이 명령은 중앙의 NPS 또는 RD 게이트웨이 서버에서 실행할 수 있습니다. 
+* `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+* 이 명령은 중앙의 NPS 또는 RD 게이트웨이 서버에서 실행할 수 있습니다.
 
-![성공적인 로그온 이벤트](./media/howto-mfa-nps-extension-rdg/image30.png)
+![샘플 성공적인 로그온 이벤트](./media/howto-mfa-nps-extension-rdg/image30.png)
 
 또한 아래와 같이 보안 로그 또는 네트워크 정책 및 액세스 서비스 사용자 지정 보기를 볼 수도 있습니다.
 
-![네트워크 정책 및 액세스 서비스](./media/howto-mfa-nps-extension-rdg/image31.png)
+![네트워크 정책 및 액세스 서비스 이벤트 뷰어](./media/howto-mfa-nps-extension-rdg/image31.png)
 
-Azure MFA용 NPS 확장을 설치한 서버에서 _Application and Services Logs\Microsoft\AzureMfa_에 있는 확장과 관련된 이벤트 뷰어 애플리케이션 로그를 찾을 수 있습니다. 
+Azure MFA용 NPS 확장을 설치한 서버에서 _Application and Services Logs\Microsoft\AzureMfa_에 있는 확장과 관련된 이벤트 뷰어 애플리케이션 로그를 찾을 수 있습니다.
 
-![이벤트 뷰어 애플리케이션 로그](./media/howto-mfa-nps-extension-rdg/image32.png)
+![이벤트 뷰어 AuthZ 응용 프로그램 로그](./media/howto-mfa-nps-extension-rdg/image32.png)
 
 ## <a name="troubleshoot-guide"></a>문제 해결 가이드
 
 구성이 예상대로 작동하지 않는 경우 문제 해결을 시작할 첫 번째 작업은 사용자가 Azure MFA를 사용하도록 구성되어 있는지 확인하는 것입니다. 사용자가 [Azure Portal](https://portal.azure.com)에 연결하도록 합니다. 사용자가 보조 인증을 요청받았고 성공적으로 인증할 수 있으면 Azure MFA의 잘못된 구성을 제거할 수 있습니다.
 
-Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 검토해야 합니다. 여기에는 이전 섹션에서 설명한 보안 이벤트, 게이트웨이 작업 및 Azure MFA 로그가 포함됩니다. 
+Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 검토해야 합니다. 여기에는 이전 섹션에서 설명한 보안 이벤트, 게이트웨이 작업 및 Azure MFA 로그가 포함됩니다.
 
 다음은 실패한 로그온 이벤트(6273 이벤트 ID)를 보여 주는 보안 로그의 출력 예입니다.
 
-![실패한 로그온 이벤트](./media/howto-mfa-nps-extension-rdg/image33.png)
+![실패 한 로그온 이벤트의 샘플](./media/howto-mfa-nps-extension-rdg/image33.png)
 
 다음은 AzureMFA 로그와 관련된 이벤트입니다.
 
-![Azure MFA 로그](./media/howto-mfa-nps-extension-rdg/image34.png)
+![이벤트 뷰어에서 샘플 Azure MFA 로그](./media/howto-mfa-nps-extension-rdg/image34.png)
 
-고급 문제 해결 옵션을 수행하려면 NPS 서비스가 설치된 NPS 데이터베이스 형식 로그 파일을 참조하세요. 이러한 로그 파일은 _%SystemRoot%\System32\Logs_ 폴더에 쉼표로 구분된 텍스트 파일로 만들어집니다. 
+고급 문제 해결 옵션을 수행하려면 NPS 서비스가 설치된 NPS 데이터베이스 형식 로그 파일을 참조하세요. 이러한 로그 파일은 _%SystemRoot%\System32\Logs_ 폴더에 쉼표로 구분된 텍스트 파일로 만들어집니다.
 
-이러한 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석(영문)](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 가져오지 않고는 해석하기가 어려울 수 있습니다. 로그 파일을 해석하는 데 도움이 되는 여러 IAS 파서를 온라인으로 찾을 수 있습니다. 
+이러한 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석(영문)](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 가져오지 않고는 해석하기가 어려울 수 있습니다. 로그 파일을 해석하는 데 도움이 되는 여러 IAS 파서를 온라인으로 찾을 수 있습니다.
 
-아래 이미지는 다운로드할 수 있는 [셰어웨어 애플리케이션](https://www.deepsoftware.com/iasviewer)의 출력을 보여 줍니다. 
+아래 이미지는 다운로드할 수 있는 [셰어웨어 애플리케이션](https://www.deepsoftware.com/iasviewer)의 출력을 보여 줍니다.
 
-![셰어웨어 앱](./media/howto-mfa-nps-extension-rdg/image35.png)
+![셰어웨어 앱 IAS 파서를 샘플](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-마지막으로 추가적인 문제 해결 옵션을 위해 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)와 같은 프로토콜 분석기를 사용할 수 있습니다. 
+마지막으로 추가적인 문제 해결 옵션을 위해 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)와 같은 프로토콜 분석기를 사용할 수 있습니다.
 
 아래의 Microsoft Message Analyzer 이미지에서는 **CONTOSO\AliceC** 사용자 이름이 포함된 RADIUS 프로토콜에서 필터링된 네트워크 트래픽을 보여줍니다.
 
-![Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
+![Microsoft Message Analyzer 필터링 된 트래픽 표시](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## <a name="next-steps"></a>다음 단계
 

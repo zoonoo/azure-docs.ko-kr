@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317530"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370468"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기) 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "58317530"
 
 결합 된 등록에 대 한 기록 된 이벤트에 "인증 방법" 범주 아래에 있는 Azure AD 감사 로그 합니다.
 
-![Azure AD 감사 로그 이벤트를 보여 주는 몇 가지 보안 정보 등록 새 사용자에 대 한 디렉터리에 인터페이스](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Azure AD 감사 로그 등록 이벤트를 보여 주는 하는 인터페이스](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 다음은 결합 된 등록 하 여 생성 된 모든 감사 이벤트에 대 한 목록입니다.
 
@@ -162,4 +162,4 @@ PowerShell 창에서 강조 표시된 위치를 업데이트한 후 다음 명�
 
 ## <a name="next-steps"></a>다음 단계
 
-[셀프 서비스 암호 재설정 및 Azure Multi-factor Authentication에 대 한 결합 된 등록의 공개 미리 보기에 자세히 알아보기](concept-registration-mfa-sspr-combined.md)
+* [셀프 서비스 암호 재설정 및 Azure Multi-factor Authentication에 대 한 결합 된 등록의 공개 미리 보기에 자세히 알아보기](concept-registration-mfa-sspr-combined.md)

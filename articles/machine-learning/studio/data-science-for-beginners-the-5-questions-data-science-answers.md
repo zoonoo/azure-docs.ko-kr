@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/03/2018
-ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/22/2019
+ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816910"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369193"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.

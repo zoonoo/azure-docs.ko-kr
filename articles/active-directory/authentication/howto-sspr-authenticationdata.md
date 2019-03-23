@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314793"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371369"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 배포하려면 인증 데이터가 있어야 합니다. 일부 조직에서는 사용자들이 직접 자신의 인증 데이터를 입력하도록 하지만 대부분의 조직에서는 Active Directory에 있는 기존 데이터와 동기화하는 것을 선호합니다. 동기화된 데이터는 다음과 같은 조건이 충족되는 경우 사용자 개입 없이 Azure AD 및 SSPR에 제공됩니다.
-   * 온-프레미스 디렉터리에 데이터가 올바른 형식으로 저장되어 있습니다.
-   * [기본 설정을 사용하여 Azure AD Connect](../hybrid/how-to-connect-install-express.md)가 구성되어 있습니다.
+
+* 온-프레미스 디렉터리에 데이터가 올바른 형식으로 저장되어 있습니다.
+* [기본 설정을 사용하여 Azure AD Connect](../hybrid/how-to-connect-install-express.md)가 구성되어 있습니다.
 
 올바르게 작동하려면 전화 번호가 *+국가코드 전화번호* 형식으로 저장되어야 합니다(예: +1 4255551234).
 
@@ -46,7 +47,7 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 
 전역 관리자는 다음 스크린샷에 표시된 대로 사용자에 대한 인증 연락처 정보를 수동으로 설정할 수 있습니다.
 
-![연락처][Contact]
+![인증에 Azure AD에서 사용자에 대 한 정보를 문의][Contact]
 
 전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다.
 
@@ -84,7 +85,7 @@ PowerShell을 사용하여 다음 필드를 설정할 수 있습니다.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>PowerShell 버전 1을 사용하여 인증 데이터 설정
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>PowerShell 버전 1을 사용하여 인증 데이터 읽기
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 PowerShell 버전 1에서 아래 명령을 사용하여 **인증 전화**와 **인증 메일**을 읽습니다.
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 아래 명령을 사용하면 Install-Module을 지원하는 최신 버전의 PowerShell에서 빠르게 설치할 수 있습니다. (첫 줄에서는 모듈이 이미 설치되어 있는지 확인합니다.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>PowerShell 버전 2를 사용하여 인증 데이터 설정
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>PowerShell 버전 2를 사용하여 인증 데이터 읽기
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

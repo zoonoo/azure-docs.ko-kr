@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223617"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359282"
 ---
 # <a name="access-data-from-your-datastores"></a>사용자 데이터 저장소에서 데이터에 액세스
 
@@ -32,7 +32,7 @@ ms.locfileid: "58223617"
 
 필요한 데이터 저장소를 사용 하는 [작업 영역](concept-azure-machine-learning-architecture.md#workspace) 첫 번째입니다. 
 
-[새 작업 영역을 만들](quickstart-create-workspace-with-python.md)거나 기존 작업 영역을 검색합니다.
+[새 작업 영역을 만들](setup-create-workspace.md#sdk)거나 기존 작업 영역을 검색합니다.
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-또는 [Python 빠른 시작이 수행](quickstart-create-workspace-with-python.md) 에 SDK를 사용 하 여 작업 영역 만들기를 시작 합니다.
 
 <a name="access"></a>
 

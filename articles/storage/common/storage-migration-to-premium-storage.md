@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317360"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372321"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -69,10 +69,10 @@ Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage
 |:--- |:--- |
 | 디스크 용량: 35TB<br />스냅숏 용량: 10TB |인바운드+아웃바운드에 대해 초당 최대 50기가비트 |
 
-Premium Storage 사양에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-storage-account-scale-limits)를 참조하세요.
+Premium Storage 사양에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-performance-storage-account-scale-limits)를 참조하세요.
 
 #### <a name="disk-caching-policy"></a>디스크 캐싱 정책
-기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure Portal](https://portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
+기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. 기존 데이터 디스크의 캐시 설정을 사용 하 여 업데이트할 수는 [Azure portal](https://portal.azure.com) 또는 *-HostCaching* 의 매개 변수는 *Set-azuredatadisk* cmdlet.
 
 #### <a name="location"></a>위치
 Azure Premium Storage를 사용할 수 있는 위치를 선택합니다. 사용 가능한 위치에 대한 최신 정보는 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요. VM에 대한 디스크를 저장하는 Storage 계정과 동일한 지역에 있는 VM은 별도 영역에 있는 경우보다 훨씬 우수한 성능을 제공합니다.

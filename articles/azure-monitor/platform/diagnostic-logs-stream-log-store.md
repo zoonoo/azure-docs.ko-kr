@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309318"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351564"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 
@@ -100,6 +100,39 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log Analytics에서 데이터를 쿼리하려면 어떻게 하나요?
 
 Portal의 로그 검색 블레이드 또는 Log Analytics에 속하는 고급 분석에서 AzureDiagnostics 테이블 아래에 제공되는 로그 관리 솔루션을 통해 진단 로그를 쿼리할 수 있습니다. 또한 Log Analytics로 전송하는 로그 데이터를 즉시 이해하는 데 도움이 되는 [Azure 리소스의 몇 가지 솔루션](../../azure-monitor/insights/solutions.md)을 설치할 수 있습니다.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>알려진 제한: AzureDiagnostics 열 제한
+다양 한 리소스 데이터 형식 모두 같은 테이블에 전송 됩니다 보내기 때문에 (_AzureDiagnostics_),이 테이블의 스키마는 수집 되 고 모든 다른 데이터 형식의 스키마의 상위 집합입니다. 예를 들어, 다음 데이터 형식 컬렉션에 대 한 진단 설정을 만든 경우 동일한 작업 영역에 전송 되 고 모든:
+- 감사 로그 (A, B 및 C 열으로 구성 된 스키마가) 리소스 1  
+- (D, E 및 F 열으로 구성 된 스키마가) 리소스 2의 오류 로그  
+- 리소스 3 (G 열, H, 및 I로 구성 된 스키마가) 데이터 흐름 로그  
+ 
+AzureDiagnostics 테이블은 몇 가지 샘플 데이터를 사용 하 여 다음과 같이 표시 됩니다.  
+ 
+| ResourceProvider | Category | A | b | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+500 개 이상의 열을가지고 있지 않은 경우 지정된 된 Azure 로그 테이블의 명시적 제한은.입니다. 에 도달 하면 수집 시 처음 500 개 외부 열을 사용 하 여 데이터를 포함 하는 행이 삭제 됩니다. AzureDiagnostics 테이블 되도록이 제한의 영향을 특히 취약 되었습니다. 일반적으로 동일한 작업 영역으로 전송 되는 다양 한 데이터 원본 동일한 작업 영역으로 전송 되기 때문에 두 개 이상의 아주 자세한 데이터 원본에 발생 합니다. 
+ 
+#### <a name="azure-data-factory"></a>Azure 데이터 팩터리  
+매우 자세한 로그를 집합으로 인해 azure Data Factory는이 제한에 의해 영향을 받지 특히 알고 있는 리소스입니다. 특히 다음과 같습니다.  
+- *파이프라인의 모든 활동에 대해 정의 된 사용자 매개 변수에*: 모든 작업에 대 한 모든 사용자 고유 하 게 명명 된 매개 변수에 대해 만든 새 열이 됩니다. 
+- *작업 입력 및 출력*: 이러한 작업-작업을 변경 하 고 많은 양의 자세한 특성으로 인해 열을 생성 합니다. 
+ 
+으로 아래 광범위 한 해결 방법 제안 된 것이 좋습니다 이러한 로그를 작업 영역에 수집 되 고 다른 로그 형식에 영향을 줄 가능성을 최소화 하기 위해 자신의 작업 영역으로 ADF 로그 격리 합니다. 4 월 중순 2019에서 사용할 수 있는 Azure Data Factory에 대 한 로그 조정 될 예정입니다.
+ 
+#### <a name="workarounds"></a>해결 방법
+짧은 기간 동안 500 개 열만 다시 정의 될 때까지, 것이 좋습니다 자세한 데이터 형식 제한에 도달의 가능성을 줄이기 위해 별도 작업 영역으로 구분 합니다.
+ 
+장기적인 Azure 진단 이동 하는 통합 된, 스파스 스키마에서 각 데이터 형식으로 당 개별 테이블로 동적 형식에 대 한 지원을 사용 하 여 쌍을 이루는 이렇게 Azure 진단 메커니즘을 통해 Azure 로그에 들어오는 데이터의 사용 편의성을 크게 향상 됩니다. 이미이 확인할 수 있습니다 선택 Azure 리소스 종류에 대 한 예를 들어 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) 하거나 [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) 로그 합니다. 큐 레이 팅 된 이러한 로그에 지원 되는 Azure에서 새 리소스 종류에 대 한 뉴스를 찾아보십시오 합니다 [Azure 업데이트](https://azure.microsoft.com/updates/) 블로그!
+
 
 ## <a name="next-steps"></a>다음 단계
 

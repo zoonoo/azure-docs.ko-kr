@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e9704ce014e520350360c336c7a17940cae95fb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197898"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367919"
 ---
 # <a name="web-apps"></a>웹 앱
 
@@ -48,7 +48,7 @@ ms.locfileid: "56197898"
 웹앱을 등록하려면 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
 
 * 단일 테넌트 - 조직 전용 애플리케이션을 빌드하는 경우 Azure Portal을 사용하여 해당 애플리케이션을 회사 디렉터리에 등록해야 합니다.
-* 다중 테넌트 - 조직 외부 사용자가 사용할 수 있는 애플리케이션을 빌드하는 경우 해당 애플리케이션을 회사 디렉터리에 등록해야 하며, 동시에 애플리케이션을 사용할 각 조직의 디렉터리에도 등록해야 합니다. 해당 디렉터리에서 애플리케이션을 사용할 수 있게 만들려면 고객이 애플리케이션에 동의할 수 있게 하는 등록 프로세스를 포함하면 됩니다. 사용자가 애플리케이션에 등록할 때 애플리케이션에 필요한 권한을 보여 주는 대화 상자가 나타난 다음 동의하는 옵션이 나타납니다. 필요한 권한에 따라, 다른 조직의 관리자가 동의해야 할 수도 있습니다. 사용자 또는 관리자가 동의하면 애플리케이션이 이들의 디렉터리에 등록됩니다.
+* 다중 테넌트 - 조직 외부 사용자가 사용할 수 있는 응용 프로그램을 빌드하는 경우 응용 프로그램을 회사 디렉터리에 등록해야 하며 동시에 응용 프로그램을 사용할 각 조직의 디렉터리에도 등록해야 합니다. 해당 디렉터리에서 애플리케이션을 사용할 수 있게 만들려면 고객이 애플리케이션에 동의할 수 있게 하는 등록 프로세스를 포함하면 됩니다. 사용자가 애플리케이션에 등록할 때 애플리케이션에 필요한 권한을 보여 주는 대화 상자가 나타난 다음 동의하는 옵션이 나타납니다. 필요한 권한에 따라, 다른 조직의 관리자가 동의해야 할 수도 있습니다. 사용자 또는 관리자가 동의하면 애플리케이션이 이들의 디렉터리에 등록됩니다.
 
 ## <a name="token-expiration"></a>토큰 만료
 

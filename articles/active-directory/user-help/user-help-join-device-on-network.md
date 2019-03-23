@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192356"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369142"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "56192356"
 ## <a name="what-happens-when-you-join-your-device"></a>디바이스를 가입할 때 나타나는 결과
 조직의 네트워크에 Windows 10 디바이스를 가입하는 동안 다음 작업이 발생합니다.
 
-- Windows에서 조직의 네트워크에 디바이스를 등록하여 개인 계정을 사용하여 리소스에 액세스할 수 있도록 합니다. 디바이스가 등록되면 Windows는 네트워크에 디바이스를 가입하므로 조직의 사용자 이름 및 암호를 사용하여 로그인하고 제한된 리소스에 액세스할 수 있습니다.
+- Windows 개인 계정을 사용 하 여 리소스에 액세스할 수 있도록 조직의 네트워크에 장치를 등록 합니다. 디바이스가 등록되면 Windows는 네트워크에 디바이스를 가입하므로 조직의 사용자 이름 및 암호를 사용하여 로그인하고 제한된 리소스에 액세스할 수 있습니다.
 
 - 조직의 선택에 따라, [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보](user-help-security-info-overview.md)를 통해 2단계 인증을 설정하도록 요구될 수 있습니다.
 

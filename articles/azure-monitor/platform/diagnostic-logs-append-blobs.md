@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882382"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370060"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>저장소 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882382"
 
 ## <a name="what-is-changing"></a>변경 사항
 
-Azure Monitor는 리소스 진단 데이터 및 활동 로그 데이터를 Azure Storage 계정, Event Hubs 네임스페이스 또는 Log Analytics에 보낼 수 있는 기능을 제공합니다. 시스템 성능 문제를 해결하기 위해 **2018년 11월 1일 오전 12시(UTC)** 에 Blob Storage로 전송되는 로그 데이터의 형식이 변경됩니다. Blob Storage에서 데이터를 읽는 도구가 있는 경우, 새 데이터 형식을 이해하도록 도구를 업데이트해야 합니다.
+Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azure Monitor에서 Log Analytics 작업 영역에 리소스 진단 데이터 및 활동 로그 데이터를 보낼 수 있는 기능을 제공 합니다. 시스템 성능 문제를 해결하기 위해 **2018년 11월 1일 오전 12시(UTC)** 에 Blob Storage로 전송되는 로그 데이터의 형식이 변경됩니다. Blob Storage에서 데이터를 읽는 도구가 있는 경우, 새 데이터 형식을 이해하도록 도구를 업데이트해야 합니다.
 
 * 2018년 11월 1일 목요일 오전 12시(UTC)에 Blob 형식이 [JSON 줄](http://jsonlines.org/)로 변경됩니다. 즉, 각 레코드가 줄 바꿈으로 구분되고 외부 레코드 배열 및 JSON 레코드 사이의 쉼표가 없습니다.
 * 모든 구독의 모든 진단 설정에 대해 Blob 형식이 동시에 변경됩니다. 11월 1일에 내보내는 첫 번째 PT1H.json 파일은 이 새로운 형식을 사용합니다. Blob 및 컨테이너 이름은 동일하게 유지됩니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849927"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368961"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup 아키텍처
 
@@ -179,7 +179,7 @@ Vm에 대 한 디스크 저장소 및 사용 가능한 디스크 유형에 대 �
 Azure Backup을 사용 하 여 premium storage를 사용 하 여 Azure Vm을 백업할 수 있습니다.
 
 - Premium storage Vm 백업 과정에서 Backup 서비스는 이라는 임시 준비 위치를 만듭니다 *AzureBackup-*, 저장소 계정에 있습니다. 준비 위치의 크기를 복구 지점 스냅숏의 크기를 같습니다.
-- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아보기](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
+- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아보기](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
 - 백업 작업이 완료되면 준비 위치가 삭제됩니다.
 - 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md#billing)과 일관성이 있습니다.
 

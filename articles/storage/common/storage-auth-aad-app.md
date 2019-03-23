@@ -1,27 +1,27 @@
 ---
-title: 애플리케이션에서 Blob 및 큐 데이터에 액세스하도록 Azure Active Directory를 사용하여 인증(미리 보기) | Microsoft Docs
-description: Azure Active Directory를 사용하여 애플리케이션 내에서 인증한 다음, blob 및 큐에 대한 요청 권한을 부여합니다(미리 보기).
+title: 응용 프로그램에서 blob 및 큐 데이터에 액세스 하려면 Azure Active Directory를 사용 하 여 인증 | Microsoft Docs
+description: Blob 및 큐를 사용 하 여 Azure Active Directory 응용 프로그램 내에서 인증 및 권한 부여 후에 요청 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456094"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369516"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>blob 및 큐에 대한 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증(미리 보기)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Blob 및 큐에 대 한 액세스를 위해 응용 프로그램에서 Azure Active Directory를 사용 하 여 인증
 
 Azure Storage에서 Azure AD(Azure Active Directory)를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Azure AD에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD에서는 애플리케이션을 실행하여 보안 주체(사용자, 그룹 또는 서비스 사용자)의 인증을 처리합니다. 인증이 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고, 애플리케이션은 액세스 토큰을 사용하여 Azure Storage에 대한 요청 권한을 부여할 수 있습니다.
 
 이 아티클에서는 Azure AD를 사용하여 인증하기 위해 애플리케이션을 구성하는 방법을 보여줍니다. 코드 예제에서는 .NET을 사용하지만 다른 언어는 비슷한 접근 방식을 사용합니다.
 
-Azure Storage 애플리케이션에서 보안 주체를 인증할 수 있기 전에 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증할 수 있기 전에 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조하세요.
 
@@ -29,7 +29,7 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 RBAC 역할 할당
 
-Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC 사용 하 여 Azure Blob 및 큐 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
@@ -73,7 +73,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 > [!NOTE]
 > Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 저장소 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다. 
 >
-> 예를 들어 샘플 코드를 사용자가 소유자이거나 고유한 사용자 ID 하의 저장소 계정에서 실행하려면 Blob 데이터 기여자에 대한 RBAC 역할을 자신에게 할당해야 합니다. 그렇지 않은 경우 Blob을 만들라는 요청은 HTTP 상태 코드 403(금지됨) 메시지를 표시하며 실패합니다. 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+> 예를 들어 샘플 코드를 사용자가 소유자이거나 고유한 사용자 ID 하의 저장소 계정에서 실행하려면 Blob 데이터 기여자에 대한 RBAC 역할을 자신에게 할당해야 합니다. 그렇지 않은 경우 Blob을 만들라는 요청은 HTTP 상태 코드 403(금지됨) 메시지를 표시하며 실패합니다. 자세한 내용은 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Azure AD를 사용하여 인증하기 위해 잘 알려진 값
 
@@ -105,7 +105,7 @@ Azure Storage 리소스 ID를 사용하여 Azure Storage에 대한 요청을 인
 
 ### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
 
-Visual Studio에서 Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 설치합니다. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔에 다음 명령을 입력하여 .NET용 클라이언트 라이브러리의 최신 버전을 설치합니다.
+Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔에 다음 명령을 입력하여 .NET용 클라이언트 라이브러리의 최신 버전을 설치합니다.
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-REST에서 Azure Storage 작업에 대한 권한을 부여하는 방법에 대한 자세한 내용은 [Authure Active Directory로 인증(미리 보기)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)을 참조하세요.
+REST에서 Azure Storage 작업 권한을 부여 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory를 사용 하 여 인증](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 스토리지 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
-- Azure Storage를 통해 Azure 리소스에 대한 관리되는 ID 사용에 관한 자세한 내용은 [Azure 리소스에 대한 관리 ID를 통한 blob 및 쿼리 액세스 인증(미리 보기)](storage-auth-aad-msi.md)을 참조하세요.
-- Azure AD ID를 사용하여 Azure CLI 및 PowerShell에 로그인하는 방법을 알아보려면 [Azure AD ID를 사용하여 CLI 또는 PowerShell을 통해 Azure Storage에 액세스(미리 보기)](storage-auth-aad-script.md)를 참조하세요.
-- Azure Blob 및 큐의 Azure AD 통합에 대한 자세한 내용은 Azure Storage 팀 블로그 게시물 [Azure Storage에 대한 Azure AD 인증 미리 보기 발표](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/)를 참조하세요.
-
-
-
+- Azure storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
+- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [blob 및 Azure 사용 하 여 큐에 대 한 인증 액세스 identities를 관리 되는 Azure 리소스에 대 한](storage-auth-aad-msi.md)합니다.
+- Azure AD id를 사용 하 여 Azure CLI 및 PowerShell에 로그인 하는 방법에 알아보려면 참조 [CLI 또는 PowerShell을 사용 하 여 Azure Storage에 액세스 하려면 Azure AD id를 사용 하 여](storage-auth-aad-script.md)입니다.

@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff8beb1995359bad93449744718091c338e4994
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226558"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372338"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
 
-이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. 
+Azure Resource Manager 템플릿 및 Azure Cloud shell에서 Azure CLI를 사용 하 여 Linux 가상 컴퓨터 (VM)를 만드는 방법에 알아봅니다. Windows 가상 머신을 만들려면 참조 [Resource Manager 템플릿에서 Windows 가상 머신 만들기](../windows/ps-template.md)합니다.
 
 ## <a name="templates-overview"></a>템플릿 개요
 
@@ -38,7 +38,7 @@ Azure Resource Manager 템플릿은 Azure 솔루션의 인프라와 구성을 �
 1. 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다.
 1. 가상 머신을 만듭니다.
 
-다음 예제에서 VM을 만듭니다 [Azure 빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)합니다. 이 배포에 대 한 SSH 인증만 허용 됩니다. 메시지가 표시되면 *~/.ssh/id_rsa.pub*의 내용과 같은 고유한 SSH 공용 키의 값을 제공합니다. SSH 키 쌍을 만들어야 하는 경우 [Azure에서 Linux VM용 SSH 키 쌍을 만들고 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음은 템플릿의 복사본이입니다.
+다음 예제에서 VM을 만듭니다는 [Azure 빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)합니다. 이 배포에 대 한 SSH 인증만 허용 됩니다. 메시지가 표시되면 *~/.ssh/id_rsa.pub*의 내용과 같은 고유한 SSH 공용 키의 값을 제공합니다. SSH 키 쌍을 만들어야 하는 경우 [Azure에서 Linux VM용 SSH 키 쌍을 만들고 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음은 템플릿의 복사본이입니다.
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
@@ -84,8 +84,8 @@ ssh <adminUsername>@<ipAddress>
 
 템플릿 만들기에 대해 자세히 알아보려면 배포한 리소스 종류의 JSON 구문 및 속성을 확인하세요.
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

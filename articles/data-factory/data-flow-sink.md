@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852443"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371142"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mapping Data Flow 싱크 변환
 
@@ -57,7 +57,7 @@ Azure Storage Blob 또는 Data Lake 싱크 형식의 경우, 변환된 데이터
 ## <a name="file-name-options"></a>파일 이름 옵션
 
    * Default: Spark에서 PART 기본값에 따라 파일 이름을 지정하도록 허용
-   * 패턴 출력 파일의 이름 입력
+   * 패턴 출력 파일에 대 한 패턴을 입력 합니다. 예를 들어 "loans [n]"는 만들 loans1.csv, loans2.csv,...
    * 파티션 기준: 파티션별 파일 이름 입력
    * 열의 데이터로: 출력 파일을 열 값으로 설정
 
@@ -66,11 +66,16 @@ Azure Storage Blob 또는 Data Lake 싱크 형식의 경우, 변환된 데이터
 
 ## <a name="database-options"></a>데이터베이스 옵션
 
-* Insert, update, delete, upsert를 허용 합니다. 삽입을 허용 하는 기본값은입니다. 삽입 행, 삽입 또는 업데이트 하려는 경우 해당 특정 작업에 대 한 태그 행에는 alter 행 변환의 먼저 추가 해야 합니다.
+* Insert, update, delete, upsert를 허용 합니다. 삽입을 허용 하는 기본값은입니다. 업데이트, 삽입 또는 삭제 행 원한다 면 해당 특정 작업에 대 한 태그 행에는 alter 행 변환의 먼저 추가 해야 합니다. "허용 삽입"을 해제 하면 원본에서 새 행을 삽입에서 ADF 중지 됩니다.
 * (대상 테이블에서 데이터 흐름을 완료 하기 전에 모든 행을 제거) 하는 테이블 자르기
 * 테이블을 (대상 테이블의 드롭/생성 데이터 흐름을 완료 하기 전에 수행)를 다시 만듭니다.
 * 대량 데이터 로드의 일괄 처리 크기 버킷 쓰기 청크로 숫자를 입력
 * 준비를 사용 합니다. 이 싱크 데이터 집합으로 Azure Data Warehouse에 로드 하는 경우 Polybase를 사용 하는 ADF 지시
+
+> [!NOTE]
+> 데이터 흐름에서 새 테이블 이름을 가진 싱크 변환에서 데이터 집합을 설정 하 여 대상 데이터베이스에서 새 테이블 정의 만들려면 ADF를 요청할 수 있습니다. SQL 데이터 집합의 테이블 이름 아래 "편집"을 클릭 하 고 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환에서 "스키마 드리프트 허용"으로 설정 합니다. Seth "스키마 가져오기" None으로 설정 합니다.
+
+![소스 변환 스키마](media/data-flow/dataset2.png "SQL 스키마")
 
 ![SQL 싱크 옵션](media/data-flow/alter-row2.png "SQL 옵션")
 

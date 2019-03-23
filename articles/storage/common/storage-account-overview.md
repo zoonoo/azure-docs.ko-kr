@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544242"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371812"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -84,20 +84,14 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 사용 가능한 액세스 계층은 다음과 같습니다.
 
-> [!NOTE]
-> 합니다 [premium 액세스 계층 (미리 보기)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), 성능에 민감한 응용 프로그램에 최적화 된 높은 처리량 및 트랜잭션 속도 사용 하 여 낮은 및 일관 된 대기 시간을 제공 합니다. 프리미엄 액세스 계층은 블록 Blob 저장소 계정 (미리 보기) 에서만 사용할 수 있습니다. 자세한 내용은 [공개 미리 보기 Azure Premium Blob Storage](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/)합니다.
-
 * **핫** 액세스 계층은 저장소 계층의 개체에 자주 액세스하는 데 최적화되어 있습니다. 핫 계층의 데이터 액세스는 가장 비용 효율적이지만, 저장소 비용이 다소 높습니다. 새 저장소 계정은 기본적으로 핫 계층에 만들어집니다.
 * **쿨** 액세스 계층은 자주 액세스하지 않고 최소 30일 동안 저장된 많은 양의 데이터를 저장하는 데 최적화되어 있습니다. 쿨 계층에 데이터를 저장하는 것은 상당히 비용 효율적이지만, 데이터 액세스 비용이 핫 계층의 데이터에 액세스하는 것보다 다소 높을 수 있습니다.
 * **보관** 계층은 개별 블록 Blob에만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고, 최소 180일 동안 보관 계층에 남아 있는 데이터에 맞게 최적화되어 있습니다. 보관 계층에 데이터를 저장하는 것이 가장 비용 효율적이지만, 데이터 액세스 비용이 핫 또는 쿨 계층의 데이터에 액세스하는 것보다 높을 수 있습니다. 
 
-
-데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
+데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 참조 하세요. [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)합니다.
 
 > [!IMPORTANT]
 > 기존 저장소 계정 또는 Blob에 대한 액세스 계층을 변경하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 계정 청구 섹션](#storage-account-billing)을 참조하세요.
-
-
 
 ## <a name="replication"></a>복제
 
@@ -135,7 +129,7 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 저장소 계정을
 
 다음 방법 중 하나를 사용하여 저장소 계정에서 데이터에 대한 액세스를 부여할 수 있습니다.
 
-- **Azure Active Directory:** Azure AD(Azure Active Directory) 자격 증명을 사용하여 Blob 및 큐 데이터 액세스를 위한 사용자, 그룹 또는 기타 ID를 인증합니다(미리 보기). ID 인증에 성공하면 Azure AD가 Azure Blob Storage나 큐 스토리지에 사용할 토큰을 반환합니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
+- **Azure Active Directory:** 사용자, 그룹 또는 blob 및 큐 데이터에 대 한 액세스에 대 한 다른 id를 인증 하려면 Azure Active Directory (Azure AD) 자격 증명을 사용 합니다. ID 인증에 성공하면 Azure AD가 Azure Blob Storage나 큐 스토리지에 사용할 토큰을 반환합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
 - **공유 키 권한 부여:** 스토리지 계정 액세스 키를 사용하여, Azure Storage에 액세스하기 위해 런타임 시 애플리케이션이 사용하는 연결 문자열을 구성합니다. 연결 문자열의 값을 사용하여 Azure Storage에 전달되는 *권한 부여* 헤더를 구성합니다. 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
 - **공유 액세스 서명:** Azure AD 인증을 사용하지 않는 경우 스토리지 계정의 리소스에 대한 액세스를 위임하기 위해 공유 액세스 서명을 사용합니다. 공유 액세스 서명은 URL의 Azure Storage에 대한 요청을 인증하는 데 필요한 모든 정보를 캡슐화하는 토큰입니다. 저장소 리소스, 부여한 사용 권한, 권한이 유효한 기간을 공유 액세스 서명의 일부로 지정할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 

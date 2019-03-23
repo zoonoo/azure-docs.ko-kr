@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569028"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369176"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Mapping Data Flow 원본 변환
 
@@ -74,16 +74,16 @@ SQL DB 원본의 데이터 분할은 옵션이지만 대규모 쿼리에 유용�
 ## <a name="source-file-management"></a>원본 파일 관리
 ![새 원본 설정](media/data-flow/source2.png "새 설정")
 
-* 원본 폴더에서 패턴과 일치하는 파일 시리지를 선택하기 위한 와일드카드 경로. 이 데이터 집합 정의에서 설정 된 모든 파일을 덮어씁니다.
+* 일련의 패턴과 일치 하는 소스 폴더에서 파일을 선택 하려면 와일드 카드 경로입니다. 이 데이터 집합 정의에서 설정 된 모든 파일을 덮어씁니다.
 * 파일 목록. 파일 세트와 동일합니다. 처리할 상대 경로 파일 목록을 사용하여 만든 텍스트 파일을 가리킵니다.
 * 파일 이름을 저장할 열은 데이터의 열에 원본 파일의 이름을 저장합니다. 파일 이름 문자열을 저장하려면 여기에 새 이름을 입력합니다.
 * 완료 후(Data Flow가 실행된 후에 원본 파일에 대해 아무 작업도 수행하지 않도록 선택할 수 있음) 원본 파일을 삭제하거나 원본 파일을 이동합니다. 이동 경로는 상대 경로입니다.
 
-### <a name="sql-datasets"></a>SQL 데이터 세트
+### <a name="sql-datasets"></a>SQL 데이터 집합
 
 Azure SQL DB 또는 Azure SQL DW를 원본으로 사용하는 경우 추가 옵션이 제공됩니다.
 
-* 쿼리: 원본의 SQL 쿼리를 입력합니다. 쿼리를 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. 여기에서 Order By 절은 지원되지 않습니다.
+* 쿼리: 원본의 SQL 쿼리를 입력합니다. 쿼리를 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. 여기에서 Order By 절은 지원되지 않습니다. 반면 전체 SELECT FROM 문을 여기 설정 수 있습니다.
 
 * 일괄 처리 크기: 일괄 처리 크기를 입력하여 큰 데이터를 일괄로 처리할 수 있는 읽기로 청크합니다.
 

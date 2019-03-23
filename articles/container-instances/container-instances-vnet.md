@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550773"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372415"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -114,13 +114,13 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 
 먼저 컨테이너 그룹을 배포하고 새 가상 네트워크와 서브넷의 매개 변수를 지정합니다. 이러한 매개 변수를 지정하면 가상 네트워크와 서브넷이 생성되고, Azure Container instances에 서브넷이 위임되며, 네트워크 프로필도 작성됩니다. 리소스를 만들고 나면 컨테이너 그룹이 서브넷에 배포됩니다.
 
-새 가상 네트워크와 서브넷의 설정을 지정하는 다음 [az container create][az-container-create] 명령을 실행합니다. 가상 네트워크에서 컨테이너 그룹을 [지원](#preview-limitations)하는 지역에 만들어진 리소스 그룹의 이름을 제공해야 합니다. 이 명령은 정적 웹 페이지를 제공하는 소규모 Node.js 웹 서버가 실행되는 [microsoft/aci-helloworld][aci-helloworld] 컨테이너를 배포합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
+새 가상 네트워크와 서브넷의 설정을 지정하는 다음 [az container create][az-container-create] 명령을 실행합니다. 가상 네트워크에서 컨테이너 그룹을 [지원](#preview-limitations)하는 지역에 만들어진 리소스 그룹의 이름을 제공해야 합니다. 이 명령은 공용 Microsoft 배포 [aci helloworld] [ aci-helloworld] 정적 웹 페이지 처리는 작은 Node.js 웹 서버를 실행 하는 컨테이너입니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -310,7 +310,7 @@ Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, �
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

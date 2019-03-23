@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112214"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371777"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 
@@ -55,7 +55,7 @@ v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정
 사용자가 앱에 처음으로 로그인하도록 하려는 경우 [OpenID Connect](v2-protocols-oidc.md) 권한 부여 요청을 보내고 v2.0 엔드포인트에서 `id_token`을 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **암시적 흐름 허용**이 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
+> 성공적으로 ID 토큰을 앱 등록을 요청 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지에는 암시적 허용 흐름을 선택 하 여 올바르게 사용할 수 있어야 합니다. **액세스 토큰을** 및 **ID 토큰** 아래의 합니다 **암시적 권한 부여** 섹션입니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
-| `client_id` | 필수 |등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList))에서 앱에 할당한 애플리케이션 ID입니다. |
+| `client_id` | 필수 |응용 프로그램 (클라이언트) ID입니다 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지 앱에 할당 합니다. |
 | `response_type` | 필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response_type을 사용하는 경우 `scope` 매개 변수는 토큰을 발행할 리소스를 나타내는 범위를 포함해야 합니다. |
 | `redirect_uri` | 권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
 | `scope` | 필수 |공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 필요에 따라 추가 사용자 데이터에 액세스하기 위해 `email` 또는 `profile` 범위를 포함할 수도 있습니다. 다양한 리소스에 대한 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |

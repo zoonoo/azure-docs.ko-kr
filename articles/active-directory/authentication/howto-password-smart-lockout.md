@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310237"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370193"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -40,8 +40,8 @@ ms.locfileid: "58310237"
 
 [통과 인증](../hybrid/how-to-connect-pta.md)을 사용하는 경우 다음을 확인해야 합니다.
 
-   * Azure AD 잠금 임계값이 Active Directory 계정 잠금 임계값**보다 작습니다**. Active Directory의 계정 잠금 임계값을 Azure AD의 잠금 임계값보다 최소 2~3배 이상 크게 설정합니다. 
-   * Azure AD 잠금 기간(**단위: 초**)이 Active Directory의 다음 시간(**단위: 분**) 후 계정 잠금 수를 원래대로 설정 값**보다 길어야** 합니다.
+* Azure AD 잠금 임계값이 Active Directory 계정 잠금 임계값**보다 작습니다**. Active Directory의 계정 잠금 임계값을 Azure AD의 잠금 임계값보다 최소 2~3배 이상 크게 설정합니다. 
+* Azure AD 잠금 기간(**단위: 초**)이 Active Directory의 다음 시간(**단위: 분**) 후 계정 잠금 수를 원래대로 설정 값**보다 길어야** 합니다.
 
 > [!IMPORTANT]
 > 현재로서는 사용자의 클라우드 계정이 스마트 잠금 기능에 의해 잠긴 경우 관리자가 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "58310237"
 3. **컴퓨터 구성** > **정책** > **Windows 설정** > **보안 설정** > **계정 정책** > **계정 잠금 정책**으로 이동합니다.
 4. **계정 잠금 임계값**과 **다음 시간 후 계정 잠금 수를 원래대로 설정** 값을 확인합니다.
 
-![그룹 정책 개체를 사용하여 온-프레미스 Active Directory 계정 잠금 정책 수정](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![온-프레미스 Active Directory 계정 잠금 정책 수정](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD 스마트 잠금 값 관리
 
@@ -78,9 +78,7 @@ ms.locfileid: "58310237"
 
 **권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하세요. 문제가 계속 발생하면 관리자에게 문의하세요.**
 
-
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD를 사용하여 조직에서 불량 암호를 금지하는 방법을 알아봅니다.](howto-password-ban-bad.md)
-
-[사용자가 고유의 계정을 잠금 해제하도록 셀프 서비스 암호 재설정을 구성합니다.](quickstart-sspr.md)
+* [Azure AD를 사용하여 조직에서 불량 암호를 금지하는 방법을 알아봅니다.](howto-password-ban-bad.md)
+* [사용자가 고유의 계정을 잠금 해제하도록 셀프 서비스 암호 재설정을 구성합니다.](quickstart-sspr.md)

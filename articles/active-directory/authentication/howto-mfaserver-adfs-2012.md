@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317054"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370706"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -45,30 +45,22 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 2. Azure Multi-Factor Authentication 서버 관리 콘솔에서 **AD FS** 아이콘을 클릭합니다. **사용자 등록 허용** 및 **사용자가 메서드를 선택하도록 허용** 옵션을 선택합니다.
 3. 조직에 대해 지정하려는 추가 옵션을 선택합니다.
 4. **AD FS 어댑터 설치**를 클릭합니다.
-   
-   <center>
-   
-   ![클라우드](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![MFA 서버 콘솔에서 ADFS 어댑터를 설치 합니다.](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Active Directory 창이 표시되는 경우 다음 두 가지를 의미합니다. 컴퓨터가 도메인에 연결되어 있고 AD FS 어댑터와 Multi-Factor Authentication 서비스 간의 통신 보안 유지를 위한 Active Directory 구성이 완료되지 않습니다. **다음**을 클릭하여 이 구성을 자동으로 완료하거나, **자동 Active Directory 구성을 건너뛰고 수동으로 설정 구성** 확인란을 선택합니다. **다음**을 클릭합니다.
 6. 로컬 그룹 창이 표시되는 경우 두 가지를 의미합니다. 컴퓨터가 도메인에 가입되지 않고 AD FS 어댑터와 Multi-Factor Authentication 서비스 간의 통신 보안 유지를 위한 로컬 그룹 구성이 완료되지 않습니다. **다음**을 클릭하여 이 구성을 자동으로 완료하거나, **자동 로컬 그룹 구성을 건너뛰고 수동으로 설정 구성** 확인란을 선택합니다. **다음**을 클릭합니다.
 7. 설치 마법사에서 **다음**을 클릭합니다. Azure Multi-Factor Authentication 서버는 PhoneFactor Admins 그룹을 만들고 AD FS 서비스 계정을 PhoneFactor Admins 그룹에 추가합니다.
-   <center>
-   
-   ![클라우드](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. **설치 관리자 시작** 페이지에서 **다음**을 클릭합니다.
 9. Multi-Factor Authentication AD FS 어댑터 설치 관리자에서 **다음**을 클릭합니다.
 10. 설치가 완료되면 **닫기** 를 클릭합니다.
-11. 어댑터가 설치되면 이를 AD FS에 등록해야 합니다. Windows PowerShell을 열고 다음 명령을 실행합니다.<br>
+11. 어댑터가 설치되면 이를 AD FS에 등록해야 합니다. Windows PowerShell을 열고 다음 명령을 실행합니다.
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![클라우드](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. 새로 등록된 어댑터를 사용하려면 AD FS에서 전역 인증 정책을 편집합니다. AD FS 관리 콘솔에서 **인증 정책** 노드로 이동합니다. **Multi-factor Authentication** 섹션에서 **전역 설정** 섹션 옆에 있는 **편집** 링크를 클릭합니다. **전역 인증 정책 편집** 창에서 추가 인증 방법으로 **Multi-Factor Authentication**을 선택하고 **확인**을 클릭합니다. 어댑터는 WindowsAzureMultiFactorAuthentication으로 등록됩니다. 등록이 적용되려면 AD FS 서비스를 다시 시작합니다.
 
-<center>
-
-![클라우드](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![전역 인증 정책 편집](./media/howto-mfaserver-adfs-2012/global.png)
 
 이제 Multi-Factor Authentication 서버가 AD FS와 함께 사용할 수 있도록 추가 인증 공급자로 설정됩니다.
 
@@ -85,6 +77,7 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 5. 설치가 완료되면 **닫기** 를 클릭합니다.
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>MultiFactorAuthenticationAdfsAdapter.config 파일을 편집합니다.
+
 다음 단계를 따라 MultiFactorAuthenticationAdfsAdapter.config 파일을 편집합니다.
 
 1. **UseWebServiceSdk** 노드를 **true**로 설정합니다.  
@@ -138,20 +131,22 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
 3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...** 을 선택합니다.
 
-   ![클라우드](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![ADFS 콘솔에서 클레임 규칙 편집](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 
-   ![클라우드](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![ADFS 콘솔에서 변환 규칙 편집](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
 
-   ![클라우드](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![변환 클레임 규칙 추가 마법사](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. 규칙의 이름을 지정합니다.
 7. 들어오는 클레임 유형으로 **인증 방법 참조**를 선택합니다.
 8. **모든 클레임 값 통과**를 선택합니다.
+
     ![변환 클레임 규칙 추가 마법사](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. **Finish**를 클릭합니다. AD FS 관리 콘솔을 닫습니다.
 
 ## <a name="troubleshooting-logs"></a>문제 해결 로그

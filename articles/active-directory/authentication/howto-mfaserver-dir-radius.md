@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c1a05cc25be7a5763a8891b92e870a92792191d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314351"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372185"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
 
@@ -27,7 +27,7 @@ RADIUS는 인증 요청을 수락하고 이 요청을 처리하는 표준 프로
 >
 > 이 구성에서 MFA 서버가 대체 프로토콜을 사용하여 성공적인 RADIUS Challenge 응답을 시작할 수 없기 때문에 단방향 SMS 및 OATH 토큰이 작동하지 않습니다.
 
-![RADIUS 인증](./media/howto-mfaserver-dir-radius/radius.png)
+![MFA 서버에서 radius 인증](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>RADIUS 클라이언트 추가
 
@@ -66,9 +66,10 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 
 RADIUS 서버를 더 추가하려면 다음 단계를 반복합니다. **위로 이동** 및 **아래로 이동** 단추를 사용하여 Azure MFA 서버에서 호출해야 하는 순서를 구성합니다.
 
-Azure Multi-Factor Authentication 서버를 성공적으로 구성했습니다. 이제 서버는 구성된 클라이언트에서의 RADIUS 액세스 요청에 대해 구성된 포트에서 수신합니다.   
+Azure Multi-Factor Authentication 서버를 성공적으로 구성했습니다. 이제 서버는 구성된 클라이언트에서의 RADIUS 액세스 요청에 대해 구성된 포트에서 수신합니다.
 
 ## <a name="radius-client-configuration"></a>RADIUS 클라이언트 구성
+
 RADIUS 클라이언트를 구성하려면 지침을 따르십시오.
 
 * Azure Multi-Factor Authentication 서버의 IP 주소에 RADIUS를 통해 인증하도록 어플라이언스/서버를 구성합니다. 그러면 RADIUS 서버의 역할을 담당합니다.

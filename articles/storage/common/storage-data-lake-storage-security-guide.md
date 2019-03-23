@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008219"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372491"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2 보안 가이드
 
@@ -134,7 +134,7 @@ Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 �
 Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다음을 포함한 세 가지 옵션이 있습니다.
 
 - Azure AD를 사용하여 파일 시스템 및 큐에 대한 액세스 권한을 부여합니다. Azure AD는 코드에서 암호를 저장할 필요성 제거를 포함하여 권한 부여에 대한 다른 인증 방법에 비해 여러 가지 이점을 제공합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요. 
-- 저장소 계정 키를 사용하여 공유 키를 통해 액세스 권한을 부여합니다. 공유 키를 통한 권한 부여는 애플리케이션에 저장소 계정 키를 저장해야 하므로 가능한 경우 대신 Azure AD를 사용하는 것이 좋습니다. 프로덕션 애플리케이션 또는 Azure 테이블 및 파일에 대한 액세스 권한 부여의 경우 Azure AD 통합이 미리 보기로 제공되는 동안 계속해서 공유 키를 사용합니다.
+- 저장소 계정 키를 사용하여 공유 키를 통해 액세스 권한을 부여합니다. 공유 키를 통한 권한 부여는 애플리케이션에 저장소 계정 키를 저장해야 하므로 가능한 경우 대신 Azure AD를 사용하는 것이 좋습니다.
 - 공유 액세스 서명을 사용하여 특정 시간 동안 특정 데이터 개체에 제어된 권한을 부여합니다.
 
 권한 부여를 통해 액세스를 제한할 뿐 아니라 [방화벽 및 가상 네트워크](storage-network-security.md)를 사용하여 네트워크 규칙에 따라 저장소 계정에 대한 액세스를 제한할 수도 있습니다.  이 방법을 통해 공용 인터넷 트래픽에 대한 액세스를 거부하고 특정 Azure Virtual Network 또는 공용 인터넷 IP 주소 범위에 대한 액세스 권한만 부여할 수 있습니다.

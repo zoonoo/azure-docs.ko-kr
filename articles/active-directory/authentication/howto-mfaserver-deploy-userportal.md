@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317132"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370366"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -28,7 +28,7 @@ ms.locfileid: "58317132"
 
 사용자 환경에 따라 Azure Multi-factor Authentication 서버와 동일한 서버 또는 다른 인터넷 연결 서버에서 사용자 포털을 배포하는 것이 좋습니다.
 
-![MFA 사용자 포털](./media/howto-mfaserver-deploy-userportal/portal.png)
+![MFA 서버 사용자 포털 로그인 페이지](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 또는 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)를 참조합니다.
@@ -118,6 +118,7 @@ IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면
 3. **관리자** 탭에서 관리자가 누구여야 하는지 정의합니다. 추가/편집 상자에서 확인란 및 드롭다운을 사용하여 세분화된 관리 권한을 만들 수 있습니다.
 
 선택적 구성:
+
 - **보안 질문** - 환경에을 승인된 보안 질문 및 표시되는 언어를 정의합니다.
 - **전달된 세션** - MFA를 사용하여 양식 기반 웹 사이트에서 사용자 포털 통합을 구성합니다.
 - **신뢰할 수 있는 IP** - 사용자가 신뢰할 수 있는 IP 또는 범위 목록에서 인증하는 경우 MFA를 건너뛸 수 있도록 합니다.
@@ -141,9 +142,12 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 | Use OATH token for fallback(대체 방법으로 OATH 토큰 사용) | 2단계 검증이 실패한 경우 OATH 토큰을 사용할 수 있도록 합니다. 세션 제한 시간(분)을 지정할 수도 있습니다. |
 | 로깅 사용 | 사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\Program Files\Multi-Factor Authentication Server\Logs에 있습니다. |
 
+> [!IMPORTANT]
+> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 서버 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+
 이러한 설정을 사용하도록 설정하고 사용자 포털에 로그인하면 해당 설정이 포털에서 사용자에게 표시됩니다.
 
-![사용자 포털 설정](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![사용자 포털을 사용 하 여 MFA 서버 계정 관리](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>셀프 서비스 사용자 등록
 
@@ -159,7 +163,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 사용자가 텍스트 문자 확인 방법을 선택하거나 해당 방법을 사용하도록 미리 구성했으면 페이지에 휴대폰 번호를 입력하라는 메시지가 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 입력하라는 메시지가 표시됩니다.  전화 번호와 PIN(해당되는 경우)을 입력한 후 **지금 문자로 인증**이라는 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 휴대폰으로 SMS 확인을 수행합니다. 사용자는 일회용 암호(OTP)를 포함한 텍스트 메시지를 받은 다음 적용할 수 있는 경우 해당 OTP와 PIN을 사용하여 메시지에 회신합니다.
 
-![사용자 포털 SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![SMS를 사용 하 여 사용자 포털 확인](./media/howto-mfaserver-deploy-userportal/text.png)
 
 사용자가 Mobile App 확인 방법을 선택하면 페이지에는 해당 디바이스에서 Microsoft Authenticator 앱을 설치하고 활성화 코드를 생성하라는 메시지가 표시됩니다. 앱을 설치한 후 [활성화 코드 생성] 단추를 클릭합니다.
 

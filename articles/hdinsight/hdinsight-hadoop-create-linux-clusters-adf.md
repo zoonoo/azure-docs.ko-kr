@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425985"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361577"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)을 참조하세요.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps)을 참조하세요.
 
 - Azure Active Directory 서비스 주체. 서비스 주체를 만든 후에는 연결된 문서의 지침을 사용하여 **애플리케이션 ID** 및 **인증 키**를 검색해야 합니다. 이 자습서의 뒷부분에서 이러한 값이 필요합니다. 또한 서비스 주체가 클러스터를 만든 구독 또는 리소스 그룹의 *참가자* 역할의 구성원인지 확인합니다. 필요한 값을 검색하고 적절한 역할을 할당하는 방법에 대한 지침은 [Azure Active Directory 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
@@ -75,7 +77,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -85,25 +87,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -112,16 +114,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -240,7 +242,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     | 자산 | 설명 |
     | --- | --- |
     | 이름 | HDInsight 연결된 서비스의 이름을 입력합니다. |
-    | type | **주문형 HDInsight**를 선택합니다. |
+    | Type | **주문형 HDInsight**를 선택합니다. |
     | Azure Storage 연결된 서비스 | 이전에 만든 Storage 연결된 서비스를 선택합니다. |
     | 클러스터 유형 | **hadoop**을 선택합니다. |
     | TTL(Time to live) | HDInsight 클러스터를 자동으로 삭제하기 전에 사용할 수 있는 기간을 지정합니다.|

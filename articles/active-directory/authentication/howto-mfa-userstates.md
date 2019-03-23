@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314385"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371753"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
@@ -66,10 +66,10 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 1. 이전 단계를 통해 Azure Multi-Factor Authentication **사용자** 페이지로 이동합니다.
 2. Azure MFA을 사용하도록 설정할 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수도 있습니다.
-   ![사용자 찾기 - 스크린샷](./media/howto-mfa-userstates/enable1.png)
+   ![사용자 탭에서 상태를 변경 하려면 사용자를 선택 합니다.](./media/howto-mfa-userstates/enable1.png)
 3. 이름 옆의 확인란을 선택합니다.
 4. 오른쪽의 **빠른 단계**에서 **사용** 또는 **사용 안 함**을 선택합니다.
-   ![선택한 사용자 사용 - 스크린샷](./media/howto-mfa-userstates/user1.png)
+   ![빠른 단계 메뉴의 사용을 클릭 하 여 선택한 사용자를 사용 하도록 설정](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Azure MFA에 등록하면 *사용* 사용자는 *적용*으로 자동으로 전환됩니다. 사용자 상태를 수동으로 *적용*으로 변경하지 마세요.
@@ -90,45 +90,52 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 다음을 사용하여 먼저 모듈을 설치합니다.
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > 먼저 **Connect-MsolService**를 사용하여 연결해야 합니다.
 
+이 예제 PowerShell 스크립트는 개별 사용자에 대해 MFA를 사용하도록 설정합니다.
 
- 이 예제 PowerShell 스크립트는 개별 사용자에 대해 MFA를 사용하도록 설정합니다.
-
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
 PowerShell은 사용자를 대량 설정해야 할 때 적합한 옵션입니다. 예를 들어 다음 스크립트는 사용자 목록을 반복하고 해당 계정에서 MFA를 사용하도록 설정합니다.
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
+
 MFA를 사용하지 않으려면 다음 스크립트를 사용합니다.
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
+
 다음과 같이 축약할 수도 있습니다.
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-Factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
-
-신뢰할 수 있는 IP, 사용자 지정 음성 메시지 및 사기 행위 경고와 같은 추가 설정을 구성하려면 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 문서를 참조하세요.
-
-Azure Multi-Factor Authentication에 대한 사용자 설정 관리에 대한 내용은 [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리](howto-mfa-userdevicesettings.md) 문서에서 확인할 수 있습니다.
+* 사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-Factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
+* 신뢰할 수 있는 IP, 사용자 지정 음성 메시지 및 사기 행위 경고와 같은 추가 설정을 구성하려면 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 문서를 참조하세요.
+* Azure Multi-Factor Authentication에 대한 사용자 설정 관리에 대한 내용은 [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리](howto-mfa-userdevicesettings.md) 문서에서 확인할 수 있습니다.

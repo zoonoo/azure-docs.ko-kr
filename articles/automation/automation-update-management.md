@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259400"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369771"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -172,7 +172,7 @@ Windows 컴퓨터에서 Azure Monitor 로그를 사용 하 여 에이전트가 �
 
 평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그를 확인 하려면 참조 [Azure Monitor 로그를 사용 하 여 유효성을 검사 하는 Operations Manager 통합](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics)합니다.
+Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그를 확인 하려면 참조 [Azure Monitor 로그를 사용 하 여 유효성을 검사 하는 Operations Manager 통합](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)합니다.
 
 ## <a name="data-collection"></a>데이터 수집
 

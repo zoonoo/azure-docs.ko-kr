@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226694"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370519"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -517,7 +517,14 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
-* 기본 활성값이 아닌 새 TelemetryConfiguration을 사용하여 별도의 TelemetryClient 인스턴스를 초기화합니다. 이를 사용하여 드문 이벤트를 보냅니다.
+* 이 작업을 수행 하는 가장 좋은 방법은 사용자 지정을 작성 하는 것 [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), 집합은 `SamplingPercentage` 원격 분석 항목에는 100 하려면 보존, 아래와 같이 합니다. 이렇게 하면 모든 샘플링 기술이 모든 샘플링 고려 사항에서이 항목 무시 됩니다.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>다음 단계
 

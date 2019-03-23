@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992434"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370111"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -279,7 +279,18 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>ACL에 GUID가 표시되는 경우가 있습니다. 왜 그런가요?
 
-항목이 사용자를 나타내고 해당 사용자가 Azure AD에 더 이상 존재하지 않으면 GUID가 표시됩니다. 일반적으로 사용자가 퇴사하거나 Azure AD에서 해당 계정이 삭제될 때 이러한 현상이 발생합니다. 또한 서비스 주체와 보안 그룹은 이를 식별할 UPN(사용자 계정 이름)을 가지고 있지 않으므로 OID 특성(GUID)으로 표시됩니다. 
+항목이 사용자를 나타내고 해당 사용자가 Azure AD에 더 이상 존재하지 않으면 GUID가 표시됩니다. 일반적으로 사용자가 퇴사하거나 Azure AD에서 해당 계정이 삭제될 때 이러한 현상이 발생합니다. 또한 서비스 주체와 보안 그룹은 이를 식별할 UPN(사용자 계정 이름)을 가지고 있지 않으므로 OID 특성(GUID)으로 표시됩니다.
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>설정 하는 방법 Acl 올바르게 서비스에 대 한 주 시겠습니까?
+
+서비스 주체에 대 한 Acl을 정의할 때의 개체 ID (OID)을 사용 하는 것이 중요 합니다 *서비스 주체* 사용자가 만든 앱 등록에 대 한 합니다. 등록 된 앱에서 특정 별도 서비스 주체는 반드시 Azure AD 테 넌 트입니다. 등록 된 앱에 Azure portal에 표시 되는 OID 하지만 *서비스 주체* 다른 다른 OID가 있습니다.
+
+앱 등록에는 해당 서비스 주체에 대 한 OID를 가져올를 사용할 수는 `az ad sp show` 명령입니다. 매개 변수로 응용 프로그램 ID를 지정 합니다. 다음은 예제 앱 Id를 사용 하 여 앱 등록에 해당 하는 서비스 주체에 대 한 OID를 얻는 방법에 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI에서 다음 명령을 실행합니다.
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+서비스 주체에 대 한 올바른 OID 경우 Storage 탐색기로 이동 **액세스 관리** 페이지 OID를 추가 하 고 OID에 대 한 적절 한 권한을 할당 합니다. 선택 했는지 **저장할**합니다.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 

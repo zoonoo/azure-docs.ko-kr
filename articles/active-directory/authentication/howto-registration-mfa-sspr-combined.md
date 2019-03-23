@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317445"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369023"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>보안 정보 등록 결합 사용 (미리 보기)
 
 새 환경을 설정 하기 전에 문서를 검토 [보안 정보 등록 (미리 보기)를 결합](concept-registration-mfa-sspr-combined.md) 기능과이 기능에 미치는 영향을 이해 하도록 합니다.
 
-![로그인 시 자세한 정보를 요청 하는 환경을 향상 하는 결합 된 보안 정보 등록. 예제와 첫 번째 방법으로 Microsoft Authenticator 앱을 등록 합니다.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![향상 된 환경 결합 된 보안 정보 등록](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ ms.locfileid: "58317445"
 2. **Azure Active Directory** > **사용자 설정** > **액세스 패널 미리 보기 기능의 설정 관리**로 이동합니다.
 3. 아래 **사용자가 사용할 수 미리 보기 기능 등록 하 고 보안 정보 관리에 대 한-새로 고침**에 대해 사용 하도록 설정할를 **선택한** 사용자 또는 그룹 **모든** 사용자입니다.
 
-![Azure AD 포털의 모든 사용자에 대해 결합 된 보안 정보 미리 보기 환경을 사용 하도록 설정](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![모든 사용자에 대해 결합 된 보안 정보 미리 보기 환경을 사용 하도록 설정](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.

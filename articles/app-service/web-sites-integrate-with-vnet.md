@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112622"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369703"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. 그러면 이러한 네트워크가 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 
@@ -239,7 +239,7 @@ VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만
 PowerShell을 사용하여 App Service를 Azure Virtual Network와 통합할 수 있습니다. 실행 준비 스크립트의 경우 [Azure App Service에서 Azure Virtual Network에 앱 연결](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)을 참조하세요.
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>하이브리드 연결 및 App Service Environment
-VNet에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은 3가지 입니다. 다음 창이 여기에 포함됩니다.
+VNet에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은 3가지 입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * VNet 통합
 * 하이브리드 연결
@@ -247,7 +247,7 @@ VNet에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 
 하이브리드 연결을 사용하려면 네트워크에 하이브리드 연결 관리자(HCM)라고 하는 릴레이 에이전트를 설치해야 합니다. HCM이 Azure와 애플리케이션에 연결할 수 있어야 합니다. 하이브리드 연결에는 VPN 연결에 필요한 것처럼 원격 네트워크에 대한 인터넷 액세스 가능한 인바운드 엔드포인트가 필요하지 않습니다. HCM은 Windows에서만 실행되며 고가용성을 제공하기 위해 인스턴스를 최대 5개까지 실행하도록 할 수 있습니다. 하이브리드 연결은 TCP만 지원하며 각 HC 엔드포인트는 특정 호스트:포트 조합과 일치해야 합니다. 
 
-App Service Environment 기능을 사용하면 VNet에서 Azure App Service의 단일 테넌트 인스턴스를 실행할 수 있습니다. 앱이 App Service Environment에 있는 경우 추가 단계 없이 VNet의 리소스에 액세스할 수 있습니다. App Service Environment를 사용하면 앱이 더 강력한 작업자에서 실행되며 최대 100개의 ASP 인스턴스를 확장할 수 있습니다. App Service Environment는 ExpressRoute 및 서비스 엔드포인트를 포함한 모든 네트워킹 기능에서 작동합니다.  
+App Service Environment 기능을 사용하면 VNet에서 Azure App Service의 단일 테넌트 인스턴스를 실행할 수 있습니다. 앱이 App Service Environment에 있는 경우 추가 단계 없이 VNet의 리소스에 액세스할 수 있습니다. App Service Environment를 사용 하 여 앱이 더 강력한 작업자에서 실행 하 고 최대 100 개 ASP 인스턴스로 확장할 수 있습니다. App Service Environment는 ExpressRoute 및 서비스 엔드포인트를 포함한 모든 네트워킹 기능에서 작동합니다.  
 
 일부 사용 사례가 겹치는 경우도 있지만, 이러한 기능 중 어떤 것도 다른 기능을 대체할 수 없습니다. 무엇이 필요한지에 따라 사용할 기능이 달라집니다. 예: 
 

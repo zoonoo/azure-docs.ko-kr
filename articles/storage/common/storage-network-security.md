@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750653"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369397"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
 Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 사용하면 지원되는 특정 네트워크 세트에서 스토리지 계정을 보호할 수 있습니다. 네트워크 규칙이 구성되면 지정된 네트워크 세트를 통해 데이터를 요청하는 애플리케이션만 스토리지 계정에 액세스할 수 있습니다.
 
-네트워크 규칙이 적용될 때 스토리지 계정에 액세스하는 애플리케이션에는 요청에 대한 적절한 권한 부여가 필요합니다. 권한 부여는 Azure AD(Active Directory) 자격 증명(Blob 및 큐용)(미리 보기), 유효한 계정 액세스 키 또는 SAS 토큰을 통해 지원됩니다.
+네트워크 규칙이 적용될 때 스토리지 계정에 액세스하는 애플리케이션에는 요청에 대한 적절한 권한 부여가 필요합니다. 권한 부여는 blob 및 큐에 대 한 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여, 유효한 계정 액세스 키를 사용 하 여 또는 SAS 토큰을 사용 하 여 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 스토리지 계정에 대해 방화벽 규칙을 설정하면 기본적으로 VNet(Azure Virtual Network) 내에서 작동하는 서비스에서 요청하지 않는 한 들어오는 데이터 요청이 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다.

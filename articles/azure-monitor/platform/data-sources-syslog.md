@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451292"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372304"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
-Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
+Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
 
 > [!NOTE]
 > Azure Monitor는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com)을 설치하고 sysklog를 대체하도록 구성해야 합니다.
@@ -30,20 +30,38 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  애플�
 
 ![Syslog 수집](media/data-sources-syslog/overview.png)
 
+다음 기능의 Syslog 수집기와 함께 지원 됩니다.
+
+* 커닝
+* 사용자
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+다른 기능에 대해 [사용자 지정 로그 데이터 원본을 구성](data-sources-custom-logs.md) Azure Monitor에서.
+ 
 ## <a name="configuring-syslog"></a>Syslog 구성
-Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다.  Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
+Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다. Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure Portal에서 Syslog 구성
-[고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다.  이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
+[고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
-해당 이름을 입력하고 **+** 에서 Syslog를 구성합니다.  각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다.  이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
+해당 이름을 입력하고 **+** 에서 Syslog를 구성합니다. 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 
 ![Syslog 구성](media/data-sources-syslog/configure.png)
 
-기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  각 Linux 에이전트에서 Syslog를 수동으로 구성하려면 *내 Linux 컴퓨터에 아래 구성 적용*확인란을 선택 취소합니다.
+기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. 각 Linux 에이전트에서 Syslog를 수동으로 구성하려면 *내 Linux 컴퓨터에 아래 구성 적용*확인란을 선택 취소합니다.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Linux 에이전트에서 Syslog 구성
-[Log Analytics 에이전트가 Linux 클라이언트에 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다.  이 파일을 수정하여 구성을 변경할 수 있습니다.  구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
+[Log Analytics 에이전트가 Linux 클라이언트에 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다. 이 파일을 수정하여 구성을 변경할 수 있습니다. 구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
 
 > [!NOTE]
 > Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
@@ -51,7 +69,7 @@ Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심
 >
 
 #### <a name="rsyslog"></a>rsyslog
-rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 경고 이상 수준의 모든 기능에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.
+rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습니다. 기본 내용은 아래와 같습니다. 이 파일은 경고 이상 수준의 모든 기능에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-구성 파일의 해당 섹션을 제거하여 기능을 제거할 수 있습니다.  해당 기능 항목을 수정하여 특정 기능에 대해 수집되는 심각도를 제한할 수 있습니다.  예를 들어 오류 또는 더 높은 심각도의 메시지로 사용자 기능을 제한하려면 다음 구성 파일 줄을 다음과 같이 수정합니다.
+구성 파일의 해당 섹션을 제거하여 기능을 제거할 수 있습니다. 해당 기능 항목을 수정하여 특정 기능에 대해 수집되는 심각도를 제한할 수 있습니다. 예를 들어 오류 또는 더 높은 심각도의 메시지로 사용자 기능을 제한하려면 다음 구성 파일 줄을 다음과 같이 수정합니다.
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 모든 기능 및 모든 심각도에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.   
+syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  기본 내용은 아래와 같습니다. 이 파일은 모든 기능 및 모든 심각도에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-구성 파일의 해당 섹션을 제거하여 기능을 제거할 수 있습니다.  특정 기능을 목록에서 제거하여 해당 기능에 대해 수집되는 심각도를 제한할 수 있습니다.  예를 들어 경고 또는 위험 메시지만으로 사용자 기능을 제한하려면 구성 파일의 해당 섹션을 다음과 같이 수정합니다.
+구성 파일의 해당 섹션을 제거하여 기능을 제거할 수 있습니다. 특정 기능을 목록에서 제거하여 해당 기능에 대해 수집되는 심각도를 제한할 수 있습니다.  예를 들어 경고 또는 위험 메시지만으로 사용자 기능을 제한하려면 구성 파일의 해당 섹션을 다음과 같이 수정합니다.
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslo
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* syslog-ng 구성 파일은 아래 표시된 예제 구성을 복사하고 사용자 지정 수정된 설정을 `/etc/syslog-ng/`에 있는 syslog-ng.conf 구성 파일의 끝에 추가하여 수정해야 합니다.  기본 레이블 **% WORKSPACE_ID % _oms** 또는 **%WORKSPACE_ID_OMS**를 사용하지 **않습니다**. 변경 내용을 구분하기 위해 사용자 지정 레이블을 정의합니다.  
+* syslog-ng 구성 파일은 아래 표시된 예제 구성을 복사하고 사용자 지정 수정된 설정을 `/etc/syslog-ng/`에 있는 syslog-ng.conf 구성 파일의 끝에 추가하여 수정해야 합니다. 기본 레이블 **% WORKSPACE_ID % _oms** 또는 **%WORKSPACE_ID_OMS**를 사용하지 **않습니다**. 변경 내용을 구분하기 위해 사용자 지정 레이블을 정의합니다.  
 
     > [!NOTE]
     > 구성 파일에서 기본 값을 수정하는 경우 에이전트가 기본 구성을 적용할 때 덮어쓰게 됩니다.

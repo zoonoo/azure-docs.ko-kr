@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312192"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367901"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -29,9 +29,10 @@ Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하�
 > [!NOTE]
 > 이 기능은 Windows Server 2012 R2에서 보안 터미널 서비스를 보안하는 데 지원되지 않습니다.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용하는 애플리케이션을 보호하려면 다음 절차를 사용합니다.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용 하 여 응용 프로그램을 보호 하려면 다음 절차를 따르십시오
+
 1. Azure Multi-Factor Authentication 서버에서 Windows 인증 아이콘을 클릭합니다.
-   ![Windows 인증](./media/howto-mfaserver-windows/windowsauth.png)
+   ![MFA 서버에서 Windows 인증](./media/howto-mfaserver-windows/windowsauth.png)
 2. **Windows 인증 사용** 확인란을 선택합니다. 이 상자는 기본적으로 선택되지 않습니다.
 3. 애플리케이션 탭에서 관리자는 Windows 인증을 위해 하나 이상의 애플리케이션을 구성할 수 있습니다.
 4. 서버 또는 애플리케이션을 선택합니다. 서버/애플리케이션이 사용되는지 여부를 지정합니다. **확인**을 클릭합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085017"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370536"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -55,7 +55,7 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Azure Monitor 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Azure Monitor와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음, 관리 서버에서 Azure Monitor로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -70,7 +70,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 - ADSI(Active Directory 서비스 인터페이스)
 - Windows PowerShell
 - 파일 데이터
-- Windows Management Instrumentation(WMI)
+- WMI(Windows Management Instrumentation)
 - DCDIAG 도구 API
 - NTFRS(파일 복제 서비스) API
 - 사용자 지정 C# 코드

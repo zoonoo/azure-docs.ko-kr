@@ -14,19 +14,21 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7b4ee33d3e231dc59ce1d7b4ae6337efb11e96bc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355345"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371386"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Azure Marketplace 및 AppSource 제품 또는 SKU 삭제
 
 다양한 이유로 인해, 다음 두 가지 형태로 Microsoft 마켓플레이스에서 제품을 철회할 수 있습니다.
 
 - ‘제품 제거’는 새 고객이 더 이상 제품을 구매하거나 배포할 수 없게 하지만, 사용권 계약 및 관련 법률에 따라 지원해야 하는 기존 고객에게는 영향을 주지 않습니다. 
-- ‘제품 종료’는 귀하와 기존 고객 간의 서비스 및/또는 사용권 계약이 종료되는 프로세스입니다. 제품 제거 및 종료와 관련된 지침 및 정책은 [Microsoft Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)(섹션 7) 및 [참여 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)(섹션 6.2)을 따릅니다. 
+- ‘제품 종료’는 귀하와 기존 고객 간의 서비스 및/또는 사용권 계약이 종료되는 프로세스입니다. 
+
+지침 및 제품 제거 및 종료와 관련 된 정책을 받습니다 [Microsoft Marketplace 판매자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) (섹션 7) 및 [참가 정책은](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (섹션 [ 일시 중단 및 제거 제공](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 이 문서에서는 지원되는 다양한 삭제 시나리오 및 각 시나리오를 수행하는 데 필요한 단계를 설명합니다.  
 

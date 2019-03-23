@@ -1,6 +1,6 @@
 ---
-title: PowerShell 및 REST API-Azure Search를 사용 하 여 코드에 인덱스 만들기
-description: HTTP 요청 및 Azure Search REST API를 사용하여 코드에서 전체 텍스트 검색 가능 인덱스를 만드는 방법을 설명합니다.
+title: 만들기, 로드 및 PowerShell 및 REST API-Azure Search를 사용 하 여 인덱스 쿼리
+description: 만들기, 로드 및 PowerShell, Invoke-restmethod, 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285137"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372117"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>빠른 시작: PowerShell 및 REST API를 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
 }
 ```
 
-## <a name="1---create-an-index"></a>1-인덱스 만들기
+## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
 포털을 사용 하지 않는 데이터를 로드 하려면 먼저 인덱스 서비스에 있어야 합니다. 이 단계는 인덱스를 정의 하 고 서비스에 푸시합니다. 합니다 [인덱스 만들기 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 이 단계에 사용 됩니다.
 
@@ -255,7 +255,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | Convert
 }
 ```
 
-## <a name="3---search-an-index"></a>3-인덱스를 검색 합니다.
+## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
 이 단계를 사용 하 여 인덱스를 쿼리 하는 방법을 보여 줍니다.는 [검색 문서 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)합니다.
 
@@ -371,11 +371,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316306"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370077"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
@@ -26,7 +26,7 @@ Azure 서버 MFA 배포로 고가용성을 달성하려면 여러 MFA 서버를 
 
 다음 다이어그램에 표시된 것처럼 Azure MFA 서버 서비스 아키텍처는 여러 가지 구성 요소로 이루어집니다.
 
- ![MFA 서버 아키텍처](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA 서버 아키텍처 구성 요소](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA 서버는 Azure Multi-Factor Authentication 소프트웨어가 설치되어 있는 Windows Server입니다. MFA 서버 인스턴스가 작동하려면 Azure에서 MFA 서비스에 의해 활성화되어야 합니다. 온-프레미스에는 둘 이상의 MFA 서버를 설치할 수 있습니다.
 

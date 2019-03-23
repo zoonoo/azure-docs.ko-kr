@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444058"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370400"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure Portal에서 저장소 계정 설정 관리
 
@@ -20,12 +20,12 @@ ms.locfileid: "57444058"
 
 ## <a name="access-control"></a>Access Control
 
-Azure Storage는 RBAC(역할 기반 액세스 제어)를 통해 Blob 저장소 및 큐 저장소(미리보기)에 대한 Azure Active Directory의 인증을 지원합니다. Azure AD로 인증하는 방법에 대한 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Blob 및 큐에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
+Azure Storage Blob storage 및 Queue storage를 통해 역할 기반 액세스 제어 (RBAC)에 대 한 Azure Active Directory를 사용 하 여 인증을 지원합니다. Azure AD로 인증 하는 방법에 대 한 자세한 내용은 참조 하세요. [Authenticate 권한을 Azure blob 및 Azure Active Directory를 사용 하 여 큐](storage-auth-aad.md)합니다.
 
-Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할 할당에 대한 자세한 내용은 [RBAC를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 blob 및 큐 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 > [!NOTE]
-> Azure AD 자격 증명을 통한 사용자 또는 응용 프로그램 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 저장소 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 
+> Azure AD 자격 증명을 통한 사용자 또는 애플리케이션 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 저장소 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 
 
 ## <a name="tags"></a>태그들
 

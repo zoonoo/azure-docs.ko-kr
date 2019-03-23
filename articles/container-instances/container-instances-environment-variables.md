@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403025"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370001"
 ---
 # <a name="set-environment-variables"></a>환경 변수 설정
 
 컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) 및 [Azure Portal](#azure-portal-example)로 컨테이너를 시작할 때 환경 변수를 설정할 수 있습니다.
 
-예를 들어 [microsoft/aci-wordcount][aci-wordcount] 컨테이너 이미지를 실행하는 경우 다음 환경 변수를 지정하여 해당 동작을 수정할 수 있습니다.
+예를 들어, Microsoft를 실행 하는 경우 [aci wordcount] [ aci-wordcount] 컨테이너 이미지는 다음 환경 변수를 지정 하 여 해당 동작을 수정할 수 있습니다.
 
 *NumWords*: STDOUT으로 전송된 단어 수입니다.
 
@@ -28,13 +28,13 @@ ms.locfileid: "57403025"
 
 ## <a name="azure-cli-example"></a>Azure CLI 예제
 
-[microsoft/aci-wordcount][aci-wordcount] 컨테이너의 기본 출력을 보려면 이 [az container create][az-container-create] 명령으로 먼저 실행합니다(지정된 환경 변수 없음).
+기본 출력을 확인 합니다 [aci wordcount] [ aci-wordcount] 컨테이너에이 사용 하 여 먼저 실행 [az 컨테이너 만들기] [ az-container-create] 명령 (no 지정 된 환경 변수):
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -44,7 +44,7 @@ az container create \
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -83,13 +83,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 PowerShell에서 환경 변수를 설정하는 것은 CLI와 유사하지만 `-EnvironmentVariable` 명령줄 인수를 사용합니다.
 
-먼저 시작 합니다 [microsoft/aci-wordcount] [ aci-wordcount] 이 사용 하 여 기본 구성에서 컨테이너 [새로 만들기-AzContainerGroup] [ new-Azcontainergroup] 명령:
+먼저 시작 합니다 [aci wordcount] [ aci-wordcount] 이 사용 하 여 기본 구성에서 컨테이너 [새로 만들기-AzContainerGroup] [ new-Azcontainergroup] 명령:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 다음을 실행 하 고 있습니다. [새로 만들기-AzContainerGroup] [ new-Azcontainergroup] 명령입니다. 이 명령은 배열 변수, `envVars`를 채운 후 *NumWords* 및 *MinLength* 환경 변수를 지정합니다.
@@ -99,7 +99,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -143,7 +143,7 @@ Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려�
 
 포털로 배포할 때 현재 세 개의 변수로 제한되며, 이 `"variableName":"value"` 형식으로 입력해야 합니다.
 
-예제를 보려면 *NumWords* 및 *MinLength* 변수를 사용하여 [microsoft/aci-wordcount][aci-wordcount] 컨테이너를 시작합니다.
+예를 보려면 시작 합니다 [aci wordcount] [ aci-wordcount] 사용 하 여 컨테이너를 *NumWords* 및 *MinLength* 변수입니다.
 
 1. **구성**에서 **재시작 정책**을 *실패 시*로 설정합니다.
 2. 첫 번째 변수에 `"NumWords":"5"`를 입력하고, **추가 환경 변수 추가** 아래에서 **예**를 선택하고, 두 번째 변수에 `"MinLength":"8"`을 입력합니다. **확인**을 선택하여 확인한 다음, 컨테이너를 배포합니다.
@@ -246,7 +246,7 @@ my-secret-value
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

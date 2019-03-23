@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223430"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370961"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
+# <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
-Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드 환경에서 가상 머신이나 실제 컴퓨터를 모니터링하고 관리하려면 Log Analytics 에이전트(MMA(Microsoft Monitoring Agent)라고도 함)를 배포하고 하나 이상의 Log Analytics 작업 영역에 보고하도록 구성해야 합니다. 또한 에이전트는 Azure Automation에 대한 Hybrid Runbook Worker 역할을 지원합니다.  
+(Microsoft 모니터링 에이전트 (MMA)으로) Log Analytics 에이전트를 배포 하 고 구성 해야 모니터링 하 고 가상 머신 또는 로컬 데이터 센터 또는 Azure Monitor를 사용 하 여 다른 클라우드 환경에서 물리적 컴퓨터를 관리 하려면 하나 이상의 Log Analytics 작업 영역에 보고 합니다. 또한 에이전트는 Azure Automation에 대한 Hybrid Runbook Worker 역할을 지원합니다.  
 
-모니터링된 Windows 컴퓨터에서 에이전트는 Microsoft Monitoring Agent 서비스로 나열됩니다. Microsoft Monitoring Agent 서비스는 로그 파일과 Windows 이벤트 로그의 이벤트, 성능 데이터 및 기타 원격 분석을 수집합니다. 에이전트가 보고 대상인 Log Analytics 서비스와 통신할 수 없어도 에이전트는 모니터링된 컴퓨터의 디스크에서 수집된 데이터를 계속 실행하고 큐에 넣습니다. 연결이 복원되면 Microsoft Monitoring Agent 서비스는 수집된 데이터를 서비스에 보냅니다.
+모니터링된 Windows 컴퓨터에서 에이전트는 Microsoft Monitoring Agent 서비스로 나열됩니다. Microsoft Monitoring Agent 서비스는 로그 파일과 Windows 이벤트 로그의 이벤트, 성능 데이터 및 기타 원격 분석을 수집합니다. 에이전트를에 보고 하는 Azure Monitor와 통신할 수 없는 경우에 에이전트는 계속 실행 및 모니터링 되는 컴퓨터의 디스크에 수집 된 데이터를 큐입니다. 연결이 복원되면 Microsoft Monitoring Agent 서비스는 수집된 데이터를 서비스에 보냅니다.
 
 에이전트는 다음 방법 중 하나를 사용하여 설치할 수 있습니다. 대부분의 설치에서는 이러한 방법의 조합을 사용하여 적절하게 다양한 컴퓨터 집합을 설치합니다.  각 방법에 대한 자세한 내용은 문서의 뒷부분에 제공됩니다.
 
@@ -40,7 +40,7 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#network-firewall-requirements)을 검토합니다.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
-Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Azure 상용 및 미국 정부 클라우드에서 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  
+Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 구성 하 고 Azure Monitor에서 Azure 상용 및 미국 정부 클라우드를 사용 하 여 성공적으로 통신할 수 있는지 확인 하려면 각 설치 방법에서 설치 하는 동안 필요 합니다.  
 
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.
@@ -68,7 +68,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 5. 시스템을 다시 시작하여 설정을 적용합니다. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>설치 마법사를 사용하여 에이전트 설치
-다음은 컴퓨터에서 에이전트 설치 마법사를 사용하여 Azure 및 Azure Government 클라우드에 Log Analytics용 에이전트를 설치하고 구성하는 단계입니다. System Center Operations Manager 관리 그룹에도 보고하도록 에이전트를 구성하는 방법을 알아보려면 [deploy the Operations Manager agent with the Agent Setup Wizard](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)(에이전트 설치 마법사를 사용하여 Operations Manager 에이전트 배포)를 참조하세요.
+다음 단계를 설치 하 고 컴퓨터에 에이전트 설치 마법사를 사용 하 여 Azure 및 Azure Government 클라우드에서 Log Analytics 에이전트를 구성 합니다. System Center Operations Manager 관리 그룹에도 보고하도록 에이전트를 구성하는 방법을 알아보려면 [deploy the Operations Manager agent with the Agent Setup Wizard](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)(에이전트 설치 마법사를 사용하여 Operations Manager 에이전트 배포)를 참조하세요.
 
 1. Log Analytics 작업 영역에서 이전에 이동해 온 **Windows 서버** 페이지에서 Windows 운영 체제의 프로세서 아키텍처에 따라 적절한 **Windows 에이전트 다운로드** 버전을 선택하여 다운로드합니다.   
 2. 설치를 실행하여 컴퓨터에 에이전트를 설치합니다.
@@ -184,15 +184,14 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 **제어판**의 컴퓨터에서 **Microsoft Monitoring Agent** 항목을 찾습니다.  이 항목을 선택하면 **Azure Log Analytics** 탭에서 에이전트가 다음과 같은 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 연결되었습니다.**<br><br> ![Log Analytics에 대한 MMA 연결 상태](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Azure Portal에서 단순 로그 검색을 수행할 수도 있습니다.  
+또한 Azure portal에서 간단한 로그 쿼리를 수행할 수 있습니다.  
 
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.  
-2. Log Analytics 작업 영역 페이지에서 대상 작업 영역을 선택한 다음, **로그 검색** 타일을 선택합니다. 
-2. [로그 검색] 창의 쿼리 필드에 다음을 입력합니다.  
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 입력 **Azure Monitor**합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. 선택 **Azure Monitor**합니다.  
+2. 선택 **로그** 메뉴에서. 
+2. 로그 창의 쿼리 필드 형식:  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

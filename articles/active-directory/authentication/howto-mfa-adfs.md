@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316476"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371531"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -30,15 +30,15 @@ ms.locfileid: "58316476"
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
 3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집**을 선택합니다.
 
-   ![클라우드](./media/howto-mfa-adfs/trustedip1.png)
+   ![ADFS 콘솔-신뢰 당사자 트러스트](./media/howto-mfa-adfs/trustedip1.png)
 
 4. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 
-   ![클라우드](./media/howto-mfa-adfs/trustedip2.png)
+   ![발급 변환 규칙 편집](./media/howto-mfa-adfs/trustedip2.png)
 
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
 
-   ![클라우드](./media/howto-mfa-adfs/trustedip3.png)
+   ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
 
 6. 규칙의 이름을 지정합니다. 
 7. 들어오는 클레임 유형으로 **인증 방법 참조**를 선택합니다.
@@ -58,15 +58,15 @@ ms.locfileid: "58316476"
 
 1. AD FS 관리를 엽니다.
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
-3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...** 를 선택합니다.
-   ![클라우드](./media/howto-mfa-adfs/trustedip1.png)
-4. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
-   ![클라우드](./media/howto-mfa-adfs/trustedip2.png)
+3. 마우스 오른쪽 단추로 클릭 **Microsoft Office 365 Id 플랫폼** 선택한 **클레임 규칙 편집... ** 
+    ![ADFS 콘솔-클레임 규칙 편집](./media/howto-mfa-adfs/trustedip1.png)
+4. 발급 변환 규칙에서 클릭 **규칙 추가.** 
+    ![클레임 규칙 추가](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
-   ![클라우드](./media/howto-mfa-adfs/trustedip3.png)
+   ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
 6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예:  InsideCorpNet.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
-   ![클라우드](./media/howto-mfa-adfs/trustedip4.png)
+   ![회사 네트워크 내에서 추가 클레임](./media/howto-mfa-adfs/trustedip4.png)
 8. **Finish**를 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "58316476"
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![클라우드](./media/howto-mfa-adfs/trustedip5.png)
+    ![사용자 로그인 유지 하기 위해 사용자 지정 클레임 만들기](./media/howto-mfa-adfs/trustedip5.png)
 13. **Finish**를 클릭합니다.
 14. **적용**을 클릭합니다.
 15. **Ok**를 클릭합니다.

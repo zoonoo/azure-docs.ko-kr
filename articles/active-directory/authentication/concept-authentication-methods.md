@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315983"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371862"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -155,13 +155,13 @@ Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 �
 
 OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다.
 
-![Azure Portal의 MFA 서버 OATH 토큰에 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![MFA 서버 OATH 토큰 블레이드로 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 토큰이 확보되면 아래 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델이 포함된 CSV(쉼표로 구분된 값) 파일 형식으로 업로드해야 합니다.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

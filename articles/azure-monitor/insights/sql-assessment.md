@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436377"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372474"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log Analytics에서 SQL Server Health Check 솔루션을 사용하여 사용자 SQL 환경 최적화
 
@@ -53,7 +53,7 @@ SQL Server 서버에 대해 상태 검사를 수행하려면 에이전트와, �
 
 1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Log Analytics 서비스와 통합되지 않은 경우, 서버는 Log Analytics와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 Operations Manager 관리 그룹에 보고하는 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음 관리 서버에서 Log Analytics 서비스로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 

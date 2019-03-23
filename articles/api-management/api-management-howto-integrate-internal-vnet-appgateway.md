@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 00cdc8de45d2f0177cd1f097fb874cbe67f7e442
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120128"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361080"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -93,7 +93,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 Azure에 로그인
 
 ```powershell
-Login-AzAccount
+Connect-AzAccount
 ```
 
 자격 증명을 사용하여 인증합니다.
@@ -165,7 +165,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 위에서 만든 $apimsubnetdata 서브넷을 사용하여 API Management Virtual Network 개체를 만듭니다.
 
 ```powershell
-$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
 ### <a name="step-2"></a>2단계
@@ -185,7 +185,7 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ### <a name="step-1"></a>1단계
 
-도메인에 개인 키로 인증서를 업로드합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
+도메인에 대 한 개인 키를 사용 하 여 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -196,18 +196,21 @@ $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.conto
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 
-$certUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
-$certPortalUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
+$certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
+$certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
 ### <a name="step-2"></a>2단계
 
-인증서가 업로드되면 프록시 및 포털에 대해 호스트 이름 구성 개체를 만듭니다.  
+만들고 프록시 및 포털에 대 한 호스트 이름 구성 개체를 설정 합니다.  
 
 ```powershell
-$proxyHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
-$portalHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
-$result = Set-AzApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
+$proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+
+$apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
+$apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
+Set-AzApiManagement -InputObject $apimService
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
@@ -253,9 +256,7 @@ $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -Publi
 Application Gateway의 인증서가 전달되는 트래픽을 암호화하고 해독하는 데 사용되도록 구성합니다.
 
 ```powershell
-$certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
 $cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
-$certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
 $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 

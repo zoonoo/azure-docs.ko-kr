@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285669"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370026"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>항상 사용 가능한 구성에서 App Service 배포
 
@@ -54,8 +54,7 @@ Azure Stack에 사용자 지정 리소스를 만드는 데, 템플릿을 만듭�
 ### <a name="deploy-the-app-service-infrastructure"></a>App Service 인프라를 배포 합니다.
 사용 하 여 사용자 지정 배포를 만들려면이 섹션의 단계를 사용 합니다 **appservice-fileshare-sqlserver-ha** Azure Stack 빠른 시작 템플릿.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **Custom**를 차례로 **템플릿 배포**.
 
@@ -94,8 +93,7 @@ Azure Stack에 사용자 지정 리소스를 만드는 데, 템플릿을 만듭�
 
 템플릿 출력 값을 검색 하려면 다음이 단계를 수행 합니다.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 관리 포털에서 선택 **리소스 그룹** 한 다음 리소스 그룹의 이름에 대해 만든 사용자 지정 배포 및 (**앱-서비스-ha** 이 예제의). 
 
@@ -168,9 +166,20 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     ![출력 정보를 공유 하는 파일](media/app-service-deploy-ha/07.png)
 
-9. App Service를 설치 하는 데 사용 되는 컴퓨터는 App Service 파일 공유를 호스트 하는 데 사용 되는 파일 서버와 동일한 VNet에 위치 하지 않은, 때문에 이름을 확인할 수 없습니다. 이는 정상적인 동작입니다.<br><br>파일 공유 UNC 경로 및 계정 정보에 대 한 입력 한 정보가 올바른지 확인 하 고 키를 누릅니다 **예** App Service 설치를 계속 하려면 경고 대화 상자에서.
+9. App Service를 설치 하는 데 사용 되는 컴퓨터는 App Service 파일 공유를 호스트 하는 데 사용 되는 파일 서버와 동일한 VNet에 위치 하지 않은, 때문에 이름을 확인할 수 없습니다. **이 예상된 된 동작**합니다.<br><br>파일 공유 UNC 경로 및 계정 정보에 대 한 입력 한 정보가 올바른지 확인 하 고 키를 누릅니다 **예** App Service 설치를 계속 하려면 경고 대화 상자에서.
 
     ![예상 되는 오류 대화 상자](media/app-service-deploy-ha/08.png)
+
+    기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 관리 포털에서 WorkersNsg로 이동한 후 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
+    - 원본: 모두
+    - 원본 포트 범위: *
+    - 대상: IP 주소
+    - 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위
+    - 대상 포트 범위: 445
+    - 프로토콜: TCP
+    - 작업: 허용
+    - 우선 순위: 700
+    - 이름: Outbound_Allow_SMB445
 
 10. 경로 Id 응용 프로그램 ID 및 암호를 id 인증서를 제공 하 고 클릭 **다음**:
     - Id 응용 프로그램 인증서 (형식의 **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     ![SQL Server 연결 정보](media/app-service-deploy-ha/10.png)
 
-12. App Service를 설치 하는 데 사용 되는 컴퓨터는 App Service 데이터베이스를 호스트 하는 데 사용 되는 SQL server와 동일한 VNet에 위치 하지 않은, 때문에 이름을 확인할 수 없습니다.  이는 정상적인 동작입니다.<br><br>SQL Server 이름 및 계정 정보에 대해 입력 한 정보가 올바른지 확인 하 고 키를 눌러 **예** App Service 설치를 계속 합니다. **다음**을 클릭합니다.
+12. App Service를 설치 하는 데 사용 되는 컴퓨터는 App Service 데이터베이스를 호스트 하는 데 사용 되는 SQL server와 동일한 VNet에 위치 하지 않은, 때문에 이름을 확인할 수 없습니다.  **이 예상된 된 동작**합니다.<br><br>SQL Server 이름 및 계정 정보에 대해 입력 한 정보가 올바른지 확인 하 고 키를 눌러 **예** App Service 설치를 계속 합니다. **다음**을 클릭합니다.
 
     ![SQL Server 연결 정보](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 [App Service 확장](azure-stack-app-service-add-worker-roles.md)합니다. 사용자 환경에서 예상된 응용 프로그램 요구에 맞게 추가 App Service 인프라 역할 작업자를 추가 해야 합니다. 기본적으로 Azure Stack에서 App Service는 무료 및 공유 작업자 계층을 지원합니다. 다른 작업자 계층을 추가 하려면 더 많은 작업자 역할을 추가 해야 합니다.
 
 [배포 원본 구성](azure-stack-app-service-configure-deployment-sources.md)합니다. 추가 구성은 GitHub, BitBucket, OneDrive 및 DropBox와 같은 여러 소스 제어 공급자 로부터 주문형 배포를 지원 하기 위해 필요 합니다.
+
+[App Service 백업](app-service-back-up.md)합니다. 성공적으로 배포 및 App Service를 구성, 후 데이터 손실을 방지 하 고 불필요 한 서비스 가동 중지 시간을 방지 하기 위해 복구 작업 중 백업 되는 재해 복구에 필요한 모든 구성 요소를 확인 해야 합니다.

@@ -7,16 +7,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9aa80cf3cb02237cea11e370151eda8c67c7b10e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856754"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372286"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container Instances에서 비밀 볼륨 탑재
 
-*비밀* 볼륨을 사용하여 중요한 정보를 컨테이너 그룹의 컨테이너에 제공할 수 있습니다. *비밀* 볼륨은 컨테이너 그룹의 컨테이너가 액세스할 수 있는 볼륨 내 파일에 비밀을 저장합니다. *비밀* 볼륨에 비밀을 저장하면 SSH 키 또는 데이터베이스 자격 증명 같은 중요한 데이터가 응용 프로그램 코드에 추가되는 일을 방지할 수 있습니다.
+*비밀* 볼륨을 사용하여 중요한 정보를 컨테이너 그룹의 컨테이너에 제공할 수 있습니다. *비밀* 볼륨은 컨테이너 그룹의 컨테이너가 액세스할 수 있는 볼륨 내 파일에 비밀을 저장합니다. *비밀* 볼륨에 비밀을 저장하면 SSH 키 또는 데이터베이스 자격 증명 같은 중요한 데이터가 애플리케이션 코드에 추가되는 일을 방지할 수 있습니다.
 
 모든 *비밀* 볼륨은 [tmpfs][tmpfs], RAM 지원 파일 시스템에 의해 지원되며 비휘발성 저장소에는 해당 콘텐츠를 쓸 수 없습니다.
 
@@ -31,7 +31,7 @@ Azure CLI를 사용하여 하나 이상의 비밀이 포함된 컨테이너를 �
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -68,7 +68,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:
@@ -105,7 +105,8 @@ CLI 및 YAML 배포 외에도, Azure [Resource Manager 템플릿](/azure/templat
 
 다음 Resource Manager 템플릿은 `/mnt/secrets`에서 *비밀* 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json --> [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
+[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Resource Manager 템플릿을 사용하여 배포하려면 위의 JSON을 `deploy-aci.json` 파일에 저장한 다음, `--template-file` 매개 변수를 사용하여 [az group deployment create][az-group-deployment-create] 명령을 실행해야 합니다.
 

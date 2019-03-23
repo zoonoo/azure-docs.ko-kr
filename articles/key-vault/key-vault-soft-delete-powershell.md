@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336187"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368693"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -49,9 +49,6 @@ Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음
 ## <a name="enabling-soft-delete"></a>일시 삭제를 사용하도록 설정
 
 "일시 삭제"를 사용하여 삭제된 키 자격 증명 모음 또는 키 자격 증명 모음에 저장된 개체를 복구할 수 있습니다.
-
-> [!IMPORTANT]
-> 키 자격 증명 모음에 대해 '일시 삭제'를 사용하도록 설정하는 것은 복구 불가능한 동작입니다. 일시 삭제된 속성을 "true"로 설정한 후에는 해당 속성을 변경하거나 제거할 수 없습니다.  
 
 ### <a name="existing-key-vault"></a>기존 Key Vault 사용
 
