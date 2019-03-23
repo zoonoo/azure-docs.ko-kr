@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961978"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368275"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 
@@ -134,13 +134,27 @@ Azure Stack 지원 *이미지를 관리 되는*, 앞으로 Vm 디스크는 사�
 - 앞으로 managed disks를 사용 하 고 관리 되지 않는 Vm을 일반화가 있습니다.
 - 관리 되는 vm을 일반화 하 고 여러 개 만들 하려고, 유사한 Vm을 관리 합니다.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>관리 되지 않는 Vm을 managed disks로 마이그레이션
+### <a name="step-1-generalize-the-vm"></a>1단계: VM 일반화
+Windows에 대 한 "Sysprep 사용 하 여 Windows VM 일반화" 섹션을 다음을 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Linux의 경우 여기에서 1 단계를 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+참고: VM 일반화를 잊지 마십시오. 제대로 일반화 되지 않은 이미지에서 VM을 만들 VMProvisioningTimeout 오류를 일으킵니다.
+
+### <a name="step-2-create-the-managed-image"></a>2단계: 관리 되는 이미지 만들기
+이렇게 하려면 포털, powershell 또는 cli를 사용할 수 있습니다. Azure의 문서에 다음을 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### <a name="step-3-choose-the-use-case"></a>3단계: 사용 사례를 선택 합니다.
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>사례 1: 관리 되지 않는 Vm을 managed disks로 마이그레이션
+이 단계를 수행 하기 전에 VM을 올바르게 일반화를 잊지 마십시오. Post 일반화가이 VM에 사용 되는 향후 일 수 없습니다. 제대로 일반화 되지 않은 이미지에서 VM을 만들 VMProvisioningTimeout 오류를 일으킵니다. 
 
 지침을 따릅니다 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) 저장소 계정의 일반화 된 VHD에서 관리 되는 이미지를 만들려고 합니다. 이 이미지 앞으로 관리 되는 Vm을 만드는 데 사용할 수 있습니다.
 
-### <a name="create-managed-image-from-vm"></a>VM에서 관리 되는 이미지 만들기
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>사례 2: Powershell을 사용 하 여 관리 되는 이미지에서 관리 되는 VM 만들기
 
 관리 되는 기존 이미지를 만든 후 스크립트를 사용 하 여 VM 디스크 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , 다음 예제 스크립트는 기존 이미지 개체에서 유사한 Linux VM을 만듭니다.
+
+Azure Stack powershell 모듈 1.7.0 이상: 지침에 따라 [여기](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+
+Azure Stack powershell 모듈 1.6.0 이하로:
 
 ```powershell
 # Variables for common values
@@ -191,7 +205,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-자세한 내용은 참조는 Azure 이미지 문서 관리 [Azure에서 일반화 된 VM의 관리 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md) 하 고 [관리 되는 이미지에서 VM 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)합니다.
+관리 되는 이미지에서 VM을 만들려면 포털을 사용할 수도 있습니다. 자세한 내용은 참조는 Azure 이미지 문서 관리 [Azure에서 일반화 된 VM의 관리 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md) 하 고 [관리 되는 이미지에서 VM 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)합니다.
 
 ## <a name="configuration"></a>구성
 

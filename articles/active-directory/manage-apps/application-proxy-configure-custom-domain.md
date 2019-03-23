@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106800"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359835"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -60,7 +60,8 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 6. PFX 인증서를 업로드하고 인증서의 암호를 입력합니다. 
 7. **저장**을 선택하여 변경 내용을 저장합니다. 
-8. msappproxy.net 도메인에 새 외부 URL을 리디렉션하는 [DNS 레코드](../../dns/dns-operations-recordsets-portal.md)를 추가합니다. 
+8. msappproxy.net 도메인에 새 외부 URL을 리디렉션하는 [DNS 레코드](../../dns/dns-operations-recordsets-portal.md)를 추가합니다.
+9. DNS 레코드를 올바르게 구성 되어 있는지 확인 합니다 [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) 외부 URL에 연결할 수 및 msapproxy.net 도메인 별칭으로 표시 하는 경우를 확인 합니다.
 
 >[!TIP] 
 >사용자 지정 도메인당 하나의 인증서를 업로드하기만 하면 됩니다. 인증서를 업로드한 후 새 앱을 게시하고 DNS 레코드를 제외하고 추가 구성을 수행할 필요가 없는 경우 사용자 지정 도메인을 선택할 수 있습니다. 

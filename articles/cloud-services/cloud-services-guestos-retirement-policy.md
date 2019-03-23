@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338635"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351018"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
 이 페이지의 정보는 Cloud Services 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. Virtual Machines(IaaS)에 적용되지 않습니다.
@@ -57,7 +57,7 @@ Microsoft는 "만료 날짜"라고 하는 전환 기간의 마지막날까지 �
 
 점점 "disabled", 이후에 게스트 OS 버전이 "만료" 및 만료 된 버전을 실행 중인 모든 설치가 보안 및 취약점으로 인 한 문제에 노출 됩니다. 일반적으로 만료 기간 만료를 사용할 수 없는 상태에서 달라질 수 있으므로 일괄 처리로 수행 됩니다.
 
-게스트 OS를 수동으로 업데이트 하려면 해당 서비스를 구성 하는 고객은 해당 배포를 지원 되는 게스트 OS에서 실행 되 고 있는지 확인 해야 합니다. 서비스는 게스트 OS를 자동으로 업데이트 하도록 구성 된, 경우 기본 플랫폼은 규정 준수 및 최신 게스트 OS를 업그레이드 합니다.
+게스트 OS를 수동으로 업데이트 하려면 해당 서비스를 구성 하는 고객 서비스 지원 되는 게스트 OS에서 실행 되 고 있는지 확인 해야 합니다. 서비스는 게스트 OS를 자동으로 업데이트 하도록 구성 된, 경우 기본 플랫폼은 규정 준수 및 최신 게스트 OS를 업그레이드 합니다.
 
 Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기간이 연장될 수 있습니다. 모든 변경 사항은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)에 게시됩니다.
 

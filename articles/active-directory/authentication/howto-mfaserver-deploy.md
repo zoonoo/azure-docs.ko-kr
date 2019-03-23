@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 260da2d58ab6e3342fe372bd51e4877d83b26bfd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313059"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370247"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
 <center>
 
-![온-프레미스에서 MFA](./media/howto-mfaserver-deploy/server2.png)</center>
+![MFA 서버 온-프레미스를 사용 하 여 시작](./media/howto-mfaserver-deploy/server2.png)</center>
 
 온-프레미스 Multi-Factor Authentication 서버를 사용할지 여부를 결정했으므로 다음으로 진행합니다. 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. MFA 서버가 이미 설치되어 있고 업그레이드를 고려하는 경우 [최신 Azure Multi-Factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade.md)를 참조하세요. 웹 서비스만 설치하는 정보는 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)를 참조하세요.
 
@@ -97,11 +97,14 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 3. **서버 설정**을 선택합니다.
 4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
-   ![MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Azure portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
 
 ## <a name="install-and-configure-the-mfa-server"></a>MFA 서버 설치 및 구성
+
+> [!WARNING]
+> MFA 서버 2019 년 3 월부터 다운로드만 됩니다 유료 테 넌 트에 사용할 수 있습니다. 체험/평가판 테 넌 트를 다운로드 하거나 생성 하 고 정품 인증 자격 증명을 사용 하 여 더 이상.
 
 서버를 다운로드했으므로 이제 서버를 설치하고 구성할 수 있습니다. 설치하려는 서버가 계획 섹션에 나열된 요구 사항을 충족하는지 확인합니다.
 
@@ -110,7 +113,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 3. 설치가 완료되면 **마침**을 클릭합니다. 구성 마법사가 시작됩니다.
 4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
 
-   ![클라우드](./media/howto-mfaserver-deploy/skip2.png)
+   ![인증 구성 마법사 사용 건너뛰기](./media/howto-mfaserver-deploy/skip2.png)
 
 5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
 
@@ -130,7 +133,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가 2단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
 
-![MFA 서버 전자 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
+![콘솔에서 MFA 서버 전자 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Active Directory에서 사용자 가져오기
 
@@ -143,7 +146,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 3. 이제 개별 사용자를 검색하거나 해당 사용자로 OU에 대한 AD 디렉터리를 검색할 수 있습니다. 이 경우 사용자 OU를 지정합니다.
 4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기**를 클릭합니다. 성공했음을 알려주는 팝업 메시지가 나타납니다. 가져오기 창을 닫습니다.
 
-   ![MFA 서버 사용자 가져오기](./media/howto-mfaserver-deploy/import2.png)
+   ![Active Directory에서 MFA 서버 사용자 가져오기](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Active Directory와 자동 동기화
 
@@ -169,6 +172,9 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 * 클라이언트 IP - 사용 가능한 경우
 
 위의 필드 외에도 인증 결과(성공/거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증/사용 보고서를 통해 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 서버 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Azure MFA 서버 백업 및 복원
 

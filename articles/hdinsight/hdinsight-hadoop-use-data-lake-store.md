@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b567f5e74737c6020a3dd08484354383d45ecb7d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338617"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361892"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
 
@@ -28,6 +28,7 @@ HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](..
 > [!NOTE]  
 > Data Lake Storage Gen1은 항상 보안 채널을 통해 액세스되기 때문에 `adls` 파일 시스템 구성표 이름이 없습니다. 항상 `adl`을 사용합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="availability-for-hdinsight-clusters"></a>HDInsight 클러스터에 대한 가용성
 
@@ -44,9 +45,9 @@ HDInsight 클러스터는 Data Lake Storage Gen1을 두 가지 방식으로 사�
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight 버전 3.6 | 예 | 예 | HBase 제외|
 | HDInsight 버전 3.5 | 예 | 예 | HBase 제외|
-| HDInsight 버전 3.4 | 아니요 | 예 | |
-| HDInsight 버전 3.3 | 아니요 | 아니요 | |
-| HDInsight 버전 3.2 | 아니요 | 예 | |
+| HDInsight 버전 3.4 | 아닙니다. | 예 | |
+| HDInsight 버전 3.3 | 아닙니다. | 아닙니다. | |
+| HDInsight 버전 3.2 | 아닙니다. | 예 | |
 | Storm | | |Data Lake Storage Gen1을 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. Storm 토폴로지에서 읽을 수 있는 참조 데이터에 Data Lake Storage를 사용할 수도 있습니다.|
 
 > [!WARNING]  
@@ -94,7 +95,7 @@ $identityCertificate = [System.Convert]::ToBase64String($certBytes)
 그런 다음, `$identityCertificate`를 사용하여 다음 코드 조각에서처럼 새 클러스터를 배포할 수 있습니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $pathToArmTemplate `
     -identityCertificate $identityCertificate `
@@ -211,21 +212,21 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
     Write-Host "Waiting for 30 seconds for the permissions to get propagated"
     Start-Sleep -s 30
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."
 
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
     -ResourceGroupName $resourceGroupName `
     -ResourceType 'Microsoft.HDInsight/clusters' `
     -ResourceName $clusterName `

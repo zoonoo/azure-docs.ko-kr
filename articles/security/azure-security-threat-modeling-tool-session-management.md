@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875172"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361730"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 문서 |
@@ -389,18 +389,17 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Azure SQL에서 위협 감지 사용
-```
 
-| Title                   | Details      |
+| 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms |
-| **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
+| **구성 요소**               | 웹 애플리케이션 | 
+| **SDL 단계**               | 빌드 |  
+| **적용 가능한 기술** | 웹 양식 |
+| **특성**              | N/A  |
+| **참조**              | [인증 (ASP.NET 설정 스키마)에 대 한 forms 요소](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
 
-### Example
+### <a name="example"></a>예
 ```XML
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>

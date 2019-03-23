@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141716"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369635"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
 
@@ -54,7 +54,18 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+기본 네트워크 구성 메커니즘은 Ubuntu 17.10 부터는 [NETPLAN]( https://netplan.io)합니다.  NETPLAN YAML 구성 파일에이 위치에서 네트워크 구성을 읽고 설치/인스턴스화 시: / {lib,etc,run}/netplan/*.yaml 합니다.
 
+주십시오를 *dhcp6:true* 구성에서 각 이더넷 인터페이스에 대 한 문입니다.  예: 
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+초기 부팅 시는 netplan 구성을 씁니다/지정된 네트워킹 디먼 NETPLAN에 대 한 참조 정보를 전달 하는 데 장치 제어 해제 실행 "렌더러 네트워크" 참조 https://netplan.io/reference합니다.
+ 
 ## <a name="debian"></a>Debian
 
 1. */etc/dhcp/dhclient6.conf* 파일을 편집하고 다음 줄을 추가합니다.

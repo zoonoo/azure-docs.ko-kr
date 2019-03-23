@@ -1,23 +1,25 @@
 ---
-title: 검색 상자-Azure Search에 자동 완성 기능을 추가 하는 것에 대 한 예제
-description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 애플리케이션의 최종 사용자 환경을 개선하는 방법을 보여주는 예제입니다.
+title: 검색 상자-Azure Search에 미리 입력을 추가 하는 것에 대 한 자동 완성 예제
+description: 확인 기를 만들고 사용 하 여 완료 된 단어 또는 구 검색 상자에 입력 하는 요청을 공식화 하 여 Azure Search의 미리 입력 쿼리 작업을 사용 합니다.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200279"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369580"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>예제: Azure Search를 사용하여 검색 상자에 자동 완성 추가
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>예제: Azure Search에서 부분 용어 입력에 자동 완성 기능 추가
+
+이 미리 보기 기능 "완료" 부분 용어 입력을 완료 된 용어는 Azure Search 인덱스의 문서에서 제공 하 여 합니다. 상용 검색 엔진에서이 기능을 알 수 있습니다. 이제 쿼리 유입 간소화 하기 위해 Azure Search 솔루션 공개 미리 보기에서 현재이 기능을 추가할 수 있습니다.
 
 이 예에서 사용 하는 방법을 알아봅니다 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 하 고 [패싯](search-faceted-navigation.md) 에 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) 강력한 검색 상자를 빌드할 수 있습니다. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016697"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395705"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -27,9 +27,9 @@ Azure 관리 디스크는 현재 네 개의 디스크 유형을 제공하고 있
 |---------|---------|---------|---------|---------|
 |디스크 유형   |SSD   |SSD   |SSD   |HDD   |
 |시나리오   |IO 집약적 워크로드 - SAP HANA, 최상위 계층 데이터베이스(예: SQL, Oracle) 및 다른 트랜잭션 집약적 워크로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
-|디스크 크기   |65,536GiB(기비바이트)(미리 보기)   |4,095GiB(GA), 32,767GiB(미리 보기)    |4,095GiB(GA), 32,767GiB(미리 보기)   |4,095GiB(GA), 32,767GiB(미리 보기)   |
-|최대 처리량   |2,000MiB/s(미리 보기)   |250MiB/s(GA), 750MiB/s(미리 보기)   |60MiB/s(GA), 500MiB/s(미리 보기)   |60MiB/s(GA), 500MiB/s(미리 보기)   |
-|최대 IOPS   |160,000(미리 보기)   |7,500(GA), 20,000(미리 보기)   |500(GA), 2,000(미리 보기)   |500(GA), 2,000(미리 보기)   |
+|디스크 크기   |65,536GiB(기비바이트)(미리 보기)   |32,767GiB    |32,767GiB   |32,767GiB   |
+|최대 처리량   |2,000MiB/s(미리 보기)   |900 초   |750 초   |500 초   |
+|최대 IOPS   |160,000(미리 보기)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>울트라 SSD(미리 보기)
 

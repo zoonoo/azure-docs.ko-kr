@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201316"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361305"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -32,6 +32,8 @@ HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아�
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : ‘Save-HDIFile’이라는 용어가 cmdlet, 함수, 스크립트 파일 또는 운용 가능한 프로그램의 이름으로 인식되지 않습니다. 이름의 철자를 확인하거나 경로가 포함되어 있으면 경로가 올바른지 확인하고 다시 시도합니다.
 > 
 > 도우미 메서드를 포함하지 않았기 때문입니다.  [사용자 지정 스크립트에 대한 도우미 메서드](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 Windows 운영 체제에서 HDInsight 클러스터를 만들기 위한 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음 스크립트는 사이트 구성 파일을 구성하기 위한 예제입니다.
@@ -191,8 +193,8 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 이 예제에서는 `somestorageaccount` 저장소 계정의 `somecontainer` 컨테이너가 공개적으로 액세스 가능한지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Add-AzureRmHDInsightScriptAction cmdlet에 매개 변수 전달
-여러 매개 변수를 Add-AzureRmHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예: 
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>추가 AzHDInsightScriptAction cmdlet에 매개 변수를 전달 합니다.
+여러 매개 변수 추가 AzHDInsightScriptAction cmdlet에 전달할 스크립트에 대 한 모든 매개 변수를 포함 하도록 문자열 값의 형식을 지정 해야 합니다. 예: 
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

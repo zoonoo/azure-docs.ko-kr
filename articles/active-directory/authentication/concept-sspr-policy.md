@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311903"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360506"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -93,7 +93,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Azure AD에서 암호 만료 정책 설정
 
-Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Microsoft Azure AD 모듈을 사용하여 사용자의 암호가 만료되지 않도록 설정할 수 있습니다. 또한 Windows PowerShell cmdlet을 사용하여 만료되지 않는 구성을 제거하거나 어떤 사용자 암호가 만료되지 않도록 설정되어 있는지 확인할 수 있습니다. 
+전역 관리자 또는 사용자 관리자는 Microsoft 클라우드 서비스에 대 한 사용자 암호가 만료 되지 않도록 설정 하려면 Windows PowerShell 용 Microsoft Azure AD 모듈을 사용할 수 있습니다. 또한 Windows PowerShell cmdlet을 사용하여 만료되지 않는 구성을 제거하거나 어떤 사용자 암호가 만료되지 않도록 설정되어 있는지 확인할 수 있습니다. 
 
 이 지침은 ID 및 디렉터리 서비스로 Azure AD를 사용하는 Intune, Office 365와 같은 다른 공급자에 제공됩니다. 암호 만료는 정책에서 변경할 수 있는 유일한 부분입니다.
 
@@ -107,7 +107,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인
 
-1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
+1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
    * 사용자의 암호가 만료 되지 않도록 설정 하는 경우를 확인 하려면 다음 cmdlet을 UPN을 사용 하 여 실행 합니다 (예를 들어 *aprilr\@contoso.onmicrosoft.com*) 하거나 확인 하려는 사용자의 사용자 ID: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 
-1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
+1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
    * 특정 사용자의 암호가 만료되도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None` cmdlet을 실행합니다.
@@ -123,7 +123,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 
 ### <a name="set-a-password-to-never-expire"></a>암호가 만료되지 않도록 설정
 
-1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
+1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
    * 특정 사용자의 암호가 만료되지 않도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration` cmdlet을 실행합니다.

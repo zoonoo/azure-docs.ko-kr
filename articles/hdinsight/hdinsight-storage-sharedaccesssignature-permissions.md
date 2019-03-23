@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202676"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360999"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -27,6 +27,8 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 > HDInsight는 클러스터의 기본 저장소에 대해 모든 액세스 권한이 있어야 합니다.
 
 ## <a name="requirements"></a>요구 사항
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Azure 구독
 * C# 또는 Python. C# 예제 코드가 Visual Studio 솔루션으로 제공됩니다.
@@ -160,12 +162,12 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 1. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
     Azure 구독에 대 한 메시지가 표시 되 면는 계정으로 로그인 합니다.
 
-    계정이 여러 Azure 구독과 연결되는 경우 `Select-AzureRmSubscription` 을 사용하여 사용할 구독을 선택해야 합니다.
+    계정이 여러 Azure 구독과 연결되는 경우 `Select-AzSubscription` 을 사용하여 사용할 구독을 선택해야 합니다.
 
 4. 프롬프트에서 디렉터리를 HDInsightSAS.ps1 파일이 있는 `CreateCluster` 디렉터리로 변경합니다. 그런 후 다음 명령을 사용하여 스크립트를 실행합니다.
 
@@ -273,11 +275,11 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 **증상**: PowerShell 스크립트를 사용하여 클러스터를 만들 때 다음과 같은 오류 메시지가 나타날 수 있습니다.
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **원인**: 클러스터의 admin/HTTP 사용자 또는 Linux 기반 클러스터인 경우 SSH 사용자에 대해 암호를 사용하는 경우 이 오류가 발생할 수 있습니다.

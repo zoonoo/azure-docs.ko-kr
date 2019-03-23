@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189567"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368972"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_reason_desc = NO_TRIM은 행 그룹이 잘리지 않았으며 최적의 품질임을 나타냅니다. 아래의 잘림 이유는 행 그룹이 중간에 잘렸음을 나타냅니다.
-- BULKLOAD: 로드에 대해 들어오는 행 배치의 행 수가 1백만 개 미만이면 이 자르기 이유가 사용됩니다. 삽입되는 행 수가 10만 개보다 많으면 엔진은 델타 저장소에 행을 삽입하지 않고 압축된 행 그룹을 만들지만 자르기 이유를 BULKLOAD로 설정합니다. 이 시나리오에서는 행이 더 많이 누적되도록 배치 로드 기간을 늘리는 것이 좋습니다. 또한 행 그룹은 파티션 경계를 벗어나도록 배치될 수 없으므로, 파티션 구성표를 다시 평가하여 파티션이 너무 세밀하지 않은지 확인합니다.
+- BULKLOAD: 로드에 대해 들어오는 행 배치의 행 수가 1백만 개 미만이면 이 자르기 이유가 사용됩니다. 삽입되는 행 수가 10만 개보다 많으면 엔진은 델타 저장소에 행을 삽입하지 않고 압축된 행 그룹을 만들지만 자르기 이유를 BULKLOAD로 설정합니다. 이 시나리오에서는 더 많은 행을 포함 하 여 일괄 처리 부하가 증가 하는 것이 좋습니다. 또한 행 그룹은 파티션 경계를 벗어나도록 배치될 수 없으므로, 파티션 구성표를 다시 평가하여 파티션이 너무 세밀하지 않은지 확인합니다.
 - MEMORY_LIMITATION: 행이 1백만 개인 행 그룹을 만들려는 경우 엔진에는 일정량의 작업 메모리가 필요합니다. 로딩 세션의 사용 가능한 메모리가 필요한 작업 메모리보다 적으면 행 그룹이 중간에 잘립니다. 필요한 메모리를 예측하고 메모리를 추가로 할당하는 방법은 다음 섹션에서 설명합니다.
 - DICTIONARY_SIZE: 이 자르기 이유는 너비 및/또는 높이 값이 큰 카디널리티 문자열이 포함된 문자열 열이 하나 이상 있어서 행 그룹이 잘렸음을 나타냅니다. 메모리에서 사전 크기는 16MB로 제한되며, 이 제한에 도달하면 행 그룹은 압축됩니다. 이러한 상황이 발생하는 경우 문제가 되는 열을 별도의 테이블에 포함해 보세요.
 

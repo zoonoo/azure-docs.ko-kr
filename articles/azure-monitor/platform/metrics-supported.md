@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113302"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352139"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
+
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | MetadataRequests |    메타데이터 요청   |카운트| 카운트   | 메타데이터 요청 수. Azure Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.    | DatabaseName, CollectionName, 지역, StatusCode| 모두|  |메타데이터 요청으로 인한 제한을 모니터링하는 데 사용합니다.|
 | MongoRequests |   Mongo 요청| 카운트 | 카운트|  생성된 Mongo 요청 수   | DatabaseName, CollectionName, 지역, CommandName, ErrorCode| 모두 |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Mongo 요청 오류, 명령 유형별 사용량을 모니터링하는 데 사용합니다. |
 
-
 ### <a name="request-unit-metrics"></a>요청 단위 메트릭
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
@@ -673,7 +673,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| 사용 가능한 스토리지   |바이트| 합계|  지역당 5분 단위로 보고된 사용 가능한 총 스토리지|   DatabaseName, CollectionName, Region|   5M| 사용 가능한 스토리지|   사용 가능한 스토리지 용량을 모니터링하는 데 사용합니다(고정 스토리지 컬렉션에만 해당). 최소 단위는 5분이어야 합니다.| 
+| AvailableStorage| 사용 가능한 스토리지   |바이트| 합계|  지역당 5분 단위로 보고된 사용 가능한 총 스토리지|   DatabaseName, CollectionName, Region|   5M| 사용 가능한 스토리지|   사용 가능한 스토리지 용량을 모니터링하는 데 사용합니다(고정 스토리지 컬렉션에만 해당). 최소 단위는 5분이어야 합니다.|
 | DataUsage |데이터 사용량 |바이트| 합계   |지역당 5분 단위로 보고된 총 데이터 사용량|    DatabaseName, CollectionName, Region|   5M  |데이터 크기  | 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
 | IndexUsage|   인덱스 사용량|    바이트|  합계   |지역당 5분 단위로 보고된 총 인덱스 사용량|    DatabaseName, CollectionName, Region|   5M| 인덱스 크기| 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다. |
 | DocumentQuota|    문서 할당량| 바이트|  합계|  지역당 5분 단위로 보고된 총 스토리지 할당량 고정 된 저장소 모음에 대해 적용| DatabaseName, CollectionName, Region|   5M  |저장소 용량|  컬렉션 및 지역의 총 할당량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
@@ -805,6 +805,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ScaleActionsInitiated|시작된 크기 조정 작업|카운트|합계|크기 조정 작업의 방향입니다.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (공개 미리 보기)
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -1224,7 +1225,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |주 지역에서|주 지역에서|카운트|평균|주 지역에서|Computer, Product, Classification, UpdateState, Optional, Approved|
 |행사|행사|카운트|평균|행사|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
@@ -1608,7 +1608,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure Monitor의 메트릭에 대해 읽기](../../azure-monitor/platform/data-collection.md)
 * [메트릭에 대한 경고 만들기](../../azure-monitor/platform/alerts-overview.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

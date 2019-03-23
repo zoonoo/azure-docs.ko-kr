@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173926"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360353"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
 
@@ -26,6 +26,8 @@ BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 처리�
 Kafka에 대한 모든 메시지(Kafka에서 유지 관리되는 복제본 포함)는 대칭 DEK(데이터 암호화 키)로 암호화됩니다. DEK는 Key Vault의 KEK(Key Encryption Key)를 사용하여 보호됩니다. 암호화 및 암호 해독 프로세스는 전적으로 Azure HDInsight에 의해 처리됩니다. 
 
 Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 회전할 수 있습니다. 키가 회전될 때 HDInsight Kafka 클러스터는 몇 분 안에 새 키를 사용하기 시작합니다. 랜섬웨어 시나리오 및 실수로 인한 삭제를 방지하려면 “제거 안 함” 및 “일시 삭제” 키 보호 기능을 사용하도록 설정합니다. 이러한 보호 기능이 없는 키는 지원되지 않습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>BYOK 시작
 
@@ -99,7 +101,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 **키가 삭제될 경우 클러스터를 어떻게 복구할 수 있나요?**
 
-   “일시 삭제” 사용 키만 지원되므로, 키가 Key Vault에서 복원될 경우 클러스터는 키에 대한 액세스 권한을 다시 얻어야 합니다. Azure Key Vault 키를 복원하려면 [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)를 참조하세요.
+   “일시 삭제” 사용 키만 지원되므로, 키가 Key Vault에서 복원될 경우 클러스터는 키에 대한 액세스 권한을 다시 얻어야 합니다. 참조는 Azure Key Vault 키를 복원 하려면 [복원 AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey)합니다.
 
 **생산자/소비자 애플리케이션이 BYOK 클러스터 및 비 BYOK 클러스터에서 동시에 작동할 수 있나요?**
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004940"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351884"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ ms.locfileid: "58004940"
 Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
 * **Azure Storage 분석**. [Azure Storage 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure Storage에 대한 로깅 및 메트릭을 제공합니다.
-  
+
   * **Storage 메트릭** 은 Storage 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 애플리케이션의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
   * **스토리지 로깅**은 Azure Storage 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
 * **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 애플리케이션이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 애플리케이션이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
-  
+
     Azure Portal에서 모니터링 구성에 대한 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md) 을 참조하세요.
 * **AzCopy**. Azure Storage의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
 * **Microsoft Message Analyzer**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
@@ -79,51 +79,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 * **HTTP 네트워크 추적 로그**, Azure Storage에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
-먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 클라이언트 애플리케이션의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [Storage 메트릭 사용 및 메트릭 데이터 보기](https://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [스토리지 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
-
-**Azure Portal을 통해**
-
-[Azure Portal](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)의 지침을 따릅니다.
-
-> [!NOTE]
-> Azure Portal을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 애플리케이션의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
-> 
-> Azure Portal은 분 메트릭을 표시할 수 없으며 시간별 메트릭만 표시할 수 있습니다.
-> 
-> 
-
-**PowerShell을 통해**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
-
-1. 다음과 같이 [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. **Microsoft Azure에 로그인** 창에서 계정과 연결된 메일 주소와 암호를 입력합니다. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
-3. 다음과 같이 PowerShell 창에서 다음 명령을 실행하여 기본 저장소 계정을 자습서에서 사용하는 저장소 계정으로 설정합니다.
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. 다음과 같이 Blob service에 대한 저장소 로깅을 사용하도록 설정합니다.
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. 다음과 같이 Blob service의 저장소 메트릭을 사용하도록 설정하고 **-MetricsType**을 `Minute`으로 설정했는지 확인합니다.
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+먼저 해야 Azure Storage 로깅 및 메트릭을 구성 하려면 데이터를 분석 하는 서비스 쪽에서 할 수 있도록 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 참조 [메트릭을 사용 하도록 설정할](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) 하 고 [로깅을 사용 하도록 설정](storage-analytics-logging.md#enable-storage-logging) 로깅 및 메트릭을 구성 하는 방법에 대 한 세부 정보에 대 한 합니다.
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
 .NET 애플리케이션에 대해 클라이언트 쪽 로깅을 구성하려면 애플리케이션의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 스토리지 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
@@ -159,8 +115,8 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 > [!NOTE]
 > 네트워크 추적의 수집을 완료한 후 HTTPS 트래픽을 해독하기 위해 Fiddler에서 변경한 설정을 되돌리는 것이 좋습니다. Fiddler의 옵션 대화 상자에서 **HTTPS 연결 캡처** 및 **HTTPS 트래픽 해독** 확인란의 선택을 취소합니다.
-> 
-> 
+>
+>
 
 자세한 내용은 Technet의 [네트워크 추적 기능 사용(영문)](https://technet.microsoft.com/library/jj674819.aspx) 을 참조하세요.
 
@@ -175,8 +131,8 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 > [!NOTE]
 > 저장소 메트릭을 사용하도록 설정한 이후 Azure Portal에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure Portal에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure Portal에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>AzCopy를 사용하여 로컬 디렉터리에 서버 로그 복사
 Azure Storage는 메트릭이 테이블에 기록되는 동안 서버 로그 데이터를 Blob에 작성합니다. 로그 Blob은 저장소 계정의 잘 알려진 `$logs` 컨테이너에서 사용할 수 있습니다. 로그 Blob은 조사하려는 시간 범위를 쉽게 찾을 수 있도록 연도, 월, 일 및 시간별로 계층적으로 명명됩니다. 예를 들어 `storagesample` 계정에서 2015년 1월 2일, 오전 8-9시에 대한 로그 Blob의 컨테이너는 `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`입니다. 이 컨테이너의 개별 Blob은 `000000.log`부터 시작하여 순차적으로 명명됩니다.
@@ -211,8 +167,8 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 > [!NOTE]
 > 이 자습서의 용도에 맞는 Azure Storage 자산을 모두 설치합니다.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Message Analyzer로 로그 파일 가져오기
 Microsoft Message Analyzer에서 분석을 위해 저장된 모든 로그 파일(서버 쪽, 클라이언트 쪽 및 네트워크)을 단일 세션으로 가져올 수 있습니다.
@@ -255,8 +211,8 @@ Message Analyzer의 스토리지 자산에는 다양한 시나리오에서 유�
 
 > [!NOTE]
 > 다른 로그 파일에는 다른 열이 있으므로 여러 로그 파일의 데이터가 분석 그리드에 표시될 때 일부 열이 지정된 행의 데이터를 포함하지 않을 수 있습니다. 클라이언트 로그 행은 **Timestamp**, **TimeElapsed**, **Source** 및 **Destination** 열의 데이터를 표시하지 않습니다. 이러한 열이 클라이언트 로그에 존재하지 않지만, 네트워크 추적에는 존재하기 때문입니다. 마찬가지로 **Timestamp** 열에는 서버 로그의 타임스탬프 데이터가 표시되지만, 서버 로그의 일부가 아닌 **TimeElapsed**, **Source** 및 **Destination** 열에는 데이터가 표시되지 않습니다.
-> 
-> 
+>
+>
 
 Azure Storage 보기 레이아웃을 사용할 뿐만 아니라 고유의 보기 레이아웃을 정의 및 저장할 수도 있습니다. 그룹화 데이터에 대해 원하는 다른 필드를 선택하고 해당 그룹화를 사용자 지정 레이아웃의 일부로 저장할 수도 있습니다.
 
@@ -289,12 +245,12 @@ Azure Storage 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을 �
 
 > [!NOTE]
 > 상태 코드가 null인 로그 항목을 포함하는 필터에 식을 추가한 경우 **StatusCode** 열을 필터링하고 클라이언트 로그를 비롯하여 세 로그 모두의 데이터를 여전히 표시할 수 있습니다. 이 필터 식을 생성하려면 다음을 사용하세요.
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > 이 필터는 클라이언트 로그의 모든 행과 상태 코드가 400보다 큰 서버 로그 및 HTTP 로그의 행만 반환합니다. 클라이언트 요청 ID 및 모듈별로 그룹화한 보기 레이아웃에 이 필터를 적용할 경우 로그 항목을 검색하거나 스크롤하여 세 로그 모두가 표시되는 항목을 찾을 수 있습니다.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>로그 데이터를 필터링하여 404 오류 찾기
 저장소 자산에는 로그 데이터 범위를 좁혀 찾고 있는 오류 또는 추세를 찾는 데 사용할 수 있는 미리 정의된 필터가 포함되어 있습니다. 이제 두 가지 미리 정의된 필터 즉, 404 오류에 대해 서버 및 네트워크 추적 로그를 필터링하는 필터와 지정한 시간 범위에서 데이터를 필터링하는 필터를 적용하겠습니다.

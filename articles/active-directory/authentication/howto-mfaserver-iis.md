@@ -11,20 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beeeea13c46c489fbd0e5c26d18d3d8c7994dccd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314238"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368580"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
 Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하여 Microsoft IIS 웹 애플리케이션과의 통합을 위한 IIS 인증을 사용하도록 설정하고 구성할 수 있습니다. Azure MFA 서버는 Azure Multi-Factor Authentication을 추가하기 위해 IIS 웹 서버에 요청하는 사항을 필터링할 수 있는 플러그인을 설치합니다. IIS 플러그인은 양식 기반 인증 및 통합 Windows HTTP 인증을 지원합니다. 신뢰할 수 있는 IP는 2단계 인증에서 내부 IP 주소를 제외하도록 구성할 수도 있습니다.
 
-![IIS 인증](./media/howto-mfaserver-iis/iis.png)
+![MFA 서버에서 IIS 인증](./media/howto-mfaserver-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 양식 기반 IIS 인증 사용
+
 양식 기반 인증을 사용하는 IIS 웹 애플리케이션을 보호하려면 IIS 웹 서버에 Azure Multi-Factor Authentication 서버를 설치하고 다음 절차에 따라 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
@@ -48,6 +49,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 14. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 Windows 통합 인증 사용
+
 통합 Windows HTTP 인증을 사용하는 IIS 웹 애플리케이션을 보호하려면 IIS 웹 서버에 Azure MFA 서버를 설치한 후 다음 단계로 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
@@ -60,6 +62,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 8. **확인**을 클릭합니다.
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에 대해 IIS 플러그인 사용
+
 양식 기반 또는 HTTP 인증 URL 및 설정을 구성한 후 Azure Multi-Factor Authentication IIS 플러그인을 로드하고 IIS에서 사용하도록 설정할 위치를 선택합니다. 이렇게 하려면 다음 절차를 수행합니다.
 
 1. IIS 6에서 실행하는 경우 **ISAPI** 탭을 클릭합니다. 웹 애플리케이션이 실행되고 있는 웹 사이트(예: 기본 웹 사이트)를 선택하여 해당 사이트에 대해 Azure Multi-Factor Authentication ISAPI 필터 플러그인을 사용하도록 설정합니다.
@@ -67,6 +70,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 3. 화면 위쪽에서 **IIS 인증 사용** 상자를 클릭합니다. 이제 Azure Multi-Factor Authentication이 선택된 IIS 애플리케이션을 보호합니다. 사용자를 서버에 가져왔는지 확인합니다.
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
+
 신뢰할 수 있는 IP를 사용하면 특정 IP 주소 또는 서브넷에서 시작된 웹 사이트 요청에 대한 Azure Multi-Factor Authentication을 바이패스할 수 있습니다. 예를 들어 사무실에서 로그인한 동안에는 사용자를 Azure Multi-Factor Authentication에서 제외시킬 수 있습니다. 이를 위해 사무실 서브넷을 신뢰할 수 있는 IP 항목으로 지정할 수 있습니다. 신뢰할 수 있는 IP를 구성하려면 다음 절차를 사용합니다.
 
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.

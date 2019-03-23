@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899811"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371930"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
 
 * Azure 진단 확장
 * Linux 및 Windows용 Log Analytics 에이전트
-* Dependency agent
+* 종속성 에이전트
 
 이 문서에서는 IT 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 기능을 결정하기 위해 이러한 서비스와 해당 기능 간의 차이점을 설명합니다.  
 
@@ -49,10 +49,10 @@ Azure 진단 에이전트는 다음 작업을 수행할 때 사용해야 합니�
 * 게스트 OS 메트릭을 기반으로 가상 머신 확장 집합 및 Classic Cloud Services를 자동 크기 조정합니다.
 * [부팅 진단](../../virtual-machines/troubleshooting/boot-diagnostics.md)을 사용하여 VM 부팅 문제를 조사합니다.
 * 애플리케이션을 수행하는 방법을 이해하고 [Application Insights](../../azure-monitor/overview.md)를 통해 애플리케이션에 영향을 주는 문제를 사전에 식별합니다.
-* Azure Storage 계정에 저장된 Cloud Services, 클래식 VM 및 Service Fabric 노드에서 수집된 메트릭 및 로그 데이터를 가져오도록 Log Analytics를 구성합니다.
+* Azure Monitor 메트릭 가져오기 및 클래식 Vm의 경우 Cloud Services에서 수집 된 데이터 로그를 구성 하 고 Service Fabric 노드는 Azure storage 계정에 저장 합니다.
 
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트
-고급 모니터링 메트릭 및 로그의 하위 집합을 수집 이상 수행 해야 합니다 (Microsoft 모니터링 에이전트 (MMA)으로) 하는 Windows 및 Linux 용 Log Analytics 에이전트를이 필요 합니다. Log Analytics 에이전트는 온-프레미스 실제 및 가상 머신, System Center Operations Manager에서 모니터링하는 컴퓨터 및 다른 클라우드에서 호스팅되는 VM의 포괄적인 관리를 위해 개발되었습니다. Windows 및 Linux 에이전트는 Log Analytics 작업 영역에 연결하여 모니터링 솔루션 기반 데이터와 사용자가 구성한 사용자 지정 데이터 원본을 모두 수집합니다.
+고급 모니터링 메트릭 및 로그의 하위 집합을 수집 이상 수행 해야 합니다 (Microsoft 모니터링 에이전트 (MMA)으로) 하는 Windows 및 Linux 용 Log Analytics 에이전트를이 필요 합니다. Log Analytics 에이전트는 온-프레미스 실제 및 가상 머신, System Center Operations Manager에서 모니터링하는 컴퓨터 및 다른 클라우드에서 호스팅되는 VM의 포괄적인 관리를 위해 개발되었습니다. Windows 및 Linux 에이전트 모니터링 솔루션 기반 데이터 뿐만 아니라 구성 하는 사용자 지정 데이터 원본을 수집 하려면 Azure Monitor에서 Log Analytics 작업 영역에 연결 합니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -69,8 +69,8 @@ Log Analytics 에이전트는 다음 작업을 수행할 때 사용해야 합니
 * [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/automation-change-tracking.md)를 사용하여 구성 변경 내용을 추적합니다.
 * [Application Insights](https://docs.microsoft.com/azure/application-insights/) 및 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)와 같은 Azure 서비스로서 기본적으로 Log Analytics에 직접 데이터를 저장합니다.  
 
-## <a name="dependency-agent"></a>Dependency agent
-종속성 에이전트는 원래 Microsoft의 외부에서 개발된 서비스 맵 솔루션의 일부로 개발되었습니다. [서비스 맵](../insights/service-map.md) 및 [VM용 Azure Monitor](../insights/vminsights-overview.md)는 Windows 및 Linux 가상 머신에 종속성 에이전트가 필요하며, Log Analytics 에이전트와 통합되어 가상 머신에서 실행 중인 프로세스 및 외부 프로세스 종속성에 대해 검색된 데이터를 수집합니다. Log Analytics에 이 데이터를 저장하고 검색되는 상호 연결 구성 요소를 시각화합니다.
+## <a name="dependency-agent"></a>종속성 에이전트
+종속성 에이전트는 원래 Microsoft의 외부에서 개발된 서비스 맵 솔루션의 일부로 개발되었습니다. [서비스 맵](../insights/service-map.md) 및 [VM용 Azure Monitor](../insights/vminsights-overview.md)는 Windows 및 Linux 가상 머신에 종속성 에이전트가 필요하며, Log Analytics 에이전트와 통합되어 가상 머신에서 실행 중인 프로세스 및 외부 프로세스 종속성에 대해 검색된 데이터를 수집합니다. Log Analytics 작업 영역에서이 데이터를 저장 하 고 검색 된 상호 연결 된 구성 요소를 시각화 합니다.
 
 VM을 모니터링하기 위해 이러한 에이전트의 몇 가지 조합이 필요할 수 있습니다. 에이전트를 Azure 확장으로 나란히 설치할 수 있지만 Linux에서는 Log Analytics 에이전트를 먼저 설치*해야*합니다. 그렇지 않으면 설치가 실패합니다. 
 

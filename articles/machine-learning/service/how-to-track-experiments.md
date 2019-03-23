@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336598"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361458"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
 
@@ -32,7 +32,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 |목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
 |행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
 |테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
-|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>run.log_image(“ROC”, plt) | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
+|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
 |실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
 |파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
 
@@ -48,7 +48,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 ## <a name="set-up-the-workspace"></a>작업 영역 설정
 로깅을 추가하고 실험을 제출하기 전에 작업 영역을 설정해야 합니다.
 
-1. 작업 영역을 로드합니다. 작업 영역 구성을 설정하는 방법에 대해 자세히 알아보려면 [빠른 시작](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started)을 수행하세요.
+1. 작업 영역을 로드합니다. 단계에 따라 작업 영역 구성을 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md#sdk)합니다.
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
    ```
 
 ## <a name="cancel-a-run"></a>실행 취소
-실행 되는 제출 되 면 실험 이름을 알고 있고 실행 id 개체에 대 한 참조를 잃어버린 경우에 취소할 수 있습니다. 
+
+Alter 실행 되는 전송 되 면 취소할 수 있습니다 실험 이름을 알고 있고 실행 id입니다. 개체에 대 한 참조를 잃어버린 경우에 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-현재 ScriptRun 및 PipelineRun 유형만 취소 작업을 지원합니다.
+현재 ScriptRun 형식과 PipelineRun 취소 작업을 지원 합니다.
 
 또한 다음 명령을 사용하여 CLI를 통해 실행을 취소할 수 있습니다.
 ```shell
@@ -261,7 +263,7 @@ az ml run cancel -r <run_id> -p <project_path>
 
    ![Jupyter 노트북 위젯의 스크린샷](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. `<<experiment_name>>`을 적절한 실험 이름으로 바꾸세요.
+2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 대체 `<<experiment_name>>` 적절 한 실험 이름:
 
    ``` 
    from azureml.widgets import RunDetails

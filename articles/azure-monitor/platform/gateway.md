@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314673"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369618"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
 
 >[!NOTE]
 >Microsoft Operations Management Suite (OMS) Microsoft Azure Monitor로 전환 하는 대로 용어 변경 됩니다. 이 문서에서는 Azure Log Analytics 게이트웨이는 OMS 게이트웨이를 나타냅니다. 
 >
 
-이 문서에는 인터넷 액세스가 불가능 컴퓨터 직접 연결 된 또는 Operations Manager에서 모니터링 되는 경우 Log Analytics 게이트웨이 사용 하 여 Azure Automation 및 Log Analytics를 사용 하 여 통신을 구성 하는 방법을 설명 합니다. 
+이 문서에는 인터넷 액세스가 불가능 컴퓨터 직접 연결 된 또는 Operations Manager에서 모니터링 되는 경우 Log Analytics 게이트웨이 사용 하 여 Azure Automation 및 Azure Monitor를 사용 하 여 통신을 구성 하는 방법을 설명 합니다. 
 
-Log Analytics 게이트웨이 HTTP CONNECT 명령을 사용 하 여 HTTP 터널링을 지 원하는 HTTP 전달 프록시입니다. 이 게이트웨이 데이터를 수집 하 고 인터넷에 연결 되지 않은 컴퓨터를 대신 하 여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
+Log Analytics 게이트웨이 HTTP CONNECT 명령을 사용 하 여 HTTP 터널링을 지 원하는 HTTP 전달 프록시입니다. 이 게이트웨이 데이터를 수집 하 고 Azure Automation 및 인터넷에 연결 되지 않은 컴퓨터를 대신 하 여 Azure Monitor에서 Log Analytics 작업 영역에 게 보낼 수 있습니다.  
 
 Log Analytics 게이트웨이는 다음을 지원합니다.
 
 * 최대 4 개의 동일한 Log Analytics 작업 영역의 에이전트 뒤 있으며 Azure Automation Hybrid Runbook Worker를 사용 하 여 구성 된 보고 합니다.  
-* Windows 컴퓨터는 Microsoft Monitoring Agent에 직접 연결 된 Log Analytics 작업 영역입니다.
-* Linux 컴퓨터는 Linux 용 Log analytics에 직접 연결 된 Log Analytics 작업 영역입니다.  
+* Windows 컴퓨터는 Microsoft Monitoring Agent에 직접 연결 된 Azure Monitor에서 Log Analytics 작업 영역입니다.
+* Linux 컴퓨터는 Linux 용 Log analytics에 직접 연결 된 Azure Monitor에서 Log Analytics 작업 영역입니다.  
 * System Center Operations Manager 2012 SP1 UR7, UR3에 Operations Manager 2012 R2 이상 버전에서 Operations Manager 2016 관리 그룹을 사용 하 여 Log Analytics와 통합 됩니다.  
 
-일부 IT 보안 정책이 네트워크 컴퓨터에 대 한 인터넷 연결을 허용 하지 않습니다. 이러한 연결 되지 않은 컴퓨터에는 POS (sale) 장치 또는 예를 들어, IT 서비스를 지 원하는 서버 지점이 될 수 있습니다. Azure Automation 또는 Log Analytics를 관리할 수 있도록 및 모니터에 이러한 장치를 연결할 하면 구성 Log Analytics 게이트웨이와 직접 통신 하도록 합니다. Log Analytics 게이트웨이 구성 정보와 사용자 대신에 데이터를 전달 받을 수 있습니다. 컴퓨터를 Log Analytics 작업 영역에 직접 연결 하도록 Log Analytics 에이전트를 사용 하 여 구성 된 경우 컴퓨터는 Log Analytics 게이트웨이와 대신 통신 합니다.  
+일부 IT 보안 정책이 네트워크 컴퓨터에 대 한 인터넷 연결을 허용 하지 않습니다. 이러한 연결 되지 않은 컴퓨터에는 POS (sale) 장치 또는 예를 들어, IT 서비스를 지 원하는 서버 지점이 될 수 있습니다. Azure Automation 또는 Log Analytics 작업 영역을 관리할 수 있도록 및 모니터에 이러한 장치를 연결할 하면 구성 Log Analytics 게이트웨이와 직접 통신 하도록 합니다. Log Analytics 게이트웨이 구성 정보와 사용자 대신에 데이터를 전달 받을 수 있습니다. 컴퓨터를 Log Analytics 작업 영역에 직접 연결 하도록 Log Analytics 에이전트를 사용 하 여 구성 된 경우 컴퓨터는 Log Analytics 게이트웨이와 대신 통신 합니다.  
 
 Log Analytics 게이트웨이 데이터는 에이전트에서 서비스로 직접 전송 합니다. 전송 중인 데이터를 분석 하지 않습니다.
 
 Operations Manager 관리 그룹에 Log Analytics와 통합 하는 경우 구성 정보를 수신 하도록 설정한 솔루션에 따라 수집 된 데이터를 전송 하는 Log Analytics 게이트웨이의 연결할 관리 서버를 구성할 수 있습니다. .  Operations Manager 에이전트는 관리 서버에 일부 데이터를 보냅니다. 예를 들어, 에이전트는 Operations Manager 경고, 구성 평가 데이터, 인스턴스 공간 데이터 및 용량 데이터를 보낼 수 있습니다. 인터넷 정보 서비스 (IIS) 로그, 성능 데이터 및 보안 이벤트 같은 기타 대용량 데이터를 Log Analytics 게이트웨이에 직접 전송 됩니다. 
 
-하나 이상의 Operations Manager 게이트웨이 서버에 배포 하는 경계 네트워크 또는 격리 된 네트워크에서 신뢰할 수 없는 시스템을 모니터링 하는 경우 해당 서버를 Log Analytics 게이트웨이와 통신할 수 없습니다.  Operations Manager 게이트웨이 서버는 관리 서버에만 보고할 수 있습니다.  Log Analytics 게이트웨이와 통신하도록 Operations Manager 관리 그룹을 구성하면, 설정이 비어 있더라도 프록시 구성 정보가 Log Analytics를 위해 데이터를 수집하도록 구성된 모든 에이전트 관리 컴퓨터에 자동으로 배포됩니다.    
+하나 이상의 Operations Manager 게이트웨이 서버에 배포 하는 경계 네트워크 또는 격리 된 네트워크에서 신뢰할 수 없는 시스템을 모니터링 하는 경우 해당 서버를 Log Analytics 게이트웨이와 통신할 수 없습니다.  Operations Manager 게이트웨이 서버는 관리 서버에만 보고할 수 있습니다.  프록시 구성 정보는 Azure Monitor에 대 한 로그 데이터를 수집 하도록 구성 된 모든 에이전트 관리 컴퓨터에 자동으로 배포 하 고 Operations Manager 관리 그룹이 Log Analytics 게이트웨이와 통신 하도록 구성 되 면 설정이 비어 경우에 있습니다.    
 
-연결에 대 한 고가용성을 직접 제공 하거나 게이트웨이 통해 Log Analytics와 통신 하는 Operations Management 그룹을 리디렉션하고 트래픽을 분산 (NLB) 여러 게이트웨이 서버로 분산 하는 네트워크 부하를 사용 합니다. 이런 방식으로 한 게이트웨이 서버가 다운 되 면 트래픽이 사용 가능한 다른 노드로로 리디렉션 됩니다.  
+연결에 대 한 고가용성을 직접 제공 하거나 게이트웨이 통해 Log Analytics 작업 영역을 사용 하 여 통신 하는 Operations Management 그룹을 리디렉션하고 트래픽을 분산 (NLB) 여러 게이트웨이 서버로 분산 하는 네트워크 부하를 사용 합니다. 이런 방식으로 한 게이트웨이 서버가 다운 되 면 트래픽이 사용 가능한 다른 노드로로 리디렉션 됩니다.  
 
 Log Analytics 게이트웨이 실행 하는 컴퓨터에 게이트웨이 사용 하 여 통신 해야 하는 서비스 끝점을 식별 하는 Log Analytics Windows 에이전트가 필요 합니다. 게이트웨이 동일한 작업 영역에 보고를 보내기 위해 해야 에이전트는 에이전트 또는 Operations Manager 관리 그룹이 게이트웨이 뒤으로 구성 됩니다. 이 구성은 게이트웨이 및 해당 할당 된 작업 영역을 사용 하 여 통신 하도록 에이전트를 허용 합니다.
 

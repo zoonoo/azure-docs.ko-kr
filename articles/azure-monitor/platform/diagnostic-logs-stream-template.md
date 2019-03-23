@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467631"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371472"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 이 통해 자동으로 진단 로그 및 메트릭을 Event Hubs로 스트리밍, 해당 저장소 계정에 보관 하거나 리소스를 만들 때 Log Analytics 작업 영역에 보내를 시작할 수 있습니다.
 
 > [!WARNING]
 > 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 ## <a name="non-compute-resource-template"></a>비-Compute 리소스 템플릿
 비-Compute 리소스 템플릿의 경우 두 가지 작업을 수행해야 합니다.
 
-1. 저장소 계정 이름, 이벤트 허브 권한 부여 규칙 ID 및/또는 Log Analytics 작업 영역 ID(저장소 계정에 진단 로그 보관 활성화, Event Hubs에 로그 스트리밍 및/또는 Log Analytics에 로그 보내기)에 대한 매개 변수 blob에 매개 변수를 추가합니다.
+1. 저장소 계정 이름, 이벤트 허브 권한 부여 규칙 ID 및/또는 Log Analytics 작업 영역 ID (저장소 계정, Event hubs에 로그 스트리밍 및/또는 Azure Monitor에 로그 보내기에 진단 로그 보관 활성화)에 대 한 매개 변수 blob에 매개 변수를 추가 합니다.
    
     ```json
     "settingName": {

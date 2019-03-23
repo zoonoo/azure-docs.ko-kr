@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080325"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361101"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -70,7 +70,7 @@ ms.locfileid: "58080325"
 
 실험은 지정된 스크립트의 많은 실행을 그룹화한 것입니다. 실험은 항상 작업 영역에 속합니다. 실행을 제출할 때 실험 이름을 제공합니다. 실행에 대한 정보는 해당 실험 아래에 저장됩니다. 실행을 제출하고 존재하지 않는 실험 이름을 지정하면 새로 지정된 해당 이름을 가진 새 실험이 자동으로 생성됩니다.
 
-실험을 사용하는 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
+실험을 사용하는 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
 ## <a name="model"></a>모델
 
@@ -80,7 +80,7 @@ ms.locfileid: "58080325"
 
 Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만드는 경우 Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer 및 Microsoft Cognitive Toolkit(전의 CNTK)와 같은 인기 있는 기계 학습 프레임워크를 사용할 수 있습니다.
 
-모델 학습 예제는 [빠른 시작: Machine Learning 서비스 작업 영역 만들기](quickstart-get-started.md) 문서를 참조하세요.
+모델 학습 예제를 참조 하세요. [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
 
 ### <a name="model-registry"></a>모델 레지스트리
 
@@ -143,7 +143,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(컴퓨팅 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅숏이 작업 영역의 실험 아래에 저장됩니다.
 
-예제는 [Python을 사용하여 작업 영역 만들기](quickstart-get-started.md)를 참조하세요.
+예제는 [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
 
 ## <a name="run"></a>실행
 
@@ -156,7 +156,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 모델을 학습시키기 위해 스크립트를 제출할 때 모델을 생성합니다. 실행에는 0개 이상의 자식 실행이 포함될 수 있습니다. 예를 들어 최상위 실행에는 두 개의 자식 실행이 포함될 수 있고, 각 자식 실행에는 자체 자식 실행이 포함될 수 있습니다.
 
-모델 학습을 통해 생성된 실행 보기 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
+모델 학습을 통해 생성된 실행 보기 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
 ## <a name="snapshot"></a>스냅숏
 
@@ -206,7 +206,7 @@ Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insigh
 
 ### <a name="iot-module"></a>IoT 모듈
 
-배포된 IoT 모듈은 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. Edge 디바이스에서 Azure IoT Edge를 사용하여 이러한 모듈을 배포합니다.
+배포된 IoT 모듈은 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. 에 지 장치의 Azure IoT Edge를 사용 하 여 이러한 모듈을 배포 합니다.
 
 모니터링을 사용하도록 설정한 경우 Azure에서는 Azure IoT Edge 모듈 내의 모델에서 원격 분석 데이터를 수집합니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 스토리지 계정 인스턴스에 저장됩니다.
 
@@ -227,6 +227,6 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
 
 * [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)
-* [빠른 시작: Python을 사용하여 작업 영역 만들기](quickstart-get-started.md)
+* [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)
-* [Resource Manager 템플릿으로 작업 영역 만들기](how-to-create-workspace-template.md)
+* [Resource Manager 템플릿을 사용 하 여 작업 영역 만들기](how-to-create-workspace-template.md)

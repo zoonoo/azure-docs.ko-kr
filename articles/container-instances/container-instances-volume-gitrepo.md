@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388275"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369669"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
 
@@ -29,21 +29,21 @@ ms.locfileid: "49388275"
 
 | 자산 | 필수 | 설명 |
 | -------- | -------- | ----------- |
-| `repository` | yes | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
-| `directory` | 아니요 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
-| `revision` | 아니요 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
+| `repository` | 예 | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
+| `directory` | 아닙니다. | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
+| `revision` | 아닙니다. | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
 
-## <a name="mount-gitrepo-volume-azure-cli"></a>gitRepo 볼륨 탑재: Azure CLI
+## <a name="mount-gitrepo-volume-azure-cli"></a>GitRepo 볼륨 탑재: Azure CLI
 
 [Azure CLI](/cli/azure)로 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재하려면 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를 [az container create][az-container-create] 명령에 제공합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
 
-이 예제 명령은 [aci-helloworld][aci-helloworld] 샘플 애플리케이션을 컨테이너 인스턴스의 `/mnt/aci-helloworld`에 복제합니다.
+이 예제 명령은 복제 Microsoft [aci helloworld] [ aci-helloworld] 샘플 응용 프로그램을 `/mnt/aci-helloworld` 에서 컨테이너 인스턴스:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name hellogitrepo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --dns-name-label aci-demo \
     --ports 80 \
     --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
@@ -62,13 +62,14 @@ total 16
 drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 ```
 
-## <a name="mount-gitrepo-volume-resource-manager"></a>gitRepo 볼륨 탑재: Resource Manager
+## <a name="mount-gitrepo-volume-resource-manager"></a>GitRepo 볼륨 탑재: 리소스 관리자
 
 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 gitRepo 볼륨을 탑재하려면 먼저 템플릿의 컨테이너 그룹 `properties` 섹션에서 `volumes` 배열을 입력합니다. 다음으로 *gitRepo* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 단일 컨테이너로 구성된 컨테이너 그룹을 만듭니다. 컨테이너는 *gitRepo* 볼륨 블록으로 지정된 GitHub 리포지토리 두 개를 복제합니다. 두 번째 볼륨에는 복제할 디렉터리를 지정하는 추가 속성과 복제할 특정 수정 내용의 커밋 해시가 포함됩니다.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
+[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 이전 템플릿에 정의된 두 복제 리포지토리의 결과 디렉터리 구조는 다음과 같습니다.
 
@@ -97,9 +98,9 @@ Azure Repos Git 리포지토리의 경우 유효한 PAT와 조합해서 사용�
 
 GitHub 및 Azure Repos의 개인용 액세스 토큰에 대한 자세한 내용은 다음을 참조하세요.
 
-GitHub: [명령줄에 대한 개인용 액세스 토큰 만들기][pat-github]
+GitHub: [명령줄에 대 한 개인용 액세스 토큰 만들기][pat-github]
 
-Azure Repos: [액세스 인증을 위한 개인용 액세스 토큰 만들기][pat-repos]
+Azure Repos: [액세스를 인증에 대 한 개인용 액세스 토큰 만들기][pat-repos]
 
 ## <a name="next-steps"></a>다음 단계
 

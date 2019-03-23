@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory Mapping Data Flow 데이터 세트
-description: Azure 데이터 팩터리 매핑 데이터 흐름에 sepecific 데이터 집합의 호환성
+description: Azure 데이터 팩터리 매핑 데이터 흐름에 특정 데이터 집합의 호환성
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726926"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371318"
 ---
 # <a name="mapping-data-flow-datasets"></a>Mapping Data Flow 데이터 세트
 
@@ -42,6 +42,12 @@ ms.locfileid: "57726926"
 ## <a name="import-schemas"></a>스키마 가져오기
 
 Data Flow 데이터 세트의 스키마를 가져오는 경우 스키마 가져오기 단추가 표시됩니다. 해당 단추를 클릭하면 원본에서 가져오거나 로컬 파일에서 가져오는 두 가지 옵션이 표시됩니다. 대부분의 경우 원본에서 직접 스키마를 가져옵니다. 그러나 기존 스키마 파일(Parquet 파일 또는 헤더가 있는 CSV)이 있는 경우 해당 로컬 파일을 가리킬 수 있으며, Data Factory는 이 스키마 파일을 기준으로 스키마를 정의합니다.
+
+## <a name="create-new-table"></a>새 테이블 만들기
+
+데이터 흐름에서 새 테이블 이름을 가진 싱크 변환에서 데이터 집합을 설정 하 여 대상 데이터베이스에서 새 테이블 정의 만들려면 ADF를 요청할 수 있습니다. SQL 데이터 집합의 테이블 이름 아래 "편집"을 클릭 하 고 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환에서 "스키마 드리프트 허용"으로 설정 합니다. Seth "스키마 가져오기" None으로 설정 합니다.
+
+![소스 변환 스키마](media/data-flow/dataset2.png "SQL 스키마")
 
 ## <a name="delimited-text-dataset"></a>구분 기호로 분리 된 텍스트 데이터 집합
 

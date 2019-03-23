@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891810"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369941"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
@@ -34,7 +34,7 @@ ms.locfileid: "57891810"
 논리 앱이 HTTP 요청 기반 트리거(예: [요청](../connectors/connectors-native-reqres.md) 또는 [웹후크](../connectors/connectors-native-webhook.md) 트리거)를 사용할 경우 권한 있는 클라이언트만 논리 앱을 시작할 수 있도록 액세스를 제한할 수 있습니다. 논리 앱에서 받은 모든 요청은 SSL(Secure Sockets Layer) 프로토콜을 사용하여 암호화되고 보안이 유지됩니다. 이 트리거 형식에 대한 액세스를 보호할 수 있는 몇 가지 방법은 다음과 같습니다.
 
 * [공유 액세스 서명 생성](#sas)
-* [받는 IP 주소 제한](#restrict-incoming-IP)
+* [받는 IP 주소 제한](#restrict-incoming-ip-addresses)
 * [Azure Active Directory, OAuth 또는 기타 보안 추가](#add-authentication)
 
 <a name="sas"></a>

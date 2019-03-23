@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860427"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361968"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -27,7 +27,7 @@ Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다
 | 계산 대상 | 배포 유형 | 설명 |
 | ----- | ----- | ----- |
 | [AKS(Azure Kubernetes Service)](#aks) | 실시간 유추 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
-| [Azure ML 계산](#azuremlcompute) | 일괄 처리 유추 | 서버 리스 계산에서 일괄 처리 예측을 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
+| [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | 일괄 처리 유추 | 서버 리스 계산에서 일괄 처리 예측을 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
 | [ACI(Azure Container Instances)](#aci) | 테스트 | 개발 또는 테스트에 적합합니다. **프로덕션 워크 로드에 적합 하지 않습니다.** |
 | [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
 | [FPGA(Field-programmable Gate Array)](#fpga) | (미리 보기) 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
@@ -50,13 +50,13 @@ Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다
 
 - Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning 빠른 시작을 통한 시작](quickstart-get-started.md)을 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아봅니다.
+- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 사용 하 여 이러한 필수 구성이 요소를 가져오는 방법을 알아보려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
 
 - 학습된 모델. 학습된 모델이 없는 경우 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 단계를 사용하여 학습을 하고 Azure Machine Learning 서비스에 등록합니다.
 
     > [!NOTE]
     > Azure Machine Learning 서비스 수 Python 3에서 로드할 수 있는 모든 일반 모델을 사용 하는 동안이 문서의 예제에서는 Python pickle 형식으로 저장 된 모델을 사용 하 여 보여 줍니다.
-    > 
+    >
     > ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure Machine Learning](how-to-build-deploy-onnx.md) 문서를 참조하세요.
 
 ## <a id="registermodel"></a> 학습된 모델 등록
@@ -83,7 +83,7 @@ model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
 
 배포된 모델은 이미지로 패키지됩니다. 이미지는 모델을 실행하는 데 필요한 종속성을 포함합니다.
 
-**Azure Container Instance** **Azure Kubernetes Service** 및 **Azure IoT Edge** 배포의 경우 [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용하여 이미지 구성을 만듭니다. 이 이미지 구성은 새 Docker 이미지를 만드는 데 사용됩니다. 
+**Azure Container Instance** **Azure Kubernetes Service** 및 **Azure IoT Edge** 배포의 경우 [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용하여 이미지 구성을 만듭니다. 이 이미지 구성은 새 Docker 이미지를 만드는 데 사용됩니다.
 
 다음 코드는 새 이미지 구성을 만드는 방법을 보여 줍니다.
 
@@ -126,14 +126,13 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 다음은 JSON 데이터를 수락하고 반환하는 예제 스크립트입니다. `run` 함수는 데이터를 모델이 예상하는 JSON으로 변환하고, 응답을 JSON으로 변환한 후 반환합니다.
 
 ```python
-# import things required by this script
+%%writefile score.py
 import json
 import numpy as np
 import os
 import pickle
 from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
-
 from azureml.core.model import Model
 
 # load the model
@@ -185,7 +184,7 @@ def run(request):
 > [!IMPORTANT]
 > 서비스를 개선을 위해 노력하므로 `azureml.contrib` 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 >
-> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다. 
+> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다.
 > ```shell
 > pip install azureml-contrib-services
 > ```
@@ -196,7 +195,7 @@ def run(request):
 
 ```python
 # Register the image from the image configuration
-image = ContainerImage.create(name = "myimage", 
+image = ContainerImage.create(name = "myimage",
                               models = [model], #this is the model object
                               image_config = image_config,
                               workspace = ws
@@ -209,7 +208,7 @@ image = ContainerImage.create(name = "myimage",
 
 자세한 내용은 [ContainerImage 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
-## <a id="deploy"></a> 이미지 배포
+## <a id="deploy"></a> 웹 서비스로 배포
 
 배포를 가져오는 프로세스는 배포하는 컴퓨팅 대상에 따라 약간 다릅니다. 다음 섹션의 정보를 참조하여 배포 방법을 알아보세요.
 
@@ -251,7 +250,7 @@ Azure Container Instances에 배포하려면 다음 단계를 사용합니다.
 
 모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. 기존 AKS 클러스터를 사용하거나 Azure Machine Learning SDK, CLI 또는 Azure Portal을 사용하여 새로운 클러스터를 만들 수 있습니다.
 
-AKS 클러스터 만들기는 작업 영역에 대한 일회성 프로세스입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 
+AKS 클러스터 만들기는 작업 영역에 대한 일회성 프로세스입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 클러스터를 삭제하면, 다음에 배포할 때 새 클러스터를 만들어야 합니다.
@@ -270,7 +269,7 @@ Azure Kubernetes Service는 다음과 같은 기능을 제공합니다.
 자동 크기 조정을 설정 하 여 제어할 수 있습니다 `autoscale_target_utilization`, `autoscale_min_replicas`, 및 `autoscale_max_replicas` 는 AKS에 대 한 웹 서비스입니다. 다음 예제에서는 자동 크기 조정을 사용 하는 방법에 설명 합니다.
 
 ```python
-aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_target_utilization=30,
                                                 autoscale_min_replicas=1,
                                                 autoscale_max_replicas=4)
@@ -315,10 +314,10 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # Use the default configuration (you can also provide parameters to customize this)
 prov_config = AksCompute.provisioning_configuration()
 
-aks_name = 'aml-aks-1' 
+aks_name = 'aml-aks-1'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                    name = aks_name, 
+aks_target = ComputeTarget.create(workspace = ws,
+                                    name = aks_name,
                                     provisioning_configuration = prov_config)
 
 # Wait for the create process to complete
@@ -366,7 +365,7 @@ from azureml.core.webservice import Webservice, AksWebservice
 aks_config = AksWebservice.deploy_configuration()
 aks_service_name ='aks-service-1'
 # Deploy from image
-service = Webservice.deploy_from_image(workspace = ws, 
+service = Webservice.deploy_from_image(workspace = ws,
                                             name = aks_service_name,
                                             image = image,
                                             deployment_config = aks_config,
@@ -393,87 +392,91 @@ Project Brainwave를 사용하여 실시간 추론 요청에 대해 매우 짧�
 
 Project Brainwave를 사용하여 모델을 배포하는 방법에 대한 연습 과정은 [FPGA에 배포](how-to-deploy-fpga-web-service.md) 문서를 참조하세요.
 
-### <a id="iotedge"></a> Azure IoT Edge에 배포
+## <a name="define-schema"></a>스키마를 정의 합니다.
 
-Azure IoT Edge 디바이스는 Azure IoT Edge 런타임을 실행하는 Linux 또는 Windows 기반 디바이스입니다. Azure IoT Hub를 사용 하 여, 기계 학습 모델 이러한 장치에 IoT Edge 모듈로 배포할 수 있습니다. IoT Edge 디바이스에 모델을 배포하면 처리를 위해 클라우드로 데이터를 전송하는 대신 디바이스에서 직접 모델을 사용할 수 있습니다. 응답 시간은 더 빨라지고 데이터 전송은 더 적어집니다.
+사용자 지정 데코레이터에 사용할 수 있습니다 [OpenAPI](https://swagger.io/docs/specification/about/) 사양 생성 및 입력 웹 서비스를 배포 하는 경우 조작을 입력 합니다. 에 `score.py` 파일에 정의 된 형식 개체 중 하나에 대 한 입력 및/또는 생성자에서 출력 샘플을 제공 및 형식 및 예제를 사용 하 여 스키마를 자동으로 생성 합니다. 형식은 현재 지원 됩니다.
 
-Azure IoT Edge 모듈은 컨테이너 레지스트리에서 디바이스에 배포됩니다. 모델에서 이미지를 만드는 경우 작업 영역에 대한 컨테이너 레지스트리에 저장됩니다.
+* `pandas`
+* `numpy`
+* `pyspark`
+* standard Python
 
-> [!IMPORTANT]
-> 이 섹션의 정보는 Azure IoT Hub 및 Azure IoT Edge 모듈을 사용 하 여 친숙 한 이미 있다고 가정 합니다. 이 섹션의 정보 중 일부는 Azure Machine Learning 서비스를 하는 동안 edge 장치에 배포 하는 프로세스의 대부분 Azure IoT 서비스에서 발생 합니다.
->
-> Azure IoT를 사용 하 여 잘 모르는 경우 [Azure IoT 기본 사항](https://docs.microsoft.com/azure/iot-fundamentals/) 하 고 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 기본 정보에 대 한 합니다. 특정 작업에 자세히 알아보려면 다음이 섹션의 다른 링크 사용
+먼저 필요한 종속성을 확인 합니다 `inference-schema` 패키지에 포함 된 프로그램 `env.yml` conda 환경 파일입니다. 이 예제에서는 합니다 `numpy` 매개 변수 형식 스키마에 대해 하므로 추가 pip `[numpy-support]` 도 설치 됩니다.
 
-#### <a name="set-up-your-environment"></a>환경 설정
+```python
+%%writefile myenv.yml
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - pip:
+    - azureml-defaults
+    - scikit-learn
+    - inference-schema[numpy-support]
+```
 
-* 개발 환경. 자세한 내용은 [개발 환경을 구성하는 방법](how-to-configure-environment.md) 문서를 참조하세요.
+다음으로 수정 합니다 `score.py` 가져올 파일을 `inference-schema` 패키지 합니다. 입력을 정의 하 고 출력의 샘플 형식 합니다 `input_sample` 및 `output_sample` 변수를 나타내는 웹 서비스에 대 한 요청 및 응답 형식입니다. 이러한 샘플을 사용 하 여 입력에서 및 데코레이터 함수에서 출력 된 `run()` 함수입니다.
 
-* Azure 구독의 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md). 
+```python
+%%writefile score.py
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+from azureml.core.model import Model
 
-* 학습된 모델. 모델 학습에 관한 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 문서를 참조하세요. 미리 학습된 모델은 [Azure IoT Edge GitHub 리포지토리에 대한 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에서 사용할 수 있습니다.
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
-#### <a id="getcontainer"></a> 컨테이너 레지스트리 자격 증명 가져오기
 
-디바이스에 IoT Edge 모듈을 배포하려면 Azure IoT에 Azure Machine Learning 서비스가 Docker 이미지를 저장하는 컨테이너 레지스트리에 대한 자격 증명이 필요합니다.
+def init():
+    global model
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
 
-두 가지 방법으로 자격 증명을 가져올 수 있습니다.
 
-+ **Azure Portal에서**:
+input_sample = np.array([[1.8]])
+output_sample = np.array([43638.88])
 
-  1. [Azure Portal](https://portal.azure.com/signin/index)에 로그인합니다.
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
 
-  1. Azure Machine Learning 서비스 작업 영역으로 이동하고 __개요__를 선택합니다. 컨테이너 레지스트리 설정으로 이동하려면 __레지스트리__ 링크를 선택합니다.
+일반 이미지 등록 및 웹 서비스 배포 프로세스와 업데이트 된 후 `score.py` 파일, 서비스에서 Swagger uri를 검색 합니다. 반환이 uri를 요청 합니다 `swagger.json` 파일입니다.
 
-     ![컨테이너 레지스트리 항목의 이미지](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+```python
+service.wait_for_deployment(show_output=True)
+print(service.swagger_uri)
+```
 
-  1. 컨테이너 레지스트리에서 **액세스 키**를 선택한 다음, 관리 사용자를 활성화합니다.
- 
-     ![액세스 키 화면의 이미지](./media/how-to-deploy-and-where/findaccesskey.png)
 
-  1. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 저장합니다. 
 
-+ **Python 스크립트 사용**:
+새 이미지를 만들 때 새 이미지를 사용하게 하려는 각 서비스를 수동으로 업데이트해야 합니다. 웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 다음 코드에서는 새 이미지를 사용하도록 웹 서비스를 업데이트하는 방법을 보여줍니다.
 
-  1. 위에서 컨테이너를 만들기 위해 실행한 코드 이후에 다음 Python 스크립트를 사용합니다.
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
-     ```python
-     # Getting your container details
-     container_reg = ws.get_details()["containerRegistry"]
-     reg_name=container_reg.split("/")[-1]
-     container_url = "\"" + image.image_location + "\","
-     subscription_id = ws.subscription_id
-     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
-     from azure.mgmt import containerregistry
-     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
-     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
-     username = result.username
-     password = result.passwords[0].value
-     print('ContainerURL{}'.format(image.image_location))
-     print('Servername: {}'.format(reg_name))
-     print('Username: {}'.format(username))
-     print('Password: {}'.format(password))
-     ```
-  1. ContainerURL, servername, username 및 password 값을 저장합니다. 
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
 
-     이러한 자격 증명은 개인 컨테이너 레지스트리에 있는 이미지에 대한 IoT Edge 디바이스 액세스를 제공하는 데 필요합니다.
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
 
-#### <a name="prepare-the-iot-device"></a>IoT 디바이스 준비
+# Update the image used by the service
+service.update(image = new_image)
+print(service.state)
+```
 
-Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge 런타임을 설치 합니다. 이 프로세스를 사용 하 여 잘 모르는 경우 [빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)합니다.
+자세한 내용은 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스의 참조 설명서를 참조하세요.
 
-장치를 등록 하는 다른 방법은 다음과 같습니다.
-
-* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
-
-#### <a name="deploy-the-model-to-the-device"></a>디바이스에 모델 배포
-
-장치로 모델을 배포 하려면에서 수집한 레지스트리 정보를 사용 합니다 [컨테이너 레지스트리 자격 증명을 가져올](#getcontainer) 섹션 모듈 배포를 사용 하 여 IoT Edge 모듈에 대 한 단계입니다. 예를 들어, [Azure portal에서 Azure IoT Edge 배포 모듈](../../iot-edge/how-to-deploy-modules-portal.md)를 구성 해야 합니다는 __레지스트리 설정을__ 장치에 대 한 합니다. 사용 합니다 __로그인 서버__, __username__, 및 __암호__ 작업 영역 컨테이너 레지스트리에 대 한 합니다.
-
-사용 하 여 배포할 수도 있습니다 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 하 고 [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode)합니다.
-
-## <a name="testing-web-service-deployments"></a>웹 서비스 배포 테스트
+## <a name="test-web-service-deployments"></a>웹 서비스 배포를 테스트 합니다.
 
 웹 서비스 배포를 테스트하려면 Webservice 개체의 `run` 메서드를 사용할 수 있습니다. 다음 예제에서는 JSON 문서가 웹 서비스로 설정되고 결과가 표시됩니다. 전송되는 데이터는 모델에 필요한 데이터와 일치해야 합니다. 이 예제에서 데이터 형식은 diabetes 모델에 필요한 입력과 일치합니다.
 
@@ -481,7 +484,7 @@ Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge �
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
+    [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
@@ -514,6 +517,86 @@ print(service.state)
 
 자세한 내용은 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스의 참조 설명서를 참조하세요.
 
+## <a id="iotedge"></a> Azure IoT Edge에 배포
+
+Azure IoT Edge 디바이스는 Azure IoT Edge 런타임을 실행하는 Linux 또는 Windows 기반 디바이스입니다. Azure IoT Hub를 사용 하 여, 기계 학습 모델 이러한 장치에 IoT Edge 모듈로 배포할 수 있습니다. IoT Edge 디바이스에 모델을 배포하면 처리를 위해 클라우드로 데이터를 전송하는 대신 디바이스에서 직접 모델을 사용할 수 있습니다. 응답 시간은 더 빨라지고 데이터 전송은 더 적어집니다.
+
+Azure IoT Edge 모듈은 컨테이너 레지스트리에서 디바이스에 배포됩니다. 모델에서 이미지를 만드는 경우 작업 영역에 대한 컨테이너 레지스트리에 저장됩니다.
+
+> [!IMPORTANT]
+> 이 섹션의 정보는 Azure IoT Hub 및 Azure IoT Edge 모듈을 사용 하 여 친숙 한 이미 있다고 가정 합니다. 이 섹션의 정보 중 일부는 Azure Machine Learning 서비스를 하는 동안 edge 장치에 배포 하는 프로세스의 대부분 Azure IoT 서비스에서 발생 합니다.
+>
+> Azure IoT를 사용 하 여 잘 모르는 경우 [Azure IoT 기본 사항](https://docs.microsoft.com/azure/iot-fundamentals/) 하 고 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 기본 정보에 대 한 합니다. 특정 작업에 자세히 알아보려면 다음이 섹션의 다른 링크 사용
+
+### <a name="set-up-your-environment"></a>환경 설정
+
+* 개발 환경. 자세한 내용은 [개발 환경을 구성하는 방법](how-to-configure-environment.md) 문서를 참조하세요.
+
+* Azure 구독의 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
+
+* 학습된 모델. 모델 학습에 관한 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 문서를 참조하세요. 미리 학습된 모델은 [Azure IoT Edge GitHub 리포지토리에 대한 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에서 사용할 수 있습니다.
+
+### <a id="getcontainer"></a> 컨테이너 레지스트리 자격 증명 가져오기
+
+디바이스에 IoT Edge 모듈을 배포하려면 Azure IoT에 Azure Machine Learning 서비스가 Docker 이미지를 저장하는 컨테이너 레지스트리에 대한 자격 증명이 필요합니다.
+
+두 가지 방법으로 자격 증명을 가져올 수 있습니다.
+
++ **Azure Portal에서**:
+
+  1. [Azure Portal](https://portal.azure.com/signin/index)에 로그인합니다.
+
+  1. Azure Machine Learning 서비스 작업 영역으로 이동하고 __개요__를 선택합니다. 컨테이너 레지스트리 설정으로 이동하려면 __레지스트리__ 링크를 선택합니다.
+
+     ![컨테이너 레지스트리 항목의 이미지](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. 컨테이너 레지스트리에서 **액세스 키**를 선택한 다음, 관리 사용자를 활성화합니다.
+
+     ![액세스 키 화면의 이미지](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 저장합니다.
+
++ **Python 스크립트 사용**:
+
+  1. 위에서 컨테이너를 만들기 위해 실행한 코드 이후에 다음 Python 스크립트를 사용합니다.
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. ContainerURL, servername, username 및 password 값을 저장합니다.
+
+     이러한 자격 증명은 개인 컨테이너 레지스트리에 있는 이미지에 대한 IoT Edge 디바이스 액세스를 제공하는 데 필요합니다.
+
+### <a name="prepare-the-iot-device"></a>IoT 디바이스 준비
+
+Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge 런타임을 설치 합니다. 이 프로세스를 사용 하 여 잘 모르는 경우 [빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)합니다.
+
+장치를 등록 하는 다른 방법은 다음과 같습니다.
+
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
+### <a name="deploy-the-model-to-the-device"></a>디바이스에 모델 배포
+
+장치로 모델을 배포 하려면에서 수집한 레지스트리 정보를 사용 합니다 [컨테이너 레지스트리 자격 증명을 가져올](#getcontainer) 섹션 모듈 배포를 사용 하 여 IoT Edge 모듈에 대 한 단계입니다. 예를 들어, [Azure portal에서 Azure IoT Edge 배포 모듈](../../iot-edge/how-to-deploy-modules-portal.md)를 구성 해야 합니다는 __레지스트리 설정을__ 장치에 대 한 합니다. 사용 합니다 __로그인 서버__, __username__, 및 __암호__ 작업 영역 컨테이너 레지스트리에 대 한 합니다.
+
+사용 하 여 배포할 수도 있습니다 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 하 고 [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode)합니다.
+
 ## <a name="clean-up"></a>정리
 
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
@@ -524,21 +607,9 @@ print(service.state)
 
 자세한 내용은 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) 및 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)의 참조 설명서를 참조하세요.
 
-## <a name="troubleshooting"></a>문제 해결
-
-* __배포하는 동안 오류가 발생하면__ `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
-
-* 로그에 __로깅 수준을 디버그로 설정__하라는 오류가 포함될 수 있습니다 로깅 수준을 설정하려면 채점 스크립트에 다음 줄을 추가하고, 이미지를 만들고, 다음 이미지를 사용하여 서비스를 만듭니다.
-
-    ```python
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
-    ```
-
-    이렇게 변경하면 추가 로깅이 가능하며, 오류 발생 원인에 대한 더 많은 정보가 반환될 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
+* [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [일괄 처리 예측 실행 방법](how-to-run-batch-predictions.md)

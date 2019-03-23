@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316459"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369227"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -26,12 +26,12 @@ Azure Active Directory(Azure AD)에서 셀프 서비스 암호 재설정(SSPR)�
 
 SSPR을 사용하지 않는 경우에도 사용자는 암호 재설정 포털에서 “관리자에게 문의” 링크를 사용할 수 있습니다. 사용자가 이 링크를 선택하면 다음 중 하나가 수행됩니다.
 
-   * 관리자에게 사용자 암호 변경 지원을 요청하는 메일이 발송됩니다.
-   * 관리자가 지정한 지원 URL이 사용자에게 전송됩니다.
+* 관리자에게 사용자 암호 변경 지원을 요청하는 메일이 발송됩니다.
+* 관리자가 지정한 지원 URL이 사용자에게 전송됩니다.
 
 이 링크는 사용자가 이미 지원 질문에 사용하고 있는 메일 주소 또는 웹 사이트로 설정하는 것이 좋습니다.
 
-![연락처][Contact]
+![관리자에 게 전송 하는 전자 메일을 재설정 하는 샘플 요청][Contact]
 
 문의 메일은 다음과 같은 순서로 받는 사람에게 전송됩니다.
 
@@ -68,8 +68,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-    * 전달 하 여는 `whr` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?whr=contoso.com`
-    * 전달 하 여는 `username` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * 전달 하 여는 `whr` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?whr=contoso.com`
+   * 전달 하 여는 `username` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 

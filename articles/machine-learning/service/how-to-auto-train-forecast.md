@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226619"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360727"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측된 모델을 자동-학습
 
@@ -27,7 +27,7 @@ ms.locfileid: "58226619"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
+* Azure Machine Learning 서비스 작업 영역. 참조 된 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
 * 이 문서에는 자동화 된 기계 학습 실험을 설정 하는 기본 지식이 있다고 가정 합니다. 수행 합니다 [자습서](tutorial-auto-train-models.md) 또는 [방법](how-to-configure-auto-train.md) 기본 자동화 된 기계 학습 실험 디자인 패턴을 확인 하려면.
 
 ## <a name="preparing-data"></a>데이터 준비

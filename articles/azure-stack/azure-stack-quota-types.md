@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339570"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349708"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339570"
 | 최대 용량 (GB)의 표준 관리 디스크 | 2048 | 이 위치에서 만든 표준 관리 디스크의 최대 용량입니다. |
 | 프리미엄 관리 디스크의 최대 용량 (GB)의 | 2048 | Premium의 최대 용량이이 위치에 만든 디스크를 관리 합니다. |
 
-## <a name="storage-quota-types"></a>저장소 할당량 유형
+> [!NOTE]  
+> 관리 되지 않는 디스크 (페이지 blob)의 최대 용량은 별도의 관리 되는 디스크 할당량, 저장소 할당량에서 설정 해야 합니다.
+
+## <a name="storage-quota-types"></a>저장소 할당량 유형 
 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339570"
 | 저장소 계정의 총 수 |20 |이 위치에서 구독을 만들 수 있는 저장소 계정의 최대 수입니다. |
 
 > [!NOTE]  
-> 저장소 할당량을 적용 하기 전에 최대 2 시간이 걸릴 수 있습니다.
+> 저장소 할당량을 적용 하기 전에 최대 2 시간이 걸릴 수 있습니다. 관리 디스크의 최대 용량은 별도의 총 저장소 할당량, 계산 할당량에서 설정 해야 합니다.
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
 

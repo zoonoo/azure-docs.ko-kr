@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875277"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361373"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -235,13 +235,13 @@ ID 공급자 관리 | 전역 관리자 |
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-인증 방법 구성 | 전역 관리자 | 
-사용자 지정 구성 | 전역 관리자 | 
-알림 구성 | 전역 관리자 | 
-온-프레미스 통합 구성 | 전역 관리자 | 
-암호 재설정 속성 구성 | 전역 관리자 | 
-등록 구성 | 전역 관리자 | 
-모든 구성 읽기 | 보안 관리자, 사용자 관리자 | 
+인증 방법 구성 | 전역 관리자 |
+사용자 지정 구성 | 전역 관리자 |
+알림 구성 | 전역 관리자 |
+온-프레미스 통합 구성 | 전역 관리자 |
+암호 재설정 속성 구성 | 사용자 관리자 | 전역 관리자
+등록 구성 | 전역 관리자 |
+모든 구성 읽기 | 보안 관리자 | 사용자 관리자 |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311274"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351493"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
@@ -102,6 +102,8 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 - [Event Grid 이벤트를 처리합니다.](reacting-to-media-services-events.md)
 - [스키마](media-services-event-schemas.md)
+- [메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md)
+- [진단 로그 스키마](media-services-diagnostic-logs-schema.md)
 
 ## <a name="player-clients"></a>플레이어 클라이언트
 

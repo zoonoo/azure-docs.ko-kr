@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317666"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370162"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
 결합 된 등록 하기 전에 사용자가 Azure Multi-factor Authentication (MFA) 및 두 가지 다른 환경을 통해 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 메서드를 등록 합니다. 사용자는 Azure MFA 및 SSPR에 대 한 유사한 메서드를 사용한 하지만 개별적으로 각 기능에 대 한 등록을 가졌던 혼동 했습니다. 이제 결합 된 등록 사용자를 두 번 등록할 수 있습니다 및 Azure MFA와 SSPR의 이점을 누릴 합니다.
 
-![내 프로필 디렉터리에 샘플 사용자에 대 한 Microsoft Authenticator 및 전화 번호를 포함 하 여 사용자에 대해 등록 된 보안 정보를 보여 주는 보안 정보를 결합 합니다.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![내 프로필 표시를 사용자에 대 한 보안 정보 등록](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 새 환경을 설정 하기 전에이 관리자에 초점을 맞춘 설명서 및 기능과이 기능에 미치는 영향을 이해 하도록 사용자에 초점을 맞춘 설명서를 검토 합니다. 새 환경에 대 한 사용자에 게 준비 하 고 출시를 확인 하는 데 도움이 사용자 문서에서 교육을 기본입니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "58317666"
 
 Myprofile 페이지를 페이지에 액세스 하는 컴퓨터의 현재 언어 설정에 따라 지역화 됩니다. Microsoft는 사용 된 마지막 언어로 렌더링 계속 액세스 하는 후속 하려고 하므로 브라우저 캐시에 활용 가장 최근 언어를 저장 합니다. 캐시를 지우면 하면 페이지를 다시 렌더링 합니다. 추가 하는 특정 언어를 강제로 하려는 경우를 `?lng=de-DE` URL의 끝에 있는 `de-DE` 설정 된 코드는 페이지를 해당 언어로 렌더링을 강제 하는 데 적절 한 언어입니다.
 
-![보안 정보 및 SSPR 또는 다른 추가 보안 확인 방법을 설정 하는 사용자에 대 한 기능을 보여 주는 내 프로필 인터페이스입니다.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![SSPR 나 다른 추가 보안 확인 방법으로 설정](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>수렴 형된 등록에 사용할 수 있는 방법
 
@@ -99,7 +99,7 @@ Myprofile 페이지를 페이지에 액세스 하는 컴퓨터의 현재 언어 
 
 다음 순서도에서는 로그인 시 등록 하는 메서드를 중단 하는 경우 사용자에 게 보여 줍니다 설명 합니다.
 
-![로그인 할 때 자세한 정보가 필요할 때 필요한 방법 수를 설명 하는 보안 정보 흐름 차트를 결합 합니다. 이 MFA 또는 SSPR만 필요한 경우 변경 수 있습니다.](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![결합 된 보안 정보 흐름 차트](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 MFA 및 SSPR을 사용 하도록 설정 하는 경우에 MFA 등록을 적용 하는 것이 좋습니다.
 

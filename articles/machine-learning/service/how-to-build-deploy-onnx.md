@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295660"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362028"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
@@ -102,7 +102,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 아래에는 ONNX 모델을 배포하는 예제가 나와 있습니다.
 
-1. Azure Machine Learning 서비스 작업 영역을 초기화합니다. 아직 작업 영역이 없으면 [이 빠른 시작](quickstart-get-started.md)에서 작업 영역을 만드는 방법을 알아보세요.
+1. Azure Machine Learning 서비스 작업 영역을 초기화합니다. 아직 하나에 대해 알아봅니다 하는 방법 [작업 영역 만들기](setup-create-workspace.md)합니다.
 
    ```python
    from azureml.core import Workspace

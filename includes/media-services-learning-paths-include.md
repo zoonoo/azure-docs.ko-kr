@@ -2,21 +2,27 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4c803b4915823b3a723728732479b605d9d7ee8a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271332"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352473"
 ---
-Azure Media Services의 최신 버전인 [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인합니다.
+### <a name="media-services-v3-latest"></a>Media Services v3 (최신)
 
-다음 항목부터 시작할 수 있습니다. 
+Azure Media Services의 최신 버전을 확인해 보십시오. 
 
 * [개요](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
-* [API를 사용하여 비디오 업로드, 인코딩 및 스트리밍](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [분석](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
-* [스트림 라이브](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [콘텐츠 보호](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [개념](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
+* [개발 시작](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [V2에서 v3 마이그레이션 지침](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
+
+### <a name="media-services-v2-legacy"></a>Media Services v2 (레거시)
+
+* [개요](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [계정 만들기](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
+* [요청 시 제공](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [실시간 전달](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

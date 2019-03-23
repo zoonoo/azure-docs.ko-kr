@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849842"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369244"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Azure AD id를 사용 하 여 CLI 또는 PowerShell을 사용 하 여 Azure Storage 액세스
 
-Azure Storage에 로그인 하 고 Azure Active Directory (Azure AD) id에서 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. RBAC(역할 기반 액세스 제어)를 통해 저장소 리소스에 액세스하기 위한 권한을 Azure AD ID에 할당할 수 있습니다. Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage에 로그인 하 여 Azure Active Directory (Azure AD) id에서 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. RBAC(역할 기반 액세스 제어)를 통해 저장소 리소스에 액세스하기 위한 권한을 Azure AD ID에 할당할 수 있습니다. Azure Storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 Azure Storage 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
-Azure AD ID를 사용하여 Azure CLI 또는 PowerShell에 로그인하면 해당 ID에서 Azure Storage에 액세스하기 위한 액세스 토큰이 반환됩니다. 그런 후 CLI 또는 PowerShell에서는 자동으로 해당 토큰을 사용하여 Azure Storage에 대한 작업 권한을 부여합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
+Azure AD id를 사용 하 여 Azure CLI 또는 PowerShell에 로그인 할 때 해당 id에서 Azure Storage에 액세스 하기 위한 액세스 토큰이 반환 됩니다. 그런 후 CLI 또는 PowerShell에서는 자동으로 해당 토큰을 사용하여 Azure Storage에 대한 작업 권한을 부여합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
-확장은 컨테이너 및 큐 작업에 지원 됩니다. 사용자가 호출할 수 있는 작업은 Azure CLI 또는 PowerShell에 로그인하는 데 사용하는 Azure AD ID에 부여된 권한에 따라 달라집니다. Azure Storage 컨테이너 또는 큐에 대한 권한은 RBAC(역할 기반 액세스 제어)를 통해 할당됩니다. 예를 들어, 데이터 읽기 권한자 역할이 해당 ID에 할당되면 컨테이너 또는 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. 데이터 참가자 역할이 ID에 할당되면 컨테이너 또는 큐나 포함된 데이터를 읽거나, 쓰거나, 삭제하는 스크립팅 명령을 실행할 수 있습니다. 
+확장은 컨테이너 및 큐 작업에 지원 됩니다. 어떤 작업을 호출할 수 있는 로그인 Azure CLI 또는 PowerShell을 Azure AD id에 부여 된 권한에 따라 달라 집니다. Azure Storage 컨테이너 또는 큐에 대한 권한은 RBAC(역할 기반 액세스 제어)를 통해 할당됩니다. 예를 들어, 데이터 읽기 권한자 역할이 해당 ID에 할당되면 컨테이너 또는 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. 데이터 참가자 역할이 ID에 할당되면 컨테이너 또는 큐나 포함된 데이터를 읽거나, 쓰거나, 삭제하는 스크립팅 명령을 실행할 수 있습니다. 
 
 컨테이너 또는 큐를 대상으로 하는 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [REST 작업 호출을 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)을 참조하세요.  
 
@@ -61,10 +61,10 @@ Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 �
         --encryption-services blob
     ```
     
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자 (미리 보기)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal (미리 보기)에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
-    > Blob 및 큐에 대 한 Azure AD 지원 미리 보기 동안 RBAC 역할 할당에 전파 되기까지 최대 5 분 걸릴 수 있습니다.
+    > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.
     
 1. 호출을 [az 저장소 컨테이너 만들기](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) 명령과 `--auth-mode` 매개 변수 설정 `login` Azure AD 자격 증명을 사용 하 여 컨테이너를 만들려면:
 
@@ -114,10 +114,10 @@ Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 �
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자 (미리 보기)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal (미리 보기)에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
-    > Blob 및 큐에 대 한 Azure AD 지원 미리 보기 동안 RBAC 역할 할당에 전파 되기까지 최대 5 분 걸릴 수 있습니다.
+    > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.
 
 1. 호출 하 여 컨테이너를 만듭니다 [새로 만들기-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)합니다. 이전 단계에서 만든 컨텍스트를 사용 하는이 호출을 하기 때문에 컨테이너를 Azure AD 자격 증명을 사용 하 여 생성 됩니다. 
 
@@ -128,6 +128,6 @@ Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 스토리지 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
-- Azure Storage를 통해 Azure 리소스에 대한 관리되는 ID 사용에 관한 자세한 내용은 [Azure 리소스에 대한 관리 ID를 통한 blob 및 쿼리 액세스 인증(미리 보기)](storage-auth-aad-msi.md)을 참조하세요.
+- Azure storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
+- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [blob 및 Azure 사용 하 여 큐에 대 한 인증 액세스 identities를 관리 되는 Azure 리소스에 대 한](storage-auth-aad-msi.md)합니다.
 - 저장소 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.

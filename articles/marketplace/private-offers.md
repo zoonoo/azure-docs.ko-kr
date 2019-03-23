@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
-ms.translationtype: HT
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620016"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351816"
 ---
 # <a name="private-offers"></a>전용 제품
 
@@ -55,6 +55,9 @@ ms.locfileid: "52620016"
 ![[전용 제품]](./media/marketplace-publishers-guide/private-offer.png)
 
 또한 전용 제품은 검색 결과에 나타납니다. "전용" 배지만 조심하세요.
+
+> [!Note]
+> 클라우드 솔루션 공급자 (CSP) 프로그램의 대리점을 통해 설정 된 구독을 사용 하 여 전용 제품 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

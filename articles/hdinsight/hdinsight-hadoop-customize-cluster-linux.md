@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200687"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361696"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -26,6 +26,8 @@ Azure HDInsight는 사용자 지정 스크립트를 호출하여 클러스터를
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight Windows 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다. HDInsight 애플리케이션에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>권한
 
@@ -131,7 +133,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 스크립트�
 >
 > 스크립트 동작은 루트 권한으로 실행됩니다. 먼저 스크립트에서 수행하는 작업을 이해한 후에 스크립트 동작을 클러스터에 적용해야 합니다.
 
-스크립트가 클러스터에 적용되면 클러스터 상태가 **실행 중**에서 **수락됨**으로 변경됩니다. 그런 다음, **HDInsight 구성**으로 변경되고, 마지막으로 스크립트가 성공하면 **실행 중**으로 돌아갑니다. 스크립트 상태는 스크립트 동작 기록에 기록됩니다. 이 정보는 스크립트의 성공 여부를 알려 줍니다. 예를 들어 `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet은 스크립트 상태를 표시합니다. 이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
+스크립트가 클러스터에 적용되면 클러스터 상태가 **실행 중**에서 **수락됨**으로 변경됩니다. 그런 다음, **HDInsight 구성**으로 변경되고, 마지막으로 스크립트가 성공하면 **실행 중**으로 돌아갑니다. 스크립트 상태는 스크립트 동작 기록에 기록됩니다. 이 정보는 스크립트의 성공 여부를 알려 줍니다. 예를 들어 `Get-AzHDInsightScriptActionHistory` PowerShell cmdlet은 스크립트 상태를 표시합니다. 이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 동작 사용
 
-이 섹션에서는 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet을 사용합니다. 시작하기 전에 Azure PowerShell을 설치하고 구성해야 합니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)를 참조하세요.
+이 섹션을 사용 하 여는 [추가 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet는 클러스터를 사용자 지정 스크립트를 호출 합니다. 시작하기 전에 Azure PowerShell을 설치하고 구성해야 합니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)를 참조하세요.
 
 다음 스크립트에서는 PowerShell을 사용하여 클러스터를 만들 때 스크립트 동작을 적용하는 방법을 보여 줍니다.
 
@@ -368,13 +370,13 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 | Cmdlet | 함수 |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |지속형 스크립트 동작에 대한 정보를 검색합니다. |
-| `Get-AzureRmHDInsightScriptActionHistory` |클러스터에 적용된 스크립트 동작의 기록 또는 특정 스크립트에 대한 세부 정보를 검색합니다. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |임시 스크립트 동작을 지속형 스크립트 동작으로 승격합니다. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |지속형 스크립트 동작을 임시 스크립트 동작으로 강등합니다. |
+| `Get-AzHDInsightPersistedScriptAction` |지속형 스크립트 동작에 대한 정보를 검색합니다. |
+| `Get-AzHDInsightScriptActionHistory` |클러스터에 적용된 스크립트 동작의 기록 또는 특정 스크립트에 대한 세부 정보를 검색합니다. |
+| `Set-AzHDInsightPersistedScriptAction` |임시 스크립트 동작을 지속형 스크립트 동작으로 승격합니다. |
+| `Remove-AzHDInsightPersistedScriptAction` |지속형 스크립트 동작을 임시 스크립트 동작으로 강등합니다. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction`은 스크립트에서 수행한 동작을 실행 취소하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
+> `Remove-AzHDInsightPersistedScriptAction`은 스크립트에서 수행한 동작을 실행 취소하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
 
 다음 예제 스크립트에서는 cmdlet을 사용하여 스크립트를 승격한 다음, 강등하는 방법을 보여 줍니다.
 

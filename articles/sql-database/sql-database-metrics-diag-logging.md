@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338074"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372610"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -107,7 +107,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 > [!IMPORTANT]
 > 탄력적 풀에 대 한 진단 원격 분석을 구성 하는 것 외에도 필요한 구성한 각 데이터베이스에 대 한 진단 원격 분석 탄력적 풀의 아래 설명 된 대로 합니다. 
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>단일 데이터베이스 또는 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성합니다
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>단일 데이터베이스 또는 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성합니다
 
    ![SQL Database 아이콘](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 

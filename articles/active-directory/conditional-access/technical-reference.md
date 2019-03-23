@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170618"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351527"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -144,20 +144,25 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 이 설정은 모든 브라우저에서 작동합니다. 하지만 호환 디바이스 요구 사항과 같은 디바이스 정책을 충족하기 위해 다음 운영 체제와 브라우저가 지원됩니다.
 
 
-| OS                     | 브라우저                            | 지원     |
-| :--                    | :--                                 | :-:         |
-| 윈도우 10             | Internet Explorer, Microsoft Edge, Chrome     | ![확인][1] |
-| Windows 8 / 8.1        | Internet Explorer, 크롬           | ![확인][1] |
-| Windows 7              | Internet Explorer, 크롬           | ![확인][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![확인][1] |
-| Android                | 크롬, Intune Managed Browser      | ![확인][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![확인][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![확인][1] |
-| Windows Server 2016    | Chrome                              | 서비스 예정 |
-| Windows Server 2012 R2 | Internet Explorer, 크롬           | ![확인][1] |
-| Windows Server 2008 R2 | Internet Explorer, 크롬           | ![확인][1] |
-| macOS                  | Chrome, Safari                      | ![확인][1] |
+| OS                     | 브라우저                                      |
+| :--                    | :--                                           |
+| 윈도우 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, 크롬                     |
+| Windows 7              | Internet Explorer, 크롬                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | 크롬, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, 크롬                     |
+| Windows Server 2008 R2 | Internet Explorer, 크롬                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>인증서는 브라우저에서 프롬프트를 표시 하는 이유는 무엇 인가요
+
+Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 장치를 등록할 때 프로 비전 되는 클라이언트 인증서를 사용 하 여 장치를 식별 합니다.  사용자가 처음 로그인 브라우저를 통해 사용자 인증서를 선택 하 라는 메시지가 표시 됩니다. 사용자는 브라우저를 사용 하기 전에이 인증서를 선택 해야 합니다.
 
 
 #### <a name="chrome-support"></a>Chrome 지원

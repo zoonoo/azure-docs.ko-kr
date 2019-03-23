@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340765"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361798"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "57340765"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
+- Azure Machine Learning 서비스 작업 영역. 참조 된 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
 
 - 중 하나는 [Anaconda](https://www.anaconda.com/download/) 하거나 [Miniconda](https://conda.io/miniconda.html) 패키지 관리자입니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "57340765"
 * Azure Machine Learning SDK가 이미 설치되어 있습니다.
 * Azure Portal에서 Azure Machine Learning Service 작업 영역을 만든 후에는 단추를 클릭하여 작업 영역과 함께 작동하도록 자동으로 Azure Notebook 환경을 구성할 수 있습니다.
 
-Azure Notebooks로 개발을 시작하려면 [Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
+Azure Notebooks로 개발을 시작하려면 [Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
 기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
 
@@ -350,7 +350,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 
 다음과 같은 세 가지 방법으로 구성 파일을 만들 수 있습니다.
 
-* **[Azure Machine Learning 빠른 시작](quickstart-get-started.md) 수행**: *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
+* **단계를 따릅니다 [Azure Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md#sdk)**: *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
 * **수동으로 파일 만들기**: 이 방법을 선택하는 경우 텍스트 편집기를 사용합니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 방문하여 구성 파일의 값을 찾을 수 있습니다. 작업 영역 이름, 리소스 그룹 및 구독 ID 값을 복사하여 구성 파일에 사용합니다.
 

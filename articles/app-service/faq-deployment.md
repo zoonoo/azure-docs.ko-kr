@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549431"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350643"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -90,7 +90,7 @@ Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을
 
 Azure DevOps에서 지속적인 배포를 사용할 수 있는 다음과 같은 두 가지 옵션이 있습니다.
 
-*   Git 프로젝트를 사용합니다. 해당 리포지토리에 대한 배포 옵션을 사용하여 App Service를 통해 연결합니다.
+*   Git 프로젝트를 사용합니다. 배포 센터를 사용 하 여 App Service를 통해 연결 합니다.
 *   TFVC(Team Foundation Version Control) 프로젝트를 사용합니다. App Service에 대한 빌드 에이전트를 사용하여 배포합니다.
 
 이러한 두 가지 옵션에 대한 연속 코드 배포는 기존 개발자 워크플로 및 체크 인 절차에 따라 달라집니다. 자세한 내용은 다음 문서를 참조하세요. 

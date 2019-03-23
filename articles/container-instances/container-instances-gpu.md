@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533598"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351374"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -179,7 +179,7 @@ az group deployment create --resource-group myResourceGroup --template-file gpud
 배포를 완료하려면 몇 분이 걸립니다. 배포가 완료되면 컨테이너가 시작되어 TensorFlow 작업을 실행합니다. 로그 출력을 보려면 [az container logs][az-container-logs] 명령을 실행합니다.
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 출력:

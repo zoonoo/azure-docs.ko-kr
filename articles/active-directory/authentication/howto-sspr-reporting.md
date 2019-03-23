@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8411cf2aebf5ab3e25239d1cb1a9b81cfda4c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163901"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369533"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
 배포 후에 여러 조직에서는 SSPR(셀프 서비스 암호 다시 설정)을 실제로 사용하는 방법 및 경우를 알아보려고 합니다. Azure AD(Azure Active Directory)에서 제공하는 보고 기능은 미리 작성된 보고서를 사용하여 질문에 대답하도록 도와줍니다. 적절히 라이선스를 받은 경우 사용자 지정 쿼리를 만들 수도 있습니다.
 
-![보고][Reporting]
+![Azure AD에 로그인 감사를 사용 하 여 SSPR에 대 한 보고][Reporting]
 
 [Azure Portal](https://portal.azure.com/)에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -173,7 +173,6 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
      >[!NOTE]
      >실패라고 해서 사용자가 자신의 암호를 다시 설정할 수 없는 것은 아니며, 등록 프로세스를 완료하지 않은 것을 의미합니다. 올바른 계정에 확인되지 않은 데이터(예: 유효성이 검사되지 않은 전화 번호)가 있는 경우 이 전화 번호를 확인하지 않아도 해당 계정을 계속 사용하여 암호를 다시 설정할 수 있습니다.
-     >
 
 ## <a name="next-steps"></a>다음 단계
 

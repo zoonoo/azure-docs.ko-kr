@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014589"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360523"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -356,7 +356,7 @@ response = requests.post(published_pipeline1.endpoint,
 모든 파이프라인 및 해당 실행 정보 목록을 참조하세요.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
 
-1. [작업 영역을 보고](how-to-manage-workspace.md#view-a-workspace) 파이프라인 목록을 찾습니다.
+1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.

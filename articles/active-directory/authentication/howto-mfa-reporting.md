@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316935"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369057"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -36,9 +36,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 2. 왼쪽에서 **Azure Active Directory** > **MFA 서버**를 선택합니다.
 3. 보려는 보고서를 선택합니다.
 
-   <center>
-   
-   ![클라우드](./media/howto-mfa-reporting/report.png)</center>
+   ![Azure portal의 MFA 서버 서버 상태 보고서](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서
 
@@ -55,7 +53,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 이 데이터는 [Azure Portal](https://portal.azure.com) 및 [보고서 API](../reports-monitoring/concept-reporting-api.md)를 통해 제공됩니다.
 
-![클라우드](./media/howto-mfa-reporting/sign-in-report.png)
+![Azure portal에서 azure AD 로그인 보고서](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>로그인 보고서 구조
 

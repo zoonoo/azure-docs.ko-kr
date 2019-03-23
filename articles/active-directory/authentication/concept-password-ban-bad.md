@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314130"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369074"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -32,7 +32,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 사용자 지정 금지 암호 목록 및 온-프레미스 Active Directory 통합을 사용하는 기능은 Azure Portal을 통해 관리됩니다.
 
-![Azure Portal의 인증 방법에서 사용자 지정 금지 암호 목록을 수정할 수 있습니다.](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![인증 방법에서 사용자 지정 차단된 암호 목록을 수정 합니다.](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>온-프레미스 하이브리드 시나리오
 

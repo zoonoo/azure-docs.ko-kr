@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901738"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351408"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
 Microsoft Azure Media Services를 사용하여 많은 미디어 소스 파일 형식, 미디어 스트리밍 형식 및 콘텐츠 보호 형식을 다양한 클라이언트 기술(예: iOS, XBOX)에 제공할 수 있습니다. 이러한 클라이언트는 여러 가지 프로토콜을 이해합니다. 예를 들어 iOS에는 HLS(HTTP 라이브 스트리밍) 형식이 필요하고, Xbox에는 부드러운 스트리밍이 필요합니다. 적응 비트 전송률 (다중 비트 전송률) 집합이 있는 경우 MP4 동적 활용을 걸릴 수 있습니다 (ISO 기본 미디어 14496-12) 파일, HLS, MPEG DASH 또는 부드러운 스트리밍을 이해 하는 클라이언트 제공 하려는 적응 비트 전송률 부드러운 스트리밍 파일 집합 패키지입니다. 패키징이 비디오 해상도를 알 수 없는, SD/HD/초과-4k 지원 됩니다.
 
-[스트리밍 끝점](streaming-endpoint-concept.md) 는 미디어 콘텐츠를 클라이언트 플레이어를 제공 하는 데 사용 하는 Media Services의 동적 패키징 서비스입니다. 모든 표준 제공 되는 기능은 동적 패키징 **스트리밍 끝점** (표준 또는 프리미엄). Extra 없이 Media Services v3에서이 기능을 사용 하 여 관련 된 비용이 있습니다. 
+[스트리밍 끝점](streaming-endpoint-concept.md) 는 미디어 콘텐츠를 클라이언트 플레이어를 제공 하는 데 사용 하는 Media Services의 동적 패키징 서비스입니다. 모든 표준 제공 되는 기능은 동적 패키징 **스트리밍 끝점** (표준 또는 프리미엄). 
 
 활용 하기 위해 **동적 패키징**를 할 수는 **자산** 적응 비트 전송률 MP4 파일 집합과 Media Services 동적 패키징에 필요한 스트리밍 구성 파일을 사용 하 여 합니다. 하나는 파일을 가져오는 방법은 Media Services를 사용 하 여 mezzanine (원본) 파일입니다. 비디오 인코딩된 자산에서 사용할 수 있도록 재생에 대 한 클라이언트를 만들 필요가 **스트리밍 로케이터** 스트리밍 Url 작성 하 고 있습니다. 그런 다음 지정된 된 형식에 스트리밍 클라이언트 매니페스트 (HLS, DASH 또는 부드러운 스트리밍)에 따라 있습니다 스트림을 받을 사용자가 선택한 프로토콜로 합니다.
 
@@ -34,24 +34,8 @@ Media Services 동적 패키징 라이브 또는 주문형으로 스트리밍하
 
 ![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="common-video-on-demand-workflow"></a>일반적인 비디오 주문형 워크플로
-
-다음은 일반적인 Media Services 동적 패키징을 사용 되는 워크플로 스트리밍입니다.
-
-1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 [미디어 인코더 표준에서 지원하는 형식](media-encoder-standard-formats.md)참조).
-2. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다.
-3. 적응 비트 전송률 MP4 세트가 포함된 자산을 게시합니다. 만들어 게시 한 **스트리밍 로케이터**합니다.
-4. 다른 형식 (HLS, Dash 및 부드러운 스트리밍)를 대상으로 하는 Url을 작성 합니다. 합니다 **스트리밍 끝점** 의 올바른 매니페스트 및 이러한 다른 모든 형식에 대 한 요청을 처리 합니다.
-
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 mp4로 인코드
-
-에 대 한 자세한 [Media Services를 사용 하 여 비디오를 인코딩하는 방법](encoding-concept.md), 다음 예제를 참조 하세요.
-
-* [기본 제공 사전 설정을 사용 하는 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
-* [기본 제공 사전 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
-* [특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정 빌드](customize-encoder-presets-how-to.md)
-
-Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및 코덱](media-encoder-standard-formats.md)
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
 
 ## <a name="delivery-protocols"></a>배달 프로토콜
 
@@ -64,13 +48,60 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+## <a name="common-on-demand-workflow"></a>일반적인 주문형 워크플로
+
+다음은 일반적인 Media Services 동적 패키징을 사용 되는 워크플로 스트리밍입니다.
+
+1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 [미디어 인코더 표준에서 지원하는 형식](media-encoder-standard-formats.md)참조).
+2. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다.
+3. 적응 비트 전송률 MP4 세트가 포함된 자산을 게시합니다. 만들어 게시 한 **스트리밍 로케이터**합니다.
+4. 다른 형식 (HLS, Dash 및 부드러운 스트리밍)를 대상으로 하는 Url을 작성 합니다. 합니다 **스트리밍 끝점** 의 올바른 매니페스트 및 이러한 다른 모든 형식에 대 한 요청을 처리 합니다.
+
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 mp4로 인코드
+
+에 대 한 자세한 [Media Services를 사용 하 여 비디오를 인코딩하는 방법](encoding-concept.md), 다음 예제를 참조 하세요.
+
+* [기본 제공 사전 설정을 사용 하는 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
+* [기본 제공 사전 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
+* [특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정 빌드](customize-encoder-presets-how-to.md)
+
+Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및 코덱](media-encoder-standard-formats.md)
+
+## <a name="common-live-streaming-workflow"></a>일반적인 라이브 스트리밍 워크플로
+
+라이브 스트리밍 워크플로의 단계는 다음과 같습니다.
+
+1. [라이브 이벤트](live-events-outputs-concept.md)를 만듭니다.
+1. 수집 URL을 가져오고, URL을 사용하여 기여 피드를 보내도록 온-프레미스 인코더를 구성합니다.
+1. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
+1. 새 **자산**합니다.
+1. **라이브 출력**을 만들고 만든 자산 이름을 사용합니다.<br/>**라이브 출력**은 스트림을 **자산**에 보관합니다.
+1. **스트리밍 정책** 유형이 기본 제공된 **스트리밍 로케이터**를 만듭니다.<br/>콘텐츠를 암호화하려면 [콘텐츠 보호 개요](content-protection-overview.md)를 검토하세요.
+1. **스트리밍 로케이터**의 경로를 나열하여 사용할 URL을 다시 가져옵니다.
+1. 스트리밍을 내보낼 **스트리밍 엔드포인트**의 호스트 이름을 가져옵니다.
+1. 다른 형식 (HLS, Dash 및 부드러운 스트리밍)를 대상으로 하는 Url을 작성 합니다. 합니다 **스트리밍 끝점** 의 올바른 매니페스트 및 이러한 다른 모든 형식에 대 한 요청을 처리 합니다.
+
+라이브 이벤트는 두 가지 유형 중 하나일 수 있습니다: 통과 및 라이브 인코딩. Media Services v3의 라이브 스트리밍에 대 한 자세한 내용은 참조 하세요 [라이브 스트리밍 개요](live-streaming-overview.md)합니다.
+
+다음 다이어그램은 라이브 스트리밍 동적 패키징 워크플로 사용 하 여 보여줍니다.
+
+![통과](./media/live-streaming/pass-through.svg)
+
+## <a name="dynamic-encryption"></a>동적 암호화
+
+**동적 암호화** AES-128 또는 세 가지 주요 디지털 권한 관리 (DRM) 시스템 중 하나를 사용 하 여 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 자세한 내용은 [동적 암호화](content-protection-overview.md)합니다.
+
+## <a name="dynamic-manifest"></a>Dynamic Manifest
+
+동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)합니다.
+
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>동적 패키징에서 지원 비디오 코덱
 
 동적 패키징으로 인코딩된 비디오를 포함 하는 MP4 파일을 지 원하는 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) mpeg-4 AVC, AVC1 [아닌 H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 또는 hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 오디오 코덱
 
-동적 패키징을 사용 하 여 인코딩된 오디오를 포함 하는 MP4 파일을 지 원하는 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (향상 된 ac-3 또는 E-AC3) 또는 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express에 DTS LBR, DTS HD, 무손실 DTS HD).
+동적 패키징을 사용 하 여 인코딩된 오디오를 포함 하는 MP4 파일을 지 원하는 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(향상 된 ac-3 또는 E-AC3) Dolby Atmos 또는 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express에 DTS LBR, DTS HD, 무손실 DTS HD). Dolby Atmos 콘텐츠 스트리밍에는 조각화 된 MP4, MPEG DASH 프로토콜 일반적인 스트리밍 형식 (CSF) 또는 일반 미디어 응용 프로그램 형식 (CMAF)와 같은 표준 및 통해 HTTP 라이브 스트리밍 (HLS) CMAF 사용 하 여 지원 됩니다.
 
 > [!NOTE]
 > 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.

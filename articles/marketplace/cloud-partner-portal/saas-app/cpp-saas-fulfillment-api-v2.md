@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7e1fa82e71738ac113bfe748a7117d0c3a10b14b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57319028"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352088"
 ---
-# <a name="saas-fulfillment-api-version-2"></a>SaaS Fulfillment API 버전 2
+# <a name="saas-fulfillment-api"></a>SaaS Fulfillment API
 
 이 문서에서는 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 통합할 수 있도록 Azure Marketplace를 사용 하 여 API를 자세히 설명 합니다. 이 API를 사용 하면 모든 사용 하도록 설정 하는 전자 상거래 채널에 참여 하려면 ISV 응용 프로그램: 직접 파트너 주도 (대리점) 필드 주도하 고 있습니다.  이 API는 Azure Marketplace에서 transactable SaaS 제공 목록에 대 한 요구 사항입니다.
 

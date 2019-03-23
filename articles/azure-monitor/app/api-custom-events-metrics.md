@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4269f4ac24a842bf203456026234182934f1732f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fca93c002fba4d54e8e87ca31e0fd1c258826665
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878468"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369746"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -1076,6 +1076,17 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
 ```vb
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+```
+
+*Node.JS*
+
+Node.js를 통해 내부 로깅을 사용 하 여 개발자 모드를 설정할 수 있습니다. `setInternalLogging` 설정 `maxBatchSize` 수집 되는 즉시 전송 될 원격 분석을 0으로 발생 합니다.
+
+```js
+applicationInsights.setup("ikey")
+  .setInternalLogging(true, true)
+  .start()
+applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
 ## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키 설정

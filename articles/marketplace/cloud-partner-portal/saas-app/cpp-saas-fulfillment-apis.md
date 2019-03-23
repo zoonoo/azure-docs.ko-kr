@@ -14,19 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9c3fbe7cd7ebd41f59be360f40d66b8d38dbce5e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57319278"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349521"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS Fulfillment Api
 
 SaaS Fulfillment API 독립 소프트웨어 공급 업체를 (Isv) Azure Marketplace SaaS 응용 프로그램을 통합할 수 있습니다. 이 API를 사용 하면 모든 사용 하도록 설정 하는 전자 상거래 채널에 참여 하려면 ISV 응용 프로그램: 직접 파트너 주도 (대리점) 필드 주도하 고 있습니다.  이 API는 Azure Marketplace에서 transactable SaaS 제공 목록에 대 한 요구 사항입니다.
-
-이 API의 현재 버전이 버전 2를 제공 하는 모든 새 SaaS에 사용 해야 합니다.  API의 버전 1은 사용 되지 않으며 기존 제품을 지원 하기 위해 유지 됩니다.
-
 
 ## <a name="business-model-support"></a>비즈니스 모델 지원
 
@@ -40,4 +37,4 @@ SaaS Fulfillment API 독립 소프트웨어 공급 업체를 (Isv) Azure Marketp
 
 ## <a name="next-steps"></a>다음 단계
 
-개발을 위해이 인터페이스의 최신 버전을 사용 합니다. [SaaS Fulfillment API 버전 2](./cpp-saas-fulfillment-api-v2.md)합니다.
+개발을 위해이 인터페이스를 사용 합니다. [SaaS Fulfillment API 버전 2](./cpp-saas-fulfillment-api-v2.md)합니다.
