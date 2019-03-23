@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839596"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359923"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Azure Machine Learning Service 작업 영역 만들기 및 관리
 
@@ -28,24 +28,19 @@ ms.locfileid: "57839596"
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>작업 영역 보기
+## <a name="view"></a>작업 영역 보기
 
 1. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다. 
 
-1. **모든 서비스** 필터 필드에 **Machine Learning Service 작업 영역**을 입력합니다.  
+1. 에 **모든 서비스** 필터 필드에 입력 **기계 학습 서비스**합니다.  
 
-   ![Azure Machine Learning Service 작업 영역 검색](media/how-to-manage-workspace/allservices-search1.png)
+1. 선택 **Machine Learning 서비스 작업 영역**합니다.
 
-1. 필터 결과에서 **Machine Learning Service 작업 영역**을 선택하여 작업 영역 목록을 표시합니다. 
-
-   ![Azure Machine Learning 서비스 작업 영역](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Azure Machine Learning 서비스 작업 영역에 대 한 검색](media/how-to-manage-workspace/all-services.png)
 
 1. 검색된 작업 영역 목록을 살펴봅니다. 구독, 리소스 그룹 및 위치를 기준으로 필터링 할 수 있습니다.  
 
-   ![작업 영역 보기](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. 방금 만든 작업 영역을 선택하여 속성을 표시합니다.
-
+1. 해당 속성을 표시 하기 위해 작업 영역을 선택 합니다.
    ![작업 영역 속성](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제
