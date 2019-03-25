@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262492"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369908"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
-Log Analytics용 Windows 또는 Linux 에이전트의 초기 배포 후 에이전트를 다시 구성하거나 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거해야 할 수 있습니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
+Log Analytics Windows 또는 Azure Monitor에서 Linux 에이전트의 초기 배포 후 에이전트를 다시 구성 하거나 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거 해야 합니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
 
 ## <a name="adding-or-removing-a-workspace"></a>작업 영역 추가 또는 제거
 
@@ -115,7 +115,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="update-settings-using-powershell"></a>PowerShell을 사용하여 설정 업데이트
 
-다음 샘플 PowerShell 코드를 복사하고 자신의 환경 관련 정보로 업데이트한 후 PS1 파일 이름 확장명으로 저장합니다. Log Analytics 서비스에 직접 연결하는 각 컴퓨터에서 스크립트를 실행합니다.
+다음 샘플 PowerShell 코드를 복사하고 자신의 환경 관련 정보로 업데이트한 후 PS1 파일 이름 확장명으로 저장합니다. Azure Monitor에서 Log Analytics 작업 영역에 직접 연결 하는 각 컴퓨터에서 스크립트를 실행 합니다.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

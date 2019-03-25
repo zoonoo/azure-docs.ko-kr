@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313960"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370009"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
 
@@ -76,7 +76,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 > [!WARNING]
 > Azure 관리자 역할이 할당된 계정은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에 정의된 메서드를 사용해야 합니다.
 
-![인증][Authentication]
+![Azure portal에서 인증 방법 선택][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
 
@@ -160,7 +160,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미스 통합을 위해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](howto-sspr-writeback.md)을 참조하세요.
 
-![쓰기 저장][Writeback]
+![비밀 번호 쓰기 저장의 유효성을 검사 하도록 설정할지 및 작업][Writeback]
 
 이 페이지에서는 현재 구성에 따라 다음 메시지 중 하나가 표시되는 온-프레미스 쓰기 저장 클라이언트의 빠른 상태를 제공합니다.
 
@@ -180,7 +180,7 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 해당 암호를 재설정하지 않고 계정의 잠금을 해제할 수 있음
 
-이 컨트롤은 암호 재설정 포털을 방문하는 사용자에게 암호를 다시 설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있는 옵션을 제공하는지 여부를 지정합니다. 기본적으로 Azure AD는 암호 재설정을 수행할 때 계정을 잠금 해제합니다. 이 설정을 사용하여 다음 두 가지 작업을 구분합니다. 
+이 컨트롤은 암호 재설정 포털을 방문하는 사용자에게 암호를 다시 설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있는 옵션을 제공하는지 여부를 지정합니다. 기본적으로 Azure AD는 암호 재설정을 수행할 때 계정을 잠금 해제합니다. 이 설정을 사용하여 다음 두 가지 작업을 구분합니다.
 
 * **예**로 설정하면 암호를 다시 설정하고 계정의 잠금을 해제하거나, 암호를 다시 설정하지 않고 계정의 잠금을 해제할 수 있는 옵션이 사용자에게 제공됩니다.
 * **아니요**로 설정하면 사용자는 결합된 암호 재설정 및 계정 잠금 해제 작업만 수행할 수 있습니다.
@@ -193,9 +193,9 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
-   * **기존 Azure AD 테넌트가 있는 파트너 조직의 사용자**: 제휴한 조직에 기존 Azure AD 테넌트가 있는 경우 *해당 테넌트에서 사용되는 모든 암호 재설정 정책을 따릅니다*. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에게 추가 요금이 청구되지 않으며 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계에 따라 이 기능을 사용하도록 설정할 수 있습니다.
-   * 셀프 서비스 등록을 통해 **로그인한 사용자**: 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
-   * **B2B 사용자**: 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 이메일을 통해 암호를 다시 설정할 수 있습니다.
+* **기존 Azure AD 테넌트가 있는 파트너 조직의 사용자**: 제휴한 조직에 기존 Azure AD 테넌트가 있는 경우 *해당 테넌트에서 사용되는 모든 암호 재설정 정책을 따릅니다*. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에게 추가 요금이 청구되지 않으며 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계에 따라 이 기능을 사용하도록 설정할 수 있습니다.
+* 셀프 서비스 등록을 통해 **로그인한 사용자**: 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
+* **B2B 사용자**: 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 이메일을 통해 암호를 다시 설정할 수 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
 

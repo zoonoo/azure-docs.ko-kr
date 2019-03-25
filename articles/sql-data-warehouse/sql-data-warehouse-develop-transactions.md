@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 02/10/2019
-ms.author: cakarst
+ms.date: 03/22/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ac2bc9fc05a7014cd575ec531ef0a6ba08b2609e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 0b4ce6f4479552f42d32124149f64614b7e3cb70
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100145"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369499"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
@@ -34,7 +34,30 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 배포당 용량(GiB) | 배포 수 | 최대 트랜잭션 크기(GiB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+## <a name="gen2"></a>2세대
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | (GB) 배포당 용량 | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| --- | --- | --- | --- | --- | --- |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+
+## <a name="gen1"></a>1세대
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | (GB) 배포당 용량 | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313331"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370392"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
 암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
 
-![사용자가 Microsoft Authenticator 앱에서 로그인 시도를 승인하도록 요청하는 브라우저 로그인의 예제](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![사용자가 로그인을 승인 하도록 요청 하는 브라우저 로그인의 예](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정한 사람은 사용자 이름을 입력한 후 암호를 묻는 대신 자신의 앱에서 번호를 탭하라는 메시지를 보게 됩니다. 앱에서 사용자는 번호가 일치해야 하고 [승인]을 선택한 다음, PIN 또는 생체 인식을 제공해야 인증이 완료됩니다.
 
@@ -40,17 +40,20 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
 1. Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Azure AD V2 PowerShell 모듈을 사용하도록 Azure AD 테넌트에 대해 인증합니다. 사용된 계정은 보안 관리자나 글로벌 관리자여야 합니다.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. 인증자 로그인 정책 만들기:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

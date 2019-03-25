@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873022"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401440"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Azure Data Box Gateway(미리 보기)에 대한 액세스, 전원 및 연결 모드 관리
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure 데이터 상자 게이트웨이에 대 한 액세스, 기능 및 연결 모드 관리
 
 이 문서에서는 Azure Data Box Gateway에 대한 액세스, 전원 및 연결 모드를 관리하는 방법에 대해 설명합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
 
@@ -26,16 +26,13 @@ ms.locfileid: "55873022"
 > * 연결 모드 관리
 > * 전원 관리
 
-> [!IMPORTANT]
-> Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 ## <a name="manage-device-access"></a>디바이스 액세스 관리
 
-Data Box Gateway에 대한 액세스는 디바이스 관리자 암호를 사용하여 제어합니다. 로컬 웹 UI를 통해 관리자 암호를 변경할 수 있습니다. 또한 Azure Portal에서 디바이스 관리자 암호를 다시 설정할 수도 있습니다.
+데이터 상자 게이트웨이 장치에 대 한 액세스는 장치 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI 통해 암호를 변경할 수 있습니다. 또한 Azure portal에서 장치 암호를 재설정할 수 있습니다.
 
-### <a name="change-device-administrator-password"></a>디바이스 관리자 암호 변경
+### <a name="change-device-password"></a>디바이스 암호 변경
 
-로컬 웹 UI에서 다음 단계에 따라 디바이스 관리자 암호를 변경합니다.
+장치 암호를 변경 하려면 로컬 UI에 이러한 단계를 수행 합니다.
 
 1. 로컬 웹 UI에서 **유지 관리 > 암호 변경**으로 이동합니다.
 2. 현재 암호를 입력한 다음, 새 암호를 입력합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 새 암호를 확인합니다.
@@ -44,7 +41,7 @@ Data Box Gateway에 대한 액세스는 디바이스 관리자 암호를 사용�
 
 3. **암호 변경**을 클릭합니다.
  
-### <a name="reset-device-administrator-password"></a>디바이스 관리자 암호 다시 설정
+### <a name="reset-device-password"></a>디바이스 암호 재설정
 
 재설정 워크플로에서는 사용자가 이전 암호를 기억할 필요가 없으며 암호를 분실했을 때 유용합니다. 이 워크플로는 Azure Portal에서 수행합니다.
 
