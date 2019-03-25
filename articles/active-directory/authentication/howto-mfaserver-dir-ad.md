@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313569"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371828"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
 Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 또는 다른 LDAP 디렉터리와 통합합니다. 디렉터리 스키마와 일치하는 특성을 구성하고 자동 사용자 동기화를 설정할 수 있습니다.
 
 ## <a name="settings"></a>설정
+
 기본적으로 Azure MFA(Multi-Factor Authentication) 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다.  디렉터리 통합 탭을 통해 기본 동작을 재정의하고 다른 LDAP 디렉터리, ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러에 바인딩할 수 있습니다.  또한 LDAP 프록시 또는 RADIUS 대상으로서 LDAP 바인딩을 위한 LDAP 인증, IIS 인증을 위한 사전 인증, 사용자 포털을 위한 기본 인증을 사용할 수 있습니다.  다음 표에서는 개별 설정을 설명합니다.
 
-![설정](./media/howto-mfaserver-dir-ad/dirint.png)
+![MFA 서버에서 LDAP 구성 편집](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | 기능 | 설명 |
 | --- | --- |
@@ -50,9 +51,10 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 | 테스트 단추 |LDAP 서버에 대한 바인딩을 테스트하려면 **테스트**를 클릭합니다.  <br><br>바인딩을 테스트하려면 **LDAP 사용** 옵션을 선택하지 않아도 됩니다. 이를 통해 LDAP 구성을 사용하기 전에 바인딩을 테스트할 수 있습니다. |
 
 ## <a name="filters"></a>필터
+
 필터를 사용하면 디렉터리 검색을 수행할 때 레코드를 한정하는 조건을 설정할 수 있습니다.  필터를 설정하여 동기화할 개체의 범위를 지정할 수 있습니다.  
 
-![필터](./media/howto-mfaserver-dir-ad/dirint2.png)
+![MFA 서버에서 디렉터리 필터링 구성](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있습니다.
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 * **사용자 필터** - 디렉터리 검색을 수행할 때 사용자 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (& (objectClass=user)(objectCategory=person))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 (objectClass=inetOrgPerson) 또는 이와 유사한 유형을 사용합니다. <br>참고:  비워 둔 경우 (&(objectCategory=person)(objectClass=user))가 기본적으로 사용됩니다.
 
 ## <a name="attributes"></a>특성
+
 필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값에 대 한 디렉터리 스키마에 정의 된 특성의 이름을 사용 합니다. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
 
 특성은 수동으로 입력할 수 있으며 특성 목록의 특성과 일치할 필요는 없습니다.
 
-![특성](./media/howto-mfaserver-dir-ad/dirint3.png)
+![MFA 서버에서 디렉터리 통합 특성을 사용자 지정](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | 기능 | 설명 |
 | --- | --- |
@@ -96,9 +99,10 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 
 특성을 편집하려면 특성 탭의 **편집**을 클릭합니다.  특성을 편집할 수 있는 창이 나타납니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
 
-![특성 편집](./media/howto-mfaserver-dir-ad/dirint4.png)
+![MFA 서버에서 디렉터리 특성 매핑 편집](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>동기화
+
 동기화는 Azure MFA 사용자 데이터베이스가 Active Directory 또는 다른 LDAP(Lightweight Directory Access Protocol) 디렉터리의 사용자와 동기화되도록 유지합니다. 프로세스는 Active Directory에서 수동으로 사용자를 가져오는 것과 비슷하지만 Active Directory 사용자 및 보안 그룹 변경 사항이 생길 때 이들을 처리할 수 있도록 정기적으로 폴링합니다.  또한 컨테이너, 보안 그룹 또는 Active Directory에서 제거된 사용자를 비활성화하거나 제거합니다.
 
 Multi-Factor Auth ADSync 서비스는 Active Directory를 정기적으로 폴링하는 Windows 서비스입니다.  이 서비스를 Azure AD Sync 또는 Azure AD Connect와 혼동하지 않아야 합니다.  Multi-Factor Auth ADSync는 비록 유사한 코드베이스를 기반으로 작성되지만 Azure Multi-Factor Authentication 서버와 관련이 있습니다.  이 서비스는 중지된 상태에서 설치되며 이 서비스가 실행되도록 구성한 경우 Multi-Factor Auth 서버 서비스에 의해 시작됩니다.  다중 서버인 Multi-Factor Auth 서버를 구성한 경우 Multi-Factor Auth ADSync는 단일 서버에서만 실행할 수 있습니다.
@@ -107,7 +111,7 @@ Multi-Factor Auth ADSync 서비스는 Microsoft에서 제공하는 DirSync LDAP 
 
 LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경우 Active Directory에서와 마찬가지로 사용자 및 보안 그룹의 변경 사항에 대한 폴링이 작동합니다.  LDAP 디렉터리가 DirSync 컨트롤을 지원하지 않는 경우 전체 동기화가 각 주기 동안 실행됩니다.
 
-![동기화](./media/howto-mfaserver-dir-ad/dirint5.png)
+![MFA 서버 디렉터리 개체의 동기화](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 다음 표는 각 동기화 탭 설정에 대한 추가 정보를 포함합니다.
 
@@ -133,7 +137,8 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 > [!TIP]
 > 동기화 항목을 제거한 후에는 전체 동기화를 실행해야 합니다.  동기화 항목의 순서를 지정한 후에는 전체 동기화를 실행해야 합니다.  전체 동기화를 실행하려면 **지금 동기화**를 클릭합니다.
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth 서버
-백업 RADIUS 프록시나 LDAP 프록시로 제공하기 위해 또는 IIS 인증을 위해 추가 Multi-Factor Auth 서버를 설정할 수 있습니다. 동기화 구성은 모든 에이전트 간에 공유됩니다. 그러나 이러한 에이전트 중 하나만 Multi-Factor Auth 서버 서비스를 실행할 수 있습니다. 이 탭을 사용하면 동기화를 위해 사용하도록 설정해야 하는 Multi-Factor Auth 서버를 선택할 수 있습니다.
+## <a name="multi-factor-authentication-servers"></a>Multi-factor Authentication 서버
 
-![Multi-Factor-Auth 서버](./media/howto-mfaserver-dir-ad/dirint6.png)
+백업 RADIUS 프록시나 LDAP 프록시로 또는 IIS 인증을 제공 하도록 추가 Multi-factor Authentication 서버를 설정할 수 있습니다. 동기화 구성은 모든 에이전트 간에 공유됩니다. 그러나 이러한 에이전트 중 하나만 Multi-factor Authentication 서버 서비스를 실행을 해야 합니다. 이 탭에서는 동기화를 설정 해야 하는 Multi-factor Authentication 서버를 선택할 수 있습니다.
+
+![Multi-factor Authentication 서버와 관련 된](./media/howto-mfaserver-dir-ad/dirint6.png)

@@ -1,22 +1,22 @@
 ---
-title: 호스트 풀-Azure에 대 한 사용자 프로필 공유 설정
-description: Windows Virtual Desktop (미리 보기) 호스트 풀 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
+title: Windows 가상 데스크톱 미리 보기 호스트 풀-Azure에 대 한 사용자 프로필 공유 설정
+description: Windows 가상 데스크톱 미리 보기 호스트 풀 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336017"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403717"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>호스트 풀에 대 한 사용자 프로필 공유 설정
 
-가상 데스크톱 Windows service (미리 보기)는 권장 되는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 제공합니다. 사용자 프로필 디스크 (UPD) 솔루션을 사용 하 여 권장 하지 않습니다 하 고 Windows 가상 데스크톱의 이후 버전에서 사용 되지 않습니다.
+Windows 가상 데스크톱 미리 보기 서비스는 권장 되는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 제공합니다. 사용자 프로필 디스크 (UPD) 솔루션을 사용 하 여 권장 하지 않습니다 하 고 Windows 가상 데스크톱의 이후 버전에서 사용 되지 않습니다.
 
 이 섹션에서는 호스트 풀에 대 한 FSLogix 프로필 컨테이너 공유를 설정 하는 방법을 알려줍니다.
 

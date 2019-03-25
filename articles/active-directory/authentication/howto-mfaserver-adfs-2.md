@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b60ca0058125aea0124051570fefb031a022456c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317581"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372269"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -25,16 +25,16 @@ ms.locfileid: "58317581"
 이 문서에서는 AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 소개합니다. AD FS에 대한 자세한 내용은 [Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](howto-mfaserver-adfs-2012.md)를 참조하세요.
 
 ## <a name="secure-ad-fs-20-with-a-proxy"></a>프록시로 AD FS 2.0 보안 유지
+
 프록시로 AD FS 2.0 보안을 유지하려면 AD FS 프록시 서버에 Azure Multi-Factor Authentication 서버를 설치합니다.
 
 ### <a name="configure-iis-authentication"></a>IIS 인증 구성
+
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 **IIS 인증** 아이콘을 클릭합니다.
 2. **양식 기반** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
 
-   <center>
-   
-   ![설정](./media/howto-mfaserver-adfs-2/setup1.png)</center>
+   ![MFA 서버 IIS 인증 창](./media/howto-mfaserver-adfs-2/setup1.png)
 
 4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 **확인**을 클릭합니다.
 5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
@@ -43,9 +43,9 @@ ms.locfileid: "58317581"
 8. 요청 형식을 **POST 또는 GET**으로 설정합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 로그인 페이지에서 입력 상자의 이름을 찾으려면 웹 브라우저에서 로그인 페이지로 이동하고 해당 페이지를 마우스 오른쪽 단추로 클릭하여 **소스 보기**를 선택합니다.
 10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
-    <center>
-    
-    ![설정](./media/howto-mfaserver-adfs-2/manual.png)</center>
+
+    ![MFA 서버에 양식 기반 웹 사이트 추가](./media/howto-mfaserver-adfs-2/manual.png)
+
 11. **고급...** 을 클릭하여 고급 설정을 확인합니다. 구성할 수 있는 설정은 다음과 같습니다.
 
     - 사용자 지정 거부 페이지 파일 선택
@@ -62,26 +62,24 @@ ms.locfileid: "58317581"
 이제 IIS 인증이 사용되도록 설정되었습니다.
 
 ### <a name="configure-directory-integration"></a>디렉터리 통합 구성
+
 IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 사전 인증을 수행하려면 도메인 컨트롤러에 대한 LDAP 연결을 구성해야 합니다.
 
 1. **디렉터리 통합** 아이콘을 클릭합니다.
 2. 설정 탭에서 **특정 LDAP 구성 사용** 라디오 단추를 선택합니다.
 
-   <center>
-    
-   ![설정](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
+   ![특정 LDAP 설정에 대 한 LDAP 설정 구성](./media/howto-mfaserver-adfs-2/ldap1.png)
 
 3. **편집**을 클릭합니다.
 4. LDAP 구성 편집 대화 상자에서 AD 도메인 컨트롤러에 연결하는 데 필요한 정보를 필드에 입력합니다. 필드의 설명은 Azure Multi-Factor Authentication 서버 도움말 파일에도 포함되어 있습니다.
 5. **테스트** 단추를 클릭하여 LDAP 연결을 테스트합니다.
 
-   <center>
-    
-   ![설정](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
+   ![MFA 서버에서 LDAP 구성을 테스트합니다](./media/howto-mfaserver-adfs-2/ldap2.png)
 
 6. LDAP 연결 테스트가 성공한 경우 **확인**을 클릭합니다.
 
 ### <a name="configure-company-settings"></a>회사 설정 구성
+
 1. 다음으로 **회사 설정** 아이콘을 클릭하고 **사용자 이름 확인** 탭을 선택합니다.
 2. **사용자 이름 일치에 LDAP 고유 식별자 특성 사용** 라디오 단추를 선택합니다.
 3. 사용자가 "domain\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
@@ -89,11 +87,10 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 
 Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP 섹션](#trusted-ips)을 참조하세요.
 
-<center>
-
-![설정](./media/howto-mfaserver-adfs-2/reg.png)</center>
+![회사 설정을 구성 하려면 레지스트리 편집기](./media/howto-mfaserver-adfs-2/reg.png)
 
 ## <a name="ad-fs-20-direct-without-a-proxy"></a>프록시 없이 AD FS 2.0 직접
+
 AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 있습니다. AD FS 서버에 Azure Multi-Factor Authentication 서버를 설치하고 다음 단계에 따라 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 **IIS 인증** 아이콘을 클릭합니다.
@@ -104,9 +101,7 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 쿠키 캐시 상자를 선택합니다.
 
-   <center>
-   
-   ![설정](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
+   ![프록시 없이 AD FS 2.0 직접](./media/howto-mfaserver-adfs-2/noproxy.png)
 
 8. **확인**을 클릭합니다.
 9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 애플리케이션(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
@@ -125,6 +120,4 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
 
-<center>
-
-![설정](./media/howto-mfaserver-adfs-2/trusted.png)</center>
+![MFA 서버를 신뢰할 수 있는 Ip를 구성 합니다.](./media/howto-mfaserver-adfs-2/trusted.png)

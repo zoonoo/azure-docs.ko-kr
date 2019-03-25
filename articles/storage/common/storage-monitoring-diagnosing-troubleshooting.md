@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339689"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351918"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 >
 
 ### <a name="server-request-id"></a>서버 요청 ID
-저장소 서비스는 서버 요청 ID를 자동으로 생성합니다.
+저장소 서비스 서버 요청 Id를 자동으로 생성합니다.
 
 * 서버 쪽 저장소 로깅 로그에서 서버 요청 ID는 **요청 ID 헤더** 열에 표시됩니다.
 * Fiddler에서 캡처하는 것과 같은 네트워크 추적에서 서버 요청 ID는 응답 메시지에 **x-ms-request-id** HTTP 헤더 값으로 표시됩니다.
@@ -814,9 +814,9 @@ Azure Storage에서 분석에 대 한 자세한 내용은 다음이 리소스를
 * [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [저장소 분석](storage-analytics.md)
 * [저장소 분석 메트릭](storage-analytics-metrics.md)
-* [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [저장소 분석 로그](storage-analytics-logging.md)
-* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format.md)
+* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [소개]: #introduction

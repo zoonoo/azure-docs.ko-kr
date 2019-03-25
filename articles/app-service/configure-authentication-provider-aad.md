@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d0c39462bc046b13a2756d37c089ba0e68c90452
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456642"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403224"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Azure Active Directory 로그인을 사용하도록 App Service 앱 구성
+
+> [!NOTE]
+> 지금은 AAD V2 MSAL 등 Azure App Services 및 Azure Functions에 대 한 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
+>
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

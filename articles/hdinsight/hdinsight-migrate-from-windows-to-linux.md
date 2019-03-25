@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743649"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361254"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
@@ -24,6 +24,8 @@ Windows 기반 HDInsight가 클라우드에서 Apache Hadoop을 사용하는 쉬
 
 > [!NOTE]  
 > HDInsight 클러스터는 클러스터의 노드에 대한 운영 체제로 Ubuntu LTS(장기 지원)를 사용합니다. HDInsight와 함께 사용할 수 있는 Ubuntu의 버전 및 기타 구성 요소 버전 정보는 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>마이그레이션 작업
 
@@ -63,7 +65,7 @@ Windows 기반 HDInsight가 클라우드에서 Apache Hadoop을 사용하는 쉬
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,7 +95,7 @@ Windows 기반 HDInsight가 클라우드에서 Apache Hadoop을 사용하는 쉬
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Azure Storage Blob 간 직접 복사
 
-또는 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet을 사용하여 HDInsight 외부의 저장소 계정 간에 Blob을 복사할 수 있습니다. 자세한 내용은 Azure Storage에서 Azure PowerShell 사용에 대한 Azure Blob 섹션 관리 방법을 참조하세요.
+또는 `Start-AzStorageBlobCopy` Azure PowerShell cmdlet을 사용하여 HDInsight 외부의 저장소 계정 간에 Blob을 복사할 수 있습니다. 자세한 내용은 Azure Storage에서 Azure PowerShell 사용에 대한 Azure Blob 섹션 관리 방법을 참조하세요.
 
 ## <a name="client-side-technologies"></a>클라이언트 쪽 기술
 
