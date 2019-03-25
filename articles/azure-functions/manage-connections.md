@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 965fa1e82be3fb87bf58a0114f97091bad212738
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450739"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402374"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -57,7 +57,7 @@ public static async Task Run(string input)
 
 에 대 한 일반적인 질문 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) .NET은 "I는 삭제 해야 클라이언트?" 구현 하는 개체의 삭제 하는 일반적으로 `IDisposable` 마친 경우 사용 합니다. 작업을 수행 하지 않으므로 정적 클라이언트의 삭제 되지 않지만 함수가 종료 될 때 사용 합니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
 
-### <a name="http-agent-examples-nodejs"></a>HTTP 에이전트 예제(Node.js)
+### <a name="http-agent-examples-javascript"></a>HTTP 에이전트 예제 (JavaScript)
 
 개선된 연결 관리 옵션을 제공하므로 비네이티브 메서드 대신 `node-fetch` 모듈과 같이 네이티브 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 클래스를 사용해야 합니다. 연결 매개 변수에서 옵션을 통해 구성 되는 `http.agent` 클래스입니다. HTTP 에이전트를 사용 하 여 사용할 수 있는 자세한 옵션을 참조 하세요 [새 에이전트 (\[옵션\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)합니다.
 
@@ -105,6 +105,25 @@ public static async Task Run(string input)
     await documentClient.UpsertDocumentAsync(collectionUri, document);
     
     // Rest of function
+}
+```
+
+### <a name="cosmosclient-code-example-javascript"></a>CosmosClient 코드 예제에서는 (JavaScript)
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) Azure Cosmos DB 인스턴스에 연결 합니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
+
+```javascript
+const cosmos = require('@azure/cosmos');
+const endpoint = process.env.COSMOS_API_URL;
+const masterKey = process.env.COSMOS_API_KEY;
+const { CosmosClient } = cosmos;
+
+const client = new CosmosClient({ endpoint, auth: { masterKey } });
+// All function invocations also reference the same database and container.
+const container = client.database("MyDatabaseName").container("MyContainerName");
+
+module.exports = async function (context) {
+    const { result: itemArray } = await container.items.readAll().toArray();
+    context.log(itemArray);
 }
 ```
 

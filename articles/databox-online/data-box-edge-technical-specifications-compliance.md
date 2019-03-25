@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994713"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402595"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Azure 데이터 가장자리가 상자의 기술 사양 (미리 보기)
+# <a name="azure-data-box-edge-technical-specifications"></a>Azure 데이터 가장자리가 상자의 기술 사양
 
 Microsoft Azure 데이터 상자 Edge 장치의 하드웨어 구성 요소 기술 사양 및이 문서에서 설명 하는 규제 표준을 준수 합니다. 전원 공급 장치 (PSUs), 저장소 용량, 엔클로저 및 환경 표준 기술 사양에 설명합니다. 
-
-> [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 
@@ -28,7 +25,7 @@ Microsoft Azure 데이터 상자 Edge 장치의 하드웨어 구성 요소 기�
 
 | 사양           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| 최대 출력 전원    |  750 W                     |
+| 최대 출력 전원    | 750 W                     |
 | Frequency(빈도)               | 50/60Hz                   |
 | 전압 범위 선택 | 자동 범위 지정: 100-240 V AC |
 | 핫 플러그형           | 예                        |

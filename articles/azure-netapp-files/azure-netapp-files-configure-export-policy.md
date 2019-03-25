@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files 볼륨에 대한 내보내기 정책 구성 | Microsoft Docs
-description: 내보내기 정책을 구성하여 Azure NetApp Files 볼륨에 대한 액세스를 제어하는 방법을 설명합니다.
+title: NetApp Azure Files를 사용 하 여 NFS 볼륨에 대해 내보내기 정책 구성 | Microsoft Docs
+description: Azure NetApp 파일을 사용 하는 NFS 볼륨에 대 한 액세스를 제어 하는 내보내기 정책을 구성 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766651"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401493"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>볼륨에 대한 내보내기 정책 구성
+# <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대해 내보내기 정책을 구성 합니다.
 
-필요에 따라 내보내기 정책을 구성하여 Azure NetApp Files 볼륨에 대한 액세스를 제어할 수 있습니다. 
+필요에 따라 내보내기 정책을 구성하여 Azure NetApp Files 볼륨에 대한 액세스를 제어할 수 있습니다. 내보내기 정책을 NFS 볼륨에 대해서만 지원 됩니다. 
 
 ## <a name="steps"></a>단계 
 
@@ -39,7 +39,7 @@ ms.locfileid: "57766651"
         * IPv4 주소(예: `10.1.12.24`) 
         * 비트 수로 표현된 서브넷 마스크가 있는 IPv4 주소(예: `10.1.12.10/4`)
 
-    * **액세스 권한**  
+    * **Access**  
         다음 액세스 유형 중 하나를 선택합니다.  
         * 액세스 권한 없음 
         * 읽기 및 쓰기
@@ -47,9 +47,9 @@ ms.locfileid: "57766651"
 
     * **프로토콜**   
         내보내기 정책에 사용할 프로토콜을 지정합니다.   
-        현재 Azure NetApp Files는 NFSv3만 지원합니다.
+        현재, Azure NetApp 파일 내보내기 정책을 NFSv3만 지원합니다.
 
-    ![정책 내보내기](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 ## <a name="next-steps"></a>다음 단계 

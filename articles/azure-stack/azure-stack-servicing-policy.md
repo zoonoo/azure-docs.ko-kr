@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536488"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400543"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 
@@ -35,7 +35,7 @@ Microsoft는 전체 월간 업데이트 패키지 뿐만 아니라 특정 문제
 
 핫픽스 업데이트 패키지는 동일한 보안 Azure 끝점에서 호스트 됩니다. 각각의 개별 핫픽스 KB 문서; 포함 된 링크를 사용 하 여 수동으로 다운로드할 수 있습니다. 예를 들어 [Azure Stack 핫픽스 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)합니다. 전체, 월간 업데이트 패키지와 마찬가지로, Azure Stack 운영자.xml,.bin 및.exe 파일을 다운로드 하의 절차를 사용 하 여 가져올 [Azure Stack의 업데이트 적용](azure-stack-apply-updates.md)합니다. 연결 된 배율 단위를 사용 하 여 azure Stack 운영자는 메시지를 사용 하 여 관리자 포털에 자동으로 표시 하는 핫픽스 나타납니다 **사용할 수 있는 업데이트**합니다.
 
-배율 단위에 연결 되어 있지 않습니다. 각 핫픽스 릴리스 하는 방법에 대 한 알림을 받을 것인지를 구독 하는 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) 또는 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) 피드 각 릴리스에서 언급 합니다.  
+배율 단위에 연결 되어 있지 않습니다. 각 핫픽스 릴리스 하는 방법에 대 한 알림을 받을 것인지를 구독 하는 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 또는 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 피드 각 릴리스에서 언급 합니다.  
 
 ## <a name="update-package-types"></a>업데이트 패키지 형식
 

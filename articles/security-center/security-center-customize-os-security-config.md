@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106888"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402119"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -112,7 +112,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
     - 허용된 사용자 그룹의 목록입니다. 예를 들면 다음과 같습니다. *관리자*, *백업 운영자*
 
--   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 비공개 미리 보기 릴리스에서는 문자열이 대/소문자를 구분합니다.
+-   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 릴리스에 대 한 문자열은 대/소문자 구분.
 
 구성할 수 있는 필드는 이뿐입니다. 파일 형식 또는 크기를 위반하면 변경 내용을 저장할 수 없습니다. 유효한 JSON 구성 파일을 업로드해야 함을 알려 주는 오류가 표시됩니다.
 
@@ -281,7 +281,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이(가) 고유하지 않습니다.                                                                                                                  |
 | BaselineRuleEmptyProperty                | *{0}* 속성이 없거나 잘못되었습니다.                                                                                                       |
 | BaselineRuleIdNotInDefault               | 규칙에 소스 속성 *Microsoft*가 있지만 Microsoft 기본 규칙 집합에 없습니다.                                                   |
-| BaselineRuleIdNotUniqueError             | 규칙 ID가 고유하지 않습니다.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | 규칙 ID는 고유 하지 않습니다.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | *{0}* 속성이 잘못되었습니다. 값이 유효한 GUID가 아닙니다.                                                                             |
 | BaselineRuleInvalidHive                  | Hive는 LocalMachine이어야 합니다.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | 규칙 이름이 고유하지 않습니다.                                                                                                                 |

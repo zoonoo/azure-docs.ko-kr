@@ -1,22 +1,22 @@
 ---
 title: 준비 및 Azure 마스터 VHD 이미지를 사용자 지정
-description: 준비, 사용자 지정 및 Windows Virtual Desktop (미리 보기) 마스터 이미지를 Azure에 업로드 하는 방법.
+description: 준비 하 고 사용자 지정 Windows 가상 데스크톱 미리 보기 마스터 이미지를 Azure에 업로드 하는 방법.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318421"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400768"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>준비 하 고 마스터 VHD 이미지를 사용자 지정
 
-이 문서에서는 가상 머신 (Vm) 만들기 및 설치 하 고 에서도 소프트웨어를 구성 하는 방법을 포함 하 여 Azure에 업로드할 마스터 가상 하드 디스크 (VHD) 이미지를 준비 하는 방법을 알려줍니다. 이러한 지침은 조직의 기존 프로세스를 사용 하 여 사용할 수 있는 Windows 가상 데스크톱 전용 (미리 보기) 구성에 대 한 것입니다.
+이 문서에서는 가상 머신 (Vm) 만들기 및 설치 하 고 에서도 소프트웨어를 구성 하는 방법을 포함 하 여 Azure에 업로드할 마스터 가상 하드 디스크 (VHD) 이미지를 준비 하는 방법을 알려줍니다. 이러한 지침은 조직의 기존 프로세스를 사용 하 여 사용할 수 있는 Windows 가상 데스크톱 미리 보기 전용 구성입니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -370,8 +370,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 이미지를 만들었으므로 만들 수도 있고 호스트 풀 업데이트. 호스트 풀 만들기 및 업데이트 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
 
-- [(미리 보기) Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기](create-host-pools-arm-template.md)
-- [자습서: Azure Marketplace (미리 보기)를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
-- [PowerShell (미리 보기)를 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)
+- [Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기](create-host-pools-arm-template.md)
+- [자습서: Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
+- [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)
 - [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md)
 - [Windows 가상 데스크톱 부하 분산 방법 구성](configure-host-pool-load-balancing.md)

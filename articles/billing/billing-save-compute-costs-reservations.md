@@ -2,23 +2,18 @@
 title: Azure Reservations란? | Microsoft Docs
 description: 가상 머신, SQL Database, Azure Cosmos DB 및 기타 리소스 비용을 절약하기 위한 Azure 예약 및 가격 책정 정보에 대해 알아봅니다.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904170"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401787"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -44,17 +39,11 @@ Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>예약을 구매할 수 있는 주체는?
 
-다음과 같은 구독 유형을 사용하는 Azure 고객은 예약을 구매할 수 있습니다.
+계획을 구입 하려면 Enterprise (-0017 Ms-azr 또는-0148 Ms-azr) 또는 종 량 제 구독 (-003 Ms-azr 또는-0023 Ms-azr)에서 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure portal을 사용할 수 또는 [파트너 센터](/partner-center/azure-reservations) Azure 예약을 구입할 수 있습니다.
 
-- Enterprise 계약 구독 제안 유형(MS-AZR-0017P 또는 MS-AZR-0148P).
-- 종량제 구독 제안 유형(MS-AZR-003P 또는 MS-AZR-0023P).
-- CSP(클라우드 솔루션 공급 기업) 파트너는 Azure Portal 또는 [파트너 센터](https://docs.microsoft.com/partner-center/azure-reservations)를 사용하여 Azure 예약을 구매할 수 있습니다.
+EA 고객은 사용 하지 않도록 설정 하 여 EA 관리자에 게 구매를 제한할 수는 **Reserved Instances 추가** EA 포털에서 옵션입니다. EA 관리자는 예약을 구매 하려면 EA 구독을 하나 이상에 대 한 구독 소유자 여야 합니다. 옵션을 중앙 집중식된 팀을 서로 다른 비용 센터에 대 한 예약을 구입 하려는 기업에 유용 합니다. 를 구입한 후에 중앙 집중식된 팀 예약을 비용 센터 소유자를 추가할 수 있습니다. 다음 소유자 해당 구독에 대 한 예약을 범위를 지정할 수 있습니다. 중앙 팀 예약을 구매 하는 구독 소유자 액세스 권한이 필요가 없습니다.
 
 예약 할인은 Enterprise, 종량제 또는 CSP 구독 유형과 연결된 리소스에만 적용됩니다.
-
- 플랜을 구매하려면:
-
-- 사용자가 하나 이상의 Enterprise 또는 종량제 구독에 대해 소유자 역할이어야 합니다.
 
 ## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요?
 

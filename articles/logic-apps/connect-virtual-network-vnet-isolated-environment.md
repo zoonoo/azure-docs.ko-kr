@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371989"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400906"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -49,9 +49,9 @@ ms.locfileid: "58371989"
   * 4 개의 가상 네트워크에 있어야 *빈* 에 ISE에서 리소스를 만들고 배포에 대 한 서브넷입니다. 이러한 서브넷을 미리 만들 수 있습니다 또는 동시에 서브넷을 만들 수 있습니다 하 여 ISE를 만들 때까지 기다릴 수 있습니다. 에 대해 자세히 알아보세요 [서브넷 요구](#create-subnet)합니다. 
   
     > [!NOTE]
-    > 사용 하는 경우 [ExpressRoute](../expressroute/expressroute-introduction.md)Microsoft 클라우드 서비스에 개인 연결을 제공 하는, 해야 [각 서브넷에 다음 경로 추가](../virtual-network/virtual-network-manage-subnet.md) 여 ISE에 의해 사용 합니다. 서브넷을 사용 하 여 경로 테이블을 사용 하는 경우 [경로 테이블에 다음 경로 추가](../virtual-network/manage-route-table.md):
+    > 사용 하는 경우 [ExpressRoute](../expressroute/expressroute-introduction.md)Microsoft 클라우드 서비스에 개인 연결을 제공 하는, 해야 [경로 테이블을 만드는](../virtual-network/manage-route-table.md) 라우팅하고 여 ISE에 의해 사용 되는 각 서브넷을 사용 하 여 해당 테이블을 링크 다음에는:
     > 
-    > **이름**: D3655BASE-route<br>
+    > **이름을**: <*경로 이름*><br>
     > **주소 접두사**: 0.0.0.0/0<br>
     > **다음 홉**: 인터넷
 
@@ -146,9 +146,9 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
      주소를 계산 하는 방법에 대 한 자세한 내용은 참조 하세요 [IPv4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)합니다.
 
-   * 사용 하는 경우 [ExpressRoute](../expressroute/expressroute-introduction.md), 해야 [각 서브넷에 다음 경로 추가](../virtual-network/virtual-network-manage-subnet.md) 여 ISE에 의해 사용 됩니다. 서브넷을 사용 하 여 경로 테이블을 사용 하는 경우 [경로 테이블에 다음 경로 추가](../virtual-network/manage-route-table.md):
+   * 사용 하는 경우 [ExpressRoute](../expressroute/expressroute-introduction.md), 해야 [경로 테이블을 만드는](../virtual-network/manage-route-table.md) 라우팅하고 여 ISE에 의해 사용 되는 각 서브넷을 사용 하 여 해당 테이블을 링크 다음에는:
 
-     **이름**: D3655BASE-route<br>
+     **이름을**: <*경로 이름*><br>
      **주소 접두사**: 0.0.0.0/0<br>
      **다음 홉**: 인터넷
 

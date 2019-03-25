@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106562"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403836"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
-Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
+Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
 
 이 문서에서는 머신과 애플리케이션에 적용되는 권장 사항에 대해 설명합니다.
 
@@ -53,7 +53,7 @@ Compute 및 App Services 권장 사항의 전체 목록은 [권장 사항](secur
 각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다.
 
 ### 모니터링되지 않는 VM 및 컴퓨터 <a name="unmonitored-vms-and-computers"></a>
-머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 머신에는 OMS 직접 에이전트 또는 SCOM 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
+머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터는 로컬 에이전트가 이미 설치 되어 있을 수 있습니다, 예를 들어 OMS 직접 에이전트 또는 System Center Operations Manager 에이전트입니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
 
 확장은 이미 설치된 로컬 에이전트 외에도 모니터링되지 않는 VM이나 컴퓨터에 설치할 수 있습니다. 두 에이전트를 동일하게 구성하여 동일한 작업 영역에 연결합니다. 이렇게 하면 Security Center에서 Microsoft Monitoring Agent Extension과 상호 작용하고 데이터를 수집할 수 있습니다. Microsoft Monitoring Agent 확장을 설치하는 방법에 대한 지침은 [VM 확장 사용](../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.
 
@@ -103,7 +103,7 @@ VM 및 컴퓨터 섹션에는 모든 VM과 컴퓨터의 권장 사항에 대한 
 ![Azure 클래식 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure 클래식 VM입니다.
 
 
-![작업 영역에서 식별된 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 본 구독의 일부인 작업 영역에서만 식별되는 VM 여기에는 이 구독에 있는 작업 영역에 보고하는 다른 구독의 VM, SCOM 다이렉트 에이전트를 사용하여 설치된 VM 및 리소스 ID가 없는 VM이 포함됩니다.
+![작업 영역에서 식별된 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 본 구독의 일부인 작업 영역에서만 식별되는 VM 이 Vm이 포함 됩니다 다른 구독에서 보고 하는이 구독 및 직접 에이전트를 Operations Manager를 함께 설치 된 Vm에서 작업 영역에 있고 없는 리소스 id입니다.
 
 각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 VM과 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. 필터를 사용하여 **리소스 종류** 및 **심각도**를 기준으로 목록을 검색할 수도 있습니다.
 
@@ -172,7 +172,7 @@ Microsoft Monitoring Agent를 설치하려면
 
 Microsoft Monitoring Agent를 자동으로 설치하도록 새 확장 집합을 설정하려면
 1. Azure Policy로 이동한 후 **정의**를 클릭합니다.
-2. 정책 **Windows VM 확장 집합용 Log Analytics 에이전트 배포**를 검색한 후 클릭합니다.
+2. 정책에 대 한 검색 **Windows 가상 머신 확장 집합에 대 한 Log Analytics 배포 에이전트** 해당 항목을 클릭 합니다.
 3. **할당**을 클릭합니다.
 4. **범위** 및 **Log Analytics 작업 영역**을 설정하고 **할당**을 클릭합니다.
 

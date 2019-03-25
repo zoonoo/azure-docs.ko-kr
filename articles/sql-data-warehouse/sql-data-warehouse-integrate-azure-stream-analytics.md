@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883817"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403768"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Azure Stream Analytics 사용
 Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
@@ -34,12 +34,10 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>작업 출력 지정: SQL Data Warehouse 데이터베이스
 ### <a name="step-1"></a>1단계
-Stream Analytics 작업에서 페이지 위쪽의 **출력**을 클릭한 다음 **출력 추가**를 클릭합니다.
+Stream Analytics 작업에서 클릭 **출력** 클릭 한 다음 확인 하 고 페이지 맨 위에서 **추가**합니다.
 
 ### <a name="step-2"></a>2단계
-SQL Database를 선택하고 다음을 클릭합니다.
-
-![][add-output]
+SQL Database를 선택 합니다.
 
 ### <a name="step-3"></a>3단계
 다음 페이지에 다음 값을 입력합니다.
@@ -62,9 +60,7 @@ SQL Database를 선택하고 다음을 클릭합니다.
 ### <a name="step-4"></a>4단계:
 확인 단추를 클릭하여 이 작업 출력을 추가하고 Stream Analytics가 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
 
-![][test-connection]
-
-데이터베이스에 대한 연결이 성공하면 포털의 맨 아래에 알림이 표시됩니다. 아래의 연결 테스트를 클릭하여 데이터베이스에 대한 연결을 테스트할 수 있습니다.
+데이터베이스에 연결에 성공 하면 포털에서 알림이 표시 됩니다. 데이터베이스에 연결을 테스트 하려면 테스트를 클릭할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse integration overview]를 참조하세요.

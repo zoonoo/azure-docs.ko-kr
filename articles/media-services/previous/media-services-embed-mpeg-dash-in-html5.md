@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189209"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403077"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함  
 
@@ -55,7 +55,7 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 ```
 
 ## <a name="adding-the-dashjs-player"></a>DASH.js 플레이어 추가
-애플리케이션에 dash.js 참조 구현을 추가하려면 dash.js 프로젝트 1.0 릴리스에서 dash.all.js 파일을 가져와야 합니다. 이 파일은 애플리케이션의 JavaScript 폴더에 저장되어 있어야 합니다. 이 파일은 단일 파일에 모든 필요한 dash.js 코드를 간편하게 취합해 놓은 파일입니다. dash.js 리포지토리를 살펴보면 개별 파일, 테스트 코드 등을 찾을 수 있지만 dash.js만 사용하려는 경우는 dash.all.js 파일이 필요합니다.
+응용 프로그램에 dash.js 참조 구현을 추가 하려면 dash.js 프로젝트의 최신 버전에서 dash.all.js 파일을 해야 합니다. 이 파일은 애플리케이션의 JavaScript 폴더에 저장되어 있어야 합니다. 이 파일은 단일 파일에 모든 필요한 dash.js 코드를 간편하게 취합해 놓은 파일입니다. dash.js 리포지토리를 살펴보면 개별 파일, 테스트 코드 등을 찾을 수 있지만 dash.js만 사용하려는 경우는 dash.all.js 파일이 필요합니다.
 
 애플리케이션에 dash.js 플레이어를 추가하려면 basicPlayer.html의 헤드 섹션에 다음 스크립트 태그를 추가합니다.
 

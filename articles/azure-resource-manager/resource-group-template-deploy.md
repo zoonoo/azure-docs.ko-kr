@@ -1,6 +1,6 @@
 ---
 title: PowerShell 및 템플릿으로 리소스 배포 | Microsoft Docs
-description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
+description: Azure Resource Manager 및 Azure PowerShell을 사용 하 여 Azure 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405405"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403111"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
 Resource Manager 템플릿으로 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법을 알아봅니다. Azure 솔루션 배포 및 관리 개념에 대한 자세한 내용은 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
-템플릿을 배포하려면 일반적으로 다음 두 단계가 필요합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. 리소스 그룹을 만듭니다. 리소스 그룹은 배포된 리소스에 대한 컨테이너 역할을 합니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 마침표로 끝날 수 없습니다.
-2. 템플릿을 배포합니다. 템플릿이 만들 리소스를 정의합니다.  배포가 지정된 리소스 그룹에 리소스를 만듭니다.
+## <a name="deployment-scope"></a>배포 범위
 
-이 문서에서는 이 2단계 배포 방법이 사용됩니다.  다른 옵션은 리소스 그룹과 리소스를 동시에 배포하는 것입니다.  자세한 내용은 [리소스 그룹 만들기 및 리소스 배포](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)를 참조하세요.
+Azure 구독 또는 구독 내에서 리소스 그룹 배포를 대상으로 지정할 수 있습니다. 대부분의 경우에서 리소스 그룹 배포를 대상으로 수 있습니다. 구독 배포를 사용 하 여 정책 및 역할 할당은 구독에서 적용 하 합니다. 또한 리소스 그룹을 만들고 리소스를 배포할 구독 배포를 사용 합니다. 배포의 범위에 따라 다른 명령을 사용할 수 있습니다.
+
+배포 하는 **리소스 그룹**를 사용 하 여 [새로 만들기-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+배포 하는 **구독**를 사용 하 여 [새로 만들기-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
+템플릿을 배포 해야 합니다. 다운로드 하 고 저장 하면 이미 계정이 없는 경우는 [예제 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) Azure 빠른 시작 템플릿 리포지토리에서 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
+
 [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell)을 사용하여 템플릿을 배포하지 않는 한, Azure PowerShell을 설치하고 Azure에 연결해야 합니다.
+
 - **로컬 컴퓨터에 Azure PowerShell cmdlet을 설치합니다.** 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 - **[Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure에 연결합니다**. Azure 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 실행해야 할 수도 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/powershell/azure/manage-subscriptions-azureps)을 참조하세요.
-- *[빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)을 다운로드하여 저장합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
-## <a name="deploy-templates-stored-locally"></a>로컬로 저장된 템플릿 배포
-
-다음 예제에서는 리소스 그룹을 만들고 로컬 컴퓨터에서 템플릿을 배포합니다.
+다음 예제에서는 리소스 그룹을 만들고 로컬 컴퓨터에서 템플릿을 배포 합니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 마침표로 끝날 수 없습니다.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-*c:\MyTemplates\azuredeploy.json*은 빠른 시작 템플릿입니다.  [필수 조건](#prerequisites)을 참조하세요.
-
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="deploy-templates-stored-externally"></a>외부에 저장된 템플릿 배포
+## <a name="deploy-remote-template"></a>원격 템플릿 배포
 
 로컬 컴퓨터에 Resource Manager 템플릿을 저장하는 대신, 외부 위치에 저장할 수 있습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 개인 저장소 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요. 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요.
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>Azure Cloud Shell에서 템플릿 배포
+## <a name="deploy-from-azure-cloud-shell"></a>Azure Cloud shell에서 배포
 
 [Azure Cloud Shell](https://shell.azure.com)을 사용하여 템플릿을 배포할 수 있습니다. 외부 템플릿을 배포하려면 템플릿의 URI를 제공합니다. 로컬 템플릿을 배포하려면 먼저 Cloud Shell용 스토리지 계정에 템플릿을 로드해야 합니다. 셸에 파일을 업로드하려면 셸 창에서 **파일 업로드/다운로드** 메뉴 아이콘을 선택합니다.
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 셸에 코드를 붙여넣으려면 셸 내부를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>여러 리소스 그룹 또는 구독에 배포
-
-일반적으로 단일 리소스 그룹에 템플릿의 모든 리소스를 배포합니다. 그러나 일단의 리소스를 함께 배포하고 다른 리소스 그룹 또는 구독에 배치하려는 시나리오가 있습니다. 단일 배포의 5개 리소스 그룹에만 배포할 수 있습니다. 자세한 내용은 [여러 리소스 그룹 및 구독에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조하세요.
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 

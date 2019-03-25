@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007471"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401552"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>사용자 흐름에 JavaScript 및 페이지 계약 버전을 사용하는 방법 정보
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C는 사용자 흐름의 사용자 인터페이스 요소에 대해 HTML, CSS 및 JavaScript를 포함하는 패키지된 콘텐츠 세트를 제공합니다. 사용자 흐름에 [JavaScript](javascript-samples.md) 클라이언트 쪽 코드를 사용하려는 경우 JavaScript의 기초로 사용할 요소가 변경 불가능한지 확인하는 것이 좋습니다. 그러지 않으면 변경 시 사용자 흐름 페이지에서 예기치 않은 동작이 발생할 수 있습니다. 이러한 문제를 방지하기 위해 사용자 흐름에 대해 페이지 계약을 사용하고 페이지 계약 버전을 지정할 수 있습니다. 이렇게 하면 JavaScript의 기반이 되는 모든 콘텐츠 정의가 변경 불가능해집니다. 사용자 흐름에 JavaScript를 사용하지 않으려는 경우에도 사용자 흐름 페이지에 대해 페이지 계약 버전을 지정할 수 있습니다.
 

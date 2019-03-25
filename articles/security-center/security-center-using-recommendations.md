@@ -3,7 +3,7 @@ title: Azure Security Center 권장 사항을 사용하여 보안 강화 | Micro
 description: " Azure Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/2/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5ff59a9ed7dc44bb7a4176f7a174be1e7d0ec9b6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 3/24/2019
+ms.author: monhaber
+ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104909"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402765"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
-보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다.
+보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
 
-보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 보안 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
+Security Center는 자동으로 Azure 리소스의 보안 상태를 분석 하는 연속 검색을 실행 합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 보안 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. Security Center 권장 사항의 24 시간 마다 한 번씩 업데이트 됩니다.
 
 ## <a name="scenario"></a>시나리오
 이 시나리오에서는 Security Center 권장 사항을 모니터링하고 조치를 취하여 보안 인시던트가 발생할 가능성을 줄일 수 있도록 Security Center를 사용하는 방법을 보여 줍니다. 시나리오는 Security Center [계획 및 운영 가이드](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)에서 제공된 가상의 회사, Contoso 및 역할을 사용합니다. 이 시나리오에서는 다음 가상 사용자의 역할을 중점적으로 살펴봅니다.

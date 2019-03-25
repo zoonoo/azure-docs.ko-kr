@@ -1,22 +1,22 @@
 ---
-title: 호스트 풀 부하 분산 방법 (미리 보기)-Azure
-description: 호스트 풀 부하 분산 방법 Windows 가상 데스크톱 환경에 대 한 합니다.
+title: Windows 가상 데스크톱 미리 보기 호스트 풀 부하 분산 방법-Azure
+description: 호스트 풀 부하 분산 방법 Windows 가상 데스크톱 미리 보기 환경에 대 한 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0a07406c8bad4ad0bef2949103d1f2c78e7dd8af
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318511"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400171"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 방법
 
-Windows Virtual Desktop (미리 보기)에 두 개의 부하 분산 방법을 지원합니다. 각 메서드는 리소스 풀을 호스트에 연결할 때 사용자의 세션을 호스트 하는 세션 호스트를 결정 합니다.
+Windows 가상 데스크톱 미리 보기에는 두 개의 부하 분산 방법을 지원합니다. 각 메서드는 리소스 풀을 호스트에 연결할 때 사용자의 세션을 호스트 하는 세션 호스트를 결정 합니다.
 
 다음 부하 분산 방법 Windows Virtual Desktop에서 사용할 수 있습니다.
 

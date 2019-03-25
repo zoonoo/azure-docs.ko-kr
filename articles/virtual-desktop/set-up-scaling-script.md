@@ -1,22 +1,22 @@
 ---
-title: 자동으로 세션 호스트-Azure 크기 조정
-description: Windows Virtual Desktop (미리 보기) 세션 호스트에 대 한 자동 크기 조정 스크립트를 설정 하는 방법에 설명 합니다.
+title: Windows 가상 데스크톱 미리 보기 세션 호스트-Azure에 자동으로 조정
+description: Windows 가상 데스크톱 미리 보기 세션 호스트에 대 한 자동 크기 조정 스크립트를 설정 하는 방법에 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318361"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402493"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트를 자동으로 조정
 
-Azure에서 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비용은 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이기 위해 종료 사용량이 시간에 가상 컴퓨터를 호스트 하는 중 세션 (Vm)를 할당 취소 하 고 사용량이 다시 시작 하는 것이 좋습니다.
+Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 가상 머신 비용은 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이기 위해 종료 사용량이 시간에 가상 컴퓨터를 호스트 하는 중 세션 (Vm)를 할당 취소 하 고 사용량이 다시 시작 하는 것이 좋습니다.
 
 이 문서에서는 간단한 크기 조정 스크립트를 사용 하 여 Windows 가상 데스크톱 환경에서 가상 컴퓨터를 호스트 하는 세션을 자동으로 조정. 크기 조정 스크립트의 작동 원리에 대 한 자세한 내용은 참조는 [크기 조정 스크립트의 작동 방법을](#how-the-scaling-script-works) 섹션입니다.
 

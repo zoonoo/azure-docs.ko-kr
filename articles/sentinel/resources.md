@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18216c636ebcd84172154ac46fdcd54de64c9bb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d2dcb1eb9132e68bebbe84d81a4e4f17df79f2d3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241802"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399765"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Azure Sentinel 미리 보기를 사용 하 여 작업에 대 한 유용한 리소스
 
@@ -36,7 +36,7 @@ Azure Logic Apps 커넥터: <https://docs.microsoft.com/connectors/>
 
 | **공급업체**  | **Azure Sentinel의 사용 사례** | **링크**|
 |----|----|----|
-| GitHub| 커뮤니티 페이지에 액세스 하는 데 사용| <https://github.com/join> |
+| GitHub| 커뮤니티 페이지에 액세스 하는 데 사용| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| CEF를 구성 합니다.| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto 쿼리 언어 과정| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 

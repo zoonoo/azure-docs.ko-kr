@@ -1,6 +1,6 @@
 ---
-title: 차이점 및 Azure Stack의 Managed Disks에 대 한 고려 사항 | Microsoft Docs
-description: Azure Stack의 Managed Disks를 사용 하 여 작업 하는 경우 차이점 및 고려 사항에 알아봅니다.
+title: 차이점 및 고려 사항에 대 한 관리 디스크 및 Azure Stack에서 이미지 관리 | Microsoft Docs
+description: Managed disks 및 Azure Stack에서 관리 되는 이미지를 사용 하 여 작업 하는 경우 차이점 및 고려 사항에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368275"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400374"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 관리 디스크: 차이점 및 고려 사항
 
-이 문서에는 알려진된 차이점이 요약 되어 있습니다. [Azure Stack의 Managed Disks](azure-stack-manage-vm-disks.md) 하 고 [azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
+이 문서에는 알려진된 차이점이 요약 되어 있습니다. [관리 디스크를 Azure Stack](azure-stack-manage-vm-disks.md) 하 고 [Azure의 managed disks](../../virtual-machines/windows/managed-disks-overview.md)합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
-Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](../azure-stack-manage-storage-accounts.md) 는 VM 디스크와 연결 합니다.
+관리 디스크를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](../azure-stack-manage-storage-accounts.md) VM 디스크와 연결 된입니다.
 
 > [!Note]  
-> Azure Stack에 managed Disks는 1808 업데이트에서 사용할 수 있습니다. 1811 업데이트에서 Azure Stack 포털을 사용 하 여 가상 컴퓨터를 만들 때 기본적으로 활성화 됩니다.
+> Azure Stack에 managed disks는 1808 업데이트에서 사용할 수 있습니다. 1811 업데이트부터 Azure Stack 포털을 사용 하 여 가상 컴퓨터를 만들 때 기본적으로 활성화 됩니다.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>참고 자료: 관리 디스크 차이점
+## <a name="cheat-sheet-managed-disk-differences"></a>치트 시트: 관리 디스크 차이점
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 |마이그레이션      |VM을 다시 만들 필요 없이 기존 관리 되지 않는 Azure Resource Manager Vm에서 마이그레이션하는 도구를 제공 합니다.  |아직 지원 되지 않음 |
 
 > [!NOTE]  
-> 관리 되는 디스크 IOPs 및 처리량이 Azure Stack 하드웨어 및 Azure Stack에서 실행 중인 워크 로드에 영향을 받이 있습니다 프로 비전 된 숫자가 대신 cap 숫자입니다.
+> 관리 디스크 IOPs 및 처리량이 Azure Stack 하드웨어 및 Azure Stack에서 실행 중인 워크 로드에 영향을 받을 수 있습니다 하는 프로 비전 된 숫자를 대신 한도입니다.
 
 ## <a name="metrics"></a>메트릭
 
@@ -61,7 +61,7 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 
 ## <a name="api-versions"></a>API 버전
 
-Azure Stack Managed Disks는 다음과 같은 API 버전을 지원합니다.
+Azure Stack 관리 디스크에서는 다음 API 버전:
 
 - 2017-03-30
 - 2017-12-01
@@ -135,26 +135,31 @@ Azure Stack 지원 *이미지를 관리 되는*, 앞으로 Vm 디스크는 사�
 - 관리 되는 vm을 일반화 하 고 여러 개 만들 하려고, 유사한 Vm을 관리 합니다.
 
 ### <a name="step-1-generalize-the-vm"></a>1단계: VM 일반화
-Windows에 대 한 "Sysprep 사용 하 여 Windows VM 일반화" 섹션을 다음을 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Linux의 경우 여기에서 1 단계를 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
 
-참고: VM 일반화를 잊지 마십시오. 제대로 일반화 되지 않은 이미지에서 VM을 만들 VMProvisioningTimeout 오류를 일으킵니다.
+Windows를 수행 합니다 [Sysprep를 사용 하 여 Windows VM을 일반화](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) 섹션입니다. Linux의 경우 1 단계를 따릅니다 [여기](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)합니다.
+
+> [!NOTE]
+> VM을 일반화 해야 합니다. 이어질 수 하지 제대로 일반화 된 이미지에서 VM 만들기를 **VMProvisioningTimeout** 오류입니다.
 
 ### <a name="step-2-create-the-managed-image"></a>2단계: 관리 되는 이미지 만들기
-이렇게 하려면 포털, powershell 또는 cli를 사용할 수 있습니다. Azure의 문서에 다음을 수행 합니다. https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+포털, PowerShell 또는 CLI 관리 되는 이미지를 만드는 데 사용할 수 있습니다. Azure 문서의 단계를 따릅니다 [여기](/azure/virtual-machines/windows/capture-image-resource)합니다.
 
 ### <a name="step-3-choose-the-use-case"></a>3단계: 사용 사례를 선택 합니다.
-#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>사례 1: 관리 되지 않는 Vm을 managed disks로 마이그레이션
-이 단계를 수행 하기 전에 VM을 올바르게 일반화를 잊지 마십시오. Post 일반화가이 VM에 사용 되는 향후 일 수 없습니다. 제대로 일반화 되지 않은 이미지에서 VM을 만들 VMProvisioningTimeout 오류를 일으킵니다. 
 
-지침을 따릅니다 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) 저장소 계정의 일반화 된 VHD에서 관리 되는 이미지를 만들려고 합니다. 이 이미지 앞으로 관리 되는 Vm을 만드는 데 사용할 수 있습니다.
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>사례 1: 관리 되지 않는 Vm을 managed disks로 마이그레이션
+
+이 단계를 수행 하기 전에 VM을 올바르게 일반화 해야 합니다. 일반화 한 후이 VM을 더 이상 사용할 수 없습니다. 이어질 수 하지 제대로 일반화 된 이미지에서 VM 만들기를 **VMProvisioningTimeout** 오류입니다.
+
+지침을 따릅니다 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) 저장소 계정의 일반화 된 VHD에서 관리 되는 이미지를 만들려고 합니다. 관리 되는 Vm을 만드는 앞이 이미지를 사용할 수 있습니다.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>사례 2: Powershell을 사용 하 여 관리 되는 이미지에서 관리 되는 VM 만들기
 
-관리 되는 기존 이미지를 만든 후 스크립트를 사용 하 여 VM 디스크 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , 다음 예제 스크립트는 기존 이미지 개체에서 유사한 Linux VM을 만듭니다.
+관리 되는 기존 이미지를 만든 후 스크립트를 사용 하 여 VM 디스크 [여기](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), 다음 예제 스크립트는 기존 이미지 개체에서 유사한 Linux VM을 만듭니다.
 
-Azure Stack powershell 모듈 1.7.0 이상: 지침에 따라 [여기](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+Azure Stack PowerShell 모듈 1.7.0 이상: 지침을 따릅니다 [여기](../../virtual-machines/windows/create-vm-generalized-managed.md)합니다.
 
-Azure Stack powershell 모듈 1.6.0 이하로:
+Azure Stack PowerShell 모듈 1.6.0 또는 이전 버전:
 
 ```powershell
 # Variables for common values
@@ -195,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -205,11 +211,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-관리 되는 이미지에서 VM을 만들려면 포털을 사용할 수도 있습니다. 자세한 내용은 참조는 Azure 이미지 문서 관리 [Azure에서 일반화 된 VM의 관리 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md) 하 고 [관리 되는 이미지에서 VM 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)합니다.
+또한 관리 되는 이미지에서 VM을 만들려면 포털을 사용할 수 있습니다. 자세한 내용은 참조는 Azure 이미지 문서 관리 [Azure에서 일반화 된 VM의 관리 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md) 하 고 [관리 되는 이미지에서 VM 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)합니다.
 
 ## <a name="configuration"></a>구성
 
-1808를 적용 한 후 업데이트 또는 나중에 Managed Disks를 사용 하기 전에 다음 구성을 수행 해야 합니다.
+1808를 적용 한 후 업데이트 또는 나중에 managed disks를 사용 하기 전에 다음 구성을 수행 해야 합니다.
 
 - 구독을 만든 경우 1808 업데이트 하기 전에 구독을 업데이트 하려면 다음 단계에 따릅니다. 그렇지 않은 경우 "디스크 관리자에 내부 오류가 있습니다." 오류 메시지와 함께 실패할 수 있습니다이 구독에서 Vm을 배포 합니다.
    1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.

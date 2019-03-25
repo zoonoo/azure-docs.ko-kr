@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226898"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401127"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -291,11 +291,14 @@ Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선�
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
+* 가상 머신 확장 집합 (VMSSs)
 * Azure Virtual Networks
 * Azure SQL 서비스
 * Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
+
+또한 온-프레미스) (포함 비 Azure 컴퓨터도 모니터링할 수 있습니다 Azure Security Center에서 (둘 다 [Windows 컴퓨터](./quick-onboard-windows-computer.md) 하 고 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 지)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?

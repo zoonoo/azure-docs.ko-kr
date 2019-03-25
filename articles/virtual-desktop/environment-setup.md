@@ -1,22 +1,22 @@
 ---
-title: Windows 가상 데스크톱 환경 (미리 보기)-Azure
-description: 기본 요소는 Windows 가상 데스크톱 환경입니다.
+title: Windows 가상 데스크톱 미리 보기 환경-Azure
+description: 기본 요소는 Windows 가상 데스크톱 미리 보기 환경입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318451"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403513"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Windows 가상 데스크톱 환경 (미리 보기)
+# <a name="windows-virtual-desktop-preview-environment"></a>Windows 가상 데스크톱 미리 보기 환경
 
-Windows Virtual Desktop (미리 보기)는 가상화 된 데스크톱 및 Remoteapp에 사용자가 손쉽고 안전한 액세스를 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대 한 좀을 알려 드립니다.
+Windows 가상 데스크톱 미리 보기는 가상화 된 데스크톱 및 Remoteapp에 사용자가 손쉽고 안전한 액세스를 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대 한 좀을 알려 드립니다.
 
 ## <a name="tenants"></a>테 넌 트
 
@@ -57,11 +57,11 @@ Windows 가상 데스크톱, Windows 가상 데스크톱 테 넌 트 설치 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-위임 된 권한과 사용자에 게 역할을 할당 하는 방법에 자세히 알아보려면 [Windows 가상 데스크톱에 대 한 위임 된 액세스](delegated-access-virtual-desktop.md)합니다.
+위임 된 권한과 사용자에 게 역할을 할당 하는 방법에 자세히 알아보려면 [Windows 가상 데스크톱 미리 보기에 대 한 위임 된 액세스](delegated-access-virtual-desktop.md)합니다.
 
-Windows Virtual Desktop 테 넌 트를 설정 하는 방법에 알아보려면 참조 [Windows 가상 데스크톱에서 테 넌 트를 만드는](tenant-setup-azure-active-directory.md)합니다.
+Windows Virtual Desktop 테 넌 트를 설정 하는 방법에 알아보려면 참조 [Windows 가상 데스크톱 미리 보기에서 테 넌 트를 만드는](tenant-setup-azure-active-directory.md)합니다.
 
 Windows 가상 데스크톱에 연결 하는 방법에 알아보려면 다음 문서 중 하나를 참조 하세요.
 
 - [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
-- [Windows 가상 데스크톱 웹 클라이언트에 연결](connect-web.md)
+- [Windows 가상 데스크톱 미리 보기 웹 클라이언트에 연결](connect-web.md)

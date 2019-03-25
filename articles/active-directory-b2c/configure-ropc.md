@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089338"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401771"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
 ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고도 하는 애플리케이션이 사용자 id 및 ID 토큰의 암호, 액세스 토큰, 새로 고침 토큰 등의 유효한 자격 증명을 교환하는 OAuth 표준 인증 흐름입니다. 
 
-> [!NOTE]
-> 이 기능은 미리 보기 상태입니다.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같습니다.
 

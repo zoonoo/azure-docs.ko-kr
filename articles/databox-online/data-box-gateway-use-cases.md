@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure Data Box Gateway 사용 사례 | Microsoft Docs
-description: Azure로 데이터를 전송하는 데 사용할 수 있는 가상 어플라이언스 스토리지 솔루션인 Azure Data Box Gateway에 대한 사용 사례를 설명합니다.
+title: Microsoft Azure 데이터 상자 게이트웨이 사용 사례 | Microsoft Docs
+description: Azure 데이터 상자 게이트웨이 Azure로 데이터를 전송할 수 있도록 가상 어플라이언스 저장소 솔루션에 대 한 사용 사례를 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438595"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403802"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
 
@@ -26,8 +26,6 @@ Azure Data Box Gateway는 온-프레미스에 상주하고 Azure에 이미지, �
 
 이러한 각 시나리오는 다음 섹션에서 자세히 설명합니다.
 
-> [!IMPORTANT]
-> Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="continuous-data-ingestion"></a>지속적인 데이터 수집
 

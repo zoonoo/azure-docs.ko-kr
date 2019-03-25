@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: deaddfbd27c4ffe6738988c6368ce4f9c3a7fa78
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4c385d2af0d9e4e213cd690b3c30d8719588220d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359146"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399494"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -42,7 +42,16 @@ class Program
     {
         // Create DI container.
         IServiceCollection services = new ServiceCollection();
-            
+
+        // Channel is explicitly configured to do flush on it later.
+        var channel = new InMemoryChannel();
+        services.Configure<TelemetryConfiguration>(
+            (config) =>
+            {
+                config.TelemetryChannel = channel;
+            }
+        );
+
         // Add the logging pipelines to use. We are using Application Insights only here.
         services.AddLogging(loggingBuilder =>
         {
@@ -63,6 +72,11 @@ class Program
         {
             logger.LogInformation("Logger is working"); // this will be captured by Application Insights.
         }
+
+        // Explicitly call Flush() followed by sleep is required in Console Apps.
+        // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+        channel.Flush();
+        Thread.Sleep(1000);
     }
 }
 ```
@@ -84,18 +98,18 @@ public class Program
 
     public static IWebHost BuildWebHost(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()                
+        .UseStartup<Startup>()
         .ConfigureLogging(logging =>
-        {                
-        logging.AddApplicationInsights("ikeyhere");
-                
-        // Optional: Apply filters to configure LogLevel Trace or above is sent to
-        // ApplicationInsights for all categories.
+        {
+            logging.AddApplicationInsights("ikeyhere");
+
+            // Optional: Apply filters to configure LogLevel Trace or above is sent to
+            // ApplicationInsights for all categories.
             logging.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
-                
+
             // Additional filtering For category starting in "Microsoft",
-        // only Warning or above will be sent to Application Insights.
-        logging.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Warning);
+            // only Warning or above will be sent to Application Insights.
+            logging.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Warning);
         })
         .Build();
 }
@@ -118,8 +132,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-    
-    // The following be picked up by Application Insights.
+
+        // The following will be picked up by Application Insights.
         _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked"); 
     }
 
@@ -128,13 +142,13 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-        // The following be picked up by Application Insights.  
+        // The following will be picked up by Application Insights.
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
         else
         {
-            // The following be picked up by Application Insights.
+            // The following will be picked up by Application Insights.
             _logger.LogInformation("Configuring for Production environment");
         }
 
@@ -158,14 +172,13 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         // All the following logs will be picked up by Application Insights.
-    // and all have ("MyKey", "MyValue") in Properties.
-    using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
-        {           
-        _logger.LogInformation("An example of a Information trace..");
-        _logger.LogWarning("An example of a Warning trace..");
-        _logger.LogTrace("An example of a Trace level message");
-        }
-
+        // and all have ("MyKey", "MyValue") in Properties.
+        using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
+            {
+            _logger.LogInformation("An example of a Information trace..");
+            _logger.LogWarning("An example of a Warning trace..");
+            _logger.LogTrace("An example of a Trace level message");
+            }
         return new string[] { "value1", "value2" };
     }
 }
@@ -187,7 +200,7 @@ public class ValuesController : ControllerBase
     var serverChannel = new ServerTelemetryChannel();
     services.Configure<TelemetryConfiguration>(
         (config) =>
-        {                            
+        {
             config.TelemetryChannel = serverChannel;
             config.TelemetryInitializers.Add(new MyTelemetryInitalizer());
             config.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseSampling(5);
@@ -200,9 +213,17 @@ public class ValuesController : ControllerBase
     {
         loggingBuilder.AddApplicationInsights();
     });
+
+    ........
+    ........
+
+    // Explicitly call Flush() followed by sleep is required in Console Apps.
+    // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+    serverChannel.Flush();
+    Thread.Sleep(1000);
 ```
 
-위 접근 방법을 ASP.NET Core 애플리케이션에서 사용할 수 있지만, 좀 더 일반적인 방법은 아래와 같이 ILogger 캡처에 일반 애플리케이션 모니터링(요청, 종속성 등)을 결합하는 것입니다.
+위의 접근 방식을 ASP.NET Core 응용 프로그램에서 사용할 수 있지만, 것이 더 일반적 아래와 같이 서식 ILogger 캡처를 사용 하 여 일반 응용 프로그램 모니터링 (요청, 종속성 등)을 결합 하는 것입니다.
 
 다음 추가 패키지를 설치합니다.
 
@@ -239,6 +260,34 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
   "AllowedHosts": "*"
 }
 ```
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+*일부 ILogger 로그는 Application Insights에 두 번 표시 됩니다 나타납니다?*
+
+* (이제 사용 되지 않음) 이전 버전의 경우 가능한 이것이 `ApplicationInsightsLoggerProvider` 를 호출 하 여 사용 하도록 설정 `AddApplicationInsights` 에서 `ILoggerFactory`합니다. 확인 프로그램 `Configure` 메서드는 다음과 같은 및 제거 합니다.
+
+   ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+        loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Warning);
+        // ..other code.
+    }
+   ```
+
+* Double 로깅 Visual Studio에서 디버깅할 때 발생 하는 경우 다음과 같이 설정 하 여 application Insights를 사용 하는 데 사용 된 코드를 수정 합니다 `EnableDebugLogger` false 여야 합니다. 응용 프로그램을 디버깅 하는 경우에 관련 됩니다.
+
+   ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        ApplicationInsightsServiceOptions options = new ApplicationInsightsServiceOptions();
+        options.EnableDebugLogger = false;
+        services.AddApplicationInsightsTelemetry(options);
+        // ..other code.
+    }
+   ```
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

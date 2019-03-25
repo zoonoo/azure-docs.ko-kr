@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor와 통합 하는 파트너
 description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: johnkem
+ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: babbc6c5983ab4a25a48f43afa48b8eecc6b18d2
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf06645ddcb825ca866d88a1f7724fd3b3e7987b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189260"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402408"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -262,7 +262,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar 설명서."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
-[serverless360-doc]: https://docs.serverless360.com/docs/associating-service-principals "Serverless360 설명서입니다."
+[serverless360-doc]: https://docs.serverless360.com/docs/ "Serverless360 설명서입니다."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "SignalFx 설명서."
 [signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4 설명서."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds 설명서."

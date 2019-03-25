@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.topic: article
 ms.author: jowargo
 ms.date: 02/14/2019
-ms.openlocfilehash: 4d3ee3a318385e96b70a38556835f6427b407a59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9ed69ac3526098cd5426c966952de97c948322b5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848714"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402391"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure Notification Hubs SDK
 
-Microsoft 및 타사는 Azure Notification Hubs에 대한 SDK를 게시합니다.
+Microsoft 및 타사는 Azure Notification Hubs에 대한 SDK를 게시합니다. Android, iOS 및.NET에 대 한 Microsoft 리포지토리는 또한 각 대상 플랫폼에 대 한 샘플 앱을 포함합니다.
 
 | SDK)            | 게시자      |
 | -------------- | -------------- |

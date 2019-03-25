@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242295"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400625"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자에서 데이터를 수집 합니다. 
 
@@ -31,6 +31,8 @@ Azure Sentinel에 데이터를 스트리밍하려면 후 보강할 수 해당 �
 교차 확인 하 고 경고 규칙 예를 들어, 특정 IP 주소에서 경고가 발생 하는 경우 true 위협 인텔리전스를 사용 하 여 수 있도록 위협 인텔리전스 공급자 통합 하는 경우 해당 IP 주소 최근에 발견 될 때 악성 여부를 알려 주는 수 있게 됩니다. 을 azure Sentinel와 통합할 수 있습니다 [위협 인텔리전스 공급자](https://aka.ms/graphsecuritytips)합니다. 
 
 한 번의 클릭을 사용 하 여 Azure Sentinel에 위협 인텔리전스 공급자에서 로그를 스트리밍할 수 있습니다. 이 연결을 사용 하면 다양 한 유형의 IP 주소, 도메인, URL 등 관찰 가능 개체를 포함 하는 표시기를 통합할 수 있습니다 하 고 검색 하 고 사용자 지정 만들기에 대 한 파일 해시 규칙 Azure Sentinel를 경고 합니다.  
+> [!NOTE]
+> 와 통합 하 여 경고 규칙, 대시보드 및 hunting 시나리오에서 사용 하기 위해 사용자 지정된 위협 표시기 Azure Sentinel를 입력할 수는 [Microsoft Graph 보안 tiIndicator](https://aka.ms/graphsecuritytiindicators) 엔터티를 사용 하 여 또는 [Microsoft 그래프 보안 위협 인텔리전스 플랫폼 통합](https://aka.ms/graphsecuritytips)합니다.
 
 ## <a name="prerequisites"></a>필수 조건  
 

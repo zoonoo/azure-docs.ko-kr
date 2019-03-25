@@ -7,18 +7,18 @@ ms.date: 03/23/2019
 author: twooley
 ms.author: twooley
 ms.subservice: blobs
-ms.openlocfilehash: 16ecade7a8d0049e098bb06bd14828b19934f5f5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373047"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400476"
 ---
 # <a name="create-a-block-blob-storage-account"></a>블록 blob 저장소 계정 만들기
 
 블록 blob storage 계정 유형을 premium 성능 특성을 사용 하 여 블록 blob을 만들 수 있습니다. 이 유형의 저장소 계정이 높은 트랜잭션 속도 사용 하 여 워크 로드에 최적화 된 또는 필요로 하는 매우 빠른 액세스 시간입니다. 이 문서에서는 Azure portal, Azure CLI 또는 Azure PowerShell을 사용 하 여 블록 blob 저장소 계정을 만드는 방법을 보여 줍니다.
 
-블록 blob 저장소 계정에 대 한 자세한 내용은 참조 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)합니다.
+블록 blob 저장소 계정에 대 한 자세한 내용은 참조 하십시오 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)합니다.
 
 ## <a name="create-account-in-the-azure-portal"></a>Azure portal에서 계정 만들기
 
@@ -54,7 +54,7 @@ Azure portal에서 블록 blob 저장소 계정을 만들려면 다음이 단계
 
 1. **만들기**를 선택합니다.
 
-### <a name="create-account-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 계정 만들기
+## <a name="create-account-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 계정 만들기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

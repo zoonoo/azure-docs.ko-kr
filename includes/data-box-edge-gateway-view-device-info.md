@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 757d6aeecc6c97726e890076b0e27a82a1a45d27
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556705"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58404085"
 ---
 1. [PowerShell 인터페이스를 연결할](#connect-to-the-powershell-interface)합니다.
 2. 사용 하 여는 `Get-HcsApplianceInfo` 장치에 대 한 정보를 가져올 수 있습니다.
@@ -54,5 +54,5 @@ ms.locfileid: "57556705"
     | HcsVersion                     | 사용자 디바이스에서 실행되는 HCS 소프트웨어 버전입니다. 예를 들어 데이터 상자 가장자리 1902에 해당 하는 HCS 소프트웨어 버전은 1.4.771.324 합니다.            |   |
     | LocalCapacityInMb              | 메가 비트에 장치의 로컬 총 용량입니다.                                                                                                        |   |
     | IsRegistered                   | 이 값 장치 서비스를 사용 하 여 활성화 하는 경우를 나타냅니다.                                                                                         |   |
-    ```
+
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119788"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403394"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>데이터 상자에 지 보안 및 데이터 보호 (미리 보기)
+# <a name="data-box-edge-security-and-data-protection"></a>데이터 상자에 지 보안 및 데이터 보호
 
 보안은 주요 관심사는 새로운 기술을 채택 하는 경우 특히 기술이 기밀 또는 소유 데이터를 사용 하 여 사용 되는 경우입니다. Microsoft Azure 데이터 가장자리가 상자의 솔루션은 권한 있는 엔터티만 수 보기, 수정 또는 데이터 삭제를 확인 하는 데 도움이 됩니다.
 
@@ -27,9 +27,6 @@ Azure 데이터 가장자리가 상자의 솔루션은 서로 상호 작용 하�
 - **데이터 상자에 지 장치** – 전송 장치를 Azure로 온-프레미스 데이터를 가져올 수 있습니다에 게 제공 합니다.
 - **장치에 연결 된 클라이언트/호스트** – 데이터 상자 Edge 장치에 연결 하 고 보호 해야 하는 데이터를 포함 하는 인프라 내의 클라이언트입니다.
 - **클라우드 저장소** – 데이터가 저장되는 Azure 클라우드의 위치입니다. 이 위치는 일반적으로 사용자가 만든 데이터 가장자리가 상자의 리소스에 연결 된 저장소 계정.
-
-> [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>데이터 상자에 지/데이터 상자 게이트웨이 서비스 보호
@@ -44,7 +41,7 @@ Azure 데이터 가장자리가 상자의 솔루션은 서로 상호 작용 하�
 데이터 상자 가장자리 로컬로 처리 한 다음 Azure에 전송 하 여 데이터를 변환 하는 데 도움이 되는 온-프레미스 장치는 합니다. 장치:
 
 - 데이터 상자 Edge/데이터 상자 게이트웨이 서비스에 액세스 하는 정품 인증 키를 해야 합니다.
-- 으로 보호 됩니다에서 항상 장치 관리자 암호.
+- 항상 장치 암호로 보호 합니다.
 - 잠긴 장치가입니다. 장치 BMC 및 BIOS가 BIOS에 대 한 제한 된 사용자 액세스를 사용 하 여 암호로 보호 합니다.
 - 보안 부팅이 있었습니다.
 - Windows Defender Device Guard를 실행합니다. Device Guard를 사용 하면 코드 무결성 정책에서 정의 하는 신뢰할 수 있는 응용 프로그램만 실행할 수 있습니다. 
@@ -68,14 +65,14 @@ Azure 데이터 가장자리가 상자의 솔루션은 서로 상호 작용 하�
 다음을 수행할 수 있습니다.
 
 - 로컬 웹 UI는 브라우저를 통해 장치에 연결한 후 장치에 로그인 하는 데 암호를 제공 합니다.
-- HTTP를 통해 장치 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리 기본적으로 켜져 있습니다. 그런 다음 장치에 로그인 할 장치 관리자 암호를 제공할 수 있습니다. 자세한 내용은 [데이터 상자 Edge 장치에 원격으로 연결](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)합니다.
+- HTTP를 통해 장치 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리 기본적으로 켜져 있습니다. 그런 다음 장치에 로그인 할 장치 암호를 제공할 수 있습니다. 자세한 내용은 [데이터 상자 Edge 장치에 원격으로 연결](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)합니다.
 
 다음 모범 사례를 고려하세요.
 
 - 가장자리가 상자의 데이터 서비스는 기존 암호를 검색할 수 없습니다: Azure portal을 통해 재설정만 가능 합니다. 잊어버린 경우 암호를 재설정할 필요가 없도록 모든 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호를 재설정 하면 수 다시 설정 하기 전에 모든 사용자에 게 알려야 합니다.
 - 로컬 웹 UI를 사용 하 여 [암호를 변경](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access)합니다. 암호를 변경 하는 경우에 로그인 오류 발생 하지 않도록 모든 원격 액세스 사용자에 게 해야 합니다.
 - HTTP를 통해 장치의 Windows PowerShell 인터페이스를 원격으로 액세스할 수 있습니다. 보안 모범 사례를 따라 신뢰할 수 있는 네트워크에만 HTTP를 사용 해야 합니다.
-- 장치 관리자 암호가 강력 하 고 잘 보호 되는지 확인 합니다. 수행 합니다 [암호에 대 한 유용한 정보](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management)합니다.
+- 장치 암호 강력 하 고 잘 보호 되는지 확인 합니다. 수행 합니다 [암호에 대 한 유용한 정보](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management)합니다.
 
 ## <a name="protect-the-data"></a>데이터 보호
 

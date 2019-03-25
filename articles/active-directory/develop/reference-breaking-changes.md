@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196028"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401310"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -42,6 +42,37 @@ ms.locfileid: "56196028"
 ## <a name="upcoming-changes"></a>예정된 변경
 
 지금은 예약이 없습니다. 
+
+## <a name="march-2019"></a>2019 년 3 월
+
+### <a name="looping-clients-will-be-interrupted"></a>클라이언트를 루프 중단 됩니다.
+
+**개시 날짜**: 2019 년 3 월 25 일
+
+**영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
+
+**영향을 받는 프로토콜**: 모든 흐름
+
+클라이언트 응용 프로그램 때로는 오동작 수는 짧은 기간 동안 수백 개의 동일한 로그인 요청을 발급 합니다.  이러한 요청 성공할 수도 있으 나 모든 영향을 주는 사용자 환경이 열악 해질 및 강화 된 워크 로드에 대 한 IDP에서 본 IDP의 가용성을 줄이고 모든 사용자에 대해 대기 시간이 증가 합니다.  이러한 응용 프로그램으로 작동 하 고 일반적인 사용의 경계 외부 및 올바르게 작동 하도록 업데이트 되어야 합니다.  
+
+중복 된 요청을 여러 번 실행 하는 클라이언트에 보낼지를 `invalid_grant` 오류: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`합니다. 
+
+대부분의 클라이언트는이 오류를 방지 하려면 동작을 변경할 필요가 없습니다.  이 오류 (토큰 캐싱 없는 또는 프롬프트 루프에 이미 표시 된)만 잘못 구성 된 클라이언트의 영향을 받습니다.  클라이언트 통해 추적 됩니다 인스턴스별 기준 로컬로 (쿠키) 요소에 따라:
+
+* 사용자 힌트에 있는 경우
+
+* 범위 또는 요청 된 리소스
+
+* 클라이언트 ID
+
+* 리디렉션 URI
+
+* 응답 형식 및 모드
+
+짧은 시간 (5 분) 내에 여러 요청 (15 +)을 수행 하는 앱이 표시 됩니다는 `invalid_grant` 오류 메시지가 반복 됩니다.  충분히 수명이 긴 수명 (10 분 이상을 기본적으로 60 분) 따라서 반복 요청이 기간 동안 요청 된 토큰이 필요 하지 않습니다.  
+
+모든 앱을 처리 하는 `invalid_grant` 에서 자동으로 토큰을 요청 하는 것이 아니라 대화형 프롬프트를 표시 합니다.  이 오류를 방지 하기 위해 클라이언트는 올바르게 캐시 하는 받을 토큰을 확인 해야 합니다.
+
 
 ## <a name="october-2018"></a>2018년 10월
 

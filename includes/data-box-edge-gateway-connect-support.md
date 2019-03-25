@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 796b6280c2814e6358ce1942a230488cd484415d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556735"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405934"
 ---
 장치 문제를 해결 하려면 Microsoft 지원 팀에 문의 해야 합니다. Microsoft 지원을 지원 세션을 사용 하 여 장치에 로그인 해야 합니다.
 

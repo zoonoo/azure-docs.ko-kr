@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905342"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400895"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Azure 데이터 상자 Edge (미리 보기)에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -31,11 +31,11 @@ ms.locfileid: "57905342"
 
 ## <a name="manage-device-access"></a>디바이스 액세스 관리
 
-데이터 상자 Edge 장치에 대 한 액세스는 장치 관리자 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI를 통해 관리자 암호를 변경할 수 있습니다. 또한 Azure Portal에서 디바이스 관리자 암호를 다시 설정할 수도 있습니다.
+데이터 상자 Edge 장치에 대 한 액세스는 장치 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI 통해 암호를 변경할 수 있습니다. 또한 Azure portal에서 장치 암호를 재설정할 수 있습니다.
 
-### <a name="change-device-administrator-password"></a>디바이스 관리자 암호 변경
+### <a name="change-device-password"></a>디바이스 암호 변경
 
-로컬 웹 UI에서 다음 단계에 따라 디바이스 관리자 암호를 변경합니다.
+장치 암호를 변경 하려면 로컬 UI에 이러한 단계를 수행 합니다.
 
 1. 로컬 웹 UI에서 **유지 관리 > 암호 변경**으로 이동합니다.
 2. 현재 암호를 입력한 다음, 새 암호를 입력합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 새 암호를 확인합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "57905342"
 
 3. **암호 변경**을 선택합니다.
  
-### <a name="reset-device-administrator-password"></a>디바이스 관리자 암호 다시 설정
+### <a name="reset-device-password"></a>디바이스 암호 재설정
 
 재설정 워크플로에서는 사용자가 이전 암호를 기억할 필요가 없으며 암호를 분실했을 때 유용합니다. 이 워크플로는 Azure Portal에서 수행합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "57905342"
 
 - **완전히 연결** -장치가 작동 하는 일반 기본 모드입니다. 클라우드 업로드 및 다운로드 데이터는이 모드에서 사용 됩니다. 장치를 관리 하는 Azure portal 또는 로컬 웹 UI 사용할 수 있습니다.
 
-- **부분적으로 연결이 끊어짐** - 이 모드에서 디바이스는 일부 데이터를 공유에 업로드할 수 없지만 Azure Portal을 통해 관리할 수 있습니다.
+- **부분적으로 연결이 끊긴** – 장치가이 모드에서 업로드 하거나 Azure portal을 통해 관리할 수 있지만 데이터 공유를 다운로드 합니다.
 
     이 모드는 일반적으로 요금제 위성 네트워크에서 사용되며 목표는 네트워크 대역폭 소비를 최소화하는 것입니다. 디바이스 모니터링 작업을 위해 최소한의 네트워크 사용량이 여전히 발생할 수 있습니다.
 

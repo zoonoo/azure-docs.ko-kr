@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 73e453385a6916b6999691afbacd1f102ce7270d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865746"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401097"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
 
@@ -55,7 +55,7 @@ Application Insights Profiler는 Azure 진단에 포함되어 있습니다. Serv
   설정이 올바른 경우 Azure 진단 확장이 설치될 때 Application Insights Profiler가 설치되고 사용하도록 설정됩니다. 
 
 1. Service Fabric 애플리케이션에 Application Insights를 추가합니다.  
-  Profiler가 요청을 위한 프로필을 수집하려면 애플리케이션이 Application Insights로 요청 데이터를 전송해야 합니다. 자세한 내용은 [Service Fabric 프로젝트용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) 페이지를 참조하세요.
+  요청에 대 한 프로필을 수집 하려면 Profiler에 대 한 응용 프로그램이 Application Insights를 사용 하 여 작업 추적 해야 합니다. 상태 비저장 Api에 대 한 지침을 참조할 수 있습니다 [프로 파일링에 대 한 요청 추적](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)합니다. 다른 종류의 앱에서 사용자 지정 작업을 추적 하는 방법에 대 한 자세한 내용은 참조 [Application Insights.NET SDK를 사용 하 여 사용자 지정 작업 추적](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)합니다.
 
 1. 애플리케이션을 다시 배포합니다.
 

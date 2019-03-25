@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896826"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400948"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -45,7 +45,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 다음을 비롯한 다른 보안 데이터 원본에 연결할 수 있습니다.
 
-- Azure AD Identity Protection
+- Azure AD ID 보호
 - 온-프레미스 또는 기타 클라우드에서 실행되는 컴퓨터
 - CEF(공통 이벤트 형식)을 지원하는 보안 솔루션
 - Microsoft Advanced Threat Analytics
@@ -220,7 +220,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 
 | **쿼리 설명** | **쿼리** |
 |----|----|
-| 모든 경고| index=main Microsoft.Security/locations/alerts|
+| All Alerts| index=main Microsoft.Security/locations/alerts|
 | 이름별로 작업 횟수를 요약합니다.| operationName별 index=main sourcetype="amal:security" \| table operationName \| 통계치|
 | 경고 정보 얻기: 시간, 이름, 상태, ID 및 구독 | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
@@ -229,8 +229,6 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 
 이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Security Center에 Microsoft Advanced Threat Analytics 연결](security-center-ata-integration.md)
-* [Azure Security Center에 Azure Active Directory Identity Protection 연결](security-center-aadip-integration.md)
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) Security Center 사용에 관한 질문과 대답에 대한 답을 가져옵니다.

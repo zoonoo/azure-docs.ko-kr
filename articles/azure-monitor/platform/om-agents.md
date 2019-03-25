@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369969"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403411"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -43,9 +43,10 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 ## <a name="prerequisites"></a>필수 조건 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
-* Azure Monitor 지원 System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
+* Azure Monitor 지원 System Center Operations Manager 2016 이상 Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
+* US Government 클라우드를 사용 하 여 System Center Operations Manager 2016 통합 업데이트 Advisor 관리 팩 업데이트 롤업 2 이상을 포함 해야 합니다. System Center Operations Manager 2012 R2 업데이트 롤업 3 이상을 포함할 수 있는 Advisor 관리 팩을 업데이트 해야 합니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
-* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json)를 검토합니다.
+* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json)를 검토합니다.   
 * [Log Analytics 기여자 역할](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)의 멤버인 계정으로 Azure에 인증합니다.  
 
 >[!NOTE]

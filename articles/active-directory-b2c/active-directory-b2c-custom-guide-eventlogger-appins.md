@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160530"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403819"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD(Azure Active Directory) B2C를 Azure Application Insights와 함께 사용하는 경우 사용자 경험을 위해 자세하고 사용자 지정된 이벤트 로그를 가져올 수 있습니다. 이 문서에서는 다음 방법을 설명합니다.
 
@@ -25,9 +27,6 @@ Azure AD(Azure Active Directory) B2C를 Azure Application Insights와 함께 사
 * 개발에서 또는 프로덕션 환경에서 사용자 고유의 정책 문제를 해결합니다.
 * 성능을 측정합니다.
 * Application Insights에서 알림을 만듭니다.
-
-> [!NOTE]
-> 이 기능은 미리 보기 상태입니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

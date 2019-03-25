@@ -1,22 +1,22 @@
 ---
-title: 웹 클라이언트 (미리 보기)-Azure 사용 하 여 연결
-description: Windows 가상 데스크톱 HTML5 웹 클라이언트에 연결 하는 방법입니다.
+title: Windows 가상 데스크톱 미리 보기 웹 클라이언트-Azure 사용 하 여 연결
+description: Windows 가상 데스크톱 미리 보기 HTML5 웹 클라이언트에 연결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 23c830549ed2b63eb2330f3e1c0a78bfb236adc1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339461"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403751"
 ---
-# <a name="connect-with-the-web-client-preview"></a>웹 클라이언트 (미리 보기)를 사용 하 여 연결
+# <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용 하 여 연결
 
-웹 클라이언트를 사용 하면 시간이 오래 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows 가상 데스크톱 (미리 보기) 리소스에 액세스할 수 있습니다.
+웹 클라이언트를 사용 하면 시간이 많이 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows 가상 데스크톱 미리 보기 리소스에 액세스할 수 있습니다.
 
 >[!NOTE]
 >웹 클라이언트는 모바일 OS 지원 현재 없습니다.

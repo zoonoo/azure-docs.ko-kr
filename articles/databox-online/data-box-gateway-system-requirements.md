@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113229"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402969"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure Data Box Gateway 시스템 요구 사항(미리 보기)
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
 
 이 문서에서는 Microsoft Azure Data Box Gateway 솔루션 및 Azure Data Box Gateway에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Gateway를 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
@@ -24,8 +24,6 @@ Data Box Gateway 가상 디바이스의 시스템 요구 사항은 다음과 같
 - **호스트의 소프트웨어 요구 사항** - 지원되는 플랫폼, 로컬 구성 UI용 브라우저, SMB 클라이언트 및 디바이스에 연결하는 호스트에 대한 추가 요구 사항을 설명합니다.
 - **디바이스의 네트워킹 요구 사항** - 가상 디바이스가 작동하기 위한 네트워킹 요구 사항에 관한 정보를 제공합니다.
 
-> [!IMPORTANT]
-> Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
 
 ## <a name="specifications-for-the-virtual-device"></a>가상 디바이스의 사양
 

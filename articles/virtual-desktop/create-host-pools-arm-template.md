@@ -1,22 +1,22 @@
 ---
-title: Azure Resource Manager 템플릿 (미리 보기)-Azure 사용 하 여 호스트 풀 만들기
-description: Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱의 호스트 풀을 만드는 방법입니다.
+title: Azure-Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 미리 보기 호스트 풀 만들기
+description: Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 미리 보기에서 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318466"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401428"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>(미리 보기) Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기
 
-호스트 풀은 Windows 가상 데스크톱 테 넌 트 (미리 보기) 환경 내에서 하나 이상의 동일한 가상 컴퓨터의 컬렉션입니다. 각 호스트 풀에는 사용자는 실제 데스크톱에서 일관 되 게 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+호스트 풀은 Windows 가상 데스크톱 미리 보기 테 넌 트 환경 내에서 하나 이상의 동일한 가상 컴퓨터의 컬렉션입니다. 각 호스트 풀에는 사용자는 실제 데스크톱에서 일관 되 게 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
 Microsoft에서 제공 하는 Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 테 넌 트에 대 한 호스트 풀을 만들려면이 섹션의이 지침을 따릅니다. 이 문서에서는 Windows 가상 데스크톱에 호스트 풀을 만듭니다, Azure 구독에서 Vm을 사용 하 여 리소스 그룹 만들기, AD 도메인에 Vm 가입 및 Windows 가상 데스크톱을 사용 하 여 Vm을 등록 하는 방법을 알려줍니다.
 

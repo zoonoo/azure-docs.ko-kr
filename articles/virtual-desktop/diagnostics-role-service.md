@@ -1,22 +1,22 @@
 ---
-title: 진단 기능 (미리 보기)-Azure 사용 하 여 문제를 식별 합니다.
-description: Windows 가상 데스크톱 진단 기능 및 사용 하는 방법을 설명 합니다.
+title: Windows 가상 데스크톱 미리 보기 진단 기능-Azure 사용 하 여 문제를 식별 합니다.
+description: Windows 가상 데스크톱 미리 보기 진단 기능 및 사용 하는 방법을 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318616"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402850"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>진단 기능 (미리 보기)를 사용 하 여 문제를 식별 합니다.
+# <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용 하 여 문제를 식별 합니다.
 
-Windows Virtual Desktop (미리 보기)를 통해 관리자는 단일 인터페이스를 통해 문제를 식별 하는 진단 기능 (미리 보기)를 제공 합니다. Windows 가상 데스크톱 역할 시스템와 상호 작용할 때마다 진단 활동을 로그입니다. 각 로그는 트랜잭션, 오류 메시지, 테 넌 트 정보 및 사용자 정보에 포함 된 Windows 가상 데스크톱 역할 등 관련 정보를 포함합니다. 진단 활동 최종 사용자와 관리 작업에서 생성 되 고 주 세 개 버킷으로 분류할 수 있습니다.
+Windows 가상 데스크톱 미리 보기를 통해 관리자는 단일 인터페이스를 통해 문제를 식별 하는 진단 기능을 제공 합니다. Windows 가상 데스크톱 역할 시스템와 상호 작용할 때마다 진단 활동을 로그입니다. 각 로그는 트랜잭션, 오류 메시지, 테 넌 트 정보 및 사용자 정보에 포함 된 Windows 가상 데스크톱 역할 등 관련 정보를 포함합니다. 진단 활동 최종 사용자와 관리 작업에서 생성 되 고 주 세 개 버킷으로 분류할 수 있습니다.
 
 * 구독 작업 피드: Microsoft 원격 데스크톱 응용 프로그램을 통해 해당 피드에 연결 하려고 할 때마다 최종 사용자가 이러한 작업을 트리거합니다.
 * 연결 작업: Microsoft 원격 데스크톱 응용 프로그램을 통해 데스크톱 또는 RemoteApp에 연결 하려고 할 때마다 최종 사용자가 이러한 작업을 트리거합니다.
@@ -145,7 +145,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 |8000|InvalidAuthorizationRoleScope|역할 이름을 입력 한 모든 기존 역할 이름이 일치 하지 않습니다. 역할 이름을 입력 오류를 검토 하 고 다시 시도 하세요. |
 |8001|UserNotFound |사용자 이름을 입력 한 모든 기존 사용자 이름과 일치 하지 않습니다. 이름 입력 오류를 검토 하 고 다시 시도 합니다.|
 |8005|UserNotFoundInAAD |사용자 이름을 입력 한 모든 기존 사용자 이름과 일치 하지 않습니다. 이름 입력 오류를 검토 하 고 다시 시도 합니다.|
-|8008|TenantConsentRequired|지침을 따릅니다 [여기](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) 테 넌 트에 대 한 동의 제공 합니다.|
+|8008|TenantConsentRequired|지침을 따릅니다 [여기](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) 테 넌 트에 대 한 동의 제공 합니다.|
 
 ### <a name="external-connection-error-codes"></a>외부 연결 오류 코드
 
@@ -164,6 +164,6 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows Virtual Desktop 내에서 역할에 대 한 자세한 내용은 참조 하세요 [Windows 가상 데스크톱 환경](environment-setup.md)합니다.
+Windows Virtual Desktop 내에서 역할에 대 한 자세한 내용은 참조 하세요 [Windows 가상 데스크톱 미리 보기 환경](environment-setup.md)합니다.
 
 Windows 가상 데스크톱, 사용할 수 있는 PowerShell cmdlet의 목록을 보려면 참조는 [PowerShell 참조](/powershell/windows-virtual-desktop/overview)합니다.

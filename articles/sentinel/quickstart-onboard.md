@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852221"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399690"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure 등록 Sentinel 미리 보기
 
@@ -75,7 +75,6 @@ Azure Sentinel 서비스에 연결 하 고 Azure Sentinel 이벤트 및 로그�
 아래쪽에서 Azure Sentinel 권장 사항을 제공 설치 해야 대시보드 각 커넥터에 대 한 있습니다 수 즉시 가져올 흥미로운 insights 데이터 전반에 있도록 합니다. <br> 설치 지침에 따라 또는 [관련 연결 설명서를 참조](connect-data-sources.md) 자세한 내용은 합니다. 데이터 커넥터에 대 한 정보를 참조 하세요 [Microsoft Connect 서비스](connect-data-sources.md)합니다.
 
 데이터 원본의 연결 후 데이터 Azure Sentinel에 스트리밍을 시작 하 고 작업을 시작할 수 있도록 준비가 됩니다. 로그를 볼 수는 [기본 제공 대시보드와](quickstart-get-visibility.md) Log Analytics에서 쿼리 작성을 시작 하 고 [데이터를 조사](tutorial-investigate-cases.md)합니다.
-
 
 
 
