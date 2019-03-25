@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: 장애 복구(failback) 실행
       href: azure-to-azure-tutorial-failback.md
+  - name: Azure VM 이동
+    items:
+    - name: 다른 지역으로 Azure VM 이동
+      href: azure-to-azure-tutorial-migrate.md
+    - name: 가용성 영역으로 Azure VM 이동
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Azure로 VMware VM 재해 복구
     items:
     - name: Azure 준비
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: Azure로 AWS 인스턴스 마이그레이션
       href: migrate-tutorial-aws-azure.md
-  - name: Azure VM 이동
-    items:
-    - name: 개요
-      href: azure-to-azure-move-overview.md
-    - name: 다른 지역으로 Azure VM 이동
-      href: azure-to-azure-tutorial-migrate.md
-    - name: 가용성 영역으로 Azure VM 이동
-      href: move-Azure-VMs-AVset-Azone.md
 - name: 개념
   items:
   - name: Site Recovery에 대한 일반적인 질문
     href: site-recovery-faq.md
-  - name: Azure로 Azure VM 재해 복구 정보
+  - name: Azure VM에 대한 재해 복구 정보
     items:
     - name: Azure에서 Azure로 아키텍처
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Azure에서 Azure로 지원 매트릭스
       href: azure-to-azure-support-matrix.md
+    - name: Azure Backup과 Site Recovery 사용
+      href: site-recovery-backup-interoperability.md
     - name: Azure VM 재해 복구를 위해 가속화된 네트워킹
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: Azure VM 재해 복구로 ExpressRoute
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM 재해 복구 및 Azure Backup 상호 운용성
-      href: site-recovery-backup-interoperability.md
+  - name: Azure VM 이동 정보
+    href: azure-to-azure-move-overview.md
   - name: Azure로 VMware VM 재해 복구 정보
     items:
     - name: VMware 재해 복구 개요
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835302"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317105"

@@ -1,0 +1,59 @@
+items:
+- name: 개요
+  href: overview.md
+- name: 빠른 시작
+  items:
+  - name: Bash - 빠른 시작
+    href: quickstart.md
+  - name: PowerShell - 빠른 시작
+    href: quickstart-powershell.md
+- name: 기능 및 도구
+  items:
+  - name: 기능 및 도구
+    href: features.md
+- name: 자습서
+  items:
+  - name: Ansible
+    items:
+    - name: Ansible 플레이북 실행
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Azure 동적 인벤토리 관리
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: 실행 계획 만들기
+      href: example-terraform-bash.md
+- name: 방법 가이드
+  items:
+  - name: Windows 사용자용 PowerShell Cloud Shell
+    href: cloud-shell-windows-users.md
+  - name: 스토리지에서 파일 유지
+    href: persisting-shell-storage.md
+  - name: 창 사용
+    href: using-the-shell-window.md
+  - name: Cloud Shell에서 MSI 사용
+    href: msi-authorization.md
+  - name: Cloud Shell 포함
+    href: embed-cloud-shell.md
+- name: Cloud Shell 편집기 사용
+  href: using-cloud-shell-editor.md
+- name: 문제 해결 및 제한 사항
+  href: troubleshooting.md
+- name: 참고 자료
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341308"

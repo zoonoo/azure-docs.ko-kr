@@ -1,0 +1,69 @@
+items:
+- name: Scheduler 설명서
+  href: index.md
+- name: 개요
+  items:
+  - name: Azure Scheduler 정의
+    href: scheduler-intro.md
+- name: 시작하기
+  items:
+  - name: 작업 만들기 및 관리 - 포털
+    href: scheduler-get-started-portal.md
+  - name: Scheduler에서 Logic Apps로 마이그레이션
+    href: migrate-from-scheduler-to-logic-apps.md
+- name: 개념
+  items:
+  - name: 개념, 용어 및 엔터티
+    href: scheduler-concepts-terms.md
+- name: 방법 가이드
+  items:
+  - name: 계획 및 디자인
+    items:
+    - name: 요금제 및 청구
+      href: scheduler-plans-billing.md
+    - name: 한도, 할당량 및 기본값
+      href: scheduler-limits-defaults-errors.md
+    - name: 고가용성 및 안정성
+      href: scheduler-high-availability-reliability.md
+  - name: 개발
+    items:
+    - name: 복잡한 일정 및 고급 되풀이 빌드
+      href: scheduler-advanced-complexity.md
+    - name: 일정 만들기 및 관리 - Azure PowerShell
+      href: scheduler-powershell-reference.md
+  - name: 보안
+    items:
+    - name: 아웃바운드 호출 인증
+      href: scheduler-outbound-authentication.md
+- name: 참고 자료
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.scheduler
+  - name: REST API
+    href: /rest/api/scheduler
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.scheduler/allversions
+- name: 리소스
+  items:
+  - name: Azure Scheduler 로드맵
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/updates/
+  - name: MSDN 포럼
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/azure-scheduler
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/scheduler/
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: 동영상
+    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler
+ms.openlocfilehash: fa4c53b0061f9ef23f8086cdcd6bcc73fc55986c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341478"

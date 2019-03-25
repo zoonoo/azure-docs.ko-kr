@@ -1,0 +1,29 @@
+items:
+- name: Azure 지원 요청을 만드는 방법
+  href: how-to-create-azure-support-request.md
+- name: 지원 요청을 위한 파일 업로드
+  href: how-to-use-file-uploader.md
+- name: 지원 요청을 만들고 관리하기 위한 액세스 권한
+  href: create-manage-support-requests-using-access-control.md
+- name: 할당량 증가 요청
+  href: resource-manager-core-quotas-request.md
+- name: 지역 또는 SKU 구독 문제 해결
+  href: sku-series-unavailable.md
+- name: 참고 자료
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 31120ea857d0e080bc9629d781ac2cdd73d31bc0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340917"

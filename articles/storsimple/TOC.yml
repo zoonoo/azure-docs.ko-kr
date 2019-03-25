@@ -1,0 +1,434 @@
+items:
+- name: StorSimple 설명서
+  href: index.md
+- name: StorSimple 가상 배열
+  items:
+  - name: 개요
+    items:
+    - name: 솔루션이란?
+      href: storsimple-ova-overview.md
+  - name: 시작하기
+    items:
+    - name: 계획
+      items:
+      - name: 요구 사항 검토
+        href: storsimple-ova-system-requirements.md
+      - name: 제한 이해
+        href: storsimple-ova-limits.md
+      - name: 모범 사례 검토
+        href: storsimple-ova-best-practices.md
+    - name: 배포
+      items:
+      - name: 배포 준비
+        href: storsimple-virtual-array-deploy1-portal-prep.md
+        items:
+        - name: StorSimple Manager 서비스 배포
+          href: storsimple-virtual-array-manage-service.md
+        - name: 새 인증
+          href: storsimple-virtual-array-aad-registration-key.md
+      - name: Hyper-V에서 프로비전
+        href: storsimple-virtual-array-deploy2-provision-hyperv.md
+      - name: VMware에서 프로비전
+        href: storsimple-virtual-array-deploy2-provision-vmware.md
+      - name: 파일 서버로 설정
+        href: storsimple-virtual-array-deploy3-fs-setup.md
+      - name: iSCSI 서버로 설정
+        href: storsimple-virtual-array-deploy3-iscsi-setup.md
+  - name: 방법
+    items:
+    - name: Azure 포털을 통해 관리
+      href: storsimple-virtual-array-manager-service-administration.md
+      items:
+      - name: 최신 업데이트 설치
+        href: storsimple-virtual-array-install-update-11.md
+        items:
+        - name: 업데이트 1 설치
+          href: storsimple-virtual-array-install-update-1.md
+        - name: 업데이트 0.6 설치
+          href: storsimple-virtual-array-install-update-06.md
+        - name: 보관
+          items:
+          - name: 업데이트 0.5 설치
+            href: storsimple-virtual-array-install-update-05.md
+          - name: 업데이트 0.4 설치
+            href: storsimple-virtual-array-install-update-04.md
+          - name: 업데이트 0.3 설치
+            href: storsimple-virtual-array-install-update.md
+      - name: 백업 만들기 및 관리
+        href: storsimple-virtual-array-backup.md
+      - name: 백업에서 복제
+        href: storsimple-virtual-array-clone.md
+      - name: 장애 조치(failover) 및 DR
+        href: storsimple-virtual-array-failover-dr.md
+      - name: 비활성화 및 삭제
+        href: storsimple-virtual-array-deactivate-and-delete-device.md
+      - name: 공유 관리
+        href: storsimple-virtual-array-manage-shares.md
+      - name: 볼륨 관리
+        href: storsimple-virtual-array-manage-volumes.md
+      - name: 서비스 요약 보기
+        href: storsimple-virtual-array-service-summary.md
+      - name: 디바이스 요약 보기
+        href: storsimple-virtual-array-device-summary.md
+      - name: 저장소 계정 관리
+        href: storsimple-virtual-array-manage-storage-accounts.md
+      - name: ACR 관리
+        href: storsimple-virtual-array-manage-acrs.md
+      - name: 작업 관리
+        href: storsimple-virtual-array-manage-jobs.md
+      - name: 디바이스 암호 변경
+        href: storsimple-virtual-array-change-device-admin-password.md
+      - name: 경고를 사용하여 모니터
+        href: storsimple-virtual-array-manage-alerts.md
+      - name: 진단 및 문제 해결
+        href: storsimple-virtual-array-diagnose-problems.md
+      - name: 로그 지원 요청
+        href: storsimple-virtual-array-log-support-ticket.md
+    - name: 로컬 웹 UI를 통해 구성
+      href: storsimple-ova-web-ui-admin.md
+  - name: 릴리스 정보
+    items:
+    - name: 업데이트 1.1 - 현재
+      href: storsimple-virtual-array-update-11-release-notes.md
+    - name: 업데이트 1
+      href: storsimple-virtual-array-update-1-release-notes.md
+    - name: 업데이트 0.6
+      href: storsimple-virtual-array-update-06-release-notes.md
+    - name: 보관
+      items:
+      - name: 업데이트 0.5
+        href: storsimple-virtual-array-update-05-release-notes.md
+      - name: 업데이트 0.4
+        href: storsimple-virtual-array-update-04-release-notes.md
+      - name: 업데이트 0.3
+        href: storsimple-ova-update-03-release-notes.md
+      - name: 업데이트 0.2 및 0.1
+        href: storsimple-ova-update-01-release-notes.md
+- name: StorSimple 8000 시리즈(Azure Portal)
+  items:
+  - name: 개요
+    items:
+    - name: 솔루션이란?
+      href: storsimple-overview.md
+    - name: 데이터 전송 옵션 비교
+      href: storsimple-8000-choose-storage-solution.md
+    - name: StorSimple 학습 맵
+      href: https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/
+    - name: 보안 고려 사항
+      href: storsimple-8000-security.md
+    - name: 지역 가용성
+      href: storsimple-regions.md
+  - name: 시작하기
+    items:
+    - name: 계획
+      items:
+      - name: 요구 사항 검토
+        href: storsimple-8000-system-requirements.md
+      - name: 기술 사양 검토
+        href: storsimple-8000-technical-specifications-and-compliance.md
+      - name: 제한 이해
+        href: storsimple-8000-limits.md
+      - name: 모범 사례
+        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
+    - name: 설치
+      items:
+      - name: 안전 검토
+        href: storsimple-8000-safety.md
+      - name: 8100 압축 풀기, 랙, 케이블
+        href: storsimple-8100-hardware-installation.md
+      - name: 8600 압축 풀기, 랙, 케이블
+        href: storsimple-8600-hardware-installation.md
+      - name: 10GbE 네트워크 인터페이스에 지원되는 하드웨어
+        href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
+    - name: 배포
+      items:
+      - name: StorSimple 디바이스 관리자 서비스
+        href: storsimple-8000-manage-service.md
+      - name: 서비스에 대한 새 인증
+        href: storsimple-8000-aad-registration-key.md
+      - name: Azure의 물리적 디바이스
+        href: storsimple-8000-deployment-walkthrough-u2.md
+      - name: 정부 포털의 물리적 디바이스
+        href: storsimple-8000-deployment-walkthrough-gov-u2.md
+      - name: Azure에서 클라우드 어플라이언스
+        href: storsimple-8000-cloud-appliance-u2.md
+      - name: StorSimple 스냅숏 관리자
+        href: storsimple-snapshot-manager-deployment.md
+      - name: SharePoint용 StorSimple 어댑터
+        href: storsimple-adapter-for-sharepoint.md
+  - name: 방법
+    items:
+    - name: 관리
+      items:
+      - name: StorSimple Manager 서비스 사용
+        href: storsimple-8000-manager-service-administration.md
+        items:
+        - name: 백업에서 복구
+          href: storsimple-8000-restore-from-backup-set-u2.md
+        - name: 볼륨 복제
+          href: storsimple-8000-clone-volume-u2.md
+        - name: 디바이스 원격 연결
+          href: storsimple-8000-remote-connect.md
+        - name: 디바이스 비활성화 및 삭제
+          href: storsimple-8000-deactivate-and-delete-device.md
+        - name: 디바이스 장애 조치(failover)
+          href: storsimple-8000-device-failover-disaster-recovery.md
+          items:
+          - name: 물리적 디바이스로 장애 조치(failover)
+            href: storsimple-8000-device-failover-physical-device.md
+          - name: 클라우드 어플라이언스로 장애 조치(failover)
+            href: storsimple-8000-device-failover-cloud-appliance.md
+          - name: 동일한 디바이스로 장애 조치(failover)
+            href: storsimple-8000-device-failover-same-device.md
+        - name: 백업 카탈로그 관리
+          href: storsimple-8000-manage-backup-catalog.md
+        - name: 백업 정책 관리
+          href: storsimple-8000-manage-backup-policies-u2.md
+        - name: 저장소 계정 관리
+          href: storsimple-8000-manage-storage-accounts.md
+        - name: 볼륨 컨테이너 관리
+          href: storsimple-8000-manage-volume-containers.md
+        - name: 볼륨 관리 - 현재
+          href: storsimple-8000-manage-volumes-u2.md
+          items:
+          - name: 'FAQ: 로컬로 고정된 볼륨'
+            href: storsimple-8000-local-volume-faq.md
+        - name: 역할 기반 액세스 제어
+          href: storsimple-8000-role-based-access-control.md
+        - name: ACR 관리
+          href: storsimple-8000-manage-acrs.md
+        - name: 대역폭 템플릿 관리
+          href: storsimple-8000-manage-bandwidth-templates.md
+        - name: 작업 보기 및 관리
+          href: storsimple-8000-manage-jobs-u2.md
+        - name: 디바이스 모드 변경
+          href: storsimple-8000-device-modes.md
+        - name: 디바이스 암호 변경
+          href: storsimple-8000-change-passwords.md
+        - name: 디바이스 구성 수정
+          href: storsimple-8000-modify-device-config.md
+        - name: 켜기 및 끄기
+          href: storsimple-turn-device-on-or-off.md
+        - name: Windows Server 호스트에 MPIO 구성
+          href: storsimple-8000-configure-mpio-windows-server.md
+        - name: Linux 호스트에 MPIO 구성
+          href: storsimple-configure-mpio-on-linux.md
+        - name: CHAP 구성
+          href: storsimple-8000-configure-chap.md
+      - name: StorSimple용 Windows PowerShell 사용
+        href: storsimple-8000-windows-powershell-administration.md
+        items:
+        - name: 디바이스 컨트롤러 관리
+          href: storsimple-8000-manage-device-controller.md
+        - name: 웹 프록시 구성
+          href: storsimple-8000-configure-web-proxy.md
+        - name: 데이터 0 설정 수정
+          href: storsimple-8000-modify-data-0.md
+      - name: StorSimple Snapshot Manager 사용
+        href: storsimple-snapshot-manager-admin.md
+        items:
+        - name: StorSimple 스냅숏 관리자란?
+          href: storsimple-what-is-snapshot-manager.md
+        - name: StorSimple Snapshot Manager 인터페이스 정보
+          href: storsimple-use-snapshot-manager.md
+        - name: StorSimple Snapshot Manager를 통해 디바이스 관리
+          href: storsimple-snapshot-manager-manage-devices.md
+        - name: StorSimple Snapshot Manager를 통해 백업 정책 관리
+          href: storsimple-snapshot-manager-manage-backup-policies.md
+        - name: StorSimple Snapshot Manager를 통해 볼륨 그룹 관리
+          href: storsimple-snapshot-manager-manage-volume-groups.md
+        - name: StorSimple Snapshot Manager를 통해 백업 카탈로그 관리
+          href: storsimple-snapshot-manager-manage-backup-catalog.md
+        - name: StorSimple Snapshot Manager를 통해 백업 작업 관리
+          href: storsimple-snapshot-manager-manage-backup-jobs.md
+        - name: StorSimple Snapshot Manager를 통해 볼륨 관리
+          href: storsimple-snapshot-manager-manage-volumes.md
+        - name: StorSimple Snapshot Manager에서 MMC 작업 사용
+          href: storsimple-snapshot-manager-mmc-menu.md
+    - name: 자동화
+      items:
+      - name: Azure PowerShell 샘플 스크립트 사용
+        href: storsimple-8000-automation-azurerm-scripts.md
+      - name: Azure Automation Runbook 사용
+        href: storsimple-8000-automation-azurerm-runbook.md
+    - name: 솔루션 빌드
+      items:
+      - name: Veeam을 사용하는 StorSimple
+        href: storsimple-configure-backup-target-veeam.md
+      - name: Veritas Backup Exec를 사용하는 StorSimple
+        href: storsimple-configure-backup-target-using-backup-exec.md
+      - name: Veritas NetBackup을 사용하는 StorSimple
+        href: storsimple-configure-backuptarget-netbackup.md
+      - name: Azure에 자동화 파일 서버 DR
+        href: storsimple-disaster-recovery-using-azure-site-recovery.md
+      - name: Express 경로를 사용하는 StorSimple
+        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
+      - name: VMware를 사용하는 StorSimple
+        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
+      - name: Hyper-V를 사용하는 StorSimple
+        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
+      - name: 분산 전역 네임스페이스
+        href: https://www.microsoft.com/download/details.aspx?id=45507
+    - name: 모니터
+      items:
+      - name: 서비스 요약 사용
+        href: storsimple-8000-service-dashboard.md
+      - name: 디바이스 요약 사용
+        href: storsimple-8000-device-dashboard.md
+      - name: 모니터링 차트 사용
+        href: storsimple-8000-monitor-device.md
+      - name: 서비스 경고 사용
+        href: storsimple-8000-manage-alerts.md
+      - name: 하드웨어 상태 사용
+        href: storsimple-8000-monitor-hardware-status.md
+      - name: LED 모니터링 사용
+        href: storsimple-monitoring-indicators.md
+    - name: 문제 해결
+      items:
+      - name: 배포 문제
+        href: storsimple-8000-troubleshoot-deployment.md
+      - name: 진단 도구 사용
+        href: storsimple-8000-diagnostics.md
+      - name: 운영 문제
+        href: storsimple-troubleshoot-operational-device.md
+      - name: 하드웨어 교체
+        href: storsimple-8000-hardware-component-replacement.md
+        items:
+        - name: 디바이스 컨트롤러 교체
+          href: storsimple-8000-controller-replacement.md
+        - name: EBOD 컨트롤러 교체
+          href: storsimple-8000-ebod-controller-replacement.md
+        - name: PCM 교체
+          href: storsimple-8000-power-cooling-module-replacement.md
+        - name: 디스크 드라이브 교체
+          href: storsimple-8000-disk-drive-replacement.md
+        - name: 백업 배터리 교체
+          href: storsimple-8000-battery-replacement.md
+        - name: 섀시 교체
+          href: storsimple-8000-chassis-replacement.md
+      - name: 지원에 문의
+        href: storsimple-8000-contact-microsoft-support.md
+        items:
+        - name: 지원 패키지 만들기
+          href: storsimple-8000-create-manage-support-package.md
+    - name: 마이그레이션
+      items:
+      - name: 구독 및 스토리지 계정
+        href: storsimple-8000-migrate-classic-azure-portal.md
+      - name: 5000/7000 시리즈 디바이스에서
+        href: storsimple-8000-migration-options.md
+        items:
+        - name: StorSimple 8000 시리즈 디바이스 대상
+          href: storsimple-8000-migrate-from-5000-7000.md
+        - name: Azure 파일 동기화로
+          href: storsimple-5000-7000-afs-migration.md
+      - name: 다른 저장 디바이스에서
+        href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
+    - name: 주 지역에서
+      items:
+      - name: 업데이트 5 설치 - 현재
+        href: storsimple-8000-install-update-5.md
+      - name: 업데이트 4 설치
+        href: storsimple-8000-install-update-4.md
+  - name: 릴리스 정보
+    items:
+    - name: 업데이트 5 - 현재
+      href: storsimple-update5-release-notes.md
+    - name: 업데이트 4
+      href: storsimple-update4-release-notes.md
+    - name: 보관
+      items:
+      - name: 업데이트 3
+        href: storsimple-update3-release-notes.md
+      - name: 업데이트 2.2
+        href: storsimple-update21-release-notes.md
+      - name: 업데이트 2
+        href: storsimple-update2-release-notes.md
+      - name: 업데이트 1
+        href: storsimple-update1-release-notes.md
+      - name: 업데이트 0.3
+        href: storsimple-february-2015-release-notes.md
+      - name: 업데이트 0.2
+        href: storsimple-january-2015-release-notes.md
+      - name: 업데이트 0.1
+        href: storsimple-october-2014-release-notes.md
+      - name: 릴리스 - GA
+        href: storsimple-july-2014-release-notes.md
+  - name: 참고 자료
+    items:
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/storsimple
+    - name: StorSimple용 Windows PowerShell cmdlet
+      href: https://technet.microsoft.com/library/dn688168.aspx
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.storsimple/allversions
+- name: StorSimple 데이터 관리자
+  items:
+  - name: 개요
+    items:
+    - name: 솔루션이란?
+      href: storsimple-data-manager-overview.md
+  - name: 시작하기
+    items:
+    - name: StorSimple 데이터 관리자 사용
+      href: storsimple-data-manager-ui.md
+  - name: 방법
+    items:
+    - name: .NET을 사용하여 작업 시작
+      href: storsimple-data-manager-dotnet-jobs.md
+    - name: Automation을 사용하여 작업 시작
+      href: storsimple-data-manager-job-using-automation.md
+    - name: 기본 Blob 경로 변경
+      href: storsimple-data-manager-change-default-blob-path.md
+- name: 파트너용 StorSimple
+  items:
+  - name: 개요
+    items:
+    - name: 솔루션이란?
+      href: storsimple-partner-csp-overview.md
+  - name: 시작하기
+    items:
+    - name: CSP용 가상 배열 배포
+      href: storsimple-partner-csp-deploy.md
+  - name: 릴리스 정보
+    items:
+    - name: StorSimple 릴리스 정보
+      href: https://aka.ms/storsimple-virtual-array-latest-relnote
+    - name: CSP 릴리스 정보
+      href: https://partner.microsoft.com/Support/whats-new
+    - name: 'CSP용 StorSimple: FAQ'
+      href: storsimple-partner-csp-faq.md
+- name: 관련 항목
+  items:
+  - name: StorSimple 5000-7000 시리즈
+    href: http://onlinehelp.storsimple.com
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+  - name: 마케팅 블로그
+    href: http://blogs.technet.com/b/cis/
+  - name: Marketing
+    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
+  - name: StorSimple 지원 옵션
+    href: storsimple-8000-support-options.md
+  - name: MSDN 포럼
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/storsimple/
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=storsimple
+  - name: 지원 블로그
+    href: https://blogs.msdn.com/b/storsimple/
+  - name: 타사 알림
+    href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
+  - name: 동영상
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storsimple
+ms.openlocfilehash: 6879dd240dc070483a7d97536a5fa365108af5f1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341138"

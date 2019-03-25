@@ -1,0 +1,35 @@
+items:
+- name: 개요
+  items:
+  - name: Oracle VM의 고려 사항
+    href: oracle-considerations.md
+- name: 빠른 시작
+  items:
+  - name: Oracle DB 만들기
+    href: oracle-database-quick-create.md
+- name: 자습서
+  items:
+  - name: Oracle ASM 구성
+    href: configure-oracle-asm.md
+  - name: Oracle DataGuard 구성
+    href: configure-oracle-dataguard.md
+  - name: Oracle GoldenGate 구성
+    href: configure-oracle-golden-gate.md
+- name: 개념
+  items:
+  - name: Oracle DB 설계
+    href: oracle-design.md
+  - name: Oracle DB에 대한 백업 전략
+    href: oracle-backup-recovery.md
+  - name: Oracle 재해 복구 옵션
+    href: oracle-disaster-recovery.md
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340611"

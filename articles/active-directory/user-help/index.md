@@ -134,8 +134,11 @@ ms.collection: M365-identity-device-management
                     <div class="cardText">
                         <h3>My Apps 포털 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">My Apps 포털이란?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">문제 해결</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">My Apps 포털에 액세스 및 사용</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">프로필 및 계정 정보 업데이트</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">그룹 관련 정보 업데이트</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">내 액세스 검토 수행</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">문제 해결</a>
                         </p>
                     </div>
                 </div>
