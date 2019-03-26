@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901545"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418757"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 
@@ -65,17 +65,17 @@ ms.locfileid: "57901545"
      
      | **매개 변수** | **값** |
      |:--- |:--- |
-     | 이름 |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |문자열 |
-     | 값 |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |문자열 |
+     | `Value` |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
      * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
 
      |**매개 변수**            |**값** |
      |:---|:---|
-     | 이름  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | 알수 없음(암호화됨) |
-     | 값 | <*암호화된 OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | 알수 없음(암호화됨) |
+     | `Value` | <*암호화된 OAuthToken*> |  
 
      ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

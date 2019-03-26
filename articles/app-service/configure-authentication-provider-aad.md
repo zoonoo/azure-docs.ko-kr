@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403224"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438227"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Azure Active Directory 로그인을 사용하도록 App Service 앱 구성
 
@@ -43,8 +43,6 @@ ms.locfileid: "58403224"
 5. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory로 로그인**으로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
 6. **저장**을 클릭합니다.
 
-이제 App Service 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.
-
 ## <a name="advanced"> </a>고급 설정을 사용하여 구성
 
 수동으로 구성 설정을 제공할 수도 있습니다. 사용하려는 Azure Active Directory 테넌트가 Azure에 로그인하는 테넌트와 다른 경우 권장되는 솔루션입니다. 구성을 완료하려면 먼저 Azure Active Directory에 등록을 만든 다음 App Service에 등록 세부 정보 중 일부를 제공해야 합니다.
@@ -57,8 +55,12 @@ ms.locfileid: "58403224"
 4. 몇 초 후에 방금 만든 새 앱 등록이 나타납니다.
 5. 앱 등록이 추가되면 앱 등록 이름을 클릭하고 위쪽의 **설정**을 클릭한 후 **속성**을 클릭합니다. 
 6. **앱 ID URI** 상자에 애플리케이션 URL(1단계)을 붙여 넣고, **홈페이지 URL**에도 애플리케이션 URL(1단계)을 붙여 넣은 후 **저장**을 클릭합니다.
-7. 이제 **회신 URL**을 클릭하고 **회신 URL**을 편집한 다음, 애플리케이션 URL(1단계)을 붙여넣고 URL 끝에 */.auth/login/aad/callback*을 추가합니다(예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **저장**을 클릭합니다.   
-8.  이때 앱의 **애플리케이션 ID**를 복사합니다. 나중에 사용하기 위해 보관합니다. App Service 앱을 구성하는 데 필요합니다.
+7. 클릭 합니다 **회신 Url**, 편집 합니다 **회신 URL**, (1 단계)에서 응용 프로그램 URL에 붙여넣은 다음 URL의 끝에 추가 */.auth/login/aad/callback* ( 예제에서는 `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **저장**을 클릭합니다.
+
+   > [!NOTE]
+   > 추가 하 여 여러 도메인에 대 한 동일한 앱 등록을 사용할 수 있습니다 **회신 Url**합니다. 각 App Service 인스턴스는 자체 등록을 사용 하 여 모델에 자체 사용 권한 및 동의 해야 합니다. 또한 별도 앱 등록을 사용 하 여 별도 사이트 슬롯에 대 한 것이 좋습니다. 테스트 하는 새 코드의 버그 프로덕션에 영향을 주지 않습니다 있도록 환경 간에 공유 되는 사용 권한을 방지 하기 위해서입니다.
+    
+8. 이때 앱의 **애플리케이션 ID**를 복사합니다. 나중에 사용하기 위해 보관합니다. App Service 앱을 구성하는 데 필요합니다.
 9. **등록된 앱** 페이지를 닫습니다. **앱 등록** 페이지에서 맨 위의 **엔드포인트** 단추를 클릭하고 **WS-FEDERATION SIGN-ON ENDPOINT** URL을 복사하되 끝에 있는 `/wsfed`를 URL에서 제거합니다. 최종 결과는 `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`과 같아야 합니다. 소버린 클라우드의 경우 도메인 이름은 다를 수 있습니다. 이 URL은 나중에 발급자 URL로 사용됩니다.
 
 ### <a name="secrets"> </a>App Service 앱에 Azure Active Directory 정보 추가
