@@ -31,11 +31,11 @@ items:
     href: azure-netapp-files-delegate-subnet.md
   - name: Azure NetApp Files에 대한 볼륨 만들기
     href: azure-netapp-files-create-volumes.md
-  - name: 볼륨에 대한 내보내기 정책 구성
+  - name: NFS 볼륨에 대한 내보내기 정책 구성
     href: azure-netapp-files-configure-export-policy.md
   - name: 볼륨 관리
     href: azure-netapp-files-manage-volumes.md
-  - name: 가상 머신에 대한 볼륨 탑재 또는 분리
+  - name: Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: 스냅숏 관리
     href: azure-netapp-files-manage-snapshots.md
@@ -51,9 +51,9 @@ items:
     href: https://docs.microsoft.com/rest/api/netapp/
   - name: Resource Manager 템플릿
     href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 99091c5e5e9a991508c9eb915c8003de60404ae8
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 164a65bb8875d6c46d71ee7875e94e0b09a57c56
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587415"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401500"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651671"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371159"
 documentType: LandingData
 title: Azure Machine Learning 서비스 설명서
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 이 서비스를 사용하려면 작업 영역과 관련 리소스가 필요합니다.  다음을 사용하여 시작해 보세요.
+    text: Azure Machine Learning Service에서   <a href="setup-create-workspace">작업 영역을 만들</a>면 다음과 같은 빠른 시작을 사용하기 시작할 수 있습니다.
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Azure Portal 빠른 시작</a>: 작업 영역을 확보하고, 아무것도 설치하지 않고 실험을 실행합니다.'
-    - html: '<a href="quickstart-create-workspace-with-python">Python 빠른 시작</a>: 기본 SDK를 설치하고 작업 영역을 만들고, 로컬 Notebook 서버에서 실험합니다.'
+    - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
+    - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
 - title: 단계별 자습서
   items:
   - type: paragraph

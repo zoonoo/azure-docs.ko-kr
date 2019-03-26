@@ -62,10 +62,10 @@ items:
       href: custom-error.md
   - name: SSL
     items:
-    - name: SSL 정책 개요
-      href: application-gateway-ssl-policy-overview.md
     - name: SSL 종료 및 엔드투엔드 SSL
       href: ssl-overview.md
+    - name: SSL 정책 개요
+      href: application-gateway-ssl-policy-overview.md
   - name: WAF
     items:
     - name: 웹 애플리케이션 방화벽
@@ -88,7 +88,7 @@ items:
     href: application-gateway-faq.md
 - name: 방법 가이드
   items:
-  - name: 웹 트래픽 관리
+  - name: 단일 사이트 호스트
     items:
     - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
@@ -100,22 +100,30 @@ items:
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
-  - name: SSL 종료 구성
+  - name: SSL 구성
     items:
-    - name: SSL 종료 - 포털
-      href: create-ssl-portal.md
-    - name: SSL 종료 - PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: 엔드투엔드 SSL - 포털
-      href: end-to-end-ssl-portal.md
-    - name: 엔드투엔드 SSL - PowerShell
-      href: application-gateway-end-to-end-ssl-powershell.md
-    - name: 허용 목록 백 엔드에 대한 인증서 만들기
-      href: certificates-for-backend-authentication.md
-    - name: 인증서 갱신
-      href: renew-certificates.md
-    - name: SSL 정책 구성
-      href: application-gateway-configure-ssl-policy-powershell.md
+    - name: SSL 종료
+      items:
+      - name: SSL 종료 - 포털
+        href: create-ssl-portal.md
+      - name: SSL 종료 - PowerShell
+        href: tutorial-ssl-powershell.md
+    - name: 엔드투엔드 SSL
+      items:
+      - name: 엔드투엔드 SSL - 포털
+        href: end-to-end-ssl-portal.md
+      - name: 엔드투엔드 SSL - PowerShell
+        href: application-gateway-end-to-end-ssl-powershell.md
+    - name: 인증서 관리
+      items:
+      - name: 허용 목록 백 엔드에 대한 인증서 만들기
+        href: certificates-for-backend-authentication.md
+      - name: 인증서 갱신
+        href: renew-certificates.md
+    - name: SSL 정책
+      items:
+      - name: SSL 정책 구성
+        href: application-gateway-configure-ssl-policy-powershell.md
   - name: 웹 응용 프로그램 방화벽 구성
     items:
     - name: Azure portal
@@ -176,7 +184,7 @@ items:
       href: configure-web-app-portal.md
     - name: Azure PowerShell
       href: create-web-app.md
-  - name: 사용자 지정 프로브
+  - name: 사용자 지정 프로브 구성
     items:
     - name: 포털
       href: application-gateway-create-probe-portal.md
@@ -228,9 +236,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 68264afadd3d05e4d11c6b4b98cd7375886e4d20
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: cd08a1ac880bb4242f4f57882d0e45133cf26748
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286959"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350763"

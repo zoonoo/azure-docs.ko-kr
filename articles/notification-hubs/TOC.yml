@@ -13,56 +13,60 @@ items:
     href: configure-notification-hub-portal-pns-settings.md
 - name: 자습서
   items:
-  - name: 1 - 등록된 모든 디바이스에 알림 푸시
+  - name: Android
     items:
-    - name: Android 네이티브(Firebase Cloud Messaging)
+    - name: Firebase Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Android 네이티브(Google Cloud Messaging)
+    - name: Google Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림
       href: notification-hubs-android-push-notification-google-gcm-get-started.md
-    - name: Android Xamarin
+    - name: Xamarin Android 앱에 푸시 알림
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Baidu
-      href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      href: notification-hubs-chrome-push-notifications-get-started.md
-    - name: iOS
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: iOS Xamarin
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-    - name: Kindle
-      href: notification-hubs-kindle-amazon-adm-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: Windows Phone
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md
-  - name: 2 - 특정 디바이스에 알림 푸시
-    items:
-    - name: Android
+    - name: 특정 Android 디바이스에 푸시 알림
       href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: iOS
-      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: Windows Phone
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-  - name: 3 - 지역화된 알림 푸시
-    items:
-    - name: iOS
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-  - name: 4 - 특정 사용자에 알림 푸시
-    items:
-    - name: Android
+    - name: 특정 Android 애플리케이션 사용자에게 푸시 알림
       href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: iOS
-      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-    - name: Windows
-      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-  - name: 5 - 위치 기반 알림 푸시
+  - name: iOS
     items:
-    - name: Windows
+    - name: iOS 앱에 푸시 알림
+      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+    - name: Xamarin iOS 앱에 푸시 알림
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+    - name: 특정 디바이스에 푸시 알림
+      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+    - name: iOS 디바이스에 지역화된 푸시 알림
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: 특정 사용자에게 푸시 알림
+      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+  - name: Windows Phone
+    items:
+    - name: Windows Phone 앱에 푸시 알림
+      href: notification-hubs-windows-mobile-push-notifications-mpns.md
+    - name: 특정 Windows Phone 디바이스에 푸시 알림
+      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+  - name: " Windows"
+    items:
+    - name: 유니버설 Windows 플랫폼 앱에 푸시 알림
+      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+    - name: 특정 Windows 디바이스에 푸시 알림
+      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+    - name: Windows 앱에 지역화된 푸시 알림
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+    - name: 특정 사용자에게 푸시 알림
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+    - name: 위치 기반 푸시 알림
       href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
+  - name: Baidu
+    items:
+    - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
+  - name: Chrome
+    items:
+    - name: Chrome 앱에 푸시 알림
+      href: notification-hubs-chrome-push-notifications-get-started.md
+  - name: Kindle
+    items:
+    - name: Amazon Device Messaging을 사용하여 Kindle 애플리케이션에 푸시 알림
+      href: notification-hubs-kindle-amazon-adm-push-notification.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -96,6 +100,8 @@ items:
     href: notification-hubs-deploy-and-manage-powershell.md
   - name: 안전하게 사용자에게 푸시 알림 보내기
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+  - name: 대량으로 등록 내보내기 및 가져오기
+    href: export-modify-registrations-bulk.md
   - name: SDK를 사용하여 알림 허브 만들기
     items:
     - name: 알림 허브 만들기 - .NET
@@ -121,7 +127,7 @@ items:
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST API
-    href: /rest/api/notificationhubs
+    href: /rest/api/notificationhubs/
   - name: Resource Manager 템플릿
     href: /azure/templates/microsoft.notificationhubs/allversions
 - name: 리소스
@@ -144,9 +150,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 67ddd379992757c3fe6a0bc2e37c70ef3718559b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835149"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438770"
