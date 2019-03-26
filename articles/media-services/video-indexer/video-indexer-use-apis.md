@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862724"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439188"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
@@ -73,19 +73,6 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 액세스 토큰은 1시간 후에 만료됩니다. 작업 API를 사용하기 전에 먼저 액세스 토큰이 유효한지 확인해야 합니다. 만료되면 권한 부여 API를 다시 호출하여 새 액세스 토큰을 받으십시오.
  
 이제 API와의 통합을 시작할 준비가 되었습니다. [각 Video Indexer REST API에 대한 자세한 설명](https://api-portal.videoindexer.ai/)을 참조하세요.
-
-## <a name="location"></a>위치
-
-모든 작업 API에는 호출을 라우팅해야 하는 지역과 계정을 만든 지역을 나타내는 위치 매개 변수가 필요합니다.
-
-다음 표에 설명된 값이 적용됩니다. **매개 변수 값**은 API를 사용할 때 전달하는 값입니다.
-
-|**Name**|**매개 변수 값**|**설명**|
-|---|---|---|
-|평가판|trail|평가판 계정에 사용됩니다.|
-|미국 서부|westus2|Azure 미국 서부 2 지역에 사용됩니다.|
-|북유럽 |northeurope|Azure 북유럽 지역에 사용됩니다.|
-|동아시아|eastasia|Azure 동아시아 지역에 사용됩니다.|
 
 ## <a name="account-id"></a>계정 ID 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>다음 단계
 
-[출력 JSON에 대한 세부 정보 검사](video-indexer-output-json-v2.md)
-
-[Video Indexer 개요](video-indexer-overview.md)
+- [출력 JSON에 대한 세부 정보 검사](video-indexer-output-json-v2.md)
+- [Video Indexer 개요](video-indexer-overview.md)
+- [지역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

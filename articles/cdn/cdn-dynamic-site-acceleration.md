@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092589"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439161"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -27,7 +27,7 @@ ms.locfileid: "49092589"
 
 표준 CDN(콘텐츠 배달 네트워크) 기능에는 고정 파일의 배달 속도를 향상시키기 위해 파일을 최종 사용자에게 가깝게 캐시하는 기능이 포함됩니다. 그러나 동적 웹 애플리케이션에서 서버가 사용자 동작에 대한 응답으로 콘텐츠를 생성하기 때문에 에지 위치에 해당 콘텐츠를 캐싱할 수 없습니다. 이러한 콘텐츠의 배달 속도를 향상시키는 작업은 기존의 에지 캐싱보다 더 복잡하고 배달할 전체 데이터 경로에 있는 각 요소를 처음부터 세밀하게 조정하는 종단 간 솔루션이 필요합니다. Azure CDN DSA(동적 사이트 가속) 최적화를 사용하여 동적 콘텐츠가 포함된 웹 페이지의 성능이 크게 향상되었습니다.
 
-**Akamai의 Azure CDN** 및 **Verizon의 Azure CDN**은 끝점을 만드는 동안 **최적화 목표** 메뉴를 통해 DSA 최적화를 제공합니다.
+**Akamai의 Azure CDN** 및 **Verizon의 Azure CDN**은 끝점을 만드는 동안 **최적화 목표** 메뉴를 통해 DSA 최적화를 제공합니다. Microsoft의 동적 사이트 가속을 통해 제공 됩니다 [Azure 프런트 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview)합니다.
 
 > [!Important]
 > **Akamai의 Azure CDN** 프로필의 경우 CDN 엔드포인트를 만든 후에 최적화를 변경할 수 있습니다.
@@ -109,9 +109,9 @@ TCP *느린 시작*은 네트워크를 통해 전송되는 데이터 양을 제�
 
 1. 상태 및 대역폭 모니터링을 사용하여 에지 PoP 서버 간 연결의 대역폭을 측정합니다.
     
-2. 에지 PoP 서버 간에 메트릭이 공유되므로 서버는 주위의 다른 PoP의 네트워크 조건 및 서버 상태에 대해 알게 됩니다.  
+2. 에지 PoP 서버 간에 메트릭이 공유되므로 서버는 주위의 다른 PoP의 네트워크 조건 및 서버 상태에 대해 알게 됩니다.  
     
-3. CDN 에지 서버는 근접한 다른 CDN 에지 서버와 통신할 때 최적의 창 크기와 같은 일부 전송 매개 변수에 대해 가정합니다. 이 단계는 CDN 에지 서버 간의 연결 상태가 더 많은 패킷의 데이터를 전송할 수 있는 경우 초기 정체 창 크기를 늘릴 수 있음을 의미합니다.  
+3. CDN 에지 서버는 근접한 다른 CDN 에지 서버와 통신할 때 최적의 창 크기와 같은 일부 전송 매개 변수에 대해 가정합니다. 이 단계는 CDN 에지 서버 간의 연결 상태가 더 많은 패킷의 데이터를 전송할 수 있는 경우 초기 정체 창 크기를 늘릴 수 있음을 의미합니다.  
 
 #### <a name="leveraging-persistent-connections"></a>영구 연결 활용
 
@@ -157,7 +157,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 캐싱 규칙에 액세스하려면
 
-1. **CDN 프로필** 페이지의 설정 아래에서 **캐싱 규칙**을 선택합니다.  
+1. **CDN 프로필** 페이지의 설정 아래에서 **캐싱 규칙**을 선택합니다.  
     
     ![CDN 캐싱 규칙 단추](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 규칙 엔진에 액세스하려면
     
-1. **CDN 프로필** 페이지에서 **관리**를 선택합니다.  
+1. **CDN 프로필** 페이지에서 **관리**를 선택합니다.  
     
     ![CDN 프로필 관리 단추](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 또는 동적 자산을 제공하는 DSA를 사용하여 최적화된 엔드포인트와 일반 웹 배달 등의 고정 최적화 형식을 사용하여 최적화된 다른 엔드포인트 등 두 개의 CDN 엔드포인트를 사용하여 캐싱 가능한 자산을 제공할 수 있습니다. 웹 페이지 URL을 수정하여 사용하려는 CDN 엔드포인트의 자산에 직접 연결합니다. 
 
-예: `mydynamic.azureedge.net/index.html`은 동적 페이지이고 DSA 엔드포인트에서 로드됩니다.  html 페이지는 `mystatic.azureedge.net/banner.jpg` 및 `mystatic.azureedge.net/scripts.js` 등의 정적 CDN 엔드포인트에서 로드한 JavaScript 라이브러리 또는 이미지와 같은 여러 정적 자산을 참조합니다. 
+예: `mydynamic.azureedge.net/index.html`은 동적 페이지이고 DSA 엔드포인트에서 로드됩니다.  html 페이지는 `mystatic.azureedge.net/banner.jpg` 및 `mystatic.azureedge.net/scripts.js` 등의 정적 CDN 엔드포인트에서 로드한 JavaScript 라이브러리 또는 이미지와 같은 여러 정적 자산을 참조합니다. 
 
 
 

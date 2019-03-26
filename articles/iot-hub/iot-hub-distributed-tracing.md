@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351051"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439299"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -174,7 +174,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 있기 **하지 trivial** C SDK를 사용 하지 않고 분산된 추적 기능을 미리 보려면. 따라서이 방법은 권장 되지 않습니다.
 
-개발자 가이드에 따라 메시지에 모든 IoT Hub 프로토콜 기본 요소를 구현 해야 합니다는 먼저 [만들고 IoT Hub 메시지를 읽기](iot-hub-devguide-messages-construct.md)합니다. 그런 다음의 프로토콜 속성을 편집 합니다 추가할 MQTT/AMQP 메시지 `tracestate` 으로 **시스템 속성**합니다. 특히,
+개발자 가이드에 따라 메시지에 모든 IoT Hub 프로토콜 기본 요소를 구현 해야 합니다는 먼저 [만들고 IoT Hub 메시지를 읽기](iot-hub-devguide-messages-construct.md)합니다. 그런 다음 추가할 MQTT/AMQP 메시지의 프로토콜 속성을 편집할 `tracestate` 으로 **시스템 속성**합니다. 특히,
 
 * MQTT, 추가 `%24.tracestate=timestamp%3d1539243209` 메시지 항목 위치 `1539243209` unix 타임 스탬프 형식에서 메시지의 생성 시간으로 바꿔야 합니다. 예를 들어 구현을 참조 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * AMQP에 대 한 추가 `key("tracestate")` 고 `value("timestamp=1539243209")` 주석으로 메시지입니다. 참조 구현에 대해서 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)합니다.
