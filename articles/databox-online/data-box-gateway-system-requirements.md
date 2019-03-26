@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402969"
+ms.locfileid: "58417856"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
 
@@ -31,7 +31,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 | 사양                                          | 설명              |
 |---------------------------------------------------------|--------------------------|
-| 가상 프로세서(코어)   | 최소 4개 |            
+| 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  | 최소 8GB|
 | 가용성|단일 노드|
 | 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369618"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437342"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
 
@@ -173,7 +173,7 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 참조 디자인 및 Azure Load Balancer를 배포 하는 방법에 알아보려면 [Azure Load Balancer 란?](../../load-balancer/load-balancer-overview.md)합니다. 기본 load balancer를 배포 하려면이 단계를 수행 [퀵 스타트](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) 섹션에 설명 된 단계를 제외한 **백 엔드 서버를 만들**합니다.   
 
 > [!NOTE]
-> Using The Azure Load Balancer를 구성 합니다 **기본 SKU**,에서는 Azure 가상 머신을 가용성 집합에 속해야 합니다. 가용성 집합에 대 한 자세한 내용은 참조 하세요 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/windows/manage-availability.md)합니다. 가용성 집합에 기존 가상 컴퓨터를 추가, 참조 [Azure Resource Manager VM 가용성 집합](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)합니다.
+> 사용 하 여 Azure Load Balancer를 구성 합니다 **기본 SKU**,에서는 Azure 가상 머신을 가용성 집합에 속해야 합니다. 가용성 집합에 대 한 자세한 내용은 참조 하세요 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/windows/manage-availability.md)합니다. 가용성 집합에 기존 가상 컴퓨터를 추가, 참조 [Azure Resource Manager VM 가용성 집합](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)합니다.
 > 
 
 부하 분산 장치를 만든 후 백 엔드 풀을 만들어야, 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 합니다. 빠른 시작 문서 섹션에 설명 된 단계를 따릅니다 [부하 분산 장치에 대 한 리소스를 만들](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer)합니다.  

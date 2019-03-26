@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402731"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439076"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용 하 여 호스트 풀 만들기
+# <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
 호스트 풀은 Windows 가상 데스크톱 미리 보기 테 넌 트 환경 내에서 하나 이상의 동일한 가상 컴퓨터의 컬렉션입니다. 각 호스트 풀에는 사용자는 실제 데스크톱에서 일관 되 게 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 합니다 **추가 RdsAppGroupUser** cmdlet 추가 보안 그룹을 지원 하지 않습니다 하 고만 앱 그룹에 한 번에 한 명의 사용자를 추가 합니다. 앱 그룹에 여러 사용자를 추가 하려는 경우에 적절 한 사용자 계정 이름을 사용 하 여 cmdlet을 다시 실행 하십시오.
 
-등록 토큰을 나중에 사용 되는 변수를 내보내려면 다음 cmdlet을 실행 [호스트 Windows 가상 데스크톱 풀에 가상 컴퓨터 등록](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)합니다.
+등록 토큰을 나중에 사용 되는 변수를 내보내려면 다음 cmdlet을 실행 [호스트 Windows 가상 데스크톱 풀에 가상 컴퓨터 등록](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool)합니다.
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

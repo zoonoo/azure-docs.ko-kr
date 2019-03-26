@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 85fdd67cd676db2a7c54c10523787b0d395de5dc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9955068fbc0d6493add83c6c92390413b3975106
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870791"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437174"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -77,7 +77,7 @@ public static void Run(
 - [액세스 권한 매개 변수 생략](#trigger---configuration)
 - 로그 매개 변수의 유형을 `TraceWriter`에서 `ILogger`로 변경
 - `log.Info`에서 `log.LogInformation`으로 변경
- 
+
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
 다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록합니다.
@@ -160,7 +160,7 @@ let Run(myQueueItem: string, log: ILogger) =
  ) {
      context.getLogger().info(message);
  }
- ```
+```
 
 Service Bus 토픽에 메시지 추가 되 면 Java 함수를 트리거할 수도 있습니다. 다음 예제에서는 `@ServiceBusTopicTrigger` 트리거 구성을 설명 하는 주석입니다.
 
@@ -177,7 +177,7 @@ Service Bus 토픽에 메시지 추가 되 면 Java 함수를 트리거할 수�
     ) {
         context.getLogger().info(message);
     }
- ```
+```
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
@@ -279,7 +279,7 @@ module.exports = function(context, myQueueItem) {
 |---------|---------|----------------------|
 |**type** | 해당 없음 | "serviceBusTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 큐 또는 토픽 메시지를 나타내는 변수의 이름입니다. "$return"으로 설정하여 함수 반환 값을 참조합니다. | 
+|**name** | 해당 없음 | 함수 코드에서 큐 또는 토픽 메시지를 나타내는 변수의 이름입니다. "$return"으로 설정하여 함수 반환 값을 참조합니다. |
 |**queueName**|**QueueName**|모니터링할 큐의 이름입니다.  토픽이 아닌 큐를 모니터링하는 경우에만 설정합니다.
 |**topicName**|**TopicName**|모니터링할 토픽의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
 |**subscriptionName**|**SubscriptionName**|모니터링할 구독의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
@@ -339,7 +339,21 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 
 [host.json](functions-host-json.md#servicebus) 파일에는 Service Bus 트리거 동작을 제어하는 설정이 포함됩니다.
 
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "maxAutoRenewDuration": "00:05:00"
+    }
+}
+```
+
+|자산  |Default | 설명 |
+|---------|---------|---------|
+|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |
+|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.|
+|maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
 
 ## <a name="output"></a>출력
 
@@ -471,7 +485,7 @@ public String pushToQueue(
       result.setValue(message + " has been sent.");
       return message;
  }
- ```
+```
 
  [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
 
@@ -582,7 +596,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 |---------|---------|----------------------|
 |**type** | 해당 없음 | "serviceBus"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | "out"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 큐 또는 토픽을 나타내는 변수의 이름입니다. "$return"으로 설정하여 함수 반환 값을 참조합니다. | 
+|**name** | 해당 없음 | 함수 코드에서 큐 또는 토픽을 나타내는 변수의 이름입니다. "$return"으로 설정하여 함수 반환 값을 참조합니다. |
 |**queueName**|**QueueName**|큐의 이름입니다.  토픽이 아닌 큐 메시지를 보내는 경우에만 설정합니다.
 |**topicName**|**TopicName**|모니터링할 토픽의 이름입니다. 큐가 아닌 토픽 메시지를 보내는 경우에만 설정합니다.|
 |**연결**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyServiceBus"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyServiceBus"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.|
@@ -641,11 +655,11 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 ```
 
 |자산  |Default | 설명 |
-|---------|---------|---------| 
-|maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
-|autoComplete|true|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.| 
-|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
-|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
+|---------|---------|---------|
+|maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
+|autoComplete|true|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.|
+|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |
+|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

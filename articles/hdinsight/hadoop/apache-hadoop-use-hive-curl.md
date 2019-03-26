@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89bb5aa1ccfb65b91581e943554806e3363390f4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 00fd697b42c7d93cb04392e91deea23133cf398a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201855"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407242"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
 
@@ -66,7 +66,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
 3. HDInsight 클러스터에 연결할 수 있는지 확인하려면 다음 명령 중 하나를 사용합니다.
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
     
     ```powershell

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351408"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435315"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -30,32 +30,20 @@ Microsoft Azure Media Services를 사용하여 많은 미디어 소스 파일 �
 
 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, Media Services 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 
 
-Media Services 동적 패키징 라이브 또는 주문형으로 스트리밍하는 지 여부를 사용 합니다. 다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
-
-![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-> [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
-
-## <a name="delivery-protocols"></a>배달 프로토콜
-
-|프로토콜|예|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+Media Services 동적 패키징 라이브 또는 주문형으로 스트리밍하는 지 여부를 사용 합니다. 
 
 ## <a name="common-on-demand-workflow"></a>일반적인 주문형 워크플로
 
 다음은 일반적인 Media Services 동적 패키징을 사용 되는 워크플로 스트리밍입니다.
 
-1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 [미디어 인코더 표준에서 지원하는 형식](media-encoder-standard-formats.md)참조).
+1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. 예를 들어, MP4, MOV 또는 MXF (지원 되는 형식 목록을 참조 하세요 [Media Encoder Standard에서 지 원하는 형식](media-encoder-standard-formats.md)합니다.
 2. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다.
 3. 적응 비트 전송률 MP4 세트가 포함된 자산을 게시합니다. 만들어 게시 한 **스트리밍 로케이터**합니다.
 4. 다른 형식 (HLS, Dash 및 부드러운 스트리밍)를 대상으로 하는 Url을 작성 합니다. 합니다 **스트리밍 끝점** 의 올바른 매니페스트 및 이러한 다른 모든 형식에 대 한 요청을 처리 합니다.
+
+다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
+
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 mp4로 인코드
 
@@ -87,13 +75,16 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 ![통과](./media/live-streaming/pass-through.svg)
 
-## <a name="dynamic-encryption"></a>동적 암호화
+## <a name="delivery-protocols"></a>배달 프로토콜
 
-**동적 암호화** AES-128 또는 세 가지 주요 디지털 권한 관리 (DRM) 시스템 중 하나를 사용 하 여 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 자세한 내용은 [동적 암호화](content-protection-overview.md)합니다.
-
-## <a name="dynamic-manifest"></a>Dynamic Manifest
-
-동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)합니다.
+|프로토콜|예|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>동적 패키징에서 지원 비디오 코덱
 
@@ -105,6 +96,10 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 > [!NOTE]
 > 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.
+
+## <a name="dynamic-encryption"></a>동적 암호화
+
+**동적 암호화** AES-128 또는 세 가지 주요 디지털 권한 관리 (DRM) 시스템 중 하나를 사용 하 여 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 자세한 내용은 [동적 암호화](content-protection-overview.md)합니다.
 
 ## <a name="manifests"></a>매니페스트 
  
@@ -195,6 +190,14 @@ DASH 매니페스트 예는 다음과 같습니다.
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## <a name="dynamic-manifest"></a>Dynamic Manifest
+
+동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)합니다.
+
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
+
 ## <a name="next-steps"></a>다음 단계
 
 [비디오 업로드, 인코드 및 스트리밍](stream-files-tutorial-with-api.md)

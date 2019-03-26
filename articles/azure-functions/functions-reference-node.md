@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226541"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437580"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 프로젝트 루트에는 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.js)과 바인딩 구성 파일(function.json)이 있는 폴더가 있습니다. `function.json`의 부모 디렉터리 이름은 항상 함수의 이름입니다.
@@ -616,6 +615,10 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 ### <a name="cold-start"></a>콜드 부팅
 
 서버리스 호스팅 모델에서 Azure Functions를 개발하는 경우 콜드 부팅이 현실입니다. *콜드 부팅*이란 일정 기간 동안 비활성이었다가 처음으로 함수 앱을 시작하면 시작하는 데 더 오래 걸린다는 사실을 의미합니다. 특히 종속성 트리가 큰 JavaScript 함수의 경우 콜드 부팅은 중요할 수 있습니다. 콜드 부팅 프로세스의 속도를 높이려면 가능한 경우 [함수를 패키지 파일로 실행](run-functions-from-deployment-package.md)합니다. 여러 배포 방법은 기본적으로 패키지 모델에서 실행을 사용하지만 대규모 콜드 부팅이 발생하고 이러한 방식으로 실행하지 않는 경우 이 변경 내용으로 인해 크게 개선될 수 있습니다.
+
+### <a name="connection-limits"></a>연결 제한
+
+Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 마세요. 대신, 전역 범위에서 정적 클라이언트를 만듭니다. 자세한 내용은 [Azure Functions에서 연결 관리](manage-connections.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116812"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418825"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -253,6 +253,20 @@ ApplicationInsights.xml:
     </ApplicationInsights>
 
 ```
+
+### <a name="3-invoke-your-filter-java-spring"></a>3. 필터 (Java Spring) 호출
+
+Spring framework를 기반으로 하는 응용 프로그램을 bean으로 주 응용 프로그램 클래스의 사용자 지정 원격 분석 프로세서를 등록 되어야 합니다. 응용 프로그램을 시작할 때 자동으로 연결 됩니다.
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+사용자 고유의 필터 매개 변수를 만들 해야 `application.properties` 및 사용자 지정 필터에 해당 매개 변수를 전달할 Spring Boot 구체화 된 구성 프레임 워크를 활용 합니다. 
+
 
 ## <a name="troubleshooting"></a>문제 해결
 

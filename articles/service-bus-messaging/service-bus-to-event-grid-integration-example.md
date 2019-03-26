@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770530"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436781"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus-Azure Event Grid 통합 예제
 
@@ -27,7 +27,7 @@ ms.locfileid: "57770530"
  
 * Event Grid의 이벤트 초기 흐름을 디버깅하고 살펴볼 간단한 테스트 Azure 함수를 만듭니다. 다른 단계 수행 여부에 관계 없이 이 단계를 수행 합니다.
 * Event Grid 이벤트를 기반으로 Azure Service Bus 메시지를 받아서 처리하는 Azure 함수를 만듭니다.
-* Azure App Service의 Logic Apps 기능을 활용합니다.
+* Azure App Service의 Logic Apps 기능을 활용 합니다.
 
 만든 예제에서는 Service Bus 항목에 두 개의 구독이 있다고 가정합니다. 또한 이 예제에서는 Event Grid 구독이 하나의 Service Bus 구독에 대해서만 이벤트를 보내도록 만들어졌다고 가정합니다. 
 

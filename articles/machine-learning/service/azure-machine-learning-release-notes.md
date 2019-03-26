@@ -8,20 +8,27 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860638"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437869"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  각 SDK에 대한 전체 설명은 다음 참조 문서를 참조하세요.
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-03-25"></a>2019-03-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning Python v1.0.21 for SDK
+
++ **새로운 기능**
+  + 합니다 *azureml.core.Run.create_children* 메서드를 사용 하면 단일 호출으로 실행 되는 여러 자식 지연율이 낮은 생성 합니다.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

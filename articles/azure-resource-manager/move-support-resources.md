@@ -4,14 +4,14 @@ description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236892"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438471"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 이동 작업을 지원하는 리소스 종류라도 해당 리소스를 이동할 수 없는 조건이 있을 수 있습니다. 이동 작업에 영향을 주는 조건에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
@@ -21,12 +21,12 @@ ms.locfileid: "56236892"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| domainservices | 아니요 | 아니요 |
+| domainservices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| tenants | 아니요 | 아니요 |
+| tenants | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -41,14 +41,14 @@ ms.locfileid: "56236892"
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| apiapps | 아니요 | 아니요 |
-| appidentities | 아니요 | 아니요 |
-| gateways | 아니요 | 아니요 |
+| apiapps | 아닙니다. | 아닙니다. |
+| appidentities | 아닙니다. | 아닙니다. |
+| gateways | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| policyassignments | 아니요 | 아니요 |
+| policyassignments | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -70,7 +70,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| backupvault | 아니요 | 아니요 |
+| backupvault | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -80,15 +80,15 @@ ms.locfileid: "56236892"
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| clusters | 아니요 | 아니요 |
-| fileservers | 아니요 | 아니요 |
-| jobs | 아니요 | 아니요 |
-| workspaces | 아니요 | 아니요 |
+| clusters | 아닙니다. | 아닙니다. |
+| fileservers | 아닙니다. | 아닙니다. |
+| jobs | 아닙니다. | 아닙니다. |
+| workspaces | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| mapapis | 아니요 | 아니요 |
+| mapapis | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -98,12 +98,12 @@ ms.locfileid: "56236892"
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| blockchainmembers | 아니요 | 아니요 |
+| blockchainmembers | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| blueprintassignments | 아니요 | 아니요 |
+| blueprintassignments | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -129,20 +129,20 @@ ms.locfileid: "56236892"
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| domainnames | 예 | 아니요 |
-| virtualmachines | 예 | 아니요 |
+| domainnames | 예 | 아닙니다. |
+| virtualmachines | 예 | 아닙니다. |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| networksecuritygroups | 아니요 | 아니요 |
-| reservedips | 아니요 | 아니요 |
-| virtualnetworks | 아니요 | 아니요 |
+| networksecuritygroups | 아닙니다. | 아닙니다. |
+| reservedips | 아닙니다. | 아닙니다. |
+| virtualnetworks | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| storageaccounts | 예 | 아니요 |
+| storageaccounts | 예 | 아닙니다. |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -154,14 +154,14 @@ ms.locfileid: "56236892"
 | ------------- | ----------- | ---------- |
 | availabilitysets | 예 | 예 |
 | disks | 예 | 예 |
-| galleries | 아니요 | 아니요 |
-| galleries/images | 아니요 | 아니요 |
-| galleries/images/versions | 아니요 | 아니요 |
+| galleries | 아닙니다. | 아닙니다. |
+| galleries/images | 아닙니다. | 아닙니다. |
+| galleries/images/versions | 아닙니다. | 아닙니다. |
 | images | 예 | 예 |
-| proximityplacementgroups | 아니요 | 아니요 |
-| restorepointcollections | 아니요 | 아니요 |
-| sharedvmimages | 아니요 | 아니요 |
-| sharedvmimages/versions | 아니요 | 아니요 |
+| proximityplacementgroups | 아닙니다. | 아닙니다. |
+| restorepointcollections | 아닙니다. | 아닙니다. |
+| sharedvmimages | 아닙니다. | 아닙니다. |
+| sharedvmimages/versions | 아닙니다. | 아닙니다. |
 | snapshots | 예 | 예 |
 | virtualmachines | 예 | 예 |
 | virtualmachines/extensions | 예 | 예 |
@@ -170,28 +170,28 @@ ms.locfileid: "56236892"
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| containergroups | 아니요 | 아니요 |
+| containergroups | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| containergroups | 아니요 | 아니요 |
+| containergroups | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
 | registries | 예 | 예 |
 | registries/buildtasks | 예 | 예 |
-| registries/replications | 아니요 | 아니요 |
+| registries/replications | 아닙니다. | 아닙니다. |
 | registries/tasks | 예 | 예 |
 | registries/webhooks | 예 | 예 |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| containerservices | 아니요 | 아니요 |
-| managedclusters | 아니요 | 아니요 |
-| openshiftmanagedclusters | 아니요 | 아니요 |
+| containerservices | 아닙니다. | 아닙니다. |
+| managedclusters | 아닙니다. | 아닙니다. |
+| openshiftmanagedclusters | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -201,7 +201,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 계정 | 아니요 | 아니요 |
+| 계정 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -216,17 +216,17 @@ ms.locfileid: "56236892"
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| jobs | 아니요 | 아니요 |
+| jobs | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| databoxedgedevices | 아니요 | 아니요 |
+| databoxedgedevices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| workspaces | 아니요 | 아니요 |
+| workspaces | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -236,13 +236,13 @@ ms.locfileid: "56236892"
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| connectionmanagers | 아니요 | 아니요 |
+| connectionmanagers | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 패키지 | 아니요 | 아니요 |
-| 플랜 | 아니요 | 아니요 |
+| 패키지 | 아닙니다. | 아닙니다. |
+| 플랜 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -253,7 +253,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| datalakeaccounts | 아니요 | 아니요 |
+| datalakeaccounts | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -268,9 +268,9 @@ ms.locfileid: "56236892"
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| services | 아니요 | 아니요 |
-| services/projects | 아니요 | 아니요 |
-| slots | 아니요 | 아니요 |
+| services | 아닙니다. | 아닙니다. |
+| services/projects | 아닙니다. | 아닙니다. |
+| slots | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -285,53 +285,53 @@ ms.locfileid: "56236892"
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| servergroups | 아니요 | 아니요 |
+| servergroups | 아닙니다. | 아닙니다. |
 | servers | 예 | 예 |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| artifactsources | 아니요 | 아니요 |
-| rollouts | 아니요 | 아니요 |
-| servicetopologies | 아니요 | 아니요 |
-| servicetopologies/services | 아니요 | 아니요 |
-| servicetopologies/services/serviceunits | 아니요 | 아니요 |
-| 단계 | 아니요 | 아니요 |
+| artifactsources | 아닙니다. | 아닙니다. |
+| rollouts | 아닙니다. | 아닙니다. |
+| servicetopologies | 아닙니다. | 아닙니다. |
+| servicetopologies/services | 아닙니다. | 아닙니다. |
+| servicetopologies/services/serviceunits | 아닙니다. | 아닙니다. |
+| 단계 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| elasticpools | 아니요 | 아니요 |
-| elasticpools/iothubtenants | 아니요 | 아니요 |
+| elasticpools | 아닙니다. | 아닙니다. |
+| elasticpools/iothubtenants | 아닙니다. | 아닙니다. |
 | iothubs | 예 | 예 |
 | provisioningservices | 예 | 예 |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| controllers | 아니요 | 아니요 |
+| controllers | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| labcenters | 아니요 | 아니요 |
-| labs | 예 | 아니요 |
+| labcenters | 아닙니다. | 아닙니다. |
+| labs | 예 | 아닙니다. |
 | labs/servicerunners | 예 | 예 |
-| labs/virtualmachines | 예 | 아니요 |
-| schedules | 아니요 | 아니요 |
+| labs/virtualmachines | 예 | 아닙니다. |
+| schedules | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| dnszones | 아니요 | 아니요 |
-| dnszones/a | 아니요 | 아니요 |
-| dnszones/aaaa | 아니요 | 아니요 |
-| dnszones/cname | 아니요 | 아니요 |
-| dnszones/mx | 아니요 | 아니요 |
-| dnszones/ptr | 아니요 | 아니요 |
-| dnszones/srv | 아니요 | 아니요 |
-| dnszones/txt | 아니요 | 아니요 |
-| trafficmanagerprofiles | 아니요 | 아니요 |
+| dnszones | 아닙니다. | 아닙니다. |
+| dnszones/a | 아닙니다. | 아닙니다. |
+| dnszones/aaaa | 아닙니다. | 아닙니다. |
+| dnszones/cname | 아닙니다. | 아닙니다. |
+| dnszones/mx | 아닙니다. | 아닙니다. |
+| dnszones/ptr | 아닙니다. | 아닙니다. |
+| dnszones/srv | 아닙니다. | 아닙니다. |
+| dnszones/txt | 아닙니다. | 아닙니다. |
+| trafficmanagerprofiles | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -358,7 +358,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 계정 | 아니요 | 아니요 |
+| 계정 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -383,17 +383,17 @@ ms.locfileid: "56236892"
 ## <a name="microsoftinsights"></a>microsoft.insights
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 계정 | 아니요 | 아니요 |
+| 계정 | 아닙니다. | 아닙니다. |
 | actiongroups | 예 | 예 |
-| activitylogalerts | 아니요 | 아니요 |
+| activitylogalerts | 아닙니다. | 아닙니다. |
 | alertrules | 예 | 예 |
 | autoscalesettings | 예 | 예 |
 | components | 예 | 예 |
-| guestdiagnosticsettings | 아니요 | 아니요 |
-| metricalerts | 아니요 | 아니요 |
-| notificationgroups | 아니요 | 아니요 |
-| notificationrules | 아니요 | 아니요 |
-| scheduledqueryrules | 아니요 | 아니요 |
+| guestdiagnosticsettings | 아닙니다. | 아닙니다. |
+| metricalerts | 아닙니다. | 아닙니다. |
+| notificationgroups | 아닙니다. | 아닙니다. |
+| notificationrules | 아닙니다. | 아닙니다. |
+| scheduledqueryrules | 아닙니다. | 아닙니다. |
 | webtests | 예 | 예 |
 | workbooks | 예 | 예 |
 
@@ -411,7 +411,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| hsmpools | 아니요 | 아니요 |
+| hsmpools | 아닙니다. | 아닙니다. |
 | vaults | 예 | 예 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -422,7 +422,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| labaccounts | 예 | 예 |
+| labaccounts | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -437,17 +437,17 @@ ms.locfileid: "56236892"
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| hostingenvironments | 아니요 | 아니요 |
+| hostingenvironments | 아닙니다. | 아닙니다. |
 | integrationaccounts | 예 | 예 |
-| integrationserviceenvironments | 아니요 | 아니요 |
-| isolatedenvironments | 아니요 | 아니요 |
+| integrationserviceenvironments | 아닙니다. | 아닙니다. |
+| isolatedenvironments | 아닙니다. | 아닙니다. |
 | workflows | 예 | 예 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
 | commitmentplans | 예 | 예 |
-| webservices | 예 | 아니요 |
+| webservices | 예 | 아닙니다. |
 | workspaces | 예 | 예 |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -473,12 +473,12 @@ ms.locfileid: "56236892"
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| hostingaccounts | 아니요 | 아니요 |
+| hostingaccounts | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| workspaces | 아니요 | 아니요 |
+| workspaces | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -493,7 +493,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| classicdevservices | 아니요 | 아니요 |
+| classicdevservices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -505,63 +505,63 @@ ms.locfileid: "56236892"
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| assessmentprojects | 아니요 | 아니요 |
-| migrateprojects | 아니요 | 아니요 |
-| projects | 아니요 | 아니요 |
+| assessmentprojects | 아닙니다. | 아닙니다. |
+| migrateprojects | 아닙니다. | 아닙니다. |
+| projects | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| netappaccounts | 아니요 | 아니요 |
-| netappaccounts/capacitypools | 아니요 | 아니요 |
-| netappaccounts/capacitypools/volumes | 아니요 | 아니요 |
-| netappaccounts/capacitypools/volumes/mounttargets | 아니요 | 아니요 |
-| netappaccounts/capacitypools/volumes/snapshots | 아니요 | 아니요 |
+| netappaccounts | 아닙니다. | 아닙니다. |
+| netappaccounts/capacitypools | 아닙니다. | 아닙니다. |
+| netappaccounts/capacitypools/volumes | 아닙니다. | 아닙니다. |
+| netappaccounts/capacitypools/volumes/mounttargets | 아닙니다. | 아닙니다. |
+| netappaccounts/capacitypools/volumes/snapshots | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| applicationgateways | 아니요 | 아니요 |
+| applicationgateways | 아닙니다. | 아닙니다. |
 | applicationsecuritygroups | 예 | 예 |
 | azurefirewalls | 예 | 예 |
-| bastionhosts | 아니요 | 아니요 |
+| bastionhosts | 아닙니다. | 아닙니다. |
 | connections | 예 | 예 |
 | ddoscustompolicies | 예 | 예 |
-| ddosprotectionplans | 아니요 | 아니요 |
+| ddosprotectionplans | 아닙니다. | 아닙니다. |
 | dnszones | 예 | 예 |
-| expressroutecircuits | 아니요 | 아니요 |
-| expressroutecrossconnections | 아니요 | 아니요 |
-| expressroutegateways | 아니요 | 아니요 |
-| expressrouteports | 아니요 | 아니요 |
+| expressroutecircuits | 아닙니다. | 아닙니다. |
+| expressroutecrossconnections | 아닙니다. | 아닙니다. |
+| expressroutegateways | 아닙니다. | 아닙니다. |
+| expressrouteports | 아닙니다. | 아닙니다. |
 | frontdoors | 예 | 예 |
 | frontdoorwebapplicationfirewallpolicies | 예 | 예 |
-| interfaceendpoints | 아니요 | 아니요 |
+| interfaceendpoints | 아닙니다. | 아닙니다. |
 | loadbalancers | 예 | 예 |
 | localnetworkgateways | 예 | 예 |
 | natgateways | 예 | 예 |
 | networkintentpolicies | 예 | 예 |
 | networkinterfaces | 예 | 예 |
-| networkprofiles | 아니요 | 아니요 |
+| networkprofiles | 아닙니다. | 아닙니다. |
 | networksecuritygroups | 예 | 예 |
 | networkwatchers | 예 | 예 |
 | networkwatchers/connectionmonitors | 예 | 예 |
 | networkwatchers/lenses | 예 | 예 |
 | networkwatchers/pingmeshes | 예 | 예 |
-| p2svpngateways | 아니요 | 아니요 |
-| privatelinkservices | 아니요 | 아니요 |
+| p2svpngateways | 아닙니다. | 아닙니다. |
+| privatelinkservices | 아닙니다. | 아닙니다. |
 | publicipaddresses | 예 | 예 |
 | publicipprefixes | 예 | 예 |
-| routefilters | 아니요 | 아니요 |
+| routefilters | 아닙니다. | 아닙니다. |
 | routetables | 예 | 예 |
-| securegateways | 아니요 | 아니요 |
+| securegateways | 아닙니다. | 아닙니다. |
 | serviceendpointpolicies | 예 | 예 |
 | trafficmanagerprofiles | 예 | 예 |
-| virtualhubs | 아니요 | 아니요 |
+| virtualhubs | 아닙니다. | 아닙니다. |
 | virtualnetworkgateways | 예 | 예 |
 | virtualnetworks | 예 | 예 |
-| virtualnetworktaps | 아니요 | 아니요 |
-| virtualwans | 아니요 | 아니요 |
-| vpngateways | 아니요 | 아니요 |
+| virtualnetworktaps | 아닙니다. | 아닙니다. |
+| virtualwans | 아닙니다. | 아닙니다. |
+| vpngateways | 아닙니다. | 아닙니다. |
 | vpnsites | 예 | 예 |
 | webapplicationfirewallpolicies | 예 | 예 |
 
@@ -591,7 +591,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| rootresources | 아니요 | 아니요 |
+| rootresources | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -606,7 +606,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 계정 | 아니요 | 아니요 |
+| 계정 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -621,7 +621,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 애플리케이션 | 예 | 아니요 |
+| 애플리케이션 | 예 | 아닙니다. |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -637,8 +637,8 @@ ms.locfileid: "56236892"
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| gateways | 아니요 | 아니요 |
-| nodes | 아니요 | 아니요 |
+| gateways | 아닙니다. | 아닙니다. |
+| nodes | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -648,20 +648,20 @@ ms.locfileid: "56236892"
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 애플리케이션 | 아니요 | 아니요 |
+| 애플리케이션 | 아닙니다. | 아닙니다. |
 | clusters | 예 | 예 |
-| containergroups | 아니요 | 아니요 |
-| containergroupsets | 아니요 | 아니요 |
-| edgeclusters | 아니요 | 아니요 |
-| networks | 아니요 | 아니요 |
-| secretstores | 아니요 | 아니요 |
-| volumes | 아니요 | 아니요 |
+| containergroups | 아닙니다. | 아닙니다. |
+| containergroupsets | 아닙니다. | 아닙니다. |
+| edgeclusters | 아닙니다. | 아닙니다. |
+| networks | 아닙니다. | 아닙니다. |
+| secretstores | 아닙니다. | 아닙니다. |
+| volumes | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
 | 애플리케이션 | 예 | 예 |
-| containergroups | 아니요 | 아니요 |
+| containergroups | 아닙니다. | 아닙니다. |
 | gateways | 예 | 예 |
 | networks | 예 | 예 |
 | secrets | 예 | 예 |
@@ -675,16 +675,16 @@ ms.locfileid: "56236892"
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| siterecoveryvault | 아니요 | 아니요 |
+| siterecoveryvault | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| appliancedefinitions | 아니요 | 아니요 |
-| appliances | 아니요 | 아니요 |
-| applicationdefinitions | 아니요 | 아니요 |
-| 애플리케이션 | 아니요 | 아니요 |
-| jitrequests | 아니요 | 아니요 |
+| appliancedefinitions | 아닙니다. | 아닙니다. |
+| appliances | 아닙니다. | 아닙니다. |
+| applicationdefinitions | 아닙니다. | 아닙니다. |
+| 애플리케이션 | 아닙니다. | 아닙니다. |
+| jitrequests | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -694,8 +694,8 @@ ms.locfileid: "56236892"
 | servers | 예 | 예 |
 | servers/databases | 예 | 예 |
 | servers/elasticpools | 예 | 예 |
-| servers/jobaccounts | 아니요 | 아니요 |
-| servers/jobagents | 아니요 | 아니요 |
+| servers/jobaccounts | 아닙니다. | 아닙니다. |
+| servers/jobagents | 아닙니다. | 아닙니다. |
 | virtualclusters | 예 | 예 |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
@@ -707,7 +707,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| dwvm | 아니요 | 아니요 |
+| dwvm | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -722,17 +722,17 @@ ms.locfileid: "56236892"
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | 아니요 | 아니요 |
+| storagesyncservices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | 아니요 | 아니요 |
+| storagesyncservices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| managers | 아니요 | 아니요 |
+| managers | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -742,17 +742,17 @@ ms.locfileid: "56236892"
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| environments | 아니요 | 아니요 |
-| environments/eventsources | 아니요 | 아니요 |
-| 인스턴스 | 아니요 | 아니요 |
-| instances/environments | 아니요 | 아니요 |
-| instances/environments/eventsources | 아니요 | 아니요 |
+| environments | 아닙니다. | 아닙니다. |
+| environments/eventsources | 아닙니다. | 아닙니다. |
+| 인스턴스 | 아닙니다. | 아닙니다. |
+| instances/environments | 아닙니다. | 아닙니다. |
+| instances/environments/eventsources | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| providerregistrations | 아니요 | 아니요 |
-| 리소스 | 아니요 | 아니요 |
+| providerregistrations | 아닙니다. | 아닙니다. |
+| 리소스 | 아닙니다. | 아닙니다. |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -764,7 +764,7 @@ ms.locfileid: "56236892"
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| imagetemplates | 아니요 | 아니요 |
+| imagetemplates | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -776,11 +776,11 @@ ms.locfileid: "56236892"
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| certificates | 아니요 | 예 |
+| certificates | 아닙니다. | 예 |
 | connectiongateways | 예 | 예 |
 | connections | 예 | 예 |
 | customapis | 예 | 예 |
-| hostingenvironments | 아니요 | 아니요 |
+| hostingenvironments | 아닙니다. | 아닙니다. |
 | serverfarms | 예 | 예 |
 | sites | 예 | 예 |
 | sites/premieraddons | 예 | 예 |

@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838394"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438304"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하는 Azure Active Directory의 기능입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "57838394"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>중복 특성 복원력으로 동작
 중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은  
-“***<OriginalPrefix>+<4DigitNumber>\@<InitialTenantDomain>.onmicrosoft.com***”.  
+"***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***"입니다.  
 **ProxyAddress**와 같은 특성이 필요하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리하고 개체 생성 또는 업데이트를 진행합니다.
 
 특성을 격리 시 충돌에 대한 정보는 이전 동작에 사용된 동일한 오류 보고서 전자 메일에 전송됩니다. 그러나 격리가 발생할 때 이 정보는 오류 보고서에 한 번만 표시되며 이후 메일에 계속해서 기록되지 않습니다. 또한 이 개체에 대한 내보내기가 성공했으므로 동기화 클라이언트는 오류를 기록하지 않고 후속 동기화 주기 시 만들기 / 업데이트 작업을 시도하지 않습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "57838394"
 > 이제는 중복 특성 복원력 기능을 사용자 테넌트에서 켜기 전에 사전에 활성화하는 데 Set-MsolDirSyncFeature cmdlet을 사용할 수 없습니다. 기능을 테스트하려면 새로운 Azure Active Directory 테넌트를 만들어야 합니다.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>DirSyncProvisioningErrors로 개체 식별
-중복 속성 충돌로 인해 이러한 오류가 있는 개체를 식별하는 방법은 현재 PowerShell Azure Active Directory 및 Office 365 관리자 포털로 두 가지 메서드가 있습니다. 향후 보고에 기반한 추가 포털로 확장할 계획이 있습니다.
+현재 두 가지 방법이 있습니다 Azure Active Directory PowerShell 중복 속성 충돌로 인해 이러한 오류가 있는 개체를 식별 하 고 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. 향후 보고에 기반한 추가 포털로 확장할 계획이 있습니다.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 이 항목에서 PowerShell cmdlet의 경우 다음은 true입니다.
@@ -113,17 +113,17 @@ ms.locfileid: "57838394"
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>제한된 수량 또는 모두
-1. **MaxResults<Int>** 는 특정 값으로 쿼리를 제한하는 데 사용할 수 있습니다.
+1. **MaxResults \<Int >** 쿼리를 특정 수의 값을 제한 데 사용할 수 있습니다.
 2. **All** 은 많은 오류가 있는 경우 검색되는 모든 결과를 확인하기 위해 사용할 수 있습니다.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Office 365 관리 포털
-Office 365 관리 센터에서 디렉터리 동기화 오류를 볼 수 있습니다. Office 365 포털의 보고서는 이러한 오류가 있는 **사용자** 개체만을 표시합니다. **그룹** 및 **연락처** 간의 충돌에 대한 정보는 표시하지 않습니다.
+## <a name="microsoft-365-admin-center"></a>Microsoft 365 관리 센터
+Microsoft 365 관리 센터에서 디렉터리 동기화 오류를 볼 수 있습니다. Microsoft 365 관리자에서 보고서 센터 표시 **사용자** 이러한 오류가 있는 개체입니다. **그룹** 및 **연락처** 간의 충돌에 대한 정보는 표시하지 않습니다.
 
 ![활성 사용자](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "활성 사용자")
 
-Office 365 관리 센터에서 디렉터리 동기화 오류를 보는 방법에 대한 지침은 [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)을 참조하세요.
+Microsoft 365 관리 센터에서 디렉터리 동기화 오류를 보고 하는 방법에 지침은 [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)합니다.
 
 ### <a name="identity-synchronization-error-report"></a>ID 동기화 오류 보고서
 중복 특성 충돌이 있는 개체가 이 새 동작으로 처리되는 경우 알림은 테넌트에 대한 기술 알림 문의로 전송되는 표준 ID 동기화 오류 보고서 전자 메일에 포함됩니다. 그러나 이 동작에서 중요한 변경 사항이 있습니다. 이전에 중복 특성 충돌에 대한 정보는 충돌이 해결될 때까지 모든 후속 오류 보고서에 포함됩니다. 이 새 동작으로 지정된 충돌에 대한 오류 알림이 충돌 특성이 격리되는 시간에 한 번만 나타납니다.

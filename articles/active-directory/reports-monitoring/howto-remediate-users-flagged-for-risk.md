@@ -2,7 +2,7 @@
 title: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서 | Microsoft Docs
 description: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서에 대해 알아보기
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182985"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439144"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 

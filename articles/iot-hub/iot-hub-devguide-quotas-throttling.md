@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791378"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437641"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -42,6 +42,7 @@ ms.locfileid: "57791378"
 | 클라우드-장치 받기<sup>1</sup> <br/> (디바이스에서 HTTPS를 사용하는 경우에만)| 16.67/초/단위(1000/분/단위) | 16.67/초/단위(1000/분/단위) | 833.33/초/단위(50000/분/단위) |
 | 파일 업로드 | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 83.33 파일 업로드 알림/초/단위(5000/분/단위) |
 | 직접 메서드<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
+| 쿼리 | 20/초/단위 | 20/초/단위 | 1000/sec/unit |
 | 쌍(디바이스 및 모듈) 읽기<sup>1</sup> | 100/초 | 100/초 또는 10/초/단위 이상 | 500/sec/unit |
 | 쌍 업데이트(디바이스 및 모듈)<sup>1</sup> | 50/sec | 50/초 또는 5/초/단위 이상 | 250/sec/unit |
 | 작업 연산<sup>1,3</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |

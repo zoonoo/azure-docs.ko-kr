@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010519"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407354"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -170,7 +170,6 @@ Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로�
   - 여러 파일 또는 로그 파일이 포함된 하위 폴더를 다운로드한 후 SSMS 감사 파일 병합 지침에 설명된 대로 파일을 로컬로 병합할 수 있습니다.
   - 프로그래밍 방식으로 Blob 감사 로그를 확인합니다.
 
-    - [확장 이벤트 판독기](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 라이브러리를 사용합니다.
     - PowerShell을 사용하여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)합니다.
 
 ## <a id="subheading-5"></a>프로덕션 사례
@@ -258,8 +257,11 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 
 - [감사가 설정된 Azure SQL Server를 배포하여 감사 로그를 Azure Blob Storage 계정에 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Azure Monitor 로그 감사 로그를 쓸 수 있도록 설정한 감사를 사용 하 여 Azure SQL Server 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [감사가 설정된 Azure SQL Server를 배포하여 Log Analytics에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [감사가 설정된 Azure SQL Server를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> 연결 된 샘플은 외부 공용 저장소에 있고 '그대로'에 제공 됩니다 보증 없이 모든 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

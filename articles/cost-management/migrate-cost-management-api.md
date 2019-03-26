@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439229"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업 계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -463,7 +463,7 @@ Microsoft 고객 계약의 일부인 Azure 소비 서비스 가격은 meterId pr
 | offerId | 사용할 수 없습니다. MCA에서 productOrderName에 해당합니다. |
 | meterCategory  | 사용할 수 없습니다. MCA에서 서비스에 해당합니다. |
 | 단위 | 사용할 수 없습니다. UnitOfMeasure에서 구문 분석할 수 있습니다. |
-| currencyCode | 와 동일 합니다 MCA에서 pricingCurrency 합니다. |
+| currencyCode | MCA에서 pricingCurrency와 동일 합니다. |
 | meterLocation | MCA에서 meterRegion와 동일 합니다. |
 | partNumber partnumber | 부품 번호 MCA 청구서에 표시 되지 않으면 때문에 해당 되지 않습니다. 대신 partnumber, meterId 및 productOrderName 조합을 사용 하 여 가격을 고유 하 게 식별 합니다. |
 | totalIncludedQuantity | 사용할 수 없습니다. |

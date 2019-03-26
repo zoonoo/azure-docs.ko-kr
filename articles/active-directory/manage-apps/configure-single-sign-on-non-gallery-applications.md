@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117662"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435784"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Azure Active Directory에서 비 갤러리 애플리케이션에 대한 Single Sign-On 구성
 
@@ -124,7 +124,7 @@ Azure AD에서 Base64 또는 원시 형식의 인증서를 다운로드할 수 �
 
 ### <a name="set-up-target-application"></a>대상 애플리케이션 설정
 
-Single Sign-On에 대해 애플리케이션을 구성하려면 애플리케이션의 설명서를 찾습니다. 설명서를 찾으려면 SAML 기반 로그온 구성 페이지의 끝으로 스크롤한 다음, **구성<application name>** 을 클릭합니다. 
+Single Sign-On에 대해 애플리케이션을 구성하려면 애플리케이션의 설명서를 찾습니다. 설명서를 찾으려면 SAML 기반 로그온 구성 페이지의 끝에 스크롤 및 클릭 **구성 \<응용 프로그램 이름 >** 합니다. 
 
 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 로그온 및 로그아웃 서비스 URL은 모두 동일한 엔드포인트로 해결하는데, 이는 Azure AD의 인스턴스에 대한 SAML 요청 처리 엔드포인트입니다. SAML 엔터티 ID는 애플리케이션에 발급된 SAML 토큰 내에서 발급자로 표시되는 값입니다.
 

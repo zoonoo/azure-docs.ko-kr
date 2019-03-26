@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309608"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437563"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
 
 Azure AD 암호 보호의 배포 후 모니터링 및 보고는 필수 작업입니다. 이 문서에서는 각 서비스에서 정보를 기록하는 위치 및 Azure AD 암호 보호 사용에 대한 보고 방법을 포함하여 다양한 모니터링 기술을 이해할 수 있도록 자세히 설명합니다.
+
+이벤트 로그 메시지에서 또는 PowerShell cmdlet을 실행 하 여 모니터링 및 보고 수행 됩니다. DC 에이전트 및 프록시 서비스를 모두 이벤트 로그 메시지를 기록 합니다. 아래에 설명 된 모든 PowerShell cmdlet 프록시 서버에서 사용할 개만 (AzureADPasswordProtection PowerShell 모듈 참조). DC 에이전트 소프트웨어는 PowerShell 모듈을 설치 하지 않습니다.
 
 ## <a name="dc-agent-event-logging"></a>DC 에이전트 이벤트 로깅
 

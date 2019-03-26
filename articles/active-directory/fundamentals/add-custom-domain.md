@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285788"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418859"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 모든 새로운 Azure AD 테넌트는 *domainname*.onmicrosoft.com이라는 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수는 없지만 조직의 이름을 해당 목록에 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 사용자 이름을 사용자에 게 친숙 한 같은 만들 수 있습니다 *alain\@contoso.com*합니다.
@@ -84,6 +84,8 @@ Azure AD에 사용자 지정 도메인 이름을 추가한 후에 해당 도메�
 4. **Contoso** 페이지에서 **Verify**를 선택하여 사용자 지정 도메인이 제대로 등록되고 Azure AD에 유효한지 확인합니다.
 
     ![DNS 항목 정보가 포함된 Contoso 페이지 및 Verify 단추](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+사용자 지정 도메인 이름을 확인 한 후 확인 TXT 또는 MX 파일을 삭제할 수 있습니다.
 
 ## <a name="common-verification-issues"></a>일반적인 인증 문제
 - Azure AD에서 사용자 지정 도메인 이름을 확인할 수 없는 경우 다음 제한 사항을 시도하세요.

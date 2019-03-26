@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180932"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436805"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ThousandEyes 구성
 
@@ -33,11 +33,14 @@ ms.locfileid: "56180932"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 *   Azure Active Directory 테넌트
-*   [표준 계획](https://www.thousandeyes.com/pricing) 이상을 사용하도록 설정한 ThousandEyes 테넌트 
-*   관리자 권한이 있는 ThousandEyes의 사용자 계정 
+*   활성 [ThousandEyes 계정](https://www.thousandeyes.com/pricing)
+*   다음 3 개의 사용 권한을 포함 하는 역할 할당 된 ThousandEyes 사용자 계정:
+    * 모든 사용자 보기
+    * 사용자 편집
+    * API 액세스 권한
 
 > [!NOTE]
-> Azure AD 프로비전 통합에서는 [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK)를 사용하며, 이 API는 ThousandEyes 팀이 표준 계획 이상에서 사용할 수 있습니다.
+> Azure AD 프로 비전 통합에 의존 합니다 [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM)합니다. 
 
 ## <a name="assigning-users-to-thousandeyes"></a>ThousandEyes에 사용자 할당
 
@@ -51,7 +54,19 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 *   단일 Azure AD 사용자를 ThousandEyes에 할당하여 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   ThousandEyes에 사용자를 할당할 때 [할당] 대화 상자에서 **사용자** 역할이나 다른 유효한 애플리케이션 관련 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
+*   ThousandEyes에 사용자를 할당할 때 선택 해야 하는 **사용자** 역할이 나 다른 유효한 응용 프로그램별 역할 (사용 가능한 경우) 할당 대화 상자에서. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>ThousandEyes에 자동으로 프로 비전 사용자 역할을 구성 합니다.
+
+자동 프로 비전 하려는 각 계정 그룹에 대 한 사용자 수에 새 사용자 계정을 만들 때 적용할 역할 집합을 구성할 수 있습니다. 기본적으로 할당 된 사용자 자동 프로 비전 합니다 _일반 사용자_ 달리 구성 하지 않는 한 모든 계정에 대 한 역할을 그룹화 합니다.
+
+1. 사용자 자동 프로 비전에 대 한 역할의 새 집합을 지정 하려면 로그에 ThousandEyes SCIM 설정 섹션으로 이동 하 고 **> 오른쪽 위 모서리에서 사용자 아이콘 > 계정 설정 > 조직 > 보안 및 인증 합니다.** 
+
+   ![SCIM API 설정으로 이동](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. 각 계정 그룹에 대 한 항목을 추가, 그런 다음 일련의 역할 할당 *저장할* 변경 합니다.
+
+   ![SCIM API를 통해 만든 사용자에 대 한 기본 역할 및 계정 그룹 설정](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>ThousandEyes에 사용자 프로비전 구성 
@@ -59,7 +74,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 섹션에서는 사용자의 Azure AD를 ThousandEyes의 사용자 계정 프로비전 API에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 ThousandEyes에서 할당된 사용자 계정을 만들고 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
 > [!TIP]
-> [Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 ThousandEyes에 대해 SAML 기반 Single Sign-On을 사용하도록 설정할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+> 따라 ThousandEyes에 대 한 SAML 기반 Single Sign-on (SSO)을 사용 하도록 선택할 수도 있습니다는 [기술 자료를 Azure에 제공 된 지침](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) SSO를 완료 합니다. SSO는 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Azure AD에서 ThousandEyes에 자동 사용자 계정 프로비전 구성
@@ -75,7 +90,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![ThousandEyes 프로비전](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. **관리자 자격 증명** 섹션 아래에 ThousandEyes 계정에서 생성한 **OAuth 전달자 토큰**을 입력합니다(이 토큰은 ThousandEyes 계정의 **Profile**(프로필) 섹션 아래에서 찾거나 생성할 수 있음).
+5. 아래는 **관리자 자격 증명** 섹션을 입력 합니다 **OAuth 전달자 토큰** ThousandEyes' 계정에서 생성 (ThousandEyes 계정 토큰을 생성 하는 또는 및 찾을 수  **프로 파일링** 섹션).
 
     ![ThousandEyes 프로비전](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

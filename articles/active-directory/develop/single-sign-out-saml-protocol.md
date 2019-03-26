@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201682"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437087"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
@@ -72,7 +72,7 @@ Azure AD는 `LogoutRequest` 요소에 대한 응답에 `LogoutResponse`를 보�
 Azure AD는 `LogoutResponse` 요소에 `ID`, `Version` 및 `IssueInstant` 값을 설정합니다. 또한 `InResponseTo` 요소를 응답을 도출한 `LogoutRequest`의 `ID` 특성 값으로 설정합니다.
 
 ### <a name="issuer"></a>발급자
-Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 설정합니다. 여기서 <TenantIdGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
+이 값을 설정 하는 azure AD `https://login.microsoftonline.com/<TenantIdGUID>/` 여기서 \<TenantIdGUID > Azure AD 테 넌 트의 테 넌 트 ID입니다.
 
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 

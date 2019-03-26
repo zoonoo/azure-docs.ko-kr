@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 770a494e93a51fc018b2bfe803ac15ba543f35d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3fc2ebe30a9be685c62e46e351e3958eefdd6ac7
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011336"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417754"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure Storage 메트릭 사용 및 메트릭 데이터 보기
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -51,7 +51,9 @@ Storage 메트릭을 제어하는 cmdlet은 다음 매개 변수를 사용합니
 예를 들어 다음 명령은 보존 기간을 5일로 설정하여 기본 저장소 계정의 Blob service에 대해 분 메트릭을 설정합니다.
 
 ```powershell
-Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+$storagecontext = New-AzStorageContext -StorageAccountName <storageaccountname> -StorageAccountKey <storageaccountkey>
+
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`  -Context $storagecontext.context
 ```
 
 다음 명령은 기본 저장소 계정의 Blob 서비스에 대해 현재 시간 메트릭 수준 및 보존 기간(일)을 검색합니다.

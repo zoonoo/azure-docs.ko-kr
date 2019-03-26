@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319383"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418795"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -57,12 +57,12 @@ Azure Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr
 
 * 표준 저장소 계정 및입니다. HDD 표준 관리 디스크
 
-    - **ASR에서 프로 비전 된 저장소 디스크**: S10
+    - **Azure Site Recovery에서 프로 비전 된 저장소 디스크**: S10
     - **표준 저장소 계정에 대 한 청구 사용 볼륨**: 매월 5 달러
     - **표준 관리 디스크 프로 비전 된 볼륨에 대 한 요금 청구**: 월 $5.89
 
 * Premium storage 계정 Vs입니다. Premium SSD에 대 한 관리 디스크 
-    - **ASR에서 프로 비전 된 저장소 디스크**: P10
+    - **Azure Site Recovery에서 프로 비전 된 저장소 디스크**: P10
     - **프리미엄 저장소 계정 프로 비전 된 볼륨에 청구**: 월 $17.92
     - **프리미엄 관리 디스크를 프로 비전 된 볼륨에 대 한 요금 청구**: 월 $17.92
 
@@ -203,7 +203,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가하려는 경우 디스크를 추가하고 VM에 대한 보호를 다시 활성화해야 합니다.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 새 Vcenter 프레미스 컴퓨터에 마이그레이션할 수 있습니까?
-아니요, Vcenter를 변경하거나 마이그레이션하면 진행 중인 복제에 영향을 줍니다. 새 Vcenter로 ASR를 설정하고 해당 머신에 대해 복제를 사용하도록 설정해야 합니다.
+아니요, Vcenter를 변경하거나 마이그레이션하면 진행 중인 복제에 영향을 줍니다. 새 Vcenter 사용 하 여 Azure Site Recovery를 설정 하 고 컴퓨터에 대해 복제를 사용 하도록 설정 해야 합니다.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Vnet(Azure Storage 방화벽 포함)이 구성되어 있는 캐시/대상 스토리지 계정에 복제할 수 있나요?
 아니요, Azure Site Recovery는 Vnet의 스토리지에 복제하는 기능을 지원하지 않습니다.
@@ -275,7 +275,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 설치 관리자는 구성 서버의 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 폴더에 보관됩니다.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>모바일 서비스를 설치하려면 어떻게 할까요?
-복제하려는 각 VM에 [푸시 설치](vmware-azure-install-mobility-service.md)를 사용하여 설치하거나, UI 또는 PowerShell을 사용하여 [수동으로 설치](vmware-physical-mobility-service-install-manual.md)합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
+복제하려는 각 VM에 [푸시 설치](vmware-physical-mobility-service-overview.md#push-installation)를 사용하여 설치하거나, UI 또는 PowerShell을 사용하여 [수동으로 설치](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui)합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
 
 
 

@@ -1,8 +1,16 @@
-      ---
-author: alkohli ms.service: databox  
-ms.topic: 포함 ms.date: 2019/21/03 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431482"
+---
 | 포트 번호| 인 또는 아웃 | 포트 범위| 필수|   메모 |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80(HTTP)|아웃|WAN |아닙니다.|업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
@@ -15,4 +23,3 @@ ms.topic: 포함 ms.date: 2019/21/03 ms.author: alkohli
 | TCP 443(HTTPS)|아웃/인|LAN|예|이 포트는 로컬 관리용 디바이스의 로컬 UI에 사용되는 인바운드 포트입니다. |
 | TCP 445(SMB)|그런 다음|LAN|일부 경우<br>참고 사항 보기|이 포트는 SMB를 통해 연결하는경우에만 필요합니다. |
 | TCP 2049(NFS)|그런 다음|LAN|일부 경우<br>참고 사항 보기|이 포트는 NFS를 통해 연결하는경우에만 필요합니다. |
-

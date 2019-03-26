@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867743"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439392"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 파일 이름을 입력하지 않으면 선택된 기본 파일 이름이 루트 및 하위 디렉터리에서 사용됩니다. 서버에서 404를 반환하고 관리자가 오류 문서 경로를 제공하지 않으면 기본 404 페이지가 사용자에게 반환됩니다.
+
+> [!NOTE]
+> 파일에 대 한 기본 공용 액세스 수준을 비공개로 설정 되었습니다. 파일은 익명 액세스 요청을 통해 제공 됩니다, 때문에이 설정이 무시 됩니다. 모든 파일에 대 한 공용 액세스 이며 RBAC 권한이 무시 됩니다.
 
 ## <a name="cdn-and-ssl-support"></a>CDN 및 SSL 지원
 

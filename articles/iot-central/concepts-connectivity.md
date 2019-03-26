@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835835"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418774"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -33,9 +33,9 @@ DPS를 사용 하 여 사용 하도록 설정 합니다.
 이 방법 문서에서는 다음 네 가지 사용 사례를 설명합니다.
 
 1. [SAS를 사용 하 여 단일 장치를 신속 하 게 연결](#connect-a-single-device)
-1. SAS를 사용 하 여 대규모로 장치 연결
+1. [SAS를 사용 하 여 대규모로 장치 연결](#connect-devices-at-scale-using-sas)
 1. [X.509 인증서를 사용 하 여 대규모로 장치 연결](#connect-devices-using-x509-certificates) 프로덕션 환경에 권장 되는 방법입니다.
-1. 먼저 디바이스를 등록하지 않고 연결 
+1. [먼저 디바이스를 등록하지 않고 연결](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>단일 디바이스 연결
 

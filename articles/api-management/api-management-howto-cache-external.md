@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7d44f7f5d97e558121c5611bc34282989b12f535
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761245"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407626"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management에서 외부 Azure Cache for Redis 사용
 
@@ -66,7 +66,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 ![APIM에 사용자 고유의 캐시 가져오기](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> **다음에서 사용** 설정은 API Management의 다중 지역 구성에서 구성된 캐시와 통신할 API Management 지역별 배포를 지정합니다. **기본값**으로 지정된 캐시는 지역 값이 있는 캐시로 재정의됩니다.
+> 합니다 **에서 사용 하 여** 설정은 API Management의 다중 지역 구성의 경우 구성 된 캐시를 사용 하 여 지역 배포는 통신 하는 API Management를 지정 합니다. **기본값**으로 지정된 캐시는 지역 값이 있는 캐시로 재정의됩니다.
 >
 > 예를 들어 API Management가 미국 동부, 동남 아시아 및 유럽 서부 지역에서 호스팅되고 2개의 캐시(**기본값** 및 **동남 아시아**에 대해 각각 하나씩)가 구성되어 있는 경우, **동남 아시아**에 대한 API Management는 자체 캐시를 사용하지만 다른 두 지역은 **기본값** 캐시 항목을 사용합니다.
 
@@ -76,7 +76,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 2. 왼쪽 메뉴에서 **외부 캐시** 탭을 선택합니다.
 3. **+추가** 단추를 클릭합니다.
 4. **캐시 인스턴스** 드롭다운 필드에서 캐시를 선택합니다.
-5. **기본값**을 선택하거나 **다음에서 사용** 드롭다운 필드에 원하는 지역을 지정합니다.
+5. 선택 **기본** 에서 원하는 지역을 지정 합니다 **에서 사용 하 여** 드롭다운 필드입니다.
 6. **저장**을 클릭합니다.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>현재 Azure 구독 또는 Azure(일반적) 외부에서 호스트되는 Azure Cache for Redis 추가
@@ -85,7 +85,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 2. 왼쪽 메뉴에서 **외부 캐시** 탭을 선택합니다.
 3. **+추가** 단추를 클릭합니다.
 4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
-5. **기본값**을 선택하거나 **다음에서 사용** 드롭다운 필드에 원하는 지역을 지정합니다.
+5. 선택 **기본** 에서 원하는 지역을 지정 합니다 **에서 사용 하 여** 드롭다운 필드입니다.
 6. **연결 문자열** 필드에서 Azure Cache for Redis 연결 문자열을 제공합니다.
 7. **저장**을 클릭합니다.
 

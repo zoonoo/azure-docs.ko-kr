@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e7d264e5d5d289117dbc30b71e317506006e1f30
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401570"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439416"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -284,6 +284,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
     | 중국 | 중국 북부 | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | 인바운드 |
     | &nbsp; | 중국 동부 | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | 인바운드 |
     | &nbsp; | 중국 북부 2 | 40.73.37.141</br>40.73.38.172 | 443 | 인바운드 |
+    | &nbsp; | 중국 동부 2 | 139.217.227.106</br>139.217.228.187 | 443 | 인바운드 |
     | 유럽 | 북유럽 | 52.164.210.96</br>13.74.153.132 | 443 | 인바운드 |
     | &nbsp; | 서유럽| 52.166.243.90</br>52.174.36.244 | 443 | 인바운드 |
     | 프랑스 | 프랑스 중부| 20.188.39.64</br>40.89.157.135 | 443 | 인바운드 |

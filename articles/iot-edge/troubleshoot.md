@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876367"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437104"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -338,6 +338,39 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
 |HTTPS|443|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge 프로비전을 위해 443에서 발신(아웃바운드)을 보내는 열기로 구성합니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다. <li>다음과 같은 특정 시나리오의 경우에만 수신(인바운드) 연결이 Open 상태여야 합니다. <ul> <li>  메서드 요청을 보낼 수 있는 리프 디바이스에 대한 투명 게이트웨이가 있는 경우. 이 경우 IoTHub에 연결하거나 Azure IoT Edge를 통해 IoTHub 서비스를 제공하기 위해 포트 443을 외부 네트워크로 열어둘 필요가 없습니다. 따라서 수신 규칙은 내부 네트워크에서의 수신(인바운드)만 열도록 제한될 수 있습니다. <li> 클라이언트-디바이스(C2D) 시나리오의 경우</ul><li>HTTP에 대한 80은 IoT Edge에서 지원되지 않습니다.<li>비 HTTP 프로토콜(예: AMQP 또는 MQTT)을 엔터프라이즈에서 구성할 수 없는 경우 WebSockets을 통해 메시지를 보낼 수 있습니다. 이 경우 WebSocket 통신에 포트 443이 사용됩니다.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 에이전트 모듈 지속적으로 '빈 구성 파일' 보고서 및 모듈 없이 장치에서 시작
+
+장치에 배포에 정의 된 모듈을 시작 하는 데 문제가 있습니다. Edge 에이전트 에서만 실행 중이지만 지속적으로 '빈 구성 파일...'를 보고 합니다.
+
+### <a name="potential-root-cause"></a>잠재적인 근본 원인
+기본적으로 IoT Edge 모듈 자체 격리 된 컨테이너 네트워크에서 시작 됩니다. 장치는이 개인 네트워크 내 DNS 이름 확인에 문제가 있을 수 있습니다.
+
+### <a name="resolution"></a>해결 방법
+컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 라는 파일을 만들고 `daemon.json` 사용 하려면 DNS 서버를 지정 합니다. 예: 
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+위의 예제는 공개적으로 액세스할 수 있는 DNS 서비스에 DNS 서버를 설정합니다. Edge 장치에 액세스할 수 없으면이 IP 해당 환경에서 액세스할 수 있는 DNS 서버 주소를 사용 하 여 대체 합니다.
+
+위치 `daemon.json` 플랫폼에 적합 한 위치에서: 
+
+| 플랫폼 | 위치 |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows 컨테이너를 사용 하 여 Windows 호스트 | `C:\ProgramData\iotedge-moby-data\config` |
+
+위치에 이미 있으면 `daemon.json` 파일을 추가 합니다 **dns** 에 키 파일을 저장 합니다.
+
+*업데이트를 적용 하려면에 대 한 컨테이너 엔진을 다시 시작*
+
+| 플랫폼 | 명령 |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (관리자 Powershell) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 

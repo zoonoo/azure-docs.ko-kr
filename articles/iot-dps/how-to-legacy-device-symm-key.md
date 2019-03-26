@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fb125e2808592c13d3a153ff5a14622b9fc880
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074899"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434877"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
 
@@ -53,20 +53,22 @@ ms.locfileid: "58074899"
 
 SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
-1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.11.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
+1. 다운로드 합니다 [CMake 빌드 시스템](https://cmake.org/download/)입니다. 다운로드 버전에 해당 하는 암호화 해시 값을 사용 하 여 다운로드 한 이진 파일을 확인 합니다. 암호화 해시 값이 이미 제공 된 CMake 다운로드 링크에서 찾을 수도 있습니다.
+
+    다음 예제에서는 Windows PowerShell를 사용 하는 x64 3.13.4 버전용 암호화 해시를 확인 하려면 MSI 배포:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    3.11.4 버전에 대한 다음 해시 값이 작성 시 CMake 사이트에 나열되었습니다.
+
+    작성 시 3.13.4 버전에 대한 다음 해시 값이 CMake 사이트에 나열됩니다.
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
@@ -292,7 +294,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
+* 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
 * 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
 

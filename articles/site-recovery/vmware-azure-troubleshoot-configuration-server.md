@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107596"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418706"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -48,11 +48,10 @@ ms.locfileid: "58107596"
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.  
     4. 문제를 해결한 후에 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 다시 시도합니다.
 
-7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패하면 다음 단계를 완료합니다.
-    1. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
-    2. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
-    3. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
-    4. 모바일 에이전트를 [제거](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service)합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
+7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다:는 합니다. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
+    b. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
+    다. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
+    d. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>설치 실패: 계정을 로드하지 못함
 
@@ -80,9 +79,9 @@ vCenter 검색 실패를 해결하려면 vCenter Server를 바이패스 목록 �
 
 Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다. 로컬 관리자로 설치 프로그램을 실행하고 있는지 확인한 후에 설치 프로그램을 다시 실행합니다.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Windows 라이선스를 Server Standard EVALUATION에서 Server Standard로 활성화하지 못함
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Windows Server standard Server Standard 평가판 라이선스를 정품 인증에 실패
 
-1. OVF 통해 구성 서버 배포의 일환으로,은 180 일 동안 유효 하는 평가판 라이선스가 사용 됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
+1. OVF 통해 구성 서버 배포의 일환으로,은 180 일 동안 유효 하는 평가판 라이선스가 사용 됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버는 자주 종료 고 따라서 복제 작업에 방해가 될 수 있습니다.
 2. Windows 라이선스를 활성화할 수 없는 경우 [Windows 지원 팀](https://aka.ms/Windows_Support)에 문의하여 문제를 해결하세요.
 
 ## <a name="register-source-machine-with-configuration-server"></a>구성 서버에 원본 머신 등록
@@ -146,7 +145,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    ipaddress가 10.0.0.4인 원본 서버 항목 "OnPrem-VM01"이 있는 경우 다음 명령을 대신 사용합니다.
+    "온-프레미스 VM01"의 소스 서버 항목을 10.0.0.4의 ip 주소를 가진 경우 다음 명령을 대신 사용 합니다.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

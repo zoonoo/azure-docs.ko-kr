@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861352"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439008"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -31,7 +31,7 @@ ms.locfileid: "57861352"
 - Recovery Services 자격 증명 모음에 있는 모든 데이터를 유지 하 고 자격 증명 모음을 삭제 하려면에 않으려면 강제로 자격 증명 모음을 삭제할 수 있습니다.
 - 자격 증명 모음을 삭제하려고 해도 할 수 없는 경우 자격 증명 모음이 여전히 백업 데이터를 받도록 구성되어 있습니다.
 
-자격 증명 모음을 삭제하는 방법을 알아보려면 [Azure Portal에서 자격 증명 모음 삭제](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal) 섹션을 참조합니다. 경우 섹션인 [강제로 자격 증명 모음 삭제](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)합니다. 자격 증명 모음의 내용이 확실하지 않고 자격 증명 모음을 삭제할 수 있는지 확인해야 하는 경우 [자격 증명 모음 종속성 제거 및 자격 증명 모음 삭제](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) 섹션을 참조합니다.
+자격 증명 모음을 삭제하는 방법을 알아보려면 [Azure Portal에서 자격 증명 모음 삭제](#delete-a-vault-from-the-azure-portal) 섹션을 참조합니다. 경우 섹션인 [강제로 자격 증명 모음 삭제](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)합니다. 자격 증명 모음의 내용이 확실하지 않고 자격 증명 모음을 삭제할 수 있는지 확인해야 하는 경우 [자격 증명 모음 종속성 제거 및 자격 증명 모음 삭제](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) 섹션을 참조합니다.
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Azure portal에서 자격 증명 모음 삭제
 
@@ -90,7 +90,7 @@ Recovery Services 자격 증명 모음 삭제하려면
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. 자격 증명 모음의 비어 있지, "자격 증명 모음 수 없습니다.이 자격 증명이 모음 내에서 기존 리소스는 삭제 됨" 오류가 나타납니다. 자격 증명 모음 내에서 포함을 제거 하려면 다음을 수행 합니다.
+9. 자격 증명 모음의 비어 있지, "자격 증명 모음 수 없습니다.이 자격 증명이 모음 내에서 기존 리소스는 삭제 됨" 오류가 나타납니다. 자격 증명 모음 내에 컨테이너를 제거 하려면 다음을 수행 합니다.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

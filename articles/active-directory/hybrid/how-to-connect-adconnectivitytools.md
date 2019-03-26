@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164314"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436713"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈이란?
 
@@ -47,7 +47,7 @@ Azure AD Connect 마법사의 **디렉터리 연결** 페이지에서 네트워�
 
 실제로 내부적으로는 Azure AD Connect에서 `Start-NetworkConnectivityDiagnosisTools` 함수를 호출하고 있습니다.  이 함수는 네트워크 연결 문제로 인해 자격 증명의 유효성 검사가 실패할 때 호출됩니다.
 
-마지막으로, 마법사에서 도구를 호출할 때마다 자세한 로그 파일이 생성됩니다. 이 로그는 **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**에 있습니다.
+마지막으로, 마법사에서 도구를 호출할 때마다 자세한 로그 파일이 생성됩니다. 로그에 위치한 **C:\ProgramData\AADConnect\ADConnectivityTool-\<날짜 >-\<시간 >.log**
 
 ## <a name="adconnectivitytools-post-installation"></a>설치 후의 ADConnectivityTools 작업
 Azure AD Connect가 설치되면 ADConnectivityTools PowerShell 모듈의 함수를 사용할 수 있습니다.  

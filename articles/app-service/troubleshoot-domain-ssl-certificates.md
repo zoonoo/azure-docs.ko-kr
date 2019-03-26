@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730106"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407609"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -278,7 +278,7 @@ Azure portal에서 도메인을 구매 하는 사용자 지정 도메인을 사�
 
 **대신 Azure VM을 가리키도록 Azure portal에서 구매한 도메인을 사용할 수 있습니까?**
 
-예, 저장소 등 VM에 도메인을 가리킬 수 있습니다. 자세한 내용은 [Windows VM에 대 한 Azure portal에서 사용자 지정 FQDN 만들기](../virtual-machines/windows/portal-create-fqdn.md)합니다.
+예, VM에 도메인을 가리킬 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../dns/dns-custom-domain.md)을 참조하세요.
 
 **내 도메인 GoDaddy 또는 Azure DNS에서 호스팅되는?**
 

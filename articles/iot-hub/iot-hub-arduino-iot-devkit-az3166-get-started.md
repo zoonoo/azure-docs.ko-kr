@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351935"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438485"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -24,7 +24,9 @@ Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션을 개
 
 ## <a name="what-you-do"></a>수행할 작업
 
-사용자가 만드는 Azure IoT Hub에 DevKit를 연결합니다. 그런 다음, 센서에서 온도 및 습도 데이터를 수집하고 데이터를 IoT Hub로 보냅니다.
+이 문서에서는 사용 하 여 [Visual Studio Code](https://code.visualstudio.com/)를 함께 코드 편집기, 플랫폼 간 원본 합니다 [Azure IoT 도구](https://aka.ms/azure-iot-tools) 확장 팩입니다.
+
+DevKit 사용자가 만든 Azure IoT hub에 연결 합니다. 그런 다음, 센서에서 온도 및 습도 데이터를 수집하고 데이터를 IoT Hub로 보냅니다.
 
 DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.github.io/iot-devkit-web-simulator/)를 시도하거나 [DevKit를 구매](https://aka.ms/iot-devkit-purchase)합니다.
 
@@ -119,7 +121,9 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 ### <a name="install-azure-iot-tools"></a>Azure IoT Tools 설치
 
-DevKit에서 개발하려면 Visual Studio Code용 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 확장 팩을 사용하는 것이 좋습니다. Azure IoT Tools는 IoT devkit 디바이스에서 개발하고 디버그하는 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 및 Azure IoT Hub와 상호 작용하는 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)를 포함합니다.
+이 섹션에서는 설치를 [Arduino IDE](https://www.arduino.cc/en/Main/Software) 와 함께 [Visual Studio Code](https://code.visualstudio.com/), 플랫폼 간 소스 코드 편집기입니다.
+
+도 설치 합니다 [Azure IoT 도구](https://aka.ms/azure-iot-tools) for Visual Studio Code 확장 팩입니다. 사용 하는 것이 좋습니다 [Azure IoT 도구](https://aka.ms/azure-iot-tools) DevKit의 응용 프로그램을 개발 하려면 Visual Studio Code 용 확장 팩입니다. Azure IoT 도구 확장 팩을 포함 합니다 [Azure IoT 장치 Workbench](https://aka.ms/iot-workbench) 는 개발 및 다양 한 IoT devkit 장치에서 디버그 하는 데 사용 됩니다. 합니다 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)도 Azure IoT 도구 확장 팩을 사용 하 여, 관리 및 Azure IoT Hub와 상호 작용 하는 데 사용 됩니다.
 
 수행하는 작업에 대한 개요를 보려면 다음의 [Channel 9](https://channel9.msdn.com/) 비디오를 볼 수 있습니다.
 * [VS Code에 대한 새 IoT Workbench 확장 소개](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

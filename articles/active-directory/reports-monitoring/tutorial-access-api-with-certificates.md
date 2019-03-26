@@ -3,7 +3,7 @@ title: '자습서: 인증서와 함께 Azure AD Reporting API를 사용하여 �
 description: 이 자습서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 작업 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095197"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438991"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 

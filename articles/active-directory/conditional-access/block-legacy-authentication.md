@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 42f46e6759b0803b49316219f2ca2a6a7beb3818
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351272"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434758"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -140,4 +140,6 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스 정책을 구성하는 데 아직 익숙하지 않은 경우 한 가지 예로 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+- 조건부 액세스 정책을 구성하는 데 아직 익숙하지 않은 경우 한 가지 예로 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+
+- 최신 인증 지원에 대 한 자세한 내용은 참조 하세요. [Office 2013 및 Office 2016 클라이언트 앱에 대 한 최신 인증 작동](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 

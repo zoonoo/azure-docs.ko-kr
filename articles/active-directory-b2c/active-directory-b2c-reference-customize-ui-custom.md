@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122929"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438260"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -150,7 +150,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 사용자 지정 정책을 직접 편집하여 HTML5/CSS 템플릿에 대한 링크를 사용자 경험에 추가할 수 있습니다.
 
-사용자 경험에 사용할 사용자 지정 HTML5/CSS 템플릿은 해당 사용자 경험에 사용할 수 있는 콘텐츠 정의 목록에 지정해야 합니다. 이를 위해 사용자 지정 정책 XML 파일의 *<BuildingBlocks>* 섹션 아래에 선택 사항인 *<ContentDefinitions>* XML 요소를 선언해야 합니다.
+사용자 경험에 사용할 사용자 지정 HTML5/CSS 템플릿은 해당 사용자 경험에 사용할 수 있는 콘텐츠 정의 목록에 지정해야 합니다. 이 위해 선택적  *\<ContentDefinitions >* XML 요소에서 선언 해야 합니다  *\<BuildingBlocks >* 사용자 지정 정책 XML 파일의 섹션.
 
 다음 표는 Azure AD B2C ID 경험 엔진이 인식할 수 있는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 유형을 설명합니다.
 

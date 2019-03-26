@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104841"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439433"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 로그인
 
@@ -27,7 +27,7 @@ ms.locfileid: "56104841"
 
 이러한 애플리케이션을 지원하기 위해 Azure AD B2C(Azure Active Directory B2C)에서는 OAuth 2.0 암시적 흐름을 사용합니다. OAuth 2.0 암시적 권한 부여 흐름은 [OAuth 2.0 사양의 4.2 섹션](https://tools.ietf.org/html/rfc6749)(영문)에서 설명하고 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 추가 페이지 리디렉션 없이 JavaScript 클라이언트에서 전적으로 수행됩니다.
 
-Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리 사용자 흐름과 같은 정책을 앱에 추가할 수 있습니다. 여기서는 암시적 흐름과 Azure AD를 사용하여 단일 페이지 애플리케이션에서 이러한 환경 각각을 구현하는 방법을 보여 줍니다. 시작하는 데 도움이 되도록 [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) 및 [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) 샘플을 살펴보세요.
+Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리 사용자 흐름과 같은 정책을 앱에 추가할 수 있습니다. 여기서는 암시적 흐름과 Azure AD를 사용하여 단일 페이지 애플리케이션에서 이러한 환경 각각을 구현하는 방법을 보여 줍니다.
 
 이 문서의 예제 HTTP 요청에서는 샘플 Azure AD B2C 디렉터리인 **fabrikamb2c.onmicrosoft.com**을 사용합니다. 또한 고유한 애플리케이션 예제 및 사용자 흐름도 사용합니다. 이러한 값을 사용하여 요청을 직접 시도하거나 사용자 고유의 값으로 바꿀 수 있습니다.
 [사용자 고유의 Azure AD B2C 디렉터리, 애플리케이션 및 사용자 흐름을 가져오는](#use-your-own-azure-ad-b2c-tenant) 방법을 알아보세요.
@@ -275,9 +275,4 @@ p=b2c_1_sign_in
 1. [Azure AD B2C 테넌트를 만듭니다](active-directory-b2c-get-started.md). 요청에 테넌트의 이름을 사용합니다.
 2. 애플리케이션 ID 및 `redirect_uri` 값을 얻기 위해 [애플리케이션을 만듭니다](active-directory-b2c-app-registration.md). 앱에 웹앱 또는 Web API를 포함합니다. 필요에 따라 애플리케이션 비밀을 만들 수 있습니다.
 3. [사용자 흐름을 만들어](active-directory-b2c-reference-policies.md) 사용자 흐름 이름을 가져옵니다.
-
-## <a name="samples"></a>샘플
-
-* [Node.js를 사용하여 단일 페이지 앱 만들기](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)(영문)
-* [.NET을 사용하여 단일 페이지 앱 만들기](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)(영문)
 

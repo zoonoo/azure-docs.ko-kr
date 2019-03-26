@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371142"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438635"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mapping Data Flow 싱크 변환
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![싱크 옵션](media/data-flow/windows1.png "싱크 1")
+![싱크 옵션](media/data-flow/sink1.png "싱크 1")
 
 데이터 흐름 변환이 완료되면 변환된 데이터를 대상 데이터 세트로 싱크할 수 있습니다. 싱크 변환에서 대상 출력 데이터에 사용하려는 데이터 세트 정의를 선택할 수 있습니다. 데이터 흐름에 필요한 만큼 싱크 변환을 유지할 수 있습니다.
 

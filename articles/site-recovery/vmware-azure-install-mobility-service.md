@@ -1,19 +1,19 @@
 ---
-title: VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위한 모바일 서비스 설치 | Microsoft Docs
-description: Azure Site Recovery 서비스를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위해 모바일 서비스 에이전트를 설치하는 방법을 알아봅니다.
+title: Azure에 VMware Vm의 재해 복구에 대 한 푸시 설치 및 물리적 서버를 통해 모바일 서비스를 설치 하도록 원본 컴퓨터를 준비 합니다. | Microsoft Docs
+description: VMware Vm의 재해 복구에 대 한 강제 설치를 통해 모바일 에이전트를 설치 하려면 서버 및 Azure Site Recovery 서비스를 사용 하 여 Azure 물리적 서버를 준비 하는 방법에 알아봅니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846915"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418672"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 모바일 서비스 설치
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>모바일 에이전트 강제 설치를 위한 원본 컴퓨터를 준비 합니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM 및 물리적 서버에 대한 재해 복구를 설정할 경우 각 온-프레미스 VMware VM 및 물리적 서버에 [Site Recovery Mobility 서비스](vmware-physical-mobility-service-overview.md)를 설치합니다.  Mobility 서비스는 머신에 기록된 데이터를 캡처하고 이를 Site Recovery 프로세스 서버에 전달합니다.
 
@@ -59,6 +59,10 @@ ms.locfileid: "52846915"
 11. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
 12. 만든 계정을 추가합니다.
 13. 컴퓨터에서 복제를 사용할 때 사용할 자격 증명을 입력합니다.
+
+## <a name="anti-virus-on-replicated-machines"></a>복제된 머신에서 바이러스 백신
+
+복제하려는 머신에 활성 바이러스 백신 소프트웨어가 실행 중이면 바이러스 백신 작업에서 Mobility 서비스 설치 폴더를 제외해야 합니다(*C:\ProgramData\ASR\agent*). 이렇게 하면 복제가 예상대로 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

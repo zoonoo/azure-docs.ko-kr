@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: HT
+ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870862"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437621"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Dynamics CRM Online의 잠재 고객 관리 구성
 
@@ -63,9 +63,10 @@ Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계�
 1.  [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Active Directory 서비스를 선택합니다.
 
 2.  **속성**을 선택하고 **디렉터리 ID**를 복사합니다. 이는 Cloud 파트너 포털에서 사용해야 하는 테넌트 계정 식별입니다.
+
     ![디렉터리 ID 가져오기](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
-3.  **앱 등록**을 선택하고 **새 응용 프로그램 등록**을 선택합니다.
+3.  **앱 등록**을 선택하고 **새 애플리케이션 등록**을 선택합니다.
 4.  애플리케이션 이름을 입력합니다.
 5.  유형으로 **웹앱/API**를 선택합니다.
 6.  URL을 제공합니다. 이 필드는 잠재 고객에는 필요하지 않지만 애플리케이션을 만드는 데 필요합니다.
@@ -77,6 +78,7 @@ Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계�
 11. 키 메뉴에서 **키 값 복사**를 선택합니다. Cloud 파트너 포털에 필요하므로 이 값의 복사본을 저장합니다.
     
     ![Dynamics에서 등록된 키 가져오기](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    
 12. **필요한 권한**을 선택하고 **추가**를 선택합니다. 
 13. 새 API로 **Dynamics CRM Online**을 선택하고 *조직 사용자로 CRM Online 액세스* 권한을 선택합니다.
 
@@ -84,24 +86,27 @@ Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계�
     
     ![애플리케이션 사용자](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. 새 사용자를 만들려면 **새로 만들기**를 선택합니다. **사용자: 응용 프로그램 사용자** 드롭다운을 선택합니다.
+15. 새 사용자를 만들려면 **새로 만들기**를 선택합니다. 선택 된 **사용자: 응용 프로그램 사용자** 드롭다운 합니다.
     
     ![새 애플리케이션 사용자 추가](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. **새 사용자**에서 이 연결에 사용할 이름과 메일을 입력합니다. Azure Portal에서 만든 앱의 **애플리케이션 ID**를 붙여넣습니다.
-     ![새 사용자 구성](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
+
+     ![새 사용자를 구성 합니다.](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. 이 사용자의 연결 구성을 완료하려면 이 문서의 “보안 설정”으로 이동합니다.
 
 ### <a name="office-365"></a>Office 365
 
-Azure Active Directory를 사용하지 않으려면 Office 365 관리 포털에서 새 사용자를 등록할 수 있습니다. 잠재 고객을 계속 가져오려면 90일마다 사용자 이름/암호를 업데이트해야 합니다.
+Azure Active Directory를 사용 하지 않으려는 경우에 새 사용자를 등록할 수 있습니다 합니다 *Microsoft 365 관리 센터*합니다. 잠재 고객을 계속 가져오려면 90일마다 사용자 이름/암호를 업데이트해야 합니다.
 
 Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합니다.
 
-1. [Microsoft Office 365 관리 포털](https://go.microsoft.com/fwlink/?LinkId=225975)에 로그인합니다.
+1. 에 로그인 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다.
 
-2. **관리자** 타일 ![Office Online 관리자](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)를 선택합니다.
+2. 선택 된 **관리자** 바둑판식으로 배열 합니다.
+
+    ![Office Online Admin](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. **사용자 추가**를 선택합니다.
 
@@ -112,7 +117,8 @@ Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합�
     -   암호를 입력하고 “이 사용자가 처음으로 로그인하는 경우 암호를 변경하도록 요청” 옵션의 선택을 취소합니다.
     -   사용자 역할로 “사용자(관리자 액세스 권한 없음)”를 선택합니다.
     -   다음 화면 캡처에 표시된 제품 라이선스를 선택합니다. 선택한 라이선스에 대한 요금이 청구됩니다. 솔루션은 Dynamics CRM Online 기본 라이선스에서도 작동합니다.
-    ![사용자 권한 및 라이선스 구성](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
+    
+    ![사용자 권한 및 라이선스를 구성 합니다.](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## <a name="security-settings"></a>보안 설정
 
@@ -124,13 +130,15 @@ Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합�
     ![보안 설정](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
 3.  **사용자 권한**에서 만든 사용자를 선택하고 **사용자 역할 관리**를 선택합니다. **Microsoft Marketplace 잠재 고객 기록기**를 선택하여 역할을 할당합니다.
+
     ![사용자 역할 할당](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
     >이 역할은 사용자가 가져온 솔루션에서 생성되며 잠재 고객을 기록하고 호환성을 위해 솔루션 버전을 추적하는 권한만 갖습니다.
 
 4.  보안에서 **보안 역할**을 선택하고 Microsoft Marketplace 잠재 고객 기록기의 역할을 찾습니다.
-    ![보안 잠재 고객 기록기 구성](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
+    
+    ![보안 리드 기록기 구성](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. **핵심 레코드** 탭을 선택합니다. 사용자 엔터티 UI에 대해 만들기/읽기/쓰기를 사용하도록 설정합니다.
 
@@ -140,5 +148,5 @@ Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합�
 
 생성된 계정 정보를 Cloud 파트너 포털에 추가하여 잠재 고객 관리용으로 Dynamics CRM 구성을 완료합니다. 예: 
 
--   **Azure Active Directory** - **응용 프로그램 ID**(예: *23456052-aaaa-bbbb-8662-1234df56788f*), **디렉터리 ID**(예: *12345678-8af1-4asf-1234-12234d01db47*) 및 **응용 프로그램 키**(예: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **URL**(예: *https://contoso.crm4.dynamics.com*), **사용자 이름**(예: *contoso\@contoso.onmicrosoft.com*) 및 **암호**(예: *P\@ssw0rd*).
+-   **Azure Active Directory** - **Application-id** (예: *23456052-aaaa-bbbb-8662-1234df56788f*), **디렉터리 Id** (예: *12345678-8af1-4asf-1234-12234d01db47*), 및 **응용 프로그램 키** (예: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
+-   **Office 365** - **Url** (예: *https://contoso.crm4.dynamics.com*), **사용자 이름을** (예: *contoso\@ contoso.onmicrosoft.com*), 및 **암호** (예: *P\@ssw0rd*).

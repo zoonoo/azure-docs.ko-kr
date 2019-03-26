@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193996"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418740"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -74,6 +74,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 * 호스트 이름은 DNS와 호환되어야 합니다. 이름에는 0-9, a-z 및 '-'만 사용이 가능하며, '-'로 시작하거나 끝날 수 없습니다.
 * DNS 쿼리 트래픽은 각 VM에 대해 제한됩니다. 이 제한은 대부분의 애플리케이션에 영향을 주지 않아야 합니다. 요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다. 자세한 내용은 [DNS 클라이언트 구성](#dns-client-configuration)을 참조하세요.
 * 처음 180개의 클라우드 서비스 내에서 VM만 클래식 배포 모델 내의 가상 네트워크에 대해 등록됩니다. 이 제약은 Azure Resource Manager의 가상 네트워크에는 적용되지 않습니다.
+* Azure DNS IP 주소는 168.63.129.16입니다. 고정 IP 주소 이며 변경 되지 않습니다.
 
 ## <a name="dns-client-configuration"></a>DNS 클라이언트 구성
 

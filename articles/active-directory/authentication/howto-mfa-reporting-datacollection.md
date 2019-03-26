@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436671"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
 
@@ -138,7 +138,7 @@ MFA 서버 8.0 이상 버전의 경우 다음 프로세스를 통해 관리자�
 - MFA 서버에 로그인하고, **사용자** 탭으로 이동하여, 해당 사용자를 선택하고, **편집** 단추를 클릭합니다. 각 탭의 스크린샷을 만들고(Alt-PrtScn) 현재 해당 MFA 설정 사용자를 제공합니다.
 - MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` 명령을 실행하여 JSON 형식 파일을 생성합니다.
 - 또한 관리자는 웹 서비스 SDK GetUserGdpr 작업을 옵션으로 사용하여 지정된 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 내보내거나 더 큰 보고 솔루션에 통합할 수 있습니다.
-- `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 및 "<username>"에 대한 모든 백업을 검색(검색에 따옴표 포함)하여 추가되거나 변경된 사용자 레코드의 모든 인스턴스를 찾습니다.
+- 검색 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 및에 대 한 모든 백업을 "\<사용자 이름 >" (따옴표는 검색에 포함) 사용자 레코드의 모든 인스턴스가 추가 되거나 변경를 찾으려고 합니다.
    - 이러한 레코드는 MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 로깅"** 을 선택 취소하여 제한할 수 있습니다(제거할 수는 없음).
    - 대신 Syslog가 구성되고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"사용자 변경 내용 로깅"** 이 선택된 경우에는 로그 항목을 syslog에서 수집할 수 있습니다.
 - MultiFactorAuthSvc.log 및 인증 시도와 관련된 다른 MFA 서버 로그 파일에서 사용자 이름의 다른 항목은 MultiFactorAuthGdpr.exe 내보내기 또는 웹 서비스 SDK GetUserGdpr을 사용하여 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.

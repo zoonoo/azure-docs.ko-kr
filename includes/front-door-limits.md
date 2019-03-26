@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a3a43c56a49c243390eac964d31988b7d30fbb56
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553840"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407843"
 ---
 | 리소스 | 기본 제한 |
 | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "57553840"
 |  | 청크 분할된 전송 인코딩을 (CTE)를 사용 하 여 | HTTP 청크 없이 |
 | ---- | ------- | ------- |
 | **다운로드** | 다운로드 크기에는 제한이 없습니다. | 다운로드 크기에는 제한이 없습니다. |
-| **업로드** |  각 CTE 업로드 28.6 MB 보다 작은 경우에 제한이 없습니다. | 크기는 28.6 보다 클 수 없습니다. MB. |
+| **업로드** |  각 CTE 업로드 2GB 미만인 경우에 제한이 없습니다. | 크기는 2GB 보다 클 수 없습니다. |

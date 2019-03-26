@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400895"
+ms.locfileid: "58417805"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Azure 데이터 상자 Edge (미리 보기)에 대 한 액세스, 기능 및 연결 모드 관리
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure 데이터 상자의 가장자리에 대 한 액세스, 기능 및 연결 모드 관리
 
 이 문서에서는 Azure 데이터 상자의 가장자리에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
 
@@ -26,8 +26,6 @@ ms.locfileid: "58400895"
 > * 연결 모드 관리
 > * 전원 관리
 
-> [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="manage-device-access"></a>디바이스 액세스 관리
 

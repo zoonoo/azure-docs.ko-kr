@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c7a863c017bbd7440704f024ee362c3a0d252891
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 076c57f5415a4f6f19252fb5a3546e5e9a8a23f4
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824808"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417788"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "56824808"
 리소스를 관리 하는 방법에 대 한 다른 문서:
 
 - [Azure portal을 사용 하 여 Azure 리소스 관리](./manage-resources-portal.md)
-- [Azure CLI를 사용 하 여 Azure 리소스 관리](./manage-resources-cli.md)
+- [Azure PowerShell을 사용 하 여 Azure 리소스 관리](./manage-resources-powershell.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>기존 리소스 그룹에 리소스 배포
 

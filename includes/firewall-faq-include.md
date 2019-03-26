@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747750"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419107"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -33,7 +33,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Firewall의 일반적인 배포 모델은 무엇입니까?
 
-어떤 가상 네트워크에도 Azure Firewall을 배포할 수 있지만 고객은 일반적으로 중앙 가상 네트워크에 배포한 후, 허브 및 스포크 모델에서 다른 가상 네트워크를 중앙 가상 네트워크에 피어링합니다. 그 후 피어링된 가상 네트워크에서 이 중앙의 방화벽 가상 네트워크를 가리키도록 기본 경로를 설정할 수 있습니다.
+어떤 가상 네트워크에도 Azure Firewall을 배포할 수 있지만 고객은 일반적으로 중앙 가상 네트워크에 배포한 후, 허브 및 스포크 모델에서 다른 가상 네트워크를 중앙 가상 네트워크에 피어링합니다. 그 후 피어링된 가상 네트워크에서 이 중앙의 방화벽 가상 네트워크를 가리키도록 기본 경로를 설정할 수 있습니다. 글로벌 VNet 피어 링 지원 되지만 지역에 걸쳐 잠재적인 성능 및 대기 시간 문제로 인해 권장 되지 않습니다. 최상의 성능을 위해 지역당 하나의 방화벽을 배포 합니다.
 
 이 모델의 장점은 다양한 구독에 걸쳐 여러 스포크 VNET을 중앙집중적으로 제어하는 기능입니다. 또한 각 VNet에 별도로 방화벽을 배포할 필요가 없으므로 비용도 절감됩니다. 비용 절감은 고객 트래픽 패턴을 기반으로 연결 피어링 비용에 대해 측정해야 합니다.
 
@@ -122,7 +122,7 @@ Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, �
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure Firewall이 동일한 가상 네트워크 또는 피어링된 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
-예. 그러나 UDR을 동일한 VNET의 서브넷 간에 트래픽을 리디렉션하도록 구성하려면 좀 더 주의해야 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET**의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
+예. 그러나 동일한 VNET의 서브넷 간 트래픽을 리디렉션할 Udr 구성 추가 주의가 필요 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET**의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
 
@@ -130,4 +130,4 @@ Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, �
 
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
 
- 아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](../articles/firewall/rule-processing.md)를 참조하세요.
+아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](../articles/firewall/rule-processing.md)를 참조하세요.

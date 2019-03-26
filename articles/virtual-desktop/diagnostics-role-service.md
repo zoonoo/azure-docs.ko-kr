@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402850"
+ms.locfileid: "58418638"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용 하 여 문제를 식별 합니다.
+# <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
 
 Windows 가상 데스크톱 미리 보기를 통해 관리자는 단일 인터페이스를 통해 문제를 식별 하는 진단 기능을 제공 합니다. Windows 가상 데스크톱 역할 시스템와 상호 작용할 때마다 진단 활동을 로그입니다. 각 로그는 트랜잭션, 오류 메시지, 테 넌 트 정보 및 사용자 정보에 포함 된 Windows 가상 데스크톱 역할 등 관련 정보를 포함합니다. 진단 활동 최종 사용자와 관리 작업에서 생성 되 고 주 세 개 버킷으로 분류할 수 있습니다.
 
@@ -32,20 +32,20 @@ Windows 가상 데스크톱 진단 하나만 PowerShell cmdlet을 사용 하지�
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>테 넌 트의 진단 활동 검색
 
-입력 하 여 진단 활동을 검색할 수 있습니다 합니다 **Get RdsDiagnosticsActivities** cmdlet. 다음 예제 cmdlet는 가장 최근부터 가장 정렬 하는 진단 활동 목록을 반환 합니다.
+입력 하 여 진단 활동을 검색할 수 있습니다 합니다 **Get RdsDiagnosticActivities** cmdlet. 다음 예제 cmdlet는 가장 최근부터 가장 정렬 하는 진단 활동 목록을 반환 합니다.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 기타 Windows 가상 데스크톱 PowerShell cmdlet과 마찬가지로 사용 해야 합니다는 **-TenantName** 매개 변수를 쿼리에 대 한 사용 하려는 테 넌 트의 이름을 지정 합니다. 테 넌 트 이름을 거의 모든 진단 활동 쿼리에 대해 적용 됩니다.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>자세한 진단 활동 검색
 
-합니다 **-자세한** 매개 변수는 반환 된 각 진단 활동에 대 한 추가 세부 정보를 제공 합니다. 각 작업에 대 한 형식은 해당 활동 유형에 따라 달라 집니다. 합니다 **-자세한** 에 매개 변수를 추가할 수 있습니다 **Get RdsDiagnosticsActivities** 다음 예와에서 같이 쿼리 합니다.
+합니다 **-자세한** 매개 변수는 반환 된 각 진단 활동에 대 한 추가 세부 정보를 제공 합니다. 각 작업에 대 한 형식은 해당 활동 유형에 따라 달라 집니다. 합니다 **-자세한** 에 매개 변수를 추가할 수 있습니다 **Get RdsDiagnosticActivities** 다음 예와에서 같이 쿼리 합니다.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>특정 진단 활동에서 활동 ID를 검색 합니다.

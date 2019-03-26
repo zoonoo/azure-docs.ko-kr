@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834053"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438940"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -43,7 +43,7 @@ ms.locfileid: "57834053"
 
     ![선택 빌드 아래에서 예약](./media/automate-with-flow/2schedule.png)
 
-1. 에를 **간격** 상자에 입력 합니다 **1**, 및를 **빈도** 상자에서 **일**합니다.
+1. 에 **간격** 상자에 입력 합니다 **1**, 및를 **빈도** 상자에서 **일**합니다.
 2. 클릭 **새 단계**
 
     ![사용 빈도 및 간격을 입력 하 여 되풀이 일정 설정](./media/automate-with-flow/3schedulerecurrence.png)

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443456"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418977"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -190,11 +190,15 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 ![사용자 웹 로그인](./media/active-directory-tou/user-tou.png)
 
+사용자가 수의 사용 약관을 보고 필요한 경우 확대 / 축소 하려면 단추를 사용 합니다.
+
+![확대/축소 단추를 사용 하 여 사용 약관 보기](./media/active-directory-tou/zoom-buttons.png)
+
 다음 화면은 모바일 디바이스에서 사용 약관이 어떻게 표시되는지 보여줍니다.
 
 ![사용자 모바일 로그인](./media/active-directory-tou/mobile-tou.png)
 
-사용자는 한 번만 사용 약관에 동의해야 하며 후속 로그인 시 다시 사용 약관이 표시되지 않습니다.
+사용자가 약관에 동의 사용 하 여 한 번만 해야 하 고 표시 되지 않습니다 사용 약관 다시 후속 로그인 시.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>사용자가 사용 약관을 검토하는 방법
 사용자는 다음 절차를 수행하여 자신이 동의한 사용 약관을 검토하고 살펴볼 수 있습니다.

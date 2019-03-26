@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350015"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407186"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -69,7 +69,7 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 - [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
 - [스트리밍 로케이터](streaming-locators-concept.md)
 
-라이브 스트리밍 워크플로의 단계는 다음과 같습니다.
+### <a name="general-steps"></a>일반 단계
 
 1. Media Services 계정에서 **스트리밍 엔드포인트**가 실행되고 있는지 확인합니다. 
 2. [라이브 이벤트](live-events-outputs-concept.md)를 만듭니다. <br/>이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 또는 스트리밍을 시작할 준비가 되었을 때 이벤트를 시작해도 됩니다.<br/> autostart를 true로 설정하면 Live Event가 생성 직후 시작됩니다. 라이브 이벤트가 실행되는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 라이브 이벤트 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.

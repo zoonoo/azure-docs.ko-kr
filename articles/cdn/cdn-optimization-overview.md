@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870893"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435611"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>콘텐츠 전송 형식에 맞게 Azure CDN 최적화
 
@@ -38,6 +38,8 @@ ms.locfileid: "56870893"
 
 * [일반 웹 배달](#general-web-delivery) 이 최적화는 미디어 스트리밍 및 큰 파일 다운로드에도 사용됩니다.
 
+> [!NOTE]
+> Microsoft의 동적 사이트 가속을 통해 제공 됩니다 [Azure 프런트 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview)합니다.
 
 **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필은 다음 최적화를 지원합니다.
 
@@ -120,6 +122,9 @@ CDN 엔드포인트를 만들 때 엔드포인트를 전송하려는 시나리�
 ### <a name="dynamic-site-acceleration"></a>동적 사이트 가속
 
  **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준**, **Verizon의 Azure CDN 프리미엄** 프로필에 DSA(동적 사이트 가속)를 사용할 수 있습니다. 이 최적화에는 추가 사용 요금이 포함되며 자세한 내용은 [Content Delivery Network 가격](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
+
+> [!NOTE]
+> Microsoft의 동적 사이트 가속을 통해 제공 됩니다 [Azure 프런트 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview) 는 전역 [애니캐스트](https://en.wikipedia.org/wiki/Anycast) 앱 워크 로드를 전달할 Microsoft의 개인 글로벌 네트워크를 활용 하는 서비스입니다.
 
 DSA에는 동적 콘텐츠의 대기 시간과 성능에 도움이 되는 다양한 기술이 포함되어 있습니다. 경로 및 네트워크 최적화, TCP 최적화 등이 이러한 기술에 포함됩니다. 
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200077"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436322"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -244,7 +244,21 @@ ms.locfileid: "58200077"
 
 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)에 대한 구성 설정입니다.
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|자산  |Default | 설명 |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
+|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
+|autoRenewTimeout|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
 
 ## <a name="singleton"></a>singleton
 

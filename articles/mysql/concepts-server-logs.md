@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119040"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417772"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다. 
@@ -53,31 +53,31 @@ Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQ
 
 | **속성** | **설명** |
 |---|---|
-| TenantId | 테넌트 ID |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics` |
-| SubscriptionId | 서버가 속한 구독의 GUID |
-| ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
-| ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | 리소스 URI |
-| 리소스 | 서버의 이름 |
-| Category | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | 서버의 이름 |
-| start_time_t [UTC] | 쿼리가 시작된 시간 |
-| query_time_s | 쿼리를 실행하는 데 걸린 총 시간 |
-| lock_time_s | 쿼리가 잠긴 총 시간 |
-| user_host_s | 사용자 이름 |
-| rows_sent_s | 전송된 행 수 |
-| rows_examined_s | 검사된 행 수 |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | ID 삽입 |
-| sql_text_s | 전체 쿼리 |
-| server_id_s | 서버 ID |
-| thread_id_s | 스레드 ID |
-| \_ResourceId | 리소스 URI |
+| `TenantId` | 테넌트 ID |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `SubscriptionId` | 서버가 속한 구독의 GUID |
+| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 리소스 URI |
+| `Resource` | 서버의 이름 |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | 서버의 이름 |
+| `start_time_t` [UTC] | 쿼리가 시작된 시간 |
+| `query_time_s` | 쿼리를 실행하는 데 걸린 총 시간 |
+| `lock_time_s` | 쿼리가 잠긴 총 시간 |
+| `user_host_s` | 사용자 이름 |
+| `rows_sent_s` | 전송된 행 수 |
+| `rows_examined_s` | 검사된 행 수 |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | ID 삽입 |
+| `sql_text_s` | 전체 쿼리 |
+| `server_id_s` | 서버 ID |
+| `thread_id_s` | 스레드 ID |
+| `\_ResourceId` | 리소스 URI |
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure CLI에서 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)

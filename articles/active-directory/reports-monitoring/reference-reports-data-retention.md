@@ -3,7 +3,7 @@ title: Azure Active Directory 보고서 보존 정책 | Microsoft Docs
 description: Azure Active Directory에서 보고서 데이터 보존 정책
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b8489f3c90652de7a7d8e03c7293c3fbfab6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206619"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438821"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -69,7 +69,7 @@ ms.locfileid: "56206619"
 | 보고서                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | 디렉터리 감사        | 7 일        |  7 일        | 30일             | 30일             |
-| 로그인 작업       | 해당 없음           |  해당 없음           | 30일             | 30일             |
+| 로그인 작업       | N/A           |  N/A           | 30일             | 30일             |
 | Azure MFA 사용        | 30일       |  30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.

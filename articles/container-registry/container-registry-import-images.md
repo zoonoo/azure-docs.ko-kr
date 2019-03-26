@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
-ms.openlocfilehash: 8e9f488f194c3326e79439a65214a060ff16e6c4
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958751"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417746"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
 
@@ -101,7 +101,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 다음 예제에서 *mysourceregistry*는 동일한 Active Directory 테넌트의 *myregistry*에서 다른 구독에 있습니다. `--registry` 매개 변수를 사용하여 원본 레지스트리의 리소스 ID를 제공합니다. `--source` 매개 변수는 원본 리포지토리 및 이미지 이름만 지정하고, 레지스트리 로그인 서버 이름은 지정하지 않습니다.
  
 ```azurecli
-az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>서비스 주체 자격 증명을 사용하여 레지스트리에서 가져오기

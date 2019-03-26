@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233203"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418604"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
@@ -57,9 +57,9 @@ Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용
 | 분할된 데이터베이스 수 |-r, --shard-count |클러스터링을 사용하는 프리미엄 클러스터 캐시에서 만드는 분할된 데이터베이스 수입니다. |
 | Virtual Network |-v, --virtual-network |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 키 유형 |-t, --key-type |갱신하는 키의 유형입니다. 유효한 값: [주, 보조] |
-| StaticIP |-p, --static-ip <static-ip> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
-| 서브넷 |t, --subnet <subnet> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --static-ip \<static-ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
+| 서브넷 |t, --subnet \<subnet\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 구독 |-s, --subscription |구독 식별자입니다. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>모든 Azure Cache for Redis 명령 보기

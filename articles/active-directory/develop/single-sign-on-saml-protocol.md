@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012767"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437886"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -158,7 +158,7 @@ Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 `Issuer` 요소를 `https://login.microsoftonline.com/<TenantIDGUID>/`로 설정합니다. 여기서 <TenantIDGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
+Azure AD 설정 합니다 `Issuer` 요소를 `https://login.microsoftonline.com/<TenantIDGUID>/` 여기서 \<TenantIDGUID > Azure AD 테 넌 트의 테 넌 트 ID입니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
@@ -193,7 +193,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>발급자
 
-`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 <TenantIDGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
+이 값을 설정 `https://sts.windows.net/<TenantIDGUID>/`여기서 \<TenantIDGUID > Azure AD 테 넌 트의 테 넌 트 ID입니다.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

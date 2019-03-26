@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076839"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437784"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58076839"
 8. 데이터베이스가 연결되면 Azure AD Connect 서버로 다시 이동하고 Azure AD Connect를 설치합니다.
 9. MSI 설치가 완료되면 Azure AD Connect 마법사가 기본 모드 설치를 시작합니다. 종료 아이콘을 클릭하여 화면을 닫습니다.
    ![시작](./media/how-to-connect-install-move-db/db1.png)
-10. 새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. <drive>\program files\Microsoft Azure AD Connect로 이동합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
+10. 새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. 폴더로 이동 \<드라이브 > Azure AD Connect \program files\Microsoft 합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
     ![시작](./media/how-to-connect-install-move-db/db3.png)

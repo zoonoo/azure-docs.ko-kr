@@ -1,5 +1,5 @@
 ---
-title: 단순 쿼리 예제 - Azure Search
+title: "\"단순\" 검색 구문-Azure Search를 사용 하 여 쿼리 예제"
 description: 전체 텍스트 검색, 필터 검색, 지리적 검색, 패싯 검색 및 Azure Search 인덱스 쿼리에 사용되는 기타 쿼리 문자열에 대한 단순 쿼리 예제입니다.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136481"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439134"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Azure Search에서 퀴리를 만들기 위한 단순 구문 예제
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"단순" 검색 구문을 사용 하 여 Azure Search의 쿼리 예제
 
 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 Azure Search 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위해 기본 쿼리 파서를 호출합니다. 단순 쿼리 분석기는 신속하며, Azure Search에서 전체 텍스트 검색, 필터링 및 패싯 검색, 지리적 검색 등의 일반적인 시나리오를 처리합니다. 이 문서에서는 단순 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행합니다.
 
@@ -55,7 +55,9 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 아래의 첫 번째 예제에서는 이 URL을 복사하고 붙여 넣을 수 있습니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드 및 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+
+유효성 검사 단계로 및 문서 구조를 보려면 REST 클라이언트에이 URL을 붙여 넣습니다.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ URL 구성에는 다음 요소가 있습니다.
 이 첫 번째 예제는 파서 특정적이지는 않지만 Azure에서는 이를 사용하여 첫 번째 기본 쿼리 개념인 포함을 소개하려고 합니다. 이 예제에서는 쿼리 실행 및 몇 가지 특정 필드에 대한 응답의 범위를 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
 간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
+
+### <a name="partial-query-string"></a>일부 쿼리 문자열
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+쉼표로 구분 된 목록에서 여러 필드를 사용 하 여 동일한 쿼리는 다음과 같습니다.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>전체 URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119295"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418009"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
 
@@ -96,10 +96,12 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 클라이언트에서 지원되는 암호 목록을 반환합니다.          |
 | ciphers_used               | 설정된 SSL 연결에 사용되는 암호를 반환합니다. |
+| client_ip                  | 클라이언트의 IP 주소 고객 위치 헤더에는 포트 정보가 없는 IP 주소만 포함 되도록 응용 프로그램 게이트웨이에서 설정 된 X-전달 기능에 대 한 헤더를 다시 작성 하려는 시나리오에서 특히 유용 합니다. |
 | client_port                | 클라이언트 포트.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대한 정보이며, TCP_INFO 소켓 옵션을 지원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용하는 경우 인증을 위해 제공되는 사용자 이름. |
 | host                       | 우선 순위 순서대로: 요청 줄의 호스트 이름 또는 "호스트" 요청 헤더 필드의 호스트 이름 또는 요청과 일치하는 서버 이름 |
+| cookie_*name*              | 합니다 *이름을* 쿠키 |
 | http_method                | URL 요청을 만드는 데 사용되는 메서드. 예: GET, POST 등. |
 | http_status                | 세션 상태. 예: 200, 400, 403 등                       |
 | http_version               | 요청 프로토콜. 일반적으로 "HTTP/1.0", "HTTP/1.1" 또는 "HTTP/2.0" |
@@ -120,10 +122,6 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 - HTTP 헤더 다시 쓰기 지원은 새 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에만 제공됩니다. 이전 SKU에서는 이 기능이 지원되지 않습니다.
 
 - 연결, 업그레이드 및 호스트 헤더 다시 쓰기는 아직 지원되지 않습니다.
-
-- 두 가지 중요한 서버 변수인 client_ip(요청하는 클라이언트의 IP 주소) 및 cookie_*name*(*이름* 쿠키)은 아직 지원되지 않습니다. client_ip 서버 변수는 헤더에 포트 정보를 제외한 클라이언트의 IP 주소만 포함되도록 Application Gateway에서 설정된 x-forwarded-for 헤더를 고객이 다시 쓰려는 시나리오에서 특히 유용합니다.
-
-  두 서버 변수 모두 곧 지원될 예정입니다.
 
 - 조건부로 http 헤더를 다시 쓰는 기능도 곧 제공될 예정입니다.
 

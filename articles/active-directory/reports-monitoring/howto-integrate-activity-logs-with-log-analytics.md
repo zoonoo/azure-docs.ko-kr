@@ -3,7 +3,7 @@ title: Azure Monitor 로그(미리 보기)에 Azure Active Directory 로그 스�
 description: Azure Monitor 로그(미리 보기)와 Azure Active Directory 로그를 통합하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817068"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436272"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure Monitor 로그(미리 보기)와 Azure AD 로그 통합
 

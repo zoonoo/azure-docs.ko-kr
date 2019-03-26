@@ -3,7 +3,7 @@ title: Azure Active Directory 위험 이벤트 | Microsoft Docs
 description: 이 문서에서는 위험 이벤트의 자세한 개요를 제공합니다.
 services: active-directory
 keywords: Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed1b7dfa19644fa558cafd8df5fed72490f24ff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195688"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439025"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 

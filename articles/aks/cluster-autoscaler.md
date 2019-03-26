@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ab31662b55f89b23d6aba8ebe4394d1e78092dc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990747"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437529"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service (AKS)에서 응용 프로그램 요구에 맞게 클러스터를 자동으로 크기 조정
 
@@ -38,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> 이전에 설치한 경우는 *aks 미리 보기* 사용 하 여 확장을 설치 가능한 업데이트를 `az extension update --name aks-preview` 명령입니다.
+> 이전에 설치한 경우 합니다 *aks 미리 보기* 사용 하 여 확장을 설치 가능한 업데이트를 `az extension update --name aks-preview` 명령입니다.
 
 ### <a name="register-scale-set-feature-provider"></a>확장 집합 기능 공급자 등록
 

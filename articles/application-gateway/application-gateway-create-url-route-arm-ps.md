@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 310e0e77b898171aea3fdcf5996cbc53f9f582a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 32faab707b7a40a9f637e4ee5863690a9d9ff4c3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864612"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439282"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 회람 규칙으로 애플리케이션 게이트웨이 만들기
 
@@ -355,11 +355,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-URL을 http://<ip-address>:8080/video/test.htm으로 변경하고 <ip-address>를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
+URL을 변경 `http://<ip-address>:8080/video/test.htm`, 대체 IP 주소를 `<ip-address>`, 다음 예제와 유사한 결과가 표시 되어야 합니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-URL을 http://<ip-address>:8080/video/test.htm으로 변경하면 다음 예제와 같은 내용이 표시됩니다.
+URL을 변경 `http://<ip-address>:8080/video/test.htm` 다음 예제와 유사한 결과가 표시 되어야 합니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

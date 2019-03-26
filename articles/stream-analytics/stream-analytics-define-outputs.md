@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898876"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438502"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다.
@@ -127,6 +127,7 @@ Blob Storage를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 �
 | Encoding | CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 | CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 | 형식 | JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다. |
+| 속성 열 [선택 사항] | 쉼표로 구분 페이로드 대신 보내는 메시지의 사용자 속성으로 연결 해야 하는 열. "출력에 대 한 사용자 지정 메타 데이터 속성" 섹션에서이 기능에 대 한 자세한 정보 |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/)를 Stream Analytics 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 운영 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
@@ -230,6 +231,7 @@ Stream Analytics 작업을 만들거나 마지막으로 인증한 후 Power BI �
 | Encoding |CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 | 형식 |JSON 형식에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. |
+| 속성 열 [선택 사항] | 쉼표로 구분 페이로드 대신 보내는 메시지의 사용자 속성으로 연결 해야 하는 열. "출력에 대 한 사용자 지정 메타 데이터 속성" 섹션에서이 기능에 대 한 자세한 정보 |
 
 파티션 수는 [Service Bus SKU 및 크기에 따라](../service-bus-messaging/service-bus-partitioning.md) 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.
 
@@ -248,6 +250,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 | 이벤트 직렬화 형식 |출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | Encoding |CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
+| 속성 열 [선택 사항] | [선택 사항] 쉼표로 구분 페이로드 대신 보내는 메시지의 사용자 속성으로 연결 해야 하는 열. "출력에 대 한 사용자 지정 메타 데이터 속성" 섹션에서이 기능에 대 한 자세한 정보 |
 
 파티션 수는 [Service Bus SKU 및 크기에 따라](../service-bus-messaging/service-bus-partitioning.md) 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.
 
@@ -293,6 +296,25 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 
 그뿐 아니라 상황에서는 또한 기간 안에 발생하는 이벤트가 없으면 출력이 생성되지 않습니다. 결과적으로 computeResult 함수는 호출되지 않습니다. 이 동작은 기본 제공 기간 이동 집계 함수와 일치합니다.
 
+## <a name="custom-metadata-properties-for-output"></a>출력에 대 한 사용자 지정 메타 데이터 속성 
+
+이 기능을 사용 하면 보내는 메시지에 사용자 속성으로 쿼리 열을 연결 합니다. 이러한 열 페이로드에 전환 되지 않습니다. 이러한 속성은 출력 메시지에는 사전 형식의에 나타납니다. 키 열 이름인 및 값 속성 사전에 열 값이 있습니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원 됩니다.  
+
+지원 되는 출력: 
+* Service Bus 큐 
+* Service Bus 토픽 
+* 이벤트 허브 
+
+예제: 다음 예에서 DeviceId 및 DeviceStatus 2 필드 메타 데이터에 추가 합니다. 
+* 쿼리: `select *, DeviceId, DeviceStatus from iotHubInput` 합니다.
+* 출력 구성: `DeviceId,DeviceStatus`합니다.
+
+![속성 열](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+출력 메시지 속성을 사용 하 여 EventHub에서 검사할 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)합니다.
+
+   ![사용자 지정 이벤트 속성](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>분할
 
 다음 표에서는 각 출력 유형에 대한 출력 기록기 수 및 파티션 지원이 요약되어 있습니다.
@@ -302,7 +324,7 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | Azure Data Lake Store | 예 | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure SQL Database | 예 | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. SQL Azure Database에 데이터를 로드할 때 쓰기 처리량 성능을 높이는 방법에 대한 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요. |
 | Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure Event Hub | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. <br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
+| Azure Event Hub | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. <br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
 | Power BI | 아닙니다. | 없음 | 사용할 수 없습니다. |
 | Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400768"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438787"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>준비 하 고 마스터 VHD 이미지를 사용자 지정
+# <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
 이 문서에서는 가상 머신 (Vm) 만들기 및 설치 하 고 에서도 소프트웨어를 구성 하는 방법을 포함 하 여 Azure에 업로드할 마스터 가상 하드 디스크 (VHD) 이미지를 준비 하는 방법을 알려줍니다. 이러한 지침은 조직의 기존 프로세스를 사용 하 여 사용할 수 있는 Windows 가상 데스크톱 미리 보기 전용 구성입니다.
 
@@ -162,8 +162,8 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 
 자동 업데이트를 사용 하지 않도록 설정 합니다.
 
-1. Office365의 지침에 따라 설치할 [Office 이미지 준비](set-up-customize-master-image.md#office-image-preparation)합니다.
-2. 지침에 따라 추가 응용 프로그램 설치 [사용자 프로필 설치 (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix)를 [Windows Defender](set-up-customize-master-image.md#windows-defender), 및 [다른 응용 프로그램 및 레지스트리 구성을](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Office365의 지침에 따라 설치할 [소프트웨어 준비 및 설치](set-up-customize-master-image.md#software-preparation-and-installation)합니다.
+2. 지침에 따라 추가 응용 프로그램 설치 [사용자 프로필 컨테이너 (FSLogix) 설정](set-up-customize-master-image.md#set-up-user-profile-container-fslogix)를 [Windows Defender 구성](set-up-customize-master-image.md#configure-windows-defender), 및 [다른 응용 프로그램 및 레지스트리 구성](set-up-customize-master-image.md#other-applications-and-registry-configuration)합니다.
 3. 로컬 VM에서 Windows 자동 업데이트 서비스를 사용 하지 않도록 설정 합니다.
 4. 오픈 **로컬 그룹 정책 편집기\\관리 템플릿\\Windows 구성 요소\\Windows 업데이트**합니다.
 5. 마우스 오른쪽 단추로 클릭 **자동 업데이트 구성** 로 설정 하 고 **비활성**합니다.
@@ -171,7 +171,7 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 또한 자동 업데이트를 사용 하지 않도록 설정 하려면 명령 프롬프트에서 다음 명령을 실행할 수 있습니다.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 실행 합니다.
@@ -232,9 +232,7 @@ Windows 가상 데스크톱 지원 하지 않습니다 공식적으로 Skype 비
 
 ### <a name="set-up-user-profile-container-fslogix"></a>사용자 프로필 컨테이너 (FSLogix) 설정
 
-이미지의 일부로 FSLogix 컨테이너를 포함 하려면의 지침을 따릅니다 [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)합니다.
-
-만든 파일 공유를 사용 하 여 파일 공유 레지스트리 키를 구성할 때 [파일 서버에 대 한 사용 권한을 구성](set-up-customize-master-image.md#configure-permissions-for-the-file-server) 프로필 컨테이너를 저장 하려는 위치입니다. 이 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수도 있습니다 [퀵 스타트](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)합니다.
+이미지의 일부로 FSLogix 컨테이너를 포함 하려면의 지침을 따릅니다 [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)합니다. 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다 [이 빠른 시작](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)합니다.
 
 ### <a name="configure-windows-defender"></a>Windows Defender를 구성 합니다.
 

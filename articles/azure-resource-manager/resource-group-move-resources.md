@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081256"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418893"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -49,7 +49,7 @@ ms.locfileid: "58081256"
 
 ## <a name="services-that-can-be-moved"></a>이동할 수 있는 서비스
 
-아래 목록에서는 새 리소스 그룹 및 구독으로 이동할 수 있는 Azure 서비스의 일반적인 요약 정보가 제공됩니다. 자세한 내용은 [리소스에 대한 이동 작업 지원](move-support-resources.md)을 참조하세요.
+아래 목록에서는 새 리소스 그룹 및 구독으로 이동할 수 있는 Azure 서비스의 일반적인 요약 정보가 제공됩니다. 리소스의 종류는 이동을 지원 목록에 대해서 [이동 리소스에 대 한 작업 지원](move-support-resources.md)합니다.
 
 * Analysis Services
 * API Management
@@ -143,7 +143,7 @@ ms.locfileid: "58081256"
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes 서비스
-* Lab Services - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
+* Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 * Managed Applications
 * Microsoft Genomics
 * Azure의 SAP HANA

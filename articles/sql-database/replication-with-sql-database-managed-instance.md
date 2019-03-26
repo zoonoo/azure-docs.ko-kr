@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762979"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417958"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리되는 인스턴스 데이터베이스에서 복제 구성
 
@@ -45,13 +45,13 @@ ms.locfileid: "57762979"
 지원:
 
 - Azure SQL Database의 SQL Server 온-프레미스 및 관리되는 인스턴스의 트랜잭션 및 스냅숏 복제 조합
-- 구독자는 온-프레미스 SQL Server 데이터베이스, Azure SQL Database의 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀에서 풀링된 데이터베이스일 수 있습니다.
+- 구독자는 온-프레미스 SQL Server 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 탄력적 풀에 풀링된 데이터베이스에 대 한 단일 데이터베이스/관리 되는 인스턴스 수 있습니다.
 - 단방향 또는 양방향 복제.
 
 Azure SQL Database의 관리되는 인스턴스에서는 다음과 같은 기능이 지원되지 않습니다.
 
 - 업데이트할 수 있는 구독
-- 활성 지역 복제
+- [활성 지역 복제](sql-database-active-geo-replication.md) 하 고 [자동 장애 조치 그룹](sql-database-auto-failover-group.md) 트랜잭션 복제를 구성 된 경우 사용할 수 해야 합니다.
 
 ## <a name="configure-publishing-and-distribution-example"></a>게시 및 배포 예제 구성
 

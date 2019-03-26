@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: fbb8eabebd5728c3ff772f78f01b8ea93ff0a526
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400180"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437819"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -125,16 +125,16 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 
 ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업그레이드 전에 복사본을 저장합니다. 그런 다음 변경 내용을 새 버전에 병합합니다.
 
+## <a name="video"></a>비디오
+
+* 에 대 한 외부 단계별 비디오 [처음부터.NET 응용 프로그램을 사용 하 여 Application Insights 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 관심이 있는 경우 살펴볼만한 다른 문서:
 
 * [런타임 시 웹앱 계측](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
-
-## <a name="video"></a>비디오
-
-* 에 대 한 외부 단계별 비디오 [처음부터.NET 응용 프로그램을 사용 하 여 Application Insights 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)합니다.
 
 ### <a name="more-telemetry"></a>추가 원격 분석
 

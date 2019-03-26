@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768079"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434775"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
 Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 때는 위임된 서브넷을 지정해야 합니다.
 
-## <a name="about-this-task"></a>이 작업에 대한 정보
+## <a name="considerations"></a>고려 사항
 * 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 16개의 사용 가능한 IP 주소를 제공하는 /28 네트워크 마스크를 서비스에 사용하면 충분합니다.
-* 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.
 * 각 Azure Vnet(Virtual Network)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
-* 피어링된 가상 네트워크에서 볼륨에 액세스하는 것은 현재 지원되지 않습니다.
+* 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.
+* 볼륨에 액세스 하는 전역적으로 피어 링 된 가상 네트워크에서 현재 지원 되지 않습니다.
+* 만드는 [사용자 정의 사용자 지정 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) 주소를 사용 하 여 VM 서브넷에 Azure NetApp 파일에 위임 하는 서브넷 접두사 (대상)은 지원 되지 않으며 VM 연결에 영향을 줍니다.
 
 ## <a name="steps"></a>단계 
 1.  Azure Portal에서 **가상 네트워크** 블레이드로 이동하여 Azure NetApp Files에 사용할 가상 네트워크를 선택합니다.    
