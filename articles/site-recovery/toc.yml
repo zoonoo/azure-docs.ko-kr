@@ -212,12 +212,10 @@ items:
         href: vmware-azure-set-up-replication.md
       - name: 모바일 서비스 배포
         items:
-        - name: 모바일 서비스 설치
+        - name: 모바일 서비스 개요 및 설치
           href: vmware-physical-mobility-service-overview.md
         - name: 모바일 서비스의 푸시 설치 준비
           href: vmware-azure-install-mobility-service.md
-        - name: 모바일 서비스 수동 설치
-          href: vmware-physical-mobility-service-install-manual.md
         - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: VMware VM에 대한 복제 사용하도록 설정
@@ -244,6 +242,8 @@ items:
         href: vmware-azure-install-linux-master-target.md
     - name: 관리
       items:
+      - name: VMware용 모바일 에이전트 관리
+        href: vmware-physical-manage-mobility-service.md
       - name: VMware에 대한 구성 서버 관리
         href: vmware-azure-manage-configuration-server.md
       - name: 프로세스 서버 관리
@@ -276,8 +276,6 @@ items:
           href: vmware-physical-mobility-service-overview.md
         - name: 모바일 서비스의 푸시 설치 준비
           href: vmware-azure-install-mobility-service.md
-        - name: 모바일 서비스 수동 설치
-          href: vmware-physical-mobility-service-install-manual.md
         - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: 연습 - 재해 복구 설정
@@ -286,6 +284,8 @@ items:
       href: physical-to-azure-failover-failback.md
     - name: 관리
       items:
+      - name: 물리적 서버용 모바일 에이전트 관리
+        href: vmware-physical-manage-mobility-service.md
       - name: 물리적 서버 복제를 위한 구성 서버 관리
         href: physical-manage-configuration-server.md
       - name: 프로세스 서버 관리
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b486afff5bc65e58fc89d4b9f0bee4d9c0ff0b5c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317105"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418999"

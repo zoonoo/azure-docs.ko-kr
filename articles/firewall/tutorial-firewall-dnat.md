@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582244"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531167"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal 홈 페이지에서 **리소스 그룹** 및 **추가**를 차례로 클릭합니다.
 3. **리소스 그룹 이름**에 대해 **RG-DNAT-Test**를 입력합니다.
 4. **구독**의 경우 사용자의 구독을 선택합니다.
@@ -150,11 +150,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    |설정  |값  |
    |---------|---------|
-   |이름     |FW-DNAT-test|
+   |Name     |FW-DNAT-test|
    |구독     |\<구독\>|
-   |리소스 그룹     |**기존 항목 사용**: RG-DNAT-Test |
+   |리소스 그룹     |**기존 리소스 사용**: RG-DNAT-Test |
    |위치     |전에 사용한 동일한 위치 선택|
-   |가상 네트워크 선택     |**기존 항목 사용**: VN-Hub|
+   |가상 네트워크 선택     |**기존 리소스 사용**: VN-Hub|
    |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
 
 5. **검토 + 만들기**를 클릭합니다.

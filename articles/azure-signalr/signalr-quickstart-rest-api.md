@@ -3,16 +3,15 @@ title: 빠른 시작 - Azure SignalR Service REST API
 description: Azure SignalR Service REST API를 사용하기 위한 빠른 시작입니다.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540099"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530795"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -176,3 +175,10 @@ API | `1.0-preview` | `1.0`
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 REST API를 사용하여 SignalR Service에서 클라이언트로 실시간 메시지를 브로드캐스트하는 방법을 알아보았습니다. 다음으로, REST API를 기반으로 빌드되는 SignalR Service 바인딩을 사용하여 Azure Functions를 개발 및 배포하는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [Azuer SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)

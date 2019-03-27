@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>자습서: AppDynamics와 Azure Active Directory 통합
 
@@ -130,29 +130,29 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="configure-appdynamics-single-sign-on"></a>AppDynamics Single Sign-On 구성
 
-7. 다른 웹 브라우저 창에서 AppDynamics 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 AppDynamics 회사 사이트에 관리자로 로그인합니다.
 
-8. 위쪽의 도구 모음에서 **설정**을 클릭한 다음 **관리자**를 클릭합니다.
+1. 위쪽의 도구 모음에서 **설정**을 클릭한 다음 **관리자**를 클릭합니다.
 
     ![관리](./media/appdynamics-tutorial/ic790216.png "관리")
 
-9. **인증 공급자** 탭을 클릭합니다.
+1. **인증 공급자** 탭을 클릭합니다.
 
     ![인증 공급자](./media/appdynamics-tutorial/ic790224.png "인증 공급자")
 
-10. **인증 공급자** 섹션에서 다음 단계를 수행합니다.
+1. **인증 공급자** 섹션에서 다음 단계를 수행합니다.
 
-    ![SAML 구성](./media/appdynamics-tutorial/ic790225.png "SAML 구성")
+   ![SAML 구성](./media/appdynamics-tutorial/ic790225.png "SAML 구성")
 
-    a. **인증 공급자**로 **SAML**을 선택합니다.
+   a. **인증 공급자**로 **SAML**을 선택합니다.
 
-    b. Azure Portal에서 복사한 **로그인 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+   b. Azure Portal에서 복사한 **로그인 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+   다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다.
+   d. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다.
 
-    e. **저장**을 클릭합니다.
+   e. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -172,7 +172,7 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

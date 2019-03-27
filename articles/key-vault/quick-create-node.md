@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 | Microsoft Docs
-description: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
+title: 빠른 시작 - Node 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 | Microsoft Docs
+description: 빠른 시작에서 Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색합니다.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -11,78 +11,79 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1e234b599325da0626c83a57d86ff977b88b5577
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260031"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991277"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>빠른 시작: 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>빠른 시작: Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
-이 빠른 시작에서는 Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. 비밀 값을 확인하려면 Azure에서 다음을 실행해야 합니다. 빠른 시작에서는 Node.js 및 Azure 리소스의 관리 ID를 사용합니다.
+이 빠른 시작에서는 Azure Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 비밀 값을 확인하려면 Azure에서 이 빠른 시작을 실행해야 합니다. 빠른 시작에서는 Node.js 및 Azure 리소스의 관리 ID를 사용합니다. 다음 방법에 대해 알아봅니다.
 
-> [!div class="checklist"]
-> * Key Vault를 만듭니다.
-> * Key Vault에 비밀을 저장합니다.
-> * Key Vault에서 비밀을 검색합니다.
-> * Azure 웹 애플리케이션을 만듭니다.
-> * 웹앱의 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하도록 설정합니다.
-> * 웹 애플리케이션이 Key Vault에서 데이터를 읽기 위해 필요한 권한을 부여합니다.
+* 키 자격 증명 모음을 만듭니다.
+* 키 자격 증명 모음에 비밀을 저장합니다.
+* 키 자격 증명 모음에서 비밀을 검색합니다.
+* Azure 웹 애플리케이션을 만듭니다.
+* 웹앱의 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하도록 설정합니다.
+* 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 
-계속 진행하기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
+계속 진행하기 전에 [Key Vault에 대한 기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
 
->[!NOTE]
-아래 자습서가 모범 사례인 이유를 이해하려면 몇 가지 개념을 이해해야 합니다. Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션/사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 입력해야 합니다. 보안 모범 사례를 따르기 위해 이 첫 번째 비밀도 정기적으로 순환해야 합니다. 하지만 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 애플리케이션에 Azure에서 자동으로 관리하는 ID가 할당됩니다. 이렇게 하면 **비밀 도입 문제**가 해결되므로 사용자/애플리케이션이 모범 사례를 준수할 수 있고 첫 번째 비밀의 순환에 대해 걱정할 필요가 없습니다.
+> [!NOTE]
+> Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
+>
+> [Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 애플리케이션에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 애플리케이션에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Node JS](https://nodejs.org/en/)
+* [Node.JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 이상
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 이상. 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest)를 참조하세요.
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="login-to-azure"></a>Azure에 로그인
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
-CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
+Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 
 ```azurecli
 az login
 ```
 
-## <a name="create-resource-group"></a>리소스 그룹 만들기
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-리소스 그룹 이름을 선택하고 자리 표시자를 입력하세요.
-다음 예에서는 *eastus* 위치에 *<YourResourceGroupName>* 이라는 리소스 그룹을 만듭니다.
+리소스 그룹 이름을 선택하고 자리 표시자를 입력합니다.
+다음 예제에서는 미국 동부 위치에 리소스 그룹을 만듭니다.
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-방금 만든 리소스 그룹은 이 자습서 전체에서 사용됩니다.
+방금 만든 리소스 그룹은 이 문서 전체에서 사용됩니다.
 
-## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
+## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 
-다음으로 이전 단계에서 만든 리소스 그룹을 사용하여 Key Vault를 만듭니다. 이 문서에서는 Key Vault의 이름으로 "ContosoKeyVault"를 사용하고 있지만, 여러분은 각자 고유한 이름을 사용해야 합니다. 다음 정보를 지정합니다.
+다음으로, 이전 단계에서 만든 리소스 그룹을 사용하여 Key Vault를 만듭니다. 이 문서에서는 "ContosoKeyVault"를 이름으로 사용하지만 고유한 이름을 사용해야 합니다. 다음 정보를 지정합니다.
 
-* 자격 증명 모음 이름 - **여기서 Key Vault 이름을 선택하세요**.
-* 리소스 그룹 이름 - **여기서 리소스 그룹 이름을 선택하세요**.
-* 위치 - **미국 동부**.
+* Key Vault 이름
+* 리소스 그룹 이름 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 하이픈(-)만 포함해야 합니다.
+* 위치: **미국 동부**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
 ```
 
-이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 모든 작업을 수행할 권한이 있는 유일한 계정입니다.
+이 시점에서 Azure 계정은 이 새 자격 증명 모음에서 모든 작업을 수행할 권한이 있는 유일한 계정입니다.
 
-## <a name="add-a-secret-to-key-vault"></a>키 자격 증명 모음에 비밀 추가
+## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 보관해야 하면서도 애플리케이션에 제공해야 하는 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다. 이 자습서에서 암호는 **AppSecret**이고 그 안에 **MySecret** 값이 저장됩니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다. 이 자습서에서 암호는 **AppSecret**이고 그 안에 **MySecret** 값이 저장됩니다.
 
-아래 명령을 입력하여 값 **MySecret**을 저장하는 **AppSecret**이라는 비밀을 Key Vault에 만듭니다.
+다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -94,11 +95,11 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-이 명령은 URI를 포함한 비밀 정보를 표시합니다. 이러한 단계를 완료하면 Azure Key Vault의 비밀에 대한 URI이 생깁니다. 이 정보를 적어 둡니다. 나중에 필요합니다.
+이 명령은 URI를 포함한 비밀 정보를 표시합니다. 이러한 단계가 완료되면 비밀에 대한 URI가 키 자격 증명 모음에 있어야 합니다. 이 정보를 기록해 둡니다. 이후 단계에서 필요합니다.
 
 ## <a name="clone-the-repo"></a>리포지토리 복제
 
-소스를 편집할 로컬 복사본을 만들려면 다음 명령을 실행하여 리포지토리를 복제합니다.
+리포지토리를 복제하여 원본을 편집할 수 있는 로컬 복사본을 만듭니다. 다음 명령 실행:
 
 ```
 git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
@@ -106,28 +107,30 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 
 ## <a name="install-dependencies"></a>종속성 설치
 
-여기서 종속성을 설치합니다. cd key-vault-node-quickstart npm install 명령을 실행합니다.
+다음 명령을 실행하여 종속성을 설치합니다.
 
-이 프로젝트에서는 2노드 모듈을 사용합니다.
+```
+cd key-vault-node-quickstart
+npm install
+```
 
-* [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) 
-* [azure-keyvault](https://www.npmjs.com/package/azure-keyvault)
+이 프로젝트는 두 개의 Node 모듈 [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) 및 [azure-keyvault](https://www.npmjs.com/package/azure-keyvault)를 사용합니다.
 
-## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
+## <a name="publish-the-web-app-to-azure"></a>Azure에 웹앱 게시
 
-아래는 우리가 해야 할 몇 가지 단계입니다.
-
-- 첫 번째 단계는 [Azure App Service](https://azure.microsoft.com/services/app-service/) 계획을 만드는 것입니다. 이 계획에 여러 웹앱을 저장할 수 있습니다.
+[Azure App Service](https://azure.microsoft.com/services/app-service/) 계획을 만듭니다. 이 계획에 여러 웹앱을 저장할 수 있습니다.
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
     ```
-- 다음으로 웹앱을 만듭니다. 다음 예제에서 <app_name>을 글로벌하게 고유한 앱 이름으로 바꿉니다(유효한 문자는 a-z, 0-9 및 -). 런타임은 NODE|6.9로 설정됩니다. 지원되는 모든 런타임을 보려면 az webapp list-runtimes 명령을 실행합니다.
+다음으로, 웹앱을 만듭니다. 다음 예제에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 a-z, 0-9 및 -). 런타임은 NODE|6.9로 설정됩니다. 지원되는 모든 런타임을 보려면 `az webapp list-runtimes`를 실행합니다.
+
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
     ```
-    웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
+웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
+
     ```
     {
       "availabilityState": "Normal",
@@ -142,15 +145,14 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
       < JSON data removed for brevity. >
     }
     ```
-    새로 만든 웹앱으로 이동하면 웹앱이 작동하는 것을 볼 수 있습니다. <app_name>을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동하면 웹앱이 작동하는 것을 볼 수 있습니다. `<app_name>`을 고유한 앱 이름으로 바꿉니다.
 
     ```
     http://<app name>.azurewebsites.net
     ```
-    또한 위의 명령은 로컬 git에서 azure에 배포할 수 있는 Git 지원 앱을 만듭니다. 
-    로컬 git는 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git' url을 사용하여 구성됩니다.
+또한 이전 명령은 로컬 Git 리포지토리에서 Azure에 배포할 수 있는 Git 지원 앱을 만듭니다. 로컬 Git 리포지토리는 URL: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git을 사용하여 구성됩니다.
 
-- 이전 명령이 완료된 후 배포 사용자를 만들면 로컬 Git 리포지토리에 Azure 원격을 추가할 수 있습니다. <url>을 앱에 대해 Git 사용에서 가져온 Git 원격의 URL로 바꿉니다.
+이전 명령을 완료한 후에는 로컬 Git 리포지토리에 Azure 원격을 추가할 수 있습니다. `<url>`을 Git 리포지토리의 URL로 바꿉니다.
 
     ```
     git remote add azure <url>
@@ -170,7 +172,7 @@ az webapp identity assign --name <app_name> --resource-group "<YourResourceGroup
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
-위 명령의 출력을 적거나 복사해 둡니다. 다음과 같은 형식이어야 합니다.
+이전 명령의 결과를 기록해 둡니다. 다음과 같은 형식이어야 합니다.
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -178,26 +180,23 @@ az webapp identity assign --name <app_name> --resource-group "<YourResourceGroup
           "type": "SystemAssigned"
         }
         
-그런 다음, Key Vault의 이름 및 위에서 복사한 PrincipalId 값을 사용하여 이 명령을 실행합니다.
+그런 다음, Key Vault의 이름 및 **principalId** 값을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 ```
 
-## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Azure에 노드 앱을 배포하고 비밀 값 검색
+## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Azure에 Node 앱을 배포하고 비밀 값 검색
 
-이제 모든 것이 설정되었습니다. 다음 명령을 실행하여 Azure에 앱을 배포합니다.
+다음 명령을 실행하여 Azure에 앱을 배포합니다.
 
 ```
 git push azure master
 ```
 
-그리고 https://<app_name>.azurewebsites.net을 검색하면 비밀 값을 볼 수 있습니다.
-<YourKeyVaultName> 이름을 해당 자격 증명 모음 이름으로 바꿔야 합니다.
+그리고 https://<app_name>.azurewebsites.net을 검색하면 비밀 값을 볼 수 있습니다. <YourKeyVaultName> 이름을 해당 자격 증명 모음 이름으로 바꿔야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault 홈 페이지](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault 설명서](https://docs.microsoft.com/azure/key-vault/)
-* [Node용 Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API 참조](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Node용 Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

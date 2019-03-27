@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328336"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549037"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 다음 쿼리는 파티션 키(`DeviceId`)에 대한 필터가 없으므로 파티션의 인덱스에 대해 실행되는 모든 파티션으로 팬아웃됩니다. 파티션 간에 쿼리를 실행 하려면 `EnableCrossPartitionQuery`를 true로(또는 REST API의 경우 `x-ms-documentdb-query-enablecrosspartition` )로 설정합니다.
 
-EnablecrossPartitionQuery 속성은 부울 값을 허용합니다. true로 설정된 경우 쿼리에 파티션 키가 없으면 Azure Cosmos DB가 쿼리를 파티션 전반에 팬 아웃합니다. 팬 아웃은 모든 파티션에 개별 쿼리를 발급하여 수행됩니다. 쿼리 결과를 읽으려면 클라이언트 애플리케이션에서 FeedResponse의 결과를 사용하고 ContinuationToken 속성을 확인해야 합니다. 모든 결과를 읽으려면 ContinuationToken이 null이 될 때까지 데이터를 계속 반복합니다. 
+EnableCrossPartitionQuery 속성은 부울 값을 허용합니다. true로 설정된 경우 쿼리에 파티션 키가 없으면 Azure Cosmos DB가 쿼리를 파티션 전반에 팬 아웃합니다. 팬 아웃은 모든 파티션에 개별 쿼리를 발급하여 수행됩니다. 쿼리 결과를 읽으려면 클라이언트 애플리케이션에서 FeedResponse의 결과를 사용하고 ContinuationToken 속성을 확인해야 합니다. 모든 결과를 읽으려면 ContinuationToken이 null이 될 때까지 데이터를 계속 반복합니다. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

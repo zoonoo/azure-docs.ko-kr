@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855957"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-review-team"></a>검토 팀 만들기
 
-[Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)에 가입하고 검토 팀을 만드는 방법에 대한 지침은 [Content Moderator 익히기](quick-start.md) 빠른 시작을 참조하세요. **자격 증명** 페이지에서 **팀 ID** 값을 기록해 둡니다.
+[Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)에 가입하고 검토 팀을 만드는 방법에 대한 지침은 [웹에서 Content Moderator 사용해 보기](quick-start.md) 빠른 시작을 참조하세요. **자격 증명** 페이지에서 **팀 ID** 값을 기록해 둡니다.
 
 ## <a name="create-custom-moderation-tags"></a>사용자 지정 조정 태그 만들기
 

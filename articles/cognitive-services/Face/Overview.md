@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455979"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588961"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
@@ -26,12 +26,12 @@ Face API는 각각 다음 섹션에 설명된 다양한 기능을 제공합니�
 
 Face API는 이미지에서 사람 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환할 수 있습니다. 필요에 따라 얼굴 감지는 자세, 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다.
 
+> [!NOTE] 
+> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 제공되지만 얼굴 데이터로 추가 작업을 수행하려는 경우 Face API(이 서비스)를 사용해야 합니다.
+
 ![얼굴 주위에 사각형이 그려지고 연령 및 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 제공되지만 얼굴 데이터로 추가 작업을 수행하려는 경우 Face API(이 서비스)를 사용해야 합니다. 
-
-얼굴 감지에 대한 자세한 내용은 [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
+얼굴 감지에 대한 자세한 내용은 [얼굴 감지 방법 가이드](face-api-how-to-topics/howtodetectfacesinimage.md)를 참조하거나 [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조 설명서를 확인하세요.
 
 ## <a name="face-verification"></a>얼굴 확인
 

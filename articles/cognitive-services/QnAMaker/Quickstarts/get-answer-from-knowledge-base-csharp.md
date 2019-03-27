@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884004"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
-이 빠른 시작에서는 게시된 QnA Maker 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. JSON 형식의 질문이 API 요청의 본문에 전송됩니다. 
+이 빠른 시작에서는 게시된 QnA Maker 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다. 기술 자료에는 FAQ와 같은 [데이터 원본](../Concepts/data-sources-supported.md)의 질문과 답변이 있습니다. [질문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)은 QnA Maker 서비스로 전송됩니다. [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)은 예상되는 상위 답변을 포함합니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -37,7 +37,7 @@ ms.locfileid: "55861122"
 ## <a name="create-a-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 
 1. Open Visual Studio 2017 Community Edition.
-1. 새 콘솔 앱(.Net Core) 프로젝트를 만들고 프로젝트 이름을 QnaMakerQuickstart로 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
+1. 새 콘솔 앱(.NET Core) 프로젝트를 만들고 프로젝트 이름을 QnaMakerQuickstart로 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
 
 ## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
@@ -58,6 +58,8 @@ Program.cs 파일의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 �
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 `Authorization` 헤더의 값에는 문자열 `EndpointKey `가 포함됩니다. 
+
+[요청](../how-to/metadata-generateanswer-usage.md#generateanswer-request) 및 [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response)에 대한 자세한 정보 
 
 ## <a name="build-and-run-the-program"></a>프로그램 빌드 및 실행
 

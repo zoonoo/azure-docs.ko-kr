@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 여러 경로 찾기 | Microsoft Docs
 description: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/14/2018
+ms.date: 03/07/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2af3981e05482a5f59b19cfaa2e400ae47295763
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585239"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588842"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -41,17 +41,16 @@ ms.locfileid: "56585239"
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Multiple routes by mode of travel</title>
-        
+        <title>Map Route</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
 
         <script>
             var map, datasource, client;
@@ -70,7 +69,6 @@ ms.locfileid: "56585239"
             }
 
             #myMap {
-                position: relative;
                 width: 100%;
                 height: 100%;
             }
@@ -87,12 +85,15 @@ ms.locfileid: "56585239"
 3. 다음 JavaScript 코드를 `GetMap` 함수에 추가합니다. **\<Your Azure Maps Key\>** 문자열을 Maps 계정에서 복사한 기본 키로 바꿉니다.
 
     ```JavaScript
-    //Add your Azure Maps subscription key to the map SDK. 
-    atlas.setSubscriptionKey('<Your Azure Maps Key>');
-
-    //Initialize a map instance.
-    map = new atlas.Map('myMap');
-    ```
+   //Instantiate a map object
+   var map = new atlas.Map("myMap", {
+       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+       authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+       }
+   });
+   ```
 
     **atlas Map**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공하고 Azure 맵 컨트롤 API의 구성 요소입니다.
 
@@ -115,7 +116,7 @@ ms.locfileid: "56585239"
     
      로드 이벤트는 맵에 추가되고, 맵 리소스가 완전히 로드될 때 실행됩니다. 맵 로드 이벤트 처리기에서 맵의 트래픽 흐름 설정이 자유 흐름에 대한 상대 속도인 `relative`로 설정됩니다. 또한 도로의 `absolute` 속도 또는 자유 흐름과 다른 상대 속도를 표시하는 `relative-delay`로 설정할 수도 있습니다.
 
-2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 현재 교통 데이터가 있는 로스앤젤레스의 거리가 표시됩니다.
+2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 지도와 상호 작용하고 로스엔젤레스를 확대하는 경우 거리와 현재 교통 데이터 상황이 표시됩니다.
 
    ![교통 지도 보기](./media/tutorial-prioritized-routes/traffic-map.png)
 
@@ -125,54 +126,50 @@ ms.locfileid: "56585239"
 
 이 자습서에서는 두 개의 경로를 계산하여 지도에 렌더링합니다. 한 경로는 승용차가 접근할 수 있는 도로를 사용하고 다른 경로는 트럭이 접근할 수 있는 도로를 사용합니다. 경로가 렌더링되면 경로의 시작과 끝부분에 대한 기호 아이콘을 표시하고 각 경로를 서로 다른 색상의 선으로 표시할 것입니다.
 
-1. GetMap 함수에서 맵을 초기화한 후, 다음 JavaScript 코드를 추가합니다.
+1. 지도를 초기화한 후 지도 로드 이벤트에 다음 JavaScript 코드를 추가합니다.
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
-    map.events.add('load', function () {
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
 
-        //Create a data source and add it to the map.
-        datasource = new atlas.source.DataSource();
-        map.sources.add(datasource);
+    //Add a layer for rendering the route lines and have it render under the map labels.
+    map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+        strokeColor: ['get', 'strokeColor'],
+        strokeWidth: ['get', 'strokeWidth'],
+        lineJoin: 'round',
+        lineCap: 'round',
+        filter: ['==', '$type', 'LineString']
+    }), 'labels');
 
-        //Add a layer for rendering the route lines and have it render under the map labels.
-        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
-            strokeColor: ['get', 'strokeColor'],
-            strokeWidth: ['get', 'strokeWidth'],
-            lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
-        }), 'labels');
-
-        //Add a layer for rendering point data.
-        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-            iconOptions: {
-                image: ['get', 'icon'],
-                allowOverlap: true
-            },
-            textOptions: {
-                textField: ['get', 'title'],
-                offset: [0, 1.2]
-            },
-            filter: ['==', '$type', 'Point']
-        }));
-    });
+    //Add a layer for rendering point data.
+    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+        iconOptions: {
+            image: ['get', 'icon'],
+            allowOverlap: true
+        },
+        textOptions: {
+            textField: ['get', 'title'],
+            offset: [0, 1.2]
+        },
+        filter: ['==', '$type', 'Point']
+    }));
     ```
+
+    로드 이벤트는 맵에 추가되고, 맵 리소스가 완전히 로드될 때 실행됩니다. 맵 로드 이벤트 처리기에서, 경로 선과 시작 및 끝 지점을 저장하는 데이터 원본이 만들어집니다. 선 레이어를 만들어 데이터 원본에 연결하여 경로 선이 렌더링되는 방식을 정의합니다. 식은 경로 선 기능의 속성에서 선 너비 및 색상을 검색하는 데 사용됩니다. 이 레이어만 GeoJSON LineString 데이터를 렌더링하도록 보장하기 위한 필터가 추가됩니다. 맵에 레이어를 추가하면 값이 `'labels'`인 두 번째 매개 변수가 전달됩니다. 이 매개 변수는 맵 레이블 아래의 이 레이어를 렌더링하도록 지정합니다. 이렇게 하면 경로 선이 도로 레이블을 가리지 않습니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 레이어는 시작 및 끝 지점이 렌더링되는 방식을 지정합니다. 이 예에서는 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다.
     
-    로드 이벤트는 맵에 추가되고, 맵 리소스가 완전히 로드될 때 실행됩니다. 맵 로드 이벤트 처리기에서, 경로 선과 시작 및 끝 지점을 저장하는 데이터 원본이 만들어집니다. 선 레이어를 만들어 데이터 원본에 연결하여 경로 선이 렌더링되는 방식을 정의합니다. 식은 경로 선 기능의 속성에서 선 너비 및 색상을 검색하는 데 사용됩니다. 이 레이어만 GeoJSON LineString 데이터를 렌더링하도록 보장하기 위한 필터가 추가됩니다. 맵에 레이어를 추가하면 값이 `'labels'`인 두 번째 매개 변수가 전달됩니다. 이 매개 변수는 맵 레이블 아래의 이 레이어를 렌더링하도록 지정합니다. 이렇게 하면 경로 선이 도로 레이블을 가리지 않습니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 레이어는 시작 및 끝 지점이 렌더링되는 방식을 지정합니다. 이 예에서는 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 
-    
-2. 이 자습서에서는 출발 지점을 시애틀 소재의 Fabrikam이라는 가상 회사로, 도착 지점을 Microsoft 본사로 설정합니다. 맵 로드 이벤트 처리기에서 다음 코드를 추가합니다.
+2. 이 자습서에서는 출발점을 시애틀 소재의 Fabrikam이라는 가상 회사로, 도착점을 Microsoft 본사 건물로 설정합니다. 맵 로드 이벤트 처리기에서 다음 코드를 추가합니다.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
     var startPoint = new atlas.data.Feature(new atlas.data.Point([-122.356099, 47.580045]), {
         title: 'Fabrikam, Inc.',
-        icon: 'pin-round-blue'
+        icon: 'pin-blue'
     });
-
+    
     var endPoint = new atlas.data.Feature(new atlas.data.Point([-122.201164, 47.616940]), {
         title: 'Microsoft - Lincoln Square',
-        icon: 'pin-blue'
+        icon: 'pin-round-blue'
     });
     ```
     
@@ -190,8 +187,7 @@ ms.locfileid: "56585239"
         padding: 100
     });
     ```
-    
-    시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 시작 및 끝 지점에 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다.
+    시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다.
 
 4. 파일을 저장하고, 브라우저를 새로 고쳐 지도에 표시된 핀을 확인합니다. 이제 지도의 중심에 시애틀이 표시되며, 출발점을 표시하는 둥근 파란색 핀과 도착점을 표시하는 파란색 핀을 볼 수 있습니다.
 
@@ -201,75 +197,71 @@ ms.locfileid: "56585239"
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>여행 모드에 따라 우선 순위가 지정된 경로 렌더링
 
-이 섹션에서는 Maps 경로 서비스 API를 사용하여 운송 모드에 따라 지정된 출발 지점과 도착 지점 간의 여러 경로를 찾는 방법을 보여 줍니다. 경로 서비스는 현재 교통 상황을 고려하여 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 다음 코드 블록은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
+이 섹션에서는 Maps 경로 서비스 API를 사용하여 운송 모드에 따라 지정된 출발점과 도착점 간의 여러 경로를 찾는 방법을 보여 줍니다. 경로 서비스는 현재 교통 상황을 고려하여 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 다음 코드 블록은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
 
-1. 맵 로드 이벤트 처리기에서 다음 Javascript 코드를 추가하여 서비스 클라이언트를 인스턴스화합니다.
+1. GetMap 함수에서 다음 JavaScript 코드를 추가합니다.
 
-    ```JavaScript
-    //If the service client hasn't been created, create an instance of it.
-    if (!client) {
-        client = new atlas.service.Client(atlas.getSubscriptionKey());
-    }
+    ```Javascript
+    // Use SubscriptionKeyCredential with a subscription key
+    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
+
+    // Use subscriptionKeyCredential to create a pipeline
+    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
+
+    // Construct the RouteURL object
+    var routeURL = new atlas.service.RouteURL(pipeline);
     ```
-    
-2. 다음 블록의 코드를 추가하여 경로 쿼리 문자열을 생성합니다.
+   **SubscriptionKeyCredential**은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 **SubscriptionKeyCredentialPolicy**를 만듭니다. **atlas.service.MapsURL.newPipeline()** 은 **SubscriptionKeyCredential** 정책을 사용하고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스를 만듭니다. **routeURL**은 Azure Maps [라우팅](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
+
+2. 자격 증명 및 URL을 설정한 후 다음과 같은 JavaScript 코드를 추가하여 USHazmatClass2 등급 화물을 운반하는 트럭의 출발점~도착점 경로를 생성하고 결과를 표시합니다.
 
     ```JavaScript
-    //Create the route request with the query being the start and end point in the format 'startLongitude,startLatitude:endLongitude,endLatitude'.
-    var routeQuery = startPoint.geometry.coordinates[1] +
-        ',' +
-        startPoint.geometry.coordinates[0] +
-        ':' +
-        endPoint.geometry.coordinates[1] +
-        ',' +
-        endPoint.geometry.coordinates[0];
-    ```
+    //Start and end point input to the routeURL
+    var coordinates= [[startPoint.geometry.coordinates[0], startPoint.geometry.coordinates[1]], [endPoint.geometry.coordinates[0], endPoint.geometry.coordinates[1]]];
 
-3. USHazmatClass2 클래스 화물을 운반하는 트럭의 경로를 요청하는 다음 JavaScript 코드를 추가하고 결과를 표시합니다.
-
-    ```JavaScript
-    //Execute the truck route query then add the route to the map.
-    client.route.getRouteDirections(routeQuery, {
+    //Make a search route request for a truck vehicle type
+    routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates,{
         travelMode: 'truck',
         vehicleWidth: 2,
         vehicleHeight: 2,
         vehicleLength: 5,
         vehicleLoadType: 'USHazmatClass2'
-    }).then(function (response) {
-        // Parse the response into GeoJSON
-        var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
-
-        //Get the route line and add some style properties to it.
-        var routeLine = geoJsonResponse.getGeoJsonRoutes().features[0];
-        routeLine.properties.strokeColor = '#2272B9';
-        routeLine.properties.strokeWidth = 9;
-
-        //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.
-        datasource.add(routeLine, 0);
-    });
+    }).then((directions) => {
+          //Get data features from response
+          var data = directions.geojson.getFeatures();
+        
+          //Get the route line and add some style properties to it.  
+          var routeLine = data.features[0];
+          routeLine.properties.strokeColor = '#2272B9';
+          routeLine.properties.strokeWidth = 9;
+          
+          //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.
+          datasource.add(routeLine, 0);
+        });
     ```
-    위의 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그 후 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 하지만 데이터 원본의 다른 선보다 먼저 렌더링되도록 인덱스 0을 추가합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(파란색의 멋진 음영인 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다. 
+    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 **geojson.getFeatures()** 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선을 추출합니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 또한 인덱스 0을 추가하여 데이터 원본의 다른 어떤 줄보다도 먼저 렌더링되도록 합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(파란색의 멋진 음영인 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다.
 
-4. 다음 JavaScript 코드를 추가하여 승용차 경로를 요청하고 결과를 표시합니다.
+3. 다음 JavaScript 코드를 추가하여 승용차 경로를 생성하고 결과를 표시합니다.
 
     ```JavaScript
-    //Execute the car route query then add the route to the map.
-    client.route.getRouteDirections(routeQuery).then(function (response) {
-        // Parse the response into GeoJSON
-        var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
+      
+      //Get data features from response
+      var data = directions.geojson.getFeatures();
 
-        //Get the route line and add some style properties to it.
-        var routeLine = geoJsonResponse.getGeoJsonRoutes().features[0];
-        routeLine.properties.strokeColor = '#B76DAB';
-        routeLine.properties.strokeWidth = 5;
-
-        //Add the route line to the data source.
-        datasource.add(routeLine);
+      //Get the route line and add some style properties to it.  
+      var routeLine = data.features[0];
+      routeLine.properties.strokeColor = '#B76DAB';
+      routeLine.properties.strokeWidth = 5;
+      
+      //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.  
+      datasource.add(routeLine);
     });
     ```
-    이 코드 조각은 자동차에 대해 동일한 트럭 경로 쿼리를 사용합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그런 다음, 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 두 속성(보라색 음영인 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다. 
 
-5. **MapTruckRoute.html** 파일을 저장하고, 브라우저를 새로 고쳐 결과를 확인합니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
+    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 **geojson.getFeatures()** 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선을 추출합니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 두 속성(보라색 음영인 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다.  
+
+4. **MapTruckRoute.html** 파일을 저장하고, 브라우저를 새로 고쳐 결과를 확인합니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
 
     ![Azure Route Service를 사용하여 우선 순위가 지정된 경로](./media/tutorial-prioritized-routes/prioritized-routes.png)
 

@@ -8,24 +8,28 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754747"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549428"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
-이 빠른 시작에서는 Azure CLI를 사용하여 백 엔드 풀에 가상 머신 두 개가 있는 애플리케이션 게이트웨이를 신속하게 만드는 방법을 보여줍니다. 그런 다음, 올바르게 작동하는지 테스트합니다. Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보냅니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Application Gateway를 만드는 방법을 보여 줍니다.  Application Gateway를 만든 후 올바르게 작동하는지 테스트합니다. Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보냅니다. 간단히 나타내기 위해 이 문서에서는 공용 프런트 엔드 IP 1개, 이 Application Gateway에 단일 사이트를 호스트하는 기본 수신기 1개, 백 엔드 풀에 사용되는 가상 머신 2개, 기본 요청 라우팅 규칙 1개을 이용한 간단한 설정을 사용합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+## <a name="prerequisites"></a>필수 조건
+
+### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
+
 로컬로 CLI를 설치하여 사용하기로 선택하는 경우 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드에 대한 자세한 내용은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+### <a name="resource-group"></a>리소스 그룹
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 
 
@@ -35,9 +39,9 @@ Azure에서 관련 리소스를 리소스 그룹에 할당합니다. [az group c
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>네트워크 리소스 만들기 
+### <a name="required-network-resources"></a>필요한 네트워크 리소스 
 
-가상 네트워크를 만들면 애플리케이션 게이트웨이가 다른 리소스와 통신할 수 있습니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 가상 머신용입니다. 애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
+Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다.  애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.  Application Gateway에 대한 새 서브넷을 만들거나 기존 서브넷을 사용할 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 사용 사례에 따라 Application Gateway의 프런트 엔드 IP를 공용 또는 개인 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
 
 가상 네트워크 및 서브넷을 만들려면 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용합니다. [az network public-ip create](/cli/azure/network/public-ip)를 실행하여 공용 IP 주소를 만듭니다.
 
@@ -59,11 +63,11 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+### <a name="backend-servers"></a>백 엔드 서버
 
-이 예제에서는 Azure에서 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 
+백 엔드는 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인할 수 있도록 가상 머신에 IIS를 설치합니다.
 
-### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
+#### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 
 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인할 수 있도록 가상 머신에 [NGINX 웹 서버](https://docs.nginx.com/nginx/)를 설치합니다. cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 "Hello World" Node.js 앱을 실행할 수 있습니다. cloud-init에 대한 자세한 내용은 [Azure의 가상 머신에 대한 Cloud-init 지원](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)을 참조하세요.
 
@@ -169,13 +173,13 @@ az network public-ip show \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
-``` 
+```
 
 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
     
 ![애플리케이션 게이트웨이 테스트](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-브라우저를 새로 고치면 보조 VM의 이름이 표시됩니다.
+브라우저를 새로 고치면 보조 VM의 이름이 표시됩니다. 유효한 응답은 Application Gateway가 성공적으로 만들어졌는지와 백 엔드에 성고적으로 연결될 수 있는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -184,7 +188,7 @@ az network public-ip show \
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
 ```
- 
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]

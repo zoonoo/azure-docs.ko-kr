@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: f20c62f574b22d55d2acd8f9c7b811067837adb7
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985940"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875003"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -34,7 +34,7 @@ ms.locfileid: "56985940"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/)을 설치합니다.
-* [.Net Core SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
+* [.NET Core SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
 * [Git](https://git-scm.com/download/)를 설치합니다.
 
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100641"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779167"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS 사설 영역 만들기
 
@@ -47,7 +47,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>DNS 사설 영역 만들기
 
-DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `az network dns zone create` 명령을 사용하여 만듭니다. 다음 예제에서는 **contoso.local**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
+DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `az network dns zone create` 명령을 사용하여 만듭니다. 다음 예제에서는 **private.contoso.com**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
 
 **ZoneType** 매개 변수를 생략하면 영역이 공용 영역으로 만들어지므로 사설 영역을 만들어야 합니다.
 
@@ -61,7 +61,7 @@ az network vnet create \
   --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -118,12 +118,12 @@ az vm create \
 
 DNS 레코드를 만들려면 `az network dns record-set [record type] add-record` 명령을 사용합니다. 도움말과 A 레코드를 추가하는 도움말은 `azure network dns record-set A add-record --help`를 참조하세요.
 
- 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **contoso.local**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.contoso.local**입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"입니다.
+ 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **private.contoso.com**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.private.contoso.com**입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"입니다.
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -135,13 +135,13 @@ az network dns record-set a add-record \
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 두 대의 테스트 가상 머신에 대해 자동으로 생성된 A 레코드가 표시되지 않습니다.
 
 ## <a name="test-the-private-zone"></a>개인 영역 테스트
 
-이제 **contoso.local** 사설 영역에 대한 이름 확인을 테스트할 수 있습니다.
+이제 **private.contoso.com** 사설 영역에 대한 이름 확인을 테스트할 수 있습니다.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>인바운드 ICMP를 허용하도록 VM 구성
 
@@ -160,13 +160,13 @@ myVM02에서 반복
 
 1. myVM02 Windows PowerShell 명령 프롬프트에서 자동으로 등록된 호스트 이름을 사용하여 myVM01을 ping합니다.
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    다음과 유사한 결과가 표시됩니다.
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -180,13 +180,13 @@ myVM02에서 반복
    ```
 2. 이제 이전에 만든 **db** 이름을 ping합니다.
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    다음과 유사한 결과가 표시됩니다.
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

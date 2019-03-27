@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용하여 비디오 파일 스트리밍 - CLI | Microsoft Docs
+title: Azure Media Services 및 Azure CLI를 사용하여 비디오 파일 스트리밍 | Microsoft Docs
 description: 이 빠른 시작의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,20 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8de004b0ca55cb46336a072dabb682f342c7d8dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446497"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244726"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>빠른 시작: 비디오 파일 스트리밍 - CLI
 
-이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 디바이스에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여 줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일 경로를 사용하여 지정할 수 있습니다.
-이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
+이 빠른 시작은 Azure Media Services 및 Azure CLI를 사용하여 다양한 브라우저 및 디바이스에서 비디오를 쉽게 인코딩하고 스트리밍하는 방법을 보여 줍니다. Azure Blob 스토리지에서 HTTPS 또는 SAS URL, 파일 경로를 사용하여 입력 콘텐츠를 지정할 수 있습니다.
 
-빠른 시작이 끝나면 비디오를 스트리밍 할 수 있습니다.  
+이 문서의 예제에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 Media Services v3는 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
+
+이 빠른 시작이 끝나면 비디오를 스트리밍할 수 있습니다.  
 
 ![비디오 재생](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -33,9 +34,9 @@ ms.locfileid: "56446497"
 
 ## <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
-Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정은 하나 이상의 스토리지 계정과 연결해야 합니다.
+Azure에서 미디어 콘텐츠를 암호화, 인코딩, 분석, 관리 및 스트리밍하려면 먼저 Media Services 계정을 만들어야 합니다. 이 계정은 하나 이상의 스토리지 계정과 연결되어야 합니다.
 
-Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 스토리지 계정을 사용하는 것이 좋습니다.
+Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하여 대기 시간 및 데이터 송신 비용을 제한하는 것이 좋습니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -43,23 +44,23 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 az group create -n amsResourceGroup -l westus2
 ```
 
-### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-다음 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다.
+이 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다.
 
-스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요.
+스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 사용하는 것이 좋습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요.
  
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
-### <a name="create-an-azure-media-service-account"></a>Azure Media Services 계정 만들기
+### <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -80,15 +81,15 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 }
 ```
 
-## <a name="start-streaming-endpoint"></a>스트리밍 엔드포인트 시작
+## <a name="start-the-streaming-endpoint"></a>스트리밍 엔드포인트 시작
 
-다음 CLI는 기본 **스트리밍 엔드포인트**를 시작합니다.
+다음 Azure CLI 명령은 기본 **스트리밍 엔드포인트**를 시작합니다.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
-시작되면 다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -118,7 +119,7 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 }
 ```
 
-스트리밍 엔드포인트가 이미 실행 중인 경우 다음 응답을 받습니다.
+스트리밍 엔드포인트가 이미 실행 중인 경우 다음 메시지가 표시됩니다.
 
 ```
 (InvalidOperation) The server cannot execute the operation in its current state.
@@ -126,13 +127,13 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 
 ## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>적응 비트 전송률 인코딩을 위한 변환 만들기
 
-**Transform**(변환)을 만들어 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성합니다. 다음 예제에서는 적응 비트 전송률 인코딩을 수행하려고 합니다. 그런 다음, 만든 변환 아래에 **Job**(작업)을 제출합니다. Job은 지정된 입력 비디오 또는 오디오 콘텐츠에 변환을 적용하도록 요구하는 Media Services에 대한 실제 요청입니다.
+**Transform**(변환)을 만들어 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성합니다. 다음 예제에서는 적응 비트 전송률 인코딩을 수행합니다. 그런 다음, 만든 변환 아래에서 작업을 제출합니다. 해당 작업은 지정된 비디오 또는 오디오 콘텐츠 입력에 변환을 적용하도록 요구하는 Media Services에 대한 요청입니다.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -158,13 +159,13 @@ az ams transform create --name testEncodingTransform --preset AdaptiveStreaming 
 
 ## <a name="create-an-output-asset"></a>출력 자산 만들기
 
-인코딩 작업의 출력으로 사용되는 출력 **Asset**(자산)을 만듭니다.
+인코딩 작업의 출력으로 사용할 출력 **자산**을 만듭니다.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -183,21 +184,22 @@ az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 }
 ```
 
-## <a name="start-job-with-https-input"></a>HTTPS 입력으로 작업 시작
+## <a name="start-a-job-by-using-https-input"></a>HTTPS 입력을 사용하여 작업 시작
 
-Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입력 비디오를 찾을 위치를 Media Services에 알려줘야 합니다. 옵션 중 하나는 다음 예제와 같이 HTTPS URL을 작업 입력으로 지정하는 것입니다. 
+비디오를 처리할 작업을 제출할 때 입력 비디오를 찾을 위치를 Media Services에 알려줘야 합니다. 한 가지 옵션은 다음 예제와 같이 HTTPS URL을 작업 입력으로 지정하는 것입니다.
 
-`az ams job start`를 실행하면 레이블을 작업의 출력에 설정할 수 있습니다. 이 레이블은 나중에 이 출력 자산의 용도를 식별하는 데 사용할 수 있습니다. 
+`az ams job start`를 실행하면 레이블을 작업의 출력에 설정할 수 있습니다. 레이블을 사용하여 출력 자산의 용도를 식별할 수 있습니다.
 
 - 값을 레이블에 할당하는 경우 '--output-assets'를 "assetname=label"로 설정합니다.
 - 값을 레이블에 할당하지 않는 경우 '--output-assets'를 "assetname="로 설정합니다.
-  "="를 `output-assets`에 추가합니다. 
+
+  "="을 `output-assets`에 추가합니다.
 
 ```azurecli
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -234,15 +236,15 @@ az ams job start --name testJob001 --transform-name testEncodingTransform --base
 
 ### <a name="check-status"></a>상태 확인
 
-5분 내에 작업 상태를 확인합니다. "마침"이어야 합니다. 그렇지 않은 경우 몇 분만 더 확인하세요. "마침"이 되면 다음 단계로 이동하여 **스트리밍 로케이터**를 만듭니다.
+5분 후에 작업 상태를 확인합니다. "마침"이어야 합니다. 완료되지 않으면 몇 분 후에 다시 확인합니다. 완료되었으면 다음 단계로 이동한 후 **스트리밍 로케이터**를 만듭니다.
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
-## <a name="create-streaming-locator-and-get-path"></a>스트리밍 로케이터 만들기 및 경로 가져오기
+## <a name="create-a-streaming-locator-and-get-a-path"></a>스트리밍 로케이터 만들기 및 경로 가져오기
 
-인코딩이 완료되면 다음 단계는 클라이언트에서 출력 자산의 비디오를 재생할 수 있게 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, **스트리밍 로케이터**를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다.
+인코딩이 완료되면 다음 단계는 클라이언트에서 출력 자산의 비디오를 재생할 수 있게 만드는 것입니다. 이렇게 하려면 먼저 스트리밍 로케이터를 만듭니다. 그런 후 클라이언트가 사용할 수 있는 스트리밍 URL을 빌드합니다.
 
 ### <a name="create-a-streaming-locator"></a>스트리밍 로케이터 만들기
 
@@ -250,7 +252,7 @@ az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n te
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -276,7 +278,7 @@ az ams streaming-locator create -n testStreamingLocator --asset-name testOutputA
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
-다음과 비슷한 응답을 받습니다.
+다음과 같은 응답이 표시됩니다.
 
 ```
 {
@@ -307,44 +309,40 @@ az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStre
 }
 ```
 
-Hls 경로를 복사합니다. 여기서는 `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`입니다.
+HLS(HTTP 라이브 스트리밍) 경로를 복사합니다. 이 예제의 경우 `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`입니다.
 
-## <a name="build-url"></a>URL 작성 
+## <a name="build-the-url"></a>URL 작성 
 
-### <a name="get-streaming-endpoint-host-name"></a>스트리밍 엔드포인트 호스트 이름 가져오기
+### <a name="get-the-streaming-endpoint-host-name"></a>스트리밍 엔드포인트 호스트 이름 가져오기
 
 ```azurecli
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
+`hostName` 값을 복사합니다. 이 예제의 경우 `amsaccount-usw22.streaming.media.azure.net`입니다.
 
-`hostName` 값을 복사합니다. 여기서는 `amsaccount-usw22.streaming.media.azure.net`입니다.
-
-### <a name="assemble-url"></a>URL 어셈블
+### <a name="assemble-the-url"></a>URL 어셈블
 
 "https:// " + &lt;hostName 값&gt; + &lt;Hls 경로 값&gt;
 
-#### <a name="example"></a>예
+예를 들면 다음과 같습니다.
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="test-playback-with-azure-media-player"></a>Azure Media Player에서 재생 테스트
-
-이 문서에서는 스트림을 테스트하기 위해 Azure Media Player를 사용합니다. 
+## <a name="test-playback-by-using-azure-media-player"></a>Azure Media Player를 사용하여 재생 테스트
 
 > [!NOTE]
-> 플레이어가 https 사이트에 호스트 될 경우 URL을 "https"로 업데이트해야 합니다.
+> 플레이어가 HTTPS 사이트에 호스트될 경우 URL을 "https"로 시작해야 합니다.
 
-1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
-2. 이전 섹션에서 작성한 URL을 **URL:** 상자에 붙여넣습니다. 
+1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)으로 이동합니다.
+2. **URL** 상자에 이전 섹션에서 작성한 URL을 붙여넣습니다. HLS, Dash 또는 Smooth 형식에서 URL을 붙여넣을 수 있습니다. Azure Media Player는 디바이스에서 재생할 때 적절한 스트리밍 프로토콜을 자동으로 사용합니다.
+3. **플레이어 업데이트**를 선택합니다.
 
-  URL을 HLS, Dash 또는 부드러운 스트리밍 형식으로 붙여넣을 수 있으며, Azure Media Player는 디바이스에서 재생하기 위한 적절한 스트리밍 프로토콜로 자동으로 전환합니다.
-3. **플레이어 업데이트**를 누릅니다.
-
-Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
+>[!NOTE]
+>Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 위해 만든 Media Services 및 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
+이 빠른 시작을 위해 만든 Media Services 및 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
 
 다음 CLI 명령을 실행합니다.
 
@@ -358,5 +356,4 @@ az group delete --name amsResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
 > [CLI 샘플](cli-samples.md)

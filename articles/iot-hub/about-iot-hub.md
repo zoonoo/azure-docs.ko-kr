@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343630"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726740"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
-IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 응용 프로그램과 이를 통해 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
+IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 애플리케이션과 이를 통해 관리하는 장치 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
 
 IoT Hub는 디바이스에서 클라우드로, 클라우드에서 디바이스로의 통신을 모두 지원합니다. IoT Hub는 디바이스-클라우드 원격 분석, 디바이스에서 파일 업로드 및 클라우드에서 디바이스를 제어하는 요청-회신 방법과 같은 여러 메시징 패턴을 지원합니다. IoT Hub 모니터링을 사용하면 디바이스 만들기, 디바이스 오류 및 디바이스 연결과 같은 이벤트를 추적하여 솔루션의 상태를 유지 관리할 수 있습니다.
 
@@ -66,7 +66,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 * [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/)을 사용하여 컴퓨터 학습 및 AI 모델을 솔루션에 추가합니다.
 
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)를 사용하여 장치에서 스트림하는 데이터에 대해 실시간 분석 계산을 실행합니다.
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)를 사용하여 디바이스에서 스트림하는 데이터에 대해 실시간 분석 계산을 실행합니다.
 
 ## <a name="configure-and-control-your-devices"></a>디바이스 구성 및 제어
 
@@ -84,12 +84,12 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 ## <a name="connect-your-devices"></a>사용자 디바이스 연결
 
-[Azure IoT 장치 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 라이브러리를 사용하여 장치에서 실행되고 IoT Hub와 상호 작용하는 응용 프로그램을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
+[Azure IoT 장치 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 라이브러리를 사용하여 장치에서 실행되고 IoT Hub와 상호 작용하는 애플리케이션을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
 
 * C
 * C#
 * 자바
-* 파이썬
+* Python
 * Node.js
 
 디바이스 연결을 위해 IoT Hub 및 디바이스 SDK에서 지원하는 프로토콜은 다음과 같습니다.
@@ -110,7 +110,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 
-Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 10개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
+Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)
 
@@ -120,4 +120,4 @@ Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한�
 
 종단 간 IoT 솔루션을 사용해 보려면 다음 IoT Hub 빠른 시작을 확인해 보세요.
 
-* [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-node.md)
+* [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)

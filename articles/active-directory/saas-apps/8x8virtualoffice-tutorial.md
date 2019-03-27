@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a7fa7d95a3ce00c1a906b0c1b2bd8cc6852f84f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>자습서: 8x8 Virtual Office와 Azure Active Directory 통합
 
@@ -128,41 +128,41 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 8x8 Virtual Office의 �
 
 ### <a name="configure-8x8-virtual-office-single-sign-on"></a>8x8 Virtual Office Single Sign-On 구성
 
-7. 8x8 Virtual Office 테넌트에 관리자 권한으로 로그온합니다.
+1. 8x8 Virtual Office 테넌트에 관리자 권한으로 로그온합니다.
 
-8. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
+1. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
 
     ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. **비즈니스** 계정을 선택하여 관리하고 **로그인** 단추를 클릭입니다.
+1. **비즈니스** 계정을 선택하여 관리하고 **로그인** 단추를 클릭입니다.
 
     ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. 메뉴 목록에서 **계정** 탭을 클릭합니다.
+1. 메뉴 목록에서 **계정** 탭을 클릭합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+   ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
-11. 계정 목록에서 **Single Sign On** 을 클릭합니다.
+1. 계정 목록에서 **Single Sign On** 을 클릭합니다.
   
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+   ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. 인증 방법에서 **Single Sign-On**을 선택하고 **SAML**을 클릭합니다.
+1. 인증 방법에서 **Single Sign-On**을 선택하고 **SAML**을 클릭합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+   ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. **SAML Single Sign-On** 섹션에서 다음 단계를 수행합니다.
+1. **SAML Single Sign-On** 섹션에서 다음 단계를 수행합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+   ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-    a. **로그온 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+   a. **로그온 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    b. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+   b. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-    다. **발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+   다. **발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
-    d. **브라우저** 단추를 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
+   d. **브라우저** 단추를 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 
-    e. **저장** 단추를 클릭합니다.
+   e. **저장** 단추를 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -182,7 +182,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 8x8 Virtual Office의 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867055"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546314"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 사용 권한 설정
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen2에 저장된 파일은 세분화된 사용 권한 �
 
 ## <a name="managing-access"></a>액세스 관리
 
-파일 시스템의 루트에서 사용 권한을 설정할 수 있습니다. 이 작업을 수행하려면 파일 시스템을 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리**를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
+파일 시스템의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage 탐색기에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 파일 시스템을 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리**를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
 
 ![Microsoft Azure Storage 탐색기 - 디렉터리 액세스 관리](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

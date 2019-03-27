@@ -3,21 +3,20 @@ title: Resource Manager 템플릿을 사용하여 Azure 데이터 팩터리 만�
 description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447602"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576653"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -34,7 +33,9 @@ ms.locfileid: "56447602"
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
@@ -51,7 +52,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 Data Factory 엔터티를 배포하려면 이 빠른 시작의 앞부분에서 만든 Resource Manager 템플릿을 사용하여 PowerShell에서 다음 명령을 실행합니다.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 다음 샘플과 비슷한 출력이 표시됩니다.
@@ -368,9 +369,9 @@ DeploymentDebugLogLevel :
 - 복사 작업이 포함된 파이프라인
 - 파이프라인을 트리거하는 트리거
 
-배포된 트리거는 중지된 상태입니다. 트리거를 시작하는 방법 중 하나는 **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet을 사용하는 것입니다. 다음 절차에서는 자세한 단계를 설명합니다.
+배포된 트리거는 중지된 상태입니다. 트리거를 시작하는 방법 중 하나는 **Start-AzDataFactoryV2Trigger** PowerShell cmdlet을 사용하는 것입니다. 다음 절차에서는 자세한 단계를 설명합니다.
 
-1. PowerShell 창에서 리소스 그룹의 이름을 저장할 변수를 만듭니다. 다음 명령을 PowerShell 창에 복사하고 ENTER 키를 누릅니다. New-AzureRmResourceGroupDeployment 명령에 다른 리소스 그룹 이름을 지정한 경우 여기서 값을 업데이트합니다.
+1. PowerShell 창에서 리소스 그룹의 이름을 저장할 변수를 만듭니다. 다음 명령을 PowerShell 창에 복사하고 ENTER 키를 누릅니다. New-AzResourceGroupDeployment 명령에 다른 리소스 그룹 이름을 지정한 경우 여기서 값을 업데이트합니다.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ DeploymentDebugLogLevel :
 4. 데이터 팩터리 및 트리거 이름을 지정한 후 다음 PowerShell 명령을 실행하여 **트리거 상태**를 가져옵니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -405,7 +406,7 @@ DeploymentDebugLogLevel :
 5. **트리거를 시작합니다**. 트리거는 템플릿에 정의된 파이프라인을 정각에 실행합니다. 즉, 이 명령을 오후 2시 25분에 실행하면 트리거는 오후 3시에 처음으로 파이프라인을 실행합니다. 그런 다음, 트리거에 지정된 종료 시간까지 1시간마다 파이프라인을 실행합니다.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     샘플 출력은 다음과 같습니다.
@@ -416,10 +417,10 @@ DeploymentDebugLogLevel :
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Get-AzureRmDataFactoryV2Trigger 명령을 다시 실행하여 트리거가 시작되었는지 확인합니다.
+6. Get-AzDataFactoryV2Trigger 명령을 다시 실행하여 트리거가 시작되었는지 확인합니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     샘플 출력은 다음과 같습니다.
@@ -466,7 +467,7 @@ DeploymentDebugLogLevel :
 8. 트리거 성공/실패를 확인했으면 트리거를 중지합니다. 트리거는 1시간에 한 번씩 파이프라인을 실행합니다. 파이프라인은 출력 폴더의 동일한 파일을 각 실행의 출력 폴더로 복사합니다. 트리거를 중지하려면 PowerShell 창에서 다음 명령을 실행합니다.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
 #### <a name="trigger"></a>트리거
 
-파이프라인을 한 시간에 한 번 실행하는 트리거를 정의합니다. 배포된 트리거는 중지된 상태입니다. **Start-AzureRmDataFactoryV2Trigger** cmdlet을 사용하여 트리거를 시작합니다. 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#triggers) 문서를 참조하세요.
+파이프라인을 한 시간에 한 번 실행하는 트리거를 정의합니다. 배포된 트리거는 중지된 상태입니다. **Start-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거를 시작합니다. 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#triggers) 문서를 참조하세요.
 
 ```json
 {
@@ -647,11 +648,11 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 예제:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 첫 번째 명령은 개발 환경에 대한 매개 변수 파일, 두 번째 명령은 테스트 환경에 대한 매개 변수 파일, 세 번째 명령은 프로덕션 환경에 대한 매개 변수 파일을 사용합니다.

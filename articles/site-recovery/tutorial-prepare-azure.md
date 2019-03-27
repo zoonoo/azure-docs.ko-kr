@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure 준비 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure를 준비하는 방법을 알아봅니다.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838564"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -28,7 +28,6 @@ ms.locfileid: "54159012"
 
 > [!div class="checklist"]
 > * Azure 계정에 복제 권한이 있는지 확인합니다.
-> * Azure 저장소 계정 만들기 복제된 컴퓨터의 이미지가 여기에 저장됩니다.
 > * Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음은 VM 및 기타 복제 구성 요소에 대한 메타데이터 및 구성 정보를 유지합니다.
 > * Azure 네트워크 설정 장애 조치(failover) 후 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
 
@@ -36,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure Portal](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="verify-account-permissions"></a>계정 권한 확인
 
@@ -44,27 +43,11 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 - 선택한 리소스 그룹에 VM 만들기
 - 선택한 가상 네트워크에 VM 만들기
-- 선택한 저장소 계정에 쓰기
+- 스토리지 계정에 쓰기
+- 관리형 디스크에 쓰기
 
 이러한 작업을 완료하려면 계정에 가상 머신 참가자 기본 제공 역할이 할당되어야 합니다. 또한 자격 증명 모음에서 Site Recovery 작업을 관리하려면 계정에 Site Recovery 참가자 기본 제공 역할이 할당되어야 합니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-
-복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 저장소에서 Azure VM이 만들어집니다. 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다. 이 자습서에서는 유럽 서부를 사용합니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **Storage** > **Storage 계정 - BLOB, 파일, 테이블, 큐**를 클릭합니다.
-2. **저장소 계정 만들기**에서 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**을 사용합니다. 선택한 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 포함해야 합니다.
-3. **배포 모델**에서 **Resource Manager**를 선택합니다.
-4. **계정 종류**에서 **Storage(범용 v1)** 를 선택합니다. Blob Storage를 선택하지 마세요.
-5. **복제**에서 저장소 중복에 대해 기본 **읽기 액세스 지역 중복 저장소**를 선택합니다. **보안 전송 필요**를 **사용 안 함**으로 둡니다.
-6. **성능**에서 **표준**을 선택하고 **액세스 계층**에서 **핫**의 기본 옵션을 선택합니다.
-7. **구독**에서 새 저장소 계정을 만들려는 구독을 선택합니다.
-8. **리소스 그룹**에서 새 리소스 그룹을 입력합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 자습서에서는 **ContosoRG**를 사용합니다.
-9. **위치**에서 저장소 계정에 대한 지리적 위치를 선택합니다. 
-
-   ![저장소 계정 만들기](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. **만들기**를 선택하여 저장소 계정을 만듭니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -81,7 +64,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
 
-장애 조치(failover) 후 저장소에서 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
+장애 조치(failover) 후 Managed Disks에서 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택합니다.
 2. 배포 모델로 선택되어 있는 **Resource Manager**를 그대로 둡니다.
@@ -100,8 +83,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 ## <a name="useful-links"></a>유용한 링크
 
 - Azure 네트워크에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
-- Azure Storage 유형에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts).
-- 저장소 중복 및 저장소의 [보안 전송](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage).
+- Managed Disks에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
 
 
 

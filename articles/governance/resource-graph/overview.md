@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267957"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193571"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -52,7 +52,7 @@ Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응�
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 
-Resource Graph는 Azure CLI와 Azure PowerShell을 모두 지원합니다. 쿼리는 두 언어 모두에 동일하게 구조화됩니다. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)에서 Resource Graph를 사용하도록 설정하는 방법에 대해 알아봅니다.
+Resource Graph는 Azure CLI, Azure PowerShell 및 Azure SDK for .NET을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)에서 Resource Graph를 사용하도록 설정하는 방법에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,110 +1,91 @@
 ---
-title: Speech Service란?
+title: Azure Speech Services란?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services의 일부인 Speech Service는 Bing Speech(음성 인식 및 텍스트 음성 변환으로 구성됨), Custom Speech, 음성 번역 등 이전에 별도로 사용할 수 있었던 여러 가지 음성 서비스를 통합합니다.
+description: Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. Speech SDK, Speech Devices SDK 또는 REST API를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 쉽게 추가할 수 있습니다. 기존 채팅 봇에 음성 기능을 추가하거나, 번역 애플리케이션에서 텍스트-음성 변환을 수행하거나, 대량의 콜 센터 데이터를 기록할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871650"
 ---
-# <a name="what-is-speech-services"></a>Speech Service란?
+# <a name="what-are-the-speech-services"></a>Speech Services란?
 
-다른 Azure 음성 서비스와 마찬가지로 Speech 서비스는 Cortana 및 Microsoft Office와 같은 제품에 사용되는 음성 기술을 기반으로 합니다.
+Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](speech-devices-sdk-qsg.md) 또는 [REST API](rest-apis.md)를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 쉽게 추가할 수 있습니다.
 
-Speech Service는 이전에 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) 및 [Custom Voice](http://customvoice.ai/) 서비스를 통해 사용할 수 있었던 Azure 음성 기능을 통합합니다. 이제 하나의 구독으로 이러한 모든 기능에 액세스할 수 있습니다.
+> [!IMPORTANT]
+> Speech Services는 Bing Speech API, Translator Speech 및 Custom Speech 대신 사용되었습니다. 마이그레이션 지침에 대해서는 *방법 가이드 > 마이그레이션*을 참조하세요.
 
-## <a name="main-speech-services-functions"></a>주요 Speech Service 기능
+다음과 같은 기능이 Azure Speech Services를 구성합니다. 이 표의 링크를 사용하여 각 기능의 일반적인 사용 사례를 알아보거나 API 참조를 검색할 수 있습니다.
 
-Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 전사라고도 함), 텍스트 음성 변환(음성 합성) 및 음성 번역입니다.
+| 서비스 | 기능 | 설명 | SDK) | REST (영문) |
+|---------|---------|-------------|-----|------|
+| [음성 텍스트 변환](speech-to-text.md) | 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [일괄 처리 기록](batch-transcription.md) | 일괄 처리 기록을 사용하면 대량의 비동기 음성 텍스트 변환 기록을 수행할 수 있습니다. 이 서비스는 사용자 지정 및 모델 관리와 같은 엔드포인트를 사용하는 REST 기반 서비스입니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
+| | [사용자 지정](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
+| [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [사용자 지정](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 종단 간 다중 언어 번역을 애플리케이션, 도구 및 장치에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 아니요 |
 
-|함수|기능|
-|-|-|
-|[Speech-to-text](speech-to-text.md)| <li>연속적인 실시간 음성을 텍스트로 변환합니다.<li>오디오 녹음에서 음성으로 일괄 처리로 변환할 수 있습니다. <li>중간 결과, 음성 종료 감지, 자동 텍스트 서식 및 불경한 언어 마스킹을 지원합니다. <li>[Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)(LUIS)을 사용하여 음성에서 사용자 의도를 추출할 수 있습니다.\*|
-|[텍스트 음성 변환](text-to-speech.md)| <li>**신규**: 사람의 음성과 거의 구분되지 않는 인공신경망 텍스트 음성 변환 음성을 제공합니다(영어). <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. <li>지원되는 많은 언어에 대해 여러 성별 및/또는 방언을 제공합니다. <li>일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 지원합니다. |
-|[음성 번역](speech-translation.md)| <li>스트리밍 오디오를 거의 실시간으로 변환합니다.<li> 녹음된 음성을 처리할 수도 있습니다.<li>결과를 텍스트 또는 합성된 음성으로 제공합니다. |
+## <a name="news-and-updates"></a>새로운 기능 및 업데이트 사항
 
+Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
-## <a name="customize-speech-features"></a>음성 사용자 지정 기능
+* 2019년 2월 - [Unity(베타)](quickstart-csharp-unity.md) 지원을 포함하는 Speech SDK 1.3.0을 출시했습니다. 오디오에 대한 스트리밍 원본을 선택할 수 있는 `AudioInput` 클래스에 대한 지원이 추가되었습니다. 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
+* 2018년 12월 - [Python](quickstart-python.md) 및 [Node.js](quickstart-js-node.md) 뿐만 아니라 Ubuntu 18.04 LTS 지원을 포함하는 Speech SDK 1.2.0을 출시했습니다. 자세한 내용은 [릴리스 정보](releasenotes.md)를 참조하세요.
+* 2018년 12월 - [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md)를 위한 텍스트 음성 변환 빠른 시작이 추가되었습니다. 추가 샘플은 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http)에서 사용할 수 있습니다.
 
-음성 서비스의 Speech to Text 및 Text to speech 기능의 기초가 되는 모델을 교육하기 위해 자신의 데이터를 사용할 수 있습니다.
+## <a name="try-speech-services"></a>Speech Services 사용해 보기
 
-|기능|모델|목적|
-|-|-|-|
-|음성 텍스트 변환|[음향 모델](how-to-customize-acoustic-models.md)|자동차 또는 공장과 같은 특정 화자 및 환경을 변환하는 데 도움이 됩니다.|
-||[언어 모델](how-to-customize-language-model.md)|의료 또는 IT 전문 용어와 같은 필드 특정 어휘 및 문법을 변환하는 데 도움이 됩니다.|
-||[발음 모델](how-to-customize-pronunciation.md)|"I owe you."에 대한 "IOU"와 같은 약어 및 머리글자어를 전사하는 데 도움이 됩니다. |
-|텍스트 음성 변환|[음성 글꼴](how-to-customize-voice-font.md)|실제 음성의 샘플에서 모델을 학습하여 앱 고유의 음성을 앱에 제공합니다.|
+각각이 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 이 표에는 각 기능에 대해 가장 인기 있는 빠른 시작이 포함되어 있습니다. 왼쪽 탐색 영역을 사용하여 추가 언어 및 플랫폼을 확인하세요.
 
-앱의 Speech to Text 또는 Text to Speech 기능에서 표준 모델을 사용하는 모든 위치에서 사용자 지정 모델을 사용할 수 있습니다.
+| 음성 텍스트 변환(SDK) | 번역(SDK) | 텍스트 음성 변환(REST) |
+|-------------------|-------------------|-----------------------|
+| [C#, .NET Core(Windows)](quickstart-csharp-dotnet-windows.md) | [Java(Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python(Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
+| [Javascript(브라우저)](quickstart-js-browser.md) | [C#, .NET Core(Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core(Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
+| [Python(Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework(Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js(Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| [Java(Windows, Linux)](quickstart-java-jre.md) | [C++(Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
-## <a name="use-the-speech-service"></a>Speech 서비스 사용
+Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음성에서 의도를 인식하는 방법을 설명하는 자습서를 사용해 보세요.
 
-음성 지원 애플리케이션의 개발을 간소화하기 위해 Microsoft는 Speech 서비스에서 사용할 [Speech SDK](speech-sdk.md)를 제공합니다. Speech SDK는 C#, C++ 및 Java에 일관된 네이티브 Speech to Text 및 Speech Translation API를 제공합니다. 이러한 언어 중 하나를 사용하여 개발하는 경우 Speech SDK를 통해 네트워크 세부 정보를 처리하여 더 쉽게 개발할 수 있습니다.
+* [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
 
-또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어에서 작동하는 [REST API](rest-apis.md)도 있습니다. REST 인터페이스는 SDK의 실시간 스트리밍 기능을 제공하지 않습니다.
+## <a name="get-sample-code"></a>샘플 코드 가져오기
 
-|<br>방법|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>설명|
-|-|-|-|-|-|
-|[Speech SDK](speech-sdk.md)|예|no|예|개발 작업을 간소화할 수 있는 C#, C++ 및 Java용 네이티브 API입니다.|
-|[REST API](rest-apis.md)|예|예|no|응용 프로그램에 음성을 쉽게 추가할 수 있게 해주는 간단한 HTTP 기반 API입니다.|
+샘플 코드는 각 Azure Speech Services에 대한 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
 
-### <a name="websockets"></a>WebSockets
+* [음성 텍스트 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [텍스트 음성 변환 샘플(REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-Speech Service는 음성 텍스트 변환 및 음성 번역을 스트리밍하기 위한 WebSocket 프로토콜도 지원합니다. Speech SDK는 이러한 프로토콜을 사용하여 Speech 서비스와 통신합니다. Speech 서비스와의 사용자 고유 WebSocket 통신을 구현하는 대신 Speech SDK를 사용합니다.
+## <a name="customize-your-speech-experience"></a>음성 환경 사용자 지정
 
-WebSocket을 통해 Bing Speech 또는 Translator Speech를 사용하는 코드가 이미 있는 경우 해당 코드에서 Speech 서비스를 사용하도록 업데이트할 수 있습니다. WebSocket 프로토콜은 호환 가능하지만, 엔드포인트는 다릅니다.
+Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또는 환경에 대한 경험을 추가로 사용자 지정하고 조정하려고 할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성한 후 Azure Speech Services와 함께 사용할 수 있습니다.
 
-### <a name="speech-devices-sdk"></a>Speech Devices SDK
+| Speech Service | 모델 | 설명 |
+|----------------|-------|-------------|
+| 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
+| | [언어 모델](how-to-customize-language-model.md) | 필드별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)으로 기록을 향상시키는 사용자 지정 언어 모델을 만듭니다. |
+| | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
+| 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
 
-[Speech Devices SDK](speech-devices-sdk.md)는 음성 지원 디바이스 개발자를 위한 통합 하드웨어 및 소프트웨어 플랫폼입니다. 하드웨어 파트너는 참조 디자인 및 개발 단위를 제공합니다. Microsoft는 하드웨어 기능을 최대한 활용하는 디바이스에 최적화된 SDK를 제공합니다.
+## <a name="reference-docs"></a>참조 문서
 
-
-## <a name="speech-scenarios"></a>음성 시나리오
-
-Speech Service의 사용 사례는 다음과 같습니다.
-
-> [!div class="checklist"]
-> * 음성 트리거 앱 만들기
-> * 호출 센터 녹음 기록
-> * 음성 봇 구현
-
-### <a name="voice-user-interface"></a>음성 사용자 인터페이스
-
-음성 입력은 앱을 유연하고 핸즈프리가 가능하며 빠르게 사용할 수 있도록 해주는 좋은 방법입니다. 음성 지원 앱에서 사용자는 원하는 정보를 요청할 수 있습니다.
-
-일반 대중이 사용하는 앱이면 기본 음성 인식 모델을 사용할 수 있습니다. 이러한 모델은 일반적인 환경에서 다양한 화자를 인식합니다.
-
-특정 도메인에서 앱이 사용되는 경우(의약품 또는 IT) [언어 모델](how-to-customize-language-model.md)을 만들 수 있습니다. 이 모델을 사용하여 Speech 서비스에 앱에서 사용하는 특별한 용어를 가르칠 수 있습니다.
-
-공장과 같은 시끄러운 환경에서 앱이 사용되는 경우 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)을 만들 수 있습니다. 이 모델은 Speech 서비스가 말과 소음을 구분하는 데 도움이 됩니다.
-
-### <a name="call-center-transcription"></a>호출 센터 전사
-
-호출 센터 녹음은 주로 호출에 문제가 발생했을 때만 참조됩니다. Speech Service를 사용하면 모든 녹음 내용을 텍스트로 쉽게 기록할 수 있습니다. [전체 텍스트 검색](https://docs.microsoft.com/azure/search/search-what-is-azure-search)을 위해 텍스트를 쉽게 인덱싱하거나 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)을 적용하여 감정, 언어 및 핵심 구문을 감지할 수 있습니다.
-
-콜 센터 녹음이 전문 용어(예: 제품 이름 또는 IT 전문 용어)를 포함하는 경우 [언어 모델](how-to-customize-language-model.md)을 만들어 해당 어휘를 Speech Service에 학습시킬 수 있습니다. 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)은 Speech Service에서 최적 상태가 아닌 전화 연결을 이해하도록 지원할 수 있습니다.
-
-이 시나리오에 대한 자세한 내용은 Speech Service 지원 [일괄 처리 전사](batch-transcription.md)를 참조하세요.
-
-### <a name="voice-bots"></a>음성 봇
-
-[봇](https://dev.botframework.com/)은 사용자가 원하는 정보와 원하는 비즈니스가 있는 고객을 연갈하는 보편적인 방법입니다. 대화형 사용자 인터페이스를 웹 사이트나 앱에 추가하면 기능에 더 쉽고, 더 빠르게 액세스할 수 있습니다. 이 대화는 Speech 서비스를 이용하여 음성 쿼리에 동일하게 응답함으로써 새로운 차원의 유창함을 갖게 됩니다.
-
-음성 지원 봇에 독특한 개성을 추가하기 위해 고유한 음성을 부여할 수 있습니다. 사용자 지정 음성 만들기는 2단계 프로세스입니다. 먼저 사용하려는 음성의 [녹음을 만듭니다](record-custom-voice-samples.md). 그런 다음, Speech 서비스의 [음성 사용자 지정 포털](https://cris.ai/Home/CustomVoice)에 [녹음 내용을 제출](how-to-customize-voice-font.md)(텍스트 기록과 함께)하면 포털에서 나머지 작업을 수행합니다. 사용자 지정 음성을 만든 후에 앱에서 사용하는 단계는 간단합니다.
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
+* [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
+* [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>다음 단계
 
-Speech Service에 대한 구독 키를 가져옵니다.
-
 > [!div class="nextstepaction"]
-> [Speech Service 체험해 보기](get-started.md)
+> [무료로 Speech Service 구독 키 받기](get-started.md)

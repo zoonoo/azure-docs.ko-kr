@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c397cd3b535c7bf918eac2ac1e9ae1f967d7b95a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>자습서: SAP Business Object Cloud와 Azure Active Directory 통합
 
@@ -106,12 +106,14 @@ SAP Business Object Cloud에서 Azure AD Single Sign-On을 구성하려면 다�
     ![SAP Business Object Cloud 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ SAP Business Object Cloud에서 Azure AD Single Sign-On을 구성하려면 다�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -237,7 +239,7 @@ Azure AD 사용자는 SAP Business Object Cloud에 로그인하기 전에 SAP Bu
 
     d. **표시 이름** 텍스트 상자에 사용자의 전체 이름(예: **Britta Simon**)을 입력합니다.
 
-    e. **전자 메일** 상자에 사용자의 이메일 주소(예: **brittasimon@contoso.com**)를 입력합니다.
+    e. **이메일** 상자에 **brittasimon\@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
 
     f. **역할 선택** 페이지에서 사용자에 대한 적절한 역할을 선택하고 **확인**을 선택합니다.
 

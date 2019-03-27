@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670490"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989322"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Avere vFXT for Azure란? 
 
@@ -22,14 +22,14 @@ Avere vFXT는 다음과 같은 일반적인 컴퓨팅 시나리오를 지원합�
 * 하이브리드 클라우드 아키텍처: Avere vFXT for Azure는 하드웨어 저장소 시스템과 함께 작동하며, 따라서 파일을 이동할 필요가 없는 클라우드 컴퓨팅의 이점을 제공합니다. 
 * 클라우드 버스팅: Avere vFXT for Azure를 사용하여 단일 프로젝트에 대한 클라우드로 데이터를 이동하거나 전체 워크플로를 영구적으로 "리프트 앤 시프트"할 수 있습니다. 
 
-![Blob 저장소 및 온-프레미스 데이터 센터에 연결된 Azure 구독 내부의 Avere vFXT 시스템 세부 정보를 보여주는 다이어그램](media/avere-vfxt-hybrid.png)
+![Blob Storage 및 온-프레미스 데이터 센터에 연결된 Azure 구독 내부의 Avere vFXT 시스템 세부 정보를 보여주는 다이어그램](media/avere-vfxt-hybrid.png)
 
 Avere vFXT for Azure는 다음과 같은 상황에 가장 적합합니다. 
 
 * HPC 워크로드에 대한 읽기 워크로드가 많은 작업
 * 일반적인 NFS 프로토콜을 사용하는 애플리케이션
 * CPU 코어가 1000-40,000개인 계산 팜
-* 온-프레미스 하드웨어 NAS, Azure Blob 저장소 또는 둘 모두와 통합
+* 온-프레미스 하드웨어 NAS, Azure Blob Storage 또는 둘 모두와 통합
 
 자세한 내용은 <https://azure.microsoft.com/services/storage/avere-vfxt/>을 참조하세요.
 
@@ -67,7 +67,7 @@ Avere vFXT는 다음과 같은 Azure 리소스를 사용합니다.
 
 |Azure 구성 요소|   |
 |----------|-----------|
-|가상 머신|D16s_v3 또는 E32s_v3 3개 이상|
+|가상 머신|3개 이상의 E32s_v3|
 |프리미엄 SSD 저장소|노드당 200GB OS 공간 + 1TB-4TB 캐시 공간 |
 |저장소 계정(선택 사항) |v2|
 |데이터 백 엔드 저장소(선택 사항) | 빈 LRS Blob 컨테이너 1개 |

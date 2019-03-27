@@ -10,19 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738048"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834293"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js 사용 문자열 번역
 
 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 텍스트 문자열을 영어에서 이탈리아어 및 독일어로 번역하는 방법을 알아봅니다.
 
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +32,7 @@ ms.locfileid: "56738048"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-선호하는 IDE 또는 편집기를 사용하여 새 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `translate-text.js`라는 파일의 프로젝트에 복사합니다.
+즐겨 찾는 IDE 또는 편집기를 사용하여 새 프로젝트를 만들거나 바탕 화면에 이름이 `translate-text.js`라는 파일이 포함된 새 폴더를 만듭니다. 그런 후 이 코드 조각을 프로젝트/파일에 복사합니다.
 
 ```javascript
 const request = require('request');

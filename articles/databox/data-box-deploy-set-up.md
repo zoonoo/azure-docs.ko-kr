@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895756"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -40,7 +40,7 @@ ms.locfileid: "55982406"
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
 6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
 7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
-    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다.
+    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다. 자세한 내용은 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
@@ -83,10 +83,10 @@ ms.locfileid: "55982406"
     
 7. 이전 단계에 Azure Portal에서 얻은 디바이스 암호를 입력하여 디바이스의 로컬 웹 UI에 로그인합니다. **로그인**을 클릭합니다.
 8. **대시보드**에서 네트워크 인터페이스가 구성되어 있는지 확인합니다. 
-    - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 
-    - DHCP를 사용하도록 설정하지 않으면 필요한 경우 **집합 네트워크 인터페이스**로 이동하여 정적 IP를 할당합니다.
+   - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 
+   - DHCP를 사용하도록 설정하지 않으면 필요한 경우 **집합 네트워크 인터페이스**로 이동하여 정적 IP를 할당합니다.
 
-    ![디바이스 대시보드](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![디바이스 대시보드](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 데이터 네트워크 인터페이스가 구성되면 DATA 1 - DATA 3 인터페이스의 아무 IP 주소를 사용하여 `https://<IP address of a data network interface>`에서 로컬 웹 UI에 액세스할 수 있습니다. 
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>자습서: Envi MMIS와 Azure Active Directory 통합
 
@@ -184,7 +184,7 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -237,7 +237,7 @@ Azure AD 사용자가 Envi MMIS에 로그인할 수 있도록 하려면 Envi MMI
 
     ![직원 추가](./media/envimmis-tutorial/user3.png)
 
-    a. **사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon@contoso.com**)을 입력합니다.
+    a. **사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
     
     b. **이름** 텍스트 상자에 BrittaSimon의 이름(예: **Britta**)을 입력합니다.
 
@@ -245,9 +245,9 @@ Azure AD 사용자가 Envi MMIS에 로그인할 수 있도록 하려면 Envi MMI
 
     d. 텍스트 상자의 **직함**에 사용자의 직함을 입력합니다.
     
-    e. **이메일 주소** 텍스트 상자에 Britta Simon 계정의 이메일 주소를 입력합니다(예: **brittasimon@contoso.com**).
+    e. **이메일 주소** 텍스트 상자에 Britta Simon 계정의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
-    f. **SSO 사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon@contoso.com**)을 입력합니다.
+    f. **SSO 사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
 
     g. **저장**을 클릭합니다.
 

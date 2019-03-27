@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264763"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453774"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포
 
-Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
+Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
 
 또한 DevOps Projects는 다음을 수행합니다.
 * Azure Service Fabric과 같은 Azure 리소스를 자동으로 만듭니다.
@@ -39,7 +39,7 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 
 * Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>DevOps Projects를 사용하여 ASP.NET Core 앱을 만든 후 Service Fabric에 배포
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>DevOps Projects를 사용하여 ASP.NET Core 앱을 만든 후 Service Fabric에 배포
 
 DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. DevOps Projects는 선택한 Azure 구독에서 Service Fabric 클러스터 같은 Azure 리소스를 만듭니다.
 
@@ -79,7 +79,7 @@ DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새
 
 DevOps Projects는 Azure Pipelines에서 CI/CD 파이프라인을 자동으로 구성합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps Projectss 대시보드로 이동합니다.
+1. DevOps Projects 대시보드로 이동합니다.
 
 1. DevOps Projects 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다.  
     브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
@@ -98,7 +98,7 @@ DevOps Projects는 Azure Pipelines에서 CI/CD 파이프라인을 자동으로 �
     이 창에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
 1. **트리거**를 선택합니다.  
-    DevOps Projects는 CI 트리거를 자동으로 생성하면 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+    DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다.  
     시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
@@ -156,7 +156,7 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 > 다음 절차에서는 리소스를 영구적으로 삭제합니다. *삭제* 기능은 Azure 및 Azure DevOps에서 DevOps Projects의 프로젝트에서 만든 데이터를 제거하므로 이 데이터를 검색할 수 없게 됩니다. 표시되는 메시지를 신중하게 읽은 후 이 절차를 따릅니다.
 
 1. Azure Portal에서 DevOps Projects 대시보드로 이동합니다.
-1. 오른쪽 위에서 **삭제**를 선택합니다. 
+1. 오른쪽 위에서 **삭제**를 선택합니다.합니다. 
 1. 메시지에 따라 **예**를 선택하여 리소스를 *영구적으로 삭제*합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -174,4 +174,4 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 Service Fabric 및 마이크로 서비스에 대해 자세히 알려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 빌드에 마이크로 서비스 접근 방식 사용](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [애플리케이션 빌드에 마이크로 서비스 접근 방식 사용](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

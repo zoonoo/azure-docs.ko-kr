@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109047"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242040"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -128,7 +128,7 @@ Security Center에는 Azure SQL에서 데이터 자동 분류를 수행하는 �
 
 ## <a name="get-secure-faster"></a>보다 신속한 보안 설정
 
-Microsoft Cloud App Security, Windows Defender Advanced Threat Protection 등 다른 Microsoft 보안 솔루션과의 원활한 통합 및 네이티브 Azure 통합(Azure Policy 및 Log Analytics 포함)이 결합되어 포괄적이면서도 온보드 및 배포가 간단한 보안 솔루션을 만들 수 있습니다.
+Microsoft Cloud App Security, Windows Defender Advanced Threat Protection 등 다른 Microsoft 보안 솔루션과의 원활한 통합 및 네이티브 Azure 통합(Azure Policy 및 Azure Monitor 로그 포함)이 결합되어 포괄적이면서도 온보드 및 배포가 간단한 보안 솔루션을 만들 수 있습니다.
 
 또한 Azure 외부의 다른 클라우드 및 온-프레미스 데이터 센터에서 실행되는 워크로드까지 전체 솔루션을 확장할 수 있습니다.
 

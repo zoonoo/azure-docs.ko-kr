@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236552"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433810"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Azure Cache for Redis란?
 
@@ -57,7 +57,7 @@ Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB
 
 이미 만든 후에 더 높은 계층으로 사용자 캐시를 확장할 수 있습니다. 더 낮은 계층으로의 축소는 지원되지 않습니다. 단계별 크기 조정 지침에 대해서는 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md) 및 [크기 조정 작업을 자동화하는 방법](cache-how-to-scale.md#how-to-automate-a-scaling-operation)을 참조하세요.
 
-### <a name="feature-comparision"></a>기능 비교
+### <a name="feature-comparison"></a>기능 비교
 
 [Azure Cache for Redis 가격 책정](https://azure.microsoft.com/pricing/details/cache/) 페이지에서는 각 계층의 자세한 비교를 제공합니다. 다음 표는 계층별로 지원하는 기능 몇 가지를 설명하는 데 도움이 됩니다.
 

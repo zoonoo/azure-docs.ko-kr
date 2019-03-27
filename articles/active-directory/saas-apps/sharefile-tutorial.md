@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc89475ea0338165e7a4477e861ddb199bd73de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -119,6 +119,7 @@ Citrix ShareFile에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
     | |
     
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -186,7 +187,7 @@ Citrix ShareFile에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -235,7 +236,7 @@ Azure AD 사용자가 Citrix ShareFile에 로그인할 수 있도록 하려면 C
    
     ![기본 정보](./media/sharefile-tutorial/IC799951.png "기본 정보")
    
-    a. **이메일 주소** 텍스트 상자에 Britta Simon의 전자 메일 주소를 **brittasimon@contoso.com**으로 입력합니다.
+    a. **이메일 주소** 텍스트 상자에 Britta Simon의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
    
     b. **이름** 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
    

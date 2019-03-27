@@ -91,6 +91,15 @@ items:
       href: personal-data-delete-export.md
     - name: 다른 랩에서 가상 머신 가져오기
       href: import-virtual-machines-from-another-lab.md
+    - name: 이미지 팩터리 만들기
+      href: image-factory-create.md
+      items:
+      - name: AzureDevOps에서 이미지 팩터리 실행
+        href: image-factory-set-up-devops-lab.md
+      - name: 사용자 지정 이미지 저장 및 여러 랩에 배포
+        href: image-factory-save-distribute-custom-images.md
+      - name: 보존 정책 설정 및 정리 스크립트 실행
+        href: image-factory-set-retention-policy-cleanup.md
     - name: 기업에서 DevTest Labs 인프라 설정
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -132,6 +141,8 @@ items:
         href: devtest-lab-redeploy-vm.md
       - name: VM 가져오기
         href: devtest-lab-import-vm.md
+      - name: PowerShell 또는 CLI를 사용하여 VM 시작 또는 중지
+        href: use-command-line-start-stop-virtual-machines.md
     - name: 랩에서 환경 사용
       items:
       - name: 환경 만들기
@@ -252,9 +263,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: 질문과 대답
       href: devtest-lab-faq.md
-ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338380"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435637"

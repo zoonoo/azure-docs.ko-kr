@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855727"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -45,9 +45,9 @@ Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/spe
 
 ## <a name="luis-and-speech"></a>LUIS 및 음성
 
-LUIS는 음성 서비스와 통합되어 음성에서 의도를 인식합니다. 음성 서비스 구독은 필요 없고 LUIS만 있으면 됩니다.
+LUIS는 Speech Services와 통합되어 음성에서 의도를 인식합니다. Speech Services 구독은 필요 없고 LUIS만 있으면 됩니다.
 
-LUIS는 다음과 같은 두 종류의 키를 사용합니다. 
+LUIS는 다음과 같은 두 종류의 키를 사용합니다.
 
 |키 유형|목적|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS는 다음과 같은 두 종류의 키를 사용합니다.
 
 엔드포인트 키는 이 자습서에 필요한 LUIS 키입니다. 이 자습서에서는 [미리 빌드된 홈 자동화 앱 사용](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)의 단계에 따라 만들 수 있는 홈 자동화 LUIS 앱 예제를 사용합니다. LUIS 앱을 직접 만든 경우 그 앱을 사용해도 됩니다.
 
-LUIS 앱을 만들 때 텍스트 쿼리를 사용하여 앱을 테스트할 수 있도록 시작 키가 자동으로 생성됩니다. 이 키는 음성 서비스 통합을 사용하지 않으며 이 자습서에서는 작동하지 않습니다. Azure 대시보드에서 LUIS 리소스를 만들고 LUIS 앱에 할당해야 합니다. 이 자습서에서는 체험 구독 계층을 사용해도 됩니다. 
+LUIS 앱을 만들 때 텍스트 쿼리를 사용하여 앱을 테스트할 수 있도록 시작 키가 자동으로 생성됩니다. 이 키는 Speech Services 통합을 사용하지 않으며 이 자습서에서는 작동하지 않습니다. Azure 대시보드에서 LUIS 리소스를 만들고 LUIS 앱에 할당해야 합니다. 이 자습서에서는 체험 구독 계층을 사용해도 됩니다.
 
 Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https://www.luis.ai/home)에 로그인하고, [내 앱] 페이지에서 애플리케이션을 선택한 다음, 앱의 [관리] 페이지로 전환합니다. 마지막으로, 사이드바에서 **키 및 엔드포인트**를 클릭합니다.
 
@@ -174,7 +174,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 다른 기능은 WAV 파일에서 처리할 음성이 포함된 오디오를 읽는 기능입니다. 여기에는 의도 인식기를 만들 때 사용할 수 있는 오디오 구성을 만드는 과정이 포함됩니다. 파일은 샘플링 속도가 16kHz인 단일 채널(모노)이어야 합니다.
 
-이러한 기능을 사용해 보려면 `RecognizeIntentAsync()` 메서드의 본문을 다음 코드로 바꿉니다. 
+이러한 기능을 사용해 보려면 `RecognizeIntentAsync()` 메서드의 본문을 다음 코드로 바꿉니다.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

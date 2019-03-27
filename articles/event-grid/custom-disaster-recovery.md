@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863171"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 
@@ -28,7 +28,7 @@ ms.locfileid: "56727182"
 
 1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 나중에 필요하므로 이 URL을 메모해 두세요.
@@ -54,10 +54,10 @@ ms.locfileid: "56727182"
 
 1. Event Grid 항목 메뉴에서 **+추가**를 선택하여 주 항목을 만듭니다.
 
-    * 항목에 논리적 이름을 지정하고 쉽게 추적할 수 있도록 "-primary"를 접미사로 추가합니다.
-    * 이 항목의 지역이 주 지역이 됩니다.
+   * 항목에 논리적 이름을 지정하고 쉽게 추적할 수 있도록 "-primary"를 접미사로 추가합니다.
+   * 이 항목의 지역이 주 지역이 됩니다.
 
-    ![Event Grid 항목 주 만들기 대화](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Event Grid 항목 주 만들기 대화](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. 항목이 생성되면 해당 항목으로 이동하고 **항목 엔드포인트**를 복사합니다. 이 URI이 나중에 필요할 것입니다.
 
@@ -69,11 +69,11 @@ ms.locfileid: "56727182"
 
 1. 항목 블레이드에서 **+이벤트 구독**을 클릭하여 자습서의 필수 조건에서 만든 이벤트 수신기 웹 사이트를 연결하는 구독을 만듭니다.
 
-    * 이벤트 구독에 논리적 이름을 지정하고 쉽게 추적할 수 있도록 "-primary"를 접미사로 추가합니다.
-    * 엔드포인트 유형 웹후크를 선택합니다.
-    * 이벤트 수신기의 이벤트 URL에 엔드포인트를 `https://<your-event-reciever>.azurewebsites.net/api/updates`와 같이 설정합니다.
+   * 이벤트 구독에 논리적 이름을 지정하고 쉽게 추적할 수 있도록 "-primary"를 접미사로 추가합니다.
+   * 엔드포인트 유형 웹후크를 선택합니다.
+   * 이벤트 수신기의 이벤트 URL에 엔드포인트를 `https://<your-event-reciever>.azurewebsites.net/api/updates`와 같이 설정합니다.
 
-    ![Event Grid 주 이벤트 구독](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Event Grid 주 이벤트 구독](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. 동일한 흐름을 반복하여 주 항목 및 구독을 만듭니다. 이번에는 더 쉽게 추적할 수 있도록 "-primary" 접미사를 "-secondary"로 바꿉니다. 마지막으로, 다른 Azure 지역에 배치해야 합니다. 원하는 모든 위치에 배치할 수 있지만 [Azure 지역 쌍](../best-practices-availability-paired-regions.md)을 사용하는 것이 좋습니다. 보조 항목과 구독을 다른 지역에 배치하면 주 지역이 다운되더라도 새 이벤트가 진행되도록 할 수 있습니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "56727182"
 
 ### <a name="basic-client-side-implementation"></a>기본 클라이언트 쪽 구현
 
-다음 샘플 코드는 항상 기본 항목을 먼저 게시하려고 하는 간단한 .Net 게시자입니다. 기본 항목을 게시하는 데 실패하면 보조 항목을 장애 조치합니다. 두 경우 모두 `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`에서 GET을 수행하여 다른 항목의 상태 api를 확인합니다. 정상적인 항목은 **/api/health** 엔드포인트에 대해 GET이 수행될 경우 항상 **200 OK**로 응답해야 합니다.
+다음 샘플 코드는 항상 기본 항목을 먼저 게시하려고 하는 간단한 .NET 게시자입니다. 기본 항목을 게시하는 데 실패하면 보조 항목을 장애 조치합니다. 두 경우 모두 `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`에서 GET을 수행하여 다른 항목의 상태 api를 확인합니다. 정상적인 항목은 **/api/health** 엔드포인트에 대해 GET이 수행될 경우 항상 **200 OK**로 응답해야 합니다.
 
 ```csharp
 using System;

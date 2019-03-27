@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>자습서: iProva와 Azure Active Directory 통합
 
@@ -221,7 +221,7 @@ iProva에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **이름** 상자에 **BrittaSimon**과 같은 입력합니다.
   
-    b. **사용자 이름** 상자에 *yourname@yourcompanydomain.extension*을 입력합니다. 
+    b. **사용자 이름** 상자에 *yourname\@yourcompanydomain.extension*을 입력합니다. 
     예는 BrittaSimon@contoso.com입니다.
 
     다. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
@@ -266,14 +266,14 @@ iProva에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 5. **추가**를 선택합니다.
 
-6. **사용자 이름** 상자에 *brittasimon@yourcompanydomain.extension*을 입력합니다. 
+6. **사용자 이름** 상자에 *brittasimon\@yourcompanydomain.extension*을 입력합니다. 
     예는 BrittaSimon@contoso.com입니다.
 
 7. **전체 이름** 상자에 **BrittaSimon**과 같은 전체 이름을 입력합니다.
 
 8. **암호 없음(Single Sign-On 사용)** 옵션을 선택합니다.
 
-9. **이메일 주소** 상자에 *yourname@yourcompanydomain.extension*을 입력합니다. 
+9. **이메일 주소** 상자에 *yourname\@yourcompanydomain.extension*을 입력합니다. 
    예는 BrittaSimon@contoso.com입니다.
 
 10. 페이지 끝까지 아래로 스크롤하여 **마침**을 선택합니다.

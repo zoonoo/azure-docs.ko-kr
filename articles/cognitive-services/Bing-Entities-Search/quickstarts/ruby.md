@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 44dad6d0a6f11b84c4cd2a4470e9a286e1a9ea36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 35659a77f80bd3b3d105b9ea91513784dbca01c4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539006"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>빠른 시작: Ruby를 통해 Bing Entity Search API 사용
 
@@ -65,7 +65,7 @@ ms.locfileid: "55866086"
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. 요청 보내기 및 메시지 출력
+3. 요청 보내기 및 응답 출력
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -115,7 +115,7 @@ ms.locfileid: "55866086"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

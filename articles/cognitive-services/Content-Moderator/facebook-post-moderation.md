@@ -1,111 +1,115 @@
 ---
-title: '자습서: Facebook 콘텐츠 조정 - Azure Content Moderator'
+title: '자습서: Facebook 콘텐츠 조정 - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 86c89164e3ccd5bf5df303b98cf6d336f3916e2b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 01/18/2019
+ms.author: pafarley
+ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871031"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용하여 Facebook 콘텐츠 조정
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
-이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
+이 자습서에서는 Azure Content Moderator를 사용하여 Facebook 페이지의 게시물 및 의견을 조정하는 방법을 알아봅니다. Facebook은 방문자가 게시한 콘텐츠를 Content Moderator 서비스로 보냅니다. 그러면 콘텐츠 점수 및 임계값에 따라 Content Moderator 워크플로에서 콘텐츠를 게시하거나 검토 도구 내에서 검토를 만듭니다. 이 시나리오의 작업 예제를 보려면 [Build 2017 데모 비디오](https://channel9.msdn.com/Events/Build/2017/T6033)를 참조하세요.
 
-이 자습서에서는 다음 단계를 안내합니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-1. Content Moderator 팀을 만듭니다.
-2. Content Moderator 및 Facebook에서 HTTP 이벤트에 대해 수신 대기하는 Azure Functions를 만듭니다.
-3. Facebook 페이지 및 앱을 만들고, Content Moderator에 연결합니다.
+> [!div class="checklist"]
+> * Content Moderator 팀을 만듭니다.
+> * Content Moderator 및 Facebook에서 HTTP 이벤트에 대해 수신 대기하는 Azure Functions를 만듭니다.
+> * Facebook 애플리케이션을 사용하여 Facebook 페이지를 Content Moderator에 연결합니다.
 
-완료한 후 Facebook은 방문자에 의해 게시된 콘텐츠를 Content Moderator에 보냅니다. 일치 임계값에 따라 Content Moderator 워크플로는 콘텐츠를 게시하거나 검토 도구 내에서 검토를 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-다음 그림에서는 솔루션의 빌딩 블록을 보여줍니다.
+이 다이어그램은 이 시나리오의 각 구성 요소를 보여 줍니다.
 
-![Facebook 게시물 조정](images/tutorial-facebook-moderation.png)
+!["FBListener"를 통해 Facebook에서 정보를 수신하고 "CMListener"를 통해 정보를 전송하는 Content Moderator 다이어그램](images/tutorial-facebook-moderation.png)
 
-## <a name="create-a-content-moderator-team"></a>Content Moderator 팀 만들기
+## <a name="prerequisites"></a>필수 조건
 
-[웹에서 Content Moderator 사용해 보기](quick-start.md) 빠른 시작을 참조하여 Content Moderator에 가입하고 팀을 만듭니다.
+- Content Moderator 구독 키. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
+- [Facebook 계정](https://www.facebook.com/)
 
-## <a name="configure-image-moderation-workflow-threshold"></a>이미지 중재 워크플로(임계값) 구성
+## <a name="create-a-review-team"></a>검토 팀 만들기
 
-[워크플로](review-tool-user-guide/workflows.md) 페이지를 참조하여 사용자 지정 이미지 워크플로(임계값)를 구성합니다. 워크플로 **이름**을 참고합니다.
+[Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)에 가입하고 검토 팀을 만드는 방법에 대한 지침은 [웹에서 Content Moderator 사용해 보기](quick-start.md) 빠른 시작을 참조하세요. **자격 증명** 페이지에서 **팀 ID** 값을 기록해 둡니다.
 
-## <a name="3-configure-text-moderation-workflow-threshold"></a>3. 텍스트 중재 워크플로(임계값) 구성
+## <a name="configure-image-moderation-workflow"></a>이미지 중재 워크플로 구성
 
-[워크플로](review-tool-user-guide/workflows.md) 페이지와 유사한 단계를 사용하여 사용자 지정 텍스트 임계값 및 워크플로를 구성합니다. 워크플로 **이름**을 참고합니다.
+[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 참조하여 사용자 지정 이미지 워크플로를 만드세요. 이렇게 하면 Content Moderator에서 Facebook의 이미지를 자동으로 확인하고 일부를 검토 도구로 보낼 수 있습니다. 워크플로 **이름**을 기록해 둡니다.
+
+## <a name="configure-text-moderation-workflow"></a>텍스트 중재 워크플로 구성
+
+[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 다시 참조하세요. 이번에는 사용자 지정 텍스트 워크플로를 만듭니다. 이 경우 Content Moderator에서 텍스트 콘텐츠를 자동으로 확인할 수 있습니다. 워크플로 **이름**을 기록해 둡니다.
 
 ![텍스트 워크플로 구성](images/text-workflow-configure.PNG)
 
-"워크플로 실행" 단추를 사용하여 워크플로를 테스트합니다.
+**워크플로 실행** 단추를 사용하여 워크플로를 테스트합니다.
 
 ![텍스트 워크플로 테스트](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Azure Functions 만들기
 
-[Azure 관리 포털](https://portal.azure.com/)에 로그인하여 Azure Functions를 만듭니다. 다음 단계를 수행하세요.
+[Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 따릅니다.
 
-1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
-2. 새로 만든 Function App을 엽니다.
-3. 앱 내에서 **플랫폼 기능 -&gt; 애플리케이션 설정**으로 이동합니다.
-4. 다음 [애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
+1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure Function App을 만듭니다.
+2. 새로 만든 Function App으로 이동합니다.
+3. App 내에서 **플랫폼 기능** 탭으로 이동한 후 **애플리케이션 설정**을 선택합니다. 다음 페이지의 **애플리케이션 설정** 섹션에서 목록 아래쪽으로 스크롤한 후 **새 설정 추가**를 클릭합니다. 다음 키/값 쌍 추가
+    
+    | 앱 설정 이름 | 값   | 
+    | -------------------- |-------------|
+    | cm:TeamId   | Content Moderator 팀 ID  | 
+    | cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 | 
+    | cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
+    | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
+    | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
+    | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener Function App에 대한 Url |
+    | fb:VerificationToken | Facebook 피드 이벤트에 구독하는 데도 사용되는 비밀 토큰 |
+    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. |
 
-> [!NOTE]
-> **cm: Region**은 지역의 이름이어야 합니다(공백 없이).
-> 예를 들어 West Europe이 아닌 **westeurope**, West Central US가 아닌 **westcentralus** 등입니다.
->
+    페이지 위쪽에 있는 **저장** 단추를 클릭합니다.
 
-| 앱 설정 | 설명   | 
-| -------------------- |-------------|
-| cm:TeamId   | Content Moderator 팀 ID  | 
-| cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 | 
-| cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
-| cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
-| cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
-| cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener Function App에 대한 Url |
-| fb:VerificationToken | Facebook 피드 이벤트에 구독하는 데도 사용되는 비밀 토큰 |
-| fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. |
+1. 왼쪽 창에 있는 **+** 단추를 사용하여 새 함수 창을 표시합니다.
 
-5. **FBListener**라는 새 **HttpTrigger-CSharp** 함수를 만듭니다. 이 함수는 Facebook의 이벤트를 수신합니다. 다음 단계를 수행하여 이 함수를 만듭니다.
+    ![함수 추가 단추가 강조 표시된 Azure Functions 창](images/new-function.png)
 
-    1. 참조를 위해 [Azure Functions 생성](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지를 열어 둡니다.
-    2. **+** 를 클릭하여 새 함수 만들기에 추가합니다.
-    3. 기본 제공 템플릿 대신 **사용자 고유의/사용자 지정 함수에서 시작** 옵션을 선택합니다.
-    4. **HttpTrigger-CSharp**라는 타일을 클릭합니다.
-    5. 이름 **FBListener**를 입력합니다. **권한 수준** 필드를 **함수**로 설정해야 합니다.
-    6. **만들기**를 클릭합니다.
-    7. **run.csx**의 콘텐츠를 [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx)의 콘텐츠로 바꿉니다.
+    그런 후 페이지 위쪽의 **+ 새 함수**를 클릭합니다. 이 함수는 Facebook의 이벤트를 수신합니다. 다음 단계를 수행하여 이 함수를 만듭니다.
 
-6. **CMListener**라는 새 **HttpTrigger-CSharp** 함수를 만듭니다. 이 함수는 Content Moderator에서 이벤트를 수신합니다. 다음 단계에 따라 이 함수를 만듭니다.
+    1. **Http trigger**라는 타일을 클릭합니다.
+    1. 이름 **FBListener**를 입력합니다. **권한 수준** 필드를 **함수**로 설정해야 합니다.
+    1. **만들기**를 클릭합니다.
+    1. **run.csx**의 콘텐츠를 **FbListener/run.csx**의 콘텐츠로 바꿉니다.
 
-    1. 참조를 위해 [Azure Functions 생성](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지를 열어 둡니다.
-    2. **+** 를 클릭하여 새 함수 만들기에 추가합니다.
-    3. 기본 제공 템플릿 대신 **사용자 고유의/사용자 지정 함수에서 시작** 옵션을 선택합니다.
-    4. **HttpTrigger-CSharp**라는 타일을 클릭합니다.
-    5. 이름 **CMListener**를 입력합니다. **권한 수준** 필드를 **함수**로 설정해야 합니다.
-    6. **만들기**를 클릭합니다.
-    7. **run.csx**의 콘텐츠를 [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx)의 콘텐츠로 바꿉니다.
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+
+1. **CMListener**라는 새 **Http trigger** 함수를 만듭니다. 이 함수는 Content Moderator에서 이벤트를 수신합니다. **run.csx**의 콘텐츠를 **CMListener/run.csx**의 콘텐츠로 바꿉니다.
+
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+
+---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Facebook 페이지 및 앱 구성
 1. Facebook 앱을 만듭니다.
 
+    ![facebook 개발자 페이지](images/facebook-developer-app.png)
+
     1. [Facebook 개발자 사이트](https://developers.facebook.com/)로 이동합니다.
     2. **내 앱**을 클릭합니다.
     3. 새 앱을 추가합니다.
-    4. **웹후크 -> 시작**을 선택합니다.
-    5. **페이지 -> 이 항목 구독**을 선택합니다.
-    6. 콜백 URL로 **FBListener Url** 및 **Function App 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
-    7. 구독한 후 피드 아래로 스크롤하고 **구독**을 선택합니다.
+    1. 이름을 지정합니다.
+    1. **Webhook -> 설정**을 선택합니다.
+    1. 드롭다운 메뉴에서 **페이지**를 선택하고 **이 개체에 가입**을 선택합니다.
+    1. 콜백 URL로 **FBListener Url** 및 **Function App 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
+    1. 구독한 후 피드 아래로 스크롤하고 **구독**을 선택합니다.
 
 2. Facebook 페이지를 만듭니다.
 
@@ -134,29 +138,22 @@ ms.locfileid: "55878068"
         2. [Postman 환경](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. 이러한 환경 변수를 업데이트합니다.
     
-    | 키 | 값   | 
-    | -------------------- |-------------|
-    | appId   | 여기에 Facebook 앱 식별자를 삽입합니다.  | 
-    | appSecret | 여기에 Facebook 앱의 비밀을 삽입합니다. | 
-    | short_lived_token | 이전 단계에서 생성한 수명이 짧은 사용자 액세스 토큰을 삽입합니다. |
+        | 키 | 값   | 
+        | -------------------- |-------------|
+        | appId   | 여기에 Facebook 앱 식별자를 삽입합니다.  | 
+        | appSecret | 여기에 Facebook 앱의 비밀을 삽입합니다. | 
+        | short_lived_token | 이전 단계에서 생성한 수명이 짧은 사용자 액세스 토큰을 삽입합니다. |
     4. 이제 컬렉션에 나열된 3개의 API를 실행합니다. 
         1. **수명이 긴 액세스 토큰 생성**을 선택하고 **보내기**를 클릭합니다.
         2. **사용자 ID 가져오기**를 선택하고 **보내기**를 클릭합니다.
         3. **영구 페이지 액세스 토큰 가져오기**를 선택하고 **보내기**를 클릭합니다.
     5. 응답에서 **access_token** 값을 복사하고 앱 설정, **fb:PageAccessToken**에 할당합니다.
 
-이것으로 끝입니다.
-
-솔루션은 Facebook 페이지에 게시된 모든 이미지 및 텍스트를 Content Moderator에 보냅니다. 이전에 구성한 워크플로가 호출됩니다. 워크플로에서 정의한 조건을 통과하지 않는 콘텐츠는 검토 도구 내의 검토에 발생합니다. 나머지 콘텐츠는 게시됩니다.
-
-## <a name="license"></a>라이선스
-
-Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://microsoft.mit-license.org/)를 참조하세요.
+솔루션은 Facebook 페이지에 게시된 모든 이미지 및 텍스트를 Content Moderator에 보냅니다. 그러면 이전에 구성한 워크플로가 호출됩니다. 워크플로에서 정의한 조건을 통과하지 않는 콘텐츠는 검토 도구 내의 검토로 전달됩니다. 나머지 콘텐츠는 자동으로 게시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-1. Microsoft Build 2017에서 이 솔루션의 [데모(비디오)를 봅니다](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [GitHub의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+이 자습서에서는 제품 유형별로 태그를 지정하고 검토 팀이 콘텐츠 조정에 대해 합리적인 의사 결정을 할 수 있도록 제품 이미지를 분석하는 프로그램을 설정합니다. 다음으로, 이미지 조정에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [이미지 조정](./image-moderation-api.md)

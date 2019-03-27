@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855887"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193741"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
@@ -221,22 +221,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 **패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
 
-이 자습서에서는 두 가지 새 의도인 `OrgChart-Manager`과 `OrgChart-Reports`를 추가합니다. 
-
-|의도|발화|
-|--|--|
-|OrgChart-Manager|Who does Jill Jones report to?|
-|OrgChart-Reports|Who reports to Jill Jones?|
-
-LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-[목록 엔터티 자습서](luis-quickstart-intent-and-list-entity.md)에서 직원이 생성되었다는 사실을 기억하세요.
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>OrgChart-Manager 의도의 패턴 추가
 
 1. 위쪽 메뉴에서 **빌드**를 선택합니다.
 
@@ -259,7 +244,7 @@ OrgChartManager(employee){
 
     [![의도에 대한 템플릿 발언을 입력하는 스크린샷](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
+4. 패턴 페이지를 나가지 않은 상태에서 **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
     |:--|
@@ -272,11 +257,13 @@ OrgChartManager(employee){
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 끝점 쿼리
 
+이제 패턴이 앱에 추가되었으므로 예측 런타임 엔드포인트에서 앱을 학습, 게시 및 쿼리합니다.
+
 1. 앱을 학습하고 다시 게시합니다.
 
-2. 엔드포인트 URL 탭으로 브라우저 탭을 다시 전환합니다.
+1. 엔드포인트 URL 탭으로 브라우저 탭을 다시 전환합니다.
 
-3. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
+1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
     ```json
     {
@@ -362,11 +349,11 @@ OrgChartManager(employee){
     }
     ```
 
-이제 의도 예측이 훨씬 더 높아집니다.
+이제 의도 예측의 신뢰도가 훨씬 더 높아집니다.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>선택적 텍스트 및 미리 작성된 엔터티 사용
 
-이 자습서의 이전 패턴 템플릿 발언에는 문자 s의 소유격 `'s` 사용 및 물음표 `?` 사용과 같은 몇 가지 선택적 텍스트가 있었습니다. 엔드포인트 발언이 관리자 및 인사부 담당자가 기록 데이터와 함께 향후 계획된 사내 직원 이동을 찾고 있는 것을 보여 준다고 가정합니다.
+이 자습서의 이전 패턴 템플릿 발언에는 문자 s의 소유격 `'s` 사용 및 물음표 `?` 사용과 같은 몇 가지 선택적 텍스트가 있었습니다. 발화 텍스트에 현재 및 미래의 날짜를 포함할 수 있도록 허용해야 한다고 가정할 경우
 
 예제 발언은 다음과 같습니다.
 
@@ -379,23 +366,22 @@ OrgChartManager(employee){
 
 이 예제 각각에 올바른 예측을 위해 LUIS에 필요한 동사 시제 `was`, `is`, `will be`는 물론 날짜 `March 3`, `now` 및 `in a month`가 사용되었습니다. 마지막 두 가지 예제에는 `in`과 `on`을 제외하고 거의 동일한 텍스트가 사용되었습니다.
 
-예제 템플릿 발언:
+이 선택적 정보를 허용하는 예제 템플릿 발화: 
+
 |의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 대괄호 `[]`의 선택적 구문을 사용하면 템플릿 발언에 선택적 텍스트를 쉽게 추가할 수 있고 두 번째 수준 `[[]]`까지 중첩할 수 있으며 엔터티 또는 텍스트를 포함할 수 있습니다.
 
-**질문: 마지막 두 개 예제 발화가 하나의 템플릿 발화로 결합될 수 없는 이유는 무엇인가요?** 패턴 템플릿은 OR 구문을 지원하지 않습니다. `in` 버전과 `on` 버전을 모두 catch하려면 각각이 별도의 템플릿 예제여야 합니다.
 
 **질문: 각 템플릿 발화의 첫 글자인 `w`가 모두 소문자인 이유가 무엇인가요? 필요에 따라 대문자나 소문자가 되어야 하지 않나요?** 클라이언트 애플리케이션이 쿼리 엔드포인트에 제출한 발언은 소문자로 변환됩니다. 템플릿 발언은 대문자나 소문자일 수 있으며 엔드포인트 발언도 마찬가지입니다. 비교는 항상 소문자로 변환한 후 수행됩니다.
 
 **질문: March 3이 예측된 경우 템플릿 발화의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.  
 
-**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다.
+**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다. 
 
 **기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
 
@@ -403,11 +389,9 @@ OrgChartManager(employee){
 
 1. LUIS 웹 사이트의 최상위 메뉴에서 **빌드**를 선택한 다음, 왼쪽 메뉴에서 **패턴**을 선택합니다. 
 
-2. 기존 템플릿 발언 `Who is {Employee}['s] manager[?]`를 찾아서 오른쪽의 줄임표(***...***)를 선택합니다. 
+1. 기존 템플릿 발화 `Who is {Employee}['s] manager[?]`를 검색하고, 오른쪽에 있는 줄임표(***...***)를 선택한 후 팝업 메뉴에서 **편집**을 선택합니다. 
 
-3. 팝업 메뉴에서 **편집** 을 선택합니다. 
-
-4. 템플릿 발언을 `who is {Employee}['s] manager [[on]{datetimeV2}?]]`로 변경합니다.
+1. 템플릿 발언을 `who is {Employee}['s] manager [[on]{datetimeV2}?]`로 변경합니다.
 
 ## <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
 
@@ -416,7 +400,6 @@ OrgChartManager(employee){
     |의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ OrgChartManager(employee){
 
 4. 몇 가지 테스트 발언을 입력하여 패턴이 일치하는지 의도 점수가 상당히 높은지 확인합니다. 
 
-    첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다.
+    첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다. 각 발화에는 **OrgChart-Manager** 의도가 있어야 하고 Employee 및 datetimeV2의 엔터티 값을 추출해야 합니다.
 
     |발화|
     |--|
@@ -438,6 +421,51 @@ OrgChartManager(employee){
     |Who will be Jill Jones manager in a month?|
 
 모든 발언의 내부에서 엔터티를 찾았으므로 동일한 패턴과 일치하며 예측 점수가 높습니다.
+
+## <a name="use-the-or-operator-and-groups"></a>OR 연산자 및 group 사용
+
+몇 가지 이전 템플릿 발화는 매우 유사합니다. 템플릿 발화를 줄이려면 **group** `()` 및 **OR** `|` 구문을 사용합니다. 
+
+다음 2가지 패턴은 group `()` 및 OR `|` 구문을 사용하여 단일 패턴으로 결합할 수 있습니다.
+
+|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+새 템플릿 발화는 다음과 같습니다. 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+여기서는 필수 동사 시제를 **group**으로 묶고, 선택적 `in` 및 `on`과 **or** 파이프를 사이에 사용합니다. 
+
+1. **패턴** 페이지에서 **OrgChart-Manager** 필터를 선택합니다. `manager`를 검색하여 목록의 범위를 좁힙니다. 
+
+    ![OrgChart-Manager 의도 패턴에서 용어 'manager' 검색](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. 템플릿 발화의 한 가지 버전을 유지하고(다음 단계에서 편집) 다른 변형을 모두 삭제합니다. 
+
+1. 템플릿 발화를 다음으로 변경합니다. 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. 앱을 학습합니다.
+
+1. 다음과 같이 테스트 창에서 발화 버전을 테스트합니다.
+
+    |테스트 창에 입력할 발화|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>발화의 시작 및 끝 앵커 사용
+
+이 패턴 구문은 시작 및 끝 발화 앵커 구문으로 캐럿 `^`을 제공합니다. 시작 및 끝 발화 앵커를 함께 사용하여 매우 구체적인 리터럴 발화를 지정할 수도 있고, 따로 사용하여 의도를 대상으로 지정할 수도 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

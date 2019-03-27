@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886731"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 
 
-이 빠른 시작은 기존 ASP.Net Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. 
+이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +33,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 - [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
 - Azure 구독 및 기존 .NET Core 웹 애플리케이션이 필요합니다.
 
-ASP.NET Core 웹 애플리케이션에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](../../azure-monitor/app/asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
+ASP.NET Core 웹 애플리케이션이 없는 경우 단계별 가이드에 따라 [ASP.NET Core 앱을 만들고 Application Insights를 추가](../../azure-monitor/app/asp-net-core.md)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

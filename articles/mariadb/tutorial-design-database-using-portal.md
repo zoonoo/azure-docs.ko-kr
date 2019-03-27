@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852553"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
 
@@ -90,7 +90,7 @@ Azure Portal에서 Azure Database for MariaDB 서버의 정규화된 **서버 �
 
    ![서버 속성](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-이 예에서 서버 이름은 **mydemoserver.mariadb.database.azure.com**이고, 서버 관리자 로그인 이름은 **myadmin@mydemoserver**입니다.
+이 예에서 서버 이름은 **mydemoserver.mariadb.database.azure.com**이고, 서버 관리자 로그인 이름은 **myadmin\@mydemoserver**입니다.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>mysql을 사용하여 서버에 연결
 

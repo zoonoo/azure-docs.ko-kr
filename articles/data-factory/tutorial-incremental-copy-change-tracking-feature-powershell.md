@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593185"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436556"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -32,6 +32,8 @@ ms.locfileid: "56593185"
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 증분 복사 파이프라인을 생성, 실행 및 모니터링합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
 데이터 통합 솔루션에서 초기 데이터로드 후 데이터 증분을 로드하는 것은 널리 사용되는 시나리오입니다. 경우에 따라 원본 데이터 저장소에서 특정 기간 내에 변경된 데이터를 쉽게 조각낼 수 있습니다(예: LastModifyTime, CreationTime). 데이터를 마지막으로 처리한 이후 델타 데이터를 식별하는 명시적인 방법이 없는 경우가 있습니다. 변경 내용 추적 기술은 Azure SQL Database와 같은 데이터 저장소 기술에 의해 지원되며 SQL Server는 델타 데이터를 파악하는 데 사용될 수 있습니다.  이 자습서는 SQL 변경 내용 추적 기술을 통해 Azure Data Factory를 사용하여 Azure SQL Database에서 Azure Blob Storage로 델타 데이터를 증분 로드하는 방법을 설명합니다.  SQL 변경 내용 추적 기술에 대한 구체적인 정보는 [SQL Server에서 변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 참조하세요. 
@@ -68,7 +70,8 @@ ms.locfileid: "56593185"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+
+* Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
@@ -145,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
@@ -163,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
 3. 데이터 팩터리 이름에 대한 변수를 정의합니다. 
@@ -174,10 +177,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
+5. 데이터 팩터리를 만들려면 다음 **Set-AzDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 다음 사항에 유의하세요.
@@ -214,10 +217,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     }
     ```
 2. **Azure PowerShell**에서 **:\ADFTutorials\IncCopyChgTrackingTutorial** 폴더로 전환합니다.
-3. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 다음 예제에서는 **ResourceGroupName** 및 **DataFactoryName** 매개 변수에 대한 값을 전달합니다. 
+3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스를 만듭니다. **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 다음 예제에서는 **ResourceGroupName** 및 **DataFactoryName** 매개 변수에 대한 값을 전달합니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -248,10 +251,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         }
     }
     ```
-2. **Azure PowerShell**에서 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService** 연결된 서비스를 만듭니다. 
+2. **Azure PowerShell**에서 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -287,10 +290,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     }   
     ```
 
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
+2.  Set-AzDataFactoryV2Dataset cmdlet을 실행하여 데이터 세트를 만듭니다. SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -329,10 +332,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
     요구 사항의 일부로 Azure Blob Storage에 adftutorial 컨테이너를 만듭니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 @CONCAT('Incremental-', pipeline().RunId, '.txt')식을 사용하여 동적으로 생성됩니다.
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
+2.  Set-AzDataFactoryV2Dataset cmdlet을 실행하여 데이터 세트를 만듭니다. SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -367,10 +370,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
     요구 사항의 일부로 table_store_ChangeTracking_version 테이블을 만듭니다.
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
+2.  Set-AzDataFactoryV2Dataset cmdlet을 실행하여 데이터 세트를 만듭니다. WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -416,10 +419,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         }
     }
     ```
-2. Set-AzureRmDataFactoryV2Pipeline cmdlet을 실행하여 FullCopyPipeline 파이프라인을 만듭니다.
+2. Set-AzDataFactoryV2Pipeline cmdlet을 실행하여 파이프라인을 만듭니다. FullCopyPipeline 파이프라인을 만듭니다.
     
    ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
    ``` 
 
    샘플 출력은 다음과 같습니다. 
@@ -433,10 +436,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>전체 복사 파이프라인 실행
-파이프라인 실행: **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **FullCopyPipeline** 파이프라인을 실행합니다. 
+파이프라인 실행: **Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 **FullCopyPipeline** 파이프라인을 실행합니다. 
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
+Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
 ``` 
 
 ### <a name="monitor-the-full-copy-pipeline"></a>전체 복사 파이프라인 모니터링
@@ -605,10 +608,10 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     }
     
     ```
-2. Set-AzureRmDataFactoryV2Pipeline cmdlet을 실행하여 FullCopyPipeline 파이프라인을 만듭니다.
+2. Set-AzDataFactoryV2Pipeline cmdlet을 실행하여 파이프라인을 만듭니다. FullCopyPipeline 파이프라인을 만듭니다.
     
    ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    샘플 출력은 다음과 같습니다. 
@@ -622,10 +625,10 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 실행
-파이프라인 실행: **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **IncrementalCopyPipeline** 파이프라인을 실행합니다. 
+파이프라인 실행: **Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 **IncrementalCopyPipeline** 파이프라인을 실행합니다. 
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
+Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
 ``` 
 
 

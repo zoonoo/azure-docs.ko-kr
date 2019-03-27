@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999618"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779779"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
 
-Azure DNS를 사용하여 DNS 도메인을 호스트하고 DNS 레코드를 관리할 수 있습니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 
+Azure DNS를 사용하여 DNS 도메인을 호스트하고 DNS 레코드를 관리할 수 있습니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
 도메인 이름 등록 기관에서 contoso.net 도메인을 구입한 후 Azure DNS에서 이름이 contoso.net인 영역을 만든다고 가정해 봅시다. 여러분이 도메인 소유자이므로 등록 기관에서 도메인의 이름 서버(NS) 레코드를 구성하는 옵션을 제공합니다. 등록 기관은 NS 레코드를 .net 부모 영역에 저장합니다. 그러면 전 세계의 인터넷 사용자가 contoso.net의 DNS 레코드를 확인하려고 시도하는 경우 Azure DNS 영역의 도메인으로 리디렉션됩니다.
 
@@ -31,6 +31,12 @@ Azure DNS를 사용하여 DNS 도메인을 호스트하고 DNS 레코드를 관�
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
+
+이 자습서에 사용되는 예제 도메인은 contoso.net이지만 사용자 고유의 도메인 이름을 사용하세요.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 

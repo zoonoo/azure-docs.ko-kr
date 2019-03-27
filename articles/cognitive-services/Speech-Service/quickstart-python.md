@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886120"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>빠른 시작: Python용 Speech SDK를 사용하여 음성 인식
 
@@ -25,9 +25,9 @@ ms.locfileid: "56447120"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 * [Python 3.5 이상](https://www.python.org/downloads/)
-* Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다. 
+* Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다.
     * Windows: x64 및 x86
     * Mac: macOS X 버전 10.12 이상.
     * Linux: x64의 Ubuntu 16.04 또는 18.04.
@@ -50,11 +50,11 @@ ms.locfileid: "56447120"
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>지원 및 업데이트 
+## <a name="support-and-updates"></a>지원 및 업데이트
 
 Speech SDK Python 패키지에 대한 업데이트는 PyPI를 통해 배포되며, [릴리스 정보](./releasenotes.md)에서 발표됩니다.
 새 버전을 사용할 수 있는 경우 `pip install --upgrade azure-cognitiveservices-speech` 명령을 사용하여 업데이트할 수 있습니다.
-`azure.cognitiveservices.speech.__version__` 변수를 검사하여 현재 설치된 버전을 확인하세요. 
+`azure.cognitiveservices.speech.__version__` 변수를 검사하여 현재 설치된 버전을 확인하세요.
 
 문제가 있거나 기능이 누락된 경우 [지원 및 도움말 옵션](./support.md)을 참조하세요.
 
@@ -68,7 +68,7 @@ Speech SDK Python 패키지에 대한 업데이트는 PyPI를 통해 배포되�
 python quickstart.py
 ```
 
-또는 [Speech SDK 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다. 
+또는 [Speech SDK 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다.
 
 ### <a name="sample-code"></a>샘플 코드
 
@@ -86,7 +86,7 @@ python quickstart.py
 1. Visual Studio Code에서 **파일** 아이콘을 선택합니다. 그런 다음, 사용자가 만든 폴더를 엽니다.
 
    ![폴더 열기](media/sdk/qs-python-vscode-python-open-folder.png)
-   
+
 1. 새 파일 아이콘을 선택하여 새 Python 원본 파일 `speechsdk.py`를 만듭니다.
 
    ![파일 만들기](media/sdk/qs-python-vscode-python-newfile.png)

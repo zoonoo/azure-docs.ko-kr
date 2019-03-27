@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003184"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55768660"
 
 관련은 있지만 청구와 비용 관리는 다릅니다. 청구는 상품이나 서비스에 대한 비용을 고객에게 청구하고 상업적 관계를 관리하는 프로세스입니다.  일반적으로 조달 및 재무 팀이 청구 작업을 수행합니다.
 
-Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을 보여 줍니다. Cost Management 보고서는 Azure 비용, 사용량, 예약 인스턴스 및 Azure 하이브리드 혜택 사용을 보여 줍니다. 전체적으로 이 보고서는 사용량 및 Azure Marketplace 요금에 대한 내부 및 외부 비용을 표시합니다. 예약 구매, 지원 및 세금과 같은 다른 요금은 보고서에 아직 표시되지 않았습니다. 이러한 보고서는 지출 및 리소스 사용을 이해하는 데 도움이 되고 지출 문제를 찾는 데도 도움이 될 수 있습니다. 예측 분석도 사용할 수 있습니다. Cost Management는 Azure 관리 그룹, 예산 및 권장 사항을 사용하여 지출이 구성되는 방식과 비용을 줄일 수 있는 방법을 명확히 보여 줍니다.
+Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을 보여 줍니다. Cost Management의 보고서에는 Azure 서비스 및 타사 Marketplace 제품에서 사용된 사용량 기준 비용이 표시됩니다. 비용은 예약 및 Azure 하이브리드 혜택 할인의 협상된 가격 및 비율을 기준으로 결정됩니다. 전체적으로 이 보고서는 사용량 및 Azure Marketplace 요금에 대한 내부 및 외부 비용을 표시합니다. 예약 구매, 지원 및 세금과 같은 다른 요금은 보고서에 아직 표시되지 않았습니다. 이러한 보고서는 지출 및 리소스 사용을 이해하는 데 도움이 되고 지출 문제를 찾는 데도 도움이 될 수 있습니다. 예측 분석도 사용할 수 있습니다. Cost Management는 Azure 관리 그룹, 예산 및 권장 사항을 사용하여 지출이 구성되는 방식과 비용을 줄일 수 있는 방법을 명확히 보여 줍니다.
 
 내보내기 자동화를 위해 Azure Portal 또는 다양한 API를 사용하여 비용 데이터를 외부 시스템 및 프로세스와 통합할 수 있습니다. 자동화된 청구 데이터 내보내기 및 예약된 보고서도 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 원�
 
 ## <a name="consider-cloudyn"></a>Cloudyn 고려
 
-[Cloudyn](overview.md)은 Cost Management와 관련된 Azure 서비스입니다. Cloudyn을 사용하면 Azure 리소스에 대한 클라우드 사용 및 지출을 추적할 수 있습니다. 또한 AWS 및 Google을 비롯한 다른 클라우드 공급자도 지원됩니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. 현재, Cost Management는 쇼백/차지백 또는 기타 클라우드 서비스 공급자를 지원하지 않습니다. 그러나 Cloudyn은 이러한 기능 및 공급자를 _지원하는_ 옵션입니다. 현재, Cost Management는 Azure EA 계정만 지원합니다. Cost Management는 개별 또는 종량제 계정이나 Microsoft 클라우드 서비스 공급자 계정을 지원하지 않지만 Cloudyn은 이러한 계정을 지원합니다. 이러한 계정 중 하나가 있는 경우 Cloudyn을 사용하여 비용을 관리할 수 있습니다.
+[Cloudyn](overview.md)은 Cost Management와 관련된 Azure 서비스입니다. Cloudyn을 사용하면 Azure 리소스에 대한 클라우드 사용 및 지출을 추적할 수 있습니다. 또한 AWS 및 Google을 비롯한 다른 클라우드 공급자도 지원됩니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. 현재, Cost Management는 쇼백/차지백 또는 기타 클라우드 서비스 공급자를 지원하지 않습니다. 그러나 Cloudyn은 이러한 기능 및 공급자를 _지원하는_ 옵션입니다. 현재, Cost Management는 Microsoft CSP(클라우드 서비스 공급자) 계정을 지원하지 않지만 Cloudyn은 이 계정을 지원합니다. CSP 계정이 있거나 쇼백/차지백을 사용하려는 경우 Cloudyn을 사용하여 비용을 관리할 수 있습니다.
 
 ## <a name="additional-azure-tools"></a>추가 Azure 도구
 

@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825735"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195623"
 ---
 ### <a name="run-the-service"></a>서비스 실행
 
@@ -81,7 +81,7 @@ http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 > * 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 > * Dev Spaces를 통해 기능의 기준을 설정하여 더 큰 마이크로 서비스 애플리케이션의 컨텍스트 내에서 격리된 변경 내용을 손쉽게 테스트합니다.
 
-Azure Dev Spaces를 알아보았으므로 [팀 멤버와 개발 공간을 공유](../articles/dev-spaces/how-to/share-dev-spaces.md)하고 함께 공동 작업을 수행하는 것이 얼마나 쉬운지 알 수 있습니다.
+지금까지 Azure Dev Spaces에 대해 알아보았으므로 [팀 멤버와 개발 공간을 공유](../articles/dev-spaces/how-to/share-dev-spaces.md)하고 함께 공동 작업을 수행할 수 있습니다.
 
 ## <a name="clean-up"></a>정리
 모든 개발 환경 및 그 안에서 실행되는 서비스를 포함하여 클러스터에서 Azure Dev Spaces 인스턴스를 완전히 삭제하려면 `az aks remove-dev-spaces` 명령을 사용합니다. 이 작업은 되돌릴 수 없습니다. 클러스터에서 Azure Dev Spaces에 대한 지원을 추가할 수 있지만 마치 다시 시작하는 것 같을 것입니다. 이전 서비스와 공간을 복원할 수 없습니다.

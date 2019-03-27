@@ -2,16 +2,17 @@
 title: Azure Batch 및 Batch 탐색기를 사용하여 Blender 장면 렌더링
 description: 자습서 - Azure Batch 및 Batch 탐색기 클라이언트 애플리케이션을 사용하여 Blender 장면에서 여러 프레임을 렌더링하는 방법
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392556"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791429"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 
@@ -26,7 +27,7 @@ ms.locfileid: "47392556"
 
 ## <a name="prerequisites"></a>필수 조건
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
 
 저장소 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
 
@@ -124,7 +125,7 @@ Blender에서 생성된 stdout.txt 로그 파일을 확인하여 렌더링 상�
 
 렌더링된 이미지를 VM에 먼저 작성하고 'wd' 폴더를 선택하여 볼 수 있습니다. ![풀 노드에서 렌더링된 이미지](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 
-또한 이 작업 템플릿은 작업이 만들어질 때 지정된 Azure Storage 계정 파일 그룹에 출력 프레임 및 로그 파일을 다시 기록하도록 지정합니다.  '데이터' UI는 출력 파일 및 로그를 보는 데 사용하고 파일을 다운로드하는 데 사용할 수도 있습니다. ![저장소 파일 그룹에서 렌더링된 이미지](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
+또한 이 작업 템플릿은 작업이 만들어질 때 지정된 Azure Storage 계정 파일 그룹에 출력 프레임 및 로그 파일을 다시 기록하도록 지정합니다.  '데이터' UI는 출력 파일 및 로그를 보는 데 사용하고 파일을 다운로드하는 데 사용할 수도 있습니다. ![스토리지 파일 그룹에서 렌더링된 이미지](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
 모든 태스크를 완료하면 작업이 완료된 것으로 표시됩니다. ![완료된 모든 작업 및 태스크](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 

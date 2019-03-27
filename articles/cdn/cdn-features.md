@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/01/2018
+ms.date: 02/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a025c8e12f224bff4d90a924cf415143da9421b5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cce28b031b146d8a56d37647022261294f07f0be
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892612"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213571"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
@@ -33,13 +33,19 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 | [동적 사이트 가속](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 적응 이미지 압축](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 개체 프리페치](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [비디오 스트리밍 최적화](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
-| [큰 파일 최적화](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
+| [일반 웹 배달 최적화](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, 평균 파일 크기가 10MB보다 작으면 이 최적화 유형을 선택합니다.  | **&#x2713;** |  **&#x2713;** |
+| [비디오 스트리밍 최적화](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | 일반 웹 배달을 통해 | **&#x2713;**  | 일반 웹 배달을 통해 |  일반 웹 배달을 통해 |
+| [큰 파일 최적화](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | 일반 웹 배달을 통해 | **&#x2713;**, 평균 파일 크기가 10MB보다 크면 이 최적화 유형을 선택합니다.   | 일반 웹 배달을 통해 |  일반 웹 배달을 통해 |
+| 최적화 유형 변경 | |**&#x2713;** | | |
+| 원본 포트 |모든 TCP 포트 |[허용된 원본 포트](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |모든 TCP 포트 |모든 TCP 포트 |
 | [GSLB(전역 서버 부하 분산)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [빠른 삭제](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [빠른 삭제](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, 모두 제거 및 와일드카드 제거는 현재 Akamai의 Azure CDN에서 지원되지 않습니다. |**&#x2713;** |**&#x2713;** |
 | [자산 미리 로드](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | 캐시/헤더 설정([캐싱 규칙](cdn-caching-rules.md)사용)  |  |**&#x2713;** |**&#x2713;** | |
+| 사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진([규칙 엔진](cdn-rules-engine.md) 사용)  |  | | |**&#x2713;** |
 | 캐시/헤더 설정( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
+| URL 리디렉션/다시 쓰기( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
+| 모바일 디바이스 규칙( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
 | [쿼리 문자열 캐싱](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 이중 스택 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 지원](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -65,11 +71,11 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 | **사용 편의성** | **표준 Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) 및 [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) 등의 Azure 서비스와 손쉬운 통합  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md)  |  | | |**&#x2713;** |
-| URL 리디렉션/다시 쓰기([규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
-| 모바일 디바이스 규칙( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
+| [압축 MIME 형식](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |기본값만 |구성 가능 여부 |구성 가능 여부  |구성 가능 여부  |
+| 압축 인코딩  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
-\* Microsoft 및 Verizon은 일반 웹 배달 최적화를 통해 큰 파일 및 미디어를 배달하도록 직접 지원합니다.
+
+
 
 
 

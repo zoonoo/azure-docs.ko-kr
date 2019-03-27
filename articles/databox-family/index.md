@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>Azure Data Box 제품군은 TB(테라바이트) 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.</p>
 <h2>오프라인 데이터 전송</h2>
 <p>네트워크 대역폭 제한 없음</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b>(데이터 크기가 40TB 이하인 경우). Microsoft에서 데이터를 복사하고 반송하도록 1-5개의 암호화된 SSD(반도체 드라이브)를 배송합니다.</p>
+                            <p>데이터 크기가 &lt; 40TB인 <b>Data Box Disk</b>. Microsoft에서 데이터를 복사하고 반송하도록 1-5개의 암호화된 SSD(반도체 드라이브)를 배송합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>미리 보기</SUP></b>(데이터 크기가 500TB를 초과하는 경우). Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 디바이스 하나를 화물로 배송합니다.</p>
+                            <p>데이터 크기가 &gt; 500TB인 <b>Data Box Heavy</b>. Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 디바이스 하나를 화물로 배송합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>미리 보기</SUP></b> 가상 디바이스(저장 용량 지원). 네트워크를 통해 Azure로 데이터를 보내려면 이 디바이스를 사용하세요.</p>
+                            <p>스토리지가 있는 <b>Data Box Gateway </b> 가상 디바이스. 네트워크를 통해 Azure로 데이터를 보내려면 이 디바이스를 사용하세요.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>미리 보기</SUP></b> 물리적 디바이스(저장 및 계산 용량 지원). 데이터를 Azure로 이동할 때 데이터를 분석, 변환 또는 필터링하려면 이 디바이스를 사용하세요.</p>
+                            <p>스토리지 및 컴퓨팅 기능이 있는 <b>Data Box Edge </b> 물리적 디바이스. 데이터를 Azure로 이동할 때 데이터를 분석, 변환 또는 필터링하려면 이 디바이스를 사용하세요.</p>
                         </div>
                     </div>
                 </div>

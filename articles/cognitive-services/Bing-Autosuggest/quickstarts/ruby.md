@@ -1,71 +1,84 @@
 ---
-title: '빠른 시작: Bing Autosuggest API, Ruby'
+title: '빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안'
 titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 0093554c1d4b9b315dcf7b6171d5ed1ff5ab9057
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: c7ba0fd34c789735cd92c25a728aec346dc88fcc
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875572"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009748"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Bing Autosuggest API 및 Ruby에 대한 빠른 시작 
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안
 
-이 문서에서는 Ruby와 함께 [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 를 사용하는 방법을 보여줍니다. Bing Autosuggest API는 사용자가 검색 상자에 입력하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 일반적으로, 사용자가 검색 상자에 새 문자를 입력할 때마다 이 API를 호출한 후 검색 상자의 드롭다운 목록에 제안을 표시합니다. 이 문서에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보내는 방법을 보여 줍니다.
+이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 Ruby 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상이 필요합니다.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상.
 
-**Bing Autosuggest API v7**을 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/#search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Autosuggest 결과 가져오기
+## <a name="create-a-new-application"></a>새 애플리케이션 만들기
 
-1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Ruby 파일을 만듭니다. 다음 요구 사항을 추가하세요.
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+2. API 호스트 및 경로에 대한 변수, [시작 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리를 만듭니다.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+    ```ruby
+    subscriptionKey = 'enter your key here'
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+3. 시장 코드를 `?mkt=` 매개 변수에 추가하고 쿼리를 `&q=` 매개 변수에 추가하여 매개 변수 문자열을 만듭니다. 그런 다음, API 호스트, 경로 및 매개 변수 문자열을 결합하여 요청 URI를 생성합니다.
 
-mkt = 'en-US'
-query = 'sail'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + query
+    uri = URI (host + path + params)
+    ```
 
-params = '?mkt=' + mkt + '&q=' + query
-uri = URI (host + path + params)
+## <a name="create-and-send-an-api-request"></a>API 요청 만들기 및 보내기
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+1. URI를 포함하는 요청을 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
+    
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+2. 요청을 보내고 응답을 저장합니다.
+    
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
+    ```
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+3. JSON 응답을 출력합니다.
+    
+    ```ruby
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-### <a name="response"></a>response
+## <a name="example-json-response"></a>예제 JSON 응답
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
@@ -136,7 +149,7 @@ puts JSON::pretty_generate (JSON (response.body))
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest 자습서](../tutorials/autosuggest.md)
+> [단일 페이지 웹앱 만들기](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>참고 항목
 

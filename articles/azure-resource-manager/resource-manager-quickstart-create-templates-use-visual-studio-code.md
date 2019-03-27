@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823657"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317121"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
 Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 Azure Resource Manager 템플릿을 만들고 편집하는 방법을 알아봅니다. 확장이 없이 Visual Studio Code에서 Resource Manager 템플릿을 만들 수 있지만, 확장에서는 템플릿 개발을 간소화하는 자동 완성 옵션을 제공합니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
+
+이 자습서에서는 스토리지 계정을 배포합니다.
+
+![Resource Manager 템플릿 빠른 시작 Visual Studio Code 다이어그램](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -90,15 +94,24 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 구성이 필요하지 않은 웹 애플리케이션입니다. Azure CLI와 Azure PowerShell을 모두 지원합니다.
+템플릿을 배포하는 방법에는 여러 가지가 있습니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 탭 선택기를 사용하여 CLI와 PowerShell 중에서 선택합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
+2. 왼쪽 위 모퉁이에서 **PowerShell** 또는 **Bash**(CLI)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Azure Portal - Cloud Shell에서 CLI로 전환](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. 왼쪽 위 모퉁이에서 **PowerShell** 또는 **Bash**를 선택하여 기본 환경을 선택합니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. Azure PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 아래쪽 화살표를 선택하여 Bash와 PowerShell 간에 전환합니다. 이전 스크린샷을 참조하세요. 전환하는 경우 셸을 다시 시작해야 합니다.
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Azure Portal Cloud shell PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

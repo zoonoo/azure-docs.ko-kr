@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462157"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003520"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
@@ -72,6 +72,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
+### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
+```
+
 ## <a name="set-time-to-live-on-an-item"></a>항목에 대한 TTL(Time to live) 설정
 
 컨테이너에 대한 기본 TTL(Time to Live)을 설정하는 것 외에도 항목에 대한 TTL(Time to Live)을 설정할 수 있습니다. 항목 수준에서 TTL(Time to Live)을 설정하면 해당 컨테이너에 있는 항목의 기본 TTL이 재정의됩니다.
@@ -81,6 +95,37 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
 * 항목에 TTL 필드에 없는 경우 기본적으로 컨테이너에 설정된 TTL이 항목에 적용됩니다.
 
 * 컬렉션 수준에서 TTL이 설정되지 않으면 항목의 TTL 필드는 컨테이너에 대한 TTL이 다시 설정될 때까지 무시됩니다.
+
+### <a id="portal-set-ttl-item"></a>Azure Portal
+
+항목에 대해 TTL(Time to Live)을 사용하도록 설정하려면 다음 단계를 따르세요.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+2. 새 Azure Cosmos 계정을 만들거나 기존 계정을 선택합니다.
+
+3. **데이터 탐색기** 창을 엽니다.
+
+4. 기존 컨테이너를 선택하여 확장하고, 다음 값을 수정합니다.
+
+   * **배율 및 설정** 창을 엽니다.
+   * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
+   * **설정(기본값 없음)** 를 선택하거나 **켜기**를 선택하고 TTL 값을 설정합니다. 
+   * **저장**을 클릭하여 변경 내용을 저장합니다.
+
+5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트**를 선택합니다. 
+
+   ```json
+   {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
@@ -94,7 +139,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -103,9 +148,21 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
+
+### <a id="nodejs-set-ttl-item"></a>NodeJS SDK
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+```
+
 
 ## <a name="reset-time-to-live"></a>TTL 다시 설정
 
@@ -121,7 +178,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -139,14 +196,14 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
 ## <a name="disable-time-to-live"></a>TTL(Time to Live) 해제
 
-컨테이너에 대한 TTL(Time to Live)을 해제하고 백그라운드 프로세스에서 만료된 항목 검사를 중지하려면 컨테이너의 `DefaultTimeToLive` 속성을 삭제해야 합니다. 이 속성을 삭제하는 것은 -1로 설정하는 것과 다릅니다. -1로 설정하면 컨테이너에 추가되는 새 항목이 영구적으로 라이브 상태로 유지되지만 컨테이너의 특정 항목에서 이 값을 재정의할 수 있습니다. 컨테이너에서 TTL 속성을 제거하면 항목이 기존의 기본 TTL 값을 명시적으로 재정의하더라도 항목이 만료됩니다.
+컨테이너에 대한 TTL(Time to Live)을 해제하고 백그라운드 프로세스에서 만료된 항목 검사를 중지하려면 컨테이너의 `DefaultTimeToLive` 속성을 삭제해야 합니다. 이 속성을 삭제하는 것은 -1로 설정하는 것과 다릅니다. -1로 설정하면 컨테이너에 추가되는 새 항목이 영구적으로 라이브 상태로 유지되지만 컨테이너의 특정 항목에서 이 값을 재정의할 수 있습니다. 컨테이너에서 TTL 속성을 제거하면 항목이 기존의 기본 TTL 값을 명시적으로 재정의하더라도 항목이 절대 만료되지 않습니다.
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK
 

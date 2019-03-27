@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: b61db97cec77fc724933c2b4e7d3fa7f7afc0ab6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861454"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -28,7 +28,12 @@ ms.locfileid: "55884956"
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+    * Visual Studio에서 NuGet 패키지를 설치하려면
+        1. 솔루션 관리자를 마우스 오른쪽 단추로 클릭합니다.
+        2.  **NuGet 패키지 관리...**
+        3. **newtonsoft.json**을 검색한 후 패키지를 설치합니다.
+
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -38,6 +43,7 @@ ms.locfileid: "55884956"
 1. Visual Studio에서 새 C# 콘솔 솔루션을 만듭니다. 그런 다음, 주 코드 파일에 다음 네임스페이스를 추가합니다.
     
     ```csharp
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
@@ -68,25 +74,26 @@ ms.locfileid: "55884956"
 
 1. 클래스 내에서 `Search()`라는 함수를 만듭니다. 새 `HttpClient` 개체를 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
 
-    1. 호스트와 경로를 결합하여 요청의 URI를 구성합니다. 그런 다음, 시장을 추가하고 쿼리를 URL로 인코딩합니다.
-    2. `client.GetAsync()`를 기다려서 HTTP 응답을 받고 `ReadAsStringAsync()`를 기다려서 json 응답을 저장합니다.
-    3. 콘솔에 문자열을 출력합니다.
+   1. 호스트와 경로를 결합하여 요청의 URI를 구성합니다. 그런 다음, 시장을 추가하고 쿼리를 URL로 인코딩합니다.
+   2. `client.GetAsync()`를 기다려서 HTTP 응답을 받고 `ReadAsStringAsync()`를 기다려서 json 응답을 저장합니다.
+   3. `JsonConvert.DeserializeObject()`를 사용하여 JSON 문자열의 서식을 지정한 후 콘솔에 출력합니다.
 
-    ```csharp
-    async static void Search()
-    {
-        //...
-        HttpClient client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+      ```csharp
+      async static void Search()
+      {
+       //...
+       HttpClient client = new HttpClient();
+       client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+       string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
 
-        HttpResponseMessage response = await client.GetAsync(uri);
+       HttpResponseMessage response = await client.GetAsync(uri);
 
-        string contentString = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(JsonPrettyPrint(contentString));
-    }
-    ```
+       string contentString = await response.Content.ReadAsStringAsync();
+       dynamic parsedJson = JsonConvert.DeserializeObject(contentString);
+       Console.WriteLine(parsedJson);
+      }
+      ```
 
 2. 애플리케이션의 Main 메서드에서 `Search()` 함수를 호출합니다.
     
@@ -139,7 +146,7 @@ ms.locfileid: "55884956"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

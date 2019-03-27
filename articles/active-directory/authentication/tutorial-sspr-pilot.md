@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175152"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215594"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료
 
@@ -42,8 +42,8 @@ ms.locfileid: "56175152"
       * 선택한 그룹의 사용자에게 적절한 라이선스가 부여되었는지 확인합니다.
    * 페이지 맨 아래에 있는 **저장**
 1. **인증 방법** 페이지에서
-   * **재설정에 필요한 방법 수**를 **2**로 설정합니다.
-   * 조직에서 허용하려는 **사용자가 사용할 수 있는 방법**을 선택합니다. 이 자습서에서는 **이메일**, **휴대폰** 및 **사무실 전화** 확인란을 선택합니다.
+   * **재설정에 필요한 방법 수**를 **1**로 설정합니다.
+   * 조직에서 허용하려는 **사용자가 사용할 수 있는 방법**을 선택합니다. 이 자습서에서는 해당 확인란을 선택하여 **이메일** 및 **모바일 앱 코드(미리 보기)** 를 사용하도록 설정합니다.
    * 페이지 맨 아래에 있는 **저장**
 1. **등록** 페이지에서
    * **로그인 시 사용자가 등록하도록 요구**에서 **예**를 선택합니다.

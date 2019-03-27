@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692883"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842948"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기(미리 보기)
 
@@ -37,11 +37,13 @@ ms.locfileid: "55692883"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>이 기능 등록
 
-Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 그렇지 않으면 포털에서 가상 WAN을 사용할 수 없습니다. 등록하려면 구독 ID로 **azurevirtualwan@microsoft.com**에 이메일을 전송합니다. 구독이 등록되면 이메일 회신을 받게 됩니다.
+Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 그렇지 않으면 포털에서 Virtual WAN을 사용할 수 없습니다. 등록하려면 구독 ID를 포함하는 이메일을 **azurevirtualwan\@microsoft.com**으로 보냅니다. 구독이 등록되면 이메일 회신을 받게 됩니다.
 
 **미리 보기 고려 사항:**
 
@@ -69,15 +71,15 @@ Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 �
 ## <a name="hub"></a>4. 회로를 찾아 허브에 연결
 
 1. **Virtual WAN Architecture**에서 vWAN을 선택하고 **ExpressRoute 회로**를 선택합니다.
-2. ExpressRoute 회로가 vWAN과 동일한 구독에 있으면 구독에서 **ExpressRoute 회로 선택**을 클릭합니다. 
-3. 풀 다운을 사용하여 허브에 연결할 ExpressRoute를 선택합니다.
-4. ExpressRoute 회로가 동일한 구독에 없거나 [인증 키와 피어 ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)가 제공된 경우 **권한 키를 복구하는 회로 찾기**를 선택합니다.
-5. 다음 세부 정보를 입력합니다.
-* **인증 키** - 위에 설명한 대로 회로 소유자가 생성
-* **피어 회로 URI** -회로 소유자가 제공하고 회로의 고유 ID인 회로 URI
-* **라우팅 가중치** - [라우팅 가중치](../expressroute/expressroute-optimize-routing.md)를 사용하면 여러 다른 피어링 lcoations의 여러 회로가 동일한 허브에 연결될 때 특정 경로를 기본으로 설정할 수 있습니다.
-6. **회로 찾기**를 클릭하고 찾으면 회로를 선택합니다.
-7. 드롭다운에서 하나 이상의 허브를 선택하고 **저장**을 클릭합니다.
+1. ExpressRoute 회로가 vWAN과 동일한 구독에 있으면 구독에서 **ExpressRoute 회로 선택**을 클릭합니다. 
+1. 풀 다운을 사용하여 허브에 연결할 ExpressRoute를 선택합니다.
+1. ExpressRoute 회로가 동일한 구독에 없거나 [인증 키와 피어 ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)가 제공된 경우 **권한 키를 복구하는 회로 찾기**를 선택합니다.
+1. 다음 세부 정보를 입력합니다.
+1. **인증 키** - 위에 설명한 대로 회로 소유자가 생성
+1. **피어 회로 URI** -회로 소유자가 제공하고 회로의 고유 ID인 회로 URI
+1. **라우팅 가중치** - [라우팅 가중치](../expressroute/expressroute-optimize-routing.md)를 사용하면 여러 다른 피어링 lcoations의 여러 회로가 동일한 허브에 연결될 때 특정 경로를 기본으로 설정할 수 있습니다.
+1. **회로 찾기**를 클릭하고 찾으면 회로를 선택합니다.
+1. 드롭다운에서 하나 이상의 허브를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="vnet"></a>5. 허브에 VNet 연결
 
@@ -110,10 +112,10 @@ Azure VM과 원격 사이트 간의 통신을 모니터링하는 연결을 만�
 
 ## <a name="cleanup"></a>9. 리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

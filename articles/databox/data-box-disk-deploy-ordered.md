@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156174"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404899"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -77,14 +77,28 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 
     |설정|값|
     |---|---|
-    |이름|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
+    |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
     |리소스 그룹| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
     |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 저장소 계정이 지원됩니다. |
-    |저장소 계정|지정한 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 선택합니다. <br>새 범용 v1 또는 범용 v2 계정도 만들 수 있습니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
     |디스크 암호| **Azure에서 생성한 암호가 아닌 사용자 지정 키 사용**을 선택하는 경우 디스크 암호를 제공합니다. <br> 적어도 하나의 숫자 및 하나의 특수 문자를 포함한 12~32개 영숫자 키를 제공합니다. 허용되는 특수 문자는 `@?_+`입니다. <br> 이 옵션을 건너뛰고 Azure에서 생성된 암호를 사용하여 디스크의 잠금을 해제하도록 선택할 수 있습니다.|
+    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정한 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 스토리지 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>규칙이 구성된 스토리지 계정은 사용할 수 없습니다. 스토리지 계정은 방화벽 및 가상 네트워크 섹션의 **모든 네트워크에서 액세스할 수 있어야** 합니다.|
 
-13. **다음**을 클릭합니다. 
+    스토리지 계정을 스토리지 대상으로 사용하는 경우 다음 스크린샷을 참조하세요.
+
+    ![스토리지 계정에 대한 Data Box Disk 주문](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Data Box Disk를 사용하여 온-프레미스 VHD에서 관리형 디스크를 만드는 경우에도 다음 정보를 제공해야 합니다.
+
+    |설정  |값  |
+    |---------|---------|
+    |리소스 그룹     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 기존 리소스 그룹은 Data Box 서비스에서 관리형 디스크에 대한 Data Box Disk 주문을 위해 생성된 경우에만 사용합니다. <br> 하나의 리소스 그룹만 지원됩니다.|
+
+    ![관리형 디스크에 대한 Data Box Disk 주문](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 스테이징 스토리지 계정으로 업로드한 후 관리형 디스크로 변환하고 리소스 그룹으로 이동합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
+
+13. **다음**을 클릭합니다.
 
     ![주문 세부 정보 제공](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
  
 ## <a name="track-the-order"></a>주문 추적
 
-주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. 해당 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서 해당 작업을 **주문됨** 상태로 표시합니다. 
+주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. 해당 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서 해당 작업을 **주문됨** 상태로 표시합니다.
 
 ![Data Box Disk 주문됨 상태](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 
 ## <a name="cancel-the-order"></a>주문 취소
 
-이 주문을 취소하려면 Azure Portal에서 **개요**로 이동하고, 명령 모음에서 **취소**를 클릭합니다. 
+이 주문을 취소하려면 Azure Portal에서 **개요**로 이동하고, 명령 모음에서 **취소**를 클릭합니다.
 
-디스크가 주문되고 출하를 위해 주문이 배송으로 처리되는 경우에만 취소할 수 있습니다. 주문이 처리되면 더 이상 주문을 취소할 수 없습니다. 
+디스크가 주문되고 출하를 위해 주문이 배송으로 처리되는 경우에만 취소할 수 있습니다. 주문이 처리되면 더 이상 주문을 취소할 수 없습니다.
 
 ![주문 취소](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Data Box Disk를 설정하는 방법을 알아보려면 다음 자습서로 계�
 
 > [!div class="nextstepaction"]
 > [Azure Data Box Disk 설정](./data-box-disk-deploy-set-up.md)
-
-

@@ -1,24 +1,20 @@
 ---
 title: '자습서: Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Docs '
 description: 이 자습서에서는 JavaScript 사용자 정의 함수로 고급 쿼리 메커니즘을 수행합니다.
-keywords: javascript, 사용자 정의 함수, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088880"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192278"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
@@ -50,12 +46,19 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 함수 정의에서 차단되지는 않지만 **Date.GetDate()** 또는 **Math.random()** 과 같은 함수는 사용하지 않아야 합니다. 이러한 함수는 호출할 때마다 **다른** 결과를 반환하며 Azure Stream Analytics 서비스에서 함수 호출 및 반환된 결과 저널을 유지하지 않습니다. 동일한 이벤트에 대해 함수가 다른 결과를 반환하면 사용자 또는 Stream Analytics 서비스에서 작업을 다시 시작할 때 반복성이 보장되지 않습니다.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Azure Portal에서 JavaScript 사용자 정의 함수 추가
-기존 Stream Analytics 작업에서 간단한 JavaScript 사용자 정의 함수를 작성하려면 다음 단계를 수행하세요.
+기존 Stream Analytics 작업에서 간단한 JavaScript 사용자 정의 함수를 작성하려면 다음 단계를 따르세요.
+
+> [!NOTE]
+> 이러한 단계는 클라우드에서 실행하도록 구성된 Stream Analytics 작업에서 작동합니다. Stream Analytics 작업을 Azure IoT Edge에서 실행되도록 구성한 경우, Visual Studio를 대신 사용하고 [C#을 사용하여 사용자 정의 함수를 작성](stream-analytics-edge-csharp-udf.md)합니다.
 
 1.  Azure Portal에서 Stream Analytics 작업을 찾습니다.
-2.  **작업 토폴로지** 아래에서 함수를 선택합니다. 함수의 빈 목록이 표시됩니다.
-3.  새 사용자 정의 함수를 만들려면 **추가**를 선택합니다.
+
+2. **작업 토폴로지** 제목 아래에서 **함수**를 선택합니다. 함수의 빈 목록이 표시됩니다.
+
+3.  새 사용자 정의 함수를 만들려면 **+ 추가**를 선택합니다.
+
 4.  **새 함수** 블레이드에서 **함수 유형**에 대해 **JavaScript**를 선택합니다. 기본 함수 템플릿이 편집기에 나타납니다.
+
 5.  **UDF 별칭**의 경우 **hex2Int**를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
     ```javascript
@@ -70,7 +73,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>쿼리에서 JavaScript 사용자 정의 함수 호출
 
-1. 쿼리 편집기에서 **작업 토폴로지** 아래에 있는 **쿼리**를 선택합니다.
+1. 쿼리 편집기의 **Job topology** 제목 아래에서 **쿼리**를 선택합니다.
 2.  쿼리에 편집하고 다음과 같은 사용자 정의 함수를 호출합니다.
 
     ```SQL
@@ -97,7 +100,7 @@ Stream Analytics 쿼리 언어와 JavaScript가 지원하는 형식 간에는 �
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number(JavaScript에서는 정확히 최대 2^53의 정수만 표현할 수 있음)
-Datetime | Date(JavaScript에서는 밀리초만 지원)
+DateTime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
 nvarchar(MAX) | 문자열
 레코드 | Object
@@ -111,7 +114,7 @@ NULL | Null
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이에 있는 경우, 그렇지 않으면 double임)
-Date | Datetime
+Date | DateTime
 문자열 | nvarchar(MAX)
 Object | 레코드
 배열 | 배열

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037160"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431209"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 애플리케이션 빌드
 
@@ -34,9 +34,9 @@ ms.locfileid: "54037160"
 3. 웹 응용 프로그램에서 Azure Cosmos DB 연결 및 사용
 4. Azure App Service에 웹 응용 프로그램 배포
 
-이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
+이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 애플리케이션을 빌드합니다.
 
-![이 데이터베이스 자습서에서 만든 투표 응용 프로그램의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![이 데이터베이스 자습서에서 만든 투표 애플리케이션의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>데이터베이스 자습서 필수 조건
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "54037160"
 > [!IMPORTANT]
 > 처음으로 Python 2.7을 설치하는 경우 사용자 지정 Python 2.7.13 화면에서 **경로에 python.exe 추가**를 선택하도록 합니다.
 > 
-> ![사용자 지정 Python 2.7.11 화면의 스크린샷에서 경로에 python.exe 추가를 선택해야 합니다.](./media/sql-api-python-application/cosmos-db-python-install.png)
+> ![경로에 python.exe 추가를 선택해야 하는 사용자 지정 Python 2.7.11 화면 스크린샷](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 

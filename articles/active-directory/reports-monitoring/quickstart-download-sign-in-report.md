@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168820"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547812"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 로그인 보고서 다운로드
 
-이 빠른 시작에서는 지난 24시간 동안 테넌트에 대한 로그인 데이터를 다운로드하는 방법을 알아봅니다. Azure Portal에서 최대 5,000개의 레코드를 다운로드할 수 있습니다. 레코드는 가장 최근 순으로 정렬되므로 기본적으로 가장 최근의 5,000개 레코드를 가져옵니다. 
+이 빠른 시작에서는 지난 24시간 동안 테넌트에 대한 로그인 데이터를 다운로드하는 방법을 알아봅니다. Azure Portal에서 최대 250,000개의 레코드를 다운로드할 수 있습니다. 레코드는 가장 최근 순으로 정렬되므로 기본적으로 가장 최근의 250,000개 레코드를 가져옵니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,7 +41,7 @@ ms.locfileid: "56168820"
 2. 왼쪽 탐색 창에서 **Azure Active Directory**를 선택하고 **디렉터리 전환** 단추를 사용하여 Active Directory를 선택합니다.
 3. 대시보드에서 **Azure Active Directory**를 선택한 다음, **로그인**을 선택합니다. 
 4. **날짜** 필터 드롭다운에서 **지난 24시간**을 선택하고 **적용**을 선택하여 지난 24시간 동안의 로그인을 확인합니다. 
-5. **다운로드** 단추를 선택하여 필터링된 레코드를 포함하는 CSV 파일을 다운로드합니다. 
+5. **다운로드** 단추를 선택하고 파일 형식으로 **CSV**를 선택한 후 필터링된 레코드가 포함된 CSV 파일을 다운로드할 파일 이름을 지정합니다. 
 
 ![보고](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

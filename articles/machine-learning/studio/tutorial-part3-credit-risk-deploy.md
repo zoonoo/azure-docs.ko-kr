@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839020"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ ms.locfileid: "56823793"
 
 각 모듈을 선택하고 Delete 키를 누르거나 모듈을 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다. 
 
-![SVM 모델 제거됨](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![지원 벡터 머신 모델을 제거하기 위해 삭제할 모듈 강조 표시](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 모델은 다음과 같이 표시됩니다.
 
-![SVM 모델 제거됨](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![지원 벡터 머신 모델이 삭제될 때의 결과 실험](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 이제 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree]를 사용하여 이 모듈을 배포할 준비가 되었습니다.
 

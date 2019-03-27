@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441760"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762724"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -40,8 +40,8 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
 ## <a name="prerequisites"></a>필수 조건
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
     **스타일**을 사용하여 사용자 지정할 수 있는 모든 요소가 페이지에 표시됩니다.
 5. **변수 값을 변경하여 개발자 포털 모양 사용자 지정:** 필드에 "headings-color"를 입력합니다.
 
-    **@headings-color** 요소가 페이지에 나타납니다. 이 변수는 텍스트의 색을 제어합니다.
+    **\@headings-color** 요소가 페이지에 나타납니다. 이 변수는 텍스트의 색을 제어합니다.
 
     ![스타일 사용자 지정](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. **@headings-color** 변수에 대한 필드를 클릭합니다. 
+6. **\@headings-color** 변수의 필드를 클릭합니다. 
     
     색 선택 드롭다운이 열립니다.
 7. 색 선택 드롭다운에서 새 색을 선택합니다.

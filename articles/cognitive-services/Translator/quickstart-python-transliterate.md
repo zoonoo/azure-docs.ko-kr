@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862848"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 음역
 
@@ -32,7 +32,7 @@ ms.locfileid: "56726366"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `transliterate-text.py`라는 파일의 프로젝트에 복사합니다.
+즐겨 찾는 IDE 또는 편집기를 사용하여 새 프로젝트를 만들거나 바탕 화면에 이름이 `transliterate-text.py`라는 파일이 포함된 새 폴더를 만듭니다. 그런 후 이 코드 조각을 프로젝트/파일에 복사합니다.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -135,7 +135,7 @@ python transliterate-text.py
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

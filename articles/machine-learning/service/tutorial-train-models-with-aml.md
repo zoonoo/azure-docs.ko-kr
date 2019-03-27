@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860564"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
@@ -29,13 +28,12 @@ ms.locfileid: "56311174"
 > [!div class="checklist"]
 > * 개발 환경 설정
 > * 데이터 액세스 및 검사
-> * 인기 있는 scikit-learn 기계 학습 라이브러리를 사용하여 로컬로 간단한 로지스틱 회귀 학습 
-> * 원격 클러스터에서 여러 모델 학습
+> * 원격 클러스터의 간단한 로지스틱 회귀 모델을 학습합니다.
 > * 학습 결과 검토 및 최상의 모델 등록
 
 모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다. 
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
 > 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.8에서 테스트되었습니다.

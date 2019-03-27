@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115949"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195475"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -55,7 +55,7 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 
 - 저장소 계정에 보관합니다.
 - 이벤트 허브로 스트리밍합니다.
-- 로그를 Log Analytics로 보냅니다.
+- 로그를 Azure Monitor 로그로 보냅니다.
 
 로그를 제어하고 로그에 대한 액세스를 제한하여 보호할 수 있으며 더 이상 필요하지 않은 로그를 삭제할 수도 있습니다.
 

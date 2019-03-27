@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863766"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3로 라이브 스트리밍
 
@@ -33,7 +33,7 @@ ms.locfileid: "56338600"
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 라이브 스트리밍을 수행하는 코드 검사
-> * http://ampdemo.azureedge.net에서 [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
+> * https://ampdemo.azureedge.net에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
 > * 리소스 정리
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ ms.locfileid: "56338600"
 
 ### <a name="create-a-live-event"></a>라이브 이벤트 만들기
 
-이 섹션에서는 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 라이브 인코딩이 가능한 라이브 이벤트를 만들려면 LiveEventEncodingType을 **Standard**로 설정합니다. 
-
-라이브 이벤트를 만들 때 지정할 수 있는 몇 가지 다른 점은 다음과 같습니다.
+이 섹션에서는 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 사용 가능한 라이브 이벤트 유형에 대한 자세한 내용은 [라이브 이벤트 유형](live-events-outputs-concept.md#live-event-types)을 참조하세요. 
+ 
+라이브 이벤트를 만들 때 지정할 수 있는 몇 가지 사항은 다음과 같습니다.
 
 * Media Services 위치 
 * 라이브 이벤트의 스트리밍 프로토콜(현재 RTMP 및 부드러운 스트리밍 프로토콜이 지원됨).<br/>라이브 이벤트 또는 연결된 라이브 출력이 실행 중인 동안에는 프로토콜 옵션을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 스트리밍 프로토콜에 대한 별도의 라이브 이벤트를 만들어야 합니다.  
@@ -166,7 +166,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 
-이벤트를 시청하려면 스트리밍 로케이터 만들기에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 http://ampdemo.azureedge.net에서 스트림을 테스트할 수 있습니다. 
+이벤트를 시청하려면 스트리밍 로케이터 만들기에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 https://ampdemo.azureedge.net에서 스트림을 테스트할 수 있습니다. 
 
 라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다. 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다. 
 

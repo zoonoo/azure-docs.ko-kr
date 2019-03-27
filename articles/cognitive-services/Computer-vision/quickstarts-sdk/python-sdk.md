@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ffecc07c49db8fd1b27cc2dd82192aa31a7fbd19
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889633"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194982"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Python용 Azure Cognitive Services Computer Vision SDK
 
@@ -42,7 +42,7 @@ Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Azure 구독이 없는 경우
 
-**시도** 환경에서 7일 동안 유효한 평가판 키를 만듭니다. 키가 만들어지면 키와 지역 이름을 복사해 둡니다. 이 값은 [클라이언트를 만들 때](#create-client) 필요합니다.
+Computer Vision 서비스의 **[시도][computervision_resource]** 환경에서 7일 동안 유효한 평가판 키를 만듭니다. 키가 만들어지면 키와 지역 이름을 복사해 둡니다. 이 값은 [클라이언트를 만들 때](#create-client) 필요합니다.
 
 키를 만든 후에는 다음을 유지합니다.
 
@@ -51,7 +51,7 @@ Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를
 
 ### <a name="if-you-have-an-azure-subscription"></a>Azure 구독이 있는 경우
 
-Computer Vision API 계정이 필요한 경우 구독에서 해당 계정을 만드는 가장 쉬운 방법은 다음 [Azure CLI][azure_cli] 명령을 사용하는 것입니다. 리소스 그룹 이름(예: "my-cogserv-group")을 선택하고 Computer Vision 리소스 이름(예: "my-computer-vision-resource")을 선택해야 합니다. 
+구독에서 리소스를 만드는 가장 쉬운 방법은 다음 [Azure CLI][azure_cli] 명령을 사용하는 것입니다. 그러면 많은 Cognitive Services에서 사용할 수 있는 Cognitive Services 키가 생성됩니다. _기존_ 리소스 그룹 이름(예: "my-cogserv-group")을 선택하고 새 Computer Vision 리소스 이름(예: "my-computer-vision-resource")을 선택해야 합니다. 
 
 ```Bash
 RES_REGION=westeurope 
@@ -62,8 +62,8 @@ az cognitiveservices account create \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
     --location $RES_REGION \
-    --kind ComputerVision \
-    --sku S1 \
+    --kind CognitiveServices \
+    --sku S0 \
     --yes
 ```
 
@@ -96,20 +96,18 @@ Computer Vision 리소스를 만들면 클라이언트 개체를 인스턴스화
 
 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체의 인스턴스를 만들 때 이러한 값을 사용합니다. 
 
-<!--
-
-For example, use the Bash terminal to set the environment variables:
+예를 들어, Bash 터미널을 사용하여 환경 변수를 설정합니다.
 
 ```Bash
 ACCOUNT_REGION=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### For Azure subscription usrs, get credentials for key and region
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Azure 구독 사용자를 위해 키 및 지역에 대한 자격 증명 가져오기
 
-If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+지역과 키를 기억하지 못하는 경우 다음 방법으로 찾을 수 있습니다. 키 및 지역을 만들어야 하는 경우 [Azure 구독 소유자](#if-you-have-an-azure-subscription) 또는 [Azure 구독이 없는 사용자](#if-you-dont-have-an-azure-subscription)를 위한 방법을 사용할 수 있습니다.
 
-Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
+아래 [Azure CLI][cloud_shell] 코드 조각을 사용하여 Computer Vision 계정 **지역** 및 해당 **키** 중 하나로 두 환경 변수를 채웁니다. (이러한 값은 [Azure Portal][azure_portal]에서 찾을 수 있습니다.) 조각은 Bash 셸에 대해 서식이 지정됩니다.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -127,23 +125,30 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
--->
+
 
 ### <a name="create-client"></a>클라이언트 만들기
 
-[ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체를 만듭니다. 다음 코드 예제에서 지역과 키 값을 사용자의 값으로 변경합니다.
+환경 변수에서 지역 및 키를 가져온 후에는 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체를 만듭니다.  
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-region = "westcentralus"
-key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# Get region and key from environment variables
+import os
+region = os.environ['ACCOUNT_REGION']
+key = os.environ['ACCOUNT_KEY']
 
+# Set credentials
 credentials = CognitiveServicesCredentials(key)
+
+# Create client
 client = ComputerVisionAPI(region, credentials)
 ```
+
+## <a name="examples"></a>예
 
 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체가 있어야 다음 작업을 사용할 수 있습니다.
 
@@ -224,7 +229,7 @@ raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
-# SDK call
+# Async SDK call
 rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
@@ -233,7 +238,9 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-result = client.get_text_operation_result(operationId)
+while result.status in ['NotStarted', 'Running']:
+    time.sleep(1)
+    result = client.get_text_operation_result(operationId)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
@@ -321,7 +328,7 @@ except HTTPFailure as e:
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -342,7 +349,7 @@ except HTTPFailure as e:
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 

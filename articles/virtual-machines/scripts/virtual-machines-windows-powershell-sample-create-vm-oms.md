@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Log Analytics | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Log Analytics
+title: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 615ba2286fc8c3e920e10a4909ed336ec6a30f9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001735"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541522"
 ---
-# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>PowerShell을 사용하여 Log Analytics 모니터링 VM 만들기 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>PowerShell을 사용하여 Azure Monitor VM 만들기 
 
 이 스크립트는 Azure Virtual Machine을 만들고 Log Analytics 에이전트를 설치하고 Log Analytics 작업 영역을 사용하여 시스템을 등록합니다. 스크립트를 실행하면 가상 머신이 Azure Monitor에 표시됩니다. 또한 Log Analytics 작업 영역 ID와 작업 영역 키를 업데이트해야 합니다.
 

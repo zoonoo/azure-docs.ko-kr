@@ -4,23 +4,22 @@ description: Azure Active Directory와 Pluralsight 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 844e8abff45f663b39846c9b8dc9b55be0d43f4f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57874986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>자습서: Pluralsight와 Azure Active Directory 통합
 
@@ -46,6 +45,8 @@ Pluralsight와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Pluralsight에서 **SP** 시작 SSO를 지원합니다.
+
+* Pluralsight에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다. 
 
 ## <a name="adding-pluralsight-from-the-gallery"></a>갤러리에서 Pluralsight 추가
 
@@ -114,16 +115,15 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Pluralsight 클라이언트 지원 팀](mailto:support@pluralsight.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Pluralsight 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
-
-    ![이미지](common/edit-attribute.png)
+5. Pluralsight 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+    ![image](common/edit-attribute.png)
 
     >[!NOTE]
     >조직에 맞는 EmployeeID 등과 같은 적절한 값으로 **"고유 ID"** 특성을 추가할 수도 있습니다. 또한 이는 필수 특성이 아니지만 고유한 사용자를 식별하기 위해 추가할 수 있습니다.
 
-6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+6. 위에서 언급한 특성 외에도, Pluralsight 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | --------------- | --------- |
     | 이름  | user.givenname  |
     | 성  | user.surname  |
@@ -173,7 +173,7 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -208,7 +208,7 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="create-pluralsight-test-user"></a>Pluralsight 테스트 사용자 만들기
 
-이 섹션은 Pluralsight에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Pluralsight 계정에 사용자를 추가하려면 [Pluralsight 클라이언트 지원 팀](mailto:support@pluralsight.com)에 문의하세요.  Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Pluralsight에서 Britta Simon이라는 사용자를 만듭니다. Pluralsight는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. Pluralsight에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
