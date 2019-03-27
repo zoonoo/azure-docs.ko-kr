@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863596"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498386"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 문서 |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | N/A  |
-| **참조**              | [ASP.NET 디버깅 개요](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET 추적 개요](https://msdn2.microsoft.com/library/bb386420.aspx), [방법: ASP.NET 애플리케이션에 대해 추적 사용](https://msdn2.microsoft.com/library/0x5wc973.aspx), [방법: ASP.NET 애플리케이션에 대해 디버깅 사용](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **참조**              | [ASP.NET 디버깅 개요](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET 추적 개요](https://msdn.microsoft.com/library/bb386420.aspx), [방법: ASP.NET 애플리케이션에 대해 추적 사용](https://msdn.microsoft.com/library/0x5wc973.aspx), [방법: ASP.NET 애플리케이션에 대해 디버깅 사용](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **단계** | 페이지에 대한 추적이 사용되는 경우 해당 페이지를 요청하는 모든 브라우저에서 내부 서버 상태 및 워크플로에 대한 데이터가 포함된 추적 정보를 얻습니다. 이 정보는 보안에 중요할 수 있습니다. 페이지에 대한 디버깅이 사용되는 경우 서버에서 발생하는 오류로 인해 전체 스택 추적 데이터가 브라우저에 표시됩니다. 이 데이터는 서버의 워크플로 보안에 중요한 정보를 노출할 수 있습니다. |
 
 ## <a id="js-trusted"></a>신뢰할 수 있는 원본에서만 타사 JavaScript에 액세스

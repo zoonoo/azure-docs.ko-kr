@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446378"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497962"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형
 
@@ -108,7 +108,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 모바일 및 데스크톱 애플리케이션과 같은 장치에 설치된 애플리케이션은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 애플리케이션에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.  
 
-이 흐름에서 애플리케이션은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 애플리케이션의 사용 권한을 나타냅니다. 그러면 애플리케이션은 백그라운드에서 `id_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  애플리케이션은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `id_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `id_token`을 가져올 수도 있습니다.
+이 흐름에서 애플리케이션은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 애플리케이션의 사용 권한을 나타냅니다. 그러면 애플리케이션은 백그라운드에서 `access_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  애플리케이션은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `access_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `access_token`을 가져올 수도 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

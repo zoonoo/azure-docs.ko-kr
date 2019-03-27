@@ -4,20 +4,20 @@ description: 오래된 데이터를 핫에서 쿨로 전환하고 계층을 보�
 services: storage
 author: yzheng-msft
 ms.service: storage
-ms.topic: article
-ms.date: 11/04/2018
+ms.topic: conceptual
+ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315150"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500426"
 ---
-# <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
-데이터 집합에는 고유한 수명 주기가 있습니다. 수명 주기 초기에는 사람들이 일부 데이터에 자주 액세스합니다 하지만 액세스 필요성은 데이터가 오래될 수록 크게 줄어듭니다. 어떤 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후에는 어쩌다가 한 번씩 액세스됩니다. 어떤 데이터는 생성 며칠 후 또는 몇 달 후 만료되고, 또 어떤 데이터 세트는 수명 주기 전체에 걸쳐 적극적으로 읽히고 수정됩니다. Azure Blob Storage 수명 주기 관리(미리 보기)는 GPv2 및 Blob Storage 계정에 대해 풍부한 규칙 기반 정책을 제공합니다. 정책을 사용하여 데이터를 적절한 액세스 계층으로 전환하거나 데이터의 수명 주기 후에 만료합니다.
+데이터 집합에는 고유한 수명 주기가 있습니다. 수명 주기 초기에는 사람들이 일부 데이터에 자주 액세스합니다 하지만 액세스 필요성은 데이터가 오래될 수록 크게 줄어듭니다. 어떤 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후에는 어쩌다가 한 번씩 액세스됩니다. 어떤 데이터는 생성 며칠 후 또는 몇 달 후 만료되고, 또 어떤 데이터 세트는 수명 주기 전체에 걸쳐 적극적으로 읽히고 수정됩니다. Azure Blob 저장소 수명 주기 관리는 GPv2 및 Blob 저장소 계정에 대 한 풍부 하 고 규칙 기반 정책을 제공합니다. 정책을 사용하여 데이터를 적절한 액세스 계층으로 전환하거나 데이터의 수명 주기 후에 만료합니다.
 
 수명 주기 관리 정책을 사용하여 다음을 수행할 수 있습니다.
 
@@ -34,73 +34,53 @@ ms.locfileid: "58315150"
 
 ## <a name="pricing"></a>가격 
 
-수명 주기 관리 기능은 무료 미리 보기로 제공됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+수명 주기 관리 기능을 무료로 제공 됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
-## <a name="register-for-preview"></a>미리 보기 등록 
-공개 미리 보기에 등록하려면 이 기능을 구독에 등록해 달라는 요청을 제출해야 합니다. 요청은 일반적으로 72시간 내에 승인됩니다. 요청이 승인되면 다음 지역의 모든 기존 및 새로운 GPv2 또는 Blob Storage 계정이 이 기능을 포함합니다. 미국 서부 2, 미국 중서부, 미국 동부 2 및 유럽 서부 미리 보기는 블록 blob만 지원합니다. 대부분의 미리 보기와 마찬가지로, GA가 진행될 때까지 프로덕션 워크로드에서 이 기능을 사용할 수 없습니다.
-
-요청을 제출하려면 다음 PowerShell 또는 CLI 명령을 실행합니다.
-
-### <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-요청을 제출하려면:
-
-```powershell
-Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
-```
-다음 명령을 사용하여 등록 승인 상태를 확인할 수 있습니다.
-```powershell
-Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
-```
-승인 및 적절한 등록을 수행하면 이전 요청을 제출할 때 *등록* 상태가 수신됩니다.
-
-### <a name="azure-cli"></a>Azure CLI
-
-요청을 제출하려면: 
-```cli
-az feature register --namespace Microsoft.Storage --name DLM
-```
-다음 명령을 사용하여 등록 승인 상태를 확인할 수 있습니다.
-```cli
-az feature show --namespace Microsoft.Storage --name DLM
-```
-승인 및 적절한 등록을 수행하면 이전 요청을 제출할 때 *등록* 상태가 수신됩니다.
+## <a name="regional-availability"></a>국가별 가용성 
+모든 공용 Azure 지역에서 수명 주기 관리 기능을 사용할 수 있는 경우 
 
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거 
 
-Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
+추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, REST Api 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
+
+> [!NOTE]
+> 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 리소스**를 선택하고 스토리지 계정을 선택합니다.
+2. 선택 **모든 리소스** 를 선택한 다음 저장소 계정입니다.
 
-3. Blob Service 아래에서 그룹화된 **수명 주기 관리(미리 보기)** 를 선택하여 정책을 보거나 변경합니다.
+3. 아래 **Blob Service**를 선택 **수명 주기 관리** 보거나 정책을 변경 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }'
+#Install the latest module
+Install-Module -Name Az -Repository PSGallery 
 
-Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+#Create a new action object
 
-Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
+
+# Create a new filter object
+# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
+$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
+
+#Create a new fule object
+#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
+$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
+
+#Set the policy 
+$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-
-```
-az account set --subscription "[subscriptionName]”
-az extension add --name storage-preview
-az storage account management-policy show --resource-group [resourceGroupName] --account-name [accountName]
-```
-
-> [!NOTE]
-> 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
 ## <a name="policy"></a>정책
 
@@ -108,10 +88,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "rule1",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {...}
     },
@@ -125,27 +105,27 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 
-정책에는 다음 두 가지 매개 변수가 필요합니다.
+정책 규칙의 컬렉션인:
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
-| 버전        | `x.x`로 표현되는 문자열 | 미리 보기 버전 번호는 0.5입니다. |
-| 규칙          | 규칙 개체의 배열 | 정책마다 하나 이상의 규칙이 필요합니다. 미리 보기 기간에는 정책당 최대 4개의 규칙을 지정할 수 있습니다. |
+| 규칙          | 규칙 개체의 배열 | 정책 규칙을 하나 이상 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
-정책 내의 각 규칙에는 다음 세 가지 매개 변수가 필요합니다.
+정책 내에 있는 각 규칙에는 여러 매개 변수:
 
-| 매개 변수 이름 | 매개 변수 형식 | 메모 |
-|----------------|----------------|-------|
-| 이름           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
-| 형식           | 열거형 값 | 미리 보기의 유효한 값은 `Lifecycle`입니다. |
-| 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. |
+| 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
+|----------------|----------------|-------|----------|
+| 이름           | 문자열 |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
+| 사용 | BOOLEAN | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | False | 
+| 형식           | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True |
+| 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
 
 ## <a name="rules"></a>규칙
 
 각 규칙 정의는 필터 집합과 작업 집합을 포함합니다. [필터 집합](#rule-filters)은 컨테이너 또는 개체 이름 내에서 개체의 특정 집합으로 규칙 작업을 제한합니다. [작업 집합](#rule-actions)은 계층을 적용하거나 필터링된 개체 집합에 대한 작업을 삭제합니다.
 
 ### <a name="sample-rule"></a>샘플 규칙
-다음 샘플 규칙은 `container1/foo`에서만 작업을 실행하도록 계정을 필터링합니다. `container1` 내에 존재, **AND** `foo`로 시작하는 모든 개체에 대해 다음 작업을 실행합니다. 
+다음 샘플 규칙 필터 내에서 존재 하는 개체에서 작업을 실행 계정 `container1` **모양과** 시작 `foo`합니다.  
 
 - 마지막으로 수정한 시점으로부터 30일 후 Blob을 쿨 계층으로 이동
 - 마지막으로 수정한 시점으로부터 90일 후 Blob을 보관 계층으로 이동
@@ -154,10 +134,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "ruleFoo",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -185,18 +165,18 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 필터는 규칙 작업을 저장소 계정 내의 BLOB 작업 하위 집합으로 제한합니다. 둘 이상의 필터를 정의하는 경우 논리적 `AND`가 모든 필터에서 실행됩니다.
 
-미리 보기 기간에 유효한 필터는 다음과 같습니다.
+유효한 필터는 다음과 같습니다.
 
 | 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스는 `blockBlob`만 지원합니다. | 예 |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob을 검색 하려면 "https:\//myaccount.blob.core.windows.net/container1/foo/..." 규칙은 prefixMatch는 `container1/foo`합니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아닙니다. |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예 |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어, "https://myaccount.blob.core.windows.net/container1/foo/..." 아래의 모든 Blob을 일치시키려는 경우 규칙에 대한 prefixMatch는 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙 저장소 계정 내 모든 blob에 적용 됩니다.  | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업
 
-실행 조건이 충족되면 필터링된 BLOB에 작업이 적용됩니다.
+작업 실행된 조건이 충족 되 면 필터링 된 blob에 적용 됩니다.
 
-미리 보기에서 수명 주기 관리는 Blob의 계층 이동 및 삭제와 Blob 스냅숏 삭제를 지원합니다. Blob 또는 Blob 스냅숏에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
+수명 주기 관리 계층화 및 삭제의 blob 및 blob 스냅숏 삭제를 지원합니다. Blob 또는 Blob 스냅숏에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
 
 | 조치        | 기본 Blob                                   | 스냅숏      |
 |---------------|---------------------------------------------|---------------|
@@ -204,10 +184,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
 | delete        | 지원됨                                   | 지원됨     |
 
-> [!NOTE]
-> 동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
+>[!NOTE] 
+>동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
 
-미리 보기에서 작업 실행 조건은 보존 기간을 기반으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅숏은 스냅숏 생성 시간을 사용하여 보존 기간을 추적합니다.
+실행된 조건 사용 기간을 기반으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅숏은 스냅숏 생성 시간을 사용하여 보존 기간을 추적합니다.
 
 | 작업 실행 조건 | 조건 값 | 설명 |
 |----------------------------|-----------------|-------------|
@@ -223,10 +203,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "agingRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -251,10 +231,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "archiveRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -279,10 +259,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "expirationRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -305,11 +285,11 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "snapshotRule",
-      "type": "Lifecycle",
+      "enabled": true,
+      "type": "Lifecycle",      
     "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -327,7 +307,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 ## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>FAQ - 새 정책을 만들었습니다. 작업이 즉시 실행되지 않는 이유는 무엇인가요? 
 
-플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 새 정책을 설정하면 일부 작업(예: 계층화 및 삭제)을 시작 및 실행하는 데 최대 24시간이 걸릴 수 있습니다.  
+플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 정책에 구성한 후 처음으로 실행 하려면 몇 가지 작업 (예: 계층화 및 삭제)에 대 한 최대 24 시간이 걸릴 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

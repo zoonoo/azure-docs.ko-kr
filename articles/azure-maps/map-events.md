@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469541"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499198"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>맵과 상호 작용 - 마우스 이벤트
 
@@ -51,7 +51,7 @@ ms.locfileid: "54469541"
 전체 코드 예제는 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [검색 결과 표시](./map-search-location.md)
+> [Azure Maps 서비스 모듈을 사용 하 여](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [코드 샘플 페이지](https://aka.ms/AzureMapsSamples)

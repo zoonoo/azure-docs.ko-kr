@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162937"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499984"
 ---
 # <a name="application-types-for-v20"></a>v2.0에 대한 응용 프로그램 유형
 
@@ -124,7 +124,7 @@ OAuth2 액세스 토큰을 사용하여 Web API 보안을 유지하는 방법을
 
 장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [인증서로 디먼 앱에서 Azure AD에 인증](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/)을 참조하세요.
 
-이 흐름에서 앱은 `/token` 엔드포인트와 직접 상호 작용하여 엔드포인트를 가져옵니다.
+이 흐름에서 앱에 직접 상호 작용 하는 하는 `/token` 액세스 끝점:
 
 ![디먼 앱 인증 흐름](./media/v2-app-types/convergence_scenarios_daemon.png)
 

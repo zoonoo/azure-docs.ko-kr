@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 데이터 검색 및 분류 | Microsoft Docs
-description: Azure SQL Database 데이터 검색 및 분류
+title: Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류 | Microsoft Docs
+description: Azure SQL Database 및 데이터 검색 및 분류
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202982"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495989"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 데이터 검색 및 분류
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류
 
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
@@ -28,10 +28,10 @@ ms.locfileid: "58202982"
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
-데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [ADS](sql-database-advanced-data-security.md)(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
+데이터 검색 및 분류는 부분을 [고급 데이터 보안](sql-database-advanced-data-security.md) ADS ()는 SQL의 고급 보안 기능에 대 한 통합된 패키지는 제공 합니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server (온-프레미스)를 참조 하세요 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)합니다.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 연결합니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)를 참조 하세요 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)합니다.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 

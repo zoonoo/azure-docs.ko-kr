@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310560"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479532"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -32,8 +32,15 @@ Azure AD 암호 보호는 사항에 따라 이러한 원칙을 사용 하 여 �
 * 없는 최소 Active Directory 도메인 또는 포리스트 기능 수준을 (DFL/FFL)가 필요 합니다.
 * 소프트웨어를 만들거나 보호 되는 Active Directory 도메인의 계정이 필요 하지 않습니다.
 * 암호 유효성 검사 작업 중 또는 언제 든 지 사용자 일반 텍스트 암호는 도메인 컨트롤러를 종료 하지.
-* 증분 배포 지원 됩니다. 하지만 암호 정책을 도메인 컨트롤러 (DC Agent) 에이전트를 설치한 에서만 적용 됩니다.
-* 유니버설 암호 보호 보안 적용 되도록 모든 도메인 컨트롤러에서 DC 에이전트를 설치 하는 것이 좋습니다.
+* 도메인 컨트롤러 (DC Agent) 에이전트를 설치한 암호 정책 에서만 적용 되지만 증분 배포가 지원 됩니다. 자세한 내용은 다음 항목을 참조 하세요.
+
+## <a name="incremental-deployment"></a>증분 배포
+
+Azure AD 암호 보호를 Active Directory 도메인의 도메인 컨트롤러에 대해 증분 배포를 지원 합니다. 이지만이 의미 및 장단점을 이해 해야 합니다.
+
+에이전트 소프트웨어를 Azure AD 암호 보호 DC 도메인 컨트롤러에 해당 도메인 컨트롤러에 전송 되는 암호 변경에 대해서만 설치 될 때만 암호를 검증할 수 있습니다. 사용자 암호 변경 내용을 처리 하기 위한 Windows 클라이언트 컴퓨터는 도메인 컨트롤러를 선택한 제어 하는 것이 불가능 합니다. 일관 된 동작 및 유니버설 암호 보호 보안 적용을 보장 하기 위해 도메인의 모든 도메인 컨트롤러에서 DC 에이전트 소프트웨어를 설치 합니다.
+
+대부분의 조직에서는 전체 배포를 수행 하기 전에 해당 도메인 컨트롤러의 하위 집합에서 Azure AD 암호 보호 신중 하 게 테스트를 수행 하려고 합니다. Azure AD 암호 보호는 부분 배포를 지원, ie 지정 dc는 DC 에이전트 소프트웨어를 적극적으로 암호 유효성을 검사 도메인의 다른 Dc는 DC 에이전트 소프트웨어가 설치 되어 있지 않은 경우에 합니다. 이 형식의 부분 배포 되지 보호 하 고 이외의 바람직하지 않은 테스트 목적으로 합니다.
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 

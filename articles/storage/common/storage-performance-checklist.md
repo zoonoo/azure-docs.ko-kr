@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012320"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445990"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
@@ -98,7 +98,7 @@ Azure Storage 자체는 구독당 지역별로 250개의 스토리지 계정으�
 특정 구독/지역 조합에 보유할 수 있는 스토리지 계정의 한도에 도달하는 경우 스토리지 계정의 애플리케이션 및 사용량을 평가하고 다음 조건 중 하나가 적용되는지 확인합니다.
 
 * 스토리지 계정을 비관리 디스크로 사용하고 해당 디스크를 가상 머신에 추가. 이 시나리오에서는 개별 스토리지 계정을 만들고 관리하지 않고도 스토리지 디스크 확장성을 처리하는 [관리 디스크](../../virtual-machines/windows/managed-disks-overview.md)를 사용하는 것이 좋습니다.
-* 데이터 격리를 위해 고객당 하나의 스토리지 계정 사용. 이 시나리오에서는 전체 스토리지 계정이 아닌 각 고객용 스토리지 컨테이너를 사용하는 것이 좋습니다. 이제 Azure Storage를 사용하여 [컨테이너별](storage-auth-aad-rbac.md)로 역할 기반 액세스 제어를 지정할 수 있습니다.
+* 데이터 격리를 위해 고객당 하나의 스토리지 계정 사용. 이 시나리오에서는 전체 스토리지 계정이 아닌 각 고객용 스토리지 컨테이너를 사용하는 것이 좋습니다. 이제 Azure Storage를 사용하여 [컨테이너별](storage-auth-aad-rbac-portal.md)로 역할 기반 액세스 제어를 지정할 수 있습니다.
 * 수신/송신/IOPS/용량의 확장성 증대를 위해 여러 개의 스토리지 계정을 사용하여 데이터베이스 분할. 이 시나리오에서는 가능한 경우 표준 스토리지 계정의 [한도 증가](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 활용하여 워크로드에 필요한 스토리지 계정 수를 줄이는 것이 좋습니다.
 
 애플리케이션이 특정 스토리지 계정의 확장성 목표에 도달한 경우 다음 방법 중 하나를 사용할 수 있습니다.  

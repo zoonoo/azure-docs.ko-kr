@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811012"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480807"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -45,11 +45,11 @@ ms.locfileid: "54811012"
 
 더 낮은 계층(**Basic**, **Standard** 및 **Premium**)과 **Premium V2** 계층 사이에서 앱의 규모를 조정하는 경우 앱에 대한 아웃바운드 IP 주소 집합이 변경됩니다.
 
-`possibleOutboundIPAddresses` 속성을 검색하면 가격 책정 계층에 관계 없이 앱이 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 집합을 찾을 수 있습니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
+앱이 사용할 수를 검색 하 여 가격 책정 계층에 관계 없이 모든 가능한 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 합니다 `possibleOutboundIPAddresses` 속성 또는 합니다 **추가 아웃 바운드 IP 주소** 필드에 **속성**  블레이드에서 Azure portal에서 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
 ## <a name="find-outbound-ips"></a>아웃바운드 IP 찾기
 
-Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 
+Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 에 나열 되는 **아웃 바운드 IP 주소** 필드입니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
@@ -61,7 +61,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-가격 책정 계층에 관계 없이 앱에 대해 사용 가능한 모든 아웃바운드 IP 주소를 찾으려면 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행합니다.
+찾으려는 _모든_ 가격 책정 계층에 관계 없이 앱에 대 한 아웃 바운드 IP 주소 수 클릭 **속성** 앱의 왼쪽 탐색 창에서. 에 나열 되는 **아웃 바운드 IP 주소 추가** 필드입니다.
+
+[Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv

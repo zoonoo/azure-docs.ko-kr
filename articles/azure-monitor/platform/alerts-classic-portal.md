@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833388"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480637"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -93,37 +93,37 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 2. 먼저 Azure 구독에 로그인합니다.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. 로그인 화면이 표시됩니다. 로그인하면 계정, 테넌트 ID 및 기본 구독 ID가 표시됩니다. 모든 Azure cmdlet은 기본 구독의 컨텍스트에서 작동합니다. 액세스할 수 있는 구독 목록을 보려면 다음 명령을 사용합니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. 작업 컨텍스트를 다른 구독으로 변경하려면 다음 명령을 사용합니다.
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. 리소스 그룹에 대한 모든 클래식 메트릭 경고 규칙을 검색할 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. 클래식 메트릭 경고 규칙의 세부 정보를 볼 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. 대상 리소스에 대해 설정된 모든 경고 규칙을 검색할 수 있습니다. 예를 들어 VM에 설정된 모든 경고 규칙을 검색할 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

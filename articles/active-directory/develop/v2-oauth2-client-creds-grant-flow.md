@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540571"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445442"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -76,10 +76,10 @@ ACL을 사용하는 대신 API를 사용하여 애플리케이션 사용 권한 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>앱 등록 포털에서 사용 권한 요청
 
-1. [애플리케이션 등록 포털](quickstart-v2-register-an-app.md) 또는 새 [앱 등록(미리 보기) 환경](quickstart-register-app.md)을 통해 앱을 등록하고 만듭니다.
-1. 앱을 등록하거나 만드는 데 사용한 포털에서 애플리케이션으로 이동합니다. 앱을 만들 때 하나 이상의 애플리케이션 비밀을 사용해야 합니다.
-1. **API 사용 권한** 섹션으로 이동한 다음, 앱에 필요한 **애플리케이션 사용 권한**을 추가합니다.
-1. 앱 등록을 **저장**합니다.
+1. 등록 하 고 새로운 앱을 만듭니다 [앱 등록 (미리 보기) 환경을](quickstart-register-app.md)합니다.
+2. 앱 등록 (미리 보기) 환경에서 응용 프로그램으로 이동 합니다. 로 이동 합니다 **인증서 및 암호** 섹션을 추가 **새 클라이언트 암호**이므로 하나 이상의 클라이언트 비밀을 사용 하 여 토큰을 요청 해야 합니다.
+3. **API 사용 권한** 섹션으로 이동한 다음, 앱에 필요한 **애플리케이션 사용 권한**을 추가합니다.
+4. 앱 등록을 **저장**합니다.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>권장: 앱에 사용자 로그인시키기
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
 | `scope` | 필수 | 이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(애플리케이션 ID URI)여야 하고, `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. </br>이 값은 앱에 구성한 모든 애플리케이션 직접 사용 권한의 v2.0 엔드포인트를 알려주며, 엔드포인트는 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. `/.default` 범위에 대해 자세히 알아보려면 [동의 설명서](v2-permissions-and-consent.md#the-default-scope)를 참조하세요. |
-| `client_secret` | 필수 | 앱 등록 포털에서 앱에 대해 생성한 애플리케이션 비밀입니다. 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다. |
+| `client_secret` | 필수 | 앱 등록 포털에서 앱에 대 한 생성 된 클라이언트 암호입니다. 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다. |
 | `grant_type` | 필수 | `client_credentials`로 설정해야 합니다. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청

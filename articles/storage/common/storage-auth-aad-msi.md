@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369657"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442294"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 되는 id 사용 하 여 큐 및 blob에 대 한 액세스 인증
 
@@ -22,8 +22,6 @@ Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](
 관리 ID에 대한 사용 권한을 Blob 컨테이너 또는 큐에 부여하려면 적절한 범위에서 해당 리소스에 대한 사용 권한을 포함하는 관리 ID에 역할 기반 액세스 제어 (RBAC) 역할을 할당합니다. 저장소에서 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다. 
 
 이 문서에서는 Azure VM에서 관리 ID를 사용하여 Azure Blob 또는 Queue Storage를 인증하는 방법에 대해 설명합니다.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 
@@ -42,6 +40,8 @@ Azure Storage 응용 프로그램에서 관리 ID를 인증하려면 먼저 해�
 ## <a name="get-a-managed-identity-access-token"></a>관리 ID 액세스 토큰 가져오기
 
 관리 ID로 인증하려면 애플리케이션 또는 스크립트가 관리 ID 액세스 토큰을 가져와야 합니다. 액세스 토큰을 가져오는 방법에 대해 알아보려면 [Azure VM에서 Azure 리소스의 관리 ID를 사용하여 액세스 토큰을 가져오는 방법](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요.
+
+OAuth 토큰을 사용하여 BLOB 및 큐 작업에 권한을 부여하려면 HTTPS를 사용해야 합니다.
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 

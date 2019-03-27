@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309301"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499474"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -23,7 +23,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 자세한 내용은 참조 하세요 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)합니다.
 
-X64 (Intel/AMD) Linux에 Azure IoT Edge 런타임을 설치 하는 단계를 나열 하는이 문서에서는 IoT Edge 장치입니다. 가리킵니다 [Azure IoT Edge 지원](support.md#operating-systems) AMD64 운영 체제의 목록은 합니다.
+이 문서에서는 Ubuntu Linux x64 (Intel/AMD)에 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. IoT Edge 장치입니다. 가리킵니다 [Azure IoT Edge 지원](support.md#operating-systems) AMD64 운영 체제의 목록은 합니다.
 
 > [!NOTE]
 > Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
@@ -33,11 +33,22 @@ X64 (Intel/AMD) Linux에 Azure IoT Edge 런타임을 설치 하는 단계를 나
 IoT Edge 런타임 설치 장치를 준비 합니다.
 
 
-저장소 구성을 설치 합니다. 바꿉니다 **\<릴리스\>** 사용 하 여 **16.04** 하거나 **18.04** 사용 중인 버전의 Ubuntu에 적합 하 게 합니다.
+저장소 구성을 설치 합니다. 중 하나를 선택 합니다 **16.04** 또는 **18.04** 코드 조각은 Ubuntu의 릴리스에 대 한 적절 하 게 합니다.
 
+> [!IMPORTANT]
+> Ubuntu의 버전에 대 한 올바른 코드 상자에서 코드 조각을 선택 해야 합니다.
+
+* 에 대 한 **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* 에 대 한 **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+저장소 구성을 설치 합니다. 중 하나를 선택 합니다 **16.04** 또는 **18.04** 코드 조각은 Ubuntu의 릴리스에 대 한 적절 하 게 합니다.
 
 생성 된 목록에 복사 합니다.
 

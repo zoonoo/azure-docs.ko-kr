@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: afcd180146bc349bda9375f10eb56f85f67ccb52
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011093"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498740"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드 보안 유지 및 관리 모범 사례
 
@@ -437,7 +437,7 @@ Azure Functions는 거의 코드로 작동하므로 GitHub 또는 Azure DevOps �
 
 **자세한 정보:**
 
-- Azure DevOps에 대한 [데이터 보호](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts)
+- Azure DevOps에 대한 [데이터 보호](/azure/devops/organizations/security/data-protection)
 
 ## <a name="best-practice-set-up-disaster-recovery"></a>모범 사례: 재해 복구 설정 
 

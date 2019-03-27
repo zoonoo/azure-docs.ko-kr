@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a6cb5ffe6c21c6eda9eb8b7f610952e92707a6bd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182033"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483474"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
@@ -126,11 +126,11 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
 모든 API에 대해 네 개의 구현 오버로드를 찾을 수 있습니다. 선택적 매개 변수가 있는 경우 이러한 선택적 매개 변수를 포함하여 네 개의 변형을 더 찾을 수 있습니다. 예를 들어 ``removeReplica`` API를 살펴보겠습니다.
  1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
     * 이는 removeReplica API 호출의 동기 변형입니다.
- 2. **public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback)**
+ 2. **public ServiceFuture\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback\<Void> serviceCallback)**
     * 나중에 기반한 비동기 프로그래밍을 사용하고 콜백을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 3. **public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
+ 3. **공용 Observable\<Void > removeReplicaAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
     * 사후 비동기 프로그래밍을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 4. **public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
+ 4. **공용 Observable\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

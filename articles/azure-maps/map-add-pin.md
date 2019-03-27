@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411257"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500052"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -36,9 +36,12 @@ ms.locfileid: "54411257"
 
 [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  데이터 원본, 클릭 이벤트 수신기 및 기호 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 점이 표시되도록 합니다.
 
+> [!TIP]
+> 기본적으로 성능에 대 한 기호 계층 겹치는 기호를 숨겨 기호의 렌더링을 최적화 합니다. 숨겨진된 기호에는 확대/축소 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 시간에 모든 기호를 렌더링 하려면 설정 합니다 `allowOverlap` 의 속성을 `iconOptions` 옵션을 `true`.
+
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>기호 계층에 사용자 지정 아이콘 추가
 
-기호 계층은 WebGL을 사용하여 렌더링됩니다. 아이콘 이미지와 같은 이러한 모든 리소스는 WebGL 컨텍스트에 로드해야 하기 때문입니다. 이 샘플에서는 지도 리소스에 사용자 지정 기호 아이콘을 추가한 후 이 아이콘을 사용하여 지도에서 사용자 지정 기호로 점 데이터를 렌더링하는 방법을 보여 줍니다. 기호 계층의 `textField` 속성에는 식을 지정해야 합니다. 이 경우 점 기능의 온도 속성을 텍스트 값으로 렌더링하려고 합니다. 이 작업은 `['get', 'temperature']` 식을 사용하여 수행할 수 있습니다. 
+기호 계층은 WebGL을 사용하여 렌더링됩니다. 아이콘 이미지와 같은 이러한 모든 리소스는 WebGL 컨텍스트에 로드해야 하기 때문입니다. 이 샘플에서는 지도 리소스에 사용자 지정 기호 아이콘을 추가한 후 이 아이콘을 사용하여 지도에서 사용자 지정 기호로 점 데이터를 렌더링하는 방법을 보여 줍니다. 기호 계층의 `textField` 속성에는 식을 지정해야 합니다. 이 경우 텍스트 값으로 지점 기능의 온도 속성을 렌더링 하려고 합니다. 이 작업은 `['get', 'temperature']` 식을 사용하여 수행할 수 있습니다. 
 
 <br/>
 

@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315303"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498420"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | Collector는 vCenter Server와 통신할 수 있어�
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>수집된 메타데이터
+
+> [!NOTE]
+> 하는 데 적합 한 크기로 응용 프로그램을 Azure로 마이그레이션할 때 수집기 어플라이언스는 Azure Migrate에서 검색 하는 메타 데이터는 Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 합니다. Microsoft는 모든 라이선스 규정 준수 감사와 관련 하 여이 데이터를 사용 하지 않습니다.
 
 Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터를 검색합니다. VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
 

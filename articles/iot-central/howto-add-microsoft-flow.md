@@ -1,25 +1,32 @@
 ---
 title: Microsoft Flow에서 Azure IoT Central 커넥터를 사용하여 워크플로 구축 | Microsoft Docs
-description: Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로를 트리거하고 워크플로에서 디바이스를 만들고, 업데이트하고, 삭제합니다.
+description: Microsoft Flow 워크플로를 트리거하여 IoT Central 커넥터를 사용 하 고 만들기, 가져오기, 업데이트, 삭제 장치 및 워크플로에서 명령을 실행 합니다.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+manager: hegate
+ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770252"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497740"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
 ‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
-Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애플리케이션 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 애플리케이션에 의해 트리거되는 워크플로에서 IoT Central 커넥터의 작업을 사용하여 장치를 만들고, 장치의 속성 및 설정을 업데이트하거나 장치를 삭제할 수 있습니다. IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
+Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애플리케이션 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터에서 작업을 사용할 수 있습니다.
+- 디바이스 만들기
+- 장치 정보 가져오기
+- 장치의 속성 및 설정 업데이트
+- 장치에서 명령 실행
+- 디바이스 삭제
+
+IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -28,19 +35,19 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애
 
 ## <a name="trigger-a-workflow"></a>워크플로 트리거
 
-이 섹션에서는 IoT Central의 규칙 트리거는 경우 Flow 모바일 앱에서 모바일 알림을 트리거하는 방법을 보여 줍니다.
+이 섹션에서는 IoT Central의 규칙 트리거는 경우 Flow 모바일 앱에서 모바일 알림을 트리거하는 방법을 보여 줍니다. 포함 된 Microsoft Flow 디자이너를 사용 하 여 IoT Central 앱 내에서이 전체 워크플로 빌드할 수 있습니다.
 
-1. [IoT Central에서 규칙을 만들어](howto-create-telemetry-rules.md) 시작합니다. 규칙 조건을 저장 한 후 선택 합니다 **Microsoft Flow 작업** 새 작업으로 합니다. Microsoft Flow로 이동할 수 있는 새 탭 또는 창이 브라우저에 열립니다.
+1. [IoT Central에서 규칙을 만들어](howto-create-telemetry-rules.md) 시작합니다. 규칙 조건을 저장 한 후 선택 합니다 **Microsoft Flow 작업** 새 작업으로 합니다. 워크플로 구성할 수에 대 한 대화 상자 창이 열립니다. IoT Central 사용자 계정에 로그인 하면 Microsoft Flow 로그인 됩니다.
 
     ![새 Microsoft Flow 작업 만들기](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Microsoft Flow에 로그인합니다. IoT Central에서 사용하는 것과 동일한 계정일 필요가 없습니다. 사용자 지정 작업에 연결하는 IoT Central 커넥터를 보여주는 개요 페이지로 연결됩니다.
+1. 에 대 한 액세스를 있고이 IoT Central 규칙에 연결 된 워크플로 tha 목록이 표시 됩니다. 클릭 **템플릿을 살펴봅니다** 하거나 **새로 만들기 > 템플릿에서 만들기** 사용 가능한 템플릿 중 하나에서 선택할 수 있습니다. 
 
-1. IoT Central 커넥터에 로그인 하 고 선택 **계속**합니다. 워크플로를 구축하는 Microsoft Flow 디자이너로 이동됩니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
+    ![사용 가능한 Microsoft Flow 템플릿](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. **+ 새 단계** 및 **작업 추가**를 선택합니다. 이 시점에서 워크플로에 원하는 모든 작업을 추가할 수 있습니다. 예를 들어 모바일 알림을 전송해 보겠습니다. **알림**을 검색하고, **알림 - 모바일 알림 보내기**를 선택합니다.
+1. 선택한 템플릿에 있는 커넥터에 로그인 하 라는 메시지가 표시 됩니다. 커넥터에 로그인 되 면 워크플로 작성 하는 디자이너에서 이동 합니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
 
-1. 작업에서 알림에서 알리려는 내용으로 텍스트 필드를 채웁니다. 알림에 디바이스 이름 및 타임스탬프와 같은 중요한 정보를 전달하여 IoT Central 규칙에서 *동적 콘텐츠*를 포함할 수 있습니다.
+1. 새 동작을 추가할 작업에 전달 된 정보를 사용자 지정 하 여 워크플로 사용자 지정할 수 있습니다. 작업은이 예에서 **알림-모바일 알림 보내기**합니다. 알림에 디바이스 이름 및 타임스탬프와 같은 중요한 정보를 전달하여 IoT Central 규칙에서 *동적 콘텐츠*를 포함할 수 있습니다.
 
     > [!NOTE]
     > 선택 된 **자세히 보기** 규칙을 트리거한 측정 및 속성 값을 가져오려면 동적 콘텐츠 창의 텍스트입니다.
@@ -52,9 +59,9 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애
     > [!NOTE]
     > IoT Central 앱의 다른 사용자가 이 규칙을 편집하도록 하려는 경우 Microsoft Flow에서 공유해야 합니다. 워크플로에서 소유자로 해당 Microsoft Flow 계정을 추가합니다.
 
-1. IoT Central 앱으로 다시 이동하면 이 규칙의 작업 영역 아래에 Microsoft Flow 작업이 표시됩니다.
+1. IoT Central 앱으로 다시 이동 하면이 규칙 작업 영역에서 Microsoft Flow 작업에 표시 됩니다.
 
-Microsoft Flow에서 IoT Central 커넥터를 사용하여 항상 워크플로 구축을 시작할 수 있습니다. 그런 다음, 연결할 IoT Central 앱 및 규칙을 선택할 수 있습니다.
+Microsoft Flow 직접 IoT Central 커넥터를 사용 하 여 워크플로 빌드할 수도 있습니다. 다음에 연결 하는 IoT Central 앱을 선택할 수 있습니다.
 
 ## <a name="create-a-device-in-a-workflow"></a>워크플로에서 디바이스 만들기
 
@@ -107,6 +114,18 @@ Microsoft Flow에서 IoT Central 커넥터를 사용하여 항상 워크플로 �
 1. 마지막으로 워크플로를 저장합니다.
 
 1. Microsoft Flow 모바일 앱에서 워크플로를 시도합니다. 앱에서 **단추** 탭으로 이동합니다. 단추 -&gt; 디바이스 워크플로 업데이트가 표시됩니다. 입력을 입력하고, IoT Central에서 업데이트되는 디바이스를 확인하세요.
+
+## <a name="get-device-information-in-a-workflow"></a>워크플로에서 장치 정보 가져오기
+
+해당 장치 ID를 사용 하 여 장치 정보를 얻을 수는 **되는 장치를 가져올 Azure IoT Central-** 작업 합니다. 장치 이름과 장치 템플릿 이름, 속성 값을 이후 작업 워크플로에 전달할 설정 값 같은 정보를 가져올 수 있습니다. Microsoft Teams 장치에서 Customer Name 속성 값을 전달 하는 예제 워크플로에 다음과 같습니다.
+
+   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## <a name="run-a-command-on-a-device-in-a-workflow"></a>워크플로에서 장치에서 명령 실행
+해당 장치 ID를 사용 하 여 지정 된 장치에 명령을 실행할 수 있습니다 합니다 **Azure IoT Central-명령을 실행** 작업 합니다. 실행 하 고이 동작을 통해 명령의 매개 변수를 전달 하는 명령을 선택할 수 있습니다. Microsoft Flow 모바일 앱에서 단추에서 장치 다시 부팅 명령을 실행 하는 예제 워크플로에 다음과 같습니다.
+
+   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>워크플로에서 디바이스 삭제
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352139"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449557"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -1287,8 +1287,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MessageCount|메시지 수|카운트|합계|총 메시지 양|차원 없음|
 |InboundTraffic|인바운드 트래픽|바이트|합계|서비스의 인바운드 트래픽|차원 없음|
 |OutboundTraffic|아웃바운드 트래픽|바이트|합계|서비스의 아웃바운드 트래픽|차원 없음|
-|UserErrors|사용자 오류|백분율|최대|사용자 오류의 비율|차원 없음|
-|SystemErrors|시스템 오류|백분율|최대|시스템 오류의 비율|차원 없음|
+|UserErrors|사용자 오류|백분율|평균|사용자 오류의 비율|차원 없음|
+|SystemErrors|시스템 오류|백분율|평균|시스템 오류의 비율|차원 없음|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 

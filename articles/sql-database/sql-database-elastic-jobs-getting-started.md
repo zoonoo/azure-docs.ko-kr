@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904629"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484257"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 
@@ -52,7 +52,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>사용자 지정 컬렉션을 만들고 마스터를 제외한 서버의 모든 데이터베이스를 사용자 지정 컬렉션에 추가합니다.
 
-   ```PowerShell
+   ```powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -316,7 +316,7 @@ Elastic Database 작업이 취소를 수행할 수 있는 방법에는 다음 �
 
 취소 요청을 제출하려면 **Stop-AzureSqlJobExecution** cmdlet을 사용하고 을 사용하고 **JobExecutionId** 매개 변수를 설정합니다.
 
-   ```PowerShell
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

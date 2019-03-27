@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096710"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482949"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -71,7 +71,7 @@ Windows 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 
    
    2. vcpkg가 설치되면 powershell 프롬프트에서 다음 명령을 실행하여 Windows x64용 OpenSSL 패키지를 설치합니다. 설치를 완료하는 데 일반적으로 약 5분이 걸립니다.
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. openssl.exe 파일을 호출할 수 있도록 `<VCPKGDIR>\installed\x64-windows\tools\openssl`을 PATH 환경 변수에 추가합니다.
@@ -84,7 +84,7 @@ C용 Azure IoT 디바이스 SDK에는 테스트 인증서를 생성하는 데 �
 
 2. 비-프로덕션 인증서를 생성하는 스크립트가 포함된 git 리포지토리를 복제합니다. 이 스크립트를 통해 인증서가 투명한 게이트웨이를 설정하도록 만들 수 있습니다. `git clone` 명령을 사용하거나 [ZIP을 다운로드](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip)합니다. 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ C용 Azure IoT 디바이스 SDK에는 테스트 인증서를 생성하는 데 �
 
 4. 구성 및 스크립트 파일을 작업 디렉터리로 복사합니다. 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ C용 Azure IoT 디바이스 SDK에는 테스트 인증서를 생성하는 데 �
 
 5. openssl_root_ca.cnf 구성 파일을 사용하도록 환경 변수 OPENSSL_CONF를 설정합니다.
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. 스크립트를 실행하도록 PowerShell을 활성화합니다.
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. 스크립트에서 사용된 함수를 PowerShell의 글로벌 네임스페이스로 가져옵니다.
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. OpenSSL이 올바르게 설치되었는지 확인하고, 기존 인증서와 이름 충돌이 없는지 확인합니다. 문제가 있으면 스크립트는 시스템에서 이러한 문제를 해결하는 방법을 설명해야 합니다.
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ C용 Azure IoT 디바이스 SDK에는 테스트 인증서를 생성하는 데 �
 
 1. 소유자 CA 인증서를 만들고 중간 인증서에 서명하도록 합니다. 인증서는 모두 *\<WRKDIR>* 에 배치됩니다.
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. 다음 명령을 사용하여 Edge 디바이스 CA 인증서 및 개인 키를 만듭니다. 인증서를 생성하는 동안 및 파일 이름을 지정하는 데 사용할 게이트웨이 디바이스에 대한 이름을 입력합니다. 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. 다음 명령을 사용하여 소유자 CA 인증서, 중간 인증서 및 Edge 디바이스 CA 인증서에서 인증서 체인을 만듭니다. 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

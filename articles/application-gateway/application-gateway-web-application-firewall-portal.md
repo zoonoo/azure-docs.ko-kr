@@ -1,5 +1,5 @@
 ---
-title: 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+title: 자습서-Azure 포털-웹 응용 프로그램 방화벽을 사용 하 여 application gateway 만들기 | Microsoft Docs
 description: Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -9,18 +9,26 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 03/25/2019
 ms.author: victorh
-ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c5f1cb992f27a8d3f97967ff6b885b3296be8710
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074967"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448429"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.
 
-Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-gateway-web-application-firewall-overview.md))이 있는 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다.
+> [!div class="op_single_selector"]
+>
+> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
+
+이 자습서에서는 만들려면 Azure portal을 사용 하는 방법을 보여 줍니다는 [응용 프로그램 게이트웨이](application-gateway-introduction.md) 사용 하 여를 [웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md) (WAF). WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. Application gateway를 만든 후 테스트 하 여 올바르게 작동 하는지 확인 합니다. Azure Application Gateway를 사용 하 여 수신기 포트에 할당 규칙을 만들고 백 엔드 풀에 리소스를 추가 하 여 특정 리소스에 응용 프로그램 웹 트래픽을 보낼 있습니다. 간단히 하기 위해이 문서에서는 공용 프런트 엔드 IP 사용 하 여 간단한 설정, 호스트가 application gateway에서 단일 사이트를 기본 수신기, 백 엔드 풀 및 기본 요청 라우팅 규칙에 사용 되는 두 개의 가상 머신을 사용 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,104 +41,126 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
+Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크 만들기 또는 기존 계정을 사용할 수 있습니다. 이 예제에서는 새 가상 네트워크를 만듭니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 응용 프로그램 게이트웨이 인스턴스는 별도 서브넷에서 생성 됩니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
 
-1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
-2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
-3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
+Azure Portal의 왼쪽 메뉴에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
 
-   - *myAppGateway* - 애플리케이션 게이트웨이의 이름
-   - *myResourceGroupAG* - 새 리소스 그룹
-   - 애플리케이션 게이트웨이의 계층에 *WAF*를 선택합니다.
+**네트워킹**을 선택한 다음, **추천** 목록에서 **Application Gateway**를 선택합니다.
 
-     ![새 애플리케이션 게이트웨이 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+### <a name="basics-page"></a>기본 페이지
 
-4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
-5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
+1. **기본 사항** 페이지에서 다음 애플리케이션 게이트웨이 설정에 대한 값을 입력합니다.
+   - **이름**: 애플리케이션 게이트웨이의 이름으로 *myAppGateway*를 입력합니다.
+   - **리소스 그룹**: 리소스 그룹으로 **myResourceGroupAG**를 선택합니다. 이 리소스 그룹이 없으면 **새로 만들기**를 선택하여 새로 만듭니다.
+   - 선택 *WAF* 응용 프로그램 게이트웨이의 계층에 대 한.![ 새 응용 프로그램 게이트웨이 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-   - *myVNet* - 가상 네트워크 이름
-   - *10.0.0.0/16* - 가상 네트워크 주소 공간
-   - *myAGSubnet* - 서브넷 이름
-   - *10.0.0.0/24* - 서브넷 주소 공간
+다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 
-     ![가상 네트워크 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+### <a name="settings-page"></a>설정 페이지
 
-6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
-7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
-8. 수신기 구성에 대한 기본값을 수락하고 웹 애플리케이션 방화벽을 사용하지 않도록 유지한 다음, **확인**을 클릭합니다.
-9. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
+1. **설정** 페이지의 **서브넷 구성**에서 **가상 네트워크 선택**을 선택합니다. <br>
+2. **가상 네트워크 선택** 페이지에서 **새로 만들기**를 선택하고, 다음 가상 네트워크 설정의 값을 입력합니다.
+   - **이름**: 가상 네트워크의 이름으로 *myVNet*을 입력합니다.
+   - **주소 공간**: 가상 네트워크 주소 공간으로 *10.0.0.0/16*을 입력합니다.
+   - **서브넷 이름**: 서브넷 이름으로 *myAGSubnet*을 입력합니다.<br>애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
+   - **서브넷 주소 범위**: 입력 *10.0.0.0/24* 서브넷 주소 범위에 대 한.![ 가상 네트워크 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+3. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
+4. 선택 된 **프런트 엔드 IP 구성**합니다. **프런트 엔드 IP 구성** 아래에서 **IP 주소 유형**이 **공용**으로 설정되었는지 확인합니다. **공용 IP 주소** 아래에서 **새로 만들기**가 선택되었는지 확인합니다. <br>사용 사례에 따라 공용 또는 개인 주소가 될에 프런트 엔드 IP를 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택 합니다. 
+5. 공용 IP 주소 이름으로 *myAGPublicIPAddress*를 입력합니다. 
+6. 다른 설정은 기본값을 적용하고 **확인**을 선택합니다.<br>간단히 하기 위해이 문서의 기본값 선택 되지만 사용 사례에 따라 다른 설정에 대 한 사용자 지정 값을 구성할 수 있습니다. 
+
+### <a name="summary-page"></a>요약 페이지
+
+**요약** 페이지에서 설정을 검토한 다음, **확인**을 선택하여 가상 네트워크, 공용 IP 주소 및 애플리케이션 게이트웨이를 만듭니다. Azure가 애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공적으로 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
+
+## <a name="add-backend-pool"></a>백 엔드 풀 추가
+
+백 엔드 풀 요청 제공 하는 백 엔드 서버로 요청을 라우팅하기 위해 사용 됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 백 엔드 대상 백 엔드 풀에 추가 해야 합니다.
+
+이 예제에서는 가상 머신 대상 백 엔드로 사용 합니다. 기존 virtual machines를 사용 하거나 새로 만들 것입니다. 이 예제에서는 Azure application gateway 백 엔드 서버로 사용 하는 두 개의 가상 머신을 만듭니다. 이 위해 수행 합니다.
+
+1. 새 서브넷을 만듭니다 *myBackendSubnet*, 새 Vm이 생성 됩니다. 
+2. 2 개의 새 VM을 만듭니다 *myVM* 및 *myVM2*, 백 엔드 서버로 사용할 수 있습니다.
+3. Application gateway를 성공적으로 만들어졌는지 확인 하려면 가상 컴퓨터에 IIS를 설치 합니다.
+4. 백 엔드 풀으로 백 엔드 서버를 추가 합니다.
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myVNet**을 클릭합니다.
-2. **서브넷**을 클릭한 다음, **서브넷**을 클릭합니다.
+다음 단계를 수행하여 앞에서 만든 가상 네트워크에 서브넷을 추가합니다.
 
-    ![서브넷 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, 검색 상자에 *myVNet*을 입력한 다음, 검색 결과에서 **myVNet**을 선택합니다.
 
-3. 서브넷 이름에 *myBackendSubnet*을 입력한 다음, **확인**을 클릭합니다.
+2. 왼쪽 메뉴에서 **서브넷**을 선택하고 **+ 서브넷**을 선택합니다. 
 
-## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+   ![서브넷 만들기](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-이 예제에서는 애플리케이션 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 가상 머신에 IIS를 설치하여 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인합니다.
+3. **서브넷 추가** 페이지에서 서브넷 **이름**으로 *myBackendSubnet*을 입력한 다음, **확인**을 선택합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-1. **새로 만들기**를 클릭합니다.
-2. **Compute**를 클릭한 다음, 추천 목록에서 **Windows Server 2016 Datacenter**를 선택합니다.
-3. 가상 머신에 대해 다음 값을 입력합니다.
+1. Azure Portal에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
+2. **컴퓨팅**을 선택한 다음, **추천** 목록에서 **Windows Server 2016 Datacenter**를 선택합니다. **가상 머신 만들기** 페이지가 표시됩니다.<br>Application Gateway는 백 엔드 풀에 사용 되는 가상 컴퓨터의 모든 형식에 트래픽을 라우팅할 수 있습니다. 이 예제에서는 Windows Server 2016 Datacenter를 사용합니다.
+3. **기본 사항** 탭에서 다음 가상 머신 설정의 값을 입력합니다.
+   - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG**를 선택합니다.
+   - **가상 머신 이름**: 가상 머신의 이름으로 *myVM*을 입력합니다.
+   - **사용자 이름**: 관리자 사용자 이름으로 *azureuser*를 입력합니다.
+   - **암호**: 관리자 암호로 *Azure123456!* 를 입력합니다.
+4. 나머지는 기본값으로 두고 **다음: 디스크**를 선택합니다.  
+5. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹**을 선택합니다.
+6. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.<br>Application Gateway에는 가상 네트워크 외부 인스턴스와 통신할 수 있지만 IP 연결 되어 있는지 확인 해야 합니다. 
+7. **관리** 탭에서 **부트 진단**을 **해제**합니다. 나머지는 기본값으로 두고 **검토 + 만들기**를 선택합니다.
+8. **검토 + 만들기** 탭에서 설정을 검토하고, 유효성 검사 오류를 수정하고, **만들기**를 선택합니다.
+9. 가상 머신 만들기가 완료되기를 기다렸다가 계속합니다.
 
-    - *myVM* - 가상 머신의 이름
-    - *azureuser* - 관리자 사용자 이름
-    - *Azure123456!* - 암호
-    - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
+### <a name="install-iis-for-testing"></a>테스트를 위해 IIS를 설치 합니다.
 
-4. **확인**을 클릭합니다.
-5. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-6. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다. 
-7. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
-8. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
+이 예제에서는 Azure application gateway를 성공적으로 만든 확인할 용도로 가상 컴퓨터에 IIS 설치 하는 것입니다. 
 
-### <a name="install-iis"></a>IIS 설치
+1. [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)을 엽니다. 이렇게 하려면 Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 선택한 다음, 드롭다운 목록에서 **PowerShell**을 선택합니다. 
 
-1. 대화형 셸을 열고 **PowerShell**로 설정되어 있는지 확인합니다.
-
-    ![사용자 지정 확장 설치](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
+   ![사용자 지정 확장 설치](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+   Set-AzureRmVMExtension `
+     -ResourceGroupName myResourceGroupAG `
+     -ExtensionName IIS `
+     -VMName myVM `
+     -Publisher Microsoft.Compute `
+     -ExtensionType CustomScriptExtension `
+     -TypeHandlerVersion 1.4 `
+     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+     -Location EastUS
+   ```
 
-3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. 입력 *myVM2* 의 이름 및 VMName AzVMExtension 집합에에서 대해 합니다.
+3. 앞에서 완료한 단계를 사용하여 두 번째 가상 머신을 만들고 IIS를 설치합니다. 가상 머신 이름으로 *myVM2*를 사용하고, **VMName** 설정으로 **Set-AzureRmVMExtension** cmdlet을 사용합니다.
 
-### <a name="add-backend-servers"></a>백 엔드 서버 추가
+### <a name="add-backend-servers-to-backend-pool"></a>백 엔드 서버를 백 엔드 풀 추가
 
-1. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-2. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
-3. **대상 추가**를 클릭하여 만든 가상 머신 각각을 백 엔드 풀에 추가합니다.
+1. **모든 리소스**를 선택한 다음, **myAppGateway**를 선택합니다.
 
-    ![백 엔드 서버 추가](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
+2. 왼쪽 메뉴에서 **백 엔드 풀**을 선택합니다. 앞에서 애플리케이션 게이트웨이를 만들 때 Azure가 자동으로 기본 풀 **appGatewayBackendPool**을 만들었습니다. 
 
-4. **저장**을 클릭합니다.
+3. **appGatewayBackendPool**을 선택합니다.
+
+4. **대상** 아래의 드롭다운 메뉴에서 **가상 머신**을 선택합니다.
+
+5. **가상 머신** 및 **네트워크 인터페이스** 아래의 드롭다운 목록에서 가상 머신 **myVM** 및 **myVM2**, 그리고 가상 머신과 연결된 네트워크 인터페이스를 선택합니다.
+
+   ![백 엔드 서버 추가](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+
+6. **저장**을 선택합니다.
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
@@ -138,7 +168,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 2. **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 3. 저장소 계정의 이름을 입력하고 리소스 그룹에 **기존 그룹 사용**을 선택한 다음, **myResourceGroupAG**를 선택합니다. 이 예제에서 저장소 계정 이름은 *myagstore1*입니다. 다른 설정에 대한 기본값을 적용한 다음, **만들기**를 클릭합니다.
 
-## <a name="configure-diagnostics"></a>진단 구성
+### <a name="configure-diagnostics"></a>진단 구성
 
 ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGatewayFirewallLog 로그에 데이터를 기록하도록 진단을 구성합니다.
 
@@ -154,13 +184,22 @@ ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGat
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-1. [개요] 화면에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
+애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 
-    ![애플리케이션 게이트웨이에 대한 공용 IP 주소 기록](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+1. 응용 프로그램 게이트웨이에 대 한 공용 IP 주소를 찾으려면 해당 **개요** 페이지.![ 응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)선택할 수 있습니다 **모든 리소스**를 입력 *myAGPublicIPAddress* 검색에서 상자를 검색에 선택한 결과입니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
+2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+3. 응답을 확인 합니다. 유효한 응답이 성공적으로 생성 된 응용 프로그램 게이트웨이의 백 엔드를 사용 하 여 성공적으로 연결할 수 되었는지 확인 합니다.![애플리케이션 게이트웨이 테스트](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-2. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
+## <a name="clean-up-resources"></a>리소스 정리
 
-    ![애플리케이션 게이트웨이 테스트](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
+애플리케이션 게이트웨이로 만든 리소스가 더 이상 필요 없으면 리소스 그룹을 제거합니다. 리소스 그룹을 제거하면 애플리케이션 게이트웨이 및 모든 관련 리소스도 함께 제거됩니다. 
+
+리소스 그룹을 제거하려면:
+
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+2. **리소스 그룹** 페이지의 목록에서 **myResourceGroupAG**를 검색하여 선택합니다.
+3. **리소스 그룹** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+4. **리소스 그룹 이름 입력**에 *myResourceGroupAG*를 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

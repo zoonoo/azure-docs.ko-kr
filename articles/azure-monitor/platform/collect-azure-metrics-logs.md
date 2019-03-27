@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406911"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498539"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
@@ -81,8 +81,6 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell에서 진단 사용
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-[Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스가 필요합니다.
 
 다음 PowerShell 예제를 사용 하는 방법을 보여 줍니다 [집합 AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) 네트워크 보안 그룹에서 진단을 사용 하도록 설정 합니다. 지원되는 모든 리소스에 대해 같은 방법을 사용할 수 있습니다. `$resourceId`를 진단을 사용하도록 설정할 리소스의 리소스 ID로 설정하기만 하면 됩니다.
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295252"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498488"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>만들기 및 활성 지역 복제를 사용 합니다.
 
@@ -75,8 +75,11 @@ ms.locfileid: "58295252"
 
   애플리케이션은 주 데이터베이스에 액세스하는 데 사용된 동일한 또는 다른 보안 주체를 사용하여 읽기 전용 작업에 대한 보조 데이터베이스에 액세스할 수 있습니다. 보조 데이터베이스에서 실행되는 쿼리 때문에 주 데이터베이스(로그 재생)의 업데이트 복제가 지연되지 않도록 보장하기 위해 보조 데이터베이스는 스냅숏 격리 모드에서 작동합니다.
 
-  > [!NOTE]
-  > 주 데이터베이스에 스키마 업데이트가 있는 경우 보조 데이터베이스에서 로그 재생이 지연됩니다. 후자의 경우 보조 데이터베이스에 대한 스키마 잠금이 필요합니다.
+> [!NOTE]
+> 주 데이터베이스에 스키마 업데이트가 있는 경우 보조 데이터베이스에서 로그 재생이 지연됩니다. 후자의 경우 보조 데이터베이스에 대한 스키마 잠금이 필요합니다.
+> [!IMPORTANT]
+> 주 데이터베이스와 동일한 지역에서 보조 데이터베이스를 만들려면 지역에서 복제를 사용할 수 있습니다. 동일한 지역에서이 보조는 읽기 전용 부하 분산 워크 로드에 사용할 수 있습니다. 그러나 동일한 지역에 보조 데이터베이스 추가 장애 복구를 제공 하지 않습니다 및 재해 복구를 위한 적합 한 장애 조치 대상 이므로 합니다. 또한 보장 하지 않습니다 avaialability 영역 격리 합니다. 중요 한 비즈니스 또는 Premium 서비스 계층을 사용 하 여 [영역 중복 구성을](sql-database-high-availability.md#zone-redundant-configuration) avaialability 영역 격리 달성 하기 위해.   
+>
 
 - **계획된 장애 조치**
 

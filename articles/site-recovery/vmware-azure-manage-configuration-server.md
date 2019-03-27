@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d8b0d78d33c0780b05ac6f4bd8a21c6423d801f4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086958"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445059"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구용 구성 서버 관리
 
@@ -234,7 +234,7 @@ ProxyPassword="Password"
 
 필요에 따라 PowerShell을 사용하여 구성 서버를 삭제할 수 있습니다.
 
-1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0)합니다.
+1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
     `Connect-AzureRmAccount`

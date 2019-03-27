@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880928"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445633"
 ---
 # <a name="azure-networking"></a>Azure 네트워킹
 
@@ -34,7 +34,7 @@ Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워�
 - [관리 효율성](#manageability): Azure 네트워킹 리소스를 모니터링하고 관리합니다.
 - [배포 및 구성 도구](#tools): 웹 기반 포털 또는 플랫폼 간 명령줄 도구를 사용하여 네트워크 리소스를 배포하고 구성합니다.
 
-## <a name="Connectivity"></a>Azure 리소스 간 연결
+## <a name="connectivity"></a>Azure 리소스 간 연결
 
 Virtual Machines, Cloud Services, Virtual Machines Scale Sets, Azure App Service Environment는와 같은 Azure 리소스는 Azure VNet(Virtual Network)를 통해 서로 개별적으로 통신할 수 있습니다. [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json) 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 각 Azure 구독 및 Azure [지역](https://azure.microsoft.com/regions) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
@@ -150,7 +150,7 @@ Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터
 다음과 같은 도구를 사용하여 Azure 네트워킹 리소스를 배포하고 구성할 수 있습니다.
 
 - **Azure Portal:** 브라우저에서 실행되는 그래픽 사용자 인터페이스입니다. [Azure Portal](https://portal.azure.com)을 엽니다.
-- **Azure PowerShell:** Windows 컴퓨터에서 Azure를 관리하기 위한 명령줄 도구입니다. [Azure PowerShell 개요](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 Azure PowerShell에 대해 자세히 알아봅니다.
+- **Azure PowerShell:** Windows 컴퓨터에서 Azure를 관리하기 위한 명령줄 도구입니다. [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 Azure PowerShell에 대해 자세히 알아봅니다.
 - **Azure CLI(명령줄 인터페이스):** Linux, macOS 또는 Windows 컴퓨터에서 Azure를 관리하기 위한 명령줄 도구입니다. [Azure CLI 개요](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 Azure CLI에 대해 자세히 알아봅니다.
 - **Azure Resource Manager 템플릿:** Azure 솔루션의 인프라 및 구성을 정의하는 JSON 형식의 파일입니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 템플릿을 작성하는 방법에 대한 자세한 내용은 [템플릿 만들기 위한 모범 사례](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요. Azure Portal, CLI 또는 PowerShell에서 템플릿을 배포할 수 있습니다. 템플릿을 즉시 사용하기 시작하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=network) 라이브러리에서 미리 구성된 여러 템플릿 중 하나를 배포합니다. 
 

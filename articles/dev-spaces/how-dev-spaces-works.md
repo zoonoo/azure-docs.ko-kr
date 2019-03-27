@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438974"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500562"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -96,7 +96,7 @@ Azure 개발 공간 AKS 클러스터에서 사용 하는 경우 클러스터에 
 * 명명 된 모든 Kubernetes 네임 스페이스를 제거 *azds*, 있는 경우 새로 만듭니다.
 * Kubernetes 이니셜라이저 개체를 배포합니다.
 
-! [Azure 개발 공간 클러스터 준비]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure 개발 공간 클러스터 준비](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Azure 개발 공간을 사용 하려면 하나 이상의 개발 공간 이어야 합니다. Azure 개발 공간 개발 공간에 대 한 AKS 클러스터 내에서 Kubernetes 네임 스페이스를 사용합니다. 컨트롤러를 설치 하면 새 Kubernetes 네임 스페이스를 만들거나, 첫 번째 개발 공간으로 사용할 기존 네임 스페이스를 선택 하 라는 메시지가 나타납니다. 네임 스페이스 개발 공간을 지정 하는 경우 컨트롤러를 추가 합니다 *azds.io/space=true* 개발 공간으로 식별 하는 네임 스페이스에는 레이블. 만들거나 지정 된 초기 개발 공간 클러스터를 준비한 후 기본적으로 선택 됩니다. 공간을 선택 하면 Azure 개발 공백을 사용 하 여 새 워크 로드를 만들기 위한 사용 됩니다.
 

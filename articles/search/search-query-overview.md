@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438804"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500171"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
@@ -76,7 +76,7 @@ Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행�
 위의 스크린샷은 부동산 샘플에 대한 인덱스 특성의 부분 목록입니다. 전체 인덱스 스키마는 포털에서 볼 수 있습니다. 인덱스 특성에 대한 자세한 내용은 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
 > [!Note]
-> 일부 쿼리 기능은 필드별로 활성화되기 보다는 인덱스 전체에서 사용하도록 설정됩니다. 이러한 기능에는 [동의어 맵](search-synonyms.md), [사용자 지정 분석기](index-add-custom-analyzers.md), [suggester 구문(자동 완성 및 자동 제안)](index-add-suggesters.md), [결과 순위 지정에 대한 채점 논리](index-add-scoring-profiles.md)가 포함됩니다.
+> 일부 쿼리 기능은 필드별로 활성화되기 보다는 인덱스 전체에서 사용하도록 설정됩니다. 이러한 기능에 포함 됩니다: [동의어 맵을](search-synonyms.md)를 [사용자 지정 분석기](index-add-custom-analyzers.md)에 [suggester (자동 완성 및 제안 된 쿼리)에 생성](index-add-suggesters.md), [논리 점수 매기기 순위 결과 대 한](index-add-scoring-profiles.md)합니다.
 
 ## <a name="elements-of-a-query-request"></a>쿼리 요청의 요소
 

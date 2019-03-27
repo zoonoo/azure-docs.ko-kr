@@ -3,7 +3,7 @@ title: Azure에서 Linux Service Fabric 클러스터 만들기 | Microsoft Docs
 description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309472"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499168"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
@@ -34,6 +34,7 @@ ms.locfileid: "58309472"
 * [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
 * [Azure CLI](/cli/azure/install-azure-cli) 설치
 * 클러스터의 주요 개념을 알아보려면 [Azure 클러스터 개요](service-fabric-azure-clusters-overview.md)를 읽어보세요.
+* [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md) 프로덕션 클러스터 배포에 대 한 합니다.
 
 다음 절차에서는 7개 노드 Service Fabric 클러스터를 만듭니다. Azure에서 Service Fabric 클러스터를 실행할 때 발생하는 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
 

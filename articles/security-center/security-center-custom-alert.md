@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5af778ff23c9b3f9188ac2e7b38767e4693f64a1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107619"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500154"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Security Center의 사용자 지정 경고 규칙(미리 보기)
 이 문서를 통해 Azure Security Center에서 사용자 지정 경고 규칙을 만들 수 있습니다.
+
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Azure Security Center에서 사용 중지의 사용자 지정 경고 규칙
+
+> [!NOTE]
+> 사용자 지정 경고 환경은 Azure Monitor 클래식 경고 서비스의 사용 중지로 인해 2019 년 6 월 30 일 사용 되지 것입니다. 사용 중단 될 때까지 기간, 사용자가 기존 사용자 지정 경고 규칙을 편집할 수 있지만 새로 추가할 수 없습니다.
+> 사용 하도록 설정 하려면 사용자는 것이 좋습니다 [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) 로그 경고를 자동으로 자신의 기존 경고 및 새 데이터베이스를 만들고 마이그레이션하거나 또는 Azure Monitor를 사용 하 여 해당 경고를 다시 만들 원클릭 등록 합니다.
+>                                      
+> 기존 경고를 유지 하 고 Azure Sentinel 마이그레이션할 하세요 [Azure Sentinel 시작](https://portal.azure.com/#create/Microsoft.ASI/preview)합니다. 첫 번째 단계로, 사용자 지정 경고 저장 된 작업 영역을 선택 하 고 경고를 자동으로 마이그레이션할 '분석' 메뉴 항목을 선택 합니다.
+>
+> * * Azure Sentinel 마이그레이션을 사용자 지정 경고는 선택한 작업 영역에서 모든 사용자 지정 경고 일회성 마이그레이션을 수행 하는 참고 합니다. 마이그레이션이 완료 된 후 해당 선택한 작업 영역에 대 한 사용자 지정 경고는 Azure Security Center를 통해 액세스할 수 없습니다.
+> 사용 하 여 사용자 지정 경고 [검색](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) 하거나 [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) 문 쿼리 Sentinel Azure에서 지원 되지 않습니다 및 마이그레이션할 수 없습니다. 마이그레이션을 수행 하기 전에 이러한 경고를 편집 하십시오.
+>
+> Azure Monitor의 로그 경고를 사용 하 여 경고를 다시 만들려면 다음을 참조 하세요. [만들기, 보기 및 관리 Azure Monitor를 사용 하 여 로그 경고](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) 로그 경고를 만드는 방법에 대 한 지침은 합니다. Azure Monitor의 로그 경고의 일반적인 개요를 클릭 [여기](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log)합니다.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Security Center에서 사용자 지정 경고 규칙이란?
 

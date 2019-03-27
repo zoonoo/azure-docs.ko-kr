@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
-ms.openlocfilehash: 33958eae291b03b568491e24f09abefdacb667c8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405904"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498148"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>가상 머신 확장을 사용 하 여 사용 하 여 Azure Disk Encryption 확장 시퀀싱 설정
 
@@ -152,7 +152,7 @@ Azure virtual machines 확장에 Azure 디스크 암호화와 같은 확장을 �
 ```
 
 더 많은 자세한 템플릿은 다음을 참조 합니다.
-* 지원 센터 (Linux)의 서식을 지정 하는 사용자 지정 셸 스크립트를 한 후 Azure Disk Encryption 확장을 적용 합니다. [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Azure Disk Encryption 확장 (Linux) 디스크를 포맷 하는 사용자 지정 셸 스크립트를 한 후 적용: [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * 초기화 하 고 (Windows) 디스크를 포맷 하는 사용자 지정 Powershell 스크립트를 한 후 Azure Disk Encryption 확장을 적용 합니다. [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * 사용자 지정 Powershell 스크립트를 초기화 하 고 (Windows) 디스크를 포맷 하기 전에 Azure Disk Encryption 확장을 적용 합니다. [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 

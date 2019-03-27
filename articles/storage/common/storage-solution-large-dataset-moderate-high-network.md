@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771983"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496896"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -76,7 +76,7 @@ ms.locfileid: "57771983"
 |    파트너 통합              |    일부                         |    [높음](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [높음](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    일부                                |
 |    발송                         |    Microsoft 관리            |    Microsoft 관리                             |    Microsoft 관리                     |    고객 관리                    |
 | 데이터 이동 시 사용         |상거래 경계 이내|상거래 경계 이내|상거래 경계 이내|지리적 경계 간(예: 미국에서 EU로 이동)|
-|    가격                          |    [가격](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [가격](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    가격                          |    [가격](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 온라인 데이터 전송을 사용하는 경우 높은 네트워크 대역폭에 대한 다음 섹션의 표를 사용합니다.

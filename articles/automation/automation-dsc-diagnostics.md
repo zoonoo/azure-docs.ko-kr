@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097289"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445793"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Automation 상태 구성이 Azure Monitor 로그로 보고 데이터 전달
 
@@ -45,7 +45,7 @@ Azure Monitor 로그로 자동화 상태 구성 보고서를 보내려면 다음
 
 Azure Monitor 로그로 Azure Automation DSC에서 데이터 가져오기를 시작 하려면 다음 단계를 수행 합니다.
 
-1. PowerShell에서 Azure 계정에 로그인합니다. [Azure PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)을 참조하세요.
+1. PowerShell에서 Azure 계정에 로그인합니다. [Azure PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)을 참조하세요.
 1. 다음 PowerShell 명령을 실행하여 Automation 계정의 _ResourceId_를 가져옵니다(Automation 계정이 2개 이상 있으면 구성하려는 계정의 _ResourceID_ 선택).
 
    ```powershell

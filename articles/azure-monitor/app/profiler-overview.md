@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850278"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498131"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용
@@ -75,7 +75,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 ### <a id="ngencold"></a>코드 로드([COLD])
 
-메서드 이름에 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**와 같이 **[COLD]** 가 포함되어 있으면 .NET Framework 런타임에서 처음으로 [프로필 기반 최적화](https://msdn.microsoft.com/library/e7k32f4k.aspx)에 의해 최적화되지 않은 코드를 실행하고 있는 것입니다. 각 메서드의 경우 프로세스 동안 한 번만 표시되어야 합니다.
+메서드 이름에 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**와 같이 **[COLD]** 가 포함되어 있으면 .NET Framework 런타임에서 처음으로 [프로필 기반 최적화](/cpp/build/profile-guided-optimizations)에 의해 최적화되지 않은 코드를 실행하고 있는 것입니다. 각 메서드의 경우 프로세스 동안 한 번만 표시되어야 합니다.
 
 특정 요청에 대해 코드 로드가 상당히 오래 걸릴 경우 해당 요청이 메서드의 최적화되지 않은 부분을 실행하는 첫 번째 항목인 것입니다. 사용자가 액세스하기 전에 코드의 해당 부분을 실행하는 준비 프로세스를 고려할 수 있습니다.
 

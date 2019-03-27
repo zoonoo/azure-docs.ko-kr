@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482060"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 모든 인스턴스 메타데이터 쿼리는 대/소문자를 구분합니다.
 
 ### <a name="data-output"></a>데이터 출력
+
 기본적으로 Instance Metadata Service는 JSON 형식(`Content-Type: application/json`)의 데이터를 반환합니다. 그러나 다른 API는 요청된 경우 다른 형식으로 데이터를 반환합니다.
 다음 표는 API에서 지원할 수 있는 다른 데이터 형식에 대한 참조입니다.
 
@@ -111,6 +112,9 @@ API | 기본 데이터 형식 | 다른 형식
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> 리프 노드는 `format=json` 작동 하지 않습니다. 이러한 쿼리에 대해 `format=text` 기본 형식은 json 경우 명시적으로 지정 해야 합니다.
+
 ### <a name="security"></a>보안
 
 Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소에서 실행 중인 가상 머신 인스턴스 내부에서만 액세스할 수 있습니다. 또한 `X-Forwarded-For` 헤더가 포함된 모든 요청은 서비스에 의해 거부됩니다.
@@ -123,8 +127,8 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 HTTP 상태 코드 | 이유
 ----------------|-------
 200 정상 |
-400 잘못된 요청 | 누락된 `Metadata: true` 헤더
-404 찾을 수 없음 | 요청된 요소가 없음 
+400 잘못된 요청 | 누락 된 `Metadata: true` 헤더 또는 리프 노드를 쿼리할 때 형식을 누락
+404 찾을 수 없음 | 요청된 요소가 없음
 405 메서드를 사용할 수 없음 | `GET` 및 `POST` 요청만 지원됨
 429 요청이 너무 많음 | API는 현재 초당 최대 5개의 쿼리를 지원함
 500 서비스 오류     | 잠시 후 다시 시도하세요.
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure에는 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)와 같은 다양한 소버린 클라우드가 있습니다. 경우에 따라 몇 가지 런타임 결정을 내리려면 Azure 환경이 필요합니다. 다음 샘플에서는 이러한 동작을 수행하는 방법을 보여줍니다.
 
 **요청**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **응답**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

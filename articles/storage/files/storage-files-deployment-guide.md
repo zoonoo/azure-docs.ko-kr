@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566979"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481181"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
@@ -129,10 +129,10 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files �
 > [!Note]  
 > Azure 파일 공유를 탑재하려면 저장소 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 PowerShell을 사용하여 여러 PC에서 탑재 명령을 실행할 수 있습니다. 다음 예제에서 `$computers`는 수동으로 채워지지만 자동으로 탑재할 컴퓨터 목록을 생성할 수 있습니다. 예를 들어 이 변수를 Active Directory의 결과로 채울 수 있습니다.
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881387"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499161"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -345,7 +345,7 @@ Desired 속성을 사용 하 여 자동 계층화 및 자동 만료 속성을 �
     }
 
    ```
-  ## <a name="logs"></a>로그
+## <a name="logs"></a>로그
 
 지침에 따르세요 [IoT Edge 모듈에 대 한 docker 로그를 구성 합니다.](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Azure Blob Storage 설명서에는 여러 언어로 샘플 코드를 제공하�
 * [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
-보십시오 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 로컬 저장소 계정에 연결 합니다. 사용 하 여 테스트해 보았습니다 [이전 버전 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) Azure 탐색기입니다.
+또한 로컬 저장소 계정에 연결 하려면 "Azure Storage 탐색기"를 시도할 수 있습니다. 협력 [Azure Storage 탐색기 버전 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0)합니다.
+
 > [!NOTE]
-> 아래 단계를 수행 하는 동안 오류가 발생 하 고, 무시 하 고, 새로 고칠 수 있습니다. 
+> 예: 로컬 저장소 계정에 대 한 연결을 추가 또는 로컬 저장소 계정에서 컨테이너를 만드는 다음 단계를 수행 하는 동안 오류가 발생할 수 있습니다. 무시 하 고 새로 고침 하세요. 
 
 1. Azure Storage 탐색기 다운로드 및 설치
 2. 연결 문자열을 사용 하 여 Azure Storage에 연결

@@ -3,7 +3,7 @@ title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에�
 description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 애플리케이션에 로깅을 추가하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
-ms.author: ryanwi
-ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: srrengar
+ms.openlocfilehash: 04eb3a0f46cbf02f1e8e3aca687f5d425792ed76
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835716"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499763"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 

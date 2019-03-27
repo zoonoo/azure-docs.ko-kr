@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5eac6110cc021a749b787cd97c3a8872d8476668
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103930"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499797"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -106,7 +106,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 ![DNS 보안 블레이드](./media/dns-analytics/dns-security-blade.png)
 
-목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석은 [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot)과의 통신이 수행되었음을 감지했습니다.
+목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석은 [IRCbot](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot)과의 통신이 수행되었음을 감지했습니다.
 
 ![ircbot을 표시하는 로그 검색 결과](./media/dns-analytics/ircbot.png)
 

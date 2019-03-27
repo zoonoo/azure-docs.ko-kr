@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437563"
+ms.locfileid: "58479727"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
 
@@ -81,7 +81,7 @@ DC 에이전트 관리자 로그는 소프트웨어 작동 방식의 주요 정�
 
 `Get-AzureADPasswordProtectionSummaryReport` cmdlet을 사용하여 암호 유효성 검사 활동의 요약 보기를 생성할 수 있습니다. 이 cmdlet의 출력 예는 다음과 같습니다.
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -254,7 +254,7 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
 
 이 cmdlet의 출력 예는 다음과 같습니다.
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -326,7 +326,7 @@ cmdlet 오류가 발생하고 원인 및/또는 솔루션이 쉽게 드러나지
 
 이 cmdlet의 출력 예는 다음과 같습니다.
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

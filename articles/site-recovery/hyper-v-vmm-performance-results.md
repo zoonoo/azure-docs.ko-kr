@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793039"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482803"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
 
@@ -175,10 +175,10 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | CPU |\Processor(_Total)\% 프로세서 시간 |
 | 사용 가능한 메모리 |\Memory\사용 가능한 MB |
 | IOPS |\PhysicalDisk(_Total)\디스크 전송/초 |
-| VM 읽기(IOPS) 작업/초 |\Hyper-V 가상 저장소 디바이스(<VHD>)\읽기 작업/초 |
-| VM 쓰기(IOPS) 작업/초 |\Hyper-V 가상 저장소 디바이스(<VHD>)\쓰기 작업/초 |
-| VM 읽기 처리량 |\Hyper-V 가상 저장소 디바이스(<VHD>)\읽기 바이트/초 |
-| VM 쓰기 처리량 |\Hyper-V 가상 저장소 디바이스(<VHD>)\쓰기 바이트/초 |
+| VM 읽기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| VM 쓰기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| VM 읽기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
+| VM 쓰기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
 
 ## <a name="next-steps"></a>다음 단계
 

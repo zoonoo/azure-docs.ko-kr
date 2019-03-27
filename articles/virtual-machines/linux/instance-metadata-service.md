@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351969"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445479"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -105,11 +105,14 @@ API | 기본 데이터 형식 | 다른 형식
 /scheduledevents | json : | 없음
 /attested | json : | 없음
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 querystring 매개 변수로 지정합니다. 예:
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예: 
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> 리프 노드는 `format=json` 작동 하지 않습니다. 이러한 쿼리에 대해 `format=text` 기본 형식은 json 경우 명시적으로 지정 해야 합니다.
 
 ### <a name="security"></a>보안
 
@@ -123,8 +126,8 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 HTTP 상태 코드 | 이유
 ----------------|-------
 200 정상 |
-400 잘못된 요청 | 누락된 `Metadata: true` 헤더
-404 찾을 수 없음 | 요청된 요소가 없음 
+400 잘못된 요청 | 누락 된 `Metadata: true` 헤더 또는 리프 노드를 쿼리할 때 형식을 누락
+404 찾을 수 없음 | 요청된 요소가 없음
 405 메서드를 사용할 수 없음 | `GET` 및 `POST` 요청만 지원됨
 429 요청이 너무 많음 | API는 현재 초당 최대 5개의 쿼리를 지원함
 500 서비스 오류     | 잠시 후 다시 시도하세요.

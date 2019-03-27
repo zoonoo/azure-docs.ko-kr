@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433725"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499899"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -44,7 +44,7 @@ Azure AD B2C에서는 [사용자 지정 정책](active-directory-b2c-overview-cu
 [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
- 아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
+아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
 
 * Facebook: 전자 메일
 * Google+: 전자 메일
@@ -113,7 +113,8 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
-1. Azure AD B2C 테넌트에서 모든 정책을 삭제합니다.
+1. 모든 사용자 흐름 (정책)에서 Azure AD B2C 테 넌 트를 삭제 합니다.
+1. Azure AD B2C 테 넌 트에 등록 된 모든 응용 프로그램을 삭제 합니다.
 1. 이제 [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다. Azure에 등록하는 데 사용한 동일한 Microsoft 계정이나 동일한 회사 또는 학교 계정을 사용합니다.
 1. 삭제하려는 Azure AD B2C 테넌트로 전환합니다.
 2. 왼쪽에서 Active Directory 메뉴로 이동합니다.

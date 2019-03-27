@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1276d1e581caf477449ce9a4c928d4493a6354d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857847"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487603"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -50,7 +50,7 @@ Network Watcher 문제 해결은 Virtual Network 게이트웨이 및 연결에 �
 
 ## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
-```PowerShell
+```powershell
 armclient login
 ```
 

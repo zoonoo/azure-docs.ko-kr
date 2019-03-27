@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586803"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448065"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -40,7 +40,7 @@ An error occured while deleteing the DSC configuration '<name>'.  Error-details:
 
 * 구성을 삭제 하려면 "제거-AzAutomationDscConfiguration" Az Cmdlet을 사용 합니다.
 * 이 cmdlet에 대 한 설명서가 아직 업데이트 되지 않았습니다.  그때 까지는 AzureRM 모듈에 대 한 설명서를 참조 하십시오.
-  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 

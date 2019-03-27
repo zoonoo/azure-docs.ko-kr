@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315880"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480548"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 이 구독을 새로운 가격 책정 모델로 마이그레이션하려면 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 변경 작업이 성공했는지 확인하려면 다음 명령을 다시 실행합니다.
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ isGrandFatherableSubscription optedInDate
 
 이전 가격 책정 모델로 되돌리려면 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Invoke-AzResourceAction `
 
 구독이 여러 개 있고 동일한 테넌트에 호스팅되는 구독을 마이그레이션하려는 경우 다음 스크립트를 사용하여 사용자 고유의 변형을 만들 수 있습니다.
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 테넌트의 모든 구독이 새 가격 책정 모델에 적합한지 확인하려면 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 세 개의 배열을 생성하는 스크립트를 만들어서 스크립트를 추가로 구체화할 수 있습니다. 한 배열은 ```isGrandFatherableSubscription```이 True로 설정되어 있고 현재 optedInDate의 값이 없는 모든 구독으로 구성됩니다. 두 번째 구독 배열은 현재 새 가격 책정 모델에 있습니다. 세 번째 배열은 테넌트의 구독 중에서 새 가격 책정 모델에 적합하지 않은 구독 id로만 채워집니다.
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 구독을 세 개의 배열로 나누었으니, 결과를 신중하게 검토해야 합니다. 배열 콘텐츠의 백업 복사본을 만들어 놓으면 나중에 필요할 때 변경 내용을 간편하게 되돌릴 수 있습니다. 현재 이전 가격 책정 모델이 적용되는 모든 적격 구독을 새 가격 책정 모델로 변환하기로 결정한 경우 다음과 같은 방법으로 이 작업을 수행할 수 있습니다.
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

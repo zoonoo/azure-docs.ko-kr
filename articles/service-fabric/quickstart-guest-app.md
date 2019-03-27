@@ -3,7 +3,7 @@ title: Azure Service Fabric 클러스터에 기존 앱을 신속하게 배포
 description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 애플리케이션을 호스트합니다.
 services: service-fabric
 documentationcenter: nodejs
-author: rwike77
+author: msfussell
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: ryanwi
-ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.author: mfussell
+ms.openlocfilehash: 90ecf8a3f6d660c665cf3cdee3e1158bebee9d12
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005297"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499729"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 `CTRL`+`SHIFT`+`N`를 사용하여 프로젝트 만들기
 
-**새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택합니다.
+**새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션**을 선택합니다.
 
 애플리케이션의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
 
@@ -74,8 +74,8 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 * **스크립트**  
 애플리케이션을 배포/업그레이드하기 위한 PowerShell 스크립트입니다.
 
-* **응용 프로그램 정의**  
-*ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 애플리케이션 매개 변수 파일은 *ApplicationParameters*에 있으며 애플리케이션을 정의하고 지정된 환경에 대해 해당 애플리케이션을 구체적으로 구성할 수 있습니다.
+* **애플리케이션 정의**  
+*ApplicationPackageRoot*에서 애플리케이션 매니페스트를 포함합니다. 관련된 애플리케이션 매개 변수 파일은 *ApplicationParameters*에 있으며 애플리케이션을 정의하고 지정된 환경에 대해 해당 애플리케이션을 구체적으로 구성할 수 있습니다.
     
 서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
@@ -108,11 +108,11 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 이전에 수행하지 않은 경우 배포할 Azure 계정을 선택합니다. 아직 없는 경우 [하나에 등록][create-account]합니다.
 
-**연결 끝점**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 Azure Portal에 웹 브라우저 창을 여는 **&lt;새 클러스터 만들기...&gt;** 를 선택합니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
+**연결 엔드포인트**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 Azure Portal에 웹 브라우저 창을 여는 **&lt;새 클러스터 만들기...&gt;** 를 선택합니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
 
-Service Fabric 클러스터를 만들 때 **사용자 지정 끝점** 설정을 **80**으로 설정해야 합니다.
+Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** 설정을 **80**으로 설정해야 합니다.
 
-![사용자 지정 끝점이 있는 Service Fabric 노드 형식 구성][custom-endpoint]
+![사용자 지정 엔드포인트가 있는 Service Fabric 노드 형식 구성][custom-endpoint]
 
 새 Service Fabric 클러스터 만들기를 완료하려면 다소 시간이 걸립니다. Service Fabric 클러스터를 만들면 게시 대화 상자로 다시 이동하고 **&lt;새로 고침&gt;** 을 선택합니다. 새 클러스터가 드롭다운 상자에 나열되면 선택합니다.
 
@@ -126,7 +126,7 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 끝점** 설정을 
 
 먼저 Azure Portal을 열고 Service Fabric 서비스를 찾습니다.
 
-서비스 주소의 개요 블레이드를 확인합니다. _클라이언트 연결 끝점_ 속성의 도메인 이름을 사용합니다. 예: `http://mysvcfab1.westus2.cloudapp.azure.com`
+서비스 주소의 개요 블레이드를 확인합니다. _클라이언트 연결 엔드포인트_ 속성의 도메인 이름을 사용합니다. 예: `http://mysvcfab1.westus2.cloudapp.azure.com`
 
 ![Azure Portal에서 Service Fabric 개요 블레이드][overview]
 

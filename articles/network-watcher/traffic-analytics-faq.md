@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835319"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445195"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -72,8 +72,8 @@ ms.locfileid: "57835319"
 - 미국 중부
 - 미국 서부
 - 미국 서부 2
-- 유럽 서부
-- 유럽 북부
+- 서유럽
+- 북유럽
 - 브라질 남부
 - 영국 서부
 - 영국 남부
@@ -83,19 +83,19 @@ ms.locfileid: "57835319"
 - 인도 중부
 - 인도 남부
 - 일본 동부
-- US Gov 버지니아
+- 미국 정부 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
 - 미국 중서부
 - 미국 동부
-- 유럽 서부
+- 서유럽
 - 영국 남부
 - 오스트레일리아 남동부
 - 동남아시아 
 - 인도 중부
 - 일본 동부
-- US Gov 버지니아
+- 미국 정부 버지니아
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -103,11 +103,11 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>단일 작업 영역 내에서 여러 NSG를 구성할 수 있나요?
 
-예
+예.
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 참조 하세요. [새 로그 검색으로 업그레이드를 기록 하는 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)합니다.
+예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 참조 하세요. [새 로그 검색으로 업그레이드를 기록 하는 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)합니다.
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
@@ -115,7 +115,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-번호 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
@@ -163,7 +163,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell 또는 Azure Resource Manager 템플릿 또는 클라이언트를 사용하여 트래픽 분석을 구성할 수 있나요?
 
-버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용하여 특정 NSG에 대한 흐름 로깅 및 트래픽 분석을 구성하려면 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0)를 참조하세요. 특정 NSG에 대한 흐름 로깅 및 트래픽 분석 상태를 가져오려면 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0)를 참조하세요.
+버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용하여 특정 NSG에 대한 흐름 로깅 및 트래픽 분석을 구성하려면 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog)를 참조하세요. 특정 NSG에 대한 흐름 로깅 및 트래픽 분석 상태를 가져오려면 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus)를 참조하세요.
 
 현재 트래픽 분석을 구성하는 데는 Azure Resource Manager 템플릿을 사용할 수 없습니다.
 

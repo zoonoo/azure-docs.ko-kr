@@ -3,7 +3,7 @@ title: VS Code를 사용하여 Azure Service Fabric 시작 | Microsoft Docs
 description: 이 문서에서는 Visual Studio Code를 사용하여 Service Fabric 애플리케이션을 만드는 과정을 대략적으로 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: JimacoMS2
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
-ms.author: v-jamebr
-ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: pepogors
+ms.openlocfilehash: 1053bde5eb76a9e2731d9663dec97d51c321e907
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316071"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500222"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 

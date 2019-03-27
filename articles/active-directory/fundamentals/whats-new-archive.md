@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c78786d48dbd8d399013507fe8edcd2ce2ad45
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cb75c57b832dbd12dbd06fd42b636a16b40ff10e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456230"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499355"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -1223,7 +1223,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
 - 확장 프로그램의 최근 사용한 앱에 대한 바로 가기
 - Microsoft Edge, Chrome 및 Firefox에 대한 확장을 사용할 수 있습니다.
  
-자세한 내용은 [내 앱 보안 로그인 확장](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension)을 참조하세요.
+자세한 내용은 [내 앱 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)을 참조하세요.
 
 ---
 

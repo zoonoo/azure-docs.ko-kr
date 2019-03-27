@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658745"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497247"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -119,7 +119,7 @@ Shape 클래스는 [기하 도형](https://docs.microsoft.com/javascript/api/azu
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 HTML 추가](./map-add-custom-html.md)
+> [HTML 표식](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [검색 결과 표시](./map-search-location.md)
+> [열 지도 계층 추가](./map-add-heat-map-layer.md)

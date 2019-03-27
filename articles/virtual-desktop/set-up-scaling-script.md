@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402493"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497900"
 ---
-# <a name="automatically-scale-session-hosts"></a>세션 호스트를 자동으로 조정
+# <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
 Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 가상 머신 비용은 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이기 위해 종료 사용량이 시간에 가상 컴퓨터를 호스트 하는 중 세션 (Vm)를 할당 취소 하 고 사용량이 다시 시작 하는 것이 좋습니다.
 
@@ -81,7 +81,7 @@ Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다
 | currentAzureSubscriptionId    | 세션 호스트 Vm이 실행 되는 Azure 구독의 ID                        |
 | tenantName                    | Windows 가상 데스크톱 테 넌 트 이름                                                    |
 | hostPoolName                  | Windows 가상 데스크톱 호스트 풀 이름                                                 |
-| RDBroker                      | 기본값 WVD 서비스에 대 한 URL <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | WVD 서비스 URL을 기본 값 https:\//rdbroker.wvd.microsoft.com             |
 | 사용자 이름                      | 서비스 주체 응용 프로그램 ID (AADApplicationId 에서처럼에서 동일한 서비스 주체를 가질 수는) 또는 multi-factor authentication 없이 표준 사용자 |
 | isServicePrincipal            | 허용 되는 값은 **true** 하거나 **false**합니다. 자격 증명을 사용 하 고 두 번째 집합의 서비스 주체 인지 또는 표준 계정을 나타냅니다. |
 | BeginPeakTime                 | 최대 사용량 시간 시작 될 때                                                            |

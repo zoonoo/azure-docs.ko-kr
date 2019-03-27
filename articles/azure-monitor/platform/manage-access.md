@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294351"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500188"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>로그 데이터 및 Azure Monitor에서 작업 영역 관리
 Azure Monitor는 기본적으로 데이터 및 구성 정보가 포함된 컨테이너 인 Log Analytics 작업 영역에 로그 데이터를 저장합니다. 로그 데이터에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
@@ -114,7 +114,7 @@ Log Analytics 작업 영역에서 데이터를 분석 하는 동안 합니다 **
 |:---|:---|:---|
 | 각 모델의 대상 | 중앙 관리 합니다. 관리자 데이터 수집 및 사용자를 구성 해야 하는 다양 한 리소스에 액세스 해야 합니다. Azure 외부의 리소스에 대 한 로그에 액세스할 수 있는 사용자에 대해 현재 필요한 수도 있습니다. | 응용 프로그램 팀입니다. 모니터링 되는 Azure 리소스 관리자입니다. |
 | 로그를 보려면 사용자 필요한 내용 | 작업 영역에 대 한 권한입니다. 참조 **작업 영역 권한이** 에 [계정 및 사용자 관리](#manage-accounts-and-users)합니다. | 리소스에 대 한 읽기 액세스입니다. 참조 **리소스 사용 권한은** 에 [계정 및 사용자 관리](#manage-accounts-and-users)합니다. 사용 권한 수 있습니다 (예: 포함 된 리소스 그룹)를 상속 또는 리소스에 직접 할당 합니다. 권한 리소스에 대 한 로그를 자동으로 할당 됩니다. |
-| 사용 권한 범위는 어떻게 되나요? | 작업 영역입니다. 작업 영역에 대 한 액세스 권한이 있는 사용자를 권한이 있는 테이블에서 해당 영역의 모든 로그를 쿼리할 수 있습니다. 참조 [테이블 액세스 제어](#table-access-control) | Azure 리소스입니다. 사용자는 로그를 쿼리할 수 있습니다 리소스에 대 한 모든 작업 영역에서 액세스 권한이 있지만 다른 리소스에 대 한 로그를 쿼리할 수 없습니다. |
+| 사용 권한 범위는 어떻게 되나요? | 작업 영역입니다. 작업 영역에 대 한 액세스 권한이 있는 사용자를 권한이 있는 테이블에서 해당 영역의 모든 로그를 쿼리할 수 있습니다. 참조 [테이블 액세스 제어](#table-level-rbac) | Azure 리소스입니다. 사용자는 로그를 쿼리할 수 있습니다 리소스에 대 한 모든 작업 영역에서 액세스 권한이 있지만 다른 리소스에 대 한 로그를 쿼리할 수 없습니다. |
 | 사용자 액세스 로그를 어떻게 수 있습니까? | 시작 **로그** 에서 **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역**합니다. | 시작 **로그** Azure 리소스에 대 한 합니다. |
 
 
@@ -150,13 +150,13 @@ Log Analytics 작업 영역에서 데이터를 분석 하는 동안 합니다 **
 
 다음 명령을 사용 하 여 구독에서 모든 작업 영역에 대 한 액세스 제어 모드를 검사 합니다.
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 특정 작업 영역에 대 한 액세스 제어 모드를 설정 하려면 다음 스크립트를 사용 합니다.
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 다음 스크립트를 사용 하 여 구독에서 모든 작업 영역에 대 한 액세스 제어 모드 설정
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 이 사용 권한을 포함 하는 역할에서 일반적으로 허용 됩니다  _\*/읽기 또는_ _\*_ 같은 기본 제공 권한 [판독기](../../role-based-access-control/built-in-roles.md#reader) 하고[ 참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할입니다. 참고를 특정 작업을 포함 하는 사용자 지정 역할이 나 전용된 기본 제공 역할이이 권한은 포함 되지 않을 수 있습니다.
 
-참조 [테이블당 액세스 제어를 정의](#defining-per-table-access-control) 서로 다른 테이블에 대 한 다른 액세스 제어를 만들려는 경우에는 아래.
+참조 [테이블당 액세스 제어를 정의](#table-level-rbac) 서로 다른 테이블에 대 한 다른 액세스 제어를 만들려는 경우에는 아래.
 
 
 ## <a name="table-level-rbac"></a>테이블 수준 RBAC
 **테이블 수준 RBAC** 다른 권한 뿐 아니라 Log Analytics 작업 영역에서 데이터를 보다 세부적으로 제어를 제공할 수 있습니다. 이 컨트롤을 사용 하면 사용자의 특정 집합에만 액세스할 수 있는 특정 데이터 형식을 정의할 수 있습니다.
 
-사용 하 여 테이블 액세스 제어를 구현 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 권한을 부여 하거나 특정에 대 한 액세스를 거부 [테이블](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) 작업 영역에서 합니다. 이러한 역할은 작업 영역 중심 또는 리소스 중심 작업 영역에 적용 됩니다 [액세스 제어 모델](#access-control-modes) 사용자에 관계 없이 [액세스 모드](#access-mode)합니다.
+사용 하 여 테이블 액세스 제어를 구현 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 권한을 부여 하거나 특정에 대 한 액세스를 거부 [테이블](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) 작업 영역에서 합니다. 이러한 역할은 작업 영역 중심 또는 리소스 중심 작업 영역에 적용 됩니다 [액세스 제어 모델](#access-control-mode) 사용자에 관계 없이 [액세스 모드](#access-modes)합니다.
 
 만들기는 [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 테이블 액세스 제어에 대 한 액세스를 정의 하는 다음 작업을 사용 하 여 합니다.
 

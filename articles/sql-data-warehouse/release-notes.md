@@ -9,12 +9,12 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
-ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244677"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448418"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Azure SQL Data Warehouse 릴리스 정보 및 설명서 업데이트
 
@@ -22,9 +22,10 @@ Azure SQL DW(SQL Data Warehouse)는 MPP(대규모 병렬 처리)를 활용하여
 
 최신 버전의 Azure SQL Data Warehouse에서 기대할 수 있는 새로운 기능과 향상된 기능에 대해 더 자세히 알아보려면 아래 링크를 클릭하세요. 이러한 서비스 업데이트는 식별된 유지 관리 일정 중에 받으실 수 있습니다.
 
-- [SQL Data Warehouse 버전 10.0.10106.0(1월)](./release-notes-10-0-10106-0.md)
-- [2018년 12월](./release-notes-december-2018.md)
-- [2018년 10월](./release-notes-october-2018.md)
+- [2019 년 3 월](./release-notes-10-0-10106-0.md#march-2019)
+- [2019 년 1 월](./release-notes-10-0-10106-0.md#january-2019)
+- [2018년 12월](./release-notes-10-0-10106-0.md#december-2018)
+- [2018년 10월](./release-notes-10-0-10106-0.md#october-2018)
 - [2018년 9월](./release-notes-september-2018.md)
 - [2018년 8월](./release-notes-august-2018.md)
 - [2018년 7월](./release-notes-july-2018.md)
@@ -39,9 +40,9 @@ Azure SQL DW(SQL Data Warehouse)는 MPP(대규모 병렬 처리)를 활용하여
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/dw-version.png)
+예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
 
-식별된 버전을 사용하여 Azure SQL Data Warehouse에 적용된 릴리스를 확인하세요. 
+식별된 날짜를 사용하여 Azure SQL Data Warehouse에 적용된 릴리스를 확인하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

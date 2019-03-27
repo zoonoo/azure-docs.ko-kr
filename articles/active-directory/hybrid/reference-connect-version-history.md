@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836983"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499916"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -40,6 +40,56 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 >[!NOTE]
 >일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>릴리스 상태 
+
+3/25/2019: 아직 릴리스되지 않은 경우 
+ 
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능 
+
+
+
+- 도메인 새로 고침을 위한 지원 추가 
+- Exchange 메일 공용 폴더 기능 이동 GA 
+- 마법사 오류 서비스 오류에 대 한 처리를 개선 합니다. 
+- 커넥터 속성 페이지에서 이전 UI에 대 한 경고 링크를 추가 했습니다. 
+- 통합 그룹 쓰기 저장 기능은 GA 
+- DC는 LDAP 컨트롤 손실 된 경우 향상 된 SSPR 오류 메시지 
+- 하는 동안 DCOM 레지스트리 오류에 대 한 추가 진단 설치  
+- PHS RPC 오류 추적 향상 
+- 자식 도메인의 EA 자격 증명 허용 
+- 데이터베이스 이름 (기본 이름 ADSync) 설치 하는 동안 입력 허용
+- Ping에 대 한 Ws-trust 수정 프로그램을 선택 하 고 새 Azure 인스턴스에 대 한 지원을 추가 하려면 3.19.8 ADAL로 업그레이드 
+- 클레임에 대 한 그룹 수정 동기화 규칙을 samAccountName, DomainNetbios 및 DomainFQDN에서 클라우드로-필요 
+- – 자세한 기본 동기화 규칙 처리를 수정할 [여기](how-to-connect-fix-default-rules.md)합니다.
+- Windows 서비스를 실행 하는 새 에이전트를 추가 합니다. 이 에이전트를 "관리 에이전트" 라는 Microsoft 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 Azure AD Connect 서버의 원격 진단을 수 있습니다. 관리 에이전트에 대해 자세히 알아보세요 [여기](whatis-aadc-admin-agent.md)합니다. 
+- 최종 사용자 사용권 계약 (EULA) 업데이트 
+- 로그인 형식으로 AD FS를 사용 하는 배포에 대 한 자동 업그레이드 지원을 추가 했습니다.  이 또한 업그레이드 프로세스의 일부로 AD FS를 Azure AD 신뢰 당사자 트러스트를 업데이트 하는 요구 사항을 제거 합니다. 
+- 두 가지 옵션을 제공 하는 Azure AD 트러스트 관리 작업을 추가 합니다: 신뢰 분석/업데이트 및 트러스트를 다시 설정 합니다. 
+- SupportMultipleDomain 스위치를 항상 사용할 수 있도록 AD FS를 Azure AD 신뢰 당사자 트러스트 동작을 변경 (신뢰와 Azure AD 도메인에 포함 되어 업데이트) 합니다. 
+- 사전 설치 된 인증서를 사용 하 여 제거 하 여.pfx 인증서 필요 있도록 설치 새 AD FS 팜 동작을 변경 합니다.
+- 1 개의 AD FS 및 WAP 서버가 배포만 허용 되도록 설치 새 AD FS 팜 워크플로 업데이트 합니다.  모든 추가 서버 초기 설치 후 수행 됩니다. 
+
+### <a name="fixed-issues"></a>해결된 문제 
+
+
+- 수정 SQL ADSync 서비스에 대 한 논리를 다시 연결 
+- 빈 SQL AOA DB를 사용 하 여 새로 설치를 허용 하도록 수정 
+- PS 권한을 GWB 권한을 구체화 하는 스크립트를 수정 합니다. 
+- LocalDB 사용 하 여 VSS 오류를 해결 합니다.  
+- 개체 유형 범위에 없는 경우 잘못 된 오류 메시지 해결 
+- 여기서는 서버에 Azure AD PowerShell 설치 발생할 수 있습니다 어셈블리 충돌이 발생 하는 Azure AD Connect를 사용 하 여 문제를 수정 했습니다. 
+- 커넥터 자격 증명 이전 UI에서 업데이트 되 면 스테이징 서버의 PHS 버그가 수정 되었습니다. 
+- 일부 메모리 누수를 해결합니다. 
+- 기타 Autoupgrade 수정 
+- 내보내기 및 가져오기 처리 확인 되지 않은 기타 수정 
+- 도메인 및 OU에 백슬래시를 처리 하 여 버그를 수정 했습니다. 필터링 
+- ADSync 서비스를 중지 하려면 2 분 이상 걸리지 않았고 업그레이드 시 문제가 발생 하는 문제가 수정 되었습니다. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

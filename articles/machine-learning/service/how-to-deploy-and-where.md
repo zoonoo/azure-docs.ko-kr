@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361968"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472942"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -330,7 +330,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>기존 클러스터 사용
 
-Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.11. # # 및 12 개 이상의 가상 Cpu에 이미지를 배포 하려면 사용할 수 있습니다. 다음 코드는 기존 AKS 1.11에 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
+Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.12. # # 및 12 개 이상의 가상 Cpu에 이미지를 배포 하려면 사용할 수 있습니다. 다음 코드는 기존 AKS 1.12를 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

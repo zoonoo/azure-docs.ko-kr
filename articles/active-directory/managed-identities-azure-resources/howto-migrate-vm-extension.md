@@ -3,7 +3,7 @@ title: 관리 되는 id VM 확장 사용을 중지 하 고 Azure Instance Metada
 description: 단계별 지침을 제공 VM 확장 사용을 중지 하 고는 Azure 메타 데이터 서비스 IMDS (인스턴스)를 사용 하 여 인증에 대 한 시작 단계입니다.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227687"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498335"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Identities 확장과 Azure Instance Metadata Service를 사용 하 여 시작을 관리 하는 가상 머신 사용을 중지 하는 방법
 
@@ -196,7 +196,7 @@ Azure 리소스의 가상 머신 확장에 대 한 관리 되는 id 현재 리�
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-합니다 [Azure 메타 데이터 서비스 IMDS (인스턴스)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) 는 관리 하 고 가상 컴퓨터를 구성할 수 있는 가상 머신 인스턴스를 실행 하는 방법에 대 한 정보를 제공 하는 REST 끝점입니다. 끝점은 잘 알려진 라우팅이 불가능 IP 주소에서 사용할 수 있습니다 (`169.254.169.254`)는 가상 머신 내 에서만 액세스할 수 있습니다.
+합니다 [Azure 메타 데이터 서비스 IMDS (인스턴스)](/azure/virtual-machines/windows/instance-metadata-service) 는 관리 하 고 가상 컴퓨터를 구성할 수 있는 가상 머신 인스턴스를 실행 하는 방법에 대 한 정보를 제공 하는 REST 끝점입니다. 끝점은 잘 알려진 라우팅이 불가능 IP 주소에서 사용할 수 있습니다 (`169.254.169.254`)는 가상 머신 내 에서만 액세스할 수 있습니다.
 
 Azure IMDS를 사용 하 여에 토큰을 요청 하면 여러 이점이 있습니다. 
 

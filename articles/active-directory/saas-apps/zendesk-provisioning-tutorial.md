@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097994"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499950"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "58097994"
 *   관리자 권한이 있는 Zendesk의 사용자 계정 
 
 > [!NOTE]
-> Azure AD 프로비전 통합에서는 [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction)를 사용하며, 이 API는 Zendesk 팀이 Enterprise 계획 이상에서 사용할 수 있습니다.
+> Azure AD 프로비전 통합에서는 [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources)를 사용하며, 이 API는 Zendesk 팀이 Enterprise 계획 이상에서 사용할 수 있습니다.
 
 ## <a name="adding-zendesk-from-the-gallery"></a>갤러리에서 Zendesk 추가
 Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Zendesk를 구성하기 전에, Zendesk를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
