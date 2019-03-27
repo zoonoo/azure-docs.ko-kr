@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eeb9765cfd6242ecdc14dd59dd9b5337cc56c597
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405490"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481218"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -28,7 +28,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 * Azure 파일 동기화와 동기화할 Windows Server 또는 Windows Server 클러스터의 지원되는 인스턴스가 하나 이상 있어야 합니다. 지원되는 Windows Server 버전에 대한 자세한 내용은 [Windows Server와의 상호 운용성](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)을 참조하세요.
 * Windows Server에 PowerShell 5.1이 설치되어 있어야 합니다. Windows Server 2012 R2를 사용하는 경우 적어도 PowerShell 5.1.\*을 실행하는지 확인합니다. PowerShell 5.1이 기본 버전이므로 Windows Server 2016에서 이 검사를 안전하게 건너뛸 수 있습니다. Windows Server 2012 R2에서 **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인하여 PowerShell 5.1.\*을 실행하고 있는지 확인할 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     $PSVersionTable.PSVersion
     ```
 
@@ -40,7 +40,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     - Az 모듈은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다. 
     - AzureRM PowerShell 모듈은 다음 PowerShell cmdlet을 실행하여 설치할 수 있습니다.
     
-        ```PowerShell
+        ```powershell
         Install-Module AzureRM
         ```
 
@@ -59,7 +59,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Internet Explorer 보안 강화 구성을 해제하려면 관리자 권한 PowerShell 세션에서 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 # Disable Internet Explorer Enhanced Security Configuration 
 # for Administrators
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
@@ -100,7 +100,7 @@ Azure 파일 동기화 관리 cmdlet과 상호 작용하려면 DLL을 가져오�
 > [!Note]  
 > Azure 파일 동기화 관리 cmdlet을 포함하고 있는 StorageSync.Management.PowerShell.Cmdlets.dll 패키지는 승인되지 않은 동사(`Login`)를 사용하는 cmdlet을 (의도적으로) 포함합니다. `Login-AzureStorageSync` 이름은 Azure PowerShell 모듈의 `Login-AzAccount` cmdlet 별칭과 일치시키기 위해 선택되었습니다. Azure 파일 동기화 에이전트가 Azure PowerShell 모듈에 추가되면 이 오류 메시지(및 cmdlet)가 제거됩니다.
 
-```PowerShell
+```powershell
 $acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
@@ -160,7 +160,7 @@ Login-AzureRmStorageSync `
 
 `Login-AzureR,StorageSync` 을 사용하여 Azure 파일 동기화 컨텍스트를 만든 후에는 저장소 동기화 서비스를 만들 수 있습니다. `<my-storage-sync-service>`를 원하는 저장소 동기화 서비스 이름으로 바꿔야 합니다.
 
-```PowerShell
+```powershell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
@@ -188,7 +188,7 @@ Azure 파일 동기화 에이전트 설치를 마치면 서버 등록 UI가 자�
 > [!Important]  
 > 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure 파일 동기화에서 작동하도록 클러스터의 각 노드를 등록해야 합니다.
 
-```PowerShell
+```powershell
 # Gather the OS version
 $osver = [System.Environment]::OSVersion.Version
 
@@ -242,7 +242,7 @@ Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 
 적절한 정보를 선택한 후 **등록**을 선택하여 서버 등록을 완료합니다. 등록 프로세스의 일부로 추가 로그인을 요구하는 메시지가 표시됩니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
@@ -271,14 +271,14 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 동기화 그룹을 만들려면 다음 PowerShell을 실행합니다. `<my-sync-group>`을 원하는 동기화 그룹 이름으로 바꿉니다.
 
-```PowerShell
+```powershell
 $syncGroupName = "<my-sync-group>"
 New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 동기화 그룹이 만들어지면 클라우드 엔드포인트를 만들 수 있습니다. `<my-storage-account>` 및 `<my-file-share>`를 예상 값으로 바꿉니다.
 
-```PowerShell
+```powershell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
@@ -335,7 +335,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 다음 PowerShell 명령을 실행하여 서버 엔드포인트를 만들고, `<your-server-endpoint-path>` 및 `<your-volume-free-space>`를 원하는 값으로 바꿉니다.
 
-```PowerShell
+```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>

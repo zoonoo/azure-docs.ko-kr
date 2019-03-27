@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369900"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447029"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Azure blob 및 Azure Active Directory를 사용 하 여 큐에 대 한 액세스를 인증 합니다.
 
@@ -22,8 +22,6 @@ Azure Storage는 Blob 및 큐 서비스에 대해 Azure AD(Active Directory)를 
 Azure AD 자격 증명을 통한 사용자 또는 애플리케이션 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 저장소 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. Microsoft에서는 가능하다면 Azure Storage 애플리케이션에 Azure AD 인증을 사용하는 것을 권장합니다.
 
 인증 및 권한 부여 Azure AD 자격 증명을 사용 하 여 모든 범용 v2, 범용 v1 및 Blob 저장소 계정은 모든 공용 지역에서 제공 됩니다. 저장소 계정에만 Azure AD 권한 부여는 Azure Resource Manager 배포 모델 지원으로 만들어집니다.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Blob 및 큐에 대 한 Azure AD의 개요
 
@@ -41,7 +39,11 @@ RBAC 역할에는 Azure AD 보안 주체에 할당 된 Azure 부여 해당 보�
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Azure portal에서 기본 제공 역할을 할당 하는 방법에 알아보려면 참조 [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
+Azure Storage 리소스에 대 한 기본 제공 RBAC를 할당 하는 방법에 알아보려면 다음 항목 중 하나를 참조 하세요.
+
+- [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
+- [Azure CLI를 사용 하 여 RBAC 사용 하 여 Azure blob 및 큐 데이터에 액세스 권한 부여](storage-auth-aad-rbac-cli.md)
+- [PowerShell을 사용 하 여 RBAC 사용 하 여 Azure blob 및 큐 데이터에 액세스 권한 부여](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>RBAC 역할에 의해 부여 된 권한 
 
@@ -49,7 +51,6 @@ Azure portal에서 기본 제공 역할을 할당 하는 방법에 알아보려�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한 부여](storage-auth-aad-rbac.md)
 - [Blob 및 큐 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증](storage-auth-aad-app.md)
 - [Azure 리소스에 대 한 관리 되는 id 사용 하 여 큐 및 blob에 대 한 액세스 인증](storage-auth-aad-msi.md)
-- [Azure AD id를 사용 하 여 CLI 또는 PowerShell을 사용 하 여 Azure Storage 액세스](storage-auth-aad-script.md)
+- Azure Files는 도메인에 가입된 VM(미리 보기)에 대해 SMB를 통한 Azure AD 인증을 지원합니다. Azure Files용 SMB를 통한 Azure AD 사용에 대해 알아보려면 [Azure Files용 SMB(Preview)를 통한 Azure Active Directory 인증의 개요](../files/storage-files-active-directory-overview.md)를 참조하세요.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301274"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445836"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 | 원본 데이터 저장소의 데이터를 Azure Table Storage에 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 
-[!TIP]
+> [!TIP]
 > 파일 기반 저장소 간에 데이터를 복사할 때 기본 동작(자동 결정됨)은 대개 최상의 처리량을 허용합니다. 
 
 데이터 저장소를 호스트하는 컴퓨터에서 로드를 제어하거나 복사 성능을 조정하기 위해 기본 값을 재정의하고 **parallelCopies** 속성의 값을 지정하도록 선택할 수 있습니다. 값은 1 이상의 정수여야 합니다. 런타임 시, 최고의 성능을 위해 복사 작업은 설정된 값 이하의 값을 사용합니다.
@@ -193,7 +193,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니요 |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
 | **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 저장소를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
-| **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
+| **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아닙니다. |
 
 >[!NOTE]
 > 압축이 활성화된 단계적 복사를 사용하는 경우 준비 Blob 연결된 서비스에 대한 서비스 주체 또는 MSI 인증은 지원되지 않습니다.
@@ -397,7 +397,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 이 경우 bzip2 데이터 압축은 전체 파이프라인을 느리게 만들 수 있습니다. gzip 압축 코덱을 전환하면 병목 상태를 완화할 수 있습니다.
 
-## <a name="reference"></a>참고 자료
+## <a name="reference"></a>참조
 
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 

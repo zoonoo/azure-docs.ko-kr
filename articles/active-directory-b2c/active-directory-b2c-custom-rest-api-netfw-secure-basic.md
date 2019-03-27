@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ef408022174bc53300626b71f28bafe0561dc343
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733691"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486243"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -46,7 +46,7 @@ ms.locfileid: "55733691"
 
     복잡한 암호를 생성하려면 다음 PowerShell 코드를 실행합니다. 임의의 값을 사용할 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     $bytes = New-Object Byte[] 32
     $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
     $rand.GetBytes($bytes)

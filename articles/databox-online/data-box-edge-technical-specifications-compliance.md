@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402595"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449198"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure 데이터 가장자리가 상자의 기술 사양
 
@@ -57,9 +57,17 @@ The following table lists the typical power consumption data (actual values may 
 
 |     인클로저     |     밀리미터     |     인치     |
 |-------------------|---------------------|----------------|
-|    높이         |    304.8            |    12          |
-|    너비          |    660.4            |    26          |
-|    깊이          |    1041.4           |    41          |
+|    높이         |    44.45            |    1.75"          |
+|    너비          |    434.1           |    17.09"          |
+|    길이          |    740.4           |    29.15"          |
+
+다음 표에서 인치 및 밀리미터 운송 패키지의 크기를 나열합니다.
+
+|     패키지     |     밀리미터     |     인치     |
+|-------------------|---------------------|----------------|
+|    높이         |    311.2            |    12.25"          |
+|    너비          |    642.8          |    25.31"          |
+|    길이          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>엔클로저 무게
 
@@ -67,8 +75,8 @@ The following table lists the typical power consumption data (actual values may 
 
 |     인클로저                                 |     무게          |
 |-----------------------------------------------|---------------------|
-|    패키지를 포함 하 여 총 가중치       |    66 lbs 합니다.          |
-|    장치의 무게                       |    48.3 lbs 합니다.        |
+|    패키지를 포함 하 여 총 가중치       |    61 lbs 합니다.          |
+|    장치의 무게                       |    35 lbs 합니다.          |
 
 ## <a name="enclosure-environment-specifications"></a>엔클로저 환경 사양
 

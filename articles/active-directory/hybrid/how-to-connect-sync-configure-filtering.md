@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774441"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487320"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -99,6 +99,12 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>동기화할 도메인을 선택합니다.
+두 가지 방법으로 동기화 할 도메인을 선택 합니다.
+    - 동기화 서비스를 사용 하 여
+    - Azure AD Connect 마법사를 사용합니다.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>동기화 서비스를 사용 하 여 동기화 할 도메인 선택
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
@@ -112,6 +118,17 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
    ![새로 고침 필요](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다. 포리스트에서 도메인을 제거한 경우 도메인이 제거되었다는 메시지가 팝업되고 해당 구성은 정리됩니다.
 7. 실행 프로필을 계속 조정합니다.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Azure AD Connect 마법사를 사용 하 여 동기화 할 도메인 선택
+도메인 필터를 설정하려면 다음 단계를 수행합니다.
+
+1.  Azure AD Connect 마법사를 시작 합니다.
+2.  **Configure**를 클릭합니다.
+3.  선택 **동기화 옵션 사용자 지정** 누릅니다 **다음**합니다.
+4.  Azure AD 자격 증명 입력
+5.  에 **연결 된 디렉터리** 화면 클릭 **다음**합니다.
+6.  에 **도메인 및 OU 필터링 페이지** 클릭 **새로 고침**합니다.  새 도메인 형식이 잘못 표시 하 고 삭제 된 도메인 사라집니다.
+   ![파티션](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>실행 프로필 업데이트
 도메인 필터를 업데이트한 경우 실행 프로필도 업데이트해야 합니다.

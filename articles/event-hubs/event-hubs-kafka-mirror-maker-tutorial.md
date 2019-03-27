@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487467"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -119,6 +119,12 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 이벤트가 Kafka 지원 이벤트 허브에 도달하는지 확인하려면 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 수신 통계를 살펴보거나 이벤트 허브에 대해 소비자를 실행합니다.
 
 MirrorMaker를 실행하면, Kafka 클러스터 및 미러된 Kafka 지원 이벤트 허브 서비스 모두에서 원본 Kafka 클러스터에 보낸 모든 이벤트를 받습니다. MirrorMaker 및 Event Hubs Kafka 엔드포인트를 사용하면, 기존 클러스터를 변경하거나 진행 중인 데이터 흐름을 중단하지 않고도 기존 Kafka 파이프라인을 관리되는 Azure Event Hubs 서비스로 마이그레이션할 수 있습니다.
+
+## <a name="samples"></a>샘플
+GitHub에서 다음 샘플을 참조 하세요.
+
+- [GitHub에서이 자습서에 대 한 샘플 코드](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure 컨테이너 인스턴스에서 실행 중인 azure Event Hubs Kafka MirrorMaker](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>다음 단계
 

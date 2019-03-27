@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437869"
+ms.locfileid: "58444648"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -29,6 +29,23 @@ ms.locfileid: "58437869"
 
 + **새로운 기능**
   + 합니다 *azureml.core.Run.create_children* 메서드를 사용 하면 단일 호출으로 실행 되는 여러 자식 지연율이 낮은 생성 합니다.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning 데이터 준비 SDK v1.1.0
+
++ **주요 변경 내용**
+  + 데이터 준비 패키지의 개념에 사용 되지 않으며 더 이상 지원 되지. 하나의 패키지로 여러 데이터 흐름이 유지 하지 않고 데이터 흐름을 개별적으로 유지할 수 있습니다.
+    + 방법 가이드: [노트북을 열고 저장 하는 데이터 흐름](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **새로운 기능**
+  + 이제 데이터 준비가 특정 의미 체계 형식에 일치 하 고 적절 하 게 분할 하는 열을 인식 합니다. 현재 지원 STypes 포함: 전자 메일 주소, 지리적 좌표 (위도 및 경도), IPv4 및 IPv6 주소, 미국 전화 번호 및 우편 번호입니다.
+    + 방법 가이드: [의미 체계 형식 notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + 데이터 준비에는 이제 두 개의 숫자 열에서 결과 열을 생성 하 여 다음 작업: 빼기, 곱하기, 나누기, 모듈로 연산을 수행 합니다.
+  + 호출할 수 있습니다 `verify_has_data()` 실행 하는 경우 데이터 흐름에서 레코드를 생성할 것 여부를 확인 하려면 데이터 흐름에서.
+
++ **버그 수정 및 향상 된 기능**
+  + 이제 숫자 열 프로필에 대 한 히스토그램에 사용할 bin의 수를 지정할 수 있습니다.
+  + `read_pandas_dataframe` 변환 하도록 문자열-데이터 프레임에서 이제 요구 바이트 형식의 열 이름 또는 합니다.
+  + 버그가 수정 되었습니다는 `fill_nulls` 변환, 여기서 값 제대로 채워지지 않은 경우에는 열이 없습니다.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319707"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444715"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하려면 Azure portal을 사용 하 여
 
@@ -43,7 +43,7 @@ Azure AD 계정을 사용 하 여 Azure portal에서 blob 또는 큐 데이터�
 - 할당 된 Azure Resource Manager [판독기](../../role-based-access-control/built-in-roles.md#reader) 이상 저장소 계정 수준으로 범위가 지정 된 최소한의 역할을 합니다. 합니다 **판독기** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure 리소스 관리자 역할에도 적용 됩니다.
 - 하거나 blob 또는 큐 데이터에 대 한 액세스를 제공 하는 기본 제공 또는 사용자 지정 역할 할당 되었습니다.
 
-합니다 **판독기** 역할 할당 또는 다른 Azure 리소스 관리자 역할 할당은 필요한 사용자 보기를 업데이트 하 고 Azure portal에서 저장소 계정 관리 리소스를 탐색할 수 있도록 합니다. Blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할은 저장소 계정 관리 리소스에 대 한 액세스를 부여 하지 마세요. 포털에서 데이터를 blob 또는 큐에 액세스 하려면 사용자에는 저장소 계정 리소스를 탐색 하는 권한이 필요 합니다. 이 요구 사항에 대 한 자세한 내용은 참조 하세요. [포털 액세스에 대 한 읽기 권한자 역할을 할당](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access)합니다.
+합니다 **판독기** 역할 할당 또는 다른 Azure 리소스 관리자 역할 할당은 필요한 사용자 보기를 업데이트 하 고 Azure portal에서 저장소 계정 관리 리소스를 탐색할 수 있도록 합니다. Blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할은 저장소 계정 관리 리소스에 대 한 액세스를 부여 하지 마세요. 포털에서 데이터를 blob 또는 큐에 액세스 하려면 사용자에는 저장소 계정 리소스를 탐색 하는 권한이 필요 합니다. 이 요구 사항에 대 한 자세한 내용은 참조 하세요. [포털 액세스에 대 한 읽기 권한자 역할을 할당](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)합니다.
 
 Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다음과 같습니다.
 
@@ -96,5 +96,7 @@ Azure AD 계정을 사용 하 여를 인증 하는 경우 표시 됩니다 **Azu
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure blob 및 Azure Active Directory (미리 보기)를 사용 하 여 큐에 대 한 액세스를 인증 합니다.](storage-auth-aad.md)
-- [Azure 컨테이너 및 Azure portal (미리 보기)에서 RBAC 사용 하 여 큐 액세스 권한 부여](storage-auth-aad-rbac.md)
+- [Azure blob 및 Azure Active Directory를 사용 하 여 큐에 대 한 액세스를 인증 합니다.](storage-auth-aad.md)
+- [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
+- [Azure CLI를 사용 하 여 RBAC 사용 하 여 Azure blob 및 큐 데이터에 액세스 권한 부여](storage-auth-aad-rbac-cli.md)
+- [PowerShell을 사용 하 여 RBAC 사용 하 여 Azure blob 및 큐 데이터에 액세스 권한 부여](storage-auth-aad-rbac-powershell.md)

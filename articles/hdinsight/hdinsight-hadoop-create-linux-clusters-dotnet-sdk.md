@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 0106063cfe376f31040b5dcd6856282ee09ae5c9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793481"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447949"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -396,5 +396,5 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [.NET SDK를 사용하여 HDInsight에서 Apache Hive 작업 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Apache Sqoop 작업 실행](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [HDInsight에서 Apache Oozie 작업 실행](hdinsight-use-oozie.md)
+* [HDInsight에서 Apache Oozie 작업 실행](hdinsight-use-oozie-linux-mac.md)
 

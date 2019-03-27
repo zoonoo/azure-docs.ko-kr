@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337887"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447257"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -50,7 +50,7 @@ LRS, GRS 및 RA-GRS 간에 마이그레이션하는 것은 간단합니다. Azur
 
 ZRS 간에 데이터를 마이그레이션하려면 다른 전략이 필요합니다. ZRS 마이그레이션에는 단일 스토리지 스탬프에서 지역 내의 여러 스탬프로 데이터의 실제 이동이 포함됩니다.
 
-ZRS 간의 마이그레이션에는 두 가지 기본 옵션이 있습니다. 
+가지 ZRS로의 마이그레이션 위한 두 가지 기본 옵션이 있습니다. 
 
 - 기존 계정에서 새 ZRS 계정으로 데이터를 수동으로 복사하거나 이동할 수 있습니다.
 - 실시간 마이그레이션을 요청합니다.
@@ -73,6 +73,7 @@ ZRS 간의 마이그레이션에는 두 가지 기본 옵션이 있습니다.
 - 계정에 데이터가 있어야 합니다.
 - 동일한 지역 내에서만 데이터를 마이그레이션할 수 있습니다. 데이터를 원본 계정과 다른 지역에 있는 ZRS 계정으로 마이그레이션하려면 수동 마이그레이션을 수행해야 합니다.
 - 표준 스토리지 계정 유형만 실시간 마이그레이션을 지원합니다. 프리미엄 스토리지 계정은 수동으로 마이그레이션해야 합니다.
+- LRS, GRS 또는 RA-GRS에서 ZRS 실시간 마이그레이션을 지원 되지 않습니다. 새 또는 기존 저장소 계정에 데이터를 수동으로 이동 해야 합니다.
 
 실시간 마이그레이션은 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 통해 요청할 수 있습니다. 포털에서 ZRS로 변환하려는 스토리지 계정을 선택합니다.
 1. **새 지원 요청** 선택
@@ -120,7 +121,7 @@ ZRS는 범용 v2 계정을 업그레이드 하도록 내릴 ZRS로 실시간 마
 > [!NOTE]
 > Microsoft에서는 2021년 3월 31일에 ZRS 클래식 계정의 사용을 중단하고 마이그레이션할 예정입니다. 사용이 중단되기 전에 ZRS 클래식 고객에게 자세한 내용이 제공됩니다. 
 >
-> 지역에서 ZRS가 [일반 공급](#support-coverage-and-regional-availability)되면 고객은 해당 지역의 포털에서 ZRS 클래식 계정을 만들 수 없게 됩니다. ZRS 클래식의 사용이 중단될 때까지 Microsoft PowerShell 및 Azure CLI를 사용하여 ZRS 클래식 계정을 만드는 것은 옵션입니다.
+> ZRS 되 면 [공급](#support-coverage-and-regional-availability) 특정 지역의 고객이 해당 지역의 포털에서 ZRS 클래식 계정을 만들 수 없습니다. ZRS 클래식의 사용이 중단될 때까지 Microsoft PowerShell 및 Azure CLI를 사용하여 ZRS 클래식 계정을 만드는 것은 옵션입니다.
 
 ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비동기적으로 복제합니다. 복제된 데이터는 Microsoft가 보조 지역에 장애 조치(failover)를 시작하지 않는 한 사용할 수 없습니다. ZRS 클래식 계정을 LRS, GRS 또는 RA-GRS 계정으로 변환하거나, 이러한 계정에서 ZRS 클래식 계정으로 변환할 수 없습니다. 또한 ZRS 클래식 계정은 메트릭이나 로깅을 지원하지 않습니다.
 
@@ -128,7 +129,19 @@ ZRS 클래식은 GPv1(범용 V1) 저장소 계정의 **블록 Blob**에서만 �
 
 LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage 탐색기, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
 
-ZRS 클래식 계정을 포털 또는 사용 하 여 Azure PowerShell 또는 Azure CLI에서 ZRS로 업그레이드할 수도 있습니다.
+ZRS 클래식 계정을 ZRS를 사용할 수 있는 지역에서 Azure CLI 또는 Azure PowerShell을 사용 하거나 포털에서 ZRS를 업그레이드할 수도 있습니다.
+
+로 업그레이드 하는 포털에서 ZRS 계정 구성 섹션으로 이동 하 고 업그레이드를 선택 합니다.![ZRS 클래식 포털에서 ZRS로 업그레이드](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+
+ZRS를 사용 하 여로 업그레이드 하려면 PowerShell 명령을 호출 합니다.
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+ZRS를 사용 하 여로 업그레이드 하려면 CLI 명령을 호출 합니다.
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
 
 ## <a name="see-also"></a>참고 항목
 - [Azure Storage 복제](storage-redundancy.md)

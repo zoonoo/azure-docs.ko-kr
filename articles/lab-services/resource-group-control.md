@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f6e604940c9e2e84f119fdd1859ad4b2cda23aef
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588706"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485886"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 머신에 대한 리소스 그룹 지정
 
@@ -47,7 +47,7 @@ ms.locfileid: "57588706"
 ## <a name="use-powershell"></a>PowerShell 사용 
 다음 예제에서는 새 리소스 그룹의 모든 랩 가상 머신을 만드는 PowerShell 스크립트를 사용 하는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 [CmdletBinding()]
 Param(
     $subId,
@@ -71,7 +71,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 
 다음 명령을 사용 하 여 스크립트를 호출 합니다. ResourceGroup.ps1는 앞의 스크립트를 포함 하는 파일입니다.
 
-```PowerShell
+```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 

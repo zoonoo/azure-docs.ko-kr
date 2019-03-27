@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: a291b7640662da7ea0c205c2027fe83d6243850e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c6d9f46582e1c618de6bfccea9328fb35aea7875
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980366"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485818"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 시작이 다음 상태에서 중지되었습니다. "Windows가 준비 중입니다. Azure에서 컴퓨터를 끄지 마세요."
 
@@ -132,7 +132,7 @@ OS 디스크가 암호화되어 있으면 암호화된 디스크의 잠금을 �
 
 **관리되지 않는 디스크**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 
@@ -163,7 +163,7 @@ New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 
 **관리되는 디스크**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 

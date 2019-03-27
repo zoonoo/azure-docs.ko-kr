@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 715b0f9c5a5a68bb1fc42ed4206ca81ad85b844f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4ebd53db9622c5a40f67cba04aa35cbfbaa78c8d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450688"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446099"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ az account set --subscription $subscriptionId
 다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. 또한 PowerShell/CLI 명령은 *CertificateOutputFolder*에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 > [!NOTE]
-> 다음의 Powershell 명령은 Azure Resource Manager PowerShell 6.1 이상 버전에서만 작동합니다. Azure Resource Manager PowerShell의 현재 버전을 확인하려면 PowerShell 명령 "Get-Module AzureRM"을 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0)를 따릅니다. 
+> 다음의 Powershell 명령은 Azure Resource Manager PowerShell 6.1 이상 버전에서만 작동합니다. Azure Resource Manager PowerShell의 현재 버전을 확인하려면 PowerShell 명령 "Get-Module AzureRM"을 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/azurerm/install-azurerm-ps)를 따릅니다. 
 >
 >
 

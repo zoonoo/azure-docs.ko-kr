@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58116035"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484866"
 ---
 사용자의 환경과 선택 사항에 따라 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 원격 또는 로컬 SQL 데이터베이스, 헤드 노드, 추가 클러스터 노드를 포함한 모든 클러스터 인프라를 만들 수 있습니다. 또는 스크립트에서 기존 Azure 인프라를 사용하여 HPC 클러스터 노드만 만들 수도 있습니다.
 
@@ -22,7 +22,7 @@ HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 2012 R2 TechNet �
 * **스크립트 구성 파일**: 스크립트를 사용 하 여 HPC 클러스터를 구성 하는 XML 파일을 만듭니다. 정보 및 예제는 이 문서의 후반부에 나오는 단원 및 배포 스크립트와 함께 제공되는 Manual.rtf 파일을 참조하세요.
 
 ## <a name="syntax"></a>구문
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>예
 다음 예제는 *MyConfigFile.xml*구성 파일을 사용하여 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

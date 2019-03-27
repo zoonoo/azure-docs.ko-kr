@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544044"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444829"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
 
@@ -29,6 +29,29 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 > 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 및 v2 SKU 기능 비교
+
+다음 표에서 각 SKU를 사용 하 여 사용할 수 있는 기능을 비교 합니다.
+
+|                                                   | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| 자동 확장                                       |          | &#x2713; |
+| 영역 중복                                   |          | &#x2713; |
+| &nbsp;정적 VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL 기반 라우팅                                 | &#x2713; | &#x2713; |
+| 다중 사이트 호스팅                             | &#x2713; | &#x2713; |
+| 트래픽 리디렉션                               | &#x2713; | &#x2713; |
+| WAF(웹 애플리케이션 방화벽)                    | &#x2713; | &#x2713; |
+| SSL(Secure Sockets Layer) 종료            | &#x2713; | &#x2713; |
+| 종단 간 SSL 암호화                         | &#x2713; | &#x2713; |
+| 세션 선호도                                  | &#x2713; | &#x2713; |
+| 사용자 지정 오류 페이지                                | &#x2713; | &#x2713; |
+| HTTP (S) 헤더를 다시 작성                           |          | &#x2713; |
+| WebSocket 지원                                 | &#x2713; | &#x2713; |
+| HTTP/2 지원                                    | &#x2713; | &#x2713; |
+| 연결 드레이닝                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) 수신 컨트롤러 |          | &#x2713; |
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -48,7 +71,7 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
 |결제|현재는 요금이 청구되지 않습니다.|
-|FIPS 모드, WebSocket|현재는 지원되지 않습니다.|
+|FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
 |Netwatcher 통합|공개 미리 보기에서는 지원되지 않습니다.|
 

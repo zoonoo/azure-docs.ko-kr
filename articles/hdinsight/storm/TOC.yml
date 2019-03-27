@@ -74,21 +74,6 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: 게시된 앱 설치 - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: 게시된 앱 설치 - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: 게시된 앱 설치 - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: 게시된 앱 설치 - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: 보안
     items:
     - name: HDInsight와 함께 SSH 사용
@@ -178,9 +163,6 @@ items:
       maintainContext: true
     - name: 워크플로에 대해 Apache Oozie 사용
       href: ../hdinsight-use-oozie-linux-mac.md
-      maintainContext: true
-    - name: 시간 기준의 Apache Oozie 코디네이터 사용
-      href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: 클러스터 및 서비스 포트와 URI
       href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -283,20 +265,6 @@ items:
     - name: Linux 클러스터로 .NET 솔루션 마이그레이션
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Apache Storm 토폴로지 배포 및 관리
-      href: apache-storm-deploy-monitor-topology.md
-    - name: Apache Maven을 사용하여 Java 애플리케이션 빌드
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Apache Hadoop YARN 애플리케이션 로그에 액세스
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: 스크립트 작업 개발
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Apache Ambari API를 사용하여 클러스터 모니터링
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -312,9 +280,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 2dd6ba413eaaad3e740c9c4dcc905f7384172f1a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b8a55191f78010bab759cf90880c3b7aaddab7ba
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359793"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444955"

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167073"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487824"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -106,8 +106,8 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Type | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
-| Regex | 아니요 | **Type**을 `Regex`로 설정하는 경우 사용할 정규식을 지정합니다.
+| `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
+| `Regex` | 아닙니다. | 하는 경우 **`Type`** 로 설정 된 `Regex`를 사용 하도록 정규식을 지정 합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
 
@@ -146,7 +146,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MergeBehavior | 아니요 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
+| MergeBehavior | 아닙니다. | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -163,7 +163,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 다음과 같습니다. True 또는 False입니다. |
+| SelectByDefault | 아닙니다. | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 다음과 같습니다. True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 
@@ -191,7 +191,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
-| HelpText | 아니요 | 이 클레임의 패턴 또는 정규식입니다. |
+| HelpText | 아닙니다. | 이 클레임의 패턴 또는 정규식입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 

@@ -11,18 +11,18 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359282"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481640"
 ---
 # <a name="access-data-from-your-datastores"></a>사용자 데이터 저장소에서 데이터에 액세스
 
-데이터 저장소를 사용 하면 상호 작용 하는 계산 클러스터 또는 가상 컴퓨터에서 코드를 로컬로 실행 하 든 데이터에 액세스할 수 있습니다. 이 문서에서는 사용자 데이터 저장소를 확인 하는 Azure Machine Learning 워크플로 액세스할 수 있는 알아봅니다 하 고 계산 컨텍스트를 제공 합니다.
+ Azure Machine Learning 서비스에서 데이터 저장소는 소스 코드를 변경 하지 않고도 저장소에 액세스할 위치 독립적인 메커니즘을 계산 합니다. 학습 경로 매개 변수로 수행 하는 코드를 쓰거나 평가기에 직접 데이터 저장소를 제공 하는지 여부를 데이터 저장소 위치에 액세스할 수 있으며 계산 컨텍스트를 제공할 Azure Machine Learning 워크플로 확인 합니다.
 
-이 방법에서는 다음 작업에 대 한 예제를 보여 줍니다.
+이 방법 문서를 사용 하면 다음과 같은 작업의 예가 있습니다.
 * [데이터 저장소 선택](#access)
 * [데이터 가져오기](#get)
 * [업로드 하 고 데이터 저장소에 데이터를 다운로드 합니다.](#up-and-down)
@@ -30,7 +30,7 @@ ms.locfileid: "58359282"
 
 ## <a name="prerequisites"></a>필수 조건
 
-필요한 데이터 저장소를 사용 하는 [작업 영역](concept-azure-machine-learning-architecture.md#workspace) 첫 번째입니다. 
+데이터 저장소를 사용하려면 먼저 [작업 영역](concept-azure-machine-learning-architecture.md#workspace)이 필요합니다.
 
 [새 작업 영역을 만들](setup-create-workspace.md#sdk)거나 기존 작업 영역을 검색합니다.
 
@@ -49,14 +49,16 @@ ws = Workspace.from_config()
 
 ### <a name="use-the-default-datastore-in-your-workspace"></a>작업 영역에서 기본 데이터 저장소를 사용 합니다.
 
-만들고 각 작업 영역의 기본 데이터 저장소에 있으므로 저장소 계정을 구성 하거나 필요가 없습니다. 데이터 저장소 바로으로 작업 영역에 이미 등록 되어 사용할 수 있습니다. 
+ 각 작업 영역에 바로 사용할 수 있는 등록된 기본 데이터 저장소.
 
 작업 영역의 기본 데이터 저장소를 가져오려면 다음 코드를 사용합니다.
+
 ```Python
 ds = ws.get_default_datastore()
 ```
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>작업 영역을 사용 하 여 사용자 고유의 데이터 저장소를 등록 합니다.
+
 기존 Azure Storage가 있는 경우에는 작업 영역의 데이터 저장소로 등록할 수 있습니다.   모든 등록 방법에는 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스 및 폼 register_azure_ * 있어야 합니다. 
 
 다음 예제에서는 표시를 데이터 저장소로 Azure Blob 컨테이너 또는 Azure 파일 공유를 등록할 수 있습니다.
@@ -145,19 +147,17 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>학습 중 데이터 저장소 액세스
 
-원격 컴퓨터에서 데이터 저장소를 사용할 수 있도록 면 단순히 학습 스크립트의 매개 변수에 경로를 전달 하 여 교육 실행 (예: 학습 또는 유효성 검사 데이터) 하는 동안 액세스할 수 있습니다.
+계산 대상에서 데이터 저장소를 사용할 수 있도록 면 단순히 학습 스크립트의 매개 변수에 경로를 전달 하 여 교육 실행 (예: 학습 또는 유효성 검사 데이터) 하는 동안 액세스할 수 있습니다.
 
-다음 표에서 일반적인 [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) 원격 계산에서 데이터 저장소를 사용할 수 있도록 하는 메서드에 해당 합니다.
+다음 표에서 [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) 계산 대상을 실행 하는 동안 데이터 저장소를 사용 하는 방법을 지시 하는 방법입니다.
 
-# #
-
-방법|방법|설명
+방법|방법|설명|
 ----|-----|--------
-탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| 원격 컴퓨터에서 데이터 저장소를 탑재 하려면 사용 합니다. 데이터 저장소에 대 한 기본 모드입니다.
-다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|지정 된 위치에서 데이터를 다운로드 하는 데 `path_on_compute` 원격 계산을 데이터 저장소에 있습니다.
-업로드|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| 지정 된 위치에서 데이터 저장소의 루트에 데이터 업로드를 사용 하 여 `path_on_compute`입니다.
+탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| 계산 대상에 데이터 저장소를 탑재 하려면 사용 합니다.
+다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|지정 된 위치에 데이터 저장소의 콘텐츠를 다운로드 하는 데 `path_on_compute`합니다. <br> 교육 실행 컨텍스트에 대 한이 다운로드를 실행 하기 전에 발생합니다.
+업로드|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| 지정 된 위치에서 파일을 업로드 하는 데 `path_on_compute` 데이터 저장소에 있습니다. <br> 교육 실행 컨텍스트에 대 한이 업로드 실행 후 발생합니다.
 
-```Python
+ ```Python
 import azureml.data
 from azureml.data import DataReference
 
@@ -166,22 +166,38 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-데이터 저장소의 특정 폴더나 파일을 참조하려면 데이터 저장소의 [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) 함수를 사용합니다.
+특정 폴더 또는 데이터 저장소에 파일을 참조 하 고 계산 대상에 사용할 수 있도록 하려면 데이터 저장소의 사용 [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) 함수입니다.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore to the remote compute
+#download the contents of the `./bar` directory in ds to the compute target
 ds.path('./bar').as_download()
 ```
 
+> [!NOTE]
+> 모든 `ds` 하거나 `ds.path` 개체 이름을 확인 하는 환경 변수 형식의 `"$AZUREML_DATAREFERENCE_XXXX"` 값인 대상 계산의 탑재/다운로드 경로 나타냅니다. 대상 컴퓨터에서 데이터 저장소 경로 학습 스크립트의 실행 경로와 동일한 수 없습니다.
+
+### <a name="compute-context-and-datastore-type-matrix"></a>계산 컨텍스트 및 데이터 저장소 유형 분류표
+
+다음 매트릭스는 다양 한 계산 컨텍스트 및 데이터 저장소 시나리오에 대 한 사용 가능한 데이터 액세스 기능을 표시합니다. 이 행렬의 "파이프라인" 이라는 용어를 입력으로 데이터 저장소를 사용 하거나 출력 하는 기능을 [Azure Machine Learning 파이프라인](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines)합니다.
+
+||로컬 계산|Azure Machine Learning 컴퓨팅|데이터 전송|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
+-|--|-----------|----------|---------|-----|--------------|---------|---------|
+|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> 파이프라인|파이프라인|파이프라인|[`as_download()`] <br> [`as_upload()`]|파이프라인||[`as_download()`] <br> [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureDataLakeDatastore|||파이프라인|파이프라인|||파이프라인||
+|AzureDataLakeGen2Datastore|||파이프라인||||||
+|AzureDataPostgresSqlDatastore|||파이프라인||||||
+|AzureSqlDatabaseDataDatastore|||파이프라인||||||
 
 
 > [!NOTE]
-> 모든 `ds` 또는 `ds.path` 개체는 `"$AZUREML_DATAREFERENCE_XXXX"` 형식의 환경 변수 이름으로 확인됩니다. 이 환경 변수의 값은 원격 컴퓨터의 탑재/다운로드 경로를 나타냅니다. 원격 계산의 데이터 저장소 경로 학습 스크립트의 실행 경로와 동일한 수 없습니다.
+> 큰 데이터 프로세스 빠르게 사용 하 여 실행 빈도가 높은 시나리오가 있을 수 있습니다 [`as_download()`] 대신 [`as_mount()`]; 갔다가 검사할 수 있습니다.
 
 ### <a name="examples"></a>예 
 
-다음 설명에 대 한 예는 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 학습 중에 데이터 저장소에 액세스 하기 위한 클래스입니다.
+다음 코드 예제는 관련 된 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 학습 중에 데이터 저장소에 액세스 하기 위한 클래스입니다.
 
+이 코드에서는 학습 스크립트를 사용 하 여 평가기 `train.py`에 정의 된 매개 변수를 사용 하 여 표시 된 소스 디렉터리에서 `script_params`, 지정 된 계산 대상에 모두 있습니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -191,17 +207,16 @@ script_params = {
 }
 
 est = Estimator(source_directory='your code directory',
+                entry_script='train.py',
                 script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+                compute_target=compute_target
+                )
 ```
 
-이후 `as_mount()` 는 기본 모드는 데이터 저장소에 대 한 직접을 전달할 수 있습니다 `ds` 에 `'--data_dir'` 인수.
-
-데이터 저장소 목록에 스 티 메이 터 생성자에 전달 하거나 `inputs` 매개 변수를 탑재 또는 사용자 데이터 저장소에서 복사 합니다. 이 코드 예제:
-* 데이터 저장소에 모든 콘텐츠를 다운로드 `ds1` 학습 스크립트 하기 전에 원격 컴퓨터에 `train.py` 실행
-* 폴더를 다운로드 `'./foo'` 데이터 저장소에 `ds2` 하기 전에 원격 컴퓨터에 `train.py` 실행
-* 파일을 업로드 `'./bar.pkl'` 데이터 저장소를 최대 원격 계산에서 `ds3` 스크립트를 실행 한 후
+스 티 메이 터 생성자에 데이터 저장소 목록에 전달할 수도 있습니다 `inputs` 매개 변수를 탑재 또는 사용자 데이터 저장소에서 복사 합니다. 이 코드 예제:
+* 데이터 저장소에 모든 콘텐츠를 다운로드 `ds1` 학습 스크립트 하기 전에 계산 대상에 `train.py` 실행
+* 폴더를 다운로드 `'./foo'` 데이터 저장소에 `ds2` 하기 전에 계산 대상에 `train.py` 실행
+* 파일을 업로드 `'./bar.pkl'` 계산 대상 데이터 저장소에서에서 `ds3` 스크립트를 실행 한 후
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -209,7 +224,6 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

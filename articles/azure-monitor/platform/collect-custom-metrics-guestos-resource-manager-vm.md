@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782023"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484900"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -243,12 +243,12 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합�
 1. `Get-AzSubscription`을 사용하여 구독 목록을 가져옵니다.
 1. 다음에 가상 머신을 만들고/업데이트하는 데 사용하는 구독을 설정합니다.
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. 배포되는 VM에 대한 새 리소스 그룹을 만들려면 다음 명령을 실행합니다.
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
@@ -258,7 +258,7 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합�
    > [!NOTE]
    > 기존 VM을 업데이트하려면 다음 명령의 끝에 *-Mode Incremental*을 추가하기만 하면 됩니다.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 

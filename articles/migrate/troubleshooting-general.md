@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119176"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482915"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -61,11 +61,11 @@ Azure Migrate 프로젝트를 삭제하면 마이그레이션 프로젝트와 �
 
    a.    관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```armclient login```
 
-   Azure 로그인 팝업이 열리면 Azure에 로그온합니다.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    동일한 PowerShell 창에서 다음 명령을 실행하여 평가 보고서의 다운로드 URL을 구합니다(URI 매개 변수를 적절한 값, 아래의 샘플 API 요청으로 바꾸기).
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       샘플 요청 및 출력:
 
@@ -102,6 +102,9 @@ Azure Migrate는 온-프레미스 Vm의 성능 데이터를 수집 하도록 온
    - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Azure를 선택할 수 없습니다 클라우드 어플라이언스
+
+이것은 알려진된 문제 이며 수정 문제에 대해 사용할 수 있습니다. 다운로드 하십시오 합니다 [최신 비트를 업그레이드](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) 어플라이언스 및 수정 사항을 적용 하도록 어플라이언스에 업데이트 합니다.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>수집기가 인터넷에 연결할 수 없음
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: 91790f372dce4322d316b42c4bfa7ad36625c91d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315574"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485241"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights 리소스를 만들기 위한 PowerShell 스크립트
 
@@ -42,7 +42,7 @@ PowerShell을 사용하여 새 리소스의 생성을 자동화할 수 있습니
 
 *PowerShell 스크립트*  
 
-```PowerShell
+```powershell
 
 
 ###########################################

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011787"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482786"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -197,7 +197,7 @@ Application Insights ILogger를 통해 전송 된 캡처 로그를 지원 합니
 
 3. 테스트 앱을 사용하여 100개의 가상 트랜잭션을 만들려면 다음 PowerShell 루프를 실행합니다. `localhost:` 다음의 포트 번호가 이전 단계에서 복사한 URI와 일치하도록 수정합니다. 예: 
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/

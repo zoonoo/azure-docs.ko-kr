@@ -4,22 +4,20 @@ description: 리소스 관리자, 스키마, 제공되는 API 버전 및 리소�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564122"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445451"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -32,9 +30,9 @@ ms.locfileid: "55564122"
 * 리소스 종류에 대한 유효한 위치 보기
 * 리소스 종류에 대한 유효한 API 버전 보기
 
-이러한 단계는 Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 수행할 수 있습니다.
+Azure portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 모든 리소스 공급자와 구독 등록 상태를 보려면 다음을 수행합니다.
 
@@ -48,9 +46,9 @@ ms.locfileid: "55564122"
 
     ![리소스 공급자 보기](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하려면 **등록**을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint**에 대한 **등록** 링크가 강조 표시되어 있습니다.
+6. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록 하려면 작업을 수행 하는 권한이 있어야 합니다 `/register/action` 리소스 공급자에 대 한 작업입니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하려면 **등록**을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint**에 대한 **등록** 링크가 강조 표시되어 있습니다.
 
-    구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
+    구독에서 해당 리소스 공급자의 리소스 종류를 여전히 있는 경우에 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 수행합니다.
 
@@ -98,7 +96,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
+리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록 하려면 작업을 수행 하는 권한이 있어야 합니다 `/register/action` 리소스 공급자에 대 한 작업입니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -113,7 +111,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
+구독에서 해당 리소스 공급자의 리소스 종류를 여전히 있는 경우에 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
@@ -203,7 +201,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
+리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록 하려면 작업을 수행 하는 권한이 있어야 합니다 `/register/action` 리소스 공급자에 대 한 작업입니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -211,7 +209,7 @@ az provider register --namespace Microsoft.Batch
 
 등록이 진행 중인 메시지를 반환합니다.
 
-구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
+구독에서 해당 리소스 공급자의 리소스 종류를 여전히 있는 경우에 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 

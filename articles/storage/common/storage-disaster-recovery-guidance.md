@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871539"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486065"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -121,14 +121,14 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 
 미리 보기에 등록하려면 PowerShell에서 다음 명령을 실행합니다. 대괄호 안의 자리 표시자를 사용자 고유의 구독 ID로 바꾸어야 합니다.
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 미리 보기에 대한 승인을 받으려면 1-2일 정도 걸릴 수 있습니다. 등록이 승인되었는지 확인하려면 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 - Azure Data Lake Storage Gen2 계층 구조 네임스페이스를 사용하는 스토리지 계정은 장애 조치(failover)할 수 없습니다.
 - 보관된 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 보관된 blob은 장애 조치(failover)하지 않으려는 별도 스토리지 계정에 유지 관리합니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
+- 장애 조치가 완료 된 후에 다음과 같은 기능이 원래 사용 하도록 설정 하는 경우 작업에 중지 됩니다. [이벤트 구독](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)하십시오 [수명 주기 정책을](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [저장소 분석 로깅](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)합니다.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>장애 조치(failover) 대신 데이터 복사
 

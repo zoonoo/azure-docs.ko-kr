@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160907"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486850"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -25,6 +25,13 @@ b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩�
 
 - 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
 - URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`
+
+>[!NOTE]
+> 테 넌 트 이름 및 테 넌 트 GUID 다음과 같이 사용할 수 있습니다.
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (계속 하려면 참조는 `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (이 경우에 Microsoft에 참조가 없는 전혀)
+>
+> 그러나 사용할 수 없습니다를 _사용자 지정 도메인_ Azure에 대 한 Active Directory B2C 테 넌 트, 예를 들어 `https://your-tenant-name.b2clogin.com/your-custom-domain-name` 것 _하지_ 작동 합니다.
 
 b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e24ed3921872a4c754967841634ebab23b972e59
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736222"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494938"
 ---
 가용성 그룹 수신기는 SQL Server 가용성 그룹에서 수신하는 IP 주소 및 네트워크 이름입니다. 가용성 그룹 수신기를 만들려면 다음을 수행합니다.
 
@@ -86,27 +86,27 @@ ms.locfileid: "55736222"
 
 1. <a name="setparam"></a>PowerShell에서 클러스터 매개 변수를 설정합니다.
 
-  a. 다음 PowerShell 스크립트를 SQL Server 인스턴스 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.
+   a. 다음 PowerShell 스크립트를 SQL Server 인스턴스 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.
 
-  - `$ListenerILBIP`는 가용성 그룹 수신기에 대해 Azure 부하 분산 장치에서 만든 IP 주소입니다.
+   - `$ListenerILBIP`는 가용성 그룹 수신기에 대해 Azure 부하 분산 장치에서 만든 IP 주소입니다.
     
-  - `$ListenerProbePort`는 가용성 그룹 수신기에 대해 Azure 부하 분산 장치에서 구성한 포트입니다.
+   - `$ListenerProbePort`는 가용성 그룹 수신기에 대해 Azure 부하 분산 장치에서 구성한 포트입니다.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<IPResourceName>" # the IP Address resource name
-  $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ListenerProbePort = <nnnnn>
+   ```powershell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<IPResourceName>" # the IP Address resource name
+   $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ListenerProbePort = <nnnnn>
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
 
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
+   b. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
 
-  > [!NOTE]
-  > SQL Server 인스턴스가 별도의 지역에 있는 경우 PowerShell 스크립트를 두 번 실행해야 합니다. 처음으로 첫 번째 지역에서 `$ListenerILBIP` 및 `$ListenerProbePort`를 사용합니다. 다음으로 두 번째 지역에서 `$ListenerILBIP` 및 `$ListenerProbePort`를 사용합니다. 클러스터 네트워크 이름과 클러스터 IP 리소스 이름은 각 지역에 마다 다릅니다.
+   > [!NOTE]
+   > SQL Server 인스턴스가 별도의 지역에 있는 경우 PowerShell 스크립트를 두 번 실행해야 합니다. 처음으로 첫 번째 지역에서 `$ListenerILBIP` 및 `$ListenerProbePort`를 사용합니다. 다음으로 두 번째 지역에서 `$ListenerILBIP` 및 `$ListenerProbePort`를 사용합니다. 클러스터 네트워크 이름과 클러스터 IP 리소스 이름은 각 지역에 마다 다릅니다.
 
 1. 가용성 그룹 클러스터 역할을 오프라인으로 전환합니다. **역할**에 있는 **장애 조치(Failover) 클러스터 관리자**에서 역할을 마우스 오른쪽 단추로 클릭하고 **역할 시작**을 선택합니다.
 
@@ -120,24 +120,24 @@ ms.locfileid: "55736222"
 
 1. <a name="setwsfcparam"></a>PowerShell에서 클러스터 매개 변수를 설정합니다.
   
-  a. 다음 PowerShell 스크립트를 SQL Server 인스턴스 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.
+   a. 다음 PowerShell 스크립트를 SQL Server 인스턴스 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.
 
-  - `$ClusterCoreIP`는 WSFC 코어 클러스터 리소스에 대해 Azure 부하 분산 장치에서 만든 IP 주소입니다. 가용성 그룹 수신기의 IP 주소와는 다릅니다.
+   - `$ClusterCoreIP`는 WSFC 코어 클러스터 리소스에 대해 Azure 부하 분산 장치에서 만든 IP 주소입니다. 가용성 그룹 수신기의 IP 주소와는 다릅니다.
 
-  - `$ClusterProbePort`는 WSFC 상태 프로브에 대해 Azure 부하 분산 장치에서 구성한 포트입니다. 가용성 그룹 수신기의 프로브와는 다릅니다.
+   - `$ClusterProbePort`는 WSFC 상태 프로브에 대해 Azure 부하 분산 장치에서 구성한 포트입니다. 가용성 그룹 수신기의 프로브와는 다릅니다.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
+   ```powershell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+   $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
   
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
+   b. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
 
 >[!WARNING]
 >가용성 그룹 수신기 상태 프로브 포트는 클러스터 코어 IP 주소 상태 프로브 포트와 달라야 합니다. 이러한 예제에서 수신기 포트는 59999이며 클러스터 코어 IP 주소는 58888입니다. 두 포트는 모두 인바운드 방화벽 규칙을 허용해야 합니다.

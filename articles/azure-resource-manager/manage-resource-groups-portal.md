@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090936"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484698"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portal을 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -122,7 +122,7 @@ Resource Manager 템플릿을 만든 후에 Azure 리소스를 배포 하려면 
 
 이 메서드는 특정 배포에 대 한 템플릿을 내보냅니다. 여러 배포에서 리소스를 추가/제거를 포털에서 리소스를 변경한 경우 참조 [리소스 그룹에서 템플릿을 내보낼](#export-templates-from-resource-groups)합니다.
 
-1. 삭제 하려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
+1. 내보내려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
 2. 왼쪽된 창에서 선택 **배포**, 아래에 있는 링크를 선택 하거나 **배포**합니다.  다음 스크린샷에서 보여 줍니다 **4 성공** 네 개의 서로 다른 배포 이름으로 구분 된 4 개의 배포 되어 있습니다. 표시 될 수 있습니다 **1 성공**합니다.
 
     ![azure 리소스 그룹 내보내기 템플릿](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Resource Manager 템플릿을 만든 후에 Azure 리소스를 배포 하려면 
 
 하면 포털에서 리소스를 변경 했으므로, 여러 배포에서 리소스를 추가/제거 하는 경우 배포 기록에서 템플릿을 검색 리소스 그룹의 현재 상태를 반영 하지 않습니다. 이 섹션에서는 리소스 그룹의 현재 상태를 반영하는 템플릿을 내보내는 방법을 보여줍니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
 
-1. 삭제 하려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
-2. 왼쪽된 창에서 선택 **자동화 스크립트**합니다. Resource Manager는 다음 6개의 파일을 검색합니다.
+1. 내보내려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
+2. 왼쪽된 창에서 선택 **템플릿 내보내기**합니다. Resource Manager는 다음 6개의 파일을 검색합니다.
 
    - **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
    - **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 첫 번째 배포 중에 제공되는 값을 포함합니다. 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.

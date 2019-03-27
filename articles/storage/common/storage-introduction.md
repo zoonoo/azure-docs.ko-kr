@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012739"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446725"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -93,23 +93,15 @@ Table Storage에 대한 자세한 내용은 [Azure Table Storage 개요](../tabl
 
 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Blob, 파일 및 큐에 액세스
+## <a name="securing-access-to-storage-accounts"></a>저장소 계정에 대 한 액세스 보호
 
-각 저장소 계정에는 모든 작업에 사용할 수 있는 두 개의 인증 키가 있습니다. 경우에 따라 보안을 강화하기 위해 키를 롤백할 수 있도록 구 개의 키가 있습니다. 키 소유권과 계정 이름이 있으면 저장소 계정의 모든 데이터에 무제한 액세스할 수 있으므로 이러한 키를 안전하게 보관하는 것이 중요합니다.
+Azure Storage에 대 한 모든 요청을 인증 해야 합니다. Azure Storage에는 다음 인증 방법을 지원합니다.
 
-이 섹션에서는 저장소 계정 및 해당 데이터를 보호하는 두 가지 방법을 알아봅니다. 스토리지 계정 및 데이터를 보호하는 방법에 대한 자세한 내용은[Azure Storage 보안 가이드](storage-security-guide.md)를 참조하세요.
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD를 사용하여 저장소 계정에 대한 액세스 보호
-
-저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 Access Control)를 사용하여 사용자, 그룹 또는 애플리케이션에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다.
-
-### <a name="securing-access-using-shared-access-signatures"></a>공유 액세스 서명을 사용하여 액세스 보호
-
-공유 액세스 서명 및 저장된 액세스 정책을 사용하여 데이터 개체를 보호할 수 있습니다. SAS(공유 액세스 서명)은 자산의 URI에 추가할 수 있는 보안 토큰을 포함하는 문자열로, 특정 저장소 개체에 대한 액세스 권한을 위임하고 사용 권한 및 액세스의 날짜/시간 범위와 같은 제한을 지정할 수 있도록 합니다. 이 기능에는 광범위한 기능이 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
-
-### <a name="public-access-to-blobs"></a>Blob에 대한 공용 액세스
-
-Blob Service를 사용하면 컨테이너와 해당 Blob 또는 특정 Blob에 대한 공용 액세스를 제공할 수 있습니다. 컨테이너 또는 Blob을 공개로 지정하면 모든 사용자가 이 컨테이너 또는 Blob를 익명으로 읽을 수 있으며 인증이 필요 없습니다. 이 작업을 수행하는 예제는 Blob Storage의 이미지, 비디오 또는 문서를 사용하는 웹 사이트가 있는 경우입니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.
+- **Blob 및 큐 데이터에 대 한 azure Active Directory (Azure AD) 통합.** Azure Storage Blob 및 큐 서비스의 역할 기반 액세스 제어 (RBAC)를 통해 인증 및 Azure AD 자격 증명을 사용 하 여 권한 부여를 지원합니다. 뛰어난 보안 및 사용 편의성에 대 한 Azure AD 사용 하 여 요청 권한 부여 것이 좋습니다. 자세한 내용은 [Authenticate 권한을 Azure blob 및 Azure Active Directory를 사용 하 여 큐](storage-auth-aad.md)합니다.
+- **Azure AD 권한 부여 SMB 통한 Azure Files (미리 보기)에 대 한 합니다.** Azure Files는 Azure Active Directory Domain Services를 통해 SMB (서버 메시지 블록)를 통한 id 기반 권한 부여를 지원 합니다. 도메인에 가입 된 Windows 가상 컴퓨터 (Vm)는 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유를 액세스할 수 있습니다. 자세한 내용은 [SMB 통한 Azure Files (미리 보기)에 대 한 개요의 Azure Active Directory 인증](../files/storage-files-active-directory-overview.md)합니다.
+- **공유 키를 사용 하 여 권한 부여 합니다.** Azure Storage Blob, Queue 및 Table services 및 Azure Files 공유 Key.A 클라이언트 권한 부여 저장소 계정 액세스 키를 사용 하 여 서명 된 모든 요청과 함께 헤더를 전달 하는 공유 키를 사용 하 여 권한 부여를 지원 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
+- **권한 부여를 사용 하 여 공유 액세스 서명 (SAS).** 공유 액세스 서명 (SAS)은 저장소 리소스에 대 한 URI에 추가할 수 있는 보안 토큰을 포함 하는 문자열입니다. 보안 토큰 사용 권한과 액세스 기간 같은 제약 조건이 캡슐화합니다. 자세한 내용은 참조 [공유 액세스 서명 (SAS)를 사용 하 여](storage-dotnet-shared-access-signature-part-1.md)입니다.
+- **컨테이너 및 blob에 익명 액세스 합니다.** 컨테이너와 해당 blob 공개적으로 사용할 수 있습니다. 컨테이너 또는 blob을 공용 인지를 지정 하면 모든 사용자가 읽을 수 익명; 인증이 필요 하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
 ## <a name="encryption"></a>암호화
 

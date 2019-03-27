@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853157"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480546"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 애플리케이션 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -254,7 +254,7 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
 ## <a name="deployment"></a>배포
 마지막 단계는 [애플리케이션을 배포](service-fabric-deploy-remove-applications.md)하는 것입니다. 다음 PowerShell 스크립트는 로컬 개발 클러스터에 애플리케이션을 배포하고 새 Service Fabric 서비스를 시작하는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

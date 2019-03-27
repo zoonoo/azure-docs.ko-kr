@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 7713b449d5e5291ce1dd6c9b814ebefd07bc53a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737674"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485410"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -29,7 +29,7 @@ ms.locfileid: "56737674"
 
 성능 카운터는 두 부분, 즉 세트 이름(범주라고도 함)과 하나 이상의 카운터로 이루어져 있습니다. PowerShell을 사용하여 사용 가능한 성능 카운터 목록을 가져올 수 있습니다.
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -56,7 +56,7 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 
 세트에 대한 모든 카운터를 가져오려면 `CounterSetName` 값을 사용하고 `Paths` 컬렉션을 확장합니다. 각 경로 항목은 쿼리할 수 있는 카운터입니다. 예를 들어 `Processor` 세트와 관련된 사용 가능한 카운터를 가져오려면 `Paths` 컬렉션을 확장합니다.
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5fa553d63a33f06432d8ae3e5247d7eca0fde90a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487790"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -283,12 +283,12 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 2. C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. 다시 켜려면:
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
@@ -297,12 +297,12 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     고가용성 기능이 있는 게이트웨이의 경우, 추가 AuthKey 매개 변수가 필요합니다.
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. 다시 켜려면:
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
@@ -485,12 +485,12 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
 1. **Azure PowerShell**을 관리자 모드로 시작합니다.
 2. 다음 명령을 실행하고 Azure 자격 증명을 입력하여 Azure 계정에 로그인합니다.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. 사용 된 **새로 만들기-AzDataFactoryGateway** cmdlet을 통해 다음과 같은 논리 게이트웨이 만들려면:
 
-    ```PowerShell
+    ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **예제 명령 및 출력**:
@@ -513,7 +513,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
 
 1. Azure PowerShell에서 폴더로 전환 합니다. **C:\\Files\Microsoft Data Management Gateway\2.0\PowerShellScript 프로그래밍\\**합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 **RegisterGateway.ps1** 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
-    ```PowerShell
+    ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
@@ -521,25 +521,25 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     ```
     IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예제:
 
-    ```PowerShell
+    ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. 사용할 수는 **Get AzDataFactoryGateway** cmdlet을 데이터 팩터리의 게이트웨이 목록을 가져옵니다. **상태**에 **online**이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
 
-    ```PowerShell        
+    ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    사용 하 여 게이트웨이 제거할 수 있습니다 합니다 **제거 AzDataFactoryGateway** cmdlet 및 업데이트 설명을 사용 하 여 게이트웨이 **집합 AzDataFactoryGateway** cmdlet. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.  
 
 ### <a name="list-gateways-using-powershell"></a>PowerShell을 사용하여 게이트웨이 나열
 
-```PowerShell
+```powershell
 Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>PowerShell을 사용하여 게이트웨이 제거
 
-```PowerShell
+```powershell
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 

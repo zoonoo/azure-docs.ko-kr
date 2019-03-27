@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445698"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -46,6 +46,8 @@ Azure Blob storage에 대 한 변경할 수 없는 저장소를 사용 하면 �
 ## <a name="how-it-works"></a>작동 방법
 
 Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 시간 기준 보존 정책이 나 법적 보존을 컨테이너에 적용 되 면 30 초 이내에 모든 기존 blob을 변경할 수 없는 웜 상태로 이동 합니다. 해당 컨테이너에 업로드 되는 모든 새 blob도 변경할 수 없는 상태로 이동 됩니다. 모든 blob를 변경할 수 없는 상태로 이동 했을 변경할 수 없는 정책 확인 되 고 모든 덮어쓰거나 삭제에 변경할 수 없는 컨테이너에 기존 및 새 개체에 대 한 작업이 허용 되지 않습니다.
+
+컨테이너 및 계정 삭제도 허용 되지 않습니다 모든 blob이 변경할 수 없는 정책에 의해 보호 된 경우. 잠긴 시간 기반 보존 정책 또는 법적 보존이 있는 Blob이 하나 이상 있는 경우 컨테이너 삭제 작업이 실패합니다. 법적 보존 또는 보존 기간이 활성화된 BLOB이 있는 WORM 컨테이너가 하나 이상 있는 경우 저장소 계정 삭제 작업이 실패합니다. 
 
 ### <a name="time-based-retention"></a>시간 기반 보존
 
@@ -85,12 +87,10 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경 불가능한 데이터는 일반적으로 변경 가능한 데이터와 동일한 방식으로 가격이 책정됩니다. Azure Blob Storage의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
+변경할 수 없는 저장소는 범용 v2 및 Blob Storage 계정에 대해서만 사용할 수 있습니다. 이러한 계정을 통해 관리 되어야 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)합니다. 기존 범용 v1 저장소 계정을 업그레이드에 대 한 자세한 내용은 [저장소 계정을 업그레이드](../common/storage-account-upgrade.md)합니다.
 
 최신 릴리스는 [Azure portal](https://portal.azure.com)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 및 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) Azure Blob storage에 대 한 변경할 수 없는 저장소를 지원 합니다. [클라이언트 라이브러리 지원](#client-libraries) 도 제공 됩니다.
 
-> [!NOTE]
->
-> 변경할 수 없는 저장소는 범용 v2 및 Blob Storage 계정에 대해서만 사용할 수 있습니다. 이러한 계정을 통해 관리 되어야 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)합니다. 기존 범용 v1 저장소 계정을 업그레이드에 대 한 자세한 내용은 [저장소 계정을 업그레이드](../common/storage-account-upgrade.md)합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -114,17 +114,19 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
     ![메뉴의 "잠금 정책"](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    선택 **잠금 정책**합니다. 정책을 이제 잠겨 있어서 삭제할 수 없습니다, 보존 간격이 확장만 허용 됩니다.
+6. 선택 **잠금 정책을** 잠금을 확인 합니다. 정책을 이제 잠겨 있어서 삭제할 수 없습니다, 보존 간격이 확장만 허용 됩니다. Blob 삭제 하 고 재정의 허용 되지 않습니다. 
 
-6. 법적 보존을 사용하도록 설정하려면 **+ 정책 추가**를 선택합니다. 드롭다운 메뉴에서 **법적 보존**을 선택합니다.
+    ![메뉴에서 "잠금 정책을"를 확인 합니다.](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. 법적 보존을 사용하도록 설정하려면 **+ 정책 추가**를 선택합니다. 드롭다운 메뉴에서 **법적 보존**을 선택합니다.
 
     ![메뉴의 "정책 유형" 아래에 있는 "법적 보존"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. 하나 이상의 태그를 사용하여 법적 보존을 만듭니다.
+8. 하나 이상의 태그를 사용하여 법적 보존을 만듭니다.
 
     ![정책 유형 아래의 "태그 이름" 상자](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. 법적 보존을 지우려면 적용된 법적 식별자 태그를 제거 하면 됩니다.
+9. 법적 보존을 지우려면 적용된 법적 식별자 태그를 제거 하면 됩니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -170,9 +172,9 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 변경이 불가능한 스토리지를 모든 Blob 유형과 함께 사용할 수 있지만 블록 Blob에 주로 사용하는 것이 좋습니다. 블록 Blob과는 달리, 페이지 Blob과 추가 Blob은 WORM 컨테이너 외부에서 만든 후에 복사해야 합니다. 복사한 후 이러한 blob 웜 컨테이너로 더 더욱 *추가* 추가 하려면 blob 또는 페이지 blob에 대 한 변경 내용이 허용 됩니다.
 
-**이 기능을 사용하려면 항상 새 저장소 계정을 만들어야 하나요?**
+**이 기능을 사용 하려면 새 저장소 계정을 만들려면 하나요?**
 
-기존 또는 새롭게 만든 범용 v2 및 Blob Storage 계정에 대해 변경할 수 없는 저장소를 사용할 수 있습니다. 이 기능은 GPv2 및 Blob Storage 계정의 블록 blob 사용에 대 한 것입니다.
+아니요, 기존 또는 새롭게 만든 범용 v2 및 Blob storage 계정에 대해 변경할 수 없는 저장소를 사용할 수 있습니다. 이 기능은 GPv2 및 Blob Storage 계정의 블록 blob 사용에 대 한 것입니다. 일반 용도 v1 저장소 계정만 지원 되지 않지만 범용 v2로 쉽게 업그레이드할 수 있습니다. 기존 범용 v1 저장소 계정을 업그레이드에 대 한 자세한 내용은 [저장소 계정을 업그레이드](../common/storage-account-upgrade.md)합니다.
 
 **법적 보존 및 시간 기반 보존 정책을 적용할 수 있나요?**
 
@@ -188,7 +190,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **WORM 컨테이너에 *잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 저장소 계정을 삭제하려고 시도하면 어떻게 되나요?**
 
-법적 보존 또는 보존 기간이 활성화된 BLOB이 있는 WORM 컨테이너가 하나 이상 있는 경우 저장소 계정 삭제 작업이 실패합니다.  저장소 계정을 삭제하려면 먼저 모든 WORM 컨테이너를 삭제해야 합니다. 컨테이너 삭제에 대한 내용은 앞의 질문을 참조하세요.
+법적 보존 또는 보존 기간이 활성화된 BLOB이 있는 WORM 컨테이너가 하나 이상 있는 경우 저장소 계정 삭제 작업이 실패합니다. 저장소 계정을 삭제하려면 먼저 모든 WORM 컨테이너를 삭제해야 합니다. 컨테이너 삭제에 대한 내용은 앞의 질문을 참조하세요.
 
 **BLOB이 변경할 수 없는 상태인 경우 BLOB 계층(핫, 쿨, 콜드) 간에 데이터를 이동할 수 있나요?**
 

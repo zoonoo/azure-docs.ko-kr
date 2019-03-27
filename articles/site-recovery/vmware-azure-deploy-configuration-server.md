@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004446"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449223"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -184,7 +184,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
 10. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
 
-    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다.
+    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 스케일 아웃 프로세스 서버는 복제는 지원 되지 않는 시나리오 이기도합니다. Site Recovery 복제 구성 요소는 진행 중인 복제 영향입니다.
 
 11. 구성 서버의 IP를 변경할 수 있나요?
 

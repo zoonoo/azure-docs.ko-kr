@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741653"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495010"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -96,7 +96,7 @@ Azure Write Accelerator의 디스크 지원을 제어하려면 $true 또는 $fal
 
 명령 예제는 다음과 같습니다.
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 
 `myVM`, `myWAVMs`, `log001`, 디스크 크기 및 디스크 LunID를 특정 배포에 적절한 값으로 바꿉니다.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 이 스크립트를 사용하여 기존 디스크에서 Write Accelerator를 사용하도록 설정할 수 있습니다. `myVM`, `myWAVMs` 및 `test-log001`을 특정 배포에 적절한 값으로 바꿉니다. 스크립트에서는 **$newstatus** 값이 ‘$true’로 설정된 기존 디스크에 Write Accelerator를 추가합니다. '$false' 값을 사용하면 지정된 디스크에서 Write Accelerator를 사용하지 않도록 설정됩니다.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

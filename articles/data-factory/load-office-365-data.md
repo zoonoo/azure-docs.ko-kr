@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944564"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445789"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -24,14 +24,15 @@ ms.locfileid: "49944564"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽된 메뉴에서 선택 **리소스 만들기** > **데이터 + 분석** > **Data Factory**: 
    
-   ![새 데이터 팩터리 만들기](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. **새 데이터 팩터리** 페이지에서 다음 그림에 표시된 필드의 값을 제공합니다.
       
    ![새 데이터 팩터리 페이지](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadFromOffice365Demo\"를 사용할 수 없습니다." 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**LoadFromOffice365Demo**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadFromOffice365Demo\"를 사용할 수 없습니다." 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**LoadFromOffice365Demo**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
@@ -42,7 +43,7 @@ ms.locfileid: "49944564"
    
    ![데이터 팩터리 홈페이지](./media/load-office-365-data/data-factory-home-page.png)
 
-5. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 응용 프로그램을 시작합니다.
+5. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
@@ -56,7 +57,7 @@ ms.locfileid: "49944564"
 
 ### <a name="configure-source"></a>원본 구성
 
-1. 파이프라인 > **원본 탭**으로 이동한 다음 **+ 새로 만들기**를 클릭하여 원본 데이터 집합을 만듭니다. 
+1. 파이프라인 &gt; **원본 탭**으로 이동한 다음, **+ 새로 만들기**를 클릭하여 원본 데이터 세트를 만듭니다. 
 
 2. 새 데이터 세트 창에서 **Office 365**를 선택한 다음, **마침**을 선택합니다.
 
@@ -86,7 +87,7 @@ ms.locfileid: "49944564"
  
 ### <a name="configure-sink"></a>싱크 구성
 
-1. 파이프라인 > **싱크 탭**으로 이동한 다음 **+ 새로 만들기**를 선택하여 싱크 데이터 집합을 만듭니다.
+1. 파이프라인 &gt; **싱크 탭**으로 이동한 다음, **+ 새로 만들기**를 선택하여 싱크 데이터 세트를 만듭니다.
  
 2. Office 365에서 복사할 때는 새 데이터 세트 창에서 지원되는 대상만 선택됩니다. **Azure Blob Storage**, **마침**을 차례로 선택합니다.  이 자습서에서는 Office 365 데이터를 Azure Blob Storage에 복사합니다.
 

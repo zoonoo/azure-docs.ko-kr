@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ec40c587ea4c609b1f8201e9860eb0e98e06ec62
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361254"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448184"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
@@ -238,7 +238,7 @@ C# 애플리케이션을 사용하는 워크플로가 있는 경우 Linux 환경
 
 Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 애플리케이션 구성에서 이 값을 설정합니다.
 
-이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 Apache HBase 애플리케이션 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
+이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 Apache HBase 애플리케이션 빌드](hbase/apache-hbase-build-java-maven-linux.md)를 참조하세요.
 
 ## <a name="spark"></a>Spark
 

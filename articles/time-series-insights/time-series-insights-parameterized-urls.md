@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558467"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487875"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -81,13 +81,13 @@ Time Series Insights 탐색기는 URL에서 바로 환경의 보기를 지정할
 - 'multiChartStack=false&multiChartSameScale=true' 
   - 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적으로 'false'이므로 'true'를 전달하면 이 기능을 사용할 수 있습니다.  
   
-'timeBucketUnit=<Unit>&timeBucketSize=<integer>'를 사용하면 보다 세밀하거나 매끄럽고 더 많이 집계된 차트 보기를 제공하도록 간격 슬라이더를 조정할 수 있습니다.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+`timeBucketUnit=<Unit>&timeBucketSize=<integer>` 매끄럽고 더를 더 세부적으로 제공 하도록 간격 슬라이더를 조정할 수 있습니다 더 차트 보기를 집계 합니다.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - 단위 = 일, 시간, 분, 초, 밀리초.  단위는 항상 대문자로 시작합니다.
   - timeBucketSize에 원하는 정수를 전달하여 단위의 수를 정의합니다.  최대 7일까지 설정할 수 있습니다.  
   
-'timezoneOffset=<integer>' 매개 변수를 사용하면 UTC에 대한 오프셋으로 차트가 표시될 표준 시간대를 설정할 수 있습니다.  
-  - 'timezoneOffset=-<integer>'
+`timezoneOffset=<integer>` 매개 변수를 사용 하면 UTC 오프셋으로 표시 된 차트에 대 한 표준 시간대를 설정할 수 있습니다.  
+  - `timezoneOffset=-<integer>`
     - 정수는 항상 밀리초 단위입니다.  
     - 이 기능은 로컬(브라우저 시간) 또는 UTC를 선택할 수 있는 TSI 탐색기에서 사용할 수 있는 기능과 약간 다릅니다.  
  

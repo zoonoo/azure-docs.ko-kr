@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c7fa81f6d23962eedb3dfeafdd397b62a83d130e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372675"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449769"
 ---
 Azure는 저장소 데이터에 액세스 하기 위한 다음과 같은 기본 제공 RBAC 역할을 제공합니다.
 
@@ -24,5 +24,8 @@ Azure는 저장소 데이터에 액세스 하기 위한 다음과 같은 기본 
 - [Storage 큐 데이터 판독기](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Azure 큐에 대한 읽기 전용 권한을 부여하는 데 사용합니다.
 - [Storage 큐 데이터 메시지 프로세서](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Azure Storage 큐의 메시지에 대 한 삭제 권한을 부여 피킹, 검색를 사용 합니다.
 - [Storage 큐 데이터 메시지 보낸 사람](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): 부여를 사용 하 여 Azure Storage 큐의 메시지에 사용 권한을 추가 합니다.
+
+> [!IMPORTANT]
+> RBAC 역할 할당에 전파 하는 데 최대 5 분 정도 걸릴 수 있습니다.
 
 기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview)를 참조하세요. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [Access Control에 대 한 사용자 지정 역할 만들기](../articles/role-based-access-control/custom-roles.md)합니다. 

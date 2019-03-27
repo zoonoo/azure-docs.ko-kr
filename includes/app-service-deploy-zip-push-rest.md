@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 7aa0d232cf53eef9bd28c36b66e8fdae22a28db9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551079"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488062"
 ---
 ## <a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
 
@@ -35,7 +35,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 다음 예제에서는 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)를 사용하여 .zip 파일이 포함된 요청을 보냅니다. `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` 및 `<app_name>` 자리 표시자를 바꿉니다.
 
-```PowerShell
+```powershell
 #PowerShell
 $username = "<deployment_user>"
 $password = "<deployment_password>"

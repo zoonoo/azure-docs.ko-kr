@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838904"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487909"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -84,7 +84,7 @@ System.FM은 노드가 링에 조인하는 경우 확인으로 보고합니다.(
 
 다음 예제는 노드 실행을 위해 상태가 정상인 System.FM 이벤트를 표시합니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ HealthEvents          :
 
 다음 예제는 **fabric:/WordCount** 애플리케이션에 대한 상태 이벤트를 보여 줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스�
 
 다음 예제는 서비스 **fabric:/WordCount/WordCountWebService**에 상태 이벤트를 보여 줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다
 
 다음 예제는 정상 파티션을 보여줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 다음 예제는 대상 복제본 개수 이하인 파티션의 상태를 보여줍니다. 다음 단계는 다음과 같습니다. 구성 된 방식을 보여 주는 파티션 설명을 가져옵니다 **MinReplicaSetSize** 3 개 및 **TargetReplicaSetSize** 는 7입니다. 그런 다음 클러스터에 있는 노드 수를 가져옵니다. 이 경우에는 5입니다. 따라서 이 경우 복제본의 목표 수가 사용 가능한 노드 수보다 더 높으므로 두 개의 복제본을 배치할 수 없습니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 다음 예제는 사용자가 **RunAsync** 메서드에서 취소 토큰을 허용하지 않아 재구성에서 멈춘 파티션의 상태를 보여 줍니다. P(주)로 표시된 복제본의 상태 보고서를 조사하면 문제를 더 자세히 살펴볼 수 있습니다.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ System.RA는 복제본이 만들어지면 정상으로 보고합니다.
 
 다음 예제는 정상 복제본을 보여줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ HealthEvents          :
 
 다음 예제에서는 열기 메서드에서 `TargetInvocationException`을 야기하는 복제본의 상태를 표시합니다. 설명에는 실패 지점(**IStatefulServiceReplica.Open**), 예외 형식(**TargetInvocationException**) 및 스택 추적이 포함됩니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 다음 예제에서는 다는 동안 지속적으로 작동 중지되는 복제본을 보여 줍니다.
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ HealthEvents          :
 
 다음 예제에서는 로컬 복제본에서 재구성이 멈춘 상태 보고서를 나타냅니다. 이 예제에서는 서비스가 취소 토큰을 허용하지 않은 것이 원인입니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ HealthEvents          :
 
 다음 예제는 **RunAsync**에서 취소 토큰을 허용하지 않은 신뢰할 수 있는 서비스에 대한 System.RAP의 상태 이벤트를 보여 줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ HealthEvents          :
 
 다음 예제는 서비스 만들기 작업을 보여 줍니다. 작업이 구성된 기간보다 오래 걸렸습니다. “AO”는 다시 시도하고 “NO”로 작업을 보냅니다. “NO”에서 시간 제한이 있는 마지막 작업을 완료했습니다. 이 경우 동일한 복제본은 “AO” 및 “NO” 역할에 대해 주 복제본입니다.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화�
 
 다음 예제는 성공적인 활성화를 보여줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -793,7 +793,7 @@ System.Hosting은 활성화가 성공한 경우 각 코드 패키지에 대해 �
 
 다음 예제는 정상으로 배포된 서비스 패키지를 보여줍니다.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 

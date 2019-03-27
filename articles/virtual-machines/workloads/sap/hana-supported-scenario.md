@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855458"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482966"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI(HANA 큰 인스턴스)에 대한 아키텍처 세부 정보와 지원되는 시나리오에 대해 설명합니다.
@@ -68,10 +68,10 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 | b | 유형 I | eth2.tenant | eno3.tenant | 노드-노드 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 노드-노드 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 HLI 단위에 구성된 토폴로지에 따라 인터페이스를 사용합니다. 예를 들어, 인터페이스 "B"는 스케일 아웃 토폴로지를 구성한 경우에 유용한 노드-노드 통신을 위해 설정됩니다. 단일 노드 강화 구성의 경우 이 인터페이스가 사용되지 않습니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 인터페이스 사용에 대한 자세한 정보를 얻으세요. 
 
@@ -101,7 +101,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 저장소는 요청된 토폴로지에 따라 미리 구성됩니다. 볼륨 크기와 탑재 지점은 서버 수, SKU 및 구성된 토폴로지에 따라 달라집니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 자세한 정보를 얻으세요. 더 많은 저장소가 필요한 경우 1TB씩 증분해서 구입할 수 있습니다.
 
 >[!NOTE]
->탑재 지점 /usr/sap/<SID>는 /hana/shared mountpoint의 심볼 링크입니다.
+>탑재 지점r/sap/\<SID >/hana/공유 탑재 지점에 대 한 기호화 된 링크입니다.
 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
@@ -142,10 +142,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -177,10 +177,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -217,10 +217,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -258,10 +258,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -312,10 +312,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -360,10 +360,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -419,10 +419,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -460,10 +460,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -496,10 +496,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.
@@ -535,10 +535,10 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 | b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
-| D | 유형 II | vlan<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
+| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
 ### <a name="storage"></a>Storage
 다음 탑재 지점은 미리 구성됩니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443177"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
 
@@ -62,10 +62,10 @@ ms.locfileid: "57997885"
 시작하기 전에 다음 항목이 있어야 합니다.
 
 *   Azure PowerShell을 설치되어 있습니다. Azure PowerShell 모듈을 설치하려면
-    * Windows 환경에서 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0)의 단계를 따릅니다. StorSimple용 Windows Server 호스트를 사용하는 경우 여기에 Azure PowerShell을 설치할 수 있습니다.
-    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0)의 단계를 따릅니다.
+    * Windows 환경에서 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)의 단계를 따릅니다. StorSimple용 Windows Server 호스트를 사용하는 경우 여기에 Azure PowerShell을 설치할 수 있습니다.
+    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux)의 단계를 따릅니다.
 
-Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0)을 참조하세요.
+Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ### <a name="run-azure-powershell-script"></a>Azure PowerShell 스크립트 실행
 

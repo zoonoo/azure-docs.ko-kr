@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 6523c2b26a0340fa5347d8224ac8bf6c5e285926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759052"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482626"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -142,26 +142,26 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 PowerShell을 시작하고 Azure에 로그인합니다. 
 
-```PowerShell
+```powershell
 Login-AzAccount 
 ```
 
 다음 명령을 사용하여 앞에서 만든 저장소 계정의 세부 정보를 저장합니다. 
 
-```PowerShell
+```powershell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
 
 마찬가지로, 다음 명령을 사용하여 진단 파일 경로를 변수에 설정합니다.
 
-```PowerShell
+```powershell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
 
 다음 명령을 사용하여 Azure Monitor 싱크가 구성되어 있는 진단 파일을 통해 진단 확장을 클라우드 서비스에 배포합니다.  
 
-```PowerShell
+```powershell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
 

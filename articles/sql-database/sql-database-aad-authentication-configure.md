@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f3c485659bc686efbb4101879e5cd24e7bb3db46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905106"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481657"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -73,7 +73,7 @@ Managed Instance는 보안 그룹 구성원 자격을 통한 사용자 인증 �
 
     ![권한 부여-포털](./media/sql-database-aad-authentication/grant-permissions.png)
 
-    ```PowerShell
+    ```powershell
     # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
     # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 
@@ -159,7 +159,7 @@ Managed Instance에 대한 Azure AD 관리자를 프로비전한 후, <a href="/
 
 다음 두 절차는 Azure Portal에서나 PowerShell을 사용하여 Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결 Active Directory를 Azure SQL Server와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL 서버는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.) ![choose-ad][8]
 
@@ -286,7 +286,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
-**예:** Azure AD 페더레이션 또는 관리형 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법:
+**예제:** Azure AD 페더레이션 또는 관리형 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;

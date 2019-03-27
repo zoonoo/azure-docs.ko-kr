@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770223"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448888"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../overview.md)는 사용하는 애플리케이션 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
@@ -102,7 +102,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 - 메트릭을 로그에 라우팅하여 로그 데이터와 함께 메트릭 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다. 
 - 메트릭을 [이벤트 허브](stream-monitoring-data-event-hubs.md)로 스트리밍하여 [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) 또는 외부 시스템에 라우팅합니다.
 - 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](../../azure-monitor/learn/tutorial-archive-data.md)합니다.
-- [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) 또는 [REST API](rest-api-walkthrough.md)를 사용하여 명령줄 또는 사용자 지정 애플리케이션에서 메트릭 값에 액세스합니다.
+- [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/) 또는 [REST API](rest-api-walkthrough.md)를 사용하여 명령줄 또는 사용자 지정 애플리케이션에서 메트릭 값에 액세스합니다.
 
 
 
@@ -146,7 +146,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 - 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [로그 경고 규칙](alerts-log.md)을 구성합니다.
 - [Logic Apps](~/articles/logic-apps/index.yml)를 사용하여 로그 데이터를 기준으로 워크플로를 작성합니다.
 - 쿼리의 결과를 [Power BI](powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.
-- 명령줄 또는 사용자 지정 애플리케이션에서 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) 또는 [REST API](https://dev.loganalytics.io/)를 사용하여 메트릭 값에 액세스합니다.
+- 명령줄 또는 사용자 지정 애플리케이션에서 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 또는 [REST API](https://dev.loganalytics.io/)를 사용하여 메트릭 값에 액세스합니다.
 
 ### <a name="viewing-log-data"></a>로그 데이터 보기
 Azure Monitor의 모든 로그 데이터는 [Kusto 쿼리 언어](../log-query/get-started-queries.md)로 작성된 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 검색되므로 수집된 데이터를 빠르게 검색, 통합 및 분석할 수 있습니다. [Log Analytics](../log-query/portals.md)를 사용하여 Azure Portal에서 쿼리를 기록하고 테스트합니다. 결과를 대화형으로 사용하거나 대시보드에 고정하여 다른 시각화를 통해 볼 수 있습니다. [Azure 모니터링 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)를 사용하여 로그를 검색할 수도 있습니다.

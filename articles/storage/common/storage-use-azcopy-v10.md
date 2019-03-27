@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337020"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486022"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>V10 AzCopy 사용 하 여 데이터 전송 (미리 보기)
 
@@ -285,6 +285,6 @@ AzCopy v10까지 모든 작업에 대 한 계획 파일과 로그 파일을 만�
 
 ## <a name="next-steps"></a>다음 단계
 
-질문, 문제 또는 일반적인 피드백 경우 제출해 [GitHub에서](https://github.com/Azure/azure-storage-azcopy.)합니다.
+질문, 문제 또는 일반적인 피드백 경우 제출해 [GitHub에서](https://github.com/Azure/azure-storage-azcopy)합니다.
 
 

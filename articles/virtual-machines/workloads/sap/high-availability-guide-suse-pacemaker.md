@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999660"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487367"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약 된 이벤트에 대 한 pacemaker 구성
+
+Azure 제품 [예정 된 이벤트](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)합니다. 예약 된 이벤트 메타 데이터 서비스를 통해 제공 되 고 VM 종료, VM 다시 배포 등과 같은 이벤트에 대 한 준비 하려면 응용 프로그램에 대 한 시간을 허용 합니다. 리소스 에이전트 **[azure-이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 예약 된 이벤트에 대 한 모니터. 이벤트 검색 되 면 에이전트는 영향을 받는 VM에서 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 합니다. Pacemaker 리소스를 추가 하는 달성 하기 위해 구성 되어야 합니다. 
+
+1. **[A]**  설치 된 **azure-이벤트** 에이전트입니다. 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]**  Pacemaker에 리소스를 구성 합니다. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > 또는 유지 관리 모드에서 클러스터를 배치 하는 경우 azure-이벤트 에이전트에 대 한 Pacemaker 리소스를 구성한 후 같은 경고 메시지가 표시 될 수 있습니다.  
+     경고: cib 부트스트랩 옵션: 알 수 없는 특성 ' hostName_  <strong>hostname</strong>'  
+     경고: cib 부트스트랩 옵션: ' azure events_globalPullState' 알 수 없는 특성  
+     경고: cib 부트스트랩 옵션: 알 수 없는 특성 ' hostName_ <strong>hostname</strong>'  
+   > 이러한 경고 메시지는 무시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

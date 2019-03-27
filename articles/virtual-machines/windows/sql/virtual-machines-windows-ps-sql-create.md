@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3feb691f1f708452b6560dbe92b77ed0417ffb82
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 68fa8510b45d5bd00128b57ffcccd19b1c55359b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329407"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481821"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. PowerShell을 열고 **Connect-AzAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
-```PowerShell
+```powershell
 $Location = "SouthCentralUS"
 $ResourceGroupName = "sqlvm2"
 ```
@@ -59,7 +59,7 @@ $ResourceGroupName = "sqlvm2"
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 프로덕션 워크로드에는 [프리미엄 SSD](../disks-types.md#premium-ssd)를 사용하는 것이 좋습니다.
 
-```PowerShell
+```powershell
 $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
@@ -77,7 +77,7 @@ $StorageSku = "Premium_LRS"
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
-```PowerShell
+```powershell
 $InterfaceName = $ResourceGroupName + "ServerInterface"
 $NsgName = $ResourceGroupName + "nsg"
 $TCPIPAllocationMethod = "Dynamic"
@@ -93,7 +93,7 @@ $DomainName = $ResourceGroupName
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
-```PowerShell
+```powershell
 $VMName = $ResourceGroupName + "VM"
 $ComputerName = $ResourceGroupName + "Server"
 $VMSize = "Standard_DS13"
@@ -106,13 +106,13 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 먼저 `Get-AzVMImageOffer` 명령을 사용하여 모든 SQL Server 이미지 제품을 나열합니다. 이 명령은 Azure Portal에서 사용할 수 있는 현재 이미지와 PowerShell을 통해서만 설치할 수 있는 이전 이미지를 나열합니다.
 
-   ```PowerShell
+   ```powershell
    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
    ```
 
 1. 이 자습서에서는 다음 변수를 사용하여 Windows Server 2016에서 SQL Server 2017을 지정합니다.
 
-   ```PowerShell
+   ```powershell
    $OfferName = "SQL2017-WS2016"
    $PublisherName = "MicrosoftSQLServer"
    $Version = "latest"
@@ -120,13 +120,13 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 다음으로, 사용 가능한 제품의 버전을 나열합니다.
 
-   ```PowerShell
+   ```powershell
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
 1. 이 자습서에서는 SQL Server 2017 Developer Edition(**SQLDEV**)을 사용합니다. Developer Edition은 테스트 및 개발을 위해 무료로 사용이 허가되며 VM을 실행하는 요금만 지불하면 됩니다.
 
-   ```PowerShell
+   ```powershell
    $Sku = "SQLDEV"
    ```
 
@@ -135,7 +135,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 다음 cmdlet을 실행하여 새 리소스 그룹을 만듭니다.
 
-```PowerShell
+```powershell
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
@@ -144,7 +144,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 다음 cmdlet을 실행하여 새 스토리지 계정을 만듭니다.
 
-```PowerShell
+```powershell
 $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
    -Name $StorageName -SkuName $StorageSku `
    -Kind "Storage" -Location $Location
@@ -168,7 +168,7 @@ $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 
 다음 cmdlet을 실행하여 가상 서브넷 구성을 만듭니다.
 
-```PowerShell
+```powershell
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
@@ -177,7 +177,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 다음 cmdlet을 실행하여 가상 네트워크를 만듭니다.
 
-```PowerShell
+```powershell
 $VNet = New-AzVirtualNetwork -Name $VNetName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
@@ -191,7 +191,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 다음 cmdlet을 실행하여 공용 IP 주소를 만듭니다.
 
-```PowerShell
+```powershell
 $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
@@ -202,14 +202,14 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
 
 1. 먼저, 원격 데스크톱 연결을 허용하는 RDP의 네트워크 보안 그룹 규칙을 만듭니다.
 
-   ```PowerShell
+   ```powershell
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
    ```
 1. TCP 포트 1433에서 트래픽을 허용하는 네트워크 보안 그룹 규칙을 구성합니다. 이렇게 하면 인터넷을 통해 SQL Server에 연결할 수 있습니다.
 
-   ```PowerShell
+   ```powershell
    $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
@@ -217,7 +217,7 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
 
 1. 네트워크 보안 그룹을 만듭니다.
 
-   ```PowerShell
+   ```powershell
    $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
@@ -228,7 +228,7 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
 
 다음 cmdlet을 실행하여 네트워크 인터페이스를 만듭니다.
 
-```PowerShell
+```powershell
 $Interface = New-AzNetworkInterface -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id `
@@ -248,7 +248,7 @@ $Interface = New-AzNetworkInterface -Name $InterfaceName `
 
 다음 cmdlet을 실행하여 가상 머신 개체를 만듭니다.
 
-```PowerShell
+```powershell
 $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
@@ -257,7 +257,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 다음 cmdlet을 실행하고 PowerShell 자격 증명 요청 창에서 가상 머신의 로컬 관리자 계정에 사용할 이름 및 암호를 입력합니다.
 
-```PowerShell
+```powershell
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 ```
 
@@ -271,7 +271,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 다음 cmdlet을 실행하여 가상 머신의 운영 체제 속성을 설정합니다.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
    -Windows -ComputerName $ComputerName -Credential $Credential `
    -ProvisionVMAgent -EnableAutoUpdate
@@ -282,7 +282,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 다음 cmdlet을 실행하여 가상 머신의 네트워크 인터페이스를 설정합니다.
 
-```PowerShell
+```powershell
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 ```
 
@@ -291,7 +291,7 @@ $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 
 다음 cmdlet을 실행하여 Blob 스토리지 위치를 설정합니다.
 
-```PowerShell
+```powershell
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 ```
 
@@ -304,7 +304,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 다음 cmdlet을 실행하여 가상 머신의 운영 체제 디스크 속성을 설정합니다.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
    $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 ```
@@ -314,7 +314,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 다음 cmdlet을 실행하여 가상 머신의 플랫폼 이미지를 지정합니다.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
    -PublisherName $PublisherName -Offer $OfferName `
    -Skus $Sku -Version $Version
@@ -328,7 +328,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 다음 cmdlet을 실행하여 가상 머신을 만듭니다.
 
-```PowerShell
+```powershell
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 ```
 
@@ -341,7 +341,7 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하여 자동화된 관리 기능을 지원합니다. 새 VM에 에이전트를 설치하려면 VM을 만든 후 다음 명령을 실행하세요.
 
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -349,7 +349,7 @@ SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](virtual-machin
 
 VM을 계속해서 실행하지 않아도 되는 경우 사용 중이 아닌 VM을 중지하여 불필요한 요금을 방지할 수 있습니다. 다음 명령은 VM을 중지하지만 나중에 계속 사용할 수 있습니다.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
@@ -358,7 +358,7 @@ Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ## <a name="example-script"></a>예제 스크립트
 다음 스크립트에는 이 자습서에 대한 전체 PowerShell 스크립트가 포함됩니다. **Connect-AzAccount** 및 **Select-AzSubscription** 명령을 사용하도록 이미 Azure 구독을 설정한 것으로 가정합니다.
 
-```PowerShell
+```powershell
 # Variables
 
 ## Global

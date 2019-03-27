@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997370"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483441"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -253,7 +253,7 @@ SWMP가 C:\\usr\\sap 폴더에 SAPMNT 로컬 공유를 만들었습니다.
 
 다음 PowerShell 스크립트를 실행합니다.
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ SAPLOC 공유가 없으면 *두* ASCS/SCS 클러스터 노드에 새로 만듭�
 
 다음 PowerShell 스크립트를 실행합니다.
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ SOFS 클러스터에 다음 볼륨 및 파일 공유를 만듭니다.
 미러 복원 기능을 가진 CSV 볼륨을 만들려면 SOFS 클러스터 노드 중 하나에서 다음 PowerShell cmdlet을 실행합니다.
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 SAPMNT를 만들고 폴더 및 공유 보안을 설정하려면 SOFS 클러스터 노드 중 하나에서 다음 PowerShell 스크립트를 실행합니다.
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 SAP ASCS/SCS 클러스터 노드 중 하나에서 다음 PowerShell 스크립트를 실행합니다.
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Get-ClusterAccess
 
 [**SAPScripts.psm1**][sap-powershell-scrips]을 로컬 드라이브 C:\tmp에 복사하고 다음 PowerShell cmdlet을 실행합니다.
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ _**그림 1**: SAPScripts.psm1 출력_
 
 SAP \<SID> 클러스터 그룹, ASCS/SCS 네트워크 이름 및 해당 IP 주소를 만들려면 다음 PowerShell cmdlet을 실행합니다.
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ SAP SAP\<SID> 클러스터 그룹의 리소스 생성을 완료하려면 다음 
 
 다음 PowerShell cmdlet를 실행합니다.
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

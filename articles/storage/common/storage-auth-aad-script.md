@@ -1,23 +1,23 @@
 ---
-title: Azure Storage에 액세스 하려면 Azure AD id 아래에서 Azure CLI 또는 PowerShell 명령을 실행 합니다. | Microsoft Docs
-description: Azure CLI 및 PowerShell은 Azure AD ID로 로그인하여 Azure Storage 컨테이너와 큐 및 해당 데이터에 대해 명령을 실행하도록 지원합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 권한은 Azure AD ID에 할당된 역할에 따라 다릅니다.
+title: Blob 및 큐 데이터에 액세스 하려면 Azure AD id 아래에서 Azure CLI 또는 PowerShell 명령을 실행 | Microsoft Docs
+description: Azure CLI 및 PowerShell 명령을 실행 하 여 Azure Storage blob 및 큐 데이터를 Azure AD id에 로그인을 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 권한은 Azure AD id에 할당 된 RBAC 역할에 따라 다릅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483208"
 ---
-# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Azure AD id를 사용 하 여 CLI 또는 PowerShell을 사용 하 여 Azure Storage 액세스
+# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>CLI 또는 PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하려면 Azure AD id 사용
 
-Azure Storage에 로그인 하 여 Azure Active Directory (Azure AD) id에서 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. RBAC(역할 기반 액세스 제어)를 통해 저장소 리소스에 액세스하기 위한 권한을 Azure AD ID에 할당할 수 있습니다. Azure Storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 Azure Storage 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
+Azure Storage에 로그인 하 여 Azure Active Directory (Azure AD) id에서 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. 역할 기반 액세스 제어 (RBAC)를 통해 Azure AD id에 blob 및 큐 데이터에 액세스 하는 권한을 할당할 수 있습니다. Azure Storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 Azure Storage 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 Azure AD id를 사용 하 여 Azure CLI 또는 PowerShell에 로그인 할 때 해당 id에서 Azure Storage에 액세스 하기 위한 액세스 토큰이 반환 됩니다. 그런 후 CLI 또는 PowerShell에서는 자동으로 해당 토큰을 사용하여 Azure Storage에 대한 작업 권한을 부여합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
@@ -29,7 +29,7 @@ Azure AD id를 사용 하 여 Azure CLI 또는 PowerShell에 로그인 할 때 �
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 CLI 명령을 호출 합니다.
 
-Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 작업에 대 한 매개 변수:
+Azure CLI를 지원 합니다 `--auth-mode` blob 및 큐 데이터 작업에 대 한 매개 변수:
 
 - 설정 된 `--auth-mode` 매개 변수를 `login` Azure AD 보안 주체를 사용 하 여 로그인 합니다.
 - 계정에 대한 인증 매개 변수가 제공되지 않을 경우 계정 키를 쿼리하려면 `--auth-mode` 매개 변수를 레거시 `key` 값으로 설정합니다. 
@@ -61,7 +61,7 @@ Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 �
         --encryption-services blob
     ```
     
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
     > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.
@@ -114,7 +114,7 @@ Azure CLI를 지원 합니다 `--auth-mode` Azure Storage에 대 한 데이터 �
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 컨테이너 및 Azure portal에서 RBAC 사용 하 여 큐 액세스 권한을 부여할](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
     > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.

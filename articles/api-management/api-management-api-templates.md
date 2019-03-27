@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ba56804431048005914a79c4cd957a8365de067a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970895"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486379"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 
@@ -88,9 +88,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|apis|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
+|`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   
@@ -343,17 +343,17 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|apiId|string|현재 API의 ID입니다.|  
-|apiName|string|API 이름입니다.|  
-|apiDescription|string|API에 대한 설명입니다.|  
-|api|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
-|operation|[작업](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
-|sampleUrl|string|현재 작업의 URL입니다.|  
-|operationMenu|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
-|consoleUrl|URI|**시도** 버튼에 대한 URI입니다.|  
-|샘플|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  
+|`apiId`|문자열|현재 API의 ID입니다.|  
+|`apiName`|문자열|API 이름입니다.|  
+|`apiDescription`|문자열|API에 대한 설명입니다.|  
+|`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
+|`operation`|[작업](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
+|`sampleUrl`|문자열|현재 작업의 URL입니다.|  
+|`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
+|`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
+|`samples`|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

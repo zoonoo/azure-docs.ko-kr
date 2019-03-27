@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731085"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485155"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉, 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -374,50 +374,50 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
-| ResourceName_s | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
-| ComputerName_s | 컴퓨터 FQDN |
-| Ipv4Addresses_s | 서버의 IPv4 주소 목록 |
-| Ipv6Addresses_s | 서버의 IPv6 주소 목록 |
-| DnsNames_s | DNS 이름 배열 |
-| OperatingSystemFamily_s | Windows 또는 Linux |
-| OperatingSystemFullName_s | 운영 체제의 전체 이름  |
-| Bitness_s | 컴퓨터의 비트(32비트 또는 64비트)  |
-| PhysicalMemory_d | 실제 메모리(MB) |
-| Cpus_d | CPU 수 |
-| CPUSpeed_d | CPU 속도(MHz)|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware* 등 |
-| VirtualMachineNativeMachineId_g | 해당 하이퍼바이저에 의해 할당된 VM ID |
-| VirtualMachineName_s | VM 이름 |
-| BootTime_t | 부팅 시간 |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
+| `ResourceName_s` | 작업 영역 내 컴퓨터에 대한 고유 식별자 |
+| `ComputerName_s` | 컴퓨터 FQDN |
+| `Ipv4Addresses_s` | 서버의 IPv4 주소 목록 |
+| `Ipv6Addresses_s` | 서버의 IPv6 주소 목록 |
+| `DnsNames_s` | DNS 이름 배열 |
+| `OperatingSystemFamily_s` | Windows 또는 Linux |
+| `OperatingSystemFullName_s` | 운영 체제의 전체 이름  |
+| `Bitness_s` | 컴퓨터의 비트(32비트 또는 64비트)  |
+| `PhysicalMemory_d` | 실제 메모리(MB) |
+| `Cpus_d` | CPU 수 |
+| `CpuSpeed_d` | CPU 속도(MHz)|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *hyperv*, *vmware* 등 |
+| `VirtualMachineNativeMachineId_g` | 해당 하이퍼바이저에 의해 할당된 VM ID |
+| `VirtualMachineName_s` | VM 이름 |
+| `BootTime_t` | 부팅 시간 |
 
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 형식 레코드
 *ServiceMapProcess_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에서 TCP 연결 프로세스에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 | 자산 | 설명 |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |
-| ResourceName_s | 프로세스를 실행 중인 컴퓨터 내의 프로세스에 대한 고유 식별자|
-| MachineResourceName_s | 컴퓨터의 리소스 이름 |
-| ExecutableName_s | 프로세스 실행 파일의 이름 |
-| StartTime_t | 프로세스 풀 시작 시간 |
-| FirstPid_d | 프로세스 풀의 첫 번째 PID |
-| Description_s | 프로세스 설명 |
-| CompanyName_s | 회사의 이름 |
-| InternalName_s | 내부 이름 |
-| ProductName_s | 제품 이름 |
-| ProductVersion_s | 제품 버전 |
-| FileVersion_s | 파일 버전 |
-| CommandLine_s | 명령줄 |
-| ExecutablePath _s | 실행 파일 경로 |
-| WorkingDirectory_s | 작업 디렉터리 |
-| 사용자 이름 | 프로세스를 실행 중인 계정 |
-| UserDomain | 프로세스를 실행 중인 도메인 |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | 작업 영역 내 프로세스에 대한 고유 식별자 |
+| `ResourceName_s` | 프로세스를 실행 중인 컴퓨터 내의 프로세스에 대한 고유 식별자|
+| `MachineResourceName_s` | 컴퓨터의 리소스 이름 |
+| `ExecutableName_s` | 프로세스 실행 파일의 이름 |
+| `StartTime_t` | 프로세스 풀 시작 시간 |
+| `FirstPid_d` | 프로세스 풀의 첫 번째 PID |
+| `Description_s` | 프로세스 설명 |
+| `CompanyName_s` | 회사의 이름 |
+| `InternalName_s` | 내부 이름 |
+| `ProductName_s` | 제품 이름 |
+| `ProductVersion_s` | 제품 버전 |
+| `FileVersion_s` | 파일 버전 |
+| `CommandLine_s` | 명령줄 |
+| `ExecutablePath _s` | 실행 파일 경로 |
+| `WorkingDirectory_s` | 작업 디렉터리 |
+| `UserName` | 프로세스를 실행 중인 계정 |
+| `UserDomain` | 프로세스를 실행 중인 도메인 |
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 

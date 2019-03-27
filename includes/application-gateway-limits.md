@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 77a391cc661ed33f5888d2b18cb9c5db16498cd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554240"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494756"
 ---
 | 리소스 | 기본 제한 | 참고 |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "57554240"
 | 수신기당 URL 맵 |1 | |
 | URL 맵당 최대 경로 기반 규칙|100||
 | 구성 리디렉션 |100<sup>1</sup>| |
-| 동시 WebSocket 연결 |5,000| |
+| 동시 WebSocket 연결 |보통 게이트웨이에 20k<br> 큰 게이트웨이에 50k| |
 | 최대 URL 길이|8,000||
 | 최대 파일 업로드 크기 표준 |2GB | |
 | 최대 파일 업로드 크기 WAF |100MB 중간 WAF 게이트웨이<br>500MB 큰 WAF 게이트웨이| |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417822"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449247"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -43,7 +43,8 @@ ms.locfileid: "58417822"
 2. 에이전트에 성공적으로 복사 된 후 서버 필수 조건 검사를 서버에서 수행 됩니다. 하나 이상의 경우 설치가 실패 합니다 [필수 구성 요소](vmware-physical-azure-support-matrix.md) 충족 되지 않으면. 모든 필수 조건이 충족 하는 경우 설치가 트리거됩니다.
 3. Azure Site Recovery VSS 공급자 모바일 에이전트 설치의 일부로 서버에 설치 됩니다. 이 공급자는 응용 프로그램 일관성 지점을 생성에 사용 됩니다. VSS 공급자 설치에 실패 하는 경우이 단계를 건너뜁니다 고 에이전트 설치가 계속 됩니다.
 4. 에이전트 설치에 성공 하지만 VSS 공급자 설치에 실패 하는 경우 작업 상태가 "경고"로 표시 됩니다. 크래시 일관성 지점을 생성 영향을 주지 않습니다.
-    a. 응용 프로그램 일관성 있는 요소를 생성, 참조 [지침](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS 공급자 설치를 수동으로 완료 합니다.
+
+    a. 응용 프로그램 일관성 있는 요소를 생성, 참조 [지침](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS 공급자 설치를 수동으로 완료 합니다. </br>
     b.  응용 프로그램 일치 포인트를 생성 하지 않으려면 [복제 정책을 수정할](vmware-azure-set-up-replication.md#create-a-policy) 응용 프로그램 일관성 지점을 사용 하지 않으려면입니다.
 
 ### <a name="before-922-versions"></a>9.22 버전 하기 전에

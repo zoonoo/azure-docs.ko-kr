@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 53cde81ed5df97c4cb6d8360c9bb639b8bdabe20
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818139"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487892"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -35,31 +35,31 @@ Microsoft Azure PowerShell 버전 1.1.0 릴리스에서는 기존 App Service �
 
 원본 앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 원본 앱의 정보를 가져올 수 있습니다(이 경우 이름은 `source-webapp`임).
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 새 App Service 계획을 만들려면 다음 예제처럼 `New-AzAppServicePlan` 명령을 사용할 수 있습니다.
 
-```PowerShell
+```powershell
 New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
 `New-AzWebApp` 명령을 사용하여 미국 중북부 지역에 새 앱을 만든 후 기존 프리미엄 계층인 App Service 계획에 연결할 수 있습니다. 그뿐 아니라 원본 앱과 동일한 리소스 그룹을 사용하거나 다음 명령에 표시된 것처럼 새 리소스 그룹을 정의할 수 있습니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
 연결된 모든 배포 슬롯을 포함하여 기존 앱을 복제하려면 `IncludeSourceWebAppSlots` 매개 변수를 사용해야 합니다. 다음 PowerShell 명령은 `New-AzWebApp` 명령에서 해당 매개 변수를 사용하는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
 동일한 지역 내에서 기존 앱을 복제하려면 동일한 지역에 새 리소스 그룹 및 새 App Service 계획을 만들고 다음 PowerShell 명령을 사용하여 앱을 복제해야 합니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
@@ -68,13 +68,13 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 
 원본 앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 원본 앱의 정보를 가져올 수 있습니다(이 경우 이름은 `source-webapp`임).
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 다음 명령과 같이 기존 ASE에 새 앱을 만들 수 있습니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
@@ -85,13 +85,13 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 
 원본 앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 `source-app`에 연결된 원본 앱 슬롯의 정보를 가져올 수 있습니다(이 경우 이름은 `source-appslot`임).
 
-```PowerShell
+```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
 다음 명령에서는 새 앱에 원본 앱의 클론을 만드는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
@@ -101,20 +101,20 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>앱을 복제하는 동안 새 Traffic Manager 프로필 만들기
 시나리오: 두 앱을 모두 포함하는 Azure Resource Manager Traffic Manager 프로필을 구성하는 동안 다른 지역에 앱을 복제하려고 합니다. 다음 명령에서는 새 Traffic Manager 프로필을 구성하는 동안 새 앱으로 원본 앱의 클론을 만드는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>기존 Traffic Manager 프로필에 복제된 새 앱 추가
 시나리오: Azure Resource Manager Traffic Manager 프로필이 이미 있으며 두 앱을 엔드포인트로 추가하려고 합니다. 이렇게 하려면 먼저 기존 Traffic Manager 프로필 ID를 조합해야 합니다. 구독 ID, 리소스 그룹 이름 및 기존 Traffic Manager 프로필 이름이 필요합니다.
 
-```PowerShell
+```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 ```
 
 Traffic Manager ID를 알게 된 후 다음 명령에서는 원본 앱과 새 앱을 기존 Traffic Manager 프로필에 추가하는 동안 원본 앱의 클론을 새 앱에 만드는 방법을 보여 줍니다.
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 

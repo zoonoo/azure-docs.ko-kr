@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203067"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449497"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop 로그 분석
 
@@ -315,6 +315,5 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight에서 Apache Ambari Tez 뷰를 사용하여 Tez 작업 디버깅](../hdinsight-debug-ambari-tez-view.md)
 * [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)

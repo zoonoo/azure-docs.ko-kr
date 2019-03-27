@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b9c9973314ed0ec64504cd35daddf9a3ad945f99
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 668631cca9fbd6a7968181826f600b1302a67df0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436985"
+ms.locfileid: "58482064"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -318,7 +318,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 1. **KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
 
-    ```PowerShell
+    ```powershell
     $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
     $REG_ID1='breakroom499-contoso-tstrsd-007'
@@ -334,7 +334,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
     ```
 
-    ```PowerShell
+    ```powershell
     breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
@@ -355,7 +355,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
     다음 예제에서는 Windows PowerShell를 사용 하는 x64 3.13.4 버전용 암호화 해시를 확인 하려면 MSI 배포:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True

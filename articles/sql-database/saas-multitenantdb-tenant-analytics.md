@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888181"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481385"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
  
@@ -92,7 +92,7 @@ ms.locfileid: "57888181"
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다. 학습 목적에 맞게 columnstore 없는 SQL Database가 권장됩니다.
     - columnstore가 없는 SQL Database를 사용하려면 **$DemoScenario** = **2**로 설정합니다.
     - columnstore가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
-3. **F5** 키를 눌러 *Deploy-TenantAnalytics<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
+3. 키를 누릅니다 **F5** 데모 스크립트를 실행 (호출 하는 합니다 *Deploy-tenantanalytics\<XX >. ps1* 스크립트) 테 넌 트 분석 저장소를 만듭니다. 
 
 사용 하 여 응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터를 사용 하 여 입력 했으므로 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 연결할 **tenants1-mt-\<사용자\>**  및 **catalog-mt-\<사용자\>**  로그인을 사용 하 여 서버 = *개발자*, 암호 = *P\@ssword1*합니다.
 
@@ -121,7 +121,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 1. SSMS에서 catalog-mt-\<User\>의 **jobaccount** 데이터베이스에 연결합니다.
 2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql*을 엽니다. 
-3. 스크립트 상단의 @User 변수를 수정합니다. 즉, Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 값으로 <User>를 변경합니다.
+3. 스크립트 상단의 @User 변수를 수정합니다. 즉, Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 값으로 `<User>`를 변경합니다.
 4. **F5** 키를 눌러 스크립트를 실행하여 두 개의 대상 그룹을 만듭니다.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>모든 테넌트에서 원시 데이터 추출하기
@@ -135,7 +135,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 1. SSMS에서 catalog-mt-\<User\> 서버의 **jobaccount** 데이터베이스에 연결합니다.
 2. SSMS에서 *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*을 엽니다.
-3. 스크립트 상단의 @User를 수정하고 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 이름으로 <User>를 변경합니다. 
+3. 스크립트 상단의 @User를 수정하고 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 이름으로 `<User>`를 변경합니다. 
 4. **F5** 키를 눌러 스크립트를 실행합니다. 각 테넌트 데이터베이스에서 티켓 및 고객 데이터를 추출하는 작업이 생성되고 실행됩니다. 추출된 데이터는 분석 저장소에 저장됩니다.
 5. tenantanalytics 데이터베이스의 TicketsRawData 테이블을 쿼리하여 모든 테넌트의 티켓 정보가 테이블에 입력되었는지 확인합니다.
 

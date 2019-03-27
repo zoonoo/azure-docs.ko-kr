@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293909"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449415"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -45,9 +45,9 @@ ms.locfileid: "58293909"
 
 * 쿼리 풀의 복제본이 없는 경우에 동기화가 허용 됩니다. 주 서버에서 처리 작업에서 새 데이터를 사용 하 여 하나 이상의 복제본에 0에서 확장 하는 경우 쿼리 풀에서 복제본이 없는 동기화를 먼저 수행 하 고 스케일 아웃 합니다. 스케일 아웃 하기 전에 동기화 새로 추가 된 복제본의 중복 하이드레이션 피할 수 있습니다.
 
-* 주 서버에서 모델 데이터베이스를 삭제 하는 경우이 자동으로 삭제 되지 쿼리 풀의 복제본에서. 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스에 대 한 파일/s를 제거 하 고 다음 쿼리 풀의 복제본에서 model 데이터베이스를 삭제 하는 동기화 작업을 수행 해야 합니다.
+* 주 서버에서 모델 데이터베이스를 삭제 하는 경우이 자동으로 삭제 되지 쿼리 풀의 복제본에서. 사용 하 여 동기화 작업을 수행 해야 합니다 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스에 대 한 파일/s를 제거 하 고 다음 모델을 삭제 하는 PowerShell 명령 쿼리 풀에서 복제본의 데이터베이스입니다.
 
-* 주 서버에서 데이터베이스의 이름을 바꾸면 데이터베이스 복제본을 동기화 제대로 확인 하는 데 필요한 추가 단계가 있습니다. 이름 바꾸기 후 지정 하는 동기화를 수행 합니다 `-Database` 이전 데이터베이스 이름 가진 매개 변수입니다. 이 동기화 모든 복제본에서 데이터베이스 및 이전 이름 가진 파일을 제거합니다. 그런 다음 다른 동기화 지정을 수행 합니다 `-Database` 매개 변수를 새 데이터베이스 이름입니다. 두 번째 동기화 파일의 두 번째 집합에 새로 명명된 된 데이터베이스를 복사 하 고 모든 복제본을 하이드레이션 합니다. 포털에서 동기화 모델 명령을 사용 하 여 이러한 동기화를 수행할 수 없습니다.
+* 주 서버에서 데이터베이스의 이름을 바꾸면 데이터베이스 복제본을 동기화 제대로 확인 하는 데 필요한 추가 단계가 있습니다. 이름 바꾸기 후 동기화를 사용 하 여 수행 합니다 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 지정 하는 `-Database` 이전 데이터베이스 이름 가진 매개 변수입니다. 이 동기화 모든 복제본에서 데이터베이스 및 이전 이름 가진 파일을 제거합니다. 그런 다음 다른 동기화 지정을 수행 합니다 `-Database` 매개 변수를 새 데이터베이스 이름입니다. 두 번째 동기화 파일의 두 번째 집합에 새로 명명된 된 데이터베이스를 복사 하 고 모든 복제본을 하이드레이션 합니다. 포털에서 동기화 모델 명령을 사용 하 여 이러한 동기화를 수행할 수 없습니다.
 
 ### <a name="separate-processing-from-query-pool"></a>쿼리 풀에서 처리 구분
 
@@ -103,6 +103,20 @@ ms.locfileid: "58293909"
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+상태 코드를 반환 합니다.
+
+
+|코드  |설명  |
+|---------|---------|
+|-1     |  올바르지 않음       |
+|0     | 복제 중        |
+|1     |  리하이드레이션       |
+|2     |   Completed       |
+|3     |   실패      |
+|4     |    종료하는 중     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ PowerShell을 사용 하기 전에 [설치 하거나 최신 Azure PowerShell 모
 사용 하 여 동기화를 실행 하려면 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)합니다.
 
 쿼리 복제본 수를 설정 하려면 [집합 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
+
+쿼리 풀에서 처리 서버 구분을 사용 하 여 [집합 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)합니다. 선택적으로 지정할 `-DefaultConnectionMode` 매개 변수를 사용 하 여 `Readonly`입니다.
 
 ## <a name="connections"></a>연결
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568896"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443982"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 디바이스 이름 변경 문제 해결
 
@@ -36,15 +36,17 @@ Microsoft Azure에서 Linux VM을 실행하는 경우 다음과 같은 문제가
 
 Linux의 디바이스 경로는 다시 시작에 대해 일관되도록 보장되지 않습니다. 디바이스 이름은 주 번호(문자) 및 보조 번호로 구성됩니다. Linux 저장소 디바이스 드라이버에서 새 디바이스를 검색하는 경우 드라이버는 사용할 수 있는 범위의 주 및 보조 번호를 디바이스에 할당합니다. 디바이스가 제거되는 경우 나중에 사용할 수 있게 해당 디바이스 번호가 회수됩니다.
 
-SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 비동기적으로 발생하므로 문제가 발생합니다. 결과적으로 다시 시작할 때마다 디바이스 경로 이름이 달라질 수 있습니다. 
+SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 비동기적으로 발생하므로 문제가 발생합니다. 결과적으로 다시 시작할 때마다 디바이스 경로 이름이 달라질 수 있습니다.
 
 ## <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 영구 이름 지정을 사용합니다. 영구적으로 이름을 지정하는 네 가지 방법에는 파일 시스템 레이블별, UUID별, ID별 및 경로별이 있습니다. Azure Linux VM에 대해 파일 시스템 레이블 또는 UUID를 사용하는 것이 좋습니다. 
+이 문제를 해결하려면 영구 이름 지정을 사용합니다. 영구적으로 이름을 지정하는 네 가지 방법에는 파일 시스템 레이블별, UUID별, ID별 및 경로별이 있습니다. Azure Linux VM에 대해 파일 시스템 레이블 또는 UUID를 사용하는 것이 좋습니다.
 
-대부분의 배포는 `fstab` **nofail** 또는 **nobootwait** 매개 변수를 제공합니다. 이러한 매개 변수를 사용하면 디스크가 시작 시 탑재되지 않을 때 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요. 데이터 디스크를 추가할 때 UUID를 사용하도록 Linux VM을 구성하는 방법에 대한 내용은 [Linux VM에 연결하여 새 디스크 탑재](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요. 
+대부분의 배포는 `fstab` **nofail** 또는 **nobootwait** 매개 변수를 제공합니다. 이러한 매개 변수를 사용하면 디스크가 시작 시 탑재되지 않을 때 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요. 데이터 디스크를 추가할 때 UUID를 사용하도록 Linux VM을 구성하는 방법에 대한 내용은 [Linux VM에 연결하여 새 디스크 탑재](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)를 참조하세요.
 
 Azure Linux 에이전트는 VM에 설치될 때 Udev 규칙을 사용하여 /dev/disk/azure 경로 아래에 기호 링크의 집합을 만듭니다. 애플리케이션 및 스크립트는 Udev 규칙을 사용하여 VM에 연결된 디스크와 디스크 유형 및 디스크 LUN을 식별합니다.
+
+이미 VM 부팅 되지 않는 하 수 없는 SSH를 VM에 하는 방식으로 프로그램 fstab을 편집한 경우 사용할 수 있습니다 합니다 [직렬 콘솔 VM](./serial-console-linux.md) 입력 [단일 사용자 모드](./serial-console-grub-single-user-mode.md) 프로그램 fstab을 수정 합니다.
 
 ### <a name="identify-disk-luns"></a>디스크 LUN 식별
 
@@ -83,29 +85,29 @@ Linux 게스트 계정의 LUN 정보는 `lsscsi` 또는 유사한 도구를 사�
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>최신 Azure Storage 규칙 가져오기
 
 최신 Azure Storage 규칙을 가져오려면 다음 명령을 실행합니다.

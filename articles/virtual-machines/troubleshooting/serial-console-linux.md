@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010985"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445648"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux용 가상 머신 직렬 콘솔
 
@@ -41,9 +41,9 @@ Windows VM에 대한 직렬 콘솔 설명서는 [Windows용 가상 머신 직렬
 
 - 직렬 콘솔을 사용하는 계정에는 VM에 대한 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다.
 
-    - 직렬 콘솔에 액세스하는 VM에는 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
+- 직렬 콘솔에 액세스하는 VM에는 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
 
-    - Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
+- Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
 
 
 
@@ -85,12 +85,11 @@ Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록
 
 시나리오          | 직렬 콘솔의 작업
 :------------------|:-----------------------------------------
-*FSTAB* 파일 손상 | **Enter** 키를 눌러 계속하고 텍스트 편집기를 사용하여 *FSTAB* 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드여야 합니다. 자세한 내용은 [fstab 문제 해결 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 및 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
-잘못된 방화벽 규칙 | 직렬 콘솔에 액세스하고 iptable을 수정합니다.
-파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다.
-SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다.
-네트워크 시스템 잠금| 시스템을 관리하려면 Azure Portal에서 직렬 콘솔에 액세스합니다.
-부팅 로더와 상호 작용 | 직렬 콘솔 블레이드 내에서 VM을 다시 시작하여 Linux VM의 GRUB에 액세스합니다. 자세한 내용은 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
+*FSTAB* 파일 손상 | **Enter** 키를 눌러 계속하고 텍스트 편집기를 사용하여 *FSTAB* 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드여야 합니다. 자세한 내용은의 직렬 콘솔 섹션을 참조 하세요 [fstab 문제를 해결 하는 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 하 고 [GRUB 및 단일 사용자 모드 액세스를 사용 하 여 직렬 콘솔](serial-console-grub-single-user-mode.md)합니다.
+잘못된 방화벽 규칙 |  SSH 연결을 차단 하도록 iptables를 구성한 경우에 SSH 필요 없이 VM을 사용 하 여 상호 작용 하도록 직렬 콘솔을 사용할 수 있습니다. 자세한 세부 정보를 찾을 수 있습니다 합니다 [iptables man 페이지](https://linux.die.net/man/8/iptables)합니다. 마찬가지로, 있습니다 firewalld SSH 액세스를 차단 하는 경우 직렬 콘솔을 통해 VM에 액세스 하 firewalld를 다시 구성 합니다. 자세한 세부 정보를 찾을 수 있습니다 합니다 [firewalld 설명서](https://firewalld.org/documentation/)합니다.
+파일 시스템 손상/검사 | 직렬 콘솔 섹션을 참조 하세요 [파일 시스템 오류로 인해 Azure Linux VM를 시작할 수 없습니다](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 자세한 문제 해결에 대 한 세부 정보에는 직렬 콘솔을 사용 하 여 파일 시스템 손상 되었습니다.
+SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 직렬 콘솔 VM이 작동 하려면 네트워크 연결이 필요 하지 않습니다는 VM의 SSH 구성에 관계 없이 사용할 수 있습니다. 문제 해결 가이드에서 제공 됩니다 [SSH 연결 문제 해결 실패, 오류 또는 거부 되는 Azure Linux VM에](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection)입니다. 자세한 세부 사항은 [자세한 SSH 문제 해결 Azure에서 Linux VM에 연결 하는 문제에 대 한 단계](./detailed-troubleshoot-ssh-connection.md)
+부팅 로더와 상호 작용 | 직렬 콘솔 블레이드 내에서 VM을 다시 시작하여 Linux VM의 GRUB에 액세스합니다. 자세한 세부 정보 및 배포 별 정보를 참조 하세요 [GRUB 및 단일 사용자 모드 액세스를 사용 하 여 직렬 콘솔](serial-console-grub-single-user-mode.md)합니다.
 
 ## <a name="disable-the-serial-console"></a>직렬 콘솔 사용 안 함
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.

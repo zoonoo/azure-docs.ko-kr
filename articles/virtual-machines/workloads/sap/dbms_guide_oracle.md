@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327785"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483522"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327785"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327785"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ ms.locfileid: "56327785"
 SAP Note [2039619]에서 Azure Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 정보를 찾을 수 있습니다.
 
 Oracle에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 [Oracle의 SAP](https://www.sap.com/community/topic/oracle.html)에서 찾을 수 있습니다.
-Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure에 대한 일반 지원에 대한 자세한 내용은 [Oracle 및 Microsoft Azure FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)를 참조하세요. 
+Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure에 대한 일반 지원에 대한 자세한 내용은 [Oracle 및 Microsoft Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)를 참조하세요. 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Oracle, SAP 및 Azure와 관련된 SAP Note 
 
@@ -426,7 +426,7 @@ Windows의 Oracle 배포에서는 [Azure 가속 네트워킹](https://azure.micr
 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서는 Azure 가용성 집합 및 SAP 모니터링을 비롯하여 Oracle Database를 사용하는 VM 배포와 관련된 기타 중요 개념을 설명합니다.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Oracle Linux의 Oracle Database에 대한 고유 정보
-Oracle 소프트웨어는 Oracle Linux를 게스트 OS로 사용하여 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure에 대한 일반 지원에 대한 자세한 내용은 [Azure 및 Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)를 참조하세요. 
+Oracle 소프트웨어는 Oracle Linux를 게스트 OS로 사용하여 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure에 대한 일반 지원에 대한 자세한 내용은 [Azure 및 Oracle FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)를 참조하세요. 
 
 Oracle Database를 활용하는 SAP 애플리케이션의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 다음 부분에서 설명합니다.
 
@@ -463,12 +463,13 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
 최소 구성
+
 | 구성 요소 | 디스크 | 구성 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| /oracle/<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| /oracle/<SID>/oraarch | Standard | 없음 | 필요하지 않음 |
+| /oracle/\<SID > / origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID > / origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID > / oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -476,15 +477,16 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선택은 IOPS 요구 사항에 따라야 합니다. 볼륨, IOPS 및 처리량이 요구 사항을 충족하는 경우 모든 sapdata1...n(테이블스페이스)을 단일 탑재 디스크에 저장할 수 있습니다. 
 
 성능 구성
+
 | 구성 요소 | 디스크 | 구성 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | 없음 | 사용할 수 있음  |
-| /oracle/<SID>/origlogaB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/<SID>/mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/<SID>/mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| /oracle/<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
-| /oracle/SID/sapdata(n+1)* | Premium | 없음 | 사용할 수 있음 |
-| /oracle/<SID>/oraarch* | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA | Premium | 없음 | 사용할 수 있음  |
+| /oracle/\<SID>/origlogaB | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogAB | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogBA | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
+| /oracle/\<SID > / sapdata(n+1) * | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch* | Premium | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM

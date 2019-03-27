@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861080"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483389"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -326,13 +326,13 @@ RBAC를 해야 장애 조치 그룹을 업데이트 하려면 장애 조치 그�
 
 1. PowerShellGet 모듈을 1.6.5(또는 최신 미리 보기 버전)로 업데이트합니다. [PowerShell 미리 보기 사이트](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)를 참조하세요.
 
-   ```PowerShell
+   ```powershell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. 새 PowerShell 창에서 다음 명령을 실행합니다.
 
-   ```PowerShell
+   ```powershell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

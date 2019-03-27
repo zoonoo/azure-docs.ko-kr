@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842756"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486321"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -222,7 +222,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
    PowerShell로 장애 조치(Failover) 클러스터링 기능을 설치하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 �
 
 PowerShell로 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ PowerShell로 클러스터의 유효성을 검사하려면 가상 머신 중 하
 
 다음 PowerShell은 장애 조치 클러스터를 만듭니다. 스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
    다음 PowerShell은 저장소 공간 다이렉트를 활성화합니다.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
    S2D의 기능 중 하나는 이를 활성화할 때 저장소 풀을 자동으로 만드는 것입니다. 이제 볼륨을 만들 준비가 되었습니다. PowerShell commandlet `New-Volume`은 서식 지정, 클러스터에 추가 및 CSV(클러스터 공유 볼륨) 만들기를 포함하는 볼륨 생성 프로세스를 자동화합니다. 다음 예제에서는 800GB(기가바이트) CSV를 만듭니다.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
 클러스터 프로브 포트 매개 변수를 설정하려면 다음 스크립트의 변수를 사용자 환경의 값으로 업데이트합니다. 스크립트에서 꺾쇠 괄호 `<>`를 제거합니다. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -457,7 +457,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
 클러스터 프로브를 설정한 후에는 PowerShell에서 모든 클러스터 매개 변수를 볼 수 있습니다. 다음 스크립트를 실행합니다.
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

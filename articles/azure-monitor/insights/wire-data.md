@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 35568f6c281a2aaf058fe08b214657c7737c64fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a4ba784402774750d4d7770652589b598ee00d8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842161"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485580"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 실시간 데이터 2.0 (미리 보기) 솔루션
 
@@ -63,7 +63,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)를 참조하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)를 참조하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> Azure Monitor로 System Center Operations Manager 에이전트 컴퓨터에서 직접 연결은 필요 합니다. |
-| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아닙니다. | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서의 Microsoft 모니터링 에이전트 (MMA) 수집 하 고 데이터를 전송 합니다. System Center Operations Manager와 Azure Monitor에서 사용 됩니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공합니다. 이러한 버전은 각각 보고할 System Center Operations Manager, Azure Monitor 또는 둘 다에 있습니다.
 
@@ -100,7 +100,7 @@ Windows 또는 Linux 컴퓨터는 서비스에 직접 연결할 수 없으면, L
 
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -186,7 +186,7 @@ Windows 또는 Linux 컴퓨터는 서비스에 직접 연결할 수 없으면, L
 
 #### <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 
-| **최근에 사용한 파일** | **OS** | **버전(Version)** | **SHA-256** |
+| **파일** | **OS** | **버전** | **SHA-256** |
 | --- | --- | --- | --- |
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
@@ -255,7 +255,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 종속성 에이전트에 대한 파일은 다음 디렉터리에 있습니다.
 
-| **파일** | **위치** |
+| **파일** | **위치**: |
 | --- | --- |
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -269,7 +269,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 #### <a name="powershell-script-for-windows"></a>Windows용 PowerShell 스크립트
 
-```PowerShell
+```powershell
 
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -406,7 +406,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 프로토콜 트래픽이 시간에 따라 증가하는지 감소하는지 여부를 아는 데 유용합니다. 예를 들어 애플리케이션에 의해 전송되고 있는 데이터 양이 증가하는 경우 이를 알고 있어야 하거나 주목할 만한 것일 수 있습니다.
 
-## <a name="input-data"></a>입력 데이터
+## <a name="input-data"></a>데이터 입력
 
 실시간 데이터 기능은 설정한 에이전트를 사용하여 네트워크 트래픽에 대한 메타데이터를 수집합니다. 각 에이전트는 약 15초마다 데이터를 보냅니다.
 
@@ -416,7 +416,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 | 자산 | 설명 |
 |---|---|
-| 컴퓨터 | 데이터가 수집된 컴퓨터 이름 |
+| Computer | 데이터가 수집된 컴퓨터 이름 |
 | TimeGenerated | 레코드 시간 |
 | LocalIP | 로컬 컴퓨터의 IP 주소 |
 | SessionState | 연결 또는 연결 끊김 |
