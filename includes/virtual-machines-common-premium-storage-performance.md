@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251991"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542288"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -35,7 +35,7 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 > 경우에 따라 디스크 성능 문제로 보이는 것은 실제로 네트워크 병목 현상입니다. 이러한 상황에서 [네트워크 성능](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)을 최적화해야 합니다.
 > VM에서 가속화된 네트워킹을 지원하는 경우 VM이 활성화되어 있는지 확인해야 합니다. 활성화되어 있지 않으면 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 모두에 이미 배포된 VM에서 활성화할 수 있습니다.
 
-시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [IaaS VM에 대한 Azure 디스크 유형 선택](../articles/storage/common/storage-scalability-targets.md) 및 ](../articles/virtual-machines/windows/disks-types.md)Azure Storage 확장성 및 성능 목표[ 문서를 읽어 보세요.
+시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [IaaS VM에 대한 Azure 디스크 유형 선택](../articles/virtual-machines/windows/disks-types.md) 및 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 문서를 읽어 보세요.
 
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -116,11 +116,11 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 
 | 카운터 | 설명 | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **초당 IOPS 또는 트랜잭션** |저장소 디스크에 발급된 초당 I/O 요청 수입니다. |디스크 읽기/초  <br> 디스크 쓰기/초 |tps  <br> r/s  <br>  w/s |
-| **디스크 읽기 및 쓰기** |디스크에서 수행되는 읽기 및 쓰기 작업의 %입니다. |% 디스크 읽기 시간  <br>  % 디스크 쓰기 시간 |r/s  <br>  w/s |
+| **초당 IOPS 또는 트랜잭션** |저장소 디스크에 발급된 초당 I/O 요청 수입니다. |디스크 읽기/초  <br> 디스크 쓰기/초 |tps  <br> r/s  <br> w/s |
+| **디스크 읽기 및 쓰기** |디스크에서 수행되는 읽기 및 쓰기 작업의 %입니다. |% 디스크 읽기 시간  <br> % 디스크 쓰기 시간 |r/s  <br> w/s |
 | **처리량** |초당 디스크에서 읽거나 디스크에 쓴 데이터 양입니다. |디스크 읽기 바이트/초  <br>  디스크 쓰기 바이트/초 |kB_read/s <br> kB_wrtn/s |
-| **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기  <br>  평균 디스크 초/쓰기 |await  <br>  svctm |
-| **IO 크기** |I/O의 요청의 크기는 저장소 디스크에 발급합니다. |평균 디스크 바이트/읽기  <br>  평균 디스크 바이트/쓰기 |avgrq-sz |
+| **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기  <br> 평균 디스크 초/쓰기 |await  <br> svctm |
+| **IO 크기** |I/O의 요청의 크기는 저장소 디스크에 발급합니다. |평균 디스크 바이트/읽기  <br> 평균 디스크 바이트/쓰기 |avgrq-sz |
 | **큐 크기** |저장소 디스크에서 읽거나 저장소 디스크에 쓰도록 대기 중인 미해결 I/O 요청의 수입니다. |현재 디스크 큐 길이 |avgqu-sz |
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
 | **최대 CPU** |애플리케이션을 원활하게 실행하는데 필요한 CPU 양 |% 프로세서 시간 |%util |
@@ -235,7 +235,7 @@ Azure Premium Storage는 8 개의 GA 디스크 크기 및 현재 미리 보기�
 
 | 프리미엄 디스크 유형  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 32GiB | 64GiB | 128GiB| 256GiB| 512 GB            | 1,024GiB(1TiB)    | 2,048GiB(2TiB)    | 4,095GiB(4TiB)    | 8,192GiB(8TiB)    | 16,384GiB(16TiB)    | 32,767GiB(32GiB)    |
+| 디스크 크기           | 32GiB | 64GiB | 128GiB| 256GiB| 512 GB            | 1,024GiB(1TiB)    | 2,048GiB(2TiB)    | 4,095GiB(4TiB)    | 8,192GiB(8TiB)    | 16,384GiB(16TiB)    | 32,767GiB(32TiB)    |
 | 디스크당 IOPS       | 120   | 240   | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500              | 15,000              | 20,000              |
 | 디스크당 처리량 | 초당 25MiB  | 초당 50MiB  | 초당 100MiB |초당 125MiB | 초당 150MiB | 초당 200MiB | 초당 250MiB | 초당 250MiB | 초당 480MiB | 초당 750MiB | 초당 750MiB |
 
