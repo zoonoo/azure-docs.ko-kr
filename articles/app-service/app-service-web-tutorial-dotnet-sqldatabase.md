@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b472927f435cb86787c4580920250cb33438a07b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992252"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487026"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -227,19 +227,19 @@ public bool Done { get; set; }
 
 [패키지 관리자 콘솔] 창에서 Code First 마이그레이션을 사용하도록 설정합니다.
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 마이그레이션을 추가합니다.
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 로컬 데이터베이스를 업데이트합니다.
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

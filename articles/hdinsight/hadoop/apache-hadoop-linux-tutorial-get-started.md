@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 5814c3f386ed31d8804469fa1a261ab9bda6b8f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865861"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225810"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 
@@ -124,7 +124,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 * 임시 쿼리 만들기
 * Hive 애플리케이션 만들기
 
-임시 쿼리를 만들고 실행하려면:
+임시 쿼리를 만들고 실행하려면,
 
 1. **서버 탐색기**에서 **Azure** > **HDInsight 클러스터**를 차례로 선택합니다.
 
@@ -258,7 +258,7 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 
 Azure Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
+* [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 * [Azure 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions)
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md

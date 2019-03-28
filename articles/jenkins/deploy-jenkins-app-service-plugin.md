@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864816"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -77,7 +77,7 @@ Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱�
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. 앱에 필요한 Java 런타임 구성을 설정합니다. 다음 Azure CLI 명령은 최근 JDK 8 및 [Apache Tomcat](http://tomcat.apache.org/) 버전 8.0에서 실행되도록 웹앱을 구성합니다.
+3. 앱에 필요한 Java 런타임 구성을 설정합니다. 다음 Azure CLI 명령은 최근 JDK 8 및 [Apache Tomcat](https://tomcat.apache.org/) 버전 8.0에서 실행되도록 웹앱을 구성합니다.
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -90,7 +90,7 @@ Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱�
 ### <a name="set-up-the-jenkins-job"></a>Jenkins 작업 설정
 
 1. Jenkins 대시보드에 새 **프리스타일** 프로젝트를 만듭니다.
-2. [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)의 로컬 분기를 사용하도록 **소스 코드 관리** 필드를 구성합니다. **리포지토리 URL** 값을 제공합니다. 예: http://github.com/&lt;your_ID>/javawebappsample.
+2. [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)의 로컬 분기를 사용하도록 **소스 코드 관리** 필드를 구성합니다. **리포지토리 URL** 값을 제공합니다. 예: http:\//github.com/&lt;your_ID>/javawebappsample
 3. **셸 실행** 명령을 추가하여 Maven을 사용하여 프로젝트를 빌드하는 단계를 추가합니다. 이 예제의 경우 대상 폴더의 \*.war 파일의 이름을 **ROOT.war**로 바꾸기 위한 추가 명령이 필요합니다.   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Docker용 Jenkins 작업 설정
 
 1. Jenkins 대시보드에 새 **프리스타일** 프로젝트를 만듭니다.
-2. [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)의 로컬 분기를 사용하도록 **소스 코드 관리** 필드를 구성합니다. **리포지토리 URL** 값을 제공합니다. 예: http://github.com/&lt;your_ID>/javawebappsample.
+2. [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)의 로컬 분기를 사용하도록 **소스 코드 관리** 필드를 구성합니다. **리포지토리 URL** 값을 제공합니다. 예: http:\//github.com/&lt;your_ID>/javawebappsample
 3. **셸 실행** 명령을 추가하여 Maven을 사용하여 프로젝트를 빌드하는 단계를 추가합니다. 명령에 다음 줄을 포함합니다.
     ```bash
     mvn clean package

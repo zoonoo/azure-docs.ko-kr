@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2f55ca6d0dae8ca1eaba1f409bd6a9faa75baf9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849213"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
 
@@ -32,10 +32,10 @@ Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 디바이스를 �
 
 Azure Machine Learning Service는 기계 학습 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경을 제공합니다.
 
-[![Azure Machine Learning Service 워크플로](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning Service 워크플로](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service는 오픈 소스 기술을 완벽하게 지원합니다. 따라서 Machine Learning 구성 요소와 함께 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. PyTorch, TensorFlow 및 scikit-learn을 그 예로 들 수 있습니다.
-다양한 도구에 대한 지원을 통해 손쉽게 데이터를 대화식으로 탐색 및 준비하고 모델을 개발 및 테스트할 수 있습니다. [Jupyter Notebook](http://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) 확장을 그 예로 들 수 있습니다.
+다양한 도구에 대한 지원을 통해 손쉽게 데이터를 대화식으로 탐색 및 준비하고 모델을 개발 및 테스트할 수 있습니다. [Jupyter Notebook](https://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) 확장을 그 예로 들 수 있습니다.
 Azure Machine Learning 서비스에는 간편하고 효율적이고 정확하게 모델을 만들 수 있는 [모델 생성 및 조정 자동화](tutorial-auto-train-models.md) 기능이 포함됩니다.
 
 Azure Machine Learning Service를 사용하면 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. Azure Machine Learning 컴퓨팅 및 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)와 같이 사용할 수 있는 여러 [컴퓨팅 대상](how-to-set-up-training-targets.md)과 [고급 하이퍼 매개 변수 튜닝 서비스](how-to-tune-hyperparameters.md)를 통해 클라우드의 강력한 기능을 사용하여 더 나은 모델을 더 빠르게 빌드할 수 있습니다.
@@ -56,7 +56,7 @@ Azure Machine Learning용 <a href="https://aka.ms/aml-sdk" target="_blank">기�
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
-- <a href="http://mxnet.io" target="_blank">MXNet</a>
+- <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning Service는 모델을 자동으로 학습하여 사용자에 맞게 자동으로 조정할 수도 있습니다.
 예제는 [자동화된 Machine Learning을 사용하여 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
@@ -81,7 +81,7 @@ Python 환경에서 작업하거나, 기계 학습 알고리즘에 대한 제어
 
 ## <a name="free-trial"></a>평가판
 
-Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧이 소진되더라도 계정이 유지되므로 [무료 Azure 서비스](https://azure.microsoft.com/free/)를 계속 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다. 또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)합니다. MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
@@ -92,11 +92,11 @@ Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧�
 - 다음 전체 자습서를 따릅니다. 
   + [Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 
   + [데이터를 준비하고 자동화된 기계 학습을 사용하여 회귀 모델 자동 학습](tutorial-data-prep.md)
-  
+
 - [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 데이터를 준비합니다.
 
 - 기계 학습 시나리오를 작성, 최적화 및 관리하는 [기계 학습 파이프라인](/azure/machine-learning/service/concept-ml-pipelines)에 대해 알아보세요.
 
 - 심층적인 [Azure Machine Learning 서비스 아키텍처 및 개념](concept-azure-machine-learning-architecture.md) 문서를 참조하세요.
 
-- 자세한 내용은 [Microsoft의 다른 Machine Learning 제품](./overview-more-machine-learning.md)을 참조하세요.
+- 자세한 내용은 [Microsoft의 다른 Machine Learning 제품](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)을 참조하세요.

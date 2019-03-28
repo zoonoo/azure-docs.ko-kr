@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f04041234bbb7197e276a65b011d16bb15cee90e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099504"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540468"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -77,17 +77,17 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     <html>
     <head>
         <title>Map Search</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-        
+
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
         <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
-        
-        <script>        
+
+        <script>
         function GetMap(){
             //Add Map Control JavaScript code here.
         }
@@ -101,7 +101,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
                 padding: 0;
                 margin: 0;
             }
-            
+
             #myMap {
                 width: 100%;
                 height: 100%;
@@ -118,16 +118,16 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 3. 다음 JavaScript 코드를 HTML 파일의 `GetMap` 함수에 추가하세요. **\<Your Azure Maps Key\>** 문자열을 Maps 계정에서 복사한 기본 키로 바꿉니다.
 
-   ```JavaScript
-   //Instantiate a map object
-   var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
-   });
-   ```
+    ```JavaScript
+    //Instantiate a map object
+    var map = new atlas.Map("myMap", {
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+            authType: 'subscriptionKey',
+            subscriptionKey: '<Your Azure Maps Key>'
+        }
+    });
+    ```
 
    이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. **atlas**는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. **아틀라스 맵**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공합니다.
 
@@ -137,30 +137,29 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 5. `GetMap` 함수에서 맵을 초기화한 후 다음 JavaScript 코드를 추가합니다.
 
-   ```JavaScript
+    ```JavaScript
+    //Wait until the map resources are loaded.
+    map.events.add('load', function() {
 
-   //Wait until the map resources are loaded.
-   map.events.add('load', function () {
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
 
-       //Create a data source and add it to the map.
-       datasource = new atlas.source.DataSource();
-       map.sources.add(datasource);
-    
-       //Add a layer for rendering point data.
-       var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
-          iconOptions: {
-            image: 'pin-round-darkblue',
-            anchor: 'center',
-            allowOverlap: true
-          },
-          textOptions: {
-            anchor: "top"
-          }
-       });
+        //Add a layer for rendering point data.
+        var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: 'pin-round-darkblue',
+                anchor: 'center',
+                allowOverlap: true
+            },
+            textOptions: {
+                anchor: "top"
+            }
+        });
 
-       map.layers.add(resultLayer);
-   });
-   ```
+        map.layers.add(resultLayer);
+    });
+    ```
 
    이 코드 세그먼트에서 로드 이벤트가 맵에 추가되고, 맵 리소스가 완전히 로드될 때 실행됩니다. 맵 로드 이벤트 처리기에서, 결과 데이터를 저장하는 데이터 원본이 만들어집니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 레이어는 데이터 원본의 결과 데이터를 렌더링하는 방식을 지정합니다. 이 예에서는 짙은 파란색의 둥근 핀 아이콘이 결과 좌표의 중앙에 위치하며 다른 아이콘을 겹칠 수 있습니다. 결과 레이어는 맵 레이어에 추가됩니다.
 
@@ -188,32 +187,32 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
    **SubscriptionKeyCredential**은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 **SubscriptionKeyCredentialPolicy**를 만듭니다. **atlas.service.MapsURL.newPipeline()** 은 **SubscriptionKeyCredential** 정책을 사용하고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스를 만듭니다. **searchURL**은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 제공된 위도와 경도의 지정된 반경 내에서 인접한 주유소를 검색합니다. 그런 다음, 응답에서 GeoJSON 기능 컬력션을 **geojson.getFeatures()** 메서드를 사용하여 데이터 원본에 추가합니다. 그러면 데이터가 기호 레이어를 통해 맵에 자동으로 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다.
- 
-   ```JavaScript
-   var query =  'gasoline-station';
-   var radius = 9000;
-   var lat = 47.64452336193245;
-   var lon = -122.13687658309935;
 
-   searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
-       limit: 10,
-       lat: lat,
-       lon: lon,
-       radius: radius
-   }).then((results) => {
-      
-      // Extract GeoJSON feature collection from the response and add it to the datasource
-      var data = results.geojson.getFeatures();
-      datasource.add(data);
-      
-      // set camera to bounds to show the results
-      map.setCamera({
-        bounds: data.bbox,
-        zoom: 10
-      });
+    ```JavaScript
+    var query =  'gasoline-station';
+    var radius = 9000;
+    var lat = 47.64452336193245;
+    var lon = -122.13687658309935;
+
+    searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+        limit: 10,
+        lat: lat,
+        lon: lon,
+        radius: radius
+    }).then((results) => {
+
+        // Extract GeoJSON feature collection from the response and add it to the datasource
+        var data = results.geojson.getFeatures();
+        datasource.add(data);
+
+        // set camera to bounds to show the results
+        map.setCamera({
+            bounds: data.bbox,
+            zoom: 10
+        });
     });
-   ```
- 
+    ```
+
 3. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 맵이 시애틀 중심에 있고, 둥근 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다.
 
    ![검색 결과가 포함된 지도 보기](./media/tutorial-search-location/pins-map.png)
@@ -239,12 +238,12 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     //Add a mouse over event to the result layer and display a popup when this event fires.
     map.events.add('mouseover', resultLayer, showPopup);
     ```
-    
-    API **atlas Popup**은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 
-      
-2. *스크립트* 태그에서, `GetMap` 함수 뒤에 팝업의 mouseover 결과 정보를 표시하는 다음 코드를 추가합니다. 
 
-   ```JavaScript
+    API **atlas Popup**은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 
+
+2. *스크립트* 태그에서, `GetMap` 함수 뒤에 팝업의 mouseover 결과 정보를 표시하는 다음 코드를 추가합니다.
+
+    ```JavaScript
     function showPopup(e) {
         //Get the properties and coordinates of the first shape that the event occured on.
 
@@ -265,7 +264,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         //Open the popup.
         popup.open(map);
     }
-   ```
+    ```
 
 3. 파일을 저장하고 브라우저를 새로 고칩니다. 이제 브라우저의 지도에서 검색 핀 위를 마우스로 가리키면 정보 팝업이 표시됩니다.
 

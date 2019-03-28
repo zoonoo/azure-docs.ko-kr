@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997309"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -51,7 +51,7 @@ Cost Management 데이터에 액세스하는 방법에 대한 자세한 내용�
 
 ## <a name="review-costs-in-cost-analysis"></a>비용 분석에서 비용 검토
 
-비용 분석을 사용하여 비용을 검토하려면 Azure Portal에서 **Cost Management + 청구** &gt; **비용 분석**으로 이동합니다. **범위: _ScopeName_** 을 선택하고 범위를 선택한 다음, **선택**을 클릭합니다.
+비용 분석에서 비용을 검토하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. **범위** 필을 사용하여 비용 분석에서 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 선택한 범위는 비용 관리 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용할 때는 다중 범위가 선택되지 않습니다. 대신 다른 사람이 속하는 대규모 범위를 선택한 다음, 원하는 범위로 필터링합니다. 자식 범위가 속하는 부모 범위에 대한 액세스를 제한해야 하는 사람도 있으므로 이는 중요한 사항입니다.
 

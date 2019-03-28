@@ -3,7 +3,7 @@ title: Azure Active Directory에서 디바이스 관리란? | Microsoft Docs
 description: 사용자 환경의 리소스에 액세스하는 디바이스를 제어하는 데 디바이스 관리가 어떻게 도움이 되는지에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/01/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5b736c75f65fa5dfc2f3132a43ac0485bc58d19
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168608"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520312"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
 

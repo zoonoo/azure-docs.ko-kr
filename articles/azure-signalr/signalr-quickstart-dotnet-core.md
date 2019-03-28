@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004804"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -267,6 +267,6 @@ connection.start()
 이 빠른 시작에서는 새 Azure SignalR Service 리소스를 만들고 ASP.NET Core 웹앱에서 사용하여 연결된 여러 클라이언트에 실시간으로 콘텐츠 업데이트를 푸시했습니다. Azure SignalR Service를 사용하는 방법을 자세히 알아보려면 인증을 보여주는 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service 인증](./signalr-authenticate-oauth.md)
+> [Azure SignalR Service 인증](./signalr-concept-authenticate-oauth.md)
 
 

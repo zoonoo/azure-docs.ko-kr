@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1152ff23db9c53ef36db537acdd75acb19223b2a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873188"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>자습서: Azure Active Directory와 UltiPro 통합
 
@@ -106,6 +106,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
     ![UltiPro 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
     | ` https://<companyname>.ultipro.ca`|
     
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -165,7 +168,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097664"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로 만들기 및 자동화 - Visual Studio
 
@@ -83,11 +83,13 @@ Azure Logic Apps을 처음 사용하며 단지 기본 개념만 필요한 경우
 
 Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿에서 시작한 논리 앱을 만들고 빌드합니다.
 
-1. 솔루션 탐색기에서 **LogicApp.json** 파일에 대한 바로 가기 메뉴를 엽니다. **Logic Apps 디자이너를 사용하여 열기**를 선택합니다. (키보드: Ctrl+L)
+1. 솔루션 탐색기에서 **LogicApp.json** 파일에 대한 바로 가기 메뉴를 엽니다. 
+   **Logic Apps 디자이너를 사용하여 열기**를 선택합니다. (키보드: Ctrl+L)
 
    ![Logic App 디자이너로 논리 앱 .json 파일 열기](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. **구독**에 대해서는 사용할 Azure 구독을 선택합니다. **리소스 그룹**에 대해서는 **새로 만들기...** 를 선택해 새 Azure 리소스 그룹을 만듭니다. 
+2. **구독**에 대해서는 사용할 Azure 구독을 선택합니다. 
+   **리소스 그룹**에 대해서는 **새로 만들기...** 를 선택해 새 Azure 리소스 그룹을 만듭니다. 
 
    ![Azure 구독, 리소스 그룹 및 리소스 위치 선택](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
    | **위치**: | MyLogicApp-RG2 <br> (미국 서부) | 리소스 그룹 위치를 사용하지 않으려면 다른 위치 |
    ||||
 
-3. Logic Apps 디자이너가 열리고 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다. 비디오 및 트리거를 거꾸로 스크롤합니다. **템플릿** 아래에서 **빈 논리 앱**을 선택합니다.
+3. Logic Apps 디자이너가 열리고 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다. 
+   비디오 및 트리거를 거꾸로 스크롤합니다. **템플릿** 아래에서 **빈 논리 앱**을 선택합니다.
 
    ![“빈 논리 앱”을 선택하기](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
 다음으로, 새 RSS 피드 항목이 나타나면 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 조건을 충족할 경우 발행하는 트리거로 시작해야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 실행하는 논리 앱 인스턴스를 만듭니다.
 
-1. Logic App 디자이너에서 검색 상자에 "rss"를 입력합니다. 이 트리거를 선택할 시기: **피드 항목이 게시되는 경우**
+1. Logic App 디자이너에서 검색 상자에 "rss"를 입력합니다. 다음 트리거를 선택합니다. **피드 항목이 게시된 경우**
 
    ![트리거 및 작업을 추가하여 논리 앱 빌드](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 

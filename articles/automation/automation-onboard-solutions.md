@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082197"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Azure Automation에 업데이트 및 변경 내용 추적 솔루션 등록
 
@@ -81,7 +81,7 @@ ms.locfileid: "41919934"
    ![VM에 업데이트 솔루션 사용](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> 다른 솔루션이 완료되기를 기다리지 않는 경우 다음 솔루션을 사용할 때 다음과 같은 메시지가 표시됩니다. *이 가상 머신 또는 다른 가상 머신에서 다른 솔루션을 설치하는 중입니다. 해당 설치가 사용 단추 사용을 완료하면 이 가상 머신에 솔루션을 설치하도록 요청할 수 있습니다.*
+> 다른 솔루션이 완료되기까지 기다리지 않고 다음 솔루션을 사용하도록 설정하면 다음과 같은 메시지가 나타납니다. *이 가상 머신 또는 다른 가상 머신에서 다른 솔루션 설치가 진행 중입니다. 해당 설치가 사용 단추 사용을 완료하면 이 가상 머신에 솔루션을 설치하도록 요청할 수 있습니다.*
 
 ## <a name="install-and-update-modules"></a>모듈 설치 및 업데이트
 
@@ -105,7 +105,7 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 1. **갤러리 찾아보기**를 선택합니다.
 1. **업데이트 및 변경 내용 추적**을 검색하고, Runbook을 클릭하고, **원본 보기** 페이지에서 **가져오기**를 선택합니다. **확인**을 선택하여 Runbook을 Automation 계정으로 가져옵니다.
 
-  ![온보딩 Runbook 가져오기](media/automation-onboard-solutions/import-from-gallery.png)
+   ![온보딩 Runbook 가져오기](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. **Runbook** 페이지에서 **편집**을 선택한 후 **게시**를 선택합니다. **Runbook 게시** 대화 상자에서 **예**를 선택하여 Runbook을 게시합니다.
 

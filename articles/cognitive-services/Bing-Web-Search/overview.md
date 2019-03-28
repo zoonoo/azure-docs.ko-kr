@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 08/14/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2cf135cc984ce032113de65bead210bd4c5e95ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847986"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
-Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
+Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. Bing Web Search는 검색 관련성 및 Bing Web Search 구독에 기반한 JSON으로 결과를 제공합니다.
 
 이 API는 사용자의 검색 쿼리와 관련된 모든 콘텐츠에 액세스해야 하는 애플리케이션에 가장 적합합니다. 특정 유형의 결과만 필요한 애플리케이션을 빌드하는 경우 [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) 또는 [Bing News Search API](../Bing-News-Search/search-the-web.md)를 사용하는 것이 좋습니다. Bing Search API의 전체 목록은 [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services)를 참조하세요.
 
@@ -28,7 +28,7 @@ Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 R
 
 ## <a name="features"></a>기능  
 
-Bing Web Search는 즉각적인 답변 외에도 사용자의 검색 결과를 사용자 지정할 수 있는 추가 특성과 기능을 제공합니다.
+Bing Web Search는 즉각적인 답변에 대한 액세스 권한만 주는 것이 아니라, 사용자의 검색 결과를 사용자 지정할 수 있는 추가 특성과 기능을 제공합니다.
 
 | 기능 | 설명 |
 |---------|-------------|
@@ -40,7 +40,7 @@ Bing Web Search는 즉각적인 답변 외에도 사용자의 검색 결과를 �
 
 ## <a name="workflow"></a>워크플로
 
-Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 이 서비스는 [REST API](quickstarts/python.md) 또는 [Bing Web Search SDK](web-sdk-python-quickstart.md)를 사용하여 액세스할 수 있습니다.  
+Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 이 서비스는 [REST API](quickstarts/python.md) 또는 [Bing Web Search SDK](web-sdk-python-quickstart.md)를 사용하여 액세스할 수 있습니다.
 
 1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. [Bing Web Search API에 요청을 보냅니다](quickstarts/python.md).

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096982"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402153"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 액세스하고, 랩의 VM에 연결하고 VM을 중지하는 방법을 설명합니다. 
@@ -49,7 +49,8 @@ ms.locfileid: "58096982"
 3. 다음 단계 중 하나를 수행합니다. 
    1. **Windows** 가상 머신의 경우 **RDP** 파일을 하드 디스크에 저장합니다. RDP 파일을 열어 가상 머신에 연결합니다. 강사/교수로부터 받은 **사용자 이름** 및 **암호**를 사용하여 머신에 로그인합니다. 
    3. **Linux** 가상 머신의 경우 **가상 머신에 연결** 대화 상자에서 SSH 연결 문자열을 복사하고 저장합니다. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 문자열을 사용하여 가상 머신에 연결합니다.
-      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>클래스룸 랩의 가상 머신 중지
+
+## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>클래스룸 랩의 가상 머신 중지
 
 VM을 중지하려면 타일에서 **중지**를 선택합니다. VM이 중지되면 타일의 **시작** 단추를 사용할 수 있게 됩니다. 
 

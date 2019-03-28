@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669978"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295031"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -39,15 +40,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 3.  **관리**에서 **사용자**를 선택합니다.
 
-    ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![사용자 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  **새 게스트 사용자**를 선택합니다.
 
-    ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![새 게스트 사용자 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. **초대하는 개인 메시지를 포함**에서 환영 메시지를 입력합니다. 
 
-    ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![게스트 사용자 초대 메시지를 입력할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 메시지 **사용자를 초대함**이 포함된 알림이 오른쪽 위에 표시됩니다. 
 7.  초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
@@ -59,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 3.  **새 애플리케이션**을 선택합니다.
 4. **갤러리에서 추가** 아래에서 **Salesforce**를 검색한 후 선택합니다.
 
-    ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![갤러리에서 추가 검색 상자를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. **추가**를 선택합니다.
 6. **관리** 아래에서 **Single Sign-On**을 선택하고, **Single Sign-on 모드** 아래에서 **암호 기반 Sign-on**을 선택하고, **저장**을 클릭합니다.
 7. **관리** 아래에서 **사용자 및 그룹** > **사용자 추가** > **사용자 및 그룹**을 선택합니다.
@@ -71,11 +72,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1.  테스트 게스트 사용자의 메일 계정에 로그인합니다.
 2.  받은 편지함에서 “초대되었습니다” 메일을 찾습니다.
 
-    ![B2B 초대 메일](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![B2B 초대 이메일을 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  메일 본문에서 **시작**을 선택합니다. 브라우저에서 **권한 검토** 페이지가 열립니다. 
 
-    ![B2B 초대 수락 페이지](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![권한 검토 페이지를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. **수락**을 선택합니다. 게스트 사용자가 액세스할 수 있는 애플리케이션을 나열하는 액세스 패널이 열립니다.
 
