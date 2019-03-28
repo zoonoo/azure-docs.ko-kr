@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104083"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541012"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호
 Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러스터를 보호해야 합니다. 클러스터에서 프로덕션 작업을 실행하는 경우 특히 보안이 중요합니다. 이 문서에서는 *ClusterConfig.JSON* 파일에서 Windows 보안을 사용하여 노드 간 및 클라이언트-노드 간 보안을 구성하는 방법을 설명합니다.  이 프로세스는 보안[Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 보안 단계 구성에 해당합니다. Service Fabric에서 Windows 보안을 사용하는 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
@@ -30,7 +30,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>gMSA를 사용하여 Windows 보안 구성  
-[Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 구성 파일은 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx)를 사용하여 Windows 보안 구성을 위한 템플릿을 포함합니다.  
+샘플 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 와 함께 다운로드 하는 구성 파일을 [Microsoft.Azure.ServiceFabric.WindowsServer.\< 버전 >.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지를 사용 하 여 Windows 보안 구성을 위한 템플릿을 포함 [그룹 관리 서비스 계정 (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -86,7 +86,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>컴퓨터 그룹을 사용하여 Windows 보안 구성  
-이 모델은 더 이상 사용되지 않습니다. 위에서 설명한 대로 gMSA를 사용하는 것이 좋습니다. [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.Windows.MultiMachine.JSON* 구성 파일은 Windows 보안 구성을 위한 템플릿을 포함합니다.  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
+이 모델은 더 이상 사용되지 않습니다. 위에서 설명한 대로 gMSA를 사용하는 것이 좋습니다. 샘플 *ClusterConfig.Windows.MultiMachine.JSON* 와 함께 다운로드 하는 구성 파일을 [Microsoft.Azure.ServiceFabric.WindowsServer.\< 버전 >.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지는 Windows 보안 구성을 위한 템플릿을 포함 합니다.  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
 
 ```
 "security": {

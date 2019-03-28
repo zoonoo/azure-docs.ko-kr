@@ -1,21 +1,19 @@
 ---
 title: 일반적인 Microsoft Power BI 작업 영역 컬렉션 시나리오
 description: 일반적인 Microsoft Power BI Embedded 시나리오
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 04c54250a12e2f5989b474b7c6865ff8052743ef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 0e111c40df79d236bad6130338d021f76587dde4
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041888"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519173"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>일반적인 Power BI 작업 영역 컬렉션 시나리오
 
@@ -30,7 +28,7 @@ Power BI 작업 영역 컬렉션은 주로 대부분의 기존 Power BI API 기�
 * ISV(Independent Software Vendor) 및 고객 쪽 애플리케이션을 빌드하는 고객은 **Power BI 작업 영역 컬렉션** 서비스와 Power BI SDK를 사용하여 대화형 보고서를 포함할 수 있습니다. 방법을 알아보려면 [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)을 참조하세요.
 * 개발자는 Power BI 시각화 프레임워크를 사용하여 사용자 고유의 앱에서 사용할 수 있는 사용자 지정 시각화를 만들 수 있습니다. [사용자 지정 시각화 개체를 사용하여 Power BI 확장](https://powerbi.microsoft.com/custom-visuals/)을 참조하세요.
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>관련 항목
 
 * [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)
 * [시작 샘플](get-started-sample.md)

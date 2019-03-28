@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226915"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521247"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
-Azure Speech Services에서 text to speech는 사용자 응용 프로그램, 도구 또는 장치 자연 스러운 인간과 유사한 합성 된 음성 텍스트 변환 수 있도록 하는 REST 기반 서비스. 표준 및 신경망 음성에서 선택 하거나 직접 만들 [사용자 지정 음성](#custom-voice-fonts) 제품 또는 브랜드에 고유 합니다. 75 표준 음성 45 개 언어 및 로캘을 제공 되며 5 신경망 음성 4 언어 및 로캘을 사용할 수 있습니다. 전체 목록을 참조 하세요 [지원 되는 언어](language-support.md#text-to-speech)합니다.
+Azure Speech Services에서 text to speech는 사용자 응용 프로그램, 도구 또는 장치 자연 스러운 인간과 유사한 합성 된 음성 텍스트 변환 수 있도록 하는 REST 기반 서비스. 표준 및 신경망 음성에서 선택 하거나 사용자 고유의 사용자 지정 음성을 고유한 제품 또는 브랜드를 만듭니다. 75 표준 음성 45 개 언어 및 로캘을 제공 되며 5 신경망 음성 4 언어 및 로캘을 사용할 수 있습니다. 전체 목록을 참조 하세요 [지원 되는 언어](language-support.md#text-to-speech)합니다.
 
 텍스트 음성 변환 기술 콘텐츠 작성자가 사용자에 게 다양 한 방법으로 조작할 수 있습니다. Text to speech 음성으로 콘텐츠와 상호 작용 하는 옵션이 사용자에 게 제공 하 여 접근성을 향상할 수 있습니다. 든 사용자가 시각 장애가, 학습 장애가 운전 하면서 탐색 정보가 필요 text to speech 기존 환경을 개선할 수 있습니다. Text to speech 음성 봇 및 가상 도우미에 대 한 유용한 추가 기능을 이기도합니다.
 
@@ -56,21 +56,21 @@ Azure Speech Services에서 text to speech는 사용자 응용 프로그램, 도
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.JS](quickstart-nodejs-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>샘플 코드
 
 텍스트 음성 변환에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에는 가장 인기 있는 프로그래밍 언어로 텍스트 음성 변환 변환을 다룹니다.
 
-* [텍스트 음성 변환 샘플 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [텍스트 음성 변환 샘플(REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>참조 문서
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 

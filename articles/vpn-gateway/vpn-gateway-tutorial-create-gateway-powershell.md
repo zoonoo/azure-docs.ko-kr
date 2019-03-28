@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414136"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445213"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -118,7 +118,7 @@ TryIt을 사용하는 경우 세션 시간이 초과될 수 있습니다. 그래
 
 ## <a name="view-the-gateway-public-ip-address"></a>게이트웨이 공용 IP 주소 보기
 
-공용 IP 주소의 이름을 알고 있는 경우 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
+공용 IP 주소의 이름을 알고 있는 경우 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
 
 세션 시간이 초과되면 이 자습서 시작 부분의 일반 네트워크 매개 변수를 세 세션에 복사하고 계속 진행합니다.
 

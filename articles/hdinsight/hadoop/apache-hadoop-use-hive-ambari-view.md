@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446597"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517303"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -24,22 +24,14 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
-
-  > [!IMPORTANT]  
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
+* HDInsight에서 Hadoop 클러스터입니다. 참조 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)합니다.
 * 웹 브라우저
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. [Azure portal](https://portal.azure.com/), 클러스터를 선택 합니다.  참조 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 지침에 대 한 합니다. 클러스터는 새 포털 블레이드에서 열립니다.
 
-2. Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택합니다.
-
-    ![포털의 빠른 링크 섹션](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다.
+2. **클러스터 대시보드**를 선택 **Ambari 보기**합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다.
 
 3. 보기 목록에서 __Hive 보기__를 선택합니다.
 
@@ -81,30 +73,30 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
    * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
-     > [!IMPORTANT]  
-     > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
+   > [!IMPORTANT]  
+   > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-5. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
+5. 쿼리를 시작 하려면 **Execute** 워크시트 아래. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
 
 6. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
         loglevel       count
         [ERROR]        3
 
-    **로그** 탭을 사용하여 작업에서 생성된 로깅 정보를 볼 수 있습니다.
+    사용할 수는 **로그** 작업에서 생성 된 로깅 정보를 보려면 탭 합니다.
 
    > [!TIP]  
-   > **프로세스 결과 쿼리** 섹션의 맨위 왼쪽에서 **결과 저장** 드롭다운 대화 상자의 결과를 다운로드하거나 저장합니다.
+   > 다운로드 또는 결과를 저장 합니다 **작업** 드롭다운 대화 상자의 합니다 **결과** 탭 합니다.
 
 ### <a name="visual-explain"></a>시각적 개체 설명
 
 쿼리 계획의 시각화를 표시하려면 워크시트 아래에서 **시각적 개체 설명** 탭을 선택합니다.
 
-쿼리의 **시각적 개체 설명** 보기는 복잡한 쿼리 흐름을 이해하는 데 도움이 됩니다. 쿼리 편집기에서 **설명** 단추를 사용하여 이 보기에 해당하는 텍스트 명령을 확인할 수 있습니다.
+쿼리의 **시각적 개체 설명** 보기는 복잡한 쿼리 흐름을 이해하는 데 도움이 됩니다.
 
 ### <a name="tez-ui"></a>Tez UI
 
-쿼리에 대한 Tez UI를 표시하려면 워크시트 아래에서 **Tez** 탭을 선택합니다.
+쿼리에 대 한 Tez UI를 표시 하려면 선택 합니다 **Tez UI** 워크시트 아래에 있는 탭입니다.
 
 > [!IMPORTANT]  
 > Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. Tez를 사용하지 않고도 많은 쿼리를 확인할 수 있습니다. 

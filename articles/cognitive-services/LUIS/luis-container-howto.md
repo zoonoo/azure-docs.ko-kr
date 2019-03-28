@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295575"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520159"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -40,7 +40,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -309,6 +309,11 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 로그를 업로드한 후 LUIS 포털에서 [엔드포인트 발화](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances)를 검토합니다.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>컨테이너 중지
 
 컨테이너를 종료하려면 컨테이너를 실행하는 명령줄 환경에서 **Ctrl + C**를 누릅니다.
@@ -316,10 +321,6 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 ## <a name="troubleshooting"></a>문제 해결
 
 출력 [탑재](luis-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다. 
-
-## <a name="containers-api-documentation"></a>컨테이너의 API 설명서
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>결제
 

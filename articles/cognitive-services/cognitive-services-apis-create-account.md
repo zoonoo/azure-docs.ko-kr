@@ -1,20 +1,20 @@
 ---
 title: Azure Portal에서 Cognitive Services 계정 만들기
 titlesuffix: Azure Cognitive Services
-description: Azure Portal에서 Microsoft Cognitive Services API를 만드는 방법입니다.
+description: Azure portal에서 Azure Cognitive Services Api 계정을 만드는 방법입니다.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534806"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519904"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기
 
@@ -29,31 +29,10 @@ ms.locfileid: "57534806"
 시작하기 전에 두 가지 유형의 Azure Cognitive Services 구독이 있다는 점을 알아야 합니다. 첫 번째는 Computer Vision 또는 음성 서비스와 같은 단일 서비스에 대한 구독입니다. 단일 서비스 구독은 해당 리소스로 제한됩니다. 두 번째는 Azure Cognitive Services에 대한 다중 서비스 구독입니다. 이 구독을 사용하면 대부분의 Azure Cognitive Services에 대한 단일 구독을 사용할 수 있습니다. 이 옵션은 또한 청구 통합되어 있습니다. 자세한 정보는 [Cognitive Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 
 >[!WARNING]
-> 이 경우 이러한 서비스는 다음과 같은 다중 서비스 키를 지원하지 **않습니다**. QnA Maker, 음성 서비스 및 Custom Vision.
+> 이 경우 이러한 서비스는 다음과 같은 다중 서비스 키를 지원하지 **않습니다**. QnA Maker, 음성 서비스, 사용자 지정 비전 및 이상 감지기
 
 다음 섹션에서는 단일 또는 다중 서비스 구독을 만드는 과정을 안내합니다.
 
-### <a name="single-service-subscription"></a>단일 서비스 구독
-
-1. [Azure Portal](https://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
-
-    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. Azure Marketplace에서 **AI + Machine Learning**을 선택합니다. 관심 있는 서비스가 표시되지 않으면 **모두 보기**를 클릭하여 전체 Cognitive Services API 카탈로그를 표시합니다.
-
-    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. **만들기** 페이지에서 다음 정보를 제공합니다.
-
-    |    |    |
-    |--|--|
-    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 설명이 포함된 이름(예: *MyNameFaceAPIAccount*)을 사용하는 것이 좋습니다. |
-    | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
-    | **위치**: | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
-    | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
-    | **리소스 그룹** | Cognitive Services 리소스를 포함할 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
-
-    ![리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### <a name="multi-service-subscription"></a>다중 서비스 구독
 
@@ -80,6 +59,28 @@ ms.locfileid: "57534806"
     | **리소스 그룹** | Cognitive Services 리소스를 포함할 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
     ![리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### <a name="single-service-subscription"></a>단일 서비스 구독
+
+1. [Azure Portal](https://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
+
+    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. Azure Marketplace에서 **AI + Machine Learning**을 선택합니다. 관심 있는 서비스가 표시되지 않으면 **모두 보기**를 클릭하여 전체 Cognitive Services API 카탈로그를 표시합니다.
+
+    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. **만들기** 페이지에서 다음 정보를 제공합니다.
+
+    |    |    |
+    |--|--|
+    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 설명이 포함된 이름(예: *MyNameFaceAPIAccount*)을 사용하는 것이 좋습니다. |
+    | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
+    | **위치**: | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
+    | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
+    | **리소스 그룹** | Cognitive Services 리소스를 포함할 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
+
+    ![리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>리소스 액세스
 

@@ -1,19 +1,19 @@
 ---
 title: Azure 진단 로그 개요
 description: Azure 진단 로그란 무엇이고 Azure 리소스 내에서 발생하는 이벤트를 파악하는 데 어떻게 사용할 수 있는지 알아봅니다.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310185"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519394"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -49,11 +49,6 @@ ms.locfileid: "57310185"
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 스토리지 계정에 네트워크 흐름 로그를 보관할 수 없습니다.
 
-> [!WARNING]
-> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>진단 설정
 
 리소스 진단 로그는 리소스 진단 설정을 사용하여 구성됩니다. 테넌트 진단 로그는 테넌트 진단 설정을 사용하여 구성됩니다. 서비스 제어에 대한 **진단 설정**:
@@ -61,7 +56,7 @@ ms.locfileid: "57310185"
 * 진단 로그 및 메트릭을 보내는 위치(Storage 계정, Event Hubs 및/또는 Azure Monitor).
 * 전송되는 로그 범주 및 메트릭 데이터의 전송 여부.
 * 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
-    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값 1에서 365 사이의 일 수 있습니다.
     - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
 

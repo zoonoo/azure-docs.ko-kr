@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402765"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517694"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
 
-Security Center는 자동으로 Azure 리소스의 보안 상태를 분석 하는 연속 검색을 실행 합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 보안 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. Security Center 권장 사항의 24 시간 마다 한 번씩 업데이트 됩니다.
+Security Center는 자동으로 Azure 리소스의 보안 상태를 분석 하는 연속 검색을 실행 합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 보안 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. Security Center는 다음과 같은 예외를 사용 하 여 24 시간 이내 해당 권장 구성을 업데이트합니다.
+
+- 운영 체제 보안 구성 권장 사항은 48 시간 이내 업데이트 됩니다.
+- Endpoint Protection 문제 권장 사항은 8 시간 이내 업데이트 됩니다.
 
 ## <a name="scenario"></a>시나리오
 이 시나리오에서는 Security Center 권장 사항을 모니터링하고 조치를 취하여 보안 인시던트가 발생할 가능성을 줄일 수 있도록 Security Center를 사용하는 방법을 보여 줍니다. 시나리오는 Security Center [계획 및 운영 가이드](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)에서 제공된 가상의 회사, Contoso 및 역할을 사용합니다. 이 시나리오에서는 다음 가상 사용자의 역할을 중점적으로 살펴봅니다.

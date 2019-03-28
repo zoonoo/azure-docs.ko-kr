@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781717"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520567"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Windows, Linux에서 또는 PowerShell cmdlet 및 스크립트를 실행할 수 
 > * [모든 구독에서 search 서비스 나열](#list-search-services)
 > * [특정 검색 서비스에 대 한 정보 가져오기](#get-search-service-information)
 > * [만들거나 서비스를 삭제 합니다.](#create-or-delete-a-service)
-> * [관리 API 키를 다시 생성](#regenerate-admin-api-keys)
+> * 관리 API 키를 다시 생성
 > * [만들거나 쿼리 api-key를 삭제 합니다.](#create-or-delete-query-keys)
 > * [복제본 및 파티션의 늘리거나 줄여 서비스를 크기 조정](#scale-replicas-and-partitions)
 

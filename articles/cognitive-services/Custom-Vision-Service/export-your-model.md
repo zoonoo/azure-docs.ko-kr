@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857256"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351300"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
-Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 애플리케이션에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다. 
+Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 애플리케이션에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다.
 
 Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
@@ -37,7 +37,7 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
 > [!NOTE]
 > 이 섹션의 단계는 소형 도메인으로 설정되지 않은 기존 분류자가 있는 경우에만 적용됩니다.
- 
+
 기존 분류자의 도메인을 변환하려면 다음 단계를 수행합니다.
 
 1. [사용자 지정 비전 페이지](https://customvision.ai)에서 __홈__ 아이콘을 선택하여 프로젝트 목록을 살펴봅니다. [https://customvision.ai/projects](https://customvision.ai/projects)를 사용하여 프로젝트를 볼 수도 있습니다.

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2019
+ms.date: 03/26/2019
 ms.author: monhaber
-ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088998"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517983"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 애플리케이션 제어
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
-적응형 애플리케이션 제어는 Azure Security Center의 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. Azure의 VM에서 실행할 수 있는 애플리케이션을 제어할 수 있으며, 여러 장점 가운데 이를 통해 맬웨어에 대해 VM을 강화할 수 있습니다. Security Center는 Machine Learning을 사용하여 VM에서 실행되는 애플리케이션을 분석하며, 이 인텔리전스를 사용하여 특정 허용 목록 규칙을 적용하는 데 도움을 줍니다. 이 기능은 애플리케이션 허용 목록 정책의 구성 및 유지 관리 프로세스를 상당히 단순화하며, 다음을 수행할 수 있도록 합니다.
+적응형 애플리케이션 제어는 Azure Security Center의 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 수 있기 때문에 Azure에서 실행할 수 있는 응용 프로그램 제어 및 비 Azure Vm (Windows 및 Linux)는 다른 이점과 함께 맬웨어로부터 Vm을 강화할 수 있습니다. Security Center는 Machine Learning을 사용하여 VM에서 실행되는 애플리케이션을 분석하며, 이 인텔리전스를 사용하여 특정 허용 목록 규칙을 적용하는 데 도움을 줍니다. 이 기능은 애플리케이션 허용 목록 정책의 구성 및 유지 관리 프로세스를 상당히 단순화하며, 다음을 수행할 수 있도록 합니다.
 
 - 맬웨어 방지 솔루션에서 누락될 수 있는 것들을 포함하여 악성 애플리케이션 실행 시도를 차단하거나 경고합니다.
 - 사용이 허가된 소프트웨어만 사용하도록 규정된 조직의 보안 정책을 준수합니다.
@@ -34,8 +34,11 @@ ms.locfileid: "58088998"
 - 조직에서 허용되지 않는 특정 소프트웨어 도구를 사용하지 않습니다.
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
+> [!NOTE]
+> 비 Azure와 Linux Vm에 대 한 적응형 응용 프로그램 컨트롤은 감사 모드 에서만 지원 됩니다.
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응형 애플리케이션 제어를 사용하는 방법은 무엇입니까?
-적응형 애플리케이션 제어는 구성된 VM 그룹에서 실행되도록 허용된 애플리케이션의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 애플리케이션 허용 목록을 구성할 수 있습니다.
+적응형 애플리케이션 제어는 구성된 VM 그룹에서 실행되도록 허용된 애플리케이션의 집합을 정의할 수 있습니다. 이 기능은 Azure 및 비-Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager)와 Linux Vm 및 서버 모두에 대해 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 애플리케이션 허용 목록을 구성할 수 있습니다.
 
 1. **Security Center** 대시보드를 엽니다.
 2. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
@@ -64,9 +67,9 @@ ms.locfileid: "58088998"
 
    이 목록에는 다음과 같은 정보가 포함됩니다.
 
-   - **이름**: 구독 또는 그룹의 이름
-   - **VM**: 그룹에 있는 가상 머신의 수
-   - **상태**: 권장 사항의 상태입니다.
+   - **그룹 이름을**: 구독 및 그룹의 이름
+   - **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
+   - **상태**: 권장의 상태로
    - **심각도**: 권장의 심각도 수준
 
 2. 그룹을 클릭하여 **애플리케이션 제어 규칙 만들기** 옵션을 엽니다.
@@ -102,8 +105,8 @@ ms.locfileid: "58088998"
 
    이 목록에는 다음과 같은 정보가 포함됩니다.
 
-   - **이름**: 구독 및 그룹의 이름
-   - **VM**: 그룹에 있는 가상 머신의 수
+   - **그룹 이름을**: 구독 및 그룹의 이름
+   - **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
    - **모드**: 감사 모드에서는 허용 목록에 없는 애플리케이션을 실행하려는 시도를 기록하고, 강제 적용 모드에서는 허용 목록에 없는 애플리케이션을 실행할 수 없습니다.
    - **경고**: 현재 위반
 
@@ -146,14 +149,14 @@ Security Center는 안정적인 애플리케이션의 집합을 실행하는 가
 ![권장 사항](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 목록에는 다음이 포함되어 있습니다.
-- **이름**: 구독 또는 그룹의 이름
-- **VM**: 그룹에 있는 가상 머신의 수
+- **그룹 이름을**: 구독 및 그룹의 이름
+- **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
 
 Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애플리케이션 허용 목록 정책을 정의할 수 있습니다. 해당 그룹에서도 애플리케이션 허용 목록 정책을 구성하려면 이전에 설명한 동일한 원칙을 따릅니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Security Center에서 적응 애플리케이션 컨트롤을 사용하여 Azure VM에서 실행되는 애플리케이션의 허용 목록을 나열하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure 및 비 Azure Vm에서 실행 되는 허용 목록에 추가 응용 프로그램에 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하는 방법을 알아보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

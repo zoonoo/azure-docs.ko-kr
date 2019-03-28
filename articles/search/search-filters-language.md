@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311187"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522267"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search에서 언어에 따라 필터링하는 방법 
 
-다국어 검색 응용 프로그램의 핵심 요구 사항은 사용자의 언어로 검색하고 결과를 볼 수 있는 기능입니다. Azure Search에서 다국어 앱의 언어 요구 사항을 충족시키는 한 가지 방법은 문자열을 특정 언어로 저장하는 일련의 필드를 만든 다음 쿼리 시 전체 텍스트 검색을 해당 필드로 제한하는 것입니다.
+다국어 검색 애플리케이션의 핵심 요구 사항은 사용자의 언어로 검색하고 결과를 볼 수 있는 기능입니다. Azure Search에서 다국어 앱의 언어 요구 사항을 충족시키는 한 가지 방법은 문자열을 특정 언어로 저장하는 일련의 필드를 만든 다음 쿼리 시 전체 텍스트 검색을 해당 필드로 제한하는 것입니다.
 
 요청에 대한 쿼리 매개 변수는 검색 작업 범위를 지정하고 전달하려는 검색 환경과 호환되는 콘텐츠를 제공하지 않는 필드의 결과를 잘라내는 데 사용됩니다.
 
@@ -39,17 +39,17 @@ Azure Search에서 쿼리는 단일 인덱스를 대상으로 합니다. 단일 
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) 및 [인덱스 정의(REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json)를 참조하세요.
+> 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) 및 [인덱스 정의(REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json)를 참조하세요.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
-중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
+중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](https://docs.microsoft.com/azure/search/search-create-index-dotnet). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
 
 ## <a name="constrain-the-query-and-trim-results"></a>쿼리 제한 및 결과 자르기
 
 쿼리의 매개 변수는 검색을 특정 필드로 제한한 다음 시나리오에 도움이 되지 않는 필드의 결과를 자르는 데 사용됩니다. 프랑스어 문자열을 포함하는 필드로 검색을 제한하려면 **searchFields**를 사용하여 해당 언어의 문자열이 포함된 필드로 쿼리의 대상을 지정합니다. 
 
-기본적으로 검색은 검색 가능으로 표시된 모든 필드를 반환합니다. 따라서 제공하려는 언어별 검색 환경을 따르지 않는 필드는 제외하려고 할 수 있습니다. 특히 프랑스어 문자열이 있는 필드로 검색을 제한하면 영어 문자열이 있는 필드를 결과에서 제외할 수 있습니다. **$select** 쿼리 매개 변수를 사용하면 호출 응용 프로그램에 반환되는 필드를 제어할 수 있습니다.
+기본적으로 검색은 검색 가능으로 표시된 모든 필드를 반환합니다. 따라서 제공하려는 언어별 검색 환경을 따르지 않는 필드는 제외하려고 할 수 있습니다. 특히 프랑스어 문자열이 있는 필드로 검색을 제한하면 영어 문자열이 있는 필드를 결과에서 제외할 수 있습니다. **$select** 쿼리 매개 변수를 사용하면 호출 애플리케이션에 반환되는 필드를 제어할 수 있습니다.
 
 ```csharp
 parameters =

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369046"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521587"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 이벤트 규칙을 만들고 알림 설정
 
@@ -113,4 +113,5 @@ Azure IoT Central 애플리케이션에서 규칙을 만드는 방법을 알아�
 
 - [규칙에 Microsoft Flow 작업 추가](howto-add-microsoft-flow.md)
 - [규칙에 Webhook 작업 추가](howto-create-webhooks.md)
+- [하나 이상의 규칙에서를 실행 하려면 여러 작업을 그룹화](howto-use-action-groups.md)
 - [디바이스를 관리하는 방법](howto-manage-devices.md)

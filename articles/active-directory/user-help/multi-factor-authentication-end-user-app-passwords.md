@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336306"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517762"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
@@ -40,7 +40,7 @@ Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하
 
 초기 2단계 인증을 등록하는 동안 앱 암호가 지정됩니다. 둘 이상의 암호가 필요한 경우 2단계 인증을 사용하는 방법에 따라 추가적인 암호를 만들 수 있습니다.
 
-- **회사 또는 학교 계정, MyApps 포털에서 2단계 인증을 사용합니다.** 이 문서의 [MyApps 포털을 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-my-apps-portal) 섹션에 나온 지침을 사용하여 앱 암호를 만들고 삭제합니다. MyApps 포털 및 사용 방법에 대한 자세한 내용은 [Azure Active Directory의 MyApps 포털이란?](active-directory-saas-access-panel-introduction.md)을 참조하세요.
+- **회사 또는 학교 계정, MyApps 포털에서 2단계 인증을 사용합니다.** 만들 만들기에서 지침을 사용 하 여 앱 암호를 삭제 하 고이 문서의 MyApps 포털 섹션을 사용 하 여 앱 암호를 삭제 합니다. MyApps 포털 및 사용 방법에 대한 자세한 내용은 [Azure Active Directory의 MyApps 포털이란?](active-directory-saas-access-panel-introduction.md)을 참조하세요.
 
 - **회사 또는 학교 계정, Office 365 포털에서 2단계 인증을 사용합니다.** 이 문서의 [Office 365 포털을 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal) 섹션에 나온 지침을 사용하여 앱 암호를 만들고 삭제합니다.
 

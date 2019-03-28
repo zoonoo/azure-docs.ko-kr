@@ -1,24 +1,38 @@
 ---
 title: QnA Maker 서비스 업그레이드 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다.
+description: 공유 하거나 더 나은 리소스를 관리 하려면 QnA Maker 서비스를 업그레이드 합니다.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883274"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437990"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>QnA Maker 서비스 업그레이드
+# <a name="share-or-upgrade-your-qna-maker-service"></a>공유 또는 QnA Maker 서비스 업그레이드
+공유 하거나 더 나은 리소스를 관리 하려면 QnA Maker 서비스를 업그레이드 합니다. 
+
 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다. [여기](https://aka.ms/qnamaker-docs-capacity)에서 종속 구성 요소 및 SKU 선택의 세부 정보를 참조하세요.
+
+## <a name="share-existing-services-with-qna-maker"></a>QnA Maker를 사용 하 여 기존 서비스를 공유 합니다.
+
+QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 공유에서 혜택을 하기 위해 다음 표에서 사용 하 여 이해 할 수 있는 작업과 공유할 수 없습니다.
+
+|서비스|공유|
+|--|--|
+|Cognitive Services|X|
+|앱 서비스 계획|✔|
+|App Service|X|
+|Application Insights|✔|
+|Search 서비스|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>QnA Maker 관리 SKU 업그레이드
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500426"
+ms.locfileid: "58522216"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -227,7 +227,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ### <a name="archive-data-at-ingest"></a>수집 시 데이터 보관 
 
-일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 이 데이터를 수집된 후 즉시 보관합니다. 다음 수명 주기 정책은 수집 시 데이터를 보관하도록 구성되었습니다. 이 예는 `archivecontainer` 컨테이너 내에 있는 저장소 계정의 블록 Blob을 즉시 보관 계층으로 전환합니다. 마지막으로 수정한 시간으로부터 0일 후 BLOB에 대해 작업을 수행하여 즉시 전환을 완료합니다.
+일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 되 면 데이터를 보관 하도록 구성 됩니다. 전환 블록 blob 컨테이너 내에서 저장소 계정에이 예제에서는 `archivecontainer` 는 보관 계층에 있습니다. 전환 후 마지막으로 수정한 시간 0 일 blob에서 작동 하 여 수행 됩니다.
 
 ```json
 {

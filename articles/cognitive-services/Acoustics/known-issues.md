@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kylestorck
-ms.openlocfilehash: 4cbede768409596365bea0cdbbb451cc5195ac4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 50de4d983ed24440d655cf5b9ba3fb5e33d8d7cd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136262"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309948"
 ---
 # <a name="project-acoustics-known-issues"></a>프로젝트 소음 알려진 문제
 프로젝트 Acoustics용 디자이너 미리 보기를 사용할 경우 다음과 같은 알려진 문제가 발생할 수 있습니다.
@@ -28,8 +28,9 @@ ms.locfileid: "58136262"
 
 최신 버전의 Unity(2018.2 이상)에는 프로젝트를 닫을 때 Unity가 중단되는 알려진 버그가 있습니다. 이 문제는 [이 Unity 문제](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project)로 추적됩니다.
 
-## <a name="trouble-deploying-to-android"></a>Android에 배포할 때 문제 발생
-Android에서 프로젝트 Acoustics를 사용하려면 빌드 대상을 Android로 변경합니다. Unity의 일부 버전에는 오디오 플러그 인을 배포 하는 버그를 있습니다. 영향을 받는 버전을 사용 하지 않는 했는지 [이 버그](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player)합니다.
+## <a name="deploying-to-android-from-some-unity-versions"></a>Android에 대 한 몇 가지 Unity 버전에서 배포
+
+Unity의 일부 버전에는 Android에 대 한 오디오 플러그 인을 배포 하는 버그를 있습니다. 영향을 받는 버전을 사용 하지 않는 했는지 [이 버그](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player)합니다.
 
 ## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>'메타데이터 파일 System.Security.dll을 찾을 수 없음' 오류가 발생함
 

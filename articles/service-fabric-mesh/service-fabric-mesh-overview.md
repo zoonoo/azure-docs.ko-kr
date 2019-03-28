@@ -3,18 +3,18 @@ title: Azure Service Fabric Mesh 개요 | Microsoft Docs
 description: Azure Service Fabric Mesh에 대해 자세히 알아봅니다. Service Fabric Mesh를 사용하여 애플리케이션의 인프라 요구 사항을 걱정하지 않고 애플리케이션을 배포하고 크기를 조정할 수 있습니다.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44c58e09c478c9dba9143b10d150babc553f4695
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000653"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337683"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh란?
 
@@ -49,7 +49,7 @@ Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 - Azure의 Service Fabric Mesh 서비스에 배포하는 모든 리소스(예: 애플리케이션, 서비스, 비밀 등)가 Azure Resource Manager 리소스이므로 Azure Resource Manager 리소스의 모든 기능(예: 감사 추적 및 [역할 기반 액세스 제어](/azure/role-based-access-control/overview))을 활용합니다.
 - [Azure Portal](https://portal.azure.com), Resource Manager 템플릿 또는 Azure CLI/PowerShell 라이브러리를 사용하여 리소스를 배포하고 관리합니다.
 - [Application Insights](/azure/application-insights/)(또는 원하는 도구)를 사용하는 작업 모니터링 및 경고를 설정하여 플랫폼에서 운영 및 진단 추적을 캡처합니다.
-- [Application Insights](/azure/application-insights/) 또는 원하는 도구를 사용하여 응용 프로그램 모델에서 내보낸 응용 프로그램 진단 정보에 액세스합니다.
+- [Application Insights](/azure/application-insights/) 또는 원하는 도구를 사용하여 애플리케이션 모델에서 내보낸 애플리케이션 진단 정보에 액세스합니다.
 - 애플리케이션 정의에서 서비스에 대한 자동 크기 조정 규칙을 지정하여 리소스 사용량을 최적화합니다.
 
 ## <a name="mission-critical-platform-capabilities"></a>중요 업무용 플랫폼 기능

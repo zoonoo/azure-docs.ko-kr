@@ -8,27 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634629"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521203"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
-HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 알아보세요. 다음 표를 사용하여 HDInsight에서 MapReduce를 사용하는 다양한 방법을 확인할 수 있습니다.
-
-| **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) | **SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [REST (영문)](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows | Windows |
-
-> [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
+HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 알아보세요. 
 
 ## <a id="whatis"></a>MapReduce란
 
@@ -161,10 +151,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) | **SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) | **REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows | Windows |
-
-> [!IMPORTANT]  
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows |Windows |
 
 ## <a id="nextsteps"></a>다음 단계
 

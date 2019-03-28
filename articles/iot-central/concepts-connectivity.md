@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418774"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522097"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -69,7 +69,7 @@ IoT Central 응용 프로그램을 사용 하 여 많은 수의 장치를 등록
 가져온된 장치에 대 한 연결 정보를 검색할 [IoT Central 응용 프로그램에서 CSV 파일을 내보낼](howto-manage-devices.md#export-devices)합니다.
 
 > [!NOTE]
-> 첫 번째 IoT Central에 등록 하지 않고 장치를 연결 하는 방법을 알아보려면 첫 번째 장치를 등록 하지 않고 연결을 참조 하세요.
+> 첫 번째 IoT Central에 등록 하지 않고 장치를 연결 하는 방법을 참조 하세요 [첫 번째 장치 등록 없이 연결](#connect-without-registering-devices)합니다.
 
 ### <a name="set-up-your-devices"></a>장치 설정
 

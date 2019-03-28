@@ -2,7 +2,7 @@
 title: 질문과 대답 - Azure 전용 HSM | Microsoft Docs
 description: Azure 전용 HSM의 다양한 주제를 다루는 질문과 대답
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259995"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540825"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -58,9 +58,28 @@ HSM은 SSL(Secure Sockets Layer), 데이터 암호화, PKI(공개 키 인프라)
 
 Microsoft는 Dedicated HSM 서비스를 통해 Gemalto SafeNet Luna Network HSM만 제공하며, 고객이 제공하는 디바이스를 호스팅할 수 없습니다.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>Q: Azure 전용 HSM이 PIN/ETF 기능을 지원하거나 PCI HSM v1 또는 v2 인증 요구 사항을 충족하나요?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>Q: Azure 전용 HSM 지원 결제 (PIN/ETF) 기능을 하나요?
 
-Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 디바이스는 결제 HSM 특정 기능(예: PIN 또는 ETF)이나 인증을 지원하지 않습니다. 나중에 Azure 전용 HSM 서비스가 결제 HSM을 지원하도록 하려면 아래에 의견을 제공해 주하세요.
+Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 디바이스는 결제 HSM 특정 기능(예: PIN 또는 ETF)이나 인증을 지원하지 않습니다. 나중에 결제 Hsm을 지원 하도록 Azure 전용 HSM 서비스를 사용할 수 있도록 하려는 경우 전달 하세요 피드백에 Microsoft 계정 담당자를 합니다.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>Q: Azure 지역은 전용 HSM을 사용할 수 있습니다?
+
+런타임에 년 3 월 2019 일부 터 전용 HSM은 아래에 나열 된 14 개 지역에서 사용할 수 있습니다. 추가 영역을 계획 및 Microsoft 계정 담당자를 통해 논의 될 수 있습니다.
+
+* 미국 동부
+* 미국 동부 2
+* 미국 서부
+* 미국 중남부
+* 동남아시아
+* 동아시아
+* 북유럽
+* 서유럽
+* 영국 남부
+* 영국 서부
+* 캐나다 중부
+* 캐나다 동부
+* 오스트레일리아 동부
+* 오스트레일리아 남동부
 
 ## <a name="interoperability"></a>상호 운용성
 

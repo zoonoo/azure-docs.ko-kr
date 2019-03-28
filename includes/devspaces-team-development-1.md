@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 1f6e0a8fd2cc14877b98bc12b0d2c8632edbbbb9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664395"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439529"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -70,9 +70,11 @@ Scott은 Dev Spaces를 사용하지 _않고도_ 몇 가지 방법으로 자신�
 >
 > ![CI/CD 다이어그램의 예제](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
-이 시점에서 기준이 실행되어야 합니다. `azds list-up` 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
+이 시점에서 기준이 실행되어야 합니다. `azds list-up --all` 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
 
 ```
+$ azds list-up --all
+
 Name                          DevSpace  Type     Updated  Status
 ----------------------------  --------  -------  -------  -------
 mywebapi                      dev       Service  3m ago   Running

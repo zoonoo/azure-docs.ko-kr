@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895807"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520805"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 효과적인 앵커 환경 만들기
 
@@ -86,7 +86,7 @@ Visual 추적 시스템 혼합 현실에서 사용 하 고 증강 현실 장치�
 
 대화방 시나리오에서 사용자는 단순히 여기 앵커 위치는 알고 있으면 공백을 입력 합니다. 사용자가 장치를 사용 하 여 공간을 검사 하 고 신속 하 게 앵커를 찾습니다.
 
-이 환경은 일반적으로 작성 해야 잘 조정 된 앵커에 설명 된 대로 [다양 한 보기 관점](#consider-various-viewing-perspectives)합니다. 앵커를 만들 때 여러 관점에서 대화방을 검색 하는 경우 사용자는 찾을 하려고 할 때 거의 모든 곳에서 검색할 수 있습니다.
+이 환경은 일반적으로 작성 해야 잘 조정 된 앵커 다양 한 보기 관점에서 설명한 대로 합니다. 앵커를 만들 때 여러 관점에서 대화방을 검색 하는 경우 사용자는 찾을 하려고 할 때 거의 모든 곳에서 검색할 수 있습니다.
 
 ![사용자 앵커를 검색할 공간을 검색할 수 있습니다 하는 방법의 그림](./media/scan-room.png)
 

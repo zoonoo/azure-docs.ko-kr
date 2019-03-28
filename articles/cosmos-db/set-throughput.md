@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너 및 데이터베이스에 프로비전되
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005066"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520907"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -75,6 +75,20 @@ Azure Cosmos 데이터베이스에 처리량을 설정하면 항상 프로비전
 * 컨테이너 B에 프로비전된 처리량의 “P” RU를 명시적으로 구성할 수 있습니다.
 * “K” RU 처리량은 A, C, D, E 4개 컨테이너 간에 공유됩니다. A, C, D 또는 E에서 사용할 수 있는 정확한 처리량은 상황에 따라 다릅니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 컨테이너 B는 항상 “P” RU 처리량을 보장받을 수 있으며 SLA가 지원됩니다.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>업데이트 데이터베이스 또는 컨테이너에 대 한 처리량
+
+컨테이너를 Azure Cosmos 데이터베이스 또는 데이터베이스를 만든 후에 프로 비전된 된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에서 구성할 수 있는 최대 프로 비전 된 처리량에는 제한이 없습니다. 최소 프로 비전 된 처리량은 다음 요인에 따라 달라 집니다. 
+
+* 컨테이너에 저장할 수 있는 최대 데이터 크기
+* 그 어느 때 컨테이너에서 프로 비전 하는 최대 처리량
+* 그 어느 때 공유 처리량을 사용 하 여 데이터베이스에서 만든 Azure Cosmos 컨테이너의 최대 수입니다. 
+
+Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량을 프로그래밍 방식으로 검색 하거나 Azure portal에서 값을 확인할 수 있습니다. .NET SDK를 사용 하 여 [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) 메서드를 사용 하면 프로 비전 된 처리량 값을 조정할 수 있습니다. Java SDK를 사용 하 여 [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) 메서드를 사용 하면 프로 비전 된 처리량 값을 조정할 수 있습니다. 
+
+.NET SDK를 사용 하 여 [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 메서드를 사용 하면 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
+
+언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 유휴 시간을 4 시간 후에 규모 축소 작업을 실행할 수 있습니다. 유휴 기간이 시간으로 정의 했습니다. 제공 하지 않는 컨테이너 또는 데이터베이스를 포함 하는 규모 확장 및 규모 축소 바꾸기 작업 기간입니다. 
 
 ## <a name="comparison-of-models"></a>모델 비교
 

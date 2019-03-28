@@ -1,21 +1,19 @@
 ---
 title: Power BI 작업 영역 컬렉션의 새로운 기능
 description: Power BI 작업 영역 컬렉션의 새로운 기능에 대한 최신 정보 얻기
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252056"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518068"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 새로운 기능
 
@@ -35,7 +33,7 @@ ms.locfileid: "51252056"
 
 **REST API를 사용한 데이터 연결**
 
-* [데이터 집합 만들기](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* [데이터 세트 만들기](https://msdn.microsoft.com/library/azure/mt778875.aspx)
 * 데이터 푸시 
 
 **관리 API**

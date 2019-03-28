@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855132"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518085"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter 서버 관리
 
@@ -108,7 +108,7 @@ IP 주소 업데이트 되는 즉시 새 vCenter에서 가상 컴퓨터의 검�
 4. 이제에서 마이그레이션된 가상 컴퓨터를 보호 [보호를 사용 하도록 설정 하면 새 vCenter를 선택 하면](vmware-azure-tutorial.md#enable-replication)합니다.
 
 > [!TIP]
-> 마이그레이션되는 가상 머신의 숫자가 **더 높은** 수가 이전 vcenter에서 유지 하는 가상 컴퓨터 수가 제공 된 지침을 사용 하 여 새 vCenter의 IP 주소를 업데이트 [여기](#modify-vcenter-ip-address-port). 이전 vcenter에서 유지 되는 몇 가지 가상 컴퓨터용 [복제 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [구성 서버에 새 vCenter 세부 정보를 추가](#add-vmware-server-to-the-vault)를 시작 하 고  **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 합니다.
+> 마이그레이션되는 가상 머신의 숫자가 **더 높은** 이전 vcenter에서 유지 하는 가상 컴퓨터 수가 수가 여기에 제공 된 지침을 사용 하 여 새 vCenter의 IP 주소를 업데이트 합니다. 이전 vcenter에서 유지 되는 몇 가지 가상 컴퓨터용 [복제 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [구성 서버에 새 vCenter 세부 정보를 추가](#add-vmware-server-to-the-vault)를 시작 하 고  **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

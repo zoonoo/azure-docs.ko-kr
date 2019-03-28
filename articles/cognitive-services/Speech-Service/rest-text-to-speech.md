@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d67d8462c177d19dfa3cebbd0b4b000fbe3f41b8
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57895319"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497672"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
-음성 서비스를 사용 하면 REST API를 사용 하 여 텍스트 음성 변환 서비스로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. 텍스트를 음성으로 변환 REST API는 인공신경망 및 표준 텍스트를 음성으로 보이스를 지원하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
+음성 서비스를 사용 하면 [합성 된 음성 텍스트 변환](#convert-text-to-speech) 하 고 [지원 되는 음성의 목록을 가져오려면](#get-a-list-of-voices) REST Api 집합을 사용 하는 영역에 대 한 합니다. 사용 가능한 각 끝점에 있는 지역과 연결 됩니다. 사용 하려는 끝점/지역에 대 한 구독 키가 필요 합니다.
+
+텍스트를 음성으로 변환 REST API는 인공신경망 및 표준 텍스트를 음성으로 보이스를 지원하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
 
 * 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 * 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#text-to-speech)을 참조하세요.
@@ -34,9 +36,117 @@ ms.locfileid: "57895319"
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="request-headers"></a>헤더 요청
+## <a name="get-a-list-of-voices"></a>음성의 목록 가져오기
 
-이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
+`voices/list` 끝점을 사용 하면 특정 지역/끝점에 대 한 음성의 전체 목록을 가져올 수 있습니다.
+
+### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
+
+| 지역 | 엔드포인트 |
+|--------|----------|
+| 미국 서부 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
+| 미국 서부2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 동부 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 동부2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 동아시아 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 서유럽 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+
+### <a name="request-headers"></a>헤더 요청
+
+이 표에서 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 나열합니다.
+
+| 헤더 | 설명 | 필수/선택 |
+|--------|-------------|---------------------|
+| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
+
+### <a name="request-body"></a>요청 본문
+
+본문에는 필요 하지 않습니다. `GET` 이 끝점에 요청 합니다.
+
+### <a name="sample-request"></a>샘플 요청
+
+이 요청에 권한 부여 헤더가 필요합니다.
+
+```http
+GET /cognitiveservices/voices/list HTTP/1.1
+
+Host: westus.tts.speech.microsoft.com
+Authorization: Bearer [Base64 access_token]
+```
+
+### <a name="sample-response"></a>샘플 응답
+
+이 응답은 응답의 구조를 보여 주기 위해 잘렸습니다.
+
+> [!NOTE]
+> 음성 가용성 영역/끝점에 따라 다릅니다.
+
+```json
+[
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+        "ShortName": "ar-EG-Hoda",
+        "Gender": "Female",
+        "Locale": "ar-EG"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
+        "ShortName": "ar-SA-Naayf",
+        "Gender": "Male",
+        "Locale": "ar-SA"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
+        "ShortName": "bg-BG-Ivan",
+        "Gender": "Male",
+        "Locale": "bg-BG"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
+        "ShortName": "ca-ES-HerenaRUS",
+        "Gender": "Female",
+        "Locale": "ca-ES"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)",
+        "ShortName": "cs-CZ-Jakub",
+        "Gender": "Male",
+        "Locale": "cs-CZ"
+    },
+
+    ...
+
+]
+```
+
+### <a name="http-status-codes"></a>HTTP 상태 코드
+
+각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
+
+| HTTP 상태 코드 | 설명 | 가능한 원인 |
+|------------------|-------------|-----------------|
+| 200 | 확인 | 요청에 성공 합니다. |
+| 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
+| 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
+| 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
+| 502 | 잘못된 게이트웨이 | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
+
+
+## <a name="convert-text-to-speech"></a>텍스트 음성 변환
+
+합니다 `v1` 끝점을 사용 하면 텍스트 음성 변환 하 고 사용 하 여 변환할 [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)합니다.
+
+### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
+
+이러한 지역은 REST API를 사용한 텍스트 음성 변환에 대해 지원됩니다. 사용자 구독 지역과 일치하는 엔드포인트를 선택해야 합니다.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+### <a name="request-headers"></a>헤더 요청
+
+이 표에서 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 나열합니다.
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
@@ -45,7 +155,7 @@ ms.locfileid: "57895319"
 | `X-Microsoft-OutputFormat` | 오디오 출력 형식을 지정합니다. 허용되는 값의 전체 목록은 [오디오 출력](#audio-outputs)을 참조하세요. | 필수 |
 | `User-Agent` | 애플리케이션 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |
 
-## <a name="audio-outputs"></a>오디오 출력
+### <a name="audio-outputs"></a>오디오 출력
 
 각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스 24 KHz, 16 KHz 지원 하 고 8 44.1khz 오디오 출력 합니다.
 
@@ -62,14 +172,14 @@ ms.locfileid: "57895319"
 > [!NOTE]
 > 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. 단, 24khz 음성은 `audio-16khz-16kbps-mono-siren` 및 `riff-16khz-16kbps-mono-siren` 출력 형식을 지원하지 않습니다.
 
-## <a name="request-body"></a>요청 본문
+### <a name="request-body"></a>요청 본문
 
 각 `POST` 요청의 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 전송됩니다. SSML에서는 텍스트 음성 변환 서비스에서 반환한 합성된 음성의 목소리와 언어를 선택할 수 있습니다. 지원되는 목소리의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 
 > [!NOTE]
 > 사용자 지정 목소리를 사용하는 경우에는 요청 본문을 일반 텍스트(ASCII 또는 UTF-8)로 전송할 수 있습니다.
 
-## <a name="sample-request"></a>샘플 요청
+### <a name="sample-request"></a>샘플 요청
 
 이 HTTP 요청은 SSML을 사용하여 음성 및 언어를 지정합니다. 본문은 1,000자를 초과할 수 없습니다.
 
@@ -94,7 +204,7 @@ Authorization: Bearer [Base64 access_token]
 * [Python](quickstart-python-text-to-speech.md)
 * [Node.JS](quickstart-nodejs-text-to-speech.md)
 
-## <a name="http-status-codes"></a>HTTP 상태 코드
+### <a name="http-status-codes"></a>HTTP 상태 코드
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 

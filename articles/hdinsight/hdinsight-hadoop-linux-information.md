@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/09/2018
-ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/20/2019
+ms.openlocfilehash: c149c6466f7d86f5cb22c840d4353c3939768768
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202455"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518986"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -28,8 +28,9 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다.
-* [jq](https://stedolan.github.io/jq/) - JSON 문서를 구문 분석하는 데 사용됩니다.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure 서비스를 원격으로 관리하는 데 사용됩니다.
+* **jq**, 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조하세요.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - Azure 서비스를 원격으로 관리하는 데 사용됩니다.
+* **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="users"></a>사용자
 
@@ -39,23 +40,23 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 ## <a name="domain-names"></a>도메인 이름
 
-인터넷에서 클러스터에 연결할 때 사용할 FQDN(정규화된 도메인 이름)은 **&lt;clustername>.azurehdinsight.net** 또는 **&lt;clustername-ssh>.azurehdinsight.net**(SSH인 경우만)입니다.
+인터넷에서 클러스터에 연결할 때 사용할 정규화 된 도메인 이름 (FQDN)은 `CLUSTERNAME.azurehdinsight.net` 또는 `CLUSTERNAME-ssh.azurehdinsight.net` (예: SSH에만 해당).
 
 내부적으로 클러스터의 각 노드 이름은 클러스터 구성 중에 할당됩니다. 클러스터 이름을 찾으려면 Ambari 웹 UI의 **호스트** 페이지를 참조하세요. 다음을 사용하여 Ambari REST API에서 호스트 목록을 반환할 수도 있습니다.
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-**CLUSTERNAME**을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리자 계정에 대한 암호를 입력합니다. 이 명령은 클러스터의 호스트 목록을 포함하는 JSON 문서를 반환합니다. Jq는 각 호스트에 대한 `host_name` 요소 값을 추출하는 데 사용됩니다.
+`CLUSTERNAME`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리자 계정에 대한 암호를 입력합니다. 이 명령은 클러스터의 호스트 목록을 포함하는 JSON 문서를 반환합니다. [jq](https://stedolan.github.io/jq/) 추출 하는 데 사용 되는 `host_name` 각 호스트에 대 한 요소 값입니다.
 
 특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음 명령을 사용합니다.
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-이 명령은 서비스를 설명하는 JSON 문서를 반환한 다음 jq에서 호스트에 대한 `host_name` 값만 추출합니다.
+이 명령은 서비스를 설명 하는 JSON 문서를 반환한 차례로 [jq](https://stedolan.github.io/jq/) 만 추출 합니다 `host_name` 호스트에 대 한 값입니다.
 
 ## <a name="remote-access-to-services"></a>서비스에 대한 원격 액세스
 
-* **Ambari(웹)** - https://&lt;clustername>.azurehdinsight.net
+* **Ambari (웹)** - https://CLUSTERNAME.azurehdinsight.net
 
     클러스터 관리자 사용자 이름 및 암호를 사용 하 여 인증 하 고 Ambari에 로그인 합니다.
 
@@ -66,21 +67,21 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
     >
     > Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
-* **Ambari(REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **WebHCat(Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **SSH** - &lt;clustername >-ssh.azurehdinsight.net(포트 22 또는 23). 포트 22는 기본 헤드 노드에 연결하는 데 사용되는 반면 포트 23은 보조 헤드 노드에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+* **SSH** -CLUSTERNAME-ssh.azurehdinsight.net 포트 22 또는 23입니다. 포트 22는 기본 헤드 노드에 연결하는 데 사용되는 반면 포트 23은 보조 헤드 노드에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
     > [!NOTE]  
     > 클라이언트 컴퓨터에서 SSH를 통해 클러스터 헤드 노드에 액세스할 수 있습니다. 연결한 후 헤드 노드에서 SSH를 사용하여 작업자 노드에 액세스할 수 있습니다.
@@ -91,8 +92,8 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.2.4.9-1**: 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
-* **current**: **2.2.4.9-1** 디렉터리 아래의 하위 디렉터리에 대한 링크를 포함하고 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
+* **2.6.5.3006-29**: 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **current**: 이 디렉터리 아래의 하위 디렉터리에 대 한 링크가 포함 된 **2.6.5.3006-29** 디렉터리입니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
@@ -150,7 +151,9 @@ __Azure Data Lake Storage Gen1__을 사용하는 경우 다음 URI 체계 중 �
 
 Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색할 수 있습니다. curl을 사용하여 HDFS 구성 정보를 검색하도록 다음 명령을 사용하고 [jq](https://stedolan.github.io/jq/)를 사용하여 필터링합니다.
 
-```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```bash
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+```
 
 > [!NOTE]  
 > 이 명령은 해당 정보가 있는 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환합니다. 최신 버전을 찾기 위해 모든 구성 버전을 나열해야 할 수 있습니다.
@@ -163,19 +166,23 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 
 * Azure Data Lake Storage를 사용하는 경우 `adl://home`입니다. Data Lake Storage 이름을 가져오려면 다음 REST 호출을 사용합니다.
 
-    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+     ```bash
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
+    ```
 
     이 명령은 `<data-lake-store-account-name>.azuredatalakestore.net` 호스트 이름을 반환합니다.
 
     저장소 내에서 HDInsight의 루트 디렉터리를 가져오려면 다음 REST 호출을 사용합니다.
 
-    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+    ```bash
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
+    ```
 
     이 명령은 `/clusters/<hdinsight-cluster-name>/`과 비슷한 경로를 반환합니다.
 
 또한 다음 단계를 사용하여 Azure Portal에서 저장소 정보를 찾을 수도 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
 2. **속성** 섹션에서 **Storage 계정**을 선택합니다. 클러스터에 대한 저장소 정보가 표시됩니다.
 
@@ -210,7 +217,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
 ## <a name="scaling"></a>클러스터 크기 조정
 
-클러스터 크기 조정 기능을 사용하면 클러스터에서 사용하는 데이터 노드 수를 동적으로 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.
+클러스터 크기 조정 기능을 사용하면 클러스터에서 사용하는 데이터 노드 수를 동적으로 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.  또한 참조 [확장 HDInsight 클러스터](./hdinsight-scaling-best-practices.md)
 
 다른 클러스터 종류는 다음과 같이 크기 조정에 영향을 받습니다.
 
@@ -237,7 +244,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
     * **Storm UI**: Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
 
-        1. 웹 브라우저에서 **https://CLUSTERNAME.azurehdinsight.net/stormui**를 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+        1. 오픈 `https://CLUSTERNAME.azurehdinsight.net/stormui` 웹 브라우저에서 여기서 `CLUSTERNAME` Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
         2. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
 * **Kafka**: 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
@@ -275,7 +282,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 다른 버전의 구성 요소를 사용하려면 필요한 버전을 업로드한 후 작업에서 사용합니다.
 
-> [!WARNING]
+> [!IMPORTANT]
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원되며 Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
 > 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/)).
@@ -283,6 +290,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
+* [Apache Ambari REST API를 사용 하 여 HDInsight 클러스터 관리](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hadoop/hdinsight-use-mapreduce.md)

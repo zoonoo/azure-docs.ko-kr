@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096778"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517269"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 관련 된 비용 추적
 이 문서에서는 랩의 비용을 추적 하는 방법에 정보를 제공 합니다. 예상 보는 방법 표시 trent 랩에 대 한 달에 대 한 비용입니다. 또한 문서는 랩에서 리소스 당 월 누계 비용을 확인 하는 방법을 보여줍니다.
@@ -71,7 +71,7 @@ DevTest Labs에서 지출 목표를 설정하고 이후에 월별 예상 비용 
    - **목표 비용**을 지정합니다. 예를 들어, 얼마나 하려는 정의 된 기간 내에이 랩에 지출 하도록 합니다.
    - 지정된 **비용 목표**의 최대 125%까지 25% 단위로 보고서를 받을 수 있도록 임계값을 사용하거나 사용하지 않도록 선택합니다.
       - **알림**: 이 임계값에 도달 하는 경우 지정할 웹 후크 URL로 알림이 표시 됩니다.
-      - **차트에 넣을**: 에 설명 된 대로 결과 볼 수 있는 비용 추세 그래프에 표시 됩니다이 임계값이 충족 되 면 [월간 예상 비용 추세 차트 보기](#viewing-the-monthly-estimated-cost-trend-chart)합니다.
+      - **차트에 넣을**: 이 임계값에 도달 하는 경우 월별 예상 비용 추세 차트 보기에 설명 된 대로 결과 볼 수 있는 비용 추세 그래프에 표시 됩니다.
    - 임계값에 도달하면 **알림**을 받기로 선택하는 경우 웹후크 URL을 지정해야 합니다. 비용 통합 영역에서 **통합을 추가하려면 여기를 클릭하세요.** 를 선택합니다. 입력을 **웹 후크 URL** 한 다음 선택한 구성 알림 창 **확인**합니다.
 
        ![알림 창 구성](./media/devtest-lab-configure-cost-management/configure-notification.png)

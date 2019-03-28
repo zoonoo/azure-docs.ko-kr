@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860564"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361594"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
@@ -65,9 +65,11 @@ Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Le
 
 ### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
 
-사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  단계를 완료한 후에는 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
+사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ 단계를 완료한 후에는 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
 
 ## <a name="start"></a>개발 환경 설정
 

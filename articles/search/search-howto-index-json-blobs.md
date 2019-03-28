@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405116"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518748"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 이 문서에서는 Azure Search blob을 구성 하는 방법을 보여 줍니다 [인덱서](search-indexer-overview.md) Azure Blob storage에서 JSON 문서에서 구조적된 콘텐츠를 추출 하 여 Azure Search에서 가능 합니다. 이 워크플로 Azure Search 인덱스를 만들고 JSON blob에서 추출 하는 기존 텍스트를 사용 하 여 로드 합니다. 
@@ -211,7 +211,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 일정 및 매개 변수는 선택적입니다. 사용 하 여 인덱서가 즉시 실행을 생략 하면 `json` 구문 분석 모드입니다.
 
-이 특정 인덱서 포함 되지 않습니다 [필드 매핑](#field-mappings)합니다. 인덱서 정의 내에서 생략할 수 있습니다 **필드 매핑** 원본 JSON 문서의 속성 중 대상 검색 인덱스의 필드와 일치 하는 경우. 
+이 특정 인덱서 필드 매핑 포함 되지 않습니다. 인덱서 정의 내에서 생략할 수 있습니다 **필드 매핑** 원본 JSON 문서의 속성 중 대상 검색 인덱스의 필드와 일치 하는 경우. 
 
 
 ### <a name="rest-example"></a>REST 예제
@@ -253,7 +253,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 ### <a name="indexer-request"></a>인덱서 요청
 
-이 요청에는 완벽 하 게 지정 된 인덱서를 보여 줍니다. 여기에 [필드 매핑](#field-mappings)을 이전 예제에서 생략 되었습니다. 해당 "일정", "parameters"를 회수 하 고 "fieldMappings"은 선택 사항으로 사용할 수 있는 기본 키를 누릅니다. 즉시 실행 되도록 인덱서를 사용 하면 "예약"을 생략 합니다. "Json" 기본값을 사용 하려면 인덱스를 하면 "parsingMode"를 생략 합니다.
+이 요청에는 완벽 하 게 지정 된 인덱서를 보여 줍니다. 이전 예제에서 생략 된 필드 매핑을 포함 합니다. 해당 "일정", "parameters"를 회수 하 고 "fieldMappings"은 선택 사항으로 사용할 수 있는 기본 키를 누릅니다. 즉시 실행 되도록 인덱서를 사용 하면 "예약"을 생략 합니다. "Json" 기본값을 사용 하려면 인덱스를 하면 "parsingMode"를 생략 합니다.
 
 Azure Search에서 인덱서를 만드는 데이터 가져오기를 트리거합니다. 실행 즉시 하 고 그 후 일정에 따라 하나를 제공한 경우.
 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369164"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521009"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 만들기
 
@@ -24,7 +24,7 @@ Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine
 이 문서에서는 이러한 방법 중 하나를 사용 하 여 작업 영역을 만드는 방법 알아보기: 
 * 합니다 [Azure portal](#portal) 인터페이스
 * [Azure Machine Learning Python for SDK](#sdk)
-* [Azure Resource Manager 템플릿](#template)
+* Azure Resource Manager 템플릿
 * [Azure 기계 학습 CLI](#cli)
 
 다른 자습서 및 방법 문서에 필수 구성 요소로 여기의 단계를 사용 하 여 만든 작업 영역을 사용할 수 있습니다. 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110157"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540774"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
+사용할 수 있습니다 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 만들기 및 Azure Monitor에서 Log Analytics 작업 영역을 구성 합니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
 * 설정 가격 책정 계층을 포함하는 작업 영역 만들기 
 * 솔루션 추가
@@ -42,12 +42,12 @@ ms.locfileid: "58110157"
 ## <a name="api-versions"></a>API 버전
 다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
-| 리소스 | 리소스 형식 | API 버전 |
+| 리소스 | 리소스 종류 | API 버전 |
 |:---|:---|:---|
-| 작업 영역   | 작업 영역    | 2017-03-15-preview |
+| 작업 영역   | workspaces    | 2017-03-15-preview |
 | 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
-| 솔루션    | 솔루션     | 2015-11-01-preview |
+| 해결 방법    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다.  
@@ -506,7 +506,7 @@ ms.locfileid: "58110157"
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>명령줄
+#### <a name="command-line"></a>명령 줄
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json

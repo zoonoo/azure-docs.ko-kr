@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994717"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520584"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -964,7 +964,7 @@ https://&ltnode&gt:7630
 ![Hawk 제약 조건 나열](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-다음과 같이 Hawk의 **History**에서 **hb_report** 출력을 업로드할 수도 있습니다. [일을 수집하는 hb_report](#hbreport-to-collect-log-files)를 참조하세요. 
+다음과 같이 Hawk의 **History**에서 **hb_report** 출력을 업로드할 수도 있습니다. 로그 파일을 수집 hb_report를 참조 하세요. 
 
 ![Hawk hb_report 출력 업로드](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841645"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541055"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Hyper-V VM에 대한 장애 복구(failback) 실행
 
@@ -54,7 +54,7 @@ ms.locfileid: "52841645"
 
 1. 새 하드웨어를 설정하는 경우 서버에서 Windows Server 2012 R2 및 Hyper-V역할을 설치 합니다.
 2. 원본 서버에 있던 동일한 이름의 가상 네트워크 스위치를 만듭니다.
-3. 장애 복구하려는 **보호된 항목** -> **보호 그룹** -> <ProtectionGroupName> -> <VirtualMachineName>을 선택하고 **계획된 장애 복구**를 선택합니다.
+3. 선택 **보호 된 항목** -> **보호 그룹** -> \<보호 >-> \<VirtualMachineName > 장애 복구 하려면 선택한 **계획 된 장애 조치**합니다.
 4. **계획된 장애 조치 확인** select **존재하지 않는 경우 온-프레미스 가상 머신 만들기**에서 의견이나 질문을 게시합니다.
 5. 호스트 이름**에서 가상 머신을 배치하려는 새 Hyper-V 호스트 서버를 선택합니다.
 6. 데이터 동기화에서 장애 조치(failover) 전에 데이터 동기화 옵션을 선택하는 것이 좋습니다. 이 옵션은 가상 머신을 종료하지 않고 동기화하므로 가상 머신에 대한 가동 중지 시간을 최소화합니다. 이 에이전트는 다음을 수행합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "52841645"
     - 2단계: 새로운 변경 사항이 발생할 수 있도록 Azure에서 가상 머신을 종료합니다. 최종 변경 집합이 온-프레미스 서버로 전송되면 온-프레미스 가상 머신이 시작됩니다.
     
 7. 확인 표시를 클릭하여 장애 조치(장애 복구)를 시작합니다.
-8. 초기 동기화가 완료되고 Azure에서 가상 머신을 종료할 준비가 되면 **작업** > <planned failover job> > **완전한 장애 조치**에서 의견이나 질문을 게시합니다. 그러면 Azure 컴퓨터가 종료되고 마지막 변경 내용이 온-프레미스 가상 컴퓨터에 전송된 다음 시작됩니다.
+8. 초기 동기화가 완료 된 후 Azure에서 가상 머신을 종료 하려면 클릭 준비가 **작업** > \<계획 된 장애 조치 작업이 >> **완전 한 장애 조치** . 그러면 Azure 컴퓨터가 종료되고 마지막 변경 내용이 온-프레미스 가상 컴퓨터에 전송된 다음 시작됩니다.
 9. 온-프레미스 가상 머신에 로그인하여 모든 것이 예상대로 작동되는지 확인할 수 있습니다. 그 다음 **커밋** 을 클릭하여 장애 조치를 완료합니다. 커밋은 Azure 가상 머신과 해당 디스크를 삭제하고 VM을 다시 보호할 수 있도록 준비합니다.
 10. **역방향 복제** 를 클릭하여 온-프레미스 가상 머신의 보호를 시작합니다.
 

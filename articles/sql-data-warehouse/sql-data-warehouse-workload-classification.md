@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57993997"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520143"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse 작업 분류 (미리 보기)
 
@@ -33,6 +33,8 @@ ms.locfileid: "57993997"
 데이터 웨어하우징 워크 로드를 분류 하는 방법은 여러 가지를 하는 동안 로드 및 쿼리를 간단 하 고 가장 일반적인 분류는입니다. Insert, update 및 delete 문을 사용 하 여 데이터를 로드 합니다.  Select를 사용 하 여 데이터를 쿼리할 수 있습니다. 데이터 웨어하우징 솔루션은 더 높은 리소스 클래스에 더 많은 리소스를 할당 하는 등의 로드 작업에 대 한 워크 로드 정책을 경우가 많습니다. 작업 부하에 비해 낮은 중요도 같은 쿼리는 다양 한 워크 로드 정책을 적용할 수 없습니다.
 
 로드 및 쿼리 워크 로드를 subclassify 수도 있습니다. Subclassification 워크 로드에 대 한 제어를 제공합니다. 예를 들어 큐브의 새로 고침, 대시보드 쿼리나 임시 쿼리 워크 로드 구성할 수 있습니다. 각각 다른 리소스 클래스 또는 중요도 설정으로 이러한 쿼리 워크 로드를 분류할 수 있습니다. Subclassification에서 부하를 활용할 수도 있습니다. 큰 변환 더 큰 리소스 클래스를 할당할 수 있습니다. 중요도 더 높고 키 판매 데이터를 날씨 데이터 전에 로더 또는 소셜 데이터 피드를 사용할 수 있습니다.
+
+모든 문은 리소스가 필요 하지 않거나 실행에 영향을 중요 한 역할을 할 것으로 분류 됩니다.  BEGIN, COMMIT 및 ROLLBACK TRANSACTION 문을 분류 되지 않는 DBCC 명령이 있습니다.
 
 ## <a name="classification-process"></a>분류 프로세스
 

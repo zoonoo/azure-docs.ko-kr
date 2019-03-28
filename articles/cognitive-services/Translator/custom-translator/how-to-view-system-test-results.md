@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997708"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438617"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -78,6 +78,9 @@ ms.locfileid: "57997708"
     ![모델 배포](media/how-to/how-to-deploy-model-regions.png)
 
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
+
+>[!Note]
+>사용자 지정 변환기에에서 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원합니다.
 
 ## <a name="update-deployment-settings"></a>배포 설정 업데이트
 

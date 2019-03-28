@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261267"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541080"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드 만들기
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 사용자 지정 필드 만들기
 
 > [!NOTE]
-> 이 문서에서는 Log Analytics에서 수집된 문자 데이터를 구문 분석하는 방법을 설명합니다. 쿼리의 텍스트 데이터를 수집한 후에 [Log Analytics에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)의 설명에 따라 구문 분석하는 경우에는 여러 가지 이점이 있습니다.
+> 이 문서에서는 수집 되는 Log Analytics 작업 영역에서 텍스트 데이터를 구문 분석 하는 방법을 설명 합니다. 에 설명 된 대로 수집 된 후에 쿼리에서 텍스트 데이터를 구문 분석 이점이 [Azure Monitor에서 텍스트 데이터를 구문 분석](../log-query/parse-text.md)합니다.
 
-Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 Log Analytics의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
+합니다 **사용자 지정 필드** Azure Monitor의 기능을 사용 하면 자체 검색 가능한 필드를 추가 하 여 Log Analytics 작업 영역에서 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
 
 ![사용자 지정 필드 개요](media/custom-fields/overview.png)
 

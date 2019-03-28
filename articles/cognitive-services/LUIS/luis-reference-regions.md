@@ -1,7 +1,7 @@
 ---
 title: 게시 지역 및 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. 앱을 게시하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다.
+description: 제작 영역 3 및 해당 포털 많은 게시 되는 모든 지역 지원합니다. LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. 앱을 게시하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765173"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436339"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 
-LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. [앱을 게시](./luis-how-to-publish-app.md)하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다. 
+세 가지 제작 영역 및 해당 포털에는 많은 게시 되는 모든 지역 지원합니다. LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. [앱을 게시](./luis-how-to-publish-app.md)하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다. 
 
-## <a name="luis-website"></a>LUIS 웹 사이트
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS 제작 영역
 지역에 따라 세 가지 LUIS 웹 사이트가 있습니다. 동일한 지역에서 작성하고 게시해야 합니다. 
 
-|LUIS|지역|
-|--|--|
-|[www.luis.ai][www.luis.ai]|미국<br>유럽 이외<br>오스트레일리아 이외|
-|[au.luis.ai][au.luis.ai]|오스트레일리아|
-|[eu.luis.ai][eu.luis.ai]|유럽|
+|LUIS|글로벌 지역|Azure의 제작 영역|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|미국<br>유럽 이외<br>오스트레일리아 이외| `westus`|
+|[au.luis.ai][au.luis.ai]|오스트레일리아| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai]|유럽|`westeurope`|
+
+게시 다른 Azure 지역에 배포 된 LUIS 서비스와 상호 작용에 대 한 제작 영역을 사용할 수 있습니다.  
+
+제작 영역의 [쌍을 이루는 장애 조치 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)합니다. 
 
 ## <a name="regions-and-azure-resources"></a>지역 및 Azure 리소스
 앱은 LUIS 포털에 추가된 LUIS 리소스와 관련된 모든 지역에 게시됩니다. 예를 들어, [www.luis.ai][www.luis.ai]에서 만든 앱의 경우 **westus**에서 LUIS 리소스를 만든 후 앱에 리소스로 추가하면 이 앱은 해당 지역에 게시됩니다. 

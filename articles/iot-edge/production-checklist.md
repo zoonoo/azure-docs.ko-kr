@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433453"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521757"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -134,7 +134,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 ### <a name="use-tags-to-manage-versions"></a>태그를 사용하여 버전 관리
 
-태그는 Docker 컨테이너의 버전을 구별하는 데 사용할 수 있는 Docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.0** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.0**입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다. 
+태그는 docker 컨테이너의 버전 간을 구분 하는 데 사용할 수 있는 docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.0** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.0**입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다. 
 
 또한 태그는 IoT Edge 디바이스에 업데이트를 적용하는 데 도움이 됩니다. 모듈의 업데이트된 버전을 컨테이너 레지스트리에 푸시할 때 태그를 증분합니다. 그런 다음, 태그가 증분된 새 배포를 디바이스에 푸시합니다. 컨테이너 엔진이 증분된 태그를 새 버전으로 인식하고 최신 모듈 버전을 디바이스로 끌어옵니다. 
 
@@ -172,7 +172,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
    | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
    | \*.blob.core.windows.net | 443 | 이미지 델타 다운로드 | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub 액세스 |
-   | \*.docker.io  | 443 | Docker 액세스(선택 사항) |
+   | \*.docker.io  | 443 | Docker 허브 액세스 (선택 사항) |
 
 ### <a name="configure-communication-through-a-proxy"></a>프록시를 통한 통신 구성
 
@@ -186,16 +186,57 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
 
-Linux에서 IoT Edge 디먼 로깅 드라이버 기본값으로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-WinEvent`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅에 JSON 드라이버를 사용하며, 이것이 Docker 기본값입니다.  
+Linux에서 IoT Edge 디먼 로깅 드라이버 기본값으로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-WinEvent`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈 드라이버를 사용할 JSON 로깅에 대 한 기본값입니다.  
 
 IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에 액세스하여 로그를 검색하고 문제를 해결할 수 있습니다. 배포 시나리오에서는 해당 옵션이 없을 수 있습니다. 프로덕션에서 사용자 디바이스에 대한 정보를 수집하는 방법을 고려해 보세요. 한 가지 옵션은 다른 모듈에서 정보를 수집하여 클라우드로 보내는 로깅 모듈을 사용하는 것입니다. 로깅 모듈의 한 가지 예는 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)이며, 사용자가 직접 로깅 모듈을 설계할 수도 있습니다. 
 
-리소스가 제한된 디바이스에서 로그가 너무 커지는 것을 걱정하는 경우 메모리 사용을 줄이는 몇 가지 옵션이 있습니다. 
+### <a name="place-limits-on-log-size"></a>로그 크기 제한
 
-* Docker 디먼 자체에서 모든 docker 로그 파일의 크기를 구체적으로 제한할 수 있습니다. Linux의 경우 `/etc/docker/daemon.json`에서 디먼을 구성합니다. Windows의 경우 `C:\ProgramData\docker\confige\daemon.json`에서 구성합니다. 
-* 각 컨테이너에 맞게 로그 파일 크기를 조정하려는 경우 각 모듈의 CreateOptions에서 조정할 수 있습니다. 
-* Docker에 대 한 기본 로깅 드라이버로 저널을 설정 하 여 로그를 자동으로 관리 하도록 Docker를 구성 합니다. 
-* Docker용 logrotate 도구를 설치하여 사용자 디바이스에서 이전 로그를 정기적으로 제거합니다. 다음 파일 사양을 사용합니다. 
+기본적으로 모 비 컨테이너 엔진에는 컨테이너 로그 크기 제한을 설정 하지 않습니다. 시간이 지남에 따라이 장치 로그를 사용 하 여 가득 차지 하 고 디스크 공간 부족에 발생할 수 있습니다. 이 문제를 방지 하려면 다음 옵션을 고려 합니다.
+
+**옵션: 컨테이너 모듈을 모두에 적용 되는 전역 제한 설정**
+
+컨테이너 엔진 로그 옵션의 모든 컨테이너 로그 파일의 크기를 제한할 수 있습니다. 다음 예제는 로그 드라이버 설정 `json-file` 파일의 크기와 수에 제한이 있음 (권장):
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+라는 파일에이 정보를 추가 (또는 추가) `daemon.json` 장치 플랫폼에 적합 한 위치에 놓습니다.
+
+| 플랫폼 | 위치 |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+변경 내용을 적용 하려면 컨테이너 엔진 다시 시작 해야 합니다.
+
+**옵션: 각 컨테이너 모듈에 대 한 로그 설정을 조정합니다**
+
+수행할 수 있습니다 합니다 **createOptions** 각 모듈입니다. 예: 
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Linux 시스템에서 추가 옵션**
+
+* 로그를 보낼 컨테이너 엔진 구성 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 설정 하 여 `journald` 기본 로깅 드라이버로 합니다. 
+
+* Logrotate 도구를 설치 하 여 장치에서 이전 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다. 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

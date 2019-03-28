@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5b21c16a166a3a264156b7719be6a331e00e6e8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881370"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520057"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 
@@ -130,7 +130,21 @@ Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동�
 
 다음은 리소스 클래스에서 제외되고 항상 smallrc에서 실행되는 문입니다.
 
--만들기 또는 삭제 테이블-ALTER TABLE... SWITCH, SPLIT 또는 파티션 병합-ALTER INDEX DISABLE-DROP INDEX-만들기, 업데이트 또는 DROP STATISTICS-TRUNCATE TABLE-ALTER AUTHORIZATION-CREATE LOGIN-만들기, ALTER 또는 DROP USER-만들기, ALTER 또는 DROP PROCEDURE-만들기 또는 삭제 뷰-삽입 값 선택 시스템 뷰와 Dmv에서--DBCC 설명
+- CREATE 또는 DROP TABLE
+- ALTER TABLE ... SWITCH, SPLIT 또는 MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE, UPDATE 또는 DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE, ALTER 또는 DROP USER
+- CREATE, ALTER 또는 DROP PROCEDURE
+- CREATE 또는 DROP VIEW
+- INSERT VALUES
+- SELECT(시스템 뷰와 DMV에서)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW

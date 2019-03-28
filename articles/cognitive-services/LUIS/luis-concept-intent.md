@@ -1,7 +1,7 @@
 ---
-title: 사용자 의도
+title: 의도
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다.
+description: 사용자 작업을 수행 하려는 또는 단일 의도 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871356"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371114"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>LUIS 앱에서 의도에 대한 개념
 
@@ -31,7 +31,7 @@ ms.locfileid: "55871356"
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
  없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
-모든 애플리케이션에는 대체 의도인 미리 정의된 의도 “[None](#none-intent-is-fallback-for-app)”이 제공됩니다. 
+미리 정의 된 의도 함께 제공 되는 모든 응용 프로그램 "[None](#none-intent-is-fallback-for-app)"를 대체 (fallback) 의도입니다. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
 사용자가 정의한 의도 외에도 미리 빌드된 도메인 중 하나에서 미리 빌드된 의도를 사용할 수 있습니다. 앱에서 사용하도록 미리 빌드된 도메인에서 의도를 사용자 지정하는 방법에 대한 자세한 내용은 [LUIS 앱에서 미리 빌드된 도메인 사용](luis-how-to-use-prebuilt-domains.md)을 참조하세요.
@@ -57,7 +57,11 @@ ms.locfileid: "55871356"
 
 [미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)에는 발화가 포함된 의도가 있습니다.  
 
-## <a name="none-intent-is-fallback-for-app"></a>None 의도는 앱의 대체 의도임
+## <a name="none-intent"></a>None 의도
+
+합니다 **None** 의도 모든 앱에 중요 하며 0 길이 발언 없어야 합니다.
+
+### <a name="none-intent-is-fallback-for-app"></a>None 의도는 앱의 대체 의도임
 **None** 의도는 catch-all 또는 대체 의도입니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도는 애플리케이션에서 총 발화의 10~20% 사이여야 합니다. [없음] 의도를 비워 놓지 마세요. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>None 의도가 대화 방향에 도움이 됨
@@ -76,6 +80,12 @@ None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란�
 
 ## <a name="negative-intentions"></a>부정적 의도 
 “자동차가 **필요해**” 및 “자동차가 **필요하지 않아**”와 같이 부정적 의도와 긍정적 의도를 결정하려면 두 개의 의도(긍정적 의도 및 부정적 의도)를 만들고 각 의도에 적절한 발화를 추가합니다. 또는 단일 의도를 만들고 두 가지 긍정적 및 부정적 용어를 엔터티로 표시할 수 있습니다.  
+
+## <a name="intents-and-patterns"></a>의도 및 패턴
+
+예제에서는 길이 발언을 일부 또는 전체 정규식으로 정의할 수 있습니다, 있는 경우 사용을 고려 합니다 [정규식 엔터티](luis-concept-entity-types.md#regular-expression-entity) 와 연결을 [패턴](luis-concept-patterns.md)합니다. 
+
+정규식 엔터티를 사용 하는 패턴 일치 되도록 데이터 추출을 보장 합니다. 패턴 일치는 정확한 의도 되 보장 합니다. 
 
 ## <a name="intent-balance"></a>의도 균형
 앱 도메인 의도는 각 의도에 발화를 균형 있게 분산해야 합니다. 한 의도에 10개의 발화를 포함하고 다른 의도에 500개의 발화를 포함하지 마세요. 균형이 맞지 않습니다. 이 상황이 발생하면 500개의 발화가 포함된 의도를 검토하여 많은 의도를 [패턴](luis-concept-patterns.md)으로 재구성할 수 있는지 확인합니다. 
@@ -96,6 +106,8 @@ None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란�
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>많은 의도가 포함된 앱의 도움말 요청
 의도 수를 줄이거나 의도를 여러 앱으로 나눈 경우 앱이 작동하지 않으면 지원에 문의하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

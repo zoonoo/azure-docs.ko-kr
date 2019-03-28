@@ -1,7 +1,7 @@
 ---
 title: 엔터티 형식
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS(Language Understanding Intelligent Service) 앱에서 엔터티(애플리케이션 도메인의 키 데이터)를 추가합니다.
+description: '엔터티를 utterance에서 데이터를 추출합니다. 엔터티 형식 제공 예측 가능한 데이터를 추출 합니다. 엔터티는 방법은 두 가지가: 기계 학습 및 비 기계 학습. 표현에서 사용 하는 엔터티의 유형을 알고 있어야 하는 것이 반드시 합니다.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844591"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418689"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
-엔터티는 애플리케이션 도메인의 키 데이터인 발화의 단어 또는 구입니다.
+엔터티를 utterance에서 데이터를 추출합니다. 엔터티 형식 제공 예측 가능한 데이터를 추출 합니다. 엔터티는 방법은 두 가지가: 기계 학습 및 비 기계 학습. 표현에서 사용 하는 엔터티의 유형을 알고 있어야 하는 것이 반드시 합니다. 
 
 ## <a name="entity-compared-to-intent"></a>엔터티 및 의도 비교
 
@@ -190,7 +190,7 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 * 데이터는 언어 문화권을 위해 미리 빌드된 엔터티에서 지원되는 일반적인 사용 사례와 일치합니다. 
 
-미리 빌드된 엔터티를 언제든지 추가하고 제거할 수 있습니다. 미리 빌드된 엔터티가 예제 발화에서 검색되는 경우 사용자 지정 엔터티를 불가능으로 표시하여 앱에서 미리 빌드된 엔터티를 제거하고, 엔터티를 표시한 다음, 미리 빌드된 엔터티를 다시 추가합니다. 
+미리 빌드된 엔터티를 언제든지 추가하고 제거할 수 있습니다.
 
 ![Number 미리 빌드된 엔터티](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,38 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 [엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>미리 빌드된 엔터티로 문제 해결
+
+LUIS 포털에서 미리 작성 된 엔터티를 사용자 지정 엔터티를 대신 태그가 지정 되어 있으면이 문제를 해결 하는 방법의 몇 가지 옵션입니다.
+
+앱에 추가 된 미리 작성 된 엔터티는 _항상_ 를 utterance 동일한 텍스트에 대 한 사용자 지정 엔터티 추출 해야 하는 경우에 반환 합니다. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>예제 utterance에서 태그가 지정 된 엔터티를 변경 합니다.
+
+미리 작성 된 엔터티를 동일한 텍스트 또는 토큰에 사용자 지정 엔터티로 예제에서는 utterance 텍스트를 선택 하 고 태그가 지정 된 utterance를 바꿉니다. 
+
+자세한 텍스트 또는 사용자 지정 엔터티 보다는 토큰을 사용 하 여 미리 작성 된 엔터티 태그가 지정 되는 몇 가지 방법이 문제를 해결 하는 방법의 사용 해야 합니다.
+
+* [예제 utterance 제거](#remove-example-utterance-to-fix-tagging) 메서드
+* [미리 작성 된 엔터티 제거](#remove-prebuilt-entity-to-fix-tagging) 메서드
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>태그 지정을 해결 하려면 예제 utterance 제거 
+
+첫 번째 선택 예제 utterance를 제거 하는 것입니다. 
+
+1. 예제 utterance를 삭제 합니다.
+1. 앱을 다시 학습 합니다. 
+1. 뿐만 아니라 단어를 다시 추가 하거나 전체 예제 utterance로 미리 빌드된 엔터티로 표시 된 엔터티, 즉 구를 합니다. 단어 또는 구를 표시 된 미리 작성 된 엔터티도 해야 합니다. 
+1. 예제 utterance에서 엔터티를 선택 합니다 **의도** 페이지 사용자 지정 엔터티를 변경 하 고 다시 학습 합니다. 이 텍스트는 텍스트를 사용 하는 모든 예제 표현에서 미리 빌드된 엔터티로 표시에서 LUIS 이렇게 해야 합니다. 
+1. 전체 원래 예제 utterance 의도를 다시 추가 합니다. 사용자 지정 엔터티는 미리 작성 된 엔터티 대신 표시할 계속 해야 합니다. 사용자 지정 엔터티가 표시 되지 않으면 표현에서 텍스트의 더 많은 예제를 추가 해야 합니다.
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>태그 지정을 해결 하려면 미리 작성 된 엔터티를 제거 합니다.
+
+1. 앱에서 미리 작성 된 엔터티를 제거 합니다. 
+1. 에 **의도** 페이지에서 예제 utterance에서 사용자 지정 엔터티를 표시 합니다.
+1. 앱을 학습합니다.
+1. 앱으로 다시 미리 작성 된 엔터티를 추가 하 고 앱을 학습 합니다. 이 문제가 해결 미리 작성 된 엔터티 복합 엔터티의 일부가 아닌 것을 가정 합니다.
 
 ## <a name="regular-expression-entity"></a>정규식 엔터티 
 

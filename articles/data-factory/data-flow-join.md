@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726875"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540043"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>데이터 흐름 조인 변환 매핑
 
@@ -67,6 +67,10 @@ SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필
 ![셀프 조인](media/data-flow/selfjoin.png "셀프 조인")
 
 위의 다이어그램에서 선택 변환은 맨 위에 있습니다. 전반적으로 원래 스트림의 별칭을 “OrigSourceBatting”으로 지정합니다. 아래 강조 표시된 조인 변환에서 이 선택 스트림 별칭 지정을 오른쪽 조인으로 사용하여 내부 조인의 왼쪽 및 오른쪽에서 동일한 키를 참조할 수 있음을 확인할 수 있습니다.
+
+## <a name="composite-and-custom-keys"></a>복합 및 사용자 지정 키
+
+사용자 지정 및 복합 키 조인 변환 내에서 즉석에서 빌드할 수 있습니다. 각 관계 행 옆의 더하기 기호 (+)를 사용 하 여 추가 조인 열에 대 한 행을 추가 합니다. 또는 식 작성기는 즉석에서 조인 값에 대 한 새 키 값을 계산 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

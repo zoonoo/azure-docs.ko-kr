@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110905"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338244"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
@@ -56,6 +56,10 @@ ms.locfileid: "58110905"
     ![관리 섹션, 버전 페이지, 새 버전 가져오기](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     버전을 가져오면 새 버전이 활성 버전이 됩니다.
+
+### <a name="import-errors"></a>가져오기 오류
+
+* 토크 나이저 오류: 받게 되 면를 **토크 나이저 오류** 다른을 사용 하는 버전을 가져온 하려는 가져오면 [토크 나이저](luis-language-support.md#custom-tokenizer-versions) 현재 앱을 사용 하는 것입니다. 이 문제를 해결 하는 두 가지 옵션이 있습니다. 참조 [토크 나이저 버전 간의 마이그레이션](luis-language-support.md#migrating-between-tokenizer-versions) 자세한 내용은 합니다.
 
 <a name = "export-version"></a>
 

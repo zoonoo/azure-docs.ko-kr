@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 976bab529dc77621ce92dff0d2ae665777023a01
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337577"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418060"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -69,7 +69,7 @@ func init MyFunctionProj --docker
 * `node`: JavaScript 프로젝트를 만듭니다.
 * `python`: Python 프로젝트를 만듭니다.
 
-[!INCLUDE functions-python-preview-note]
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 명령을 실행하는 경우 다음 출력과 같이 표시됩니다.
 

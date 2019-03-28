@@ -4,7 +4,7 @@ description: Azure Active Directory ID 보호 정책에 의해 차단된 사용�
 services: active-directory
 keywords: Azure Active Directory ID 보호, 사용자 차단 해제
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd27e022524e3dd6211591104020f81124245c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209560"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516912"
 ---
 # <a name="how-to-unblock-users"></a>방법: 사용자 차단 해제
 

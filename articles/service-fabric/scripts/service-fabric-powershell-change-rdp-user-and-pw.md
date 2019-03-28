@@ -3,7 +3,7 @@ title: Azure PowerShell Script 샘플 - RDP 사용자 이름 및 암호 업데�
 description: Azure PowerShell 스크립트 샘플 - 특정 노트 유형의 모든 Service Fabric 클러스터 노드에 대해 RDP 사용자 이름과 암호를 업데이트합니다.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a5c1e7786f02b7ebc42f96e4ed12b2fb5729bb41
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177834"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498012"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>클러스터 VM의 관리자 사용자 이름과 암호를 업데이트합니다.
 
 Service Fabric 클러스터의 각 [노드 유형](../service-fabric-cluster-nodetypes.md)은 가상 머신 확장 집합입니다. 이 샘플 스크립트는 특정 노드 유형의 클러스터 가상 머신에 대해 관리자 사용자 이름과 암호를 업데이트합니다.  VMAccessAgent 확장을 확장 집합에 추가합니다. 관리자 암호는 수정 가능한 확장 집합 속성이 아니기 때문입니다.  사용자 이름 및 암호 변경은 확장 집합의 모든 노드에 적용됩니다. 필요에 따라 매개 변수를 사용자 지정합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다. 
 
@@ -34,13 +36,13 @@ Service Fabric 클러스터의 각 [노드 유형](../service-fabric-cluster-nod
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용합니다. 표의 각 명령은 명령 관련 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | 클러스터 노드 유형의 속성을 가져옵니다(가상 머신 확장 집합).   |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| 가상 머신 확장 집합에 확장을 추가합니다.|
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|가상 머신 확장 집합의 상태를 로컬 VMSS 개체의 상태로 업데이트합니다.|
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | 클러스터 노드 유형의 속성을 가져옵니다(가상 머신 확장 집합).   |
+| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| 가상 머신 확장 집합에 확장을 추가합니다.|
+| [업데이트 AzVmss](/powershell/module/az.compute/update-azvmss)|가상 머신 확장 집합의 상태를 로컬 VMSS 개체의 상태로 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,9 +4,9 @@ description: Azure Active Directory Identity Protection에서 위험한 사용�
 services: active-directory
 keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
-ms.author: markvi
+ms.author: joflore
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.reviewer: raluthra
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546d9f6771ea75c2601630850f4e9ef082fd5623
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210988"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517601"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>방법: 위험한 사용자 및 로그인 조사 
 
@@ -46,7 +46,7 @@ ms.locfileid: "56210988"
 
 위험한 사용자 보고서에는 다음을 표시하는 기본 보기가 있습니다.
 
-- Name
+- 이름
 
 - 위험 상태
 
@@ -105,7 +105,7 @@ ms.locfileid: "56210988"
 
 보고되는 데이터를 자신에게 적합한 수준으로 좁히려면 다음 기본 필드를 사용하여 위험한 사용자 데이터를 필터링하면 됩니다.
 
-- Name
+- 이름
 
 - 사용자 이름
 

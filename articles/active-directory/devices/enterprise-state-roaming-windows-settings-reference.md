@@ -4,7 +4,7 @@ description: Windows 10에서 로밍 또는 백업되는 모든 설정의 전체
 services: active-directory
 keywords: 엔터프라이즈 상태 로밍, windows 클라우드
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184502"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521077"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 다음은 Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다. 
@@ -32,10 +32,10 @@ Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 �
 
 | 계정 유형 및 작업 | 데스크톱 | 모바일 |
 | --- | --- | --- |
-| Azure Active Directory: 동기화 |예 |아니요 |
-| Azure Active Directory: 백업/복원 |아니요 |아니요 |
+| Azure Active Directory: 동기화 |예 |아닙니다. |
+| Azure Active Directory: 백업/복원 |아닙니다. |아닙니다. |
 | Microsoft 계정: 동기화 |예 |예 |
-| Microsoft 계정: 백업/복원 |아니요 |예 |
+| Microsoft 계정: 백업/복원 |아닙니다. |예 |
 
 ## <a name="what-is-backup"></a>백업이란?
 Windows 설정은 동기화가 기본이지만 장치에 설치된 애플리케이션 목록 같은 일부 설정은 백업되기만 합니다. Backup은 모바일 디바이스에 대해서만 사용할 수 있으며 현재 엔터프라이즈 상태 로밍 사용자를 위해서는 사용할 수 없습니다. Backup은 Microsoft 계정을 사용하고 설정 및 애플리케이션 데이터를 OneDrive에 저장합니다. 사용자가 설정 앱을 사용하여 장치의 동기화를 비활성화하면 평소에는 동기화되는 애플리케이션 데이터가 백업되기만 합니다. Backup 데이터는 새 디바이스를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. Backup은 디바이스 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.

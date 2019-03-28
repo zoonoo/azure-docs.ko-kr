@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - RDP 포트 범위 변경 | Microso
 description: Azure PowerShell 스크립트 샘플 - 배포된 클러스터의 RDP 포트 범위를 변경합니다.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 83fb6cc03f605a60b06f31fa6ddd82cd4e3e899e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ee2ac3a2051ba7dd63aac5928e1713541f23b81f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30180190"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500103"
 ---
 # <a name="update-the-rdp-port-range-values"></a>RDP 포트 범위 값 업데이트
 
 이 샘플 스크립트는 클러스터가 배포된 후 클러스터 노드 VM에서 RDP 포트 범위 값을 변경합니다.  Azure PowerShell이 사용되므로 기본 VM을 끄지 않습니다.  이 스크립트는 클러스터 리소스 그룹의 `Microsoft.Network/loadBalancers` 리소스를 가져오고 `inboundNatPools.frontendPortRangeStart` 및 `inboundNatPools.frontendPortRangeEnd` 값을 업데이트합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다. 
 
@@ -38,8 +40,8 @@ ms.locfileid: "30180190"
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | `Microsoft.Network/loadBalancers` 리소스를 가져옵니다. |
-|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|`Microsoft.Network/loadBalancers` 리소스를 업데이트합니다.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | `Microsoft.Network/loadBalancers` 리소스를 가져옵니다. |
+|[집합 AzResource](/powershell/module/az.resources/set-azresource)|`Microsoft.Network/loadBalancers` 리소스를 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

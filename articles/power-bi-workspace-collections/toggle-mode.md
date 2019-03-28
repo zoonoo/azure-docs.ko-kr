@@ -1,20 +1,19 @@
 ---
 title: Power BI 작업 영역 컬렉션에서 보고서의 보기 및 편집 모드 간 전환 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 내에서 보고서의 보기 및 편집 모드 간을 전환하는 방법을 알아봅니다.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 689ab38f2fc2d7643fb61c7137a4d88c297615db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38824c40db1f4fb3de9a0a124f74b71eb1ee2f17
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834186"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517133"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에서 보고서의 보기 및 편집 모드 간 전환
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116235"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439246"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>빠른 시작: QnA Maker API 서비스 포털을 사용 하 여 기술 자료 만들기
 
@@ -69,6 +69,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 기술 자료를 사용한 작업이 완료되면 QnA Maker 포털에서 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+비용 절감 측정값을 할 수 있습니다 [공유](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) QnA Maker에 대 한 만든 전부는 아니지만 일부 Azure 리소스입니다.
 
 > [!div class="nextstepaction"]
 > [잡담 개성 추가](./chit-chat-knowledge-base.md)

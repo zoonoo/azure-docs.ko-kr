@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522165"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -145,7 +145,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
    - 기본 정책 HourlyLogBackup.
    - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
-   - RPO(복구 지점 목표) 및 보존 범위를 기반으로 [새 정책을 정의](#configure-a-backup-policy)합니다.
+   - RPO 및 보존 범위에 따라 새 정책을 정의 합니다.
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113348"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539975"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 전용 HSM 배포 아키텍처
 
 Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다. 엄격한 보안 요구 사항을 충족합니다. 다음에 해당하는 고객은 Azure Dedicated HSM을 사용하면 혜택을 얻을 수 있습니다.
 
@@ -37,6 +37,12 @@ HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 �
 * 동아시아
 * 북유럽
 * 서유럽
+* 영국 남부
+* 영국 서부
+* 캐나다 중부
+* 캐나다 동부
+* 오스트레일리아 동부
+* 오스트레일리아 남동부
 
 이러한 각 지역에 있는 두 개의 독립적인 데이터 센터 또는 적어도 두 개 이상의 독립적인 가용성 영역에 HSM 랙이 배포되어 있습니다. 동남 아시아에는 3개의 가용성 영역, 미국 동부 2에는 2개의 가용성 영역이 있습니다. 유럽, 아시아, 미국에는 HSM 서비스를 제공하는 총 8개의 Azure 지역이 있습니다. Azure 지역에 대한 자세한 내용은 공식 [Azure 지역 정보](https://azure.microsoft.com/global-infrastructure/regions/)를 참조하세요.
 Dedicated HSM 기반 솔루션의 디자인 요소로는 위치/대기 시간, 고가용성, 다른 분산 애플리케이션 지원이 포함됩니다.

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400906"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522318"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -121,7 +121,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 |
    | **위치**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
    | **추가 용량** | 예 | 0, 1, 2, 3 | 이 ISE 리소스에 사용할 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [용량 추가](#add-capacity)합니다. |
-   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 여기서 만들 수 있습니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. 그러나 이 관계를 만들려면 먼저 [Azure Logic Apps에 대한 가상 네트워크에서 역할 기반 액세스 제어를 설정](#vnet-access)했는지 확인합니다. |
+   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 여기서 만들 수 있습니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. 그러나이 관계를 만들기 전에 이미 설정한 역할 기반 액세스 제어 가상 네트워크에서 Azure Logic Apps에 대 한 있는지 확인 합니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet).  |
    |||||
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781591"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338057"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>문서 형식 및 명명 규칙 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "57781591"
 | Microsoft Word    | .DOCX        | Microsoft Word 문서                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Adobe Acrobat Portable 문서                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML 문서                                                                                                                                                                                                                                                                  |
-| 텍스트 파일         | .TXT         | UTF-16 또는 UTF-8 인코딩된 텍스트 파일                                                                                                                                                                                                                                             |
+| 텍스트 파일         | .TXT         | Utf-16 또는 utf-8 인코딩된 텍스트 파일입니다. 파일 이름에 일본어 문자를 사용할 수 없습니다.                                                                                                                                                                                        |
 | 정렬된 텍스트 파일 | .ALIGN       | 확장자 `.ALIGN`은 문서 쌍의 문장들이 완벽히 정렬된 경우 사용할 수 있는 특수 확장자입니다. Custom Translator에 `.ALIGN` 파일을 입력하면 문장 정렬이 수행되지 않습니다. |
 | Excel 파일        | .XLSX        | Excel 파일(2013 이상). 스프레드시트의 첫 번째 줄/행이 언어 코드여야 합니다.                                                                                                                                                                                                                                                      |
 

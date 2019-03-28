@@ -4,7 +4,7 @@ description: Azure Portal에서 클래식 정책을 마이그레이션하기 위
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/24/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a52f0521caa86cfeaa4417a90ea6c7bc51fce0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f3246a7efa36e6c6ef0dac93e659a73dac17090a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163639"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516878"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? 
 
@@ -84,7 +84,7 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치에서 모든 정책을 관리할 수 있습니다. 조건부 액세스 구현 방식이 크게 변경되었으므로 클래식 정책을 마이그레이션하기 전에 기본 개념을 숙지해야 합니다.
 
-참조:
+다음을 참조하세요.
 
 - [Azure Active Directory 조건부 액세스란?](../active-directory-conditional-access-azure-portal.md)에서 기본 개념과 용어에 대해 알아봅니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics에서 Azure 서비스 로그 및 메트릭 수집 | Microsoft Docs
-description: 로그 및 메트릭을 Log Analytics에 쓰도록 Azure 리소스에 대한 진단을 구성합니다.
+title: Log Analytics 작업 영역에 Azure 서비스 로그 및 메트릭 수집 | Microsoft Docs
+description: 로그 및 메트릭을 Azure Monitor에서 Log Analytics 작업 영역에 쓰도록 Azure 리소스에 대 한 진단을 구성 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498539"
+ms.locfileid: "58540180"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 Azure 서비스 로그 및 메트릭 수집
 
 Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다음 네 가지가 있습니다.
 
-1. Azure 진단에서 Log Analytics로 직접(다음 표에서 *진단*)
-2. Azure 진단 -&gt; Azure Storage -&gt; Log Analytics(다음 표에서 *스토리지*)
+1. Azure Monitor에서 Log Analytics 작업 영역에 직접 azure 진단 (*진단* 표에)
+2. Azure Monitor에서 Log Analytics 작업 영역에 Azure storage에 azure 진단 (*저장소* 표에)
 3. Azure 서비스에 대한 커넥터(다음 표에서 *커넥터*)
-4. 데이터를 수집한 후 Log Analytics에 게시하기 위한 스크립트(다음 표에서 비어 있으며, 나열되지 않은 서비스에 해당)
+4. 수집 하 고 그런 다음 Azure Monitor (공백 다음 테이블에 나열 되지 않은 서비스에 대 한)에서 Log Analytics 작업 영역에 데이터를 게시 하는 스크립트
 
 
 | 서비스                 | 리소스 종류                           | 로그        | 메트릭     | 해결 방법 |
@@ -64,12 +64,12 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 진단에서 Log Analytics로 직접
-많은 Azure 리소스는 Log Analytics에 직접 진단 로그 및 메트릭을 쓸 수 있으며, 이러한 방식은 분석을 위해 데이터를 수집할 때 선호되는 방식입니다. Azure 진단을 사용하면 데이터가 Log Analytics에 직접 써지며, 먼저 데이터를 저장소에 쓸 필요가 없습니다.
+많은 Azure 리소스 진단 로그 및 메트릭을 Azure Monitor에서 Log Analytics 작업 영역에 직접 쓸 수 및 분석을 위해 데이터를 수집 하는 기본 방법이 있습니다. 작업 영역으로 데이터가 즉시 기록 Azure 진단을 사용 하는 경우 이며 먼저 저장소에 데이터를 쓸 필요가 없습니다.
 
-[Azure Monitor](../../azure-monitor/overview.md)를 지원하는 Azure 리소스는 해당 로그 및 메트릭을 Log Analytics으로 직접 보낼 수 있습니다.
+Azure 리소스를 지 원하는 [Azure monitor](../../azure-monitor/overview.md) 해당 로그 및 메트릭을 Log Analytics 작업 영역에 직접 보낼 수 있습니다.
 
 > [!NOTE]
-> 진단 설정을 통한 Log Analytics에 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
+> Log Analytics 작업 영역 진단 설정 통한 다차원 메트릭 보내기는 현재 지원 되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
 >
 > *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 >
@@ -125,9 +125,9 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure 진단 -> Azure Storage -> Log Analytics
 
-일부 리소스에서 로그를 수집하기 위해서는 Azure Storage에 로그를 보낸 다음 스토리지에서 로그를 읽도록 Log Analytics를 구성할 수 있습니다.
+일부 리소스 내에서 로그를 수집 하는 것에 대 한 Azure storage에 로그 보내기 다음 저장소에서 로그를 읽도록 Log Analytics 작업 영역을 구성 하는 것이 같습니다.
 
-Log Analytics는 이 접근 방법을 사용하여 다음 리소스 및 로그에 대한 진단을 Azure Storage에서 수집할 수 있습니다.
+Azure Monitor에는 다음 리소스 및 로그에 대 한 Azure storage에서 진단을 수집 하려면이 방법을 사용할 수 있습니다.:
 
 | 리소스 | 로그 |
 | --- | --- |
@@ -136,23 +136,23 @@ Log Analytics는 이 접근 방법을 사용하여 다음 리소스 및 로그�
 | 웹 역할  <br> 작업자 역할 |Linux Syslog <br> Windows 이벤트 <br> IIS 로그 <br> Windows ETWEvent |
 
 > [!NOTE]
-> 진단을 계정으로 보내는 경우 저장소 및 트랜잭션에 대해, 그리고 Log Analytics가 저장소 계정에서 데이터를 읽는 경우에 일반 Azure 데이터 요금이 청구될 수 있습니다.
+> Log Analytics 작업 영역 저장소 계정에서 데이터를 읽을 때 및 저장소 계정에 진단을 보내는 경우 저장소 및 트랜잭션에 대해 일반 Azure 데이터 요금이 청구 됩니다.
 >
 >
 
-Log Analytics에서 이러한 로그를 수집하는 방법에 대한 자세한 내용은 [IIS에 대해 Blob Storage 사용 및 이벤트에 대해 Table Storage 사용](azure-storage-iis-table.md)을 참조하세요.
+참조 [이벤트에 대 한 IIS와 table storage에 blob storage 사용](azure-storage-iis-table.md) Azure Monitor에서 이러한 로그를 수집할 수는 방법에 대해 자세히 알아보려면 합니다.
 
 ## <a name="connectors-for-azure-services"></a>Azure 서비스용 커넥터
 
-Application Insights에서 수집된 데이터를 Log Analytics에 전송할 수 있도록 하는 Application Insights용 커넥터가 있습니다.
+Log Analytics 작업 영역을 전송할 수 있도록 Application Insights에서 수집 된 데이터를 허용 하는 Application Insights 용 커넥터가 있습니다.
 
 [Application Insights 커넥터](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)에 대해 자세히 알아보세요.
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>데이터를 수집한 후 Log Analytics에 게시하기 위한 스크립트
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>수집 하 고 Log Analytics 작업 영역에 데이터를 게시 하는 스크립트
 
-Log Analytics에 로그 및 메트릭을 전송하는 직접적인 방법을 제공하지 않는 Azure 서비스의 경우, Azure Automation 스크립트를 사용하여 로그 및 메트릭을 수집할 수 있습니다. 그러면 이 스크립트는 [데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)를 사용하여 Log Analytics로 데이터를 전송할 수 있습니다.
+로그 및 메트릭을 Log Analytics 작업 영역을 보낼 수 있는 직접적인 방법을 제공 하지 않는 Azure 서비스에 대 한 로그 및 메트릭을 수집 하는 Azure Automation 스크립트를 사용할 수 있습니다. 스크립트를 사용 하 여 작업 영역에 데이터를 보낼 수 있습니다는 [데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)
 
-Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure.microsoft.com/resources/templates/?term=OMS) 서비스에서 데이터를 수집한 후 Log Analytics로 전송하는 예제가 나와 있습니다.
+Azure 템플릿 갤러리에 [Azure Automation을 사용 하는 예가](https://azure.microsoft.com/resources/templates/?term=OMS) 서비스에서 데이터를 수집 하 여 Azure Monitor로 전송 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873889"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496941"
 ---
 # <a name="object-detection"></a>개체 감지
 
@@ -97,7 +97,7 @@ Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되
 
 ## <a name="use-the-api"></a>API 사용
 
-개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 전체 JSON 응답을 받으면의 내용에 대 한 문자열을 구문 분석 된 `"objects"` 섹션입니다.
+개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 포함 `Objects` 에 **visualFeatures** 매개 변수를 쿼리 합니다. 그런 다음 전체 JSON 응답을 얻을 때 단순히 문자열을 구문 분석의 콘텐츠에 대해는 `"objects"` 섹션입니다.
 
 * [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)

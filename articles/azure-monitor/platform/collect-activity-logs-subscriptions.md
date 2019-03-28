@@ -1,6 +1,6 @@
 ---
-title: 구독 전체의 Azure 활동 로그를 Log Analytics에 수집 | Microsoft Docs
-description: Event Hubs 및 Logic Apps를 사용하여 Azure 활동 로그에서 데이터를 수집하고 다른 테넌트의 Azure Log Analytics 작업 영역으로 보냅니다.
+title: Log Analytics 작업 영역으로 구독 전체의 Azure 활동 로그를 수집 | Microsoft Docs
+description: Event Hubs 및 Logic Apps를 사용 하 여 Azure 활동 로그에서 데이터를 수집 하 여 다른 테 넌 트에서 Azure Monitor에서 Log Analytics 작업 영역으로 보낼 수 있습니다.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 76a789bd4f9167344fcc240e3f3fdbf3a00aa5a3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984582"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540757"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>다른 Azure Active Directory 테넌트에 있는 구독 전체의 Azure 활동 로그를 Log Analytics에 수집
+# <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Log Analytics 작업 영역으로 다른 Azure Active Directory 테 넌 트에서 구독 전체의 Azure 활동 로그를 수집
 
-이 문서에서는 Logic Apps용 Azure Log Analytics Data Collector 커넥터를 사용하여 Azure 활동 로그를 Log Analytics 작업 영역으로 수집하는 방법을 단계별로 안내합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
+이 문서는 Azure Log Analytics Data Collector 커넥터를 사용 하 여 Logic Apps에 대 한 Azure Monitor에서 Log Analytics 작업 영역으로 Azure 활동 로그를 수집 하는 방법 단계별로 안내 합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
 
 Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azure Active Directory의 다른 구독에 있는 경우 [Azure 활동 로그 솔루션](collect-activity-logs.md)의 단계에 따라 Azure 활동 로그를 수집합니다.
 
@@ -29,23 +29,23 @@ Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azu
 
 이 시나리오에서 사용된 전략은 Azure 활동 로그가 [이벤트 허브](../../event-hubs/event-hubs-about.md)에 이벤트를 보내게 하고, 여기서 [Logic App](../../logic-apps/logic-apps-overview.md)이 이벤트를 Log Analytics 작업 영역으로 보내는 것입니다. 
 
-![활동 로그에서 Log Analytics로의 데이터 흐름 이미지](media/collect-activity-logs-subscriptions/data-flow-overview.png)
+![Log Analytics 작업 영역에 활동 로그에서 데이터 흐름 이미지](media/collect-activity-logs-subscriptions/data-flow-overview.png)
 
 이 접근 방법의 이점은 다음과 같습니다.
-- Azure 활동 로그가 이벤트 허브로 스트리밍된 이후 낮은 대기 시간.  그런 다음 Logic App이 트리거되고 Log Analytics에 데이터를 게시합니다. 
+- Azure 활동 로그가 이벤트 허브로 스트리밍된 이후 낮은 대기 시간.  논리 앱은 다음 트리거되고 작업 영역에 데이터를 게시 합니다. 
 - 최소 코드가 필요하며, 배포할 서버 인프라가 없습니다.
 
 이 문서에서는 다음 방법을 안내합니다.
 1. 이벤트 허브를 만듭니다. 
 2. Azure 활동 로그 내보내기 프로필을 사용하여 활동 로그를 이벤트 허브로 내보냅니다.
-3. 이벤트 허브에서 읽을 Logic App을 만들고 이벤트를 Log Analytics로 보냅니다.
+3. Log Analytics 작업 영역에 이벤트를 보내고 이벤트 허브에서 읽을 수 있는 논리 앱을 만듭니다.
 
 ## <a name="requirements"></a>요구 사항
 다음은 이 시나리오에서 사용되는 Azure 리소스에 대한 요구 사항입니다.
 
 - 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독에 있지 않아도 됩니다. 설정을 구성하는 사용자에게 두 구독에 대한 적절한 액세스 권한이 있어야 합니다. 동일한 Azure Active Directory에 여러 구독이 있는 경우 모든 구독에 대한 활동 로그를 하나의 이벤트 허브로 보낼 수 있습니다.
 - Logic App은 이벤트 허브와 다른 구독에 있을 수 있으며, 동일한 Azure Active Directory에 있지 않아도 됩니다. Logic App은 이벤트 허브의 공유 액세스 키를 사용하여 이벤트 허브에서 읽습니다.
-- Log Analytics 작업 영역은 Logic App과 다른 구독 및 Azure Active Directory에 있을 수 있지만 설명하기 쉽게 동일한 구독에 있는 것이 좋습니다. Logic App은 Log Analytics 작업 영역 ID와 키를 사용하여 Log Analytics로 보냅니다.
+- Log Analytics 작업 영역은 Logic App과 다른 구독 및 Azure Active Directory에 있을 수 있지만 설명하기 쉽게 동일한 구독에 있는 것이 좋습니다. 논리 앱을 Log Analytics 작업 영역 ID 및 키를 사용 하 여 작업 영역에 보냅니다.
 
 
 
@@ -96,13 +96,13 @@ Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azu
 
 ## <a name="step-3---create-logic-app"></a>3단계 - Logic App 만들기
 
-활동 로그가 이벤트 허브에 기록되고 있으면 Logic App을 만들어 이벤트 허브에서 로그를 수집하고 Log Analytics에 씁니다.
+활동 로그를 이벤트 허브에 작성 되 면 이벤트 허브에서 로그를 수집 하 고 Log Analytics 작업 영역에 작성 하는 논리 앱 만들기
 
 Logic App에는 다음이 포함됩니다.
 - 이벤트 허브에서 읽기 위한 [이벤트 허브 커넥터](https://docs.microsoft.com/connectors/eventhubs/) 트리거
 - JSON 이벤트를 추출하기 위한 [JSON 구문 분석 작업](../../logic-apps/logic-apps-content-type.md)
 - JSON을 개체로 변환하기 위한 [작성 작업](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action)
-- Log Analytics에 데이터를 게시하기 위한 [Log Analytics 데이터 보내기 커넥터](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)
+- A [Log Analytics 데이터 보내기 커넥터](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) Log Analytics 작업 영역에 데이터를 게시 합니다.
 
    ![Logic Apps에서 이벤트 허브 트리거 추가 이미지](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -128,11 +128,11 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | 설명  |
    |:---|:---|
-   | Name           | Logic App의 고유 이름입니다. |
+   | 이름           | Logic App의 고유 이름입니다. |
    | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
-   | Log Analytics  | Logic App의 각 실행 상태를 Log Analytics에 기록할지 여부를 선택합니다.  |
+   | Log Analytics  | Log Analytics 작업 영역에서 논리 앱의 각 실행의 상태를 기록 하려는 경우 선택 합니다.  |
 
     
 3. **만들기**를 선택합니다. **배포 성공** 알림이 표시되면 **리소스로 이동**을 클릭하여 Logic App을 엽니다.
@@ -163,7 +163,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 ### <a name="add-parse-json-action"></a>JSON 구문 분석 작업 추가
 
-이벤트 허브의 출력에는 JSON 페이로드가 레코드 배열과 함께 포함됩니다. [JSON 구문 분석](../../logic-apps/logic-apps-content-type.md) 작업은 Log Analytics로 보낼 레코드 배열만 추출하는 데 사용됩니다.
+이벤트 허브의 출력에는 JSON 페이로드가 레코드 배열과 함께 포함됩니다. 합니다 [JSON 구문 분석](../../logic-apps/logic-apps-content-type.md) 작업은 Log Analytics 작업 영역으로 보낼 레코드 배열만 추출 하는 데 사용 됩니다.
 
 1. **새 단계** > **작업 추가**를 클릭합니다.
 2. 검색 상자에서 필터에 *JSON 구문 분석*을 입력합니다. **데이터 작업 - JSON 구문 분석** 작업을 선택합니다.
@@ -286,7 +286,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Log Analytics 데이터 보내기 작업 추가
-[Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) 작업은 작성 작업에서 개체를 받아 Log Analytics로 보냅니다.
+합니다 [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) 작업 작성 작업에서 개체를 사용 하 고 Log Analytics 작업 영역에 보냅니다.
 
 1. **새 단계** > **작업 추가**를 클릭합니다.
 2. 필터에 *Log Analytics*를 입력한 다음 **Azure Log Analytics Data Collector - 데이터 보내기** 작업을 선택합니다.
@@ -304,7 +304,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
    |설정        | 값           | 설명  |
    |---------------|---------------------------|--------------|
    |JSON 요청 본문  | **작성** 작업의 **출력** | 작성 작업의 본문에서 레코드를 검색합니다. |
-   | 사용자 지정 로그 이름 | AzureActivity | 가져온 데이터를 보관하기 위해 Log Analytics에서 만들 사용자 지정 로그 테이블의 이름입니다. |
+   | 사용자 지정 로그 이름 | AzureActivity | 가져온된 데이터를 저장할 Log Analytics 작업 영역에서 만드는 사용자 지정 로그 테이블의 이름입니다. |
    | Time-generated-field | 실시간 | **time**에 대해 JSON 필드를 선택하지 않고 time 단어만 입력합니다. JSON 필드를 선택하면 디자이너가 **데이터 보내기** 작업을 *For Each* 루프에 넣으며, 이는 원하는 작업이 아닙니다. |
 
 
@@ -329,7 +329,7 @@ Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트�
 3.  **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `AzureActivity_CL`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다. 사용자 지정 로그의 이름을 *AzureActivity*로 지정하지 않은 경우 선택한 이름을 입력하고 `_CL`을 추가합니다.
 
 >[!NOTE]
-> 새 사용자 지정 로그를 Log Analytics에 처음 보내는 경우 사용자 지정 로그가 검색 가능해질 때까지 최대 1시간이 걸릴 수 있습니다.
+> 처음으로 새 사용자 지정 로그를 Log Analytics 작업 영역으로 전송 됩니다 걸릴 수 있습니다 검색할 수 있는 반면 사용자 지정 로그에 대 한 1 시간.
 
 >[!NOTE]
 > 활동 로그는 사용자 지정 테이블에 기록되며 [활동 로그 솔루션](./collect-activity-logs.md)에 표시되지 않습니다.
@@ -339,7 +339,7 @@ Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 이벤트 허브에서 Azure 활동 로그를 읽고 분석을 위해 Log Analytics로 보내기 위한 Logic App을 만들었습니다. 대시보드 만들기를 포함하여 Log Analytics에서 데이터를 시각화하는 방법을 알아보려면 데이터 시각화 자습서를 참조하세요.
+이 문서에서는 이벤트 허브에서 Azure 활동 로그를 읽고 분석을 위해 Log Analytics 작업 영역으로 보내도록 logic app을 만들었습니다. 대시보드 만들기를 포함 하는 작업 영역에서 데이터를 시각화에 대해 자세히 알아보려면 데이터 시각화에 대 한 자습서를 검토 합니다.
 
 > [!div class="nextstepaction"]
 > [로그 검색 데이터 시각화 자습서](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

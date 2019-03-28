@@ -3,7 +3,7 @@ title: 방법 - Azure Active Directory 조건부 액세스를 사용하는 클�
 description: 클라우드 앱 액세스에 대한 관리 디바이스가 필요한 Azure AD(Azure Active Directory) 디바이스 기반 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c468f149a8005f2452ba49afbb447c3304c3d4b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170533"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517354"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리형 디바이스 필요
 

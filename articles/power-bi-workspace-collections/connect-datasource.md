@@ -1,21 +1,19 @@
 ---
 title: Power BI 작업 영역 컬렉션에서 데이터 원본에 연결 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 내에서 데이터 원본에 연결하는 방법을 알아봅니다.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 143213b148518fdf936974152d5d9196c42febd8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870098"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521502"
 ---
 # <a name="connect-to-a-data-source"></a>데이터 원본에 연결
 
@@ -43,7 +41,7 @@ Power BI 작업 영역 컬렉션을 사용하면 클라우드 데이터 원본�
 
 **가져오기**
 
-Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하여 가져올 수 있습니다. Power BI 작업 영역 컬렉션 내의 데이터는 새로 고칠 수 **없습니다**. Power BI 작업 영역 컬렉션에 대한 PBIX 파일에 변경 내용을 업로드해야 합니다. 이는 사용 가능한 게이트웨이가 없기 때문입니다. 
+Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하여 가져올 수 있습니다. Power BI 작업 영역 컬렉션 내의 데이터는 새로 고칠 수 **없습니다**. Power BI 작업 영역 컬렉션에 대한 PBIX 파일에 변경 내용을 업로드해야 합니다. 이는 사용 가능한 게이트웨이가 없기 때문입니다.
 
 ## <a name="benefits-of-using-directquery"></a>DirectQuery 사용할 경우의 이점
 
@@ -73,4 +71,3 @@ Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)
-

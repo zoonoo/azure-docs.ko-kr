@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224443"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520669"
 ---
 # <a name="what-is-speech-to-text"></a>음성-텍스트 란?
 
 를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.  사용 가능한 음성-텍스트 언어의 전체 목록을 참조 하세요 [지원 되는 언어](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text)합니다.
 
-기본적으로 음성-텍스트를 범용 언어 모델을 사용합니다. 이 Microsoft에서 소유한 데이터를 사용 하 여 학습 된 모델과 클라우드에 배포 합니다. 적합 한 대화형 및 받아쓰기 시나리오입니다. 음성-텍스트를 인식 및 고유한 환경에서 기록을 사용 하는 경우 만들 수 있으며 산업별 어휘 또는 주변 소음 주소를 사용자 지정 어쿠스틱, 언어 및 발음 모델을 학습. 
+기본적으로 음성-텍스트를 범용 언어 모델을 사용합니다. 이 Microsoft에서 소유한 데이터를 사용 하 여 학습 된 모델과 클라우드에 배포 합니다. 적합 한 대화형 및 받아쓰기 시나리오입니다. 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 
 
-마이크에서 오디오 캡처 하 또는 스트림에서 읽은 다음 Speech SDK 및 REST Api를 사용 하 여 저장소에서 오디오 파일에 액세스할 쉽게 합니다. Speech SDK는 음성 인식을 위한 WAV/PCM 16 비트, 16 kHz, 단일 채널 오디오를 지원합니다. 추가 오디오 형식을 사용 하 여 지원 되는 [음성-텍스트 REST 끝점](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) 또는 [batch 기록 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)합니다.
+마이크에서 오디오 캡처 하 또는 스트림에서 읽은 다음 Speech SDK 및 REST Api를 사용 하 여 저장소에서 오디오 파일에 액세스할 쉽게 합니다. Speech SDK는 음성 인식을 위한 WAV/PCM 16 비트, 16 kHz, 단일 채널 오디오를 지원합니다. 추가 오디오 형식을 사용 하 여 지원 되는 [음성-텍스트 REST 끝점](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) 또는 [batch 기록 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)합니다.
 
 ## <a name="core-features"></a>핵심 기능
 
@@ -47,7 +47,7 @@ ms.locfileid: "58224443"
 
 ## <a name="get-started-with-speech-to-text"></a>음성-텍스트를 사용 하 여 시작
 
-가장 인기 있는 프로그래밍 언어로 표시 되도록 10 분 이내에 코드를 실행 하는 경우 각 빠른 시작을 제공 합니다. 이 테이블에는 언어를 이끄는 Speech SDK 빠른 시작의 전체 목록을 포함 합니다.
+각각이 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 이 테이블에는 언어를 이끄는 Speech SDK 빠른 시작의 전체 목록을 포함 합니다.
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
@@ -67,14 +67,14 @@ ms.locfileid: "58224443"
 
 ## <a name="tutorials-and-sample-code"></a>자습서 및 샘플 코드
 
-음성 서비스를 사용 하는 가능성을 설치한 후에서 Speech SDK 및 LUIS를 사용 하 여 음성 의도 인식 하는 방법에 설명 하는 자습서를 봅니다.
+Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음성에서 의도를 인식하는 방법을 설명하는 자습서를 사용해 보세요.
 
-* [자습서: Speech SDK 및 LUIS를 사용 하 여 음성 의도 인식C#](how-to-recognize-intents-from-speech-csharp.md)
+* [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
 
-Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플 파일 또는 스트림을 연속 및 단일 샷 인식에서 오디오를 읽는 사용자 지정 모델을 사용 하 여 작업 등 일반적인 시나리오를 다룹니다.
+Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
 
 * [음성-텍스트 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [일괄 처리 기록 샘플 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>사용자 지정
 
@@ -84,7 +84,7 @@ Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 
 |-------|-------------|
 | [음향 모델](how-to-customize-acoustic-models.md) | 사용자 지정 어쿠스틱 모델을 만드는 응용 프로그램, 도구 또는 장치 처럼 사용 되는 특정 환경에서는 자동차 또는 특정 기록 조건 사용 하 여 팩터리 하는 경우 도움이 됩니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 의료 용어 등 IT 전문 용어 문법의 대사를 개선 하기 위해 사용자 지정 언어 모델을 만듭니다. |
-| [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용 하 여 음성 폼 및 단어 또는 용어가 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
+| [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
 
 > [!NOTE]
 > 언어/로캘에서 마다 다른 사용자 지정 옵션 (참조 [지원 되는 언어](supported-languages.md)).
@@ -103,11 +103,11 @@ Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 서비스 등록 키를 위한 무료](get-started.md)
+* [무료로 Speech Service 구독 키 받기](get-started.md)
 * [Speech SDK 가져오기](speech-sdk.md)

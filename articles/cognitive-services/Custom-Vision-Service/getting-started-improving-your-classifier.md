@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104423"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351442"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "58104423"
 1. 새 이미지를 사용하여 예측 테스트
 1. 예측 결과에 따라 기존 학습 데이터 수정
 
-## <a name="overfitting"></a>과잉 맞춤
+## <a name="prevent-overfitting"></a>과잉 맞춤 방지
 
 경우에 따라 분류자는 이미지가 공통으로 갖는 임의의 특성을 기준으로 예측하는 법을 학습합니다. 예를 들어, 사과와 감귤류에 대한 분류자를 만들 때 손 위에 사과가 놓여있는 이미지와 흰 접시 위에 감귤류가 놓여있는 이미지를 사용하면 분류자는 사과와 감귤류 대신 손과 접시에 지나치게 집중할 수도 있습니다.
 

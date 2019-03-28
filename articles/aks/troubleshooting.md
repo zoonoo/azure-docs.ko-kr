@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432637"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540927"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -90,3 +90,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 * 클러스터 업그레이드 중 이므로 적극적으로 작업을 종료 될 때까지 기다립니다. 성공한 경우에 이전에 실패 한 작업을 다시 시도 합니다.
 * 클러스터 업그레이드에 실패 하는 경우 위에 설명 된 단계를 수행
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>이동할 수 있습니까 클러스터 내 다른 구독 또는 구독에 새 테 넌 트 내 클러스터를 사용 하 여?
+
+AKS 클러스터를 다른 구독에 새 테 넌 트 구독을 소유 하는 클러스터를 이동 하면 클러스터 서비스 보안 주체 권한과 손실 역할 할당으로 인해 기능이 손실 됩니다. **AKS 구독 또는 테 넌 트 간에 이동 클러스터를 지원 하지 않습니다** 이 인해 제약 조건입니다.

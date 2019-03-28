@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369482"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522335"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -28,7 +28,7 @@ ms.locfileid: "58369482"
 |**미리 보기에 사용할 수 있는 워크 로드 중요도**|워크 로드 중요도 데이터 엔지니어 중요도 사용 하 여 요청을 분류 하는 기능을 제공 합니다. 높은 중요도 사용 하 여 요청에는 Sla를 충족 하는 데 도움이 되는 리소스에 빠르게 액세스할을 보장 됩니다.  워크 로드 중요도 더 적은 리소스를 사용 하 여 공유 환경에서 Sla를 충족 하기 위해 높은 비즈니스 값 작업을 허용 합니다.<br/><br/>워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/>[워크 로드 관리 개념](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**그룹 롤업**|Azure Data Warehouse에서 지원 되는 GROUP BY 옵션 롤업 됩니다.   GROUP BY ROLLUP 열 식의 각 조합에 대 한 그룹을 만듭니다. GROUP BY도 "롤업" 결과 부분합 및 총합계를 합니다. 이렇게 하려면 오른쪽에서 왼쪽으로 집계를 만드는 그룹과 줄입니다 열 식의 수를 줄이거나에서 이동 합니다.  열 순서는 ROLLUP 출력에 영향을 줍니다 및 결과 집합의 행 수에 영향을 줄 수 있습니다.<br/><br/>GROUP BY ROLLUP에 대 한 자세한 내용은 문서를 참조 [GROUP BY (TRANSACT-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**DWU 사용 됨 및 CPU 포털 메트릭에 대 한 정확성 향상된**|SQL Data Warehouse에는 Azure portal에서 메트릭 정확도 크게 향상 됩니다.  이 릴리스에서 모든 계산 노드에서 워크 로드를 올바르게 반영 하기 위해 CPU 및 DWU에 사용 되는 메트릭 정의 대 한 수정은 포함 되어 있습니다.|
-|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다.<br/>&bull; &nbsp; [FORMAT (TRANSACT-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (TRANSACT-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (TRANSACT-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (TRANSACT-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다.<br/>&bull; &nbsp; [FORMAT (TRANSACT-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (TRANSACT-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (TRANSACT-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (TRANSACT-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (TRANSACT-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>설명서 개선

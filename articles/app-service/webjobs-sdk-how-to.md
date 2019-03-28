@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848076"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518833"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>트리거
 
-함수는 공용 메서드여야 및 트리거 특성 하나 있어야 합니다. 또는 [ `NoAutomaticTrigger` ](#manual-trigger) 특성입니다.
+함수는 공용 메서드여야 및 트리거 특성 하나 있어야 합니다. 또는 [ `NoAutomaticTrigger` ](#manual-triggers) 특성입니다.
 
 ### <a name="automatic-triggers"></a>자동 트리거
 
@@ -995,7 +995,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-합니다 `SamplingPercentageEstimatorSettings` 개체를 구성 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server)합니다. 이 특정 대량 볼륨 시나리오에서 Application Insights 원격 분석 데이터의 선택한 하위 집합에서 서버로 보내는 것을 의미 합니다.
+합니다 `SamplingPercentageEstimatorSettings` 개체를 구성 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)합니다. 이 특정 대량 볼륨 시나리오에서 Application Insights 원격 분석 데이터의 선택한 하위 집합에서 서버로 보내는 것을 의미 합니다.
 
 원격 분석 팩터리를 만든 후 전달할에서 Application Insights 로깅 공급자:
 

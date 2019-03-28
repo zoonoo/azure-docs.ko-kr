@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877873"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516972"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -37,6 +37,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 - 바이트 배열 옵션은 30분 후 시간 초과됩니다.
 - `videoURL` 매개 변수에 제공된 URL은 인코딩해야 합니다.
 - URL에서 인덱싱와 동일한 제한 사항이 Media Services 자산 인덱싱
+- Video Indexer는 단일 파일에 대해 4 시간의 최대 지속 시간 제한
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.

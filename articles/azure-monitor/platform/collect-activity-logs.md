@@ -1,5 +1,5 @@
 ---
-title: Log Analytics에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs
+title: Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs
 description: Azure 활동 로그 솔루션을 사용하여 모든 Azure 구독에서 Azure 활동 로그를 분석하고 검색할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540260"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540434"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석
 
 ![Azure 활동 로그 기호](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ ms.locfileid: "53540260"
 
 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 *무엇을*, *누가*, *언제* 썼는지 확인할 수 있습니다. 작업과 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 클래식 배포 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
 
-Azure 활동 로그를 Log Analytics에 연결하면 다음 작업을 수행할 수 있습니다.
+Azure 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음 작업을 수행할 수 있습니다.
 
 - 미리 정의된 보기를 사용하여 활동 로그 분석
 - 여러 Azure 구독의 활동 로그를 분석하고 검색
@@ -40,22 +40,22 @@ Azure 활동 로그를 Log Analytics에 연결하면 다음 작업을 수행할 
 - 리소스에 영향을 미치는 운영 중단 또는 서비스 상태 문제 식별
 - 로그 검색을 사용하여 사용자 활동, 자동 크기 조정 작업, 권한 부여 변경, 서비스 상태와 사용자 환경의 다른 로그 또는 메트릭 간에 상관 관계 지정
 
-<sup>1</sup>기본적으로 Log Analytics는 무료 계층에서도 Azure 활동 로그를 90일 동안 보관합니다. 작업 영역 보존 설정이 90일 미만으로 설정된 경우에도 마찬가지입니다. 작업 영역 보존 설정이 90일보다 긴 경우 작업 영역의 보존 기간에 따라 활동 로그가 보관됩니다.
+<sup>1</sup>기본적으로 Azure Monitor는 Azure 활동 로그를 Log Analytics 작업 영역에서 90 일 동안 무료 계층에 있는 경우에 합니다. 작업 영역 보존 설정이 90일 미만으로 설정된 경우에도 마찬가지입니다. 작업 영역 보존 설정이 90일보다 긴 경우 작업 영역의 보존 기간에 따라 활동 로그가 보관됩니다.
 
-Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 로그를 저장합니다. 로그를 90일 이상 저장하는 경우 90일 넘게 저장된 데이터에 대해 데이터 보존 요금이 발생합니다.
+무료로 활동 로그를 수집 하 고 90 일 동안 무료로 로그를 저장 하는 Log Analytics 작업 영역입니다. 로그를 90일 이상 저장하는 경우 90일 넘게 저장된 데이터에 대해 데이터 보존 요금이 발생합니다.
 
 무료 가격 책정 계층을 사용하는 경우 활동 로그가 일일 데이터 사용량에 적용되지 않습니다.
 
 ## <a name="connected-sources"></a>연결된 소스
 
-대부분의 다른 Log Analytics 솔루션과는 달리, 에이전트에서 활동 로그에 대한 데이터를 수집하지 않습니다. 솔루션에서 사용하는 모든 데이터는 Azure에서 직접 옵니다.
+다른 대부분의 Azure Monitor 솔루션과 달리 에이전트에서 활동 로그에 대 한 데이터 수집 하지 않습니다. 솔루션에서 사용하는 모든 데이터는 Azure에서 직접 옵니다.
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아니요 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아닙니다. | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372415"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517320"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md)는 Azure 및 온-프레미스 리소스 필터링/라우팅/피어링을 포함하는 보안 개인 네트워킹 기능을 제공합니다. 컨테이너 그룹을 Azure Virtual Network에 배포하면 컨테이너가 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) 온-프레미스 리소스 및 Azure에 대 한 보안, 개인 네트워킹을 제공 합니다. 컨테이너 그룹을 Azure Virtual Network에 배포하면 컨테이너가 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
 
 Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 같은 시나리오를 수행할 수 있습니다.
 
@@ -34,7 +34,6 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 가상 네트워크에 컨테이너 그룹을 배포할 때는 특정 제한 사항이 적용됩니다.
 
 * 컨테이너 그룹을 배포하려는 서브넷에는 다른 리소스 종류가 포함되어 있지 않아야 합니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
-* 가상 네트워크에 배포되는 컨테이너 그룹은 현재 공용 IP 주소 또는 DNS 이름 레이블을 지원하지 않습니다.
 * 가상 네트워크에 배포된 컨테이너 그룹의 [관리 ID](container-instances-managed-identity.md)를 사용할 수 없습니다.
 * 가상 네트워크에 컨테이너 그룹을 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 다소 느립니다.
 
@@ -46,10 +45,14 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 컨테이너 리소스 제한은 이러한 지역의 비네트워크 컨테이너 인스턴스에 대한 제한과 다를 수 있습니다. 현재 Linux 컨테이너만 이 기능이 지원됩니다. Windows 지원이 예정되어 있습니다.
 
-### <a name="unsupported-network-resources-and-features"></a>지원 되지 않는 네트워크 리소스 및 기능
+### <a name="unsupported-networking-scenarios"></a>지원 되지 않는 네트워킹 시나리오 
 
-* Azure Load Balancer
-* 가상 네트워크 피어링
+* **Azure Load Balancer** -네트워크에 연결 된 컨테이너 그룹의 Azure Load Balancer를 사용 하 여 컨테이너 인스턴스 앞에 배치할 수 없습니다.
+* **가상 네트워크 피어 링** -다른 가상 네트워크에 Azure Container Instances에 위임 하는 서브넷을 포함 하는 가상 네트워크를 피어 링 할 수 없습니다.
+* **경로 테이블** -Azure Container Instances에 위임 하는 서브넷에서 사용자 정의 경로 설정할 수 없습니다
+* **네트워크 보안 그룹** -Azure Container Instances에 위임 하는 서브넷에 적용 된 Nsg의 아웃 바운드 보안 규칙 현재 적용 되지 않고 
+* **공용 IP 또는 DNS 레이블** -가상 네트워크에 배포 하는 컨테이너 그룹 현재 공용 IP 주소 또는 정규화 된 도메인 이름을 사용 하 여 인터넷에 직접 노출 컨테이너를 지원 하지 않습니다
+* **내부 이름 확인** -내부 Azure DNS를 통해 가상 네트워크에서 Azure 리소스에 대 한 이름 확인이 지원 되지 않습니다
 
 **네트워크 리소스 삭제** 시에는 가상 네트워크에 컨테이너 그룹을 배포한 후 [추가 단계](#delete-network-resources)를 수행해야 합니다.
 

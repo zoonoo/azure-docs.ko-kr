@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113833"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336289"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -93,6 +93,14 @@ Cognitive Services에서 API는 증가하는 Microsoft 운영 데이터 센터�
 ## <a name="container-support"></a>컨테이너 지원
 
  Cognitive Services는 Azure 클라우드 또는 온-프레미스에 배포하는 데 사용할 컨테이너를 제공합니다. [Cognitive Services 컨테이너](cognitive-services-container-support.md)에 대해 자세히 알아봅니다.
+
+## <a name="certifications-and-compliance"></a>인증 및 규정 준수
+
+Cognitive Services에 인증 CSA STAR 인증, FedRAMP Moderate 및 HIPAA BAA 등 각종 수 있습니다. 
+
+할 수 있습니다 [다운로드](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 고유한 감사 및 보안 검토에 대 한 인증 합니다. 
+
+개인 정보 보호 및 데이터 관리를 이해 하려면로 이동 합니다 [보안 센터](https://servicetrust.microsoft.com/)합니다. 
 
 ## <a name="support"></a>지원
 

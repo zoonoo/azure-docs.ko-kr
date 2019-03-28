@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905066"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521825"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -153,7 +153,7 @@ ms.locfileid: "57905066"
 
 클라이언트 웹 주소의 **모든** 8진수는 지리적 위치 특성을 조회한 후에 항상 0으로 설정됩니다.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>내 iKey가 내 웹 페이지 원본에 표시됩니다. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키 내 웹 페이지 원본에 표시 됩니다. 
 
 * 모니터링 솔루션에서 일반적으로 사용됩니다.
 * 데이터를 훔치는 데 사용할 수 없습니다.
@@ -162,7 +162,7 @@ ms.locfileid: "57905066"
 
 다음과 같이 할 수 있습니다.
 
-* 클라이언트 데이터와 서버 데이터에 별도의 iKey(별도의 Application Insights 리소스) 두 개를 사용합니다. 또는
+* 클라이언트와 서버 데이터에 대 한 두 개의 별도 계측 키 (별도 Application Insights 리소스)를 사용 합니다. 또는
 * 서버에서 실행되는 프록시를 작성하고 웹 클라이언트에서 해당 프록시를 통해 데이터를 전송하도록 합니다.
 
 ## <a name="post"></a>진단 검색에서 POST 데이터를 어떻게 확인하나요?

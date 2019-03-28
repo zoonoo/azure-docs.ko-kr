@@ -10,18 +10,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: d8975827a17dbf5d5eda2b9eb90e99ea1c03d698
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8a3698232c90d0705cb97677781ad512fffab803
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111805"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539244"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicated HSM 고가용성
 
-Azure Dedicated HSM은 Microsoft의 고가용성 데이터 센터에서 기반이 됩니다. 그러나 모든 고가용성 데이터 센터는 지역 수준 오류인 극단적인 상황 및 지역화된 오류에 취약합니다. Microsoft에서는 여러 디바이스의 프로비전으로 인해 해당 디바이스가 단일 랙을 공유하지 못하도록 지역 내의 다른 데이터 센터에 HSM 디바이스를 배포합니다. 지역의 데이터 센터 간에 이러한 HSM을 연결하여 추가 수준의 고가용성을 달성할 수 있습니다. 재해 복구 상황에서 지역 장애 조치(failover)를 해결하기 위해 지역 간에 디바이스를 연결할 수도 있습니다. 이 다계층 고가용성 구성을 사용하면 모든 디바이스 오류를 자동으로 해결하여 애플리케이션이 작업을 유지합니다. 또한 모든 데이터 센터에는 현장에 예비 디바이스 및 구성 요소가 있으므로 시기 적절하게 실패한 모든 디바이스를 바꿀 수 있습니다.
+Azure Dedicated HSM은 Microsoft의 고가용성 데이터 센터에서 기반이 됩니다. 그러나 모든 고가용성 데이터 센터는 지역 수준 오류인 극단적인 상황 및 지역화된 오류에 취약합니다. Microsoft에서는 여러 디바이스의 프로비전으로 인해 해당 디바이스가 단일 랙을 공유하지 못하도록 지역 내의 다른 데이터 센터에 HSM 디바이스를 배포합니다. 이러한 Hsm Gemalto HA 그룹 기능을 사용 하는 지역의 데이터 센터에 연결 하 여 추가 수준의 고가용성을 구현할 수 있습니다. 재해 복구 상황에서 지역 장애 조치(failover)를 해결하기 위해 지역 간에 디바이스를 연결할 수도 있습니다. 이 다계층 고가용성 구성을 사용하면 모든 디바이스 오류를 자동으로 해결하여 애플리케이션이 작업을 유지합니다. 또한 모든 데이터 센터에는 현장에 예비 디바이스 및 구성 요소가 있으므로 시기 적절하게 실패한 모든 디바이스를 바꿀 수 있습니다.
 
 ## <a name="high-availability-example"></a>고가용성 예제
 

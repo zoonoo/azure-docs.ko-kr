@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136159"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316085"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>프로젝트 소음 디자인 프로세스 개념
 
@@ -29,7 +29,7 @@ ms.locfileid: "58136159"
 
 3D 제목 물리학 동기 부여 되지만 다양 한 집중 교육 및 게임 플레이 목표를 달성 하기 위해 디자이너 조정 된 조명 및 운동학 적 물리학 시스템을 사용 합니다. 비주얼 디자이너를 개별 픽셀 값을 설정 하지 않습니다 하지만 대신 3D 모델, 자료 및 밝은 전송 시스템 모든 물리적 기반 visual 미관 및 CPU 비용의 균형을 조정 합니다. 해당 하는 프로세스 오디오에 대 한 것이 무엇 인지? 프로젝트 소음에 탐색이 질문을 첫 번째 단계입니다. 먼저 공간을 통해 음향 에너지를 전송 하는 것에 touch 됩니다 것입니다.
 
-![반향 영역](media/reverb-zones-altspace.png)
+![스크린 샷의 AltSpace 장면으로 반향 영역 중첩](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>임펄스 응답: 공간에서 두 점 acoustically 연결
 
@@ -45,7 +45,7 @@ ms.locfileid: "58136159"
 
 하지만 디자이너 조정 되는 시뮬레이션 오디오 DSP 매개 변수를 직접 연결 되어 있습니까? 새로운 않았습니다 이점도? 물론 임펄스 응답을 삭제 하 고 몇 가지 DSP 매개 변수를 저장 함으로써 다시 상당한 양의 메모리를 얻으세요. 및에 부여 하려면 디자이너 어느 정도의 최종 결과 대해 필요한만 알게 시뮬레이션 사이의 오디오 DSP 디자이너를 삽입 하는 방법을 합니다.
 
-![임펄스 응답 매개 변수](media/acoustic-parameters.png)
+![오버레이 하는 매개 변수를 사용 하 여 스타일이 적용 된 임펄스 응답을 사용 하 여 그래프](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>시뮬레이션에서 오디오 DSP 매개 변수를 변환 하 여 적절 하 게 디자인
 

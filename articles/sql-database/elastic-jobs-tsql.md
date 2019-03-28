@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769169"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522063"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -408,19 +408,19 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 |저장 프로시저  |설명  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     새 작업을 추가합니다.    |
-|[sp_update_job](#spupdatejob)    |      기존 작업을 업데이트합니다.   |
-|[sp_delete_job](#spdeletejob)     |      기존 작업을 삭제합니다.   |
-|[sp_add_jobstep](#spaddjobstep)    |    작업에 단계를 추가합니다.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     작업 단계를 업데이트합니다.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     작업 단계를 삭제합니다.    |
-|[sp_start_job](#spstartjob)    |  작업 실행을 시작합니다.       |
-|[sp_stop_job](#spstopjob)     |     작업 실행을 중지합니다.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     대상 그룹을 추가합니다.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    대상 그룹을 삭제합니다.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    대상 그룹에 데이터베이스 또는 데이터베이스 그룹을 추가합니다.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     대상 그룹에서 대상 그룹 멤버를 제거합니다.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    작업에 대한 기록 레코드를 제거합니다.     |
+|sp_add_job     |     새 작업을 추가합니다.    |
+|sp_update_job    |      기존 작업을 업데이트합니다.   |
+|sp_delete_job     |      기존 작업을 삭제합니다.   |
+|sp_add_jobstep    |    작업에 단계를 추가합니다.     |
+|sp_update_jobstep     |     작업 단계를 업데이트합니다.    |
+|sp_delete_jobstep     |     작업 단계를 삭제합니다.    |
+|sp_start_job    |  작업 실행을 시작합니다.       |
+|sp_stop_job     |     작업 실행을 중지합니다.   |
+|sp_add_target_group    |     대상 그룹을 추가합니다.    |
+|sp_delete_target_group     |    대상 그룹을 삭제합니다.     |
+|sp_add_target_group_member     |    대상 그룹에 데이터베이스 또는 데이터베이스 그룹을 추가합니다.     |
+|sp_delete_target_group_member     |     대상 그룹에서 대상 그룹 멤버를 제거합니다.    |
+|sp_purge_jobhistory    |    작업에 대한 기록 레코드를 제거합니다.     |
 
 
 
@@ -1195,13 +1195,13 @@ GO
 
 |보기  |설명  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  작업 실행 기록을 표시합니다.      |
+|jobs_executions     |  작업 실행 기록을 표시합니다.      |
 |[jobs](#jobs-view)     |   모든 작업을 표시합니다.      |
-|[job_versions](#jobversions-view)     |   모든 작업 버전을 표시합니다.      |
+|job_versions     |   모든 작업 버전을 표시합니다.      |
 |[jobsteps](#jobsteps-view)     |     각 작업의 현재 버전에 있는 모든 단계를 표시합니다.    |
-|[jobstep_versions](#jobstepversions-view)     |     각 작업의 모든 버전에 있는 모든 단계를 표시합니다.    |
-|[target_groups](#targetgroups-view)     |      모든 대상 그룹을 표시합니다.   |
-|[target_group_members](#targetgroups-view)     |   모든 대상 그룹의 모든 멤버를 표시합니다.      |
+|jobstep_versions     |     각 작업의 모든 버전에 있는 모든 단계를 표시합니다.    |
+|target_groups     |      모든 대상 그룹을 표시합니다.   |
+|target_group_members     |   모든 대상 그룹의 모든 멤버를 표시합니다.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions 보기

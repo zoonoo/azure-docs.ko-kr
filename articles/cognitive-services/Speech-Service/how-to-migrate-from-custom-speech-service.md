@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833540"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496006"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Custom Speech Service에서 Speech Service로 마이그레이션
 
@@ -48,7 +48,7 @@ Speech Services 포털에서 음성 서비스에 기존 리소스 키를 마이�
 > [!NOTE]
 > 리소스 키는 동일한 지역 내에서만 마이그레이션할 수 있습니다.
 
-1. [cris.ai](https://www.cris.ai) 포털에 로그인하고 오른쪽 위 메뉴에서 구독을 선택합니다.
+1. [cris.ai](https://cris.ai/Home/CustomSpeech) 포털에 로그인하고 오른쪽 위 메뉴에서 구독을 선택합니다.
 
 2. **선택한 구독 마이그레이션**을 선택합니다.
 

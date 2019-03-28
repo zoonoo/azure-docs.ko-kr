@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483441"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540791"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 SOFS 클러스터에 다음 볼륨 및 파일 공유를 만듭니다.
 
-* SOFS 클러스터 공유 볼륨(CSV)의 SAP GLOBALHOST 파일 C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ 구조
+* SAP GLOBALHOST 파일 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` 구조 SOFS 클러스터 공유 볼륨 (CSV)
 
 * SAPMNT 파일 공유
 
@@ -347,8 +347,8 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>\SYS\... 폴더를 SOFS 클러스터로 이동
 
 다음 단계를 실행합니다.
-1. SYS 폴더(예: C:\usr\sap\\<SID>\SYS)를 ASCS/SCS 클러스터 노드 중 하나에서 SOFS 클러스터로 복사합니다(예: C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
-2. 두 ASCS/SCS 클러스터 노드에서 C:\usr\sap\\<SID>\SYS 폴더를 삭제합니다.
+1. SYS 폴더에 복사 (예를 들어 `C:\usr\sap\<SID>\SYS`) SOFS 클러스터로 클러스터 노드 ASCS/SCS 중 하나에서 (예를 들어 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. 삭제 된 `C:\usr\sap\<SID>\SYS` 두 ASCS/SCS 클러스터 노드에서 폴더입니다.
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>SAP ASCS/SCS 클러스터의 클러스터 보안 설정 업데이트
 
@@ -374,7 +374,7 @@ Get-ClusterAccess
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>기본값 및 SAP ASCS/SCS 인스턴스 프로필 업데이트
 
-새 SAP ASCS/SCS 가상 호스트 이름 및 SAP 전역 호스트 이름을 사용하려면 기본값 및 SAP ASCS/SCS 인스턴스 프로필 \<SID>_ASCS/SCS\<Nr>_<Host>을 업데이트합니다.
+새 SAP ASCS/SCS 가상 호스트 이름을 사용 하 고 SAP 전역 호스트 이름을 업데이트 해야 합니다 기본값 및 SAP ASCS/SCS 인스턴스 프로필 \<SID >_ASCS/SCS\<Nr >_\<호스트 >.
 
 
 | 이전 값 |  |
@@ -459,7 +459,7 @@ _**그림 1**: SAPScripts.psm1 출력_
 
 자세한 내용은 [SAP Note 1596496 - 클러스터 리소스 모니터를 위한 SAP 리소스 유형 DLL 업데이트 방법][1596496]을 참조하세요.
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>SAP <SID> 클러스터 그룹, 네트워크 이름 및 IP 만들기
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>SAP 만들기 \<SID > 클러스터 그룹, 네트워크 이름 및 IP
 
 SAP \<SID> 클러스터 그룹, ASCS/SCS 네트워크 이름 및 해당 IP 주소를 만들려면 다음 PowerShell cmdlet을 실행합니다.
 

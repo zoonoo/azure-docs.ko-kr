@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872649"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520839"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트 음성 변환
 
@@ -30,7 +30,7 @@ ms.locfileid: "57872649"
 
 * [Node 8.12.x 이상](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* 음성 서비스는 Azure 구독 키입니다. [평가판을 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [평가판을 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>프로젝트 만들기 및 종속성 요구
 
@@ -82,7 +82,7 @@ function getAccessToken(subscriptionKey) {
 
 여기서 Text-to-Speech API에 대한 요청을 작성하고 음성 응답을 저장합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `uri`을 업데이트해야 합니다. 자세한 내용은 [Speech Services 영역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)합니다.
 
-그런 다음, 요청에 필요한 헤더를 추가해야 합니다. Azure Portal에 있는 리소스 이름을 사용하여 `User-Agent`를 업데이트하고 `X-Microsoft-OutputFormat`을 선호하는 오디오 출력으로 설정해야 합니다. 출력 형식의 전체 목록은 [오디오 출력](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs)을 참조하세요.
+그런 다음, 요청에 필요한 헤더를 추가해야 합니다. Azure Portal에 있는 리소스 이름을 사용하여 `User-Agent`를 업데이트하고 `X-Microsoft-OutputFormat`을 선호하는 오디오 출력으로 설정해야 합니다. 출력 형식의 전체 목록은 [오디오 출력](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)을 참조하세요.
 
 그런 다음, SSML(Speech Synthesis Markup Language)을 사용하여 요청 본문을 구성합니다. 이 샘플에서는 구조체를 정의하고 이전에 만든 `text` 입력을 사용합니다.
 
@@ -187,6 +187,6 @@ node tts.js
 
 ## <a name="see-also"></a>참고 항목
 
-* [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)
 * [사용자 지정 음성을 만들기 위한 음성 샘플 녹음](record-custom-voice-samples.md)

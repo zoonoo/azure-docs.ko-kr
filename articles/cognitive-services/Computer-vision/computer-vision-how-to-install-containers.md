@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293398"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520652"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
@@ -133,6 +133,11 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 
 `POST /vision/v2.0/recognizeTextDirect` 작업을 사용하여 이미지에서 인쇄된 텍스트를 동기적으로 인식할 수 있습니다. 이 작업은 동기적이므로 이 작업의 요청 본문은 `POST /vision/v2.0/recognizeText` 작업의 요청 본문과 동일하지만, 이 작업의 응답 본문은 `GET /vision/v2.0/textOperations/*{id}*` 작업에서 반환된 것과 동일합니다.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## <a name="stop-the-container"></a>컨테이너 중지
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -141,9 +146,6 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 
 출력 [탑재](./computer-vision-resource-container-config.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다. 
 
-## <a name="containers-api-documentation"></a>컨테이너의 API 설명서
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>결제
 

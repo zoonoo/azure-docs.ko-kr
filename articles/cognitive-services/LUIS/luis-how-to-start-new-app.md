@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f9cf5e723484196125548b9e6d3956e909e9c9b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874953"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337479"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -56,6 +56,16 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
     > [!NOTE]
     > 애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다. 
 
+## <a name="import-an-app-from-file"></a>파일에서 앱 가져오기
+
+1. **내 앱** 페이지에서 **새 앱 가져오기**를 선택합니다.
+1. 팝업 대화 상자에서 유효한 앱 JSON 파일을 선택 하 고 선택한 **수행**합니다.
+
+### <a name="import-errors"></a>가져오기 오류
+
+가능한 오류 다음과 같습니다. 
+
+* 앱 이름이 이미 있습니다. 앱을 다시 가져오기 및 설정 합니다 **선택적 이름** 새 이름입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

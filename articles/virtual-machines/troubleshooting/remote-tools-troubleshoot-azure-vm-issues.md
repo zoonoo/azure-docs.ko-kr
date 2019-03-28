@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc27ea0552c6135d01256586b1746219caac17f1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119771"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539873"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* 동일한 VNET에 있는 머신에서 명령을 실행해야 합니다.
->* DIP 또는 호스트 이름을 사용하여 <computer>를 바꿀 수 있습니다.
+>* DIP 또는 호스트 이름 수 바꾸는 데 사용할 \<컴퓨터 >.
 >* -s 매개 변수는 시스템 계정(관리자 권한)을 사용하여 명령이 호출되도록 만듭니다.
 >* PsExec는 TCP 포트 135 및 445를 사용합니다. 따라서 두 포트가 방화벽에서 열려 있어야 합니다.
 

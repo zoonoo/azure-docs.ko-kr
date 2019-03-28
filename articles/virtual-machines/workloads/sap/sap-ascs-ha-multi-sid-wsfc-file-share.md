@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479983"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540145"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ _**그림 1:** 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS_
 
 _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
-추가 **SAP \<SID2>** 시스템을 설치하는 방법은 한 <SID> 시스템을 설치하는 방법과 동일합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
+추가 설치 **SAP \<SID2 >** 시스템의 설치와 동일 \<SID > 시스템입니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>SAP 다중 SID 시나리오에 대한 인프라 준비
 
@@ -261,7 +261,7 @@ _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>기존 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-첫 번째 SAP <SID1> 시스템의 기존 \<SAPGlobalHost> 및 Volume1을 다시 사용할 수 있습니다.
+기존 다시 사용할 수 있습니다 \<SAPGlobalHost > 및 Volume1을 첫 번째 sap \<SID1 > 시스템입니다.
 
 ![그림 3: 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**그림 3:** 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음_
 >두 번째 **SAP \<SID2>** 시스템의 경우 동일한 Volume1 및 동일한 **\<SAPGlobalHost>** 네트워크 이름이 사용됩니다.
 >**SAPMNT**를 다양한 SAP 시스템의 공유 이름으로 이미 설정했으므로 **\<SAPGlobalHost>** 네트워크 이름을 다시 사용하려면 동일한 **Volume1**을 사용해야 합니다.
 >
-><SID2> 글로벌 호스트의 파일 경로는 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\\.입니다.
+>에 대 한 파일 경로 \<SID2 > 전역 호스트는 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 \<SID2> 시스템의 경우 SOFS 클러스터에서 SAP 글로벌 호스트 ..\SYS\.. 폴더를 준비해야 합니다.

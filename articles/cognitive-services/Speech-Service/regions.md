@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900916"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349640"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -41,6 +41,7 @@ ms.locfileid: "57900916"
  미국 중부 | ' centralus' | https://centralus.cris.ai
  미국 중북부 | ' northcentralus' | https://northcentralus.cris.ai
  미국 중남부 | ' southcentralus' | https://southcentralus.cris.ai
+ 인도 중부 | ' centralindia' | https://centralindia.cris.ai
  동아시아 | `eastasia` | https://eastasia.cris.ai
  동남아시아 | `southeastasia` | https://southeastasia.cris.ai
  일본 동부 | `japaneast` | https://japaneast.cris.ai

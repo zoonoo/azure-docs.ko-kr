@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4be7bbd1b8a5c896fe67b14170bd0cd1d20167a7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148058"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505846"
 ---
 ### <a name="neural-voices"></a>인공신경망 음성
 
@@ -36,7 +36,7 @@ ms.locfileid: "55148058"
 | 미국 동부2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 동아시아 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
+| 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 서유럽 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
 ### <a name="custom-voices"></a>사용자 지정 음성

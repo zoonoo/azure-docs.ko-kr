@@ -1,21 +1,19 @@
 ---
 title: Power BI 작업 영역 컬렉션에서 보고서 저장 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 내에서 보고서를 저장하는 방법을 알아봅니다. 성공적인 작업을 위해서는 적절한 사용 권한이 필요합니다.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: ''
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 8de31479e55aca64a5412bb89765c9b6062c0358
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc3c9f71900abcbba440db259d92df53a4c7a586
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864884"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516453"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에서 보고서 저장
 

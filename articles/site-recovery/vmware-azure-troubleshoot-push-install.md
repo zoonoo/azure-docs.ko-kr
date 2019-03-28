@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078655"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541193"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -183,7 +183,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. 다음 "blkid <device name>" 명령을 실행하여 디바이스의 UUID를 확인합니다. 예: <br>
+1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예: <br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. 이제 디바이스 이름을 “root=UUID=<UUID>” 형식의 UUID로 바꿉니다. 예를 들어, 루트에 대 한 UUID를 사용 하 여 장치 이름을 대체 하 고 파일에 위에서 언급 한 매개 변수를 다시 시작 하는 경우 "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" 또는 "/ 등/기본/grub: 파일의 줄을 다음과 같이 보입니다. <br>
+2. 이제 장치 이름으로 같은 형식으로 해당 UUID 바꿉니다 "루트 UUID = =\<UUID >"입니다. 예를 들어, 루트에 대 한 UUID를 사용 하 여 장치 이름을 대체 하 고 파일에 위에서 언급 한 매개 변수를 다시 시작 하는 경우 "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" 또는 "/ 등/기본/grub: 파일의 줄을 다음과 같이 보입니다. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 보호 다시 시작
 

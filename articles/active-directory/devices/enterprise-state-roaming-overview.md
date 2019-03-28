@@ -4,7 +4,7 @@ description: Windows 디바이스의 Enterprise State Roaming 설정에 대한 �
 services: active-directory
 keywords: 엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfc1b40c90b64fc8f37fd4cc1f782ec411ad9e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d3a2a81bd8aa3fc99d033564e8a8782c79261305
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177481"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521604"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍이란?
 

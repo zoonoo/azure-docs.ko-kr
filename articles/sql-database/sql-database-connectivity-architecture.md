@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840922"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521468"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -109,6 +109,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
 | 영국 남부 | 51.140.184.11 | |
+| 영국 서부 | 51.141.8.11| |
 | 미국 중서부 | 13.78.145.25 | |
 | 서유럽 | 191.237.232.75 | 40.68.37.158 |
 | 미국 서부 1 | 23.99.34.75 | 104.42.238.205 |

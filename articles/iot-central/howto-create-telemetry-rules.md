@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367893"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517235"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 원격 분석 규칙을 만들고 알림 설정
 
@@ -112,4 +112,5 @@ Azure IoT Central 애플리케이션에서 규칙을 만드는 방법을 알아�
 
 - [규칙에 Microsoft Flow 작업 추가](howto-add-microsoft-flow.md)
 - [규칙에 Webhook 작업 추가](howto-create-webhooks.md)
+- [하나 이상의 규칙에서를 실행 하려면 여러 작업을 그룹화](howto-use-action-groups.md)
 - [디바이스를 관리하는 방법](howto-manage-devices.md)

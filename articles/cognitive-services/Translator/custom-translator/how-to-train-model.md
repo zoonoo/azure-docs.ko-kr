@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 8fee19b4d7a1ae05ca9a38c5a9ba374c0674a867
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776260"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437291"
 ---
 # <a name="train-a-model"></a>모델 학습
 
@@ -51,6 +51,9 @@ ms.locfileid: "57776260"
 6.  Custom Translator가 훈련을 제출하고 [모델] 탭에 훈련의 상태를 표시합니다.
 
     ![모델 훈련 페이지](media/how-to/how-to-train-model-3.png)
+
+>[!Note]
+>사용자 지정 변환기에에서 언제 든 지 작업 영역 내에서 10 개의 동시 학습을 지원합니다.
 
 
 ## <a name="edit-a-model"></a>모델 편집

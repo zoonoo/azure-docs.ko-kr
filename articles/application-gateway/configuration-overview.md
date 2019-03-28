@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319451"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519751"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -72,7 +72,7 @@ V2의 경우 SKU, application gateway 서브넷에서 Udr을 지원 되지 않�
 
 하나의 공용 IP 주소 또는 하나의 개인 IP 주소가 지원 됩니다. Application Gateway를 만드는 동안 프런트 엔드 IP를 선택 합니다. 
 
-- 공용 IP의 경우 Application Gateway와 동일한 위치에 기존 공용 IP를 사용 하거나 새 공용 IP를 만들 수도 있습니다. 새 공용 IP 주소를 만드는 경우 IP 주소 유형은 선택 (정적 또는 동적) 나중에 변경할 수 없습니다. 자세한 내용은 참조 하세요. [정적 포트 대 동적 공용 IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- 공용 IP의 경우 Application Gateway와 동일한 위치에 기존 공용 IP를 사용 하거나 새 공용 IP를 만들 수도 있습니다. 새 공용 IP 주소를 만드는 경우 IP 주소 유형은 선택 (정적 또는 동적) 나중에 변경할 수 없습니다. 자세한 내용은 참조 하세요. [정적 포트 대 동적 공용 IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - 개인 IP를 발생 시 응용 프로그램 게이트웨이가 생성 되는 서브넷에서 개인 IP 주소를 지정 수 있습니다. 명시적으로 지정 하지 않으면 임의의 IP 주소 서브넷에서 자동으로 선택 됩니다. 자세한 내용은 참조 하세요. [내부 부하 분산 장치 (ILB) 끝점을 사용 하 여 응용 프로그램 게이트웨이 만듭니다.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ HTTP 및 HTTPS 프로토콜 중 하나를 선택 해야 합니다.
 
 - HTTP를 선택 하면 클라이언트 및 응용 프로그램 게이트웨이 간에 트래픽은 암호화 되지 않은 합니다.
 
-- 원하는 경우 HTTPS를 선택 [Secure Sockets Layer (SSL) 종료](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) 하거나 [종단 간 SSL 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)합니다. HTTPS를 선택 하면 클라이언트 및 응용 프로그램 게이트웨이 간의 트래픽은 암호화 되 고 application gateway에서 SSL 연결을 종료 됩니다.  종단 간 SSL 암호화를 사용 하도록 하려는 경우에 HTTPS 프로토콜을 구성 하는 동안 선택 해야 또한 *백 엔드 HTTP 설정*합니다. 이렇게 하면 백 엔드 응용 프로그램 게이트웨이에서 데이터가 이동할 때 트래픽을 다시 암호화 됩니다.
+- 원하는 경우 HTTPS를 선택 [Secure Sockets Layer (SSL) 종료](https://docs.microsoft.com/azure/application-gateway/overview) 하거나 [종단 간 SSL 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)합니다. HTTPS를 선택 하면 클라이언트 및 응용 프로그램 게이트웨이 간의 트래픽은 암호화 되 고 application gateway에서 SSL 연결을 종료 됩니다.  종단 간 SSL 암호화를 사용 하도록 하려는 경우에 HTTPS 프로토콜을 구성 하는 동안 선택 해야 또한 *백 엔드 HTTP 설정*합니다. 이렇게 하면 백 엔드 응용 프로그램 게이트웨이에서 데이터가 이동할 때 트래픽을 다시 암호화 됩니다.
 
   Secure Sockets Layer (SSL) 종료 및 종단 간 SSL 암호화를 구성 하려면 인증서를 응용 프로그램 게이트웨이에서 SSL 프로토콜 사양에 따라 대칭 키를 파생 하기 위해 수신기에 추가 해야 합니다. 대칭 키 암호화 및 게이트웨이에 전송 된 트래픽을 암호 해독에 사용 됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 개인 키를 내보낼 수 있습니다. 
 

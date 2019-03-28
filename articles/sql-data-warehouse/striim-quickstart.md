@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250843"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540460"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
 
@@ -29,7 +29,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포되면 Azure Portal에서 <VM Name>-masternode를 클릭하고 연결을 클릭한 다음, VM 로컬 계정을 사용하여 로그인을 복사합니다. 
+배포 되 면 클릭 \<VM 이름 >-Connect를 클릭 하 고 VM 로컬 계정을 사용 하 여 로그인을 복사 하는 Azure portal에서 masternode 
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
@@ -55,7 +55,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 즐겨 찾는 브라우저를 열고 <DNS Name>:9080으로 이동합니다.
+이제 선호 하는 브라우저를 열고 이동할 \<DNS 이름 >: 9080
 
 ![로그인 화면으로 이동][navigate]
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403666"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520176"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -220,7 +220,8 @@ Azure Backup에 대한 네트워크 트래픽의 아웃바운드 액세스를 �
 - 초기 백업은 백업 일정에 따라 실행됩니다.
 - 백업 서비스는 VM의 실행 여부와 상관 없이 백업 확장을 설치합니다.
     - 실행 중인 VM은 애플리케이션 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다.
-    -  그러나 VM이 꺼져 있고 확장을 설치할 수 없는 경우에도 VM은 백업됩니다. 이 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일치 됩니다. [자세한]() Azure 백업 Azure VM 백업에 대 한 일광 절약 시간제 변경에 대 한 자동 클록 조정을 지원 하지 않습니다. 필요에 따라 수동으로 백업 정책을 수정합니다.
+    -  그러나 VM이 꺼져 있고 확장을 설치할 수 없는 경우에도 VM은 백업됩니다. 이 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일치 됩니다.
+    Azure Backup은 Azure VM 백업을 위한 일광 절약 시간 변경에 대한 자동 시계 조정을 지원하지 않습니다. 필요에 따라 수동으로 백업 정책을 수정합니다.
 
 ## <a name="run-the-initial-backup"></a>초기 백업 실행
 

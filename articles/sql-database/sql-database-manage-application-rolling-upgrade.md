@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329169"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540587"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 
@@ -103,7 +103,21 @@ Azure SQL Database의 [활성 지역 복제](sql-database-auto-failover-group.md
 준비 단계가 완료되면 스테이징 환경을 업그레이드할 준비가 된 것입니다. 다음 다이어그램에서는 업그레이드 단계를 보여 줍니다.
 
 1. 프로덕션 환경의 주 데이터베이스를 읽기 전용 모드로 설정합니다(10). 이 모드에서는 업그레이드 중에 프로덕션 데이터베이스(V1)가 변경되지 않으므로 V1 및 V2 데이터베이스 인스턴스 간에 데이터베이스가 확산되지 않습니다.
-2. 계획된 종료 모드를 사용하여 동일한 지역의 보조 데이터베이스의 연결을 끊습니다(11). 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. 보조 (11) 연결을 끊어 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예제에서는 TRANSACT-SQL을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 도 제공 됩니다. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` 및 스테이징 주 데이터베이스에 대해 업그레이드 스크립트를 실행합니다(12). 데이터베이스 변경 내용이 스테이징 보조 데이터베이스에 자동으로 복제됩니다.
 
 ![클라우드 재해 복구를 위한 SQL Database 지역 복제 구성](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

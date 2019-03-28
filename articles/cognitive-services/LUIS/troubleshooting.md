@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120774"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369720"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -63,6 +63,14 @@ Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습�
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>LUIS 앱의 소유권을 양도하려면 어떻게 해야 하나요?
 LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 애플리케이션에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
+
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 작성 된 엔터티 내 사용자 지정 엔터티 대신는 예제 utterance에서 태그가 지정 됩니다. 어떻게 해결할 수 있나요? 
+
+참조 [미리 빌드된 엔터티로 문제 해결](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)합니다.
+
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져올 하려고 하는 경우 가져왔습니다 오류가 어떻게 되었습니까? 
+
+에 대해 자세히 알아보세요 [버전 가져오기 오류가](luis-how-to-manage-versions.md#import-errors) 하 고 [응용 프로그램 가져오기 오류](luis-how-to-start-new-app.md#import-errors)합니다.
 
 <a name="luis-collaborating"></a>
 

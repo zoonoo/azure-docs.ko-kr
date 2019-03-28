@@ -1,21 +1,19 @@
 ---
 title: JavaScript API를 사용하여 보고서와 상호 작용 | Microsoft Docs
 description: Power BI JavaScript API를 사용하면 애플리케이션에 Power BI 보고서를 쉽게 포함할 수 있습니다.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 47bfdc3afed5fd17d7df98c6664e58374410a7f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883800"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522046"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API를 사용하여 Power BI 보고서와 상호 작용
 
@@ -81,7 +79,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 * 없음
 * LessThan
 * LessThanOrEqual
-* 보다큼
+* GreaterThan
 * GreaterThanOrEqual
 * 포함
 * DoesNotContain
@@ -121,7 +119,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 * Embed
   * loaded
-  * 오류
+  * error
 * 보고서
   * pageChanged
   * dataSelected(출시 예정)

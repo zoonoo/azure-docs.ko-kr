@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 8bb035a02b8ab684bc1efb7accd785518cb151c2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107613"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449089"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>DSC를 사용한 Linux 가상 머신 구성
 
@@ -143,6 +143,6 @@ DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 > [DSC 및 Chocolatey를 사용하여 VM에 지속적으로 배포](./automation-dsc-cd-chocolatey.md)
 
 * PowerShell DSC에 대한 자세한 내용은 [Windows PowerShell DSC(필요한 상태 구성) 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
-* PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)을 참조하세요.
+* PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)을 참조하세요.
 * 보고 및 경고를 위해 Azure Monitor 로그에 DSC 보고서를 전달하는 방법을 알아보려면 [Azure Monitor 로그에 DSC 보고서 전달](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)을 참조하세요. 
 

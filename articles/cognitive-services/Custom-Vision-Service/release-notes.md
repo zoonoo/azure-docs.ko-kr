@@ -7,16 +7,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894414"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472959"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
+
+## <a name="march-26-2019"></a>2019 년 3 월 26 일
+- Custom Vision Service에는 Azure에서 일반 공급 않았으면! 
+- 새 machine learning 특히 까다로운 데이터 집합 및 세분화 된 분류에서 성능 향상된을 위해 백 엔드를 사용 하 여 추가 고급 교육 기능입니다. 고급 교육을 통해 교육 및 사용자 지정 비전에 대 한 계산 시간 예산은 최적의 교육 및 보강 설정을 식별 갔다가 지정할 수 있습니다. 빠른 반복에 대 한 기존 빠른 학습을 사용 하 여 계속 수 있습니다. 
+- 3.0에 도입 된 Api입니다. 2019 년 10 월 1 일에서 이전 버전 3.0 Api의 향후 사용 중단을 발표 했습니다. 빠른 시작 설명서를 참조에 대 한 [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial)를 [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial)를 [노드](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial)를 [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), 또는 [이동](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) 예 시작 하는 방법입니다. 
+- "3.0에 사용 하 여 게시/게시 해제" 반복 기본 대체 Api. 
+- 새 모델 내보내기 대상은 추가 되었습니다. Dockerfile 내보내기 Raspberry Pi 3에 대 한 ARM 지원 하도록 업그레이드 되었습니다. 내보내기 지원이 추가 되었습니다는 [비전 AI 개발 키트.](https://visionaidevkit.com/) 
+- S0 계층에 대 한 500 프로젝트 마다 태그가 증가 제한입니다. S0 계층에 대 한 100,000 프로젝트별으로 이미지의 한도가 증가 합니다.
+- 성인 도메인을 제거 합니다. 일반 도메인은 권장입니다.
+- 발표 [가격 책정](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) 일반 공급 됩니다.  
+
+
+## <a name="february-25-2019"></a>2019 년 2 월 25 일
+- 제한 된 평가판 프로젝트 (Azure 리소스와 연결 되지 않은 프로젝트)의 끝을 발표 대로 사용자 지정 비전이 공개 미리 보기를 Azure로 이동 함으로써 완료 합니다. 2019 년 3 월 25 일 시작 CustomVision.ai 사이트를 무료 사용자 지정 비전 리소스와 같은 Azure 리소스와 연결 된 보기 프로젝트를 지원만 됩니다. 2019 년 10 월 1 일을 통해 계속 수 기존 제한 평가판 프로젝트 사용자 지정 비전 Api를 통해 액세스할 수 있습니다. 이렇게 하면 사용자 지정 비전을 사용 하 여 작성 한 모든 앱에 대 한 API 키를 업데이트 하려면 시간을 제공 됩니다. 2019 년 10 월 1 일 후 Azure로 이동 하지 않은 제한 된 평가판 프로젝트가 삭제 됩니다.
 
 ## <a name="january-22-2019"></a>2019년 1월 22일
 - 다음과 같은 새 Azure 지역에 대한 지원이 추가되었습니다. 미국 서부 2, 미국 동부, 미국 동부 2, 유럽 서부, 유럽 북부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 영국 남부, 일본 동부 및 미국 중북부. 미국 중남부에 대한 지원은 계속됩니다. 

@@ -4,7 +4,7 @@ description: 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문
 services: active-directory
 keywords: 엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.subservice: devices
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 728a67513bd66b6c39d1f366789172ee2963f6cc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081239"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517473"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -114,7 +114,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 데이터 누출을 방지하기 위해 [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)으로 보호되는 데이터는 Windows 10 1주년 업데이트를 사용하는 디바이스에 대한 Enterprise State Roaming을 통해 동기화되지 않습니다.
 
 **권장 작업**  
-비트랜잭션입니다. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
+없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
 
@@ -123,7 +123,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 도메인에 조인된 디바이스는 날짜, 시간 및 지역 설정: 자동 시간에 대해 동기화되지 않습니다. 자동 사용을 사용하면 다른 날짜, 시간 및 지역 설정을 무시하고 이들 설정이 동기화되지 않을 수 있습니다. 
 
 **권장 작업**  
-비트랜잭션입니다. 
+없음. 
 
 ---
 
@@ -141,7 +141,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 디바이스에 로그인하려고 하면 설정 동기화가 중지됩니다.     
 
 **권장 작업**  
-비트랜잭션입니다. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
+없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
 

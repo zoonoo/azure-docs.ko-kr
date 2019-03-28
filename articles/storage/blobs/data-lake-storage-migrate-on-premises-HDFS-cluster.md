@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258533"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518043"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 Azure Storage에 온-프레미스 HDFS 저장소에서 데이터를 마이그레이션하려면
 
@@ -111,7 +111,7 @@ Data Box 장치에 온-프레미스 HDFS 저장소에서 데이터를 복사, �
 
 Microsoft Data Box 장치 배송 준비 하려면 다음이 단계를 따릅니다.
 
-1. 데이터 복사가 완료 되 면 실행 [배송 준비](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) Data Box에서. 장치 준비를 완료 한 후 BOM 파일을 다운로드 합니다. 이러한 BOM을 사용 하거나 나중에 Azure에 데이터 업로드를 확인 하려면 파일 매니페스트. 장치를 종료 하 고 케이블을 제거 합니다. 
+1. 데이터 복사가 완료 되 면 실행 [배송 준비](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) Data Box에서. 장치 준비를 완료 한 후 BOM 파일을 다운로드 합니다. 이러한 BOM을 사용 하거나 나중에 Azure에 데이터 업로드를 확인 하려면 파일 매니페스트. 장치를 종료 하 고 케이블을 제거 합니다. 
 2.  하기를 사용 하 여는 픽업을 예약할 [를 Azure Data Box에 배송](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up)합니다. 
 3.  Microsoft가 장치를 수신 하 고 데이터 센터 네트워크에 연결 된 (계층적 네임 스페이스를 사용 하지 않도록 설정)으로 지정한 저장소 계정에 데이터를 업로드 한 후 Data Box 주문 경우. 모든 데이터를 Azure에 업로드 되는 BOM 파일에 대해 확인 합니다. 이제 Data Lake 저장소 Gen2 저장소 계정에이 데이터를 이동할 수 있습니다.
 

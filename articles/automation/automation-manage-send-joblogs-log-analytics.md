@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820861"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521672"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
 
@@ -63,7 +63,7 @@ Automation 계정의 *Name*을 찾으려면 Azure Portal의 **Automation 계정*
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 이 스크립트를 실행 한 후 새 JobLogs 또는 쓰고 있는 JobStreams의 Azure Monitor 로그 레코드를 보려면 시작 하기 전에 한 시간을 걸릴 수 있습니다.

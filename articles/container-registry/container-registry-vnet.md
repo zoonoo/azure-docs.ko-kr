@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: 044ff823e34f51257cb6186417535b9b542bc289
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517932"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure 가상 네트워크 또는 방화벽 규칙을 사용 하 여 Azure container registry에 대 한 액세스 제한
 
@@ -359,7 +359,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-단일을 사용 하 여 리소스를 선택적으로 삭제할 수 같은 리소스에서 Azure 리소스 그룹 및 더 이상 필요 하 고 모든 작업을 만든 경우 [az 그룹 삭제](/cli/azure/group#az_group_delete) 명령:
+단일을 사용 하 여 리소스를 선택적으로 삭제할 수 같은 리소스에서 Azure 리소스 그룹 및 더 이상 필요 하 고 모든 작업을 만든 경우 [az 그룹 삭제](/cli/azure/group) 명령:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -405,7 +405,7 @@ az group delete --name myResourceGroup
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show

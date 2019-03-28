@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/27/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: 8993aea208e4ccdcf92f676cc07f2912979da606
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476999"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540230"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,9 +32,11 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 
 이 아티클에서는 새 리소스 그룹에 새 Azure Storage 계정을 만드는 방법을 보여주며, 이 경우에 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 Storage 계정을 사용하려는 경우 해당 스토리지 계정을 대신 사용할 수 있습니다.
 
-이 예제에는 Azure PowerShell 모듈 `AzureRM` 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+Az PowerShell 모듈 필요 `Az.Storage (1.1.3 or greater)` 고 `Az.Resources (1.2.0 or greater)`입니다. PowerShell 창에서 `Get-Module -ListAvailable Az*`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
-[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+> [!IMPORTANT]
+> PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. 현재 버전의 AzureRmStorageTable 이전 AzureRM 모듈을 사용 하 여 호환 되지 않습니다.
+> 수행 합니다 [최신 설치 Az 모듈을 설치 하기 위한 지침](/powershell/azure/install-az-ps) 필요한 경우.
 
 Azure PowerShell을 설치하거나 업데이트한 후에 엔터티 관리 명령이 있는 **AzureRmStorageTable** 모듈을 설치해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 
@@ -44,10 +46,10 @@ Install-Module AzureRmStorageTable
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Add-AzAccount` 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Connect-AzureRmAccount
+Add-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>위치의 목록 검색
@@ -55,28 +57,28 @@ Connect-AzureRmAccount
 사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이러한 예제에서는 **eastus**를 사용합니다. 이 값은 나중에 사용하기 위해 변수 **location**에 저장합니다.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) 명령으로 리소스 그룹을 만듭니다. 
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹 이름을 나중에 사용할 수 있도록 변수에 저장합니다. 이 예제에서는 *eastus* 지역에 *pshtablesrg*라는 리소스 그룹을 만듭니다.
 
 ```powershell
 $resourceGroup = "pshtablesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>저장소 계정 만들기
 
-[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 LRS(로컬 중복 스토리지)에 표준 범용 스토리지 계정을 만듭니다. 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다.
+[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS(로컬 중복 스토리지)에 표준 범용 스토리지 계정을 만듭니다. 고유한 저장소 계정 이름을 지정 해야 합니다. 다음으로 저장소 계정을 나타내는 컨텍스트를 가져옵니다. 저장소 계정에서 역할을 할 때 반복적으로 자격 증명을 제공 하는 대신 컨텍스트를 참조할 수 있습니다.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -87,40 +89,51 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>새 테이블 만들기
 
-테이블을 만들려면 [New-AzureStorageTable](/powershell/module/azure.storage/New-AzureStorageTable) cmdlet을 사용합니다. 이 예제에서는 테이블을 `pshtesttable`이라고 합니다.
+테이블을 만들려면 사용 합니다 [새로 만들기-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) cmdlet. 이 예제에서는 테이블을 `pshtesttable`이라고 합니다.
 
 ```powershell
 $tableName = "pshtesttable"
-New-AzureStorageTable –Name $tableName –Context $ctx
+New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>저장소 계정의 테이블 목록 검색
 
-[Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable)을 사용하여 스토리지 계정의 테이블 목록을 검색합니다.
+사용 하 여 저장소 계정에서 테이블 목록을 검색할 [Get AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable)합니다.
 
 ```powershell
-Get-AzureStorageTable –Context $ctx | select Name
+Get-AzStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>특정 테이블에 대한 참조 가져오기
 
-테이블에 대한 작업을 수행하려면 특정 테이블에 대한 참조가 필요합니다. [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable)을 사용하여 참조를 가져옵니다. 
+테이블에 대한 작업을 수행하려면 특정 테이블에 대한 참조가 필요합니다. 사용 하 여 참조를 가져옵니다 [Get AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable)합니다.
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
+$storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
+```
+
+## <a name="reference-cloudtable-property-of-a-specific-table"></a>특정 테이블의 참조 CloudTable 속성
+
+> [!IMPORTANT]
+> CloudTable 사용 작업을 할 때 반드시 **AzureRmStorageTable** PowerShell 모듈. 호출 된 **Get AzTableTable** 이 개체에 대 한 참조를 가져오려면 명령을 합니다. 이 명령은 이미 존재 하지 않는 경우에 테이블을 만듭니다.
+
+사용 하 여 테이블에서 작업을 수행할 **AzureRmStorageTable**, 특정 테이블의 CloudTable 속성에 대 한 참조 해야 합니다.
+
+```powershell
+$cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
 
 ## <a name="delete-a-table"></a>테이블 삭제
 
-테이블을 삭제하려면 [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable)을 사용합니다. 이 cmdlet은 테이블 및 포함된 모든 데이터를 제거합니다.
+테이블을 삭제 하려면 [제거 AzStorageTable](/powershell/module/az.storage/Remove-AzStorageTable)합니다. 이 cmdlet은 테이블 및 포함된 모든 데이터를 제거합니다.
 
 ```powershell
-Remove-AzureStorageTable –Name $tableName –Context $ctx
+Remove-AzStorageTable –Name $tableName –Context $ctx
 
 # Retrieve the list of tables to verify the table has been removed.
-Get-AzureStorageTable –Context $Ctx | select Name
+Get-AzStorageTable –Context $Ctx | select Name
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -128,7 +141,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 이 방법 문서를 시작하면서 새 리소스 그룹 및 저장소 계정을 만들었으면, 해당 리소스 그룹을 제거하여 이 연습에서 만든 자산을 모두 제거할 수 있습니다. 이 명령은 리소스 그룹 자체뿐만 아니라 해당 그룹에 포함된 모든 리소스를 삭제합니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -145,8 +158,8 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Storage PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdlet](/powershell/module/az.storage#storage)
 
-* [PowerShell에서 Azure Storage 테이블 작업](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
+* [PowerShell-AzureRmStorageTable PS 모듈 v2.0에서에서 Azure 테이블 작업](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

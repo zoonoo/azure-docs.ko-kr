@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317071"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518732"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317071"
 
 ![Application Insights 메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions는 기능도 [기본 제공 모니터링 하는 Application Insights를 사용 하지 않는](#monitoring-without-application-insights)합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하는 Application Insights를 권장합니다.
+Azure Functions에 Application Insights를 사용 하지 않는 기본 제공 모니터링 합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하는 Application Insights를 권장합니다.
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 가격 책정 및 제한
 
@@ -77,7 +77,7 @@ Azure Functions는 기능도 [기본 제공 모니터링 하는 Application Insi
 
 ## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
 
-Application Insights를 사용 하도록 설정 하면 사용 하지 않도록 설정 합니다 [Azure Storage를 사용 하는 기본 제공 로깅](#logging-to-storage)합니다. 기본 제공 로깅은 가벼운 워크 로드를 사용 하 여 테스트를 위해 유용 하지만 부하가 높은 프로덕션 용도로 적합 하지 않습니다. 프로덕션 모니터링에 대 한 Application Insights를 권장 합니다. 기본 제공 로깅 프로덕션 환경에서 사용 하는 경우 Azure Storage의 제한으로 인해 로깅 레코드 수 완료 수 없습니다.
+Application Insights를 사용 하면 Azure Storage를 사용 하는 기본 제공 로깅을 사용 하지 않도록 설정 합니다. 기본 제공 로깅은 가벼운 워크 로드를 사용 하 여 테스트를 위해 유용 하지만 부하가 높은 프로덕션 용도로 적합 하지 않습니다. 프로덕션 모니터링에 대 한 Application Insights를 권장 합니다. 기본 제공 로깅 프로덕션 환경에서 사용 하는 경우 Azure Storage의 제한으로 인해 로깅 레코드 수 완료 수 없습니다.
 
 기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **애플리케이션 설정** 섹션을 참조하세요. 앱 설정, 삭제 하기 전에 Azure Storage 트리거 또는 바인딩 설정을 사용 하 여 동일한 함수 앱에서 기존 함수가 있는지 확인 합니다.
 
@@ -125,7 +125,7 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 ![메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
 
-[오류](../azure-monitor/app/asp-net-exceptions.md) 탭에서 함수 오류 및 서버 예외를 기반으로 차트와 경고를 만들 수 있습니다. **작업 이름**은 함수 이름입니다. 구현 하지 않으면 종속성 오류가 표시 되지 않습니다 [사용자 지정 원격 분석](#custom-telemetry-in-c-functions) 종속성에 대 한 합니다.
+[오류](../azure-monitor/app/asp-net-exceptions.md) 탭에서 함수 오류 및 서버 예외를 기반으로 차트와 경고를 만들 수 있습니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성 오류가 표시 되지 않습니다.
 
 ![오류](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ C# 스크립트 함수에서, `ILogger`에 `LogMetric` 확장 메서드를 사�
 logger.LogMetric("TestMetric", 1234);
 ```
 
-이 코드는 호출 하는 대신 `TrackMetric` 를 사용 하 여 [.NET 용 Application Insights API](#custom-telemetry-in-c-functions)합니다.
+이 코드는 호출 하는 대신 `TrackMetric` .NET 용 Application Insights API를 사용 하 여 합니다.
 
 ## <a name="write-logs-in-javascript-functions"></a>JavaScript 함수로 로그 작성
 
@@ -441,7 +441,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 context.log.metric("TestMetric", 1234);
 ```
 
-이 코드는 호출 하는 대신 `trackMetric` 를 사용 하 여 [Application insights Node.js SDK](#custom-telemetry-in-javascript-functions)합니다.
+이 코드는 호출 하는 대신 `trackMetric` Application insights Node.js SDK를 사용 하 여 합니다.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>사용자 지정 원격 분석에 로그인 C# 함수
 
@@ -632,7 +632,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>종속성
 
-함수는 다른 서비스에 있는 종속성 자동으로 표시 하지 않습니다. 종속성을 표시할 사용자 지정 코드를 작성할 수 있습니다. 예를 들어의 샘플 코드를 참조 합니다 [ C# 사용자 지정 원격 분석 단원](#custom-telemetry-in-c-functions)합니다. 샘플 코드의 결과 *응용 프로그램 맵* 것 같습니다 다음 이미지는 Application Insights에서:
+함수는 다른 서비스에 있는 종속성 자동으로 표시 하지 않습니다. 종속성을 표시할 사용자 지정 코드를 작성할 수 있습니다. 예를 들어의 샘플 코드를 참조 합니다 [ C# 사용자 지정 원격 분석 단원](#log-custom-telemetry-in-c-functions)합니다. 샘플 코드의 결과 *응용 프로그램 맵* 것 같습니다 다음 이미지는 Application Insights에서:
 
 ![애플리케이션 맵](media/functions-monitoring/app-map.png)
 

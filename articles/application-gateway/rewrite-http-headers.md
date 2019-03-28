@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418009"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520924"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
 
@@ -96,7 +96,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 클라이언트에서 지원되는 암호 목록을 반환합니다.          |
 | ciphers_used               | 설정된 SSL 연결에 사용되는 암호를 반환합니다. |
-| client_ip                  | 클라이언트의 IP 주소 고객 위치 헤더에는 포트 정보가 없는 IP 주소만 포함 되도록 응용 프로그램 게이트웨이에서 설정 된 X-전달 기능에 대 한 헤더를 다시 작성 하려는 시나리오에서 특히 유용 합니다. |
+| client_ip                  | Application gateway는 요청을 수신 하는 클라이언트의 IP 주소입니다. Application gateway 및 원래 클라이언트 전에 역방향 프록시를 다음 없는 경우 *client_ip* 역방향 프록시의 IP 주소를 반환 합니다. tjsi 변수가 고객 위치 헤더에는 포트 정보가 없는 IP 주소만 포함 되도록 응용 프로그램 게이트웨이에서 설정 된 X-전달 기능에 대 한 헤더를 다시 작성 하려는 시나리오에서 특히 유용 합니다. |
 | client_port                | 클라이언트 포트.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대한 정보이며, TCP_INFO 소켓 옵션을 지원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용하는 경우 인증을 위해 제공되는 사용자 이름. |
@@ -121,7 +121,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 
 - HTTP 헤더 다시 쓰기 지원은 새 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에만 제공됩니다. 이전 SKU에서는 이 기능이 지원되지 않습니다.
 
-- 연결, 업그레이드 및 호스트 헤더 다시 쓰기는 아직 지원되지 않습니다.
+- 연결, 업그레이드 및 호스트 헤더를 다시 작성 아직 지원 되지 않습니다.
 
 - 조건부로 http 헤더를 다시 쓰는 기능도 곧 제공될 예정입니다.
 

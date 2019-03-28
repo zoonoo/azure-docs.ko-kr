@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371318"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521842"
 ---
 # <a name="mapping-data-flow-datasets"></a>Mapping Data Flow 데이터 세트
 
@@ -49,9 +49,27 @@ Data Flow 데이터 세트의 스키마를 가져오는 경우 스키마 가져�
 
 ![소스 변환 스키마](media/data-flow/dataset2.png "SQL 스키마")
 
-## <a name="delimited-text-dataset"></a>구분 기호로 분리 된 텍스트 데이터 집합
+## <a name="choose-your-type-of-data-first"></a>먼저 사용자의 데이터 형식 선택
 
-구분 기호로 분리 된 텍스트 데이터 집합을 설정 하거나 단일 구분 기호를 처리 하는 구분 기호 ('\t' TSV',' CSV에 대 한 ' |'...) 또는 구분 기호에 대 한 여러 문자를 사용 합니다. 헤더 행 설정/해제를 설정 하 고 데이터 형식을 자동으로 감지 소스 변환으로 이동 합니다.
+### <a name="delimited-text"></a>분리된 텍스트
+
+구분 기호로 분리 된 텍스트 데이터 집합을 설정 하거나 단일 구분 기호를 처리 하는 구분 기호 ('\t' TSV',' CSV에 대 한 ' |'...) 또는 구분 기호에 대 한 여러 문자를 사용 합니다. 헤더 행 설정/해제를 설정 하 고 데이터 형식을 자동으로 감지 소스 변환으로 이동 합니다. 데이터 이동 하는 구분 된 텍스트 데이터 집합을 싱크를 사용 하는 경우 대상 폴더를 선택 합니다. 싱크 설정에서 출력 파일의 이름을 정의할 수 있습니다.
+
+### <a name="parquet"></a>Parquet
+
+Parquet ADF 데이터 흐름에서 준비 기본 데이터 집합 형식으로 사용 합니다. Parquet은 데이터와 함께 다양 한 메타 데이터 스키마를 저장 합니다.
+
+### <a name="database-types"></a>데이터베이스 형식
+
+Azure SQL DB 또는 Azure SQL DW를 선택할 수 있습니다.
+
+기타 ADF 데이터 집합 형식에 대해 데이터를 준비 하려면 복사 작업을 사용 합니다. 이 패턴을 빌드할 수 있도록 템플릿 갤러리에는 ADF 템플릿이 있습니다.
+
+![준비 복사](media/data-flow/templatedf.png "스테이징 복사")
+
+## <a name="choose-your-connection-type"></a>연결 형식 선택
+
+Parquet 또는 구분 된 텍스트 데이터 집합을 사용 하는 경우에 다음 데이터에 대 한 위치를 선택할 수 있습니다. ADLS 또는 Blob입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

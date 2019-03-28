@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 978566eb9e0073c60046eca024e09ba63c642180
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b378f77874b1ebef243836c101fa71a53f4775d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458230"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517753"
 ---
 # <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure VM을 Azure로 복제하는 중 디스크 제외
 
@@ -31,7 +31,7 @@ ms.locfileid: "56458230"
 ## <a name="why-exclude-disks-from-replication"></a>복제에서 디스크를 제외하는 이유는?
 다음과 같은 이유로 복제에서 디스크를 제외해야 하는 경우가 자주 있습니다.
 
-- 가상 머신이 [복제 데이터 변경률에 대한 Azure Site Recovery 제한](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates)에 도달했습니다.
+- 가상 머신이 [복제 데이터 변경률에 대한 Azure Site Recovery 제한](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)에 도달했습니다.
 
 - 제외되는 디스크에서 변동된 데이터는 중요하지 않거나 복제할 필요가 없습니다.
 

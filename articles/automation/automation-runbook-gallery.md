@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337091"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519003"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 빌드한 시나리오에 액세스할 수 있습니다.
 
-가져올 수 있습니다 [PowerShell runbook](#runbooks-in-runbook-gallery) 하 고 [모듈](#modules-in-powerShell-gallery) PowerShell 갤러리에서와 [Python runbook](#python-runbooks) 스크립트 센터 갤러리에서. 또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다. [갤러리에 Runbook 추가](#adding-a-runbook-to-the-runbook-gallery)를 참조하세요.
+PowerShell runbook을 가져올 수 있습니다 하 고 [모듈](#modules-in-powershell-gallery) PowerShell 갤러리에서 및 [Python runbook](#python-runbooks) 스크립트 센터 갤러리에서입니다. Runbook 갤러리에 추가 하는 참조를 개발 하는 시나리오를 공유 하 여 커뮤니티에 참여할 수도 있습니다.
 
 ## <a name="runbooks-in-powershell-gallery"></a>PowerShell 갤러리에서 Runbook
 

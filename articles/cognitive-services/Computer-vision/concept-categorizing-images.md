@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308862"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337142"
 ---
 # <a name="categorize-images"></a>이미지 분류
 
@@ -24,7 +24,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-Computer Vision은 다음 다이어그램에 나온 86개 범주 목록을 사용하여 이미지를 광범위하게 또는 구체적으로 범주화할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+컴퓨터 비전 분류할 수 이미지로 광범위 하 게 또는 구체적으로 86 범주 목록 다음 다이어그램에 사용 합니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 

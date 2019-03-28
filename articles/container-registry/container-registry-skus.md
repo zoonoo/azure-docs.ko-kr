@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138085"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521961"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -20,31 +20,15 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 
 | SKU | 관리 | 설명 |
 | --- | :-------: | ----------- |
-| **Basic** | 예 | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 갖습니다. 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
+| **Basic** | 예 | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. 기본 레지스트리는 Standard 및 Premium으로 동일한 프로그래밍 기능 (예: Azure Active Directory [인증 통합](container-registry-authentication.md#individual-login-with-azure-ad)를 [삭제 이미지][container-registry-delete], 및 [웹 후크][container-registry-webhook]). 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
 | **Standard** | 예 | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
 | **Premium** | 예 | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. 더 높은 이미지 처리량 뿐만 아니라 프리미엄 추가 기능을 포함 하 여 [함깨 geo-replication] [ container-registry-geo-replication] 여러 지역에서 단일 레지스트리를 관리 하는 것에 대 한 [신뢰 (미리 보기)콘텐츠](container-registry-content-trust.md) 서명에 이미지 태그, 및 [방화벽 및 virtual networks (미리 보기)](container-registry-vnet.md) 레지스트리에 대 한 액세스를 제한 하려면. |
-| 클래식<sup>1</sup> | 아닙니다. | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
-
-<sup>1</sup> 클래식 SKU는 **2019년 3월**부터 **사용되지 않습니다**. 모든 새 컨테이너 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.
-
-상위 수준 SKU를 선택하면 더 많은 성능 및 확장성을 제공하지만 모든 관리되는 SKU는 동일한 프로그래밍 방식 기능을 제공합니다. 여러 서비스 계층을 사용하여 Basic로 시작한 다음 레지스트리 사용량 증가에 따라 Standard 및 Premium으로 변환할 수 있습니다.
-
-## <a name="managed-vs-unmanaged"></a>관리되는 레지스트리와 관리되지 않는 레지스트리 비교
-
-Basic, Standard 및 Premium SKU는 *관리되는* 레지스트리로 통칭하고 Classic 레지스트리는 *관리되지 않는* 레지스트리라고 합니다. 둘 사이의 주요 차이점은 컨테이너 이미지가 저장되는 방법입니다.
-
-### <a name="managed-basic-standard-premium"></a>관리되는(Basic, Standard, Premium)
-
-관리되는 레지스트리는 Azure에서 완전히 관리하는 이미지 저장소를 사용합니다. 즉, 이미지를 저장하는 저장소 계정은 Azure 구독 내에서 표시되지 않습니다. [Azure Container Registry의 컨테이너 이미지 저장소][container-registry-storage]에서 자세히 설명한 대로 관리되는 레지스트리 SKU 중 하나를 사용하여 얻는 여러 가지 이점이 있습니다. 이 문서는 관리되는 레지스트리 SKU와 해당 기능에 중점을 둡니다.
-
-### <a name="unmanaged-classic"></a>관리되지 않는(Classic)
+|  클래식 (*2019 년 4 월 후 사용할 수 없는*) | 아닙니다. | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
 
 > [!IMPORTANT]
-> 클래식 SKU는 더 이상 사용되지 않으며 2019년 3월 이후에는 사용할 수 없습니다. 모든 새 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.
+> Classic 레지스트리 SKU 되 **더 이상 사용 되지**, 한 후 사용할 수 없게 됩니다 및 **2019 년 4 월**합니다. Basic, Standard 또는 Premium을 사용 하 여 모든 새로운 레지스트리에 대 한 것이 좋습니다. 2019 년 4 월 전에 모든 기존 Classic 레지스트리 업그레이드 해야 합니다. 업그레이드 정보를 참조 하세요 [Classic 레지스트리 업그레이드][container-registry-upgrade]합니다.
 
-Classic 레지스트리는 Classic 레지스트리를 지원하는 저장소 계정이 *사용자의* Azure 구독에 상주한다는 점에서 "관리되지 않습니다". 따라서 컨테이너 이미지가 저장되는 저장소 계정의 관리를 담당해야 합니다. 관리되지 않는 레지스트리를 사용하면 필요에 따라 SKU 간에 전환할 수 없으며(관리되는 레지스트리로 [업그레이드][container-registry-upgrade] 대신) 관리되는 레지스트리의 몇 가지 기능을 사용할 수 없습니다(예: 컨테이너 이미지 삭제 [지역에서 복제][container-registry-geo-replication] 및 [웹후크][container-registry-webhook]).
-
-관리되는 SKU 중 하나로 Classic 레지스트리 업그레이드에 대한 자세한 내용은 [Classic 레지스트리 업그레이드][container-registry-upgrade]를 참조하세요.
+Basic, Standard 및 Premium Sku (통틀어 호출 *레지스트리를 관리 되는*) 모두 동일한 프로그래밍 성능을 제공 합니다. 이러한 모든에서 활용할 수도 [이미지 저장소] [ container-registry-storage] Azure에서 완전히 관리 합니다. 더 높은 수준의 SKU를 선택하면 향상된 성능과 규모를 제공합니다. 여러 서비스 계층을 사용하여 Basic로 시작한 다음 레지스트리 사용량 증가에 따라 Standard 및 Premium으로 변환할 수 있습니다.
 
 ## <a name="sku-feature-matrix"></a>SKU 기능 행렬
 
@@ -54,7 +38,7 @@ Classic 레지스트리는 Classic 레지스트리를 지원하는 저장소 계
 
 ## <a name="changing-skus"></a>SKU 변경
 
-Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 SKU를 변경할 수 있습니다. 전환하는 SKU에 필요한 최대 저장소 용량이 있는 한 관리되는 SKU 간에 자유롭게 이동할 수 있습니다. Classic에서 관리되는 SKU 중 하나로 전환하는 경우 Classic으로 다시 이동할 수 없습니다. 단방향 변환입니다.
+Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 SKU를 변경할 수 있습니다. 전환하는 SKU에 필요한 최대 저장소 용량이 있는 한 관리되는 SKU 간에 자유롭게 이동할 수 있습니다. 클래식에서 관리 되는 Sku 중 하나로 전환 하면 이동할 수 없습니다 다시 classic 변환은 단방향 변환입니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -70,13 +54,7 @@ Azure Portal의 컨테이너 레지스트리 **개요**에서 **업데이트**�
 
 ![Azure Portal에서 컨테이너 레지스트리 SKU 업데이트][update-registry-sku]
 
-Classic 레지스트리가 있는 경우 Azure Portal 내에서 관리되는 SKU를 선택할 수 없습니다. 대신 먼저 관리되는 레지스트리로 [업그레이드][container-registry-upgrade]해야 합니다([Classic에서 변경](#changing-from-classic) 참조).
-
-## <a name="changing-from-classic"></a>Classic에서 변경
-
-관리되는 Basic, Standard 또는 Premium SKU 중 하나로 관리되지 않는 Classic 레지스트리를 마이그레이션할 때 고려해야 할 추가 고려 사항이 있습니다. Classic 레지스트리가 많은 수의 이미지를 포함하고 많은 기가바이트가 있는 경우 마이그레이션 프로세스는 다소 시간이 걸릴 수 있습니다. 또한 `docker push` 작업은 마이그레이션이 완료될 때까지 사용할 수 없습니다.
-
-관리되는 SKU 중 하나로 Classic 레지스트리 업그레이드에 대한 자세한 내용은 [Classic 컨테이너 레지스트리 업그레이드][container-registry-upgrade]를 참조하세요.
+Classic 레지스트리가 있는 경우 Azure Portal 내에서 관리되는 SKU를 선택할 수 없습니다. 먼저 연결 되는 대신 [업그레이드] [ container-registry-upgrade] 관리 되는 레지스트리를 합니다.
 
 ## <a name="pricing"></a>가격
 
@@ -107,4 +85,5 @@ GitHub에서 [ACR 로드맵][acr-roadmap]에 방문하여 예정된 서비스 �
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
 [container-registry-storage]: container-registry-storage.md
+[container-registry-delete]: container-registry-delete.md
 [container-registry-webhook]: container-registry-webhook.md

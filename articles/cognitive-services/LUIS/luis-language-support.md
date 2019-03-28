@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340866"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339519"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -94,3 +94,116 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 |포르투갈어(브라질)|✔||||
 |스페인어(es-ES)|✔||||
 |스페인어(es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>사용자 지정 토크 나이저 버전
+
+다음 문화권에는 사용자 지정 토크 나이저 버전이:
+
+|문화권|버전|목적|
+|--|--|--|
+|독일어<br>`de-de`|1.0.0|Machine learning 기반 토크 나이저를 복합 단어는 단일 구성 요소로 세분화 하려고 하는 사용 하 여 분할 하 여 단어를 토큰화 합니다.<br>사용자가 입력 `Ich fahre einen krankenwagen` 설정 된를 utterance로 `Ich fahre einen kranken wagen`입니다. 표시를 허용 `kranken` 및 `wagen` 다른 엔터티로 독립적으로 유지 합니다.|
+|독일어<br>`de-de`|1.0.1|공간에 분할 하 여 단어를 토큰화 합니다.<br> 사용자가 입력 `Ich fahre einen krankenwagen` 단일 토큰을 utterance로 유지 합니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |
+
+### <a name="migrating-between-tokenizer-versions"></a>토크 나이저 버전 간의 마이그레이션
+
+토크 나이저 버전 앱 파일에서을 변경 하려면 첫 번째 선택은 다음 버전을 가져옵니다. 이 작업 대상이 눈에 띄도록 토큰화 되는 방법을 변경 하지만 동일한 앱 ID를 유지할 수 있습니다. 
+
+1.0.0에 대 한 JSON 토크 나이저입니다. 속성 값이 표시 `tokenizerVersion`합니다. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+버전 1.0.1에 대 한 JSON 토크 나이저입니다. 속성 값이 표시 `tokenizerVersion`합니다. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+두 번째 옵션은 것 [새 앱으로 파일을 가져올](luis-how-to-start-new-app.md#import-an-app-from-file), 버전 대신 합니다. 이 작업에는 새 앱에 다양 한 앱 ID가 있지만 파일에 지정 된 토크 나이저 버전을 사용 하 여 의미 합니다. 

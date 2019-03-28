@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a22caa39dad3ce296c43015f324270b7dc55ae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/25/2019
+ms.openlocfilehash: 77e7ed6b39f18f05323562865097dd0760240abf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862032"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446362"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure PowerShell 샘플
 
@@ -65,7 +65,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 | |  |
 |---|---|
 |**관리되는 인스턴스 만들기 및 구성**||
-| [Managed Instance 만들기 및 관리](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | 이러한 PowerShell 스크립트는 Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하는 방법을 보여 줍니다. |
+| [Managed Instance 만들기 및 관리](scripts/sql-database-create-configure-managed-instance-powershell.md) | 이러한 PowerShell 스크립트는 Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하는 방법을 보여 줍니다. |
 | [Azure Resource Manager 템플릿을 사용하여 Managed Instance 만들기 및 관리](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure PowerShell 및 Azure Resource Manager를 사용하여 Managed Instance를 만들고 관리하는 방법을 보여줍니다.|
 | **TDE(투명한 데이터 암호화) 구성**||
 | [Azure Key Vault에서 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대한 Bring Your Own Key 시나리오에서 TDE(투명한 데이터 암호화)를 구성합니다.|

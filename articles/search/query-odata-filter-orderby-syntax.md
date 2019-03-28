@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087400"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541063"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure Search에서 필터 및 order-by 절의 OData 식 구문
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>필터 예제  
 
- 등급이 4 이상이고 기본 요금이 $100 미만인 모든 호텔을 찾습니다.  
+ $200 등급이 4 이상인 보다 작은 기본 모든 호텔 찾기:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  2010 이후에 리모델링한 호텔 중에서 "Roach Motel"을 제외한 모든 호텔을 찾습니다.  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- 태평양 표준시에 대한 표준 시간대 정보를 포함하는 datetime 리터럴을 사용하여 2012년 이후에 리모델링되었으며 기본 요금은 $200 미만인 모든 호텔을 찾습니다.  
+ 날짜/시간 리터럴 태평양 표준시에 대 한 표준 시간대 정보를 포함 하는 2010 년 이후에 리모델링한 기본 요금이 $200 미만인 모든 호텔 찾기:  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  주차장이 포함되어 있고 흡연은 허용하지 않는 모든 호텔을 찾습니다.  

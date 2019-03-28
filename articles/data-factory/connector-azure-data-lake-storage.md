@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405626"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522012"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -104,10 +104,10 @@ Azure Data Lake Storage Gen2 커넥터에서 지원하는 인증 유형은 다�
     - **싱크로**, Storage 탐색기에서 부여 적어도 **쓰기 + 실행** 폴더의 자식 항목을 만들 수 있는 권한이 있습니다. 또는 액세스 제어 (IAM)에서 적어도 부여할 **Storage Blob 데이터 기여자** 역할입니다.
 
 >[!NOTE]
->목록에 부여 된 서비스 주체의 사용 권한을 설정 해야 하는 루트에서 시작 하는 폴더 **"실행" 권한 사용 하 여 루트 수준** 또는 IAM에 대 한 권한. 다음을 사용하는 경우에도 적용됩니다.
+>목록에 부여 된 서비스 주체의 사용 권한을 설정 해야 하는 계정 수준에서 시작 하는 폴더 **저장소 계정 "실행" 권한이 있는** 또는 IAM에 대 한 권한. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** - 복사 파이프라인을 작성합니다.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다. 
->루트 수준 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 복사 될 파일에 적절 한 권한이 있는 서비스 주체 부여는 계속 작동 합니다.
+>계정 수준에서 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 복사 될 파일에 적절 한 권한이 있는 서비스 주체 부여는 계속 작동 합니다.
 
 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
@@ -158,10 +158,10 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
     - **싱크로**, Storage 탐색기에서 부여 적어도 **쓰기 + 실행** 폴더의 자식 항목을 만들 수 있는 권한이 있습니다. 또는 액세스 제어 (IAM)에서 적어도 부여할 **Storage Blob 데이터 기여자** 역할입니다.
 
 >[!NOTE]
->목록에 관리 되는 id에 부여 된 사용 권한을 설정 해야 하는 루트에서 시작 하는 폴더 **"실행" 권한 사용 하 여 루트 수준** 또는 IAM에 대 한 권한이 있습니다. 다음을 사용하는 경우에도 적용됩니다.
+>목록에 관리 되는 id에 부여 된 사용 권한을 설정 해야 하는 계정 수준에서 시작 하는 폴더 **저장소 계정 "실행" 권한이 있는** 또는 IAM에 대 한 권한이 있습니다. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** - 복사 파이프라인을 작성합니다.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다. 
->루트 수준 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id에 복사할 파일에서 적절 한 권한이 있는 부여는 계속 작동 합니다.
+>계정 수준에서 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id에 복사할 파일에서 적절 한 권한이 있는 부여는 계속 작동 합니다.
 
 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
@@ -196,7 +196,7 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 세트의 형식 속성을 **AzureBlobFSFile**로 설정해야 합니다. |예 |
-| folderPath | Data Lake Storage Gen2의 폴더에 대한 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |아닙니다. |
+| folderPath | Data Lake Storage Gen2의 폴더에 대한 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: 파일 시스템/폴더/에서 더 많은 예제를 참조 하세요 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)합니다. |아닙니다. |
 | fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않으면, 복사 작업은 다음과 같은 패턴으로 파일 이름을 자동으로 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", 예를 들어 "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식 원본에서 복사하면, 이름 패턴이 "*[table name].[format].[compression if configured]*"입니다(예: "MyTable.csv"). |아닙니다. |
 | modifiedDatetimeStart | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
 | modifiedDatetimeEnd | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
