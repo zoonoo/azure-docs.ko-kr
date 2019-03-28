@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107732"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541233"
 ---
-# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
+# <a name="backup-and-restore"></a>Backup 및 복원
 
 >[!IMPORTANT]
 >이 문서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체하지 않습니다. reader가 특히 백업, 복원, 고가용성 및 재해 복구의 항목에서 SAP HANA 관리 및 작업을 이해하고 전문 지식을 가졌다고 가정하겠습니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 표시됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 매개 변수의 세부 정보는 다음과 같습니다. 
 
 - 첫 번째 매개 변수는 스냅숏 백업의 유형을 지정합니다. 허용되는 값은 **hana**, **logs**, **boot**입니다. 
-- **<HANA Large Instance Type>** 매개 변수는 부팅 볼륨 백업에만 필요합니다. HANA 큰 인스턴스 단위에 종속된 “TypeI” 또는 “TypeII”의 두 유효한 값이 있습니다. 사용자 단위의 형식을 알아보려면 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조하세요.  
-- **<snapshot_prefix>** 매개 변수는 스냅숏 유형에 대한 백업 레이블 또는 스냅숏입니다. 두 가지 목적 중 한 가지는 이름을 지정하여 스냅숏의 의미를 파악하는 것입니다. 두 번째 목적은 *azure\_hana\_backup.pl* 스크립트가 특정 레이블 하에 보존되는 저장소 스냅숏의 수를 확인하는 것입니다. 두 개의 다른 레이블로 동일한 유형(예: **hana**)의 저장소 스냅숏 백업을 두 개 예약하고 각각에 대해 30개의 스냅숏을 보관하도록 정의하면 영향을 받는 볼륨의 저장소 스냅숏은 60개가 됩니다. 영숫자("A-Z, a-z, 0-9"), 밑줄("_") 및 대시("-") 문자만 사용할 수 있습니다. 
-- **<snapshot_frequency>** 매개 변수는 이후 개발을 위해 예약되었으며 영향을 주지 않습니다. **로그** 형식의 백업을 실행하는 경우 "3분"으로 설정하고 다른 백업 형식을 실행하는 경우 "15분"으로 설정합니다.
-- **<number of snapshots retained>** 매개 변수는 동일한 스냅숏 접두사(레이블)가 포함된 스냅숏 수를 정의하여 간접적으로 스냅숏의 보존을 정의합니다. 이 매개 변수는 cron을 통해 예약된 실행에 중요합니다. 동일한 snapshot_prefix를 가진 스냅숏 수가 이 매개 변수로 지정된 개수를 초과할 경우 새 저장소 스냅숏을 실행하기 전에 가장 오래된 스냅숏이 삭제됩니다.
+- 매개 변수  **\<HANA 대규모 인스턴스 유형 >** 부팅 볼륨 백업에만 필요 합니다. HANA 큰 인스턴스 단위에 종속된 “TypeI” 또는 “TypeII”의 두 유효한 값이 있습니다. 사용자 단위의 형식을 알아보려면 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조하세요.  
+- 매개 변수  **\<snapshot_prefix >** 스냅숏 또는 스냅숏 유형에 대 한 백업 레이블. 두 가지 목적 중 한 가지는 이름을 지정하여 스냅숏의 의미를 파악하는 것입니다. 두 번째 목적은 *azure\_hana\_backup.pl* 스크립트가 특정 레이블 하에 보존되는 저장소 스냅숏의 수를 확인하는 것입니다. 두 개의 다른 레이블로 동일한 유형(예: **hana**)의 저장소 스냅숏 백업을 두 개 예약하고 각각에 대해 30개의 스냅숏을 보관하도록 정의하면 영향을 받는 볼륨의 저장소 스냅숏은 60개가 됩니다. 영숫자("A-Z, a-z, 0-9"), 밑줄("_") 및 대시("-") 문자만 사용할 수 있습니다. 
+- 매개 변수  **\<snapshot_frequency >** 향후 개발을 위해 예약 되어 및에 영향을 주지 없습니다. **로그** 형식의 백업을 실행하는 경우 "3분"으로 설정하고 다른 백업 형식을 실행하는 경우 "15분"으로 설정합니다.
+- 매개 변수  **\<유지 하는 스냅숏의 수 >** 스냅숏의 보존 직접 정의 하 여 정의 동일한 스냅숏 접두사 (레이블)를 사용 하 여 스냅숏의 수입니다. 이 매개 변수는 cron을 통해 예약된 실행에 중요합니다. 동일한 snapshot_prefix를 가진 스냅숏 수가 이 매개 변수로 지정된 개수를 초과할 경우 새 저장소 스냅숏을 실행하기 전에 가장 오래된 스냅숏이 삭제됩니다.
 
 스케일 아웃의 경우 스크립트는 모든 HANA 서버에 액세스할 수 있는지 확인하기 위해 추가 검사를 수행합니다. 또한 스크립트는 SAP HANA 스냅숏을 만들기 전에 모든 HANA 인스턴스가 적절한 인스턴스 상태를 반환하는지 확인합니다. SAP HANA 스냅숏 다음에 저장소 스냅숏이 실행됩니다.
 

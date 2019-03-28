@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 72839ff812c2e8574f911cf18ea54fcda11fe831
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4b98648325eaf434d675bfdc1cdd704870912bc3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173958"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517218"
 documentType: LandingData
 title: Azure AD ID 보호
 metadata:
@@ -13,14 +13,14 @@ metadata:
   description: Azure Active Directory Identity Protection을 구성하고 테스트하는 방법을 알아봅니다.
   services: active-directory
   ms.subservice: identity-protection
-  author: MarkusVi
+  author: MicrosoftGuyJFlo
   manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
   description: 잠재적으로 손상된 ID 검색의 작동 원리 및 이를 해결하기 위해 자동화된 대응을 구현하는 방법을 알아봅니다. Azure Active Directory ID 보호는 Azure AD Premium P2 버전의 기능으로, 다음 작업을 가능하게 합니다.<ul><li>조직의 ID에 영향을 미치는 잠재적인 취약점 검색</li><li>조직의 ID와 관련된 의심스러운 작업에 자동으로 대응하도록 조건부 액세스 정책 구성</li><li>의심스러운 인시던트 조사 및 해결을 위한 작업 수행</li></ul><br> 다음 리소스를 통해 신속하게 시작할 수 있습니다.
   aside:

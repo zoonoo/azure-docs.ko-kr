@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861046"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541216"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "57861046"
 ## <a name="sample-code-and-demo"></a>샘플 코드 및 데모
 이 문서에서는 구직 검색 포털을 예로 사용합니다. 이 예제는 ASP.NET MVC 애플리케이션으로 구현됩니다.
 
--   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Search 구직 포털 데모](http://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
@@ -364,7 +364,7 @@ Azure Search에는 **geo.distance** 및 **geo.intersects**라는 두 개의 지�
 * **geo.distance** 함수는 두 점 사이의 거리를 킬로미터 단위로 반환합니다. 한 점은 필드이고 다른 점은 필터의 일부로 전달되는 상수입니다. 
 * **geo.intersects** 함수는 주어진 점이 주어진 다각형 내부에 있으면 true를 반환합니다. 점은 필드이고, 다각형은 필터의 일부로 전달되는 좌표의 상수 목록으로 지정됩니다.
 
-필터 예제는 [OData 식 구문(Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)에서 확인할 수 있습니다.
+필터 예제는 [OData 식 구문(Azure Search)](query-odata-filter-orderby-syntax.md)에서 확인할 수 있습니다.
 
 <a name="tryitout"></a>
 

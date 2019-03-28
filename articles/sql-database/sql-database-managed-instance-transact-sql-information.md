@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903133"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541284"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -217,7 +217,7 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
 
 - 다중 로그 파일은 지원되지 않습니다.
 - 메모리 내 개체는 범용 서비스 계층에서 지원되지 않습니다.  
-- 인스턴스당 280개 파일의 한도가 있습니다. 이는 데이터베이스당 최대 280개 파일을 의미합니다. 데이터 및 로그 파일은 모두 이 제한으로 계산됩니다.  
+- 데이터베이스당 최대 280 개 파일을 의미 하는 범용 인스턴스당 280 개 파일의 제한이 됩니다. 데이터와 로그 파일 일반적 용도 계층은이 제한에 대해 계산 됩니다. [중요 비즈니스용 계층 데이터베이스 별로 32,767 파일 지원](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
 - 파일 스트림 데이터가 있는 파일 그룹을 데이터베이스에 포함할 수 없습니다.  .bak에 `FILESTREAM` 데이터가 포함되어 있으면 복원에 실패합니다.  
 - 모든 파일은 Azure Blob Storage에 배치됩니다. 파일별 IO 및 처리량은 각 개별 파일의 크기에 따라 달라집니다.  
 
@@ -485,9 +485,9 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
 
-각 Managed Instance에는 Azure Premium Disk 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 Managed Instance는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다.
+각 일반 용도 관리 되는 인스턴스가 최대 35TB의 저장소가 Azure Premium 디스크 공간을 예약 하 고 각 데이터베이스 파일은 별도 물리적 디스크에 배치 합니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 Managed Instance는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다.
 
-예를 들어 Managed Instance에는 크기가 1.2TB인 하나의 파일이 4TB 디스크에 있을 수 있고, 크기가 1GB인 파일 248개가 별도의 128GB 디스크에 있을 수 있습니다. 이 예제에서:
+예를 들어, 일반 용도 관리 되는 인스턴스 하나가 있을 수 있습니다 1.2TB 4TB 디스크에 배치 되는 크기의 248 개의 파일 (각 크기가 1GB) 별도 128GB 디스크에 배치 되는 파일입니다. 이 예제에서:
 
 - 전체 할당된 디스크 스토리지 크기는 1x4TB + 248x128GB = 35TB입니다.
 - 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1x1.2TB + 248x1GB = 1.4TB입니다.
@@ -495,6 +495,8 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 여기서는 특정 상황에서 구체적인 파일의 배포로 인해 Managed Instance는 예상치 못한 연결된 Azure Premium Disk에 대해 예약된 35TB 용량에 도달할 수 있음을 보여줍니다.
 
 이 예제에서 기존 데이터베이스는 계속 작동하며, 새 파일이 추가되지 않으면 문제 없이 커질 수 있습니다. 그러나 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
+
+할 수 있습니다 [나머지 파일 수가 식별](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 시스템 뷰를 사용 하 여 합니다. 이 제한 하려고 도달 하는 경우 [빈 데이터 요소 및 일부 DBCC SHRINKFILE 문을 사용 하 여 더 작은 파일을 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 또는를 shitch [하지 않는 중요 비즈니스 계층에이 제한이](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못된 SAS 키 구성
 

@@ -3,7 +3,7 @@ title: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 �
 description: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: markvi
+ms.date: 03/20/2019
+ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce91fc5418de2e93027a8cb3abf1dcc670be64a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 81a9726b73226cd940a55e316ae434aeaad6ff4d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166983"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519088"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -220,5 +220,5 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 **[Azure Act
 
 > [!div class="nextstepaction"]
 > [페더레이션된 도메인에 대한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-federated-domains.md)
-> [수동으로 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-manual-steps.md)
+> [수동으로 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-manual.md)
 

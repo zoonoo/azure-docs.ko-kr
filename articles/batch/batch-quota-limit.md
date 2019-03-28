@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295269"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540978"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -77,14 +77,12 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 1. 포털에서 **Batch 계정** 을 선택한 다음 관심 있는 Batch 계정을 선택합니다.
 1. 배치 계정의 메뉴에서 **할당량**을 선택합니다.
 1. Batch 계정에 현재 적용된 할당량을 표시합니다.
-   
+
     ![Batch 계정 할당량][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>할당량 증가
 
-[Azure Portal][portal]을 사용하여 Batch 계정 또는 구독에 대해 할당량 증가를 요청하려면 다음 단계를 수행합니다. 할당량 증가 유형은 Batch 계정의 풀 할당 모드에 따라 다릅니다.
+[Azure Portal][portal]을 사용하여 Batch 계정 또는 구독에 대해 할당량 증가를 요청하려면 다음 단계를 수행합니다. 할당량 증가 유형은 Batch 계정의 풀 할당 모드에 따라 다릅니다. 할당량 증가 요청에 대 한 할당량을 늘리려면 원하는 VM 시리즈를 포함 해야 합니다. 할당량 증가 적용 하면 Vm의 모든 계열에 적용 됩니다.
 
 ### <a name="increase-a-batch-cores-quota"></a>Batch 코어 할당량 증가 
 

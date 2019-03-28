@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b3e11c58dcc5f5c68e9fe081cc47cf2fa18e9e57
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 296debefb5597af0c82202993443dc38f48f147a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697903"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519564"
 documentType: LandingData
 title: Azure AD 조건부 액세스 설명서
 metadata:
@@ -13,14 +13,14 @@ metadata:
   description: Azure Active Directory 조건부 액세스를 구성하고 테스트하는 방법을 알아봅니다.
   services: active-directory
   ms.subservice: conditional-access
-  author: MarkusVi
+  author: MicrosoftGuyJFlo
   manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
   description: Azure AD 조건부 액세스를 구성하여 보안과 생산성 간의 균형을 이루는 방법을 알아봅니다. 조건부 액세스 정책에서 클라우드 앱을 액세스 결정 사항에 액세스하는 방법을 고려할 수 있습니다. 예를 들어 다음 질문에 대한 액세스 결정 사항을 해결할 수 있습니다.<ul><li>사용자의 네트워크 위치란?</li><li>액세스 시도가 관리 디바이스에서 시작되나요?</li><li>연결 시도가 시작된 클라이언트 앱은 어디인가요?</li><li>위험한 로그인에서 액세스 시도가 수행되었나요?</li></ul>다음 리소스를 통해 신속하게 시작할 수 있습니다.
   aside:

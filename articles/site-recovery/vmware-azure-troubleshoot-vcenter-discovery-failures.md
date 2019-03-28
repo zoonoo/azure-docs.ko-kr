@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884471"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540808"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>vCenter 검색 실패 문제 해결
 
@@ -46,8 +46,8 @@ vCenter 검색 시스템 사용자가 구성한 시스템 기본 프록시 설�
 
 다음과 같은 경우가이 문제가 발생 하는 경우 발생 합니다.
 
-- VCenter server <vCenter> 오류 때문에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. 사용할 수 없음 (503) 서버
-- VCenter server <vCenter> 오류 때문에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. 원격 서버에 연결할 수 없습니다.
+- VCenter server \<vCenter > 오류 때문에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. 사용할 수 없음 (503) 서버
+- VCenter server \<vCenter > 오류 때문에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. 원격 서버에 연결할 수 없습니다.
 - VCenter/ESXi 서버에 연결할 수 없습니다.
 
 이 문제를 해결하려면
