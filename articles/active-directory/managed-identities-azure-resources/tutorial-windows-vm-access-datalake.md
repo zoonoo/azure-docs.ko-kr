@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20031b41d56e049670491a9aa9a41b21e0bfca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99a35c09d60ccb009c0f21d3aea59de2d5e9b63d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119822"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -68,7 +68,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 Azur
 1. Portal에서 **Virtual Machines** -> Windows VM으로 이동한 다음 **개요**에서 **연결**을 클릭합니다.
 2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
 3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다. 
-4. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Data Lake Store에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  Data Lake Store의 리소스 식별자는 "https://datalake.azure.net/"입니다.  Data Lake가 리소스 식별자와 정확히 일치하고 후행 슬래시가 중요합니다.
+4. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Data Lake Store에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  Data Lake Store의 리소스 식별자는 `https://datalake.azure.net/`입니다.  Data Lake가 리소스 식별자와 정확히 일치하고 후행 슬래시가 중요합니다.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

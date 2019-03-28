@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189651"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 최소한의 외부 라이브러리 참조를 사용하여 .NET Core 애플리케이션에서 작동하도록 작성되었으므로, Linux 또는 MacOS에서 실행할 수도 있습니다.
+이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 외부 라이브러리에 대한 최소한의 참조를 사용하여 .NET Core 애플리케이션에서 작동하도록 작성되었으므로 Linux 또는 MacOS에서도 실행할 수 있습니다.
 
 API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
@@ -30,26 +30,25 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
 
-
 ## <a name="install-the-nuget-sdk-package"></a>NuGet SDK 패키지 설치
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 1. 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **솔루션용 NuGet 패키지 관리**를 클릭합니다.
 1. **시험판 포함** 확인란을 선택합니다.
 1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
-1. NuGet 패키지를 선택하고 설치합니다.
+1. NuGet 패키지를 선택하고 설치합니다. 소프트웨어의 버그가 수정될 때까지 v3.0.0이 아니라 2019년 3월 18일 현재의 v2.8.0이 필요할 수 있습니다.
 
 > [!Tip]
 >  C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
 >
 > 몇 가지 유용한 링크:
-> - [SDK Nuget 페이지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK Nuget 페이지](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [SDK 코드](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK를 사용하여 텍스트 분석 API 호출
+
 1. Program.cs를 아래에 제공된 코드로 바꿉니다. 이 프로그램은 3개 섹션(언어 추출, 키 구문 추출 및 감정 분석)에서 텍스트 분석 API의 기능을 보여줍니다.
 1. `Ocp-Apim-Subscription-Key` 헤더 값을 구독에 유효한 액세스 키로 바꿉니다.
-1. `Endpoint`의 위치를 등록한 끝점으로 바꿉니다. Azure Portal 리소스에서 엔드포인트를 찾을 수 있습니다. 엔드포인트는 일반적으로 "https://[region].api.cognitive.microsoft.com"으로 시작되며, 여기서는 프로토콜과 호스트 이름만 포함하세요.
+1. `Endpoint`의 지역을 바꿉니다. 엔드포인트는 [Azure Portal](<https://ms.portal.azure.com>)에 있는 Text Analytics 리소스의 개요 섹션에서 찾을 수 있습니다. 엔드포인트의 "https://[region].api.cognitive.microsoft.com" 부분만 포함합니다.
 1. 프로그램을 실행합니다.
 
 ```csharp

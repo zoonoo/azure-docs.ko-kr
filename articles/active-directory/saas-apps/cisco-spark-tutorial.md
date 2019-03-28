@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef0638afd162dc179a2a7dec54b60bfb1f89144
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory 통합
 
@@ -46,6 +46,8 @@ Cisco Webex와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Cisco Webex에서 **SP** 시작 SSO를 지원합니다.
+
+* Cisco Webex에서 **자동** 사용자 프로비전을 지원합니다.
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>갤러리에서 Cisco Webex 추가
 
@@ -120,7 +122,7 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     
     | Name |  원본 특성|
     | ---------------|--------- |
-    | UID | user.userprincipalname |
+    | uid | user.userprincipalname |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -190,7 +192,7 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -243,7 +245,7 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     b. **성** 텍스트 상자에서 사용자의 성(예: **Simon**)을 입력합니다.
 
-    다. **이메일 주소** 텍스트 상자에서 사용자의 이메일 주소(예: **britta.simon@contoso.com**)를 입력합니다.
+    다. **이메일 주소** 텍스트 상자에서 사용자의 이메일 주소(예: **britta.simon\@contoso.com**)를 입력합니다.
 
 5. 더하기 기호를 클릭하여 Britta Simon을 추가합니다. 그런 후 **다음**을 클릭합니다.
 
@@ -257,8 +259,10 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [사용자 프로비저닝 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

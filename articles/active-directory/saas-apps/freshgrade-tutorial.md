@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cb2eb42757d321648ea1ace000913916b1b7a05
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880668"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>자습서: Azure Active Directory와 FreshGrade 통합
 
@@ -105,12 +105,14 @@ FreshGrade에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     ![FreshGrade 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
      a. **로그온 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
       | |
       |--|
       | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
@@ -145,7 +147,7 @@ FreshGrade에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

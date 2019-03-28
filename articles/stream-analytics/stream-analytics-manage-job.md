@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097943"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
@@ -53,7 +53,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
    |**설정**  |**제안 값** |**설명**  |
    |---------|---------|---------|
-   |이름     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
+   |Name     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
    |구독     |   \<구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
    |리소스 그룹     |   MyASADemoRG      |  **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.       |
    |위치     |   미국 서부2      |    이벤트 허브 네임스페이스를 배포할 수 있는 위치입니다.     |
@@ -180,7 +180,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 3. **+ 추가** > **Power BI**를 선택합니다. 다음 세부 정보로 양식을 채우고 **권한 부여**를 선택합니다.
 
    |**설정**  |**제안 값**  |
-   |---------|---------|---------|
+   |---------|---------|
    |출력 별칭  |  MyPBIoutput  |
    |데이터 세트 이름  |   ASAdataset  |
    |테이블 이름 |  ASATable  |

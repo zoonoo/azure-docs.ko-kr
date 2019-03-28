@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994857"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
 
@@ -70,6 +70,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 - `{YourMG}` - 사용자의 관리 그룹 ID로 대체
 - `{subscriptionId}` - 사용자의 구독 ID로 대체
+
+> [!NOTE]
+> 청사진을 구독 수준에서 만들 수도 있습니다. 예를 보려면 [구독 수준에서 청사진 만들기 예제](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)를 참조하세요.
 
 1. 초기 _청사진_ 개체를 만듭니다. **요청 본문**에는 청사진에 대한 속성, 생성할 리소스 그룹 및 모든 청사진 수준의 매개 변수가 포함됩니다. 매개 변수는 할당 중에 설정되고 이후 단계에서 추가되는 아티팩트에서 사용합니다.
 
@@ -262,7 +265,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +338,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 - `{YourMG}` - 사용자의 관리 그룹 ID로 대체
 - `{subscriptionId}` - 사용자의 구독 ID로 대체
 
-1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다양합니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
+1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다릅니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
 
    - REST API URI
 

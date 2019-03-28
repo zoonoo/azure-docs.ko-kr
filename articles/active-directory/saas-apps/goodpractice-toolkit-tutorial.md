@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae010825e16178cdfb8544c7bd1c6fd0e9c57b90
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>자습서: Azure Active Directory와 GoodPractice Toolkit 통합
 
@@ -69,7 +69,7 @@ GoodPractice Toolkit가 Azure AD에 통합되도록 구성하려면 갤러리의
 4. 검색 상자에서 **GoodPractice Toolkit**를 입력하고, 결과 패널에서 **GoodPractice Toolkit**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 GoodPractice Toolkit](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 GoodPractice Toolkit의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -146,7 +146,7 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

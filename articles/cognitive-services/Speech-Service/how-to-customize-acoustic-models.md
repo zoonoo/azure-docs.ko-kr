@@ -1,7 +1,7 @@
 ---
 title: '자습서: 음성 서비스를 사용하여 어쿠스틱 모델 만들기'
 titlesuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 음성 서비스를 사용하여 어쿠스틱 모델을 만드는 방법을 알아봅니다.
+description: Azure에서 음성 서비스를 사용하여 어쿠스틱 모델을 만드는 방법에 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844027"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
 
@@ -35,7 +35,7 @@ Azure Cognitive Services 계정이 아직 없는 경우 시작하기 전에 [무
 
 **기존 구독 연결**을 선택하여 Azure Portal에서 만든 Search Service 구독에 연결할 수 있습니다.
 
-Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용은 [무료로 음성 서비스 사용해 보기](get-started.md)를 참조하세요.
+Azure Portal에서 Speech Services 구독 만들기에 대한 자세한 내용은 [무료로 Speech Services 사용해 보기](get-started.md)를 참조하세요.
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
@@ -69,7 +69,7 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 | 샘플링 레이트 | 8,000헤르츠(Hz) 또는 16,000 Hz |
 | 채널 | 1(mono) |
 | 샘플 형식 | PCM, 16비트 정수 |
-| 파일 지속 기간 | 0.1초 < 기간 < 12초 | 
+| 파일 지속 기간 | 0.1초 < 기간 < 12초 |
 | 무음 목걸이 | 0.1초 초과 |
 | 보관 형식 | .zip |
 | 최대 보관 크기 | 2GB |
@@ -96,19 +96,19 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 
 전사는 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 사용자 지정 음성 서비스에 업로드하기 _전에_ 사용자가 수행해야 하는 몇몇 중요한 정규화 작업이 있습니다. 전사를 준비할 때 사용하기에 적절한 언어는 [음성 서비스를 사용하기 위한 전사 지침](prepare-transcription.md)을 참조하세요.
 
-[음성 서비스 포털](https://cris.ai)을 사용하여 다음 섹션의 단계를 수행합니다.
+[Speech Services 포털](https://cris.ai)을 사용하여 다음 섹션의 단계를 수행합니다.
 
 ## <a name="import-the-acoustic-dataset"></a>어쿠스틱 데이터 세트 가져오기
 
 오디오 파일 및 전사를 준비한 후 서비스 웹 포털로 가져올 수 있습니다.
 
-가져오려면 먼저 [음성 서비스 포털](https://cris.ai)에 로그인해야 합니다. 그런 다음 리본의 **사용자 지정 음성** 드롭다운 목록에서 **적응 데이터**를 선택합니다. Custom Speech Service에 처음으로 데이터를 업로드하는 경우 **데이터 세트**라는 빈 테이블이 표시됩니다. 
+가져오려면 먼저 [Speech Services 포털](https://cris.ai)에 로그인해야 합니다. 그런 다음 리본의 **사용자 지정 음성** 드롭다운 목록에서 **적응 데이터**를 선택합니다. Custom Speech Service에 처음으로 데이터를 업로드하는 경우 **데이터 세트**라는 빈 테이블이 표시됩니다.
 
 **어쿠스틱 데이터 세트** 행에서 **가져오기** 단추를 선택하면 사이트에 새 데이터 세트를 업로드하기 위한 페이지가 표시됩니다.
 
 ![어쿠스틱 데이터 가져오기 페이지](media/stt/speech-acoustic-datasets-import.png)
 
-**이름** 및 **설명** 상자에 적절 한 정보를 입력합니다. 업로드한 다양한 데이터 세트를 기억하려면 친숙한 이름이 유용합니다. 
+**이름** 및 **설명** 상자에 적절 한 정보를 입력합니다. 업로드한 다양한 데이터 세트를 기억하려면 친숙한 이름이 유용합니다.
 
 **전사 파일(.txt)** 및 **오디오 파일(.zip)** 상자에서 **찾아보기**를 선택한 다음, 일반 텍스트 전사 파일 및 WAV 파일의 zip 보관 파일을 선택합니다. 준비가 완료되면 **가져오기**를 클릭하여 데이터를 업로드합니다. 데이터가 업로드됩니다. 더 큰 데이터 세트의 경우 가져오기 프로세스에 몇 분이 걸릴 수 있습니다.
 
@@ -126,11 +126,11 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 
 어쿠스틱 데이터 세트의 상태가 *완료*이면 데이터 세트를 사용하여 사용자 지정 어쿠스틱 모델을 만들 수 있습니다. 그렇게 하려면 **사용자 지정 음성** 드롭다운 목록에서 **어쿠스틱 모델**을 선택합니다. **사용자의 모델**이라는 테이블에 모든 사용자 지정 어쿠스틱 모델이 나열됩니다. 이 테이블은 처음 사용할 경우 비어 있습니다. 테이블 제목에 현재 로캘이 표시됩니다. 현재 미국 영어에 대해서만 어쿠스틱 모델을 만들 수 있습니다.
 
-새 모델을 만들려면 테이블 제목 아래의 **새로 만들기**를 클릭합니다. 앞에서와 같이, 이 모델을 식별할 수 있는 이름과 설명을 입력합니다. 예를 들어 **설명** 필드를 사용하여 모델을 만드는 데 사용한 시작 모델 및 어쿠스틱 데이터 세트를 기록할 수 있습니다. 
+새 모델을 만들려면 테이블 제목 아래의 **새로 만들기**를 클릭합니다. 앞에서와 같이, 이 모델을 식별할 수 있는 이름과 설명을 입력합니다. 예를 들어 **설명** 필드를 사용하여 모델을 만드는 데 사용한 시작 모델 및 어쿠스틱 데이터 세트를 기록할 수 있습니다.
 
 다음으로 **기본 어쿠스틱 모델** 드롭 다운 목록에서 기본 모델을 선택합니다. 기본 모델은 사용자 지정에 대한 시작점입니다. 두 가지 기본 어쿠스틱 모델 중에서 선택할 수 있습니다.
-* **Microsoft 검색 및 받아쓰기 AM** 모델은 명령, 검색 쿼리 또는 받아쓰기 등 애플리케이션에서 지시하는 음성에 적합합니다. 
-* **Microsoft 대화형 모델**은 대화 스타일로 말하는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다. 
+* **Microsoft 검색 및 받아쓰기 AM** 모델은 명령, 검색 쿼리 또는 받아쓰기 등 애플리케이션에서 지시하는 음성에 적합합니다.
+* **Microsoft 대화형 모델**은 대화 스타일로 말하는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다.
 
 대화형 모델의 부분 결과 대기 시간은 검색 및 받아쓰기 모델보다 깁니다.
 
@@ -153,6 +153,6 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech Service 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [Speech Services 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)
 - [Git 샘플 데이터](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

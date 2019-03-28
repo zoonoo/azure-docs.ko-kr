@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636331c5ad39887ec8d8c92720cfa4fb3b3b3663
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>자습서: Birst Agile Business Analytics와 Azure Active Directory 통합
 
@@ -109,12 +109,12 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하려면 
 
     URL는 Birst 계정이 있는 데이터 센터를 사용합니다.
 
-    * 미국 데이터 센터의 경우 다음 패턴을 사용합니다.`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * 미국 데이터 센터의 경우 다음 패턴을 사용합니다.`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    * 유럽 데이터 센터의 경우 다음 패턴을 사용합니다.`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * 유럽 데이터 센터의 경우 다음 패턴을 사용합니다.`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 가져오려면 [Birst Agile Business Analytics 클라이언트 지원팀](mailto:info@birst.com)에 문의하세요.
+     > [!NOTE]
+     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 가져오려면 [Birst Agile Business Analytics 클라이언트 지원팀](mailto:info@birst.com)에 문의하세요.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -155,7 +155,7 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하려면 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084592"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -120,7 +120,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 센서의 데이터를 읽도록 허용하는 코드를 C 모듈에 추가하고, 보고된 머신 온도가 안전 임계값을 초과했는지 확인하고, 해당 정보를 IoT Hub에 전달합니다.
 
-5. 이 시나리오의 센서 데이터는 JSON 형식으로 들어옵니다. JSON 형식의 메시지를 필터링하려면 C용 JSON 라이브러리를 가져와야 합니다. 이 자습서에서는 Parson을 사용합니다.
+1. 이 시나리오의 센서 데이터는 JSON 형식으로 들어옵니다. JSON 형식의 메시지를 필터링하려면 C용 JSON 라이브러리를 가져와야 합니다. 이 자습서에서는 Parson을 사용합니다.
 
    1. [Parson GitHub 리포지토리](https://github.com/kgabis/parson)를 다운로드합니다. **parson.c** 및 **parson.h** 파일을 **CModule** 폴더에 복사합니다.
 
@@ -143,13 +143,13 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
       #include "parson.h"
       ```
 
-6. **main.c** 파일에서, 포함 섹션 뒤에 `temperatureThreshold`라는 글로벌 변수를 추가합니다. 이 변수는 데이터가 IoT Hub로 전송되기 위해 측정된 온도가 초과해야 하는 값을 설정합니다.
+1. **main.c** 파일에서, 포함 섹션 뒤에 `temperatureThreshold`라는 글로벌 변수를 추가합니다. 이 변수는 데이터가 IoT Hub로 전송되기 위해 측정된 온도가 초과해야 하는 값을 설정합니다.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. `CreateMessageInstance` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 콜백에 대한 컨텍스트를 할당합니다.
+1. `CreateMessageInstance` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 콜백에 대한 컨텍스트를 할당합니다.
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -183,7 +183,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
     }
     ```
 
-8. `InputQueue1Callback` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 실제 메시지 필터를 구현합니다.
+1. `InputQueue1Callback` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 실제 메시지 필터를 구현합니다.
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -245,7 +245,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
     }
     ```
 
-9. `moduleTwinCallback` 함수를 추가합니다. 이 메서드는 모듈 쌍에서 원하는 속성에 대한 업데이트를 수신하고, 일치하도록 **temperatureThreshold** 변수를 업데이트합니다. 모든 모듈에는 자체 모듈 쌍이 있어서 클라우드에서 직접 모듈 내에서 실행되는 코드를 구성할 수 있습니다.
+1. `moduleTwinCallback` 함수를 추가합니다. 이 메서드는 모듈 쌍에서 원하는 속성에 대한 업데이트를 수신하고, 일치하도록 **temperatureThreshold** 변수를 업데이트합니다. 모든 모듈에는 자체 모듈 쌍이 있어서 클라우드에서 직접 모듈 내에서 실행되는 코드를 구성할 수 있습니다.
 
     ```c
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
@@ -263,35 +263,35 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
     }
     ```
 
-10. `SetupCallbacksForModule` 함수를 다음 코드로 바꿉니다.
+1. `SetupCallbacksForModule` 함수를 다음 코드로 바꿉니다.
 
-    ```c
-    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
-    {
-        int ret;
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
 
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else
-        {
-            ret = 0;
-        }
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else
+       {
+           ret = 0;
+       }
 
-        return ret;
-    }
-    ```
+       return ret;
+   }
+   ```
 
-11. main.c 파일을 저장합니다.
+1. main.c 파일을 저장합니다.
 
-12. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **CModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다. Visual Studio Code 확장은 배포 템플릿에 필요한 대부분의 정보를 자동으로 채우지만 솔루션에 대한 모든 정보가 정확한지 확인합니다. 
+1. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **CModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다. Visual Studio Code 확장은 배포 템플릿에 필요한 대부분의 정보를 자동으로 채우지만 솔루션에 대한 모든 정보가 정확한지 확인합니다. 
 
    1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되어 있습니다. 이는 **CModule**이 Linux amd64 버전의 이미지로 설정되었음을 나타냅니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7**로 변경하세요. 
 
@@ -303,19 +303,19 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
    4. 배포 매니페스트에 대한 자세한 내용은 [IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
-13. CModule 모듈 쌍을 배포 매니페스트에 추가합니다. `$edgeHub` 모듈 쌍 뒤에 있는 `moduleContent` 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다.
+1. CModule 모듈 쌍을 배포 매니페스트에 추가합니다. `$edgeHub` 모듈 쌍 뒤에 있는 `moduleContent` 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다.
 
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
+   ```json
+       "CModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
 
    ![배포 템플릿에 CModule 쌍 추가](./media/tutorial-c-module/module-twin.png)
 
-14. **deployment.template.json** 파일을 저장합니다.
+1. **deployment.template.json** 파일을 저장합니다.
 
 ## <a name="build-and-push-your-solution"></a>솔루션 빌드 및 푸시
 

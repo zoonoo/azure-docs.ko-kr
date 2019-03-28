@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 287a82292994a629bde8255321c7f603fdf00b67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 86c00242d2d7dbb9441b09dc327e4ee8cbbd729b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099970"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>빠른 시작: Node.js 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -184,4 +184,4 @@ ms.locfileid: "55869282"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)
+> [단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

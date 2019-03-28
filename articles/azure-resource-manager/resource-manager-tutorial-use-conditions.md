@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 023be5d0a5320163b3eabfe80f35894763ab89fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099613"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다.
 
 [리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 저장소 계정을 포함한 기타 종속 리소스를 만듭니다. 매번 새 저장소 계정을 만드는 대신, 사용자가 새 저장소 계정을 만들지, 기존 저장소 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 저장소 계정이 만들어집니다.
+
+![Resource Manager 템플릿 사용 조건 다이어그램](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -61,13 +63,13 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 3. **열기**를 선택하여 파일을 엽니다.
 4. 템플릿에 5개 리소스가 정의되어 있습니다.
 
-    * `Microsoft.Storage/storageAccounts`. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-    * `Microsoft.Network/publicIPAddresses`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-    * `Microsoft.Network/virtualNetworks`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-    * `Microsoft.Network/networkInterfaces`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-    * `Microsoft.Compute/virtualMachines`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * `Microsoft.Storage/storageAccounts`. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
+   * `Microsoft.Network/publicIPAddresses`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
+   * `Microsoft.Network/virtualNetworks`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
+   * `Microsoft.Network/networkInterfaces`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
+   * `Microsoft.Compute/virtualMachines`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
-    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 5. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
 
 ## <a name="modify-the-template"></a>템플릿 수정

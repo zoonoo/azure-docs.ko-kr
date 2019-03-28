@@ -5,15 +5,15 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411393"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226235"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기(미리 보기)
 
@@ -38,11 +38,13 @@ ms.locfileid: "54411393"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>이 기능 등록
 
-**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요. PowerShell을 로컬로 실행하려면 최신 버전인지 확인하고 **Connect-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하여 로그인합니다.
+**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요. PowerShell을 로컬로 실행하려면 최신 버전이 있는지 확인하고, **Connect-AzAccount** 및 **Select-AzSubscription** 명령을 사용하여 로그인합니다.
 
 >[!NOTE]
 >이 기능을 등록하지 않으면 사용할 수 없거나 포털에서 표시되지 않습니다.
@@ -52,25 +54,25 @@ ms.locfileid: "54411393"
 **TryIt**을 클릭하여 Azure Cloud Shell을 연 후, 다음 명령을 복사하여 붙여넣습니다.
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-기능이 등록되었다고 표시되면 Microsoft.Network 네임스페이스에 대한 구독을 등록합니다.
+기능이 등록된 것으로 표시되면 구독을 Microsoft.Network 네임스페이스에 등록합니다.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
@@ -101,13 +103,13 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 4. 페이지의 맨 위에서 **+지점 및 사이트 간 구성 추가**를 클릭하여 **새 지점 및 사이트 간 구성 만들기** 페이지를 엽니다.
 5. **새 지점 및 사이트 간 구성 만들기** 페이지에서 다음 필드를 입력합니다.
 
-  *  **구성 이름** - 구성을 참조하는 데 사용하려는 이름입니다.
-  *  **터널 종류** - 터널에 대해 사용할 프로토콜입니다.
-  *  **주소 풀** - 클라이언트가 할당되는 IP 주소 풀입니다.
-  *  **루트 인증서 이름** - 인증서에 대한 설명이 포함된 이름입니다.
-  *  **루트 인증서 데이터** - Base-64로 인코딩된 X.509 인증서 데이터입니다.
+   *  **구성 이름** - 구성을 참조하는 데 사용하려는 이름입니다.
+   *  **터널 종류** - 터널에 대해 사용할 프로토콜입니다.
+   *  **주소 풀** - 클라이언트가 할당되는 IP 주소 풀입니다.
+   *  **루트 인증서 이름** - 인증서에 대한 설명이 포함된 이름입니다.
+   *  **루트 인증서 데이터** - Base-64로 인코딩된 X.509 인증서 데이터입니다.
 
-5. **만들기**를 클릭하여 구성을 만듭니다.
+6. **만들기**를 클릭하여 구성을 만듭니다.
 
 ## <a name="hub"></a>5. 허브 할당 편집
 
@@ -115,9 +117,10 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 2. 지점 및 사이트 간 구성을 할당하려는 허브를 선택합니다.
 3. **"..."** 을 클릭하고 **가상 허브 편집**을 선택합니다.
 4. **지점 및 사이트 간 게이트웨이 포함**을 선택합니다.
-5. **게이트웨이 배율 단위**, **지점 및 사이트 간 구성**과 클라이언트의 **주소 풀**을 선택합니다.
-6. **확인**을 클릭합니다. 
-7. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
+5. 드롭다운에서 **게이트웨이 배율 단위**를 선택합니다.
+6. 드롭다운에서 만든 **지점 및 사이트 간 구성**을 선택합니다.
+7. 클라이언트에 대한 **주소 풀**을 구성합니다.
+8. **확인**을 클릭합니다. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="vnet"></a>6. 허브에 VNet 연결
 
@@ -131,6 +134,7 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
     * **허브** - 이 연결과 연결할 허브를 선택합니다.
     * **구독** - 구독을 확인합니다.
     * **가상 네트워크** - 이 허브에 연결할 가상 네트워크를 선택합니다. 가상 네트워크에는 기존의 가상 네트워크 게이트웨이를 사용할 수 없습니다.
+4. **확인**을 클릭하여 연결을 추가합니다.
 
 ## <a name="device"></a>7. VPN 프로필 다운로드
 
@@ -149,7 +153,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 #### <a name="openvpn"></a>OpenVPN
 
 1.  공식 웹 사이트에서 OpenVPN 클라이언트를 다운로드하고 설치합니다.
-2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
+2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. 이 작업은 Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzVpnClientConfiguration에서 수행할 수 있습니다.
 3.  프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공개 키를 가져오는 방법은 여기를 참조하세요.
 5.  base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법은 여기를 참조하세요.
@@ -168,7 +172,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 #### <a name="openvpn"></a>OpenVPN
 
 1.  https://tunnelblick.net/downloads.html에서 TunnelBlik와 같은 OpenVPN 클라이언트를 다운로드 및 설치합니다. 
-2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
+2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. 이 작업은 Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzVpnClientConfiguration에서 수행할 수 있습니다.
 3.  프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공개 키를 가져오는 방법은 여기를 참조하세요.
 5.  base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법은 여기를 참조하세요.
@@ -201,10 +205,10 @@ Azure VM과 원격 사이트 간의 통신을 모니터링하는 연결을 만�
 
 ## <a name="cleanup"></a>12. 리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+이러한 리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 이에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

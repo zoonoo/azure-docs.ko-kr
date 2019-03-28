@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c4c175a2c9e8138a1c385c42837335ee7df157ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e783181e737a235a83149b1f22d699fe0aef0bfb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848663"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 원격 이미지 분석
 
@@ -33,8 +33,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+1. 아래 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음과 같이 변경합니다.
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요한 경우 `imageUrl`의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
@@ -70,7 +70,7 @@ func main() {
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
     const imageUrl =
-        "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
     const params = "?visualFeatures=Description&details=Landmarks&language=en"
     const uri = uriBase + params
@@ -177,10 +177,6 @@ func main() {
   "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
 }
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 컴파일된 패키지 및 패키지가 컴파일된 원본 파일을 삭제한 후 명령 프롬프트 창과 텍스트 편집기를 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

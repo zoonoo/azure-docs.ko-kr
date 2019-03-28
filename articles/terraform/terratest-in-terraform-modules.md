@@ -2,21 +2,24 @@
 title: Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
 description: Terratest를 사용하여 Terraform 모듈을 테스트하는 방법을 알아보세요.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 저장소 계정, azure, terratest, 단위 테스트, 통합 테스트
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2018
-ms.openlocfilehash: fce70916cef96cee6496478503305e2bb1e73c09
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/19/2019
+ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656344"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224008"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
+
+> [!NOTE]
+> 이 문서의 샘플 코드는 버전 0.12 이상에서 작동하지 않습니다.
 
 Azure Terraform 모듈은 재사용 가능하고, 구성 가능하고, 테스트 가능한 구성 요소를 만드는 데 사용할 수 있습니다. Terraform 모듈은 인프라를 코드 프로세스로 구현하는 데 유용한 캡슐화를 통합합니다.
 

@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674483"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293637"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -34,7 +35,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 - 외부 계정 또는 암호를 관리할 필요가 없습니다. 
 - 계정을 동기화하거나 계정 수명 주기를 관리할 필요가 없습니다.  
 
-![구성원 추가](media/what-is-b2b/add-member.png)
+![멤버 추가 페이지를 보여 주는 스크린샷](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>간단한 초대 및 사용 프로세스를 사용하여 게스트 사용자 초대
 게스트 사용자는 자신의 회사, 학교 또는 소셜 ID로 앱 및 서비스에 로그인합니다. 게스트 사용자에게 Microsoft 계정이나 Azure AD 계정이 없는 경우 해당 사용자가 초대를 사용하면 해당 사용자의 계정이 만들어집니다. 
@@ -42,7 +43,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 - 앱의 직접 링크를 보내거나 게스트 사용자 소유의 액세스 패널에 초대를 보냅니다. 
 - 게스트 사용자는 로그인하기 위해 몇 가지 간단한 사용 단계를 따릅니다.
 
-![액세스 패널](media/what-is-b2b/consentscreen.png)
+![권한 검토 페이지를 보여 주는 스크린샷](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>정책을 사용하여 안전하게 앱 및 서비스 공유
 권한 부여 정책을 사용하여 회사 콘텐츠를 보호할 수 있습니다. 다단계 인증 등의 조건부 액세스 정책을 적용할 수 있습니다.
@@ -50,7 +51,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 - 애플리케이션 수준에서 적용
 - 회사 앱과 데이터를 보호하기 위해 특정 게스트 사용자에 적용
 
-![게스트 사용자 추가](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![조건부 액세스 옵션을 보여 주는 스크린샷](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Azure AD 포털에서 간편하게 게스트 사용자 추가
@@ -60,7 +61,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 - 게스트 사용자는 자신의 액세스 패널에 로그인하는 데 사용할 수 있는 사용자 지정 가능한 초대를 즉시 받습니다.
 - 디렉터리에 있는 게스트 사용자를 앱 또는 그룹에 할당할 수 있습니다.  
 
-![게스트 사용자 추가](media/what-is-b2b/adding-b2b-users-admin.png)
+![새 게스트 사용자 초대 항목 페이지를 보여 주는 스크린샷](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>애플리케이션 및 그룹 소유자가 자신의 게스트 사용자를 관리할 수 있음
 
@@ -68,7 +69,7 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
  - 관리자가 셀프 서비스 앱 및 그룹 관리를 설정합니다.
  - 관리자가 아닌 사용자는 자신의 [액세스 패널](https://myapps.microsoft.com)을 사용하여 애플리케이션 또는 그룹에 게스트 사용자를 추가합니다.
 
-![게스트 사용자 추가](media/what-is-b2b/access-panel-manage-app.png)
+![게스트 사용자에 대한 액세스 패널을 보여 주는 스크린샷](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 애플리케이션을 쉽게 빌드할 수 있음
 
@@ -76,7 +77,7 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
 - [B2B 공동 작업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 
 - [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)의 셀프 서비스 포털에 Microsoft가 제공하는 샘플 코드를 사용합니다.
 
-![등록 포털](media/what-is-b2b/sign-up-portal.png)
+![샘플 등록 포털을 보여 주는 스크린샷](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>다음 단계
 

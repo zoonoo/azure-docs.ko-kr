@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097426"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
 
@@ -31,7 +31,7 @@ Azure 백업을 사용하여 손상, 공격 및 재해로부터 Windows Server�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-http://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -88,11 +88,11 @@ MARS(Microsoft Azure Recovery Services) 에이전트는 Windows Server와 Recove
 
 1. 다운로드한 **MARSagentinstaller.exe**를 찾아 두 번 클릭합니다.
 2. **Microsoft Azure Recovery Services 에이전트 설치 마법사**가 나타납니다. 마법사를 진행하면서, 메시지가 표시되면 다음 정보를 제공하고 **등록**을 클릭합니다.
-    - 설치 및 캐시 폴더의 위치
-    - 프록시 서버 정보(프록시 서버를 사용하여 인터넷에 연결하는 경우)
-    - 사용자 이름 및 암호 세부 정보(인증된 프록시를 사용하는 경우)
+   - 설치 및 캐시 폴더의 위치
+   - 프록시 서버 정보(프록시 서버를 사용하여 인터넷에 연결하는 경우)
+   - 사용자 이름 및 암호 세부 정보(인증된 프록시를 사용하는 경우)
 
-    ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![인프라 준비](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. 마법사 끝 단계에서 **등록 진행**을 클릭하고 이전 절차에서 다운로드한 **보관 자격 증명** 파일을 제공합니다.
  

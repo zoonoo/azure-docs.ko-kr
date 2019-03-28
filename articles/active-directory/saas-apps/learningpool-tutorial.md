@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1b988fe2049a81fe98636d52f56c85f7b80f9e4
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 16cf541dca003446e7b49033018d5b9950bfc54f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>자습서: Learningpool Act와 Azure Active Directory 통합
 
@@ -108,6 +108,7 @@ Learningpool Act에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     a. **로그온 URL** 텍스트 상자에 `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php` URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<subdomain>.Learningpool.com/shibboleth` |
@@ -185,7 +186,7 @@ Learningpool Act에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

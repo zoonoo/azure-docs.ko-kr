@@ -2,19 +2,19 @@
 title: Azure IoT Hub에 대한 디바이스 연결 확인
 description: IoT Hub 도구를 사용하여 개발 중인 IoT 허브에 대한 디바이스 연결 문제를 해결합니다.
 services: iot-hub
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674520"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077567"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 생성된 SAS 토큰의 전체 텍스트를 적어 둡니다. SAS 토큰은 다음과 같습니다. `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
+개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
@@ -176,7 +176,7 @@ node SimulatedDevice-2.js "{Your SAS token}"
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-메시지를 보내는 시뮬레이션된 디바이스를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
+메시지를 보내는 시뮬레이션된 디바이스를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
 

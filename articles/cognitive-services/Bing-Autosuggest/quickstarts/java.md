@@ -1,121 +1,139 @@
 ---
-title: '빠른 시작: Bing Autosuggest API, Java'
+title: '빠른 시작: Bing Autosuggest REST API 및 Java로 검색 쿼리 제안'
 titlesuffix: Azure Cognitive Services
-description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 75d451123441f543094143adfc1df5dfd0c5bdb9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875317"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118836"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Bing Autosuggest API 및 Java에 대한 빠른 시작
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>빠른 시작: Bing Autosuggest REST API 및 Java로 검색 쿼리 제안
 
-이 문서에서는 Java와 함께 [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 를 사용하는 방법을 보여줍니다. Bing Autosuggest API는 사용자가 검색 상자에 입력하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 일반적으로, 사용자가 검색 상자에 새 문자를 입력할 때마다 이 API를 호출한 후 검색 상자의 드롭다운 목록에 제안을 표시합니다. 이 문서에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보내는 방법을 보여 줍니다.
+
+이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 Java 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)에서 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨 찾는 Java IDE를 사용할 수도 있지만 텍스트 편집기로도 충분합니다.
+* [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* [Gson 라이브러리](https://github.com/google/gson)
 
-**Bing Autosuggest API v7**을 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/#search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Autosuggest 결과 가져오기
+## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. 즐겨 찾는 IDE에서 새 Java 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import java.util.*;
+    import javax.net.ssl.HttpsURLConnection;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    ```
+
+2. 구독 키, API 및 경로 [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)와 검색 쿼리에 대한 변수를 만듭니다.
+    
+    ```java
+    static String subscriptionKey = "enter key here";
+    static String host = "https://api.cognitive.microsoft.com";
+    static String path = "/bing/v7.0/Suggestions";
+    static String mkt = "en-US";
+    static String query = "sail";
+    ```
+
+
+## <a name="format-the-response"></a>응답 형식 지정
+
+`prettify()`라는 메서드를 만들어 Bing Video API에서 반환된 응답 형식을 지정합니다. Gson 라이브러리의 `JsonParser`를 사용하여 JSON 문자열에 가져와 개체로 변환합니다. 그런 다음, `GsonBuilder()` 및 `toJson()`을 사용하여 서식이 지정된 문자열을 만듭니다.
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (Autosuggest.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac Autosuggest.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar Autosuggest
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-public class Autosuggest {
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-  static String subscriptionKey = "enter key here";
-
-  static String host = "https://api.cognitive.microsoft.com";
-  static String path = "/bing/v7.0/Suggestions";
-
-  static String mkt = "en-US";
-  static String query = "sail";
-
-  public static String get_suggestions () throws Exception {
-        String encoded_query = URLEncoder.encode (query, "UTF-8");
-        String params = "?mkt=" + mkt + "&q=" + encoded_query;
-    URL url = new URL (host + path + params);
-
-    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-    connection.setRequestMethod("GET");
-    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    connection.setDoOutput(true);
-
-    StringBuilder response = new StringBuilder ();
-    BufferedReader in = new BufferedReader(
-    new InputStreamReader(connection.getInputStream()));
-    String line;
-    while ((line = in.readLine()) != null) {
-      response.append(line);
-    }
-    in.close();
-
-    return response.toString();
-    }
-
-  public static String prettify (String json_text) {
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-
-  public static void main(String[] args) {
-    try {
-      String response = get_suggestions ();
-      System.out.println (prettify (response));
-    }
-    catch (Exception e) {
-      System.out.println (e);
-    }
-  }
 }
 ```
 
-### <a name="response"></a>response
+## <a name="construct-and-send-the-search-request"></a>검색 요청 생성 및 보내기
+
+1. `get_suggestions()`라는 새 메서드를 만들고 다음 단계를 수행합니다.
+
+   1. API 호스트, 경로 및 검색어 인코딩을 결합하여 요청에 대한 URL을 만듭니다. 추가하기 전에 쿼리를 url로 인코딩합니다. 시장 코드를 `mkt=` 매개 변수에 추가하고 쿼리를 `q=` 매개 변수에 추가하여 쿼리에 대한 매개 변수 문자열을 만듭니다.
+    
+      ```java
+  
+      public static String get_suggestions () throws Exception {
+         String encoded_query = URLEncoder.encode (query, "UTF-8");
+         String params = "?mkt=" + mkt + "&q=" + encoded_query;
+         //...
+      }
+      ```
+    
+   2. 위에서 생성한 API 호스트, 경로 및 매개 변수를 사용하여 요청에 대한 새 URL을 만듭니다. 
+    
+       ```java
+       //...
+       URL url = new URL (host + path + params);
+       //...
+       ```
+    
+   3. `HttpsURLConnection` 개체를 만들고 `openConnection()`을 사용하여 연결을 만듭니다. 요청 메서드를 `GET`으로 설정하고, `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다.
+
+      ```java
+       //...
+       HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+       connection.setRequestMethod("GET");
+       connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+       connection.setDoOutput(true);
+       //...
+      ```
+
+   4. `StringBuilder`에 대한 API 응답을 읽습니다. 응답을 캡처한 후 `InputStreamReader` 스트림을 닫고 응답을 반환합니다.
+
+       ```java
+       //...
+       StringBuilder response = new StringBuilder ();
+       BufferedReader in = new BufferedReader(
+       new InputStreamReader(connection.getInputStream()));
+       String line;
+       while ((line = in.readLine()) != null) {
+         response.append(line);
+       }
+       in.close();
+    
+       return response.toString();
+       ```
+
+2. 애플리케이션의 main 함수에서 `get_suggestions()`를 호출하고 `prettify()`를 사용하여 응답을 인쇄합니다.
+    
+    ```java
+    public static void main(String[] args) {
+      try {
+        String response = get_suggestions ();
+        System.out.println (prettify (response));
+      }
+      catch (Exception e) {
+        System.out.println (e);
+      }
+    }
+    ```
+
+## <a name="example-json-response"></a>예제 JSON 응답
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
@@ -186,9 +204,7 @@ public class Autosuggest {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest 자습서](../tutorials/autosuggest.md)
-
-## <a name="see-also"></a>참고 항목
+> [단일 페이지 웹앱 만들기](../tutorials/autosuggest.md)
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
 - [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

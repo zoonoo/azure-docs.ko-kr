@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015163"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -151,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https
 
           ![새 폴더 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [새 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook)(Python)을 만듭니다. **adftutorial** 폴더 아래에서 **mynotebook**을 호출하고 **,** **만들기**를 클릭해 보겠습니다.
+       1. [새 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook)(Python)을 만듭니다. **adftutorial** 폴더 아래에서 **mynotebook**을 호출하고  **만들기**를 클릭해 보겠습니다.
 
           ![새 Notebook 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https
 
        1. 이 경우 **Notebook 경로**는 **/adftutorial/mynotebook**입니다.
 
-1.  **Data Factory UI 제작 도구**로 다시 전환합니다. **Notebook1 활동** 아래에서 **설정** 탭으로 이동합니다. 
-    
+1.  **Data Factory UI 제작 도구**로 다시 전환합니다. **Notebook1 활동** 아래에서 **설정** 탭으로 이동합니다.
+
     a.  Notebook 활동에 **매개 변수를 추가**합니다. 이전에 **파이프라인**에 추가한 것과 동일한 매개 변수를 사용합니다.
 
        ![매개 변수 추가](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  매개 변수의 이름을 **input**으로 지정하고 값을 **@pipeline().parameters.name** 식으로 제공합니다.
+    b.  매개 변수의 이름을 **input**으로 지정하고 값을 **\@pipeline().parameters.name** 식으로 제공합니다.
 
 1.  파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. 유효성 검사 창을 닫으려면 **\>\>** (오른쪽 화살표) 단추를 선택합니다.
 

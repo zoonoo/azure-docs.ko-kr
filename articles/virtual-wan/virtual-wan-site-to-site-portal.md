@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: c99d3df23e0ba9733e8762fe8fc22a4c69d3bcfb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236859"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075171"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -40,7 +40,11 @@ ms.locfileid: "51236859"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
 
@@ -60,13 +64,13 @@ ms.locfileid: "51236859"
 2. **VPN 사이트** 페이지에서 **+사이트 만들기**를 클릭합니다.
 3. **사이트 만들기** 페이지에서 다음 필드를 채웁니다.
 
-  * **이름** - 온 - 프레미스 사이트를 참조할 때 사용하려는 이름입니다.
-  * **공용 IP 주소** - 온-프레미스 사이트에 상주하는 VPN 장치의 공용 IP 주소입니다.
-  * **개인 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
-  * **구독** - 구독을 확인합니다.
-  * **리소스 그룹** - 사용하려는 리소스 그룹입니다.
-  * **위치** -
-4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. **장치 정보**(선택적 필드)를 입력할 수도 있습니다. 이렇게 하면 Azure 팀이 환경을 더 잘 이해하고 향후 최적화 가능성을 높이거나 문제를 해결하는 데 도움이 됩니다.
+   * **이름** - 온 - 프레미스 사이트를 참조할 때 사용하려는 이름입니다.
+   * **공용 IP 주소** - 온-프레미스 사이트에 상주하는 VPN 디바이스의 공용 IP 주소입니다.
+   * **개인 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
+   * **구독** - 구독을 확인합니다.
+   * **리소스 그룹** - 사용하려는 리소스 그룹입니다.
+   * **위치** -
+4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. **디바이스 정보**(선택적 필드)를 입력할 수도 있습니다. 이렇게 하면 Azure 팀이 환경을 더 잘 이해하고 향후 최적화 가능성을 높이거나 문제를 해결하는 데 도움이 됩니다.
 5. **확인**을 클릭합니다.
 6. **확인** 을 클릭한 다음 VPN 사이트 페이지에서 상태를 확인합니다. 사이트가 **프로비저닝 중**에서 **프로비저닝됨**으로 이동됩니다.
 
@@ -111,7 +115,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 
 디바이스 구성 파일은 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
-* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
+* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션은 다음 항목에 대한 정보를 제공합니다.
 
     * 가상 허브 VNet의 **주소 공간**<br>예제:
@@ -267,10 +271,10 @@ Azure VM과 원격 사이트 간의 통신을 모니터링하는 연결을 만�
 
 ## <a name="cleanup"></a>11. 리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+이러한 리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹과 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

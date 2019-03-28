@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 792346edf1d2b2326f7f5f5f53304ceca347508d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353569"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901120"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>자습서: Spring 및 Azure Cosmos DB를 사용하여 Java 웹앱 빌드
 
@@ -101,7 +101,7 @@ export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
 export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
 
-// App Service Linux Configuration
+# App Service Linux Configuration
 export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
@@ -171,7 +171,7 @@ bash-3.2$ mvn package spring-boot:run
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-"Started TodoApplication" 메시지 대신 예외가 표시되는 경우 이전 단계에서 `bash` 스크립트가 환경 변수를 제대로 내보냈는지 및 생성된 Azure Cosmos DB 데이터베이스에 대한 값이 올바른지 확인합니다.
+“Started TodoApplication” 메시지 대신 예외가 표시되는 경우 이전 단계에서 `bash` 스크립트가 환경 변수를 제대로 내보냈는지, 생성한 Azure Cosmos DB 데이터베이스에 대한 값이 올바른지 확인합니다.
 
 ## <a name="configure-azure-deployment"></a>Azure 배포 구성
 
@@ -230,7 +230,7 @@ bash-3.2$ mvn package spring-boot:run
 
 ```bash
 
-// Deploy
+# Deploy
 bash-3.2$ mvn azure-webapp:deploy
 [INFO] Scanning for projects...
 [INFO] 

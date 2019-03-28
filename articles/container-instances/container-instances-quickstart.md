@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure Container Instances에서 애플리케이션 실행 - CLI
-description: 이 빠른 시작에서는 Azure CLI를 사용하여 격리된 컨테이너에서 실행할 Docker 컨테이너 애플리케이션을 Azure Container Instances에 배포함
+title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 - CLI
+description: 이 빠른 시작에서는 Azure CLI를 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562065"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732286"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
-Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 애플리케이션을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 애플리케이션을 찾아볼 수 있습니다.
+Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테이너를 간단하고 빠르게 실행합니다. Azure Kubernetes Service와 같은 풀 컨테이너 오케스트레이션 플랫폼이 필요하지 않을 경우 애플리케이션을 요청 시 컨테이너 인스턴스에 배포합니다.
+
+이 빠른 시작에서는 Azure CLI를 사용하여 격리된 Docker 컨테이너를 배포하고 해당 애플리케이션을 정규화된 도메인 이름(FQDN)으로 사용 가능하게 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 컨테이너에서 실행 중인 애플리케이션을 찾아볼 수 있습니다.
 
 ![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
 
@@ -25,7 +27,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. 로컬로 사용하려면 2.0.27 버전 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. 로컬로 사용하려면 2.0.55 버전 이상이 권장됩니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -39,11 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure CLI를 사용하여 컨테이너 인스턴스를 만들려면 [az container create][az-container-create] 명령에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 Docker Hub 레지스트리의 `microsoft/aci-helloworld` 이미지를 사용합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
+이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure CLI를 사용하여 컨테이너 인스턴스를 만들려면 [az container create][az-container-create] 명령에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 `microsoft/aci-helloworld` 이미지를 사용합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
 
 열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 DNS 이름 레이블이 있는 컨테이너를 배포하여 웹앱을 공개적으로 연결할 수 있도록 합니다.
 
-컨테이너 인스턴스를 시작하려면 다음 명령을 실행합니다. `--dns-name-label` 값은 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
+컨테이너 인스턴스를 시작하려면 다음과 유사한 명령을 실행합니다. 인스턴스를 만드는 Azure 지역 내에서 고유한 `--dns-name-label` 값을 설정합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -97,13 +99,13 @@ listening on port 80
 먼저 [az container attach][az-container-attach] 명령을 실행하여 로컬 콘솔을 컨테이너의 출력 스트림에 연결합니다.
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 결과가 나타나야 합니다.
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -155,7 +157,7 @@ Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

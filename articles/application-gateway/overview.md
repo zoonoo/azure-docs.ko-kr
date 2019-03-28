@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/22/2019
+ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448945"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225538"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -68,13 +68,17 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 
 
-웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+
+자세한 내용은 [Application Gateway의 WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/waf-overview)를 참조하세요.
 
 ## <a name="url-based-routing"></a>URL 기반 라우팅
 
 URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트래픽을 백 엔드 서버 풀로 라우팅할 수 있습니다. 시나리오 중 하나는 여러 콘텐츠 형식에 대한 요청을 서로 다른 풀로 라우팅하는 것입니다.
 
 예를 들어 `http://contoso.com/video/*`에 대한 요청은 VideoServerPool로 라우팅되고, `http://contoso.com/images/*`에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
+
+자세한 내용은 [Application Gateway를 사용한 URL 기반 라우팅](https://docs.microsoft.com/azure/application-gateway/url-route-overview)을 참조하세요.
 
 ## <a name="multiple-site-hosting"></a>다중 사이트 호스팅
 
@@ -83,6 +87,8 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 `http://contoso.com`에 대한 요청은 ContosoServerPool로 라우팅되고, `http://fabrikam.com`에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
 마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 `http://blog.contoso.com` 및 `http://app.contoso.com`이 포함됩니다.
+
+자세한 내용은 [Application Gateway를 사용한 다중 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)을 참조하세요.
 
 ## <a name="redirection"></a>리디렉션
 
@@ -96,6 +102,8 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
 - 경로 기반 리디렉션. 이러한 종류의 리디렉션에서는 `/cart/*`로 표시되는 쇼핑 카트 영역과 같이 특정 사이트 영역에서만 HTTP - HTTPS 리디렉션이 가능합니다.
 - 외부 사이트로 리디렉션.
 
+자세한 내용은 Application Gateway를 사용한 [트래픽 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-overview)을 참조하세요.
+
 ## <a name="session-affinity"></a>세션 선호도
 
 쿠키 기반 세션 선호도 기능은 동일한 서버에서 사용자 세션을 유지하려는 경우에 유용합니다. Application Gateway는 게이트웨이 관리형 쿠키를 사용하여 사용자 세션에서 동일한 서버에 후속 트래픽을 처리하도록 지시할 수 있습니다. 이는 세션 상태가 사용자 세션의 서버에 로컬로 저장된 경우에 특히 중요합니다.
@@ -105,6 +113,8 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
 Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 지원을 제공합니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다.
 
 WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이를 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청/응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 보다 효율적으로 사용할 수 있습니다. 이러한 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
+
+자세한 내용은 [WebSocket 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 및 [HTTP/2 지원](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support)을 참조하세요. 
 
 ## <a name="rewrite-http-headers-public-preview"></a>HTTP 헤더 다시 쓰기(공개 미리 보기)
 

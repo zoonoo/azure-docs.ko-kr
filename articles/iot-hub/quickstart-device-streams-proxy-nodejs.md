@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085578"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
 
 [IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작 가이드에서는 디바이스 스트림을 통해 SSH 및 RDP 트래픽을 디바이스에 전송되도록 하는 서비스 쪽에서 실행되는 Node.js 프록시 애플리케이션의 실행을 설명합니다. 설정에 대한 개요는 [여기](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)서 확인하세요. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작 가이드에서는 서비스 로컬 프록시를 실행하는 지침만 설명합니다. [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드와 함께 제공되는 디바이스 로컬 프록시를 실행해야 합니다.
 
@@ -32,6 +34,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 
 ## <a name="prerequisites"></a>필수 조건
+
+디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+
+  - **미국 중부**
+  - **미국 중부 EUAP**
 
 이 빠른 시작의 서비스 로컬 애플리케이션을 실행하려면 개발 머신에 Node.js v4.x.x 이상이 필요합니다.
 
@@ -75,7 +82,7 @@ node --version
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     다음과 같이 표시되는 반환 값을 기록해 둡니다.
@@ -95,7 +102,7 @@ node --version
 [디바이스 로컬 프록시](#run-the-device-local-proxy)가 실행되고 있다고 가정하고, 아래 단계를 따라 Node.js에서 작성된 서비스 로컬 프록시를 실행합니다.
 
 - 서비스 자격 증명, SSH 디먼이 실행되는 대상 디바이스 ID 및 환경 변수로 디바이스에서 실행되는 프록시에 대한 포트 번호를 제공합니다.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -105,11 +112,11 @@ node --version
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
-```
-디바이스 ID와 연결 문자열이 일치하도록 위의 값을 변경합니다.
+  ```
+  디바이스 ID와 연결 문자열이 일치하도록 위의 값을 변경합니다.
 
 - 압축을 푼 프로젝트 폴더의 `Quickstarts/device-streams-service`로 이동하고 서비스-로컬 프록시를 실행합니다.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
   # Install the preview service SDK, and other dependencies
@@ -118,7 +125,7 @@ node --version
 
   # Run the service-local proxy application
   node proxy.js
-```
+  ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
 Linux에서 터미널의 `ssh $USER@localhost -p 2222`를 사용하여 SSH를 실행합니다. Windows에서 즐겨찾는 SSH 클라이언트를 사용합니다(예: PuTTY).

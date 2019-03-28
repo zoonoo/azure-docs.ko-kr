@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200873"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224654"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -33,8 +33,10 @@ ms.locfileid: "56200873"
    * [Azure AD 조인](../device-management-azure-portal.md) 또는
    * [하이브리드 Azure AD 조인](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정해야 합니다.
-* Windows 10 디바이스가 프록시 서버나 방화벽 뒤에 있는 경우에는 HTTPS 트래픽(포트 443) 허용 URL 목록에 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com` URL을 추가해야 합니다.
+* Windows 10 디바이스에서 프록시 서버 또는 방화벽을 지지하는 경우 HTTPS 트래픽(443 포트) 허용 URL 목록에 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com` URL을 추가해야 합니다.
+* Windows 10용 SSPR은 머신 수준 프록시에서만 지원됩니다.
 * 사용자 환경에서 이 기능을 시도하기 전에 아래 제한 사항을 검토하세요.
+* 이미지를 사용하는 경우 sysprep을 수행하기 전에 기본 제공 관리자에 대한 웹 캐시를 지운 후에 CopyProfile 단계를 수행해야 합니다. 이에 대한 자세한 내용은 [사용자 지정 기본 사용자 프로필을 사용할 때 성능 저하](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile) 지원 문서에서 찾을 수 있습니다.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
 

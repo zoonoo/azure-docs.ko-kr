@@ -3,8 +3,8 @@ title: Azure AD v2 Android 빠른 시작 | Microsoft Docs
 description: Android 애플리케이션이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출할 수 있는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f8691e65e588d4eb274fd11f76ebd01bb7834
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35cf0f7ffe118a3c878e14e4a81793d18a646fa9
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202904"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "56207316"
 
 이 빠른 시작에는 Android 애플리케이션이 개인 또는 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-android/android-intro.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-android/android-intro-updated.png)
 
 > [!NOTE]
 > **필수 구성 요소**

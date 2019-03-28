@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865015"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448002"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 

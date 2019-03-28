@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118087"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>자습서: SMB를 통해 Azure Data Box에 데이터 복사
 
@@ -41,7 +41,8 @@ ms.locfileid: "56750007"
 
 선택한 스토리지 계정에 따라 Data Box에서 만드는 항목은 다음과 같습니다.
 - GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
-- 프리미엄 또는 Blob Storage 계정에 대한 공유 1개.
+- 프리미엄 스토리지에 대한 단일 공유. 
+- Blob Storage 계정에 대한 단일 공유. 
 
 블록 Blob 및 페이지 Blob 공유에서는 첫 번째 수준 엔터티가 컨테이너, 두 번째 수준 엔터티가 Blob입니다. Azure Files 공유에서 첫 번째 수준 엔터티는 공유, 두 번째 수준 엔터티는 파일입니다.
 
@@ -195,8 +196,8 @@ SMB 공유에 연결한 후에는 데이터 복사를 시작합니다. Robocopy�
 성능을 최적화하기 위해, 데이터를 복사할 때 다음 robocopy 매개 변수를 사용하세요.
 
 |    플랫폼    |    대부분 512KB 미만의 작은 파일                           |    대부분 512KB-1MB의 중간 파일                      |    대부분 1MB를 초과하는 큰 파일                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    Robocopy 세션 2개 <br> 세션당 16스레드    |    Robocopy 세션 3개 <br> 세션당 16스레드    |    Robocopy 세션 2개 <br> 세션당 24스레드    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    Robocopy 세션 2개 <br> 세션당 16스레드    |    Robocopy 세션 3개 <br> 세션당 16스레드    |    Robocopy 세션 2개 <br> 세션당 24스레드    |
 
 
 Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)를 참조하세요.

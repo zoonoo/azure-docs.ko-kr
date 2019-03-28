@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3358c415e620165bf07e2810bc8f1873d1dea0d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900610"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL 데이터 웨어하우스 만들기 및 쿼리
 
@@ -23,32 +23,29 @@ Azure PowerShell을 사용하여 Azure SQL Data Warehouse를 빠르게 만듭니
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 
-
-
 > [!NOTE]
 > SQL Data Warehouse를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [SQL Data Warehouse 가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzAccount
 ```
 
-사용 중인 구독을 보려면 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 실행합니다.
+사용 중인 구독을 보려면 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription)을 실행합니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)를 실행합니다.
+기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzContext](/powershell/module/az.accounts/set-azcontext)를 실행합니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -75,17 +72,17 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>논리 서버 만들기
 
-[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) 명령을 사용하여 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
+[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령을 사용하여 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
+New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
@@ -93,10 +90,10 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Data Warehouse 서비스 방화벽을 통해 SQL Data Warehouse에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
+[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Data Warehouse 서비스 방화벽을 통해 SQL Data Warehouse에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
@@ -110,7 +107,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 이 예제에서는 이전에 정의된 변수를 사용하여 데이터 웨어하우스를 만듭니다.  여기서는 서비스 목표를 데이터 웨어하우스를 저렴하게 시작하기 좋은 DW400으로 지정합니다. 
 
 ```Powershell
-New-AzureRmSqlDatabase `
+New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
@@ -133,7 +130,7 @@ New-AzureRmSqlDatabase `
 - **CollationName**: 지정되지 않은 경우 기본 데이터 정렬은 SQL_Latin1_General_CP1_CI_AS입니다. 데이터베이스에서 데이터 정렬을 변경할 수 없습니다.
 - **MaxSizeBytes**: 데이터베이스의 기본 최대 크기는 10GB입니다.
 
-매개 변수 옵션에 대한 자세한 내용은 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)를 참조하세요.
+매개 변수 옵션에 대한 자세한 내용은 [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)를 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -145,7 +142,7 @@ New-AzureRmSqlDatabase `
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>다음 단계

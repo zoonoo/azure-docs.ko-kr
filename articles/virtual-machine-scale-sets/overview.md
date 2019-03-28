@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329615"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199905"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 동일한 VM 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
@@ -46,7 +46,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
     - 또한 자동 크기 조정은 수요가 낮을 때 애플리케이션을 실행하는 불필요한 VM 인스턴스의 수를 최소화하는 한편, 수요가 증가하고 추가 VM 인스턴스가 자동으로 추가될 때 고객이 허용 가능한 수준의 성능을 계속 확보할 수 있습니다. 이 기능은 필요에 따라 비용을 절감하고 Azure 리소스를 효율적으로 만드는 데 도움이 됩니다.
 
 - **대규모 작업**
-    - 확장 집합은 최대 1,000개의 VM 인스턴스를 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 300개 VM 인스턴스로 제한됩니다.
+    - 확장 집합은 최대 1,000개의 VM 인스턴스를 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 600개의 VM 인스턴스로 제한됩니다.
     - 프로덕션 워크로드에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용합니다.
 
 

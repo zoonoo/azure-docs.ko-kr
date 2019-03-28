@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: ff34eef76e03bbf4ae0195960847b7748235483c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b359716db5a30f8a77b9f54c2b0bc7b4d00a7f39
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822462"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225759"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -36,9 +36,9 @@ ms.locfileid: "55822462"
 
     `ssh` 명령은 Linux, Unix 및 macOS 시스템에서 기본적으로 제공됩니다. Windows 10에서 다음 방법 중 하나를 사용하여 `ssh` 명령을 설치합니다.
 
-    * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
+  * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
 
-    * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
+  * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
 
     > [!IMPORTANT]  
     > 이 문서의 단계는 사용자가 위에서 언급한 SSH 클라이언트 중 하나를 사용한다고 가정합니다. 다른 SSH 클라이언트를 사용하는 중에 문제가 발생하는 경우에는 SSH 클라이언트에 대한 설명서를 참조하세요.

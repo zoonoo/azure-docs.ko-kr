@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>자습서: ADP와 Azure Active Directory 통합
 
@@ -187,7 +187,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 5. Azure Portal의 **ADP** 애플리케이션 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다.  
 
-    ![Single Sign-On 연결된 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Single Sign-On 연결 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  **사용자가 로그인할 수 있습니까** 필드 값을 **예**로 설정합니다.
 
@@ -259,7 +259,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

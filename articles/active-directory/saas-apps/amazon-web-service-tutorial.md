@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
 
@@ -133,7 +133,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하려면 다음
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.  **저장**을 클릭합니다.
+4. **기본 SAML 구성** 섹션에서 애플리케이션은 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
     ![이미지](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -401,7 +401,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하려면 다음
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

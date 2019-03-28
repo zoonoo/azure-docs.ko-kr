@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729834"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877856"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -51,7 +51,7 @@ a.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인하고 디스�
 a. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 사용 가능한 최대 용량은 35TB입니다. 따라서 한 인스턴스에서 35TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디스크를 더 많이 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>Q. 내 지역에서 Data Box Disk를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
-a.  Data Box Disk는 현재 미국, 캐나다, 오스트레일리아 및 유럽 연합의 모든 국가에서 사용할 수 있습니다.  
+a.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성](data-box-disk-overview.md#region-availability)으로 이동합니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
 a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽 및 북유럽 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
@@ -126,14 +126,14 @@ a.  아니요. Data Box Disk에는 현재 하나의 저장소 계정(범용 또�
 a. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도구가 있습니다.
  - **Data Box Disk 잠금 해제 도구**: 이 도구를 사용하여 Microsoft에서 배송하는 암호화된 디스크를 잠금 해제합니다. 이 도구를 사용하여 디스크를 잠금 해제할 때 Azure Portal의 Data Box Disk 주문에 제공되는 암호를 입력해야 합니다. 
  - **Data Box Disk 유효성 검사 도구**: 이 도구를 사용하여 Azure 명명 규칙에 따라 크기, 형식 및 Blob 이름의 유효성을 검사합니다. 또한 이 도구는 복사된 데이터에 대한 체크섬을 생성하며, 생성된 체크섬은 Azure에 업로드된 데이터를 확인하는 데 사용됩니다.
- - **Data Box Disk 분할 복사 도구**: 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우 이 도구를 사용합니다. 이 도구는 현재 Windows에서 사용할 수 있습니다.
+ - **Data Box Disk 분할 복사 도구**: 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우 이 도구를 사용합니다. 이 도구는 현재 Windows에서 사용할 수 있습니다. 이 도구는 관리 디스크에는 지원되지 않습니다. 또한 이 도구는 데이터 복사 시 유효성을 검사하므로, 이 도구를 사용할 때는 유효성 검사 단계를 건너뛸 수 있습니다.
 
 이 도구 세트는 Windows 및 Linux 모두에 사용할 수 있습니다. 이 도구 세트는 여기서 다운로드할 수 있습니다.
- - [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin) 
- - [Linux용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolslinux)
+- [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin) 
+- [Linux용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolslinux)
  
-### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
-a. Data Box Disk에서는 Azure Files가 지원되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
+  a. Azure Files는 Data Box Disk에 지원되지만, Azure 파일 동기화에는 작동되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
 
 
 ## <a name="verify-and-upload"></a>확인 및 업로드
@@ -142,10 +142,10 @@ a. Data Box Disk에서는 Azure Files가 지원되지 않습니다. Azure 파일
 a.  데이터 복사에 대한 주문 상태가 완료됨으로 표시되면 데이터에 바로 액세스할 수 있습니다.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. 업로드되면 Azure에서 내 데이터가 어디에 있나요?
-a.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure 저장소 계정에 만들어집니다. 파일을 *BlockBlob* 및 *PageBlob* 폴더 아래에 직접 복사한 경우 이러한 파일은 Azure Storage 계정 아래의 *$root* 기본 컨테이너에 있습니다.
+a.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure 저장소 계정에 만들어집니다. 파일을 *BlockBlob* 및 *PageBlob* 폴더 아래에 직접 복사한 경우 이러한 파일은 Azure Storage 계정 아래의 *$root* 기본 컨테이너에 있습니다. 데이터를 *AzureFile* 폴더 아래의 폴더에 복사하면 파일 공유가 생성됩니다.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
-a. 컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 자세한 내용을 보려면 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)으로 이동하세요.
+a. 컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 자세한 내용을 보려면 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)으로 이동하세요.
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>Q. 여러 Data Box Disk에 복사한 데이터를 확인하려면 어떻게 할까요?
 a.  데이터 복사가 완료되면 *DataBoxDiskImport* 폴더에 제공된 `DataBoxDiskValidation.cmd`를 실행하여 유효성 검사를 위한 체크섬을 생성할 수 있습니다. 여러 개의 디스크가 있는 경우 디스크마다 명령 창을 열어 이 명령을 실행해야 합니다. 이 작업은 데이터 크기에 따라 시간이 오래 걸릴 수 있음에 유의하세요.
@@ -160,7 +160,13 @@ a.  Data Box Disk는 AES-128 Microsoft BitLocker 암호화로 암호화됩니다
 a. 예. 데이터의 유효성을 검사하기로 결정한 경우(권장)! 디스크에 데이터를 추가한 경우 유효성 검사를 다시 실행해야 합니다.
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>Q. 모든 내 디스크를 사용하여 데이터를 전송했으며 더 많은 디스크를 주문해야 합니다. 주문을 빠르게 확정할 수 있는 방법이 있나요?
-a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다. 
+a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다.
+
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>Q. 데이터를 ManagedDisk 폴더에 복사했는데, 관리 디스크에 대해 지정된 리소스 그룹이 있는 관리 디스크가 보이지 않습니다. 내 데이터가 Azure에 업로드되었다면 어떻게 찾을 수 있나요?
+a. 예. 데이터가 Azure로 업로드되었지만 지정된 리소스 그룹의 관리 디스크가 보이지 않을 경우에는 데이터가 유효하지 않았을 가능성이 높습니다. 페이지 Blob, 블록 Blob, Azure Files 및 관리 디스크가 유효하지 않은 경우 다음 폴더로 이동했을 것입니다.
+ - 페이지 Blob은 *databoxdisk-invalid-pb-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
+ - Azure Files는 *databoxdisk-invalid-af-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
+ - 관리 디스크는 *databoxdisk-invliad-md-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

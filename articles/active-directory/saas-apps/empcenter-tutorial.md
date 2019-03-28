@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a00ecf6e-917a-4284-b998-41506931585e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5523394387802e895c487ed1a7df2e4e28125d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 12eb3c9bc011a6dd0af2054d8a0f3b1568d0ed21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>자습서: EmpCenter와 Azure Active Directory 통합
 
@@ -106,6 +106,7 @@ EmpCenter에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     ![EmpCenter 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<subdomain>.EmpCenter.com/<instancename>` |
@@ -150,7 +151,7 @@ EmpCenter에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

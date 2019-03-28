@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456931"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226218"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리되는 인스턴스 보안
 
@@ -119,7 +119,7 @@ ms.locfileid: "56456931"
 
 - 새로 만든 Azure AD 서버 보안 주체(로그인)에서 다른 Azure AD 사용자, 그룹 또는 애플리케이션에 대한 다른 로그인을 만들 수 있도록 하려면 로그인 `sysadmin` 또는 `securityadmin` 서버 역할을 부여합니다. 
 - 다른 Azure AD 서버 보안 주체(로그인)를 만들려면 적어도 **ALTER ANY LOGIN** 권한을 Azure AD 서버 보안 주체(로그인)에 부여해야 합니다. 
-- 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**입니다.
+- 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
 `sysadmin` 서버 역할에 로그인을 추가하려면:
@@ -148,13 +148,13 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. SQL Server Management Studio를 사용하여 Azure AD 서버 보안 주체(로그인)로 관리되는 인스턴스에 연결합니다. 관리되는 인스턴스 호스트 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
 
-    - Active Directory - MFA 지원을 통한 유니버설 인증
-    - Active Directory - 암호
-    - Active Directory - 통합 </br>
+   - Active Directory - MFA 지원을 통한 유니버설 인증
+   - Active Directory - 암호
+   - Active Directory - 통합 </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    자세한 내용은 다음 문서를 참조하세요. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)
+     자세한 내용은 다음 문서를 참조하세요. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)
 
 1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 MFA(Multi-Factor Authentication) 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 
@@ -207,10 +207,10 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 새 연결을 위한 **새 쿼리**를 선택합니다.
 1. 다음 명령을 실행하여 새로 만든 Azure AD 서버 보안 주체(로그인)에 대한 서버 권한을 확인합니다.
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Azure AD 게스트 사용자는 Azure AD 그룹의 일부로 추가되는 경우에만 관리되는 인스턴스 로그인에 지원됩니다. Azure AD 게스트 사용자는 다른 Azure AD에서 관리되는 인스턴스가 속한 Azure AD로 초대되는 계정입니다. 예를 들어 joe@contoso.com(Azure AD 계정) 또는 steve@outlook.com(MSA 계정)을 Azure AD aadsqlmi의 그룹에 추가할 수 있습니다. 사용자가 그룹에 추가되면 **CREATE LOGIN** 구문을 사용하여 그룹의 관리되는 인스턴스 **마스터** 데이터베이스에 로그인을 만들 수 있습니다. 이 그룹의 구성원인 게스트 사용자는 현재 로그인(joe@contoso.com 또는 steve@outlook.com)을 사용하여 관리되는 인스턴스에 연결할 수 있습니다.
@@ -360,7 +360,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-1. 다음 명령을 사용하여 저장 프로시저를 실행할 때 가장하는 사용자가 **bob@aadsqlmi.net**인지 확인합니다.
+1. 다음 명령을 사용하여 저장 프로시저를 실행할 때 가장하는 사용자가 **bob\@aadsqlmi.net**인지 확인합니다.
 
     ```sql
     Exec dbo.usp_Demo

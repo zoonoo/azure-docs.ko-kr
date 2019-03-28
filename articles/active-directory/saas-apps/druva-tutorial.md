@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aac1b32f420f4a028777d1a9b5dc6b31cab23a1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: da134672224c5881a69f002d418c79af97036d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>자습서: Druva와 Azure Active Directory 통합
 
@@ -205,7 +205,7 @@ Druva에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -258,7 +258,7 @@ Azure AD 사용자가 Druva에 로그인할 수 있도록 하려면 Druva로 프
    
     ![NewUser 만들기](./media/druva-tutorial/ic795099.png "NewUser 만들기")
    
-    a. **전자 메일 주소** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    a. **이메일 주소** 텍스트 상자에 사용자의 메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
    
     b. **이름** 텍스트 상자에 **BrittaSimon**과 같은 사용자의 이름을 입력합니다.
    

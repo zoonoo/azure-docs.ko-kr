@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a8ed25f761e3109b0b97ee9b604a7a2d58e5aa8e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976769"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081341"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -36,9 +36,9 @@ Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-
 
     `ssh` 명령은 Linux, Unix 및 macOS 시스템에서 기본적으로 제공됩니다. Windows 10에서 다음 방법 중 하나를 사용하여 `ssh` 명령을 설치합니다.
 
-    * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
+  * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
 
-    * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
+  * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
 
     > [!IMPORTANT]  
     > 이 문서의 단계는 사용자가 위에서 언급한 SSH 클라이언트 중 하나를 사용한다고 가정합니다. 다른 SSH 클라이언트를 사용하는 중에 문제가 발생하는 경우에는 SSH 클라이언트에 대한 설명서를 참조하세요.
@@ -180,6 +180,9 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
     ```
 
 2. 환경 변수를 클러스터 이름으로 설정하려면 다음 명령을 사용합니다.
+
+    > [!Important]
+    > 이름에 대문자를 사용하여 프로비저닝된 경우에도, 이 명령에 대해 클러스터 이름을 모두 소문자로 입력합니다. 대문자 이름은 Zookeeper 또는 broker 정보에 사용할 수 없습니다.
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

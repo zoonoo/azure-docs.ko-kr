@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330820"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188954"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Go를 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -41,9 +41,9 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 1. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 1. `uriBase`의 위치(현재 `westcentralus`)를 등록한 지역으로 바꿉니다.
 1. '.go' 확장명으로 파일을 저장합니다.
-1. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-1. 파일을 빌드합니다(예: 'go build quickstart.go').
-1. 파일을 실행합니다(예: 'quickstart').
+1. 루트 폴더에서 Go를 설치한 컴퓨터에서 명령 프롬프트를 엽니다.
+1. 파일을 빌드합니다(예: `go build detect.go`).
+1. 파일을 실행합니다(예: `go run detect.go`).
 
 ```golang
 package main
@@ -177,16 +177,16 @@ func main() {
 
 ## <a name="analyze-sentiment-request"></a>감정 분석 요청
 
-감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
+감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 감정 분석은 원시 텍스트에서 긍정적이거나 부정적인 감정에 대한 단서를 분석하여 고객이 브랜드 또는 주제에 대해 생각하는 것을 파악하는 데 사용할 수 있습니다. 다음 예제에서는 영어와 스페인어로 작성된 두 개의 문서에 대한 점수를 제공합니다.
 
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
 1. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 1. `uriBase`의 위치(현재 `westcentralus`)를 등록한 지역으로 바꿉니다.
 1. '.go' 확장명으로 파일을 저장합니다.
-1. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-1. 파일을 빌드합니다(예: 'go build quickstart.go').
-1. 파일을 실행합니다(예: 'quickstart').
+1. 루트 폴더에서 Go를 설치한 컴퓨터에서 명령 프롬프트를 엽니다.
+1. 파일을 빌드합니다(예: `go build sentiment.go`).
+1. 파일을 실행합니다(예: `go run sentiment.go`).
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>감정 분석 응답
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {
@@ -294,7 +295,7 @@ func main() {
 
 ## <a name="extract-key-phrases-request"></a>핵심 구 추출 요청
 
-핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
+핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 핵심 구 추출은 문서 또는 텍스트의 주요 지점을 빠르게 식별하는 데 사용됩니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
@@ -302,8 +303,8 @@ func main() {
 1. `uriBase`의 위치(현재 `westcentralus`)를 등록한 지역으로 바꿉니다.
 1. '.go' 확장명으로 파일을 저장합니다.
 1. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-1. 파일을 빌드합니다(예: 'go build quickstart.go').
-1. 파일을 실행합니다(예: 'quickstart').
+1. 파일을 빌드합니다(예: `go build key-phrases.go`).
+1. 파일을 실행합니다(예: `go run key-phrases.go`).
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>핵심 구 추출 응답
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {
@@ -430,9 +431,9 @@ func main() {
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>엔터티 요청 식별
+## <a name="identify-entities"></a>엔터티 식별
 
-엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. 다음 예제에서는 영어 문서의 엔터티를 식별합니다.
+엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)는 텍스트에서 "United States"와 같은 단어를 추출한 다음, 이 단어에 대한 형식 및/또는 Wikipedia 링크를 제공합니다. "United States"에 대한 형식은 `location`이고, Wikipedia에 대한 링크는 `https://en.wikipedia.org/wiki/United_States`입니다.  다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
@@ -440,8 +441,8 @@ func main() {
 1. `uriBase`의 위치(현재 `westcentralus`)를 등록한 지역으로 바꿉니다.
 1. '.go' 확장명으로 파일을 저장합니다.
 1. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-1. 파일을 빌드합니다(예: 'go build quickstart.go').
-1. 파일을 실행합니다(예: 'quickstart').
+1. 파일을 빌드합니다(예: `go build entities.go`).
+1. 파일을 실행합니다(예: `go run entities.go`).
 
 ```golang
 package main

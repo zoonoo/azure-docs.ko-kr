@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857949"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
 
@@ -29,7 +29,7 @@ ms.locfileid: "55959847"
 
 이 자습서에서는 Azure Notification Hubs 및 FCM(Firebase Cloud Messaging)을 사용하여 Android 애플리케이션에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
-이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase)서 다운로드할 수 있습니다.
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp)서 다운로드할 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "55959847"
 
 1. 왼쪽 메뉴의 **Settings** 아래에서 **Google (GCM/FCM)** 을 선택합니다. 
 2. 앞에서 저장한 FCM 프로젝트의 **서버 키**를 붙여넣습니다. 
-3. 도구 모음에서 **Save**를 선택합니다. 
+3. 도구 모음에서 **저장**을 선택합니다. 
 
     ![Azure Notification Hubs - Google(FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. Notification Hubs가 업데이트되었다는 경고 메시지가 표시됩니다. **Save** 단추가 비활성화됩니다. 
@@ -92,7 +92,7 @@ ms.locfileid: "55959847"
 1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -101,7 +101,7 @@ ms.locfileid: "55959847"
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -111,7 +111,7 @@ ms.locfileid: "55959847"
 1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가(없는 경우)합니다. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. 파일 끝에 다음 플러그 인을 추가(없는 경우)합니다. 
@@ -186,8 +186,8 @@ ms.locfileid: "55959847"
         }
         ```
 
-    > [!IMPORTANT]
-    > 알림 허브의 **이름**과 **DefaultListenSharedAccessSignature**를 입력하고 계속 진행합니다. 
+     > [!IMPORTANT]
+     > 알림 허브의 **이름**과 **DefaultListenSharedAccessSignature**를 입력하고 계속 진행합니다. 
 2. `MyInstanceIDService`(이)라는 다른 클래스를 추가합니다. 이 클래스는 인스턴스 ID 수신기 서비스 구현입니다.
 
     이 클래스에 대한 코드는 `IntentService`를 호출하여 백그라운드에서 [FCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
@@ -554,7 +554,7 @@ ms.locfileid: "55959847"
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md

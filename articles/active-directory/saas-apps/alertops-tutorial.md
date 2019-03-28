@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1874950e733df1cf14fba2f53fdb49d478cb6f8a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866048"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>자습서: AlertOps와 Azure Active Directory 통합
 
@@ -176,7 +176,7 @@ AlertOps에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -227,7 +227,7 @@ AlertOps에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **로그인 사용자 이름** 텍스트 상자에 **Brittasimon**과 같은 사용자 이름을 입력합니다.
 
-    b. **공식 이메일** 텍스트 상자에 **Brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    b. **공식 이메일** 텍스트 상자에 **Brittasimon\@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
 
     다. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

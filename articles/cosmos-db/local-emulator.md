@@ -1,142 +1,229 @@
 ---
-title: Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발
-description: Azure Cosmos DB 에뮬레이터를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 애플리케이션을 개발하고 테스트할 수 있습니다.
+title: Azure Cosmos Emulator로 로컬에서 개발
+description: Azure Cosmos Emulator를 사용하면 Azure 구독을 구입하지 않고도 로컬에서 무료로 애플리케이션을 개발하고 테스트할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0adb24458f718511c7134fc3bf36dd0b03173e30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011519"
 ---
-# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
+# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
-|**바이너리**|[MSI 다운로드](https://aka.ms/cosmosdb-emulator)| |**Docker**|[Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)| |**Docker 원본** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
+Azure Cosmos Emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos Emulator를 사용하면 Azure 구독을 구입하거나 비용을 들이지 않고 로컬에서 애플리케이션을 개발하고 테스트할 수 있습니다. Azure Cosmos Emulator에서 애플리케이션이 작동하는 방식이 만족스러우면, 클라우드에서 Azure Cosmos 계정을 사용하도록 전환할 수 있습니다.
 
-Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. Azure Cosmos DB 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
-
-현재 에뮬레이터의 데이터 탐색기는 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트만 완벽하게 지원합니다. Table, Graph 및 Cassandra API용 클라이언트는 완벽하게 지원되지 않습니다.
-
-이 문서에서 다루는 작업은 다음과 같습니다.
-
-> [!div class="checklist"]
-> * 에뮬레이터 설치
-> * 요청 인증
-> * 에뮬레이터에서 데이터 탐색기 사용
-> * SSL 인증서 내보내기
-> * 명령줄에서 에뮬레이터 호출
-> * Windows용 Docker에서 에뮬레이터 실행
-> * 추적 파일 수집
-> * 문제 해결
+[SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api) 및 [Table](local-emulator.md#table-api) API 계정으로 Azure Cosmos Emulator를 사용하여 개발할 수 있습니다. 단, 현재 에뮬레이터의 Data Explorer 보기는 SQL API에 대해서만 클라이언트를 완벽하게 지원합니다. 
 
 ## <a name="how-the-emulator-works"></a>에뮬레이터의 작동 원리
 
-Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 엔드포인트에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
+Azure Cosmos Emulator는 Azure Cosmos DB 서비스에 대해 충실도가 높은 에뮬레이션을 제공합니다. Azure Cosmos DB와 동일한 기능을 지원합니다. 여기에는 데이터 만들기 및 쿼리, 컨테이너 프로비저닝 및 크기 조정, 저장 프로시저 및 트리거 실행이 포함됩니다. Azure Cosmos Emulator를 사용하여 애플리케이션을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 엔드포인트에 대한 구성을 하나만 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
-Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터의 구현은 서비스와 다릅니다. 예를 들어 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 기능은 사용할 수 없습니다.
+Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터의 구현은 서비스와 다릅니다. 예를 들어 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 글로벌 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 기능은 적용할 수 없습니다.
+
+[Azure Cosmos DB 데이터 마이그레이션 도구](https://github.com/azure/azure-documentdb-datamigrationtool)를 사용하여 Azure Cosmos Emulator와 Azure Cosmos DB 서비스 간에 데이터를 마이그레이션할 수 있습니다.
+
+Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습니다. docker pull 명령은 [Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)를 참조하고 에뮬레이터 소스 코드는 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)를 참조하세요.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이
-Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 클라우드의 Azure Cosmos DB 계정과 기능 면에서 몇 가지 차이가 있습니다.
 
-* 현재 에뮬레이터의 데이터 탐색기는 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트를 지원합니다. Table, Graph 및 Cassandra API용 클라이언트는 아직 지원되지 않습니다.
-* Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 알려진 마스터 키만 지원합니다. Azure Cosmos DB 에뮬레이터에서는 키를 다시 생성할 수 없습니다.
-* Azure Cosmos DB 에뮬레이터는 확장 가능한 서비스가 아니며 많은 컬렉션을 지원하지 않습니다.
-* Azure Cosmos DB 에뮬레이터는 여러 [Azure Cosmos DB 일관성 수준](consistency-levels.md)을 시뮬레이션하지 않습니다.
-* Azure Cosmos DB 에뮬레이터는 [다중 지역 복제](distribute-data-globally.md)를 시뮬레이션하지 않습니다.
-* Azure Cosmos DB 에뮬레이터는 Azure Cosmos DB 서비스에서 사용할 수 있는 서비스 할당량 재정의(예: 문서 크기 제한, 향상된 분할된 컬렉션 저장소)를 지원하지 않습니다.
-* Azure Cosmos DB 에뮬레이터의 복사본은 최신 Azure Cosmos DB 서비스가 포함된 가장 최근의 변경 사항이 적용된 최신 에뮬레이터가 아닐 수 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 응용 프로그램에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
+Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 에뮬레이터와 클라우드의 Azure Cosmos 계정 사이에는 기능 면에서 몇 가지 차이가 있습니다.
+
+* 현재 에뮬레이터의 Data Explorer는 SQL API에 대한 클라이언트를 지원합니다. Data Explorer 보기 및 Azure Cosmos DB API에 대한 작업(예: MongoDB, Table, Graph 및 Cassandra API)은 완전히 지원되지 않습니다.
+* Azure Cosmos Emulator는 고정된 단일 계정 및 알려진 마스터 키만 지원합니다. Azure Cosmos Emulator에서는 키 재생성이 불가능하지만 명령줄 옵션을 사용하여 기본 키를 변경할 수 있습니다.
+* Azure Cosmos Emulator는 확장성 있는 서비스가 아니며 많은 수의 컨테이너를 지원하지 않습니다.
+* Azure Cosmos Emulator는 다양한 [Azure Cosmos DB 일관성 수준](consistency-levels.md)을 제공하지 않습니다.
+* Azure Cosmos Emulator는 [다중 지역 복제](distribute-data-globally.md)를 제공하지 않습니다.
+* Azure Cosmos Emulator의 복사본은 항상 Azure Cosmos DB 서비스의 최신 변경 사항이 적용된 최신 상태로 유지되지 않을 수도 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 애플리케이션에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
+* Azure Cosmos Emulator를 사용하는 경우, 기본적으로, 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](#set-partitioncount)을 참조하세요.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
-Azure Cosmos DB 에뮬레이터에는 다음과 같은 하드웨어 및 소프트웨어 요구 사항이 있습니다.
+
+Azure Cosmos Emulator에는 다음과 같은 하드웨어 및 소프트웨어 요구 사항이 있습니다.
 
 * 소프트웨어 요구 사항
   * Windows Server 2012 R2, Windows Server 2016 또는 Windows 10
-*   최소 하드웨어 요구 사항
+  * 64비트 운영 체제
+* 최소 하드웨어 요구 사항
   * 2GB RAM
   * 10GB의 하드 디스크 여유 공간
 
 ## <a name="installation"></a>설치
-[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)에서 Azure Cosmos DB 에뮬레이터를 다운로드하여 설치하거나 Windows용 Docker에서 에뮬레이터를 실행할 수 있습니다. Windows용 Docker의 에뮬레이터 사용에 대한 지침을 보려면 [Docker에서 실행](#running-on-docker)을 참조하세요.
+
+[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)에서 Azure Cosmos Emulator를 다운로드하여 설치하거나 Windows용 Docker에서 에뮬레이터를 실행할 수 있습니다. Windows용 Docker의 에뮬레이터 사용에 대한 지침을 보려면 [Docker에서 실행](#running-on-docker)을 참조하세요.
 
 > [!NOTE]
-> Azure Cosmos DB 에뮬레이터를 설치, 구성 및 실행하려면 컴퓨터에 대한 관리 권한이 있어야 합니다.
+> Azure Cosmos Emulator를 설치, 구성 및 실행하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다. 에뮬레이터는 인증서를 생성/추가하고 서비스를 실행하기 위해 방화벽 규칙도 설정합니다. 따라서 에뮬레이터가 이러한 작업을 실행할 수 있어야 합니다.
 
 ## <a name="running-on-windows"></a>Windows에서 실행
 
-Azure Cosmos DB 에뮬레이터를 시작하려면 시작 단추를 선택하거나 Windows 키를 누릅니다. **Azure Cosmos DB 에뮬레이터** 입력을 시작하고 응용 프로그램 목록에서 해당 에뮬레이터를 선택합니다.
+Azure Cosmos Emulator를 시작하려면 시작 단추를 선택하거나 Windows 키를 누릅니다. **Azure Cosmos Emulator** 입력을 시작하고 애플리케이션 목록에서 에뮬레이터를 선택합니다.
 
-![시작 단추를 선택하거나 Windows 키를 누르고 **Azure Cosmos DB 에뮬레이터** 입력을 시작한 후 애플리케이션 목록에서 해당 에뮬레이터를 선택합니다.](./media/local-emulator/database-local-emulator-start.png)
+![시작 단추를 선택하거나 Windows 키를 누르고 **Azure Cosmos Emulator** 입력을 시작한 후 애플리케이션 목록에서 에뮬레이터를 선택합니다.](./media/local-emulator/database-local-emulator-start.png)
 
 에뮬레이터를 실행 하는 경우 Windows 작업 표시줄 알림 영역에 아이콘이 표시 됩니다. ![Azure Cosmos DB 로컬 에뮬레이터 작업 표시줄 알림](./media/local-emulator/database-local-emulator-taskbar.png)
 
-기본적으로 Azure Cosmos DB 에뮬레이터는 포트 8081에서 수신 대기하는 로컬 컴퓨터("localhost")에서 실행됩니다.
+기본적으로 Azure Cosmos Emulator는 포트 8081에서 수신 대기하는 로컬 머신("localhost")에서 실행됩니다.
 
-Azure Cosmos DB 에뮬레이터는 기본적으로 `C:\Program Files\Azure Cosmos DB Emulator`에 설치됩니다. 명령줄에서 에뮬레이터를 시작 및 중지할 수도 있습니다. 자세한 내용은 [명령줄 도구 참조](#command-line)를 참조하세요.
+Azure Cosmos Emulator는 기본적으로 `C:\Program Files\Azure Cosmos DB Emulator`에 설치됩니다. 명령줄에서 에뮬레이터를 시작 및 중지할 수도 있습니다. 자세한 내용은 [명령줄 도구 참조](#command-line)를 참조하세요.
 
 ## <a name="start-data-explorer"></a>데이터 탐색기 시작
 
-Azure Cosmos DB 에뮬레이터를 시작하면 브라우저에서 Azure Cosmos DB 데이터 탐색기가 자동으로 열립니다. 주소가 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)으로 표시됩니다. 탐색기를 닫고 나중에 다시 열고 싶은 경우, 브라우저에서 URL을 열거나 아래와 같이 Windows 트레이 아이콘의 Azure Cosmos DB 에뮬레이터에서 실행할 수 있습니다.
+Azure Cosmos Emulator를 시작하면 브라우저에서 Azure Cosmos Data Explorer가 자동으로 열립니다. 주소가 `https://localhost:8081/_explorer/index.html`로 표시됩니다. 탐색기를 닫았다가 나중에 다시 열려면, 브라우저에서 URL을 열거나 아래와 같이 Windows 트레이 아이콘의 Azure Cosmos Emulator에서 실행할 수 있습니다.
 
-![Azure Cosmos DB의 로컬 에뮬레이터 데이터 탐색기 시작 관리자](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+![Azure Cosmos 로컬 에뮬레이터 데이터 탐색기 시작 관리자](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## <a name="checking-for-updates"></a>업데이트 확인
+
 데이터 탐색기에 다운로드할 수 있는 새 업데이트가 있는지 표시됩니다.
 
 > [!NOTE]
-> Azure Cosmos DB 에뮬레이터의 특정 버전에서 만든 데이터에 다른 버전에서 액세스하지 못할 수도 있습니다. 데이터를 장기간 보존하려면 Azure Cosmos DB 에뮬레이터 대신 Azure Cosmos DB 계정에 저장하는 것이 좋습니다.
+> Azure Cosmos Emulator의 특정 버전에서 만든 데이터는(%LOCALAPPDATA%\CosmosDBEmulator 또는 데이터 경로 선택적 설정 참조) 다른 버전을 사용할 때 액세스하지 못할 수도 있습니다. 데이터를 장기간 보존하려면 Azure Cosmos Emulator 대신 Azure Cosmos 계정에 저장하는 것이 좋습니다.
 
 ## <a name="authenticating-requests"></a>요청 인증
-클라우드의 Azure Cosmos DB와 마찬가지로 Azure Cosmos DB 에뮬레이터에 대한 모든 요청을 인증해야 합니다. Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 마스터 키 인증에 대해 알려진 인증 키를 지원합니다. Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-    Account name: localhost:<port>
-    Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+클라우드의 Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator에 대한 모든 요청을 인증해야 합니다. Azure Cosmos Emulator는 단일 고정 계정과 마스터 키 인증에 대해 알려진 인증 키를 지원합니다. Azure Cosmos Emulator에서 사용할 수 있는 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+
+```bash
+Account name: localhost:<port>
+Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 > [!NOTE]
-> Azure Cosmos DB 에뮬레이터에서 지원하는 마스터 키는 에뮬레이터 전용입니다. Azure Cosmos DB 에뮬레이터에서 프로덕션 Azure Cosmos DB 계정 및 키를 사용할 수 없습니다.
+> Azure Cosmos Emulator에서 지원하는 마스터 키는 에뮬레이터 전용입니다. Azure Cosmos Emulator에서는 프로덕션 Azure Cosmos DB 계정 및 키를 사용할 수 없습니다.
 
 > [!NOTE]
-> /Key 옵션과 함께 에뮬레이터를 시작한 경우 “C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==” 대신 생성된 키를 사용합니다.
+> /Key 옵션을 사용하여 에뮬레이터를 시작한 경우에는 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 대신 생성된 키를 사용하세요. /Key 옵션에 대한 자세한 내용은 [명령줄 도구 참조](#command-line-syntax)를 참조하세요.
 
-Azure Cosmos DB 서비스와 마찬가지로 Azure Cosmos DB 에뮬레이터는 SSL을 통한 보안 통신만 지원합니다.
+Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 SSL을 통한 보안 통신만 지원합니다.
 
 ## <a name="running-on-a-local-network"></a>로컬 네트워크에서 실행
 
-로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 활성화하려면 [명령줄](#command-line-syntax)에 /AllowNetworkAccess 옵션을 지정합니다. 또한 /Key=key_string 또는 /KeyFile=file_name을 지정해야 합니다. /GenKeyFile=file_name을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다. 그런 다음 /KeyFile=file_name 또는 /Key=contents_of_file로 전달할 수 있습니다.
+로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 사용하도록 설정하려면 [명령줄](#command-line-syntax)에 `/AllowNetworkAccess` 옵션을 지정합니다. 여기에는 `/Key=key_string` 또는 `/KeyFile=file_name`도 지정해야 합니다. `/GenKeyFile=file_name`을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다. 그런 다음, `/KeyFile=file_name` 또는 `/Key=contents_of_file`에 전달합니다.
 
-처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(C:\Users\user_name\AppData\Local\CosmosDBEmulator)를 삭제해야 합니다.
+처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(%LOCALAPPDATA%\CosmosDBEmulator)를 삭제해야 합니다.
 
 ## <a name="developing-with-the-emulator"></a>에뮬레이터를 사용한 개발
-Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. 또한 Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 SQL API 또는 Cosmos DB의 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.
 
-    // Connect to the Azure Cosmos DB Emulator running locally
-    DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:8081"),
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+### <a name="sql-api"></a>SQL API
 
-[MongoDB에 대한 Azure Cosmos DB 유선 프로토콜](mongodb-introduction.md)을 사용하는 경우 다음 연결 문자열을 사용합니다.
+Azure Cosmos Emulator를 데스크톱에서 실행하면, 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos Emulator에는 코드를 작성하지 않고도 SQL API용 컨테이너 또는 Mongodb API용 Cosmos DB를 만들어서 항목을 확인하고 편집할 수 있는 기본 제공 Data Explorer도 포함되어 있습니다.
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
+```csharp
+// Connect to the Azure Cosmos Emulator running locally
+DocumentClient client = new DocumentClient(
+   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-[Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio)와 같은 기존 도구를 사용하여 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다. 또한 [Azure Cosmos DB 데이터 마이그레이션 도구](https://github.com/azure/azure-documentdb-datamigrationtool)를 사용하여 Azure Cosmos DB 에뮬레이터와 Azure Cosmos DB 서비스 간에 데이터를 마이그레이션할 수 있습니다.
+```
 
-> [!NOTE]
-> /Key 옵션과 함께 에뮬레이터를 시작한 경우 “C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==” 대신 생성된 키를 사용합니다.
+### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-기본적으로 Azure Cosmos DB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](#set-partitioncount)을 참조하세요.
+[MongoDB용 Azure Cosmos DB](mongodb-introduction.md)를 사용하는 경우에는 다음 연결 문자열을 사용하세요.
+
+```bash
+mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
+```
+
+### <a name="table-api"></a>테이블 API
+
+Azure Cosmos Emulator를 데스크톱에서 실행하면, [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. “/EnableTableEndpoint”를 사용하여 명령 프롬프트에서 관리자로 에뮬레이터를 시작합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
+
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using CloudTable = Microsoft.WindowsAzure.Storage.Table.CloudTable;
+using CloudTableClient = Microsoft.WindowsAzure.Storage.Table.CloudTableClient;
+
+string connectionString = "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
+
+CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
+CloudTableClient tableClient = account.CreateCloudTableClient();
+CloudTable table = tableClient.GetTableReference("testtable");
+table.CreateIfNotExists();
+table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
+```
+
+### <a name="cassandra-api"></a>Cassandra API
+
+“/EnableCassandraEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`를 설정할 수도 있습니다.
+
+* [Python 2.7 설치](https://www.python.org/downloads/release/python-2716/)
+
+* [Cassandra CLI/CQLSH 설치](http://cassandra.apache.org/download/)
+
+* 일반 명령 프롬프트 창에서 다음 명령을 실행합니다.
+
+  ```bash
+  set Path=c:\Python27;%Path%
+  cd /d C:\sdk\apache-cassandra-3.11.3\bin
+  set SSL_VERSION=TLSv1_2
+  set SSL_VALIDATE=false
+  cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+  ```
+
+* CQLSH 셸에서 다음 명령을 실행하여 Cassandra 엔드포인트에 연결합니다.
+
+  ```bash
+  CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
+  DESCRIBE keyspaces;
+  USE mykeyspace;
+  CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
+  INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
+  SELECT * from table1;
+  EXIT
+  ```
+
+### <a name="gremlin-api"></a>Gremlin API
+
+“/EnableGremlinEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`를 설정할 수도 있습니다.
+
+* [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
+
+* 에뮬레이터의 Data Explorer에서 "db1" 데이터베이스와 "coll1" 컬렉션을 생성합니다. 파티션 키의 경우 "/name"을 선택합니다.
+
+* 일반 명령 프롬프트 창에서 다음 명령을 실행합니다.
+
+  ```bash
+  cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+  
+  copy /y conf\remote.yaml conf\remote-localcompute.yaml
+  notepad.exe conf\remote-localcompute.yaml
+    hosts: [localhost]
+    port: 8901
+    username: /dbs/db1/colls/coll1
+    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    connectionPool: {
+    enableSsl: false}
+    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
+    config: { serializeResultToString: true  }}
+
+  bin\gremlin.bat
+  ```
+
+* Gremlin 셸에서 다음 명령을 실행하여 Gremlin 엔드포인트에 연결합니다.
+
+  ```bash
+  :remote connect tinkerpop.server conf/remote-localcompute.yaml
+  :remote console
+  :> g.V()
+  :> g.addV('person1').property(id, '1').property('name', 'somename1')
+  :> g.addV('person2').property(id, '2').property('name', 'somename2')
+  :> g.V()
+  ```
 
 ## <a name="export-the-ssl-certificate"></a>SSL 인증서 내보내기
 
 .NET 언어 및 런타임은 Windows 인증서 저장소를 사용하여 Azure Cosmos DB 로컬 에뮬레이터에 안전하게 연결합니다. 다른 언어의 경우 해당 언어만의 인증서 관리 및 사용 방법이 있습니다. Java는 자체의 고유 [인증서 저장소](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)를 사용하고 Python은 [소켓 래퍼](https://docs.python.org/2/library/ssl.html)를 사용합니다.
 
-Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함께 사용할 인증서를 가져오기 위해 Windows 인증서 관리자를 사용하여 인증서를 내보내야 합니다. certlm.msc를 실행하거나 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](./local-emulator-export-ssl-certificates.md)의 단계별 지침을 수행하여 이 작업을 시작할 수 있습니다. 인증서 관리자가 실행되면 아래에 표시된 대로 개인 인증서를 열고 BASE-64 인코딩 X.509(.cer) 파일로 "DocumentDBEmulatorCertificate"라는 이름의 인증서를 내보냅니다.
+Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함께 사용할 인증서를 가져오기 위해 Windows 인증서 관리자를 사용하여 인증서를 내보내야 합니다. certlm.msc를 실행하거나 [Azure Cosmos Emulator 인증서 내보내기](./local-emulator-export-ssl-certificates.md)의 단계별 지침을 수행하여 이 작업을 시작할 수 있습니다. 인증서 관리자가 실행되면 아래에 표시된 대로 개인 인증서를 열고 BASE-64 인코딩 X.509(.cer) 파일로 "DocumentDBEmulatorCertificate"라는 이름의 인증서를 내보냅니다.
 
 ![Azure Cosmos DB 로컬 에뮬레이터 SSL 인증서](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-[Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져오면 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트에서 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다.
+[Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져오면 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트에서 Azure Cosmos Emulator에 연결할 수 있습니다.
 
 Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비활성화됩니다.
 
@@ -151,56 +238,67 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 
 |**옵션** | **설명** | **명령**| **인수**|
 |---|---|---|---|
-|[인수 없음] | 기본 설정으로 Azure Cosmos DB 에뮬레이터를 시작합니다. |CosmosDB.Emulator.exe| |
+|[인수 없음] | 기본 설정으로 Azure Cosmos Emulator를 시작합니다. |CosmosDB.Emulator.exe| |
 |[도움말] |지원되는 명령줄 인수 목록을 표시합니다.|CosmosDB.Emulator.exe /? | |
-| GetStatus |Azure Cosmos DB Emulator의 상태를 가져 옵니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | CosmosDB.Emulator.exe /GetStatus| |
-| Shutdown| Azure Cosmos DB 에뮬레이터를 종료합니다.| CosmosDB.Emulator.exe /Shutdown | |
+| GetStatus |Azure Cosmos Emulator의 상태를 구합니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | CosmosDB.Emulator.exe /GetStatus| |
+| Shutdown| Azure Cosmos Emulator를 종료합니다.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스할 수 있는 경로 |
 |포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |CosmosDB.Emulator.exe /Port=\<port\> | \<포트\>: 단일 포트 번호 |
 | MongoPort | MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: 단일 포트 번호|
+| CassandraPort | Cassandra 엔드포인트에 사용할 포트 번호를 지정합니다. 기본값은 10350입니다. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: 단일 포트 번호 |
+| ComputePort | Compute Interop 게이트웨이 서비스에 사용하도록 지정된 포트 번호입니다. 게이트웨이의 HTTP 엔드포인트 프로브 포트는 ComputePort + 79로 계산됩니다. 따라서 ComputePort 및 ComputePort + 79가 열리고 사용할 수 있어야 합니다. 기본값은 8900, 8979입니다. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: 단일 포트 번호 |
+| EnableCassandraEndpoint | Cassandra API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| EnableGremlinEndpoint | Gremlin API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
+| GremlinPort | Gremlin 엔드포인트에 사용할 포트 번호입니다. 기본값은 8901입니다. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<포트\>: 단일 포트 번호 |
+|TablePort | Azure 테이블 엔드포인트에 사용할 포트 번호입니다. 기본값은 8902입니다. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<포트\>: 단일 포트 번호|
+| KeyFile | 지정된 파일에서 권한 부여 키를 읽어옵니다. keyfile을 생성하려면 /GenKeyFile 옵션을 사용합니다. | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: 파일의 경로 |
+| ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: 파일 경로  |
+| StartTraces  |  디버그 추적 로그 수집을 시작합니다. | CosmosDB.Emulator.exe /StartTraces | |
+| StopTraces     | 디버그 추적 로그 수집을 중지합니다. | CosmosDB.Emulator.exe /StopTraces  | |
+|EnableTableEndpoint | Azure Table API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableTableEndpoint | |
+|FailOnSslCertificateNameMismatch | 기본적으로 에뮬레이터는 인증서의 SAN에 에뮬레이터 호스트의 도메인 이름, 로컬 IPv4 주소, 'localhost' 및 '127.0.0.1'이 포함되어 있지 않으면 자체 서명된 SSL 인증서를 다시 생성합니다. 이 옵션을 사용하면 시작할 때 에뮬레이터가 실패합니다. 그러면 /GenCert 옵션을 사용하여 자체 서명된 SSL 인증서를 새로 만들고 설치해야 합니다. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | 자체 서명된 SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | CosmosDB.Emulator.exe /GenCert[ \<comma-separated list of additional dns-names\>] | |
 | DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개 포트 목록 |
 | 키 |에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다. | CosmosDB.Emulator.exe /Key:\<key\> | \<키\>: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.|
 | EnableRateLimiting | 요청 속도 제한 동작을 사용하도록 지정합니다. |CosmosDB.Emulator.exe /EnableRateLimiting | |
 | DisableRateLimiting |요청 속도 제한 동작을 사용하지 않도록 지정합니다. |CosmosDB.Emulator.exe /DisableRateLimiting | |
 | NoUI | 에뮬레이터 사용자 인터페이스를 표시하지 않습니다. | CosmosDB.Emulator.exe /NoUI | |
 | NoExplorer | 시작 시 데이터 탐색기를 표시하지 않습니다. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | 분할된 컬렉션의 최대 수를 지정합니다. 자세한 내용은 [컬렉션 수 변경](#set-partitioncount)을 참조하세요. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: 허용되는 단일 파티션 컬렉션의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.|
-| DefaultPartitionCount| 분할된 컬렉션에 대한 기본 파티션 수를 지정합니다. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> 기본값은 25입니다.|
+| PartitionCount | 분할된 컨테이너의 최대 수를 지정합니다. 자세한 내용은 [컨테이너 수 변경](#set-partitioncount)을 참조하세요. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: 허용되는 단일 파티션 컨테이너의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.|
+| DefaultPartitionCount| 분할된 컨테이너에 대한 기본 파티션 수를 지정합니다. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> 기본값은 25입니다.|
 | AllowNetworkAccess | 네트워크를 통해 에뮬레이터에 액세스할 수 있도록 합니다. /Key=\<key_string\> 또는 /KeyFile=\<file_name\>을 전달하여 네트워크 액세스를 활성화해야 합니다. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> 또는 CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
-| NoFirewall | /AllowNetworkAccess가 사용되는 경우 방화벽 규칙을 조정하지 마십시오. |CosmosDB.Emulator.exe /NoFirewall | |
+| NoFirewall | /AllowNetworkAccess 옵션이 사용되는 경우 방화벽 규칙을 조정하지 마십시오. |CosmosDB.Emulator.exe /NoFirewall | |
 | GenKeyFile | 새 인증 키를 생성하고 지정된 파일에 저장합니다. 생성된 키를 /Key 또는 /KeyFile 옵션과 함께 사용할 수 있습니다. | CosmosDB.Emulator.exe /GenKeyFile=\<path to key file\> | |
 | 일관성 | 계정의 기본 일관성 수준을 설정합니다. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<일관성\>: 값은 [일관성 수준](consistency-levels.md) Session, Strong, Eventual 또는 BoundedStaleness 중 하나여야 합니다. 기본값은 Session입니다. |
 | ? | 도움말 메시지를 표시합니다.| | |
 
-## <a id="set-partitioncount"></a>컬렉션 수 변경
+## <a id="set-partitioncount"></a>컨테이너 수 변경
 
-기본적으로 Azure Cosmos DB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 단일 파티션 컬렉션 또는 10개의 분할된 컬렉션을 만들거나, 합쳐서 250개의 단일 파티션을 초과하지 않는 두 컬렉션 조합을 만들 수 있습니다(분할된 컬렉션 1개 = 단일 파티션 컬렉션 25개).
+기본적으로 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 고정 크기 컨테이너나 50개의 무제한 컨테이너를 만들거나 250개의 고정 크기 컨테이너를 초과하지 않는 범위에서 두 가지 조합을 만들 수 있습니다(무제한 컨테이너 1개 = 고정 크기 컨테이너 5개). 단, 200개를 초과하는 고정 크기 컨테이너로 실행되도록 에뮬레이터를 설정하는 것은 권장하지 않습니다. 디스크 IO 작업에 추가되는 오버헤드로 인해, 엔드포인트 API를 사용할 때 예기치 않은 시간 초과가 발생합니다.
 
-현재 파티션 수가 초과된 후에 컬렉션을 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
-    Sorry, we are currently experiencing high demand in this region,
-    and cannot fulfill your request at this time. We work continuously
-    to bring more and more capacity online, and encourage you to try again.
-    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
-    for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
+현재 파티션 수가 초과된 후에 컨테이너를 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
-Azure Cosmos DB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 변경하려면 다음을 수행합니다.
+"Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. (죄송합니다. 현재 이 지역에서 많은 수요가 발생하고 있으며 지금은 귀하의 요청을 수행할 수 없습니다.) We work continuously to bring more and more capacity online, and encourage you to try again. (당사는 온라인 용량을 늘리기 위해 지속적으로 노력하고 있습니다. 다시 시도해 주십시오.)
+Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. (언제든, 어떤 이유로든 이메일을 보내주십시오.) ActivityId: 12345678-1234-1234-1234-123456789abc"
 
-1. 시스템 트레이에서 **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **데이터 다시 설정...** 을 클릭하여 모든 로컬 Azure Cosmos DB 에뮬레이터 데이터를 삭제합니다.
-2. C:\Users\user_name\AppData\Local\CosmosDBEmulator 폴더에 있는 모든 에뮬레이터 데이터를 삭제합니다.
+Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면 다음 단계를 수행합니다.
+
+1. 시스템 트레이에서 **Azure Cosmos DB Emulator** 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **데이터 다시 설정...** 을 클릭하여 로컬 Azure Cosmos Emulator 데이터를 모두 삭제합니다.
+2. `%LOCALAPPDATA%\CosmosDBEmulator` 폴더의 에뮬레이터 데이터를 모두 삭제합니다.
 3. **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침**을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
-4. 최신 버전의 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 설치합니다.
+4. 최신 버전의 [Azure Cosmos Emulator](https://aka.ms/cosmosdb-emulator)를 설치합니다.
 5. 250 이하의 값을 설정하여 PartitionCount 플래그로 에뮬레이터를 시작합니다. 예: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`
 
 ## <a name="controlling-the-emulator"></a>에뮬레이터 제어
 
-에뮬레이터는 해당 서비스 상태의 시작, 중지, 제거 및 검색을 위해 PowerShell 모듈과 함께 제공 됩니다. 이를 사용하려면:
+에뮬레이터는 서비스를 시작, 중지, 제거, 검색하고 상태를 검색할 수 있는 PowerShell 모듈과 함께 제공 됩니다. 다음 cmdlet을 실행하여 PowerShell 모듈을 사용합니다.
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-사용자의 `PSModulesPath`에 `PSModules` 디렉터리를 놓고 다음과 같이 가져옵니다.
+또는 `PSModulesPath`에 `PSModules` 디렉터리를 배치하고 다음 명령을 참고하여 가져옵니다.
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -211,68 +309,73 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 ### `Get-CosmosDbEmulatorStatus`
 
-#### <a name="syntax"></a>구문
+**구문**
 
 `Get-CosmosDbEmulatorStatus`
 
-#### <a name="remarks"></a>설명
+**주의**
 
 ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControllerStatus.Running 또는 ServiceControllerStatus.Stopped 중에서 하나를 반환합니다.
 
 ### `Start-CosmosDbEmulator`
 
-#### <a name="syntax"></a>구문
+**구문**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-#### <a name="remarks"></a>설명
+**주의**
 
 에뮬레이터를 시작합니다. 기본적으로 이 명령은 에뮬레이터가 요청을 수락할 준비가 될 때까지 대기합니다. 에뮬레이터가 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
 
 ### `Stop-CosmosDbEmulator`
 
-#### <a name="syntax"></a>구문
+**구문**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
-#### <a name="remarks"></a>설명
+**주의**
 
 에뮬레이터를 중지합니다. 기본적으로 이 명령은 에뮬레이터가 완전히 종료할 때까지 대기합니다. 에뮬레이터가 종료를 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
 
 ### `Uninstall-CosmosDbEmulator`
 
-#### <a name="syntax"></a>구문
+**구문**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-#### <a name="remarks"></a>설명
+**주의**
 
 에뮬레이터를 제거하고 $env:LOCALAPPDATA\CosmosDbEmulator의 전체 콘텐츠를 선택적으로 제거합니다.
 Cmdlet는 에뮬레이터가 제거되기 전에 중지되도록 합니다.
 
 ## <a name="running-on-docker"></a>Docker에서 실행
 
-Azure Cosmos DB 에뮬레이터는 Windows용 Docker에서 실행할 수 있습니다. 이 에뮬레이터는 Oracle Linux용 Docker에서 작동하지 않습니다.
+Azure Cosmos Emulator는 Windows용 Docker에서 실행할 수 있습니다. 이 에뮬레이터는 Oracle Linux용 Docker에서 작동하지 않습니다.
 
 [Windows용 Docker](https://www.docker.com/docker-windows)가 설치되면 도구 모음에서 Docker 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택하여 Windows 컨테이너로 전환합니다.
 
 다음으로 즐겨 찾는 셸에서 다음 명령을 실행하여 Docker 허브에서 에뮬레이터 이미지를 끌어옵니다.
 
-```
+```bash
 docker pull microsoft/azure-cosmosdb-emulator
 ```
 이미지를 시작하려면 다음 명령을 실행합니다.
 
 명령줄에서
 ```cmd
-md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+
+md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
+
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 microsoft/azure-cosmosdb-emulator
 ```
 
 PowerShell에서:
 ```powershell
-md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+
+md $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount 2>null
+
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=$env:LOCALAPPDATA\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 microsoft/azure-cosmosdb-emulator
+
 ```
 
 응답은 다음과 유사합니다.
@@ -292,14 +395,15 @@ Starting interactive shell
 이제 클라이언트의 응답에서 엔드포인트 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
 
 명령줄에서
+
 ```cmd
-cd %LOCALAPPDATA%\CosmosDBEmulatorCert
+cd  %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 powershell .\importcert.ps1
 ```
 
 PowerShell에서:
 ```powershell
-cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 .\importcert.ps1
 ```
 
@@ -312,26 +416,30 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 ## <a name="troubleshooting"></a>문제 해결
 
-다음은 Azure Cosmos DB 에뮬레이터에서 발생하는 문제 해결을 도와주는 팁입니다.
+다음은 Azure Cosmos Emulator에서 발생하는 문제를 해결하는 데 참고할만한 팁입니다.
 
-- 새 버전의 에뮬레이터를 설치했는데 오류가 발생하는 경우 데이터를 다시 설정합니다. 시스템 트레이에서 Azure Cosmos DB 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭한 다음, 데이터 다시 설정...을 클릭하여 데이터를 다시 설정할 수 있습니다. 오류가 해결되지 않으면 앱을 제거하고 다시 설치할 수 있습니다. 지침은 [로컬 에뮬레이터 제거](#uninstall)를 참조하세요.
+- 새 버전의 에뮬레이터를 설치했는데 오류가 발생하는 경우 데이터를 다시 설정합니다. 시스템 트레이에서 Azure Cosmos Emulator 아이콘을 마우스 오른쪽 단추로 클릭한 다음, 데이터 다시 설정...을 클릭하여 데이터를 다시 설정할 수 있습니다. 이렇게 해도 오류가 해결되지 않으면 에뮬레이터와 에뮬레이터의 이전 버전(있는 경우)을 제거하고 "C:\Program files\Azure Cosmos DB Emulator" 디렉터리를 제거한 다음, 에뮬레이터를 다시 설치합니다. 지침은 [로컬 에뮬레이터 제거](#uninstall)를 참조하세요.
 
-- Azure Cosmos DB 에뮬레이터가 충돌하는 경우 c:\Users\user_name\AppData\Local\CrashDumps 폴더에서 덤프 파일을 수집하고, 압축하고, 전자 메일에 첨부하여 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)으로 보냅니다.
+- Azure Cosmos Emulator에 크래시가 발생하는 경우 '%LOCALAPPDATA%\CrashDumps' 폴더에서 덤프 파일을 수집하여 압축하고, 이메일에 첨부하여 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)으로 보냅니다.
 
-- CosmosDB.StartupEntryPoint.exe에서 충돌을 경험하는 경우 관리자 명령 프롬프트에서 다음 명령을 실행합니다. `lodctr /R`
+- `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`에서 크래시가 발생하는 경우에는 성능 카운터가 손상된 상태에서 발생하는 증상일 수 있습니다. 일반적으로 관리자 명령 프롬프트에서 다음 명령을 실행하면 문제가 해결됩니다.
+
+  ```cmd
+  lodctr /R
+   ```
 
 - 연결 문제가 발생하는 경우 [추적 파일을 수집](#trace-files)하고, 압축하고, 전자 메일에 첨부하여 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)으로 보냅니다.
 
-- **서비스를 사용할 수 없음** 메시지가 나타나는 경우 에뮬레이터에서 네트워크 스택을 초기화하지 못했을 수 있습니다. 해당 네트워크 필터 드라이버로 인해 문제가 발생할 수 있으므로 Pulse 보안 클라이언트 또는 Juniper 네트워크 클라이언트를 설치했는지 확인합니다. 일반적으로 타사 네트워크 필터 드라이버를 제거하면 문제가 해결됩니다.
+- **서비스를 사용할 수 없음** 메시지가 나타나는 경우 에뮬레이터에서 네트워크 스택을 초기화하지 못했을 수 있습니다. 해당 네트워크 필터 드라이버로 인해 문제가 발생할 수 있으므로 Pulse 보안 클라이언트 또는 Juniper 네트워크 클라이언트를 설치했는지 확인합니다. 일반적으로 타사 네트워크 필터 드라이버를 제거하면 문제가 해결됩니다. 또는 /DisableRIO를 사용하여 에뮬레이터를 시작하면 에뮬레이터 네트워크 통신이 일반 Winsock으로 전환됩니다. 
 
-- 에뮬레이터 실행 중에 컴퓨터가 절전 모드가 되거나 OS 업데이트를 실행할 경우 **서비스를 현재 사용할 수 없음** 메시지가 표시될 수 있습니다. Windows 알림 트레이에 표시되는 아이콘을 마우스 오른쪽 단추로 클릭하여 에뮬레이터를 다시 설정하고 **데이터 다시 설정**을 선택합니다.
+- 에뮬레이터 실행 중에 컴퓨터가 절전 모드가 되거나 OS 업데이트를 실행할 경우 **서비스를 현재 사용할 수 없음** 메시지가 표시될 수 있습니다. Windows 알림 트레이에 표시되는 아이콘을 마우스 오른쪽 단추로 클릭하여 **데이터 다시 설정**을 선택하여 에뮬레이터 데이터를 다시 설정합니다.
 
 ### <a id="trace-files"></a>추적 파일 수집
 
 디버깅 추적을 수집하려면 관리 명령 프롬프트에서 다음 명령을 실행합니다.
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown` 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에 1분 정도 걸릴 수 있습니다. Azure Cosmos DB 에뮬레이터 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
+2. `CosmosDB.Emulator.exe /shutdown` 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에 1분 정도 걸릴 수 있습니다. Azure Cosmos Emulator 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 문제를 재현합니다. 데이터 탐색기가 작동하지 않는 경우 브라우저가 몇 초 간 열리고 오류를 catch할 때까지 기다리면 됩니다.
@@ -341,25 +449,14 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 ### <a id="uninstall"></a>로컬 에뮬레이터 제거
 
-1. 시스템 트레이에서 Azure Cosmos DB 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭한 다음 마침을 클릭하여 로컬 에뮬레이터의 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
+1. 시스템 트레이에서 Azure Cosmos Emulator 아이콘을 마우스 오른쪽 단추로 클릭한 다음, 종료를 클릭하여 로컬 에뮬레이터의 열려 있는 인스턴스를 모두 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
 2. Windows 검색 상자에 **앱 및 기능**을 입력하고 **앱 및 기능(시스템 설정)** 결과를 클릭합니다.
 3. 앱 목록에서 **Azure Cosmos DB 에뮬레이터**로 스크롤하여 선택하고, **제거**를 클릭한 다음, 확인하고 **제거**를 다시 클릭합니다.
-4. 앱을 제거할 때 `C:\Users\<user>\AppData\Local\CosmosDBEmulator`로 이동하여 폴더를 삭제합니다.
+4. 앱을 제거할 때 `%LOCALAPPDATA%\CosmosDBEmulator`로 이동하여 폴더를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 다음을 수행했습니다.
-
-> [!div class="checklist"]
-> * 로컬 에뮬레이터 설치
-> * Windows용 Docker에서 에뮬레이터 실행
-> * 요청 인증
-> * 에뮬레이터에서 데이터 탐색기 사용
-> * SSL 인증서 내보내기
-> * 명령줄에서 에뮬레이터 호출
-> * 추적 파일 수집
 
 이 자습서에서는 무료 로컬 개발을 위해 로컬 에뮬레이터를 사용하는 방법을 살펴보았습니다. 이제 다음 자습서로 진행하여 에뮬레이터 SSL 인증서를 내보내는 방법을 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)
+> [Azure Cosmos Emulator 인증서 내보내기](local-emulator-export-ssl-certificates.md)

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087128"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
@@ -39,6 +39,10 @@ ms.locfileid: "56876279"
 > * Event Hubs에서 트윗 읽기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+> [!Note]
+> 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
+> 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -96,11 +100,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
-    * 클러스터의 이름을 입력합니다.
-    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
-    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+   * 클러스터의 이름을 입력합니다.
+   * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
+   * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-    **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
+     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
@@ -124,16 +128,16 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 이 자습서에서는 Twitter API를 사용하여 트윗을 Event Hubs에 보냅니다. 또한 [Apache Spark Event Hubs 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs에 데이터를 읽고 씁니다. 이러한 API를 클러스터의 일부로 사용하려면 Azure Databricks에 라이브러리로 추가한 다음, 이를 Spark 클러스터와 연결합니다. 다음 지침에서는 작업 영역의 **공유** 폴더에 라이브러리를 추가하는 방법을 보여줍니다.
 
-1.  Azure Databricks 작업 영역에서 **작업 영역**을 선택한 다음, **공유**를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **만들기** > **라이브러리**를 차례로 선택합니다.
+1. Azure Databricks 작업 영역에서 **작업 영역**을 선택한 다음, **공유**를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **만들기** > **라이브러리**를 차례로 선택합니다.
 
-    ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "라이브러리 추가 대화 상자")
+   ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "라이브러리 추가 대화 상자")
 
 2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven 코디네이트**를 선택합니다. **코디네이트**에서 추가하려는 패키지에 대한 코디네이트를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
-    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Maven 코디네이트 제공](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
+     ![Maven 코디네이트 제공](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
 
 3. **라이브러리 만들기**를 선택합니다.
 

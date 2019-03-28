@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c9b2770f861098993623d69f6b9f6a1577c9cf27
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory 통합
 
@@ -105,6 +105,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
     ![PureCloud by Genesys 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
     | `https://login.mypurecloud.au/saml` |
 
     b. **회신 URL** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
     ![PureCloud by Genesys 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -220,7 +223,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -275,7 +278,7 @@ Azure AD 사용자가 PureCloud by Genesys에 로그인할 수 있도록 하려�
 
     a. **Full Name**(전체 이름) 텍스트 상자에 사용자의 이름(예: **Brittasimon**)을 입력합니다.
 
-    b. **이메일** 텍스트 상자에 사용자의 이메일(예: **brittasimon@contoso.com**)을 입력합니다.
+    b. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
     
     다. **만들기**를 클릭합니다.
 

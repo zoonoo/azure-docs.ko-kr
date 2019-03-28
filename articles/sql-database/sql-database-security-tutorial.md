@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893274"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -77,11 +77,11 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
 
 1. **개요** 페이지에서 **서버 방화벽 설정**을 선택합니다. 데이터베이스 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
-    1. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 이 규칙은 단일 IP 주소 또는 IP 주소 범위에 대해 1433 포트를 열 수 있습니다. **저장**을 선택합니다.
+   1. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 이 규칙은 단일 IP 주소 또는 IP 주소 범위에 대해 1433 포트를 열 수 있습니다. **저장**을 선택합니다.
 
-    ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. **확인**을 선택하고, **방화벽 설정** 페이지를 닫습니다.
+   1. **확인**을 선택하고, **방화벽 설정** 페이지를 닫습니다.
 
 이제 지정된 IP 주소 또는 IP 주소 범위로 서버의 모든 데이터베이스에 연결할 수 있습니다.
 
@@ -90,7 +90,7 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
 
 ### <a name="setup-database-firewall-rules"></a>데이터베이스 방화벽 규칙 설정
 
-데이터베이스 수준 방화벽 규칙은 개별 데이터베이스에만 적용됩니다. 이러한 규칙은 이식할 수 있으며, 서버 장애 조치를 수행하는 동안 데이터베이스를 따릅니다. 데이터베이스 수준 방화벽 규칙은 서버 수준 방화벽 규칙을 구성한 후에 T-SQL(Transact-SQL) 문만 사용하여 구성할 수 있습니다.
+데이터베이스 수준 방화벽 규칙은 개별 데이터베이스에만 적용됩니다. 데이터베이스는 서버를 장애 조치(failover)하는 동안 이러한 규칙을 유지합니다. 데이터베이스 수준 방화벽 규칙은 서버 수준 방화벽 규칙을 구성한 후에 T-SQL(Transact-SQL) 문만 사용하여 구성할 수 있습니다.
 
 데이터베이스 수준 방화벽 규칙을 설정하려면,
 
@@ -142,7 +142,7 @@ Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조�
 
 - [Azure AD와 온-프레미스 ID의 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD 디렉터리 관리](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0)
 - [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 1. **SQL 서버** 페이지에서 **보안** 섹션을 찾아서 **Advanced Data Security**를 선택합니다.
 
-    1. 이 기능을 사용하도록 설정하려면 **Advanced Data Security** 아래에서 **켜기**를 선택합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
+   1. 이 기능을 사용하도록 설정하려면 **Advanced Data Security** 아래에서 **켜기**를 선택합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
-    ![탐색 창](./media/sql-database-security-tutorial/threat-settings.png)
+      ![탐색 창](./media/sql-database-security-tutorial/threat-settings.png)
 
-    또한 보안 경고, 스토리지 세부 정보 및 위협 탐지 유형을 받을 수 있도록 이메일을 구성할 수도 있습니다.
+      또한 보안 경고, 스토리지 세부 정보 및 위협 탐지 유형을 받을 수 있도록 이메일을 구성할 수도 있습니다.
 
 1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Advanced Data Security**을 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
 
@@ -264,7 +264,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 ### <a name="auditing"></a>감사
 
-감사 기능은 데이터베이스 이벤트를 추적하고 Azure 스토리지, 로그 분석 또는 이벤트 허브의 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 활동을 살펴보고, 잠재적인 보안 위반을 나타낼 수 있는 불일치 및 비정상을 파악하는 데 도움이 됩니다.
+감사 기능은 데이터베이스 이벤트를 추적하고 Azure Storage, Azure Monitor 로그 또는 Event Hub 중 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 활동을 살펴보고, 잠재적인 보안 위반을 나타낼 수 있는 불일치 및 비정상을 파악하는 데 도움이 됩니다.
 
 감사를 사용하도록 설정하려면,
 
@@ -274,25 +274,25 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 1. **감사** 설정 아래에서 다음 값을 설정합니다.
 
-    1. **감사**를 **켜기**로 설정합니다.
+   1. **감사**를 **켜기**로 설정합니다.
 
-    1. **감사 로그 대상**을 다음 중 하나로 선택합니다.
+   1. **감사 로그 대상**을 다음 중 하나로 선택합니다.
 
-        - **스토리지** - 이벤트 로그가 저장되고 *.xel* 파일로 다운로드될 수 있는 Azure 스토리지 계정입니다.
+       - **스토리지** - 이벤트 로그가 저장되고 *.xel* 파일로 다운로드될 수 있는 Azure 스토리지 계정입니다.
 
-           > [!TIP]
-           > 감사 보고서 템플릿을 최대한 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 스토리지 계정을 사용하세요.
+          > [!TIP]
+          > 감사 보고서 템플릿을 최대한 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 스토리지 계정을 사용하세요.
 
-        - **Log Analytics** - 쿼리 또는 추가 분석을 위해 이벤트를 자동으로 저장합니다.
+       - **Log Analytics** - 쿼리 또는 추가 분석을 위해 이벤트를 자동으로 저장합니다.
 
-            > [!NOTE]
-            > 분석, 사용자 지정 경고 규칙, Excel 또는 Power BI 내보내기와 같은 고급 기능을 지원하려면 **Log Analytics 작업 영역**이 필요합니다. 작업 영역이 없으면 쿼리 편집기만 사용할 수 있습니다.
+           > [!NOTE]
+           > 분석, 사용자 지정 경고 규칙, Excel 또는 Power BI 내보내기와 같은 고급 기능을 지원하려면 **Log Analytics 작업 영역**이 필요합니다. 작업 영역이 없으면 쿼리 편집기만 사용할 수 있습니다.
 
-        - **Event Hub** - 다른 애플리케이션에서 사용할 수 있도록 이벤트를 라우팅할 수 있습니다.
+       - **Event Hub** - 다른 애플리케이션에서 사용할 수 있도록 이벤트를 라우팅할 수 있습니다.
 
-    1. **저장**을 선택합니다.
+   1. **저장**을 선택합니다.
 
-    ![감사 설정](./media/sql-database-security-tutorial/audit-settings.png)
+      ![감사 설정](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. 이제 **감사 로그 보기**를 선택하여 데이터베이스 이벤트 데이터를 볼 수 있습니다.
 
@@ -334,7 +334,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
     ![투명한 데이터 암호화](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> 암호화 상태를 보려면 [SSMS](./sql-database-connect-query-ssms.md)를 사용하여 데이터베이스에 연결하고, [sys.dm_database_암호화_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 보기의 `encryption_state` 열을 쿼리합니다. `3` 상태는 데이터베이스가 암호화되었음을 나타냅니다.
+> 암호화 상태를 보려면 [SSMS](./sql-database-connect-query-ssms.md)를 사용하여 데이터베이스에 연결하고, [sys.dm_database_암호화_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) 보기의 `encryption_state` 열을 쿼리합니다. `3` 상태는 데이터베이스가 암호화되었음을 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

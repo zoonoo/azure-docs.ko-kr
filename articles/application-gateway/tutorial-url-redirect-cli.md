@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 63dbdc7dc647a05da11192476076c3ee08a5e2bf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996408"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* 또는 *http://40.121.222.19:8081/images/test.htm*.
+애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` 또는 `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \

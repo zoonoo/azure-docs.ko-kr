@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091174"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -134,6 +134,8 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
+빌드의 경우 1단계와 2단계를 건너뛸 수 있으며 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars)에서 미리 빌드된 jar(kafka-producer-consumer.jar)를 다운로드할 수 있습니다. 그런 다음, jar를 HDInsight 클러스터에 복사할 수 있습니다.
+
 1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 예제를 다운로드합니다.
 
 2. 디렉터리를 `Producer-Consumer` 디렉터리 위치로 변경한 후 다음 명령을 사용합니다.
@@ -216,7 +218,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROK
 indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
-이 명령은 `tmux`를 사용하여 터미널을 두 개의 열로 분할합니다. 소비자는 동일한 그룹 ID 값으로 각 열에서 시작됩니다. 소비자가 읽기를 완료하면 각 읽기는 레코드의 일부입니다. __Ctrl + C __를 두 번 사용하여 `tmux`를 종료합니다.
+이 명령은 `tmux`를 사용하여 터미널을 두 개의 열로 분할합니다. 소비자는 동일한 그룹 ID 값으로 각 열에서 시작됩니다. 소비자가 읽기를 완료하면 각 읽기는 레코드의 일부입니다. __Ctrl + C__를 두 번 사용하여 `tmux`를 종료합니다.
 
 동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 이 코드 샘플에서, 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 

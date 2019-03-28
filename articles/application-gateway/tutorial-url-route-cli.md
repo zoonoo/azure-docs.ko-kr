@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 68532ec4ae7e6d6b496ece8d08755555f756a60e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006481"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-a-port"></a>이미지와 비디오 백 엔드 풀 및 포트 추가
 
-`az network application-gateway address-pool create`를 사용하여 응용 프로그램 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가합니다. `az network application-gateway frontend-port create`를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다.
+`az network application-gateway address-pool create`를 사용하여 애플리케이션 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가합니다. `az network application-gateway frontend-port create`를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*.
+응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` 또는 `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -256,7 +256,7 @@ URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-add
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
+더 이상 필요 없는 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroupAG --location eastus
@@ -265,4 +265,4 @@ az group delete --name myResourceGroupAG --location eastus
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기](./tutorial-url-redirect-cli.md)
+> [URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](./tutorial-url-redirect-cli.md)

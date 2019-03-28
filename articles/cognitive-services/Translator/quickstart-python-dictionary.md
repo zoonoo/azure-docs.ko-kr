@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f00cc893f21db302c2efe63da285c8843958b1ee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731245"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183699"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>빠른 시작: Python을 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -32,7 +32,7 @@ ms.locfileid: "56731245"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `dictionary-lookup.py`라는 파일의 프로젝트에 복사합니다.
+즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 아래 코드 조각을 `dictionary-lookup.py`라는 파일의 프로젝트/폴더에 복사합니다.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -60,8 +60,8 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
 Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `dictionary/lookup` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
@@ -123,7 +123,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 이것으로, Translator Text API를 호출하여 JSON 응답을 반환하는 간단한 프로그램이 만들어집니다. 이제 프로그램을 실행해 보겠습니다.
 
 ```console
-python dictionary-lookup.py
+python alt-translations.py
 ```
 
 코드를 우리 것과 비교하고 싶다면 전체 샘플은 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)에 있습니다.

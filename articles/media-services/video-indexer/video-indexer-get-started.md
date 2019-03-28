@@ -9,18 +9,18 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e3bba18e9b391807a154ff959e1ce59dabe04ece
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0c1f9e4b8ed854c562ad7af16222e726b3b4293
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998237"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893308"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
 이 시작 자습서에서는 Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드하는 방법을 보여줍니다.
 
-Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결](connect-to-azure.md)되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분)과 Azure Media Services 계정 관련 요금을 지불합니다. 
+Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="sign-up-for-video-indexer"></a>Video Indexer에 가입
 

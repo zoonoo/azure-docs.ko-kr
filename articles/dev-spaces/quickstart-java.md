@@ -1,22 +1,21 @@
 ---
-title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
+title: 클라우드에서 Kubernetes 개발 환경 만들기
 titleSuffix: Azure Dev Spaces
 author: stepro
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: c8c85c9220574a3e18e5549e1607dafe1aec03ab
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 98f7669a34d65d42e2437b440446b3a3066853d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904068"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>빠른 시작: Azure Dev Spaces(Java 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -38,7 +37,7 @@ ms.locfileid: "56818173"
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
@@ -57,13 +56,13 @@ ms.locfileid: "56818173"
 
    ```output
     (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-    Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+    Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
    ```
 
    브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다.
 
    > [!Note]
-   > 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 http://localhost:<portnumber> URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
+   > 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
 
 ### <a name="update-a-code-file"></a>코드 파일 업데이트
 

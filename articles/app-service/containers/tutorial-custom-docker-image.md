@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984820"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224205"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-방금 푸시한 이미지를 사용하는 앱을 만들려면 그룹을 만든 다음, 서비스 계획을 만들고 최종적으로 웹앱 자체를 만드는 Azure CLI 명령을 실행합니다. 
+방금 푸시한 이미지를 사용하는 앱을 만들려면 그룹, 서비스 및 마지막으로 웹앱 자체를 만드는 Azure CLI 명령을 실행합니다. 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://`가 *\<docker-registry-server-url>* 에 필요합니다.
 >
+> [!NOTE]
+> dockerhub 이외의 레지스트리를 사용하는 경우 `docker-custom-image-name`에는 레지스트리의 FQDN(정규화된 도메인 이름)이 포함되어야 합니다.  
+> Azure Container Registry의 경우 `<azure-container-registry>.azurecr.io/mydockerimage`와 유사합니다.
 
 명령은 JSON 문자열에서 다음과 같은 출력을 표시하여 구성 변경에 성공했는지 보여줍니다.
 

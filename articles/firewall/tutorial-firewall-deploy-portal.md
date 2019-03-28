@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994249"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 리소스 그룹에는 자습서의 모든 리소스가 포함되어 있습니다.
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal 홈페이지에서 **리소스 그룹** > **추가**를 클릭합니다.
 3. **리소스 그룹 이름**에 **Test-FW-RG**를 입력합니다.
 4. **구독**의 경우 사용자의 구독을 선택합니다.
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 5. **인바운드 포트 선택**에서 **RDP(3389)** 를 선택합니다.
 
 6. 나머지는 기본값으로 두고 **다음: 디스크**를 클릭합니다.
-7. 디스크 기본값을 적용하고 **다음: 네트워킹**을 클릭합니다.
+7. 디스크 기본값을 적용하고 **다음: 네트워킹**을 선택합니다.
 8. 가상 네트워크로 **Test-FW-VN**을 선택하고 서브넷으로 **Jump-SN**을 선택합니다.
 9. **공용 IP**에서 **새로 만들기**를 클릭합니다.
 10. 공용 IP 주소 이름으로 **Srv-Jump-PIP**를 입력하고 **확인**을 클릭합니다.
@@ -141,9 +141,9 @@ VNet에 방화벽을 배포합니다.
    |---------|---------|
    |이름     |Test-FW01|
    |구독     |\<구독\>|
-   |리소스 그룹     |**기존 항목 사용**: Test-FW-RG |
+   |리소스 그룹     |**기존 리소스 사용**: Test-FW-RG |
    |위치     |전에 사용한 동일한 위치 선택|
-   |가상 네트워크 선택     |**기존 항목 사용**: Test-FW-VN|
+   |가상 네트워크 선택     |**기존 리소스 사용**: Test-FW-VN|
    |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
 
 5. **검토 + 만들기**를 클릭합니다.
@@ -180,7 +180,7 @@ VNet에 방화벽을 배포합니다.
 18. **다음 홉 주소**에 이전에 적어둔 방화벽에 대한 개인 IP 주소를 입력합니다.
 19. **확인**을 클릭합니다.
 
-## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
+## <a name="configure-an-application-rule"></a>응용 프로그램 규칙 구성
 
 msn.com에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
 
@@ -235,12 +235,12 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Srv-Jump** 가상 머신에 연결하고, 여기에서 **Srv-Work** 개인 IP 주소까지 원격 데스크톱 연결을 엽니다.
 
-3. Internet Explorer를 열고 http://msn.com을 찾습니다.
+3. Internet Explorer를 열고 https://msn.com을 찾습니다.
 4. 보안 경고에서 **확인** > **닫기**를 클릭합니다.
 
    MSN 홈페이지가 표시됩니다.
 
-5. http://www.msn.com로 이동합니다.
+5. https://www.msn.com로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 3/3/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cfbbe9a5297627dec69683b819aabd721b3c33d7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848833"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -41,6 +41,14 @@ ms.locfileid: "54470786"
     - [복제 원본](vmware-azure-set-up-source.md) 및 [구성 서버](vmware-azure-deploy-configuration-server.md)를 설정합니다.
     - [복제 대상](vmware-azure-set-up-target.md)을 설정합니다.
     - [복제 정책](vmware-azure-set-up-replication.md) 및 [복제 사용](vmware-azure-enable-replication.md)을 구성합니다.
+- 이 자습서에서는 단일 VM을 복제하는 방법을 보여줍니다. 여러 VM을 배포하려는 경우에는 배포를 계획하는 데 도움이 되는 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 사용해야 합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
+
+그리고 다음 팁을 검토합니다.
+- 이 자습서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 수행할 수 없는 경우 [아래 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 직접 설정하세요.
+- 이 자습서에서 Site Recovery는 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
+  >[Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버 템플릿을 직접 다운로드할 수 있습니다.
+  OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다. 
+
 
 
 ## <a name="select-a-protection-goal"></a>보호 목표 선택
@@ -52,25 +60,18 @@ ms.locfileid: "54470786"
 5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음 **확인**을 선택합니다.
 
 
-## <a name="plan-your-deployment"></a>배포 계획
-
-이 자습서에서는 단일 VM을 복제하는 방법을 보여주고 **배포 계획**에서 **예, 완료했습니다.** 를 선택합니다. 여러 VM을 배포하는 경우 이 단계를 건너뛰지 않는 것이 좋습니다. 도움을 주기 위해 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 제공합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-첫 번째 배포 단계로 원본 환경을 설정합니다. 온-프레미스 Site Recovery 구성 요소를 호스트하려면 단일 고가용성 온-프레미스 컴퓨터가 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
+원본 환경에서는 온-프레미스 Site Recovery 구성 요소를 호스팅할 단일 고가용성 온-프레미스 머신이 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
 
 - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
+- 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure에서 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
 - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
 고가용성 VMware VM으로 구성 서버를 설정하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 템플릿을 VMware로 가져와서 VM을 만듭니다. 구성 서버를 설정 한 후 자격 증명 모음에 등록합니다. 등록이 완료되면 Site Recovery가 온-프레미스 VMware VM을 검색합니다.
 
-> [!TIP]
-> 이 자습서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 수행할 수 없다면 [구성 서버를 수동으로 설정합니다](physical-manage-configuration-server.md).
 
-> [!TIP]
-> 이 자습서에서 Site Recovery는 MySQL을 다운로드하고 구성 서버에 설치합니다. Site Recovery를 이렇게 하지 않으려면 수동으로 설정하면 됩니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
 
 
 ### <a name="download-the-vm-template"></a>VM 템플릿 다운로드
@@ -80,13 +81,10 @@ ms.locfileid: "54470786"
 3. **서버 추가**에서 **VMware에 대한 구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 4. 구성 서버에 대한 OVF 템플릿을 다운로드합니다.
 
- > [!TIP]
- >[Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버 템플릿을 직접 다운로드할 수 있습니다.
 
->[!NOTE]
-OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 고객은 제공된 라이선스를 사용하여 Windows를 활성화해야 합니다.
 
 ## <a name="import-the-template-in-vmware"></a>VMware에서 템플릿 가져오기
+
 
 1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
 2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다. 
@@ -100,8 +98,8 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 7. 마법사 페이지의 나머지 부분에서는 기본 설정을 적용합니다.
 8. **완료 준비**에서 기본 설정을 사용하여 VM을 설정하려면 **배포 후 전원 켜기** > **마침**을 선택합니다.
 
-    > [!TIP]
-  추가 NIC를 추가하려면 **배포 후 전원 켜기** > **마침**의 선택을 취소합니다. 템플릿에는 기본적으로 단일 NIC가 포함됩니다. 배포 후 NIC를 추가할 수 있습니다.
+   > [!TIP]
+   > 추가 NIC를 추가하려면 **배포 후 전원 켜기** > **마침**의 선택을 취소합니다. 템플릿에는 기본적으로 단일 NIC가 포함됩니다. 배포 후 NIC를 추가할 수 있습니다.
 
 ## <a name="add-an-additional-adapter"></a>어댑터 추가
 
@@ -126,8 +124,8 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 
 ### <a name="configure-settings-and-add-the-vmware-server"></a>설정 구성 및 VMware 서버 추가
 
-1. 구성 서버 관리 마법사에서 **연결 설정**을 선택한 다음, 프로세스 서버가 VM에서 복제 트래픽을 수신할 때 사용할 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
-2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택하고 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
+1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
+2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택한 다음, 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
 3. **타사 소프트웨어 설치**에서 사용권 계약에 동의합니다. **다운로드 및 설치**를 선택하여 MySQL 서버를 설치합니다. 경로에 MySQL을 배치하는 경우 이 단계를 건너뜁니다.
 4. **VMware PowerCLI 설치**를 선택합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 다음, **계속**을 선택합니다.
 5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
@@ -150,7 +148,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 대상 리소스를 선택하고 확인합니다.
 
 1. **인프라 준비** > **대상**을 선택합니다. 사용할 Azure 구독을 선택합니다. Resource Manager 모델을 사용합니다.
-2. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 이 자습서 시리즈의 [첫 번째 자습서](tutorial-prepare-azure.md)에서 Azure 구성 요소를 설정할 때 다음과 같은 항목이 있어야 합니다.
+2. Site Recovery는 가상 네트워크가 하나 이상 있는지 확인합니다. 이 자습서 시리즈의 [첫 번째 자습서](tutorial-prepare-azure.md)에서 Azure 구성 요소를 설정할 때 다음과 같은 항목이 있어야 합니다.
 
    ![대상 탭](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -174,22 +172,22 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 다음과 같은 방법으로 복제 사용을 수행할 수 있습니다.
 
 1. **애플리케이션 복제** > **원본**을 선택합니다.
-2. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
-3. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
-4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
-5. 프로세스 서버(기본적으로 구성 서버 VM에 설치됨)를 선택합니다. 그런 다음 **확인**을 선택합니다.
-6. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
-7. 데이터를 복제하는 데 사용할 Azure Storage 계정 및 장애 조치(failover) 후에 Azure VM을 생성할 때 연결할 Azure 네트워크 및 서브넷을 선택합니다.
-8. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
-9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
-10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
-11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
-12. **복제 사용**을 선택합니다. VM에 복제를 사용하도록 설정하면 Site Recovery에서는 모바일 서비스를 설치합니다.
-13. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
-- 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
-- 추가하는 VM을 모니터링하려면, **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인합니다. 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
+1. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
+1. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
+1. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
+1. 프로세스 서버(기본적으로 구성 서버 VM에 설치됨)를 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
+1. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
+1. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
+1. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
+1. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
+1. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
+1. **복제 사용**을 선택합니다. VM에 복제를 사용하도록 설정하면 Site Recovery에서는 모바일 서비스를 설치합니다.
+1. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+1. 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
+1. 추가하는 VM을 모니터링하려면, **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인합니다. 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [재해 복구 드릴 실행](site-recovery-test-failover-to-azure.md)
+> 복제를 사용 설정한 후 [재해 복구 드릴을 실행](site-recovery-test-failover-to-azure.md)하여 모든 항목이 예상대로 작동하는지 확인합니다.

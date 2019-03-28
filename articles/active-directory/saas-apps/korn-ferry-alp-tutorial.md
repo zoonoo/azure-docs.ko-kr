@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6f5b53b7-6d1d-4bed-a95a-127e2d4d8b3f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9fe3f53d9d54c2a8fdc0b0c663d0085d137188
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>자습서: Korn Ferry ALP와 Azure Active Directory 통합
 
@@ -106,6 +106,7 @@ Korn Ferry ALP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     ![Korn Ferry ALP 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
@@ -113,6 +114,7 @@ Korn Ferry ALP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
@@ -148,7 +150,7 @@ Korn Ferry ALP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

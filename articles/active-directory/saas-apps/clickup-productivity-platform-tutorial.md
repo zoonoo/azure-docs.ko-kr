@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 06853edd-e8da-4ad2-a4e6-5555d592cee5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ce823503964f09c7b165cdb5e6fe40483d8e710
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: eababa0d83e1db4934fc8b2315e20407ccc77f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>자습서: ClickUp Productivity 플랫폼과 Azure Active Directory 통합
 
@@ -157,7 +157,7 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

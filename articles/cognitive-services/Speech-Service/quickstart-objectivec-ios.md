@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094925"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -75,7 +75,7 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
 1. 마우스 오른쪽 단추로 링크를 클릭하고 **다른 이름으로 대상 저장...** 을 선택하여 [샘플 wav 파일](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)을 다운로드합니다. Finder 창에서 프로젝트 보기의 루트 수준으로 끌어 놓아 wav 파일을 리소스로 프로젝트에 추가합니다.
-설정을 변경하지 않고 다음 대화 상자에서 **완료**를 클릭합니다.
+   설정을 변경하지 않고 다음 대화 상자에서 **완료**를 클릭합니다.
 1. 자동으로 생성된 `ViewController.m` 파일의 콘텐츠를 다음으로 바꿉니다.
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
@@ -92,10 +92,10 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 1. 디버그 출력을 표시되도록 설정합니다(**뷰** > **디버그 영역** > **콘솔 활성화**).
 1. **제품** -> **대상** 메뉴의 목록에서 앱에 대한 대상으로 개발 머신에 연결된 iOS 시뮬레이터 또는 iOS 디바이스를 선택합니다.
 1. 메뉴에서 **제품** -> **실행**을 선택하거나 **재생** 단추를 클릭하여 iOS 시뮬레이터에서 예제 코드를 빌드하고 실행합니다.
-현재 Speech SDK는 64비트 iOS 플랫폼만 지원합니다.
+   현재 Speech SDK는 64비트 iOS 플랫폼만 지원합니다.
 1. 앱에서 "Recognize (File)" 단추를 클릭하면 오디오 파일의 콘텐츠인 "What's the weather like?"가 화면 아래쪽 부분에 표시됩니다.
 
- ![시뮬레이션된 iOS 앱](media/sdk/qs-objectivec-simulated-app.png)
+   ![시뮬레이션된 iOS 앱](media/sdk/qs-objectivec-simulated-app.png)
 
 1. 앱에서 "Recognize (Microphone)" 단추를 클릭하고 몇 단어를 말하면 화면 아래쪽 부분에 사용자가 말한 텍스트가 보영 합니다.
 

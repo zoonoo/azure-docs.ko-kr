@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10fc55886e4c91a2d468704d13d3b206f4a9cf51
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990634"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-첫 번째 VM 인스턴스에 대한 원격 연결을 만듭니다. 앞의 명령과 같이 필요한 VM 인스턴스의 공용 IP 주소와 포트 번호를 지정합니다. 메시지가 표시되면 확장 집합을 만들 때 사용한 자격 증명을 입력합니다(샘플 명령의 경우 기본적으로 *azureuser* 및 *P@ssw0rd!* 임). Azure Cloud Shell을 사용하는 경우 로컬 PowerShell 프롬프트 또는 원격 데스크톱 클라이언트에서 이 단계를 수행합니다. 다음 예제에서는 *1* VM 인스턴스에 연결합니다.
+첫 번째 VM 인스턴스에 대한 원격 연결을 만듭니다. 앞의 명령과 같이 필요한 VM 인스턴스의 공용 IP 주소와 포트 번호를 지정합니다. 메시지가 표시되면 확장 집합을 만들 때 사용한 자격 증명을 입력합니다(샘플 명령의 경우 기본적으로 *azureuser* 및 *P\@ssw0rd!* 임). Azure Cloud Shell을 사용하는 경우 로컬 PowerShell 프롬프트 또는 원격 데스크톱 클라이언트에서 이 단계를 수행합니다. 다음 예제에서는 *1* VM 인스턴스에 연결합니다.
 
 ```powershell
 mstsc /v 52.168.121.216:50001

@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858204"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>빠른 시작: PHP를 사용하여 Bing Web Search API 호출  
 
 이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받아보세요. 이 Node.js 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-* [PHP 5.6.x](http://php.net/downloads.php) 이상
+* [PHP 5.6.x](https://php.net/downloads.php) 이상
 * 구독 키  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ ms.locfileid: "56166286"
 
 시작하기 전에 `php.ini`를 찾고 이 줄의 주석 처리를 제거합니다.
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>프로젝트 만들기 및 변수 정의  
+## <a name="create-a-project-and-define-variables"></a>프로젝트 만들기 및 변수 정의
 
 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다. 여는 `<?php` 태그 및 닫는 `?>` 태그를 추가하는 것을 잊지 마세요.
 

@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure Container Instances에서 애플리케이션 실행 - PowerShell
-description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Docker 컨테이너 애플리케이션을 Azure Container Instances에 배포함
+title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 - PowerShell
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806915"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732294"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
-Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure에서 Windows 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 애플리케이션을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 애플리케이션을 찾아볼 수 있습니다.
+Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테이너를 간단하고 빠르게 실행합니다. Azure Kubernetes Service와 같은 풀 컨테이너 오케스트레이션 플랫폼이 필요하지 않을 경우 애플리케이션을 요청 시 컨테이너 인스턴스에 배포합니다.
+
+이 빠른 시작에서는 Azure PowerShell을 사용하여 격리된 Windows 컨테이너를 배포하고 해당 애플리케이션을 정규화된 도메인 이름(FQDN)으로 사용 가능하게 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 컨테이너에서 실행 중인 애플리케이션을 찾아볼 수 있습니다.
 
 ![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][qs-powershell-01]
 
@@ -45,7 +47,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 DNS 이름 레이블이 있는 컨테이너를 배포하여 IIS를 공개적으로 연결할 수 있도록 합니다.
 
-컨테이너 인스턴스를 시작하려면 다음 명령을 실행합니다. `-DnsNameLabel` 값은 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
+컨테이너 인스턴스를 시작하려면 다음과 유사한 명령을 실행합니다. 인스턴스를 만드는 Azure 지역 내에서 고유한 `-DnsNameLabel` 값을 설정합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

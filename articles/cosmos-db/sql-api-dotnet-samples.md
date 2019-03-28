@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: sngun
-ms.openlocfilehash: 5d80c0a8464a9672859a3fbd305bbd4ab322b092
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c777aba4c12acef18c1e53833e19b24839f13fb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993358"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 .NET 예제
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Azure Cosmos DB 리소스에 대한 CRUD 작업 및 기타 일반적인 작업�
 > 
 
 ## <a name="database-examples"></a>데이터베이스 예제
-DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다.
+DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos 데이터베이스에 대해 알아보려면 [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -59,7 +59,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [데이터베이스 삭제](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
 ## <a name="collection-examples"></a>컬렉션 예제
-샘플 CollectionManagement 프로젝트의 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다.
+샘플 CollectionManagement 프로젝트의 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos 컬렉션에 대해 알아보려면 [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -71,7 +71,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [컬렉션 삭제](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
 ## <a name="document-examples"></a>문서 예제
-샘플 DocumentManagement 프로젝트의 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다.
+샘플 DocumentManagement 프로젝트의 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos 문서에 대해 알아보려면 [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -87,13 +87,12 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [문서가 변경된 경우에만 문서 읽기](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
 ## <a name="indexing-examples"></a>청구 예제
-샘플 IndexManagement 프로젝트의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다.
+샘플 IndexManagement 프로젝트의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](index-policy.md), [인덱싱 유형](index-types.md) 및 [인덱싱 경로](index-paths.md) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
 | [인덱스에서 문서 제외](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L125-L163) |[IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx) |
 | [(자동 대신) 수동 인덱싱 사용](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L171-L209) |[IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx) |
-| [(일관성 대신) 지연 인덱싱 사용](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L221-L238) |[IndexingMode.Lazy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.indexingmode.aspx#P:Microsoft.Azure.Documents.IndexingPolicy.IndexingMode) |
 | [인덱스에서 지정된 문서 경로 제외](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L248-L297) |[IndexingPolicy.ExcludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.excludedpaths.aspx) |
 | [해시 인덱스된 경로에 범위 검색 강제](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L305-L340) |[FeedOptions.EnableScanInQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx) |
 | [문자열에서 범위 인덱스 사용](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
@@ -102,7 +101,8 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ## <a name="geospatial-examples"></a>지리 공간 예제
-지리 공간 샘플 파일인 [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.  
+지리 공간 샘플 파일인 [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.  다음 샘플을 실행 하기 전에 GeoJSON 및 지리 공간적 데이터를 알아보려면 [지리 공간 및 GeoJSON 위치 데이터를 사용하는 방법](geospatial.md) 개념 문서를 참조하세요. 
+
 
 | Task | API 참조 |
 | --- | --- |
@@ -116,9 +116,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 지리 공간 데이터로 작업에 대한 자세한 내용은 [Azure Cosmos DB에서 지리 공간 데이터로 작업](geospatial.md)을 참조하세요.  
 
 ## <a name="query-examples"></a>쿼리 예제
-쿼리 문서 파일인 [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)는 SQL 쿼리 문법, 쿼리가 있는 LINQ 공급자, Lambda를 사용하여 다음 작업을 각각 수행하는 방법을 보여 줍니다.
+쿼리 문서 파일인 [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)는 SQL 쿼리 문법, 쿼리가 있는 LINQ 공급자, Lambda를 사용하여 다음 작업을 각각 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 SQL 쿼리 참조에 대해 자세히 알아보려면 [SQL 쿼리 예제](how-to-sql-query.md) 개념 문서를 참조하세요. 
 
-| 작업 | API 참조 |
+| Task | API 참조 |
 | --- | --- |
 | [모든 문서에 대한 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L122-L138) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [==를 사용하는 균등에 대한 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L251-L268) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
@@ -138,7 +138,8 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 쿼리를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 내에서 SQL 쿼리](how-to-sql-query.md)를 참조하세요.
 
 ## <a name="change-feed-examples"></a>변경 피드 예제 
-변경 피드 샘플인 [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다. 
+변경 피드 샘플인 [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 피드 변경에 대해 자세히 알아보려면 [변경 피드를 읽는 옵션](read-change-feed.md) 및 [변경 피드 프로세서](change-feed-processor.md) 개념 문서를 참조하세요. 
+
 
 | Task | API 참조 |
 | --- | --- |
@@ -148,7 +149,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 변경 피드 프로세서 샘플:  [변경 피드 마이그레이션 도구](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)는 변경 피드 프로세서 라이브러리를 사용하여 다른 Cosmos DB 컬렉션에 데이터를 복제하는 방법을 보여 줍니다.   
 
 ## <a name="server-side-programming-examples"></a>서버 쪽 프로그래밍 예제
-서버 쪽 프로그래밍 파일인 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.
+서버 쪽 프로그래밍 파일인 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 서버 측 프로그래밍에 대해 자세히 알아보려면 [저장 프로시저, 트리거 및 사용자 정의 함수](stored-procedures-triggers-udfs.md) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |

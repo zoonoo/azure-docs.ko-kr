@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012379"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
 az mysql server create 명령을 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
 
-다음 예제에서는 `westus`에 있는 MySQL용 Azure Database 서버를 `mydemoserver`라는 이름으로 `myresourcegroup` 리소스 그룹에 만듭니다. 서버에는 `myadmin`이라는 관리자 로그인이 있습니다. 이 서버는 vCore가 2개인 범용 4세대 서버입니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
+다음 예제에서는 `westus`에 있는 MySQL용 Azure Database 서버를 `mydemoserver`라는 이름으로 `myresourcegroup` 리소스 그룹에 만듭니다. 서버에는 `myadmin`이라는 관리자 로그인이 있습니다. 이 서버는 vCore가 2개인 범용 5세대 서버입니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
-+ `--sku-name B_Gen4_4`는 기본, 4세대 및 vCore 4개에 매핑됩니다.
++ `--sku-name B_Gen5_2`는 기본, 5세대 및 vCore 2개에 매핑됩니다.
 + `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
 + `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.
 
@@ -97,8 +97,8 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -184,6 +184,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` 명령에는 다음 매개 변수가 필요합니다.
+
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff46d9644848d197051e574106b029fb44efb069
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>자습서: Canvas와 Azure Active Directory 통합
 
@@ -180,7 +180,7 @@ Canvas에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -239,9 +239,9 @@ Azure AD 사용자가 Canvas에 로그인할 수 있도록 하려면 Canvas로 �
 
    a. **전체 이름** 텍스트 상자에 **BrittaSimon**과 같은 사용자의 이름을 입력합니다.
 
-   b. **전자 메일** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 전자 메일 주소를 입력합니다.
+   b. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
-   다. **로그인** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 Azure AD 전자 메일 주소를 입력합니다.
+   다. **로그인** 텍스트 상자에 **brittasimon\@contoso.com**과 같은 사용자의 Azure AD 이메일 주소를 입력합니다.
 
    d. **이 계정 만들기에 대해 사용자에 게 전자 메일**을 선택합니다.
 

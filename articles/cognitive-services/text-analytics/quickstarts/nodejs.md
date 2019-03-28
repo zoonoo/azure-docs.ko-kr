@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: e11e4a59e447a8befcfaedb7ddedbb9aabdfaa28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330701"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226932"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 텍스트 분석 Cognitive Service 호출  
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
+등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,11 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 언어 감지 API는 [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 즐겨 찾는 IDE에서 새 Node.JS 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
+2. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+3. Azure에서 `accessKey` 값을 Text Analytics 리소스의 구독 키로 바꿉니다.
 4. `uri`의 위치(현재 `westus`)를 등록한 지역으로 바꿉니다.
-5. 프로그램을 실행합니다.
+5. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node detect.js`).
 
 ```javascript
 'use strict';
@@ -156,13 +156,13 @@ get_language (documents);
 
 ## <a name="analyze-sentiment"></a>감정 분석
 
-감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
+감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 감정 분석은 원시 텍스트에서 긍정적이거나 부정적인 감정에 대한 단서를 분석하여 고객이 브랜드 또는 주제에 대해 생각하는 것을 파악하는 데 사용할 수 있습니다. 다음 예제에서는 영어와 스페인어로 작성된 두 개의 문서에 대한 점수를 제공합니다.
 
-1. 즐겨 찾는 IDE에서 새 Node.JS 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
+2. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+3. Azure에서 `accessKey` 값을 Text Analytics 리소스의 구독 키로 바꿉니다.
 4. `uri`의 위치(현재 `westus`)를 등록한 지역으로 바꿉니다.
-5. 프로그램을 실행합니다.
+5. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node sentiment.js`).
 
 ```javascript
 'use strict';
@@ -229,7 +229,8 @@ get_sentiments (documents);
 
 **감정 분석 응답**
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {
@@ -251,13 +252,13 @@ get_sentiments (documents);
 
 ## <a name="extract-key-phrases"></a>핵심 구 추출
 
-핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
+핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 핵심 구 추출은 문서 또는 텍스트의 주요 지점을 빠르게 식별하는 데 사용됩니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-1. 즐겨 찾는 IDE에서 새 Node.JS 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
+2. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+3. Azure에서 `accessKey` 값을 Text Analytics 리소스의 구독 키로 바꿉니다.
 4. `uri`의 위치(현재 `westus`)를 등록한 지역으로 바꿉니다.
-5. 프로그램을 실행합니다.
+5. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node key-phrases.js`).
 
 ```javascript
 'use strict';
@@ -367,13 +368,13 @@ get_key_phrases (documents);
 
 ## <a name="identify-linked-entities"></a>연결된 엔터티 식별
 
-엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. 다음 예제에서는 영어 문서의 엔터티를 식별합니다.
+엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)는 텍스트에서 "United States"와 같은 단어를 추출한 다음, 이 단어에 대한 형식 및/또는 Wikipedia 링크를 제공합니다. "United States"에 대한 형식은 `location`이고, Wikipedia에 대한 링크는 `https://en.wikipedia.org/wiki/United_States`입니다.  다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-1. 즐겨 찾는 IDE에서 새 Node.JS 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
+2. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+3. Azure에서 `accessKey` 값을 Text Analytics 리소스의 구독 키로 바꿉니다.
 4. `uri`의 위치(현재 `westus`)를 등록한 지역으로 바꿉니다.
-5. 프로그램을 실행합니다.
+5. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node entities.js`).
 
 ```javascript
 'use strict';
@@ -440,7 +441,7 @@ get_entities (documents);
 
 **엔터티 추출 응답**
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {

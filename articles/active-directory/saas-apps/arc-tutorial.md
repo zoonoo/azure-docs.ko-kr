@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2029b90b4f23b22fa20ad8a89af308f6c16b410e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57879970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>자습서: Arc Publishing - SSO와 Azure Active Directory 통합
 
@@ -154,11 +154,11 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단
     > [!NOTE]
     > 여기서 **groups** 특성은 **user.assignedroles**와 매핑됩니다. 이는 Azure AD에서 만든 사용자 지정 역할로서 애플리케이션에서 그룹 이름을 다시 매핑합니다. Azure AD에서 사용자 지정 역할을 만드는 방법에 대한 자세한 지침은 [여기](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)서 확인할 수 있습니다. 
 
-8. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-9. **Arc Publishing - SSO 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Arc Publishing - SSO 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -190,7 +190,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

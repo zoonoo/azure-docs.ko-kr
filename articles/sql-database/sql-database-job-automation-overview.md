@@ -3,7 +3,6 @@ title: Azure SQL 작업 자동화 | Microsoft Docs
 description: 작업 자동화를 사용하여 하나 이상의 Azure SQL Database의 세트에서 T-SQL(Transact-SQL) 스크립트 실행
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901970"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
 Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업을 수행하도록 하나 이상의 데이터베이스에 대해 주기적으로 실행되는 작업을 만들고 예약할 수 있습니다. 모든 작업은 실행의 상태를 기록하고 오류가 발생하는 경우 작업을 자동으로 다시 시도합니다.
 대상 데이터베이스 또는 작업이 실행되는 Azure SQL Database의 그룹을 정의할 수 있으며, 작업 실행을 위한 일정도 정의할 수 있습니다.
 작업은 대상 데이터베이스의 로그인 태스크를 처리합니다. 또한 Azure SQL Database 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
+
+## <a name="when-to-use-automated-jobs"></a>자동화된 작업을 사용하는 경우
 
 작업 자동화를 사용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
 
@@ -36,8 +37,10 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
   - Azure SQL Database의 컬렉션에서 단일 대상 테이블로 데이터를 집계합니다.
   - 큰 데이터베이스 집합에 대해 더 오래 실행되는 데이터 처리 쿼리(예: 고객 원격 분석 수집) 실행. 추가 분석을 위해 결과가 단일 대상 테이블에 수집됩니다.
 - 데이터 이동
- - 데이터베이스에서 변경된 내용을 다른 데이터베이스로 복제하거나 원격 데이터베이스에서 만들어진 업데이트를 수집하고 변경된 내용을 데이터베이스에 적용하는 작업을 만듭니다.
- - SSIS(SQL Server Integration Services)를 사용하여 데이터베이스에서 데이터를 로드하는 작업을 만듭니다.
+  - 데이터베이스에서 변경된 내용을 다른 데이터베이스로 복제하거나 원격 데이터베이스에서 만들어진 업데이트를 수집하고 변경된 내용을 데이터베이스에 적용하는 작업을 만듭니다.
+  - SSIS(SQL Server Integration Services)를 사용하여 데이터베이스에서 데이터를 로드하는 작업을 만듭니다.
+
+## <a name="overview"></a>개요
 
 다음 작업 예약 기술은 Azure SQL Database에서 사용할 수 있습니다.
 
@@ -158,9 +161,9 @@ SQL Server에서 사용할 수 있는 SQL 에이전트 기능 중 일부는 Mana
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.
 - 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
 - 알림은 부분적으로 지원됩니다.
- - 호출기는 지원되지 않습니다.
- - NetSend는 지원되지 않습니다.
- - 경고는 아직 지원되지 않습니다.
+  - 호출기는 지원되지 않습니다.
+  - NetSend는 지원되지 않습니다.
+  - 경고는 아직 지원되지 않습니다.
 - 프록시는 지원되지 않습니다.
 - Eventlog는 지원되지 않습니다.
 

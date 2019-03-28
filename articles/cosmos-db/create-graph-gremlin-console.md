@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849825"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 호스트 매개 변수 값을 대괄호 [] 안으로 래핑해야 합니다. 
 
-3. 터미널에서 `bin/gremlin.bat` 또는 `bin/gremlin.sh`를 실행하여 [Gremlin 콘솔](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)을 시작합니다.
-4. 터미널에서 `:remote connect tinkerpop.server conf/remote-secure.yaml`을 실행하여 앱 서비스에 연결합니다.
+1. 터미널에서 `bin/gremlin.bat` 또는 `bin/gremlin.sh`를 실행하여 [Gremlin 콘솔](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)을 시작합니다.
+1. 터미널에서 `:remote connect tinkerpop.server conf/remote-secure.yaml`을 실행하여 앱 서비스에 연결합니다.
 
     > [!TIP]
     > `No appenders could be found for logger` 오류가 발생하면 2단계에 설명된 대로 remote-secure.yaml 파일의 직렬 변환기 값을 업데이트했는지 확인합니다. 
 
-5. 그런 다음, `:remote console`을 실행하여 모든 콘솔 명령을 원격 서버에 리디렉션합니다.
+1. 그런 다음, `:remote console`을 실행하여 모든 콘솔 명령을 원격 서버에 리디렉션합니다.
 
    > [!NOTE]
    > `:remote console` 명령을 실행하지 않지만 모든 콘솔 명령을 원격 서버로 리디렉션하려는 경우 `:>`가 포함된 명령에 접두사를 지정해야 합니다. 예를 들어 명령을 `:> g.V().count()`로 실행해야 합니다. 이 접두사는 명령의 일부로서 Azure Cosmos DB에서 Gremlin 콘솔을 사용할 때 중요합니다. 이 접두사를 생략하면 콘솔에서 명령을 로컬로, 종종 메모리 내 그래프에 대해 실행하도록 지시합니다. 이 접두사 `:>`를 사용하면 여기서는 Azure Cosmos DB(localhost 에뮬레이터 또는 Azure 인스턴스)에 대해 원격 명령을 실행하도록 콘솔에 지시합니다.

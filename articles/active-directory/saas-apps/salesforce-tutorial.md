@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9211508eca911e1a0fcc6db356284452a0d0c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 239298959efa5c17d2f3d0c0aa5c4c30853c076f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -206,7 +206,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -257,4 +257,4 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [사용자 프로비저닝 구성](salesforce-provisioning-tutorial.md)
+- [사용자 프로비저닝 구성](salesforce-provisioning-tutorial.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863783"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
@@ -28,15 +28,16 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Java 애플리케이션�
 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [JDK 7 또는 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) 또는 즐겨찾는 빌드 자동화 도구
 * 구독 키
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>프로젝트 만들기 및 POM 파일 구성
+## <a name="create-a-project-and-set-up-your-pom-file"></a>프로젝트 만들기 및 POM 파일 설정
 
-Maven 또는 즐겨찾는 빌드 자동화 도구를 사용하여 새 Java 프로젝트를 만듭니다. Maven을 사용한다고 가정하는 경우 POM 파일에 다음 줄을 추가합니다. `mainClass`의 모든 인스턴스를 애플리케이션으로 바꿉니다.
+Maven 또는 즐겨찾는 빌드 자동화 도구를 사용하여 새 Java 프로젝트를 만듭니다. Maven을 사용한다고 가정하는 경우 [POM(Project Object Model)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) 파일에 다음 줄을 추가합니다. `mainClass`의 모든 인스턴스를 애플리케이션으로 바꿉니다.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ public static boolean runSample(BingWebSearchAPI client) {
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

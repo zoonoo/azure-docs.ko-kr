@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2018
+ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87c1d047e783715b3a5beee4604e064322f965dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101890"
 ---
 # <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 
@@ -227,7 +227,7 @@ $nsg = New-AzNetworkSecurityGroup `
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -237,7 +237,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -245,19 +245,6 @@ $nicVM2 = New-AzNetworkInterface `
 ```
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
-앱의 고가용성을 향상시키려면 VM을 가용성 집합에 배치합니다.
-
-[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
-
-```azurepowershell-interactive
-$availabilitySet = New-AzAvailabilitySet `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myAvailabilitySet" `
-  -Location "EastUS" `
-  -Sku aligned `
-  -PlatformFaultDomainCount 2 `
-  -PlatformUpdateDomainCount 2
-```
 
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
@@ -265,7 +252,7 @@ $availabilitySet = New-AzAvailabilitySet `
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다. 이 예제에서는 이전 단계에서 생성된 NIC(*VM1* 및 *VM2*)가 동일한 이름으로 동일한 가상 네트워크(*myVnet*)와 서브넷(*mySubnet*)이 할당되므로, 가상 머신 *VM1* 및 *VM2*에 자동으로 할당됩니다. 또한 NIC는 부하 분산 장치의 백 엔드 풀에 연결되어 있으므로 VM 백 엔드 풀에 자동으로 추가됩니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -278,7 +265,6 @@ for ($i=1; $i -le 2; $i++)
         -SubnetName "mySubnet" `
         -SecurityGroupName "myNetworkSecurityGroup" `
         -OpenPorts 80 `
-        -AvailabilitySetName "myAvailabilitySet" `
         -Credential $cred `
         -AsJob
 }
@@ -292,11 +278,11 @@ for ($i=1; $i -le 2; $i++)
 
 1. Load Balancer의 공용 IP 주소를 가져옵니다. `Get-AzPublicIPAddress`를 사용하여 Load Balancer의 공용 IP 주소를 가져옵니다.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. 이전 단계에서 가져온 공용 IP 주소를 사용하여 VM1에 대한 원격 데스크톱 연결을 만듭니다. 
 
    ```azurepowershell-interactive

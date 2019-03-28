@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fa9f613bfbb3028715629f1d27b90531bd1dac3a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995574"
 ---
 # <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 iOS Unity 앱 만들기
 
@@ -36,6 +36,7 @@ ms.locfileid: "56959683"
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 - <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 macOS 머신
+- HomeBrew를 통해 설치된 Git. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력한 다음, `brew install git`를 실행합니다.
 - 개발자가 사용 가능한 <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit 호환</a> iOS 디바이스
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]

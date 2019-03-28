@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161404"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845225"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 ASP.NET 앱 및 Azure SQL Database 코드 배포
 
@@ -122,8 +122,8 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
     
 1. 왼쪽에서 **변수**를 선택합니다. 
 
-  > [!NOTE]
-  > SQL Server 암호를 변경하는 경우에만 다음 단계를 수행합니다. 단일 암호 변수가 있습니다.
+   > [!NOTE]
+   > SQL Server 암호를 변경하는 경우에만 다음 단계를 수행합니다. 단일 암호 변수가 있습니다.
   
 1. **값** 상자 옆에서 자물쇠 아이콘을 선택하고, 새 암호를 입력한 후 **저장**을 선택합니다.
 
@@ -136,13 +136,13 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 1. 오른쪽에서 **릴리스 보기**를 선택하여 릴리스의 기록을 표시합니다.
 
 1. 릴리스 옆에 있는 줄임표(...)를 선택하고 **열기**를 선택합니다.  
-    릴리스 요약, 연결된 작업 항목 및 테스트 등 몇 가지 메뉴를 확인할 수 있습니다.
+     릴리스 요약, 연결된 작업 항목 및 테스트 등 몇 가지 메뉴를 확인할 수 있습니다.
 
 1. **커밋**을 선택합니다.  
-    이 보기에는 이 배포와 연결된 코드 커밋이 표시됩니다. 배포 간 커밋 차이를 보기 위해 릴리스를 비교합니다.
+     이 보기에는 이 배포와 연결된 코드 커밋이 표시됩니다. 배포 간 커밋 차이를 보기 위해 릴리스를 비교합니다.
 
 1. **로그**를 선택합니다.  
-    로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
+     로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Azure Repos에 변경 내용 커밋 및 자동으로 Azure에 배포 
 
@@ -182,10 +182,10 @@ Azure SQL Database에 연결할 적절한 권한이 필요합니다.
 
     필요에 따라 이제 SQL Server Management Studio 또는 Visual Studio와 같은 클라이언트 도구를 사용하여 SQL Server 및 Azure SQL Database에 연결할 수 있습니다. 연결할 **서버 이름** 속성을 사용합니다.
 
-    처음에 DevOps Projects에서 프로젝트를 구성하는 동안 데이터베이스 사용자 이름을 변경하지 않는 경우 사용자 이름은 이메일 주소의 로컬 파트입니다. 예를 들어 이메일 주소가 *johndoe@microsoft.com*인 경우 사용자 이름은 *johndoe*입니다.
+    처음에 DevOps Projects에서 프로젝트를 구성하는 동안 데이터베이스 사용자 이름을 변경하지 않는 경우 사용자 이름은 이메일 주소의 로컬 파트입니다. 예를 들어 이메일 주소가 *johndoe\@microsoft.com*인 경우 사용자 이름은 *johndoe*입니다.
 
- > [!NOTE]
- > SQL 로그인 암호를 변경하는 경우 "CD 파이프라인 검사" 섹션에 설명된 대로 릴리스 파이프라인 변수에서 암호를 변경해야 합니다.
+   > [!NOTE]
+   > SQL 로그인 암호를 변경하는 경우 "CD 파이프라인 검사" 섹션에 설명된 대로 릴리스 파이프라인 변수에서 암호를 변경해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

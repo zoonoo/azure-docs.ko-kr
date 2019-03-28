@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196198"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078706"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>빠른 시작: Microsoft 로그인을 통합하는 Xamarin 앱 빌드
 
@@ -59,11 +59,12 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 디바이스 및 PC)�
 3. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 새 **네이티브 클라이언트 애플리케이션**을 만들려면 지시를 따릅니다.
-  * **이름**은 사용자에게 앱에 대해 설명합니다.
-  * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 값(예: http://DirectorySearcher) 을 입력합니다.
+   * **이름**은 사용자에게 앱에 대해 설명합니다.
+   * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 값(예: `http://DirectorySearcher`)을 입력합니다.
 6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. **애플리케이션** 탭에서 이 값을 복사해 둡니다. 나중에 이 값이 필요합니다.
 7. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다.
-8. API로 **Microsoft Graph**를 선택합니다. **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 이렇게 하면 앱에서 사용자의 Graph API를 쿼리할 수 있습니다.
+8. API로 **Microsoft Graph**를 선택합니다. **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 
+   이렇게 하면 앱에서 사용자의 Graph API를 쿼리할 수 있습니다.
 
 ## <a name="step-3-install-and-configure-adal"></a>3단계: ADAL 설치 및 구성
 
@@ -95,9 +96,9 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 2. DirectorySearcherLib 프로젝트에서 DirectorySearcher.cs를 엽니다.
 3. 클래스 멤버 값을 Azure Portal에서 입력한 값으로 바꿉니다. 코드에서 ADAL을 사용할 때마다 이러한 값을 참조합니다.
 
-  * *테넌트*는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
-  * *clientId*는 포털에서 복사한 앱의 클라이언트 ID입니다.
-  * *returnUri*는 포털에 입력한 리디렉션 URI(예: http://DirectorySearcher) 입니다.
+   * *테넌트*는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
+   * *clientId*는 포털에서 복사한 앱의 클라이언트 ID입니다.
+   * *returnUri*는 포털에 입력한 리디렉션 URI(예: `http://DirectorySearcher`)입니다.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110310"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -36,6 +36,8 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 시작하기 전에 재해 복구를 위한 [VMware](vmware-azure-architecture.md) 또는 [Hyper-V](hyper-v-azure-architecture.md) 아키텍처를 검토하는 것이 좋습니다.
 
+> [!TIP]
+> VMware VM을 Azure로 마이그레이션할 에이전트가 없는 방법을 찾으시나요? [여기를 클릭](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +56,6 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
    ![새 자격 증명 모음](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 **대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
-
 
 
 ## <a name="select-a-replication-goal"></a>복제 목표 선택
@@ -112,10 +113,10 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 6. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 다음을 수행합니다.
 
-    - 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
-    - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다.
+   - 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+   - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다.
 
-    ![마이그레이션 완료](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![마이그레이션 완료](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

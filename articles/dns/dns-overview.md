@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893497"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294317"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -38,6 +38,8 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
 자세한 내용은 [DNS 영역 및 레코드를 보호하는 방법](dns-protect-zones-recordsets.md)을 참조하세요. 
 
+## <a name="dnssec"></a>DNSSEC
+Azure DNS는 현재 DNSSEC를 지원하지 않습니다. 대부분의 경우 애플리케이션에서 HTTPS/TLS를 일관되게 사용하여 DNSSEC에 대한 필요성을 줄일 수 있습니다. DNSSEC가 DNS 영역에 대한 중요한 요구 사항인 경우 타사 DNS 호스팅 공급자에서 이러한 영역을 호스팅할 수 있습니다.
 
 ## <a name="ease-of-use"></a>사용 편의성
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric 클러스터 크기 조정 | Microsoft Docs
-description: 이 자습서에서는 Azure에서 Service Fabric 클러스터 크기를 신속하게 조정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,30 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/01/2018
+ms.date: 03/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 975b4558c0501423211553c1c2e330bced2c74a6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 315e3c05e23d68edb701e705fd1ed02a840a8936
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674149"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226813"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
-이 자습서는 이 시리즈의 두 번째 파트로, 기존 클러스터를 확장 및 축소하는 방법을 보여 줍니다. 이 내용을 완료하면 클러스터를 크기 조정하는 방법과 남은 리소스를 정리하는 방법을 알게 됩니다.
+이 자습서는 이 시리즈의 세 번째 파트로, 기존 클러스터를 확장 및 축소하는 방법을 보여 줍니다. 이 내용을 완료하면 클러스터를 크기 조정하는 방법과 남은 리소스를 정리하는 방법을 알게 됩니다.  Azure에서 실행되는 클러스터의 크기를 조정하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터 크기 조정](service-fabric-cluster-scaling.md)을 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 클러스터 노드 수 읽기
-> * 클러스터 노드 추가(규모 확장)
-> * 클러스터 노드 제거(규모 감축)
+> * 노드 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 리소스 증가(강화)
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
+> * [클러스터 모니터링](service-fabric-tutorial-monitor-cluster.md)
 > * 클러스터 규모 확장 또는 규모 감축
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
@@ -47,207 +48,824 @@ ms.locfileid: "56674149"
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
-* Windows 개발 환경을 설정합니다. [Visual Studio 2017](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="important-considerations-and-guidelines"></a>중요 고려 사항 및 지침
 
-Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
+애플리케이션 워크로드는 시간이 지남에 따라 변합니다. 기존 서비스에 더 많거나 더 적은 리소스가 필요한가요?  그러면 노드 유형에서 [노드를 추가하거나 제거](#add-nodes-to-or-remove-nodes-from-a-node-type)하여 클러스터 리소스를 늘리거나 줄입니다.
+
+클러스터에 노드를 100개 이상 추가해야 하나요?  단일 Service Fabric 노드 유형/확장 집합에는 100개 이상의 노드/VM이 포함될 수 없습니다.  클러스터를 100개가 넘는 노드로 확장하려면 [추가 노드 유형을 추가](#add-nodes-to-or-remove-nodes-from-a-node-type)합니다.
+
+애플리케이션이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요?  일반적인 애플리케이션은 클라이언트에서 입력을 수신하는 프런트 엔드 게이트웨이 서비스 및 프런트 엔드 서비스와 통신하는 하나 이상의 백 엔드 서비스를 포함합니다. 이 경우 클러스터에 [둘 이상의 노드 유형을 추가](#add-nodes-to-or-remove-nodes-from-a-node-type)하는 것이 좋습니다.  
+
+서비스에 더 많은 RAM 또는 더 높은 CPU 사이클과 같은 다양한 인프라 요구 사항이 있나요? 예를 들어 애플리케이션에 프런트 엔드 서비스와 백 엔드 서비스가 포함되어 있습니다. 프런트 엔드 서비스는 인터넷에 열린 포트가 있는 작은 VM(D2와 같은 VM 크기)에서 실행할 수 있습니다. 하지만 백 엔드 서비스는 계산 집약적이며 인터넷에 연결되지 않은 비교적 큰 VM(D4, D6, D15과 같은 VM 크기로)에서 실행됩니다. 이 경우 클러스터에 [둘 이상의 노드 유형을 추가](#add-nodes-to-or-remove-nodes-from-a-node-type)하는 것이 좋습니다. 그러면 각 노드 유형이 인터넷 연결 또는 VM 크기와 같은 고유 속성을 가질 수 있습니다. VM의 수를 독립적으로 확장할 수도 있습니다.
+
+Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
+
+* 단일 Service Fabric 노드 유형/확장 집합에는 100개 이상의 노드/VM이 포함될 수 없습니다.  클러스터를 100개가 넘는 노드로 확장하려면 추가 노드 유형을 추가합니다.
+* 프로덕션 워크로드를 실행하는 주 노드 유형에는 Gold 또는 Silver의 [내구성 수준][durability]이 있어야 하며 항상 5개 이상의 노드가 있어야 합니다.
+* 상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
+* 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
+* [내구성 수준][durability]이 Gold 또는 Silver인 모든 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
+* 주 노드 유형의 크기를 축소(노드 제거)하는 경우 인스턴스 수를 [안정성 수준][reliability]에 필요한 것보다 적게 줄이면 안 됩니다.
+
+자세한 내용은 [클러스터 용량 지침](service-fabric-cluster-capacity.md)을 참조하세요.
+
+## <a name="export-the-template-for-the-resource-group"></a>리소스 그룹에 대한 템플릿 내보내기
+
+보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 만들어지고 리소스 그룹이 설정되면 리소스 그룹에 대한 Resource Manager 템플릿을 내보냅니다. 템플릿을 내보내면 템플릿에 전체 인프라가 모두 포함되어 있으므로 클러스터와 해당 리소스의 향후 배포를 자동화할 수 있습니다.  템플릿 내보내기에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Resource Manager 리소스 그룹 관리](/azure/azure-resource-manager/manage-resource-groups-portal)를 참조하세요.
+
+1. [Azure Portal](https://portal.azure.com)에서 클러스터가 포함된 리소스 그룹(이 자습서를 따르는 경우 **sfclustertutorialgroup**)으로 이동합니다. 
+
+2. 왼쪽 창에서 **배포**를 선택하거나 **배포** 아래에 있는 링크를 선택합니다. 
+
+3. 목록에서 가장 최근에 성공한 배포를 선택합니다.
+
+4. 왼쪽 창에서 **템플릿**을 선택한 다음, **다운로드**를 선택하여 템플릿을 ZIP 파일로 내보냅니다.  템플릿과 매개 변수를 로컬 컴퓨터에 저장합니다.
+
+## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>노드 유형에서 노드 추가 또는 제거
+
+규모 확장 또는 축소하거나 수평 확장하면 클러스터의 노드 수가 변경됩니다. 규모를 확장하거나 축소하는 경우 더 많은 가상 머신 인스턴스를 확장 집합에 추가합니다. 이러한 인스턴스는 Service Fabric 에서 사용하는 노드가 됩니다. Service Fabric은 확장 집합에 더 많은 인스턴스가 추가되고(규모 확장) 자동으로 반응할 때를 압니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.
+
+### <a name="update-the-template"></a>템플릿 업데이트
+
+가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우, 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
+
+따라서 *nt1InstanceCount*의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
+
+Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
+
+### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
+모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+```
+또는 다음 Azure CLI 명령을 실행합니다.
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-```azurecli
-az login
-az account set --subscription <guid>
+## <a name="add-a-node-type-to-the-cluster"></a>클러스터에 노드 유형 추가
+
+Azure에서 실행되는 Service Fabric 클러스터에 정의된 모든 노드 유형은 [별도의 가상 머신 확장 집합](service-fabric-cluster-nodetypes.md)으로 설정됩니다. 각 노드 형식을 별도로 관리할 수 있습니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 다른 포트의 집합을 열며 다른 용량 메트릭을 사용할 수 있습니다. 각 클러스터 노드에서 실행되는 OS SKU를 독립적으로 변경할 수도 있지만, 샘플 클러스터에서 실행되는 Windows와 Linux를 함께 사용할 수는 없습니다. 단일 노드 유형/확장 집합의 노드 수는 100개를 초과할 수 없습니다.  클러스터의 노드 수가 100개를 초과하도록 조정하려면 노드 유형/확장 집합을 추가하여 수평적으로 확장하면 됩니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.
+
+### <a name="update-the-template"></a>템플릿 업데이트
+
+가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 세 개의 노드 유형이 있습니다.  이 섹션에서는 Resource Manager 템플릿을 업데이트하고 배포하여 네 번째 노드 유형을 추가합니다. 
+
+또한 새 노드 유형 외에도, 연결된 가상 머신 확장 집합(가상 네트워크의 별도 서브넷에서 실행됨)과 네트워크 보안 그룹을 추가합니다.  새 확장 집합에 대해 새 또는 기존 공용 IP 주소와 Azure 부하 분산 장치 리소스를 추가하도록 선택할 수 있습니다.  새 노드 유형의 [내구성 수준][durability]은 Silver이며 크기는 "Standard_D2_V2"입니다.
+
+*template.json* 파일에서 다음 새 매개 변수를 추가합니다.
+```json
+"nt3InstanceCount": {
+    "defaultValue": 5,
+    "type": "Int",
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType3Size": {
+    "defaultValue": "Standard_D2_V2",
+    "type": "String"
+},
 ```
 
-## <a name="connect-to-the-cluster"></a>클러스터에 연결
+*template.json* 파일에서 다음 새 변수를 추가합니다.
+```json
+"lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
+"lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
+"lbPoolID3": "[concat(variables('lbID3'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
+"lbProbeID3": "[concat(variables('lbID3'),'/probes/FabricGatewayProbe')]",
+"lbHttpProbeID3": "[concat(variables('lbID3'),'/probes/FabricHttpGatewayProbe')]",
+"lbNatPoolID3": "[concat(variables('lbID3'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
+"vmNodeType3Name": "[toLower(concat('NT4', variables('vmName')))]",
+"vmStorageAccountName3": "[toLower(concat(uniqueString(resourceGroup().id), '1', '3' ))]",
+"nt3applicationStartPort": "20000",
+"nt3applicationEndPort": "30000",
+"nt3ephemeralStartPort": "49152",
+"nt3ephemeralEndPort": "65534",
+"nt3fabricTcpGatewayPort": "19000",
+"nt3fabricHttpGatewayPort": "19080",
+"nt3reverseProxyEndpointPort": "19081",
+"subnet3Name": "Subnet-3",
+"subnet3Prefix": "10.0.3.0/24",
+"subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
+```
 
-자습서의 이 부분을 성공적으로 완료하려면 Service Fabric 클러스터와 가상 머신 확장 집합(클러스터 호스팅)을 모두 연결해야 합니다. 가상 머신 확장 집합은 Azure에서 Service Fabric을 호스팅하는 Azure 리소스입니다.
+*template.json* 파일에서 새 서브넷을 가상 네트워크 리소스에 추가합니다.
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[variables('virtualNetworkName')]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[variables('addressPrefix')]"
+            ]
+        },
+        "subnets": [
+            ...
+            {
+                "name": "[variables('subnet3Name')]",
+                "properties": {
+                    "addressPrefix": "[variables('subnet3Prefix')]",
+                    "networkSecurityGroup": {
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat('nsg', variables('subnet3Name')))]"
+                    }
+                }
+            }
+        ]
+    },
+    "dependsOn": [
+        ...
+        "[concat('Microsoft.Network/networkSecurityGroups/', concat('nsg', variables('subnet3Name')))]"
+    ]
+},
+```
 
-클러스터에 연결하는 경우 클러스터에서 정보를 쿼리할 수 있습니다. 클러스터를 사용하여 클러스터에서 인식할 수 있는 노드를 알 수 있습니다. 다음 코드에서 클러스터에 연결하는 경우 이 시리즈의 첫 번째 파트에서 작성된 것과 동일한 인증서를 사용합니다. `$endpoint` 및 `$thumbprint` 변수를 실제 값으로 설정해야 합니다.
+*template.json* 파일에서 새 공용 IP 주소와 부하 분산 장치 리소스를 추가합니다.
+```json
+{
+    "type": "Microsoft.Network/publicIPAddresses",
+    "name": "[concat(variables('lbIPName'),'-',variables('vmNodeType3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "dnsSettings": {
+            "domainNameLabel": "[concat(variables('dnsName'),'-','nt4')]"
+        },
+        "publicIPAllocationMethod": "Dynamic"
+    }
+},
+        {
+    "type": "Microsoft.Network/loadBalancers",
+    "name": "[concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "frontendIPConfigurations": [
+            {
+                "name": "LoadBalancerIPConfig",
+                "properties": {
+                    "publicIPAddress": {
+                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('lbIPName'),'-',variables('vmNodeType3Name')))]"
+                    }
+                }
+            }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "LoadBalancerBEAddressPool",
+                "properties": {}
+            }
+        ],
+        "loadBalancingRules": [
+            {
+                "name": "LBRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[variables('nt3fabricTcpGatewayPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[variables('nt3fabricTcpGatewayPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[variables('lbProbeID3')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "LBHttpRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[variables('nt3fabricHttpGatewayPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[variables('nt3fabricHttpGatewayPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[variables('lbHttpProbeID3')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortLBRule1",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[parameters('loadBalancedAppPort1')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[parameters('loadBalancedAppPort1')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID3'),'/probes/AppPortProbe1')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortLBRule2",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[parameters('loadBalancedAppPort2')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[parameters('loadBalancedAppPort2')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID3'),'/probes/AppPortProbe2')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            {
+                "name": "FabricGatewayProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[variables('nt3fabricTcpGatewayPort')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "FabricHttpGatewayProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[variables('nt3fabricHttpGatewayPort')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortProbe1",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[parameters('loadBalancedAppPort1')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortProbe2",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[parameters('loadBalancedAppPort2')]",
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "inboundNatPools": [
+            {
+                "name": "LoadBalancerBEAddressNatPool",
+                "properties": {
+                    "backendPort": "3389",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPortRangeEnd": "4500",
+                    "frontendPortRangeStart": "3389",
+                    "protocol": "tcp"
+                }
+            }
+        ]
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType3Name')))]"
+    ]
+},
+```
+
+*template.json* 파일에서 새 네트워크 보안 그룹과 가상 머신 확장 집합 리소스를 추가합니다.  가상 머신 확장 집합의 Service Fabric 확장 속성 내의 NodeTypeRef 속성은 지정된 노드 유형을 확장 집합에 매핑합니다.
+
+```json
+{
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "name": "[concat('nsg', variables('subnet3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
+            {
+                "name": "allowSvcFabCluser",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "1025-1027",
+                    "direction": "Inbound",
+                    "priority": 3920,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow ports within vnet that are used by the fabric to talk between nodes"
+                }
+            },
+            {
+                "name": "allowSvcFabEphemeral",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[concat(variables('nt3ephemeralStartPort'), '-', variables('nt3ephemeralEndPort'))]",
+                    "direction": "Inbound",
+                    "priority": 3930,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow fabric ephemeral ports within the vnet"
+                }
+            },
+            {
+                "name": "allowSvcFabPortal",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3fabricHttpGatewayPort')]",
+                    "direction": "Inbound",
+                    "priority": 3900,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used to access the fabric cluster web portal"
+                }
+            },
+            {
+                "name": "allowSvcFabClient",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3fabricTcpGatewayPort')]",
+                    "direction": "Inbound",
+                    "priority": 3910,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used by the fabric client (includes powershell)"
+                }
+            },
+            {
+                "name": "allowSvcFabApplication",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[concat(variables('nt3applicationStartPort'), '-', variables('nt3applicationEndPort'))]",
+                    "direction": "Inbound",
+                    "priority": 3940,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow fabric application ports within the vnet"
+                }
+            },
+            {
+                "name": "blockAll",
+                "properties": {
+                    "access": "Deny",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "*",
+                    "direction": "Inbound",
+                    "priority": 4095,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "block all traffic except what we've explicitly allowed"
+                }
+            },
+            {
+                "name": "allowVNetRDP",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "3389",
+                    "direction": "Inbound",
+                    "priority": 3960,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow RDP within the net"
+                }
+            },
+            {
+                "name": "allowSvcFabReverseProxy",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3reverseProxyEndpointPort')]",
+                    "direction": "Inbound",
+                    "priority": 3980,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used to access the fabric cluster using reverse proxy"
+                }
+            },
+            {
+                "name": "allowAppPort1",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[parameters('loadBalancedAppPort1')]",
+                    "direction": "Inbound",
+                    "priority": 2001,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow public application port 1"
+                }
+            },
+            {
+                "name": "allowAppPort2",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[parameters('loadBalancedAppPort2')]",
+                    "direction": "Inbound",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow public application port 2"
+                }
+            }
+        ]
+    }
+},
+{
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "sku": {
+        "name": "[parameters('vmNodeType3Size')]",
+        "capacity": "[parameters('nt3InstanceCount')]",
+        "tier": "Standard"
+    },
+    "name": "[variables('vmNodeType3Name')]",
+    "apiVersion": "2018-10-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+            "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+            "extensionProfile": {
+                "extensions": [
+                    {
+                        "name": "[concat(variables('vmNodeType3Name'),'OMS')]",
+                        "properties": {
+                            "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                            "type": "MicrosoftMonitoringAgent",
+                            "typeHandlerVersion": "1.0",
+                            "autoUpgradeMinorVersion": true,
+                            "settings": {
+                                "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                            },
+                            "protectedSettings": {
+                                "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType3Name')]",
+                        "properties": {
+                            "type": "ServiceFabricNode",
+                            "autoUpgradeMinorVersion": true,
+                            "protectedSettings": {
+                                "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                                "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                            },
+                            "publisher": "Microsoft.Azure.ServiceFabric",
+                            "settings": {
+                                "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                                "nodeTypeRef": "[variables('vmNodeType3Name')]",
+                                "dataPath": "D:\\SvcFab",
+                                "durabilityLevel": "Silver",
+                                "enableParallelJobs": true,
+                                "nicPrefixOverride": "[variables('subnet3Prefix')]",
+                                "certificate": {
+                                    "thumbprint": "[parameters('certificateThumbprint')]",
+                                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                                }
+                            },
+                            "typeHandlerVersion": "1.0"
+                        }
+                    },
+                    {
+                        "name": "[concat('VMDiagnosticsVmExt','_vmNodeType3Name')]",
+                        "properties": {
+                            "type": "IaaSDiagnostics",
+                            "autoUpgradeMinorVersion": true,
+                            "protectedSettings": {
+                                "storageAccountName": "[variables('applicationDiagnosticsStorageAccountName')]",
+                                "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                                "storageAccountEndPoint": "https://core.windows.net/"
+                            },
+                            "publisher": "Microsoft.Azure.Diagnostics",
+                            "settings": {
+                                "WadCfg": {
+                                    "DiagnosticMonitorConfiguration": {
+                                        "overallQuotaInMB": "50000",
+                                        "EtwProviders": {
+                                            "EtwEventSourceProviderConfiguration": [
+                                                {
+                                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                                    "scheduledTransferKeywordFilter": "1",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricReliableActorEventTable"
+                                                    }
+                                                },
+                                                {
+                                                    "provider": "Microsoft-ServiceFabric-Services",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                                    }
+                                                }
+                                            ],
+                                            "EtwManifestProviderConfiguration": [
+                                                {
+                                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                                    "scheduledTransferLogLevelFilter": "Information",
+                                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricSystemEventTable"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "StorageAccount": "[variables('applicationDiagnosticsStorageAccountName')]"
+                            },
+                            "typeHandlerVersion": "1.5"
+                        }
+                    },
+                    {
+                        "name": "[concat('VMIaaSAntimalware','_vmNodeType3Name')]",
+                        "properties": {
+                            "publisher": "Microsoft.Azure.Security",
+                            "type": "IaaSAntimalware",
+                            "typeHandlerVersion": "1.5",
+                            "settings": {
+                                "AntimalwareEnabled": "true",
+                                "Exclusions": {
+                                    "Paths": "D:\\SvcFab;D:\\SvcFab\\Log;C:\\Program Files\\Microsoft Service Fabric",
+                                    "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+                                },
+                                "RealtimeProtectionEnabled": "true",
+                                "ScheduledScanSettings": {
+                                    "isEnabled": "true",
+                                    "scanType": "Quick",
+                                    "day": "7",
+                                    "time": "120"
+                                }
+                            },
+                            "protectedSettings": null
+                        }
+                    }
+                ]
+            },
+            "networkProfile": {
+                "networkInterfaceConfigurations": [
+                    {
+                        "name": "[concat(variables('nicName'), '-2')]",
+                        "properties": {
+                            "ipConfigurations": [
+                                {
+                                    "name": "[concat(variables('nicName'),'-',2)]",
+                                    "properties": {
+                                        "loadBalancerBackendAddressPools": [
+                                            {
+                                                "id": "[variables('lbPoolID3')]"
+                                            }
+                                        ],
+                                        "loadBalancerInboundNatPools": [
+                                            {
+                                                "id": "[variables('lbNatPoolID3')]"
+                                            }
+                                        ],
+                                        "subnet": {
+                                            "id": "[variables('subnet3Ref')]"
+                                        }
+                                    }
+                                }
+                            ],
+                            "primary": true
+                        }
+                    }
+                ]
+            },
+            "osProfile": {
+                "adminPassword": "[parameters('adminPassword')]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "computernamePrefix": "[variables('vmNodeType3Name')]",
+                "secrets": [
+                    {
+                        "sourceVault": {
+                            "id": "[parameters('sourceVaultValue')]"
+                        },
+                        "vaultCertificates": [
+                            {
+                                "certificateStore": "[parameters('certificateStoreValue')]",
+                                "certificateUrl": "[parameters('certificateUrlValue')]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "storageProfile": {
+                "imageReference": {
+                    "publisher": "[parameters('vmImagePublisher')]",
+                    "offer": "[parameters('vmImageOffer')]",
+                    "sku": "[parameters('vmImageSku')]",
+                    "version": "[parameters('vmImageVersion')]"
+                },
+                "osDisk": {
+                    "caching": "ReadOnly",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('storageAccountType')]"
+                    }
+                }
+            }
+        }
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+    ]
+},
+```
+
+*template.json* 파일에서 클러스터 리소스를 업데이트하고 새 노드 유형을 추가합니다.
+```json
+{
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "apiVersion": "2018-02-01",
+    "location": "[parameters('clusterLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "nodeTypes": [
+            ...
+            {
+                "name": "[variables('vmNodeType3Name')]",
+                "applicationPorts": {
+                    "endPort": "[variables('nt3applicationEndPort')]",
+                    "startPort": "[variables('nt3applicationStartPort')]"
+                },
+                "clientConnectionEndpointPort": "[variables('nt3fabricTcpGatewayPort')]",
+                "durabilityLevel": "Silver",
+                "ephemeralPorts": {
+                    "endPort": "[variables('nt3ephemeralEndPort')]",
+                    "startPort": "[variables('nt3ephemeralStartPort')]"
+                },
+                "httpGatewayEndpointPort": "[variables('nt3fabricHttpGatewayPort')]",
+                "isPrimary": false,
+                "reverseProxyEndpointPort": "[variables('nt3reverseProxyEndpointPort')]",
+                "vmInstanceCount": "[parameters('nt3InstanceCount')]"
+            }
+        ],    
+    }
+}                
+```
+
+*parameters.json* 파일에서 다음 새 매개 변수와 값을 추가합니다.
+```json
+"nt3InstanceCount": {
+    "Value": 5    
+},
+"vmNodeType3Size": {
+    "Value": "Standard_D2_V2"
+},
+```
+
+### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
+모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-$endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
-$thumbprint = "63EB5BA4BC2A3BADC42CA6F93D6F45E5AD98A1E4"
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+```
+또는 다음 Azure CLI 명령을 실행합니다.
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+```
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
+## <a name="remove-a-node-type-from-the-cluster"></a>클러스터에서 노드 유형 제거
+Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 집합) 및 모든 노드를 제거하여 클러스터를 수평 확장할 수 있습니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다. 클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
+
+> [!WARNING]
+> Remove-AzureRmServiceFabricNodeType을 사용하여 프로덕션 클러스터에서 노드 유형을 제거하는 것은 자주 사용하지 않는 것이 좋습니다. 노드 유형 뒤의 가상 머신 확장 집합 리소스가 삭제되므로 위험한 명령입니다. 
+
+노드 유형을 제거하려면 [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet을 실행합니다.  노드 유형은 Silver 또는 Gold [내구성 수준][durability]이어야 합니다. 이 cmdlet은 노드 유형과 연결된 확장 집합을 삭제하고 완료하는 데 약간의 시간이 걸립니다.  그런 다음, 제거할 각 노드에서 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet을 실행하여 노드 상태를 삭제하고 클러스터에서 노드를 제거합니다. 해당 노드에 서비스가 있으면 먼저 해당 서비스가 다른 노드로 이동됩니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
+
+```powershell
+$groupname = "sfclustertutorialgroup"
+$nodetype = "nt4vm"
+$clustername = "mysfcluster123"
+
+Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint $thumbprint `
-          -FindType FindByThumbprint -FindValue $thumbprint `
+          -X509Credential -ServerCertThumbprint <thumbprint> `
+          -FindType FindByThumbprint -FindValue <thumbprint> `
           -StoreLocation CurrentUser -StoreName My
 
-Get-ServiceFabricClusterHealth
-```
+$nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
 
-```azurecli
-sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
---pem ./aztestcluster201709151446.pem --no-verify
-```
-
-이제 연결되었으며 명령을 사용하여 클러스터에 있는 각 노드의 상태를 가져올 수 있습니다. **PowerShell**의 경우 `Get-ServiceFabricClusterHealth` 명령을 사용하고, **sfctl**의 경우 `sfctl cluster select` 명령을 사용합니다.
-
-## <a name="scale-out"></a>확장
-
-규모를 확장할 때 확장 집합에 더 많은 가상 컴퓨터 인스턴스를 추가합니다. 이러한 인스턴스는 Service Fabric 에서 사용하는 노드가 됩니다. Service Fabric은 확장 집합에 더 많은 인스턴스가 추가되고(규모 확장) 자동으로 반응할 때를 압니다. 다음 코드는 이름별로 확장 집합을 가져오고 확장 집합의 **용량**을 1단위로 늘립니다.
-
-```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
-$scaleset.Sku.Capacity += 1
-
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
-```
-
-이 코드는 용량을 6으로 설정합니다.
-
-```azurecli
-# Get the name of the node with
-az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
-
-# Use the name to scale
-az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
-```
-
-## <a name="scale-in"></a>규모 감축
-
-규모 감축은 더 낮은 **용량** 값을 사용하는 것을 제외하고 규모 확장과 동일합니다. 확장 집합을 규모 감축하는 경우 확장 집합에서 가상 머신 인스턴스를 제거합니다. 일반적으로 Service Fabric은 어떤 일이 발생했는지 알지 못하며 노드가 누락되었다고 생각합니다. 그러면 Service Fabric은 클러스터의 비정상 상태를 보고합니다. 잘못된 상태를 방지하려면 노드가 사라질 것으로 예상한다는 것을 Service Fabric에 알려야 합니다.
-
-### <a name="remove-the-service-fabric-node"></a>Service Fabric 노드 제거
-
-> [!NOTE]
-> 이 부분만 *Bronze* 내구성 계층에 적용됩니다. 내구성에 자세한 내용은 [Service Fabric 클러스터 용량 계획][durability]을 참조하세요.
-
-클러스터의 노드를 업그레이드 도메인과 장애 도메인 전체에 고르게 분산하여 균등하게 사용하려면 가장 최근에 생성된 노드를 먼저 제거해야 합니다. 즉, 노드는 생성된 순서의 역순으로 제거되어야 합니다. 가장 최근에 생성된 노드는 `virtual machine scale set InstanceId` 속성 값이 최대인 노드입니다. 아래 코드 예제에는 가장 최근에 생성된 노드를 반환합니다.
-
-```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
-```
-
-```azurecli
-sfctl node list --query "sort_by(items[*], &name)[-1]"
-```
-
-Service Fabric 클러스터는 이 노드가 제거될 것임을 알아야 합니다. 수행해야 하는 세 가지 단계가 있습니다.
-
-1. 더 이상 데이터가 복제되지 않도록 노드를 사용하지 않도록 설정합니다.  
-PowerShell: `Disable-ServiceFabricNode`  
-sfctl: `sfctl node disable`
-
-2. 노드를 중지하여 Service Fabric 런타임이 완전히 종료되고 앱이 종료 요청을 받도록 하십시오.  
-PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfctl: `sfctl node transition --node-transition-type Stop`
-
-2. 클러스터에서 노드를 제거합니다.  
-PowerShell: `Remove-ServiceFabricNodeState`  
-sfctl: `sfctl node remove-state`
-
-이 세 단계가 노드에 적용된 후에는 확장 집합에서 제거할 수 있습니다. [bronze][durability] 외의 내구성 계층을 사용하는 경우 확장 집합 인스턴스가 제거될 때 이러한 단계가 완료됩니다.
-
-다음 코드 블록은 마지막으로 만든 노드를 가져오고 클러스터에서 해당 노드를 사용하지 않도록 설정하고 중지 및 제거합니다.
-
-```powershell
-#### After you've connected.....
-# Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
-
-# Node details for the disable/stop process
-$nodename = $node.NodeName
-$nodeid = $node.NodeInstanceId
-
-$loopTimeout = 10
-
-# Run disable logic
-Disable-ServiceFabricNode -NodeName $nodename -Intent RemoveNode -TimeoutSec 300 -Force
-
-$state = Get-ServiceFabricNode | Where-Object NodeName -eq $nodename | Select-Object -ExpandProperty NodeStatus
-
-while (($state -ne [System.Fabric.Query.NodeStatus]::Disabled) -and ($loopTimeout -ne 0))
+Foreach($node in $nodes)
 {
-    Start-Sleep 5
-    $loopTimeout -= 1
-    $state = Get-ServiceFabricNode | Where-Object NodeName -eq $nodename | Select-Object -ExpandProperty NodeStatus
-    Write-Host "Checking state... $state found"
-}
-
-# Exit if the node was unable to be disabled
-if ($state -ne [System.Fabric.Query.NodeStatus]::Disabled)
-{
-    Write-Error "Disable failed with state $state"
-}
-else
-{
-    # Stop node
-    $stopid = New-Guid
-    Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-
-    $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
-    $loopTimeout = 10
-
-    # Watch the transaction
-    while (($state -eq [System.Fabric.TestCommandProgressState]::Running) -and ($loopTimeout -ne 0))
-    {
-        Start-Sleep 5
-        $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
-        Write-Host "Checking state... $state found"
-    }
-
-    if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
-    {
-        Write-Error "Stop transaction failed with $state"
-    }
-    else
-    {
-        # Remove the node from the cluster
-        Remove-ServiceFabricNodeState -NodeName $nodename -TimeoutSec 300 -Force
-    }
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -TimeoutSec 300 -Force 
 }
 ```
 
-아래 **sfctl** 코드에서 `sfctl node list --query "sort_by(items[*], &name)[-1].name"` 명령을 사용하여 마지막으로 만든 노드의 **node-name** 값을 가져옵니다.
+## <a name="increase-node-resources"></a>노드 리소스 증가 
+Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수직으로 확장하거나(노드의 리소스 변경) 노드 유형 VM의 운영 체제를 업그레이드할 수 있습니다.  
 
-```azurecli
-# Inform the node that it is going to be removed
-sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+> [!WARNING]
+> Silver 이상 내구성에서 실행되지 않으면 확장 집합/노드 유형의 VM SKU를 변경하지 않는 것이 좋습니다. VM SKU의 크기를 변경하는 것은 데이터를 파괴하는 내부 인프라 작업입니다. 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다.
 
-# Stop the node using a random guid as our operation id
-sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+> [!WARNING]
+> 위험하고 지원되지 않는 주 노드 유형의 VM SKU는 변경하지 않는 것이 좋습니다.  더 큰 클러스터 용량이 필요한 경우 더 많은 VM 인스턴스 또는 추가 노드 유형을 추가할 수 있습니다.  가능하지 않은 경우 새 클러스터를 만들고 이전 클러스터에서 [애플리케이션 상태를 복원](service-fabric-reliable-services-backup-restore.md)할 수 있습니다(해당하는 경우).  가능하지 않은 경우 [주 노드 유형의 VM SKU를 변경](service-fabric-scale-up-node-type.md)할 수 있습니다.
 
-# Remove the node from the cluster
-sfctl node remove-state --node-name _nt1vm_5
-```
+### <a name="update-the-template"></a>템플릿 업데이트
 
-> [!TIP]
-> 다음 **sfctl** 쿼리를 사용하여 각 단계의 상태를 확인합니다.
->
-> **비활성화 상태 확인**
-> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
->
-> **중지 상태 확인**
-> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
->
+가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 세 개의 노드 유형이 있습니다.  
 
-### <a name="scale-in-the-scale-set"></a>확장 집합 규모 감축
+두 번째 노드 유형의 VM 크기는 *vmNodeType1Size* 매개 변수에서 설정됩니다.  *vmNodeType1Size* 매개 변수 값을 Standard_D2_V2에서 각 VM 인스턴스의 리소스가 두 배 크기인 [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series)로 변경합니다.
 
-이제 클러스터에서 Service Fabric 노드가 제거되었으며 가상 머신 확장 집합의 규모를 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
+이러한 세 노드 유형 모두에 대한 VM SKU는 *vmImageSku* 매개 변수에서 설정됩니다.  다시 말하지만, 노드 유형의 VM SKU를 변경하는 경우 주의해야 하며 주 노드 유형에는 추천되지 않습니다.
+
+### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
+모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
-$scaleset.Sku.Capacity -= 1
-
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
-
-이 코드는 용량을 5로 설정합니다.
-
-```azurecli
-# Get the name of the node with
-az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
-
-# Use the name to scale
-az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+또는 다음 Azure CLI 명령을 실행합니다.
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -255,12 +873,15 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 클러스터 노드 수 읽기
-> * 클러스터 노드 추가(규모 확장)
-> * 클러스터 노드 제거(규모 감축)
+> * 노드 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 리소스 증가(강화)
 
 이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
 > [!div class="nextstepaction"]
 > [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>자습서: Cisco Umbrella와 Azure Active Directory 통합
 
@@ -173,7 +173,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -229,7 +229,7 @@ Cisco Umbrella의 경우 프로비전은 수동 작업입니다.
 
     다. **위임된 관리자 역할 선택**에서 역할을 선택합니다.
   
-    d. **이메일 주소** 필드에서 사용자의 이메일 주소(예: **brittasimon@contoso.com**)를 입력합니다.
+    d. **이메일 주소** 필드에서 사용자의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
     e. **암호** 필드에 암호를 입력합니다.
 

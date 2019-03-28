@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076856"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -87,8 +87,8 @@ Azure Database for MySQL 서버에 대한 JSON 템플릿 참조를 가져오려�
 +   `storageProfile/geoRedundantBackup` - Geo-DR 요구 사항에 따라 사용/사용 안 함을 지정합니다.
 +   `sku/tier` - 배포에 대한 기본, GeneralPurpose 또는 MemoryOptimized 계층을 지정합니다.
 +   `sku/capacity` - vCore 용량을 지정합니다. 가능한 값은 2, 4, 8, 16, 32 또는 64입니다.
-+   `sku/family` - Gen4 또는 Gen5를 지정하여 서버 배포에 대한 하드웨어 세대를 선택합니다.
-+   `sku/name` - TierPrefix_family_capacity를 지정합니다. 예: B_Gen4_1, GP_Gen5_16, MO_Gen5_32. 지역당 및 계층당 유효한 값을 이해하려면 [가격 책정 계층](./concepts-pricing-tiers.md) 설명서를 참조하세요.
++   `sku/family` - Gen5를 지정하여 서버 배포에 대한 하드웨어 세대를 선택합니다.
++   `sku/name` - TierPrefix_family_capacity를 지정합니다. 예: B_Gen5_1, GP_Gen5_16, MO_Gen5_32. 지역당 및 계층당 유효한 값을 이해하려면 [가격 책정 계층](./concepts-pricing-tiers.md) 설명서를 참조하세요.
 +   `resources/properties/virtualNetworkSubnetId` - Azure MySQL 서버를 배치해야 할 VNet에서 서브넷의 Azure 식별자를 지정합니다. 
 +   `tags(optional)` - 선택적 태그가 청구 등에 대한 리소스를 분류하는 데 사용할 키 값 쌍이 되도록 지정합니다.
 
@@ -127,8 +127,8 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ SELECT * FROM inventory;
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
-
+> 
 > [MySQL용 Azure Database에 애플리케이션을 연결하는 방법](./howto-connection-string.md)

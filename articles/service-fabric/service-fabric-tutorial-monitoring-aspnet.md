@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 ASP.NET Core 서비스 모니터링 및 진단 | Microsoft Docs
-description: 이 자습서에서는 Azure Service Fabric ASP.NET 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Service Fabric ASP.NET Core 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901737"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -103,50 +103,50 @@ NuGet을 설정하는 단계는 다음과 같습니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 팝업되는 *변경 내용 검토* 대화 상자에서 **확인**을 클릭하고 *라이선스 승인*을 적용합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
-    1. 각 *\<ServiceName>.cs*의 맨 위에 두 개의 *using* 문을 추가합니다.
+   1. 각 *\<ServiceName>.cs*의 맨 위에 두 개의 *using* 문을 추가합니다.
 
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.ServiceFabric;
-    ```
+      ```csharp
+      using Microsoft.ApplicationInsights.Extensibility;
+      using Microsoft.ApplicationInsights.ServiceFabric;
+      ```
 
-    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다.
-    *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
+   2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다.
+      *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<HttpClient>(new HttpClient())
-                .AddSingleton<FabricClient>(new FabricClient())
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<HttpClient>(new HttpClient())
+               .AddSingleton<FabricClient>(new FabricClient())
+               .AddSingleton<StatelessServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+       .UseUrls(url)
+       .Build();
+      ```
 
-    마찬가지로, *VotingData.cs*에는 다음 내용이 있어야 합니다.
+      마찬가지로, *VotingData.cs*에는 다음 내용이 있어야 합니다.
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<IReliableStateManager>(this.StateManager)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatefulServiceContext>(serviceContext)
+               .AddSingleton<IReliableStateManager>(this.StateManager)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+       .UseUrls(url)
+       .Build();
+      ```
 
 위와 같이 `UseApplicationInsights()` 메서드가 두 파일 모두에서 호출되는 지 다시 확인합니다.
 

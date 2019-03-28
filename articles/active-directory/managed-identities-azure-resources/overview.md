@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211923"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224297"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -64,13 +64,12 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
     1. Azure Instance Metadata Service ID 엔드포인트를 서비스 주체 클라이언트 ID 및 인증서로 업데이트합니다.
     1. VM 확장(2019년 1월에 사용 중단될 예정)을 프로비전하고 서비스 주체 클라이언트 ID 및 인증서를 추가합니다. (이 단계는 사용 중단될 예정입니다.)
 4. VM에 ID가 생긴 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 VM 액세스 권한을 부여합니다. Azure Resource Manager를 호출하려면 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
-5. VM에서 실행되는 코드는 VM 내에서만 액세스할 수 있는 두 엔드포인트에서 토큰을 요청할 수 있습니다.
+5. VM에서 실행되는 코드는 Azure Instance Metadata Service 엔드포인트에서 토큰(`http://169.254.169.254/metadata/identity/oauth2/token`)을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다.
+    - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
+    - API 버전 매개 변수는 IMDS 버전을 지정하고, api-version=2018-02-01 이상을 사용합니다.
 
-    - Azure Instance Metadata Service ID 엔드포인트(권장): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
-        - API 버전 매개 변수는 IMDS 버전을 지정하고, api-version=2018-02-01 이상을 사용합니다.
-    - VM 확장 엔드포인트(2019년 1월에 사용 중단될 예정): `http://localhost:50342/oauth2/token` 
-        - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
+> [!NOTE]
+> 코드는 VM 확장 엔드포인트에서 토큰을 요청할 수도 있지만 이 확장은 곧 사용 중단될 예정입니다. VM 확장에 대한 자세한 내용은 [인증을 위해 VM 확장에서 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)을 참조하세요.
 
 6. 3단계에서 구성한 클라이언트 ID 및 인증서를 사용하여 5단계에서 지정한 대로 액세스 토큰을 요청하는 Azure AD에 대한 호출이 생성됩니다. Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
@@ -87,16 +86,14 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
    > [!Note]
    > 이 단계를 3단계 전에 수행할 수도 있습니다.
 
-5. VM에서 실행되는 코드는 VM 내에서만 액세스할 수 있는 두 엔드포인트에서 토큰을 요청할 수 있습니다.
+5. VM에서 실행되는 코드는 Azure Instance Metadata Service ID 엔드포인트에서 토큰(`http://169.254.169.254/metadata/identity/oauth2/token`)을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다.
+    - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
+    - 클라이언트 ID 매개 변수는 토큰이 요청되는 ID를 지정합니다. 이 값은 단일 VM에 사용자 할당 ID가 두 개 이상 있을 때 분명히 하기 위해 필요합니다.
+    - API 버전 매개 변수는 Azure Instance Metadata Service 버전을 지정합니다. `api-version=2018-02-01` 이상을 사용하세요.
 
-    - Azure Instance Metadata Service ID 엔드포인트(권장): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
-        - 클라이언트 ID 매개 변수는 토큰이 요청되는 ID를 지정합니다. 이 값은 단일 VM에 사용자 할당 ID가 두 개 이상 있을 때 분명히 하기 위해 필요합니다.
-        - API 버전 매개 변수는 Azure Instance Metadata Service 버전을 지정합니다. `api-version=2018-02-01` 이상을 사용하세요.
+> [!NOTE]
+> 코드는 VM 확장 엔드포인트에서 토큰을 요청할 수도 있지만 이 확장은 곧 사용 중단될 예정입니다. VM 확장에 대한 자세한 내용은 [인증을 위해 VM 확장에서 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)을 참조하세요.
 
-    - VM 확장 엔드포인트(2019년 1월에 사용 중단될 예정): `http://localhost:50342/oauth2/token`
-        - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
-        - 클라이언트 ID 매개 변수는 토큰이 요청되는 ID를 지정합니다. 이 값은 단일 VM에 사용자 할당 ID가 두 개 이상 있을 때 분명히 하기 위해 필요합니다.
 6. 3단계에서 구성한 클라이언트 ID 및 인증서를 사용하여 5단계에서 지정한 대로 액세스 토큰을 요청하는 Azure AD에 대한 호출이 생성됩니다. Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
 

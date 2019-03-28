@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58166949"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -25,9 +25,9 @@ IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이
 
 빠른 시작에서는 미리 작성된 두 개의 Java 애플리케이션을 사용합니다.
 
-* 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
+* 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 장치별 엔드포인트에 연결합니다.
 
-* Android 디바이스에서 직접 메서드를 호출하는 서비스 애플리케이션입니다. 디바이스에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
+* Android 디바이스에서 직접 메서드를 호출하는 서비스 애플리케이션입니다. 장치에서 직접 메서드를 호출하려면 이 애플리케이션을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 다음과 같은 서비스 연결 문자열을 기록해 둡니다.
@@ -115,6 +115,13 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
 
 3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화**를 클릭합니다. 빌드가 완료되는지 확인합니다.
+
+   > [!NOTE]
+   > 프로젝트 동기화에 실패하는 경우는 다음 이유 중 하나일 수 있습니다.
+   >
+   > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
+   > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
+
 
 4. 빌드가 완료되면 **실행** > **'앱' 실행**을 클릭합니다. 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 
@@ -145,7 +152,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
-서비스 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다.
+서비스 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다.
 
 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 이 앱을 실행합니다.
 
@@ -163,6 +170,13 @@ IoT Hub 백엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 모
     ```
 
 3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화**를 클릭합니다. 빌드가 완료되는지 확인합니다.
+
+   > [!NOTE]
+   > 프로젝트 동기화에 실패하는 경우는 다음 이유 중 하나일 수 있습니다.
+   >
+   > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
+   > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
+
 
 4. 빌드가 완료되면 **실행** > **'앱' 실행**을 클릭합니다. 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 

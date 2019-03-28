@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d050cbfbe3def0e6475b807f88102f3edfe4f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092058"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Cosmos DB에 액세스하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -71,7 +71,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 Azur
 
 1. 포털에서 Linux VM으로 이동합니다. **개요**에서 **연결**을 선택합니다.  
 2. 원하는 SSH 클라이언트를 사용하여 VM에 연결합니다. 
-3. 터미널 창에서 cURL을 사용하여 Data Lake Store 파일 시스템에 액세스 토큰을 가져오도록 Azure 리소스에 대한 로컬 관리 ID 엔드포인트에 요청합니다. Data Lake Store의 리소스 식별자는 "https://datalake.azure.net/"입니다.  리소스 식별자에 후행 슬래시를 포함해야 합니다.
+3. 터미널 창에서 cURL을 사용하여 Data Lake Store 파일 시스템에 액세스 토큰을 가져오도록 Azure 리소스에 대한 로컬 관리 ID 엔드포인트에 요청합니다. Data Lake Store의 리소스 식별자는 `https://datalake.azure.net/`입니다.  리소스 식별자에 후행 슬래시를 포함해야 합니다.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

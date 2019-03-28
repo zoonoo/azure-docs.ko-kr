@@ -11,26 +11,30 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864952"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>빠른 시작: Azure SQL Database(미리 보기)에서 Machine Learning Services(R 포함) 사용
 
 이 문서에서는 [Azure SQL Database에서 Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md) 공개 미리 보기를 사용하는 방법을 설명합니다. SQL 데이터베이스와 R 간에 데이터를 이동하는 기본 사항을 안내합니다. 잘 구성된(Well-Formed) R 코드를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 래핑하여 SQL 데이터베이스에서 기계 학습 모델을 빌드, 교육 및 사용하는 방법도 설명합니다.
 
-강력한 R 언어를 사용하여 데이터베이스에 대한 고급 분석 및 기계 학습을 제공합니다. 이 기능은 데이터가 상주하는 위치에서 계산 및 처리를 수행하므로 네트워크를 통해 데이터를 끌어올 필요가 없습니다. 또한 강력한 엔터프라이즈 R 패키지를 활용하여 고급 분석을 대규모로 제공합니다.
+강력한 R 언어를 사용하여 데이터베이스에 대한 고급 분석 및 기계 학습을 제공합니다. 이 기능은 데이터가 상주하는 위치에서 계산 및 처리를 수행하기 때문에 네트워크를 통해 데이터를 끌어올 필요가 없습니다. 또한 강력한 엔터프라이즈 R 패키지를 활용하여 고급 분석을 대규모로 제공합니다.
 
 Machine Learning Services는 Microsoft의 엔터프라이즈 R 패키지가 오버레이된 기본 R 배포판을 포함하고 있습니다. Microsoft의 R 함수 및 알고리즘은 규모 및 유용성을 중심으로 엔지니어링되었으며 예측 분석, 통계 모델링, 데이터 시각화 및 첨단 기계 학습 알고리즘을 제공합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/).
+Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
-> [!NOTE]
-> Azure SQL Database의 Machine Learning Services(R 포함)는 현재 공개 미리 보기로 제공됩니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services는 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
+> [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -154,7 +158,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
 
     ![테이블의 데이터를 반환하는 R 스크립트의 출력](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. 입력 또는 출력 변수의 이름을 변경해 보겠습니다. 위의 스크립트에서는 기본 입력 및 출력 변수 이름으로 _InputDataSet_ 및 _OutputDataSet_를 사용했습니다. _InputDatSet_와 연결된 입력 데이터를 정의하려면 *@input_data_1* 변수를 사용합니다.
+3. 입력 또는 출력 변수의 이름을 변경해 보겠습니다. 위의 스크립트에서는 기본 입력 및 출력 변수 이름으로 _InputDataSet_ 및 _OutputDataSet_를 사용했습니다. _InputDatSet_와 연결된 입력 데이터를 정의하려면 *\@input_data_1* 변수를 사용합니다.
 
     이 스크립트에서 저장 프로시저의 출력 및 입력 변수 이름이 *SQL_out* 및 *SQL_in*으로 변경되었습니다.
 
@@ -170,7 +174,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
 
     R은 대/소문자를 구분하므로 `@input_data_1_name` 및 `@output_data_1_name`의 입력 및 출력 변수가 `@script`의 R 코드 대소문자와 일치해야 합니다. 
 
-    매개 변수 순서도 중요합니다. 선택적 매개 변수 *@input_data_1_name* 및 *@output_data_1_name*을 사용하려면 먼저 필수 매개 변수 *@input_data_1* 및 *@output_data_1*을 지정해야 합니다.
+    매개 변수 순서도 중요합니다. 선택적 매개 변수 *\@input_data_1_name* 및 *\@output_data_1_name*을 사용하려면 먼저 필수 매개 변수 *\@input_data_1* 및 *\@output_data_1*을 지정해야 합니다.
 
     한 데이터 세트만 매개 변수로 전달할 수 있으며, 한 데이터 세트만 반환할 수 있습니다. 그러나 R 코드 내에서 다른 데이터 세트를 호출할 수 있으며 데이터 세트 외에도 다른 유형의 출력을 반환할 수 있습니다. 또한 모든 매개 변수에 OUTPUT 키워드를 추가하여 결과와 함께 반환되게 만들 수 있습니다. 
 
@@ -271,34 +275,34 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
 
     선형 모델의 요구 사항은 간단합니다.
 
-    - 종속 변수 `speed`와 독립 변수 `distance` 사이의 관계를 설명하는 수식을 정의합니다.
+   - 종속 변수 `speed`와 독립 변수 `distance` 사이의 관계를 설명하는 수식을 정의합니다.
 
-    - 모델을 교육하는 데 사용할 입력 데이터를 제공합니다.
+   - 모델을 교육하는 데 사용할 입력 데이터를 제공합니다.
 
-    > [!TIP]
-    > 선형 모델에 리프레셔가 필요한 경우 rxLinMod를 사용하여 모델을 맞추는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
+     > [!TIP]
+     > 선형 모델에 리프레셔가 필요한 경우 rxLinMod를 사용하여 모델을 맞추는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
 
-    모델을 빌드하려면 R 코드 내에서 수식을 정의하고, 데이터를 입력 매개 변수로 전달합니다.
+     모델을 빌드하려면 R 코드 내에서 수식을 정의하고, 데이터를 입력 매개 변수로 전달합니다.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    rxLinMod의 첫 번째 인수는 거리를 속도의 종속 변수로 정의하는 *formula* 매개 변수입니다. 입력 데이터는 SQL 쿼리에 의해 채워지는 `CarsData` 변수에 저장됩니다. 입력 데이터에 구체적인 이름을 할당하지 않으면 기본 변수 이름 _InputDataSet_가 사용됩니다.
+     rxLinMod의 첫 번째 인수는 거리를 속도의 종속 변수로 정의하는 *formula* 매개 변수입니다. 입력 데이터는 SQL 쿼리에 의해 채워지는 `CarsData` 변수에 저장됩니다. 입력 데이터에 구체적인 이름을 할당하지 않으면 기본 변수 이름 _InputDataSet_가 사용됩니다.
 
 2. 다음으로, 모델을 재교육하거나 예측에 사용할 수 있도록 모델을 저장할 테이블을 만듭니다. 모델을 만드는 R 패키지의 출력은 일반적으로 **이진 개체**입니다. 따라서 테이블에서 **VARBINARY(max)** 형식의 열을 제공해야 합니다.
 
@@ -397,23 +401,23 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
 
     위의 스크립트는 다음 단계를 수행합니다.
 
-    + SELECT 문을 사용하여 테이블에서 단일 모델을 가져온 후 입력 매개 변수로 전달합니다.
+   + SELECT 문을 사용하여 테이블에서 단일 모델을 가져온 후 입력 매개 변수로 전달합니다.
 
-    + 테이블에서 모델을 검색한 후 모델에서 `unserialize` 함수를 호출합니다.
+   + 테이블에서 모델을 검색한 후 모델에서 `unserialize` 함수를 호출합니다.
 
-        > [!TIP] 
-        > RevoScaleR에서 제공하는 새 [직렬화 함수](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)도 확인합니다. 이 함수는 실시간 채점을 지원합니다.
-    + 적절한 인수를 사용하여 `rxPredict` 함수를 모델에 적용하고, 새 입력 데이터를 제공합니다.
+       > [!TIP] 
+       > RevoScaleR에서 제공하는 새 [직렬화 함수](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)도 확인합니다. 이 함수는 실시간 채점을 지원합니다.
+   + 적절한 인수를 사용하여 `rxPredict` 함수를 모델에 적용하고, 새 입력 데이터를 제공합니다.
 
-    + 예제에서 `str` 함수는 R에서 반환되는 데이터의 스키마를 확인하기 위해 테스트 단계에서 추가됩니다. 명령문을 나중에 제거할 수 있습니다.
+   + 예제에서 `str` 함수는 R에서 반환되는 데이터의 스키마를 확인하기 위해 테스트 단계에서 추가됩니다. 명령문을 나중에 제거할 수 있습니다.
 
-    + R 스크립트에 사용되는 열 이름이 반드시 저장 프로시저 출력에 전달되는 것은 아닙니다. 여기서는 WITH RESULTS 절을 사용하여 새 열 이름을 정의했습니다.
+   + R 스크립트에 사용되는 열 이름이 반드시 저장 프로시저 출력에 전달되는 것은 아닙니다. 여기서는 WITH RESULTS 절을 사용하여 새 열 이름을 정의했습니다.
 
-    **결과**
+     **결과**
 
-    ![장지 거리를 예측하는 결과 집합](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![장지 거리를 예측하는 결과 집합](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    [Transact-SQL의 PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql)를 사용하여 저장된 모델을 기반으로 예측 값 또는 점수를 생성할 수 있습니다.
+     [Transact-SQL의 PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql)를 사용하여 저장된 모델을 기반으로 예측 값 또는 점수를 생성할 수 있습니다.
 
 <a name="add-package"></a>
 

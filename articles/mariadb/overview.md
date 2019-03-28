@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/03/2018
-ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 03/20/2019
+ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352316"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295150"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
-Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/) 데이터베이스 엔진 10.2를 기반으로 합니다.
+Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 10.2를 기반으로 합니다.
 
 Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 

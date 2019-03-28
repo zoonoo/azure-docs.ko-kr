@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights로 ASP.NET 웹앱 모니터링 | Microsoft Docs
-description: Application Insights를 사용한 모니터링을 위해 ASP.NET 웹앱을 신속하게 설정하도록 지침 제공
+description: Application Insights를 사용하여 모니터링하도록 ASP.NET 웹앱을 빠르게 설정하는 지침을 제공합니다.
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8d4b5bb987e04e30953c7a2bb3a3d2387e51fdeb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011761"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다.  또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다.  앱의 성능 및 효율성에 대한 Application Insights에서 수집하는 정보를 사용하면 애플리케이션을 유지 관리하고 개선하는 데 더 많은 정보를 갖고 선택할 수 있습니다.
 
-이 빠른 시작에서는 애플리케이션을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 애플리케이션에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여줍니다. ASP.NET 웹 애플리케이션이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../../app-service/app-service-web-get-started-dotnet-framework.md)에 따라 하나 만들 수 있습니다.
+이 빠른 시작에서는 애플리케이션을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 애플리케이션에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여줍니다. ASP.NET 웹 애플리케이션이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../../app-service/app-service-web-get-started-dotnet-framework.md)에 따라 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.

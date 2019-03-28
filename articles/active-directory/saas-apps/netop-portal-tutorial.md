@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 63f7eab5-412a-4a5c-84bc-7473087abb49
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e359d85b0aca2a2003650f72a3b25d07b144c8f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>자습서: Netop Portal과 Azure Active Directory 통합
 
@@ -174,7 +174,7 @@ Netop Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

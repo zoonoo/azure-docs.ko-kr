@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/12/2019
+ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539299"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730199"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Ruby를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Ruby를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
@@ -23,36 +23,9 @@ ms.locfileid: "53539299"
 - [DB 만들기 - 포털](quickstart-create-server-database-portal.md)
 - [DB 만들기 - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-## <a name="install-ruby"></a>Ruby 설치
-사용자의 컴퓨터에 Ruby를 설치합니다. 
-
-### <a name="windows"></a> Windows
-- 최신 버전의 [Ruby](https://rubyinstaller.org/downloads/)를 다운로드하여 설치합니다.
-- MSI 설치 관리자 마침 화면에서 "MSYS2 및 개발 도구 체인을 설치하려면 'ridk install' 실행"이라는 상자를 선택합니다. 그런 다음 **마침**을 클릭하여 다음 설치 관리자를 시작합니다.
-- Windows용 RubyInstaller2 설치 관리자가 시작됩니다. MSYS2 리포지토리 업데이트를 설치하려면 2를 입력합니다. 완료되고 설치 프롬프트로 돌아오면 명령 창을 닫습니다.
-- 시작 메뉴에서 새 명령 프롬프트(cmd)를 시작합니다.
-- Ruby 설치를 테스트하여 설치된 버전을 확인합니다(`ruby -v`).
-- Gem 설치를 테스트하여 설치된 버전을 확인합니다(`gem -v`).
-- `gem install pg` 명령을 실행하여 Gem으로 Ruby용 PostgreSQL 모듈을 빌드합니다.
-
-### <a name="macos"></a>MacOS
-- `brew install ruby` 명령을 실행하여 Homebrew로 Ruby를 설치합니다. 자세한 설치 옵션을 보려면 Ruby [설치 설명서](https://www.ruby-lang.org/en/documentation/installation/#homebrew)를 참조하세요.
-- Ruby 설치를 테스트하여 설치된 버전을 확인합니다(`ruby -v`).
-- Gem 설치를 테스트하여 설치된 버전을 확인합니다(`gem -v`).
-- `gem install pg` 명령을 실행하여 Gem으로 Ruby용 PostgreSQL 모듈을 빌드합니다.
-
-### <a name="linux-ubuntu"></a>Linux(Ubuntu)
-- `sudo apt-get install ruby-full` 명령을 실행하여 Ruby를 설치합니다. 자세한 설치 옵션을 보려면 Ruby [설치 설명서](https://www.ruby-lang.org/en/documentation/installation/)를 참조하세요.
-- Ruby 설치를 테스트하여 설치된 버전을 확인합니다(`ruby -v`).
-- `sudo gem update --system` 명령을 실행하여 Gem에 대한 최신 업데이트를 설치합니다.
-- Gem 설치를 테스트하여 설치된 버전을 확인합니다(`gem -v`).
-- `sudo apt-get install build-essential` 명령을 실행하여 gcc, make 및 기타 빌드 도구를 설치합니다.
-- `sudo apt-get install libpq-dev` 명령을 실행하여 PostgreSQL 라이브러리를 설치합니다.
-- `sudo gem install pg` 명령을 실행하여 Gem으로 Ruby pg 모듈을 빌드합니다.
-
-## <a name="run-ruby-code"></a>Ruby 코드 실행 
-- 코드를 .rb 파일 확장자를 사용하여 텍스트 파일에 저장하고 `C:\rubypostgres\read.rb` 또는 `/home/username/rubypostgres/read.rb`와 같은 프로젝트 폴더에 파일을 저장합니다.
-- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 프로젝트 폴더 `cd rubypostgres`로 디렉터리를 변경한 후 `ruby read.rb` 명령을 입력하여 애플리케이션을 실행합니다.
+또한 다음 모듈도 설치되어 있어야 합니다.
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- Ruby pg, Ruby용 PostgreSQL 모듈
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
@@ -63,12 +36,17 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  ![Azure Database for PostgreSQL 서버 이름](./media/connect-ruby/1-connection-string.png)
 
+> [!NOTE]
+> Azure Postgres 사용자 이름에서 `@` 기호는 모든 연결 문자열에서 `%40`으로 url 인코딩되었습니다. 
+
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.
 
 이 코드는 [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) 개체와 [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) 생성자를 사용하여 PostgreSQL용 Azure Database에 연결합니다. 그런 다음 [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) 메서드를 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 이 코드는 [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error) 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `user` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
+
+
 ```ruby
 require 'pg'
 
@@ -76,7 +54,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -119,7 +97,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -153,7 +131,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -187,7 +165,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.

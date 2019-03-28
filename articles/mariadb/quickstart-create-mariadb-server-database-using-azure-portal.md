@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: e739ed1f7cd1b832ffe11299d3444c9bf0ac99e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880826"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -72,11 +72,11 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
 서버 수준 방화벽 규칙을 만들려면
 
-1.   배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 서버 이름을 입력합니다. 예를 들어 **mydemoserver**를 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열립니다. 이 페이지에서 추가 설정을 변경할 수 있습니다.
+1. 배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 서버 이름을 입력합니다. 예를 들어 **mydemoserver**를 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열립니다. 이 페이지에서 추가 설정을 변경할 수 있습니다.
 
 2. 서버 개요 페이지에서 **연결 보안**을 선택합니다.
 
-3.  **방화벽 규칙** 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 이 서버에 연결하는 클라이언트의 정확한 IP 범위를 지정합니다.
+3. **방화벽 규칙** 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 이 서버에 연결하는 클라이언트의 정확한 IP 범위를 지정합니다.
    
    ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -94,7 +94,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
 2. 값을 복사하려면 복사할 필드 위에 커서를 놓습니다. 텍스트의 오른쪽에 복사 아이콘이 나타납니다. 필요에 따라 복사 아이콘을 선택하여 값을 복사합니다.
 
-이 예에서 서버 이름은 **mydemoserver.mariadb.database.azure.com**이고, 서버 관리자 로그인 이름은 **myadmin@mydemoserver**입니다.
+이 예에서 서버 이름은 **mydemoserver.mariadb.database.azure.com**이고, 서버 관리자 로그인 이름은 **myadmin\@mydemoserver**입니다.
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>Mysql 명령줄을 사용하여 Azure Database for MariaDB에 연결
 
@@ -103,9 +103,9 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 먼저 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 명령줄 도구를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 소프트웨어 설치 없이 브라우저 및 Azure Cloud Shell을 사용할 수도 있습니다. mysql 유틸리티를 로컬로 설치한 경우 여기서도 연결할 수 있습니다.
 
 1. Azure Portal의 오른쪽 도구 모음 위에 있는 터미널 아이콘(**>_**)을 통해 Azure Cloud Shell을 시작합니다.
-![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
+   ![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  브라우저에서 Azure Cloud Shell을 엽니다. Cloud Shell의 bash 셸 명령을 사용할 수 있습니다.
+2. 브라우저에서 Azure Cloud Shell을 엽니다. Cloud Shell의 bash 셸 명령을 사용할 수 있습니다.
 
    ![명령 프롬프트 - mysql 명령줄 예](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
@@ -126,7 +126,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
     mysql 매개 변수 |제안 값|설명
     ---|---|---
     --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
-    --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
+    --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     -p | *사용자 암호*<br>(메시지가 표시될 때까지 대기) |메시지가 표시되면 서버를 만드는 데 사용한 암호를 입력합니다. 입력한 암호 문자는 입력하는 동안 Bash 프롬프트에 표시되지 않습니다. 암호를 입력한 후 Enter 키를 누릅니다.
 
    mysql 유틸리티가 연결되면 `mysql>` 프롬프트가 표시됩니다. 프롬프트에서 명령을 입력할 수 있습니다. 
@@ -165,14 +165,14 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
    > [!TIP]
    > 다른 명령은 [MySQL 5.7 참조 설명서 - 4.5.1장](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)을 참조하세요.
 
-5.  `mysql>` 프롬프트에서 다음 명령을 입력하여 빈 데이터베이스를 만듭니다.
+5. `mysql>` 프롬프트에서 다음 명령을 입력하여 빈 데이터베이스를 만듭니다.
 
-    ```sql
-    CREATE DATABASE quickstartdb;
-    ```
-    이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+   이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
 
-    Azure Database for MariaDB 서버에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 만들 수 있는 데이터베이스의 수는 제한되지 않지만, 여러 데이터베이스에서 동일한 서버 리소스를 공유합니다. 
+   Azure Database for MariaDB 서버에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 만들 수 있는 데이터베이스의 수는 제한되지 않지만, 여러 데이터베이스에서 동일한 서버 리소스를 공유합니다. 
 
 6. 데이터베이스를 나열하려면 `mysql>` 프롬프트에서 다음 명령을 입력합니다.
 
@@ -180,7 +180,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
     SHOW DATABASES;
     ```
 
-7.  **\q**를 입력한 다음, ENTER 키를 눌러 mysql 도구를 중지합니다. 그러면 Azure Cloud Shell을 종료할 수 있습니다.
+7. **\q**를 입력한 다음, ENTER 키를 눌러 mysql 도구를 중지합니다. 그러면 Azure Cloud Shell을 종료할 수 있습니다.
 
 Azure Database for MariaDB 서버에 연결되어 빈 사용자 데이터베이스를 만들었습니다. 다음 섹션에서는 다른 일반적인 도구인 MySQL Workbench를 사용하여 동일한 서버에 연결합니다.
 
@@ -202,7 +202,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
     연결 방법 | **표준(TCP/IP)** | 표준(TCP/IP)이면 충분합니다. |
     호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MariaDB 서버에 연결할 때 사용할 포트입니다. |
-    사용자 이름 |  *서버 관리자 로그인 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 정보입니다. 예제 사용자 이름은 **myadmin@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
+    사용자 이름 |  *서버 관리자 로그인 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 정보입니다. 예제의 사용자 이름은 **myadmin\@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     암호 | *사용자 암호* | 암호를 저장하려면 **자격 증명 모음에 저장...** 을 선택합니다. |
 
 4. 모든 매개 변수가 올바르게 구성되었는지 테스트하려면 **연결 테스트**를 선택합니다. 그런 다음, **확인**을 클릭하여 해당 연결을 저장합니다. 
@@ -227,13 +227,13 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
 새로 만든 서버를 삭제하려면
 
-1.  Azure Portal에서 서버를 찾습니다(아직 열려 있지 않은 경우). 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 만든 서버를 검색합니다.
+1. Azure Portal에서 서버를 찾습니다(아직 열려 있지 않은 경우). 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 만든 서버를 검색합니다.
 
-2.  **개요** 페이지에서 **삭제**를 선택합니다. 
+2. **개요** 페이지에서 **삭제**를 선택합니다. 
 
    ![Azure Database for MySQL - 서버 삭제](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.  삭제하려는 서버의 이름을 확인합니다. 삭제의 영향을 받는 데이터베이스가 표시됩니다. 서버 이름을 입력하여(예: **mydemoserver**) 삭제를 확인합니다. **삭제**를 선택합니다.
+3. 삭제하려는 서버의 이름을 확인합니다. 삭제의 영향을 받는 데이터베이스가 표시됩니다. 서버 이름을 입력하여(예: **mydemoserver**) 삭제를 확인합니다. **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

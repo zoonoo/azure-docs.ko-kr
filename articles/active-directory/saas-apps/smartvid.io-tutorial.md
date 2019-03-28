@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5e4a2528-04ff-4e8f-9bd0-1ecd62d68ebb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 191f90b390210bdf17a9b5bc2d5158d323527ec4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8e72661bcb0e90be9b127d54cb3ddf6bb73ca7c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>자습서: smartvid.io와 Azure Active Directory 통합
 
@@ -140,7 +140,7 @@ smartvid.io에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

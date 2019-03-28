@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7be803d229990359846bdc3c447a7d09c3143c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory 통합
 
@@ -162,9 +162,9 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     d. Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음 **SAML 인증서** 텍스트 상자에 붙여 넣습니다.
 
-    e. 인스턴스의 **대상 URL**을 복사하여 Azure Portal의  **기본 SAML 구성**  섹션에 있는  **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
+    e. 인스턴스의 **대상 URL**을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
-    f. 인스턴스의 **받는 사람 URL**을 복사하여 Azure Portal의  **기본 SAML 구성**  섹션에 있는  **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    f. 인스턴스의 **받는 사람 URL**을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
     g. 섹션 맨 아래로 스크롤하여 **SSO 테스트** 단추를 클릭합니다. Azure AD 로그인 페이지가 있는 팝업 창이 나타납니다. 일반적인 인증처럼 자격 증명을 입력합니다.
 
@@ -205,7 +205,7 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

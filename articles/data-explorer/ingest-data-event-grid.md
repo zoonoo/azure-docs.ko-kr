@@ -8,28 +8,31 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
+ms.openlocfilehash: 625556986c5034303e83cc23b4ba06b1638115d1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804651"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448427"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>빠른 시작: Event Grid알림을 구독하여 Azure Data Explorer에 Azure Blob 수집
+# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>빠른 시작: Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Blob 컨테이너에 기록된 Blob에서 지속적인 수집(데이터 로딩)을 제공합니다. 이 기능은 Blob 생성 이벤트에 대해 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정하고 Event Hub를 통해 Kusto로 해당 이벤트를 라우팅하여 구현됩니다. 이 빠른 시작에서는 Event Hubs로 알림을 보내는 Event Grid 구독이 포함된 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
+Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, Blob 컨테이너에 기록된 Blob에서 지속적인 수집(데이터 로딩)을 제공합니다. 
+
+이 빠른 시작에서는 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정하고, 이벤트 허브를 통해 이벤트를 Azure Data Explorer로 전달하는 방법에 대해 알아봅니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 없는 경우 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-1. [클러스터 및 데이터베이스](create-cluster-database-portal.md)
-1. [스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Azure 구독. [평가판 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* [클러스터 및 데이터베이스](create-cluster-database-portal.md)
+* [스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+* [이벤트 허브](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>스토리지 계정에 Event Grid 구독 만들기
 
-1. Azure Portal에서 스토리지 계정으로 이동합니다.
-1. **이벤트** 탭을 클릭한 다음, **이벤트 구독**을 클릭합니다.
+1. Azure Portal에서 스토리지 계정을 찾습니다.
+1. **이벤트** > **이벤트 구독**을 선택합니다.
 
     ![쿼리 애플리케이션 링크](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -41,20 +44,20 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
     | 항목 종류 | *Storage 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
-    | 모든 이벤트 형식 구독 | *선택 취소* | 모든 이벤트에 대한 알림을 받지 않습니다. |
+    | 모든 이벤트 형식 구독 | *clear* | 모든 이벤트에 대한 알림을 받지 않습니다. |
     | 정의된 이벤트 유형 | *만든 Blob* | 알림을 받을 특정 이벤트 |
     | 엔드포인트 유형 | *Event Hubs* | 이벤트를 보낼 엔드포인트 유형 |
     | 엔드포인트 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | | |
 
 1. 특정 컨테이너의 파일을 추적하려면 **추가 기능** 탭을 선택합니다. 알림에 대한 필터를 다음과 같이 설정합니다.
-    * **제목 시작 문자** 필드는 Blob 컨테이너의 *리터럴* 접두사입니다(적용되는 패턴이 *startswith*이기 때문에 다수의 컨테이너로 확장 가능). 와일드카드는 허용되지 않습니다.
+    * **제목 시작 문자** 필드는 Blob 컨테이너의 *리터럴* 접두사입니다. 적용된 패턴이 *startswith*이므로, 여러 컨테이너를 포함할 수 있습니다. 와일드카드는 허용되지 않습니다.
      다음과 같이 *설정해야 합니다*. *`/blobServices/default/containers/`*[컨테이너 접두사]
     * **제목 종료 문자** 필드는 Blob의 *리터럴* 접미사입니다. 와일드카드는 허용되지 않습니다.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 대상 테이블 만들기
 
-Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭니다. **필수 구성 요소**에서 준비한 클러스터와 데이터베이스에서 테이블을 만듭니다.
+Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭니다. 필수 구성 요소에서 준비한 클러스터와 데이터베이스에서 테이블을 만듭니다.
 
 1. Azure Portal의 클러스터 아래에서 **쿼리**를 선택합니다.
 
@@ -80,17 +83,17 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
 1. 도구 모음에서 **알림**을 선택하여 이벤트 허브 배포가 정상적으로 완료되었는지 확인합니다.
 
-1. 앞에서 만든 클러스터 아래에서 **데이터베이스**, **TestDatabase**를 차례로 선택합니다.
+1. 앞에서 만든 클러스터 아래에서 **데이터베이스** > **TestDatabase**를 차례로 선택합니다.
 
     ![테스트 데이터베이스 선택](media/ingest-data-event-grid/select-test-database.png)
 
-1. **데이터 수집**, **데이터 연결 추가**를 차례로 선택합니다.
+1. **데이터 수집** > **데이터 연결 추가**를 선택합니다.
 
     ![데이터 수집](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1. 연결 형식 선택: **Blob Storage**
+1.  연결 형식을 선택합니다. **Blob Storage**
 
-1. 다음 정보로 양식을 작성하고 **만들기**를 클릭합니다.
+1. 다음 정보로 양식을 작성하고 **만들기**를 선택합니다.
 
     ![이벤트 허브 연결](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
@@ -98,12 +101,12 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 데이터 연결 이름 | *test-hub-connection* | Azure 데이터 탐색기에서 만들 연결의 이름입니다.|
+    | 데이터 연결 이름 | *test-hub-connection* | Azure Data Explorer에서 만들 연결의 이름입니다.|
     | 스토리지 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
     | Storage 계정 | *gridteststorage* | 이전에 만든 스토리지 계정의 이름입니다.|
     | Event Grid | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
-    | 이벤트 허브 이름 | *test-hub* | 앞에서 만든 이벤트 허브입니다. Event Grid를 선택할 때 자동으로 채워집니다. |
-    | 소비자 그룹 | *test-group* | 앞에서 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
+    | 이벤트 허브 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
+    | 소비자 그룹 | *test-group* | 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
     | | |
 
     대상 테이블:
@@ -117,11 +120,11 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성
 
-Azure Data Explorer와 스토리지 계정이 연결되었으면 샘플 데이터를 만들어서 Blob 스토리지에 업로드할 수 있습니다.
+Azure Data Explorer와 스토리지 계정이 연결되었으면 샘플 데이터를 만들어서 Blob Storage에 업로드할 수 있습니다.
 
-Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명령을 발급하는 작은 셸 스크립트를 사용합니다. 이 스크립트는 먼저 저장소 계정에 새 컨테이너를 만든 다음 해당 컨테이너에 기존 파일(Blob)을 업로드합니다. 그러면 컨테이너의 모든 Blob이 나열됩니다. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 포털에서 직접 스크립트를 실행할 수 있습니다.
+Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명령을 발급하는 작은 셸 스크립트를 사용합니다. 이 스크립트는 스토리지 계정에 새 컨테이너를 만들고, 해당 컨테이너에 기존 파일(Blob)을 업로드한 다음, 컨테이너의 Blob을 나열합니다. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 포털에서 직접 스크립트를 실행할 수 있습니다.
 
-다음 데이터를 파일에 저장하고 아래 스크립트에 사용합니다.
+파일에 데이터를 저장하고 이 스크립트를 사용하여 업로드합니다.
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
@@ -154,7 +157,7 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
 ## <a name="review-the-data-flow"></a>데이터 흐름 검토
 
 > [!NOTE]
-> ADX에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다.
+> Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다.
 기본적으로 정책은 5 분으로 구성됩니다.
 정책은 나중에 필요에 따라 변경할 수 있습니다. 이 빠른 시작에서 잠시 대기 시간이 발생할 수 있습니다.
 

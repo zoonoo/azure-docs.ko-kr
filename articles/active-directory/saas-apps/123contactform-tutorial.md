@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2450548858d3b7eab3fda11b7f309519f6b871c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>자습서: 123ContactForm과 Azure Active Directory 통합
 
@@ -139,7 +139,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 123ContactForm의 관련
 
     ![Configure Single Sign-On](./media/123contactform-tutorial/submit.png) 
 
-    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **BrittaSimon@Contoso.com**)를 입력합니다.
+    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **BrittaSimon\@Contoso.com**)를 입력합니다.
 
     b. **업로드**를 클릭하고 Azure Portal에서 다운로드한 메타데이터 XML 파일을 찾습니다.
 
@@ -173,7 +173,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 123ContactForm의 관련
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

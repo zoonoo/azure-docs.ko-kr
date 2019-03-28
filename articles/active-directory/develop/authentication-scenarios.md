@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244558"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295711"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -79,7 +79,7 @@ Azure AD는 두 가지 주요 기능을 충족하도록 설계된 특정 모델�
 
 Azure AD에서 **애플리케이션 개체**는 추상 엔터티로 애플리케이션을 설명합니다. 개발자는 애플리케이션을 사용하여 작업합니다. 배포 시 Azure AD는 디렉터리 또는 테넌트 내에서 애플리케이션의 구체적인 인스턴스를 나타내는 **서비스 주체**를 만들기 위한 청사진으로 지정된 애플리케이션 개체를 사용합니다. 특정 대상 디렉터리에서 앱이 실제로 수행할 수 있는 작업, 앱을 사용할 수 있는 대상, 앱이 액세스할 수 있는 리소스 등을 정의하는 서비스 주체입니다. Azure AD는 **동의**를 통해 애플리케이션 개체에서 서비스 주체를 만듭니다.
 
-다음 다이어그램에는 동의를 통해 구동되는 간소화된 Azure AD 프로비전 흐름이 나와 있습니다.
+다음 다이어그램에는 동의를 통해 구동되는 간소화된 Azure AD 프로비전 흐름이 나와 있습니다.  두 개의 테넌트(A 및 B)가 있는데, 테넌트 A는 애플리케이션을 소유하고 있고, 테넌트 B는 서비스 주체를 통해 애플리케이션을 인스턴스화하고 있습니다.  
 
 ![동의를 통해 구동되는 간소화된 프로비전 흐름](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Azure AD에서 **애플리케이션 개체**는 추상 엔터티로 애플리케
 
 |   |   |
 |---|---|
-| 1 | B의 사용자가 앱에 로그인하려고 함 |
+| 1 | 테넌트 B의 사용자가 앱에 로그인하려고 함 |
 | 2 | 사용자 자격 증명이 획득 및 확인됨 |
 | 3 | 테넌트 B에 대한 액세스 권한을 얻기 위해 앱에 동의하라는 메시지가 사용자에게 표시됨 |
-| 4 | Azure AD는 A의 응용 프로그램 개체를 B에서 서비스 주체를 만들기 위한 청사진으로 사용 |
+| 4 | Azure AD에서 A의 애플리케이션 개체를 테넌트 B의 서비스 주체를 만들기 위한 청사진으로 사용 |
 | 5 | 사용자가 요청된 토큰 수신 |
 |   |   |
 
-다른 테넌트(C, D 등)에서 원하는 횟수만큼 이 프로세스를 반복할 수 있습니다. 디렉터리 A는 앱(애플리케이션 개체)에 대한 청사진을 유지합니다. 앱에 동의한 다른 모든 테넌트의 사용자 및 관리자는 각 테넌트에서 해당하는 서비스 주체 개체를 통해 애플리케이션이 수행할 수 있는 작업에 대한 컨트롤을 유지합니다. 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
+다른 테넌트(C, D 등)에서 원하는 횟수만큼 이 프로세스를 반복할 수 있습니다. 테넌트 A에서 앱(애플리케이션 개체)에 대한 청사진을 유지합니다. 앱에 동의한 다른 모든 테넌트의 사용자 및 관리자는 각 테넌트에서 해당하는 서비스 주체 개체를 통해 애플리케이션이 수행할 수 있는 작업에 대한 컨트롤을 유지합니다. 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Azure AD 보안 토큰의 클레임
 

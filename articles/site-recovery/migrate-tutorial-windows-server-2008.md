@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c91fa2c269b507988d2bdefcd2882b2ab55fec35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094868"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
@@ -51,6 +51,8 @@ ms.locfileid: "55222068"
 Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가상 머신을 마이그레이션하려면 [온-프레미스 머신을 Azure로 마이그레이션](migrate-tutorial-on-premises-azure.md) 자습서의 단계를 따릅니다.
 
 이 자습서의 나머지 부분에서는 온-프레미스 VMware 가상 머신 및 Windows Server 2008 또는 2008 R2를 실행 중인 물리적 서버를 마이그레이션할 수 있는 방법을 보여줍니다.
+> [!TIP]
+> VMware VM을 Azure로 마이그레이션할 에이전트가 없는 방법을 찾으시나요? [여기를 클릭](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제

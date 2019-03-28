@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>자습서: ClickTime과 Azure Active Directory 통합
 
@@ -108,6 +108,7 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://app.clicktime.com/sp/`
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -222,7 +223,7 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
    
     a.  **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다. 
   
-    b.  **이메일 주소** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
+    b.  **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com**)을 입력합니다.
        
     > [!NOTE]
     > 원한다면 새 사람 개체의 추가 속성을 설정할 수 있습니다.

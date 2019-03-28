@@ -1,32 +1,31 @@
 ---
 title: 자습서 - Azure Portal에서 Azure SQL 데이터베이스 인덱싱 - Azure Search
-description: 이 자습서에서 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
+description: 이 자습서에서는 Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Search 인덱스에 로드합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201401"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
-이 자습서에서는 샘플 Azure SQL Database에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 보여줍니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
+Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에서 Azure SQL Database에 대한 인덱서가 가장 널리 사용됩니다. 
 
 인덱서 구성의 숙련도에 따라 작성하고 유지 관리해야 하는 코드를 단순화할 수 있습니다. 스키마 준수 JSON 데이터 세트를 준비하고 푸시하는 대신 인덱서를 데이터 원본에 연결하고, 인덱서로 데이터를 추출하고, 인덱스에 삽입하고, 필요에 따라 되풀이 일정으로 인덱서를 실행하여 기본 원본에서 변경 내용을 적용할 수 있습니다.
 
-이 자습서에서는 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및.NET Core 콘솔 애플리케이션을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 [Azure Search .NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및 .NET Core 콘솔 애플리케이션을 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * 솔루션 다운로드 및 구성
 > * 애플리케이션 설정에 검색 서비스 정보 추가
 > * Azure SQL Database에서 외부 데이터 세트 준비 
 > * 샘플 코드에서 인덱스 및 인덱서 정의 검토
@@ -38,16 +37,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure Search 서비스. 설정하는 도움말은 [검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
-* 인덱서 사용되는 외부 데이터 원본을 제공하는 Azure SQL Database입니다. 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다.
+* 인덱서에서 사용되는 외부 데이터 원본을 제공하는 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다.
 
-* Visual Studio 2017. [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) 평가판을 사용할 수 있습니다. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
 > [!Note]
 > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
 
-## <a name="download-the-solution"></a>솔루션 다운로드
+### <a name="download-the-solution"></a>솔루션 다운로드
 
 이 자습서에 사용되는 인덱서 솔루션은 하나의 마스터 다운로드에 포함된 Azure Search 샘플의 컬렉션입니다. 이 자습서에 사용되는 솔루션은 *DotNetHowToIndexers*입니다.
 
@@ -63,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 6. **솔루션 탐색기**에서 최상위 노드 부모 솔루션 > **Nuget 패키지 복원**을 마우스 오른쪽 단추로 클릭합니다.
 
-## <a name="set-up-connections"></a>연결 설정
+### <a name="set-up-connections"></a>연결 설정
 필요한 서비스에 대한 연결 정보는 솔루션의 **appsettings.json** 파일에 지정됩니다. 
 
 이 자습서의 지침을 사용하여 각 설정을 채울 수 있도록 솔루션 탐색기에서 **appsettings.json**을 엽니다.  
@@ -90,22 +89,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. 해당 항목을 복사하고 Visual Studio에서 **appsettings.json**에 첫 번째 항목으로 붙여넣습니다.
 
-  > [!Note]
-  > 서비스 이름은 search.windows.net을 포함하는 엔드포인트의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
+   > [!Note]
+   > 서비스 이름은 search.windows.net을 포함하는 엔드포인트의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
 
 5. 왼쪽의 **설정** > **키**에서 관리자 키 중 하나를 복사하고 i**appsettings.json**에 두 번째 항목으로 붙여넣습니다. 키는 프로비전하는 동안 서비스에 대해 생성되는 영숫자 문자열이며 서비스 작업에 대한 권한 있는 액세스에 필요합니다. 
 
-  설정을 모두 추가한 후에 파일은 다음 예제와 비슷합니다.
+   설정을 모두 추가한 후에 파일은 다음 예제와 비슷합니다.
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
-## <a name="prepare-an-external-data-source"></a>외부 데이터 원본 준비
+## <a name="prepare-sample-data"></a>샘플 데이터 준비
 
 이 단계에서 인덱서가 탐색할 수 있는 외부 데이터 원본을 만듭니다. 이 자습서의 데이터 파일은 *hotels.sql*이며 \DotNetHowToIndexers 솔루션 폴더에 제공됩니다. 
 
@@ -125,7 +124,7 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
 
 4. 아직 새 데이터베이스에 대한 SQL Database 페이지를 열지 않은 경우 엽니다. 리소스 이름은 *SQL Server*가 아닌 *SQL Database*여야 합니다.
 
-  ![SQL Database 페이지](./media/search-indexer-tutorial/hotels-db.png)
+   ![SQL Database 페이지](./media/search-indexer-tutorial/hotels-db.png)
 
 4. 명령 모음에서 **도구** > **쿼리 편집기**를 클릭합니다.
 
@@ -135,24 +134,24 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
 
 7. 파일을 선택하고 **열기**를 클릭합니다. 이 스크립트는 다음 스크린샷과 비슷하게 표시됩니다.
 
-  ![SQL 스크립트](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL 스크립트](./media/search-indexer-tutorial/sql-script.png)
 
 8. **실행**을 클릭하여 쿼리를 실행합니다. 결과 창에서 3행에 대한 쿼리 성공 메시지가 표시됩니다.
 
 9. 이 테이블에서 행 집합을 반환하려면 확인 단계로 다음 쿼리를 실행할 수 있습니다.
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록은 다음 문을 실행할 수 있습니다.`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록은 다음 문을 실행할 수 있습니다.`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. 이제 외부 데이터 세트가 있으므로 데이터베이스에 대한 ADO.NET 연결 문자열을 복사합니다. 데이터베이스의 SQL Database 페이지에서 **설정** > **연결 문자열**로 이동하고, ADO.NET 연결 문자열을 복사합니다.
  
-  ADO.NET 연결 문자열은 다음 예제와 비슷하며 유효한 데이터베이스 이름, 사용자 이름 및 암호를 사용하도록 수정됩니다.
+    ADO.NET 연결 문자열은 다음 예제와 비슷하며 유효한 데이터베이스 이름, 사용자 이름 및 암호를 사용하도록 수정됩니다.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Visual Studio에 있는 **appsettings.json** 파일에서 세 번째 항목으로 "AzureSqlConnectionString"에 연결 문자열을 붙여넣습니다.
 
     ```json
@@ -250,15 +249,15 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
 2. **검색** 단추를 클릭하여 빈 검색을 발급합니다. 
 
-  인덱스에 있는 세 개의 항목이 JSON 문서로 반환됩니다. 전체 구조를 볼 수 있도록 검색 탐색기는 JSON으로 문서를 반환합니다.
+   인덱스에 있는 세 개의 항목이 JSON 문서로 반환됩니다. 전체 구조를 볼 수 있도록 검색 탐색기는 JSON으로 문서를 반환합니다.
 
 3. 다음으로 검색 문자열을 입력합니다.`search=river&$count=true` 
 
-  이 쿼리는 `river` 용어의 전체 텍스트 검색을 호출하고 결과에는 일치하는 문서 수가 포함됩니다. 일치하는 문서 수를 반환하는 작업은 수많은 문서를 포함하는 대규모 인덱스가 있을 때 시나리오를 테스트하는 경우 유용합니다. 이 경우에 하나의 문서만이 쿼리와 일치합니다.
+   이 쿼리는 `river` 용어의 전체 텍스트 검색을 호출하고 결과에는 일치하는 문서 수가 포함됩니다. 일치하는 문서 수를 반환하는 작업은 수많은 문서를 포함하는 대규모 인덱스가 있을 때 시나리오를 테스트하는 경우 유용합니다. 이 경우에 하나의 문서만이 쿼리와 일치합니다.
 
 4. 마지막으로 JSON 출력을 관심 분야로 제한하는 검색 문자열을 입력합니다.`search=river&$count=true&$select=hotelId, baseRate, description` 
 
-  쿼리 응답이 선택한 필드로 줄어들어 더 간결한 출력이 표시됩니다.
+   쿼리 응답이 선택한 필드로 줄어들어 더 간결한 출력이 표시됩니다.
 
 ## <a name="view-indexer-configuration"></a>인덱서 구성 보기
 
@@ -268,7 +267,7 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 2. 아래로 스크롤하여 **인덱서** 및 **데이터 원본**에 대한 타일을 찾습니다.
 3. 타일을 클릭하여 각 리소스의 목록을 엽니다. 개별 인덱서 또는 데이터 원본을 선택하여 구성 설정을 보거나 수정할 수 있습니다.
 
-  ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
+   ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

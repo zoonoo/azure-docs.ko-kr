@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2f8be215f1a972539aff47347395f041d89d4e81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>자습서: Accredible과 Azure Active Directory 통합
 
@@ -154,7 +154,7 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -189,7 +189,7 @@ Accredible에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="create-accredible-test-user"></a>Accredible 테스트 사용자 만들기
 
-이 섹션에서는 Accredible에서 Britta Simon이라는 사용자를 만듭니다. 사용자의 메일 ID를  [Accredible 지원 팀](mailto:support@accredible.com)에 보내야 하며, 그러면 지원 팀은 이메일을 확인하고 Accredible 플랫폼에서 사용자를 추가할 수 있도록 초대 메일을 보내줍니다.
+이 섹션에서는 Accredible에서 Britta Simon이라는 사용자를 만듭니다. 사용자의 이메일 ID를  [Accredible 지원 팀](mailto:support@accredible.com)에 보내야 합니다. 그런 다음, 지원 팀은 이메일을 확인하고 Accredible 플랫폼에서 사용자를 추가할 수 있도록 초대 메일을 보내줍니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

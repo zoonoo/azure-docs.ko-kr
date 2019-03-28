@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dab8781e5bfea60c749fe446ef38e072b98380e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 11370e651c338de3d139a4bb70c9658090052469
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
 
@@ -109,7 +109,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
 
-  b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
+   b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zendesk 클라이언트 지원 팀](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -209,7 +209,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

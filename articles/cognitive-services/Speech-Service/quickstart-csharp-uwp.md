@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f29848098a99352e4e9e7a3caac4d074ebcb24b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26d6e5e53968a88eaccff863b4affee6057f5952
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903303"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
 

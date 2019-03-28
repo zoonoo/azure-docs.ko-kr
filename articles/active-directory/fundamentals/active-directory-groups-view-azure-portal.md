@@ -1,5 +1,5 @@
 ---
-title: 조직의 그룹 및 멤버를 보기 위한 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: 그룹 및 멤버를 보기 위한 빠른 시작 - Azure Active Directory | Microsoft Docs
 description: 조직의 그룹 및 할당된 멤버를 검색하고 보는 방법을 설명하는 지침입니다.
 services: active-directory
 author: eross-msft
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ee02944e32a11a3749d6730b9263254fa9bda
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881013"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -61,7 +61,7 @@ _Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤�
 
     - **이름:** _Alain Charon_ 입력
 
-    - **사용자 이름:** *alain@contoso.com* 입력
+    - **사용자 이름:** *alain\@contoso.com*을 입력합니다.
 
 3. **암호** 상자에 제공된 자동 생성된 암호를 복사한 다음, **만들기**를 선택합니다.
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434a22c56e0ac6476138ef258e7d83a2bfecb63f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d0875e271a34577ed694caae4281df99b6b63411
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -206,7 +206,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
     
-16. **테스트 건너뛰기의 의미...**  내용이 담긴 대화 상자가 표시되면 **확인**을 클릭합니다.
+16. **테스트 건너뛰기의 의미...** 내용이 담긴 대화 상자가 표시되면 **확인**을 클릭합니다.
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
 
@@ -228,7 +228,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

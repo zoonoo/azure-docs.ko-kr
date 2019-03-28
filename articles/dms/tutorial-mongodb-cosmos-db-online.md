@@ -2,21 +2,21 @@
 title: '자습서: Azure Database Migration Service를 사용하여 온라인 방식으로 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션 | Microsoft Docs'
 description: Azure Database Migration Service를 사용하여 온라인 방식으로 MongoDB 온-프레미스에서 Azure Cosmos DB의 MongoDB API로 마이그레이션하는 방법을 알아봅니다.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.date: 03/12/2019
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008638"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>자습서: DMS를 사용하여 온라인 방식으로 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션(미리 보기)
 Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 시간) 방식으로 데이터베이스를 온-프레미스 또는 클라우드 인스턴스의 MongoDB에서 Azure Cosmos DB의 MongoDB API로 마이그레이션할 수 있습니다.
@@ -45,6 +45,15 @@ Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 
 이 자습서를 완료하려면 다음이 필요합니다.
 - [Azure Cosmos DB의 API for MongoDB 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNET(Virtual Network)을 만듭니다.
+
+    > [!NOTE]
+    > VNET을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
+    > - 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
+    > - 스토리지 엔드포인트
+    > - 서비스 버스 엔드포인트
+    >
+    > Azure Database Migration Service에는 인터넷 연결이 부족하기 때문에 이 구성이 필요합니다.
+
 - Azure VNET 네트워크 보안 그룹 규칙에서 443, 53, 9354, 445 및 12000 Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 원본 서버의 방화벽을 변경합니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
@@ -117,20 +126,20 @@ Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 
 1. **원본 세부 정보** 화면에서 원본 MongoDB 서버에 대한 연결 세부 정보를 지정합니다.
 
     원본에 연결하는 세 가지 모드가 있습니다.
-       * **표준 모드** - 정규화된 도메인 이름이나 IP 주소, 포트 번호 및 연결 자격 증명을 수락합니다.
-       * **연결 문자열 모드** - [연결 문자열 URI 형식](https://docs.mongodb.com/manual/reference/connection-string/) 문서에서 설명한 대로 MongoDB 연결 문자열을 수락합니다.
-       * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB [bsondump 도구](https://docs.mongodb.com/manual/reference/program/bsondump/)에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 **Blob이 BSON 덤프를 포함합니다**를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
+   * **표준 모드** - 정규화된 도메인 이름이나 IP 주소, 포트 번호 및 연결 자격 증명을 수락합니다.
+   * **연결 문자열 모드** - [연결 문자열 URI 형식](https://docs.mongodb.com/manual/reference/connection-string/) 문서에서 설명한 대로 MongoDB 연결 문자열을 수락합니다.
+   * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB [bsondump 도구](https://docs.mongodb.com/manual/reference/program/bsondump/)에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 **Blob이 BSON 덤프를 포함합니다**를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
 
-      이 옵션을 선택할 경우 해당 스토리지 계정 연결 문자열이 다음 형식으로 나타나는지 확인하세요.
+     이 옵션을 선택할 경우 해당 스토리지 계정 연결 문자열이 다음 형식으로 나타나는지 확인하세요.
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      또한 Azure Storage의 형식 덤프 정보에 기반하여 다음 세부 정보를 유념해 두세요.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     또한 Azure Storage의 형식 덤프 정보에 기반하여 다음 세부 정보를 유념해 두세요.
 
-      * BSON 덤프의 경우 Blob 컨테이너 내 데이터는 데이터 파일이 collection.bson 형식의 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되는 bsondump 형식이어야 합니다. 메타데이터 파일(있는 경우)의 이름은 *collection*.metadata.json 형식을 사용하여 이름이 지정되어야 합니다.
+     * BSON 덤프의 경우 Blob 컨테이너 내 데이터는 데이터 파일이 collection.bson 형식의 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되는 bsondump 형식이어야 합니다. 메타데이터 파일(있는 경우)의 이름은 *collection*.metadata.json 형식을 사용하여 이름이 지정되어야 합니다.
 
-      * JSON 덤프의 경우 Blob 컨테이너의 파일은 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되어야 합니다. 각 데이터베이스 폴더 내에서 데이터 파일은 "data"라고 하는 하위 폴더에 배치되고 *collection*.json 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일(있는 경우)은 "metadata"라고 하는 하위 폴더에 배치되고 *collection*.json과 동일한 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일은 MongoDB bsondump 도구에서 생성한 것과 동일한 형식이어야 합니다.
+     * JSON 덤프의 경우 Blob 컨테이너의 파일은 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되어야 합니다. 각 데이터베이스 폴더 내에서 데이터 파일은 "data"라고 하는 하위 폴더에 배치되고 *collection*.json 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일(있는 경우)은 "metadata"라고 하는 하위 폴더에 배치되고 *collection*.json과 동일한 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일은 MongoDB bsondump 도구에서 생성한 것과 동일한 형식이어야 합니다.
 
    DNS 이름을 확인할 수 없는 경우에는 IP 주소를 사용할 수 있습니다.
 
@@ -155,7 +164,7 @@ Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 
 
     **만들기** 문자열이 데이터베이스 이름 옆에 나타나는 경우 Azure Database Migration Service가 대상 데이터베이스를 찾을 수 없으므로 해당 서비스가 데이터베이스를 만든다는 것을 나타냅니다.
 
-    마이그레이션의 이 시점에서 공유 처리량이 데이터베이스에 필요한 경우 처리량 RU를 지정합니다. Cosmos DB에서 데이터베이스 수준에서 또는 컬렉션 수준에서 개별적으로 처리량을 프로비전할 수 있습니다. 처리량은 RU([요청 단위](https://docs.microsoft.com/azure/cosmos-db/request-units))로 측정됩니다. [Azure Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)에 대해 자세히 알아봅니다.
+    마이그레이션의 이 시점에서 데이터베이스의 처리량을 공유하려면 처리량 RU를 지정합니다. Cosmos DB에서 데이터베이스 수준에서 또는 컬렉션 수준에서 개별적으로 처리량을 프로비전할 수 있습니다. 처리량은 RU([요청 단위](https://docs.microsoft.com/azure/cosmos-db/request-units))로 측정됩니다. [Azure Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)에 대해 자세히 알아봅니다.
 
     ![대상 데이터베이스에 매핑](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 

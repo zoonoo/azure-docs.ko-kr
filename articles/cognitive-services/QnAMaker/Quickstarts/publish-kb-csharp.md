@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/18/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 587661236e28b9e0fdf7d527b762897d417d0d98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170516"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 게시
 
@@ -41,7 +41,7 @@ ms.locfileid: "55866851"
 ## <a name="create-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 
 1. Open Visual Studio 2017 Community Edition.
-1. 새 **콘솔 앱(.Net Core)** 프로젝트를 만들고 프로젝트를 `QnaMakerQuickstart`로 이름 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
+1. 새 **콘솔 앱(.NET Core)** 프로젝트를 만들고 프로젝트를 이름을 `QnaMakerQuickstart`로 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
 
 ## <a name="add-required-dependencies"></a>필요한 종속성 추가
 

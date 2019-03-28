@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192475"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168608"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
 
@@ -89,7 +89,7 @@ Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 
 Azure AD 가입 디바이스를 구현하면 다음과 같은 이점이 제공됩니다.
 
-- Azure 관리 SaaS 앱 및 서비스에 대한 **SSO(Single Sign-On)**. 사용자가 회사 리소스에 액세스할 때 추가 인증 메시지가 표시되지 않습니다. SSO 기능은 사용할 수 있는 도메인 네트워크에 연결되지 않은 경우에도 동일합니다.
+- Azure 관리 SaaS 앱 및 서비스에 대한 **SSO(Single Sign-On)**. 사용자가 회사 리소스에 액세스할 때 추가 인증 메시지가 표시되지 않습니다. 사용자가 도메인 네트워크에 연결되어 있지 않은 경우에도 SSO 기능을 사용할 수 있습니다.
 
 - 가입 디바이스 간 사용자 설정의 **엔터프라이즈 규정 준수 로밍**. 사용자는 디바이스 간에 설정을 보기 위해 Microsoft 계정(예: Hotmail)을 연결할 필요가 없습니다.
 

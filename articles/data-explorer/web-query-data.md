@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106450"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225776"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>빠른 시작: Azure Data Explorer에서 데이터 쿼리
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-the-application"></a>애플리케이션에 로그인합니다.
 
-[응용 프로그램](https://dataexplorer.azure.com/)에 로그인합니다.
+[애플리케이션](https://dataexplorer.azure.com/)에 로그인합니다.
 
 ## <a name="add-clusters"></a>클러스터 추가
 
@@ -39,7 +39,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 1. 애플리케이션의 왼쪽 위에서 **클러스터 추가**를 선택합니다.
 
-1. **클러스터 추가** 대화 상자에 `https://help.kusto.windows.net`을 입력하고 **추가**를 선택합니다.
+1. **클러스터 추가** 대화 상자에서 URI를 입력한 다음, **추가**를 선택합니다.
+
+   `https://help.kusto.windows.net` help 클러스터 URI를 사용할 수 있습니다. 사용자 고유의 클러스터가 있는 경우 해당 클러스터의 URI를 제공합니다. 예를 들어 다음 이미지와 같이 `https://mydataexplorercluster.westus.kusto.windows.net`이 있습니다.
+
+    ![포털의 서버 URI](media/web-query-data/server-uri.png)
 
 1. 이제 왼쪽 창에 **help** 클러스터가 표시됩니다. 액세스 권한이 있는 샘플 테이블을 확인할 수 있도록 **Samples** 데이터베이스를 확장합니다.
 

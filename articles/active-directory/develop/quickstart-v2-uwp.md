@@ -3,8 +3,8 @@ title: Azure AD v2 Windows UWP 빠른 시작 | Microsoft Docs
 description: 유니버설 Windows 플랫폼(XAML) 애플리케이션이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 890bef048fbb9bd8bb7d246e4f09dc4ec420a7a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97ad2c5a395eb22ec8f20d4bab3e12f1091dceb0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200942"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "56197320"
 
 이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-uwp/uwp-intro.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-uwp/uwp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드

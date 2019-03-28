@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad14e552bd685c42289e7007002f5ddf039f8925
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008149"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Reliable Services 애플리케이션 배포
 
@@ -75,7 +75,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
 
-7. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 애플리케이션에 액세스합니다.
+7. 즐겨찾는 웹 브라우저를 열고 `http://localhost:8080`에 액세스하여 애플리케이션에 액세스합니다.
 
     ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-java/runninglocally.png)
 

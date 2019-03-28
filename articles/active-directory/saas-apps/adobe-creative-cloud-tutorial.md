@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225945c3accb9a92cc4a04faa9ba029092feae57
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>자습서: Adobe Creative Cloud와 Azure Active Directory 통합
 
@@ -205,7 +205,7 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -249,9 +249,9 @@ Azure AD 사용자가 Adobe Creative Cloud에 로그인할 수 있도록 하려�
 2. Adobe의 콘솔에서 사용자를 페더레이션 ID로 추가하고 제품 프로필에 할당합니다. 사용자를 추가하는 방법에 대한 자세한 내용은 [Adobe 관리 콘솔에서 사용자 추가](https://helpx.adobe.com/enterprise/using/users.html#Addusers)를 참조하세요. 
 
 3. 이 시점에서 이메일 주소/UPN을 Adobe 로그인 양식에 입력하고 Tab 키를 눌러 다음과 같이 Azure AD에 다시 페더레이션되어야 합니다.
-    * 웹 액세스: www.adobe.com > 로그인
-    * 바탕 화면 앱 유틸리티 내에서 > 로그인
-    * 애플리케이션 내에서 &gt; 도움말 &gt; 로그인
+   * 웹 액세스: www\.adobe.com > 로그인
+   * 바탕 화면 앱 유틸리티 내에서 > 로그인
+   * 애플리케이션 내에서 &gt; 도움말 &gt; 로그인
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

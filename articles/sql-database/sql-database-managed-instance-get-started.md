@@ -11,19 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 03/13/2019
+ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997511"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기
 
 이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [관리되는 인스턴스](sql-database-managed-instance.md)를 만드는 방법을 안내합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+> [!IMPORTANT]
+> 제한 사항은 [지원되는 지역](sql-database-managed-instance-resource-limits.md#supported-regions)과 [지원되는 구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)을 참조하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -49,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
    |**데이터 정렬**|관리되는 인스턴스에 사용할 데이터 정렬|SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')`를 사용하여 원본 데이터 정렬을 확인하고 해당 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [서버 수준 데이터 정렬](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|
    |**위치**:|관리되는 인스턴스를 만들 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
-   |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크/서브넷이 회색으로 표시되는 경우 새 관리되는 인스턴스의 대상으로 선택하기 전에 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야 합니다. 관리되는 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항 관련 정보는 [관리되는 인스턴스에 대한 VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
+   |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크/서브넷을 사용할 수 없는 경우 새 관리형 인스턴스의 대상으로 선택하기 전에 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야 합니다. 관리되는 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항 관련 정보는 [관리되는 인스턴스에 대한 VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
    |**리소스 그룹**|새 리소스 그룹 또는 기존 리소스 그룹|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
 
    ![관리되는 인스턴스 양식](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

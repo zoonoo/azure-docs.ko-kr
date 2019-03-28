@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849298"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>자습서: Azure Resource Manager 템플릿 참조 활용
 
 템플릿 스키마 정보를 찾고, 그 정보를 사용하여 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다.
 
 이 자습서에서는 Azure 빠른 시작 템플릿의 기본 템플릿을 사용합니다. 템플릿 참조 설명서를 사용하고, 템플릿을 사용자 지정하여 암호화된 저장소 계정을 만듭니다.
+
+![Resource Manager 템플릿 참조가 암호화된 스토리지 계정 배포](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -76,9 +78,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="find-the-template-reference"></a>템플릿 참조 찾기
 
-1. [Azure 템플릿](https://docs.microsoft.com/azure/templates/)으로 이동합니다.
-2. **제목으로 필터링**에 **저장소 계정**을 입력합니다.
-3. 다음 스크린샷과 같이 **참조/템플릿 참조/스토리지/<Version>/스토리지 계정**을 차례로 선택합니다.
+1. [Azure 템플릿 참조](https://docs.microsoft.com/azure/templates/)로 이동합니다.
+2. **제목으로 필터링**에 **스토리지 계정**을 입력합니다.
+3. 다음 스크린샷과 같이 **참조/템플릿 참조/스토리지/&lt;버저>/스토리지 계정**을 차례로 선택합니다.
 
     ![Resource Manager 템플릿 참조 저장소 계정](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
@@ -139,7 +141,7 @@ Visual Studio Code에서 리소스 요소가 다음과 같이 표시되도록 �
 
 배포 절차는 Visual Studio Code 빠른 시작의 [템플릿 배포](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요.
 
-다음 스크린샷에서는 새로 만든 저장소 계정을 나열하고 Blob 저장소에 암호화를 사용하도록 설정되었는지 여부를 나타내는 CLI 명령을 보여 줍니다.
+다음 스크린샷에서는 새로 만든 스토리지 계정을 나열하고 Blob Storage에 암호화를 사용하도록 설정되었는지 여부를 나타내는 CLI 명령을 보여 줍니다.
 
 ![Azure Resource Manager 암호화된 저장소 계정](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 

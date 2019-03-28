@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109800"
 ---
 # <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 공용 부하 분산 장치 만들기
 
@@ -229,7 +229,7 @@ $nsg = New-AzNetworkSecurityGroup `
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ $availabilitySet = New-AzAvailabilitySet `
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다. 아래 예제에서는 VM을 만드는 동안 이전에 만든 NIC는 동일한 가상 네트워크 (*myVnet*) 및 서브넷(*mySubnet*)이 할당되므로 해당 VM과 연결됩니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다. 이 예제에서는 이전 단계에서 생성된 NIC(*VM1* 및 *VM2*)가 동일한 이름으로 동일한 가상 네트워크(*myVnet*)와 서브넷(*mySubnet*)이 할당되므로, 가상 머신 *VM1* 및 *VM2*에 자동으로 할당됩니다. 또한 NIC는 부하 분산 장치의 백 엔드 풀에 연결되어 있으므로 VM 백 엔드 풀에 자동으로 추가됩니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,18 +295,18 @@ for ($i=1; $i -le 2; $i++)
 
 1. Load Balancer의 공용 IP 주소를 가져옵니다. `Get-AzPublicIPAddress`를 사용하여 Load Balancer의 공용 IP 주소를 가져옵니다.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. 이전 단계에서 가져온 공용 IP 주소를 사용하여 VM1에 대한 원격 데스크톱 연결을 만듭니다. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. *VM1*에 대한 자격 증명을 입력하여 RDP 세션을 시작합니다.
 4. VM1에서 Windows PowerShell을 실행하고, 다음 명령을 사용하여 IIS 서버를 설치하고 기본 htm 파일을 업데이트합니다.
     ```azurepowershell-interactive

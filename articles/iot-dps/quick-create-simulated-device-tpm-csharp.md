@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901590"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전
 
@@ -78,14 +78,14 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 4. Azure Portal의 Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
 5. **등록 추가** 아래에서 다음 정보를 입력합니다.
-    - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
-    - 앞에서 설명한 대로 TPM 디바이스의 ‘등록 ID’ 및 ‘인증 키’를 입력합니다.
-    - 필요에 따라 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
-    - 고유한 디바이스 ID를 입력합니다. 샘플 출력에서 제안된 디바이스 ID를 입력하거나 직접 입력할 수 있습니다. 사용자 고유의 디바이스를 사용하는 경우 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
-    - 필요한 경우 디바이스의 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
-    - 완료되면 **저장** 단추를 클릭합니다. 
+   - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
+   - 앞에서 설명한 대로 TPM 디바이스의 ‘등록 ID’ 및 ‘인증 키’를 입력합니다.
+   - 필요에 따라 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
+   - 고유한 디바이스 ID를 입력합니다. 샘플 출력에서 제안된 디바이스 ID를 입력하거나 직접 입력할 수 있습니다. 사용자 고유의 디바이스를 사용하는 경우 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
+   - 필요한 경우 디바이스의 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
+   - 완료되면 **저장** 단추를 클릭합니다. 
 
-    ![포털 블레이드에 디바이스 등록 정보 입력](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![포털 블레이드에 디바이스 등록 정보 입력](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    등록에 성공하면 디바이스의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
 

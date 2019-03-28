@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003409"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -49,9 +49,9 @@ v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 
 
 * 미디어 처리 또는 분석 작업의 간단한 워크플로를 정의하는 데 도움이 되는 **변환**. 변환은 비디오 및 오디오 파일을 처리하는 방법입니다. 그런 다음 작업을 변환에 제출하여 콘텐츠 라이브러리에 있는 모든 파일을 처리하도록 이를 반복적으로 적용할 수 있습니다.
 * 비디오를 처리(인코딩 또는 분석)하는 **작업**. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일 경로를 사용하여 작업에 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
-* 작업 진행 또는 상태, 또는 Live Channel 시작/중지 및 오류 이벤트를 모니터링하는 **알림**. 알림은 Azure Event Grid 알림 시스템과 통합됩니다. Azure Media Services에서 여러 리소스의 이벤트를 쉽게 구독할 수 있습니다. 
-* **Azure Resource Management** 템플릿은 Transforms, Streaming Endpoints, Channels 등을 만들고 배포할 수 있습니다.
-* **역할 기반 액세스 제어**는 리소스 수준에서 설정할 수 있으므로 Transforms, Channels 등과 같은 특정 리소스에 대한 액세스를 잠글 수 있습니다.
+* 작업 진행률이나 상태 또는 라이브 이벤트 시작/중지 및 오류 이벤트를 모니터링하는 **알림**. 알림은 Azure Event Grid 알림 시스템과 통합됩니다. Azure Media Services에서 여러 리소스의 이벤트를 쉽게 구독할 수 있습니다. 
+* **Azure Resource 관리** 템플릿을 사용하여 변환, 스트리밍 엔드포인트, 라이브 이벤트 등을 만들고 배포할 수 있습니다.
+* **역할 기반 액세스 제어**는 리소스 수준에서 설정할 수 있으므로 변환, 라이브 이벤트 등과 같은 특정 리소스에 대한 액세스를 잠글 수 있습니다.
 * 여러 언어로 된 **클라이언트 SDK**: .NET, .NET core, Python, Go, Java, 및 Node.js.
 
 ## <a name="naming-conventions"></a>명명 규칙

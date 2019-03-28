@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7e6ac19d3116b51a309816170413b694a15ef0c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086227"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
-여러 리소스를 배포하는 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다.  템플릿을 만든 후에는 Azure Portal에서 Cloud shell을 사용하여 템플릿을 배포합니다.
+Azure Resource Manager 템플릿을 만들어서 여러 리소스를 배포하고 배포 순서를 구성하는 방법을 알아봅니다. 템플릿을 만든 후에는 Azure Portal에서 Cloud shell을 사용하여 템플릿을 배포합니다.
 
 이 자습서에서는 저장소 계정, 가상 머신, 가상 네트워크 및 몇 가지 다른 종속 리소스를 만듭니다. 일부 리소스는 다른 리소스가 존재하기 전에는 배포할 수 없습니다. 예를 들어 저장소 계정 및 네트워크 인터페이스가 없으면 가상 머신을 만들 수 없습니다. 한 리소스를 다른 리소스의 종속 리소스로 만들어서 이 관계를 정의할 수 있습니다. Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./resource-group-define-dependencies.md)를 참조하세요.
+
+![리소스 관리자 템플릿 종속 리소스 배포 순서 다이어그램](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -75,13 +77,13 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
     템플릿에 5개 리소스가 정의되어 있습니다.
 
-    * `Microsoft.Storage/storageAccounts`. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-    * `Microsoft.Network/publicIPAddresses`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-    * `Microsoft.Network/virtualNetworks`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-    * `Microsoft.Network/networkInterfaces`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-    * `Microsoft.Compute/virtualMachines`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * `Microsoft.Storage/storageAccounts`. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
+   * `Microsoft.Network/publicIPAddresses`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
+   * `Microsoft.Network/virtualNetworks`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
+   * `Microsoft.Network/networkInterfaces`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
+   * `Microsoft.Compute/virtualMachines`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
-    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 
 2. 첫 번째 리소스를 확장합니다. 저장소 계정입니다. 리소스 정의를 [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다.
 

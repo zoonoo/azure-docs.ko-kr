@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 839c97ccccbc1ce2cf646afcd27894a190eda1b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110327"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -38,18 +38,18 @@ New-AzResourceGroup -name MyResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
-DNS 영역은 `New-AzDnsZone` cmdlet을 사용하여 생성됩니다. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹에 *contoso.com*이라는 DNS 영역을 만듭니다. 예제를 사용하여 DNS 영역을 만들고 사용자 고유 값으로 대체합니다.
+DNS 영역은 `New-AzDnsZone` cmdlet을 사용하여 생성됩니다. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹에 *contoso.xyz*라는 DNS 영역을 만듭니다. 예제를 사용하여 DNS 영역을 만들고 사용자 고유 값으로 대체합니다.
 
 ```powershell
-New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-`New-AzDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 "MyResourceGroup"에서 DNS 영역 "contoso.com"에 상대적 이름 "www"가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 "www.contoso.com"입니다. 레코드 형식은 "A"이고, IP 주소는 "1.2.3.4"이며, TTL은 3600초입니다.
+`New-AzDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 "MyResourceGroup"에서 DNS 영역 "contoso.xyz"에 상대적 이름 "www"가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 "www.contoso.xyz"입니다. 레코드 형식은 "A"이고, IP 주소는 "10.10.10.10"이며, TTL은 3600초입니다.
 
 ```powershell
-New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.10.10.10")
 ```
 
 ## <a name="view-records"></a>레코드 보기
@@ -57,28 +57,40 @@ New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupN
 사용자 영역에 DNS 레코드를 나열하려면 다음을 사용하세요.
 
 ```powershell
-Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
-## <a name="update-name-servers"></a>이름 서버 업데이트
+## <a name="test-the-name-resolution"></a>이름 확인 테스트
 
-DNS 영역 및 레코드가 적절히 설정되었다면 Azure DNS 이름 서버를 사용하도록 도메인 이름을 구성해야 합니다. 이렇게 하면 인터넷에 있는 다른 사용자가 DNS 레코드를 찾을 수 있습니다.
+이제 테스트 'A' 레코드가 포함된 테스트 DNS 영역이 있으므로 *nslookup*이라는 도구를 사용하여 이름 확인을 테스트할 수 있습니다. 
 
-영역에 대한 이름 서버는 `Get-AzDnsZone` cmdlet으로 지정됩니다.
+**DNS 이름 확인을 테스트하려면**
 
-```powershell
-Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+1. 다음 cmdlet을 실행하여 영역에 대한 이름 서버 목록을 가져옵니다.
 
-Name                  : contoso.com
-ResourceGroupName     : myresourcegroup
-Etag                  : 00000003-0000-0000-b40d-0996b97ed101
-Tags                  : {}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., ns4-01.azure-dns.info.}
-NumberOfRecordSets    : 3
-MaxNumberOfRecordSets : 5000
-```
+   ```azurepowershell
+   Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -RecordType ns
+   ```
 
-이러한 이름 서버는 사용자가 도메인 이름을 구입한 도메인 이름 등록 기관에서 구성해야 합니다. 등록 기관에서 도메인에 대한 이름 서버를 설정하는 옵션을 제공합니다. 자세한 내용은 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md#delegate-the-domain)를 참조하세요.
+1. 이전 단계의 출력에서 이름 서버 이름 중 하나를 복사합니다.
+
+1. 명령 프롬프트를 열고 다음 명령을 실행합니다.
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   예: 
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   다음 화면과 유사한 출력이 표시됩니다.
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+호스트 이름 **www\.contoso.xyz**는 구성한 대로 **10.10.10.10**으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 
 ## <a name="delete-all-resources"></a>모든 리소스 삭제
 

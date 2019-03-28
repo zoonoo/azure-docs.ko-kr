@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119270"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인
 
@@ -39,33 +39,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소스](./concepts-compute-unit-and-storage.md) 집합으로 만들어집니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만들어집니다.
 
 다음 단계에 따라 Azure Database for PostgreSQL 서버를 만듭니다.
-1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
-2.  **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **PostgreSQL용 Azure Database**를 선택합니다.
-  ![PostgreSQL용 Azure Database - 데이터베이스 만들기](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **PostgreSQL용 Azure Database**를 선택합니다.
+   ![PostgreSQL용 Azure Database - 데이터베이스 만들기](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  새 서버 세부 정보 양식을 다음 정보로 작성합니다.
+3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
 
-    ![서버 만들기](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![서버 만들기](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
-    - 서버 이름: **mydemoserver**(서버 이름은 DNS 이름에 매핑되므로 전역적으로 고유해야 함.) 
-    - 구독: 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다.
-    - 리소스 그룹: **myresourcegroup**
-    - 서버 관리자 로그인 및 선택한 암호
-    - 위치
-    - PostgreSQL 버전
+   - 서버 이름: **mydemoserver**(서버 이름은 DNS 이름에 매핑되므로 전역적으로 고유해야 함.) 
+   - 구독: 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다.
+   - 리소스 그룹: **myresourcegroup**
+   - 서버 관리자 로그인 및 선택한 암호
+   - 위치
+   - PostgreSQL 버전
 
    > [!IMPORTANT]
    > 여기에 지정하는 서버 관리자 로그인 및 암호는 이 자습서의 뒷부분에서 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
 
-4.  **가격 책정 계층**을 클릭하여 새 서버에 대한 가격 책정 계층을 지정합니다. 이 자습서에서는 **범용**, **4세대** 세대 계산, 2개 **vCore**, 5GB **저장소** 및 7일 **백업 보존 기간**을 선택합니다. 서버의 자동 백업을 지역 중복 저장소에 저장하려면 **지역 중복** 백업 중복 옵션을 선택합니다.
- ![Azure Database for PostgreSQL - 가격 책정 계층 선택](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+4. **가격 책정 계층**을 클릭하여 새 서버에 대한 가격 책정 계층을 지정합니다. 이 자습서에서는 **범용**, **5세대** 세대 컴퓨팅, 2개 **vCores**, 5GB **스토리지** 및 7일 **백업 보존 기간**을 선택합니다. 서버의 자동 백업을 지역 중복 저장소에 저장하려면 **지역 중복** 백업 중복 옵션을 선택합니다.
+   ![Azure Database for PostgreSQL - 가격 책정 계층 선택](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
-5.  **Ok**를 클릭합니다.
+5. **Ok**를 클릭합니다.
 
-6.  **만들기**를 클릭하여 서버를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다.
+6. **만들기**를 클릭하여 서버를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다.
 
-7.  도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
- ![PostgreSQL용 Azure Database - 알림 확인](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+7. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
+   ![PostgreSQL용 Azure Database - 알림 확인](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
 
    > [!TIP]
    > 배포를 쉽게 추적할 수 있도록 **대시보드에 고정** 옵션을 선택합니다.
@@ -76,17 +76,17 @@ Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소�
 
 Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합니다. 기본적으로 방화벽 규칙을 만들어 특정 IP 주소 범위에 대해 방화벽을 열지 않는 한 이 방화벽은 모든 외부 애플리케이션과 도구가 서버 및 서버의 모든 데이터베이스에 연결되는 것을 방지합니다. 
 
-1.  배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고, **mydemoserver** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
+1. 배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고, **mydemoserver** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
    ![PostgreSQL용 Azure Database - 서버 검색](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  서버 페이지에서 **연결 보안**을 선택합니다. 
+2. 서버 페이지에서 **연결 보안**을 선택합니다. 
 
-3.  **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 허용 목록으로 만드는 새 방화벽 규칙을 추가합니다. IP 범위를 입력합니다. **저장**을 클릭합니다.
+3. **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 허용 목록으로 만드는 새 방화벽 규칙을 추가합니다. IP 범위를 입력합니다. **저장**을 클릭합니다.
 
    ![PostgreSQL용 Azure Database - 방화벽 규칙 만들기](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  **저장**을 클릭한 다음 **X**를 클릭하여 **연결 보안** 페이지를 닫습니다.
+4. **저장**을 클릭한 다음 **X**를 클릭하여 **연결 보안** 페이지를 닫습니다.
 
    > [!NOTE]
    > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -184,11 +184,11 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>이전 시점으로 데이터 복원
 실수로 이 테이블을 삭제했다고 가정해 보겠습니다. 이 상황은 쉽게 복구할 수 있는 것이 아닙니다. Azure Database for PostgreSQL을 사용하면, 서버에 백업이 있는 특정 시점(구성한 백업 보존 기간에 따라 결정됨)으로 돌아가서 새 서버를 이 시점으로 복원할 수 있습니다. 이 새 서버를 사용하여 삭제된 데이터를 복구할 수 있습니다. 다음 단계는 inventory 테이블을 추가하기 전의 시점으로 **mydemoserver** 서버를 복원합니다.
 
-1.  서버에 대한 Azure Database for PostgreSQL **개요** 페이지의 도구 모음에서 **복원**을 클릭합니다. **복원** 페이지가 열립니다.
+1. 서버에 대한 Azure Database for PostgreSQL **개요** 페이지의 도구 모음에서 **복원**을 클릭합니다. **복원** 페이지가 열립니다.
 
    ![Azure Portal - 복원 양식 옵션](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 
-2.  필요한 정보로 **복원** 양식을 채웁니다.
+2. 필요한 정보로 **복원** 양식을 채웁니다.
 
    ![Azure Portal - 복원 양식 옵션](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
@@ -196,7 +196,7 @@ SELECT * FROM inventory;
    - **대상 서버**: 복원해 두려는 새 서버의 이름을 제공합니다.
    - **위치**: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
    - **가격 책정 계층**: 이 값은 서버를 복원할 때 변경할 수 없습니다. 원본 서버와 동일합니다. 
-3.  **확인**을 클릭하여 테이블이 삭제되기 전의 [특정 시점으로 서버를 복원](./howto-restore-server-portal.md)합니다. 서버를 다른 특정 시점으로 복원할 때 [가격 책정 계층](./concepts-pricing-tiers.md)에 대한 보존 기간 내에 있으면, 중복된 새 서버가 지정한 특정 시점의 원본 서버로 만들어집니다.
+3. **확인**을 클릭하여 테이블이 삭제되기 전의 [특정 시점으로 서버를 복원](./howto-restore-server-portal.md)합니다. 서버를 다른 특정 시점으로 복원할 때 [가격 책정 계층](./concepts-pricing-tiers.md)에 대한 보존 기간 내에 있으면, 중복된 새 서버가 지정한 특정 시점의 원본 서버로 만들어집니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Portal 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아보았습니다.

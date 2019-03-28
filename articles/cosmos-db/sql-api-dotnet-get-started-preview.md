@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078638"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
 
@@ -68,7 +68,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 1. **NuGet** 탭에서 **찾아보기**를 클릭하고, 검색 상자에 **Microsoft.Azure.Cosmos**를 입력합니다. *시험판 포함*을 확인하여 미리 보기를 찾습니다.
 1. 결과 내에서 **Microsoft.Azure.Cosmos**를 찾고 **설치**를 클릭합니다.
    Azure Cosmos DB SQL API 클라이언트 라이브러리의 패키지 ID는 [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)입니다.
-   ![Azure Cosmos DB 클라이언트 SDK를 찾기 위한 NuGet 메뉴의 스크린샷](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Azure Cosmos DB 클라이언트 SDK를 찾는 NuGet 메뉴의 스크린샷](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     솔루션 변경 내용을 검토하는 메시지가 표시되면 **확인**을 클릭합니다. 라이선스 승인에 관한 메시지가 표시되면 **동의합니다.** 를 클릭합니다.
 
@@ -119,7 +119,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
     포털에서 URI를 복사하고 ```Program.cs``` 파일의 `<your endpoint URL>`에 붙여넣습니다. 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여넣습니다.
 
-   ![Azure Portal에서 Azure Cosmos DB 키를 가져오는 스크린샷](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Azure Portal에서 Azure Cosmos DB 키를 구하는 스크린샷](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. 다음으로 ```CosmosClient```의 새 인스턴스를 만들고 프로그램에 대한 몇 가지 스캐폴딩을 설정합니다.
 
@@ -321,7 +321,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
         await this.CreateContainer();
     }
     ```
-**F5** 키를 선택하여 애플리케이션을 실행합니다.
+   **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
 축하합니다! Azure Cosmos DB 컨테이너를 성공적으로 만들었습니다.  
 
@@ -599,7 +599,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
         await this.ReplaceFamilyItem();
     }
     ```
-**F5** 키를 선택하여 애플리케이션을 실행합니다.
+   **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
 축하합니다! Azure Cosmos DB 항목을 성공적으로 대체했습니다.
 

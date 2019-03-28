@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 4518f5a6bd232bce3cf973c21944ef3aa722d1f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 573c45eb9c48d7b6663b518d4830577f951ec70d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727148"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899403"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문자열 번역
 
@@ -32,7 +32,7 @@ ms.locfileid: "56727148"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `translate-text.py`라는 파일의 프로젝트에 복사합니다.
+즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `translate-text.py`라는 파일의 프로젝트에 복사합니다. 라이브러리가 인식되려면 IDE의 인터프리터가 올바른 버전의 Python을 참조해야 합니다.
 
 ```python
 # -*- coding: utf-8 -*-

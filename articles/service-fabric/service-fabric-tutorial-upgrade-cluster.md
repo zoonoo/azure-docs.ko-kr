@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671559"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224960"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
-이 자습서는 시리즈의 3부로, Azure Service Fabric 클러스터에서 Service Fabric 런타임을 업그레이드하는 방법을 보여 줍니다. 이 자습서 편은 Azure에서 실행되는 Service Fabric 클러스터를 대상으로 하며 독립 실행형 Service Fabric 클러스터에는 해당하지 않습니다.
+이 자습서는 시리즈의 4부로, Azure Service Fabric 클러스터에서 Service Fabric 런타임을 업그레이드하는 방법을 보여 줍니다. 이 자습서 편은 Azure에서 실행되는 Service Fabric 클러스터를 대상으로 하며 독립 실행형 Service Fabric 클러스터에는 해당하지 않습니다.
 
 > [!WARNING]
 > 이 자습서 편에는 PowerShell이 필요합니다. Azure CLI 도구에서는 클러스터 런타임 업그레이드가 아직 지원되지 않습니다. 대신 포털에서 클러스터를 업그레이드할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요.
@@ -40,6 +40,7 @@ ms.locfileid: "56671559"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
+> * [클러스터 모니터링](service-fabric-tutorial-monitor-cluster.md)
 > * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
 > * 클러스터의 런타임 업그레이드
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)

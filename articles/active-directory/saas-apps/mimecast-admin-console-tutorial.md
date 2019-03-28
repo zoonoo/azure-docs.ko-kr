@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beccce5c7d2378533bdeb9f2fbcee1c742ef6bd4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>자습서: Mimecast 관리 콘솔과 Azure Active Directory 통합
 
@@ -106,6 +106,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하려면 다음 �
     ![Mimecast 관리 콘솔 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
     **로그온 URL** 텍스트 상자에서 URL을 입력합니다.
+    
     | |
     | -- |
     | `https://webmail-uk.mimecast.com`|
@@ -187,7 +188,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

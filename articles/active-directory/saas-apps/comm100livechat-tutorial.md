@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882045"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>자습서: Comm100 Live Chat과 Azure Active Directory 통합
 
@@ -154,29 +154,29 @@ Comm100 Live Chat에서 Azure AD Single Sign-on을 구성하려면 다음 단계
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>Comm100 Live Chat Single Sign-On 구성
 
-9. 다른 웹 브라우저 창에서 Comm100 Live Chat에 보안 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Comm100 Live Chat에 보안 관리자로 로그인합니다.
 
-10. 페이지 오른쪽 상단에서 **내 계정**을 클릭합니다.
+1. 페이지 오른쪽 상단에서 **내 계정**을 클릭합니다.
 
-    ![Comm100 Live Chat 내 계정](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Comm100 Live Chat 내 계정](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. 왼쪽 메뉴에서 **보안**을 클릭한 다음, **에이전트 Single Sign-On**을 클릭합니다.
+1. 왼쪽 메뉴에서 **보안**을 클릭한 다음, **에이전트 Single Sign-On**을 클릭합니다.
 
-    ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. **에이전트 Single Sign-On** 페이지에서 다음 단계를 수행합니다.
+1. **에이전트 Single Sign-On** 페이지에서 다음 단계를 수행합니다.
 
-    ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. 첫 번째 강조 표시된 링크를 복사하여 Azure Portal의 **Comm100 Live Chat Domain and URLs** 섹션에서 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+   a. 첫 번째 강조 표시된 링크를 복사하여 Azure Portal의 **Comm100 Live Chat Domain and URLs** 섹션에서 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
-    b. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+   b. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+   다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 base-64 인코딩 인증서를 **인증서**에 업로드합니다.
+   d. **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 base-64 인코딩 인증서를 **인증서**에 업로드합니다.
 
-    e. **변경 내용 저장**을 클릭합니다.
+   e. **변경 내용 저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -196,7 +196,7 @@ Comm100 Live Chat에서 Azure AD Single Sign-on을 구성하려면 다음 단계
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -249,7 +249,7 @@ Azure AD 사용자가 Comm100 Live Chat에 로그인할 수 있도록 하려면 
 
     ![Comm100 Live Chat 새 에이전트](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. **이메일** 텍스트 상자에 사용자의 이메일(예: **Brittasimon@contoso.com**)을 입력합니다.
+    a. a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **Brittasimon\@contoso.com**)를 입력합니다.
 
     b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109168"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing News Search SDK로 뉴스 검색 수행
 
@@ -35,7 +35,7 @@ Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설치하려�
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. `CognitiveServicesCredentials` 인스턴스를 만듭니다. 구독 키 및 검색어에 대한 변수를 만듭니다.
+1. `CognitiveServicesCredentials` 인스턴스를 만듭니다. 구독 키 및 검색 용어에 대한 변수를 만듭니다.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -52,7 +52,7 @@ Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설치하려�
 
 ## <a name="send-a-search-query"></a>검색 쿼리 보내기
 
-3. 클라이언트를 사용하여 쿼리 용어를 검색합니다(이 경우 “Winter Olympics”).
+1. 클라이언트를 사용하여 쿼리 용어를 검색합니다(이 경우 “Winter Olympics”).
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설치하려�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)
+> [단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

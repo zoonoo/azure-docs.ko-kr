@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e4769a0089259ee337931e2dbc0e8bcc9290c5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9275129c4339a6eae7ea8a44b22cbc78303cbf01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>자습서: ArcGIS Enterprise와 Azure Active Directory 통합
 
@@ -174,7 +174,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c064874c7eeeae0ae0b1176e3756be24f225e7fb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818632"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295813"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -35,7 +35,7 @@ ms.locfileid: "56818632"
 > * 사용자 지정 매개 변수를 사용하여 로컬로 모델 실행
 > * 결과 탐색
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
 > 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.0에서 테스트되었습니다.
@@ -82,18 +82,19 @@ Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Le
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>개발 환경 설정
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+개발 작업에 대한 모든 설정은 Python Notebook에서 수행할 수 있습니다. 설정에 포함되는 작업은 다음과 같습니다.
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* SDK 설치
+* Python 패키지 가져오기
+* 작업 영역 구성
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>패키지 가져오기 및 설치
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+사용자 고유의 Python 환경에서 자습서를 수행하는 경우 필요한 패키지를 설치하려면 다음을 사용합니다.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib
@@ -111,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
 
 `Workspace.from_config()`는 **aml_config/config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 

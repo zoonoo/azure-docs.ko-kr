@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1fba2c4e5191d4c827035362a8eb6876fcbb67cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081749"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -27,6 +27,7 @@ ms.locfileid: "54053368"
 > * 필터링된 데이터를 봅니다.
 
 <center>
+
 ![다이어그램 - 함수 모듈 아키텍처, 스테이징 및 배포 자습서](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
@@ -227,7 +228,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 명령을 검색하여 실행합니다. 
+3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 선택합니다. 
 
 4. IoT Hub가 있는 구독을 선택한 다음, 액세스하려는 IoT 허브를 선택합니다.
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af11c7c347481921f04e63276e946e679b03cdd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Adobe Sign Single Sign-On 구성
 
-7. 구성을 시작하기 전에 [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 문의하여 Adobe Sign에서 사용자의 도메인을 허용 목록에 포함해야 합니다. 도메인을 추가하는 방법을 다음과 같습니다.
+1. 구성을 시작하기 전에 [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 문의하여 Adobe Sign에서 사용자의 도메인을 허용 목록에 포함해야 합니다. 도메인을 추가하는 방법을 다음과 같습니다.
 
     a. [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에서 임의로 생성된 토큰을 보냅니다. 사용자의 도메인에 대한 토큰은 다음과 같습니다. **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -147,33 +147,33 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     * Adobe에서 제공한 전체 토큰 값으로 TXT 레코드를 추가합니다.
     * 변경 내용을 저장합니다.
 
-8. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
 
-9. SAML 메뉴에서 **계정 설정** > **SAML 설정**을 선택합니다.
+1. SAML 메뉴에서 **계정 설정** > **SAML 설정**을 선택합니다.
    
     ![Adobe Sign SAML 설정 페이지의 스크린샷](./media/adobe-echosign-tutorial/ic789520.png "계정")
 
-10. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
+1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
   
-    ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/ic789521.png "SAML 설정")
+   ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/ic789521.png "SAML 설정")
    
-    ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/ic789522.png "SAML 설정")
+   ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/ic789522.png "SAML 설정")
 
-    a. **SAML 모드**에서 **SAML 필수**를 선택합니다.
+   a. **SAML 모드**에서 **SAML 필수**를 선택합니다.
    
-    b. **Echosign 계정 관리자가 Echosign 자격 증명을 사용하여 로그인할 수 있게 허용**을 선택합니다.
+   b. **Echosign 계정 관리자가 Echosign 자격 증명을 사용하여 로그인할 수 있게 허용**을 선택합니다.
    
-    다. **사용자 만들기**에서 **SAML을 통해 인증된 사용자를 자동으로 추가**를 선택합니다.
+   다. **사용자 만들기**에서 **SAML을 통해 인증된 사용자를 자동으로 추가**를 선택합니다.
 
-    d. Azure Portal에서 복사한 **Azure AD 식별자**를 **IdD 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+   d. Azure Portal에서 복사한 **Azure AD 식별자**를 **IdD 엔터티 ID** 텍스트 상자에 붙여넣습니다.
     
-    e. Azure Portal에서 복사한 **로그인 URL**을 **Idp 로그인 URL** 텍스트 상자에 붙여넣습니다.
+   e. Azure Portal에서 복사한 **로그인 URL**을 **Idp 로그인 URL** 텍스트 상자에 붙여넣습니다.
    
-    f. Azure Portal에서 복사한 **로그아웃 URL**을 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+   f. Azure Portal에서 복사한 **로그아웃 URL**을 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    g. 다운로드한 **인증서(Base64)** 파일을 메모장에서 엽니다. 내용을 클립보드로 복사한 다음, **IdP 인증서** 텍스트 상자에 붙여넣습니다.
+   g. 다운로드한 **인증서(Base64)** 파일을 메모장에서 엽니다. 내용을 클립보드로 복사한 다음, **IdP 인증서** 텍스트 상자에 붙여넣습니다.
 
-    h. **변경 내용 저장**을 선택합니다.
+   h. **변경 내용 저장**을 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -193,7 +193,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

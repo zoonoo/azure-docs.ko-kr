@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004641"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -85,7 +85,7 @@ VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허�
     | 방향         | 아웃바운드                                                                                          |
     | 로컬 IP 주소  | 10.0.0.4                                                                                          |
     | 로컬 포트      | 60000                                                                                                |
-    | 원격 IP 주소 | 13.107.21.200 - www.bing.com에 대한 주소 중 하나입니다.                                             |
+    | 원격 IP 주소 | 13.107.21.200 - <www.bing.com>에 대한 주소 중 하나입니다.                                             |
     | 원격 포트       | 80                                                                                                |
 
     ![IP 흐름 확인](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

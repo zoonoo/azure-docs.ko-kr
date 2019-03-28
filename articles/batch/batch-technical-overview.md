@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621282"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730953"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -30,7 +30,7 @@ ms.locfileid: "35621282"
 
 Batch 사용에 대한 추가 비용은 없습니다. 가상 머신, 저장소 및 네트워킹과 같은 기본 사용 리소스에 대해서만 비용을 지불합니다.
 
-Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [HPC, 배치 및 큰 계산 솔루션](../virtual-machines/linux/high-performance-computing.md)을 참조하세요.
+Azure에서 Batch 및 다른 HPC 솔루션 옵션 간의 비교는 [Azure의 고성능 컴퓨팅(HPC)](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/)을 참조하세요.
 
 ## <a name="run-parallel-workloads"></a>병렬 워크로드 실행
 Batch치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 워크로드에서 잘 작동합니다. 기본적으로 병렬 워크로드에서는 애플리케이션이 독립적으로 실행될 수 있으며, 각 인스턴스는 작업의 일부를 완료합니다. 애플리케이션은 실행 중에 몇 가지 공통 데이터에 액세스할 수 있지만 애플리케이션의 다른 인스턴스와 통신하지 않습니다. 따라서 본질적 병렬 워크로드는 애플리케이션을 동시에 실행하는 데 사용할 수 있는 계산 리소스의 양에 따라 대규모로 실행될 수 있습니다.

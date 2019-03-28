@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5cf14ae1dcbbb00d723a86213c2707ad91794b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564921"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225929"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -61,14 +61,14 @@ Azure IoT Edge 장치:
 
 2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
 
-   | 필드 | 값 | 
+   | 필드 | 값 |
    | ----- | ----- |
    | 레지스트리 이름 | 고유한 이름을 입력합니다. |
    | 구독 | 드롭다운 목록에서 구독을 선택합니다. |
    | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
    | 관리 사용자 | **사용**으로 설정합니다. |
-   | SKU | **기본**을 선택합니다. | **터미널**
+   | SKU | **기본**을 선택합니다. |
 
 5. **만들기**를 선택합니다.
 
@@ -107,7 +107,7 @@ Azure IoT Edge 장치:
  
    ![Docker 이미지 리포지토리 제공](./media/tutorial-node-module/repository.png)
 
-VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. **modules** 폴더에는 모듈에 대한 Node.js 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 디바이스에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 그리고 **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다. 
+VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. **modules** 폴더에는 모듈에 대한 Node.js 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 모듈을 디바이스에 배포하는 데 사용하는 정보가 포함되어 있으며, **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다. 
 
 솔루션을 만들 때 컨테이너 레지스트리를 지정하지 않았지만 기본값인 localhost:5000을 수락한 경우에는 \.env 파일이 없습니다. 
 
@@ -197,11 +197,11 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 11. NodeModule 모듈 쌍을 배포 매니페스트에 추가합니다. `$edgeHub` 모듈 쌍 뒤에 있는 `moduleContent` 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![배포 템플릿에 모듈 쌍 추가](./media/tutorial-node-module/module-twin.png)
@@ -222,7 +222,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
-솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 새 **config** 폴더에 `deployment.json` 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 빌드하고, Node.js 코드를 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 푸시합니다. 
+솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 새 **config** 폴더에 `deployment.json` 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 작성하고, Node.js 코드를 컨테이너화한 다음, 솔루션을 초기화했을 때 지정한 컨테이너 레지스트리로 푸시합니다. 
 
 VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그가 포함된 전체 컨테이너 이미지 주소를 확인할 수 있습니다. 이미지 주소는 `module.json` 파일의 정보에서 **\<리포지토리\>:\<버전\>-\<플랫폼\>**  형식으로 작성됩니다. 이 자습서에서 이 주소는 **registryname.azurecr.io/nodemodule:0.0.1-amd64**와 같습니다.
 

@@ -4,17 +4,17 @@ description: Azure Blueprint를 사용하여 Azure Portal을 통해 아티팩트
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818666"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004908"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>포털에서 Azure Blueprint 정의 및 할당
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![청사진 만들기](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. ‘MyBlueprint’와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다.  **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md) 또는 구독을 선택한 후에 **선택**을 클릭합니다.
+1. ‘MyBlueprint’와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다. **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md) 또는 구독을 선택한 후에 **선택**을 클릭합니다.
 
 1. **청사진 이름** 및 **정의 위치** 필드의 내용은 나중에 변경할 수 없으므로 정보가 올바른지 확인한 후에 페이지 맨 아래의 **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 목록에서 이전에 만든 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 편집**을 선택합니다.
 
-1. **청사진 설명**에 청사진과 해당 청사진을 구성하는 아티팩트에 대한 정보를 입력합니다.  여기서는 “이 청사진은 구독에서 태그 정책 및 역할 할당을 설정하고, ResourceGroup을 만들고, 해당 ResourceGroup에 리소스 템플릿 및 역할 할당을 배포합니다.”와 같은 설명을 입력합니다.
+1. **청사진 설명**에 청사진과 해당 청사진을 구성하는 아티팩트에 대한 정보를 입력합니다. 여기서는 “이 청사진은 구독에서 태그 정책 및 역할 할당을 설정하고, ResourceGroup을 만들고, 해당 ResourceGroup에 리소스 템플릿 및 역할 할당을 배포합니다.”와 같은 설명을 입력합니다.
 
 1. 페이지 맨 아래의 **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
 
@@ -186,13 +186,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > [!NOTE]
    > 선택한 각 구독에 대해 할당이 생성되므로 선택한 나머지 구독을 강제로 변경하지 않고도 나중에 구독 할당 하나만 변경할 수 있습니다.
 
-1. **할당된 이름**에 이 할당에 사용할 고유한 이름을 입력합니다.
+1. **할당 이름**에 이 할당의 고유한 이름을 입력합니다.
 
-1. **위치**에서 관리 ID를 생성할 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+1. **위치**에서 관리 ID 및 구독 배포 개체가 생성될 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
-1. ‘v1’ 항목에서 **게시됨** 버전의 **Blueprint 정의 버전** 드롭다운은 기본값(가장 최근의 **게시됨** 버전)으로 유지합니다.
+1. ‘v1’ 항목에서 **게시됨** 버전의 **Blueprint 정의 버전** 드롭다운을 유지합니다(기본값은 가장 최근 **게시됨** 버전임).
 
 1. **잠금 할당**에서는 기본값인 **잠그지 않음**을 유지합니다. 자세한 내용은 [청사진 리소스 잠금](./concepts/resource-locking.md)을 참조하세요.
+
+   ![할당 - 잠금 및 관리 ID](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. **관리 ID**에서 **시스템 할당 항목**의 기본값을 유지합니다.
 
 1. 구독 수준 역할 할당 **[사용자 그룹 또는 애플리케이션 이름]: 기여자**의 경우 사용자, 앱 또는 그룹을 검색하여 선택합니다.
 

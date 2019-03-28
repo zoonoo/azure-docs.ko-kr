@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074770"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901426"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -60,7 +60,7 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 이 앱의 포크를 만든 다음, 이 자습서의 이후 단계에서 사용할 수 있도록 해당 위치(URL)를 적어 둡니다. 자세한 내용은 [리포지토리 포크](https://help.github.com/articles/fork-a-repo/)를 참조하세요.    
 
 > [!NOTE]
-> 앱은 [Yeoman](http://yeoman.io/learning/index.html)을 통해 빌드되었습니다. Express, bower 및 grunt를 사용합니다. 그리고 일부 npm 패키지가 종속성으로 포함되어 있습니다.
+> 앱은 [Yeoman](https://yeoman.io/learning/index.html)을 통해 빌드되었습니다. Express, bower 및 grunt를 사용합니다. 그리고 일부 npm 패키지가 종속성으로 포함되어 있습니다.
 > 샘플에는 Nginx를 설정하고 앱을 배포하는 스크립트도 포함되어 있습니다. 이 스크립트는 가상 머신에서 실행됩니다. 특히 이 스크립트는 다음을 수행합니다.
 > 1. Node, Nginx 및 PM2를 설치합니다.
 > 2. Nginx 및 PM2를 구성합니다.
@@ -141,7 +141,7 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 8. 설치가 끝나면 배포 그룹 태그를 묻는 메시지가 나타납니다. 기본값을 그대로 적용합니다.
 9. Azure DevOps Services에서 **배포 그룹** 아래의 **대상**에서 새로 등록한 가상 컴퓨터를 확인합니다.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Azure Pipelines 릴리스 파이프라인 만들기
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Azure Pipelines 릴리스 파이프라인 만들기
 
 릴리스 파이프라인은 Azure Pipelines에서 앱을 배포하는 데 사용하는 프로세스를 지정합니다. 이 예제에서는 셸 스크립트를 실행합니다.
 

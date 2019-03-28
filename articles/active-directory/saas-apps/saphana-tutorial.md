@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865232"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>자습서: SAP HANA와 Azure Active Directory 통합
 
@@ -195,7 +195,7 @@ SAP HANA에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -248,8 +248,8 @@ SAP HANA는 기본적으로 사용하도록 설정되는 **Just-In-Time 프로�
 
 4. **외부 ID**(이 경우, BrittaSimon)를 추가하거나 **모두**를 선택합니다. 그런 다음 **확인**을 선택합니다.
 
-    >[!Note]
-    >**모두** 확인란을 선택하지 않으면 HANA의 사용자 이름이 도메인 접미사 앞에 있는 UPN의 사용자 이름과 정확히 일치해야 합니다. (예: BrittaSimon@contoso.com은 HANA에서 BrittaSimon이 됩니다.)
+   > [!Note]
+   > **모두** 확인란을 선택하지 않으면 HANA의 사용자 이름이 도메인 접미사 앞에 있는 UPN의 사용자 이름과 정확히 일치해야 합니다. (예: BrittaSimon@contoso.com은 HANA에서 BrittaSimon이 됩니다.)
 
 5. 테스트를 위해 모든 **XS** 역할을 사용자에게 할당합니다.
 

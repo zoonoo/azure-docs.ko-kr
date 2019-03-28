@@ -1,21 +1,21 @@
 ---
 title: 자습서 - Azure Cost Management에서 내보낸 데이터를 만들고 관리 | Microsoft Docs
-description: 이 문서에서는 외부 시스템에서 사용할 수 있도록 내보낸 Azure Cost Management 데이터를 만들고 관리하는 방법을 보여줍니다.
+description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014139"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "56100709"
 > * 데이터가 수집되는지 확인
 
 ## <a name="prerequisites"></a>필수 조건
-데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객을 포함하여 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한은 사용자 및 그룹별 데이터 내보내기에 대한 구독에 따라 지원됩니다.
+데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객을 포함하여 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 - 소유자 – 구독에 대한 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다.
 - 기여자 – 자신의 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다. 다른 사용자가 만든 예약된 내보내기의 이름을 수정할 수 있습니다.
@@ -45,9 +45,9 @@ Azure Storage 계정의 경우:
 
 ## <a name="create-a-daily-export"></a>일일 내보내기 만들기
 
-Cost Management + 청구 &gt; Cost Management &gt; 구독 &gt; 내보내기 &gt; **추가**에서 구독 또는 리소스 그룹을 선택합니다.
+데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **내보내기**를 클릭한 다음, 내보내기 옵션을 선택합니다. 예를 들어,**내보내기 예약**을 클릭합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
-내보내기의 이름을 입력하고 "월간 누계 비용 매일 내보내기" 옵션을 선택합니다. **다음**을 클릭합니다.
+**추가**를 클릭하고 내보내기의 이름을 입력한 다음, **월간 누계 비용 매일 내보내기** 옵션을 선택합니다. **다음**을 클릭합니다.
 
 ![내보내기 형식을 표시하는 새 내보내기 예제](./media/tutorial-export-acm-data/basics_exports.png)
 

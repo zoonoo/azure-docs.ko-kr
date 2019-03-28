@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200058"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 그룹 구성원 추가 또는 제거
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * 자동으로 채워지는 특정 파트너 회사의 게스트 사용자 그룹 만들기
+> * 파트너 회사에서 자동으로 채워지는 게스트 사용자 그룹 만들기
 > * 게스트 사용자가 액세스할 파트너 관련 기능에 대한 그룹에 라이선스 할당
 > * 보너스: 구성원에게 내부 전용 사이트에 대한 액세스 권한을 부여할 수 있도록 게스트 사용자를 제거하여 **모든 사용자**를 안전하게 보호
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 기능을 사용하려면 테넌트의 글로벌 관리자로서 Azure AD Premium 라이선스가 하나 필요합니다. 아직 없는 경우 Azure AD에서 **라이선스** > **제품** > **사용/구매**를 선택합니다.
+이 기능을 사용하려면 테넌트의 글로벌 관리자에 대한 하나의 Azure AD Premium 라이선스가 있어야 합니다. 아직 없는 경우 Azure AD에서 **라이선스** > **제품** > **사용/구매**를 선택합니다.
 
 사용자에게 라이선스를 할당하지 않아도 사용자가 동적 그룹의 구성원이 됩니다. 테넌트에 모든 사용자를 수용할 수 있는 최소한의 Azure AD Premium P1 라이선스만 있으면 됩니다. 
 
@@ -44,15 +44,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 먼저, 모두 단일 파트너 회사 소속인 게스트 사용자 그룹을 만들겠습니다. 이들에게는 특별한 라이선스가 필요하므로, 이 용도에 사용할 그룹을 따로 만드는 것이 종종 더 효율적입니다.
 
-1. 테넌트의 글로벌 관리자인 계정으로 Azure Portal [https://portal.azure.com](https://portal.azure.com) 에 로그인합니다.
+1. 테넌트에 대한 글로벌 관리자 계정을 사용하여 Azure Portal(https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **그룹** > **새 그룹**을 선택합니다.
-  ![새 그룹 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
+   ![새 그룹을 시작하는 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
 3. **그룹** 블레이드에서:
   
-  * 그룹 형식으로 **보안**을 선택합니다.
-  * 그룹의 이름 및 설명으로 `Guest users Contoso`를 입력합니다.
-  * **구성원 자격 유형**을 **동적 사용자**로 변경합니다.
-  * **동적 쿼리 추가**를 선택합니다.
+   * 그룹 형식으로 **보안**을 선택합니다.
+   * 그룹의 이름 및 설명으로 `Guest users Contoso`를 입력합니다.
+   * **구성원 자격 유형**을 **동적 사용자**로 변경합니다.
+   * **동적 쿼리 추가**를 선택합니다.
   
 4. **고급 규칙**을 선택하고, **고급 규칙** 상자에서 `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`를 입력합니다.
 5. **쿼리 추가**를 선택하여 블레이드를 닫습니다.

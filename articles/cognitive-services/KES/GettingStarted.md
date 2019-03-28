@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994948"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Knowledge Exploration Service 시작
 
@@ -64,7 +64,7 @@ ms.locfileid: "56309644"
 
 ## <a name="generate-data"></a>데이터 생성
 
-데이터 파일은 각 줄에서 논문의 특성 값을 [JSON 형식](http://json.org/)으로 지정하여 인덱싱할 게시 목록을 설명합니다.  다음 예제는 데이터 파일 *Academic.data*의 한 줄이며, 읽기 쉽도록 서식이 지정되었습니다.
+데이터 파일은 각 줄에서 논문의 특성 값을 [JSON 형식](https://json.org/)으로 지정하여 인덱싱할 게시 목록을 설명합니다.  다음 예제는 데이터 파일 *Academic.data*의 한 줄이며, 읽기 쉽도록 서식이 지정되었습니다.
 
 ```
 ...
@@ -207,7 +207,7 @@ XML 문법 사양이 준비되면 [`kes.exe build_grammar`](CommandLine.md#build
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>웹 서비스에서 문법 및 인덱스 호스트
 
-프로토타입을 신속하게 생성하기 위해 [`kes.exe host_service`](CommandLine.md#host_service-command)를 사용하여 로컬 컴퓨터의 웹 서비스에서 문법 및 인덱스를 호스트할 수 있습니다. 그런 다음, [Web API](WebAPI.md)를 통해 서비스에 액세스하여 데이터 정확성과 문법 디자인을 확인할 수 있습니다. 이 예제에서는 http://localhost:8000/에서 문법 파일 *Academic.grammar*와 인덱스 파일 *Academic.index*를 호스트합니다. 다음 명령을 사용합니다.
+프로토타입을 신속하게 생성하기 위해 [`kes.exe host_service`](CommandLine.md#host_service-command)를 사용하여 로컬 컴퓨터의 웹 서비스에서 문법 및 인덱스를 호스트할 수 있습니다. 그런 다음, [Web API](WebAPI.md)를 통해 서비스에 액세스하여 데이터 정확성과 문법 디자인을 확인할 수 있습니다. 이 예제에서는 `http://localhost:8000/`에서 문법 파일 *Academic.grammar*와 인덱스 파일 *Academic.index*를 호스트합니다. 다음 명령을 사용합니다.
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -238,7 +238,7 @@ Azure 외부에서 `kes.exe`를 실행하는 경우 인덱스가 10,000개의 �
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-인덱스를 작성하기 위해 임시 VM을 프로비전하는 데 5-10분 정도 걸릴 수 있습니다. 프로토타입을 신속하게 생성하기 위해 다음을 수행할 수 있습니다.
+임시 VM을 프로비저닝하여 인덱스를 작성하는 데 5-10분 정도 걸릴 수 있습니다. 프로토타입을 신속하게 생성하기 위해 다음을 수행할 수 있습니다.
 - 임의 컴퓨터에서 로컬로 작은 데이터 집합을 사용하여 개발합니다.
 - 수동으로 [Azure VM을 만들고](../../../articles/virtual-machines/windows/quick-create-portal.md), 원격 데스크톱을 통해 [Azure VM에 연결](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)한 다음, [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488)를 설치하고, VM 내에서 [`kes.exe`](CommandLine.md)를 실행합니다.
 

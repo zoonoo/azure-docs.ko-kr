@@ -4,7 +4,7 @@ description: OpenID Connect를 사용하여 ASP.NET Core 웹앱에서 Microsoft 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf4fbe17df05b6d55f3ce309ff8cecbb47d455
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200993"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -30,8 +30,7 @@ ms.locfileid: "56204715"
 
 이 빠른 시작에서는 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
-
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -143,7 +142,7 @@ public void ConfigureServices(IServiceCollection services)
 > |Where  |  |
 > |---------|---------|
 > | clientid  | Azure Portal에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. |
-> | Authority | 사용자가 인증하는 STS 엔드포인트. 일반적으로 공용 클라우드의 경우 https://login.microsoftonline.com/{tenant}/v2.0입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
+> | Authority | 사용자가 인증하는 STS 엔드포인트. 일반적으로 공용 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
 > | TokenValidationParameters | 토큰 유효성 검사에 대한 매개 변수 목록입니다. 이 경우 `ValidateIssuer`는 개인, 회사 또는 학교 계정의 로그인을 수락할 수 있음을 나타내기 위해 `false`로 설정됩니다. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>컨트롤러 또는 컨트롤러 메서드 보호

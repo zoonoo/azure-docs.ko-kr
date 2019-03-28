@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079898"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
 
 [IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작에서는 서비스 쪽 애플리케이션을 실행하는 지침만 설명합니다. [C 빠른 시작](./quickstart-device-streams-echo-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-echo-csharp.md) 가이드에서 사용할 수 있는 함께 제공되는 디바이스 쪽 애플리케이션을 실행해야 합니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "55219008"
 
 * 명령줄에서 입력을 읽고 다시 에코하는 디바이스 애플리케이션에 보냅니다.
 
-코드에서는 데이터를 받고 보내는 데 사용하는 방법뿐만 아니라 디바이스 스트림의 시작 프로세스를 보여줍니다.
+코드는 디바이스 스트림의 초기화 프로세스와 데이터를 보내고 받는 데 사용하는 방법을 보여줍니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,6 +39,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 
 ## <a name="prerequisites"></a>필수 조건
+
+디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+
+  - **미국 중부**
+  - **미국 중부 EUAP**
 
 이 빠른 시작의 서비스 쪽 애플리케이션을 실행하려면 개발 머신에 Node.js v4.x.x 이상이 필요합니다.
 
@@ -80,7 +87,7 @@ node --version
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     다음과 같이 표시되는 반환 값을 기록해 둡니다.
@@ -100,7 +107,7 @@ node --version
 디바이스 쪽 애플리케이션이 실행되고 있다고 가정하여 아래의 단계를 따라 Node.js에서 서비스 쪽 애플리케이션을 실행합니다.
 
 - 환경 변수로 서비스 자격 증명 및 디바이스 ID를 제공합니다.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -108,11 +115,11 @@ node --version
   # In Windows
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
-```
-`MyDevice`를 디바이스에 대해 선택한 디바이스 ID로 변경합니다.
+  ```
+  `MyDevice`를 디바이스에 대해 선택한 디바이스 ID로 변경합니다.
 
 - 압축을 푼 프로젝트 폴더의 `Quickstarts/device-streams-service`로 이동하고 노드를 사용하여 샘플을 실행합니다.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
   
   # Install the preview service SDK, and other dependencies
@@ -120,7 +127,7 @@ node --version
   npm install
 
   node echo.js
-```
+  ```
 
 마지막 단계의 끝에서 서비스 쪽 프로그램은 디바이스에 대한 스트림을 시작하고 설정되면 스트림을 통해 문자열 버퍼를 서비스로 보냅니다. 이 샘플에서 서비스 쪽 프로그램은 단순히 터미널에서 stdin을 읽고 다시 에코하는 디바이스에 보냅니다. 두 애플리케이션 간의 성공적인 양방향 통신을 보여줍니다.
 

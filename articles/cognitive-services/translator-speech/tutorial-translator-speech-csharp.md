@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900831"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 
@@ -40,7 +40,7 @@ Visual Studio 솔루션은 애플리케이션에 대한 설치 관리자도 빌�
 
 Microsoft Azure 대시보드에서 얻을 수 있는 Translator Speech 서비스에 대한 구독 키도 필요합니다. 체험 가격 책정 계층에서는 음성을 매월 최대 10시간까지 무료로 변환할 수 있습니다. 이 자습서에서는 이 계층이면 충분합니다.
 
-타사 [JSON.Net 라이브러리](https://www.newtonsoft.com/json)(Newtonsoft)도 필요합니다. Visual Studio 옵션에서 두 패키지 복원 확인란을 모두 사용하도록 설정되어 있으면 NuGet에서 이 어셈블리를 자동으로 설치합니다.
+타사 [JSON.NET 라이브러리](https://www.newtonsoft.com/json)(Newtonsoft)도 필요합니다. Visual Studio 옵션에서 두 패키지 복원 확인란을 모두 사용하도록 설정되어 있으면 NuGet에서 이 어셈블리를 자동으로 설치합니다.
 
 ## <a name="trying-the-translation-app"></a>변환 응용 프로그램 사용해 보기
 

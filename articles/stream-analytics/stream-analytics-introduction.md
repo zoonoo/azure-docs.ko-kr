@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: d08fb915870355b49fafa91752cdd4264cbe6ad8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295507"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -79,7 +79,7 @@ Azure Stream Analytics는 클라우드와 인텔리전트 에지에서 동일한
 ## <a name="mission-critical-ready"></a>중요 업무에 적합
 Azure Stream Analytics는 전세계 여러 지역에서 사용할 수 있으며 안정성, 보안 및 규정 준수 요구 사항을 지원하여 중요 업무용 워크로드를 실행하도록 설계되었습니다.
 ### <a name="reliability"></a>안정성
-Azure Stream Analytics는 이벤트를 정확히 한 번 처리하고 이벤트를 한 번만 전달하기 때문에 이벤트가 손실되지 않습니다. [이벤트 배달 보장](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)에 설명된 대로 선택한 출력으로 정확히 한 번 처리가 보장됩니다. Azure Stream Analytics에는 이벤트 전달이 실패할 경우를 대비하여 복구 기능이 내장되어 있습니다. 또한 Stream Analytics는 작업의 상태를 유지하는 기본 검사점과 반복 가능한 결과를 제공합니다.
+Azure Stream Analytics는 이벤트를 정확히 한 번 처리하고 이벤트를 한 번만 전달하기 때문에 이벤트가 손실되지 않습니다. 정확히 한 번 처리는 [이벤트 전송 보장](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)에서 설명한 대로 선택한 출력을 사용하여 보장됩니다. Azure Stream Analytics에는 이벤트 전달이 실패할 경우를 대비하여 복구 기능이 내장되어 있습니다. 또한 Stream Analytics는 작업의 상태를 유지하는 기본 검사점과 반복 가능한 결과를 제공합니다.
 
 관리형 서비스인 Stream Analytics는 분 수준에서 에서 99.9%의 가용성으로 이벤트 처리를 보장합니다. 자세한 내용은 [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 페이지를 참조하세요. 
 

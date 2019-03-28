@@ -4,7 +4,7 @@ description: .NET Core 프로세스가 앱의 ID를 사용하여 액세스 토�
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/11/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27cc0334e8332e3bc09ae4302e0b0efdda8067f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200527"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194447"
 
 이 빠른 시작에서는 앱의 ID를 사용하여 액세스 토큰을 가져온 다음, 디렉터리에 [사용자 목록](https://docs.microsoft.com/graph/api/user-list)을 표시하도록 Microsoft Graph API를 호출할 수 있는 .NET Core 애플리케이션을 작성하는 방법을 알아봅니다. 이 시나리오는 헤드리스, 무인 작업 또는 Windows 서비스를 사용자의 ID 대신 애플리케이션 ID를 사용하여 실행해야 하는 경우에 유용합니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -198,7 +198,7 @@ var app = new ConfidentialClientApplication(
 > |---------|---------|
 > | `secret` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
 > | `clientId` | Azure Portal에 등록된 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
-> | `Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드에 대한 https://login.microsoftonline.com/{tenant}입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
+> | `Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드에 대한 <https://login.microsoftonline.com/{tenant}>입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
 > | `redirectUri`  | 인증 후 사용자가 전송되는 URL 이 경우 콘솔/비 대화형 애플리케이션이기 때문에 이 매개 변수는 사용되지 않습니다. |
 > | `clientCredentials`  | 비밀 또는 인증서를 포함하는 클라이언트 자격 증명 개체 |
 > | `userTokenCache`  | 사용자에 대한 토큰 캐시의 인스턴스입니다. 이 경우 이 앱은 사용자가 아닌 앱의 컨텍스트에서 실행되므로 이 값은 null입니다.|

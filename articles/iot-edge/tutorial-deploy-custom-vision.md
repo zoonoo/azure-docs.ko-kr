@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087162"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -22,13 +22,18 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 
 예를 들어 IoT Edge 디바이스의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다. 
 
-
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
+>
 > * Custom Vision을 사용하여 이미지 분류자 빌드
 > * 디바이스에서 Custom Vision 웹 서버를 쿼리하는 IoT Edge 모듈 개발
 > * IoT Hub에 이미지 분류자의 결과 전송
+
+<center>
+
+![다이어그램 - 자습서 아키텍처, 분류자 준비 및 배포](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Azure IoT Edge 디바이스:
 
 * Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 * 컨테이너 레지스트리 이 자습서에서는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)를 사용합니다. 
-    * 컨테이너 레지스트리 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)에 대한 자격 증명을 알고 있습니다.
+* 컨테이너 레지스트리 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)에 대한 자격 증명을 알고 있습니다.
 
 개발 리소스:
 
@@ -72,7 +77,7 @@ Azure IoT Edge 디바이스:
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 이름 | **EdgeTreeClassifier**와 같은 프로젝트의 이름을 제공합니다. |
+   | Name | **EdgeTreeClassifier**와 같은 프로젝트의 이름을 제공합니다. |
    | 설명 | 선택적인 프로젝트 설명입니다. |
    | 리소스 그룹 | 기본값 **제한된 평가판**을 적용합니다. |
    | 프로젝트 형식 | **분류** |

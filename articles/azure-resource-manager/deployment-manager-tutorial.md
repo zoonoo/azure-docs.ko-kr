@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882300"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170635"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 애플리케이션을 배포하는 방법에 대해 알아봅니다. Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
@@ -59,6 +57,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Azure PowerShell Az 모듈을 설치한 경우 두 개의 스위치가 추가로 필요합니다.
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage 탐색기는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
@@ -204,9 +209,6 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
 - **dependsOn**: 모든 서비스 토폴로지 리소스가 아티팩트 소스 리소스에 따라 달라집니다.
 - **artifacts**는 템플릿 아티팩트를 가리킵니다.  여기서는 상대 경로가 사용됩니다. 전체 경로는 artifactSourceSASLocation(아티팩트 소스에서 정의됨), artifactRoot(아티팩트 소스에서 정의됨) 및 templateArtifactSourceRelativePath(또는 parametersArtifactSourceRelativePath)를 연결하여 생성됩니다.
 
-> [!NOTE]
-> 서비스 단위 이름은 31자 이하여야 합니다. 
-
 ### <a name="topology-parameters-file"></a>토폴로지 매개 변수 파일
 
 토폴로지 템플릿에 사용되는 매개 변수 파일을 만듭니다.
@@ -276,7 +278,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
 2. 매개 변수 값을 다음과 같이 채웁니다.
 
     - **namePrefix**: 4-5자의 문자열을 입력합니다. 이 접두사는 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
-    - **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 미국 중부 또는 **미국 동부 2**에서만 만들 수 있습니다.
+    - **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
     - **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     - **binaryArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **binaries/1.0.0.0**을 사용합니다.
     - **managedIdentityID**: 사용자 할당 관리 ID를 입력합니다. [사용자가 할당한 관리 ID 만들기](#create-the-user-assigned-managed-identity)를 참조하세요. 구문은 다음과 같습니다.
@@ -294,13 +296,13 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 1. 스크립트를 실행하여 서비스 토폴로지를 배포합니다.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 3. <a id="deploy-the-rollout-template"></a>롤아웃 템플릿을 배포합니다.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 4. 다음 PowerShell 스크립트를 사용하여 롤아웃 진행률을 확인합니다.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    이 cmdlet을 실행하려면 먼저 Deployment Manager PowerShell cmdlet이 설치되어 있어야 합니다. 필수 조건을 참조하세요.
+    이 cmdlet을 실행하려면 먼저 Deployment Manager PowerShell cmdlet이 설치되어 있어야 합니다. 필수 조건을 참조하세요. -Verbose 스위치를 사용하여 전체 출력을 볼 수 있습니다.
 
     다음 샘플에서는 실행 중 상태를 보여 줍니다.
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

@@ -4,23 +4,24 @@ description: Azure PowerShell을 사용하여 비준수 리소스를 식별하�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 103e0e09d3ac5f3d3f6bb8d8d44e25dd8d8d87e6
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338736"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726977"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
-Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만듭니다. 완료되면 정책 할당을 사용하여 *비준수* 가상 머신을 식별하게 됩니다.
+Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만듭니다. 완료되면 *비준수* 가상 머신을 식별하게 됩니다.
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 가이드에서는 Az를 사용하여 정책 할당을 만드는 방법에 대해 설명합니다. 해당 정책은 Azure 환경에서 비준수 리소스를 식별합니다.
+명령줄 또는 스크립트에서 Azure 리소스를 관리하는 데 Azure PowerShell 모듈이 사용됩니다.
+이 가이드에서는 Az 모듈을 사용하여 정책 할당을 만드는 방법에 대해 설명합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -28,11 +29,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [ARMClient](https://github.com/projectkudu/ARMClient)를 아직 설치하지 않은 경우 설치합니다. Azure Resource Manager 기반 API에 HTTP 요청을 전송하는 도구입니다.
 - 시작하기 전에, 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 - Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자와 함께 작동하는지 확인할 수 있습니다. 리소스 공급자를 등록하려면 리소스 공급자 등록 작업을 수행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
   ```azurepowershell-interactive
+  # Register the resource provider if it's not already registered
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
@@ -40,19 +41,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 ‘관리 디스크가 없는 VM 감사’ 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
+이 빠른 시작에서는 정책 할당을 만들고 *관리 디스크가 없는 VM 감사* 정의를 할당합니다. 이 정책 정의는 관리 디스크를 사용하지 않는 가상 머신을 식별합니다.
 
 새 정책 할당을 만들려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
+# Get a reference to the resource group that will be the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
+
+# Get a reference to the built-in policy definition that will be assigned
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+
+# Create the policy assignment with the built-in definition against your resource group
 New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 이전 명령은 다음 정보를 사용합니다.
 
-- **이름** - 할당의 실제 이름입니다.  이 예의 경우 *audit-vm-manageddisks*가 사용되었습니다.
+- **이름** - 할당의 실제 이름입니다. 이 예의 경우 *audit-vm-manageddisks*가 사용되었습니다.
 - **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **정의** – 할당을 만드는 데 기준으로 사용되는 정책 정의입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다.
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 리소스 그룹의 이름으로 &lt;범위&gt;를 바꿉니다.
@@ -64,51 +70,40 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 만든 정책 할당을 준수하지 않는 리소스를 식별하기 위해 다음 정보를 사용합니다. 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+# Get the resources in your resource group that are non-compliant to the policy assignment
+Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-정책 할당 ID에 대한 자세한 내용은 [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)를 참조하세요.
-
-다음으로 JSON 파일로 출력되는 비준수 리소스의 리소스 ID를 가져오려면 다음 명령을 실행합니다.
-
-```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-```
+정책 상태 가져오기에 대한 자세한 내용은 [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState)를 참조하세요.
 
 결과는 다음 예제와 유사합니다.
 
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-    "@odata.count": 3,
-    "value": [{
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-        }
-
-    ]
-}
+```output
+Timestamp                   : 3/9/19 9:21:29 PM
+ResourceId                  : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmId}
+PolicyAssignmentId          : /subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/audit-vm-manageddisks
+PolicyDefinitionId          : /providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d
+IsCompliant                 : False
+SubscriptionId              : {subscriptionId}
+ResourceType                : /Microsoft.Compute/virtualMachines
+ResourceTags                : tbd
+PolicyAssignmentName        : audit-vm-manageddisks
+PolicyAssignmentOwner       : tbd
+PolicyAssignmentScope       : /subscriptions/{subscriptionId}
+PolicyDefinitionName        : 06a78e20-9358-41c9-923c-fb736d382a4d
+PolicyDefinitionAction      : audit
+PolicyDefinitionCategory    : Compute
+ManagementGroupIds          : {managementGroupId}
 ```
 
-결과는 Azure Portal 보기에서 **비준수 리소스** 아래 나열된 것과 비교할 수 있습니다.
+결과는 Azure Portal 보기에서 정책 할당의 **리소스 규정 준수** 탭에 보이는 것과 일치합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 만든 할당을 제거하려면 다음 명령을 사용합니다.
 
 ```azurepowershell-interactive
+# Removes the policy assignment
 Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 1c074b4e7cee7a05611fd88b601e6e1f9fa559ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992303"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -58,9 +58,12 @@ ms.locfileid: "54439207"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
 * **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
-* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
+* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. SQL Server Management Studio를 엽니다. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -160,7 +163,7 @@ END
 3. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 실행합니다.
 
@@ -172,10 +175,10 @@ END
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
+5. 데이터 팩터리를 만들려면 다음 **Set-AzDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
     ```
 
 다음 사항에 유의하세요.
@@ -212,10 +215,10 @@ END
     ```
 2. PowerShell에서 ADF 폴더로 전환합니다.
 
-3. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 AzureStorageLinkedService라는 연결된 서비스를 만듭니다. 다음 예제에서는 *ResourceGroupName* 및 *DataFactoryName* 매개 변수에 대한 값을 전달합니다. 
+3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스 AzureStorageLinkedService를 만듭니다. 다음 예제에서는 *ResourceGroupName* 및 *DataFactoryName* 매개 변수에 대한 값을 전달합니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -246,10 +249,10 @@ END
     ```
 2. PowerShell에서 ADF 폴더로 전환합니다.
 
-3. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 AzureSQLDatabaseLinkedService라는 연결된 서비스를 만듭니다. 
+3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스 AzureSQLDatabaseLinkedService를 만듭니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -287,10 +290,10 @@ END
     ```
     이 자습서에서는 테이블 이름으로 data_source_table을 사용합니다. 다른 이름의 테이블을 사용하는 경우 이름을 바꿉니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
+2. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -330,10 +333,10 @@ END
     > [!IMPORTANT]
     > 이 코드 조각에서는 Blob Storage에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. `incrementalcopy` 출력 폴더가 컨테이너에 없는 경우 자동으로 만들어집니다. 이 자습서에서 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
+2. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -366,10 +369,10 @@ END
         }
     }    
     ```
-2.  **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
+2.  **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -498,10 +501,10 @@ END
     ```
     
 
-2. **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행하여 IncrementalCopyPipeline 파이프라인을 만듭니다.
+2. **Set-AzDataFactoryV2Pipeline** cmdlet을 실행하여 IncrementalCopyPipeline 파이프라인을 만듭니다.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    샘플 출력은 다음과 같습니다. 
@@ -516,15 +519,15 @@ END
  
 ## <a name="run-the-pipeline"></a>파이프라인 실행
 
-1. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 자신의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
+1. **Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 사용자의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
+2. **Get-AzDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -609,7 +612,7 @@ END
  
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table   2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05  8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>데이터 원본 저장소에 데이터를 삽입하여 델타 데이터 로드 확인
 
@@ -636,15 +639,15 @@ END
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 다시 실행합니다. 자리 표시자를 자신의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
+2. **Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 다시 실행합니다. 자리 표시자를 사용자의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
+3. **Get-AzDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
     ```
 
     샘플 출력은 다음과 같습니다.

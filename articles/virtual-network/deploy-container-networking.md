@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 62d19432cba431bce4485aaa2af3e0a23ad8b5f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104100"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
 
@@ -95,10 +95,10 @@ Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치
 1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
 2. Pod에 IP 주소를 할당할 모든 가상 머신에서 가상 네트워크 IP 주소 풀을 미리 할당합니다. 모든 Azure 가상 머신의 각 네트워크 인터페이스에서는 기본 가상 네트워크 개인 IP 주소가 제공됩니다. Pod용 IP 주소 풀은 다음 옵션 중 하나를 사용하여 가상 머신 네트워크 인터페이스에서 보조 주소(*ipconfigs*)로 추가됩니다.
 
-   - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [PowerShell을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-powershell.md)
-   - **포털**: [Azure Portal을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager 템플릿**: [템플릿을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [PowerShell을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-powershell.md)
+   - **포털**: [Azure Portal을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager 템플릿**: [템플릿을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-template.md)
 
    가상 머신에 표시하려는 모든 Pod에 할당하기에 충분한 IP 주소를 추가해야 합니다.
 
@@ -106,13 +106,13 @@ Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치
 4. Pod가 인터넷에 액세스하도록 하려면 인터넷 트래픽의 원본 NAT를 수행하도록 Linux 가상 머신에서 다음 *iptables* 규칙을 추가합니다. 다음 예제에서 지정된 IP 범위는 10.0.0.0/8입니다.
 
    ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
    addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
    ```
 
    규칙은 지정된 IP 범위로 전송되지 않는 트래픽에 대해 NAT를 수행합니다. 여기서는 이전 범위를 벗어난 모든 트래픽이 인터넷 트래픽이라고 가정합니다. 가상 머신의 가상 네트워크 IP 범위, 피어링된 가상 네트워크의 IP 범위 및 온-프레미스 네트워크의 IP 범위를 지정하도록 선택할 수 있습니다.
 
-  Windows 가상 머신은 소속 서브넷 외부에 대상이 있는 트래픽의 원본 NAT를 자동으로 수행합니다. 사용자 지정 IP 범위를 지정할 수는 없습니다.
+   Windows 가상 머신은 소속 서브넷 외부에 대상이 있는 트래픽의 원본 NAT를 자동으로 수행합니다. 사용자 지정 IP 범위를 지정할 수는 없습니다.
 
 이전 단계를 완료하고 나면 Kubernetes 에이전트 가상 머신에 표시된 Pod에 가상 네트워크의 개인 IP 주소가 자동으로 할당됩니다.
 
@@ -157,12 +157,12 @@ CNI 네트워크 구성 파일은 JSON 형식으로 기술되어 있습니다. �
 
 #### <a name="settings-explanation"></a>설정 설명
 
-- **cniVersion**: Azure Virtual Network CNI 플러그 인은 [CNI 사양](https://github.com/containernetworking/cni/blob/master/SPEC.md) 버전 0.3.0 및 0.3.1을 지원합니다.
+- **cniVersion**: Azure Virtual Network CNI 플러그 인은  [CNI 사양](https://github.com/containernetworking/cni/blob/master/SPEC.md)의 버전 0.3.0 및 0.3.1을 지원합니다.
 - **name**: 네트워크의 이름입니다. 이 속성은 원하는 고유한 값으로 설정할 수 있습니다.
-- **type**: 네트워크 플러그 인의 이름입니다. *azure-vnet*으로 설정됩니다.
-- **mode**: 작동 모드입니다. 이 필드는 선택 사항입니다. 지원되는 모드는 “bridge”뿐입니다. 자세한 내용은 [작동 모드](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)를 참조하세요.
-- **bridge**: 가상 네트워크에 컨테이너를 연결하는 데 사용할 브리지의 이름입니다. 이 필드는 선택 사항입니다. 이 필드에 내용을 입력하지 않으면 플러그 인은 마스터 인터페이스 인덱스를 기준으로 하여 고유한 이름을 자동으로 선택합니다.
-- **ipam type**: IPAM 플러그 인의 이름입니다. 항상 *azure-vnet-ipam*으로 설정됩니다.
+- **type**: 네트워크 플러그 인의 이름입니다.  *azure-vnet*으로 설정합니다.
+- **모드**: 작동 모드입니다. 이 필드는 선택 사항입니다. 지원되는 모드는 “bridge”뿐입니다. 자세한 내용은  [작동 모드](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)를 참조하세요.
+- **브리지**: 가상 네트워크에 컨테이너를 연결하는 데 사용할 브리지의 이름입니다. 이 필드는 선택 사항입니다. 이 필드에 내용을 입력하지 않으면 플러그 인은 마스터 인터페이스 인덱스를 기준으로 하여 고유한 이름을 자동으로 선택합니다.
+- **ipam 형식**: IPAM 플러그 인의 이름입니다. 항상  *azure-vnet-ipam*으로 설정합니다.
 
 ## <a name="download-and-install-the-plug-in"></a>플러그 인 다운로드 및 설치
 

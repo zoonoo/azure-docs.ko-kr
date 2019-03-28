@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2c756e9e2944895cc493aa56d1dd20254e5d8ea0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e135c7fa9907d218ed32b6bdb0fd60da0ecf1851
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084711"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -36,13 +36,13 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
 
-  * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
-  * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
-  * **리소스 그룹**에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
-  * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
-  * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
+   * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
+   * **리소스 그룹**에 대해 하나 이상의 Azure Virtual Machines를 포함하는 기존 리소스 그룹을 선택합니다.  
+   * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
+   * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Log Analytics 리소스 블레이드 만들기](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
 3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후에 **확인**을 클릭합니다.  
 

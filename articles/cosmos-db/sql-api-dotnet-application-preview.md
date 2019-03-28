@@ -1,6 +1,6 @@
 ---
-title: .Net 미리 보기 SDK를 사용하여 Azure Cosmos DB로 ASP.NET MVC 웹 애플리케이션을 개발하는 자습서입니다.
-description: 이 자습서에서는 Azure Cosmos DB를 사용하여 ASP .Net MVC 웹 애플리케이션을 만드는 방법을 설명합니다. Azure에서 호스팅하는 Todo 앱에서 JSON 데이터를 저장하고 액세스하게 됩니다.
+title: .NET 미리 보기 SDK를 사용하여 Azure Cosmos DB로 ASP.NET MVC 웹 애플리케이션을 개발하는 자습서입니다.
+description: 이 자습서에서는 Azure Cosmos DB를 사용하여 ASP .NET MVC 웹 애플리케이션을 만드는 방법을 설명합니다. Azure에서 호스팅하는 Todo 앱에서 JSON 데이터를 저장하고 액세스하게 됩니다.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857167"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>자습서: .Net 미리 보기 SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET MVC 웹 애플리케이션 개발 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>자습서: .NET 미리 보기 SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET MVC 웹 애플리케이션 개발 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,7 +26,7 @@ ms.locfileid: "54037126"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 Azure에서 호스트하는 ASP.NET MVC 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 현재 미리 보기로 제공되는 .Net SDK V3을 사용합니다. 다음 이미지는 이 문서의 샘플을 사용하여 빌드하게 될 웹 페이지입니다.
+이 자습서에서는 Azure Cosmos DB를 사용하여 Azure에서 호스트하는 ASP.NET MVC 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 현재 미리 보기로 제공되는 .NET SDK V3를 사용합니다. 다음 이미지는 이 문서의 샘플을 사용하여 빌드하게 될 웹 페이지입니다.
  
 ![이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "54037126"
 
 * Microsoft Azure SDK for .NET for Visual Studio 2017, Visual Studio 설치 관리자를 통해 사용 가능합니다.
 
-이 문서의 모든 스크린 샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 이 솔루션을 사용할 수 있습니다.
+이 문서의 모든 스크린샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 이 솔루션을 사용할 수 있습니다.
 
 ## <a name="create-an-azure-cosmos-account"></a>1단계: Azure Cosmos 계정 만들기
 
@@ -77,7 +77,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 Todo 네임스페이스를 지칭할 때마다 지정한 애플리케이션 이름을 사용하도록 제공된 코드 샘플을 조정합니다. 
 
-4. **찾아보기**를 클릭하여 프로젝트를 만들 폴더로 이동한 다음, **.Net Framework 4.6.1** 이상을 선택합니다. **확인**을 선택합니다. 
+4. **찾아보기**를 클릭하여 프로젝트를 만들 폴더로 이동한 다음, **.NET Framework 4.6.1** 이상을 선택합니다. **확인**을 선택합니다. 
 
 5. **새 ASP.NET 웹 응용 프로그램** 대화 상자가 나타납니다. 템플릿 창에서 **MVC**를 선택합니다.
 
@@ -235,7 +235,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  이 코드는 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **홈** 대신 **항목**을 컨트롤러로 사용하고 **인덱스**를 뷰로 사용하라고 지시합니다.
+   이 코드는 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **홈** 대신 **항목**을 컨트롤러로 사용하고 **인덱스**를 뷰로 사용하라고 지시합니다.
 
 이제 애플리케이션을 실행하는 경우 TodoItemService 클래스에서 GetItems 메서드를 호출하는 **ItemController**를 호출합니다. 이는 다음 섹션에서 정의합니다. 
 

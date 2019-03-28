@@ -1,20 +1,20 @@
 ---
 title: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정 | Microsoft Docs
 description: Azure Portal에서 IoT Hub 자동 디바이스 프로비전
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170737"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
 
@@ -81,11 +81,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. **IoT Hub에 대한 연결 추가** 페이지에서 다음 정보를 입력하고 **저장**을 클릭합니다.
 
-    * **구독:** IoT Hub를 포함하는 구독을 선택해야 합니다. 다른 구독에 상주하는 IoT Hub에 연결할 수 있습니다.
+    * **구독:** IoT Hub가 포함된 구독을 선택해야 합니다. 다른 구독에 상주하는 IoT Hub에 연결할 수 있습니다.
 
-    * **IoT Hub:** 이 Device Provisioning Service 인스턴스와 연결할 IoT Hub 이름을 선택합니다.
+    * **IoT Hub:** 이 Device Provisioning Service 인스턴스와 연결할 IoT Hub의 이름을 선택합니다.
 
-    * **액세스 정책:** IoT Hub에 연결하는 데 사용할 자격 증명으로 **iothubowner**를 선택합니다.
+    * **액세스 정책:** IoT Hub에 대한 연결을 설정하는 데 사용할 자격 증명으로 **iothubowner**를 선택합니다.
 
    ![포털에서 Device Provisioning Service에 연결하도록 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -93,11 +93,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 할당 정책은 IoT Hub에 디바이스를 할당하는 방법을 결정하는 IoT Hub Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
 
-1. **최소 대기 시간**: 장치가 대기 시간이 가장 낮은 허브를 기준으로 IoT Hub에 프로비전됩니다.
+1. **최소 대기 시간**: 디바이스에 대한 대기 시간이 가장 짧은 허브에 기반하여 해당 디바이스가 IoT Hub로 프로비저닝됩니다.
 
-2. **균등 가중치 배포**(기본값): 연결된 IoT Hub들은 동일하게 해당 허브에 프로비전된 장치를 갖게 됩니다. 이 설정은 기본값입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
+2. **동일 가중 배포**(기본값): 연결된 IoT Hub에서 디바이스를 프로비저닝하는 가능성이 동일합니다. 이 설정은 기본값입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
 
-3. **등록 목록을 통한 고정 구성**: 등록 목록에서 원하는 IoT Hub의 사양을 Device Provisioning Service 수준 할당 정책보다 우선합니다.
+3. **등록 목록을 통해 정적 구성**: 등록 목록에 지정된 원하는 IoT Hub는 Device Provisioning Service 수준 할당 정책보다 우선 순위가 높습니다.
 
 할당 정책을 설정하려면 Device Provisioning Service 페이지에서 **할당 정책 관리**를 클릭합니다. 할당 정책이 **균등 가중치 배포**(기본값)로 설정되어 있는지 확인합니다. 변경하려면 변경 후 **저장**을 클릭합니다.
 
@@ -124,4 +124,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 프로비전을 위해 디바이스를 설정하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [프로비전을 위한 장치 설정](tutorial-set-up-device.md)
+> [프로비전을 위한 디바이스 설정](tutorial-set-up-device.md)

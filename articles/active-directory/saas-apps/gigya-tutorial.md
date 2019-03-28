@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: ac3242725438a7d5eaa6b93cb1f86f9344b59c1f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c3a2a92eb01943ab87c12d3ffefc4999cd9ff518
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>자습서: Gigya와 Azure Active Directory 통합
 
@@ -167,7 +167,7 @@ Gigya에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

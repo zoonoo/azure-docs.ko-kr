@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>자습서: Brightidea와 Azure Active Directory 통합
 
@@ -163,18 +163,18 @@ Brightidea에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     
     ![Brightidea 구성](./media/brightidea-tutorial/configure4.png)
     
-     * **SAML 프로필 이름**(예: `Azure Ad SSO`)을 입력합니다.
+   * **SAML 프로필 이름**(예: `Azure Ad SSO`)을 입력합니다.
     
-     * **메타데이터 업로드**에서 파일 선택을 클릭하고 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+   * **메타데이터 업로드**에서 파일 선택을 클릭하고 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
      > [!NOTE]
      > 메타데이터 파일을 업로드하면 나머지 필드, **Single Sign-On 서비스, ID 공급자 발급자, 공개 키 업로드**가 자동으로 채워집니다.
 
-     * **이메일** 텍스트 상자에 `mail` 값을 입력합니다.
+   * **이메일** 텍스트 상자에 `mail` 값을 입력합니다.
      
-     * **화면 이름** 텍스트 상자에 `givenName` 값을 입력합니다.
+   * **화면 이름** 텍스트 상자에 `givenName` 값을 입력합니다.
      
-     * **변경 내용 저장**을 클릭합니다.  
+   * **변경 내용 저장**을 클릭합니다.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -194,7 +194,7 @@ Brightidea에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867051"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>자습서: Snowflake와 Azure Active Directory 통합
 
@@ -134,29 +134,29 @@ Snowflake에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-snowflake-single-sign-on"></a>Snowflake Single Sign-On 구성
 
-8. 다른 웹 브라우저 창에서 Snowflake에 보안 관리자 권한으로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Snowflake에 보안 관리자 권한으로 로그인합니다.
 
-9. 페이지의 오른쪽 위에 있는 **프로필**을 클릭하여 **역할 전환**을 **ACCOUNTADMIN**으로 설정합니다.
+1. 페이지의 오른쪽 위에 있는 **프로필**을 클릭하여 **역할 전환**을 **ACCOUNTADMIN**으로 설정합니다.
 
     > [!NOTE]
     > 이 작업은 오른쪽 위 모서리의 사용자 이름 아래에서 선택한 컨텍스트와는 별개입니다.
     
     ![Snowflake 관리자](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. **다운로드한 Base 64 인증서**를 메모장에서 엽니다. “-----BEGIN CERTIFICATE-----”와 “-----END CERTIFICATE-----" 사이의 값을 복사한 후 아래의 **인증서** 옆에 있는 큰따옴표에 붙여 넣습니다. **ssoUrl**에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여 넣습니다. **모든 쿼리**를 선택하고 **실행**을 클릭합니다.
+1. **다운로드한 Base 64 인증서**를 메모장에서 엽니다. “-----BEGIN CERTIFICATE-----”와 “-----END CERTIFICATE-----" 사이의 값을 복사한 후 아래의 **인증서** 옆에 있는 큰따옴표에 붙여 넣습니다. **ssoUrl**에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여 넣습니다. **모든 쿼리**를 선택하고 **실행**을 클릭합니다.
 
-    ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -176,7 +176,7 @@ Snowflake에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

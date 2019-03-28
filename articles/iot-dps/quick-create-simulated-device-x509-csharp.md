@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 832d7306c7e397a92e92fb25018b5021e4ac87fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02054824d62030b96f8353140aa49ee0fa5c2265
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864527"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -77,15 +77,15 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 5. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
 6. **등록 추가** 패널 아래에 다음 정보를 입력합니다.
-    - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
-    - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **certificate.cer** 인증서 파일을 선택합니다.
-    - **디바이스 ID**를 비워 둡니다. 디바이스 ID가 **iothubx509device1**(X.509 인증서의 CN(일반 이름))로 설정된 디바이스가 프로비전됩니다. 또한 이 이름은 개별 등록 항목에 대한 등록 ID에도 사용됩니다. 
-    - 필요에 따라 다음 정보를 입력합니다.
-        - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
-        - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
-    - 완료되면 **저장** 단추를 클릭합니다. 
+   - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
+   - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **certificate.cer** 인증서 파일을 선택합니다.
+   - **디바이스 ID**를 비워 둡니다. 디바이스 ID가 **iothubx509device1**(X.509 인증서의 CN(일반 이름))로 설정된 디바이스가 프로비전됩니다. 또한 이 이름은 개별 등록 항목에 대한 등록 ID에도 사용됩니다. 
+   - 필요에 따라 다음 정보를 입력합니다.
+       - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
+       - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
+   - 완료되면 **저장** 단추를 클릭합니다. 
 
-    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+     [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    성공적으로 등록되면 *개별 등록* 탭의 *등록 ID* 열 아래에 X.509 등록 항목이 **iothubx509device1**로 표시됩니다. 
 

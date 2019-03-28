@@ -11,33 +11,34 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: f25e41b8669922474c92919c3c29ad013d9a1609
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/12/2019
+ms.openlocfilehash: d206d3f95f28fe058e836c3d0abbf0f270329657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452663"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857320"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성
 
 이 PowerShell 예제는 SQL Database 감사 및 위협 감지를 구성합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AZ PowerShell 1.4.0 이상이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=15-16 "Configure auditing and threat detection")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,13 +47,13 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Storage 계정을 만듭니다. |
-| [Set-AzureRmSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabaseauditingpolicy) | 데이터베이스에 대한 감사 정책을 설정합니다. |
-| [Set-AzureRmSqlDatabaseThreatDetectionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasethreatdetectionpolicy) | 데이터베이스에 대한 위협 감지 정책을 설정합니다. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Storage 계정을 만듭니다. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | 데이터베이스에 대한 감사 정책을 설정합니다. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 데이터베이스에 대한 위협 감지 정책을 설정합니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

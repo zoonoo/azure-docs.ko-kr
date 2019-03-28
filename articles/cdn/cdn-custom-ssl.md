@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200296"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -172,7 +172,7 @@ CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용�
 
 | Name            | type  | 값                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azureedge.net |
+| <www.contoso.com> | CNAME | contoso.azureedge.net |
 
 CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)를 참조하세요.
 
@@ -190,7 +190,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 >[!NOTE]
 >현재 사용자 지정 도메인 소유권에 대한 이메일 유효성 검사는 **Akamai의 Azure CDN** 프로필에 사용할 수 없습니다. 이 기능은 현재 백로그로 제공됩니다. 
 
-사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
+사용자 지정 도메인에서 HTTPS를 사용하도록 설정하는 요청이 제출되면, DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 해당 등록자에게 문의하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
 ![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
 

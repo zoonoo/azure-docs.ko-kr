@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6df0ff292c21ceb99bc30c7cd8cab007a27a0fcb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882984"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>빠른 시작: PowerShell에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다.
 
@@ -23,30 +23,30 @@ PowerShell에서 Azure SQL Data Warehouse의 계산 능력을 조정합니다. �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
-
 ## <a name="before-you-begin"></a>시작하기 전에
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 빠른 시작에서는 규모를 조정할 수 있는 SQL Data Warehouse가 이미 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-사용 중인 구독을 보려면 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 실행합니다.
+사용 중인 구독을 보려면 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription)을 실행합니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)를 실행합니다.
+기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzContext](/powershell/module/az.accounts/set-azcontext)를 실행합니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>데이터 웨어하우스 정보 조회
@@ -68,18 +68,18 @@ Set-AzureRmContext -SubscriptionName "MySubscription"
 
 SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
 
-데이터 웨어하우스 단위를 변경하려면 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **mynewserver-20180430** 서버의 리소스 그룹 **myResourceGroup**에서 호스트되는 데이터베이스 **mySampleDataWarehouse**에 대해 데이터 웨어하우스 단위를 DW300으로 설정합니다.
+데이터 웨어하우스 단위를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **mynewserver-20180430** 서버의 리소스 그룹 **myResourceGroup**에서 호스트되는 데이터베이스 **mySampleDataWarehouse**에 대해 데이터 웨어하우스 단위를 DW300으로 설정합니다.
 
 ```Powershell
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터 웨어하우스의 현재 상태를 보려면 [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 이렇게 하면 리소스 그룹 **myResourceGroup** 및 서버 **mynewserver-20180430.database.windows.net**에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
+데이터 웨어하우스의 현재 상태를 보려면 [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell cmdlet을 사용합니다. 이렇게 하면 리소스 그룹 **myResourceGroup** 및 서버 **mynewserver-20180430.database.windows.net**에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
 
 ```powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
 $database
 ```
 

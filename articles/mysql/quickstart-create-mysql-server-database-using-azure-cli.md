@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: c9944aeae425d3173fa4700caa004097d29d417d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877822"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기 
+
+> [!TIP]
+> 보다 단순한 [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI 명령(현재 미리 보기로 제공)을 사용하는 것이 좋습니다. [빠른 시작](./quickstart-create-server-up-azure-cli.md)을 사용해 보세요.
+
 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 MySQL용 Azure Database 서버를 만드는 방법을 살펴봅니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -45,7 +49,7 @@ az group create --name myresourcegroup --location westus
 ---|---|---
 이름 | mydemoserver | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
 resource-group | myresourcegroup | Azure 리소스 그룹의 이름을 입력합니다.
-sku-name | GP_Gen4_2 | SKU의 이름입니다. {가격 책정 계층}_{계산 세대}_{vCores} 규칙을 축약형으로 따릅니다. sku-name 매개 변수에 대한 자세한 내용은 아래 표를 참조하세요.
+sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. sku-name 매개 변수에 대한 자세한 내용은 아래 표를 참조하세요.
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위는 7-35입니다. 
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함
 location | westus | 서버에 대한 Azure 위치입니다.
@@ -57,7 +61,7 @@ admin-password | *보안 암호* | 관리자 사용자의 암호입니다. 8-128
 
 
 sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
-+ `--sku-name B_Gen4_1`는 기본, 4세대 및 vCore 1개에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
++ `--sku-name B_Gen5_1`은 기본, 5세대 및 1개 vCore에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
 + `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
 + `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.
 
@@ -66,7 +70,7 @@ sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{�
 다음 예제에서는 미국 서부에 `myadmin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 `mydemoserver`라는 MySQL 5.7 서버를 만듭니다. 이 서버는 **vCore**가 2개인 **4세대** **범용** 서버입니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -116,8 +120,8 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -140,15 +144,15 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 다음 명령을 입력합니다. 
 
 1. **mysql** 명령줄 도구를 사용하여 서버에 연결:
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. 서버 상태 보기:
-```sql
- mysql> status
-```
-모든 작업이 제대로 진행되었다면 명령줄 도구에서 다음 텍스트가 출력될 것입니다.
+   ```sql
+   mysql> status
+   ```
+   모든 작업이 제대로 진행되었다면 명령줄 도구에서 다음 텍스트가 출력될 것입니다.
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > 다른 명령은 [MySQL 5.7 참조 설명서 - 4.5.1장](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)을 참조하세요.
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI 도구로 서버에 연결
-1.  클라이언트 컴퓨터에서 MySQL Workbench 애플리케이션을 실행합니다. MySQL Workbench는 [여기](https://dev.mysql.com/downloads/workbench/)에서 다운로드할 수 있습니다.
+1. 클라이언트 컴퓨터에서 MySQL Workbench 애플리케이션을 실행합니다. MySQL Workbench는 [여기](https://dev.mysql.com/downloads/workbench/)에서 다운로드할 수 있습니다.
 
-2.  **새 연결 설정** 대화 상자의 **매개 변수** 탭에 다음 정보를 입력합니다.
+2. **새 연결 설정** 대화 상자의 **매개 변수** 탭에 다음 정보를 입력합니다.
 
    ![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354232"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542933"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka용 Event Hubs로 스트리밍
 이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 애플리케이션 구성을 간단하게 변경하여 Kafka 지원 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "54354232"
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요.
 * Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 * [Java Development Kit(JDK) 1.7+](https://aka.ms/azure-jdks).
-* Maven 이진 아카이브를 [다운로드](http://maven.apache.org/download.cgi)하여 [설치](http://maven.apache.org/install.html)합니다.
+* Maven 이진 아카이브를 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
 * [Git](https://www.git-scm.com/)
 * [Kafka 지원 Event Hubs 네임스페이스](event-hubs-create.md)
 

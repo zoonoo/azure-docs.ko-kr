@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079233"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
 
 [IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작에서는 IoT Hub를 통해 설정된 디바이스 스트림을 통해 클라이언트/서버 애플리케이션 트래픽(예: SSH 및 RDP)을 보낼 수 있게 해주는 두 개의 C# 프로그램이 사용됩니다. 설정에 대한 개요는 [여기](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)서 확인하세요.
 
@@ -48,6 +50,11 @@ ms.locfileid: "55770370"
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
+디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+
+  - **미국 중부**
+  - **미국 중부 EUAP**
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 컴퓨터에서 .NET Core SDK 2.1.0 이상이 필요합니다.
 
@@ -100,7 +107,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     다음과 같이 표시되는 반환 값을 기록해 둡니다.
@@ -178,7 +185,7 @@ ssh <username>@localhost -p 2222
 
 `IP_address:22`에서 SSH 디먼에 연결하는 디바이스-로컬 프록시의 콘솔 출력:
 
-]대체 텍스트(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")디바이스-로컬 프록시 출력")
+![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "디바이스-로컬 프록시 출력")
 
 SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 22에 연결하여 SSH 디먼에 통신함):
 

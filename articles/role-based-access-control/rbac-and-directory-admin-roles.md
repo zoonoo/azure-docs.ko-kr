@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807357"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295178"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할
 
@@ -81,7 +81,7 @@ Azure RBAC는 [Azure Resource Manager](../azure-resource-manager/resource-group-
 
 Azure Portal 및 Azure Resource Manager API만이 Azure RBAC를 지원합니다. RBAC 역할이 할당된 사용자, 그룹 및 애플리케이션은 [Azure 클래식 배포 모델 API](../azure-resource-manager/resource-manager-deployment-model.md)를 사용할 수 없습니다.
 
-Azure Portal에서 RBAC를 사용하는 역할 할당은 **액세스 제어(IAM)** 블레이드에 나타납니다. 이 블레이드는 관리 그룹, 구독, 리소스 그룹 및 다양한 리소스와 같이 포털 전체에서 찾을 수 있습니다.
+Azure Portal에서 RBAC를 사용하는 역할 할당은 **액세스 제어(IAM)** 블레이드에 나타납니다. 이 블레이드는 관리 그룹, 구독, 리소스 그룹 및 다양한 리소스와 같은 포털 전체에서 찾을 수 있습니다.
 
 ![Azure Portal의 액세스 제어(IAM) 블레이드](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -98,7 +98,7 @@ Azure AD 관리자 역할은 사용자 만들기 또는 편집, 다른 사용자
 | Azure AD 관리자 역할 | 권한 | 메모 |
 | --- | --- | --- |
 | [전역 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Azure Active Directory에 페더레이션하는 서비스를 비롯하여 Azure Active Directory의 모든 관리 기능에 대한 액세스 관리</li><li>다른 사람에게 관리자 역할 할당</li><li>모든 사용자 및 다른 관리자의 암호 다시 설정</li></ul> | Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. |
-| [사용자 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
+| [사용자 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
 | [대금 청구 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>구매</li><li>구독 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li></ul> |  |
 
 Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 역할 목록을 볼 수 있습니다. Azure AD 관리자 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
@@ -114,7 +114,7 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 �
 | Azure 리소스에 대한 액세스 관리 | Azure Active Directory 리소스에 대한 액세스 관리 |
 | 사용자 지정 역할 지원 | 고유의 역할을 만들 수 없음 |
 | 여러 수준(관리 그룹, 구독, 리소스 그룹, 리소스)에서 범위를 지정할 수 있음 | 범위는 테넌트 수준 |
-| Azure Portal, Azure CLI, Azure PowerShell, Azure Resource Manager 템플릿, REST API에서 역할 정보에 액세스 가능 | Azure 관리 포털, Office 365 관리 포털, Microsoft Graph, Azure AD PowerShell에서 역할 정보에 액세스 가능 |
+| Azure Portal, Azure CLI, Azure PowerShell, Azure Resource Manager 템플릿, REST API에서 역할 정보에 액세스 가능 | 역할 정보는 Azure 관리 포털, Microsoft 365 관리 센터, Microsoft Graph, Azure AD PowerShell에서 액세스할 수 있음 |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Azure RBAC 역할과 Azure AD 관리자 역할이 겹치나요?
 

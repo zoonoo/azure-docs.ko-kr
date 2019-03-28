@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>자습서: Palo Alto Networks Captive Portal과 Azure Active Directory 통합
 
@@ -105,12 +105,12 @@ Palo Alto Networks Captive Portal에서 Azure AD Single Sign-On을 구성하고 
 
     ![Palo Alto Networks Captive Portal 기본 SAML 구성 창](common/idp-intiated.png)
 
-    1. **식별자**에 대해 `https://<customer_firewall_host_name>/SAML20/SP` 패턴이 있는 URL을 입력합니다.
+   1. **식별자**에 대해 `https://<customer_firewall_host_name>/SAML20/SP` 패턴이 있는 URL을 입력합니다.
 
-    2. **회신 URL**에 대해 `https://<customer_firewall_host_name>/SAML20/SP/ACS` 패턴이 있는 URL을 입력합니다.
+   2. **회신 URL**에 대해 `https://<customer_firewall_host_name>/SAML20/SP/ACS` 패턴이 있는 URL을 입력합니다.
 
-    > [!NOTE]
-    > 실제 식별자 및 회신 URL로 이 단계의 자리 표시자 값을 업데이트합니다. 실제 값을 얻으려면 [Palo Alto Networks Captive Portal 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의하세요.
+      > [!NOTE]
+      > 실제 식별자 및 회신 URL로 이 단계의 자리 표시자 값을 업데이트합니다. 실제 값을 얻으려면 [Palo Alto Networks Captive Portal 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의하세요.
 
 5. **SAML 서명 인증서** 섹션의 **페더레이션 메타데이터 XML** 옆에서 **다운로드**를 선택합니다. 다운로드한 파일을 컴퓨터에 저장합니다.
 
@@ -158,7 +158,7 @@ Palo Alto Networks Captive Portal에서 Azure AD Single Sign-On을 구성하고 
 
     1. **이름**에 대해 **BrittaSimon**을 입력합니다.
   
-    2. **사용자 이름**에 대해 **BrittaSimon@\<your_company_domain\>** 을 입력합니다. 예를 들어 **BrittaSimon@contoso.com**입니다.
+    2. **사용자 이름**에 대해 **BrittaSimon\@\<your_company_domain\>** 을 입력합니다. 예를 들어 **BrittaSimon\@contoso.com**입니다.
 
     3. **암호**에 대해 암호를 입력합니다. 입력한 암호의 기록을 유지하는 것이 좋습니다. **암호 표시** 확인란을 선택하여 암호를 표시할 수 있습니다.
 

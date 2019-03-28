@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd08de2711e8584b9f2bbe17716fe14400c8bf7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory 통합
 
@@ -208,7 +208,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하려면 다음
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -267,7 +267,7 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
    
     ![저장](./media/mimecast-personal-portal-tutorial/ic795006.png "저장")
    
-    a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소**를 **BrittaSimon@contoso.com**으로 입력합니다.
+    a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소**를 **BrittaSimon\@contoso.com**으로 입력합니다.
     
     b. **Global Name**(전역 이름) 텍스트 상자에 **사용자 이름**을 **BrittaSimon**으로 입력합니다.
 

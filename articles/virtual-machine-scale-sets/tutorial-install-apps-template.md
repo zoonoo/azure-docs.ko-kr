@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996577"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -115,7 +115,7 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 *upgradePolicy`가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 *upgradePolicy*가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
 사용자 지정 스크립트 확장 정의를 업데이트하려면 새 설치 스크립트를 참조하도록 템플릿을 편집합니다. 변경 내용을 인식하려면 사용자 지정 스크립트 확장에 새 파일 이름을 사용해야 합니다. 사용자 지정 스크립트 확장은 변경 내용을 확인하기 위해 스크립트의 내용을 검사하지 않습니다. 다음 정의에서는 이름에 *_v2*가 추가된 업데이트된 설치 스크립트를 사용합니다.
 
