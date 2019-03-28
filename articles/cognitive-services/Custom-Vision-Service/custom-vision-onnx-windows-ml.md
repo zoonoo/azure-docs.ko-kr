@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879074"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351867"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>자습서: Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
 
@@ -51,7 +51,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 1. `F5` 키를 사용하여 Visual Studio에서 애플리케이션을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
-2. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
+1. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 
 ## <a name="use-your-own-model"></a>사용자 고유의 모델 사용
 
@@ -65,8 +65,8 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 1. 솔루션 탐색기에서 Assets 폴더를 마우스 오른쪽 단추로 클릭하고 __기존 항목 추가__를 선택합니다. ONNX 파일을 선택합니다.
 
-1. 솔루션 탐색기에서 Assets 폴더의 ONNX 파일을 선택합니다. 파일의 다음 속성을 변경합니다. 
-    
+1. 솔루션 탐색기에서 Assets 폴더의 ONNX 파일을 선택합니다. 파일의 다음 속성을 변경합니다.
+
     * __빌드 작업__ -> __콘텐츠__
     * __출력 디렉터리로 복사__ -> __변경된 내용만 복사__
 
