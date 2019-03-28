@@ -1,0 +1,47 @@
+items:
+- name: Anomaly Detector 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: Anomaly Detector API란?
+    href: overview.md
+  expanded: true
+- name: 빠른 시작
+  items:
+  - name: 데이터에서 변칙 검색
+    items:
+    - name: C# 사용
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Java 사용
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Python 사용
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: 방법 가이드
+  items:
+  - name: 데이터에서 변칙 식별
+    href: how-to/identify-anomalies.md
+- name: 개념
+  items:
+  - name: Anomaly Detection API 모범 사례
+    href: concepts/anomaly-detection-best-practices.md
+- name: 참고 자료
+  items:
+  - name: REST API 참조
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: 리소스
+  items:
+  - name: 가격
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: 국가별 가용성
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473398"

@@ -301,16 +301,22 @@ items:
         items:
         - name: 포털
           href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI 또는 PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: RBAC를 사용하여 액세스 권한 관리
+        items:
+        - name: 포털
+          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI
+          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure AD를 사용하여 인증
         items:
-        - name: RBAC를 사용하여 Azure Portal의 액세스 권한 관리
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 애플리케이션에서 인증
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 관리되는 ID를 사용하여 인증
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI 또는 PowerShell과 함께 Azure AD ID 사용
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 공유 키로 권한 부여
         items:
         - name: 연결 문자열 구성
@@ -571,7 +577,7 @@ items:
       - name: 방화벽 및 가상 네트워크 구성
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: RBAC를 사용하여 액세스 권한 관리
-        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 파일 및 디렉터리 수준 사용 권한 설정
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Azure 서비스와 통합
@@ -626,9 +632,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: b3b06751950a1c14cf445c6ea7d95a18c942d7c4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1f831e742f034d210a59c5723526442114f594ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446894"

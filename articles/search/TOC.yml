@@ -102,7 +102,7 @@ items:
         href: search-dotnet-mgmt-sdk-migration.md
     - name: REST API 업그레이드
       href: search-api-migration.md
-  - name: 인덱스 디자인
+  - name: 인덱스 만들기
     items:
     - name: 기본 인덱스 만들기
       href: search-what-is-an-index.md
@@ -120,9 +120,7 @@ items:
       items:
       - name: 제안기 만들기
         href: index-add-suggesters.md
-      - name: 자동 제안 예제
-        href: search-autosuggest-example.md
-      - name: 자동 완성 예제
+      - name: 예제(제안 사항, 자동 완성)
         href: search-autocomplete-tutorial.md
     - name: 동의어
       items:
@@ -172,7 +170,7 @@ items:
         href: search-indexer-field-mappings.md
       - name: 일반적인 문제 해결
         href: search-indexer-troubleshooting.md
-  - name: AI 보강 인덱싱(Cognitive Search)
+  - name: AI 인덱싱(Cognitive Search)
     items:
     - name: Cognitive Services 리소스 연결
       href: cognitive-search-attach-cognitive-services.md
@@ -202,9 +200,9 @@ items:
       href: query-simple-syntax.md
     - name: 전체 Lucene 쿼리 구문
       href: query-lucene-syntax.md
-    - name: 쿼리 예제(단순 구문)
+    - name: 예제(단순 구문)
       href: search-query-simple-examples.md
-    - name: 쿼리 예제(전체 Lucene)
+    - name: 예제(전체 Lucene)
       href: search-query-lucene-examples.md
   - name: 결과 처리
     items:
@@ -309,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: a126d909d90e70324a0f6038ddd89e4a619d0721
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 74d4c29b7a4c70116531ef242929571eee3e4d90
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437750"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500503"

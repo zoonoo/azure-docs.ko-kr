@@ -199,6 +199,8 @@ items:
       items:
       - name: 필수 아티팩트 지정
         href: devtest-lab-mandatory-artifacts.md
+      - name: VM에 아티팩트 추가
+        href: add-artifact-vm.md
       - name: 사용자 지정 아티팩트 만들기
         href: devtest-lab-artifact-author.md
       - name: 랩에 아티팩트 리포지토리 추가
@@ -263,9 +265,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: 질문과 대답
       href: devtest-lab-faq.md
-ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c2e32a28253e0fc38fbfa215599654a3cf751d36
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435637"
+ms.locfileid: "58448838"

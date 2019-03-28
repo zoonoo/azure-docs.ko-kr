@@ -251,6 +251,8 @@ items:
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: 기본 구성 변경
       href: how-to-connect-sync-change-the-configuration.md
+    - name: 수정된 기본 규칙 수정
+      href: how-to-connect-fix-default-rules.md
     - name: 디렉터리 확장 구성
       href: how-to-connect-sync-feature-directory-extensions.md
     - name: 기본 설정 데이터 위치 구성
@@ -273,6 +275,8 @@ items:
         href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: 문제 해결
     items:
+    - name: Azure AD Connect 관리 에이전트란?
+      href: whatis-aadc-admin-agent.md
     - name: ADConnectivityTools PowerShell 모듈이란?
       href: how-to-connect-adconnectivitytools.md
     - name: 연결
@@ -337,9 +341,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools 참조
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 613adb5c19c3ca7fa2f47700a0358a51beac98e4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: aac9615fde8547493851ba513156ec860c51c13c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193707"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498284"
