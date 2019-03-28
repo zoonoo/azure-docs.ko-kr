@@ -31,7 +31,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 * Red Hat Enterprise Linux, CentOS 또는 Oracle Linux를 실행하는 Azure Resource Manager VM(클래식이 아님). VM 만들기에 대한 지침은 [Azure Portal에서 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-https://portal.azure.com에서 Azure에 로그인
+ https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="onboard-a-virtual-machine"></a>가상 머신 등록
 여러 가지 방법으로 컴퓨터를 등록하고 DSC를 사용하도록 설정할 수 있습니다. 이 빠른 시작에서는 Automation 계정을 통한 등록에 대해 설명합니다. [등록](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) 문서를 참조하여 컴퓨터를 DSC에 등록하는 방법에 대해 자세히 알아볼 수 있습니다.

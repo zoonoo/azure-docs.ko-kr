@@ -114,6 +114,20 @@ items:
       href: notification-hubs-php-push-notification-tutorial.md
     - name: 알림 허브 만들기 - Python
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: 플랫폼 알림 서비스 설정 구성
+    items:
+    - name: Apple Push Notification Service 설정 구성
+      href: configure-apple-push-notification-service.md
+    - name: Google Firebase Cloud Messaging 설정 구성
+      href: configure-google-firebase-cloud-messaging.md
+    - name: Windows 푸시 알림 서비스 구성
+      href: configure-windows-push-notification-service.md
+    - name: Microsoft 푸시 알림 서비스 구성
+      href: configure-microsoft-push-notification-service.md
+    - name: Android 디바이스 메시징 구성
+      href: configure-android-device-messaging.md
+    - name: Baidu 클라우드 푸시 구성
+      href: configure-baidu-cloud-push.md
   - name: 애플리케이션 백 엔드에 등록
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Apple 디바이스에서 토큰 기반 인증 사용
@@ -150,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a5681a615638fdd14aecb2654e2c6d46f0a7bda4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438770"
+ms.locfileid: "58486957"
