@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481878"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621076"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -26,7 +26,16 @@ IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 �
 이 문서에는 Windows x64(AMD/Intel) 시스템에 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. Windows 지원은 현재 미리 보기로 제공되고 있습니다.
 
 > [!NOTE]
-> Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
+> Windows 운영 체제를 눌러도 절전 모드 및 IoT Edge 모듈 (Windows Nano Server 컨테이너 프로세스 격리)을 실행 하는 경우 전원 상태를 최대 절전 모드로 전환할 수 없습니다. 이 문제는 배터리 장치에 영향을 줍니다.
+>
+> 대 안으로 명령을 사용 하 여 `Stop-Service iotedge` 이러한 전원 상태를 사용 하기 전에 실행 중인 모든 IoT Edge 모듈을 중지 합니다. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Linux를 사용 하 여 Windows 시스템에서 컨테이너 아닌 경우 Azure IoT Edge에 대 한 권장 되거나 지원 되는 프로덕션 구성을 그러나 개발 및 테스트 용도로만 사용할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

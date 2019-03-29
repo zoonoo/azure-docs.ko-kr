@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432144"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622079"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ ARP 테이블의 예:
 * 피어링(Azure 개인, Azure 공용 및 Microsoft) 구성에 사용한 IP 주소 범위. [ExpressRoute 라우팅 요구 사항 페이지](expressroute-routing.md) 에서 IP 주소 할당 예제를 검토하여 사용자 측과 ExpressRoute 측에서 인터페이스에 IP 주소를 매핑하는 방법을 파악합니다. [ExpressRoute 피어링 구성 페이지](expressroute-howto-routing-arm.md)를 검토하면 피어링 구성에 관한 정보를 얻을 수 있습니다.
 * 네트워킹 팀/연결 공급자가 제공한 해당 IP 주소에서 사용하는 인터페이스 MAC 주소 정보.
 * 최신 Azure용 PowerShell 모듈(1.50 버전 이상)이 있어야 합니다.
+
+> [!NOTE]
+> 서비스 공급자가 계층 3을 제공 하 고 ARP 테이블은 아래 포털/출력에서 비어 있는 경우 포털에서 새로 고침 단추를 사용 하 여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>ExpressRoute 회로의 ARP 테이블 가져오기
 이 섹션은 PowerShell을 사용하여 피어링당 ARP 테이블을 보는 방법을 설명합니다. 사용자 또는 연결 공급자는 더 진행하기 전에 피어링을 구성해야 합니다. 각 회로는 두 가지 경로(기본 및 보조)가 있습니다. 각 경로의 ARP 테이블을 독립적으로 확인할 수 있습니다.

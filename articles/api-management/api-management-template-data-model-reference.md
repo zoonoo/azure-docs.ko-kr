@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541250"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621926"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  
@@ -162,7 +162,7 @@ ms.locfileid: "58541250"
 ##  <a name="Header"></a> 헤더  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
-|자산|설명|Type|  
+|자산|Type|설명|  
 |--------------|-----------------|----------|  
 |`name`|문자열|매개 변수 이름입니다.|  
 |`description`|문자열|매개 변수 설명입니다.|  
@@ -239,7 +239,7 @@ ms.locfileid: "58541250"
 ##  <a name="Parameter"></a> 매개 변수  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
-|자산|설명|Type|  
+|자산|Type|설명|  
 |--------------|-----------------|----------|  
 |`name`|문자열|매개 변수 이름입니다.|  
 |`description`|문자열|매개 변수 설명입니다.|  

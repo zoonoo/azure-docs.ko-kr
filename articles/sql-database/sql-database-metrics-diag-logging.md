@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499328"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621233"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -148,7 +148,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 | 리소스 | 모니터링 원격 분석 |
 | :------------------- | ------------------- |
-| **관리되는 인스턴스** | ResourceUsageStats는 Vcore 수, 평균 CPU 비율, IO 요청, 바이트 읽기/쓰기, 예약 된 저장소 공간을 포함 하 고 저장소 공간을 사용 합니다. |
+| **관리되는 인스턴스** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
 
 관리 되는 인스턴스 및 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 하려면 개별적으로 구성 해야 **둘 다** 중:
 

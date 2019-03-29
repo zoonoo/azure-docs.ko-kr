@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868547"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622215"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
@@ -358,6 +358,7 @@ ms.locfileid: "56868547"
 | CorrelationId | 문자열 형식의 GUID입니다. |
 | description |경고 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
+| 카테고리 | 항상 "경고" |
 | level |이벤트의 수준입니다. 해당 값은 “Critical”, “Error”, “Warning” 및 “Informational” 중 하나입니다. |
 | resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 다른 경고 유형의 경우 경고 자체가 포함된 리소스 그룹의 이름입니다. |
 | resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 다른 경고 유형의 경우 경고 자체에 대한 리소스 공급자 이름입니다. |
@@ -556,6 +557,7 @@ ms.locfileid: "56868547"
 | description |보안 이벤트에 대한 정적 텍스트 설명입니다. |
 | eventDataId |보안 이벤트의 고유 식별자입니다. |
 | eventName |보안 이벤트의 이름입니다. |
+| 카테고리 | 항상 "보안" |
 | id |보안 이벤트의 고유 리소스 식별자입니다. |
 | level |이벤트의 수준입니다. 해당 값은 “Critical”, “Error”, “Warning” 또는 “Informational” 중 하나입니다. |
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |

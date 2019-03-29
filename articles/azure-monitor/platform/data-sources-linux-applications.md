@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001337"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621535"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 애플리케이션은 다음과 같습니다.  
 
-- [MySQL](#MySQL)
+- [MySQL](#mysql)
 - [Apache HTTP 서버](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472942"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622130"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -48,9 +48,7 @@ Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
-
-- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 사용 하 여 이러한 필수 구성이 요소를 가져오는 방법을 알아보려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
+[!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
 - 학습된 모델. 학습된 모델이 없는 경우 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 단계를 사용하여 학습을 하고 Azure Machine Learning 서비스에 등록합니다.
 

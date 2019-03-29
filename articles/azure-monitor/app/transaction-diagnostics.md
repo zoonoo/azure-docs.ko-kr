@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903626"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619835"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -32,7 +32,7 @@ ms.locfileid: "57903626"
 * 구성 요소는 별도의 Application Insights 계측 키(구독이 다른 경우에도) 또는 단일 Application Insights 계측 키에 보고하는 다른 역할일 수 있습니다. 새 환경에서는 설정 방법에 관계없이 모든 구성 요소에 대한 세부 정보가 표시됩니다.
 
 > [!NOTE]
-> * **관련 항목 링크가 누락되었나요?** 모든 관련 원격 분석은 왼쪽의 [맨 위](#cross-component-transaction-chart) 및 [맨 아래](#all-telemetry-with-this-Operation-Id) 섹션에 있습니다. 
+> * **관련 항목 링크가 누락되었나요?** 모든 관련 원격 분석은 왼쪽의 [맨 위](#cross-component-transaction-chart) 및 [맨 아래](#all-telemetry-with-this-operation-id) 섹션에 있습니다. 
 
 ## <a name="transaction-diagnostics-experience"></a>트랜잭션 진단 환경
 이 보기에는 네 가지 주요 부분, 즉 결과 목록, 구성 요소 간 트랜잭션 차트, 이 작업 관련된 모든 원격 분석의 시간 순서 목록 및 선택한 원격 분석 항목에 대한 세부 정보 창이 왼쪽에 있습니다.

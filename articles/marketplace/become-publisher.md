@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842459"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620158"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -44,6 +44,8 @@ Microsoft의 클라우드 마켓플레이스에 참여하려면 MPN(Microsoft �
 등록한 후 조직의 Microsoft Partner Network ID를 기록합니다. 마켓플레이스 등록 양식을 제출할 때 3단계 중 필요합니다.
 *   [Microsoft 파트너 네트워크](https://partner.microsoft.com/commercial)의 이점에 대해 알아봅니다.
 *   조직에 기존 멤버 자격이 있는 경우 등록 중에 조직에 가입됩니다. [파트너 센터](https://partnercenter.microsoft.com/partner/home)를 사용하는 경우 파트너 센터 계정에서 ID를 확인할 수 있습니다. [PMC(파트너 멤버 자격 센터)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)를 사용하는 경우 파트너 멤버 자격 센터 계정에서 ID를 확인할 수 있습니다. 
+
+Microsoft를 사용 하 여 티켓을 열어 [파트너 지원](https://partner.microsoft.com/support) MPN 등록 문제에 대 한 합니다.
 
 ---
 

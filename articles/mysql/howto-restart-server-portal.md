@@ -1,17 +1,17 @@
 ---
 title: Azure Portal을 사용하여 Azure Database for MySQL 서버 다시 시작
-description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서버를 다시 시작하는 방법을 설명합니다.
+description: 이 문서에서는 Azure portal을 사용 하 여 MySQL 서버용 Azure Database를 다시 시작할 수는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 6cf6679dc6398b112ffc964f50986b2ab30aba47
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621406"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 다시 시작
 이 항목에서는 Azure Database for MySQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
@@ -22,7 +22,7 @@ ms.locfileid: "56882487"
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 완료하려면 다음이 필요합니다.
-- [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>서버 다시 시작 수행
 

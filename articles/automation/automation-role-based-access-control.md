@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544991"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621382"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -231,6 +231,9 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |온보딩 상태 확인 - 솔루션 읽기      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | 해결 방법         |
 |온보딩 상태 확인 - VM 읽기      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |온보딩 상태 확인 - 계정 읽기      | Microsoft.Automation/automationAccounts/read  |  Automation 계정   |
+| VM에 대 한 온 보 딩 작업 영역 확인<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | 구독         |
+
+<sup>1</sup> VM 포털 환경을 통해 등록 하려면이 권한이 필요 합니다.
 
 ### <a name="onboarding-from-automation-account"></a>Automation 계정에서 온보딩
 

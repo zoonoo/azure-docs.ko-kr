@@ -6,62 +6,53 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439008"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620120"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
 이 문서에서는 삭제 하는 방법에 설명 합니다는 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음입니다. 종속성을 제거 자격 증명 모음을 삭제 하 고 강제로 자격 증명 모음을 삭제 하기 위한 지침을 포함 합니다.
 
 
-
-
 ## <a name="before-you-start"></a>시작하기 전에
 
 시작 하기 전에 서버가 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다는 이해, 등록 또는 백업 데이터를 보유 하는 중요 한 것입니다.
 
-
-- 자격 증명 모음을 정상적으로 삭제 하려면에서 서버의 등록을 취소 하 고 자격 증명 모음 데이터를 제거 합니다.
+- 서버의 등록을 취소 자격 증명 모음을 정상적으로 삭제 하려면 자격 증명 모음 데이터 제거 및 자격 증명 모음을 삭제 합니다.
+- 여전히 종속성이 포함 된 자격 증명 모음을 삭제 하려고 하면 오류 메시지가 발급 됩니다. 및 포함 하 여 자격 증명 모음 종속성을 수동으로 제거 해야 합니다.
+    - 백업 된 항목
+    - 보호 된 서버
+    - Backup 관리 서버 (Azure Backup Server, DPM) ![해당 대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Recovery Services 자격 증명 모음에 있는 모든 데이터를 유지 하 고 자격 증명 모음을 삭제 하려면에 않으려면 강제로 자격 증명 모음을 삭제할 수 있습니다.
 - 자격 증명 모음을 삭제하려고 해도 할 수 없는 경우 자격 증명 모음이 여전히 백업 데이터를 받도록 구성되어 있습니다.
 
-자격 증명 모음을 삭제하는 방법을 알아보려면 [Azure Portal에서 자격 증명 모음 삭제](#delete-a-vault-from-the-azure-portal) 섹션을 참조합니다. 경우 섹션인 [강제로 자격 증명 모음 삭제](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)합니다. 자격 증명 모음의 내용이 확실하지 않고 자격 증명 모음을 삭제할 수 있는지 확인해야 하는 경우 [자격 증명 모음 종속성 제거 및 자격 증명 모음 삭제](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) 섹션을 참조합니다.
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Azure portal에서 자격 증명 모음 삭제
 
-1. 포털에서 Recovery Services 자격 증명 모음 목록을 엽니다.
-2. 목록에서 삭제할 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열립니다.
+1. 자격 증명 모음 대시보드를 엽니다.  
+2. 대시보드를 클릭 **삭제**합니다. 삭제할 것임을 확인 합니다.
 
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. 자격 증명 모음 대시보드에서 **삭제**합니다. 삭제할 것임을 확인 합니다.
+오류가 발생 하는 경우 제거 [backup 항목](#remove-backup-items)를 [인프라 서버](#remove-backup-infrastructure-servers), 및 [복구 지점을](#remove-azure-backup-agent-recovery-points), 한 다음 자격 증명 모음을 삭제 합니다.
 
-    ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![자격 증명 모음 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error.png)
 
-2. 자격 증명 모음 종속성이 있으면 합니다 **삭제 오류 자격 증명 모음** 나타납니다. 
-
-    ![자격 증명 모음 삭제 오류](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - 검토를 자격 증명 모음을 삭제 하기 전에 종속성을 제거 하려면 다음이 지침에 따라
-    - [다음이 지침에 따라](#delete-the-recovery-services-vault-by-force) 강제로 자격 증명 모음을 삭제 하려면 PowerShell을 사용 하도록 합니다. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Recovery Services 자격 증명 모음 강제 삭제
 
+PowerShell 사용 하 여 강제로 자격 증명 모음을 삭제할 수 있습니다. 강제 삭제 자격 증명 모음 및 연결 된 모든 백업 데이터를 영구적으로 삭제 됩니다 것을 의미 합니다.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell을 사용하여 Recovery Services 자격 증명 모음을 강제로 삭제할 수 있습니다. 즉, 자격 증명 모음 및 연결 된 모든 백업 데이터를 영구적으로 삭제 됩니다. 
 
-> [!Warning]
-> Recovery Services 자격 증명 모음을 삭제 하려면 PowerShell을 사용 하는 경우 자격 증명 모음의 모든 백업 데이터를 영구적으로 삭제 되도록 확인 합니다.
->
-
-Recovery Services 자격 증명 모음 삭제하려면
+삭제 하려면 강제 하 여 자격 증명 모음:
 
 1. 사용 하 여 Azure 구독에 로그인 합니다 `Connect-AzAccount` 명령을 실행 하 고 수행는 화면의 지침.
 
@@ -90,28 +81,18 @@ Recovery Services 자격 증명 모음 삭제하려면
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. 자격 증명 모음의 비어 있지, "자격 증명 모음 수 없습니다.이 자격 증명이 모음 내에서 기존 리소스는 삭제 됨" 오류가 나타납니다. 자격 증명 모음 내에 컨테이너를 제거 하려면 다음을 수행 합니다.
+9. 자격 증명 모음의 비어 있지, "자격 증명 모음 수 없습니다.이 자격 증명이 모음 내에서 기존 리소스는 삭제 됨" 오류가 나타납니다. 자격 증명 모음 내에서 포함을 제거 하려면 다음을 수행 합니다.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Azure portal에서 구독에 로그인 하 고 데이터를 자격 증명 모음 삭제를 확인 합니다.
+10. Azure portal에서 데이터를 자격 증명 모음 삭제를 확인 합니다.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>자격 증명 모음 종속성 제거 및 자격 증명 모음 삭제
+## <a name="remove-vault-items-and-delete-the-vault"></a>자격 증명 모음 항목을 제거 하 고 자격 증명 모음 삭제
 
-다음과 같이 자격 증명 모음 종속성을 수동으로 제거할 수 있습니다.
-
-- 에 **Backup 항목** 메뉴, 제거 종속성:
-    - Azure Storage(Azure 파일) 백업
-    - Azure VM 백업의 SQL Server
-    - Azure 가상 머신 백업
-- 에 **Backup 인프라** 메뉴, 제거 종속성:
-    - Microsoft Azure Backup Server (MABS) 백업
-    - System Center DPM 백업
-
-![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+이러한 프로시저는 백업 데이터 및 인프라 서버 제거에 대 한 몇 가지 예제를 제공 합니다. 모든 자격 증명 모음에서 제거 된 후에이 삭제할 수 있습니다.
 
 ### <a name="remove-backup-items"></a>백업 항목 제거
 
@@ -200,12 +181,13 @@ Recovery Services 자격 증명 모음 삭제하려면
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>종속성을 제거한 후 자격 증명 모음 삭제
 
 1. 모든 종속성을 제거한 경우 스크롤하여 합니다 **Essentials** 자격 증명 모음 메뉴의 창.
-
-    - 어떤 **Backup 항목**, **Backup 관리 서버** 또는 **복제된 항목**도 나열되지 않아야 합니다.
-    - 자격 증명 모음에 항목이 아직 나타날를 제거 합니다.
+2. 확인 된 **Backup 항목**를 **Backup 관리 서버**, 또는 **복제 된 항목** 나열 합니다. 자격 증명 모음에 항목이 아직 나타날를 제거 합니다.
 
 2. 자격 증명 모음에 더 이상 항목이 없을 경우 자격 증명 모음 대시보드에서 **삭제**를 클릭합니다.
 

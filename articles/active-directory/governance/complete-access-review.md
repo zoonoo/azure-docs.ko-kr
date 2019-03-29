@@ -1,6 +1,6 @@
 ---
-title: 그룹 또는 응용 프로그램에서 Azure AD 액세스 검토의 액세스 검토 완료 | Microsoft Docs
-description: 그룹 구성원 또는 Azure AD 액세스 검토에 대 한 응용 프로그램 액세스의 액세스 검토를 완료 하는 방법을 알아봅니다.
+title: 그룹 또는 응용 프로그램-Azure Active Directory의 액세스 검토 완료 | Microsoft Docs
+description: 그룹 구성원 또는 Azure Active Directory 액세스 검토에 대 한 응용 프로그램 액세스의 액세스 검토를 완료 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729613"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579600"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹 또는 응용 프로그램에서 Azure AD 액세스 검토의 액세스 검토를 완료 합니다.
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 완료 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
 관리자는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다. Azure AD는 검토자에게 액세스를 검토하도록 요청하는 전자 메일을 자동으로 보냅니다. 사용자 전자 메일을 받지 경우 보낼 수 있습니다 이러한 지침 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다. (검토자로 할당되었지만 초대를 수락하지 않은 게스트는 먼저 초대를 수락한 후에 검토해야 하므로 액세스 검토에서 이메일을 받을 수 없습니다.) 액세스 검토 기간이 만료되었거나 관리자가 액세스 검토를 중지한 후에는 이 문서의 단계에 따라 결과를 확인하고 적용합니다.
 

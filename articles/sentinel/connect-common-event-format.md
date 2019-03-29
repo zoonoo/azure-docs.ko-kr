@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 31939b3b09fb36ac59efa1d7d7e302ac5f65a51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3ecfed766f8a1ba558e0b0cd4fe6a27c33e441
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117186"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579634"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Syslog 로그 파일을 저장할 수 있도록 외부 솔루션을 사용 하 여 Azure Sentinel에 연결할 수 있습니다. 어플라이언스를 사용 하면 로그와 Syslog 이벤트 CEF (일반적인 형식)를 저장할 수 있습니다, 하는 경우 Azure Sentinel와 통합을 사용 하면 쉽게 데이터 분석 및 쿼리를 실행할 수 있습니다.
@@ -50,11 +50,11 @@ Azure Sentinel CEF 어플라이언스에서 사이의 연결에는 세 단계로
 
 전용된 Linux 컴퓨터에 에이전트를 배포 해야 (VM 또는 온-프레미스) 어플라이언스 및 Azure Sentinel 간의 통신을 지원 하도록 합니다. 자동 또는 수동으로 에이전트를 배포할 수 있습니다. 자동 배포 Resource Manager 템플릿을 기반으로 하 고 사용자 전용된 Linux 컴퓨터는 Azure에서 만드는 새 VM을 하는 경우에 사용할 수 있습니다.
 
- ![Azure에서 CEF](./media/connect-cef/cef-syslog-azure.png)
+ ![Azure의 CEF](./media/connect-cef/cef-syslog-azure.png)
 
-또는 다른 클라우드의 VM에서 기존 Azure VM에서 수동으로 또는 온-프레미스 컴퓨터에 에이전트를 배포할 수 있습니다. 
+또는 에이전트를 기존 Azure VM, 다른 클라우드의 VM 또는 온-프레미스 컴퓨터에서 수동으로 배포할 수 있습니다. 
 
- ![온-프레미스 CEF](./media/connect-cef/cef-syslog-onprem.png)
+ ![온-프레미스의 CEF](./media/connect-cef/cef-syslog-onprem.png)
 
 ### <a name="deploy-the-agent-in-azure"></a>Azure에서 에이전트 배포
 
@@ -123,7 +123,7 @@ Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도�
 3. 성공적인 결과 제공 하는 모두 해당 명령의 경우에 Log Analytics 로그 도착 하는 경우 참조를 확인 합니다. 이러한 어플라이언스에서 스트리밍되는 모든 이벤트에서 Log Analytics에서 원시 형태로 나타나는 `CommonSecurityLog ` 형식입니다.
 1. 확인 오류가 있는 경우 또는 로그 되지 도착 하는 경우를 확인 하려면 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. 에 Syslog 메시지 기본 크기는 2048 바이트 (2KB)로 제한 해야 합니다. 로그에 너무 긴 경우에이 명령을 사용 하 여 security_events.conf 업데이트: `message_length_limit 4096`
-
+6. Log Analytics에서 관련 스키마를 사용 하 여 CEF 이벤트를 검색할 **CommonSecurityLog**합니다.
 
 
 

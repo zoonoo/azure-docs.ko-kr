@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008165"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621620"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -60,7 +60,7 @@ ms.locfileid: "58008165"
 ## <a name="backups-dont-run-according-to-the-schedule"></a>백업이 일정에 따라 실행되지 않음
 수동 백업은 문제 없이 실행되지만 예약 백업이 자동으로 트리거되지 않으면 다음 작업을 시도해보세요.
 
-- Windows Server 백업 일정이 Azure 파일 및 폴더 백업 일정과 충돌하지 않는지 확인합니다.
+- Azure 파일 및 폴더 백업 일정을 사용 하 여 Windows Server 백업 일정 충돌 하지 않는 것을 확인 합니다.
 - **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다. **Microsoft**를 확장하고 **온라인 백업**을 선택합니다. **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다. 상태가 **사용**으로 설정되어 있는지 확인합니다. 설정되지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택한 다음, **확인**을 클릭합니다. **일반** 탭에서 **보안 옵션**으로 이동하여 작업을 실행하도록 선택된 사용자 계정이 서버의 **로컬 관리자 그룹** 또는 **SYSTEM** 중 하나인지 확인합니다.
 
 - PowerShell 3.0 이상이 서버에 설치되었는지 확인합니다. PowerShell 버전을 확인하려면 다음 명령을 실행하고 *주* 버전 번호가 3 이상인지 확인합니다.

@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할에 대한 액세스 검토 시작 | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 Azure 리소스 역할에 대 한 액세스 검토 시작 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 액세스 검토를 시작하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173439"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579498"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 시작
-사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 주기적으로 역할을 검토해야 합니다. 이 문서에서는 Azure 리소스에 대한 PIM(Privileged Identity Management)의 액세스 검토를 시작하는 방법을 다룹니다.
+사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 주기적으로 역할을 검토해야 합니다. 이 문서에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 액세스 검토를 시작 하기 위한 단계를 다룹니다.
 
 PIM 애플리케이션 기본 페이지에서 다음 위치로 이동합니다.
 
@@ -76,4 +76,4 @@ PIM Azure 리소스 대시보드에서 검토자가 검토를 얼마나 완료�
 
 - [PIM에서 Azure 리소스 역할에 대한 액세스 검토 완료](pim-resource-roles-complete-access-review.md)
 - [PIM에서 Azure 리소스 역할에 대한 액세스 검토 수행](pim-resource-roles-perform-access-review.md)
-- [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 시작](pim-how-to-start-security-review.md)
+- [PIM에서 Azure AD 역할에 대 한 액세스 검토 시작](pim-how-to-start-security-review.md)

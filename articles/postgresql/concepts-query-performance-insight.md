@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: 69963f34cb49482cc7eae25320a6a3a5f176f8dd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 03/28/2019
+ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486585"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620736"
 ---
 # <a name="query-performance-insight"></a>쿼리 
 
@@ -28,11 +28,11 @@ Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-s
 ## <a name="viewing-performance-insights"></a>Performance Insight 보기
 Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.md) 보기에는 쿼리 저장소의 핵심 정보가 시각화되어 표시됩니다. 
 
-Azure Database for PostgreSQL 서버의 포털 페이지 메뉴 모음의 **지원 + 문제 해결** 섹션에서 **Query Performance Insight**를 선택합니다.
+PostgreSQL 서버용 Azure Database의 포털 페이지에서 선택 **쿼리 성능 Insight** 아래의 합니다 **지능형 성능** 메뉴의 섹션입니다.
 
 ![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-**장기 실행 쿼리** 탭에는 실행당 평균 기간별 상위 5개 쿼리가 15분 간격으로 집계되어 표시됩니다. **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
+합니다 **장기 실행 쿼리** 15 분 간격으로 집계 탭 실행 당 평균 기간별 상위 5 개 쿼리를 보여 줍니다. **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
 차트를 클릭하고 끌어 특정 기간으로 범위를 좁힐 수 있습니다. 확대/축소 아이콘을 사용하여 더 긴 기간이나 더 짧은 기간을 표시할 수도 있습니다.
 

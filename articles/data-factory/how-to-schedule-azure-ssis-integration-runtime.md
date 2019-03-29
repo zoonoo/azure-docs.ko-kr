@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092449"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621637"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure-SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure-SSIS IR은 SSIS(SQL Server Integration Services) 패키지 전용으로 사용되는 ADF 컴퓨팅 리소스입니다. Azure-SSIS IR 실행 시 관련 비용이 발생합니다. 따라서 일반적으로 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고, 더 이상 필요 없으면 중지하는 것이 좋습니다. ADF UI(사용자 인터페이스)/앱 또는 Azure PowerShell을 사용하여 [수동으로 IR을 시작 또는 중지](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
@@ -94,7 +94,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
   
     2. **메서드**로 **POST**를 선택합니다. 
     3. **본문**에 `{"message":"Start my IR"}`를 입력합니다. 
-    4. 에 대 한 **인증**를 선택 **MSI** ADF에 대 한 관리 되는 id를 사용 하려면 참조 [Data Factory에 대 한 관리 되는 식별](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 자세한 문서.
+    4. 에 대 한 **인증**를 선택 **MSI** ADF에 대 한 관리 되는 id를 사용 하려면 참조 [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 자세한 문서.
     5. **리소스**에 `https://management.azure.com/`을 입력합니다.
     
        ![ADF 웹 작업 일정 SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -177,7 +177,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 세 번째 파이프라인에는 파이프라인의 연결된 작업당 하나씩 총 세 개의 작업 실행이 있습니다(IR을 시작하는 웹 작업, 패키지를 실행하는 저장 프로시저 작업, IR을 중지하는 웹 작업). 파이프라인 실행을 다시 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
-   ![활동 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+   ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 
 3. 트리거 실행을 보려면 상단의 **파이프라인 실행** 아래에 있는 드롭다운 목록에서 **트리거 실행**을 선택합니다. 
 
@@ -348,7 +348,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Azure-SSIS IR을 시작/중지하는 일정 만들기
 
-이전 섹션에서는 Azure-SSIS IR을 시작 또는 중지할 수 있는 Azure Automation Runbook을 만들었습니다. 이번 섹션에서는 Runbook에 대한 두 가지 일정을 만들겠습니다. 첫 번째 일정을 구성할 때는 **OPERATION**에 대해 **START**를 지정합니다. 마찬가지로, 두 번째 일정을 구성할 때는 **OPERATION**에 대해 **STOP**을 지정합니다. 일정을 만드는 자세한 단계는 [일정 만들기](../automation/automation-schedules.md#creating-a-schedule) 문서를 참조하세요.
+이전 섹션에서는 Azure-SSIS IR을 시작 또는 중지할 수 있는 Azure Automation Runbook을 만들었습니다. 이번 섹션에서는 Runbook에 대한 두 가지 일정을 만들겠습니다. 첫 번째 일정을 구성할 때는 **OPERATION**에 대해 **START**를 지정합니다. 마찬가지로, 두 번째 일정을 구성할 때는 **OPERATION**에 대해 **STOP**을 지정합니다. 일정을 만드는 자세한 단계는 [일정 만들기](../automation/shared-resources/schedules.md#creating-a-schedule) 문서를 참조하세요.
 
 1. **Runbook** 창에서 **일정**을 선택하고, 도구 모음에서 **+ 일정 추가**를 선택합니다. 
 

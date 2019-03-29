@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232433"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620702"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
@@ -128,6 +128,7 @@ ms.locfileid: "54232433"
         - SM(산마리노)
 
         - UA(우크라이나)
+            - 영역의 크리미아 반도
 
         - VA (바티칸 시국)
 

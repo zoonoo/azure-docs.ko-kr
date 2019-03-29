@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082843"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621773"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -297,7 +297,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 *왜 상위 10개의 권장 사항만을 표시하나요?* 엄청나게 포괄적인 작업을 나열하는 대신, 먼저 우선 순위가 지정된 권장 사항 해결에 주의를 기울이는 것이 좋습니다. 권장 사항을 해결한 후에 추가 권장 사항을 사용할 수 있습니다. 자세한 목록을 참조하는 것을 선호하는 경우 로그 검색을 사용하여 모든 권장 사항을 볼 수 있습니다.
 
-*권장 사항을 무시하는 방법이 있나요?* 예, [권장 사항 무시](#Ignore-recommendations)를 참조하세요.
+*권장 사항을 무시하는 방법이 있나요?* 예, [권장 사항 무시](#ignore-recommendations)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

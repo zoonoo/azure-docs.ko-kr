@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 03/15/2019
+ms.date: 03/28/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3d269db8ada2b939f53f3efadc696941fd830d5d
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b9bfa49a94bca7f80cacedea0a08b1c0a6128ef8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439365"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619563"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1)에서 사용할 수 있습니다.
@@ -33,8 +33,8 @@ Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https:
 
 | 릴리스 버전                                              | 에디션                     |     제품 버전      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: 미리 보기 (RC3)                        |           Enterprise         |    버전 16.0.0 RC3    |
-| Visual Studio 2017: 최신(버전 15.9)                    |    Enterprise, Community     |      15.9.9 버전      |
+|     Visual Studio 2019: 미리 보기 (RC4)                        |           Enterprise         |    버전 16.0.0 RC4    |
+| Visual Studio 2017: 최신(버전 15.9)                    |    Enterprise, Community     |      15.9.10 버전     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      15.0.22 버전     |
 |   Visual Studio 2015: 최신(Update 3)                      |    Enterprise, Community     |  버전 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             없음             | (서비스를 위해 만료됨)  |

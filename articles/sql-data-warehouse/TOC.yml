@@ -191,8 +191,6 @@ items:
     items:
     - name: 개요
       href: sql-data-warehouse-overview-integrate.md
-    - name: SQL Database 탄력적 쿼리
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
 - name: 방법 가이드
   items:
   - name: 보안
@@ -269,8 +267,6 @@ items:
         href: sql-data-warehouse-integrate-azure-stream-analytics.md
     - name: 대시보드 및 보고서 작성
       items:
-      - name: SQL Database 탄력적 쿼리 구성
-        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
       - name: Power BI를 사용하여 시각화
         href: sql-data-warehouse-get-started-visualize-with-power-bi.md
   - name: 문제 해결
@@ -321,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: 데이터 관리
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 7895d71fc2db30dd12aded48da168a105dbab2d9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 52d14867099b85b2d03cc3c536026032fc56263f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517490"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620504"

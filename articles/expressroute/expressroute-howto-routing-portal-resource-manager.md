@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622028"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -35,7 +35,7 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 
 * 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-portal-resource-manager.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. ExpressRoute 회로는 다음 섹션에서 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
-* 공유 키/MD5 해시를 사용하려는 경우 터널의 양쪽 모두에서 이를 사용하고 최대 25로 문자 수를 제한해야 합니다.
+* 공유 키 /md5 해시를 사용 하려는 경우에 터널의 양쪽 모두에이 사용 하 여 최대 25 영숫자 문자의 수를 제한 해야 합니다. 특수 문자는 지원 되지 않습니다. 
 
 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 
 

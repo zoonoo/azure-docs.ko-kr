@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884730"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620005"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
@@ -40,8 +40,6 @@ ms.locfileid: "57884730"
 
 ### <a name="indexer"></a>인덱서
 Azure Media Indexer를 사용하면 콘텐츠를 검색할 수 있도록 설정하고 선택 캡션 트랙을 생성할 수 있습니다. Azure Media Indexer 2 미리 보기에는 이전 버전에 비해 보다 빠른 인덱싱과 더 광범위한 언어 지원이 있습니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어, 포르투갈어, 아랍어 등입니다. 자세한 내용 및 예제는 [Azure Media Indexer 2를 사용하여 비디오 처리](media-services-process-content-with-indexer2.md)를 참조하세요.
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse는 긴 형식의 콘텐츠에서 빠르고 사용할 수 있는 비디오를 만들도록 비디오 안정화 및 시간 경과 기능을 결합합니다. 시간 경과 비디오를 만드는 것 외에 Hyperlapse를 사용하여 휴대폰 및 캠코더를 통해 캡처한 흔들리는 비디오에서 안정적인 비디오를 만들 수 있습니다. 자세한 내용 및 예제는 [Hyperlapse 미디어 파일 및 Azure Media Hyperlapse](media-services-hyperlapse-content.md)를 참조하세요.
 ### <a name="motion-detector"></a>동작 감지기
 동작 감지기를 사용하여 편지지 배경의 비디오에서 동작을 감지할 수 있습니다. 그러면 감시 카메라에서 감지된 동작 이벤트에서의 거짓 긍정을 확인할 수 있습니다. 자세한 내용 및 예제는 [Azure Media 분석에 대한 동작 감지](media-services-motion-detection.md)를 참조하세요.
 ### <a name="face-detector"></a>얼굴 감지기
@@ -94,7 +92,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
     }
 
 
-### <a name="rest"></a>REST
+### <a name="rest"></a>REST (영문)
 요청:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1

@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002003"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620668"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
-Azure Cosmos DB에서 제공되는 5가지 일관성 모델은 SQL API에서 기본적으로 지원됩니다. Azure Cosmos DB를 사용하는 경우 SQL API는 기본값입니다. 
+Azure Cosmos DB는 통신에 대 한 기본 지원을 제공 인기 있는 데이터베이스에 대 한 프로토콜-호환 되는 Api입니다. MongoDB, Apache Cassandra, Gremlin을 및 Azure Table storage를 포함 됩니다. 이러한 데이터베이스에 정의 된 일관성 모델이 나 일관성 수준에 대 한 보장 SLA 지원 정확 하 게 제공 하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다. 
 
-Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로토콜 호환 API를 기본적으로 지원합니다. 데이터베이스에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table Storage가 있습니다. 이러한 데이터베이스는 정확하게 정의된 일관성 모델 또는 일관성 수준에 대한 SLA 지원 보장을 제공하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다. SQL API, Gremlin API 및 Table API의 경우 Azure Cosmos 계정에서 구성된 기본 일관성 수준을 사용합니다. 
+SQL API, Gremlin API 및 Table API를 사용 하는 경우 Azure Cosmos 계정에 구성 된 기본 일관성 수준을 사용 됩니다. 
 
-다음 섹션은 Apache Cassandra 및 MongoDB용 OSS 클라이언트 드라이버로 요청된 데이터 일관성 간의 매핑을 각각 보여주며, Azure Cosmos DB에서 해당 일관성 수준을 보여 줍니다.
+Cassandra API 또는 Azure Cosmos DB API에 MongoDB를 사용 하는 경우 응용 프로그램 일관성 수준을 제공 하는 Apache Cassandra 및 MongoDB, 각각의 훨씬 강력한 일관성 및 영속성 보장을 사용 하 여 전체 집합을 가져옵니다. 이 문서에서는 Apache Cassandra 및 MongoDB 일관성 수준에 대 한 해당 Azure Cosmos DB 일관성 수준을 보여줍니다.
+
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
-아래 표는 Cassandra API에 사용할 수 있는 다양한 일관성 조합과 Cosmos DB의 동등한 기본 일관성 수준 매핑을 설명합니다. Apache Cassandra 쓰기 및 읽기 모드의 모든 조합은 Cosmos DB에서 기본적으로 지원됩니다. Apache Cassandra 쓰기 및 읽기 일관성 모델의 모든 조합에서 Cosmos DB는 Apache Cassandra와 동일하거나 더 높은 일관성 보장을 제공합니다. 또한 Cosmos DB는 가장 약한 쓰기 모드에서도 Apache Cassandra보다 높은 내구성을 제공합니다.
+달리 AzureCosmos DB Apache Cassandra 기본적으로 정확 하 게 정의 된 일관성 보장을 보여주는 다루지 않습니다.  대신 Apache Cassandra 쓰기 일관성 수준 및 높은 가용성, 일관성 및 대기 시간 절충 작업을 사용 하도록 설정 하는 읽기 일관성 수준을 제공 합니다. Azure Cosmos DB의 Cassandra API를 사용 하 여 하는 경우: 
 
-다음 표는 Azure Cosmos DB와 Cassandra 사이의 **쓰기 일관성 매핑**을 보여 줍니다.
+* Apache Cassandra 쓰기 일관성 수준은 Azure Cosmos 계정에 구성 된 기본 일관성 수준에 매핑됩니다. 
 
-| Cassandra | Azure Cosmos DB | 보증 |
-| - | - | - |
-|ALL|강력  | 선형화 가능성 |
-| EACH_QUORUM   | 강력    | 선형화 가능성 | 
-| QUORUM, SERIAL |  강력 |    선형화 가능성 |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 |전역적으로 일관적인 접두사 |
-| EACH_QUORUM   | 강력    | 선형화 가능성 |
-| QUORUM, SERIAL |  강력 |    선형화 가능성 |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
-| QUORUM, SERIAL | 강력   | 선형화 가능성 |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
-| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | 제한된 부실 | <ul><li>제한된 부실입니다.</li><li>최대 K 버전 또는 t 시간만큼 뒤쳐져 있습니다.</li><li>해당 지역에서 최근에 커밋된 값을 읽습니다.</li></ul> |
-| ONE, LOCAL_ONE, ANY   | 일관적인 접두사 | 하위 지역 일관적인 접두사 |
+* Azure Cosmos DB는 읽기 일관성 수준은 읽기 요청에 동적으로 구성 된 Azure Cosmos DB 일관성 수준 중 하나에 Cassandra 클라이언트 드라이버에서 지정 된 동적으로 매핑됩니다. 
 
-다음 표는 Azure Cosmos DB와 Cassandra 사이의 **읽기 일관성 매핑**을 보여 줍니다.
+다음 표에서 네이티브 Cassandra 일관성 수준에 매핑되는 방법을 Azure Cosmos DB의 일관성 수준 Cassandra API를 사용 하는 경우를 보여 줍니다.  
 
-| Cassandra | Azure Cosmos DB | 보증 |
-| - | - | - |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | 강력  | 선형화 가능성|
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |강력 |   선형화 가능성 |
-|LOCAL_ONE, ONE | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
-| ALL, QUORUM, SERIAL   | 강력    | 선형화 가능성 |
-| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  일관적인 접두사   | 전역적으로 일관적인 접두사 |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    일관적인 접두사   | 전역적으로 일관적인 접두사 |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |강력 |   선형화 가능성 |
-| LOCAL_ONE, ONE    | 일관적인 접두사 | 전역적으로 일관적인 접두사|
-| ALL, QUORUM, SERIAL   Strong  Linearizability
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |일관적인 접두사  | 전역적으로 일관적인 접두사 |
-|ALL    |강력 |선형화 가능성 |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |일관적인 접두사  |전역적으로 일관적인 접두사|
-|ALL, QUORUM, SERIAL Strong Linearizability
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |일관적인 접두사  |전역적으로 일관적인 접두사 |
-|ALL    |강력 | 선형화 가능성 |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
-| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  제한된 부실   | <ul><li>제한된 부실입니다.</li><li>최대 K 버전 또는 t 시간만큼 뒤쳐져 있습니다. </li><li>해당 지역에서 최근에 커밋된 값을 읽습니다.</li></ul>
-| LOCAL_ONE, ONE |일관적인 접두사 | 하위 지역 일관적인 접두사 |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | 일관적인 접두사 | 하위 지역 일관적인 접두사 |
+[ ![Cassandra 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>MongoDB 및 Azure Cosmos DB 일관성 수준 간의 매핑
 
-## <a id="mongo-mapping"></a>MongoDB 3.4 및 Azure Cosmos DB 일관성 수준 간의 매핑
+Azure Cosmos DB와는 달리 네이티브 MongoDB는 정확 하 게 정의 된 일관성 보장을 제공 하지 않습니다. 대신 네이티브 MongoDB를 사용 하면 다음 일관성 보장을 보여주는 구성 하려면: 쓰기 문제가, 읽기 문제가 및 직접 원하는 일관성 수준을 달성 하기 위해 기본 또는 보조 복제본에 읽기 작업에는 isMaster 지시문입니다. 
 
-다음 테이블에서는 MongoDB 3.4와 Azure Cosmos DB의 기본 일관성 수준 간의 “읽기 문제” 매핑을 보여줍니다. 또한 다중 지역 및 단일 지역 배포도 보여 줍니다.
+MongoDB 드라이버는 주 복제본으로 쓰기 지역의 처리 하는 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 및 다른 모든 지역의 복제본 읽혀집니다. 주 복제본으로 Azure Cosmos 계정과 연결 된 지역을 선택할 수 있습니다. 
 
-| **MongoDB 3.4** | **Azure Cosmos DB(다중 영역)** | **Azure Cosmos DB(단일 영역)** |
-| - | - | - |
-| 선형화 가능 | 강력 | 강력 |
-| 과반수 | 제한된 부실 | 강력 |
-| Local | 일관적인 접두사 | 일관적인 접두사 |
+MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 동안:
+
+* 쓰기 문제는 Azure Cosmos 계정에 구성 된 기본 일관성 수준에 매핑됩니다.
+ 
+* Azure Cosmos DB는 MongoDB 클라이언트 드라이버에서 읽기 요청을 동적으로 구성 된 Azure Cosmos DB 일관성 수준 중 하나에 의해 지정 된 읽기 문제를 동적으로 매핑됩니다. 
+
+* 계정에 연결 된 Azure Cosmos "마스터"으로 쓰기 가능한 첫 번째 지역으로 지역 하 여 특정 지역에 주석을 달 수 있습니다. 
+
+다음 표에서 설명 하는 방법을 네이티브 MongoDB 쓰기/읽기 문제 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 Azure Cosmos 일관성 수준에 매핑됩니다.
+
+[ ![MongoDB 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

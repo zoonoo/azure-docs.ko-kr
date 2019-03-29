@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014205"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579702"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure 청사진 ISO 27001 blueprint 샘플의 컨트롤 매핑
 
@@ -46,7 +46,7 @@ Azure 구현 [역할 기반 액세스 제어](../../../../role-based-access-cont
 
 Azure 구현 [역할 기반 액세스 제어](../../../../role-based-access-control/overview.md) (RBAC)로 Azure 리소스에 대 한 액세스 권한이 있는 사용자를 관리 합니다. 이 blueprint 할당 세 [Azure Policy](../../../policy/overview.md) 감사 정의 사용 [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) SQL Server에 대 한 인증 및 [Service Fabric](../../../../service-fabric/service-fabric-overview.md)합니다. Azure Active Directory를 사용 하 여 인증을 사용 하면 간소화 된 사용 권한 관리 및 데이터베이스 사용자 및 다른 Microsoft 서비스의 중앙 집중식된 id 관리 합니다. 이 blueprint는 또한 사용자 지정 RBAC 규칙의 사용을 감사 하기 위한 Azure Policy 정의 할당 합니다. 사용자 지정 RBAC 규칙 구현에 있는 이해 사용자 지정 RBAC 규칙은 오류가 발생 하기 쉽습니다 필요 하 고 적절 한 구현을 확인 하는 데 도움이 됩니다.
 
-- SQL Server에 대한 Azure Active Directory 관리자의 프로비저닝 감사
+- SQL Server에 대한 Azure Active Directory 관리자의 프로비전 감사
 - Service Fabric의 클라이언트 인증에 대한 Azure Active Directory의 사용 감사
 - 사용자 지정 RBAC 규칙의 사용 감사
 
@@ -122,14 +122,14 @@ Azure 리소스 최적이 아닌 암호화 구성이 있을 수 있는 이해 �
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 이벤트 로깅
 
-이 blueprint를 사용 하면 7 개를 할당 하 여 시스템 이벤트 기록 [Azure 정책](../../../policy/overview.md) 하는 감사 로그 Azure 리소스에 대 한 설정을 정의 합니다. 가상 컴퓨터를 지정 된 log analytics 작업 영역에 로그를 보내지 않는 경우에 할당된 된 정책 감사 합니다.
+이 blueprint를 사용 하면 7 개를 할당 하 여 시스템 이벤트 기록 [Azure 정책](../../../policy/overview.md) Azure 리소스의 로그 설정을 감사 하는 정의 합니다. 가상 컴퓨터를 지정 된 log analytics 작업 영역에 로그를 보내지 않는 경우에 할당된 된 정책 감사 합니다.
 
 - [미리 보기]: 종속성 에이전트 배포-VM 이미지 (OS) 목록에 없는 감사
 - [미리 보기]: VMSS-VM 이미지 (OS) 목록에 없는에서 종속성 에이전트 배포를 감사 합니다.
 - [미리 보기]: Log Analytics 에이전트 배포-VM 이미지 (OS) 목록에 없는 감사
 - [미리 보기]: VMSS-VM 이미지 (OS) 목록에 없는의 audit Log Analytics 에이전트 배포
 - [미리 보기]: Monitor unaudited SQL database in Azure Security Center
-- 감사 진단 설정
+- 진단 설정 감사
 - SQL 감사 서버 수준 감사 설정
 
 ## <a name="a121-management-of-technical-vulnerabilities"></a>A.12.1 기술 취약성 관리
@@ -187,10 +187,10 @@ ISO 27001 앱 서비스 환경/SQL Database 워크 로드 blueprint 샘플의 �
 > [ISO 27001 앱 서비스 환경/SQL Database 워크 로드 blueprint-개요](./index.md)
 > [ISO 27001 앱 서비스 환경/SQL Database 워크 로드 blueprint-배포 단계](./deploy.md)
 
-청사진 및 사용 하는 방법에 대 한 추가 문서:
+청사진 및 사용 방법에 대한 추가 문서:
 
-- 에 대 한 자세한 합니다 [수명 주기 blueprint](../../concepts/lifecycle.md)합니다.
-- 사용 하는 방법 이해 [정적 및 동적 매개 변수](../../concepts/parameters.md)합니다.
-- 사용자 지정 하는 방법을 알아봅니다 합니다 [시퀀싱 순서 blueprint](../../concepts/sequencing-order.md)합니다.
-- 확인 하는 방법을 알아봅니다 이용 [리소스 잠금 blueprint](../../concepts/resource-locking.md)합니다.
-- 설명 하는 방법 [기존 할당을 업데이트할](../../how-to/update-existing-assignments.md)합니다.
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
+- [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
+- [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기
+- [기존 할당을 업데이트](../../how-to/update-existing-assignments.md)하는 방법 알아보기

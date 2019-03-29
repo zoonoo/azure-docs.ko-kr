@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006804"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622113"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -82,7 +82,7 @@ ms.locfileid: "58006804"
 
 ![Analytics 환경 스크린샷](media/app-map/analytics.png)
 
-### <a name="alerts"></a>알림
+### <a name="alerts"></a>경고
 
 경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
 
@@ -164,7 +164,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
+### <a name="java"></a>자바
 
 Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 
@@ -199,11 +199,12 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 3. C#으로 Azure Functions를 사용하는 경우 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)로 업그레이드합니다.
 
-4. [cloud_RoleName](app-map.md#set-cloudrolename)이 올바르게 구성되었는지 확인합니다.
+4. [cloud_RoleName](#set-cloud_rolename)이 올바르게 구성되었는지 확인합니다.
 
 5. 종속성이 누락된 경우 [자동 수집 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
 
 ## <a name="portal-feedback"></a>포털 사용자 의견
+
 사용자 의견을 제공하려면 사용자 의견 옵션을 사용하세요.
 
 ![MapLink-1 이미지](./media/app-map/14-updated.png)

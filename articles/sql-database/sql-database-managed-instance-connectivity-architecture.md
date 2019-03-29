@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486787"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621552"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처 
 
@@ -107,7 +107,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 | 이름       |포트          |프로토콜|원본           |대상|조치|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |80, 443, 12000|TCP     |모두              |인터넷   |허용 |
+|관리  |80, 443, 12000|TCP     |모두              |AzureCloud  |허용 |
 |mi_subnet   |모두           |모두     |모두              |MI 서브넷 *  |허용 |
 
 > 있는지 포트 9000에 대 한 하나의 인바운드 규칙만 9003, 포트 80, 443, 12000에 대 한 아웃 바운드 규칙 1438, 1440, 1452 및 하나입니다. ARM 배포를 통해 프로 비전 관리 되는 인스턴스는 각 포트에 대 한 인바운드 및 출력 규칙 개별적으로 구성 된 경우 실패할 수 있습니다. 

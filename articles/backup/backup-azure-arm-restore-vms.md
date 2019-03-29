@@ -7,23 +7,20 @@ manager: vijayts
 keywords: 백업 복원; 복원하는 방법; 복구 지점;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
-ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3b32418361b992b91aa96579a0cf1f84d8b9d312
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315388"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620413"
 ---
 # <a name="restore-azure-vms"></a>Azure VM 복원
 
 이 문서에서는 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음에 저장된 복구 지점에서 Azure VM 데이터를 복원하는 방법에 대해 설명합니다.
 
-VM을 복원 하려면 필요한 했는지 확인 [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 권한.
 
-> [!NOTE]
-> 없는 경우 [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 권한 수행할 수 있습니다 [디스크 복원](backup-azure-arm-restore-vms.md#create-new-restore-disks) 사용 하 여 VM을 만듭니다 [템플릿 배포](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) 기능입니다.
 
 ### <a name="restore-options"></a>복원 옵션
 
@@ -39,6 +36,13 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 > Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아보기](backup-azure-restore-files-from-vm.md).
 >
 > Azure VM에 대해 [최신 버전](backup-instant-restore-capability.md)의 Azure Backup을 실행하는 경우(즉시 복원이라고 함), 스냅숏은 최대 7일 동안 유지되며 백업 데이터를 자격 증명 모음으로 보내기 전에 스냅숏에서 VM을 복원할 수 있습니다. 지난 7일간의 백업에서 VM을 복원하려면 자격 증명 모음이 아니라 스냅숏에서 복원하는 것이 더 빠릅니다.
+
+## <a name="before-you-start"></a>시작하기 전에
+
+VM을 복원 하려면 (새 VM 만들기) 올바른 역할 기반 액세스 제어 (RBAC) 했는지 확인 [권한을](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) VM 복원 작업에 대 한 합니다.
+
+권한이 없는 경우 [디스크 복원](#restore-disks), 한 다음 디스크를 복원한 후 할 수 있습니다 [템플릿을 사용 하 여](#use-templates-to-customize-a-restored-vm) 새 VM을 만드는 복원 작업의 일부로 생성 된 합니다.
+
 
 
 ## <a name="select-a-restore-point"></a>복원 지점 선택
@@ -61,7 +65,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 
 2. 선택한 복원 옵션에 대한 설정을 지정합니다.
 
-## <a name="create-new-create-a-vm"></a>new-Create VM 만들기
+## <a name="create-a-vm"></a>VM 만들기
 
 [복원 옵션](#restore-options) 중 하나로, 복원 지점의 기본 설정을 사용하여 VM을 빠르게 만들 수 있습니다.
 
@@ -76,7 +80,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 6. **복원 구성**에서 **확인**을 선택합니다. **복원**에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
 
 
-## <a name="create-new-restore-disks"></a>new-Restore 디스크 만들기
+## <a name="restore-disks"></a>디스크 복원
 
 [복원 옵션](#restore-options) 중 하나로, 복원 지점에서 디스크를 만들 수 있습니다. 그런 다음, 이 디스크를 사용하여 다음 중 하나를 수행할 수 있습니다.
 
@@ -132,11 +136,11 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 --- | ---
 **하이브리드 사용 혜택을 사용하여 VM 복원** | Windows VM에서 [HUB(하이브리드 사용 혜택) 라이선스](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 사용하는 경우, 디스크를 복원하고 제공된 템플릿(**라이선스 유형** 이 **Windows_Server**로 설정됨) 또는 PowerShell을 사용하여 새 VM을 만듭니다.  이 설정은 VM을 만든 후에 적용할 수도 있습니다.
 **Azure 데이터 센터 재해 중 VM 복원** | 자격 증명 모음에서 GRS를 사용하고 VM에 대한 기본 데이터 센터의 작동이 중단되면, Azure Backup에서 쌍을 이루는 데이터 센터로 백업된 VM을 복원할 수 있습니다. 쌍을 이루는 데이터 센터에서 스토리지 계정을 선택하고 정상적으로 복원합니다. Azure Backup은 쌍을 이루는 위치에서 컴퓨팅 서비스를 사용하여 복원된 VM을 만듭니다. 데이터 센터 복원력에 대해 [자세히 알아보세요](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md).
-**단일 도메인에서 단일 도메인 컨트롤러 VM 복원** | 다른 VM과 마찬가지로 VM을 복원합니다. 다음 사항에 유의하세요.<br/><br/> Azure VM은 Active Directory의 관점에서 다른 VM과 동일합니다.<br/><br/> Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항에 대해 [자세히 알아보세요](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v).
-**단일 도메인에서 여러 도메인 컨트롤러 VM 복원** | 네트워크를 통해 동일한 도메인의 다른 도메인 컨트롤러에 연결할 수 있는 경우 도메인 컨트롤러를 다른 VM처럼 복원할 수 있습니다. 도메인에서 마지막으로 남아 있는 도메인 컨트롤러이거나 격리된 네트워크에서 복구가 수행되면 [포리스트 복구](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용합니다.
+**단일 도메인에서 단일 도메인 컨트롤러 VM 복원** | 다른 VM과 마찬가지로 VM을 복원합니다. 다음 사항에 유의하세요.<br/><br/> Azure VM을 Active Directory 관점에서 다른 VM 비슷합니다.<br/><br/> Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항에 대해 [자세히 알아보세요](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v).
+**단일 도메인에서 여러 도메인 컨트롤러 VM 복원** | 네트워크를 통해 동일한 도메인에 다른 도메인 컨트롤러에 연결할 수 경우 도메인 컨트롤러 VM 처럼 복원할 수 있습니다. 도메인에서 마지막으로 남아 있는 도메인 컨트롤러이거나 격리된 네트워크에서 복구가 수행되면 [포리스트 복구](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용합니다.
 **단일 포리스트에 여러 도메인 복원** | [포리스트 복구](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용하는 것이 좋습니다.
 **완전 복원** | Azure VM과 온-프레미스 하이퍼바이저의 주요 차이점은 Azure에서 사용할 수 있는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 자격 증명 모음의 VM 복원이 BMR로 완전히 대체됩니다.
-**특수 네트워크 구성으로 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#create-new-restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션을 지정 된 저장소 계정으로 Vhd의 복사본을 만듭니다 및 사용 하 여 VM을 만들 수 있습니다는 [내부](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) 하거나 [외부](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) 부하 분산 장치 [다중 NIC](../virtual-machines/windows/multiple-nics.md), 또는 [예약 된 IP 주소를 여러](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), 구성에 따라 합니다.
+**특수 네트워크 구성으로 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션을 지정 된 저장소 계정으로 Vhd의 복사본을 만듭니다 및 사용 하 여 VM을 만들 수 있습니다는 [내부](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) 하거나 [외부](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) 부하 분산 장치 [다중 NIC](../virtual-machines/windows/multiple-nics.md), 또는 [예약 된 IP 주소를 여러](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), 구성에 따라 합니다.
 **C/서브넷의 네트워크 보안 그룹 (NSG)** | Azure VM backup vnet, 서브넷 및 NIC 수준에서 백업 및 복원의 NSG 정보를 지원합니다.
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적

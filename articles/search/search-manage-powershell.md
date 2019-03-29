@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520567"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620600"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520567"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Windows, Linux에서 또는 PowerShell cmdlet 및 스크립트를 실행할 수 있습니다 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 를 만들고 구성할 [Azure Search](https://docs.microsoft.com/azure/search/)합니다. [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) 모듈은 확장 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) 완벽 한 패리티를 사용 하 여 합니다 [Azure Search 관리 REST Api](https://docs.microsoft.com/rest/api/searchmanagement)합니다. Azure PowerShell을 사용 하 고 **Az.Search**, 다음 작업을 수행할 수 있습니다.
+Windows, Linux에서 또는 PowerShell cmdlet 및 스크립트를 실행할 수 있습니다 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 만들기 및 Azure Search를 구성 합니다. **Az.Search** Azure PowerShell 모듈을 확장 하며]에 완벽 한 패리티를 사용 하 여 합니다 [Azure Search 관리 REST Api](https://docs.microsoft.com/rest/api/searchmanagement)합니다. Azure PowerShell을 사용 하 고 **Az.Search**, 다음 작업을 수행할 수 있습니다.
 
 > [!div class="checklist"]
 > * [모든 구독에서 search 서비스 나열](#list-search-services)
 > * [특정 검색 서비스에 대 한 정보 가져오기](#get-search-service-information)
 > * [만들거나 서비스를 삭제 합니다.](#create-or-delete-a-service)
-> * 관리 API 키를 다시 생성
+> * [관리 API 키를 다시 생성](#regenerate-admin-keys)
 > * [만들거나 쿼리 api-key를 삭제 합니다.](#create-or-delete-query-keys)
 > * [복제본 및 파티션의 늘리거나 줄여 서비스를 크기 조정](#scale-replicas-and-partitions)
 
-이름, 지역 또는 서비스의 계층을 변경 하려면 PowerShell은 사용할 수 없습니다. 전용된 리소스는 서비스가 만들어질 때 할당 됩니다. 기본 하드웨어 (위치 또는 노드 형식)를 변경 하려면 새 서비스 합니다. 도구 또는 없는 Api 콘텐츠를 전송 합니다. 모든 콘텐츠 관리를 통해 [REST](https://docs.microsoft.com/rest/api/searchservice/) 하거나 [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) Api을 다시 만든 다음 새 서비스에 다시 로드 해야 인덱스를 이동 하려는 경우. 
+이름, 지역 또는 서비스의 계층을 변경 하려면 PowerShell은 사용할 수 없습니다. 전용된 리소스는 서비스가 만들어질 때 할당 됩니다. 기본 하드웨어 (위치 또는 노드 형식)를 변경 하려면 새 서비스 합니다. 다른 하나의 서비스에서 콘텐츠를 전송 하기 위한 없습니다 도구 또는 Api 됩니다. 모든 콘텐츠 관리를 통해 [REST](https://docs.microsoft.com/rest/api/searchservice/) 하거나 [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) Api을 다시 만든 다음 새 서비스에 다시 로드 해야 인덱스를 이동 하려는 경우. 
 
 콘텐츠 관리에 대 한 전용된 PowerShell 명령을 있기는 만들고 인덱스를 로드 하는 REST 또는.NET 호출 하는 PowerShell 스크립트를 작성할 수 있습니다. 합니다 **Az.Search** 자체적으로 모듈은 이러한 작업을 제공 하지 않습니다.
 

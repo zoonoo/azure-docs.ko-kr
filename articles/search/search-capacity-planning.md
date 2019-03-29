@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775325"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620644"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>쿼리 및 인덱싱 작업에서 Azure Search에 대해 파티션과 복제본 확장
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
 
-리소스 구성은 [기본 계층](https://aka.ms/azuresearchbasic) 또는 [표준 계층](search-limits-quotas-capacity.md) 중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
+리소스 구성은 사용할 수 있는 서비스를 설정할 때 합니다 [기본 계층](https://aka.ms/azuresearchbasic) 또는 중 하나는 [Standard 또는 저장소에 최적화 된 계층](search-limits-quotas-capacity.md). 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
 
 더 적은 SU를 사용하면 비례적으로 청구 금액이 줄어듭니다. 대금 청구는 서비스가 설정되는 동안 적용됩니다. 서비스를 일시적으로 사용하지 않는 경우 대금 청구를 피하는 유일한 방법은 서비스를 삭제한 다음 필요할 때 다시 만드는 것입니다.
 
@@ -81,7 +81,7 @@ Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성
 
 기본 서비스는 정확히 한 개의 파티션과 최대 세 개의 복제본을 가질 수 있으며 최대 세 개의 SU로 제한됩니다. 유일하게 조정할 수 있는 리소스는 복제본입니다. 쿼리에서 고가용성을 위해 최소 두 개의 복제본이 필요합니다.
 
-모든 표준 서비스 복제본 및 파티션의 36 개의 SU 제한에 따라 다음과 같은 조합을 가질 수 있습니다. 
+모든 표준 및 저장소 액세스에 최적화 된 search 서비스 복제본 및 파티션의 36 개의 SU 제한에 따라 다음과 같은 조합을 가질 수 있습니다. 
 
 |   | **파티션 1개** | **파티션 2개** | **파티션 3개** | **파티션 4개** | **파티션 6개** | **파티션 12개** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명�
 
 Azure Search에 대한 Service Level Agreement(서비스 수준 약정)는 문서 추가, 업데이트 또는 삭제로 구성된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.
 
-기본 계층은 하나의 파티션과 세 개의 복제본에 우선합니다. 인덱싱 및 쿼리 처리량 모두에 대한 수요 변동에 즉시 응답하기 위한 유연성이 필요한 경우 표준 계층 중 하나를 사용하는 것이 좋습니다.
+기본 계층은 하나의 파티션과 세 개의 복제본에 우선합니다. 인덱싱 및 쿼리 처리량 모두에 대한 수요 변동에 즉시 응답하기 위한 유연성이 필요한 경우 표준 계층 중 하나를 사용하는 것이 좋습니다.  저장소 요구 사항을 쿼리 처리량 보다 훨씬 더 빠르게 성장 하 고 있다면 저장소 액세스에 최적화 된 계층 중 하나를 고려 합니다.
 
 ### <a name="index-availability-during-a-rebuild"></a>인덱스 다시 작성 중 가용성
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259689"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619444"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석 
 > [!NOTE]
@@ -73,11 +73,6 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 
 ### <a name="output-file"></a>출력 파일
 출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
-
-## <a name="azure-media-hyperlapse"></a>Azure 미디어 Hyperlapse
-Azure Media Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 MP입니다.  자세한 내용은 [이 항목](media-services-hyperlapse-content.md)을 참조하세요. 이 섹션에서는 이 MP에 대해 지정하는 옵션에 대한 자세한 내용을 제공합니다.
-
-![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>속도
 입력 비디오를 가속화할 속도를 지정합니다. 출력은 입력 비디오의 안정화되고 시간 경과된 표현입니다.

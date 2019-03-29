@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620583"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
@@ -39,7 +39,7 @@ ms.locfileid: "56886624"
 1. Azure Portal에서 **Automation**을 선택한 다음, 자동화 계정의 이름을 클릭합니다.
 2. 허브 메뉴에서 **Runbook**을 선택합니다.
 3. **Runbook** 창에서 Runbook을 선택하고 **시작**을 클릭합니다.
-4. Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#Runbook-parameters)를 참조하세요.
+4. Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#runbook-parameters)를 참조하세요.
 5. **작업** 창에서 Runbook 작업의 상태를 볼 수 있습니다.
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 시작
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Runbook에 매개 변수가 필요한 경우 [해시 테이블](https://technet.microsoft.com/library/hh847780.aspx)로 매개 변수를 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치해야 하고, 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 아래의 [Runbook 매개 변수](#Runbook-parameters)를 참조하세요.
+Runbook에 매개 변수가 필요한 경우 [해시 테이블](https://technet.microsoft.com/library/hh847780.aspx)로 매개 변수를 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치해야 하고, 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 아래의 [Runbook 매개 변수](#runbook-parameters)를 참조하세요.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

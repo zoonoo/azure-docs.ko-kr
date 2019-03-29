@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: fbc62628bfec67bd648188920731f985f990a53d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: 6181183b1455d5ca38ab9bbd37102cb3bc091b3c
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837170"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622096"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리
 
@@ -27,9 +27,7 @@ ms.locfileid: "57837170"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-설치 하 고 PowerShell을 로컬로 사용 하려는 경우이 자습서에 AZ PowerShell 1.4.0 이상. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
-
-PowerShell을 로컬로 설치하여 사용하려면 이 자습서에 AzureRM.Sql PowerShell 패키지의 미리 보기 버전인 *4.11.6-preview*가 필요합니다. `Install-Module -Name AzureRM.Sql -RequiredVersion 4.11.6-preview -AllowPrerelease` 명령을 실행하여 PowerShell을 설치합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AZ PowerShell 1.4.0 이상이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 

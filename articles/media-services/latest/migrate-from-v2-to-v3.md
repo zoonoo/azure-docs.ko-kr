@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317751"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621739"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -79,12 +79,14 @@ ms.locfileid: "58317751"
 v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다. 격차를 해소하기 위한 작업이 진행 중입니다.
 
 * v3를 통해 [프리미엄 인코더](../previous/media-services-premium-workflow-encoder-formats.md) 및 레거시 [미디어 분석 프로세서](../previous/media-services-analytics-overview.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.<br/>Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
-* 다음과 같은 v2 API의 Media Encoder Standard 고급 기능 중 상당수는 현재 v3에서 사용할 수 없습니다.
+* 많은 합니다 [v2의 Media Encoder Standard의 고급 기능](../previous/media-services-advanced-encoding-with-mes.md) Api 현재 사용할 수 없는 v3에서는 같은:
     * 클리핑(주문형 및 라이브 시나리오용)
     * 자산 연결
     * 오버레이
     * 자르기
     * 썸네일 스프라이트
+    * 에 오디오가 없을 때 입력 조용한 오디오 트랙 삽입
+    * 에 비디오가 없을 경우 입력 비디오 트랙 삽입
 * 코드 변환을 사용하는 라이브 이벤트는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
 
 > [!NOTE]

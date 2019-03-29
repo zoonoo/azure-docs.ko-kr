@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770348"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620753"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -51,10 +51,15 @@ ms.locfileid: "57770348"
 |---|
 |<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 저장소 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+|실행된 검사|
+|---|
+|<ul><li>파이프라인 실행 실패 했는가?</li><li>클러스터에 정상 데이터 팩터리를 호스팅하는?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |실행된 검사|
 |---|
-|<ul><li>사용자가 Data Lake Analytics 작업을 제출하거나 나열하는 데 문제가 있는가?</li><li>Data Lake Analytics 작업이 시스템 오류를 완료할 수 없는가?</li></ul>|
+|<ul><li>사용자가 Data Lake Analytics 작업을 제출하거나 나열하는 데 문제가 있는가?</li><li>Data Lake Analytics 작업 수 없는 시스템 오류로 인해 완료?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ ms.locfileid: "57770348"
 |---|
 |<ul><li>사용자가 Data Lake Store에 데이터를 업로드하는 데 문제가 있는가?</li><li>사용자가 Data Lake Store에서 데이터를 다운로드하는 데 문제가 있는가?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+|실행된 검사|
+|---|
+|<ul><li>Database migration service를 프로 비전 하지?</li><li>Database migration service를 중지로 인해 비활성 또는 사용자 요청으로?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|실행된 검사|
+|---|
+|<ul><li>서버 사용할 수 없는 유지 관리로 인해?</li><li>서버가 아닌 재구성으로 인해 사용할 수 있습니까?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|실행된 검사|
+|---|
+|<ul><li>서버 사용할 수 없는 유지 관리로 인해?</li><li>서버가 아닌 재구성으로 인해 사용할 수 있습니까?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|실행된 검사|
+|---|
+|<ul><li>서버 사용할 수 없는 유지 관리로 인해?</li><li>서버가 아닌 재구성으로 인해 사용할 수 있습니까?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |실행된 검사|
 |---|
 |<ul><li>IoT Hub가 실행되고 있는가?</li></ul>|
@@ -73,15 +97,40 @@ ms.locfileid: "57770348"
 |---|
 |<ul><li>Azure Cosmos DB 서비스를 사용할 수 없어서 데이터베이스 또는 컬렉션 요청이 처리되지 않았는가?</li><li>Azure Cosmos DB 서비스를 사용할 수 없어서 문서 요청이 처리되지 않았는가?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|실행된 검사|
+|---|
+|<ul><li>Event Hubs 네임 스페이스에 사용자 생성 오류가 발생 한가?</li><li>Event Hubs 네임 스페이스를 업그레이드 하 고 있습니까?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|실행된 검사|
+|---|
+|<ul><li>핵심 서비스는 HDInsight 클러스터에서 사용할 수 있습니까?</li><li>HDInsight 클러스터의 BYOK 미사용 데이터 암호화 키에 액세스할 수 있습니까?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |실행된 검사|
 |---|
 |<ul><li>Azure KeyVault 플랫폼 문제로 인해 Key Vault에 대한 요청이 실패하는가?</li><li>고객의 요청이 너무 많아서 Key Vault에 대한 요청이 스로틀되는가?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|실행된 검사|
+|---|
+|<ul><li>성능 저하 된 응용 프로그램 게이트웨이의 기능</li><li>Application Gateway를 사용할 수 있습니까?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|
 |---|
 |<ul><li>VPN 터널이 연결되어 있는가?</li><li>연결에 구성 충돌이 있는가?</li><li>미리 공유한 키를 적절히 구성하였는가?</li><li>VPN 온-프레미스 디바이스에 연결할 수 있나요?</li><li>IPSec/IKE 보안 정책에 일치하지 않는 사항이 있는가?</li><li>S2S VPN 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li><li>VNET-VNET 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|실행된 검사|
+|---|
+|<ul><li>ExpressRoute 회로 정상 인가요?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|실행된 검사|
+|---|
+|<ul><li>첫 번째 관문 백 엔드에 응답 하는 오류를 사용 하 여 상태 프로브?</li><li>구성 변경 내용은 지연 됩니다.</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |실행된 검사|
@@ -91,7 +140,12 @@ ms.locfileid: "57770348"
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |실행된 검사|
 |---|
-|<ul><li> 네임스페이스에서 등록, 설치 또는 전송과 같은 런타임 작업을 수행 할 수 있는가?</li></ul>|
+|<ul><li>네임스페이스에서 등록, 설치 또는 전송과 같은 런타임 작업을 수행 할 수 있는가?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|실행된 검사|
+|---|
+|<ul><li>작업 영역에 대 한 지연 인덱싱 있는?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |실행된 검사|
@@ -101,7 +155,7 @@ ms.locfileid: "57770348"
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |실행된 검사|
 |---|
-|<ul><li>호스트 OS가 작동 중인가?</li><li>데이터 센터 외부에서 workspaceCollection에 연결할 수 있는가?</li><li>PowerBI 리소스 공급자를 사용할 수 있는가?</li><li>해당 지역에서 PowerBI 서비스를 사용할 수 있는가?</li></ul>|
+|<ul><li>호스트 OS가 작동 중인가?</li><li>데이터 센터 외부에서 workspaceCollection에 연결할 수 있는가?</li><li>Power BI 리소스 공급자를 사용할 수 있습니까?</li><li>해당 지역에서 Power BI 서비스를 사용할 수 있는?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |실행된 검사|

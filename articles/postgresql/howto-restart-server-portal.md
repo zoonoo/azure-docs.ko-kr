@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168778"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621833"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure portal을 사용 하 여 PostgreSQL 서버용 Azure 데이터베이스를 다시 시작
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
@@ -22,7 +22,7 @@ ms.locfileid: "58168778"
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 완료하려면 다음이 필요합니다.
-- [PostgreSQL용 Azure Database 서버 및 데이터베이스](quickstart-create-server-database-portal.md)
+- [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md)
 
 ## <a name="perform-server-restart"></a>서버 다시 시작 수행
 

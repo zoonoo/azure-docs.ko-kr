@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540587"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621450"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 
@@ -114,7 +114,7 @@ SET (ALLOW_CONNECTIONS = NO)
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABSE V1
+ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 

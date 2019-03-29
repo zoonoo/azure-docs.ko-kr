@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990547"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622062"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -67,9 +67,9 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 관리 그룹 아래에 자식 관리 그룹 또는 구독이 없습니다.
 
-   - 구독을 관리 그룹 외부로 이동하려면 [다른 관리 그룹으로 구독 이동](#Move-subscriptions-in-the-hierarchy)을 참조하세요.
+   - 구독을 관리 그룹 외부로 이동하려면 [다른 관리 그룹으로 구독 이동](#move-subscriptions-in-the-hierarchy)을 참조하세요.
 
-   - 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층에서 관리 그룹 이동](#Move-management-groups-in-the-hierarchy)을 참조하세요.
+   - 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층에서 관리 그룹 이동](#move-management-groups-in-the-hierarchy)을 참조하세요.
 
 1. 관리 그룹 ("Owner", "참가자" 또는 "관리 그룹 참가자")에 대 한 쓰기 권한이 해야합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.  
 

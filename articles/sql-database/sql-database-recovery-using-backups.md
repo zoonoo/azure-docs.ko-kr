@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855098"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620481"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -175,7 +175,7 @@ REST API를 사용하여 단일 또는 풀링된 데이터베이스를 복원하
 ### <a name="azure-cli"></a>Azure CLI
 
 - Azure CLI를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면 [az sql db restore](/cli/azure/sql/db#az-sql-db-restore)를 참조하세요.
-- Azure CLI를 사용 하 여 관리 되는 인스턴스를 복원 하려면 참조 [az sql midb에서 복원](/cli/azure/sql/db)
+- Azure CLI를 사용 하 여 관리 되는 인스턴스를 복원 하려면 참조 [az sql midb에서 복원](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>요약
 
