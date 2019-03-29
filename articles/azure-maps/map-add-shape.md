@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497247"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579294"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -32,6 +32,16 @@ ms.locfileid: "58497247"
 두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) 개체가 생성되고 데이터 원본에 추가되었습니다.
 
 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 선 개체를 렌더링합니다. 마지막 코드 블록은 선 계층을 만들고 지도에 추가합니다. [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요. 데이터 원본 및 선 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 선이 표시되도록 합니다.
+
+## <a name="add-symbols-along-a-line"></a>선 따라 기호를 추가 합니다.
+
+이 샘플에는 지도에 선 따라 화살표 아이콘을 추가 하는 방법을 보여 줍니다. 기호 선 따라 렌더링 되 고 아이콘 회전 기호 계층을 사용 하 여 "line"를 "배치" 옵션을 설정 하는 경우 (0도 = right).
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="선 따라 화살표를 표시 합니다." src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/drBJwX/'>선 따라 표시 화살표</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.
+</iframe>
 
 ## <a name="customize-a-line-layer"></a>선 계층 사용자 지정
 
@@ -84,6 +94,16 @@ ms.locfileid: "58497247"
 [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 선 배열입니다. [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요. 세 번째 코드 블록은 다각형 및 선 계층을 만듭니다.
 
 마지막 코드 블록은 다각형 및 선 계층을 지도에 추가합니다. 데이터 원본 및 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 다각형이 표시되도록 합니다.
+
+## <a name="fill-a-polygon-with-a-pattern"></a>다각형 패턴으로 채우기
+
+다각형 색을 사용 하 여 입력 하는 것 외에도 이미지 패턴을 사용할 수도 있습니다. 지도 이미지 스프라이트 리소스에는 이미지 패턴을 로드 하 고 다음이 이미지를 참조 합니다 `fillPattern` 다각형 계층 속성.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="다각형 채우기 패턴" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>다각형 무늬</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.
+</iframe>
 
 ## <a name="customize-a-polygon-layer"></a>다각형 계층 사용자 지정
 

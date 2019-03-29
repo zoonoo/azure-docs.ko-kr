@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할 설정 구성| Microsoft Docs
+title: PIM-Azure Active Directory에서에서 Azure 리소스 역할 설정 구성 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할 설정을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162138"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577155"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM에서 Azure 리소스 역할 설정 구성
 
-Azure 리소스 역할 설정을 구성할 때 Azure AD PIM(Privileged Identity Management)의 Azure 리소스 역할 할당에 적용되는 기본 설정을 정의합니다. 다음 절차에 따라 승인 워크플로를 구성하고 요청을 승인하거나 거부할 수 있는 사용자를 지정합니다.
+Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할당에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에 적용 되는 기본 설정을 정의 합니다. 다음 절차에 따라 승인 워크플로를 구성하고 요청을 승인하거나 거부할 수 있는 사용자를 지정합니다.
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 

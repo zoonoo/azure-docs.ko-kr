@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373152"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576761"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka HDInsight 클러스터에 대 한 성능 최적화
 
@@ -66,7 +66,7 @@ Kafka 생산자는 메시지 브로커에 게 보내기 전에 압축을 구성�
 
 ### <a name="number-of-topics-and-partitions"></a>항목 및 파티션 수
 
-Kafka 생산자는 항목을 작성합니다. Kafka 소비자는 토픽에서 읽습니다. 항목을 로그를 디스크에 데이터 구조와 연결 됩니다. Kafka는 producer(s) 항목에서는 로그의 끝에 레코드를 추가합니다. 여러 파일에 분산 되어 있는 파티션 수의 항목에서는 로그 구성 됩니다. 이러한 파일에 차례로 여러 Kafka 클러스터 노드에 분산 됩니다. 소비자가 주기로 Kafka 토픽에서 읽습니다 및 항목에서는 로그의 위치 (오프셋)를 가져올 수 있습니다.
+Kafka 생산자는 항목을 작성합니다. Kafka 소비자는 토픽에서 읽습니다. 항목을 로그를 디스크에 데이터 구조와 연결 됩니다. Kafka는 producer(s) 항목에서는 로그의 끝에 레코드를 추가합니다. 여러 파일에 분산 되어 있는 파티션 수의 항목에서는 로그 구성 됩니다. 이러한 파일에 차례로 여러 Kafka 클러스터 노드에 분산 됩니다. 소비자가 주기로 Kafka 토픽에서 읽어 오며 항목에서는 로그의 위치 (오프셋)를 선택할 수 있습니다.
 
 각 Kafka 파티션은 시스템에 로그 파일 및 생산자 스레드가 동시에 여러 로그에 쓸 수 있습니다. 마찬가지로, 각 소비자 스레드는 한 파티션에서 메시지를 읽고, 이후도 병렬로 처리 됩니다 여러 파티션에서 사용.
 

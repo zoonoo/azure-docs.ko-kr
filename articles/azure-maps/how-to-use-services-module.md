@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 335e114fc6a4afa83a6b82509148cf258a9e8347
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501153"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578733"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈을 사용 하 여
 
@@ -34,7 +34,7 @@ Azure Maps 웹 SDK 서비스 모듈을 손쉽게 웹 또는 JavaScript 또는 Ty
     
     > npm 설치 azure-맵-rest
     
-    다음 스크립트에 대 한 참조를 추가 합니다 `<head>` 파일의 요소:
+    다음에 대 한 스크립트 참조를 추가 합니다 `<head>` 파일의 요소:
     
     ```html
     <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -138,12 +138,12 @@ Azure Maps 웹 SDK 서비스 모듈을 손쉽게 웹 또는 JavaScript 또는 Ty
       
       for(var i=0;i<response.results.length;i++){
         html.push('<tr><td>', (i+1), '.</td><td>', 
-                  response.results[i].address.freeformAddress, 
-                  '</td><td>', 
-                  response.results[i].position.lat,
-                  '</td><td>', 
-                  response.results[i].position.lon,
-                  '</td></tr>');
+                    response.results[i].address.freeformAddress, 
+                    '</td><td>', 
+                    response.results[i].position.lat,
+                    '</td><td>', 
+                    response.results[i].position.lon,
+                    '</td></tr>');
       }
       
       html.push('</table>');
@@ -154,6 +154,8 @@ Azure Maps 웹 SDK 서비스 모듈을 손쉽게 웹 또는 JavaScript 또는 Ty
     ```
 
     정상적으로 실행 하는 코드 샘플은 다음과 같습니다.
+
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈을 사용 하 여" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Services 모듈을 사용 하 여</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538564"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579413"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -24,7 +24,7 @@ ms.locfileid: "57538564"
 | **분할 개수** | 이 속성은 생성 시 설정하여 디바이스-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
 | **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
-IoT Hub의 경우 최대 7 일에 대 한 기본 제공 Event Hubs의 데이터 보존을 허용합니다. IoT Hub를 만드는 동안 보존 기간을 설정할 수 있습니다. IoT Hub에서 데이터 보존 크기 단위 입력 하 여 IoT hub 계층에 따라 달라 집니다. 크기 측면에서 기본 제공 Event Hubs 할당량의 최소 24 시간까지 최대 메시지 크기의 메시지를 유지할 수 있습니다. 예를 들어 1 S1 단위 이상으로 유지 하려면 충분 한 저장소를 제공 하는 IoT Hub에 대 한 4k 400 K 메시지 크기가 각각. 장치는 더 작은 메시지를 보내는 경우 깁니다 (최대 7 일) 되는 저장소 크기에 따라에 대 한 유지 될 수 있습니다. 최소한 지정 된 보존 기간에 대 한 데이터 보존을 보장 합니다.
+IoT Hub의 경우 최대 7 일에 대 한 기본 제공 Event Hubs의 데이터 보존을 허용합니다. IoT Hub를 만드는 동안 보존 기간을 설정할 수 있습니다. IoT Hub에서 데이터 보존 시간 단위 입력 하 여 IoT hub 계층에 따라 달라 집니다. 크기 측면에서 기본 제공 Event Hubs 할당량의 최소 24 시간까지 최대 메시지 크기의 메시지를 유지할 수 있습니다. 예를 들어 1 S1 단위 이상으로 유지 하려면 충분 한 저장소를 제공 하는 IoT Hub에 대 한 4k 400 K 메시지 크기가 각각. 장치는 더 작은 메시지를 보내는 경우 깁니다 (최대 7 일) 되는 저장소 크기에 따라에 대 한 유지 될 수 있습니다. 최소한 지정 된 보존 기간에 대 한 데이터 보존을 보장 합니다.
 
 또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다.
 

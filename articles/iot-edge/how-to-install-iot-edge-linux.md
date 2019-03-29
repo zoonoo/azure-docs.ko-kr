@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499474"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578835"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -33,9 +33,9 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 IoT Edge 런타임 설치 장치를 준비 합니다.
 
 
-저장소 구성을 설치 합니다. 중 하나를 선택 합니다 **16.04** 또는 **18.04** 코드 조각은 Ubuntu의 릴리스에 대 한 적절 하 게 합니다.
+저장소 구성을 설치 합니다. 중 하나를 선택 합니다 **16.04** 하거나 **18.04** Ubuntu의 릴리스에 대 한 적절 하 게 코드 조각:
 
-> [!IMPORTANT]
+> [!NOTE]
 > Ubuntu의 버전에 대 한 올바른 코드 상자에서 코드 조각을 선택 해야 합니다.
 
 * 에 대 한 **Ubuntu 16.04**:
@@ -48,8 +48,6 @@ IoT Edge 런타임 설치 장치를 준비 합니다.
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
    ```
    
-저장소 구성을 설치 합니다. 중 하나를 선택 합니다 **16.04** 또는 **18.04** 코드 조각은 Ubuntu의 릴리스에 대 한 적절 하 게 합니다.
-
 생성 된 목록에 복사 합니다.
 
    ```bash

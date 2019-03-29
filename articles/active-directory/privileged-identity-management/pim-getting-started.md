@@ -1,5 +1,5 @@
 ---
-title: PIM 사용 - Azure | Microsoft Docs
+title: PIM-Azure Active Directory를 사용 하 여 시작 | Microsoft Docs
 description: Azure Portal에서 Azure AD PIM(Privileged Identity Management)을 사용하도록 설정하고 시작하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546860"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576744"
 ---
 # <a name="start-using-pim"></a>PIM 사용
 
@@ -38,7 +38,7 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
 ## <a name="first-person-to-use-pim"></a>PIM을 처음 사용하는 사용자
 
-디렉터리에서 PIM을 처음 사용하는 경우 해당 사용자에게 디렉터리에 대한 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다. 권한 있는 역할 관리자만 사용자의 Azure AD 디렉터리 역할 할당을 관리할 수 있습니다. 또한 초기 검색 및 할당 환경을 안내하는 [보안 마법사](pim-security-wizard.md)를 실행할 수 있습니다.
+디렉터리에서 PIM을 처음 사용하는 경우 해당 사용자에게 디렉터리에 대한 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다. 권한 있는 역할 관리자만 사용자의 Azure AD 역할 할당을 관리할 수 있습니다. 또한 초기 검색 및 할당 환경을 안내하는 [보안 마법사](pim-security-wizard.md)를 실행할 수 있습니다.
 
 ## <a name="enable-pim"></a>PIM 사용
 
@@ -108,7 +108,7 @@ PIM이 설정되면 ID 관리 작업을 수행할 수 있습니다.
 | **내 요청** | 적격 역할 할당을 활성화할 보류 중인 요청을 표시합니다. |
 | **요청 승인** | 승인하도록 지정된 디렉터리에서 사용자를 통해 적격 역할을 활성화하기 위한 요청 목록을 표시합니다. |
 | **액세스 검토** | 사용자 자신 또는 다른 사용자에 대한 액세스를 검토하는지와 관계없이 사용자에게 수행하도록 할당된 활성 액세스 검토를 나열합니다. |
-| **Azure AD 역할** | 권한 있는 역할 관리자가 Azure AD 디렉터리 역할 할당을 관리하기 위한 대시보드 및 설정을 표시합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
+| **Azure AD 역할** | 대시보드 및 Azure AD 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
 | **Azure 리소스** | 권한 있는 역할 관리자가 Azure 리소스 역할 할당을 관리하기 위한 대시보드 및 설정을 표시합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>대시보드에 PIM 타일 추가
@@ -133,5 +133,5 @@ PIM을 더 쉽게 열려면 Azure Portal 대시보드에 PIM 타일을 추가해
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
+- [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)
 - [PIM에서 관리할 Azure 리소스 검색](pim-resource-roles-discover-resources.md)

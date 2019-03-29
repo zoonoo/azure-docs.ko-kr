@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382554"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578529"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
@@ -73,6 +73,9 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 자세한 내용은 [Load Balancer 상태 프로브](load-balancer-custom-probe-overview.md)를 검토합니다.
 
 ### <a name="az"></a> 가용성 영역
+
+>[!IMPORTANT]
+>검토 [가용성 영역](../availability-zones/az-overview.md) 관련된 항목에 대 한 지역 특정 정보를 포함 합니다.
 
 표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 

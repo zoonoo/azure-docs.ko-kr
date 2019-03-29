@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 사용 약관 | Microsoft Docs
-description: Azure AD 사용 약관 사용을 시작하여 액세스 권한을 받기 전에 직원이나 게스트에게 정보를 제공하는 방법에 대해 설명합니다.
+description: Azure Active Directory 사용 약관 정보를 표시할 직원 또는 게스트가에 액세스 하기 위해 사용 하 여 시작 하는 방법에 설명 합니다.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 25a3eb6fdfc6928e2e414dcbe799861c3b2eb999
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418977"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576176"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.

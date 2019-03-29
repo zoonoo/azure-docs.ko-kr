@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management-Azure AD 관리자 역할 할당 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure Active Directory 관리자 역할을 할당 하는 방법에 알아봅니다.
+title: PIM-Azure Active Directory에서에서 Azure AD 역할 할당 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할을 할당 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dfce4c918bbc7f7e30b5cb6372d4370e305ba63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000637"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578257"
 ---
-# <a name="assign-azure-ad-administrator-roles-in-pim"></a>PIM에서 Azure AD 관리자 역할 할당
+# <a name="assign-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할 할당
 
 Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 수 있습니다 **영구** Azure AD 관리자 역할 할당 합니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
 
@@ -38,11 +38,11 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
     Azure Portal에서 PIM을 아직 시작하지 않은 경우 [PIM 사용](pim-getting-started.md)으로 이동합니다.
 
-1. **Azure AD 디렉터리 역할**을 클릭합니다.
+1. **Azure AD 역할**을 클릭합니다.
 
 1. **역할** 또는 **멤버**를 클릭합니다.
 
-    ![Azure AD 디렉터리 역할](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD 역할](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. **멤버 추가**를 클릭하여 관리되는 멤버 추가를 엽니다.
 
@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
     ![역할의 적격 사용자](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. 이제 사용자가 역할을 수행할 수 있으므로 [PIM에서 Azure AD 디렉터리 역할 활성화](pim-how-to-activate-role.md)의 지침에 따라 사용자가 역할을 수행할 수 있음을 알립니다.
+1. 사용자가 역할을 수행할 수는 이제 알 수 있도록의 지침에 따라 활성화할 수 있음을 [PIM에서 내 Azure AD 역할 활성화](pim-how-to-activate-role.md)합니다.
 
     적격 관리자의 경우 활성화 중에 Azure MFA(Multi-factor Authentication)에 등록하라는 메시지가 표시됩니다. 사용자가 MFA에 등록할 수 없거나 Microsoft 계정(일반적으로 @outlook.com)을 사용하고 있는 경우 사용자 정보는 모든 역할에서 영구적으로 유지되도록 해야 합니다.
 
@@ -72,7 +72,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure AD 디렉터리 역할**을 클릭합니다.
+1. **Azure AD 역할**을 클릭합니다.
 
 1. **구성원**을 클릭합니다.
 
@@ -96,7 +96,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure AD 디렉터리 역할**을 클릭합니다.
+1. **Azure AD 역할**을 클릭합니다.
 
 1. **구성원**을 클릭합니다.
 

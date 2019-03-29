@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토를 사용 하 여 사용자 액세스 관리 | Microsoft Docs
-description: 그룹 또는 Azure Active Directory 액세스 검토를 사용 하 여 응용 프로그램에는 할당의 멤버 자격으로 사용자의 액세스를 관리 하는 방법 알아보기
+title: 액세스 검토-Azure Active Directory를 사용 하 여 사용자 액세스 관리 | Microsoft Docs
+description: Azure Active Directory 액세스 검토를 사용하여 애플리케이션에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 656a1d387a345d9ffcc549c19a131de758e18c35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8dee430b0ae1bf0c8cd7151272045467ce51c57
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879993"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575065"
 ---
-# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용 하 여 사용자 액세스 관리
+# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
 Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액세스 권한이 있는지 쉽게 확인할 수 있습니다. 사용자 또는 의사 결정자에게 액세스 검토에 참여하고 사용자의 액세스를 다시 인증(또는 증명)하도록 요청할 수 있습니다. 검토자는 Azure AD의 제안 사항에 따라 지속적인 액세스에 대한 각 사용자의 요구에 입력을 제공할 수 있습니다. 액세스 검토가 완료되면 더 이상 필요하지 않은 사용자의 액세스를 변경하고 제거할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444511"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578929"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 업그레이드
 
@@ -21,7 +21,7 @@ ms.locfileid: "58444511"
 범용 v1에에서 범용 v2 저장소 계정 또는 Blob 저장소 계정으로 업그레이드 하는 것은 간단 합니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다.
 
 > [!IMPORTANT]
-> 범용 v1 또는 Blob storage 저장소 계정을 범용 v2로 업그레이드는 영구적 이며 취소할 수 없습니다.
+> 범용 v1 또는 Blob 저장소 계정을 범용 v2로 업그레이드는 영구적 이며 취소할 수 없습니다.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure Portal을 사용하여 업그레이드
 

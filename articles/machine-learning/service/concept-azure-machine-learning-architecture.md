@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361101"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577325"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -46,11 +46,13 @@ ms.locfileid: "58361101"
 
 모델을 작업 영역에 등록합니다. 등록된 모델 및 점수 매기기 스크립트를 사용하여 이미지를 만듭니다. 이미지를 REST 기반 HTTP 엔드포인트로 Azure Container Instances, Azure Kubernetes Service 또는 FPGA(Field-Programmable Gate Array)에 배포할 수 있습니다. 또한 이미지를 Azure IoT Edge 디바이스에 모듈로 배포할 수도 있습니다.
 
-여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유하는 경우 사용자에게 다음 역할을 할당하여 작업 영역에 대한 액세스를 제어할 수 있습니다.
+여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유 하는 경우에 다음 역할에 사용자를 할당 하 여 액세스를 제어할 수 있습니다.
 
 * 소유자
 * 참가자
-* 읽기 권한자
+* 판독기
+
+이러한 역할에 대 한 자세한 내용은 참조는 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md) 문서.
 
 새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
 

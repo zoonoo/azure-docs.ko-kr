@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할 할당 확장 또는 갱신 | Microsoft Docs
+title: 확장 또는 PIM-Azure Active Directory에서에서 Azure 리소스 역할 할당 갱신 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할 할당을 확장하거나 갱신하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004237"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578393"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM에서 Azure 리소스 역할 할당 확장 또는 갱신
 
-Azure 리소스용 PIM(Privileged Identity Management)은 Azure 리소스에 대한 액세스 및 할당 주기를 관리하는 새로운 컨트롤을 소개합니다. 관리자는 시작 및 종료 날짜-시간 속성을 사용하여 멤버 자격을 할당할 수 있습니다. 할당 종료에 도달하면 PIM은 영향을 받는 사용자 또는 그룹에 메일 알림을 보냅니다. 또한 리소스 관리자에게도 적절한 액세스가 유지되도록 메일 알림을 보냅니다. 액세스가 연장되지 않더라도 할당이 갱신되어 만료된 상태에서 최대 30일 동안 표시됩니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 Azure 리소스에 대 한 액세스 및 할당 주기를 관리 하는 새 컨트롤을 소개 합니다. 관리자는 시작 및 종료 날짜-시간 속성을 사용하여 멤버 자격을 할당할 수 있습니다. 할당 종료에 도달하면 PIM은 영향을 받는 사용자 또는 그룹에 메일 알림을 보냅니다. 또한 리소스 관리자에게도 적절한 액세스가 유지되도록 메일 알림을 보냅니다. 액세스가 연장되지 않더라도 할당이 갱신되어 만료된 상태에서 최대 30일 동안 표시됩니다.
 
 ## <a name="who-can-extend-and-renew"></a>연장 및 갱신할 수 있는 사람
 

@@ -1,6 +1,6 @@
 ---
-title: 외부 게스트를 초대 및 Privileged Identity Management-Azure AD 관리자 역할 할당 | Microsoft Docs
-description: 게스트 사용자를 초대 하 여 Azure AD Privileged Identity Management에서 Azure Active Directory 관리자 역할을 할당 하는 방법에 알아봅니다.
+title: 게스트를 초대 하 고 PIM-Azure Active Directory에서에서 Azure 리소스 역할 할당 | Microsoft Docs
+description: 외부 게스트 사용자 초대 하 여 Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할을 할당 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853259"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576882"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>게스트 사용자를 초대 하 고 PIM에 대 한 Azure 리소스 액세스 할당
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>게스트 사용자를 초대 하 고 PIM에서 Azure 리소스 역할 할당
 
 Azure Active Directory (Azure AD)-비즈니스 (b2b)는 조직 외부 게스트 (게스트) 사용자 및 모든 계정을 사용 하 여 공급 업체와 공동 작업을 수행할 수 있도록 Azure AD 내에서 기능 집합. B2B를 사용 하 여 Azure AD Privileged Identity Management (PIM)와 결합 하면 게스트에 규정 준수 및 거 버 넌 스 요구를 적용할 계속 수 있습니다. 예를 들어 게스트를 사용 하 여 Azure id 작업에 대 한 이러한 PIM 기능을 사용할 수 있습니다.
 

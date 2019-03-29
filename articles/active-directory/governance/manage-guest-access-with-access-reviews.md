@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토로 게스트 액세스 관리 | Microsoft Docs
-description: 그룹의 구성원으로 게스트 사용자를 관리 하거나 Azure Active Directory 액세스 검토를 사용 하 여 응용 프로그램 할당
+title: Azure Active Directory-액세스 검토로 게스트 액세스 관리 | Microsoft Docs
+description: Azure Active Directory 액세스 검토를 사용하여 게스트 사용자를 그룹 구성원으로 또는 애플리케이션에 할당된 사용자로 관리합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881047"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576499"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토로 게스트 액세스 관리
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
 
 Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/what-is-b2b.md)을 통해 조직의 경계를 넘나들며 공동 작업을 쉽게 수행할 수 있습니다. 다른 테넌트의 게스트 사용자는 [관리자](../b2b/add-users-administrator.md) 또는 [다른 사용자](../b2b/what-is-b2b.md)가 초대할 수 있습니다. 이 기능은 Microsoft 계정과 같은 소셜 ID에도 적용됩니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: monhaber
-ms.openlocfilehash: 2ce3a94b7ea4745ec3727e508cd10bb580a74c98
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401025"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578954"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합, IaaS 컨테이너 및 보안 취약성과 위협을 모니터링 하는 온-프레미스) (포함 비 Azure 컴퓨터에서 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent 에이전트 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -286,7 +286,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
    3. 공용 구성 및 개인 구성을 다음 값으로 채웁니다.
      
            $PublicConf = '{
-               "workspaceId": "WorkspaceID value",
+               "workspaceId": "WorkspaceID value"
            }' 
  
            $PrivateConf = '{

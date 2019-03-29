@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486022"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574980"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>V10 AzCopy 사용 하 여 데이터 전송 (미리 보기)
 
@@ -175,7 +175,7 @@ AzCopy v10은 기본적으로 블록 Blob에 데이터를 업로드합니다. �
 
 > [!NOTE] 
 > 사용 된 `--delete-destination` 주의 해 서 플래그입니다. 사용 하도록 설정 합니다 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 삭제 동작 계정의 실수로 인 한 삭제를 방지 하려면 동기화를 활성화 하기 전에 기능입니다. 
-
+>
 > 때 `--delete-destination` 로 설정 된 true, AzCopy는 파일을 삭제 사용자에 게 프롬프트 없이 대상에서 원본에 존재 하지 않습니다. 확인에 대 한 자격 증명을 입력 하려는 경우 사용할 `--delete-destination=prompt`합니다.
 
 로컬 파일 시스템을 저장소 계정과 동기화하려면 다음 명령을 사용합니다.

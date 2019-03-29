@@ -1,5 +1,5 @@
 ---
-title: PIM을 사용하기 위한 라이선스 요구 사항 - Azure | Microsoft Docs
+title: Azure Active Directory PIM-를 사용 하기 위한 요구 사항 라이선스 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 사용하기 위한 라이선스 요구 사항에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177255"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576159"
 ---
 # <a name="license-requirements-to-use-pim"></a>PIM을 사용하기 위한 라이선스 요구 사항
 
@@ -45,7 +45,7 @@ PIM의 혜택과 상호 작용하거나 혜택을 받는 각 관리자 또는 �
 - Azure AD 역할이 PIM을 사용하여 관리되는 관리자
 - Azure 리소스가 PIM을 사용하여 관리되는 관리자
 - 권한 있는 역할 관리자 역할에 할당된 관리자
-- PIM을 사용하여 관리하는 디렉터리 역할에 적격으로 할당된 사용자
+- Azure AD 역할에 적격으로 할당 하는 사용자가 PIM을 사용 하 여 관리
 - PIM에서 요청을 승인/거부할 수 있는 사용자
 - JIT(Just-in-time) 또는 직접(시간 기반) 할당을 통해 Azure 리소스 역할에 할당된 사용자  
 - 액세스 검토에 할당된 사용자

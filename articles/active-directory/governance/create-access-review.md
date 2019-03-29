@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토에 그룹 또는 응용 프로그램의 액세스 검토 만들기 | Microsoft Docs
-description: Azure AD 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스의 액세스 검토를 만드는 방법에 알아봅니다.
+title: 그룹 또는 응용 프로그램-Azure Active Directory의 액세스 검토 만들기 | Microsoft Docs
+description: Azure Active Directory 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스의 액세스 검토를 만드는 방법에 알아봅니다.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847385"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576204"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에 그룹 또는 응용 프로그램의 액세스 검토 만들기
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 만들거나 Azure AD에서 응용 프로그램 액세스 검토
 
 직원 및 게스트용 그룹과 애플리케이션에 대한 액세스는 시간이 지나면 변합니다. 관리자는 Azure AD(Azure Active Directory)를 사용하여 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토를 만들면 상태 액세스 할당과 관련된 위험을 줄일 수 있습니다. 일상적으로 액세스를 검토해야 하는 경우 되풀이 액세스 검토를 만들 수도 있습니다. 이러한 시나리오에 대한 자세한 내용은 [사용자 액세스 관리](manage-user-access-with-access-reviews.md) 및 [게스트 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "57847385"
 
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
-1. Azure Portal에 로그인하고 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)를 엽니다.
+1. Azure portal에 로그인 하 고 엽니다는 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
 
 1. **컨트롤**을 클릭합니다.
 
@@ -120,7 +120,7 @@ ms.locfileid: "57847385"
 
 ## <a name="manage-the-access-review"></a>액세스 검토 관리
 
-**액세스 검토** 섹션에서 검토자가 Azure AD 대시보드에서 검토를 수행하는 진행 상황을 추적할 수 있습니다. 액세스 권한은 [검토가 완료](complete-access-review.md)될 때까지 디렉터리에서 변경되지 않습니다.
+검토자의 Azure AD 대시보드에서 검토를 완료 진행률을 추적할 수는 **액세스 검토** 섹션입니다. 액세스 권한은 [검토가 완료](complete-access-review.md)될 때까지 디렉터리에서 변경되지 않습니다.
 
 일회성 검토 인 경우 다음 액세스 검토 기간이 만료 또는 관리자가 액세스 검토를 중지 한 후의 단계에 따라 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md) 확인 하 고 결과 적용 합니다.  
 
@@ -130,7 +130,7 @@ ms.locfileid: "57847385"
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 
-API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal에서 그룹 및 애플리케이션 사용자의 액세스 검토를 관리하기 위해 하는 일은 Microsoft Graph API를 사용하여 할 수도 있습니다. 자세한 내용은 [Azure AD 액세스 검토 API 참조](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)에서 확인할 수 있습니다. 코드 샘플은 [Microsoft Graph를 통해 Azure AD 액세스를 검토하는 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)를 참조하세요.
+API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal에서 그룹 및 애플리케이션 사용자의 액세스 검토를 관리하기 위해 하는 일은 Microsoft Graph API를 사용하여 할 수도 있습니다. 자세한 내용은 참조는 [API 참조의 Azure AD 액세스 검토](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)합니다. 코드 샘플을 보려면 [Microsoft Graph를 통해 Azure AD 액세스를 검색 하는 예제 검토](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

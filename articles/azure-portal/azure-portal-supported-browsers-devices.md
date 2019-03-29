@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888756"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576397"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure Portal에서 지원되는 브라우저 및 디바이스
-[Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 디바이스 및 브라우저에서 실행할 수 있습니다.
+# <a name="supported-devices"></a>지원되는 디바이스
 
-### <a name="supported-devices"></a>지원되는 디바이스
-Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다. 모바일 디바이스에서 Azure 리소스를 관리해야 하는 경우 iPhone 및 Android에서 제공되는 Azure 모바일 앱을 사용해 보세요. 자세한 내용은 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 참조하세요.
+합니다 [Azure portal](https://portal.azure.com) 웹 기반 콘솔 이며 모든 최신 데스크톱 및 태블릿 장치 브라우저에서 실행 합니다. 모바일 장치에서 Azure 리소스를 관리 해야 하는 경우는 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)합니다. IOS 및 Android 용 제공 됩니다.
 
-### <a name="supported-browsers"></a>지원되는 브라우저
+## <a name="recommended-browsers"></a>권장 되는 브라우저
+
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
 
 * Microsoft Edge(최신 버전)
@@ -36,4 +35,3 @@ Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다.
 * Safari(최신 버전, Mac만 해당)
 * Chrome(최신 버전)
 * Firefox(최신 버전)
-

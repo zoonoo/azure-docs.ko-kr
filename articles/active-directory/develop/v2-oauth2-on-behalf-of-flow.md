@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445758"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576933"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -72,8 +72,8 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | 매개 변수 |  | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
-| `client_id` | 필수 | [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 또는 새 [앱 등록(미리 보기) 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
-| `client_secret` | 필수 | 앱을 등록할 때 사용하는 애플리케이션 비밀로, 포털의 앱용으로 사용자가 생성한 것입니다. |
+| `client_id` | 필수 | 응용 프로그램 (클라이언트) ID입니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지에 앱에 할당 합니다. |
+| `client_secret` | 필수 | Azure portal-앱 등록 페이지에서에서 앱에 대 한 생성 된 클라이언트 암호입니다. |
 | `assertion` | 필수 | 요청에 사용된 토큰 값입니다. |
 | `scope` | 필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
@@ -104,7 +104,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 | 매개 변수 |  | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
-| `client_id` | 필수 | [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 또는 새 [앱 등록(미리 보기) 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
+| `client_id` | 필수 |  응용 프로그램 (클라이언트) ID입니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지에 앱에 할당 합니다. |
 | `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`여야 합니다. |
 | `client_assertion` | 필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요. |
 | `assertion` | 필수 | 요청에 사용된 토큰 값입니다. |
@@ -205,7 +205,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="pre-authorized-applications"></a>사전 승인된 애플리케이션
 
-애플리케이션 미리 보기 포털의 새로운 기능은 "사전 승인된 애플리케이션"입니다. 이 방식에서 리소스는 지정된 애플리케이션이 항상 특정 범위를 수신할 수 있는 권한이 있음을 나타낼 수 있습니다. 이러한 특성은 프런트 엔드 클라이언트와 백 엔드 리소스가 좀 더 원활하게 연결되도록 하는 데 특히 유용합니다. 리소스는 여러 사전 승인된 애플리케이션을 선언할 수 있습니다. 이러한 애플리케이션은 OBO 흐름에서 이러한 권한을 요청하고, 사용자가 동의를 제공하지 않아도 수신할 수 있습니다.
+응용 프로그램 포털의 기능은 "사전 승인 된 응용 프로그램"입니다. 이 방식에서 리소스는 지정된 애플리케이션이 항상 특정 범위를 수신할 수 있는 권한이 있음을 나타낼 수 있습니다. 이러한 특성은 프런트 엔드 클라이언트와 백 엔드 리소스가 좀 더 원활하게 연결되도록 하는 데 특히 유용합니다. 리소스는 여러 사전 승인된 애플리케이션을 선언할 수 있습니다. 이러한 애플리케이션은 OBO 흐름에서 이러한 권한을 요청하고, 사용자가 동의를 제공하지 않아도 수신할 수 있습니다.
 
 #### <a name="admin-consent"></a>관리자 동의
 

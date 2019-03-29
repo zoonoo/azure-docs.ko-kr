@@ -1,5 +1,5 @@
 ---
-title: 리소스 대시보드 PIM-Azure의에서 액세스 검토를 수행 하는 데 | Microsoft Docs
+title: 리소스 대시보드 PIM-Azure Active Directory의에서 액세스 검토를 수행 하는 데 | Microsoft Docs
 description: 리소스 대시보드를 사용하여 Azure AD PIM(Privileged Identity Management)에서 액세스 검토를 수행하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012690"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574963"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>리소스 대시보드를 사용 하 여 PIM의 액세스 검토를 수행 하려면
 
-리소스 대시보드를 사용하여 Azure 리소스에 대한 PIM(Privileged Identity Management)에서 액세스 검토를 수행할 수 있습니다. [관리자 보기] 대시보드에는 다음과 같은 세 가지 기본 구성 요소가 있습니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 액세스 검토를 수행 하는 리소스 대시보드를 사용할 수 있습니다. [관리자 보기] 대시보드에는 다음과 같은 세 가지 기본 구성 요소가 있습니다.
 
 - 리소스 역할 활성화에 대한 그래픽 표현.
 - 할당 유형에 따른 역할 할당의 분포를 표시하는 차트 2개.

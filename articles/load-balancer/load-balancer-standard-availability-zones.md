@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 2c4503b6ff065e98c49fe3f4e06b63cbeb7d1770
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652747"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579362"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
 Azure Load Balancer의 표준 SKU는 [가용성 영역](../availability-zones/az-overview.md) 시나리오를 지원합니다. 표준 Load Balancer에서는 몇 가지 새로운 개념이 제공됩니다. 이러한 개념을 활용하면 리소스를 영역에 맞게 조정하고 영역 간에 분산하여 종단 간 시나리오의 가용성을 최적화할 수 있습니다.  가용성 영역에 대한 설명, 현재 가용성 영역을 지원하는 지역 및 기타 관련 개념 및 제품에 대한 지침은 [가용성 영역](../availability-zones/az-overview.md)을 검토하세요. 표준 Load Balancer와 가용성 영역을 함께 활용하면 다양한 시나리오를 수행할 수 있는 광범위하면서도 유동적인 기능 집합이 제공됩니다.  이러한 [개념](#concepts)과 기본 시나리오 [디자인 지침](#design)을 이해하려면 이 문서를 검토하세요.
 
->[!NOTE]
->다른 관련 항목은 [가용성 영역](https://aka.ms/availabilityzones)을 검토하세요. 
+>[!IMPORTANT]
+>검토 [가용성 영역](../availability-zones/az-overview.md) 관련된 항목에 대 한 지역 특정 정보를 포함 합니다.
 
 ## <a name="concepts"></a> Load Balancer에 적용된 가용성 영역 개념
 
@@ -33,7 +33,7 @@ Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 
 
 Load Balancer 리소스의 함수는 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다.
 
-가용성 영역의 컨텍스트에서 Load Balancer 리소스의 동작과 속성은 영역 중복 또는 영역으로 설명됩니다.  영역 중복 및 구역은 속성의 영역 조건(zonality)을 나타냅니다.  Load Balancer의 컨텍스트에서 영역 중복은 항상 *모든 영역*을 의미하고, 영역은 *단일 영역*에 대한 서비스를 보장합니다.
+가용성 영역의 컨텍스트에서 Load Balancer 리소스의 동작과 속성은 영역 중복 또는 영역으로 설명됩니다.  영역 중복 및 구역은 속성의 영역 조건(zonality)을 나타냅니다.  Load Balancer의 컨텍스트에서 영역 중복 항상 의미 *여러 영역* 서비스를 격리 하는 영역 수단을 *단일 영역*합니다.
 
 공용 및 내부 Load Balancer 모두는 영역 중복 시나리오 및 영역 시나리오를 지원하며, 필요에 따라 둘 다 영역을 통해 트래픽을 보낼 수 있습니다(*영역 간 부하 분산*).
 
@@ -53,9 +53,12 @@ Load Balancer 리소스는 영역 및 영역 중복 프런트 엔드 둘 다를 
 
 #### <a name="zone-redundant-by-default"></a>기본으로서의 중복 영역
 
+>[!IMPORTANT]
+>검토 [가용성 영역](../availability-zones/az-overview.md) 관련된 항목에 대 한 지역 특정 정보를 포함 합니다.
+
 가용성 영역이 있는 지역에서 표준 Load Balancer 프런트 엔드는 기본적으로 영역 중복입니다.  단일 프런트 엔드 IP 주소는 영역 오류에서 존속할 수 있으며, 영역에 관계없이 모든 백 엔드 풀 멤버에 연결하는 데 사용할 수 있습니다. 이 경우 비충돌 데이터 경로를 의미하지는 않지만 재시도 또는 재설정은 성공합니다. DNS 중복 구성표는 필요하지 않습니다. 프런트 엔드의 단일 IP 주소는 여러 가용성 영역의 여러 독립 인프라 배포를 통해 동시에 처리됩니다.  영역 중복은 모든 인바운드 또는 아웃바운드 흐름에서 단일 IP 주소를 사용하여 한 지역의 여러 가용성 영역을 통해 동시에 처리된다는 것을 의미합니다.
 
-하나 이상의 가용성 영역이 실패할 수 있으며, 지역의 한 영역이 정상으로 유지되는 동안 데이터 경로가 유지됩니다. 영역 중복 구성은 기본값이며 추가 작업이 필요하지 않습니다.  지역에서 가용성 영역을 지원하는 기능을 확보하는 경우 기존 프런트 엔드는 자동으로 영역 중복이 됩니다.
+하나 이상의 가용성 영역이 실패할 수 있으며, 지역의 한 영역이 정상으로 유지되는 동안 데이터 경로가 유지됩니다. 영역 중복 구성은 기본값이며 추가 작업이 필요하지 않습니다.  
 
 다음 스크립트를 사용하여 내부 표준 Load Balancer에 대한 영역 중복 공용 IP 주소를 만듭니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
 
@@ -96,7 +99,7 @@ Load Balancer 리소스는 영역 및 영역 중복 프런트 엔드 둘 다를 
                 ],
 ```
 
-#### <a name="optional-zone-guarantee"></a>선택적 영역 보장
+#### <a name="optional-zone-isolation"></a>선택적 표준 시간대가 격리
 
 *영역 프런트 엔드*라고 하는 단일 영역에 대한 프런트 엔드를 보장하도록 선택할 수 있습니다.  즉, 모든 인바운드 또는 아웃바운드 흐름이 한 지역의 단일 영역에서 처리됩니다.  프런트 엔드는 영역의 상태와 수명을 공유합니다.  데이터 경로는 보장된 영역 이외의 영역에서 오류가 발생해도 영향을 받지 않습니다. 영역 프런트 엔드를 사용하여 가용성 영역별 IP 주소를 공개할 수 있습니다.  또한 영역 프런트 엔드를 직접 사용하거나, 프런트 엔드가 공용 IP 주소로 구성된 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 같은 DNS 부하 분산 제품과 통합하여 클라이언트가 여러 영역 IP 주소로 확인되는 단일 DNS 이름을 사용할 수 있습니다.  또한 이를 통해 부하 분산된 영역별 엔드포인트를 공개하여 각 영역을 개별적으로 모니터링할 수도 있습니다.  이러한 개념(동일한 백 엔드에 대한 영역 중복 및 영역)을 혼합하려면 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 검토하세요.
 
@@ -205,6 +208,9 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
   - 영역이 반환되면 애플리케이션에서 안전하게 수렴하는 방법을 이해하고 있습니까?
 
 ### <a name="zonalityguidance"></a> 영역 중복 및 영역
+
+>[!IMPORTANT]
+>검토 [가용성 영역](../availability-zones/az-overview.md) 관련된 항목에 대 한 지역 특정 정보를 포함 합니다.
 
 영역 중복은 서비스에 대한 단일 IP 주소를 사용하여 영역 중립적인 복원 옵션을 제공할 수 있습니다.  이에 따라 복잡성을 줄일 수 있습니다.  영역 중복은 영역 간 이동성을 가지고 있으며 모든 영역의 리소스에서 안전하게 사용할 수도 있습니다.  또한 가용성 영역이 없는 지역에서 미래의 증거가 될 수 있으며, 지역에서 가용성 영역을 확보하게 되면 필요한 변경을 제한할 수 있습니다.  영역 중복 IP 주소 또는 프런트 엔드에 대한 구성 구문은 가용성 영역이 없는 영역을 포함하여 모든 지역에서 성공합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541889"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575218"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>IoT 용 Azure 보안 센터 (ASC)를 사용 하 여 시작 
 
@@ -67,7 +67,7 @@ ASC의 테스트 하 고 서비스를 사용 하도록 설정 하려면 다음�
 1. IoT Hub에 등록 된 장치 없음 [새 장치를 등록](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy)합니다.
 1. [Azureiotsecurity 보안 모듈 만들기](quickstart-create-security-twin.md) 장치에 대 한 합니다.
 1. 실제 장치에서 설치 하는 대신 Azure 시뮬레이션 된 장치에 에이전트를 설치 하려면 [스핀을 새 Azure 가상 머신 (VM)를](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) 사용 가능한 영역에 있습니다. 
-1. [IoT 보안 에이전트는 ASC를 배포](tutorial-deploy-linux-cs.md) IoT 장치 또는 새 VM에서.
+1. [IoT 보안 에이전트는 ASC를 배포](how-to-deploy-linux-cs.md) IoT 장치 또는 새 VM에서.
 1. 지침을 따르세요 [trigger_events](https://aka.ms/iot-security-github-trigger-events) 무해 한 공격 시뮬레이션을 실행 합니다.
 1. 이전 단계에서 시뮬레이션 된 공격에 대 한 응답으로 IoT 경고에 대 한 ASC를 확인 합니다. 
     - 스크립트를 실행 한 후 5 분 확인을 시작 합니다.
@@ -79,4 +79,4 @@ ASC의 테스트 하 고 서비스를 사용 하도록 설정 하려면 다음�
 - 구성 프로그램 [솔루션](quickstart-configure-your-solution.md)
 - [보안 모듈 만들기](quickstart-create-security-twin.md)
 - 구성 [사용자 지정 경고](quickstart-create-custom-alerts.md)
-- [보안 에이전트 배포](select-deploy-agent.md)
+- [보안 에이전트 배포](how-to-deploy-agent.md)

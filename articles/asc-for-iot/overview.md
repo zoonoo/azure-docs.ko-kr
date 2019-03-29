@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 9ca55a1c977b887e8d1ea51186068e57627e78f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542024"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578818"
 ---
-# <a name="introducing-asc-for-iot"></a>ASC IoT에 대 한 소개 
+# <a name="introducing-asc-for-iot"></a>ASC IoT에 대 한 소개
 
 > [!IMPORTANT]
 > IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
@@ -45,7 +45,7 @@ IoT 용 ASC 워크 edge에서 실행 중인 온-프레미스, Azure 및 다른 �
 
 ### <a name="adaptive-threat-prevention"></a>적응형 위협 방지
 
-IoT 용 ASC를 사용 하 여를 지속적으로 컴퓨터, 네트워크 및 응용 프로그램에 지 장치의 Azure IoT 솔루션 등의 Azure 서비스의 보안을 모니터링 합니다. 수백 개의 기본 제공 보안 평가를 사용 하거나 사용자 고유의 IoT Hub 대시보드에 대 한 중앙 ASC에서 만들 하도록 선택할 수 있습니다. 보안 설정을 최적화 하 고 가상 컴퓨터, 네트워크, 앱 및 데이터를 통해 실행 가능한 권장 사항을 통해 보안 점수를 향상 합니다. 새로 추가 된 IoT 기능을 사용 하 여 Azure IoT 솔루션에 대 한 공격 취약 영역을 축소 하 고 악용 되기 전에 문제를 해결할 이제 수 있습니다. 
+IoT 용 ASC를 사용 하 여를 지속적으로 컴퓨터, 네트워크 및 응용 프로그램에 지 장치의 Azure IoT 솔루션 등의 Azure 서비스의 보안을 모니터링 합니다. 수백 개의 기본 제공 보안 평가를 사용 하거나 사용자 고유의 IoT Hub 대시보드에 대 한 중앙 ASC에서 만들 하도록 선택할 수 있습니다. 보안 설정을 최적화 하 고 가상 컴퓨터, 네트워크, 앱 및 데이터를 통해 실행 가능한 권장 사항을 통해 보안 점수를 향상 합니다. 새로 추가 된 IoT 기능을 사용 하 여 Azure IoT 솔루션에 대 한 공격 취약 영역을 축소 하 고 악용 되기 전에 문제를 해결할 이제 수 있습니다.
 
 ### <a name="intelligent-threat-detection-and-response"></a>지능형 위협 탐지 및 대응
 

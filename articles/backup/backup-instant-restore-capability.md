@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285550"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578903"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -67,6 +67,8 @@ ms.locfileid: "58285550"
 Azure portal에서 추가 필드를 볼 수 있습니다 합니다 **VM 백업 정책** 블레이드의 합니다 **즉시 복원을** 섹션입니다. 특정 백업 정책과 연결된 모든 VM에 대해 **VM 백업 정책** 블레이드의 스냅숏 보존 기간을 변경할 수 있습니다.
 
 ![즉시 복원 기능](./media/backup-azure-vms/instant-restore-capability.png)
+
+Powershell을 사용 하 여 스냅숏 보존을 구성 하려면 참조 [이 문서](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention)합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

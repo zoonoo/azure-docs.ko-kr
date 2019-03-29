@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541814"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577803"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법 
 
@@ -41,10 +41,12 @@ IoT Hub에 IoT ASC에 각 장치 등록, 보안 모듈이 필요 합니다. 장�
 
  - **모듈** 인증 모드<br>
    모듈은 장치 쌍 독립적으로 인증 됩니다.
-   이 유형의 인증에 대 한 Authentication.config 파일에 정의 되어에 필요한 정보를 C# 및 C에 대 한 LocalConfiguration.json
+   보안 에이전트 보안 모듈 (대칭 키에만 해당)를 통해 전용된 인증 방법을 사용 하려는 경우이 인증 유형을 사용 합니다.
         
  - **장치** 인증 모드<br>
-    이 방법에서는 보안 에이전트가 먼저 장치에 대해 인증합니다. IoT 에이전트용 ASC는 초기 인증을 받은 후 다음을 수행 합니다. **Rest** Rest API를 사용 하 여 장치 인증 데이터를 사용 하 여 IoT Hub를 호출 합니다. 그런 다음 ASC IoT 에이전트에 대 한 IoT Hub에서 보안 모듈 인증 방법 및 데이터를 요청합니다. 마지막 단계로, IoT 에이전트용 ASC IoT 모듈에 대 한 ASC에 대 한 인증을 수행합니다.    
+    이 방법에서는 보안 에이전트는 처음 장치 id를 사용 하 여 인증합니다. IoT 에이전트용 ASC는 초기 인증을 받은 후 다음을 수행 합니다.는 **REST** REST API를 사용 하 여 장치 인증 데이터를 사용 하 여 IoT Hub를 호출 합니다. 그런 다음 ASC IoT 에이전트에 대 한 IoT Hub에서 보안 모듈 인증 방법 및 데이터를 요청합니다. 마지막 단계로, IoT 에이전트용 ASC IoT 모듈에 대 한 ASC에 대 한 인증을 수행합니다.
+    
+    보안 에이전트는 기존 장치 인증 메서드를 다시 사용 (자체 서명 된 인증서 또는 대칭 키)를 원하는 경우이 인증 유형을 사용 합니다. 
 
 참조 [보안 에이전트 설치 매개 변수](#security-agent-installation-parameters) 를 구성 하는 방법을 알아봅니다.
                                 
@@ -55,7 +57,7 @@ IoT Hub에 IoT ASC에 각 장치 등록, 보안 모듈이 필요 합니다. 장�
 
 ## <a name="security-agent-installation-parameters"></a>보안 에이전트 설치 매개 변수
 
-때 [보안 에이전트 배포](select-deploy-agent.md), 인수로 인증 세부 정보를 제공 해야 합니다.
+때 [보안 에이전트 배포](how-to-deploy-agent.md), 인수로 인증 세부 정보를 제공 해야 합니다.
 이러한 인수는 다음 표에 나와 있습니다.
 
 
@@ -111,5 +113,5 @@ IoT Hub에 IoT ASC에 각 장치 등록, 보안 모듈이 필요 합니다. 장�
 
 ## <a name="see-also"></a>참고 항목
 - [보안 에이전트 개요](security-agent-architecture.md)
-- [보안 에이전트 배포](select-deploy-agent.md)
+- [보안 에이전트 배포](how-to-deploy-agent.md)
 - [원시 보안 데이터에 액세스](how-to-security-data-access.md)

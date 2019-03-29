@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763540"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577019"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management에서 캐싱을 추가하여 성능 향상
 
 응답 캐싱을 위해 API Management의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.
- 
+
 캐싱에 대한 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)과 [Azure API Management의 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 ![캐시 정책](media/api-management-howto-cache/cache-policies.png)
@@ -59,7 +59,7 @@ ms.locfileid: "57763540"
 6. 화면 맨 위에서 **디자인** 탭을 선택합니다.
 7. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 
-    ![코드 편집기](media/api-management-howto-cache/code-editor.png) 
+    ![코드 편집기](media/api-management-howto-cache/code-editor.png)
 
 8. **inbound** 요소에 다음 정책을 추가합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "57763540"
     **기간** 은 캐싱된 응답의 만료 간격을 지정합니다. 이 예제에서는 간격이 **20**초입니다.
 
 > [!TIP]
-> [Azure API Management에서 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에서 설명한 대로 외부 캐시를 사용하는 경우 캐싱 정책의 `cache-preference` 특성을 지정할 수 있습니다. 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)을 참조하세요.
+> [Azure API Management에서 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에서 설명한 대로 외부 캐시를 사용하는 경우 캐싱 정책의 `caching-type` 특성을 지정할 수 있습니다. 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)을 참조하세요.
 
 ## <a name="test-operation"> </a>작업 호출 및 캐싱 테스트
 실행 중인 캐싱을 확인하려면 개발자 포털에서 작업을 호출합니다.

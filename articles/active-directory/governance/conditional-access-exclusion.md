@@ -1,5 +1,5 @@
 ---
-title: Azure AD 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자 관리 | Microsoft Docs
+title: 액세스 검토를 사용 하 여 조건부 액세스 정책-Azure Active Directory에서에서 제외 된 사용자 관리 | Microsoft Docs
 description: Azure Active Directory (Azure AD) 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자를 관리 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892723"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577138"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>조건부 액세스 정책에서 제외 된 사용자 관리를 사용 하 여 Azure AD 액세스 검토
 
-이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. 이 문서에서는 제외 필요할 수도 있는 몇 가지 예제를 설명 하는 방법, IT 관리자로 서이 작업을 관리, 감독 정책 예외를 방지 감사자 증명 정기적으로 Azure를 사용 하 여 이러한 예외는 검토를 제공 하 고 Active Directory (Azure AD) 액세스 검토 합니다.
+이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. 이 문서에서는 제외되어야 하는 경우 및 IT 관리자로서 Azure AD(Azure Active Directory) 액세스 검토를 사용하여 이 작업을 관리하고, 정책 예외의 감독을 방지하고, 감사자에게 정기적으로 이러한 예외를 검토했다는 증명을 제공하는 방법에 대한 몇 가지 예제를 설명합니다.
 
 > [!NOTE]
 > Azure AD 액세스 검토를 사용하는 데 유효한 Azure AD Premium P2, Enterprise Mobility + Security E5 유료 또는 평가판 라이선스가 필요합니다. 자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
@@ -44,7 +44,7 @@ IT 관리자 권한으로 [Azure AD 조건부 액세스](../conditional-access/o
 
 ## <a name="why-are-exclusions-challenging"></a>제외하기 어려운 이유는?
 
-Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 지정할 수 있습니다. 디렉터리 역할, 개별 사용자 또는 게스트 사용자를 선택하여 이러한 사용자 중 일부를 제외할 수도 있습니다. 이러한 제외를 구성하는 경우 정책 의도는 해당 사용자에게 적용될 수 없다는 점에 유의하세요. 이러한 제외를 개별 사용자의 목록으로 구성하거나 레거시 온-프레미스 보안 그룹을 통해 구성한 경우 이 제외 목록의 가시성(사용자가 존재 여부를 모를 수 있음) 및 IT 관리자의 제어(사용자가 보안 그룹을 조인하여 정책을 무시할 수 있음)를 제한합니다. 또한 일회성 제외로 한정된 사용자가 더 이상 이 제한을 필요로 하지 않거나 적합하지 않을 수도 있습니다.
+Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 지정할 수 있습니다. Azure AD 역할, 개별 사용자 또는 게스트 사용자를 선택 하 여 이러한 사용자 중 일부를 제외할 수도 있습니다. 이러한 제외를 구성하는 경우 정책 의도는 해당 사용자에게 적용될 수 없다는 점에 유의하세요. 이러한 제외를 개별 사용자의 목록으로 구성하거나 레거시 온-프레미스 보안 그룹을 통해 구성한 경우 이 제외 목록의 가시성(사용자가 존재 여부를 모를 수 있음) 및 IT 관리자의 제어(사용자가 보안 그룹을 조인하여 정책을 무시할 수 있음)를 제한합니다. 또한 일회성 제외로 한정된 사용자가 더 이상 이 제한을 필요로 하지 않거나 적합하지 않을 수도 있습니다.
 
 제외를 시작할 때 정책을 무시하는 사용자의 짧은 목록이 있습니다. 시간이 지남에 따라 점점 더 많은 사용자가 제외되면 이 목록이 증가합니다. 특정 시점에 해당 목록을 검토하고 이러한 사용자 각각이 여전히 제외되어야 하는지 확인해야 합니다. 기술 관점에서 목록을 관리하는 것은 비교적 간단하지만 비즈니스 의사 결정을 하는 사용자는 누구이고 감사 가능하도록 만드는 방법은 무엇인가요?
 

@@ -1,5 +1,5 @@
 ---
-title: PIM에서 이메일 알림 - Azure | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 알림 전자 메일 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)의 이메일 알림에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905174"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576950"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
-Azure AD PIM(Privileged Identity Management)을 사용하면 역할이 할당되거나 활성화될 때와 같이 중요한 이벤트가 발생하면 이를 알 수 있습니다. PIM은 사용자 및 다른 참가자에게 이메일 알림을 보내 계속해서 정보를 제공합니다. 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 이 문서에서는 이러한 이메일이 어떻게 구성되고 언제 전송되며 누가 이메일을 받는지에 대해 설명합니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 역할을 할당 하거나 활성화 하는 경우와 같은 중요 한 이벤트가 발생할 때를 알 수 있습니다. PIM은 사용자 및 다른 참가자에게 이메일 알림을 보내 계속해서 정보를 제공합니다. 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 이 문서에서는 이러한 이메일이 어떻게 구성되고 언제 전송되며 누가 이메일을 받는지에 대해 설명합니다.
 
 ## <a name="sender-email-address-and-subject-line"></a>보낸 사람 이메일 주소 및 제목 줄
 
@@ -101,5 +101,5 @@ Azure 리소스 역할에 대해 다음 이벤트가 발생할 때 PIM은 최종
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
-- [PIM에서 Azure AD 디렉터리 역할에 대한 요청 승인 또는 거부](azure-ad-pim-approval-workflow.md)
+- [PIM에서 Azure AD 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [승인 또는 거부 PIM에서 Azure AD 역할에 대 한 요청](azure-ad-pim-approval-workflow.md)

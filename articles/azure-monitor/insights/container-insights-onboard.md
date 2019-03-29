@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 403cbeb0a68e39eab714ceb428fcfaefe8de0ff7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107647"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576244"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 등록 방법  
 
@@ -28,14 +28,16 @@ ms.locfileid: "58107647"
 
 컨테이너용 Azure Monitor는 다음과 같은 지원되는 방법을 사용하여 AKS의 새 배포 또는 하나 이상의 기존 배포에 사용할 수 있습니다.
 
-* Azure Portal 또는 Azure CLI에서
+* Azure 포털, Azure PowerShell 또는 Azure CLI를 사용 하 여
 * [Terraform 및 AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md) 사용
+
 
 ## <a name="prerequisites"></a>필수 조건 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
 - **Log Analytics 작업 영역입니다.** 새 AKS 클러스터 모니터링을 사용하도록 설정할 때 만들거나 온보드 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 직접 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)를 통해 만들거나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 만들 수 있습니다.
-- 한 **Log Analytics 참가자 역할의 멤버** 컨테이너 모니터링을 사용 하도록 설정 합니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../../azure-monitor/platform/manage-access.md)를 참조하세요.
+- 멤버인 사용자가 합니다 **Log Analytics 참가자 역할** 컨테이너 모니터링을 사용 하도록 설정 합니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../../azure-monitor/platform/manage-access.md)를 참조하세요.
+- 멤버인 사용자가 합니다 **[소유자](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** AKS 클러스터 리소스에는 역할입니다. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -52,13 +54,16 @@ ms.locfileid: "58107647"
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>새 클러스터에 대한 모니터링 사용
-배포하는 동안 Azure Portal, Azure CLI 또는 Terraform을 사용하여 새 AKS 클러스터의 모니터링을 사용하도록 설정할 수 있습니다.  포털에서 사용하도록 설정하려면 빠른 시작 문서 [AKS(Azure Kubernetes Service) 클러스터 배포](../../aks/kubernetes-walkthrough-portal.md)의 단계를 따르세요. **모니터링** 페이지에서 **모니터링 사용** 옵션에 대해 **예**를 선택한 다음, 기존 Log Analytics 작업 영역을 선택하거나 새로 만듭니다. 
+배포하는 동안 Azure Portal, Azure CLI 또는 Terraform을 사용하여 새 AKS 클러스터의 모니터링을 사용하도록 설정할 수 있습니다.  포털을 사용 하려면 빠른 시작 문서의 단계를 수행 [Azure Kubernetes Service (AKS) 클러스터 배포](../../aks/kubernetes-walkthrough-portal.md) 섹션의 단계에 따라 **상태 및 로그 모니터링**합니다.  
+
+>[!NOTE]
+>Portal에서 AKS 클러스터에 대 한 모니터링을 사용 하도록 빠른 시작 문서의 단계를 수행 하는 경우 기존 Log Analytics 작업 영역을 선택 하거나 새로 만듭니다를 하 라는 메시지가 표시 됩니다. 
 
 ### <a name="enable-using-azure-cli"></a>Azure CLI 사용
 Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성화하려면 [AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster) 섹션 아래 빠른 시작 문서의 단계를 수행하세요.  
 
 >[!NOTE]
->Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.43 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+>Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 실행 해야 이상. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 >
 
 ### <a name="enable-using-terraform"></a>Terraform 사용
@@ -79,9 +84,14 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>관리되는 기존 클러스터에 대해 모니터링 사용
-이미 배포된 AKS 클러스터의 모니터링은 Azure CLI를 사용하여 사용하도록 설정하거나 포털에서 사용하도록 설정하거나 제공된 Azure Resource Manager 템플릿으로 PowerShell cmdlet `New-AzResourceGroupDeployment`를 사용하여 사용하도록 설정할 수 있습니다. 
+지원 되는 방법 중 하나를 사용 하 여 이미 배포 된 AKS 클러스터의 모니터링을 사용할 수 있습니다.
 
-### <a name="enable-monitoring-using-azure-cli"></a>Azure CLI를 사용하여 모니터링을 사용하도록 설정
+* Azure CLI
+* Terraform
+* [Azure monitor에서](#enable-from-azure-monitor-in-the-portal) 나 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal) Azure portal에서 
+* 사용 하 여 합니다 [Azure Resource Manager 템플릿을 제공](#enable-using-an-azure-resource-manager-template) Azure PowerShell cmdlet을 사용 하 여 `New-AzResourceGroupDeployment` 또는 Azure CLI를 사용 하 여 합니다. 
+
+### <a name="enable-using-azure-cli"></a>Azure CLI 사용
 다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예제에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *DefaultWorkspace-\<GUID>-\<Region>* 형식과 비슷합니다.  
 
 ```azurecli
@@ -106,7 +116,7 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 provisioningState       : Succeeded
 ```
 
-### <a name="enable-monitoring-using-terraform"></a>Terraform을 사용하여 모니터링을 사용하도록 설정
+### <a name="enable-using-terraform"></a>Terraform 사용
 1. 기존 [azurerm_kubernetes_cluster 리소스](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)에 **oms_agent** 추가 프로필을 추가합니다.
 
    ```
@@ -120,7 +130,7 @@ provisioningState       : Succeeded
 
 2. Terraform 설명서의 단계에 따라 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)을 추가합니다.
 
-### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>포털에서 Azure Monitor의 모니터링을 사용 하도록 설정 
+### <a name="enable-from-azure-monitor-in-the-portal"></a>포털에서 Azure Monitor에서 사용 하도록 설정 
 Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 **모니터**를 선택합니다. 
@@ -137,8 +147,8 @@ Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용�
  
 모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
 
-### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>포털의 AKS 클러스터에서 모니터링 사용
-Azure Portal에서 AKS 컨테이너에 대한 모니터링을 사용하도록 설정하려면 다음 단계를 수행합니다.
+### <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Portal에서 AKS 클러스터에서 직접 사용 하도록 설정
+Azure portal에서 AKS 클러스터 중 하나에서 직접 모니터링을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 
 2. 리소스 목록에서 **컨테이너** 입력을 시작합니다.  
@@ -159,24 +169,23 @@ Azure Portal에서 AKS 컨테이너에 대한 모니터링을 사용하도록 �
  
 모니터링을 사용하도록 설정한 후 약 15분 후에 클러스터에 대한 운영 데이터를 볼 수 있습니다. 
 
-### <a name="enable-monitoring-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 모니터링 사용
+### <a name="enable-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정
 이 메서드는 두 가지 JSON 템플릿을 포함합니다. 한 가지 템플릿은 모니터링을 사용하도록 구성을 지정하고, 다른 템플릿은 다음을 지정하도록 구성하는 매개 변수 값을 포함합니다.
 
 * AKS 컨테이너 리소스 ID. 
 * 클러스터가 배포된 리소스 그룹.
-* Log Analytics 작업 영역 및 작업 영역을 만들 지역. 
 
 >[!NOTE]
 >템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
 >
 
-Log Analytics 작업 영역은 수동으로 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 설정할 수 있습니다.
+Log Analytics 작업 영역에 Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 활성화 하기 전에 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 설정할 수 있습니다.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 실행 해야 이상. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
 #### <a name="create-and-execute-a-template"></a>템플릿 만들기 및 실행
 
@@ -204,13 +213,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
       "metadata": {
          "description": "Azure Monitor Log Analytics Resource ID"
        }
-    },
-    "workspaceRegion": {
-    "type": "string",
-    "metadata": {
-       "description": "Azure Monitor Log Analytics workspace region"
-      }
-     }
+    }
     },
     "resources": [
       {
@@ -230,41 +233,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
          }
        }
       }
-     },
-    {
-        "type": "Microsoft.Resources/deployments",
-        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]", 
-        "apiVersion": "2017-05-10",
-        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
-        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
-        "properties": {
-            "mode": "Incremental",
-            "template": {
-                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {},
-                "resources": [
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
-                        "properties": {
-                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
-                        },
-                        "plan": {
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
-                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                            "promotionCode": "",
-                            "publisher": "Microsoft"
-                        }
-                    }
-                ]
-            },
-            "parameters": {}
-        }
-       }
+     }
      ]
     }
     ```
@@ -285,19 +254,16 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        },
        "workspaceResourceId": {
          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-       },
-       "workspaceRegion": {
-         "value": "<workspaceLocation>"
-       }
+       }  
      }
     }
     ```
 
-4. AKS 클러스터에 대한 **AKS 개요** 페이지에서 찾을 수 있는 값을 사용하여 **aksResourceId** 및 **aksResourceLocation**의 값을 편집합니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다. 또한 **workspaceRegion**의 작업 영역 위치를 지정합니다. 
+4. 값을 편집 **aksResourceId** 하 고 **aksResourceLocation** 에 값을 사용 하는 **AKS 개요** AKS 클러스터에 대 한 페이지입니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다. 
 5. 이 파일을 **existingClusterParam.json**으로 로컬 폴더에 저장합니다.
 6. 이제 이 템플릿을 배포할 수 있습니다. 
 
-   * 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 사용합니다.
+   * Azure PowerShell을 사용 하 여를 배포 하려면 템플릿에 포함 된 폴더에서 다음 명령을 사용 하 여:
 
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
@@ -308,7 +274,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        provisioningState       : Succeeded
        ```
 
-   * Azure CLI를 사용하여 다음 명령을 실행하려면:
+   * Azure CLI를 사용 하 여 배포 하려면 다음 명령을 실행 합니다.
     
        ```azurecli
        az login

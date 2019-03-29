@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884548"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579566"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -50,7 +50,7 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 포털에서는 사용자가 시작한 작업이 파란색 알림 아이콘을 사용하여 표시되지만 계획 및 계획되지 않은 이벤트는 빨간색 경고 아이콘을 사용하여 표시됩니다. 자세한 내용은 [Resource Health 개요](Resource-health-overview.md)에 제공됩니다.  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Resource Health를 내 모니터링 도구에 통합할 수 있나요?
-리소스 상태는 리소스에 영향을 주는 Azure 서비스 문제를 진단 및 완화할 수 있도록 설계된 서비스입니다. Resource Health API를 사용하여 프로그래밍 방식으로 상태를 얻을 수 있지만 리소스를 모니터링하는 데는 메트릭을 사용하는 것이 좋습니다. 일단 문제가 감지되면 Resource Health를 통해 근본 원인을 파악하고 이를 해결하기 위한 작업을 안내할 수 있습니다. 메트릭을 사용하여 리소스를 확인하는 방법은 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 확인하세요.
+리소스 상태에 [지원 미리 보기](resource-health-alert-arm-template-guide.md) 활동 로그 기반 경고에 대 한 합니다. 활동 로그 경고를 사용 하 여 [작업 그룹](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) 사용자에 게 알리는 경고가 트리거 되었습니다. 작업 그룹 다양 한 전자 메일, SMS, 웹 후크, ITSM 작업 같은 알림 채널을 지원합니다.
 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.
@@ -67,13 +67,7 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 리소스 상태를 검사할 때는 상태 오른쪽 아래에서 **Report incorrect health status(잘못된 상태 보고)** 를 클릭하면 됩니다. 보고서를 제출하기 전에 현재 상태가 잘못되었다고 생각하는 이유에 대해 자세히 입력하는 옵션이 제공됩니다.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>모든 Azure 지역에서 Resource Health가 제공되나요? 
-리소스 상태는 다음 지역을 제외한 모든 Azure 지역 간에 제공됩니다.
-- 미국 정부 버지니아
-- 미국 아이오와 주 정부
-- 미국 국방부 동부
-- 미국 국방부 중부
-- 독일 중부
-- 독일 북동부
+리소스 상태는 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Resource Health는 Azure 상태 또는 Service Health 대시보드와 어떻게 다른가요?
 Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 대시보드에서 제공하는 정보보다 더 구체적입니다.

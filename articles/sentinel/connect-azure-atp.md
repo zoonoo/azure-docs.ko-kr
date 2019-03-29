@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242176"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574946"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Azure ATP Advanced Threat Protection () 데이터를 수집 합니다.
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
@@ -46,6 +46,7 @@ Azure ATP 배포 되 고 데이터를 수집, 의심 스러운 경고를 쉽게 
 
 2. **Connect**를 클릭합니다.
 
+6. Log Analytics에서 관련 스키마를 사용 하 여 Azure ATP 경고를 검색할 **SecurityAlert**합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Sentinel Azure Advanced Threat Protection 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.

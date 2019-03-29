@@ -1,5 +1,5 @@
 ---
-title: Azure AD PIM(Privileged Identity Management) 배포 | Microsoft Docs
+title: Privileged Identity Management (PIM)-Azure Active Directory를 배포 합니다. | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management) 배포를 계획하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227034"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578204"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
-이 단계별 가이드는 조직에서 Azure AD PIM(Privileged Identity Management) 배포를 계획하는 방법에 대해 설명합니다.
+이 단계별 가이드의 Azure Active Directory (Azure AD) 관리 PIM (Privileged Identity) 조직에서 배포를 계획 하는 방법을 설명 합니다.
 
 > [!TIP]
 > 이 문서 전체에서 다음 상태로 표시된 항목을 볼 수 있습니다.
@@ -79,7 +79,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>PIM에 의해 관리할 수 있는 역할
 
-**Azure AD 역할** – Azure Active Directory 내의 모든 디렉터리 역할입니다(예: 글로벌 관리자, Exchange 관리자 및 보안 관리자). [Azure Active Directory의 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)에서 역할 및 해당 역할의 기능에 대해 더 자세히 읽을 수 있습니다. 관리자에게 할당하는 역할을 결정하는 데 도움이 필요한 경우 [작업별 최소 권한 있는 역할](../users-groups-roles/roles-delegate-by-task.md)을 참조하세요.
+**Azure AD 역할** -이러한 역할은 모든 Azure Active Directory (예: 전역 관리자, Exchange 관리자 및 보안 관리자). [Azure Active Directory의 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)에서 역할 및 해당 역할의 기능에 대해 더 자세히 읽을 수 있습니다. 관리자에게 할당하는 역할을 결정하는 데 도움이 필요한 경우 [작업별 최소 권한 있는 역할](../users-groups-roles/roles-delegate-by-task.md)을 참조하세요.
 
 **Azure 리소스 역할** – 이 역할은 Azure 리소스, 리소스 그룹, 구독 또는 관리 그룹에 연결됩니다. PIM은 소유자, 사용자 액세스 관리자 및 Contributor는 물론 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 대해서도 Just-In-Time 액세스를 제공합니다. Azure 리소스 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
 
@@ -294,7 +294,7 @@ PIM 솔루션을 구현하기 전에 조직에서 사용하는 모든 권한 있
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Azure AD 역할에 대한 PIM 구성
 
-1. 계획한 내용에 따라 [Azure AD 디렉터리 역할 설정을 구성](pim-how-to-change-default-settings.md)합니다.
+1. [Azure AD 역할 설정 구성](pim-how-to-change-default-settings.md) 수립 하면 계획에 따라 합니다.
 
 1. **Azure AD 역할**로 이동하고 **역할**을 클릭한 다음, 방금 구성한 역할을 선택합니다.
 

@@ -4,17 +4,17 @@ description: 인덱스의 검색 가능한 텍스트 필드에 분석기를 할�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343275"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578767"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -97,16 +97,18 @@ Azure Search는 추가적인 **indexAnalyzer** 및 **searchAnalyzer** 필드 매
 
 [검색 분석기 데모](https://alice.unearth.ai/)는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교하여 보여 주는 타사 데모 앱입니다. 인덱스가 수정되었습니다. 잘 알려진 이야기의 텍스트가 포함되어 있습니다. 사용자가 입력한 각 검색 입력에 대해 각 분석기의 결과가 인접한 창에 표시되어 분석기별로 동일한 문자열을 어떤 식으로 처리하는지 살펴볼 수 있습니다. 
 
-## <a name="examples"></a>예
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>REST 예제
 
 다음 예제에서는 몇 가지 주요 시나리오에 대한 분석기 정의를 보여줍니다.
 
-+ [사용자 지정 분석기 예제](#Example1)
-+ [필드에 분석기 할당 예제](#Example2)
-+ [인덱싱 및 검색에 분석기 혼용](#Example3)
-+ [언어 분석기 예제](#Example4)
++ [사용자 지정 분석기 예제](#Custom-analyzer-example)
++ [필드에 분석기 할당 예제](#Per-field-analyzer-assignment-example)
++ [인덱싱 및 검색에 분석기 혼용](#Mixing-analyzers-for-indexing-and-search-operations)
++ [언어 분석기 예제](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>사용자 지정 분석기 예제
 
@@ -180,7 +182,7 @@ Azure Search는 추가적인 **indexAnalyzer** 및 **searchAnalyzer** 필드 매
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>필드별 분석기 할당 예제
 
@@ -213,7 +215,7 @@ Azure Search는 추가적인 **indexAnalyzer** 및 **searchAnalyzer** 필드 매
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>인덱싱 및 검색 작업에 분석기 혼용
 
@@ -241,7 +243,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>언어 분석기 예제
 
@@ -273,6 +275,69 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#예제
+
+.NET SDK 코드 샘플을 사용 하는 경우 사용 하 여 또는 분석기를 구성 하도록 이러한 예제를 추가할 수 있습니다.
+
++ [기본 제공 분석기를 할당 합니다.](#Assign-a-language-analyzer)
++ [분석기를 구성 합니다.](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>언어 분석기를 할당 합니다.
+
+로 사용 되는 모든 분석기-를 구성 하지 않고도, 필드 정의에 지정 됩니다. 분석기 구문을 만들기 위한 요건은 없습니다. 
+
+이 예제는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당합니다. 것이 더 큰 hotels.cs 파일에는 호텔 클래스를 사용 하 여 만드는 호텔 인덱스 정의에서 가져온 코드 조각을 합니다 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플입니다.
+
+호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)지정 합니다 [AnalyzerName 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 제공 하는 모든 Azure Search에서 지원 되는 텍스트 분석기.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기를 정의 합니다.
+
+사용자 지정 또는 구성이 필요한 경우 인덱스는 분석기 구문 추가 해야 합니다. 이 정의 하 고 나면 추가할 수 있습니다 필드 정의 앞의 예제에서 설명한 것 처럼 합니다.
+
+사용 하 여 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체를 만들려고 합니다. 더 많은 예제를 참조 하세요 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)합니다.
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>다음 단계
 

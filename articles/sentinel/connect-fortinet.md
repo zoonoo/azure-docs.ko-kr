@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5310d85b73f4485c27b61735afab9ad5ed3fb9ea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2164969de4198d381a5c7a5f5ab73128a67ccbda
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898927"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576848"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Fortinet 어플라이언스에서 연결 
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Syslog CEF로 로그 파일을 저장 하 여 모든 Fortinet 어플라이언스로 Azure Sentinel를 연결할 수 있습니다. Azure Sentinel와 통합을 실행할 수 있도록 쉽게 분석 및 쿼리 로그 파일 데이터에서 Fortinet에서. Azure Sentinel CEF 데이터를 수집 하는 방법에 대 한 자세한 내용은 참조 하세요. [CEF 연결 어플라이언스](connect-common-event-format.md)합니다.
@@ -34,9 +34,9 @@ Syslog CEF로 로그 파일을 저장 하 여 모든 Fortinet 어플라이언스
 
 ## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>1단계: Fortinet 어플라이언스에서 에이전트를 사용 하 여 연결
 
-전용된 컴퓨터에 에이전트를 배포 해야 Azure Sentinel Fortinet 어플라이언스에서 연결 하려면 (VM 또는 온-프레미스) 어플라이언스 및 Azure Sentinel 간의 통신을 지원 하도록 합니다. 자동 또는 수동으로 에이전트를 배포할 수 있습니다. 자동 배포만 전용된 컴퓨터에 Azure에서 만드는 새 VM 인 경우 제공 됩니다. 
+전용된 컴퓨터에 에이전트를 배포 해야 Azure Sentinel Fortinet 어플라이언스에서 연결 하려면 (VM 또는 온-프레미스) 어플라이언스 및 Azure Sentinel 간의 통신을 지원 하도록 합니다. 자동 또는 수동으로 에이전트를 배포할 수 있습니다. 자동 배포는 전용 컴퓨터가 Azure에서 만드는 새 VM인 경우에만 사용할 수 있습니다. 
 
-또는 다른 클라우드의 VM에서 기존 Azure VM에서 수동으로 또는 온-프레미스 컴퓨터에 에이전트를 배포할 수 있습니다.
+또는 에이전트를 기존 Azure VM, 다른 클라우드의 VM 또는 온-프레미스 컴퓨터에서 수동으로 배포할 수 있습니다.
 
 두 옵션의 네트워크 다이어그램을 참조 하세요 [데이터 원본 연결](connect-data-sources.md#agent-options)합니다.
 
@@ -138,6 +138,7 @@ Fortinet Syslog 에이전트를 통해 Azure 작업 영역에 CEF 형식의 Sysl
 1. 성공적인 결과 제공 하는 모두 해당 명령의 경우에 Log Analytics 로그 도착 하는 경우 참조를 확인 합니다. 이러한 어플라이언스에서 스트리밍되는 모든 이벤트에서 Log Analytics에서 원시 형태로 나타나는 `CommonSecurityLog ` 형식입니다.
 1. 확인 오류가 있는 경우 또는 로그 되지 도착 하는 경우를 확인 하려면 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. 에 Syslog 메시지 기본 크기는 2048 바이트 (2KB)로 제한 해야 합니다. 로그에 너무 긴 경우에이 명령을 사용 하 여 security_events.conf 업데이트: `message_length_limit 4096`
+6. Log Analytics에서 관련 스키마를 사용 하 여 Fortinet 이벤트를 검색할 **CommonSecurityLog**합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

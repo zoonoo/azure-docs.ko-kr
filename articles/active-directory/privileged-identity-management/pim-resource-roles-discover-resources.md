@@ -1,5 +1,5 @@
 ---
-title: PIM에서 관리할 Azure 리소스 검색 | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 관리 하는 Azure 리소스 검색 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 관리할 Azure 리소스를 검색하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 01/23/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90bd76470f5c06eb0e73615a358312b46d8be4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 717cec41f152f0ebe3120b25db76cd684f39cbe3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195399"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575014"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>PIM에서 관리할 Azure 리소스 검색
 
-Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 보호를 향상시킬 수 있습니다. 이 내용은 이미 PIM을 사용하여 Azure AD 디렉터리 역할을 보호하는 조직, 프로덕션 리소스 보안을 유지하려는 관리 그룹 및 구독 소유자에게 유용할 수 있습니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 사용 하 여 Azure 리소스의 보호를 높일 수 있습니다. 이미 Azure AD 역할을 보호 하기 위해 PIM을 사용 하는 조직 및 프로덕션 리소스 보호 하고자 하는 관리 그룹 및 구독 소유자에 게 유용 합니다.
 
 먼저 Azure 리소스에 대한 PIM을 설정할 때 PIM에서 보호할 리소스를 검색하고 선택해야 합니다. PIM으로 관리할 수 있는 리소스 수에는 제한이 없습니다. 그러나 가장 중요한 리소스, 즉 프로덕션 리소스부터 시작하는 것이 좋습니다.
 

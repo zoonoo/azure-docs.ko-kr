@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할 활성화 | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 내 Azure 리소스 역할 활성화 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할을 활성화하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002044"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575809"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 활성화
 
-Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 적격 역할 구성원은 미래 날짜 및 시간에 대한 활성화를 예약할 수 있습니다. 또한 최대(관리자로 구성됨) 내에서 특정 활성화 기간을 선택할 수도 있습니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 사용 하 여 Azure 리소스에 대 한 적격 역할 구성원이 미래의 날짜 및 시간에 대 한 활성화를 예약할 수 있습니다. 또한 최대(관리자로 구성됨) 내에서 특정 활성화 기간을 선택할 수도 있습니다.
 
 이 문서는 PIM에서 해당 Azure 리소스 역할을 활성화해야 하는 구성원을 대상으로 합니다.
 
@@ -38,7 +38,7 @@ Azure 리소스 역할을 담당해야 하는 경우 PIM에서 **내 역할** �
 
 1. **내 역할**을 클릭합니다.
 
-    ![Azure AD 디렉터리 역할 및 Azure 리소스 역할 - 내 역할](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Azure AD 역할 및 Azure 리소스 역할-내 역할](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. 클릭 **Azure 리소스 역할** 적격 Azure 리소스 역할의 목록을 볼 수 있습니다.
 
@@ -56,7 +56,7 @@ Azure 리소스 역할을 담당해야 하는 경우 PIM에서 **내 역할** �
 
 1. **ID 확인**을 클릭하고 지침에 따라 추가 보안 확인을 제공합니다.
 
-    ![추가 보안 인증](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![추가 보안 확인](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. 축소된 범위를 지정하려면 **범위**를 클릭하여 리소스 필터 창을 엽니다.
 
@@ -84,7 +84,7 @@ Azure 리소스 역할을 담당해야 하는 경우 PIM에서 **내 역할** �
 
 1. Azure AD Privileged Identity Management를 엽니다.
 
-1. **내 역할**을 클릭하여 Azure AD 적격 디렉터리 역할 및 Azure 리소스 역할 목록을 확인합니다.
+1. 클릭 **내 역할** 에 적합 한 목록을 보려면 Azure AD 역할 및 Azure 리소스 역할입니다.
 
 1. 클릭 **Azure 리소스 역할**입니다.
 
@@ -100,9 +100,9 @@ Azure 리소스 역할을 담당해야 하는 경우 PIM에서 **내 역할** �
 
 1. Azure AD Privileged Identity Management를 엽니다.
 
-1. **내 요청**을 클릭하여 Azure AD 디렉터리 역할 및 Azure 리소스 역할 요청 목록을 확인합니다.
+1. 클릭 **내 요청** 에 Azure AD 및 Azure 리소스 역할의 목록을 보려면 다음을 요청 합니다.
 
-    ![Azure AD 디렉터리 역할 및 Azure 리소스 역할 - 내 요청](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Azure AD 역할 및 Azure 리소스 역할-내 요청](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. 오른쪽으로 스크롤하여 **요청 상태** 열을 봅니다.
 
@@ -138,4 +138,4 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 ## <a name="next-steps"></a>다음 단계
 
 - [PIM에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)
-- [PIM에서 Azure AD 디렉터리 역할 활성화](pim-how-to-activate-role.md)
+- [PIM에서 내 Azure AD 역할 활성화](pim-how-to-activate-role.md)

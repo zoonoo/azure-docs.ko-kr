@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087604"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576091"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Sentinel 작업 영역에 연결 된 Windows 서버에서 모든 보안 이벤트를 스트리밍할 수 있습니다. 이 연결을 사용 하면 대시보드를 볼, 사용자 지정 경고 및 조사를 향상 시킬 수 있습니다. 이 조직의 네트워크에 대 한 자세한 정보를 제공 하며 사용자 보안 작업 기능을 향상 시킵니다.  이벤트 스트림를 선택할 수 있습니다.
@@ -45,7 +45,7 @@ Azure Sentinel 작업 영역에 연결 된 Windows 서버에서 모든 보안 �
 1. Sentinel Azure portal에서 선택 **데이터 컬렉션** 를 클릭 하 고는 **Windows 보안 이벤트** 바둑판식으로 배열 합니다. 
 1. 스트리밍 하려는 데이터 유형을 선택 합니다.
 1. **업데이트**를 클릭합니다.
-
+6. Log Analytics에서 관련 스키마를 사용 하 여 Windows 보안 이벤트를 검색할 **SecurityEvent**합니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 

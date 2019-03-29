@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842858"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577546"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 사용자 지정 분석기 추가
 
 *사용자 지정 분석기*는 기존 토크나이저 및 선택적 필터의 사용자 정의 조합으로 구성된 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 토크나이저와 필터를 새로운 방식으로 결합하면 특정 결과를 달성하도록 검색 엔진에서 처리하는 텍스트를 사용자 지정할 수 있습니다. 예를 들어, *문자 필터*로 사용자 지정 분석기를 만들어 텍스트 입력이 토큰화되기 전에 HTML 태그를 제거할 수 있습니다.
 
- 필터의 조합을 다양하게 만드는 여러 사용자 지정 분석기를 정의할 수 있지만 각 필드는 분석을 인덱싱하는 분석기 하나와 검색 분석에 대한 분석기 하나만을 사용할 수 있습니다. 고객 분석기의 모양은 [사용자 지정 분석기 예제](search-analyzers.md#Example1)를 참조하세요.
+ 필터의 조합을 다양하게 만드는 여러 사용자 지정 분석기를 정의할 수 있지만 각 필드는 분석을 인덱싱하는 분석기 하나와 검색 분석에 대한 분석기 하나만을 사용할 수 있습니다. 고객 분석기의 모양은 [사용자 지정 분석기 예제](search-analyzers.md#Custom-analyzer-example)를 참조하세요.
 
 ## <a name="overview"></a>개요
 

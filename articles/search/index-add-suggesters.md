@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497436"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577122"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search의 미리 입력에 대 한 인덱스를 확인 기 추가
 
-A **suggester** 의 구조 이며는 [Azure Search 인덱스](search-what-is-an-index.md) "검색---입력할 때" 환경을 지 원하는 합니다. 이 미리 입력 쿼리 입력을 사용 하도록 설정 하려는 필드의 목록을 포함 합니다. 두 가지 미리 입력 변형이: *자동 완성* 단어 또는 구를 입력 하는 완료 *제안* 결과의 짧은 목록을 제공 합니다. 
+A **suggester** 의 구조 이며는 [Azure Search 인덱스](search-what-is-an-index.md) "검색---입력할 때" 환경을 지 원하는 합니다. 이 미리 입력 쿼리 입력을 사용 하도록 설정 하려는 필드의 목록을 포함 합니다. 인덱스 내에서 동일한 확인 기 이러한 두 가지 미리 입력 변형 중 하나 또는 모두를 지원: *자동 완성* 단어 또는 구를 입력 하는 완료 *제안* 결과의 짧은 목록을 제공 합니다. 
 
-이 Xbox 검색 페이지에서 자동 완성 항목을 이동할 수 해당 쿼리에 대 한 새 검색 결과 페이지 반면 제안 특정 게임에 대 한 페이지로 이동 하는 실제 결과 있습니다. 자동 완성 검색 표시줄에서 하나의 항목을 제한할 수도 있고 여기에 표시 된 것과 같은 목록을 제공할 수 있습니다. 제안 사항이 있는 경우 최상의 결과 설명 하는 문서의 일부를 발생할 수 있습니다.
+다음 스크린샷은 두 미리 입력 기능을 보여 줍니다. 이 Xbox 검색 페이지에서 자동 완성 항목을 이동할 수 해당 쿼리에 대 한 새 검색 결과 페이지 반면 제안 특정 게임에 대 한 페이지로 이동 하는 실제 결과 있습니다. 자동 완성 검색 표시줄에서 하나의 항목을 제한할 수도 있고 여기에 표시 된 것과 같은 목록을 제공할 수 있습니다. 제안 사항이 있는 경우 최상의 결과 설명 하는 문서의 일부를 발생할 수 있습니다.
 
 ![자동 완성 및 제안 된 쿼리 비교 visual](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual 자동 완성 및 제안 된 쿼리 비교")
 
 Azure Search에서 이러한 동작을 구현 하는 인덱스 및 쿼리 구성 요소입니다. 
 
-+ 인덱스에는 확인 기를 추가 합니다. Suggester를 만들려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다. 
++ 인덱스 구성 요소는 확인 기는 합니다. Suggester를 만들려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다. 
 
-+ 쿼리를 제안 또는 sutocomplete 동작을 지정 합니다. 
++ 쿼리 구성 요소에는 쿼리 요청 (제안 또는 자동 완성 작업)에 지정 된 동작입니다. 
 
 > [!Important]
-> 자동 완성은 현재 미리 보기 REST Api에서에서 사용할 수 있는 미리 보기 및.NET SDK 및 프로덕션 응용 프로그램에 대 한 지원 되지 않습니다. 
+> 자동 완성은 현재 미리 보기 REST Api에서에서 사용할 수 있는 미리 보기 및.NET SDK입니다. 프로덕션 응용 프로그램에는 것이 아닙니다. 
 
 검색---입력할 때 지원 필드 별로에 사용 됩니다. 원하는 환경을 스크린샷에 표시 된 것과 비슷한 경우 동일한 검색 솔루션 내에서 모두 미리 입력 동작을 구현할 수 있습니다. 두 요청 대상 합니다 *문서* 특정 인덱스 및 응답의 컬렉션을 사용자가 최소한 세 개의 입력된 문자열을 제공한 후에 반환 됩니다.
 
@@ -77,7 +77,7 @@ Suggester를 만든 후 추가 합니다 [제안 API](https://docs.microsoft.com
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
-C#에서 정의 [Suggester 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)합니다. 확인 기 컬렉션 이지만 하나씩만 사용할 수 있습니다.
+C#에서 정의 [Suggester 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)합니다. Suggester 컬렉션이 하나씩만 사용할 수 있습니다. 추가 해야 `using System.Collections.Generic;` 개체의 목록을 만들 수 있도록 합니다. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ For.NET을 사용 하 여 [SuggestWithHttpMessagesAsync](https://docs.microsoft.
 다음 예제를 요청은 작성 하는 방법을 참조 하세요.를 사용 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [자동 완성 쿼리 예제 (미리 보기)](search-autocomplete-tutorial.md) 
+> [제안 사항 및 자동 완성 예제](search-autocomplete-tutorial.md) 

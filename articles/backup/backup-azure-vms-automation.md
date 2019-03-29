@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521706"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578886"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm 복원
 
-이 문서에서는 백업 및 Azure VM을 복원 하는 방법을 설명를 [Azure Backup](backup-overview.md) Recovery Services vault PowerShell cmdlet을 사용 합니다. 
+이 문서에서는 백업 및 Azure VM을 복원 하는 방법을 설명를 [Azure Backup](backup-overview.md) Recovery Services vault PowerShell cmdlet을 사용 합니다.
 
 이 문서에서는 다음 방법을 알아봅니다.
 
@@ -24,10 +24,7 @@ ms.locfileid: "58521706"
 > * Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
 > * 백업 정책 정의
 > * 여러 가상 머신을 보호하기 위해 백업 정책 적용
-> * 하기 전에 보호 된 가상 컴퓨터에 대 한 주문형 백업 작업을 트리거 수를 백업 (또는 보호) 가상 컴퓨터를 완료 해야 합니다는 [필수 구성 요소](backup-azure-arm-vms-prepare.md) Vm을 보호 하기 위한 환경을 준비 합니다. 
-
-
-
+> * 하기 전에 보호 된 가상 컴퓨터에 대 한 주문형 백업 작업을 트리거 수를 백업 (또는 보호) 가상 컴퓨터를 완료 해야 합니다는 [필수 구성 요소](backup-azure-arm-vms-prepare.md) Vm을 보호 하기 위한 환경을 준비 합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -44,8 +41,6 @@ ms.locfileid: "58521706"
 
 검토 합니다 **Az.RecoveryServices** [cmdlet 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) Azure 라이브러리에서 참조 합니다.
 
-
-
 ## <a name="set-up-and-register"></a>설정 및 등록
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ ms.locfileid: "58521706"
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Azure Backup, Azure Site Recovery 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet이 나타납니다. 다음 이미지는 표시되는 예이며 cmdlet의 전체 목록이 아닙니다.
 
@@ -147,6 +142,18 @@ VM에 대 한 보호를 설정 하기 전에 사용 하 여 [집합 AzRecoverySe
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>저장소 복제 설정을 수정합니다.
+
+사용 하 여 [집합 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) LRS/GRS를 자격 증명 모음의 저장소 복제 구성을 설정 하는 명령
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> 백업 자격 증명 모음에 보호 된 항목이 없는 경우에 저장소 중복을 수정할 수 있습니다.
+
 ### <a name="create-a-protection-policy"></a>보호 정책 만들기 
 
 Recovery Services 자격 증명 모음을 만들면 기본 보호 및 보존 정책이 함께 제공됩니다. 기본 보호 정책은 매일 지정된 시간에 백업 작업을 트리거합니다. 기본 보존 정책은 매일 복구 지점을 30일 동안 유지합니다. 기본 정책을 사용하여 VM을 신속하게 보호하고, 나중에 다른 세부 정보로 정책을 편집할 수 있습니다.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Azure Government 클라우드를 사용 하는 경우 다음 사용 하 여 값 ff281ffe-705c-4f53-9f37-a40e6f2c68f3 ServicePrincipalName 매개 변수에서 [집합 AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>보호 정책 수정
 
 보호 정책을 수정 하려면 사용 하 여 [집합 AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) 여 SchedulePolicy 또는 RetentionPolicy 개체를 수정 합니다.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>즉시 복원을 스냅숏 보존 구성
+
+> [!NOTE]
+> Az PS 버전 1.6.0부터 Powershell을 사용 하 여 정책 즉시 복원을 스냅숏 보존 기간을 업데이트할 수 있습니다 하나
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+기본값은 2가 됩니다, 그리고 사용자 1의 최소 및 최대 5 개를 사용 하 여 값을 설정할 수 있습니다. 매주 백업 정책에 대 한 기간은 5로 설정 되며 변경할 수 없습니다.
 
 ## <a name="trigger-a-backup"></a>백업 트리거
 
@@ -672,7 +691,7 @@ $rp[0]
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>다음 단계
 
-PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 [Windows Server용 Backup 배포 및 관리](backup-client-automation.md) PowerShell 문서를 참조하세요. DPM 백업을 관리하는 경우 [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation.md) 문서를 참조하세요. 
+PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 [Windows Server용 Backup 배포 및 관리](backup-client-automation.md) PowerShell 문서를 참조하세요. DPM 백업을 관리하는 경우 [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation.md) 문서를 참조하세요.

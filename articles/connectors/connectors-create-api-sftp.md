@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910287"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578376"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -27,10 +27,18 @@ ms.locfileid: "54910287"
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-[작업에서 메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하지 않으면 SFTP 커넥터는 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)와 비교하여 최대 50MB 크기의 파일을 읽거나 쓸 수 있습니다. 트리거에는 현재 청크 분할을 사용할 수 없습니다. 최대 1GB 크기 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용합니다. 1GB보다 큰 파일의 경우 SFTP-SSH 커넥터와 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용할 수 있습니다. 
-
 SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다.
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+
+## <a name="limits"></a>제한
+
+* SFTP 작업 읽기 또는 파일을 쓸 수 있습니다 *50MB 또는 더 적게* 사용 하지 않는 경우 [작업의 메시지 청크](../logic-apps/logic-apps-handle-large-messages.md),이 제한을 초과할 수 있도록 하 합니다. 현재 SFTP 트리거 청크를 지원 하지 않습니다.
+
+* 파일에 대 한 *최대 1GB*를 사용 합니다 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)합니다.
+
+* 파일에 대 한 *1GB 보다 큰*에 SFTP-SSH 커넥터 사용 더하기 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)합니다.
+
+SFTP 커넥터와 SFTP-SSH 커넥터 간의 다른 차이점에 대 한 검토 [비교 SFTP-SSH 및 SFTP](../connectors/connectors-sftp-ssh.md#comparison) 문서의 SFTP-SSH 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

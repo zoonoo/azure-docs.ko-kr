@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부 | Microsoft Docs
+title: 승인 또는 거부 PIM-Azure Active Directory에서에서 Azure 리소스 역할에 대 한 요청 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 요청을 승인하거나 거부하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5ecb55dd2798241ca0ae1754ecf95a79f8aeb134
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245578"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575116"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부
 
-Azure AD PIM(Privileged Identity Management)을 사용하면, 활성화에 대한 승인이 필요한 역할을 구성하고 하나 이상의 사용자 또는 그룹을 위임된 승인자로 선택할 수 있습니다. 위임된 승인자는 24시간 동안 요청을 승인할 수 있습니다. 24시간 내에 요청이 승인되지 않으면 적격 사용자는 새 요청을 다시 제출해야 합니다. 24시간 승인 시간 범위는 구성이 불가능합니다.
+사용 하 여 Azure Active Directory (Azure AD) PIM Privileged Identity Management ()를 정품 인증에 대 한 승인이 필요한 역할을 구성를 하나 이상의 사용자 또는 그룹으로 위임 된 승인자를 선택 합니다. 위임된 승인자는 24시간 동안 요청을 승인할 수 있습니다. 24시간 내에 요청이 승인되지 않으면 적격 사용자는 새 요청을 다시 제출해야 합니다. 24시간 승인 시간 범위는 구성이 불가능합니다.
 
 이 문서의 단계에 따라 Azure 리소스 역할에 대한 요청을 승인하거나 거부합니다.
 
@@ -84,4 +84,4 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 - [PIM에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)
 - [PIM에서 이메일 알림](pim-email-notifications.md)
-- [PIM에서 Azure AD 디렉터리 역할에 대한 요청 승인 또는 거부](azure-ad-pim-approval-workflow.md)
+- [승인 또는 거부 PIM에서 Azure AD 역할에 대 한 요청](azure-ad-pim-approval-workflow.md)

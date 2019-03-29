@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547034"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574861"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Office 365 로그에서 데이터를 수집 합니다.
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 감사 로그를 스트리밍하려면 [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) 번의 클릭으로 Azure Sentinel에 있습니다. Azure Sentinel 단일 작업 영역에 여러 테 넌 트에서 감사 로그를 스트리밍할 수 있습니다. Office 365 활동 로그 커넥터를 지속적인 사용자 활동에 대 한 정보를 제공합니다. Office 365에서 다양 한 사용자, 관리자, 시스템 및 정책 작업 및 이벤트에 대 한 정보를 받습니다. Office 365 로그 Sentinel Azure에 연결 하 여 대시보드 보기, 사용자 지정 경고 및 조사 프로세스를 개선 하려면이 데이터를 사용할 수 있습니다.
@@ -33,7 +33,7 @@ ms.locfileid: "57547034"
 ## <a name="prerequisites"></a>필수 조건
 
 - 테 넌 트에서 전역 관리자 또는 보안 관리자 여야 합니다.
-- 테 넌 트를 추가 하려면 연결을 수행 하는 컴퓨터에서 웹 트래픽을 4433 포트를 엽니다.
+- 컴퓨터에 있는 연결을 만들려면 Azure Sentinel 로그인 확인 suretha 포트가 4433 웹 트래픽을 열려 있습니다.
 
 ## <a name="connect-to-office-365"></a>Office 365에 연결
 

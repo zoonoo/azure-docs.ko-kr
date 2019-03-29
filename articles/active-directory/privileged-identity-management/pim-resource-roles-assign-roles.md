@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할 할당 | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 Azure 리소스 역할 할당 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할을 할당하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086193"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578665"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 할당
 
-Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사용자 지정 역할(다음을 포함하지만 이에 국한되지 않음)도 관리할 수 있습니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본 제공 Azure 리소스 역할 뿐만 아니라 (에 국한 되지 않음)을 포함 하 여 사용자 지정 역할을 관리할 수 있습니다.
 
 - 소유자
 - 사용자 액세스 관리자
@@ -129,4 +129,4 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 
 - [PIM에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)
 - [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)
-- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
+- [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)

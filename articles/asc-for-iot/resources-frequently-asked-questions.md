@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541934"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575150"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>IoT 용 ASC에 대 한 질문과 대답  
 
@@ -77,7 +77,7 @@ IoT 보안 에이전트에 대 한 ASC는 오픈 소스 32 비트 및 64 비트 
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>종속성 및 에이전트의 필수 구성 요소는 무엇 인가요?
 
-ASC IoT에 대 한 다양 한 플랫폼을 지원합니다. 참조 [지원 되는 장치 플랫폼](select-deploy-agent.md) 특정 장치에 대 한 지원을 확인 합니다. 
+ASC IoT에 대 한 다양 한 플랫폼을 지원합니다. 참조 [지원 되는 장치 플랫폼](how-to-deploy-agent.md) 특정 장치에 대 한 지원을 확인 합니다. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>에이전트에서 데이터를 수집 하나요?
 
@@ -97,9 +97,9 @@ ASC IoT에 대 한 검색, 데이터 버퍼 및 늘리거나 에이전트에 의
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>다음 단계 에이전트를 설치 했으며이 표시 되지 않는 모든 활동 로그
 
-1. 확인 된 [에이전트 유형에 맞는 장치의 지정 된 OS 플랫폼](select-deploy-agent.md)
+1. 확인 된 [에이전트 유형에 맞는 장치의 지정 된 OS 플랫폼](how-to-deploy-agent.md)
 
-1. 확인 합니다 [장치에서 에이전트가 실행 되 고](concept-agent-configuration.md)입니다.
+1. 확인 합니다 [장치에서 에이전트가 실행 되 고](how-to-agent-configuration.md)입니다.
 
 2. 확인 합니다 [서비스가 성공적으로 활성화 되었습니다](quickstart-onboard-iot-hub.md) 하 **보안** IoT Hub에. 
 

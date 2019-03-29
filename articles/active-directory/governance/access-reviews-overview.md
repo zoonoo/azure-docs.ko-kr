@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토란? | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용하면 조직의 거버넌스, 위험 관리 및 규정 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 애플리케이션 액세스를 제어할 수 있습니다.
+title: 액세스 검토란? - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 액세스 검토를 사용 하 여, 거 버 넌 스, 위험 관리 및 조직에서 규정 준수 이니셔티브를 충족 하기 위해 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845157"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576125"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
+# <a name="what-are-azure-ad-access-reviews"></a>이란 Azure AD 액세스 검토?
 
-Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 그룹 멤버 자격을 효율적으로 관리하고 엔터프라이즈 애플리케이션에 액세스하고 권한 있는 역할을 할당할 수 있습니다. 사용자의 액세스는 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
+조직에서는 효율적으로 그룹 멤버 자격을 관리, 엔터프라이즈 응용 프로그램 및 역할 할당에 대 한 액세스를 사용 하는 azure Active Directory (Azure AD) 액세스 검토 합니다. 사용자의 액세스는 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
 다음은 액세스 검토의 빠른 개요를 제공하는 비디오입니다.
 
@@ -42,7 +42,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="when-to-use-access-reviews"></a>언제 액세스 검토를 사용하나요?
 
-- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스는 사용자 수를 확인 하는 것이 좋습니다가 얼마나 많은 하는 전역 관리자에 게 게스트 또는 파트너는 관리 작업을 위해 할당 한 후 제거 되지 않은 모든 경우 및 초대 합니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 글로벌 관리자와 같은 [Azure AD 디렉터리 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
+- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스는 사용자 수를 확인 하는 것이 좋습니다가 얼마나 많은 하는 전역 관리자에 게 게스트 또는 파트너는 관리 작업을 위해 할당 한 후 제거 되지 않은 모든 경우 및 초대 합니다. 역할 할당 사용자를 다시 인증할 수 있습니다 [Azure AD 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 전역 관리자에 게 같은 또는 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 에 사용자 액세스 관리자 등의 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 발생 합니다.
 - **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어찌하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
 - **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
 - **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그오프하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
@@ -52,14 +52,14 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="where-do-you-create-reviews"></a>검토는 어디에서 만드나요?
 
-검토할 항목에 따라 Azure AD 액세스 검토, Azure AD 엔터프라이즈 앱(미리 보기) 또는 Azure AD PIM에서 액세스 검토를 만들게 됩니다.
+액세스 검토 하려는 작업에 따라 검토를 만들려는 Azure AD에서 검토, Azure AD 엔터프라이즈 앱 (미리 보기)에서 또는 Azure AD PIM에 액세스 합니다.
 
 | 사용자의 액세스 권한 | 검토자는 다음을 수행할 수 있음 | 검토 생성 위치 | 검토자 경험 |
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 디렉터리 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure Portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure Portal |
+| Azure AD 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,9 +88,9 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 1. **모든 서비스**를 클릭하고 액세스 검토 서비스를 찾습니다.
 
-1. **액세스 검토**를 클릭합니다.
+1. 클릭 **액세스 검토**합니다.
 
-    ![모든 서비스 - 액세스 검토](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![모든 서비스-액세스 검토](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. 탐색 목록에서 **등록**을 클릭하여 **액세스 검토 등록** 페이지를 엽니다.
 
@@ -102,7 +102,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
     다음에 대 한 액세스를 먼저 검토, 액세스 검토 옵션을 사용 하도록 설정 합니다.
 
-    ![액세스 검토를 사용하도록 설정](./media/access-reviews-overview/access-reviews-enabled.png)
+    ![액세스 검토를 사용 하도록 설정](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>다음 단계
 

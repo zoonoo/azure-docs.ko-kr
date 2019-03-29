@@ -1,5 +1,5 @@
 ---
-title: PIM의 Azure AD 역할 보안 마법사 | Microsoft Docs
+title: PIM-Azure Active Directory에서에서 azure AD 역할 보안 마법사 | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 사용하여 영구 권한 있는 Azure AD 역할 할당을 적격 상태로 변환하는 데 사용할 수 있는 보안 마법사를 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208761"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576363"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>PIM의 Azure AD 역할 보안 마법사
 
-조직에서 Azure AD PIM(Privileged Identity Management)을 처음 실행하는 사용자에게는 마법사가 표시됩니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 PIM을 사용하는 방법을 이해하도록 도와줍니다. 나중에 작업하려는 경우 마법사에서 기존 역할 할당을 변경할 필요가 없습니다.
+Azure Active Directory (Azure AD) 관리 PIM (Privileged Identity) 조직에 대해 실행할 첫 번째 사용자 인 경우 마법사를 사용 하 여 나타납니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 PIM을 사용하는 방법을 이해하도록 도와줍니다. 나중에 작업하려는 경우 마법사에서 기존 역할 할당을 변경할 필요가 없습니다.
 
 ## <a name="wizard-overview"></a>마법사 개요
 
@@ -65,9 +65,9 @@ ms.locfileid: "56208761"
 
     ![공지](./media/pim-security-wizard/notification-completion.png)
 
-다른 권한 있는 역할 할당을 적격으로 변환하려면 마법사를 다시 실행하면 됩니다. 마법사 대신 PIM 인터페이스를 사용하려면 [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)을 참조하세요.
+다른 권한 있는 역할 할당을 적격으로 변환하려면 마법사를 다시 실행하면 됩니다. PIM 인터페이스 마법사를 대신 사용 하려는 경우 참조 [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
+- [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)
 - [PIM 관리를 위해 다른 관리자에게 액세스 권한 부여](pim-how-to-give-access-to-pim.md)

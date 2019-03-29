@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544531"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578478"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -304,6 +304,10 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 
 * **SOQL 샘플**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+
+### <a name="error-of-malformedquerytruncated"></a>MALFORMED_QUERY의 오류: 잘린
+
+오류가 발생할 경우 "MALFORMED_QUERY: "잘리는 경우 일반적으로 하는 것으로 인해 데이터에서 JunctionIdList 형식 열이 있는 및 Salesforce에는 많은 수의 행을 사용 하 여 이러한 데이터를 지 원하는 제한 합니다. 복사할 행의 수를 제한 또는 JunctionIdList 열을 제외 하려면 시도 완화 하기 위해 (여러 개의 복사 작업 실행을 분할할 수 있습니다).
 
 ## <a name="data-type-mapping-for-salesforce"></a>Salesforce에 대한 데이터 형식 매핑
 

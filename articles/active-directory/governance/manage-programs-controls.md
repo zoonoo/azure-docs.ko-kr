@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토에 대 한 프로그램 및 컨트롤 관리 | Microsoft Docs
-description: 수집 하 고 Azure Active Directory 액세스 검토 컨트롤을 구성 하기 위한 조직의 각 거 버 넌 스, 위험 관리 및 규정 준수 이니셔티브에 대 한 추가 프로그램을 만드는 방법에 알아봅니다.
+title: 프로그램 및 컨트롤 액세스 검토-Azure Active Directory에 대 한 관리 | Microsoft Docs
+description: 수집 하 고 Azure Active Directory 액세스 검토를 컨트롤로 구성 하기 위한 조직의 각 거 버 넌 스, 위험 관리 및 규정 준수 이니셔티브에 대 한 추가 프로그램을 만드는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895181"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577266"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Azure AD 액세스 검토에 대 한 프로그램 및 컨트롤 관리
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>프로그램을 관리 하 고 Azure AD에 대 한 제어 액세스 검토
 
 Azure AD(Azure Active Directory)에는 그룹 구성원 및 애플리케이션 액세스에 대한 액세스 검토가 포함됩니다. 이러한 컨트롤 예제를 통해 조직의 그룹 구성원 자격 및 애플리케이션에 대한 액세스 권한이 있는 사용자를 확인할 수 있습니다. 조직에서 이러한 컨트롤을 사용하여 거버넌스, 위험 관리 및 준수 요구 사항을 효율적으로 처리할 수 있습니다.
 

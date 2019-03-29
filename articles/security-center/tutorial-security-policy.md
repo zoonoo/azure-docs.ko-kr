@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/14/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226116"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578444"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -109,7 +109,7 @@ REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털
 
    ![정책 관리](./media/tutorial-security-policy/policy-management.png)
 
-2. 권장 사항을 사용 하지 않도록 설정 하려는 구독을 클릭 합니다.
+2. 권장 사항을 사용 하지 않도록 설정 하려는 구독 또는 관리 그룹을 클릭 합니다.
 
 1. 할당된 정책을 클릭 합니다.
 

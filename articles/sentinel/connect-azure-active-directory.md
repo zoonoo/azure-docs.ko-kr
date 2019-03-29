@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242317"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575133"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터를 수집 합니다.
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 하 고 Azure Sentinel에 스트림 합니다. 선택할 수 있습니다 스트림에 [로그인 로그가](../active-directory/reports-monitoring/concept-sign-ins.md) 하 고 [감사 로그](../active-directory/reports-monitoring/concept-audit-logs.md) 합니다.
@@ -42,7 +42,7 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 
 2. Azure Sentinel를 스트리밍 하려는 로그 옆에 있는 **Connect**합니다.
 
-
+6. Log Analytics에서 관련 스키마를 사용 하 여 Azure AD 경고에 대 한를 검색 **SigninLogs** 하 고 **AuditLogs**합니다.
 
 
 

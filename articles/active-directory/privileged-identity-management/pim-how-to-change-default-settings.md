@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure AD 디렉터리 역할 설정 구성 | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 디렉터리 역할 설정을 구성하는 방법을 알아봅니다.
+title: PIM-Azure Active Directory에서에서 Azure AD 역할 설정 구성 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할 설정을 구성 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162546"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576865"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 설정 구성
+# <a name="configure-azure-ad-role-settings-in-pim"></a>PIM에서 Azure AD 역할 설정 구성
 
-권한 있는 역할 관리자는 적격 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 조직에서 Azure AD PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다.
+권한 있는 역할 관리자는 Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 적격 역할 할당을 활성화 하는 사용자의 환경을 변경 하는 등, 해당 조직에서 사용자 지정할 수 있습니다.
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
-다음 단계에 따라 Azure AD 디렉터리 역할에 대한 설정을 엽니다.
+Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure AD 디렉터리 역할**을 클릭합니다.
+1. **Azure AD 역할**을 클릭합니다.
 
 1. **설정**을 클릭합니다.
 
-    ![Azure AD 디렉터리 역할 - 설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Azure AD 역할-설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. **역할**을 클릭합니다.
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
-    ![Azure AD 디렉터리 역할 - 역할 설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD 역할-설정 역할](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     각 역할에 대한 설정 페이지에서 몇 가지 설정을 구성할 수 있습니다. 이러한 설정은 **영구** 할당이 아닌, **적격** 할당인 사용자에게만 영향을 미칩니다.
 
@@ -98,13 +98,13 @@ ms.locfileid: "56162546"
 
 1. **승인 필요** 스위치를 **사용**으로 설정합니다. 창은 승인자를 선택하는 옵션을 표시하도록 확장합니다.
 
-    ![Azure AD 디렉터리 역할 - 설정 - 승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD 역할-설정-승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     승인자를 **지정하지 않으면** 권한 있는 역할 관리자가 기본 승인자가 됩니다. 권한 있는 역할 관리자는 이 역할에 대한 **모든** 활성화 요청을 승인해야 합니다.
 
 1. 승인자를 지정하려면 **승인자 선택**을 클릭합니다.
 
-    ![Azure AD 디렉터리 역할 - 설정 - 승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD 역할-설정-승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. 승인자를 하나 이상 선택한 다음, **선택**을 클릭합니다. 사용자 또는 그룹을 선택할 수 있습니다. 승인자는 둘 이상을 선택하는 것이 좋습니다. 자체 승인은 허용되지 않습니다.
 
@@ -117,5 +117,5 @@ ms.locfileid: "56162546"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
-- [PIM에서 Azure AD 디렉터리 역할에 대한 보안 경고 구성](pim-how-to-configure-security-alerts.md)
+- [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)
+- [PIM에서 Azure AD 역할에 대 한 보안 경고를 구성 합니다.](pim-how-to-configure-security-alerts.md)

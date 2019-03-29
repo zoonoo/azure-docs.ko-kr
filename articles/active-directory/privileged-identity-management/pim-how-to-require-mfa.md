@@ -1,5 +1,5 @@
 ---
-title: MFA(Multi-Factor Authentication) 및 PIM - Azure | Microsoft Docs
+title: Multi-factor authentication (MFA) 및 PIM-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 MFA(Multi-Factor Authentication)의 유효성을 검사하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187256"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578801"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>MFA(Multi-Factor authentication) 및 PIM
 
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
 
-사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 사용자가 Azure AD PIM(Privileged Identity Management)의 역할을 활성화하는 경우 MFA 챌린지를 완료하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 시 MFA 챌린지를 완료하지 않은 경우 PIM에서 이 작업을 수행하도록 메시지를 표시합니다.
+사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 사용자가 역할에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 활성화할 때 MFA 챌린지를 완료 하도록 요구할 수 있습니다. 이러한 방식으로 사용자가 로그인 시 MFA 챌린지를 완료하지 않은 경우 PIM에서 이 작업을 수행하도록 메시지를 표시합니다.
 
 > [!IMPORTANT]
 > 현재, Azure MFA는 회사 또는 학교 계정에서만 작동하며 Microsoft 계정 (일반적으로 Skype, Xbox, Outlook.com 등과 같은 Microsoft 서비스에 로그인하는 데 사용되는 개인 계정)에서는 작동하지 않습니다. 이 때문에 Microsoft 계정을 사용하는 사용자는 MFA를 사용하여 해당 역할을 활성화할 수 없기 때문에 적격 관리자가 될 수 없습니다. 이 사용자들이 Microsoft 계정을 사용하여 계속 워크로드를 관리해야 하는 경우 영구 관리자로 승격하세요.
@@ -40,5 +40,5 @@ ms.locfileid: "56187256"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [PIM에서 Azure AD 역할 설정 구성](pim-how-to-change-default-settings.md)
 - [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)

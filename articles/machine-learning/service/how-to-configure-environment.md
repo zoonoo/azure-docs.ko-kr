@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361798"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577563"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -315,7 +315,9 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
    1. **라이브러리** 탭에서 **다시 시작**을 선택합니다.
       
    또한 고려 합니다.
-   + 와 같은 일부 패키지 `psutil`를 설치 하는 동안 Databricks 충돌을 일으킬 수 있습니다. 이러한 오류를 방지 하려면 패키지를 설치 중단 lib 버전별 같은 `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`합니다. 
+   + Automl config를 사용 하는 경우에 Azure Databricks는 다음 매개 변수를 추가 하세요.
+    1. ```max_concurrent_iterations``` 클러스터의 작업자 노드 수 기준입니다. 
+    2. ```spark_context=sc``` #databricks/spark 기본 spark 컨텍스트입니다. 
    + 또는 이전 SDK 버전을 사용 하는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 그래도 문제가 있으면 클러스트를 분리했다가 다시 연결합니다.
 
 설치 성공 하면 가져온된 라이브러리는 다음 중 하나 같이 표시 됩니다.
