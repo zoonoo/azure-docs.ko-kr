@@ -166,4 +166,4 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [SQL Database를 사용하는 ASP.NET Core](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [SQL Database를 사용한 ASP.NET Core](app-service-web-tutorial-dotnetcore-sqldb.md)
