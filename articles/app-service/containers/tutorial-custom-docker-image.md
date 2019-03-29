@@ -4,8 +4,8 @@ description: Web App for Containers에 사용자 지정 Docker 이미지를 사�
 keywords: azure app service, 웹앱, linux, docker, 컨테이너
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: SyntaxC4
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 98e690ab73b9a51126f4eae9ac5eff410e211957
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224205"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435845"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -309,7 +309,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     EXPOSE 8000 2222
     ```
 
-* /bin 디렉터리의 셸 스크립트를 사용하여 [ssh 서비스를 시작](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)해야 합니다.
+* /bin 디렉터리의 셸 스크립트를 사용하여 [ssh 서비스를 시작](https://github.com/Azure-App-Service/node/blob/master/8.9/startup/init_container.sh#L18)해야 합니다.
  
     ```bash
     #!/bin/bash
