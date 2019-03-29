@@ -18,21 +18,21 @@ ms.locfileid: "58311602"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
-IoT Edge 런타임은 디바이스에 설치해야 하는 프로그램 모음으로 IoT Edge 디바이스로 간주됩니다. 전체적으로 IoT Edge 런타임의 구성 요소는 IoT Edge 디바이스를 사용하여 에지에서 실행될 코드를 받고 결과를 전달합니다. 
+IoT Edge 런타임은 IoT Edge 장치로 사용할 디바이스에서 사용할 프로그램 모음입니다. 전체적으로 IoT Edge 런타임의 구성 요소는 IoT Edge 디바이스를 사용하여 에지에서 실행될 코드를 받고 결과를 전달합니다. 
 
 IoT Edge 런타임은 IoT Edge 디바이스에서 다음 기능을 수행합니다.
 
 * 디바이스에 워크로드를 설치하고 업데이트합니다.
 * 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
-* 했는지 [IoT Edge 모듈](iot-edge-modules.md) 항상 실행 됩니다.
+* [IoT Edge 모듈](iot-edge-modules.md) 실행을 유지합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
-* 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이 하 게 합니다.
-* IoT Edge 장치의 모듈 간 통신을 용이 하 게 합니다.
-* IoT Edge 장치와 클라우드 간의 통신을 용이 하 게 합니다.
+* 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이하게 합니다.
+* IoT Edge 장치의 모듈 간 통신을 용이하게 합니다.
+* IoT Edge 장치와 클라우드 간의 통신을 용이하게 합니다.
 
 ![런타임은 인사이트 및 모듈 상태를 IoT Hub에 전달합니다.](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. 합니다 *IoT Edge 허브* 통신을 담당 하는 동안 합니다 *IoT Edge 에이전트* 배포 하 고 모듈을 모니터링 합니다. 
+IoT Edge 런타임의 기능은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. *IoT Edge 에이전트*가 모듈을 배포하고 모니터링 하는 동안 *IoT Edge 허브*는 통신을 담당합니다.
 
 IoT Edge 허브와 IoT Edge 에이전트는 모두 IoT Edge 디바이스에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
 
@@ -105,7 +105,7 @@ IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈�
    * Always - 모듈이 충돌하거나 비정상 상태로 간주되거나 어떤 방법으로든 종료되면 IoT Edge 에이전트에서 해당 모듈을 다시 시작합니다. 
 
 IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 응답 목록은 다음과 같습니다.
-  * 200 - 확인
+  * 200 - 정상
   * 400 - 배포 구성이 잘못되었거나 유효하지 않습니다.
   * 417 - 디바이스에 배포 구성 집합이 없습니다.
   * 412 - 배포 구성의 스키마 버전이 잘못되었습니다.
