@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e394f6025f7898aad7dde7b1acefd9f95029a554
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541994"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576642"
 ---
 # <a name="access-your-security-data"></a>보안 데이터에 액세스 
 
@@ -39,20 +39,20 @@ Log Analytics 작업 영역을 사용 하는 구성:
 
 에 액세스 하려면 Log Analytics 작업 영역 구성 후:
 
-1. ASC에서 IoT에 대 한 경고를 선택 합니다. 
+1. IoT 용 ASC에서 경고 또는 권장 사항을 선택 합니다. 
 2. 클릭 **좀**, 클릭 **여기를 클릭 하 고 DeviceId 열을 확인이 경고는 장치를 확인 하려면**합니다.
 
 Log Analytics에서 데이터를 쿼리에 대 한 자세한 내용은 참조 하세요. [Log Analytics에서 쿼리를 사용 하 여 시작](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries)합니다.
 
 ## <a name="security-alerts"></a>보안 경고
 
-보안 경고에 저장 되는 **ASCforIoT.SecurityAlert** 구성 된 Log Analytics 작업 영역 내 테이블.
+보안 경고에 저장 됩니다 _AzureSecurityOfThings.SecurityAlert_ IoT 솔루션에 대 한 ASC 구성 Log Analytics 작업 영역에는 테이블입니다.
 
-다음 기본 kql 쿼리를 사용 하 여 보안 경고 탐색을 시작 합니다.
+보안 경고를 탐색 하는 데 유용한 쿼리 수가 시작 제공 되었습니다.
 
-### <a name="sample-records-query"></a>샘플 레코드 쿼리
+### <a name="sample-records"></a>샘플 레코드
 
-에 몇 가지 레코드를 임의로 선택 합니다. 
+몇 가지 임의 레코드를 선택 합니다.
 
 ```
 // Select a few random records
@@ -69,17 +69,15 @@ SecurityAlert
 | take 3
 ```
 
-#### <a name="sample-query-results"></a>샘플 쿼리 결과 
-
 | TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | 설명                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 성공한 무차별 대입 공격           | 장치의 Brute force 공격 성공 했습니다.        |    {"전체 원본 주소": "[\"10.165.12.18:\"]", "사용자 이름": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인      | 장치에 로컬 로그인이 성공 하면 검색 되었습니다.     | { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "28207", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 시도가 실패 했습니다.  | 장치에 시도 하는 로컬 로그인에 실패 했습니다. |  { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "22644", "user Name": "공격자 가", "DeviceId": "IoT-Device-Linux" } |
 
-### <a name="device-summary-query"></a>장치 요약 쿼리
+### <a name="device-summary"></a>장치 요약
 
-별도 보안 경고 번호를 선택 하려면이 kql 쿼리 지난주 IoT Hub, 장치, 경고 심각도, 경고 유형 검색을 사용 합니다.
+지난주 IoT Hub, 장치, 경고 심각도, 경고 유형을 검색 하는 별도 보안 경고 수를 선택 합니다.
 
 ```
 // Select number of distinct security alerts detected last week by 
@@ -94,19 +92,16 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="device-summary-query-results"></a>장치 요약 쿼리 결과
-
-| IoTHubId | deviceId| AlertSeverity| DisplayName | 카운트 |
-|----------|---------|------------------|---------|---------|
-|/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 성공한 무차별 대입 공격           | 9   |    
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | 카운트 |
+|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 성공한 무차별 대입 공격           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 장치에서 로컬 로그인 시도가 실패 했습니다.  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 암호화 동전 Miner                     | 4   |
-|
 
-### <a name="iot-hub-summary"></a>IoT Hub 요약
+### <a name="iot-hub-summary"></a>IoT hub 요약
 
-이 kql 쿼리를 사용 하 여 지난 주에 IoT hub, 경고 심각도, 경고 유형의 경고 있던 고유 장치 수 선택:
+지난 주에 IoT Hub, 경고 심각도, 경고 유형의 경고 있는 고유 장치의 수를 선택 합니다.
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -121,8 +116,6 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="iot-hub-summary-query-results"></a>IoT Hub 쿼리 요약 결과
-
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 성공한 무차별 대입 공격           | 1          |    
@@ -130,6 +123,58 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 장치에서 로컬 로그인      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 암호화 동전 Miner                     | 1          |
 
+## <a name="security-recommendations"></a>보안 권장 사항
+
+보안 권장 사항에 저장 됩니다 _AzureSecurityOfThings.SecurityRecommendation_ IoT 솔루션에 대 한 ASC 구성 Log Analytics 작업 영역에는 테이블입니다.
+
+다양 한 보안 권장 사항 탐색을 시작 하는 데 유용한 쿼리를 제공 했습니다.
+
+### <a name="sample-records"></a>샘플 레코드
+
+몇 가지 임의 레코드를 선택 합니다.
+
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+    
+| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | 설명 | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력된 체인에서 관대 한 방화벽 규칙을 찾을 수 있습니다. | 광범위한 IP 주소 또는 포트에 대한 허용 패턴을 포함하는 방화벽 규칙을 찾았습니다. | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력된 체인에서 관대 한 방화벽 규칙을 찾을 수 있습니다. | 광범위한 IP 주소 또는 포트에 대한 허용 패턴을 포함하는 방화벽 규칙을 찾았습니다. | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+
+### <a name="device-summary"></a>장치 요약
+
+IoT Hub, 장치, 권장 사항 심각도 및 형식에 따라 고유한 활성 보안 권장 사항 수를 선택 합니다.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
+```
+
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | 카운트 |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 4   |
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -137,3 +182,4 @@ SecurityAlert
 - ASC IoT에 대 한 읽기 [개요](overview.md)
 - IoT에 대 한 ASC 알아봅니다 [아키텍처](architecture.md)
 - 이해 및 탐색 [ASC IoT 경고에 대 한](concept-security-alerts.md)
+- 이해 및 탐색 [ASC IoT 권장 사항](concept-recommendations.md)

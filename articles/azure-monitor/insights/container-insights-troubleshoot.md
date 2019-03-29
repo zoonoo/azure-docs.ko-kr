@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985753"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577054"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
 컨테이너용 Azure Monitor로 Azure Kubernetes Service(AKS) 클러스터 모니터링을 구성할 때 데이터 컬렉션 또는 상태 보고를 방지하는 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>온 보 딩 또는 업데이트 작업 동안 권한 부여 오류가 발생 했습니다.
+컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 또는 메트릭을 수집을 지원 하도록 클러스터를 업데이트 하는 동안 오류가 나타날 수 있습니다 다음 모양의 *< 사용자의 Id > 클라이언트 ' id '< 사용자의 objectId >' 개체를 사용 하 여 되지 않은 범위 'Microsoft.Authorization/roleAssignments/write' 작업을 수행 하려면 권한 부여*
+
+온 보 딩 또는 업데이트 프로세스 중 부여 합니다 **모니터링 메트릭을 게시자** 클러스터 리소스에 역할 할당을 시도 합니다. 메트릭 컬렉션을 지원 하기 위해 컨테이너 또는 업데이트에 대 한 Azure Monitor를 사용 하도록 설정 하는 프로세스를 시작 하는 사용자에 액세스할 수 있어야 합니다 **Microsoft.Authorization/roleAssignments/write** AKS 클러스터에 대 한 권한 리소스 범위입니다. 멤버만 합니다 **소유자** 하 고 **사용자 액세스 관리자** 기본 제공 역할에는이 사용 권한에 대 한 액세스 권한이 부여 됩니다. 보안 정책에 필요한 세부 수준 사용 권한을 할당 하는 경우 확인 하는 것이 좋습니다 [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 필요한 사용자에 게 할당 합니다. 
+
+수동으로 Azure portal에서 다음 단계를 수행 하 여이 역할을 부여할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 입력 **Kubernetes**합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. 선택 **Azure Kubernetes**합니다.
+3. Kubernetes 클러스터의 목록에서 목록에서 하나를 선택 합니다.
+2. 왼쪽 메뉴에서 클릭 **액세스 제어 (IAM)** 합니다.
+3. 선택 **+ 추가** 역할 할당을 추가 하 고 선택 하는 **모니터링 메트릭을 게시자** 역할 아래에서 **선택** 상자에 입력 **AKS** 를 클러스터만 기준으로 결과 서비스 주체는 구독에 정의 된 필터입니다. 클러스터에 관련 된 목록에서 선택 합니다.
+4. **저장**을 선택하여 역할 할당을 완료합니다. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>컨테이너용 Azure Monitor가 사용되지만 정보를 보고하지 않습니다.
 컨테이너에 대 한 Azure Monitor가 성공적으로 사용 되 고 구성 하지만 상태 정보를 확인할 수 없습니다 또는 결과 없음 로그 쿼리에서 반환 하는 경우에 다음이 단계를 수행 하 여 문제를 진단 합니다. 

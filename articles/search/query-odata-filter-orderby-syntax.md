@@ -1,7 +1,7 @@
 ---
 title: 필터 및 order-by 절의 OData 식 구문 - Azure Search
 description: Azure Search 쿼리의 필터 및 order-by 식 OData 구문입니다.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541063"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578410"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure Search에서 필터 및 order-by 절의 OData 식 구문
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-이름이 'Roach motel'이거나 'Budget hotel'인 모든 호텔을 찾습니다.  
+모든 호텔 찾기 이름의 'Roach motel' 또는 '예산 호텔' 같음). 구 기본 구분 기호는 공백을 포함 합니다. 구분 기호 재정의 지정 하려면 새 구분 기호를 필터 식의 일부로 작은따옴표로 묶습니다.  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ $filter=search.in(name, 'Roach motel|Budget hotel', '|')
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+여러 태그, '가 열된 수건 랙' 또는 '헤어 드라이기 포함'에서 일치 항목을 찾습니다. 기본 공백 구분 기호를 되돌리는 없을 때 대체 구분 기호를 지정 해야 합니다. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 'motel' 및 'cabin' 태그가 둘 다 없는 모든 호텔을 찾습니다.  

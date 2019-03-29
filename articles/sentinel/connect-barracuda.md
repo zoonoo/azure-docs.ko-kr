@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092279"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574721"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda 어플라이언스에서 연결 
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Barracuda 웹 응용 프로그램 방화벽 (WAF) 커넥터를 사용 하 여 Azure Sentinel, 대시보드 보기, 사용자 지정 경고를 만들고, 조사가 향상 된 Barracuda 로그를 쉽게 연결할 수 합니다. 이 조직의 네트워크에 대 한 자세한 정보를 제공 하며 사용자 보안 작업 기능을 향상 시킵니다. Azure Sentinel 간의 네이티브 통합 활용 **Barracuda** 및 Microsoft Azure OMS의 원활한 통합을 제공 합니다. 
@@ -42,6 +42,7 @@ Barracuda Web Application Firewall을 통합 하 고 Azure OMS 서버를 통해 
 2. Sentinel Azure portal에서 Azure Sentinel 배포한는 작업 영역으로 이동 하 고 선택한 행의 끝에서 줄임표 (...)를 선택 **고급 설정**합니다. 
 1. 선택 **데이터** 차례로 **Syslog**합니다.
 1. Barracuda에 설정한 시설 존재 심각도 설정 하 고 클릭 했는지 **저장할**합니다.
+6. Log Analytics에서 관련 스키마를 사용 하 여 Barracuda 이벤트를 검색할 **CommonSecurityLog**합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사

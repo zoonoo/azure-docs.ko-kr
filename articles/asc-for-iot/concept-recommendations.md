@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541859"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576203"
 ---
 # <a name="security-recommendations"></a>보안 권장 사항
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541859"
 > IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-ASC IoT에 대 한 지속적인 솔루션 분석을 기반으로 개선 하 고 장치, 운영 상태 및 전체 IoT Hub 환경을 보호 하는 데 필요한 경우 다음 권장을 제공 합니다. 
+ASC IoT 용 IoT 장치 및 Azure 리소스를 검색 하 고 보안 권장 사항에 공격 표면을 줄이기 위해를 제공 합니다. 보안 권장 사항 작업 가능한 및 보안 모범 사례를 준수 하 고 고객에 게 지 원하는 것을 목표로 합니다.
 
+이 문서에서는 IoT Hub 및/또는 IoT 장치에서 트리거될 수 있는 권장 사항 목록이 있습니다.
 
-## <a name="device-recommendations"></a>장치 권장 사항
+## <a name="recommendations-for-iot-devices"></a>IoT 장치에 대 한 권장 사항
 
-장치 권장 사항 정보와 장치 보안 및 동작을 개선 하기 위한 제안을 제공 합니다. 
+장치 권장 사항 정보와 장치 보안 포스 처를 개선 하기 위한 제안을 제공 합니다. 
 
 | 심각도 | 이름                                                      | 데이터 원본 | 설명                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ ASC IoT에 대 한 지속적인 솔루션 분석을 기반으로 개선 하 고 
 | 중간   | 출력 체인에서 관대 한 방화벽 규칙을 찾을 수 있습니다.    | 에이전트       | 다양 한 범위의 IP 주소 또는 포트에 대 한 관대 한 패턴을 포함 하는 방화벽에서 규칙을 찾았습니다.                                                                                   |
 | 중간   | 작업 시스템 기준 유효성 검사가 실패 했습니다.           | 에이전트       | 장치가 준수 하지 않는 [Linux CIS 벤치 마크](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>운영 권장 사항
+### <a name="operational-recommendations-for-iot-devices"></a>IoT 장치에 대 한 운영 권장 사항
 
-운영 권장 사항 정보와 에이전트 구성을 향상 하기 위한 제안을 제공 합니다.
+운영 권장 사항 정보와 보안 에이전트 구성을 향상 하기 위한 제안을 제공 합니다.
 
 | 심각도 | 이름                                    | 데이터 원본 | 설명                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ ASC IoT에 대 한 지속적인 솔루션 분석을 기반으로 개선 하 고 
 | 낮음      | 보안 쌍 구성 충돌    | 에이전트       | 보안 쌍 구성에 충돌 확인 되었습니다.                           |
 
 
-## <a name="iot-hub-recommendations"></a>IoT Hub 권장 사항
+## <a name="recommendations-for-iot-hub"></a>IoT Hub에 대 한 권장 사항
 
 권장 사항 경고에 대 한 정보 및 사용자 환경의 보안 상태를 개선 하는 작업에 대 한 제안을 제공 합니다.  
 

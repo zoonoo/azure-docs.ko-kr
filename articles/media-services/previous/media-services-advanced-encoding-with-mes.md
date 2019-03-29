@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850363"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576295"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850363"
 
 이 항목에서는 MES(Media Encoder Standard) 사전 설정을 사용자 지정하는 방법을 보여 줍니다. [사전 설정을 사용자 지정하는 MES를 사용한 Encoding](media-services-custom-mes-presets-with-dotnet.md) 항목에서는 .NET을 사용하여 인코딩 태스크와 이 태스크를 실행하는 작업을 만드는 방법을 보여 줍니다. 사전 설정을 사용자 지정한 후에는 이 사용자 지정 사전 설정을 인코딩 작업에 제공해야 합니다. 
 
->[!NOTE]
->XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
->
+XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
 
-이 항목에서는 다음 인코딩 태스크를 수행하는 사용자 지정 사전 설정을 보여 줍니다.
+> [!NOTE] 
+> 다양 한 Media Encoder Standard의 고급 Media Services v2 기능 하지 않습니다 v3에서 사용할 수 있습니다. 자세한 내용은 [간격이 기능](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis)합니다.
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
 

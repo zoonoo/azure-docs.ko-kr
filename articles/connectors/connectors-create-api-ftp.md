@@ -1,21 +1,21 @@
 ---
-title: FTP 서버에 연결 - Azure Logic Apps | Microsoft Docs
+title: FTP 서버-Azure Logic Apps에 연결
 description: Azure Logic Apps을 사용하여 FTP 서버에 파일 만들기, 모니터링 및 관리
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913362"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576329"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -28,10 +28,11 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 트리거를 사용하여 FTP 서버에서 응답을 가져오고 다른 작업에 출력을 제공하는 트리거를 사용할 수 있습니다. Logic Apps의 실행 작업을 사용하여 FTP 서버에 있는 파일을 관리할 수 있습니다. 다른 작업에서 FTP 작업의 출력을 사용하게 만들 수도 있습니다. 예를 들어 정기적으로 FTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-> [!NOTE]
-> [작업에서 메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하지 않으면 FTP 커넥터는 50MB 크기 이하의 파일만 지원합니다. 트리거에는 현재 청크 분할을 사용할 수 없습니다.
->
-> 또한 FTP 커넥터는 SSL(FTPS)을 통해 명시적 FTP만 지원하며, 암시적 FTPS와 호환되지 않습니다. 
+## <a name="limits"></a>제한
+
+* FTP 작업 지원 된 파일만 *50MB 또는 더 적게* 사용 하지 않는 경우 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md),이 제한을 초과할 수 있도록 하 합니다. 현재 FTP 트리거 청크를 지원 하지 않습니다.
+
+* FTP 커넥터만 명시적 FTP를 통해 SSL (FTPS)을 지원 하 고 암시적 FTPS를 사용 하 여 호환 되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +52,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 빈 논리 앱의 경우 검색 상자에서 필터로 “ftp”를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다. 
+1. 빈 논리 앱의 경우 검색 상자에서 필터로 “ftp”를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
 
    또는
 
@@ -82,7 +83,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 **엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 설명하는 새 파일용 FTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 같은 FTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장할 수 있습니다.
 
-파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+파일 콘텐츠를 요청할 경우 트리거 가져올 수 없습니다 파일 50MB 보다 큰. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
 
 * **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
 
@@ -121,7 +122,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 이 작업은 파일이 추가 또는 업데이트되면 FTP 서버의 파일에서 콘텐츠를 가져옵니다. 예를 들어 이전 예제의 트리거 그리고 파일이 추가 또는 편집된 후 해당 파일의 콘텐츠를 가져오는 작업을 추가할 수 있습니다. 
 
-파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+파일 콘텐츠를 요청할 경우 트리거 가져올 수 없습니다 파일 50MB 보다 큰. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
 
 * **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
 
@@ -151,7 +152,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/ftpconnector/)를 검토하세요.
+커넥터의 openapi 설명 되어 있는 트리거와 작업을 제한 하는 방법에 대 한 기술 정보 (이전의 Swagger) 설명을 검토 합니다 [커넥터의 참조 페이지](/connectors/ftpconnector/)합니다.
 
 ## <a name="get-support"></a>지원 받기
 

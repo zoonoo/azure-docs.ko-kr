@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e72400a759b976b1a2a6864b2fa7d7d91e16c62f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447029"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619291"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Azure blob 및 Azure Active Directory를 사용 하 여 큐에 대 한 액세스를 인증 합니다.
 
@@ -33,7 +33,7 @@ Azure AD를 사용하여 애플리케이션에서 저장소 리소스에 대한 
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Blob 및 큐의 RBAC 역할
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다. 
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage blob 및 큐 데이터에 액세스 하는 데 사용 권한의 공통 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. 또한 blob 및 큐 데이터 액세스에 대 한 사용자 지정 역할을 정의할 수 있습니다.
 
 RBAC 역할에는 Azure AD 보안 주체에 할당 된 Azure 부여 해당 보안 주체에 대 한 해당 리소스에 액세스 합니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. 사용자, 그룹, 응용 프로그램 서비스 주체를 Azure AD 보안 주체 수 또는 [Azure 리소스에 대 한 id 관리](../../active-directory/managed-identities-azure-resources/overview.md)합니다.
 
@@ -49,8 +49,13 @@ Azure Storage 리소스에 대 한 기본 제공 RBAC를 할당 하는 방법에
 
 각 Azure Storage 작업을 호출하는 데 필요한 사용 권한에 대한 자세한 내용은 [REST 작업 호출을 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)을 참조하세요.
 
+## <a name="resource-scope"></a>리소스 범위
+
+[!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
+- [Azure Active Directory에 대 한 azure Storage 지원 기반 access control 일반 공급](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
 - [Blob 및 큐 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증](storage-auth-aad-app.md)
 - [Azure 리소스에 대 한 관리 되는 id 사용 하 여 큐 및 blob에 대 한 액세스 인증](storage-auth-aad-msi.md)
 - Azure Files는 도메인에 가입된 VM(미리 보기)에 대해 SMB를 통한 Azure AD 인증을 지원합니다. Azure Files용 SMB를 통한 Azure AD 사용에 대해 알아보려면 [Azure Files용 SMB(Preview)를 통한 Azure Active Directory 인증의 개요](../files/storage-files-active-directory-overview.md)를 참조하세요.

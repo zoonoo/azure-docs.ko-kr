@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 시작 | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 디렉터리 역할에 대한 액세스 검토를 시작하는 방법을 알아봅니다.
+title: PIM-Azure Active Directory에서에서 Azure AD 역할에 대 한 액세스 검토 시작 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 액세스 검토를 시작 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f2e3249d1b7ad0efc16dd0b9ced26379c3cae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174472"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574997"
 ---
-# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 시작
-사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 이러한 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자 또는 전역 관리자는 정기적으로 액세스 검토를 생성하여 사용자에게 부여된 역할을 검토하도록 관리자에게 요청해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 액세스 검토를 시작하는 단계를 설명합니다.
+# <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 액세스 검토 시작
+사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 이러한 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자 또는 전역 관리자는 정기적으로 액세스 검토를 생성하여 사용자에게 부여된 역할을 검토하도록 관리자에게 요청해야 합니다. 이 문서에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 액세스 검토를 시작 하기 위한 단계를 다룹니다.
 
 ## <a name="start-an-access-review"></a>액세스 검토 시작
 > [!NOTE]
@@ -80,6 +80,6 @@ PIM 애플리케이션 기본 페이지에서 액세스 검토를 시작하는 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료](pim-how-to-complete-review.md)
-- [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 수행](pim-how-to-perform-security-review.md)
+- [PIM에서 Azure AD 역할에 대 한 액세스 검토 완료](pim-how-to-complete-review.md)
+- [PIM에서 내 Azure AD 역할의 액세스 검토 수행](pim-how-to-perform-security-review.md)
 - [PIM에서 Azure 리소스 역할에 대한 액세스 검토 시작](pim-resource-roles-start-access-review.md)

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: f292ad5802af6765ec26df7de1aa271e1214e0e9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: a31380c8581503a340c55c374afc02c6e1fa290b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983016"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577172"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
@@ -31,9 +31,12 @@ ms.locfileid: "56983016"
 컨테이너용 Azure Monitor에는 상주하는 컨테이너 워크로드와 모니터링되는 Kubernetes 클러스터의 성능 상태에 영향을 미치는 요소를 보여 주는 미리 정의된 여러 뷰가 포함되어 있으므로 다음 작업을 수행할 수 있습니다.  
 
 * 노드에서 실행 중인 AKS 컨테이너와 평균 프로세서 및 메모리 사용률을 확인합니다. 이 정보를 통해 리소스 병목 상태를 파악할 수 있습니다.
-* Azure Container Instances에 호스트된 컨테이너 그룹 및 해당 컨테이너의 프로세서 및 메모리 사용률을 식별합니다.  * 컨트롤러 또는 Pod에서 컨테이너가 상주하는 위치를 식별합니다. 이 정보를 통해 컨트롤러 또는 Pod의 전반적인 성능을 볼 수 있습니다.
+* Azure Container Instances에 호스트된 컨테이너 그룹 및 해당 컨테이너의 프로세서 및 메모리 사용률을 식별합니다.  
+* 컨트롤러 또는 Pod에서 컨테이너가 상주하는 위치를 확인합니다. 이 정보를 통해 컨트롤러 또는 Pod의 전반적인 성능을 볼 수 있습니다.
 * Pod를 지원하는 표준 프로세스와 관련이 없는 호스트에서 실행되는 워크로드의 리소스 사용률을 검토합니다.
 * 평균 부하 및 최고 부하 상태에서.클러스터의 동작을 이해합니다. 이 정보를 통해 용량 요구 사항을 파악하고 클러스터를 유지할 수 있는 최대 부하를 확인할 수 있습니다. 
+
+또한 사전에 알리거나 노드 또는 컨테이너의 CPU 및 메모리 사용률에 임계값을 초과 하는 경우 기록에 대 한 경고를 구성할 수 있습니다.  
 
 ## <a name="how-do-i-access-this-feature"></a>이 기능에 액세스하려면 어떻게 하나요?
 컨테이너용 Azure Monitor는 Azure Monitor에서 액세스하거나 선택한 AKS 클러스터에서 직접 액세스할 수 있습니다. Azure Monitor에서 배포된 모든 컨테이너, 모니터링되는 컨테이너 및 모니터링되지 않는 컨테이너에 대한 전역 큐브 뷰를 사용하면 구독 및 리소스 그룹 전체를 검색하고 필터링한 다음, 선택한 컨테이너의 컨테이너용 Azure Monitor를 상세히 검색할 수 있습니다.  또는 AKS 페이지에서 선택한 AKS 컨테이너의 기능에 바로 액세스할 수 있습니다.  

@@ -1,6 +1,6 @@
 ---
-title: Azure AD ID 거버넌스 | Microsoft Docs
-description: Azure AD ID 거버넌스를 사용하면 올바른 프로세스 및 표시 유형을 사용하여 보안 및 직원 생산성에 대한 조직의 필요를 분산시킬 수 있습니다.
+title: Id 관리-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory id 관리를 사용 하면 올바른 프로세스 및 표시 유형을 사용 하 여 보안 및 직원 생산성에 대 한 조직의 필요를 분산 시킬 수 있습니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167587"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579719"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD ID 거버넌스란?
 
@@ -77,7 +77,7 @@ PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타
 - [액세스 검토란?](access-reviews-overview.md)
 - [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)
 - [액세스 검토를 사용하여 게스트 액세스 관리](manage-guest-access-with-access-reviews.md)
-- [디렉터리 역할의 액세스 검토 시작](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Azure AD 역할의 액세스 검토를 시작 합니다.](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>사용 약관
 
