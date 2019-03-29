@@ -47,7 +47,7 @@ ms.locfileid: "57842132"
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예: 
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들면 다음과 같습니다.
 
 **Jeff(워크로드 소유자)**
 

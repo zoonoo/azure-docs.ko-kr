@@ -69,7 +69,7 @@ Date: Wed, 17 Aug 2016 15:03:52 GMT
 
 유효한 JWT 액세스 토큰을 검색하는 데 사용되는 API 키를 구독하고 가져오는 방법에 대한 자세한 내용은 [Cognitive Services 구독](https://azure.microsoft.com/try/cognitive-services/) 페이지를 참조하세요.
 
-API 키는 토큰 서비스에 전달됩니다. 예: 
+API 키는 토큰 서비스에 전달됩니다. 예를 들면 다음과 같습니다.
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -82,7 +82,7 @@ Content-Length: 0
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 구독 키 |
 
-토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 *인증* 헤더로 핸드셰이크에 `Base64 access_token`으로 전달됩니다. 예: 
+토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 *인증* 헤더로 핸드셰이크에 `Base64 access_token`으로 전달됩니다. 예를 들면 다음과 같습니다.
 
 `Authorization: Bearer [Base64 access_token]`
 

@@ -12,7 +12,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c0583f67d2351d05f877d0ebc1f29cea9e52c5eb
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56311990"
@@ -39,7 +39,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 ## <a name="install-go-package"></a>Go 패키지 설치
 
-`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 예: 
+`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 예를 들면 다음과 같습니다.
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go

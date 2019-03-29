@@ -35,7 +35,7 @@ ms.locfileid: "57994700"
 ## <a name="linux-clients"></a>Linux 클라이언트
 Linux 클라이언트는 시작할 때 DNS 서버를 사용하여 일반적으로 등록하지 않고 DHCP 서버가 수행한다고 가정합니다. Azure의 DHCP 서버에는 DNS 서버에 레코드를 등록할 수 있는 자격 증명이 없습니다. DDNS 업데이트에 전송하는 데 Bind 패키지에 포함되어 있는 `nsupdate`라는 도구를 사용할 수 있습니다. DDNS 프로토콜은 표준화되어 있으므로 DNS 서버에서 Bind를 사용하지 않는 경우에도 `nsupdate`를 사용할 수 있습니다.
 
-DNS 서버에서 호스트 이름을 만들고 유지 관리하기 위해 DHCP 클라이언트에서 제공하는 후크를 사용할 수 있습니다. DHCP 주기 동안 클라이언트는 */etc/dhcp/dhclient-exit-hooks.d/* 에서 스크립트를 실행합니다. `nsupdate`을 사용하여 새 IP 주소를 등록하려면 후크를 사용할 수 있습니다. 예: 
+DNS 서버에서 호스트 이름을 만들고 유지 관리하기 위해 DHCP 클라이언트에서 제공하는 후크를 사용할 수 있습니다. DHCP 주기 동안 클라이언트는 */etc/dhcp/dhclient-exit-hooks.d/* 에서 스크립트를 실행합니다. `nsupdate`을 사용하여 새 IP 주소를 등록하려면 후크를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```bash
 #!/bin/sh

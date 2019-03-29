@@ -18,7 +18,7 @@ ms.reviewer: adepue
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
 ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58372373"
@@ -86,7 +86,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 -->
 - 오프 라인 수집에 대 한 관리를 쉽게 패키지 무결성 및 보안 향상을 위해 Microsoft는.zip 파일에.exe 및.bin 파일에서 업데이트 패키지 형식의 변경 되었습니다. 새 형식 때때로 업데이트 준비 상태를 일으킬 수 있는 압축 프로세스에 추가 안정성을 추가 합니다. 동일한 패키지 형식으로 OEM에서 패키지 업데이트에 적용 됩니다.
 
-- 실행 하는 경우 Azure Stack 운영자 경험을 개선 하기 위해 **테스트 AzureStack**, 연산자 이제 사용할 수 있습니다 단순히 `Test-AzureStack -Group UpdateReadiness` 후 10 개의 추가 매개 변수를 전달 하는 대신는 `include` 문. 예: 
+- 실행 하는 경우 Azure Stack 운영자 경험을 개선 하기 위해 **테스트 AzureStack**, 연산자 이제 사용할 수 있습니다 단순히 `Test-AzureStack -Group UpdateReadiness` 후 10 개의 추가 매개 변수를 전달 하는 대신는 `include` 문. 예를 들면 다음과 같습니다.
 
   ```powershell
   Test-AzureStack -Group UpdateReadiness  

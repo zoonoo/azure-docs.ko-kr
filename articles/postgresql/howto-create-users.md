@@ -64,7 +64,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예:  
+4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예를 들면 다음과 같습니다. 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```

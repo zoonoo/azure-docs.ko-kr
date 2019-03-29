@@ -18,7 +18,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51237155"
@@ -40,7 +40,7 @@ ms.locfileid: "51237155"
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예: 
+진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 * VM 또는 VM을 포함하는 클라우드 서비스의 공용 IP 주소(가상 IP 주소 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)라고도 함)가 변경되었습니다. DNS 클라이언트 캐시에 DNS 이름에 대해 등록된 *이전 IP 주소* 가 있으므로 RDP 오류가 발생할 수 있습니다. DNS 클라이언트 캐시를 플러시하고 VM 연결을 다시 시도하세요. 또는 새 VIP와 직접 연결을 시도하세요.
 * Azure Portal에서 생성된 연결을 사용하는 대신, 타사 애플리케이션을 사용하여 원격 데스크톱 연결을 관리하고 있습니다. 애플리케이션 구성에 원격 데스크톱 트래픽에 대한 올바른 TCP 포트가 포함되어 있는지 확인합니다. [Azure Portal](https://portal.azure.com)에서 VM의 설정 &gt; 엔드포인트를 클릭하여 클래식 가상 컴퓨터에 대한 이 포트를 확인할 수 있습니다.

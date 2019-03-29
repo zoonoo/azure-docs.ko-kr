@@ -18,7 +18,7 @@ ms.reviewer: adepue
 ms.lastreviewed: 03/20/2019
 ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
 ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58226864"
@@ -172,7 +172,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
    AD FS를 사용 하 여도 지 원하는 참고, Kubernetes 클러스터 배포는 인터넷 액세스가 필요 합니다.
 
-- Azure Stack을 업데이트 또는 핫픽스를 설치한 후 새 기능 추가 될 수 있습니다 하나 이상의 id 응용 프로그램에 부여 될 새 권한이 필요 합니다. 이러한 권한 부여 관리 홈 디렉터리에 액세스할 수 있어야 하며 따라서이 수행할 수 없는 자동으로 합니다. 예: 
+- Azure Stack을 업데이트 또는 핫픽스를 설치한 후 새 기능 추가 될 수 있습니다 하나 이상의 id 응용 프로그램에 부여 될 새 권한이 필요 합니다. 이러한 권한 부여 관리 홈 디렉터리에 액세스할 수 있어야 하며 따라서이 수행할 수 없는 자동으로 합니다. 예를 들면 다음과 같습니다.
 
    ```powershell
    $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"

@@ -15,7 +15,7 @@ ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/07/2019
 ms.locfileid: "54063797"
@@ -23,19 +23,19 @@ ms.locfileid: "54063797"
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
 
-함수를 사용하려면 선언을 대괄호로 묶습니다. 예: 
+함수를 사용하려면 선언을 대괄호로 묶습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예: 
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예: 
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[func().prop1]"

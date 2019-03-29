@@ -13,7 +13,7 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56173371"
@@ -41,7 +41,7 @@ B2B 공동 작업 사용자를 디렉터리에 추가하려면 다음 단계를 
    > [!NOTE]
    > **조직 관계** 페이지에서 **새 게스트 사용자** 옵션을 사용할 수도 있습니다. **Azure Active Directory**의 **관리** 아래에서 **조직 관계**를 선택합니다.
 
-5. **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 예: 
+5. **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 예를 들면 다음과 같습니다.
 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/InviteGuest.png) 
 

@@ -84,7 +84,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
-예: 
+예를 들면 다음과 같습니다.
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
 ```
@@ -95,7 +95,7 @@ mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\emplo
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-예: 
+예를 들면 다음과 같습니다.
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
  ```

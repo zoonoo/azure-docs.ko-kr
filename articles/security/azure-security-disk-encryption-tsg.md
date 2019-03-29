@@ -56,7 +56,7 @@ uname -a
 
 Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 저장소 계정이 표준 또는 프리미엄(SSD) 저장소인지 여부를 포함합니다.
 
-암호화 상태를 확인 하려면 폴링 합니다 **ProgressMessage** 에서 반환 된 필드를 [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예: 
+암호화 상태를 확인 하려면 폴링 합니다 **ProgressMessage** 에서 반환 된 필드를 [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예를 들면 다음과 같습니다.
 
 
 ```azurepowershell
@@ -122,7 +122,7 @@ Windows Server 2016 Server Core에서 bdehdcfg 구성 요소는 기본적으로 
 
 1. DiskPart를 사용하여 볼륨을 확인한 다음 계속합니다.  
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 DISKPART> list vol

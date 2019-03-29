@@ -188,7 +188,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔**을 선택합니다.  
 
-2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예: 
+2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예를 들면 다음과 같습니다.
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

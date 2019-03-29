@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55299557"
@@ -137,7 +137,7 @@ WHERE
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -152,7 +152,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -350,7 +350,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -365,7 +365,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -461,7 +461,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -474,7 +474,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

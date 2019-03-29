@@ -130,7 +130,7 @@ public class ReportViewModel
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예:  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예를 들면 다음과 같습니다. Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>보기
 

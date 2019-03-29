@@ -159,7 +159,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
 
    ![조건이 true인 경우의 작업 추가](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. 검색 상자에서 필터로 “전자 메일”을 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 예:  
+2. 검색 상자에서 필터로 “전자 메일”을 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 예를 들면 다음과 같습니다. 
 
    * 예를 들어 Azure 회사 또는 학교 계정의 경우 Office 365 Outlook 커넥터를 선택합니다. 
    * Microsoft 개인 계정의 경우 Outlook.com 커넥터를 선택합니다. 
@@ -210,7 +210,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
 
    예를 들어 Azure Portal에서 가상 머신의 크기를 조정하거나 [Azure PowerShell로 VM 크기를 조정](../virtual-machines/windows/resize-vm.md)할 수 있습니다. 
 
-   몇 분 후에 전자 메일을 받아야 합니다. 예: 
+   몇 분 후에 전자 메일을 받아야 합니다. 예를 들면 다음과 같습니다.
 
    ![가상 머신 업데이트에 대한 전자 메일](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

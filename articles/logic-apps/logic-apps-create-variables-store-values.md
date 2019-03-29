@@ -214,7 +214,7 @@ ms.locfileid: "58075717"
    | Value | 아닙니다. | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    |||| 
 
-   예:  
+   예를 들면 다음과 같습니다. 
    
    ![증가 값 예제](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 

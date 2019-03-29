@@ -276,7 +276,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 저장소를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:   
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예를 들면 다음과 같습니다.  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57855872"
@@ -307,7 +307,7 @@ Activity Error section:
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예: 
+이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "extendedProperties": {

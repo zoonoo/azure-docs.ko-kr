@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예: 
+[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>태스크 출력 보기
 
-태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예: 
+태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예: 
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예: 
+태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az storage blob download-batch \

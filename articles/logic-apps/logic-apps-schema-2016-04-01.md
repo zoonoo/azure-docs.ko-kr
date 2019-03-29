@@ -155,7 +155,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 ### <a name="new-trackedproperties-for-actions"></a>작업에 대한 새 'trackedProperties'
 
-작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 예: 
+작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 예를 들면 다음과 같습니다.
 
 ``` json
 {

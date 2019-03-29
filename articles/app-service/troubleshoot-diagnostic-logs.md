@@ -39,7 +39,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 * **웹 서버 로깅** - [W3C 확장 로그 파일 형식](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 처리된 요청 수 또는 특정 IP 주소의 요청 수와 같은 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 ### <a name="application-diagnostics"></a>애플리케이션 진단
-애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예: 
+애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -152,11 +152,11 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 이 명령은 'appname'이라는 웹앱에 연결하고 로그 이벤트가 앱에서 발생하면 창에 정보를 스트리밍하기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예: 
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예: 
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 

@@ -253,7 +253,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 1. 디자이너의 검색 상자에서 필터로 "새 이메일이 도착하는 경우"를 입력합니다. 이메일 공급자에 대해 **새 이메일이 도착하는 경우 - <*your-email-provider*>** 트리거를 선택합니다.
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![이메일 공급자에 대해 "새 이메일이 도착하는 경우" 트리거 선택](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 

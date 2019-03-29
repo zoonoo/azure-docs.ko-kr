@@ -17,7 +17,7 @@ ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56104572"
@@ -136,7 +136,7 @@ App Service 계획은 **PerSiteScaling** 속성을 true(`"perSiteScaling": true`
 2. 단일 App Service 계획을 만들고 확장하여 작업자 풀에서 모든 사용 가능한 용량을 사용합니다.
 3. App Service 계획에서 `PerSiteScaling` 플래그를 true로 설정합니다.
 4. 새 앱이 만들어지고 **1**로 설정된 **numberOfWorkers** 속성이 있는 해당 App Service 계획에 할당됩니다. 이 구성을 사용하면 작업자 풀에서 고밀도가 가능해 집니다.
-5. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예: 
+5. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예를 들면 다음과 같습니다.
     - 사용량이 많은 앱은 해당 앱에 대한 더 많은 처리 용량을 갖도록 **numberOfWorkers**를 **3**으로 설정할 수 있습니다. 
     - 많이 사용되지 않는 앱은 **numberOfWorkers**를 **1**로 설정합니다.
 

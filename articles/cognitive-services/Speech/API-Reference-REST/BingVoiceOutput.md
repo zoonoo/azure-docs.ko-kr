@@ -31,7 +31,7 @@ Bing Text to Speech API를 사용하면 애플리케이션이 HTTP 요청을 클
 
 모든 음성 합성 요청에는 JWT(JSON Web Token) 액세스 토큰이 필요합니다. JWT 액세스 토큰은 음성 요청 헤더를 통해 전달됩니다. 토큰의 만료 시간은 10분입니다. 유효한 JWT 액세스 토큰을 검색하는 데 사용되는 API 키를 구독하고 가져오는 방법에 대한 자세한 내용은 [Cognitive Services 구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
 
-API 키는 토큰 서비스에 전달됩니다. 예: 
+API 키는 토큰 서비스에 전달됩니다. 예를 들면 다음과 같습니다.
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -44,7 +44,7 @@ Name| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
-토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 엔드포인트에 `Base64 access_token`으로 전달됩니다. 예: 
+토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 엔드포인트에 `Base64 access_token`으로 전달됩니다. 예를 들면 다음과 같습니다.
 
 `Authorization: Bearer [Base64 access_token]`
 

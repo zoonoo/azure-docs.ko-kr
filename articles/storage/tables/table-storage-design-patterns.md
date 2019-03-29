@@ -263,7 +263,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ![부서 엔터티 및 직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>해결 방법
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:   
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예를 들면 다음과 같습니다.  
 
 ![부서 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 

@@ -17,7 +17,7 @@ ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
 ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
 ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57769382"
@@ -83,13 +83,13 @@ ms.locfileid: "57769382"
     ```
     
     > [!Note]  
-    > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다. 예: 
+    > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다. 예를 들면 다음과 같습니다.
     >
     > ```PowerShell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
-     - 이전 단계에서 만든 적절 한 디렉터리에서 사용자 인증서를 배치 합니다. 예:   
+     - 이전 단계에서 만든 적절 한 디렉터리에서 사용자 인증서를 배치 합니다. 예를 들면 다음과 같습니다.  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
@@ -102,7 +102,7 @@ ms.locfileid: "57769382"
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. 모든 테스트를 통과 하는 출력 및 모든 인증서를 확인 합니다. 예: 
+4. 모든 테스트를 통과 하는 출력 및 모든 인증서를 확인 합니다. 예를 들면 다음과 같습니다.
 
 ```PowerShell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.

@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    Azure가 논리 앱을 배포한 후에 Logic Apps 디자이너가 열리고 소개 비디오가 포함된 페이지를 보여줍니다. 
    비디오 아래에서 공통 논리 앱 패턴의 템플릿을 찾을 수 있습니다. 
 
-5. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 예: 
+5. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 예를 들면 다음과 같습니다.
 
    ![논리 앱 템플릿을 선택합니다.](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    > 처음부터 논리 앱을 빌드하려면 **빈 Logic App**을 선택합니다.
 
    미리 빌드된 템플릿을 선택하면 해당 템플릿에 대한 자세한 정보를 볼 수 있습니다. 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![미리 빌드된 템플릿 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    * 이러한 연결을 이미 설정한 경우 **계속**을 선택합니다.
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![연결 만들기](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -103,16 +103,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 1. [Azure Portal](https://portal.azure.com "Azure Portal")의 Logic App 디자이너에서 논리 앱을 찾아서 엽니다.
 
-2. 디자이너 도구 모음에서 **템플릿**을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인**을 선택합니다. 예: 
+2. 디자이너 도구 모음에서 **템플릿**을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인**을 선택합니다. 예를 들면 다음과 같습니다.
 
    !["템플릿" 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 예: 
+3. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 예를 들면 다음과 같습니다.
 
    ![논리 앱 템플릿을 선택합니다.](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    미리 빌드된 템플릿을 선택하면 해당 템플릿에 대한 자세한 정보를 볼 수 있습니다. 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![미리 빌드된 템플릿 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

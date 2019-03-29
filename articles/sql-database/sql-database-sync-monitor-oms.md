@@ -136,7 +136,7 @@ Azure Monitor 로그를 사용 하는 경고를 만들려면 다음을 수행 �
 
 1.  Azure Portal에서 **Log Search**를 선택합니다.
 
-2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예: 
+2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예를 들면 다음과 같습니다.
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 

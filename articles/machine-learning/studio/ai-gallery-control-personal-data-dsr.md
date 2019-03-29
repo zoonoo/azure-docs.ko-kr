@@ -13,7 +13,7 @@ ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 1b1583731f9b95bea7fe64efe628b05bb7b9a476
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58118036"
@@ -84,7 +84,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-예: 
+예를 들면 다음과 같습니다.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 

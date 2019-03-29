@@ -14,7 +14,7 @@ ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53547680"
@@ -144,7 +144,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예: 
+CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 {

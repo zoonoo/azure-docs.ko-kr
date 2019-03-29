@@ -21,7 +21,7 @@ ms.locfileid: "58103913"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 Open Hub를 통해 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -36,7 +36,7 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
 
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램에는 고객 SAP 시스템의 일반적인 흐름 중 하나가 나와 있습니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램은 고객 SAP 시스템의 일반적인 흐름 중 하나를 보여줍니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
 
 SAP BW OHD(Open Hub 대상)에 따라 SAP 데이터가 릴레이되는 대상이 정의됩니다. 예를 들어 DSO, InfoCube, DataSource 등 오픈 허브 데이터 원본으로 하 여 SAP 데이터 전송 프로세스 (DTP)를 지원 되는 모든 개체를 사용할 수 있습니다. 릴레이되는 데이터가 저장되는 Open Hub 대상 유형은 데이터베이스 테이블(로컬 또는 원격) 및 플랫 파일일 수 있습니다. 이 SAP BW Open Hub 커넥터를 사용하면 BW에서 OHD 로컬 테이블의 데이터를 복사할 수 있습니다. 다른 형식을 사용하는 경우에는 다른 커넥터를 통해 데이터베이스 또는 파일 시스템에 직접 연결할 수 있습니다.
 
@@ -78,7 +78,7 @@ ADF SAP BW Open Hub 커넥터는 두 가지 선택적 속성을 제공 합니다
 - Data Factory BW 커넥터에서 사용 중인 SAP 사용자에게는 다음 권한이 있어야 합니다. 
 
     - RFC 및 SAP BW에 대해 부여된 권한 
-    - 권한 부여 개체 "S_SDSAUTH"의 "실행" 작업에 대 한 권한
+    - 권한 부여 개체 "S_SDSAUTH"의 "실행" 작업에 대한 권한
 
 - "기술 키" 옵션을 선택하여 SAP Open Hub 대상 유형을 **데이터베이스 테이블**로 만듭니다.  테이블에서 데이터 삭제는 선택을 취소한 상태로 유지하는 것이 좋습니다(반드시 선택 취소해야 하는 것은 아님). DTP(직접 실행 또는 기존 프로세스 체인에 통합)를 활용해 큐브 등의 선택한 원본 개체에서 Open Hub 대상 테이블로 데이터를 전송합니다.
 

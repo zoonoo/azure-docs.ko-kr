@@ -127,7 +127,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예: 
+Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예를 들면 다음과 같습니다.
 
 ```java
 package com.bingwebsearch.app

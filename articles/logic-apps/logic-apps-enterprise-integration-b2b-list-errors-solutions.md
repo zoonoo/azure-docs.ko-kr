@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
 ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43124337"
@@ -64,7 +64,7 @@ ms.locfileid: "43124337"
 | 사용자 조치 | 파트너에게 보내기 전에 AS2Message에 @base64ToBinary를 추가합니다. |
 |||
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```json
 "HTTP": {
@@ -84,7 +84,7 @@ ms.locfileid: "43124337"
 | 사용자 조치 | 파트너에게 보내기 전에 MDN에 @base64ToBinary를 추가합니다. | 
 |||
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```json
 "Response": {

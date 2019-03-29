@@ -76,7 +76,7 @@ www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할
 1. 활성화되어 있는 컨테이너를 확인하려면 `docker ps`를 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 중지하려면 `./stopsimulation`을 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 시작하려면:
-    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예: 
+    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예를 들면 다음과 같습니다.
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"

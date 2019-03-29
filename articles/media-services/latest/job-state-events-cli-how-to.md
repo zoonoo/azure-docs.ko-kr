@@ -69,7 +69,7 @@ az account set --subscription mySubscriptionId
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ az account set --subscription mySubscriptionId
     --endpoint <endpoint_URL>
     ```
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```
     az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

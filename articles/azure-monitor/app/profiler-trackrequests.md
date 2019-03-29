@@ -14,7 +14,7 @@ ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55882066"
@@ -51,7 +51,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         }
         ```
 
-        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예:   
+        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예를 들면 다음과 같습니다.  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

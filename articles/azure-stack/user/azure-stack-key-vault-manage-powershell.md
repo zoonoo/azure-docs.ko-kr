@@ -17,7 +17,7 @@ ms.author: sethm
 ms.lastreviewed: 01/16/2019
 ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
 ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58258754"
@@ -125,7 +125,7 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 ![새 키](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 같은 이름을 가진 키를 가져올 경우 원래 키를 새 키에 지정한 값으로 업데이트 됩니다. 키의 버전별 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예: 
+이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 같은 이름을 가진 키를 가져올 경우 원래 키를 새 키에 지정한 값으로 업데이트 됩니다. 키의 버전별 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 사용 하 여 "https:\//vault10.vault.local.azurestack.external:443/keys/key01" 항상 현재 버전을 가져올 수 있습니다.
 * 사용 하 여 "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"이 특정 버전을 가져올 수 있습니다.

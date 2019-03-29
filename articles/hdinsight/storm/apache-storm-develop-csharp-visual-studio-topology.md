@@ -684,7 +684,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 2. 변경 내용을 저장한 다음 **F5**를 클릭하거나 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료** 가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-3. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예:  **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+3. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예를 들면 다음과 같습니다. **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
    > [!NOTE]  
    > 문자열 데이터는 이러한 파일에 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일의 \[[97,103,111]]은 *and*라는 단어입니다.

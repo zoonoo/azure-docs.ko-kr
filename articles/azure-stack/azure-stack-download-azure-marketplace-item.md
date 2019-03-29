@@ -18,7 +18,7 @@ ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
 ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
 ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57768402"
@@ -228,7 +228,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    사용 하지 않는 *제공* 확장에 대 한 합니다.   
 
 
-4.  PowerShell을 사용 하 여 사용 하 여 Azure Stack의 마켓플레이스 항목 게시 하는 **추가 AzsGalleryItem** cmdlet. 예:   
+4.  PowerShell을 사용 하 여 사용 하 여 Azure Stack의 마켓플레이스 항목 게시 하는 **추가 AzsGalleryItem** cmdlet. 예를 들면 다음과 같습니다.  
     ```PowerShell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
@@ -237,7 +237,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 5. 갤러리 항목을 게시 한 후 사용 하 여 출시 되었습니다. 갤러리 항목이 게시 된를 확인 하려면로 이동 **모든 서비스**를 선택한 다음는 **일반** 범주를 선택한 **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
   [![보기 마켓플레이스](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "보기 marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다. 예: 
+Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"

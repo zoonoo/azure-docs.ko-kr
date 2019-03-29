@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Accumulate의 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>

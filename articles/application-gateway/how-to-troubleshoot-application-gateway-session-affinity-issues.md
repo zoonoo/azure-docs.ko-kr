@@ -79,7 +79,7 @@ Application gateway 세션 기반 선호도 쿠키를 사용 하 여 수행할 �
     **팁** 옵션을 선택 하는 Fiddler를 사용 하는 방법을 모르면 "**네트워크 트래픽을 수집 및 웹 디버거를 사용 하 여 분석 하려는**" 맨 아래에 있습니다.
 
 2. 확인 하 고 분석 세션 로그를 클라이언트에서 제공 하는 쿠키를 ARRAffinity 세부 정보가 있는지 확인 합니다. ARRAffinity 세부 정보를 같은 찾지 못한 경우 "**ARRAffinity =** *ARRAffinityValue*"을 의미 하는 클라이언트 ARRA 쿠키를 사용 하 여 회신 하지는에서 제공 하는 쿠키 집합 내에서 Application Gateway입니다.
-    예: 
+    예를 들면 다음과 같습니다.
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
@@ -141,7 +141,7 @@ Azure Portal을 통한 로깅 사용
 - **ClientPort** -요청에 대 한 연결 중인 클라이언트에서 원본 포트입니다.
 - **RequestQuery** -이 요청이 수신 되는 대상 서버를 나타냅니다.
 - **Server-Routed**: 요청이 수신 되는 백 엔드 풀 인스턴스.
-- **X-AzureApplicationGateway-LOG-ID**: 요청에 사용되는 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. 예:  X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **X-AzureApplicationGateway-LOG-ID**: 요청에 사용되는 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. 예를 들면 다음과 같습니다. X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
   - **SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드입니다.
 

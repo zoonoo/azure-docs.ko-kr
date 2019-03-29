@@ -10,7 +10,7 @@ ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55194824"
@@ -87,7 +87,7 @@ categories.count = sum;
   ![다중 수준 패싯 필터](./media/search-example-adventureworks/multi-level-facet.png "다중 수준 패싯 필터")
 
  
-트리의 각 링크는 관련 필터를 적용해야 합니다. 예: 
+트리의 각 링크는 관련 필터를 적용해야 합니다. 예를 들면 다음과 같습니다.
 
 + **taxonomy/any**`(x:x eq 'Accessories')`는 액세서리 분기의 모든 문서를 반환합니다.
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')`는 액세서리 분기 아래에서 하위 범주가 자전거 고정대인 문서만 반환합니다.

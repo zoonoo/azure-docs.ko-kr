@@ -306,7 +306,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 ### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>디버거에 대해 모듈의 IP 및 포트 노출
 
-이 섹션에서는 localhost를 사용하여 컨테이너에 연결하고 **.debug** Dockerfile, 모듈의 컨테이너 `createOptions` 설정 및 `launch.json` 파일에 이미 올바른 포트 설정이 있기 때문에 사용자 모듈이 Visual Studio Code와 동일한 머신에서 실행 중인 경우 이 섹션을 건너뛰어도 됩니다. 사용자 모듈과 Visual Studio Code가 별도의 컴퓨터에서 실행 중인 경우에는 개발 언어에 대한 단계를 따르세요.
+사용자 모듈이 Visual Studio Code와 동일한 머신에서 실행 중인 경우 이 섹션을 건너뛰어도 됩니다. 이런 경우에는 localhost를 사용하여 컨테이너에 연결하고 **.debug** Dockerfile, 모듈의 컨테이너 `createOptions` 설정 및 `launch.json` 파일에 이미 포트 설정이 올바르게 되어 있기 때문입니다. 사용자 모듈과 Visual Studio Code가 별도의 머신에서 실행 중인 경우에는 개발 언어에 대한 단계를 따르세요.
 
 - **Azure Functions를 포함한 C#**
 

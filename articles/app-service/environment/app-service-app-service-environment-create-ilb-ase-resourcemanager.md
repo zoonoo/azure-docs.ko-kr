@@ -17,7 +17,7 @@ ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56107381"
@@ -88,7 +88,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 [기본
 *azuredeploy.parameters.json* 파일의 매개 변수는 다음과 같습니다.
 
 * *appServiceEnvironmentName*:  구성하는 ILB ASE의 이름입니다.
-* *existingAseLocation*:  ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예:   "미국 중남부"
+* *existingAseLocation*:  ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예를 들면 다음과 같습니다.  "미국 중남부"
 * *pfxBlobString*:  .pfx 파일의 Base64 인코딩 문자열 표현입니다.  앞서 표시된 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사한 후 *pfxBlobString* 특성의 값으로 붙여 넣습니다.
 * *암호*:  .pfx 파일을 보호하는 데 사용되는 암호입니다.
 * *certificateThumbprint*:  인증서의 지문입니다.  PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint* ) 값을 있는 그대로 사용할 수 있습니다.  그러나 Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다.  *certificateThumbprint*는 다음과 비슷합니다.  AF3143EB61D43F6727842115BB7F17BBCECAECAE

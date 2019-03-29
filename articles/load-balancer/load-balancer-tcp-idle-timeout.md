@@ -76,7 +76,7 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>부하 분산된 엔드포인트 집합에 대한 TCP 시간 제한 설정
 
-부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예: 
+부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15

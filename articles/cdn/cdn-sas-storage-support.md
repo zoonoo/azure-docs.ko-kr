@@ -39,7 +39,7 @@ SAS 토큰을 생성한 후 URL에 `?sv=<SAS token>`을 추가하여 Blob Storag
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-예: 
+예를 들면 다음과 같습니다.
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    
    결과 CDN 엔드포인트 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   예:    
+   예를 들면 다음과 같습니다.   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   예:    
+   예를 들면 다음과 같습니다.   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
    보안 토큰 엔드포인트 URL의 형식은 다음과 같습니다.   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   예:    
+   예를 들면 다음과 같습니다.   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```

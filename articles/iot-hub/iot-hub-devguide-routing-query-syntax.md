@@ -10,7 +10,7 @@ ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
 ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2019
 ms.locfileid: "55744845"
@@ -66,7 +66,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예:  
+메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예를 들면 다음과 같습니다. 
 
 시스템 속성 contentEncoding에서 쿼리 
 

@@ -17,7 +17,7 @@ ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
 ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57860587"
@@ -548,7 +548,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![HTTPS 적용](media/azure-stack-solution-geo-distributed/image43.png)
 
-작업이 완료 되 면 앱을 가리키는 HTTP Url 중 하나로 이동 합니다. 예: 
+작업이 완료 되 면 앱을 가리키는 HTTP Url 중 하나로 이동 합니다. 예를 들면 다음과 같습니다.
 
 -   http://<app_name>.azurewebsites.net
 -   http://northwindcloud.com

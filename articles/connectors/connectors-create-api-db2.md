@@ -93,7 +93,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 | **암호** | 예 | 데이터베이스의 암호 |
 ||||
 
-예: 
+예를 들면 다음과 같습니다.
 
 ![클라우드 기반 데이터베이스에 대한 연결 세부 정보](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -115,7 +115,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 | **게이트웨이** | 예 | 설치된 온-프레미스 데이터 게이트웨이의 이름 <p><p>**참고**: Azure 구독 및 리소스 그룹 내에서 모든 설치 된 데이터 게이트웨이 포함 하는 목록에서이 값을 선택 합니다. |
 ||||
 
-예: 
+예를 들면 다음과 같습니다.
 
 ![온-프레미스 데이터베이스에 대한 연결 세부 정보](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -242,7 +242,7 @@ DB2 데이터베이스 테이블에 단일 레코드를 추가하려면 논리 �
    | **지역 ID** | 예 | 추가할 지역에 대한 ID(예: “102”) |
    |||| 
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -290,7 +290,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 업데이트하려면
    | **지역 ID** | 예 | 새로운 지역 ID(예: “102”) |
    ||||
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -335,7 +335,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
    | **행 ID** | 예 | 삭제할 레코드의 ID(예: “99999”) |
    ||||
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 

@@ -17,7 +17,7 @@ ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51255424"
@@ -78,7 +78,7 @@ ms.locfileid: "51255424"
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 !['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

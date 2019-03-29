@@ -12,7 +12,7 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55250567"
@@ -24,7 +24,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 SQL Data Warehouse에 대한 최대 DWU | 1세대: DW6000<br></br>2세대: DW30000c |
-| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예: <br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW6000c x 9.0 = 54,000DTU.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예를 들면 다음과 같습니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW6000c x 9.0 = 54,000DTU.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
 | 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>1024개의 활성 세션 각각이 동시에 SQL Data Warehouse 데이터베이스로 한 요청을 제출할 수 있습니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리](resource-classes-for-workload-management.md) |최대 동시 쿼리 수 |128<br/><br/> SQL Data Warehouse는 최대 128개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당되거나 SQL Data Warehouse의 [데이터 웨어하우스 단위](memory-and-concurrency-limits.md) 설정이 더 낮을 때 동시 쿼리 수가 감소될 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행하도록 허용돼도 동시 쿼리 제한에 영향을 주지 않습니다. 동시 쿼리 실행에 대한 자세한 내용은 [동시성 최댓값](memory-and-concurrency-limits.md#concurrency-maximums) 문서를 참조합니다. |

@@ -46,7 +46,7 @@ az ad sp create-for-rbac --name <appName> --password <strong password>
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash

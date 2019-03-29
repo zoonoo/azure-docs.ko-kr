@@ -199,5 +199,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예: <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 모든 이벤트를 수집하려면 "*"를 지정합니다.|
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들면 다음과 같습니다.<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 모든 이벤트를 수집하려면 "*"를 지정합니다.|
 

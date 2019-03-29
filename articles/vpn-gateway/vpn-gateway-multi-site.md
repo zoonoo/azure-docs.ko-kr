@@ -163,7 +163,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다. 예: 
+텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

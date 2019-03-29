@@ -34,7 +34,7 @@ Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼�
 이러한 각 메서드는 다른 시나리오에 대해 다른 오버로드를 사용하여 표시됩니다.
 
 ## <a name="asynchronous-versus-synchronous"></a>비동기 및 동기
-Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예: 
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예를 들면 다음과 같습니다.
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

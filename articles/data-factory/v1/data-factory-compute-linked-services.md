@@ -291,13 +291,13 @@ Batch 서비스를 처음 사용하는 경우:
 }
 ```
 
-**accountName** 속성의 경우 일괄 처리 계정의 이름에 **.\<region name\>** 을 추가합니다. 예: 
+**accountName** 속성의 경우 일괄 처리 계정의 이름에 **.\<region name\>** 을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예: 
+또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "adfteam",

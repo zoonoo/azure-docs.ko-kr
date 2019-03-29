@@ -10,7 +10,7 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55701185"
@@ -94,7 +94,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="properties"></a>properties
 
-스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예: 
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "Properties": {

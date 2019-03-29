@@ -176,7 +176,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예: 
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
 
         <script>
     
@@ -237,7 +237,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

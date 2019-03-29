@@ -128,7 +128,7 @@ Where
 [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>데이터 처리
-작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예: 
+작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예를 들면 다음과 같습니다.
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {

@@ -15,7 +15,7 @@ ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56181835"
@@ -31,7 +31,7 @@ ms.locfileid: "56181835"
 
 ## <a name="why-do-i-need-to-use-another-verification-method"></a>또 다른 인증 방법을 사용해야 하는 이유는 무엇인가요?
 
-계정에 대체 인증 방법을 사용해야 하는 몇 가지 이유가 있습니다. 예: 
+계정에 대체 인증 방법을 사용해야 하는 몇 가지 이유가 있습니다. 예를 들면 다음과 같습니다.
 
 - **휴대폰이나 디바이스를 기기를 잊은 경우** 전화기를 집에 두고 온 날에도, 직장에서는 여전히 로그인해야 합니다. 먼저 휴대폰이 필요하지 않은 다른 방법을 사용하여 로그인을 시도해야 합니다.
 

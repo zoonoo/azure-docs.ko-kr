@@ -157,7 +157,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
 - Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
-  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예: 
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들면 다음과 같습니다.
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예: 
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

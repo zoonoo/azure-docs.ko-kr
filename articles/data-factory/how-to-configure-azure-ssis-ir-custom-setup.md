@@ -105,7 +105,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![공유 액세스 서명 입력](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다.  예: 
+      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다.  예를 들면 다음과 같습니다.
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `

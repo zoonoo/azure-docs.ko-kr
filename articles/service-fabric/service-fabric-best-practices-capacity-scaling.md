@@ -23,13 +23,13 @@ ms.locfileid: "57997356"
 ---
 # <a name="capacity-planning-and-scaling"></a>용량 계획 및 크기 조정
 
-Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하는 컴퓨팅 리소스 크기를 조정하기 전에 용량을 계획해야 합니다. 용량 계획에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요. 용량을 계획할 때는 Nodetype 및 Cluster 특성을 고려해야 할 뿐 아니라, 추가하는 VM 수에 관계없이 프로덕션 환경에서 완료하려면 1시간보다 오래 걸리는 크기 조정 작업도 계획해야 합니다.
+Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하는 컴퓨팅 리소스 크기를 조정하기 전에 용량을 계획해야 합니다. 용량 계획에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요. 용량을 계획할 때는 Nodetype 및 Cluster 특성을 고려해야 할 뿐 아니라, 추가하는 VM 수에 관계없이 프로덕션 환경에서 완료하는 데 1시간 넘게 걸리는 크기 조정 작업도 계획해야 합니다.
 
 ## <a name="auto-scaling"></a>자동 크기 조정
-크기 조정 작업은 Azure Resource 템플릿 배포를 통해 수행해야 합니다. [리소스 구성은 코드로 처리]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)하는 것이 모범 사례이며, Virtual Machine Scale Set 자동 크기 조정을 사용하면 버전이 지정된 Resource Manager 템플릿이 Virtual Machine Scale Set 인스턴스 수를 잘못 정의하기 때문입니다. 그러면 이후 배포에서 의도하지 않은 크기 조정 작업이 실행될 위험이 높아집니다. 일반적으로는 다음과 같은 경우에 자동 크기 조정을 사용해야 합니다.
+크기 조정 작업은 Azure Resource 템플릿 배포를 통해 수행해야 합니다. [리소스 구성은 코드로 처리]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)하는 것이 모범 사례이며, Virtual Machine Scale Set 자동 크기 조정을 사용하면 버전이 지정된 Resource Manager 템플릿이 사용자의 가상 머신 확장 집합 인스턴스 수를 잘못 정의하기 때문입니다. 그러면 이후 배포에서 의도하지 않은 크기 조정 작업이 실행될 위험이 높아집니다. 일반적으로는 다음과 같은 경우에 자동 크기 조정을 사용해야 합니다.
 
 * 적절한 용량을 선언하여 Resource Manager 템플릿을 배포하는 과정에서 사용 사례가 지원되지 않는 경우
-  * 수동 크기 조정을 수행함과 동시에 [Azure Resource Group 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합 및 배달 파이프라인]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts)을 구성할 수 있습니다. 연속 통합과 배달 파이프라인은 일반적으로 Virtual Machine 성능 메트릭([Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough)에서 쿼리함)을 활용하는 논리 앱을 통해 트리거됩니다. 이렇게 하면 원하는 모든 메트릭을 기준으로 크기를 효율적으로 자동 조정할 수 있으며, Azure Resource Manager에서 값을 추가할 수 있도록 배포가 최적화됩니다.
+  * 수동 크기 조정을 수행함과 동시에 [Azure Resource Group 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합 및 배포 파이프라인]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts)을 구성할 수 있습니다. 연속 통합과 배포 파이프라인은 일반적으로 Virtual Machine 성능 메트릭([Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough)에서 쿼리함)을 활용하는 논리 앱을 통해 트리거됩니다. 이렇게 하면 원하는 모든 메트릭을 기준으로 크기를 효율적으로 자동 조정할 수 있으며, Azure Resource Manager에서 값을 추가할 수 있도록 배포가 최적화됩니다.
 * Virtual Machine Scale Set 노드를 한 번에 하나씩만 수평으로 크기를 조정하면 되는 경우
   * 3개 이상의 노드 크기를 한 번에 확장하려는 경우에는 [Virtual Machine Scale Set를 추가하여 Service Fabric 클러스터를 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)해야 합니다. 하지만 Virtual Machine Scale Sets는 한 번에 한 노드씩 수평으로 확장하고 규모를 감축하는 것이 가장 안전합니다.
 * Service Fabric 클러스터의 안정성이 Silver 이상이고 자동 크기 조정 규칙을 구성하는 Scale Set의 내구성이 Silver 이상인 경우
@@ -40,7 +40,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 형식의 [크기를 수직으로 조정](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)하려면 여러 단계를 수행하고 다양한 사항을 고려해야 합니다. 예: 
+Azure Service Fabric에서 노드 형식의 [크기를 수직으로 조정](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)하려면 여러 단계를 수행하고 다양한 사항을 고려해야 합니다. 예를 들면 다음과 같습니다.
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않은 경우에는 크기를 조정하면 클러스터가 더 불안정해집니다.
 * 상태 저장 서비스를 호스트하는 모든 Service Fabric 클러스터 NodeType의 경우에는 **내구성 수준이 Silver 이상**이어야 합니다.
 
@@ -49,7 +49,7 @@ Azure Service Fabric에서 노드 형식의 [크기를 수직으로 조정](http
 
 Virtual Machine Scale Set 수직 크기 조정은 안전하지 않은 작업입니다. 그러므로 원하는 SKU가 포함된 새 Scale Set를 추가하여 클러스터 크기를 수평으로 조정하고 원하는 SKU로 서비스를 마이그레이션하면 수직 크기 조정 작업을 안전하게 완료할 수 있습니다. Virtual Machine Scale Set 리소스 SKU 변경은 안전하지 않은 작업입니다. 이 작업에서는 호스트가 이미지로 다시 설치되어 로컬에 영구 저장된 상태가 모두 제거되기 때문입니다.
 
-클러스터는 Service Fabric [노드 속성 및 배치 제약 조건](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints)을 사용하여 애플리케이션 서비스를 호스트할 위치를 결정합니다. 주 노드 형식의 크기를 수직으로 조정할 때는 Virtual Machine Scale Set Service Fabric 확장에 있는 `"nodeTypeRef"`에 대해 동일 속성 값을 선언합니다. 다음의 Resource Manager 템플릿 코드 조각에는 확장 대상인 새로 프로비전한 Scale Sets에 대해 같은 값을 사용하여 선언해야 하는 속성이 나와 있습니다. 이 코드 조각은 클러스터의 임시 상태 저장 명령으로만 지원됩니다.
+클러스터는 Service Fabric [노드 속성 및 배치 제약 조건](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints)을 사용하여 애플리케이션 서비스를 호스트할 위치를 결정합니다. 주 노드 형식의 크기를 수직으로 조정할 때는 Virtual Machine Scale Set Service Fabric 확장에 있는 `"nodeTypeRef"`에 대해 동일 속성 값을 선언합니다. 다음의 Resource Manager 템플릿 코드 조각에는 확장 대상인 새로 프로비저닝한 Scale Sets에 대해 같은 값을 사용하여 선언해야 하는 속성이 나와 있습니다. 이 코드 조각은 클러스터의 임시 상태 저장 명령으로만 지원됩니다. 다음을 참고하세요.
 
 ```json
 "settings": {
@@ -62,8 +62,8 @@ Virtual Machine Scale Set 수직 크기 조정은 안전하지 않은 작업입�
 > 프로덕션 환경 변경을 시도하기 전에 항상 테스트 환경에서 작업 유효성을 검사하세요. 기본적으로 Service Fabric Cluster System Services에는 주 nodetype만 대상으로 지정하는 배치 제약 조건이 있습니다.
 
 노드 속성 및 배치 제약 조건을 선언한 후 다음 단계를 한 번에 한 VM 인스턴스씩 수행합니다. 이렇게 하면 다른 위치에서 새 복제본을 만들 때 제거하는 VM 인스턴스에서 시스템 서비스와 상태 저장 서비스가 정상 종료됩니다.
-1. PowerShell에서 'RemoveNode' 의도를 포함하여 `Disable-ServiceFabricNode`를 실행해 제거할 노드를 사용하지 않도록 설정합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 노드 클러스터가 6개이면 "MyNodeType_5" Virtual Machine Instance를 제거합니다.
-2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드별로 몇 시간씩 기다려야 할 수 있습니다. 노드가 사용하지 않도록 전환될 때까지는 다음 단계를 진행하지 마세요.
+1. PowerShell에서 'RemoveNode' 의도를 포함하여 `Disable-ServiceFabricNode`를 실행해 제거할 노드를 사용하지 않도록 설정합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 노드 클러스터가 6개이면 "MyNodeType_5" 가상 머신 인스턴스를 제거합니다.
+2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드별로 몇 시간씩 기다려야 할 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식의 VM 수를 1개 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
 
@@ -95,14 +95,14 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 ### <a name="scaling-in"></a>규모 감축
 
-규모를 감축하려면 확장할 때보다 더 많은 사항을 고려해야 합니다. 예: 
+규모를 감축하려면 확장할 때보다 더 많은 사항을 고려해야 합니다. 예를 들면 다음과 같습니다.
 * Service Fabric System Services는 클러스터의 주 노드 형식에서 실행됩니다. 인스턴스 수가 안정성 계층에서 보증하는 수보다 적어지도록 해당 노드 형식의 인스턴스를 종료하거나 인스턴스 수를 축소하지 마세요. 
 * 상태 저장 서비스의 경우에는 가용성을 유지하고 서비스 상태를 보존하려면 특정 수의 노드가 항상 작동 상태여야 합니다. 최소한 파티션/서비스의 대상 복제본 세트 수와 같은 수의 노드가 필요합니다.
 
 수동으로 규모를 감축하려면 다음 단계를 수행합니다.
 
-1. PowerShell에서 'RemoveNode' 의도를 포함하여 `Disable-ServiceFabricNode`를 실행해 제거할 노드를 사용하지 않도록 설정합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 노드 클러스터가 6개이면 "MyNodeType_5" Virtual Machine Instance를 제거합니다.
-2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드별로 몇 시간씩 기다려야 할 수 있습니다. 노드가 사용하지 않도록 전환될 때까지는 다음 단계를 진행하지 마세요.
+1. PowerShell에서 'RemoveNode' 의도를 포함하여 `Disable-ServiceFabricNode`를 실행해 제거할 노드를 사용하지 않도록 설정합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 노드 클러스터가 6개이면 "MyNodeType_5" 가상 머신 인스턴스를 제거합니다.
+2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드별로 몇 시간씩 기다려야 할 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식의 VM 수를 1개 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
 
@@ -116,9 +116,9 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-1. 1~3단계를 반복하여 원하는 용량을 프로비전합니다. 단, 주 노드 형식의 인스턴스 수가 안정성 계층에서 보증되는 수보다 적어지도록 클러스터를 축소해서는 안 됩니다. 안정성 계층 및 각 계층에 필요한 인스턴스 수에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
+1. 1~3단계를 반복하여 원하는 용량을 프로비저닝합니다. 단, 주 노드 형식의 인스턴스 수가 안정성 계층에서 보증되는 수보다 적어지도록 클러스터를 축소해서는 안 됩니다. 안정성 계층 및 각 계층에 필요한 인스턴스 수에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
 
-프로그래밍 방식으로 규모를 감축하려면 종료할 노드를 준비해야 합니다. 이 과정에서는 제거할 노드(번호가 가장 큰 인스턴스 노드)를 찾아서 비활성화합니다. 예: 
+프로그래밍 방식으로 규모를 감축하려면 종료할 노드를 준비해야 합니다. 이 과정에서는 제거할 노드(번호가 가장 큰 인스턴스 노드)를 찾아서 비활성화합니다. 예를 들면 다음과 같습니다.
 
 ```c#
 using (var client = new FabricClient())

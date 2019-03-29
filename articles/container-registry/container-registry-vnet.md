@@ -324,7 +324,7 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 az acr network-rule list--name mycontainerregistry 
 ```
 
-구성 된 각 규칙에 대해 실행 합니다 [az acr 네트워크 규칙을 제거] [ az-acr-network-rule-remove] 제거 하는 명령입니다. 예: 
+구성 된 각 규칙에 대해 실행 합니다 [az acr 네트워크 규칙을 제거] [ az-acr-network-rule-remove] 제거 하는 명령입니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.

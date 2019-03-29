@@ -54,7 +54,7 @@ ms.locfileid: "57195169"
    | **리소스** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
    ||||  
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![통합 계정에 대한 진단 설정](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "57195169"
 
    1. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주 및 **저장**을 차례로 선택합니다.
 
-   예:  
+   예를 들면 다음과 같습니다. 
 
    ![진단 데이터 로그를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "57195169"
    | **리소스** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
    ||||  
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![통합 계정에 대한 진단 설정](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "57195169"
 
    1. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주 및 **저장**을 차례로 선택합니다.
 
-   예:  
+   예를 들면 다음과 같습니다. 
 
    ![진단 데이터 로그를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -126,7 +126,7 @@ Azure Monitor 로그와 함께 사용법 논리 앱의 진단 데이터의 다�
 * [Azure Storage에 Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

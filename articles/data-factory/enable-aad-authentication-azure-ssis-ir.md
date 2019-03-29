@@ -216,7 +216,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 1.  [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)  모듈을 설치합니다.
 
-2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예: 
+2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예를 들면 다음과 같습니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

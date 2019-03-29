@@ -489,7 +489,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예: 
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들면 다음과 같습니다.
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

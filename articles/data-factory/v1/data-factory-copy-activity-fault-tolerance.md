@@ -14,7 +14,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
 ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/15/2019
 ms.locfileid: "54321996"
@@ -38,15 +38,15 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 
 - **원본 데이터 형식 및 싱크 원시 형식 간의 비호환성**
 
-    예:  3개의 **INT** 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. `123,456,789`와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 `123,456,abc`와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    예를 들면 다음과 같습니다. 3개의 **INT** 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. `123,456,789`와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 `123,456,abc`와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 - **원본과 싱크 간의 열 수 불일치**
 
-    예:  6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개보다 많거나 적은 열을 포함하는 CSV 파일 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    예를 들면 다음과 같습니다. 6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개보다 많거나 적은 열을 포함하는 CSV 파일 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 - **SQL Server/Azure SQL Database/Azure Cosmos DB에 쓸 때 기본 키 위반**
 
-    예:  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    예를 들면 다음과 같습니다. SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
 >이 기능은 복사 작업이 [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 또는 [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift)를 포함하는 외부 데이터 로드 메커니즘을 호출하도록 구성된 경우에는 적용되지 않습니다. PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려는 경우, 복사 작업에서 "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)"를 지정하여 PolyBase의 네이티브 내결함성 지원을 사용합니다.

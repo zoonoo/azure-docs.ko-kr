@@ -125,7 +125,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    },
    ```
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    !["integrationAccount" 속성 정의 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

@@ -12,7 +12,7 @@ ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
 ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
 ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123690"
@@ -95,7 +95,7 @@ ms.locfileid: "43123690"
 
    ![논리 앱 실행에 대한 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예: 
+3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예를 들면 다음과 같습니다.
 
    ![단계 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

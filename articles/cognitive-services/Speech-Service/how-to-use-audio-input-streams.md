@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ms.author: fmegen
 ms.openlocfilehash: f34504dddaa21cc162476d1fdb462e7be5c48629
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55877306"
@@ -59,7 +59,7 @@ ms.locfileid: "55877306"
    };
   ```
 
-- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예: 
+- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예를 들면 다음과 같습니다.
 
   ```
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

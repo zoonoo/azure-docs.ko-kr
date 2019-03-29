@@ -263,7 +263,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 여러 리소스에 대한 로그를 수집하는 데 동일한 저장소 계정을 사용할 수 있으므로 Blob 이름에 있는 정규화된 리소스 ID를 사용하여 필요한 특정 Blob을 액세스하거나 다운로드할 수 있습니다. 이러한 작업을 수행하기 전에, 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-먼저 Blob을 다운로드할 폴더를 만듭니다. 예: 
+먼저 Blob을 다운로드할 폴더를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -285,7 +285,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 폴더 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예: 
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들면 다음과 같습니다.
 
 * 여러 데이터베이스가 있고 **CONTOSOCOSMOSDB3**라는 하나의 데이터베이스에 대한 로그를 다운로드하려는 경우 다음 명령을 사용합니다.
 

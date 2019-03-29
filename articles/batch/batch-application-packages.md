@@ -17,7 +17,7 @@ ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55454612"
@@ -256,7 +256,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 예: 
+Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 예를 들면 다음과 같습니다.
 
 ```
 Linux:

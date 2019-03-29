@@ -181,7 +181,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>리소스 그룹 설정
 
-기존 리소스 그룹이 없는 경우 **New-AzureRmResourceGroup** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예: 
+기존 리소스 그룹이 없는 경우 **New-AzureRmResourceGroup** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

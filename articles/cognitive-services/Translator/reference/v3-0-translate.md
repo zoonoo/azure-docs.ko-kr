@@ -401,7 +401,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-예: 
+예를 들면 다음과 같습니다.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

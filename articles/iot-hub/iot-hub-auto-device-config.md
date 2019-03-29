@@ -10,7 +10,7 @@ ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 2edde122b109779794bb86752d69a5318edb9235
 ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2018
 ms.locfileid: "42146659"
@@ -88,7 +88,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 2. **메트릭 조건**에 대한 쿼리를 입력합니다.  쿼리는 보고된 디바이스 쌍 속성을 기준으로 합니다.  메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 SELECT deviceId FROM devices 

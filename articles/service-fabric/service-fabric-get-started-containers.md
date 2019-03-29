@@ -468,7 +468,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예: 
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들면 다음과 같습니다.
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows Server 버전 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709를 실행하는 호스트에서 HyperV 격리 모드로만 작동합니다. 
@@ -476,7 +476,7 @@ Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예: 
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예를 들면 다음과 같습니다.
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.

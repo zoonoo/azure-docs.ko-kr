@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56245952"
@@ -197,7 +197,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | 형식 | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
-예: 
+예를 들면 다음과 같습니다.
 
 ``` json
 {

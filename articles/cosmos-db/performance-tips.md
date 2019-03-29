@@ -136,7 +136,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     모든 적용 가능한 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 요청 헤더를 사용하는 페이지 크기를 최대 1000으로 늘릴 수 있습니다. 사용자 인터페이스 또는 애플리케이션 API가 한 번에 10개의 결과만 반환하는 것처럼 몇 가지 결과만 표시해야 하는 경우, 읽기 및 쿼리에 사용되는 처리량을 줄이기 위해 페이지 크기를 10으로 줄일 수도 있습니다.
 
-    또한 Azure Cosmos DB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다.  예: 
+    또한 Azure Cosmos DB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다.  예를 들면 다음과 같습니다.
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **스레드/작업의 수 늘리기**

@@ -10,7 +10,7 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094522"
@@ -154,7 +154,7 @@ npm start
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 솔루션에서 마이크로 서비스를 호스트하는 가상 머신에 대한 SSH 액세스를 활성화합니다. 예: 
+1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 솔루션에서 마이크로 서비스를 호스트하는 가상 머신에 대한 SSH 액세스를 활성화합니다. 예를 들면 다음과 같습니다.
 
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +162,7 @@ npm start
 
     테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/azure-security-network-security-best-practices.md).
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예: 
+1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
     ```sh
     az resource list --resource-group {your solution name} -o table

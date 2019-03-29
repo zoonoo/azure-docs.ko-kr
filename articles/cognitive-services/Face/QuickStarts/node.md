@@ -98,7 +98,7 @@ request.post(options, (error, response, body) => {
 node facedetection.js
 ```
 
-콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예: 
+콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 [

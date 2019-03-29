@@ -114,7 +114,7 @@ ms.locfileid: "58098902"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예: 
+6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예를 들면 다음과 같습니다.
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose

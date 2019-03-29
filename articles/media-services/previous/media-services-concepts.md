@@ -187,7 +187,7 @@ Media Services 콘텐츠 배달 워크플로의 단계 중 하나를 구성 하 
 >[!NOTE]
 >암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
 
-사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예: 
+사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예를 들면 다음과 같습니다.
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

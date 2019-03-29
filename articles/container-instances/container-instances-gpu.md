@@ -211,7 +211,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예: 
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

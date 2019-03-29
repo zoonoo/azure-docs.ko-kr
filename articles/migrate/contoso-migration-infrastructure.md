@@ -715,7 +715,7 @@ ServiceManager | 리소스에 대한 ITIL 서비스 관리자의 이메일 별�
 COBPriority | 회사에서 설정한 BCDR에 대한 우선 순위입니다. 값은 1-5입니다.
 ENV | 가능한 값은 DEV, STG, PROD입니다. 이러한 값은 순서대로 개발, 준비 및 프로덕션을 나타냅니다.
 
-예:  
+예를 들면 다음과 같습니다. 
 
  ![Azure 태그](./media/contoso-migration-infrastructure/azure-tag.png)
 

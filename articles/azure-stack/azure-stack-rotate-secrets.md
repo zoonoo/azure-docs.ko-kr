@@ -17,7 +17,7 @@ ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
 ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55251353"
@@ -135,7 +135,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 > 파일 공유 폴더 구조의 시작 해야 이기도 **인증서** 폴더가 고 그렇지 유효성 검사에 실패할 수도 있습니다.
 > 파일 공유 탑재 같습니다 **\\ \\ \<IPAddress >\\\<ShareName >\\** 폴더를 포함 해야 하 고  **Certificates\AAD** 나 **Certificates\ADFS** 내에서.
 >
-> 예: 
+> 예를 들면 다음과 같습니다.
 > - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -371,7 +371,7 @@ Remove-PSSession -Session $PEPSession
 
 1. Azure Stack 물리적 서버에서 BMC에 OEM 지침에 따라 업데이트 합니다. 사용자 계정 이름 및 사용자 환경에서 각 BMC에 대 한 암호에는 동일 해야 합니다.
 2. Azure Stack 세션에서 권한 있는 끝점을 엽니다. 자세한 내용은 [권한 있는 끝점을 사용 하 여 Azure Stack에서](azure-stack-privileged-endpoint.md)합니다.
-3. 프롬프트에 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM 이름]: PS >** 또는 **[azs ercs01]: PS >** 실행 환경에 따라 `Set-BmcCredential` 실행 하 여 `Invoke-Command`입니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예: 
+3. 프롬프트에 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM 이름]: PS >** 또는 **[azs ercs01]: PS >** 실행 환경에 따라 `Set-BmcCredential` 실행 하 여 `Invoke-Command`입니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예를 들면 다음과 같습니다.
 
     ```PowerShell
     # Interactive Version

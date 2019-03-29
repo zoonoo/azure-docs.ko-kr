@@ -69,7 +69,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR 서버 설치 디렉터리입니다. 예:  E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - ASR 서버 설치 디렉터리입니다. 예를 들면 다음과 같습니다. E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>바이러스 백신 소프트웨어가 스케일 아웃 프로세스 서버/마스터 대상에서 활성 상태인 경우
 

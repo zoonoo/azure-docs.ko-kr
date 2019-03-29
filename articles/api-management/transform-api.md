@@ -115,7 +115,7 @@ ms.locfileid: "58084983"
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
-7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예: 
+7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예를 들면 다음과 같습니다.
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 

@@ -14,7 +14,7 @@ ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 8a2a080ee87d48d25d7d793ca0aca463f25e52eb
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54021682"
@@ -27,7 +27,7 @@ ms.locfileid: "54021682"
 이 문서에서는 Azure Data Factory에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="introduction"></a>소개
-정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:   
+정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예를 들면 다음과 같습니다.  
   
 ```json
 "name": "value"

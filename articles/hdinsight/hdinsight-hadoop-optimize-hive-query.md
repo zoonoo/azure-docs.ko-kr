@@ -122,7 +122,7 @@ Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩
 자세한 내용은 [분할된 테이블](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)을 참조하세요.
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
-Hive는 다양한 파일 형식을 지원합니다. 예: 
+Hive는 다양한 파일 형식을 지원합니다. 예를 들면 다음과 같습니다.
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -148,7 +148,7 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
    STORED AS ORC;
    ```
    
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예: 
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들면 다음과 같습니다.
 
    ```hive
    INSERT INTO TABLE lineitem_orc

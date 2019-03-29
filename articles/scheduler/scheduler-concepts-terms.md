@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57887054"
@@ -301,7 +301,7 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 * 실패 횟수(해당되는 경우)
 * 오류 수(해당되는 경우)
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```json
 "status": {

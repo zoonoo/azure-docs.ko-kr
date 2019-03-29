@@ -18,7 +18,7 @@ ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
 ms.openlocfilehash: b51f88aae20506e70c3a7bd1c199d032d98fd6fa
 ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57774764"
@@ -88,7 +88,7 @@ PSBoundParameters :
 ```
 
 ## <a name="view-the-report-summary"></a>요약 보고서를 보려면
-보고서의 요약을 확인 하려면 추가 합니다 **-요약** PowerShell 명령줄의 끝으로 전환 합니다. 예:  
+보고서의 요약을 확인 하려면 추가 합니다 **-요약** PowerShell 명령줄의 끝으로 전환 합니다. 예를 들면 다음과 같습니다. 
  > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
 요약 결과 되지 않은 유효성 검사 나타나며 전달 하거나 완료 되는 유효성 검사 실패를 나타냅니다. 출력은 다음과 유사합니다.

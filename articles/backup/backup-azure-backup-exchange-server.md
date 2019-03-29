@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55298316"
@@ -82,10 +82,10 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. DPM 서버가 초기 복제 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예: 
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예: 
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

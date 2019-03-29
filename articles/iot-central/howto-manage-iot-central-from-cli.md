@@ -31,7 +31,7 @@ Azure CLI를 로컬 컴퓨터에서 실행 하려는 경우 참조 [Azure CLI �
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-사용 된 [az iotcentral 앱 만들기](/cli/azure/iotcentral/app#az-iotcentral-app-create) Azure 구독에서 IoT Central 응용 프로그램을 만들려면 명령입니다. 예: 
+사용 된 [az iotcentral 앱 만들기](/cli/azure/iotcentral/app#az-iotcentral-app-create) Azure 구독에서 IoT Central 응용 프로그램을 만들려면 명령입니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -84,7 +84,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-사용 된 [az iotcentral 앱 삭제](/cli/azure/iotcentral/app#az-iotcentral-app-delete) IoT Central 응용 프로그램을 삭제 하는 명령입니다. 예: 
+사용 된 [az iotcentral 앱 삭제](/cli/azure/iotcentral/app#az-iotcentral-app-delete) IoT Central 응용 프로그램을 삭제 하는 명령입니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

@@ -124,7 +124,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
     1. **신호 형식**으로 **메트릭**을 선택합니다. 
-    2. 신호를 선택합니다. 예:  **서비스 오류(미리 보기)**. 
+    2. 신호를 선택합니다. 예를 들면 다음과 같습니다. **서비스 오류(미리 보기)**. 
 
         ![서버 오류 선택](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. **조건**으로 **다음보다 큼**을 선택합니다.

@@ -186,7 +186,7 @@ ApplicationLoad 쿼리는 애플리케이션에 대해 지정된 애플리케이
 * 응용 프로그램 용량: 최대 응용 프로그램 부하의 값을 허용 합니다.
 
 ## <a name="removing-application-capacity"></a>애플리케이션 용량 삭제
-애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예: 
+애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

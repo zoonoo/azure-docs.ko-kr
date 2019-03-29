@@ -146,7 +146,7 @@ Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합�
 
 ## <a name="wrap-up"></a>마무리
 
-생성된 계정 정보를 Cloud 파트너 포털에 추가하여 잠재 고객 관리용으로 Dynamics CRM 구성을 완료합니다. 예: 
+생성된 계정 정보를 Cloud 파트너 포털에 추가하여 잠재 고객 관리용으로 Dynamics CRM 구성을 완료합니다. 예를 들면 다음과 같습니다.
 
 -   **Azure Active Directory** - **Application-id** (예: *23456052-aaaa-bbbb-8662-1234df56788f*), **디렉터리 Id** (예: *12345678-8af1-4asf-1234-12234d01db47*), 및 **응용 프로그램 키** (예: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
 -   **Office 365** - **Url** (예: *https://contoso.crm4.dynamics.com*), **사용자 이름을** (예: *contoso\@ contoso.onmicrosoft.com*), 및 **암호** (예: *P\@ssw0rd*).

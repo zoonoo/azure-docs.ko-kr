@@ -43,7 +43,7 @@ ms.locfileid: "57877312"
 
 **요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예: 
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +65,7 @@ ms.locfileid: "57877312"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예:  
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들면 다음과 같습니다. 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +96,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예:  
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들면 다음과 같습니다. 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +117,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예: 
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html

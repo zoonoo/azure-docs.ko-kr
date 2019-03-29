@@ -337,7 +337,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ### <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예: 
+사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

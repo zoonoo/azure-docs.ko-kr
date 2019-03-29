@@ -16,7 +16,7 @@ ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
 ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56100540"
@@ -40,7 +40,7 @@ ms.locfileid: "56100540"
 npm install azure-mobile-apps-client --save
 ```
 
-또한 라이브러리는 Browserify 및 Webpack과 같은 CommonJS 환경 내에서 ES2015 모듈로 사용할 수 있으며 AMD 라이브러리로 사용할 수도 있습니다.  예: 
+또한 라이브러리는 Browserify 및 Webpack과 같은 CommonJS 환경 내에서 ES2015 모듈로 사용할 수 있으며 AMD 라이브러리로 사용할 수도 있습니다.  예를 들면 다음과 같습니다.
 
 ```javascript
 // For ECMAScript 5.1 CommonJS

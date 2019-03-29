@@ -189,7 +189,7 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-사용자가 Azure AD v2.0 엔드포인트와 상호 작용하도록 해야 하는 경우가 있습니다. 예: 
+사용자가 Azure AD v2.0 엔드포인트와 상호 작용하도록 해야 하는 경우가 있습니다. 예를 들면 다음과 같습니다.
 * 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 합니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.

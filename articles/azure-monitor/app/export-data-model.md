@@ -14,7 +14,7 @@ ms.date: 01/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54119275"
@@ -234,7 +234,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 
 | path | type | 메모 |
 | --- | --- | --- |
-| request [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예:  4 =&gt; 25%. |
+| request [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예를 들면 다음과 같습니다. 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id |string |작업 ID |
 | request [0] name |string |GET/POST + url 기본입니다.  최대 길이 250 |
@@ -301,7 +301,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
     {
      "metric": [ ],
@@ -327,7 +327,7 @@ TrackMetric()에서 생성합니다.
     }
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예: 
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예를 들면 다음과 같습니다.
 
       "durationMetric": {
         "name": "contoso.org",

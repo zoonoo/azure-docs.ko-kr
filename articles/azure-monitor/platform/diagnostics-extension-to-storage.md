@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54468525"
@@ -71,7 +71,7 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 * **"custom"** – 진단 모니터에 의해 모니터링되는 구성 디렉터리에 기반한 사용자 지정 컨테이너입니다.  이 Blob 컨테이너의 이름은 WADDirectoriesTable에 지정됩니다.
 
 ## <a name="tools-to-view-diagnostic-data"></a>진단 데이터를 볼 도구
-여러 도구를 사용하여 저장소로 전송된 후 데이터를 볼 수 있습니다. 예: 
+여러 도구를 사용하여 저장소로 전송된 후 데이터를 볼 수 있습니다. 예를 들면 다음과 같습니다.
 
 * Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure Storage 노드를 사용하여 Azure Storage 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 저장소 에뮬레이터 계정 및 Azure용으로 만든 저장소 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 Storage 리소스 탐색 및 관리](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)를 참조하세요.
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, OSX 및 Linux에서 Azure Storage 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다.

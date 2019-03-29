@@ -68,7 +68,7 @@ Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경�
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-기본 부하 분산 장치를 만들려면 부하 분산 장치를 만드는 줄에서 `-sku Standard`를 제거합니다. 예: 
+기본 부하 분산 장치를 만들려면 부하 분산 장치를 만드는 줄에서 `-sku Standard`를 제거합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe

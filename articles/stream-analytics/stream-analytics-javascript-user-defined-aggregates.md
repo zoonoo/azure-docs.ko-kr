@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55097982"
@@ -175,7 +175,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예: 
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예를 들면 다음과 같습니다.
 
 ```SQL
 WITH value AS

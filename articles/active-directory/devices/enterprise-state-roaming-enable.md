@@ -42,7 +42,7 @@ Enterprise State Roaming을 사용하도록 설정하면 Azure Information Prote
 Enterprise State Roaming 서비스를 사용하는 Windows 10 디바이스의 경우 Azure AD ID를 사용하여 디바이스를 인증해야 합니다. 디바이스가 Azure AD에 조인된 경우 사용자의 기본 로그인 ID는 해당 Azure AD ID이므로 추가 구성이 필요하지 않습니다. 디바이스에서 온-프레미스 Active Directory를 사용하는 경우 IT 관리자가 [하이브리드 Azure Active Directory 조인 디바이스를 구성](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps)해야 합니다. 
 
 ## <a name="data-storage"></a>데이터 저장소
-Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설정된 국가/지역 값에 가장 적합한 하나 이상의 [Azure 지역](https://azure.microsoft.com/regions/)에서 호스트됩니다. 엔터프라이즈 상태 로밍 데이터는 북미, EMEA, APAC의 주요 지리적 지역 3개를 기준으로 분할됩니다. 테넌트에 대한 엔터프라이즈 상태 로밍 데이터는 지리적 영역에 로컬로 위치하며 여러 지역에 걸쳐 복제되지 않습니다.  예: 
+Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설정된 국가/지역 값에 가장 적합한 하나 이상의 [Azure 지역](https://azure.microsoft.com/regions/)에서 호스트됩니다. 엔터프라이즈 상태 로밍 데이터는 북미, EMEA, APAC의 주요 지리적 지역 3개를 기준으로 분할됩니다. 테넌트에 대한 엔터프라이즈 상태 로밍 데이터는 지리적 영역에 로컬로 위치하며 여러 지역에 걸쳐 복제되지 않습니다.  예를 들면 다음과 같습니다.
 
 국가/지역 값 | 해당 데이터가 다음 지역에서 호스트되는 경우
 ---------------------|-------------------------
@@ -81,7 +81,7 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 * **요청 시 삭제**: Azure AD 관리자는 특정 사용자의 데이터 또는 설정 데이터를 수동으로 삭제하고 싶으면 [Azure 지원](https://azure.microsoft.com/support/)에서 티켓을 발행하면 됩니다. 
 
 ### <a name="stale-data-deletion"></a>부실 데이터 삭제
-1년("보존 기간") 동안 액세스되지 않은 데이터는 부실한 것으로 간주되고 Microsoft 클라우드에서 삭제할 수 있습니다. 보존 기간은 변경될 수 있지만 90일 이상입니다. 특정 Windows/응용 프로그램 설정이 유효하지 않을 수도 있고 사용자의 모든 설정이 유효하지 않을 수도 있습니다. 예: 
+1년("보존 기간") 동안 액세스되지 않은 데이터는 부실한 것으로 간주되고 Microsoft 클라우드에서 삭제할 수 있습니다. 보존 기간은 변경될 수 있지만 90일 이상입니다. 특정 Windows/응용 프로그램 설정이 유효하지 않을 수도 있고 사용자의 모든 설정이 유효하지 않을 수도 있습니다. 예를 들면 다음과 같습니다.
 
 * 특정 설정 컬렉션에 아무 장치도 액세스하지 않는 경우(예: 장치에서 애플리케이션이 제거되거나 "테마"와 같은 설정 그룹이 사용자의 모든 장치에 대해 비활성화되는 경우) 해당 컬렉션은 보존 기간이 끝난 후 부실하다고 취급되어 삭제될 수 있습니다. 
 * 사용자가 모든 디바이스에서 설정 동기화를 끄면 설정 데이터 전체가 액세스되지 않으며, 해당 사용자의 모든 설정 데이터는 보존 기간이 끝난 후 유효하지 않은 것으로 취급되어 삭제될 수 있습니다. 

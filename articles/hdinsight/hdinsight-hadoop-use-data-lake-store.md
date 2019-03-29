@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>추가 스토리지로 Data Lake Storage Gen1 사용
 
-Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이런 경우 클러스터 기본 스토리지는 Azure Storage Blob 또는 Data Lake Storage 계정입니다. 추가 스토리지로 Data Lake Storage에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예: 
+Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이런 경우 클러스터 기본 스토리지는 Azure Storage Blob 또는 Data Lake Storage 계정입니다. 추가 스토리지로 Data Lake Storage에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예를 들면 다음과 같습니다.
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 이제 URL에 **cluster_root_path**가 없습니다. 이 경우 Data Lake Storage가 기본 스토리지가 아니기 때문입니다. 따라서 파일에 대한 경로만 제공하면 됩니다.
 
-Data Lake Storage Gen1을 기본 스토리지로 사용할 수 있으려면 파일이 저장된 다음 경로에 대한 서비스 주체 액세스 권한을 부여해야 합니다.  예: 
+Data Lake Storage Gen1을 기본 스토리지로 사용할 수 있으려면 파일이 저장된 다음 경로에 대한 서비스 주체 액세스 권한을 부여해야 합니다.  예를 들면 다음과 같습니다.
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

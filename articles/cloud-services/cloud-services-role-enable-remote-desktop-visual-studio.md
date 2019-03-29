@@ -14,7 +14,7 @@ ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
 ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/10/2018
 ms.locfileid: "44304057"
@@ -86,7 +86,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예: 
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들면 다음과 같습니다.
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

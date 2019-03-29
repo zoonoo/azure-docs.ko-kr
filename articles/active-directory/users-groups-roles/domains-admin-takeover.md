@@ -153,7 +153,7 @@ Cmdlet | 사용 현황
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예: 
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들면 다음과 같습니다.
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Cmdlet | 사용 현황
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   예: 
+   예를 들면 다음과 같습니다.
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

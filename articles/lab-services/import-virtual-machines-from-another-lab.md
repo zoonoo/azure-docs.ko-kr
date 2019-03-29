@@ -62,7 +62,7 @@ ImportVirtualMachines.ps1 파일을 다운로드 합니다 [GitHub](https://gith
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>PowerShell를 사용 하 여 원본 랩의 모든 Vm 가져오기
-원본 가상 컴퓨터를 지정 하지 않으면 스크립트 DevTest 랩에서 모든 Vm을 자동으로 가져옵니다.  예: 
+원본 가상 컴퓨터를 지정 하지 않으면 스크립트 DevTest 랩에서 모든 Vm을 자동으로 가져옵니다.  예를 들면 다음과 같습니다.
  
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `

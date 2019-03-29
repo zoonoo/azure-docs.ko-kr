@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-대안으로 HTTP 요청 헤더에서 구독 키 **ocp-apim-subscription-key: &lt;구독 키&gt;** 를 지정할 수도 있습니다. 클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+대안으로 HTTP 요청 헤더에서 구독 키 **ocp-apim-subscription-key: &lt;구독 키&gt;** 를 지정할 수도 있습니다. 클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예를 들면 다음과 같습니다.
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");

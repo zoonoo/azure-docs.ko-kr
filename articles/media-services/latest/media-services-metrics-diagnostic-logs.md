@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

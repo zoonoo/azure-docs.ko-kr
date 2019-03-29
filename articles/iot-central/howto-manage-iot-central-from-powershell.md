@@ -45,7 +45,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 예: 
+[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -97,7 +97,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-[Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) cmdlet을 사용하여 IoT Central 애플리케이션을 삭제합니다. 예: 
+[Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) cmdlet을 사용하여 IoT Central 애플리케이션을 삭제합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `

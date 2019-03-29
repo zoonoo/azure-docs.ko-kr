@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예: 
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들면 다음과 같습니다.
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 JSON 및 JS 디바이스 모델 파일은 빌드된 솔루션에 복사되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예: 
+포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

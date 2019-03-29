@@ -118,7 +118,7 @@ Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 
 참조를 [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 를 서비스 주체를 만드는 지침입니다. 선택할 **웹 앱/a p I** 응용 프로그램 형식 또는 [PowerShell 스크립트를 사용 하 여](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) 문서에 설명 된 대로 [기존 서비스를 사용 하 여 Azure Resource Manager 서비스 연결을 만들기 주 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)합니다.
 
  > [!Note]  
- > 전달 해야 하는 Azure Stack Azure Resource Manager 끝점을 만드는 스크립트를 사용 합니다 **-azureStackManagementURL** 매개 변수 및 **-environmentName** 매개 변수입니다. 예:   
+ > 전달 해야 하는 Azure Stack Azure Resource Manager 끝점을 만드는 스크립트를 사용 합니다 **-azureStackManagementURL** 매개 변수 및 **-environmentName** 매개 변수입니다. 예를 들면 다음과 같습니다.  
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>액세스 키 만들기

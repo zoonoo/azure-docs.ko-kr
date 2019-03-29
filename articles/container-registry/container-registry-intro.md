@@ -40,7 +40,7 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure ID, Azure Active Directory에서 지원하는 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. Azure 명령줄 인터페이스 또는 표준 `docker login` 명령을 사용하여 레지스트리에 로그인하세요.
 
-* **리포지토리** - 레지스트리는 컨테이너 이미지 그룹을 저장하는 리포지토리를 하나 이상 포함하고 있습니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예: 
+* **리포지토리** - 레지스트리는 컨테이너 이미지 그룹을 저장하는 리포지토리를 하나 이상 포함하고 있습니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예를 들면 다음과 같습니다.
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1`은 회사 차원의 이미지를 나타냅니다.
   * `myregistry.azurecr.io/warrantydept/dotnet-build`는 보증 부서 차원에서 공유되는 .NET 앱을 빌드하는 데 사용되는 이미지를 나타냅니다.

@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
 ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230338"
@@ -39,7 +39,7 @@ ms.locfileid: "50230338"
 
 1. 원하는 위치에 조건을 추가합니다. 
 
-   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**(**+**)를 선택한 다음 **작업 추가**를 선택합니다. 예: 
+   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**(**+**)를 선택한 다음 **작업 추가**를 선택합니다. 예를 들면 다음과 같습니다.
 
    ![단계 사이에 작업 추가](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -72,7 +72,7 @@ ms.locfileid: "50230338"
    하위 조건이 있는 그룹을 추가하려면 **추가** > **그룹 추가**를 선택합니다. 
    기존 행을 그룹화하려면 해당 행의 확인란을 선택하고, 임의 행의 줄임표(...) 단추를 선택한 다음, **그룹 만들기**를 선택합니다.
 
-1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예: 
+1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예를 들면 다음과 같습니다.
 
    !["If true" 및 "If false" 경로를 포함한 조건](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

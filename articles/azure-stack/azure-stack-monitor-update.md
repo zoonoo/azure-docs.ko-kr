@@ -70,7 +70,7 @@ Cmdlet은 사용 가능한 지 프로그래밍 방식으로 권한 있는 끝점
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   예: 
+   예를 들면 다음과 같습니다.
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

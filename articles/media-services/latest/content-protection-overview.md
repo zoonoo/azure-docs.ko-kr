@@ -168,7 +168,7 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 * StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate-위와 동일 하며 Widevine에 대해서만 합니다. 
 * StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate-위와 동일 하며 FairPlay에 대 한 합니다.  
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

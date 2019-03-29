@@ -22,7 +22,7 @@ ms.locfileid: "57779796"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예: 
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들면 다음과 같습니다.
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 `BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // Batch account credentials

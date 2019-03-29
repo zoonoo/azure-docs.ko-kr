@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
 ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2019
 ms.locfileid: "54901788"
@@ -61,7 +61,7 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예:  
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들면 다음과 같습니다. 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.

@@ -22,7 +22,7 @@ ms.locfileid: "57975562"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
-특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 예: 
+특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 다중 인스턴스 [MPI 워크로드](batch-mpi.md)를 실행하려면 RDMA(Remote Direct Memory Access)에 대한 네트워크 인터페이스가 있는 H 시리즈 또는 기타 크기를 선택합니다. 이러한 크기는 MPI 애플리케이션을 가속화할 수 있는 노드 간 통신에 대한 InfiniBand 네트워크에 연결합니다. 
 

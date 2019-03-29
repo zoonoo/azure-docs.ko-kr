@@ -88,7 +88,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

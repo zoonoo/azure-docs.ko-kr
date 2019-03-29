@@ -12,7 +12,7 @@ ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
 ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
 ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43128284"
@@ -59,7 +59,7 @@ ms.locfileid: "43128284"
    
     ![통합 연결 생성](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ![요청 출력에서 본문 및 헤더를 선택합니다.](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 

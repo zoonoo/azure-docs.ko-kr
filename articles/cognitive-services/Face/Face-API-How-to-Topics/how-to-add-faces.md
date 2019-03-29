@@ -62,7 +62,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>2단계: API 호출 권한 부여
 
-클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예를 들면 다음과 같습니다.
 
 ```CSharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");

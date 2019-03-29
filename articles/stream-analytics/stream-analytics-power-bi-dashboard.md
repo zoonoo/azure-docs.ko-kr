@@ -214,7 +214,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 ![값을 계산하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-예: 
+예를 들면 다음과 같습니다.
 
 * 1,000대의 디바이스가 1초 간격으로 데이터를 보내고 있습니다.
 * 시간당 1,000,000개의 행을 지원하는 Power BI Pro SKU를 사용하고 있습니다.

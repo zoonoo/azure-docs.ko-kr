@@ -98,7 +98,7 @@ var searchResult = new SearchResult()
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>요청에 이미지 인사이트 토큰 사용
 
-`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 예: 
+`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 예를 들면 다음과 같습니다.
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2

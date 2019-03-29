@@ -195,7 +195,7 @@ Application Insights ILogger를 통해 전송 된 캡처 로그를 지원 합니
 
    ![주소 표시줄의 브라우저 URL 스크린샷](./media/asp-net-core/0013-copy-url.png)
 
-3. 테스트 앱을 사용하여 100개의 가상 트랜잭션을 만들려면 다음 PowerShell 루프를 실행합니다. `localhost:` 다음의 포트 번호가 이전 단계에서 복사한 URI와 일치하도록 수정합니다. 예: 
+3. 테스트 앱을 사용하여 100개의 가상 트랜잭션을 만들려면 다음 PowerShell 루프를 실행합니다. `localhost:` 다음의 포트 번호가 이전 단계에서 복사한 URI와 일치하도록 수정합니다. 예를 들면 다음과 같습니다.
 
    ```powershell
    for ($i = 0 ; $i -lt 100; $i++)

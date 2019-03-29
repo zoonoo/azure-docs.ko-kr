@@ -31,7 +31,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예: 
+1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예를 들면 다음과 같습니다.
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
     테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용하도록 설정할 경우 [사용을 마친 즉시 사용을 중지해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예: 
+1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table

@@ -315,7 +315,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 장치에서 알림 허브에 등록하는 예제 코드
 
-앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예: 
+앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

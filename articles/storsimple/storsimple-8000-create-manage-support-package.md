@@ -16,7 +16,7 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254369"
@@ -31,7 +31,7 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
 
 ## <a name="create-a-support-package"></a>지원 패키지 만들기
 
-경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예: 
+경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예를 들면 다음과 같습니다.
 
 * Microsoft 지원과 공유하기 전에 로그 파일에서 중요한 정보를 제거해야 하는 경우
 * 연결 문제로 인해 패키지를 업로드하는 데 문제가 발생하는 경우

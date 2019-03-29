@@ -12,7 +12,7 @@ services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
 ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56428780"
@@ -109,7 +109,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. **메트릭 조건**에 대한 쿼리를 입력합니다. 쿼리는 IoT Edge 허브 모듈 쌍의 [보고된 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 기반으로 합니다. 메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```sql
 SELECT deviceId FROM devices

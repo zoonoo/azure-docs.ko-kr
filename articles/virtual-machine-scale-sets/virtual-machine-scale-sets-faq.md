@@ -707,7 +707,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예:  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들면 다음과 같습니다. 0, 1, 3...
 
 가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true**로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true**로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다.
 

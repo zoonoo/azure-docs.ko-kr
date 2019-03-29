@@ -215,7 +215,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
-   예: 
+   예를 들면 다음과 같습니다.
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```

@@ -147,7 +147,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 1. 다음 Azure VM 빠른 시작, ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기") 필요한 섹션만 완료 중 하나를 참조 하십시오. 
   
-    “VM 만들기” 섹션으로 이동할 때 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID ` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예: 
+    “VM 만들기” 섹션으로 이동할 때 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID ` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예를 들면 다음과 같습니다.
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

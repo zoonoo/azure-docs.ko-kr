@@ -182,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>예
-인라인 엔터티는 확인해야 하지만 외부 엔터티는 확인할 필요가 없는 경우 XmlReaderSettings.XmlResolver 속성을 null로 설정합니다. 예:  
+인라인 엔터티는 확인해야 하지만 외부 엔터티는 확인할 필요가 없는 경우 XmlReaderSettings.XmlResolver 속성을 null로 설정합니다. 예를 들면 다음과 같습니다. 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();

@@ -113,12 +113,12 @@ if($s)
 
 - 합니다 **FromDate** 하 고 **ToDate** 특정 기간에 대 한 로그를 수집 하려면 매개 변수를 사용할 수 있습니다. 이러한 매개 변수를 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
 
-- 사용 된 **FilterByNode** 컴퓨터 이름으로 로그를 필터링 하려면 매개 변수입니다. 예: 
+- 사용 된 **FilterByNode** 컴퓨터 이름으로 로그를 필터링 하려면 매개 변수입니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
-- 사용 된 **FilterByLogType** 매개 변수 형식으로 로그를 필터링 합니다. 파일, 공유 또는 WindowsEvent로 필터링 하도록 선택할 수 있습니다. 예: 
+- 사용 된 **FilterByLogType** 매개 변수 형식으로 로그를 필터링 합니다. 파일, 공유 또는 WindowsEvent로 필터링 하도록 선택할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File

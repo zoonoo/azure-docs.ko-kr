@@ -83,7 +83,7 @@ FQDN: contoso.com
 
 MASBackup 폴더는 Azure Stack 백업 데이터를 저장 하는 위치입니다. 사용자 고유의 데이터를 저장 하려면이 폴더를 사용 하지 마십시오. OEM 하거나 모든 백업 데이터를 저장 하려면이 폴더를 사용 해야 합니다. 
 
-Oem 지역 폴더 아래에 있는 해당 구성 요소에 대 한 백업 데이터를 저장 하는 것이 좋습니다. 각 네트워크 스위치, 하드웨어 수명 주기 호스트 (HLH) 등에 해당 하위 폴더에 저장할 수 있습니다. 예: 
+Oem 지역 폴더 아래에 있는 해당 구성 요소에 대 한 백업 데이터를 저장 하는 것이 좋습니다. 각 네트워크 스위치, 하드웨어 수명 주기 호스트 (HLH) 등에 해당 하위 폴더에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches

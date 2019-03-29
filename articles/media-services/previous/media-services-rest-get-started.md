@@ -338,7 +338,7 @@ AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage R
 Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
 ### <a name="update-the-assetfile"></a>AssetFile 업데이트
-이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예: 
+이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예를 들면 다음과 같습니다.
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -820,7 +820,7 @@ AccessPolicy와 로케이터를 설정했으면 Azure Storage REST API를 사용
 
 Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
-이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예:     
+이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예를 들면 다음과 같습니다.    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

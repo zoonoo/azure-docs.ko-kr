@@ -12,7 +12,7 @@ ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55868330"
@@ -76,7 +76,7 @@ Azure 계정 및 Speech Service에 대한 구독이 필요합니다. 구독이 �
 
 스크립트 파일은 일반 텍스트 파일(ANSI, UTF-8, UTF-8-BOM, UTF-16-LE 또는 UTF-16-BE)입니다. 스크립트 파일의 각 줄에는 오디오 파일의 이름, 탭(코드 포인트 9) 문자, 해당 스크립트가 순서대로 포함되어야 합니다. 빈 줄은 허용되지 않습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 0000000001  This is the waistline, and it's falling.

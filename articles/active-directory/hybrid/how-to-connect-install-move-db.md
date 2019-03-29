@@ -46,7 +46,7 @@ ms.locfileid: "58437784"
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
     ![시작](./media/how-to-connect-install-move-db/db3.png)
-12. **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예:          
+12. **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예를 들면 다음과 같습니다.         
     ![시작](./media/how-to-connect-install-move-db/db4.png)           
 
 13. **Azure AD에 연결** 화면에서 Azure AD 디렉터리의 전역 관리자의 자격 증명을 제공해야 합니다. 기본 onmicrosoft.com 도메인의 계정을 사용하는 것이 좋습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.

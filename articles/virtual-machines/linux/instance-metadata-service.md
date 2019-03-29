@@ -105,7 +105,7 @@ API | 기본 데이터 형식 | 다른 형식
 /scheduledevents | json : | 없음
 /attested | json : | 없음
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예: 
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"

@@ -72,7 +72,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

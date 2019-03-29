@@ -168,7 +168,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API 쿼리
 
-액세스 토큰을 받은 후 각 API 요청 헤더로 추가 해야 합니다. 이렇게 하려면 헤더를 만들 필요가 **권한 부여** 값을 사용 하 여: `Bearer <access token>`합니다. 예: 
+액세스 토큰을 받은 후 각 API 요청 헤더로 추가 해야 합니다. 이렇게 하려면 헤더를 만들 필요가 **권한 부여** 값을 사용 하 여: `Bearer <access token>`합니다. 예를 들면 다음과 같습니다.
 
 요청:
 

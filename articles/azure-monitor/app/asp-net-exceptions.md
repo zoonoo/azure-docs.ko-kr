@@ -14,7 +14,7 @@ ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54116990"
@@ -191,7 +191,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예: 
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들면 다음과 같습니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -283,7 +283,7 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
 ## <a name="web-api"></a>Web API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예: 
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들면 다음과 같습니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외

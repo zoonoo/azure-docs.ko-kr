@@ -493,7 +493,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예: 
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +596,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예: 
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

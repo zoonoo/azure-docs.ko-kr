@@ -12,7 +12,7 @@ ms.date: 05/01/2017
 ms.custom: seodec2018
 ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
 ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53311986"
@@ -98,7 +98,7 @@ var index = new Index()
 * ‘Home Office’에서 근무하는 사용자 수를 계산합니다.  
 * ‘Home Office’에서 근무하는 사용자 중 이들이 근무하는 다른 사무실과 각 위치의 사용자 수를 표시합니다.  
 
-이 기술은 위치 ID와 위치 설명을 함께 사용하여 검색을 수행해야 할 때 유용합니다. 예: 
+이 기술은 위치 ID와 위치 설명을 함께 사용하여 검색을 수행해야 할 때 유용합니다. 예를 들면 다음과 같습니다.
 
 * Home Office가 있고 위치 ID가 4인 사용자를 모두 찾습니다.  
 
@@ -113,7 +113,7 @@ var index = new Index()
 
 그러나 이제 데이터가 개별 필드로 분류되어 Jen Campbell에 대한 Home Office가 `locationsID 3` 또는 `locationsID 4`에 연결된 것을 알 수가 없습니다.  
 
-이러한 경우 인덱스에서 모든 데이터를 단일 컬렉션으로 결합한 다른 필드를 정의합니다.  이 예제에서는 이 필드를 `locationsCombined`라고 하고 `||`를 사용하여 콘텐츠를 분리합니다. 이때 콘텐츠에 고유한 문자 집합이라고 생각되는 다른 구분 기호를 선택할 수 있습니다. 예:  
+이러한 경우 인덱스에서 모든 데이터를 단일 컬렉션으로 결합한 다른 필드를 정의합니다.  이 예제에서는 이 필드를 `locationsCombined`라고 하고 `||`를 사용하여 콘텐츠를 분리합니다. 이때 콘텐츠에 고유한 문자 집합이라고 생각되는 다른 구분 기호를 선택할 수 있습니다. 예를 들면 다음과 같습니다. 
 
 ![샘플 데이터, 구분 기호가 있는 2행](./media/search-howto-complex-data-types/sample-data-2.png)
 
@@ -123,7 +123,7 @@ var index = new Index()
 * ‘Home Office’에서 근무하며 위치 ID가 ‘4’인 사용자를 검색합니다. 
 
 ## <a name="limitations"></a>제한 사항
-이 기술은 여러 시나리오에서 유용하지만 모든 경우에 적용되지는 않습니다.  예: 
+이 기술은 여러 시나리오에서 유용하지만 모든 경우에 적용되지는 않습니다.  예를 들면 다음과 같습니다.
 
 1. 복합 데이터 형식에 정적 필드 집합이 없고 가능성 있는 모든 형식을 단일 필드에 매핑할 수 없는 경우 
 2. 중첩된 개체를 업데이트하는 데 Azure Search 인덱스에서 업데이트해야 할 항목을 정확하게 결정하기 위해 추가 작업이 필요한 경우

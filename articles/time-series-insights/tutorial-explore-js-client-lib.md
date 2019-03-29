@@ -83,7 +83,7 @@ ms.locfileid: "55812075"
 
 3. `<div class="chartsWrapper">` 요소를 확장하면 더 많은 하위 `<div>` 요소를 찾을 수 있습니다. 이러한 요소는 각 차트 컨트롤 예제의 위치를 지정하는 데 사용됩니다. 각 차트 예제마다 하나씩 `<div>` 요소 여러 쌍이 있는 것을 확인할 수 있습니다.
 
-   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예:  "전체 크기 범례가 있는 고정 꺾은선형 차트"
+   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예를 들면 다음과 같습니다. "전체 크기 범례가 있는 고정 꺾은선형 차트"
    - 두 번째(`class="rowOfCards"`) 요소는 실제 차트 컨트롤을 한 줄 안에 배치하는 추가 하위 `<div>` 요소를 포함한 상위 요소입니다.
 
    ![본문 div 요소](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)

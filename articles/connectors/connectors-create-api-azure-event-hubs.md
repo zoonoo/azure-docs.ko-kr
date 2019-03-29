@@ -133,7 +133,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | properties | 아닙니다. | 보낼 앱 속성 및 값 |
    ||||
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![Event Hub 이름을 선택하고 이벤트 콘텐츠를 제공](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
@@ -153,7 +153,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | Event Hubs 네임스페이스 | 예 | <*event-hubs-namespace*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. |
    |||||  
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![Event Hub 연결 만들기](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

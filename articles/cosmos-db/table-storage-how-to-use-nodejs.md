@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
-> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
+> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예를 들면 다음과 같습니다.
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.

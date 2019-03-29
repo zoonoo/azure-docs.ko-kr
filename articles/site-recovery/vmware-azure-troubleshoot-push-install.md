@@ -167,7 +167,7 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(ErrorID: 95320)
 
 **가능한 원인:** </br>
-GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예:  </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들면 다음과 같습니다. </br>
 
 
 - 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
@@ -183,7 +183,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예: <br>
+1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예를 들면 다음과 같습니다.<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"

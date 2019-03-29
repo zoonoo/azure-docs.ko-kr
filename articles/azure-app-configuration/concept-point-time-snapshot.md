@@ -25,7 +25,7 @@ Azure App Configuration은 새 키-값 쌍을 만든 후 수정할 때의 정확
 
 ## <a name="key-value-retrieval"></a>키-값 검색
 
-지난 키-값을 검색하려면 REST API 호출의 HTTP 헤더에 키-값이 스냅숏으로 작성된 시간을 지정합니다. 예: 
+지난 키-값을 검색하려면 REST API 호출의 HTTP 헤더에 키-값이 스냅숏으로 작성된 시간을 지정합니다. 예를 들면 다음과 같습니다.
 
         GET /kv HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT

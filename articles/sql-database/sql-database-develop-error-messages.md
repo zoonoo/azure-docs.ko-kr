@@ -86,7 +86,7 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 
 ## <a name="resource-governance-errors"></a>리소스 관리 오류
 
-다음 오류는 Azure SQL Database를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예: 
+다음 오류는 Azure SQL Database를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예를 들면 다음과 같습니다.
 
 * 트랜잭션이 너무 오랫동안 열려 있었습니다.
 * 트랜잭션이 너무 많은 잠금을 보유하고 있습니다.

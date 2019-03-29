@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
 ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54352515"
@@ -90,7 +90,7 @@ ms.locfileid: "54352515"
 
    3. 현재 선택한 작업: **이메일 보내기 - <*이메일 공급자*>** 작업을 선택합니다.
 
-      예: 
+      예를 들면 다음과 같습니다.
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

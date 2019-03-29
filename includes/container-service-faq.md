@@ -6,7 +6,7 @@ ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56213117"
@@ -99,7 +99,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
-이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예: 
+이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

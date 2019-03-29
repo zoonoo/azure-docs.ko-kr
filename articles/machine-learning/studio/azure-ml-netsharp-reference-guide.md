@@ -12,7 +12,7 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57905157"
@@ -89,17 +89,17 @@ Azure Machine Learning Studio에서 만드는 신경망 모델의 아키텍처�
 
 `Const X = 28;`
 
-상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예: 
+상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예를 들면 다음과 같습니다.
 
 `Const { X = 28; Y = 4; }`
 
-각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예: 
+각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예를 들면 다음과 같습니다.
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>계층 선언
 
-계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예: 
+계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예를 들면 다음과 같습니다.
 
 ```Net#
 input Data auto;

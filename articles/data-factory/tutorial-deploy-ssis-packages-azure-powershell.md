@@ -113,7 +113,7 @@ Catch [System.Data.SqlClient.SqlException]
 
 스크립트의 일부로 Azure SQL Database를 만들려면 다음 예제를 참조하세요. 
 
-아직 정의하지 않은 변수의 값을 설정합니다. 예:  SSISDBServerName, FirewallIPAddress 
+아직 정의하지 않은 변수의 값을 설정합니다. 예를 들면 다음과 같습니다. SSISDBServerName, FirewallIPAddress 
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `

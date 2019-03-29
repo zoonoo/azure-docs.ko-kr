@@ -64,7 +64,7 @@ ms.locfileid: "58371531"
     ![클레임 규칙 추가](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
    ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
-6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예:  InsideCorpNet.
+6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들면 다음과 같습니다. InsideCorpNet.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
    ![회사 네트워크 내에서 추가 클레임](./media/howto-mfa-adfs/trustedip4.png)
 8. **Finish**를 클릭합니다.

@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>스크립트 실행
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예: 
+`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"

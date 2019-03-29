@@ -140,14 +140,14 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource
 ## <a name="using-the-trace-api-directly"></a>직접 추적 API 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예: 
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",

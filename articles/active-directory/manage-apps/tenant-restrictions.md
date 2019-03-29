@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2dc03b329ce8a4b42f44b958aee96654dafb098
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56197745"
@@ -136,7 +136,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
     if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
     ```
 
-    여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예: 
+    여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예를 들면 다음과 같습니다.
 
     ```
     oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";

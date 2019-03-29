@@ -113,7 +113,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 예: 
+이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 예를 들면 다음과 같습니다.
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -275,7 +275,7 @@ IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든
 ## <a name="module-twin-metadata"></a>모듈 쌍 메타데이터
 
 IoT Hub는 모듈 쌍 desired 또는 reported 속성에서 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
-예: 
+예를 들면 다음과 같습니다.
 
 ```json
 {

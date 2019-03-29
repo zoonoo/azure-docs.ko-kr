@@ -252,7 +252,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 로깅 수준을 디버그로 설정하면 추가 정보가 기록되어 오류를 식별하는 데 유용할 수 있습니다.
 
 ## <a name="function-fails-runinputdata"></a>함수 실패: run(input_data)
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예: 
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예를 들면 다음과 같습니다.
 
 ```python
 def run(input_data):

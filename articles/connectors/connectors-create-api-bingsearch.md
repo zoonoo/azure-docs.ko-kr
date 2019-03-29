@@ -62,7 +62,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
    | Offset | 아닙니다. | <*skip-value*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
    |||||
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![트리거 설정](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -158,7 +158,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | API 키 | 예 | <*API-key*> | 이전에 가져온 Bing Search API 키입니다. 키가 없는 경우 [이제 API 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 가져옵니다. |  
    |||||  
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![연결 만들기](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

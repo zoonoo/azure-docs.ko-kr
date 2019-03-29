@@ -253,7 +253,7 @@ def main():
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 `context` 인수를 포함합니다. 
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```python
 import azure.functions

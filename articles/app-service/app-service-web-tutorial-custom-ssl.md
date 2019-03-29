@@ -193,7 +193,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예: 
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예를 들면 다음과 같습니다.
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

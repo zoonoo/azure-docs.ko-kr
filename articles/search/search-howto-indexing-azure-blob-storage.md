@@ -272,7 +272,7 @@ Azure Search는 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예: 
+또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
 
     {
       ... other parts of indexer definition

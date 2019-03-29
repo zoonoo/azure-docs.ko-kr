@@ -9,7 +9,7 @@ ms.date: 03/04/2019
 ms.author: raynew
 ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
 ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2019
 ms.locfileid: "58578886"
@@ -62,7 +62,7 @@ ms.locfileid: "58578886"
 3. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예:  **Connect-AzAccount -Tenant "fabrikam.com"**
+    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들면 다음과 같습니다. **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 

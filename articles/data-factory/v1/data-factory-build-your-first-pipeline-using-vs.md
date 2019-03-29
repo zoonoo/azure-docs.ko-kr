@@ -306,7 +306,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ![게시 - 새 데이터 팩터리 설정](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
-   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예:  **DataFactoryUsingVS09152016**. 이름은 전역적으로 고유해야 합니다.
+   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예를 들면 다음과 같습니다. **DataFactoryUsingVS09152016**. 이름은 전역적으로 고유해야 합니다.
    3. **구독** 필드에서 올바른 구독을 선택합니다. 
         > [!IMPORTANT]
         > 모든 구독이 표시되지 않으면 구독의 관리자 또는 공동 관리자인 계정을 사용하여 로그인했는지 확인합니다.

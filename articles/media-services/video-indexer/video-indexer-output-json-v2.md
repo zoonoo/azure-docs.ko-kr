@@ -11,7 +11,7 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58314878"
@@ -760,7 +760,7 @@ Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우
 |---|---|
 |id|주제 ID입니다.|
 |이름|주제 이름입니다. 예: "제약"|
-|referenceId|주제 계층 구조를 반영하는 이동 경로입니다. 예:  "보건 및 복지 / 의료 및 건강 / 제약"|
+|referenceId|주제 계층 구조를 반영하는 이동 경로입니다. 예를 들면 다음과 같습니다. "보건 및 복지 / 의료 및 건강 / 제약"|
 |신뢰도|범위의 신뢰도 점수[0,1]입니다. 점수가 높을수록 더 신뢰할 수 있습니다.|
 |언어|주제에 사용된 언어입니다.|
 |iptcName|IPTC 미디어 코드 이름입니다(검색된 경우).|

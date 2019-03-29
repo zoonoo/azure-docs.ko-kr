@@ -72,7 +72,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 
 yarn application -kill <application_id>
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

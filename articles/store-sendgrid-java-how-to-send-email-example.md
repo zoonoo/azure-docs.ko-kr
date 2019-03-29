@@ -211,7 +211,7 @@ ms.locfileid: "57442464"
 ## <a name="next-steps"></a>다음 단계
 계산 에뮬레이터에 애플리케이션을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **Send this email**클릭한 다음, sendemail.jsp의 결과를 표시합니다.
 
-이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예:  
+이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
 
 * 웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure Storage Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL Database 사용에 대한 내용은 [Java에서 SQL Database 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)(영문)을 참조하십시오.
 * 웹 양식을 사용하여 검색하는 대신, `RoleEnvironment.getConfigurationSettings` 를 사용하여 배포의 구성 설정에서 SendGrid 사용자 이름 및 암호를 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용](https://msdn.microsoft.com/library/windowsazure/hh690948) 및 Azure 서비스 런타임 패키지 설명서(<http://dl.windowsazure.com/javadoc>)를 참조하세요.

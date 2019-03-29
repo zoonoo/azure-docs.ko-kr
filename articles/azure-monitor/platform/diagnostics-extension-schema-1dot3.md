@@ -11,7 +11,7 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54463510"
@@ -598,7 +598,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예: <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들면 다음과 같습니다.<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
 
 
 

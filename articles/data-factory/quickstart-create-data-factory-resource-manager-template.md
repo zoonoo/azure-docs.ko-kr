@@ -275,7 +275,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 
 > [!IMPORTANT]
 > - 이 매개 변수 파일의 **storageAccountName** 및 **storageAccountKey** 매개 변수에 대한 Azure Storage 계정 이름과 키를 지정합니다. adftutorial 컨테이너를 만들고 이 Azure Blob Storage의 입력에 샘플 파일(emp.txt)을 업로드했습니다.
-> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 예:  ARMTutorialFactoryJohnDoe11282017.
+> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 예를 들면 다음과 같습니다. ARMTutorialFactoryJohnDoe11282017.
 > - **triggerStartTime**에는 현재 요일을 `2017-11-28T00:00:00` 형식으로 지정합니다.
 > - **triggerEndTime**에는 다음 요일을 `2017-11-29T00:00:00` 형식으로 지정합니다. 또한 현재 UTC 시간을 확인하고 종료 시간으로 그 다음 한두 시간을 지정할 수 있습니다. 예를 들어 UTC 시간이 오전 1시 32분이면 종료 시간으로 `2017-11-29:03:00:00`를 지정합니다. 이 예에서는 트리거가 파이프라인을 두 번 실행합니다(오전 2시와 오전 3시).
 

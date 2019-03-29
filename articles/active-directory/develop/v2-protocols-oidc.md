@@ -89,7 +89,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 > [!IMPORTANT]
 > ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 허용](v2-oauth2-implicit-grant-flow.md)** 이 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. "입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 // Line breaks are for legibility only.

@@ -12,7 +12,7 @@ ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
 ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
 ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43121648"
@@ -59,7 +59,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
     ![통합 계정 연결 생성](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ![디코딩할 X12 플랫 파일 메시지를 선택합니다.](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 

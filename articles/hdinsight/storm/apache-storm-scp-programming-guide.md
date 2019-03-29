@@ -150,7 +150,7 @@ Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugi
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예: 
+`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예를 들면 다음과 같습니다.
 
     public class Constants
     {

@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > `http://` 접두사가 포함되었는지 확인합니다. 포함되지 않으면 브라우저가 URL을 예측하려고 시도할 수 있습니다.
 
-두 URL이 동일한 페이지를 표시할 것입니다. 예: 
+두 URL이 동일한 페이지를 표시할 것입니다. 예를 들면 다음과 같습니다.
 
 ![Contoso 앱 서비스](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

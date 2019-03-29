@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55817433"
@@ -697,7 +697,7 @@ CopyActivity2는 CopyActivity1을 성공적으로 실행하고 Dataset2를 사�
 
 예제에서는 첫 번째 복사 활동의 출력 데이터 세트(Dataset2)가 두 번째 활동의 입력으로 지정되어 있습니다. 따라서 첫 번째 활동의 출력 데이터 세트가 준비되어야 두 번째 활동이 실행됩니다.  
 
-예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 끝낼 때까지 작업이 실행되지 않습니다. 예: 
+예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 끝낼 때까지 작업이 실행되지 않습니다. 예를 들면 다음과 같습니다.
 
 CopyActivity1
 

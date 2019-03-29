@@ -16,7 +16,7 @@ ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
 ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/02/2018
 ms.locfileid: "39425241"
@@ -24,7 +24,7 @@ ms.locfileid: "39425241"
 # <a name="introduction-to-the-fault-analysis-service"></a>오류 분석 서비스 소개
 오류 분석 서비스는 Microsoft Azure Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스를 통해 의미 있는 결함을 유도하고 애플리케이션에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
 
-작업은 오류를 테스트할 서비스를 대상으로 하는 개별 오류입니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 예: 
+작업은 오류를 테스트할 서비스를 대상으로 하는 개별 오류입니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 노드를 다시 시작하여 컴퓨터 또는 VM이 재부팅되는 다양한 상황을 시뮬레이션합니다.
 * 상태 저장 서비스의 복제본을 이동하여 부하 분산, 장애 조치(failover) 또는 애플리케이션 업그레이드를 시뮬레이션합니다.

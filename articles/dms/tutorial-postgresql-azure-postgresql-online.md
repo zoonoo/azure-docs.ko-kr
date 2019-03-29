@@ -100,7 +100,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -212,7 +212,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     ```
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -447,7 +447,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az dms project task cutover -h
     ```
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --database-name Inventory

@@ -134,7 +134,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
 |그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들면 다음과 같습니다. "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 

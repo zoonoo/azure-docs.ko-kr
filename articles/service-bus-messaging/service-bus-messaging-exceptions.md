@@ -16,7 +16,7 @@ ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: b90e87310bf6dec505176b7f4d4cb9e15ac57c20
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55891813"
@@ -78,7 +78,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 ### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예: 
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.

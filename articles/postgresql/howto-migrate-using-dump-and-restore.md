@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
 ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2019
 ms.locfileid: "55564207"
@@ -61,7 +61,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 >
 
 ### <a name="for-the-backup"></a>백업
-- 복원을 병렬로 수행하여 시간을 단축할 수 있도록 -Fc 스위치를 사용해 백업을 가져옵니다. 예: 
+- 복원을 병렬로 수행하여 시간을 단축할 수 있도록 -Fc 스위치를 사용해 백업을 가져옵니다. 예를 들면 다음과 같습니다.
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 - create index 문이 이미 기본적으로 포함되어 있겠지만, 덤프 파일을 열어 create index 문이 데이터 삽입 부분 뒤에 있는지 확인합니다. 해당 위치에 문이 없으면 create index 문을 데이터 삽입 부분 뒤로 이동합니다.
 
-- -Fc 및 -j *#* 스위치를 사용하여 복원을 병렬로 수행합니다. *#* 는 대상 서버의 코어 수입니다. *#* 를 대상 서버 코어 수의 2배로 설정한 다음 복원을 수행하여 영향을 확인해 볼 수도 있습니다. 예: 
+- -Fc 및 -j *#* 스위치를 사용하여 복원을 병렬로 수행합니다. *#* 는 대상 서버의 코어 수입니다. *#* 를 대상 서버 코어 수의 2배로 설정한 다음 복원을 수행하여 영향을 확인해 볼 수도 있습니다. 예를 들면 다음과 같습니다.
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

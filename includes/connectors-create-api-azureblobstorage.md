@@ -25,7 +25,7 @@ ms.locfileid: "34677951"
    | Storage 계정 | <*storage-account*> | 목록에서 저장소 계정을 선택합니다. | 
    ||| 
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ![연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
 

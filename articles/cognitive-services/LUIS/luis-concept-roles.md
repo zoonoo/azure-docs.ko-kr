@@ -13,7 +13,7 @@ ms.date: 12/17/2018
 ms.author: diberry
 ms.openlocfilehash: 958194d49cd403caeaf9dd21dd90a02cab098e45
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55881460"
@@ -50,7 +50,7 @@ ms.locfileid: "55881460"
 
 역할은 발화 내에서 문맥상 학습된 엔터티의 위치입니다. 발화에 포함된 엔터티 형식이 한 개를 초과하는 경우 가장 효과적입니다. 엔터티 형식에 대한 가장 쉬운 예는 시작과 끝 위치를 구분하는 것입니다. 위치는 수많은 엔터티 형식으로 표현할 수 있습니다. 
 
-사용 사례의 예는 한 부서의 직원을 각 부서가 목록에 항목으로 있는 다른 부서로 이동하는 것입니다. 예:  
+사용 사례의 예는 한 부서의 직원을 각 부서가 목록에 항목으로 있는 다른 부서로 이동하는 것입니다. 예를 들면 다음과 같습니다. 
 
 `Move [PersonName] from [Department:from] to [Department:to]`. 
 

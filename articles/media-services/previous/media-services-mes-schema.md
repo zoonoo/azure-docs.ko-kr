@@ -160,7 +160,7 @@ ms.locfileid: "58259245"
 
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
-| **FileName** |**xs:string** |출력 파일 이름입니다.<br/><br/> 다음 표에 설명된 매크로를 사용하여 출력 파일 이름을 작성할 수 있습니다. 예: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |출력 파일 이름입니다.<br/><br/> 다음 표에 설명된 매크로를 사용하여 출력 파일 이름을 작성할 수 있습니다. 예를 들면 다음과 같습니다.<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 

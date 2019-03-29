@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예: 
+클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예를 들면 다음과 같습니다.
 - Windows에서: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
 - Mac에서: 키 집합 앱을 사용합니다.
 - Ubuntu에서: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.

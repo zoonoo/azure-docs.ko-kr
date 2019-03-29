@@ -35,7 +35,7 @@ ms.locfileid: "58199531"
 이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 Apache HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]  
-> 일부 속성이 템플릿에 하드 코딩되었습니다. 예: 
+> 일부 속성이 템플릿에 하드 코딩되었습니다. 예를 들면 다음과 같습니다.
 >
 > * **위치**: 미국 동부 2
 > * **클러스터 버전**: 3.6
@@ -94,7 +94,7 @@ ms.locfileid: "58199531"
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
      ```
 
-     반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예: 
+     반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -223,7 +223,7 @@ ms.locfileid: "58199531"
 
 가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예를 들면 ping headnode0.mycluster.b1.cloudapp.net을 사용합니다.
 
-Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 애플리케이션이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예: 
+Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 애플리케이션이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예를 들면 다음과 같습니다.
 
     <property>
         <name>hbase.zookeeper.quorum</name>

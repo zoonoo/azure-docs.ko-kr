@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Service Fabric 애플리케이션 코드에서 모두 다음과 비슷한 REST를 만들어 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.
+Service Fabric 애플리케이션 코드에서 아래와 전부 유사한 REST를 만들어 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")

@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55996102"
@@ -21,7 +21,7 @@ ms.locfileid: "55996102"
 
 Azure AD(Azure Active Directory) B2C가 애플리케이션에 제공하는 UI(사용자 인터페이스)를 브랜드하고 사용자 지정하는 기능은 고객에게 원활한 환경을 제공하는 데 중요합니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함됩니다. 이 문서에서는 애플리케이션의 UI를 사용자 지정하는 데 유용한 정보를 제공합니다.
 
-이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예: 
+이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용하여 애플리케이션에 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
 - v2 사용자 흐름을 사용하는 경우 [페이지 레이아웃 템플릿](#page-layout-templates)을 사용하여 추가 사용자 지정 없이 사용자 흐름 페이지의 모양을 변경할 수 있습니다. 예를 들어 사용자 흐름의 모든 페이지에 바다색 또는 녹회색 테마를 적용할 수 있습니다.

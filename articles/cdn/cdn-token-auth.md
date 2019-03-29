@@ -72,7 +72,7 @@ ms.locfileid: "58123728"
 
       ```rand -hex <key length>```
 
-      예: 
+      예를 들면 다음과 같습니다.
 
       ```OpenSSL> rand -hex 32``` 
 

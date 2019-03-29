@@ -90,7 +90,7 @@ Azure Firewall은 고정 비용 + 변동 비용이 있습니다.
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```azurepowershell
 # Stop an exisitng firewall

@@ -122,7 +122,7 @@ Active Directory를 사용 하 여 그룹을 내보낼 Azure AD Objectid 대신 
    - "DistributionList"
    - "DirectoryRole"
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

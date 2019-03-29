@@ -696,7 +696,7 @@ ms.locfileid: "57781904"
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 

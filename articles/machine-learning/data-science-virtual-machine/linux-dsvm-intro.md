@@ -154,7 +154,7 @@ Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
 Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
 
-추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ```pip``` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예: 
+추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ```pip``` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예를 들면 다음과 같습니다.
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5

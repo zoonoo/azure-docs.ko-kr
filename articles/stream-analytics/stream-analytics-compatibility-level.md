@@ -10,7 +10,7 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
 ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53187316"
@@ -38,11 +38,11 @@ ms.locfileid: "53187316"
 
 * **Service Bus XML 형식**  
 
-  * **이전 버전:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예: 
+  * **이전 버전:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예를 들면 다음과 같습니다.
     
     @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
-  * **현재 버전:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예: 
+  * **현재 버전:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예를 들면 다음과 같습니다.
   
     { "SensorId":"1", "Temperature":64} 
  

@@ -12,7 +12,7 @@ services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
 ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56430117"
@@ -55,7 +55,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. **IoT Edge 모듈**을 선택합니다.
 
-1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예: 
+1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예를 들면 다음과 같습니다.
 
    * **이름** - tempSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

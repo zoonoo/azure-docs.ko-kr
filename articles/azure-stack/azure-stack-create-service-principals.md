@@ -15,7 +15,7 @@ ms.author: sethm
 ms.lastreviewed: 12/18/2018
 ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55809251"
@@ -180,7 +180,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 2. 자동화에는 다음이 완료 되 면 SPN을 사용 하려면 필요한 세부 정보를 표시 합니다. 나중에 사용할 출력을 저장 하는 것이 좋습니다.
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

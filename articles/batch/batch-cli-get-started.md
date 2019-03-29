@@ -39,7 +39,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="command-help"></a>명령 도움말
 
-명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예: 
+명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들면 다음과 같습니다.
 
 * `az` 명령에 대한 도움말을 보려면 `az -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `az batch -h`을 사용합니다.
@@ -122,7 +122,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예: 
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az batch pool create my_batch_pool.json

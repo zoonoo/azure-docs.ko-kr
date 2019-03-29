@@ -17,7 +17,7 @@ ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55809302"
@@ -65,7 +65,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 다음 C# 코드 조각은 Batch .NET API를 사용하여 많은 수의 작업을 추가하는 경우에 구성하는 설정을 보여줍니다.
 
-작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예: 
+작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 또는 [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예: 
+) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예: 
+작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들면 다음과 같습니다.
 
 
 ```python

@@ -26,7 +26,7 @@ ms.locfileid: "57010577"
 
 - IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[디바이스에서 IoT Hub로 원격 분석 보내기](quickstart-send-telemetry-dotnet.md) 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 문서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
+[디바이스에서 IoT Hub로 원격 분석 보내기](quickstart-send-telemetry-dotnet.md) 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 문서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
 
 * 이미지가 포함된 대형 파일
 * 동영상

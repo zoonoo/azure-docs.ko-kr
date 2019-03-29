@@ -47,7 +47,7 @@ LargePersonGroup은 각각 최대 248개의 얼굴이 있는 최대 1,000,000명
 
 ## <a name="step-1-authorize-the-api-call"></a>1단계: API 호출 권한 부여
 
-Face API 클라이언트 라이브러리를 사용할 때 FaceServiceClient 클래스의 생성자를 통해 구독 키 및 구독 엔드포인트가 전달됩니다. 예: 
+Face API 클라이언트 라이브러리를 사용할 때 FaceServiceClient 클래스의 생성자를 통해 구독 키 및 구독 엔드포인트가 전달됩니다. 예를 들면 다음과 같습니다.
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";

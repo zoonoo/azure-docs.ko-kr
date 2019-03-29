@@ -16,7 +16,7 @@ ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
 ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
 ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2019
 ms.locfileid: "56649730"
@@ -54,7 +54,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 선언 된 **주체** 정렬된 된 사전을으로 합니다. 예: 
+2. 선언 된 **주체** 정렬된 된 사전을으로 합니다. 예를 들면 다음과 같습니다.
 
     ```PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
     > [!note]  
     > 일반 이름 (CN)이 제공 하는 경우이 인증서 요청의 첫 번째 DNS 이름으로 덮어씁니다.
 
-3. 이미 존재 하는 출력 디렉터리를 선언 합니다. 예: 
+3. 이미 존재 하는 출력 디렉터리를 선언 합니다. 예를 들면 다음과 같습니다.
 
     ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"

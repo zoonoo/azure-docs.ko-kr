@@ -42,7 +42,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Azure AD 애플리케이션 만들기 및 역할에 사용자 할당
 두 개의 Azure AD 애플리케이션(웹 애플리케이션 및 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다. 클러스터를 나타내는 애플리케이션이 만들어지면 사용자를 [Service Fabric에서 지원하는 역할](service-fabric-cluster-security-roles.md)(읽기 전용 및 관리자)에 할당합니다.
 
-`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다.  예: 
+`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다.  예를 들면 다음과 같습니다.
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess

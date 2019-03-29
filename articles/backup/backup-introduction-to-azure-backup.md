@@ -210,7 +210,7 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 ## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?
 보호된 인스턴스는 Azure에 백업하도록 구성된 Windows 컴퓨터, 서버(실제 또는 가상) 또는 SQL Database에 대한 일반 참조입니다. 컴퓨터, 서버 또는 데이터베이스에 대한 백업 정책을 구성하고 데이터의 백업 복사본을 만들면 인스턴스가 보호됩니다. 해당 보호된 인스턴스(복구 지점이라고 함)에 대한 백업 데이터의 후속 복사본으로 인해 저장소 사용량이 늘어납니다. 보호된 인스턴스에 대해 최대 9999개의 복구 지점을 만들 수 있습니다. 저장소에서 복구 지점을 삭제하더라도 9999개의 복구 지점 전체 개수에는 영향을 주지 않습니다.
-보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 머신, 애플리케이션 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예: 
+보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 머신, 애플리케이션 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예를 들면 다음과 같습니다.
 
 * Hyper-V 또는 Azure IaaS 하이퍼바이저 패브릭을 실행하는 가상 머신. 가상 머신의 게스트 운영 체제는 Windows Server 또는 Linux가 될 수 있습니다.
 * 애플리케이션 서버: 애플리케이션 서버는 Windows Server를 실행하는 실제 또는 가상 머신과 백업해야 하는 데이터 워크로드가 될 수 있습니다. 일반적인 워크로드로는 Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server 및 Windows Server의 파일 서버 역할이 있습니다. 이러한 워크로드를 백업하려면 System Center Data Protection Manager(DPM) 또는 Azure Backup Server가 필요합니다.

@@ -92,7 +92,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
 [Azure PowerShell](/powershell/azure/overview)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```powershell
 # Create a storage context
@@ -116,7 +116,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>.NET을 사용하여 Cache-Control 헤더 설정
 .NET 코드를 사용하여 Blob의 `Cache-Control` 헤더를 지정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```csharp
 class Program

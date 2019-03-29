@@ -12,7 +12,7 @@ ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
 ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53317290"
@@ -174,7 +174,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         };
 
 ### <a name="model-class-changes"></a>모델 클래스 변경
-[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예: 
+[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들면 다음과 같습니다.
 
 * `IndexDefinitionResponse`는 `AzureOperationResponse<Index>`로 대체되었습니다.
 * `DocumentSearchResponse`는 `DocumentSearchResult`로 이름이 변경되었습니다.

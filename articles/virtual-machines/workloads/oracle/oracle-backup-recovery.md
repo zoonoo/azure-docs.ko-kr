@@ -17,7 +17,7 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
 ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/03/2018
 ms.locfileid: "39492843"
@@ -170,7 +170,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 4. JSON 파일을 편집합니다.
 
-    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예: 
+    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들면 다음과 같습니다.
 
     ```azurecli
     {

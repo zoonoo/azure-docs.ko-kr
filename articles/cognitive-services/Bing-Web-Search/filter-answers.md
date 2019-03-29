@@ -13,7 +13,7 @@ ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56199496"
@@ -46,7 +46,7 @@ ms.locfileid: "56199496"
 ```
 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수를 사용하여 수신하는 콘텐츠의 유형(예: 이미지, 비디오 및 뉴스)을 필터링할 수 있습니다. Bing에서 지정한 답변의 관련 콘텐츠를 찾으면 반환됩니다. 응답 필터는 쉼표로 구분된 답변 목록입니다. 
 
-응답에서 이미지와 같은 특정 콘텐츠 유형을 제외하려면 `responseFilter` 값의 시작 부분에 `-` 문자를 추가할 수 있습니다. 쉼표(`,`)를 사용하여 제외된 형식을 구분할 수 있습니다. 예: 
+응답에서 이미지와 같은 특정 콘텐츠 유형을 제외하려면 `responseFilter` 값의 시작 부분에 `-` 문자를 추가할 수 있습니다. 쉼표(`,`)를 사용하여 제외된 형식을 구분할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 &responseFilter=-images,-videos

@@ -636,7 +636,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole(P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않은 `RunAsync`합니다.
 
-멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예: 
+멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예를 들면 다음과 같습니다.
 
 - **IReplicator.CatchupReplicaSet**: 이 경고는 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 

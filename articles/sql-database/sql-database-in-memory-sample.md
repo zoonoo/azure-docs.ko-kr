@@ -52,7 +52,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예: 
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들면 다음과 같습니다.
 
 
 ```sql

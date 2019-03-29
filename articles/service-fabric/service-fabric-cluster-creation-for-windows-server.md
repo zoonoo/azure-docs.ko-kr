@@ -135,7 +135,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```

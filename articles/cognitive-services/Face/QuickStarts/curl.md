@@ -59,7 +59,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>명령 실행
 
-변경한 후에는 명령 프롬프트를 열고 새 명령을 입력합니다. 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예: 
+변경한 후에는 명령 프롬프트를 열고 새 명령을 입력합니다. 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 [

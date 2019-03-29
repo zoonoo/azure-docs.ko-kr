@@ -16,7 +16,7 @@ ms.date: 2/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 24cb1fd0666b404d92dfb803f55c850226ff59b6
 ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34205813"
@@ -49,7 +49,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA**와 **MyCodeB**인 코드 패키지가 두 개 있으면 이와 동일한 이름의 폴더 두 개에 각 코드 패키지에 필요한 바이너리가 포함됩니다.
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예: 
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들면 다음과 같습니다.
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.

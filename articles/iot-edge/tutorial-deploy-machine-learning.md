@@ -68,14 +68,14 @@ IoT Edge 디먼 구성 파일을 편집합니다.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-구성의 **connect** 섹션을 해당 IP 주소로 업데이트합니다. 예: 
+구성의 **connect** 섹션을 해당 IP 주소로 업데이트합니다. 예를 들면 다음과 같습니다.
 ```yaml
 connect:
   management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-구성의 **listen** 섹션에 동일한 주소를 입력합니다. 예: 
+구성의 **listen** 섹션에 동일한 주소를 입력합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 listen:
@@ -85,7 +85,7 @@ listen:
 
 구성 파일을 저장하고 닫습니다.
 
-management_uri 주소를 사용하여 IOTEDGE_HOST 환경 변수를 만듭니다(영구적으로 설정하려면 `/etc/environment`에 추가). 예: 
+management_uri 주소를 사용하여 IOTEDGE_HOST 환경 변수를 만듭니다(영구적으로 설정하려면 `/etc/environment`에 추가). 예를 들면 다음과 같습니다.
 
 ```cmd/sh
 export IOTEDGE_HOST="http://172.17.0.1:15580"

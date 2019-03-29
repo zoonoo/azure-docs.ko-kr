@@ -125,7 +125,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
    1. 리소스 그룹으로 이동 합니다 [Azure portal](https://portal.azure.com)합니다. 
    1. VNet 리소스를 선택 합니다. 
    1. 선택 **속성** 에 **설정** 창입니다. 
-   1. VNet에 대 한 리소스 ID를 식별 하 고 추가 `/subnets/<subnetname>`서브넷 리소스 ID를 만들려면의 끝에 예: 
+   1. VNet에 대 한 리소스 ID를 식별 하 고 추가 `/subnets/<subnetname>`서브넷 리소스 ID를 만들려면의 끝에 예를 들면 다음과 같습니다.
         - 내 vNet 리소스 ID는: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - 내 서브넷 이름이 `default`합니다.
         - 따라서 서브넷 리소스 ID는 있습니다. `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

@@ -80,7 +80,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예: 
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
 
     myNameNode <- "default"
     myPort <- 0

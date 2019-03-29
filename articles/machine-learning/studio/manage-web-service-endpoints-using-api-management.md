@@ -166,7 +166,7 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예: 
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예를 들면 다음과 같습니다.
 
 | 텍스트 | 해시된 텍스트 |
 | --- | --- |

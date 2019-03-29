@@ -16,7 +16,7 @@ ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234359"
@@ -202,7 +202,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
   * 애플리케이션에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
-      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예: 
+      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예를 들면 다음과 같습니다.
       * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.

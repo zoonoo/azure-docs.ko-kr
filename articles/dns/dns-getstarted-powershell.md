@@ -80,7 +80,7 @@ Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예: 
+   예를 들면 다음과 같습니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

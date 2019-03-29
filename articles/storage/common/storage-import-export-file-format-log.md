@@ -10,7 +10,7 @@ ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55697835"
@@ -33,8 +33,8 @@ Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 �
   
 |인증 방법|`ImportExportStatesPath`요소의 값|로그 Blob의 위치|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Storage 계정 키|기본값|`waimportexport`라는 컨테이너가 기본 컨테이너입니다. 예: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Storage 계정 키|사용자 지정 값|사용자가 명명한 컨테이너 예: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Storage 계정 키|기본값|`waimportexport`라는 컨테이너가 기본 컨테이너입니다. 예를 들면 다음과 같습니다.<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Storage 계정 키|사용자 지정 값|사용자가 명명한 컨테이너 예를 들면 다음과 같습니다.<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |컨테이너 SAS|기본값|기본 이름인 `waimportexport`라는 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`입니다.|  
 |컨테이너 SAS|사용자 지정 값|사용자가 명명한 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`이고 지정된 가상 디렉터리 이름이 `mylogblobs`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`입니다.|  
   

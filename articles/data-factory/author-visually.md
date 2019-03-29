@@ -115,7 +115,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
-게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 공동 작업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예: 
+게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 공동 작업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {

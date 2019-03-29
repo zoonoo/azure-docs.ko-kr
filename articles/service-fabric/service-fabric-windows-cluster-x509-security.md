@@ -347,7 +347,7 @@ ClusterConfig.X509.MultiMachine.json 파일의 security 섹션을 구성한 후�
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-독립 실행형 Windows 보안 클러스터를 성공적으로 실행하고 인증된 클라이언트를 연결하도록 설정했으면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) 섹션의 단계에 따라 연결합니다. 예: 
+독립 실행형 Windows 보안 클러스터를 성공적으로 실행하고 인증된 클라이언트를 연결하도록 설정했으면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) 섹션의 단계에 따라 연결합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

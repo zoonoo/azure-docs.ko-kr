@@ -131,7 +131,7 @@ OUTPUT @a
 
 원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 Data Lake Analytics에서 해당 폴더를 만듭니다.
 
-기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예: 
+기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들면 다음과 같습니다.
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -156,7 +156,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -187,7 +187,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

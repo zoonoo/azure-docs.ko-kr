@@ -16,7 +16,7 @@ ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55699688"
@@ -151,7 +151,7 @@ namespace WebRole1
 TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml]서 확인할 수 있습니다. &lt;Say&gt; 및 기타 Twilio 동사에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
 
 ## <a id="nextsteps"></a>다음 단계
-이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예: 
+이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 웹 양식을 사용하는 대신, Azure Blob Storage 또는 Azure SQL Database 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob Storage 서비스를 사용하는 방법][howto_blob_storage_dotnet]을 참조하세요. SQL Database 사용에 대한 자세한 내용은 [.NET 애플리케이션에서 Azure SQL Database를 사용하는 방법][howto_sql_azure_dotnet]을 참조하세요.
 * 양식에서 값을 하드 코딩하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet]를 참조하세요.

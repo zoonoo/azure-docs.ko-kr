@@ -12,7 +12,7 @@ ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
 ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
 ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43125355"
@@ -59,7 +59,7 @@ EDIFACT 메시지 디코드 커넥터를 사용하여 유효성을 검사하고,
 
     ![통합 계정 연결 생성](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ![디코딩할 EDIFACT 플랫 파일 메시지를 선택합니다.](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 

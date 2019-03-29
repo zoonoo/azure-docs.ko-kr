@@ -12,7 +12,7 @@ ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
 ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55751976"
@@ -173,7 +173,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예: 
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들면 다음과 같습니다.
 
   ```json
   ["Microsoft", "LinkedIn"]

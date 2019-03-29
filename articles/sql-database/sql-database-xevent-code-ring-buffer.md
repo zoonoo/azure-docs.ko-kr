@@ -55,7 +55,7 @@ ms.locfileid: "57993266"
 
 ## <a name="code-sample"></a>코드 샘플
 
-다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 예: 
+다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 예를 들면 다음과 같습니다.
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets

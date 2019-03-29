@@ -18,7 +18,7 @@ ms.author: jeffgo
 ms.lastreviewed: 08/15/2018
 ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55242232"
@@ -82,7 +82,7 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예를 들면 다음과 같습니다.
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -212,7 +212,7 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 구성을 수행 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 된 `GRUB_CMDLINE_LINUX` 매개 변수. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 구성을 수행 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 된 `GRUB_CMDLINE_LINUX` 매개 변수. 예를 들면 다음과 같습니다.
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -388,7 +388,7 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예를 들면 다음과 같습니다.
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"

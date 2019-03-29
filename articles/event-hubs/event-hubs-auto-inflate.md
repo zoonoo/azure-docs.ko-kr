@@ -17,7 +17,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
 ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2018
 ms.locfileid: "53408165"
@@ -73,7 +73,7 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-features.md#throughput-uni
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 자동 확장 사용
 
-Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true**로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예: 
+Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true**로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "resources": [

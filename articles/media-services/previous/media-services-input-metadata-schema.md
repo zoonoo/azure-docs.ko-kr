@@ -70,7 +70,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **Programs**<br /><br /> minOccurs="0" | |자산 파일의 형식이 MPEG-TS인 경우 모든 [Programs 요소](media-services-input-metadata-schema.md#Programs)의 컬렉션입니다. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소에는 자산 파일의 일부인 모든 [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) 컬렉션이 포함됩니다. |
 | **AudioTracks**<br /><br /> minOccurs="0" | |각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소에는 자산 파일의 일부인 모든 [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) 컬렉션이 포함됩니다. |
-| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. 예: <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. 예를 들면 다음과 같습니다.<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  

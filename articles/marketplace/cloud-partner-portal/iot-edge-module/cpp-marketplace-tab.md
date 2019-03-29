@@ -40,7 +40,7 @@ ms.locfileid: "58010959"
 | **요약**               | 제품의 간단한 요약입니다. 최대 길이는 100자입니다. <!--ADD PICTURE IN ACTION-->|
 | **긴 요약**          | 제품의 더 긴 요약입니다(**요약**과 동일할 수 있지만).  최대 길이는 256자입니다. <!--ADD PICTURE IN ACTION-->|
 | **설명**           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS에 1GB 이상의 RAM, 500mb의 저장소</p>
-| **마케팅 식별자**  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **마케팅 식별자**  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들면 다음과 같습니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 10개가 허용됩니다. [Azure IoT 장치 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 장치에 하나의 링크를 추가해야 합니다. |
 | **권장 범주** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|

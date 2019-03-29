@@ -61,7 +61,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 
-수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예: 
+수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 애플리케이션 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
 - 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.

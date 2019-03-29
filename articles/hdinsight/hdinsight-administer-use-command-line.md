@@ -41,7 +41,7 @@ ms.locfileid: "58202387"
     azure config mode arm
     ```
 
-도움말을 보려면 **-h** 스위치를 사용합니다.  예: 
+도움말을 보려면 **-h** 스위치를 사용합니다.  예를 들면 다음과 같습니다.
 
 ```cli
 azure hdinsight cluster create -h

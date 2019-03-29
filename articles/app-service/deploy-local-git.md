@@ -172,7 +172,7 @@ git push vsts master
 
 **원인**: 이 오류는 `git push` 중에 분기를 지정하지 않거나 `.gitconfig`에 `push.default` 값을 설정하지 않은 경우 발생할 수 있습니다.
 
-**해결 방법**: `git push`를 다시 실행하고 마스터 분기를 지정합니다. 예: 
+**해결 방법**: `git push`를 다시 실행하고 마스터 분기를 지정합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **원인**: 이 오류는 ‘azure’ 원격의 마스터가 아닌 다른 분기에 푸시하려는 경우 발생할 수 있습니다.
 
-**해결 방법**: `git push`를 다시 실행하고 마스터 분기를 지정합니다. 예: 
+**해결 방법**: `git push`를 다시 실행하고 마스터 분기를 지정합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 git push azure master

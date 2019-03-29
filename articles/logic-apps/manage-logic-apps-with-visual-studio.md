@@ -63,7 +63,7 @@ Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연�
 
 1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기**를 선택합니다.
 
-2. 클라우드 탐색기에서 **계정 관리**를 선택합니다. 논리 앱과 연결된 Azure 구독을 선택하고 **적용**을 선택합니다. 예: 
+2. 클라우드 탐색기에서 **계정 관리**를 선택합니다. 논리 앱과 연결된 Azure 구독을 선택하고 **적용**을 선택합니다. 예를 들면 다음과 같습니다.
 
    !["계정 관리" 선택](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -146,14 +146,14 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
    ![실행 기록 열기](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예: 
+2. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예를 들면 다음과 같습니다.
 
    ![구체적인 실행 기록](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > 속성별로 테이블을 정렬하려면 해당 속성의 열 헤더를 선택합니다. 
 
-3. 입력 및 출력을 검토할 단계를 확장합니다. 예: 
+3. 입력 및 출력을 검토할 단계를 확장합니다. 예를 들면 다음과 같습니다.
 
    ![각 단계에 대한 입력 및 출력 보기](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

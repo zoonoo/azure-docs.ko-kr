@@ -179,7 +179,7 @@ ms.locfileid: "58010555"
 Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name*의 값 대체).
 
 ## <a name="next-steps"></a>다음 단계
-이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예: 
+이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 웹 양식을 사용하는 대신, Azure 저장소 Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
 * makecall.jsp에서 값을 하드 코딩하는 대신, **RoleEnvironment.getConfigurationSettings** 를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. **RoleEnvironment** 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용][azure_runtime_jsp] 및 Azure 서비스 런타임 패키지 설명서([http://dl.windowsazure.com/javadoc][azure_javadoc])를 참조하세요.

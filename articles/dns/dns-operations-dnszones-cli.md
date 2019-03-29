@@ -15,7 +15,7 @@ ms.date: 02/27/2017
 ms.author: victorh
 ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
 ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46949964"
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>도움말 보기
 
-Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  예: 
+Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```azurecli
 az network dns --help

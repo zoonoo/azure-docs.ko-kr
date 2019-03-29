@@ -239,7 +239,7 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="run-the-app"></a>앱 실행
 
-성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 표시합니다. 예: 
+성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 표시합니다. 예를 들면 다음과 같습니다.
 
 ```json
 [

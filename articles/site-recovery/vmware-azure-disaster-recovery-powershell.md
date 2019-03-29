@@ -115,7 +115,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-ASRVaultContext cmdlet 대신, Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. 자격 증명 모음 등록 키가 있는 경로를 Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet에 대한 -path 매개 변수로 지정합니다. 예: 
+Set-ASRVaultContext cmdlet 대신, Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. 자격 증명 모음 등록 키가 있는 경로를 Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet에 대한 -path 매개 변수로 지정합니다. 예를 들면 다음과 같습니다.
 
    ```azurepowershell
    Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"

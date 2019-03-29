@@ -15,7 +15,7 @@ ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56202692"
@@ -41,8 +41,8 @@ Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야
   * OAuth 권한 부여 서버인 Azure Active Directory(애플리케이션에서 노출된 API 보호)
 * 애플리케이션에 예상 대로 작동하는 데 필요한 다음을 포함하는 사용 권한을 선언합니다.
 
-     - 앱 사용 권한(전역 관리자만 해당) 예:  다른 Azure AD 애플리케이션의 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독과 관련된 역할 멤버 자격
-     - 위임된 권한(모든 사용자). 예:  Azure AD, 로그인 및 프로필 읽기
+     - 앱 사용 권한(전역 관리자만 해당) 예를 들면 다음과 같습니다. 다른 Azure AD 애플리케이션의 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독과 관련된 역할 멤버 자격
+     - 위임된 권한(모든 사용자). 예를 들면 다음과 같습니다. Azure AD, 로그인 및 프로필 읽기
 
 > [!NOTE]
 > 기본적으로 모든 멤버는 애플리케이션을 등록할 수 있습니다. 특정 멤버에 애플리케이션 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 애플리케이션을 추가하는 방법](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)을 참조하세요.

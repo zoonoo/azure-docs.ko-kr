@@ -437,7 +437,7 @@ SQL 데이터베이스에 설치되지 않은 패키지를 사용해야 하는 �
 
     "'R'은 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다"라는 오류가 발생하면 R.exe 경로가 Windows의 **PATH** 환경 변수에 포함되지 않은 것일 수 있습니다. 명령을 실행하기 전에 환경 변수에 디렉터리를 추가하거나 명령 프롬프트에서 디렉터리로 이동할 수 있습니다(예: `cd C:\Program Files\R\R-3.5.1\bin`).
 
-1. **R CMD INSTALL** 명령을 사용하여 **sqlmlutils**를 설치합니다. Zip 파일을 다운로드한 디렉터리 경로 및 Zip 파일 이름을 지정합니다. 예: 
+1. **R CMD INSTALL** 명령을 사용하여 **sqlmlutils**를 설치합니다. Zip 파일을 다운로드한 디렉터리 경로 및 Zip 파일 이름을 지정합니다. 예를 들면 다음과 같습니다.
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip

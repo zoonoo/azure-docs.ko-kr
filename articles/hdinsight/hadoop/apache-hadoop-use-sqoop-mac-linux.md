@@ -144,7 +144,7 @@ GO
     [sessionpagevieworder] [bigint])
     ```
 
-* HDInsight에서 SQL Server에 연결하는 경우 SQL Server의 IP 주소를 사용해야 할 수 있습니다. 예: 
+* HDInsight에서 SQL Server에 연결하는 경우 SQL Server의 IP 주소를 사용해야 할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1

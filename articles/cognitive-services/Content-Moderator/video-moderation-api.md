@@ -12,7 +12,7 @@ ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55864803"
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예: 
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들면 다음과 같습니다.
 
 ```JSON
 {

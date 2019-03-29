@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ff54b76e8a2de752eaafdb1eb3a98fa95293f106
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55151552"
@@ -49,7 +49,7 @@ ms.locfileid: "55151552"
  
 1. **InputClaimsTransformation** - 모든 입력 [클레임 변환](claimstransformations.md)의 입력 클레임이 클레임 모음에서 선택되고 실행 후 출력 클레임이 다시 클레임 모음에 저장됩니다. 입력 클레임 변환의 출력 클레임이 후속 입력 클레임 변환의 입력 클레임이 될 수 있습니다.
 2. **InputClaims** - 클레임이 클레임 모음에서 선택되고 기술 프로필에 사용됩니다. 예를 들어, [자체 어설션 기술 프로필](self-asserted-technical-profile.md)은 입력 클레임을 사용하여 사용자가 제공하는 출력 클레임을 미리 채웁니다. REST API 기술 프로필은 입력 클레임을 사용하여 입력 매개 변수를 REST API 엔드포인트에 보냅니다. Azure Active Directory는 입력 클레임을 고유 식별자로 사용하여 계정을 읽거나, 업데이트하거나, 삭제합니다.
-3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예: 
+3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예를 들면 다음과 같습니다.
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.

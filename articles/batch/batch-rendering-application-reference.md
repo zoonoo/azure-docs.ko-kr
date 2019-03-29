@@ -33,7 +33,7 @@ ms.locfileid: "57789593"
 
 `3dsmaxcmdio.exe` 애플리케이션을 호출하여 풀 노드에서 명령줄 렌더링을 수행합니다.  이 애플리케이션은 작업이 실행될 때 경로에 있습니다. `3dsmaxcmdio.exe` 응용 프로그램은 `3dsmaxcmd.exe` 응용 프로그램과 같은 사용할 수 있는 매개 변수를 가지며 이에 대해서는 [3ds Max 도움말 설명서](https://help.autodesk.com/view/3DSMAX/2018/ENU/)(렌더링 | 명령줄 렌더링 섹션)에서 설명하고 있습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

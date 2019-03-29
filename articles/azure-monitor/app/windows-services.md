@@ -14,7 +14,7 @@ ms.date: 05/15/2017
 ms.author: mbullwin
 ms.openlocfilehash: 85764c0ee5b8ed117fb191657d54abe5bd10a703
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54116554"
@@ -111,7 +111,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 ## <a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com/)로 돌아가서 Application Insights 리소스를 찾습니다.
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예: 
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예를 들면 다음과 같습니다.
 
 ![클릭하여 추가 데이터 확인](./media/windows-services/12-first-perf.png)
 

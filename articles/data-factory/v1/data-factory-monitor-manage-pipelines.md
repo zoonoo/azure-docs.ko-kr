@@ -180,7 +180,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예: 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +191,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예: 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -224,7 +224,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예: 
+   예를 들면 다음과 같습니다.
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -238,7 +238,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예: 
+    예를 들면 다음과 같습니다.
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

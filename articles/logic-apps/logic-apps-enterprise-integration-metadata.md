@@ -12,7 +12,7 @@ ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54446785"
@@ -93,7 +93,7 @@ ms.locfileid: "54446785"
       | **본문** | 아니요 | <*body-content*> | HTTP 작업의 `body` 속성을 통해 전달하려는 다른 콘텐츠입니다. 이 예제에서는 아티팩트의 `properties` 값을 HTTP 작업으로 전달합니다. <p>1. 동적 콘텐츠 목록이 표시되도록 **본문** 속성 내부를 클릭합니다. 속성이 표시되지 않는 경우 **자세히 보기**를 선택합니다. <br>2. 동적 콘텐츠 목록의 **통합 계정 아티팩트 조회**에서 **속성**을 선택합니다. | 
       |||| 
 
-      예: 
+      예를 들면 다음과 같습니다.
 
       ![HTTP 작업에 대한 값 및 식 지정](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

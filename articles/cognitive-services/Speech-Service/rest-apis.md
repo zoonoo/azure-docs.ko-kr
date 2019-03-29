@@ -36,7 +36,7 @@ Speech-to-Text 또는 Text-to-Speech REST API에 대한 각 요청에는 인증 
 | Ocp-Apim-Subscription-Key | 예 | 아니요 |
 | 권한 부여: 전달자 | 예 | 예 |
 
-`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예: 
+`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들면 다음과 같습니다.
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'

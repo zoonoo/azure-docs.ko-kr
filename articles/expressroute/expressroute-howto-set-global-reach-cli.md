@@ -54,7 +54,7 @@ az account set --subscription <your subscription ID>
 
 연결을 사용하도록 설정하는 명령을 실행하는 경우 매개 변수 값에 대한 다음 요구 사항에 유의하세요.
 
-* *peer-circuit*은 전체 리소스 ID여야 합니다. 예: 
+* *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들면 다음과 같습니다.
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

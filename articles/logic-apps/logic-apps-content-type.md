@@ -12,7 +12,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
 ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/19/2018
 ms.locfileid: "39159094"
@@ -63,7 +63,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예:  
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들면 다음과 같습니다. 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 

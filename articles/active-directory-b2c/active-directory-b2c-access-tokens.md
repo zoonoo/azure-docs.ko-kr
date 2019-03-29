@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
 ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55768353"
@@ -89,7 +89,7 @@ API가 범위를 게시하도록 구성되면 클라이언트 애플리케이션
 https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-같은 요청에 여러 권한을 얻기 위해 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다. 예: 
+같은 요청에 여러 권한을 얻기 위해 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 디코딩된 URL:
 

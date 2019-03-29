@@ -202,7 +202,7 @@ TranslateArray 메서드는 `Content-Type`에 대해 `application/xml` 또는 `t
 
 요청 URI는 `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`입니다.
 
-요청 본문에는 해당 이름을 검색하기 위한 ISO 639-1 언어 코드를 나타내는 문자열 배열이 포함됩니다. 예: 
+요청 본문에는 해당 이름을 검색하기 위한 ISO 639-1 언어 코드를 나타내는 문자열 배열이 포함됩니다. 예를 들면 다음과 같습니다.
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">

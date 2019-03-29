@@ -155,7 +155,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 ## <a name="known-issues"></a>알려진 문제
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>부드러운 스트리밍 매니페스트 버전에 대한 변경 내용
-2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 이전 Azure Media Encoder가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수합니다. 버전 2.0에서는 조각 기간 중에 소위 반복('r') 태그를 사용하지 않습니다. 예: 
+2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 이전 Azure Media Encoder가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수합니다. 버전 2.0에서는 조각 기간 중에 소위 반복('r') 태그를 사용하지 않습니다. 예를 들면 다음과 같습니다.
 
 <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
@@ -168,7 +168,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
         </StreamIndex>
     </SmoothStreamingMedia>
 
-2016년 7월 서비스 릴리스에서는 생성된 부드러운 스트리밍 매니페스트가 버전 2.2를 준수하며 조각 기간에서 반복 태그를 사용합니다. 예: 
+2016년 7월 서비스 릴리스에서는 생성된 부드러운 스트리밍 매니페스트가 버전 2.2를 준수하며 조각 기간에서 반복 태그를 사용합니다. 예를 들면 다음과 같습니다.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

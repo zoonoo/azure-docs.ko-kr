@@ -101,7 +101,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="log-data"></a>로그 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예: 
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들면 다음과 같습니다.
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -113,7 +113,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="application-data"></a>애플리케이션 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예: 
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들면 다음과 같습니다.
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

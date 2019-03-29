@@ -74,7 +74,7 @@ ds = ws.get_default_datastore()
                                                create_if_not_exists=True)
   ```
 
-+ 에 **Azure 파일 공유 데이터 저장소**를 사용 하 여 [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)합니다. 예:  
++ 에 **Azure 파일 공유 데이터 저장소**를 사용 하 여 [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)합니다. 예를 들면 다음과 같습니다. 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 

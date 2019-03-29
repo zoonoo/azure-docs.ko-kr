@@ -259,7 +259,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예: 
+        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예를 들면 다음과 같습니다.
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

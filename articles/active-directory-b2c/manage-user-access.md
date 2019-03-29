@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55154612"
@@ -78,7 +78,7 @@ ms.locfileid: "55154612"
 
 4. 두 계산에서 모두 true를 반환하지 않으면 **Adult**를 반환합니다.
 
-애플리케이션이 DOB 또는 국가 데이터를 다른 방법으로 안정적으로 수집한 경우, 애플리케이션에서 Graph API를 사용하여 사용자 레코드를 이 정보로 업데이트할 수 있습니다. 예: 
+애플리케이션이 DOB 또는 국가 데이터를 다른 방법으로 안정적으로 수집한 경우, 애플리케이션에서 Graph API를 사용하여 사용자 레코드를 이 정보로 업데이트할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup**의 값을 **Adult**로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor**를 적절하게 설정합니다.

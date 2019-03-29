@@ -11,7 +11,7 @@ ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55979754"
@@ -49,7 +49,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`가 반환되는지 확인합니다. 
 
-예:  
+예를 들면 다음과 같습니다. 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -99,7 +99,7 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 
 - 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
 - 서비스 이름만으로 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용합니다.
-- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예: 
+- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예를 들면 다음과 같습니다.
 
 ```Dockerfile
 EXPOSE 80
