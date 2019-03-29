@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001192"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
 
@@ -28,18 +28,21 @@ ms.locfileid: "56961315"
 
 Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 사용할 수 있습니다.
 
-- 사용자 이름 및 암호로 로그인한 후 두 번째 확인 방법에 대한 프롬프트를 제공합니다.
+- 사용자 이름 및 암호로 로그인한 후 인증에 대한 프롬프트에 응답합니다.
 
-- 암호를 요구하지 않고 모바일 디바이스에서 사용자 이름과 지문, 얼굴 또는 PIN을 사용하여 로그인합니다.
+- 암호를 입력하거나 사용자 이름, 인증 앱을 사용하지 않고 모바일 디바이스에서 지문, 얼굴 또는 PIN을 사용하여 로그인합니다.
 
->[!Important]
->Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
+- 인증자 앱을 지원하는 다른 계정에 대한 코드 생성기로서,
 
->조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-overview.md)를 참조하세요.
-
->계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요. Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
+> [!Important]
+> Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 계정에 사용할 수 있으며 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원합니다.
+> 
+> 조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
+> 
+> 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요. Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
 
 ## <a name="terminology"></a>용어
+
 |용어|설명|
 |----|-----------|
 |2단계 인증 |암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다.|

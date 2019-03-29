@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106018"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
@@ -33,7 +33,8 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 디바이스 둘 다에
 > * Azure Portal에서 Azure Stream Analytics 작업을 IoT Edge 디바이스에 배포합니다.
 
 <center>
-![다이어그램 - ASA 작업 아키텍처, 스테이징 및 배포 자습서](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+
+![다이어그램 - 자습서 아키텍처, ASA 작업 준비 및 배포](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -64,7 +65,7 @@ IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 이름 | 저장소 계정의 고유한 이름을 입력합니다. | 
+   | Name | 저장소 계정의 고유한 이름을 입력합니다. | 
    | 위치 | 가까운 위치를 선택합니다. |
    | 구독 | IoT Hub와 동일한 구독을 선택합니다. |
    | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
@@ -215,9 +216,9 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. 모든 시스템 로그 및 메트릭 데이터를 봅니다. Stream Analytics 모듈 이름을 사용합니다.
 
    ```cmd/sh

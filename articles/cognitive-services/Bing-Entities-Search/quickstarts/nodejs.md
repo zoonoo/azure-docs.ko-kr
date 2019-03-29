@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104372"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -74,7 +74,7 @@ ms.locfileid: "55878717"
         });
         ```
 
-    3. **end** 플래그가 신호로 전송되면 JSON을 구문 분석하고 출력하세요.
+    3. **end** 플래그가 신호로 전송되면 JSON을 구문 분석하고 출력합니다.
 
         ```javascript
         response.on ('end', function () {
@@ -87,24 +87,24 @@ ms.locfileid: "55878717"
 
 1. `Search`라는 함수를 만들어 검색 요청을 보냅니다. 그 과정에서 다음 단계를 수행합니다.
 
-    1. 요청 매개 변수를 포함하는 JSON 개체를 만듭니다. 메서드에 `Get`를 사용하고 호스트 및 경로 정보를 추가하세요. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다. 
-    2. `https.request()`를 사용하여 앞서 만든 응답 처리기와 검색 매개 변수가 포함된 요청을 보냅니다.
+   1. 요청 매개 변수를 포함하는 JSON 개체를 만듭니다. 메서드에 `Get`를 사용하고 호스트 및 경로 정보를 추가하세요. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다. 
+   2. `https.request()`를 사용하여 앞서 만든 응답 처리기와 검색 매개 변수가 포함된 요청을 보냅니다.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. `Search()` 함수를 호출합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "55878717"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

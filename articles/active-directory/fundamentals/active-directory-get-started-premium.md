@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187686"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287063"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
 Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
@@ -65,17 +65,17 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 ### <a name="to-activate-your-license-plan"></a>라이선스 플랜을 활성화하려면
 - 등록한 후 Microsoft에서 받은 확인 메일을 열고 **로그인** 또는 **등록**을 클릭합니다.
    
-    ![로그인](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![로그인 및 가입 링크가 포함된 확인 이메일](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
 
     - **등록.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
 
-        ![계정 프로필 만들기](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![샘플 정보를 사용한 계정 프로필 만들기 페이지](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 작업을 마치면 테넌트의 라이선스 플랜을 활성화할 수 있는 확인 상자가 표시됩니다.
 
-![확인](media/active-directory-get-started-premium/MOLSThankYou.png)
+![감사 인사가 포함된 확인 상자](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Azure AD 액세스 활성화
 기존 구독에 새 Azure AD Premium 라이선스를 추가하는 경우 Azure AD 액세스가 이미 활성화되어 있어야 합니다. 그렇지 않으면 **환영 전자 메일**을 받은 후 Azure AD 액세스를 활성화해야 합니다.  
@@ -89,11 +89,11 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 
 1. **환영 메일**을 연 후 **로그인**을 클릭합니다.
    
-    ![환영 전자 메일](media/active-directory-get-started-premium/AADEmail.png)
+    ![로그인 링크가 강조 표시된 환영 이메일](media/active-directory-get-started-premium/AADEmail.png)
 
 2. 성공적으로 로그인한 후 모바일 디바이스를 사용하여 2단계 확인을 거칩니다.
    
-    ![모바일 확인](media/active-directory-get-started-premium/SignUppage.png)
+    ![모바일 확인을 사용하는 2단계 인증 페이지](media/active-directory-get-started-premium/SignUppage.png)
 
 일반적으로 몇 분 만에 활성화 프로세스가 완료된 후 Azure AD 테넌트를 사용할 수 있습니다. 
 

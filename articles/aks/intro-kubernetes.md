@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0960977a17925ffd922e75fa03847b7023241c4e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201503"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
 AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지 관리합니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
 
 Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 기반 배포 옵션을 사용하여 Azure Portal에서 AKS 클러스터를 만들 수 있습니다. AKS 클러스터를 배포할 때 Kubernetes 마스터 및 모든 노드가 배포되고 구성됩니다. 배포 프로세스 중에 고급 네트워킹, Azure Active Directory 통합 및 모니터링 등의 추가 기능을 구성할 수도 있습니다.
+
+Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
 시작하려면 [Azure Portal에서][aks-portal] 또는 [Azure CLI를 사용하여][aks-cli] AKS 빠른 시작을 완료합니다.
 
@@ -30,6 +32,8 @@ Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 �
 ### <a name="identity-and-security-management"></a>ID 및 보안 관리
 
 클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
+
+ID에 대한 자세한 내용은 [AKS에 대한 액세스 및 ID 옵션][concepts-identity]을 참조하세요.
 
 AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-aad]을 참조하세요.
 
@@ -65,13 +69,17 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 저장소 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 저장소를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 저장소를 사용할 수 있습니다.
 
-[Azure Disks][azure-disk] 또는 [Azure Files][azure-files]를 사용하여 동적 영구적 볼륨을 시작합니다.
+자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
+
+[Azure Disks][azure-disk] 또는 [Azure Files][azure-files]를 사용하여 동적 영구 볼륨을 시작합니다.
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 
 AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. 이 구성에서 클러스터의 모든 Pod는 가상 네트워크의 IP 주소가 할당되고, 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크의 다른 서비스에 연결되고, ExpressRoute 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결될 수 있습니다.
 
-자세한 내용은 [AKS 네트워킹 개요][aks-networking]를 참조하세요.
+자세한 내용은 [애플리케이션에 대한 AKS의 네트워크 개념][aks-networking]을 참조하세요.
+
+수신 트래픽을 시작하려면 [HTTP 애플리케이션 라우팅][aks-http-routing]을 참조하세요.
 
 ### <a name="ingress-with-http-application-routing"></a>HTTP 애플리케이션 라우팅을 사용하여 수신
 
@@ -101,7 +109,7 @@ AKS(Azure Kubernetes Service)는 Kubernetes 규칙을 따르는 CNCF로 인증�
 
 ## <a name="regulatory-compliance"></a>규정 준수
 
-AKS(Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA와 호환됩니다.
+AKS(Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA와 호환됩니다. 자세한 내용은 [Microsoft Azure 규정 준수 개요][compliance-doc]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -112,10 +120,8 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[compliance-doc]: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +140,7 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

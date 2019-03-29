@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106749"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>빠른 시작: Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     |---|---|---|
     | 프로비전 | *https://help.kusto.windows.net* | 도움말 클러스터의 URL입니다. 다른 클러스터의 경우 이 URL은 *https://\<ClusterName\>.\<Region\>.kusto.windows.net* 형식입니다. |
     | 데이터베이스 | 비워 둠 | 연결 중인 클러스터에서 호스트되는 데이터베이스입니다. 이후 단계에서 이 데이터베이스를 선택하게 됩니다. |
-    | 테이블 이름 | 비워 둠 | 데이터베이스의 테이블 중 하나 또는 'StormEvents | take 1000`과 같은 쿼리입니다. 이후 단계에서 이 데이터베이스를 선택하게 됩니다. |
+    | 테이블 이름 | 비워 둠 | 데이터베이스의 테이블 중 하나 또는 <code>StormEvents \| take 1000</code> 이후 단계에서 이 데이터베이스를 선택하게 됩니다. |
     | 고급 옵션 | 비워 둠 | 쿼리에 대한 옵션(예: 결과 세트 크기)입니다. |
     | 데이터 연결 모드 | *DirectQuery* | Power BI가 데이터를 가져올지 또는 데이터 원본에 직접 연결될지를 결정합니다. 이 커넥터에서는 두 옵션을 모두 사용할 수 있습니다. |
     | | | |
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     ![상위 행 유지](media/power-bi-connector/keep-top-rows.png)
 
-1. **Home** 탭에서 **닫기 및 적용**을 선택합니다.
+1. **홈** 에서 **닫기 및 적용**을 선택합니다.
 
     ![닫기 및 적용](media/power-bi-connector/close-apply.png)
 

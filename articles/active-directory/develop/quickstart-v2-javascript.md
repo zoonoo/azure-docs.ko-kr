@@ -4,7 +4,7 @@ description: JavaScript 애플리케이션이 Azure Active Directory v2.0 엔드
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203050"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>빠른 시작: JavaScript 애플리케이션에서 사용자 로그인 및 액세스 토큰 획득
 
@@ -29,7 +29,7 @@ ms.locfileid: "56217482"
 
 이 빠른 시작에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정에 로그인하고, Microsoft Graph API 또는 웹 API를 호출하기 위해 액세스 토큰을 가져오는 방법을 보여주는 코드 샘플을 사용하는 방법을 알아보겠습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
@@ -74,14 +74,15 @@ ms.locfileid: "56217482"
 * [Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 로컬 폴더(예: **C:\Azure-Samples**)에 zip 파일 압축을 풉니다.
+폴더의 파일을 열려면 [Visual Studio Code](https://code.visualstudio.com/)와 같은 편집기를 사용합니다.
 
 #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 
 > [!div renderon="docs"]
-> `index.html`을 편집하고 `applicationConfig` 아래에서 `clientID` 및 `authority` 값을 설정합니다.
+> *JavaScriptSPA* 폴더 아래에서 `index.html`을 편집하고, `applicationConfig` 아래에 `clientID` 및 `authority` 값을 설정합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> `index.html`을 편집하고 `applicationConfig`를 다음으로 바꿉니다.
+> *JavaScriptSPA* 폴더 아래에서 `index.html`을 편집하고 `applicationConfig`를 다음으로 바꿉니다.
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
-> [!NOTE]
-> 서버는 [Node.js](https://nodejs.org/en/download/) 프로젝트의 *server.js* 파일 및 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 프로젝트의 *.csproj* 파일에서 30662 포트를 수신 대기하도록 구성됩니다.
->
-
 #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
 
-* Node.js를 사용하는 경우:
+* [Node.js](https://nodejs.org/en/download/)를 사용하는 경우 다음을 수행합니다.
 
     1. 프로젝트의 디렉터리에서 다음 명령을 실행하여 서버를 시작합니다.
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. **로그인** 단추를 클릭하여 로그인을 시작한 다음, Microsoft Graph API를 호출합니다.
 
 
-* Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택한 다음, **F5** 키를 눌러 프로젝트를 실행합니다.
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)를 사용하는 경우 프로젝트 솔루션을 선택한 다음, **F5** 키를 눌러 프로젝트를 실행합니다.
 
 ## <a name="more-information"></a>추가 정보
 
@@ -217,9 +214,9 @@ myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (access
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>이 빠른 시작의 애플리케이션을 만드는 단계 알아보기
 
 > [!div class="nextstepaction"]
-> [Graph API 호출 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [MS Graph에 로그인하고 호출하는 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>설명서, FAQ, 문제 등에 대한 MSAL 리포지토리 찾아보기
 
 > [!div class="nextstepaction"]
-> [msal.js GitHub 리포지토리](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub 리포지토리](https://github.com/AzureAD/microsoft-authentication-library-for-js)

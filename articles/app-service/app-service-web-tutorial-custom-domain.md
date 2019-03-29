@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089525"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -145,7 +145,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 **호스트 이름 추가** 페이지가 표시됩니다. 
 
-**호스트 이름 레코드 형식**이 **CNAME (www.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
+**호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
 
 **호스트 이름 추가**를 선택합니다.
 
@@ -282,7 +282,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 **호스트 이름 추가** 단추가 활성화됩니다. 
 
-**호스트 이름 레코드 형식**이 **CNAME 레코드 (www.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
+**호스트 이름 레코드 형식**이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다.
 
 **호스트 이름 추가**를 선택합니다.
 

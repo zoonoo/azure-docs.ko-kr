@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.openlocfilehash: 530cd5adf942f32aaf883f668e3564ba5c12bbe2
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 03/15/2019
+ms.openlocfilehash: 1ef414b2de2acbf5b92661c8b5f1e249549b14df
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588029"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259145"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 .NET 웹앱 빌드
 
@@ -29,9 +29,7 @@ ms.locfileid: "56588029"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여 줍니다. 그런 다음 아래 스크린샷과 같이 [SQL .NET API](sql-api-sdk-dotnet.md)에 작성된 할 일 목록 웹앱을 빌드하고 배포합니다. 
-
-![샘플 데이터를 사용한 Todo 앱](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만들고 컬렉션에 샘플 데이터를 추가하는 방법을 보여줍니다. 그런 다음, [SQL .NET SDK](sql-api-sdk-dotnet.md)를 사용하여 할 일 목록 웹앱을 빌드하여 배포하고, 컬렉션 내의 관리 데이터를 더 많이 추가하겠습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,19 +39,64 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+## <a name="create-an-account"></a>계정 만들기
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection"></a>
-## <a name="add-a-collection"></a>컬렉션 추가
+<a id="create-collection-database"></a>
+## <a name="add-a-database-and-a-collection"></a>데이터베이스 및 컬렉션 추가
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+이제 Azure Portal에서 데이터 탐색기 도구를 사용하여 데이터베이스 및 컬렉션을 만들 수 있습니다. 
+
+1. **데이터 탐색기** > **새 컬렉션**을 클릭합니다. 
+    
+    **컬렉션 추가** 영역이 맨 오른쪽에 표시되면 확인하기 위해 오른쪽으로 스크롤해야 합니다.
+
+    ![Azure Portal Data Explorer, 컬렉션 추가 창](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+
+2. **컬렉션 추가** 페이지에서 새 컬렉션에 대한 설정을 입력합니다.
+
+    설정|제안 값|설명
+    ---|---|---
+    **데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다.
+    **컬렉션 ID**|항목|새 컬렉션의 이름으로 *항목*을 입력입니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.
+    **파티션 키**| `<your_partition_key>`| 파티션 키를 입력합니다. 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.
+    **처리량**|400RU|처리량을 400RU/s(초당 요청 단위)로 변경합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. 
+    
+    앞의 설정 외에도 선택적으로 컬렉션에 대한 **고유 키**를 추가할 수 있습니다. 이 예에서 필드는 비워 두겠습니다. 고유 키는 데이터베이스에 데이터 무결성 계층을 추가할 수 있는 기능을 개발자에게 제공합니다. 컬렉션을 만드는 동안 고유 키 정책을 만들면 파티션 키당 하나 이상의 값에 대한 고유성이 보장됩니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md) 문서를 참조하세요.
+    
+    **확인**을 클릭합니다.
+
+    데이터 탐색기는 새 데이터베이스 및 컬렉션을 표시합니다.
+
+    ![Azure Portal 데이터 탐색기, 새 데이터베이스 및 컬렉션 표시](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
+
+1. 데이터 탐색기에서 새 데이터베이스가 컬렉션 창에 나타납니다. **작업** 데이터베이스를 확장하고 **Items** 컬렉션을 확장하고 **문서**를 클릭한 후 **새 문서**를 클릭합니다. 
+
+   ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+  
+2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가 합니다.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. **문서** 탭에 Json을 추가했으면 **저장**을 클릭합니다.
+
+    ![Azure Portal의 데이터 탐색기에서 Json 데이터를 복사하고 저장을 클릭합니다.](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+
+4. `id` 속성에 대한 고유한 값을 삽입하는 경우 둘 이상의 문서를 만들고 저장하며 다른 속성을 적합하게 변경합니다. Azure Cosmos DB가 데이터에 어떠한 스키마도 적용하지 않으므로 새 문서는 사용자가 원하는 어떠한 구조든 가질 수 있습니다.
 
 ## <a name="query-your-data"></a>데이터 쿼리
 
@@ -85,32 +128,49 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 데이터베이스 및 컬렉션을 만들고, .NET 샘플을 사용하여 샘플 데이터를 추가합니다. .NET 샘플을 사용하여 데이터베이스 및 컬렉션을 만들 수도 있습니다. 
 
 다음 코드 조각은 모두 DocumentDBRepository.cs 파일에서 가져옵니다.
 
-* 76번 줄에서 DocumentClient가 초기화됩니다.
+* DocumentClient는 다음 코드처럼 초기화됩니다.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 91번 줄에서 새 데이터베이스가 만들어집니다.
+* 다음 코드처럼 `CreateDatabaseAsync` 메서드를 사용하여 새 데이터베이스가 만들어집니다.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 110번 줄에서 새 컬렉션이 만들어집니다.
+* 다음 코드처럼 `CreateDocumentCollectionAsync`를 사용하여 새 컬렉션이 만들어집니다.
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection
-            {
-               Id = CollectionId
-            },
-        new RequestOptions { OfferThroughput = 400 });
+    private static async Task CreateCollectionIfNotExistsAsync()
+    {
+        try
+        {
+           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
+        }
+        catch (DocumentClientException e)
+        {
+           if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+           {
+              await client.CreateDocumentCollectionAsync(
+              UriFactory.CreateDatabaseUri(DatabaseId),
+              new DocumentCollection
+              {
+                  Id = CollectionId
+              },
+              new RequestOptions { OfferThroughput = 400 });
+           }
+           else
+           {
+             throw;
+           }
+        }
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
@@ -131,10 +191,13 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
     `<add key="authKey" value="FILLME" />`
     
-5. 그런 다음, 이전에 만든 데이터베이스의 이름과 일치하도록 데이터베이스 값을 업데이트합니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+5. 그런 다음, 이전에 만든 데이터베이스의 이름과 일치하도록 데이터베이스 및 컬렉션 값을 업데이트합니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
-    `<add key="database" value="Tasks" />`    
-    
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
 ## <a name="run-the-web-app"></a>웹앱 실행
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다. 
 

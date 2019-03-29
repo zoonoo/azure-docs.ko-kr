@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ab00e74a704afe2f5fc6ef81f4f023b190a32d0b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878343"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259604"
 ---
 # <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 사용하는 URL 미리 보기
 
@@ -27,7 +27,7 @@ ms.locfileid: "55878343"
 
 ## <a name="request"></a>요청 
 
-다음 코드에서는 `WebRequest`를 만들고, 액세스키 헤더를 설정하고, “https://swiftkey.com/en”에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
+다음 코드는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, "https:\//swiftkey.com/en"에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
 
 ```
     // construct URL of search request (endpoint + query string)

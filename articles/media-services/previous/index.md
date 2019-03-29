@@ -18,6 +18,8 @@ ms.author: carolz
 
 확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 브로드캐스트 품질 비디오를 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
+**참고:** Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">

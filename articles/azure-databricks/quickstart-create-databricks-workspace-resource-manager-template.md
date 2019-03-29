@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 549468cb28a73b6c6f4c066ddba9f3ffe6745e86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087519"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -24,6 +24,10 @@ ms.locfileid: "56330480"
 이 빠른 시작에서는 Spark 작업의 일부로 라디오 채널 구독 데이터를 분석하여 인구 통계를 기반으로 무료/유료 사용에 대한 정보를 얻습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+> [!Note]
+> 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
+> 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -115,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    저장소 계정 키를 검색하는 방법에 대한 지침은 [저장소 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
+     저장소 계정 키를 검색하는 방법에 대한 지침은 [저장소 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
    > [!NOTE]
    > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://go.microsoft.com/fwlink/?linkid=864084)을 참조하세요.

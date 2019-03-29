@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106647"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -32,7 +32,7 @@ ms.locfileid: "51232891"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 완료했습니다.
+1. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 2. 디스크를 받고 포털에서 작업 상태가 **배달됨**으로 업데이트되었습니다.
 3. Data Box Disk 잠금 해제 도구를 설치할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
     - [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "51232891"
 
     ![Data Box Disk 연결](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. Azure Portal에서 **일반 > 장치 세부 정보**로 이동합니다. 복사 아이콘을 사용하여 암호를 복사합니다. 이 암호는 디스크의 잠금을 해제하는 데 사용됩니다.
+2. Azure Portal에서 **일반 &gt; 디바이스 세부 정보**로 이동합니다. 복사 아이콘을 사용하여 암호를 복사합니다. 이 암호는 디스크의 잠금을 해제하는 데 사용됩니다.
 
     ![Data Box Disk 잠금 해제 암호](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
@@ -69,7 +69,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 다음 단계를 수행하여 디스크를 연결하고 잠금 해제합니다.
      
-1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동합니다. 
+1. Azure Portal에서 **일반 &gt; 디바이스 세부 정보**로 이동합니다. 
 2. Windows 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다. 이 도구 집합에는 Data Box 디스크 잠금 해제 도구, Data Box 디스크 유효성 검사 도구 및 Data Box 디스크 분할 복사 도구라는 3가지 도구가 포함됩니다. 
 
     이 절차에서는 Data Box 디스크 잠금 해제 도구만 사용합니다. 다른 두 가지 도구는 나중에 사용됩니다.
@@ -127,7 +127,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 ## <a name="unlock-disks-on-linux-client"></a>Linux 클라이언트에서 디스크 잠금 해제
 
-1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동합니다. 
+1. Azure Portal에서 **일반 &gt; 디바이스 세부 정보**로 이동합니다. 
 2. Linux 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다.  
 
     > [!div class="nextstepaction"]
@@ -170,39 +170,39 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     
  
 5. `y`를 입력하여 계속 설치합니다. 스크립트에서 설치하는 패키지는 다음과 같습니다. 
-    - **epel-release** - 다음 세 가지 패키지를 포함하는 리포지토리입니다. 
-    - **dislocker 및 fuse-dislocker** - 이 유틸리티를 통해 BitLocker 암호화 디스크의 암호를 해독하는 데 도움이 됩니다. 
-    - **ntfs-3g** - NTFS 볼륨을 탑재하는 데 도움이 되는 패키지입니다. 
+   - **epel-release** - 다음 세 가지 패키지를 포함하는 리포지토리입니다. 
+   - **dislocker 및 fuse-dislocker** - 이 유틸리티를 통해 BitLocker 암호화 디스크의 암호를 해독하는 데 도움이 됩니다. 
+   - **ntfs-3g** - NTFS 볼륨을 탑재하는 데 도움이 되는 패키지입니다. 
  
-    패키지를 성공적으로 설치하면 터미널에는 해당 결과에 대한 알림이 표시됩니다.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     패키지를 성공적으로 설치하면 터미널에는 해당 결과에 대한 알림이 표시됩니다.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Data Box Disk 잠금 해제 도구를 실행합니다. [디스크에 연결 및 암호 가져오기](#Connect-to-disks-and-get-the-passkey)에서 얻은 Azure Portal의 암호를 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨의 목록을 지정합니다. 암호 및 볼륨은 작은 따옴표 안에서 지정되어야 합니다. 
 

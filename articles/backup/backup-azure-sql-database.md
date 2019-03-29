@@ -6,331 +6,139 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 02/19/2018
+ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887814"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285448"
 ---
-# <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM에 SQL Server 데이터베이스 백업 
+# <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
-SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존이 필요한 중요한 워크로드입니다. [Azure Backup](backup-overview.md)을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업할 수 있습니다. 
+SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존이 필요한 중요한 워크로드입니다. [Azure Backup](backup-overview.md)을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업할 수 있습니다.
 
-이 문서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 보여 줍니다. 이 문서에서는 다음 방법을 설명합니다.
+## <a name="backup-process"></a>백업 프로세스
 
-> [!div class="checklist"]
-> * SQL Server 인스턴스를 백업하기 위한 필수 구성 요소를 확인합니다.
-> * 자격 증명 모음을 만들고 구성합니다.
-> * 데이터베이스를 검색하고 백업을 설정합니다.
-> * 데이터베이스에 대한 자동 보호를 설정합니다.
+이 솔루션은 SQL 네이티브 API를 활용하여 SQL 데이터베이스를 백업합니다.
 
-> [!NOTE]
-> 이 기능은 현재 공개 미리 보기로 제공됩니다.
+* 보호하려는 SQL Server VM을 지정하고 그 안에 있는 데이터베이스를 쿼리하면 Azure Backup 서비스가 `AzureBackupWindowsWorkload` 확장이라는 이름으로 VM에 워크로드 백업 확장을 설치합니다.
+* 이 확장은 코디네이터 및 SQL 플러그 인으로 구성됩니다. 코디네이터는 백업 구성, 백업 및 복원 같은 다양한 워크플로를 트리거하는 역할을 담당하고, 플러그 인은 실제 데이터 흐름을 담당합니다.
+* 이 VM의 데이터베이스를 검색하기 위해 Azure Backup은  `NT SERVICE\AzureWLBackupPluginSvc`라는 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다. Azure Backup은 데이터베이스 검색/조회에  `NT AUTHORITY\SYSTEM`  계정을 활용하므로, 이 계정은 SQL에서 공용 로그인이어야 합니다. Azure Marketplace에서 SQL Server VM을 만들지 않은 경우  **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우  [다음 지침을 따릅니다](backup-azure-sql-database.md).
+* 선택한 데이터베이스에서 보호 구성을 트리거하면 백업 서비스가 백업 일정과 기타 정책 세부 정보를 사용하여 코디네이터를 설정하고, 확장이 VM에 로컬로 캐시합니다. 
+* 예약된 시간에 코디네이터가 플러그 인과 통신하고 VDI를 사용하여 SQL 서버의 백업 데이터를 스트리밍하기 시작합니다.  
+* 플러그 인은 복구 서비스 자격 증명 모음에 직접 데이터를 보내기 때문에 준비 위치가 필요 없습니다. 데이터는 Azure Backup 서비스를 통해 암호화되어 스토리지 계정에 저장됩니다.
+* 데이터 전송이 완료되면 코디네이터가 백업 서비스를 사용하여 커밋을 확인합니다.
+
+  ![SQL 백업 아키텍처](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
 시작하기 전에 다음을 확인합니다.
 
-1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../sql-database/sql-database-get-started-portal.md) 수 있습니다.
-2. 아래의 공개 미리 보기 제한 사항을 검토합니다.
-3. 시나리오 지원을 검토합니다.
-4. 이 시나리오에 대한 [일반적인 질문을 검토](faq-backup-sql-server.md)합니다.
+1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) 수 있습니다.
+2. [기능 고려 사항](#feature-consideration-and-limitations) 및 [시나리오 지원](#scenario-support)을 검토합니다.
+3. 이 시나리오에 대한 [일반적인 질문을 검토](faq-backup-sql-server.md)합니다.
 
-
-## <a name="preview-limitations"></a>미리 보기 제한 사항
-
-이 공개 미리 보기에는 여러 가지 제한 사항이 있습니다.
-
-- SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다. 
-- 하나의 자격 증명 모음에는 최대 2,000개의 SQL Server 데이터베이스를 백업할 수 있습니다. 더 많은 SQL Server 데이터베이스가 있으면 또 다른 자격 증명 모음을 만듭니다. 
-- [분산 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017)의 백업은 완벽하게 작동하지 않습니다.
-- 백업에는 SQL Server Always On FCI(장애 조치(failover) 클러스터 인스턴스)가 지원되지 않습니다.
-- SQL Server 백업은 포털에서 구성해야 합니다. 백업은 현재 Azure PowerShell, CLI 또는 REST API를 사용하여 구성할 수 없습니다.
-- FCI 미러 데이터베이스, 데이터베이스 스냅숏 및 데이터베이스에 대한 백업 및 복원 작업은 지원되지 않습니다.
-- 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 결정적이지 않습니다. 파일 수에 따라 달라질 뿐만 아니라 파일의 경로 길이에 따라서도 달라집니다. 
-
-[질문과 대답](faq-backup-sql-server.md)에서 SQL Server 데이터베이스 백업에 대한 자세한 내용을 검토하세요.
 ## <a name="scenario-support"></a>시나리오 지원
 
 **지원** | **세부 정보**
 --- | ---
 **지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | ASE(오스트레일리아 동남부), BRS(브라질 남부), CNC(캐나다 중부), CE(캐나다 동부), CUS(미국 중부), EA(동아시아), AE(오스트레일리아 동부), EUS(미국 동부), EUS2(미국 동부 2), INC(인도 중부), INS(인도 남부), JPE(일본 동부), JPW(일본 서부), KRC(한국 중부), KRS(한국 남부), NCUS(미국 중북부), NE(유럽 북부), SCUS(미국 중남부), SEA(동남 아시아), UKS(영국 남부), UKW(영국 서부), WCUS(미국 중서부), WE(유럽 서부), WUS(미국 서부), WUS 2(미국 서부 2)
+**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW)
 **지원되는 운영 체제** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | SQL Server 2017, SQL Server 2016, SQL Server 2014, SQL Server 2012<br/><br/> Enterprise, Standard, Web, Developer, Express
-
-
-## <a name="prerequisites"></a>필수 조건
-
-SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하십시오.
-
-1. SQL Server 인스턴스를 호스팅하는 VM과 동일한 지역이나 로캘에서 Recovery Services 자격 증명 모음을 식별하거나 [만듭니다](backup-azure-sql-database.md#create-a-recovery-services-vault).
-2. SQL 데이터베이스를 백업하는 데 필요한 [VM 권한을 확인](#fix-sql-sysadmin-permissions)합니다.
-3. VM에 [네트워크 연결](backup-azure-sql-database.md#establish-network-connectivity)이 있는지 확인합니다.
-4. SQL Server 데이터베이스의 이름이 Azure Backup [명명 지침](backup-azure-sql-database.md)에 따라 지정되었는지 확인합니다.
-5. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 이 시나리오를 설정하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다. 충돌 없이 VM에서 실행되는 SQL Server 데이터베이스에 대한 Azure Backup과 함께 Azure VM에 대한 Azure Backup을 사용하도록 설정할 수 있습니다.
-
-
-### <a name="establish-network-connectivity"></a>네트워크 연결 설정
-
-모든 작업에서 SQL Server VM 가상 머신에는 Azure 공용 IP 주소에 대한 연결이 필요합니다. 공용 IP 주소에 연결되지 않으면 VM 작업(데이터베이스 검색, 백업 구성, 백업 예약, 복구 지점 복원 등)이 실패합니다. 다음 옵션 중 하나를 사용하여 연결을 설정합니다.
-
-- **Azure 데이터 센터 IP 범위 허용**: 다운로드에서 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다. NSG(네트워크 보안 그룹)에 액세스하려면 **Set-AzureNetworkSecurityRule** cmdlet을 사용합니다.
-- **트래픽을 라우팅하는 HTTP 프록시 서버 배포**: Azure VM에서 SQL Server 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장은 인증에 Azure AD(Azure Active Directory)도 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
-
-각 옵션마다 장단점이 있습니다.
-
-**옵션** | **장점** | **단점**
---- | --- | ---
-IP 범위 허용 | 추가 비용 없음 | 시간이 지남에 따라 IP 주소 범위가 변경되므로 관리가 복잡합니다. <br/><br/> Azure Storage 뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.
-HTTP 프록시 사용   | 저장소 URL에 대한 프록시의 세부적인 제어가 허용됩니다. <br/><br/> VM에 대한 인터넷 액세스의 단일 지점 <br/><br/> Azure IP 주소 변경이 적용되지 않음 | 프록시 소프트웨어로 VM을 실행하기 위한 추가 비용입니다. 
-
-### <a name="set-vm-permissions"></a>VM 권한 설정
-
-Azure Backup은 SQL Server 데이터베이스에 대한 백업을 구성할 때 다음과 같은 몇 가지 작업을 수행합니다.
-
-- **AzureBackupWindowsWorkload** 확장을 추가합니다.
-- 가상 머신에서 데이터베이스를 검색하기 위해 Azure Backup은 **NT SERVICE\AzureWLBackupPluginSvc** 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다.
-- Azure Backup은 데이터베이스 검색/조회에서 **NT AUTHORITY\SYSTEM** 계정을 활용하므로 이 계정은 SQL에서 공개적으로 로그인해야 합니다.
-
-Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우 [다음 지침을 따르세요](#fix-sql-sysadmin-permissions).
-
-### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Azure Backup의 데이터베이스 명명 지침 확인
-
-데이터베이스 이름에 다음 문자를 사용하지 않습니다.
-
-  * 선행/후행 공백
-  * 후행 ‘!’
-  * 닫는 대괄호 ‘]’
-
-Azure 테이블에 지원되지 않는 문자에 대해 앨리어싱을 사용하지만 이러한 문자는 사용하지 않는 것이 좋습니다. [자세히 알아보기](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
-
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="discover-sql-server-databases"></a>SQL Server 데이터베이스 검색
-
-VM에서 실행되는 데이터베이스를 검색합니다. 
-1. [Azure Portal](https://portal.azure.com)에서 데이터베이스를 백업하는 데 사용하는 Recovery Services 자격 증명 모음을 엽니다.
-
-2. **Recovery Services 자격 증명 모음** 대시보드에서 **Backup**을 선택합니다. 
-
-   ![Backup을 선택하여 백업 목표 메뉴 열기](./media/backup-azure-sql-database/open-backup-menu.png)
-
-3. **백업 목표**에서 **작업이 실행되는 위치**를 **Azure**(기본값)로 설정합니다.
-
-4. **백업할 항목**에서 **Azure VM의 SQL Server**를 선택합니다.
-
-    ![백업을 위해 Azure VM에서 SQL Server 선택](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
-
-
-5. **백업 목표** > **VM에서 DB 검색** 에서 **검색 시작**을 선택하여 구독에서 보호되지 않은 가상 머신을 검색합니다. 구독에서 보호되지 않은 가상 머신의 수에 따라 약간의 시간이 걸릴 수 있습니다.
-
-    ![VM의 DB 검색 중에는 백업이 보류됩니다.](./media/backup-azure-sql-database/discovering-sql-databases.png)
-
-6. VM 목록에서 SQL Server 데이터베이스가 실행되는 VM, **DB 검색**을 차례로 선택합니다.
-
-7. **알림** 영역에서 데이터베이스 검색을 추적합니다. VM의 데이터베이스 수에 따라 작업이 완료되는 데 약간의 시간이 걸릴 수 있습니다. 선택한 데이터베이스가 검색되면 성공 메시지가 표시됩니다.
-
-    ![배포 성공 메시지](./media/backup-azure-sql-database/notifications-db-discovered.png)
-
-    - 검색 후에는 보호되지 않은 VM이 이름 및 리소스 그룹별로 나열된 목록에 표시됩니다.
-    - VM이 예상대로 나열되지 않으면 자격 증명 모음에 이미 백업되어 있는지 확인합니다.
-    - 여러 VM은 동일한 이름을 사용할 수 있지만 서로 다른 리소스 그룹에 속합니다. 
-
-9. SQL Server 데이터베이스가 실행되는 VM, **DB 검색**을 차례로 선택합니다. 
-10. Azure Backup은 VM의 모든 SQL Server 데이터베이스를 검색합니다. 검색하는 동안 백그라운드에서 수행되는 작업은 다음과 같습니다.
-
-    - Azure Backup에서 워크로드 백업용 자격 증명 모음에 VM을 등록합니다. 등록된 VM의 모든 데이터베이스는 이 자격 증명 모음에만 백업할 수 있습니다.
-    - Azure Backup에서 **AzureBackupWindowsWorkload** 확장을 VM에 설치합니다. 에이전트는 SQL 데이터베이스에 설치되지 않습니다.
-    - Azure Backup에서 **NT Service\AzureWLBackupPluginSvc** 서비스 계정을 VM에 만듭니다.
-      - 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다.
-      - **NT Service\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. Azure Marketplace에서 만든 모든 SQL Server VM에는 **SqlIaaSExtension**이 설치되어 있습니다. **AzureBackupWindowsWorkload** 확장은 **SQLIaaSExtension**을 사용하여 필요한 권한을 자동으로 확보합니다.
-    - 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [#fix-sql-sysadmin-permissions]의 지침에 따라 이 문제를 해결합니다.
-
-        ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
-
-
-
-## <a name="configure-a-backup-policy"></a>백업 정책 구성 
-
-백업 로드를 최적화하기 위해 Azure Backup은 한 백업 작업의 최대 데이터베이스 수를 50개로 설정합니다.
-
-- 50개가 넘는 데이터베이스를 보호하려면 여러 백업을 구성합니다.
-- 또는 자동 보호를 사용하도록 설정할 수 있습니다. 자동 보호는 기존 데이터베이스를 한 번에 보호하고, 가용성 그룹 인스턴스에 추가된 새 데이터베이스를 자동으로 보호합니다.
-
-
-다음과 같이 백업을 구성합니다.
-
-1. 자격 증명 모음 대시보드에서 **백업**을 선택합니다. 
-
-   ![Backup을 선택하여 백업 목표 메뉴 열기](./media/backup-azure-sql-database/open-backup-menu.png)
-
-3. **백업 목표** 메뉴에서 **작업이 실행되는 위치**를 **Azure**(기본값)로 설정합니다.
-
-4. **백업할 항목**에서 **Azure VM의 SQL Server**를 선택합니다.
-
-    ![백업을 위해 Azure VM에서 SQL Server 선택](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
-
-    
-5. **백업 목표**에서 **백업 구성**을 선택합니다.
-
-    ![백업 구성 선택](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
-
-    ![독립 실행형 데이터베이스를 사용하는 모든 SQL Server 인스턴스 표시](./media/backup-azure-sql-database/list-of-sql-databases.png)
-
-6. 보호하려는 모든 데이터베이스, **확인**을 차례로 선택합니다.
-
-    ![데이터베이스 보호](./media/backup-azure-sql-database/select-database-to-protect.png)
-
-    - 모든 SQL Server 인스턴스(독립 실행형 및 가용성 그룹)가 표시됩니다.
-    - 필터링할 인스턴스 이름/가용성 그룹의 왼쪽에 있는 아래쪽 화살표를 선택합니다.
-
-7. **백업** 메뉴에서 **백업 정책**을 선택합니다. 
-
-    ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
-
-8. **백업 정책 선택**에서 정책을 선택한 다음, **확인**을 클릭합니다.
-
-    - 기본 정책 **HourlyLogBackup**을 선택합니다.
-    - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
-    - RPO(복구 지점 목표) 및 보존 범위를 기반으로 [새 정책을 정의](backup-azure-sql-database.md#configure-a-backup-policy)합니다.
-    - 미리 보기 동안에는 기존 백업 정책을 편집할 수 없습니다.
-    
-9. **백업 메뉴**에서 **백업 사용**을 선택합니다.
-
-    ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
-
-10. 포털의 **알림** 영역에서 구성 진행률을 추적합니다.
-
-    ![알림 영역](./media/backup-azure-sql-database/notifications-area.png)
-
-### <a name="create-a-backup-policy"></a>백업 정책 만들기
-
-백업 정책은 백업이 수행되는 시기와 유지되는 기간을 정의합니다. 
-
-- 정책은 자격 증명 모음 수준에서 만들어집니다.
-- 다수의 자격 증명 모음은 자격 증명 모음은 동일한 백업 정책을 사용할 수 있지만 자격 증명 모음마다 백업 정책을 적용해야 합니다.
-- 백업 정책을 만드는 경우 매일 전체 백업이 기본값입니다.
-- 차등 백업을 추가할 수 있지만 전체 백업이 매주 발생하도록 구성하는 경우에만 가능합니다.
-- 다양한 유형의 백업 정책에 대해 [알아봅니다](backup-architecture.md#sql-server-backup-types).
-
-
-백업 정책을 만들려면:
-
-1. 자격 증명 모음에서 **백업 정책** > **추가**를 차례로 클릭합니다.
-2. **추가** 메뉴에서 **Azure VM의 SQL Server**를 클릭합니다. 이렇게 하면 정책 유형이 정의됩니다.
-
-   ![새 백업 정책에 대한 정책 유형 선택](./media/backup-azure-sql-database/policy-type-details.png)
-
-3. **정책 이름**에 새 정책의 이름을 입력합니다. 
-4. **전체 백업 정책**에서 **백업 빈도**를 선택하고, **매일** 또는 **매주**를 선택합니다.
-
-    - **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
-    - 전체 백업을 실행해야 합니다. **전체 백업** 옵션은 해제할 수 없습니다.
-    - **전체 백업**을 클릭하여 정책을 확인합니다. 
-    - 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
-    - **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
-
-    ![새 백업 정책 필드](./media/backup-azure-sql-database/full-backup-policy.png)  
-
-5. **보존 범위**에는 모든 옵션이 기본적으로 선택되어 있습니다. 사용하지 않으려는 보존 범위 제한을 모두 선택 취소하고 사용 간격을 설정합니다. 
-
-    - 복구 지점은 보존 범위를 기반으로 보존 태그가 지정됩니다. 예를 들어, 매일, 전체 백업을 선택하면 매일 하나의 전체 백업만 트리거됩니다.
-    - 주별 보존 범위 및 매주 보존 설정을 기반으로 특정 날짜에 대한 백업에 태그가 지정되어 유지됩니다.
-    - 매월 및 매년 보존 범위도 유사한 방식으로 작동합니다.
-
-   ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
-
-    
-
-6. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
-7. 차등 백업 정책을 추가하려면 **차등 백업**을 선택합니다. 
-
-   ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![차등 백업 정책 메뉴 열기](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
-
-8. **차등 백업 정책**에서 **사용**을 선택하여 빈도 및 보존 컨트롤을 엽니다. 
-
-    - 많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다.
-    - 차등 백업은 최대 180일 동안 보존될 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.
-
-9. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
-
-10. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업**을 선택합니다.
-11. **로그 백업**에서 **사용**을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다. 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다.
-12. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
-
-   ![로그 백업 정책 편집](./media/backup-azure-sql-database/log-backup-policy-editor.png)
-
-13. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다.
-    - 압축은 기본적으로 사용하지 않도록 설정되어 있습니다.
-    - 백 엔드에서, Azure Backup은 SQL 네이티브 백업 압축을 사용합니다.
-
-14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
-
-
-
-## <a name="enable-auto-protection"></a>자동 보호 사용  
-
-자동 보호를 사용하도록 설정하면 모든 기존 데이터베이스와 나중에 추가되는 데이터베이스를 독립 실행형 SQL Server 인스턴스 또는 SQL Server Always On 가용성 그룹에 자동으로 백업합니다. 
-
-- 자동 보호를 설정하고 정책을 선택하면 기존의 보호된 데이터베이스에서 이전 정책을 계속 사용합니다.
-- 자동 보호를 위해 한 번에 선택할 수 있는 데이터베이스의 수는 제한되지 않습니다.
-
-다음과 같이 자동 보호를 사용하도록 설정합니다.
-
-1. **백업할 항목**에서 자동 보호를 사용하도록 설정하려는 인스턴스를 선택합니다.
-2. **자동 보호** 아래의 드롭다운을 선택하고 **On**으로 설정합니다. 그런 후 **OK**를 클릭합니다.
-
-    ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-3. 백업은 모든 데이터베이스에 대해 함께 구성되며 **백업 작업**에서 추적할 수 있습니다.
-
-
-자동 보호를 사용하지 않도록 설정해야 하는 경우 **백업 구성**아래에서 인스턴스 이름을 클릭하고 해당 인스턴스에 대해 **자동 보호 사용 안 함**을 선택합니다. 모든 데이터베이스가 계속 백업되지만, 이후의 데이터베이스는 자동으로 보호되지 않습니다.
-
-![해당 인스턴스에서 자동 보호를 사용하지 않도록 설정](./media/backup-azure-sql-database/disable-auto-protection.png)
-
+**지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
+
+## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
+
+- SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
+- SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
+- SQL Server Always On **FCI(장애 조치(failover) 클러스터 인스턴스)** 가 지원되지 않습니다.
+- 미러 데이터베이스와 데이터베이스 스냅숏에 대한 백업 및 복원 작업은 지원되지 않습니다.
+- 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
+- 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다. Azure Backup은 자격 증명 모음과 동일한 지역에 있는 모든 노드를 검색 및 보호할 수 있습니다. SQL Server Always On 가용성 그룹이 여러 Azure 지역에 걸쳐 있는 경우 주 노드가 있는 Azure 지역에서 백업을 설정합니다. 그러면 Azure Backup이 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 검색하고 보호할 수 있습니다.  
+- Azure Backup은 **읽기 전용** 데이터베이스에 전체 백업 및 복사 전용 전체 백업만 지원합니다.
+- 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
+- 하나의 자격 증명 모음에 최대 **2,000**개의 SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
+- 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
+- 지원되는 최대 데이터베이스 크기는 **2TB**이며, 이보다 크면 성능 문제가 발생할 수 있습니다.
+- 서버당 보호할 수 있는 데이터베이스 수를 알 수 있도록 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해야 합니다. 이러한 수치를 직접 계산할 수 있도록 플래너를 개발하는 중이며, 조만간 게시할 예정입니다.
+- 가용성 그룹의 경우 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
+
+### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
+
+백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
+
+- **백업 기본 설정: 주**
+
+**백업 유형** | **Node**
+    --- | ---
+    전체 | 보조
+    차등 | 보조
+    로그 |  보조
+    복사 전용 전체 |  보조
+
+- **백업 기본 설정: 보조만**
+
+**백업 유형** | **Node**
+--- | ---
+전체 | 보조
+차등 | 보조
+로그 |  주
+복사 전용 전체 |  주
+
+- **백업 기본 설정: 보조**
+
+**백업 유형** | **Node**
+--- | ---
+전체 | 보조
+차등 | 보조
+로그 |  주
+복사 전용 전체 |  주
+
+- **백업 기본 설정 없음**
+
+**백업 유형** | **Node**
+--- | ---
+전체 | 보조
+차등 | 보조
+로그 |  주
+복사 전용 전체 |  주
 
 ## <a name="fix-sql-sysadmin-permissions"></a>SQL sysadmin 권한 수정
 
-**UserErrorSQLNoSysadminMembership** 오류로 인해 권한을 수정해야 하는 경우 다음을 수행합니다.
+  **UserErrorSQLNoSysadminMembership** 오류로 인해 권한을 수정해야 하는 경우 다음을 수행합니다.
 
-1. SQL Server sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
-2. SQL Server에서 **Security/Logins** 폴더를 엽니다.
+  1. SQL Server sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
+  2. SQL Server에서 **Security/Logins** 폴더를 엽니다.
 
-    ![Security/Logins 폴더를 열어서 계정 보기](./media/backup-azure-sql-database/security-login-list.png)
+      ![Security/Logins 폴더를 열어서 계정 보기](./media/backup-azure-sql-database/security-login-list.png)
 
-3. **Logins** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 선택합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
+  3. **Logins** 폴더를 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 선택합니다. **로그인 - 새로 만들기**에서 **검색**을 선택합니다.
 
-    ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
+      ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows 가상 서비스 계정 **NT SERVICE\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력**에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다. **확인**을 클릭합니다.
+  4. Windows 가상 서비스 계정 **NT SERVICE\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력**에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다. **확인**을 클릭합니다.
 
-    ![이름 확인을 클릭하여 알 수 없는 서비스 이름 확인](./media/backup-azure-sql-database/check-name.png)
+      ![이름 확인을 클릭하여 알 수 없는 서비스 이름 확인](./media/backup-azure-sql-database/check-name.png)
 
+  5. **서버 역할**에서 **sysadmin** 역할이 선택되었는지 확인합니다. **확인**을 클릭합니다. 이제 필요한 권한이 있어야 합니다.
 
-4. **서버 역할**에서 **sysadmin** 역할이 선택되었는지 확인합니다. **확인**을 클릭합니다. 이제 필요한 권한이 있어야 합니다.
+      ![sysadmin 서버 역할이 선택되어 있는지 확인](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
-    ![sysadmin 서버 역할이 선택되어 있는지 확인](./media/backup-azure-sql-database/sysadmin-server-role.png)
+  6. 이제 데이터베이스를 Recovery Services 자격 증명 모음에 연결합니다. Azure Portal의 **보호된 서버** 목록에서 오류 상태인 서버를 마우스 오른쪽 단추로 클릭하고 **DB 다시 검색**을 클릭합니다.
 
-5. 이제 데이터베이스를 Recovery Services 자격 증명 모음에 연결합니다. Azure Portal의 **보호된 서버** 목록에서 오류 상태인 서버를 마우스 오른쪽 단추로 클릭하고 **DB 다시 검색**을 클릭합니다.
+      ![서버서 적절한 권한이 있는지 확인](./media/backup-azure-sql-database/check-erroneous-server.png)
 
-    ![서버서 적절한 권한이 있는지 확인](./media/backup-azure-sql-database/check-erroneous-server.png)
+  7. **알림** 영역에서 진행률을 확인합니다. 선택한 데이터베이스가 발견되면 성공 메시지가 표시됩니다.
 
-6. **알림** 영역에서 진행률을 확인합니다. 선택한 데이터베이스가 발견되면 성공 메시지가 표시됩니다.
+      ![배포 성공 메시지](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-    ![배포 성공 메시지](./media/backup-azure-sql-database/notifications-db-discovered.png)
-
-또는 **AUTOPROTECT** 열의 해당 드롭다운에서 **ON** 옵션을 선택하여 전체 인스턴스 또는 Always On 가용성 그룹에 대한 [자동 보호](backup-azure-sql-database.md#enable-auto-protection)를 설정할 수 있습니다. [자동 보호](backup-azure-sql-database.md#enable-auto-protection) 기능은 모든 기존 데이터베이스에 보호를 사용하도록 설정할 뿐 아니라 나중에 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
-
-   ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 ## <a name="next-steps"></a>다음 단계
 
+- SQL Server 데이터베이스 백업에 대해 [자세히 알아봅니다](backup-sql-server-database-azure-vms.md).
 - 백업된 SQL Server 데이터베이스를 복원하는 방법을 [알아봅니다](restore-sql-database-azure-vm.md).
 - 백업된 SQL Server 데이터베이스를 관리하는 방법을 [알아봅니다](manage-monitor-sql-database-backup.md).
-

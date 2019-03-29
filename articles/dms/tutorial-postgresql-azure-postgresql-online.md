@@ -3,20 +3,20 @@ title: '자습서: Azure Database Migration Service를 사용하여 Azure Databa
 description: Azure Database Migration Service를 사용하여 온라인 마이그레이션을 PostgreSQL 온-프레미스에서 Azure Database for PostgreSQL로 수행하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 03/12/2019
+ms.openlocfilehash: 4055bb8dffbd69fa7488471c540a1344c35514b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105423"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 마이그레이션할 수 있습니다. 즉 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
@@ -43,8 +43,17 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     또한 온-프레미스 PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
 - [Azure Database for PostgreSQL에서 인스턴스를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다.
-- Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 443, 53, 9354, 445, 12000과 같은 통신 포트를 차단하지 않는지 확인합니다. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
+- [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNET(Virtual Network)을 만듭니다.
+
+    > [!NOTE]
+    > VNET을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
+    > - 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
+    > - 스토리지 엔드포인트
+    > - 서비스 버스 엔드포인트
+    >
+    > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
+
+- VNET 네트워크 보안 그룹 규칙에서 통신 포트 443, 53, 9354, 445, 12000을 차단하고 있지 않은지 확인하세요. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
 - [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - Azure Database Migration Service에서 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
@@ -139,64 +148,64 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>CLI를 사용하여 DMS의 인스턴스 프로비전
 
-1.  dms 동기화 확장을 설치합니다.
-    - 다음 명령을 실행하여 Azure에 로그인합니다.        
-        ```
-        az login
-        ```
+1. dms 동기화 확장을 설치합니다.
+   - 다음 명령을 실행하여 Azure에 로그인합니다.        
+       ```
+       az login
+       ```
 
-    - 메시지가 표시되면 웹 브라우저를 열고 디바이스 인증을 위해 코드를 입력합니다. 나열된 지침을 따릅니다.
-    - dms 확장을 추가합니다.
-        - 사용 가능한 확장을 나열하려면 다음 명령을 실행합니다.
+   - 메시지가 표시되면 웹 브라우저를 열고 디바이스 인증을 위해 코드를 입력합니다. 나열된 지침을 따릅니다.
+   - dms 확장을 추가합니다.
+       - 사용 가능한 확장을 나열하려면 다음 명령을 실행합니다.
 
-            ```
-            az extension list-available –otable
-            ```
-        - 확장을 설치하려면 다음 명령을 실행합니다.
+           ```
+           az extension list-available –otable
+           ```
+       - 확장을 설치하려면 다음 명령을 실행합니다.
 
-            ```
-            az extension add –n dms-preview
-            ```
+           ```
+           az extension add –n dms-preview
+           ```
 
-    - dms 확장이 올바르게 설치되었는지 확인하려면 다음 명령을 실행합니다.
+   - dms 확장이 올바르게 설치되었는지 확인하려면 다음 명령을 실행합니다.
  
-        ```
-        az extension list -otable
-        ```
-        다음 출력이 표시됩니다.     
+       ```
+       az extension list -otable
+       ```
+       다음 출력이 표시됩니다.     
+
+       ```
+       ExtensionType    Name
+       ---------------  ------
+       whl              dms
+       ```
+
+   - 언제든지 다음을 실행하여 DMS에서 지원되는 모든 명령을 봅니다.
+       ```
+       az dms -h
+       ```
+   - 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 DMS 서비스의 인스턴스를 프로비전하는 데 사용하려는 구독을 설정합니다.
 
         ```
-        ExtensionType    Name
-        ---------------  ------
-        whl              dms
+       az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
-    - 언제든지 다음을 실행하여 DMS에서 지원되는 모든 명령을 봅니다.
-        ```
-        az dms -h
-        ```
-    - 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 DMS 서비스의 인스턴스를 프로비전하는 데 사용하려는 구독을 설정합니다.
+2. 다음 명령을 실행하여 DMS의 인스턴스를 프로비전합니다.
 
-         ```
-        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
-         ```
+   ```
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   ```
 
-2.  다음 명령을 실행하여 DMS의 인스턴스를 프로비전합니다.
+   예를 들어 다음 명령은 서비스를 만듭니다.
+   - 위치: 미국 동부2
+   - 구독: 97181df2-909d-420b-ab93-1bff15acb6b7
+   - 리소스 그룹 이름: PostgresDemo
+   - DMS 서비스 이름: PostgresCLI
 
-    ```
-    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
-    ```
-
-    예를 들어 다음 명령은 서비스를 만듭니다.
-    - 위치: 미국 동부2
-    - 구독: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - 리소스 그룹 이름: PostgresDemo
-    - DMS 서비스 이름: PostgresCLI
-
-    ```
-    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
-    ```
-    DMS 서비스의 인스턴스를 만드는 데 약 10~12분이 걸립니다.
+   ```
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   ```
+   DMS 서비스의 인스턴스를 만드는 데 약 10~12분이 걸립니다.
 
 3. Postgres pg_hba.conf 파일에 추가할 수 있도록 DMS 에이전트의 IP 주소를 식별하려면 다음 명령을 실행합니다.
 
@@ -233,103 +242,103 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     ```
     예를 들어 다음 명령은 이러한 매개 변수를 사용하여 프로젝트를 만듭니다.
 
-      - 위치: 미국 중서부
-      - 리소스 그룹 이름: PostgresDemo
-      - 서비스 이름: PostgresCLI
-      - 프로젝트 이름: PGMigration
-      - 원본 플랫폼: PostgreSQL
-      - 대상 플랫폼: AzureDbForPostgreSql
+   - 위치: 미국 중서부
+   - 리소스 그룹 이름: PostgresDemo
+   - 서비스 이름: PostgresCLI
+   - 프로젝트 이름: PGMigration
+   - 원본 플랫폼: PostgreSQL
+   - 대상 플랫폼: AzureDbForPostgreSql
  
-    ```
-    az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
-    ```
+     ```
+     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     ```
                 
 6. 다음 단계를 사용하여 PostgreSQL 마이그레이션 작업을 만듭니다.
 
     이 단계는 원본 IP, UserID 및 암호, 대상 IP, UserID, 암호 사용 및 연결을 설정하는 작업 유형을 포함합니다.
 
-    - 옵션의 전체 목록을 보려면 명령을 실행합니다.
-        ```
-        az dms project task create -h
-        ```
+   - 옵션의 전체 목록을 보려면 명령을 실행합니다.
+       ```
+       az dms project task create -h
+       ```
 
-        원본 및 대상 연결의 경우 입력 매개 변수는 개체 목록이 있는 json 파일을 참조합니다.
+       원본 및 대상 연결의 경우 입력 매개 변수는 개체 목록이 있는 json 파일을 참조합니다.
  
-        PostgreSQL 연결에 대한 연결 JSON 개체의 형식입니다.
+       PostgreSQL 연결에 대한 연결 JSON 개체의 형식입니다.
         
-        ```
-        {
-                    "userName": "user name",    // if this is missing or null, you will be prompted
-                    "password": null,           // if this is missing or null (highly recommended) you will
-                be prompted
-                    "serverName": "server name",
-                    "databaseName": "database name", // if this is missing, it will default to the 'postgres'
-                server
-                    "port": 5432                // if this is missing, it will default to 5432
-                }
-        ```
+       ```
+       {
+                   "userName": "user name",    // if this is missing or null, you will be prompted
+                   "password": null,           // if this is missing or null (highly recommended) you will
+               be prompted
+                   "serverName": "server name",
+                   "databaseName": "database name", // if this is missing, it will default to the 'postgres'
+               server
+                   "port": 5432                // if this is missing, it will default to 5432
+               }
+       ```
 
-    - json 개체를 나열하는 데이터베이스 옵션 json 파일도 있습니다. PostgreSQL의 경우 데이터베이스 옵션 JSON 개체의 형식은 다음과 같습니다.
+   - json 개체를 나열하는 데이터베이스 옵션 json 파일도 있습니다. PostgreSQL의 경우 데이터베이스 옵션 JSON 개체의 형식은 다음과 같습니다.
 
-        ```
-        [
-            {
-                "name": "source database",
-                "target_database_name": "target database",
-            },
-            ...n
-        ]
-        ```
+       ```
+       [
+           {
+               "name": "source database",
+               "target_database_name": "target database",
+           },
+           ...n
+       ]
+       ```
 
-    - 메모장을 사용하여 json 파일을 만들고, 다음 명령을 복사하고 파일에 붙여넣은 다음, C:\DMS\source.json에서 파일을 저장합니다.
-         ```
-        {
-                    "userName": "postgres",    
-                    "password": null,           
-                be prompted
-                    "serverName": "13.51.14.222",
-                    "databaseName": "dvdrental", 
-                    "port": 5432                
-                }
-         ```
-    - target.json이라는 다른 파일을 만들고 C:\DMS\target.json으로 저장합니다. 다음 명령을 포함합니다.
+   - 메모장을 사용하여 json 파일을 만들고, 다음 명령을 복사하고 파일에 붙여넣은 다음, C:\DMS\source.json에서 파일을 저장합니다.
         ```
-        {
-                "userName": " dms@builddemotarget",    
-                "password": null,           
-                "serverName": " builddemotarget.postgres.database.azure.com",
-                "databaseName": "inventory", 
-                "port": 5432                
-            }
+       {
+                   "userName": "postgres",    
+                   "password": null,           
+               be prompted
+                   "serverName": "13.51.14.222",
+                   "databaseName": "dvdrental", 
+                   "port": 5432                
+               }
         ```
-    - 마이그레이션할 데이터베이스로 인벤토리를 나열하는 데이터베이스 옵션 json 파일을 만듭니다.
-        ``` 
-        [
-            {
-                "name": "dvdrental",
-                "target_database_name": "dvdrental",
-            }
-        ]
-        ```
-    - 원본, 대상 및 DB 옵션 json 파일을 사용하는 다음 명령을 실행합니다.
+   - target.json이라는 다른 파일을 만들고 C:\DMS\target.json으로 저장합니다. 다음 명령을 포함합니다.
+       ```
+       {
+               "userName": " dms@builddemotarget",    
+               "password": null,           
+               "serverName": " builddemotarget.postgres.database.azure.com",
+               "databaseName": "inventory", 
+               "port": 5432                
+           }
+       ```
+   - 마이그레이션할 데이터베이스로 인벤토리를 나열하는 데이터베이스 옵션 json 파일을 만듭니다.
+       ``` 
+       [
+           {
+               "name": "dvdrental",
+               "target_database_name": "dvdrental",
+           }
+       ]
+       ```
+   - 원본, 대상 및 DB 옵션 json 파일을 사용하는 다음 명령을 실행합니다.
 
-        ``` 
-        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
-        ``` 
+       ``` 
+       az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
+       ``` 
 
-    이 시점에서 마이그레이션 작업을 성공적으로 전송했습니다.
+     이 시점에서 마이그레이션 작업을 성공적으로 전송했습니다.
 
-7.  작업의 진행률을 표시하려면 다음 명령을 실행합니다.
+7. 작업의 진행률을 표시하려면 다음 명령을 실행합니다.
+
+   ```
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   ```
+
+   또는
 
     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
-
-    또는
-
-     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
-     ```
 
 8. 확장 출력에서 migrationState에 대해 쿼리할 수도 있습니다.
 

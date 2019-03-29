@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090324"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -69,9 +69,9 @@ ms.locfileid: "56649592"
 
     ![완료된 템플릿 페이지 구성](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. **템플릿 구성** 페이지에서 다음 단계를 수행합니다. 이 자습서에서는 이러한 단계가 **선택 사항**입니다.
-    2. **연결**을 선택하여 템플릿 VM에 연결합니다. 
-    3. 템플릿 VM에 소프트웨어를 설치하고 구성합니다.     
-    5. 템플릿에 대한 **설명**을 입력합니다.
+    1. **연결**을 선택하여 템플릿 VM에 연결합니다. 
+    2. 템플릿 VM에 소프트웨어를 설치하고 구성합니다.     
+    3. 템플릿에 대한 **설명**을 입력합니다.
 9. 템플릿 페이지에서 **다음**을 선택합니다. 
 10. **템플릿 게시** 페이지에서 다음 작업을 수행합니다. 
     1. 템플릿을 즉시 게시하려면 **게시**를 선택합니다.  
@@ -108,15 +108,15 @@ ms.locfileid: "56649592"
     ![사용자 목록](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>학생에게 등록 링크 보내기
-
+## <a name="send-an-email-with-the-registration-link"></a>등록 링크가 포함된 이메일 보내기
 1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
-2. 도구 모음에서 **등록 링크 가져오기**를 선택합니다.
-1. **사용자 등록** 대화 상자에서 **복사** 단추를 선택합니다. 링크가 클립보드에 복사됩니다.
+2. 목록에서 특정 또는 모든 사용자를 선택합니다. 특정 사용자를 선택하려면 목록 첫 번째 열의 확인란을 선택하세요. 모든 사용자를 선택하려면 첫 번째 열의 제목 앞에 있는 확인란(**이름**)을 선택하거나 목록에 있는 모든 사용자에 대한 확인란을 모두 선택하세요.
+3. 도구 모음에서 **초대 보내기**를 선택합니다. 또한 목록의 학생 이름에 마우스를 올려 놓고 이메일 보내기 아이콘으로 보낼 수도 있습니다. 
 
-    ![등록 링크](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. **사용자 등록** 대화 상자에서 **닫기**를 선택합니다. 
-2. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다.
+    ![이메일로 등록 링크 보내기](../media/tutorial-setup-classroom-lab/send-email.png)
+4. **이메일로 등록 링크 보내기** 페이지에서 다음 단계를 수행하세요. 
+    1. 학생들에게 보내려는 **선택적 메시지**를 입력합니다. 이메일에는 등록 링크가 자동으로 포함됩니다. 
+    2. **이메일로 등록 링크 보내기** 페이지에서 **보내기**를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 클래스룸 랩을 만들고 랩을 구성했습니다. 학생이 등록 링크를 사용하여 랩에서 VM에 액세스하는 방법을 알아보려면 다음 자습서로 이동하십시오.

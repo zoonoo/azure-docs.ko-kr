@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121743"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 애플리케이션 개발
 
@@ -46,7 +46,7 @@ Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * Microsoft Azure SDK for .NET for Visual Studio 2017, Visual Studio 설치 관리자를 통해 사용 가능합니다.
 
-이 문서의 모든 스크린 샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
+이 문서의 모든 스크린샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
 ## <a name="_Toc395637761"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
 Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB용 SQL 계정이 이미 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
@@ -62,16 +62,16 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.
 
-2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 애플리케이션**을 선택합니다.
 
-      ![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![ASP.NET 웹 애플리케이션 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 todo 네임스페이스를 지칭할 때마다 지정한 응용 프로그램 이름을 사용하도록 제공된 코드 샘플을 조정해야 합니다. 
 4. **찾아보기**를 클릭하여 프로젝트를 만들 폴더로 이동한 후 **확인**을 클릭합니다.
    
       **새 ASP.NET 웹 응용 프로그램** 대화 상자가 나타납니다.
    
-    ![새 ASP.NET 웹 애플리케이션 대화 상자 스크린샷(MVC 애플리케이션 템플릿이 강조 표시됨)](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![MVC 애플리케이션 템플릿이 강조 표시된 새 ASP.NET 웹 애플리케이션 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. 템플릿 창에서 **MVC**를 선택합니다.
 
 6. **확인** 을 클릭하면 Visual Studio에서 빈 ASP.NET MVC 템플릿을 스캐폴딩합니다. 
@@ -501,7 +501,7 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
      
 2. **새로 만들기** 링크를 클릭하고 **이름** 및 **설명** 필드에 값을 추가합니다. **완료** 확인란을 선택 취소된 상태로 둡니다. 그렇지 않으면 새 **항목**이 완료 상태로 추가되며 초기 목록에 나타나지 않습니다.
    
-    ![만들기 뷰의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+    ![뷰 만들기의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. **만들기**를 클릭하면 **인덱스** 뷰로 다시 리디렉션되고 **항목**이 목록에 나타납니다.
    
     ![인덱스 뷰의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
@@ -541,7 +541,6 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
 
 애플리케이션에 기능을 더 추가하려면 [Azure Cosmos DB .NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)에서 사용 가능한 API를 검토하고 [GitHub][GitHub]의 Azure Cosmos DB .NET 라이브러리에 자유롭게 기여하세요. 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254

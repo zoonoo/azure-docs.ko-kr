@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106902"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -32,35 +32,53 @@ ms.locfileid: "56868190"
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
 - 디스크를 잠금 해제하고 클라이언트 컴퓨터에 연결합니다.
 - 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)를 실행해야 합니다.
-- 데이터의 의도된 저장소 유형이 [지원되는 저장소 유형](data-box-disk-system-requirements.md#supported-storage-types)과 일치하는지 확인합니다.
+- 데이터의 의도된 저장소 유형이 [지원되는 저장소 유형](data-box-disk-system-requirements.md#supported-storage-types-for-upload)과 일치하는지 확인합니다.
+- [Azure 개체 크기 제한의 관리 디스크 제한](data-box-disk-limits.md#azure-object-size-limits)을 검토합니다.
 
 
 ## <a name="copy-data-to-disks"></a>디스크에 데이터 복사
 
+데이터를 디스크에 복사하기 전에 다음 사항을 고려합니다.
+
+- 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(저장소 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
+- 데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
+- Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+
+관리 디스크를 순서대로 지정했다면 다음 추가 고려 사항을 검토합니다.
+
+- 사전 생성된 폴더 전체 및 Data Box Disk 전체에서 리소스 그룹에 지정된 이름의 관리 디스크 하나만 가질 수 있습니다. 즉, 사전 생성된 폴더에 업로드된 VHD는 이름이 고유해야 함을 의미합니다. 지정된 이름이 리소스 그룹의 기존 관리 디스크와 일치하지 않도록 해야 합니다. VHD 이름이 동일할 경우 단 하나의 VHD만 해당 이름의 관리 디스크로 변환됩니다. 다른 VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
+- 항상 사전 생성된 폴더 중 하나에 VHD를 복사합니다. 이러한 폴더 외부 또는 사용자가 만든 폴더 안에 VHD를 복사하는 경우 VHD는 Azure Storage 계정에 관리 디스크가 아닌 페이지 Blob으로 업로드됩니다.
+- 고정된 VHD만 업로드하여 관리 디스크를 만들 수 있습니다. 동적 VHD, 차이점 보관용 VHD 또는 VHDX 파일은 지원되지 않습니다.
+
+
 다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
 
-1. 잠금 해제된 드라이브의 콘텐츠를 봅니다.
+1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다.
 
-    ![드라이브 콘텐츠 보기](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |선택한 스토리지 대상  |Storage 계정 유형|준비 스토리지 계정 유형 |폴더 및 하위 폴더  |
+    |---------|---------|---------|------------------|
+    |Storage 계정     |GPv1 또는 GPv2                 | 해당 없음 | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Storage 계정     |Blob Storage 계정         | 해당 없음 | BlockBlob        |
+    |관리 디스크     |해당 없음 | GPv1 또는 GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Storage 계정 <br> 관리 디스크     |GPv1 또는 GPv2 | GPv1 또는 GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Storage 계정 <br> 관리 디스크    |Blob Storage 계정 | GPv1 또는 GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    GPv2 스토리지 계정이 지정된 주문의 예제 스크린샷은 아래와 같습니다.
+
+    ![디스크 드라이브의 내용](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. BlockBlob 폴더에서 블록 Blob으로 가져와야 하는 데이터를 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 PageBlob 폴더로 복사합니다. 
+2. *BlockBlob* 폴더에서 블록 Blob으로 가져와야 하는 데이터를 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더, *AzureFile* 폴더로 복사합니다.
 
     BlockBlob 및 PageBlob 폴더 아래에 각 하위 폴더에 대한 Azure 저장소 계정에 컨테이너가 만들어집니다. BlockBlob 및 PageBlob 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 `$root`로 복사됩니다. `$root` 컨테이너 있는 모든 파일은 항상 블록 Blob으로 업로드됩니다.
 
+   *AzureFile* 폴더 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더 내의 하위 폴더는 파일 공유를 만듭니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 Blob으로 업로드됩니다.
+
     파일 및 폴더가 루트 디렉터리에 있는 경우 데이터 복사를 시작하기 전에 다른 폴더로 이동해야 합니다.
 
-    컨테이너 및 Blob 이름에 대해 Azure 명명 요구 사항을 따릅니다.
+    > [!IMPORTANT]
+    > 모든 컨테이너, Blob 및 파일 이름은 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)을 준수해야 합니다. 이러한 규칙을 따르지 않는 경우 Azure로 데이터 업로드에 실패합니다.
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>컨테이너 및 Blob 이름에 대한 Azure 명명 규칙
-    |엔터티   |규칙  |
-    |---------|---------|
-    |컨테이너 이름 블록 Blob 및 페이지 Blob     |문자 또는 숫자로 시작해야 하며, 소문자, 숫자 및 하이픈(-)만 포함할 수 있습니다. 모든 하이픈(-)은 앞뒤에 문자 또는 숫자가 와야 합니다. 이름에 연속적인 하이픈은 허용되지 않습니다. <br>올바른 DNS 이름은 3~63자여야 합니다.          |
-    |블록 Blob 및 페이지 Blob에 대한 Blob 이름    |Blob 이름은 대/소문자를 구분하며 문자 조합을 포함할 수 있습니다. <br>Blob 이름은 길이가 1~1,024자 사이여야 합니다.<br>예약된 URL 문자는 적절히 이스케이프되어야 합니다.<br>Blob 이름을 구성하는 경로 세그먼트 수는 254개를 초과할 수 없습니다. 경로 세그먼트는 가상 디렉터리 이름에 해당하는 연속 구분 기호 문자 사이의 문자열입니다(예: 슬래시 '/').         |
-
-    > [!IMPORTANT] 
-    > 모든 컨테이너 및 Blob은 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)을 준수해야 합니다. 이러한 규칙을 따르지 않는 경우 Azure로 데이터 업로드에 실패합니다.
-
-3. 파일을 복사하는 경우 파일이 블록 Blob에 대해 4.7TiB 및 페이지 Blob에 대해 8TiB를 초과하지 않도록 합니다. 
+3. 파일을 복사하는 경우 파일이 블록 Blob에 대해 4.7TiB 및 페이지 Blob에 대해 8TiB, Azure Files에 대해 1TiB를 초과하지 않도록 합니다. 
 4. 파일 탐색기로 끌어서 놓기를 사용하여 데이터를 복사할 수 있습니다. Robocopy와 같은 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수도 있습니다. 여러 복사 작업은 다음 Robocopy 명령을 사용하여 시작될 수 있습니다.
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -80,7 +98,7 @@ ms.locfileid: "56868190"
     |/FFT                | FAT 파일 시간을 가정합니다(2초 자릿수).        |
     |/Log:<Log File>     | 로그 파일에 상태 출력을 작성합니다(기존 로그 파일을 덮어씀).         |
 
-    각 디스크에서 실행 중인 여러 작업을 사용하여 병렬로 여러 디스크를 사용할 수 있습니다. 
+    각 디스크에서 실행 중인 여러 작업을 사용하여 병렬로 여러 디스크를 사용할 수 있습니다.
 
 6. 작업이 진행되면 복사 상태를 확인합니다. 다음 샘플에서는 Data Box Disk에 파일을 복사할 robocopy 명령의 출력을 보여줍니다.
 
@@ -151,8 +169,8 @@ ms.locfileid: "56868190"
     성능을 최적화하기 위해, 데이터를 복사할 때 다음 robocopy 매개 변수를 사용하세요.
 
     |    플랫폼    |    대부분 512KB 미만의 작은 파일                           |    대부분 512KB-1MB의 중간 파일                      |    대부분 1MB를 초과하는 큰 파일                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    Robocopy 세션 4개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    Robocopy 세션 4개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |
     
     **각 Robocopy 세션의 제한은 디렉터리 7,000개 및 파일 1억 5000만 개입니다.*
     
@@ -163,17 +181,13 @@ ms.locfileid: "56868190"
 
 6. 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 로그 파일을 다운로드합니다. 로그 파일은 robocopy 명령에 지정된 위치에 있습니다.
  
-> [!IMPORTANT]
-> - 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(저장소 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
-> -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
-> - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
-
 ### <a name="split-and-copy-data-to-disks"></a>데이터 분할 및 디스크에 복사
 
 이 선택적인 절차는 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우에 사용할 수 있습니다. Data Box 분할 복사 도구는 Windows 컴퓨터에서 데이터를 분할하여 복사하는 데 도움이 됩니다.
 
 >[!IMPORTANT]
 > Data Box 분할 복사 도구 또한 데이터의 유효성을 검사합니다. Data Box 분할 복사 도구를 사용하여 데이터를 복사하는 경우 [유효성 검사 단계](#validate-data)를 건너뜁니다.
+> 분할 복사 도구는 관리 디스크에는 지원되지 않습니다.
 
 1. Windows 컴퓨터에서 Data Box 분할 복사 도구가 다운로드되어 로컬 폴더에 추출되어 있는지 확인합니다. 이 도구는 Windows용 Data Box Disk 도구 집합을 다운로드할 때 다운로드됩니다.
 2. 파일 탐색기를 엽니다. 데이터 원본 드라이브 및 Data Box Disk에 할당된 드라이브 문자를 적어둡니다. 
@@ -195,10 +209,10 @@ ms.locfileid: "56868190"
  
 5. `SampleConfig.json` 파일을 수정합니다.
  
-    - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure 저장소 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
-    - `SampleConfigFile.json`에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
-    - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
-    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 `.exe` 파일이 있는 현재 디렉터리로 전송됩니다.
+   - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure 저장소 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
+   - `SampleConfigFile.json`에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
+   - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
+   - 로그 파일에 대한 경로를 제공합니다. 기본적으로 `.exe` 파일이 있는 현재 디렉터리로 전송됩니다.
 
      ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

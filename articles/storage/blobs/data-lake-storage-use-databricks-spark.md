@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585436"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226762"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -38,16 +38,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-*  서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
-   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
+  해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
-   :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
+  :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
 
-   > [!IMPORTANT]
-   > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
+  > [!IMPORTANT]
+  > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
 
-   :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ### <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -147,12 +147,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
 
-    > [!NOTE]
-    > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
+   > [!NOTE]
+   > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
 
 19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 
-    나중에 명령을 추가할 것이므로 이 Notebook을 계속 열어 둡니다.
+   나중에 명령을 추가할 것이므로 이 Notebook을 계속 열어 둡니다.
 
 ## <a name="ingest-data"></a>데이터 수집
 
@@ -171,9 +171,10 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 2. *.csv* 계정의 데이터를 복사하려면 다음 명령을 입력합니다.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 디렉터리 경로로 바꿉니다(파일 이름 제외).
+
+   * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
    * `storage-account-name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
@@ -181,28 +182,28 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook을 사용하여 CSV를 Parquet로 변환
 
-이전에 만든 Notebook에서 새 셀을 추가하고, 해당 셀에 다음 코드를 붙여넣습니다. 이 코드 조각의 `storage-account-name` 자리 표시자 값을 앞에서 csv 파일을 저장한 폴더 이름으로 바꿉니다.
+이전에 만든 Notebook에서 새 셀을 추가하고, 해당 셀에 다음 코드를 붙여넣습니다. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>데이터 탐색
 
-새 셀에서 AzCopy를 통해 업로드된 CSV 파일 목록을 가져오는 다음 스크립트를 붙여넣습니다. `<csv-folder-path>` 자리 표시자 값을 앞에서 사용한 자리 표시자와 동일한 값으로 바꿉니다.
+새 셀에서 AzCopy를 통해 업로드된 CSV 파일 목록을 가져오는 다음 스크립트를 붙여넣습니다.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 새 파일을 만들고 *parquet/flights* 폴더에 파일을 나열하려면 다음 스크립트를 실행합니다.
@@ -220,13 +221,11 @@ dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 
 데이터 원본에 대한 데이터 프레임을 만들려면 다음 스크립트를 실행합니다.
 
-* `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 디렉터리 경로로 바꿉니다(파일 이름 제외).
-
-* `<your-csv-file-name` 자리 표시자 값을 *csv* 파일 이름으로 바꿉니다.
+* `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -285,5 +284,5 @@ print('Airlines that fly to/from Texas: ', out1.show(100, False))
 
 ## <a name="next-steps"></a>다음 단계
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md)

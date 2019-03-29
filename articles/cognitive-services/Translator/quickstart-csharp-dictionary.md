@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 268f4e07fee2fedda37b86e589d3be7fd3d84df4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b5a14791b30ef825a136840a81900940c6def16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181251"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>빠른 시작: C#을 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -132,8 +132,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+`PrettyPrint`를 추가하여 JSON 응답에 서식을 추가합니다.
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합

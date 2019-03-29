@@ -4,21 +4,21 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/31/2018
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911256"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226949"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
-이 빠른 시작에서는 Azure IoT Edge 클라우드 인터페이스를 사용하여 사전 빌드된 코드를 IoT Edge 디바이스에 원격으로 배포합니다. 이 작업을 수행하려면 먼저 Windows 디바이스를 사용하여 IoT Edge 디바이스를 시뮬레이션한 다음 모듈을 배포할 수 있습니다.
+이 빠른 시작에서는 Azure IoT Edge 클라우드 인터페이스를 사용하여 사전 빌드된 코드를 IoT Edge 디바이스에 원격으로 배포합니다. 이 작업을 수행하려면 먼저 IoT Edge 디바이스로 작동할 Windows 가상 머신을 만들고 구성한 다음, 이 머신에 모듈을 배포할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -31,8 +31,8 @@ ms.locfileid: "54911256"
 
 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
 
->[!NOTE]
->Windows의 IoT Edge 런타임은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
+> [!NOTE]
+> Windows의 IoT Edge 런타임은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
@@ -53,17 +53,24 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 * 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge 디바이스:
 
-* IoT Edge 디바이스 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 지원되는 Windows 버전을 사용하세요.
-  * 2018년 10월 업데이트(빌드 17763)가 적용된 Windows 10 또는 IoT Core
-  * Windows Server 2019
-* 디바이스가 컨테이너를 호스팅할 수 있도록 가상화 사용
-   * Windows 컴퓨터인 경우 컨테이너 기능을 사용하도록 설정합니다. 시작 표시줄에서 **Windows 기능 켜기/끄기**로 이동하여 **컨테이너** 옆에 있는 확인란을 선택합니다.
-   * 가상 머신인 경우 [중첩된 가상화](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 사용하도록 설정하고 최소 2GB 메모리를 할당합니다.
+* IoT Edge 디바이스로 작동하는 Windows 가상 머신입니다. 다음 명령을 사용하여 이 가상 머신을 만들 수 있습니다. 여기서 *{password}* 를 보안 암호로 바꿉니다.
+
+  ```azurecli-interactive
+  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
+  ```
+
+  새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다. 그런 다음, 가상 머신에 연결할 때 사용할 RDP 파일을 다운로드할 수 있습니다.
+
+  1. Azure Portal에서 새 Windows 가상 머신으로 이동합니다.
+  1. **연결**을 선택합니다.
+  1. **RDP** 탭에서 **RDP 파일 다운로드**를 선택합니다.
+
+  원격 데스크톱 연결을 통해 이 파일을 열어 `az vm create` 명령으로 지정한 관리자 이름과 암호를 사용하여 Windows 가상 머신에 연결합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -79,7 +86,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요. 
+   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요.
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 디바이스 등록
 
@@ -88,7 +95,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 
 IoT Hub와 통신할 수 있도록, 시뮬레이션된 디바이스의 디바이스 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다.
 
-IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다. 
+IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다.
 
 1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 장치를 허브에 만듭니다.
 
@@ -96,7 +103,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-   iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다. 
+   iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다.
 
 2. IoT Hub에서 물리적 디바이스를 해당 ID에 연결하는 디바이스에 대한 연결 문자열을 검색합니다.
 
@@ -104,7 +111,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. JSON 출력에서 `cs` 키를 복사하여 저장합니다. 이 값은 디바이스 연결 문자열입니다. 다음 섹션에서 이 연결 문자열을 사용하여 IoT Edge 런타임을 구성할 것입니다.
+3. JSON 출력에서 `connectionString` 키를 복사하여 저장합니다. 이 값은 디바이스 연결 문자열입니다. 다음 섹션에서 이 연결 문자열을 사용하여 IoT Edge 런타임을 구성할 것입니다.
 
    ![CLI 출력에서 연결 문자열 검색](./media/quickstart/retrieve-connection-string.png)
 
@@ -115,15 +122,23 @@ IoT Edge 디바이스에 Azure IoT Edge 런타임을 설치하고 디바이스 �
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에 모듈을 배포하고 모니터링하는 작업을 관리합니다. **IoT Edge 허브**는 IoT Edge 디바이스의 모듈 간 통신, 그리고 디바이스와 IoT Hub 간의 통신을 처리합니다.
 
-설치 스크립트에는 IoT Edge 디바이스의 컨테이너 이미지를 관리하는 Moby라는 컨테이너 엔진도 포함됩니다. 
+설치 스크립트에는 IoT Edge 디바이스의 컨테이너 이미지를 관리하는 Moby라는 컨테이너 엔진도 포함됩니다.
 
 런타임을 설치하는 동안 디바이스 연결 문자열을 요청하라는 메시지가 나타납니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 디바이스를 Azure의 IoT Edge 디바이스 ID에 연결합니다.
 
-이 섹션의 지침에서는 Windows 컨테이너를 사용하여 IoT Edge 런타임을 구성합니다. Linux 컨테이너를 사용하려면 [Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-linux.md)에서 필수 구성 요소와 설치 단계를 참조하세요.
-
 ### <a name="connect-to-your-iot-edge-device"></a>IoT Edge 디바이스에 연결
 
-이 섹션의 단계는 모두 IoT Edge 디바이스에서 수행됩니다. 가상 머신 또는 보조 하드웨어를 사용하는 경우 SSH 또는 원격 데스크톱을 통해 해당 머신에 연결하는 것이 좋습니다. 자체 머신을 IoT Edge 디바이스로 사용하는 경우에는 다음 섹션을 진행하면 됩니다. 
+이 섹션의 모든 단계는 IoT Edge 디바이스에서 수행되므로 이제 원격 데스크톱을 통해 해당 가상 머신에 연결하려고 합니다.
+
+### <a name="prepare-your-device-for-containers"></a>컨테이너용 디바이스 준비
+
+설치 스크립트는 IoT Edge를 설치하기 전에 자동으로 디바이스에 Moby 엔진을 설치합니다. 컨테이너 기능을 켜서 디바이스를 준비합니다.
+
+1. 시작 표시줄에서 **Windows 기능 켜기/끄기**를 검색하고 제어판 프로그램을 엽니다.
+1. **컨테이너**를 찾아 선택합니다.
+1. **확인**을 선택합니다.
+
+완료되면 변경 내용을 적용하기 위해 Windows를 다시 시작해야 하지만, Azure Portal에서 가상 머신을 다시 시작하는 대신 원격 데스크톱 세션에서 변경할 수 있습니다.
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge 서비스 다운로드 및 설치
 
@@ -171,7 +186,7 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
 
    ![디바이스에서 하나의 모듈 보기](./media/quickstart/iotedge-list-1.png)
 
-특히 용량 또는 인터넷 액세스가 제한된 디바이스를 사용하는 경우 설치를 완료하고 IoT Edge 에이전트 모듈이 시작될 때까지 몇 분 정도 걸릴 수 있습니다. 
+설치가 완료되고 IoT Edge 에이전트 모듈이 시작될 때까지 몇 분이 걸릴 수 있습니다.
 
 IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
 
@@ -184,7 +199,7 @@ IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 �
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-이 빠른 시작에서는 새 IoT Edge 디바이스를 등록하고 IoT Edge 런타임을 설치했습니다. 그런 다음, 디바이스 자체를 변경하지 않고도 디바이스에서 실행할 수 있도록 Azure Portal을 사용하여 IoT Edge 모듈을 배포했습니다. 
+이 빠른 시작에서는 새 IoT Edge 디바이스를 등록하고 IoT Edge 런타임을 설치했습니다. 그런 다음, 디바이스 자체를 변경하지 않고도 디바이스에서 실행할 수 있도록 Azure Portal을 사용하여 IoT Edge 모듈을 배포했습니다.
 
 이 예에서 푸시한 모듈은 테스트에 사용할 수 있는 샘플 데이터를 만듭니다. 시뮬레이션된 온도 센서 모듈은 나중에 테스트에 사용할 수 있는 환경 데이터를 생성합니다. 시뮬레이션된 센서는 머신과 머신 주변의 환경을 모니터링합니다. 예를 들어 이 센서가 서버실, 공장 또는 풍력 터빈에 장착될 수 있습니다. 메시지에는 주변 온도 및 습도, 머신 온도 및 압력, 타임스탬프가 포함됩니다. IoT Edge 자습서는 이 모듈에서 만든 데이터를 분석용 테스트 데이터로 사용합니다.
 
@@ -207,8 +222,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
    ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다. 
-
+[Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

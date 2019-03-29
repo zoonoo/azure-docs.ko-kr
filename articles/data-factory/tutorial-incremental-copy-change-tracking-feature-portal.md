@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121879"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -144,7 +144,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -257,7 +260,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     1. **연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다.
     2. **파일 경로**의 **폴더** 부분에 대해 **adftutorial/incchgtracking**을 입력합니다.
-    3. **파일 경로**의 **파일** 부분에 대해 **@CONCAT('Incremental-', pipeline().RunId, '.txt')** 를 입력합니다.  
+    3. **파일 경로**의 **파일** 부분에 대해 **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** 를 입력합니다.  
 
        ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -369,29 +372,29 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. **속성** 창에서 **설정**으로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 세트** 필드에 대해 **SourceDataset**를 선택합니다.
-    2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
-    3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
+   1. **원본 데이터 세트** 필드에 대해 **SourceDataset**를 선택합니다.
+   2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
+   3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **IncrementalCopyActivity**로 설정합니다. 이 활동은 마지막 변경 내용 추적 버전과 현재 변경 내용 추적 버전 사이의 데이터를 대상 데이터 저장소에 복사합니다. 
 
     ![복사 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. **속성** 창에서 **원본**으로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
-    2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
-    3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
+   1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
+   2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
+   3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. **싱크** 탭으로 전환하고, **싱크 데이터 세트** 필드에 대해 **SinkDataset**를 선택합니다. 
 
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -422,9 +425,9 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
 
     ![유효성 검사 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
+16. **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
 
-        ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 실행
 1. 파이프라인에 대한 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다. 

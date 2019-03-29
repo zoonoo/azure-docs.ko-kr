@@ -6,43 +6,42 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/12/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632945"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201350"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>자습서: Azure 클라우드 저장소에서 반구조화된 데이터 검색
 
-두 부분으로 구성된 이 자습서에서는 Azure Search를 사용하여 반구조화된 데이터 및 구조화되지 않은 데이터를 검색하는 방법을 배웁니다. [1부](../storage/blobs/storage-unstructured-search.md)에서는 구조화되지 않은 데이터를 검색하는 단계를 설명하며, 저장소 계정 만들기와 같이 이 자습서에 중요한 필수 구성 요소도 포함되어 있습니다. 
+Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
 
-2부에서는 Azure Blob에 저장되는 JSON과 같은 반구조화 데이터에 중점을 둡니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 전체적으로 인덱싱해야 하는 구조화되지 않은 데이터와 필드 단위를 기반으로 크롤링할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식으로 구조화된 데이터의 차이를 구분합니다.
-
-2부에서는 다음과 같은 방법을 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 REST 클라이언트를 사용합니다.
 
 > [!div class="checklist"]
 > * Azure Blob 컨테이너에 대한 Azure Search 데이터 원본 구성
-> * 컨테이너를 크롤링하고 검색 가능한 콘텐츠를 추출하는 Azure Search 인덱스 및 인덱서를 만들고 채우기
+> * 검색 가능한 콘텐츠를 포함하는 Azure Search 인덱스 만들기
+> * 컨테이너를 읽고 Azure Blob Storage에서 검색 가능한 콘텐츠를 추출하기 위한 인덱서 구성 및 실행
 > * 방금 만든 인덱스 검색
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-* 저장소 계정 및 검색 서비스 만들기를 제공하는 [이전 자습서](../storage/blobs/storage-unstructured-search.md) 완료.
-
-* REST 클라이언트 설치 및 HTTP 요청을 구성하는 방법에 대한 이해. 이 자습서에서는 [Postman](https://www.getpostman.com/)을 사용하고 있습니다. 특정 REST 클라이언트를 이미 익숙하게 사용하고 있다면 다른 REST 클라이언트를 자유롭게 사용할 수 있습니다.
 
 > [!NOTE]
 > 이 자습서에서는 현재 Azure Search의 미리 보기 기능인 JSON 배열 지원을 사용합니다. 포털에서는 사용할 수 없습니다. 이러한 이유로 이 기능을 제공하는 미리 보기 REST API와 API를 호출하는 REST 클라이언트 도구가 사용됩니다.
 
+## <a name="prerequisites"></a>필수 조건
+
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+
+샘플 데이터를 포함하는 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+[Postman을 사용](https://www.getpostman.com/)하거나 다른 REST 클라이언트를 사용하여 요청을 보냅니다. Postman에서 HTTP 요청을 설정하는 데 관한 지침은 다음 섹션에 나와 있습니다.
+
 ## <a name="set-up-postman"></a>Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Fiddler 또는 Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)에서 자세한 내용을 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
 
 이 자습서의 모든 호출에 대한 요청 메서드는 "POST"입니다. 헤더 키는 "Content-type" 및 "api-key"입니다. 헤더 키의 값은 각각 "application/json"과 "관리자 키"(관리자 키는 검색 기본 키의 자리 표시자임)입니다. 본문은 호출의 실제 콘텐츠가 배치되는 위치입니다. 사용 중인 클라이언트에 따라 쿼리를 구성하는 방법에 약간의 차이가 있을 수 있지만 일반적으로 기본 사항입니다.
 
@@ -52,21 +51,13 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
   ![반구조화된 검색](media/search-semi-structured-data/keys.png)
 
-## <a name="download-the-sample-data"></a>샘플 파일 다운로드
+## <a name="prepare-sample-data"></a>샘플 데이터 준비
 
-샘플 데이터 집합이 준비되어 있습니다. **[clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)을 다운로드하고** 해당 폴더에 압축을 풉니다.
+1. **[clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)을 다운로드하고** 해당 폴더에 압축을 풉니다. [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)의 데이터는 이 자습서에서 사용하기 위해 JSON으로 변환됩니다.
 
-샘플에는 예제 JSON 파일이 들어 있습니다. 이 파일은 원래 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)에서 가져온 텍스트 파일이었습니다. 편의를 위해 JSON으로 변환했습니다.
+2. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동하고 **데이터** 컨테이너를 연 다음, **업로드**를 클릭합니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-## <a name="upload-the-sample-data"></a>샘플 파일 업로드
-
-Azure Portal에서, [이전 자습서](../storage/blobs/storage-unstructured-search.md)에서 만든 저장소 계정으로 다시 이동합니다. 그런 다음 **데이터** 컨테이너를 열고 **업로드**를 클릭합니다.
-
-**고급**을 클릭하고 "clinical-trials-json"을 입력한 다음 다운로드한 JSON 파일을 모두 업로드합니다.
+3. **고급**을 클릭하고 "clinical-trials-json"을 입력한 다음 다운로드한 JSON 파일을 모두 업로드합니다.
 
   ![반구조화된 검색](media/search-semi-structured-data/clinicalupload.png)
 
@@ -76,17 +67,15 @@ Azure Portal에서, [이전 자습서](../storage/blobs/storage-unstructured-sea
 
 Postman을 통해 데이터 원본, 인덱스 및 인덱서를 만들기 위해 검색 서비스에 대한 API 호출을 세 번 수행합니다. 데이터 원본은 저장소 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
-쿼리 문자열은 **api-version=2016-09-01-Preview**를 포함해야 하며 각 호출은 **201 Created**를 반환해야 합니다. 일반적으로 사용할 수 있는 api-version에는 아직 JSON을 jsonArray로 처리할 수 있는 기능이 없고 현재는 미리 보기 api-version만 있습니다.
+쿼리 문자열에는 미리 보기 API(예: **api-version=2017-11-11-Preview**)가 포함되어 있어야 하며, 각 호출은 **201 Created**를 반환해야 합니다. 일반적으로 사용할 수 있는 api-version에는 아직 JSON을 jsonArray로 처리할 수 있는 기능이 없고 현재는 미리 보기 api-version만 있습니다.
 
 REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
-### <a name="create-a-datasource"></a>데이터 원본 만들기
+## <a name="create-a-data-source"></a>데이터 소스 만들기
 
-데이터 원본은 인덱스할 데이터를 지정합니다.
+데이터 원본은 인덱스할 데이터를 지정하는 Azure Search 개체입니다.
 
-이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
-
-이 호출의 경우 스토리지 계정의 이름과 스토리지 계정 키가 필요합니다. 스토리지 계정 키는 Azure Portal에서 스토리지 계정의 **액세스 키** 내에서 찾을 수 있습니다. 위치가 다음 그림에 표시됩니다.
+이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 이 호출의 경우 스토리지 계정의 이름과 스토리지 계정 키가 필요합니다. 스토리지 계정 키는 Azure Portal에서 스토리지 계정의 **액세스 키** 내에서 찾을 수 있습니다. 위치가 다음 그림에 표시됩니다.
 
   ![반구조화된 검색](media/search-semi-structured-data/storagekeys.png)
 
@@ -123,9 +112,9 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 }
 ```
 
-### <a name="create-an-index"></a>인덱스 만들기
+## <a name="create-an-index"></a>인덱스 만들기
     
-두 번째 API 호출에서 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
+두 번째 API 호출에서 Azure Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
 이 호출에 대한 URL은 `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
@@ -213,13 +202,13 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 }
 ```
 
-### <a name="create-an-indexer"></a>인덱서 만들기
+## <a name="create-and-run-an-indexer"></a>인덱서 만들기 및 실행
 
-인덱서는 데이터 원본을 대상 검색 인덱스에 연결하고 필요에 따라 데이터 새로 고침을 자동화하는 일정을 제공합니다.
+인덱서는 데이터 원본을 연결하고, 데이터를 대상 검색 인덱스로 가져오고, 필요에 따라 데이터 새로 고침을 자동화하는 일정을 제공합니다.
 
 이 호출에 대한 URL은 `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
-먼저 URL을 바꿉니다. 그런 후 다음 코드를 복사하여 본문에 붙여넣고 쿼리를 실행합니다.
+먼저 URL을 바꿉니다. 그런 다음, 다음 코드를 복사하여 본문에 붙여넣고 요청을 전송합니다. 요청은 즉시 처리됩니다. 응답이 돌아오면 전체 텍스트 검색이 가능한 인덱스가 생깁니다.
 
 ```json
 {
@@ -258,9 +247,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 ## <a name="search-your-json-files"></a>JSON 파일 검색
 
-이제 검색 서비스가 데이터 컨테이너에 연결되었으므로 파일 검색을 시작할 수 있습니다.
-
-Azure Portal을 열고 검색 서비스로 다시 이동합니다. 이전 자습서에서 했던 대로 수행합니다.
+이제 인덱스에 대한 쿼리를 발행할 수 있습니다. 이 작업의 경우 포털에서 [**검색 탐색기**](search-explorer.md)를 사용합니다.
 
   ![구조화되지 않은 검색](media/search-semi-structured-data/indexespane.png)
 

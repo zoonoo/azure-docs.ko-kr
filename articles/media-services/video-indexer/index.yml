@@ -1,35 +1,58 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7372c3010f31a43dc91a33de08f059a5a60d5ba4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988008"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522001"
 documentType: LandingData
 title: Video Indexer 설명서
 metadata:
   document_id: 
   title: Video Indexer 설명서 | Microsoft Docs
-  meta.description: Learn how about Video Indexer.
+  meta.description: Learn about Video Indexer.
   services: media-services
-  author: Juliako
+  author: juliako
   manager: femila
   ms.service: media-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/10/2019
+  ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Video Indexer는 비디오에서 인사이트를 쉽게 추출할 수 있도록 미디어 AI 기술을 통합합니다.
+  description: 'Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(예: Face API, Microsoft Translator, Computer Vision API 및 Custom Speech Service)에 기반하여 구축된 클라우드 애플리케이션입니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.<br/>Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">비교 문서</a>를 확인하세요.'
 sections:
 - items:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 2
+    items:
+    - href: video-indexer-overview.md
+      html: <p>Video Indexer는 비디오에서 인사이트를 쉽게 추출할 수 있도록 미디어 AI 기술을 통합합니다.</p>
+      image:
+        src: media/index/AMSIcons-media_servicesV3.svg
+      title: Video Indexer란?
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드합니다.
+  - type: list
+    style: icon48
     items:
     - image:
-        src: 
-      text: Video Indexer란?
-      href: video-indexer-overview.md
+        src: media/index/AMSIcons-media_analytics.svg
+      text: 인사이트 추출
+      href: /azure/media-services/video-indexer/video-indexer-get-started
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Video Indexer API를 사용하여 비디오에서 인사이트를 추출하는 방법을 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/AMSIcons-media_analytics.svg
+      text: 인사이트 추출
+      href: /azure/media-services/video-indexer/video-indexer-use-apis

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124095"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -100,7 +100,10 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
 6. NSG 목록에서 **myVm nsg**라는 NSG를 선택합니다.
 7. **흐름 로그 설정**에서 **켜기**를 선택합니다.
-8. 흐름 로깅을 버전을 선택합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다. ![흐름 로그 버전 선택](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. 흐름 로깅을 버전을 선택합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
+
+   ![흐름 로그 버전 선택](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. 3단계에 만든 저장소 계정을 선택합니다.
 10. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
 
@@ -109,17 +112,13 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 1. Network Watcher의 포털에서 **로그** 아래에 있는 **NSG 흐름 로그**를 선택합니다.
 2. 다음 그림에서 표시된 대로 **구성된 저장소 계정에서 흐름 로그를 다운로드할 수 있습니다**를 선택합니다.
 
-  ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 저장소 계정을 선택합니다.
-4. 다음 그림에서 표시된 대로 **Blob 서비스**에서 **컨테이너**를 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
+4. **Blob service**에서 **Blob**을 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
+5. 컨테이너에서 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 탐색합니다. 다음 명명 규칙에 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-    ![컨테이너 선택](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 이동합니다.
-
-    ![로그 파일](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    다음 이름 규칙을 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![흐름 로그](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. PT1H.json 파일의 오른쪽에서 **...** 을 선택하고 **다운로드**를 선택합니다.
 
@@ -196,7 +195,6 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 }
 ```
 
-
 이전 출력에서 **mac**의 값은 VM을 만들 때 만든 네트워크 인터페이스의 MAC 주소입니다. **flowTuples**의 쉼표로 구분된 정보는 다음과 같습니다.
 
 | 예제 데이터 | 데이터가 나타내는 정보   | 설명                                                                              |
@@ -213,7 +211,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 | 30 | 보낸 패킷 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
 | 16978 | 보낸 바이트 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다. | 
 | 24 | 보낸 패킷 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
-| 14008| 보낸 바이트 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.| |
+| 14008| 보낸 바이트 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

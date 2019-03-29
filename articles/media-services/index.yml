@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903609"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519717"
 documentType: LandingData
 title: Azure Media Services 설명서
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: AMS(Azure Media Services)는 클라우드 기반 플랫폼입니다. 이를 사용하면 대부분의 인기 있는 디바이스에서 대상 그룹에 도달하는 고화질 비디오 인코딩 및 브로드캐스트 품질 비디오 스트리밍을 수행하는 솔루션을 구축할 수 있습니다. 또한 AMS v3을 사용하면 Video Indexer에서 AMS v3 분석기 미리 설정을 통해 비디오 및 오디오 파일의 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요.<br/> Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">비교 문서</a>를 확인하세요.
+  description: Azure Media Services는 클라우드 기반 플랫폼입니다. 이를 사용하면 대부분의 인기 있는 디바이스에서 대상 그룹에 도달하는 고화질 비디오 인코딩 및 브로드캐스트 품질 비디오 스트리밍을 수행하는 솔루션을 구축할 수 있습니다. 또한 Media Services v3을 사용하면 Video Indexer에서 Media Services v3 분석기 미리 설정을 통해 비디오 및 오디오 파일의 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요.
 sections:
 - items:
   - type: list
@@ -40,7 +40,7 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       title: 비디오 인덱서
     - href: /azure/media-services/previous/
-      html: <p>Media Services v2를 사용하여 인코딩, 주문형 스트리밍 및 라이브 비디오 브로드캐스팅을 수행하는 방법을 알아봅니다.</p>
+      html: <p>Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 최신 Media Services v3 버전을 확인하세요.</p>
       image:
         src: media/index/AMSIcons-media_servicesV2.svg
       title: Azure Media Services v2(레거시)
@@ -49,51 +49,3 @@ sections:
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Media Services v3을 사용하여 인코딩하고 스트림하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 파일 스트리밍
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-  - type: paragraph
-    text: Video Indexer를 사용하여 비디오에서 인사이트를 추출하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 인사이트 추출
-      href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Media Services v3을 사용하여 주문형 파일 및 라이브 브로드캐스팅을 스트리밍하고 비디오를 분석하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 비디오 업로드, 인코딩 및 스트리밍
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-live.svg
-      text: 라이브 브로드캐스팅
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 비디오 분석
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-  - type: paragraph
-    text: Video Indexer API를 사용하여 비디오에서 인사이트를 추출하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 인사이트 추출
-      href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json

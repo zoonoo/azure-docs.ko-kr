@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Blob 저장소 계정 구독 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Blob 저장소 계정 구독
+title: Azure PowerShell 스크립트 샘플 - Blob Storage 계정 구독 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Blob Storage 계정 구독
 services: event-grid
 documentationcenter: na
 author: tfitzmac
@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: bc8726499f900602bf1dbfc58a7ea2574a483245
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d236bcbf71915576ee31587e9abfff92c99250c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177520"
 ---
-# <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>PowerShell을 사용하여 Blob 저장소 계정에 대한 이벤트 구독
+# <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>PowerShell을 사용하여 Blob Storage 계정에 대한 이벤트 구독
 
-이 스크립트는 Blob 저장소 계정에 대한 이벤트에 대한 Event Grid 구독을 만듭니다.
+이 스크립트는 Blob Storage 계정에 대한 이벤트에 대한 Event Grid 구독을 만듭니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +37,7 @@ ms.locfileid: "53273904"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Event Grid 구독을 만듭니다. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

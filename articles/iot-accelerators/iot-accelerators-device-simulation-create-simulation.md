@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 268efa35f63ac8b9e0c6ea3f22a71242a2984726
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180707"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>자습서: IoT 디바이스 시뮬레이션 만들기 및 실행
 
@@ -77,4 +77,4 @@ Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표�
 이 자습서에서는 시뮬레이션을 생성, 실행 및 중지하는 방법을 알아보았습니다. 또한 시뮬레이션 세부 정보를 확인하는 방법을 배웠습니다. 시뮬레이션을 실행하는 방법에 대해 자세히 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 시뮬레이션된 장치 만들기](iot-accelerators-device-simulation-create-custom-device.md)
+> [사용자 지정 시뮬레이션된 디바이스 만들기](iot-accelerators-device-simulation-create-custom-device.md)

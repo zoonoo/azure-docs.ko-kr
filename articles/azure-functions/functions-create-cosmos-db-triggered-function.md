@@ -6,18 +6,18 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137847"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -60,7 +60,7 @@ ms.locfileid: "54904287"
 
 1. 검색 필드에서 `cosmos`를 입력하고 **Azure Cosmos DB 트리거** 템플릿을 선택합니다.
 
-1. 메시지가 표시되면 **설치**를 선택하여 함수 앱에 Azure Storage 확장과 모든 종속성을 설치합니다. 설치가 완료되면 **계속**을 선택합니다.
+1. 메시지가 표시되면 **설치**를 선택하여 Azure Cosmos DB 확장을 함수 앱에 설치합니다. 설치가 완료되면 **계속**을 선택합니다.
 
     ![바인딩 확장 설치](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

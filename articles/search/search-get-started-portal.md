@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270337"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137830"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 
@@ -34,13 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Azure Search 서비스를 만들](search-create-service-portal.md)거나 현재 구독에서 기존 서비스를 찾습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Search 서비스의 서비스 대시보드를 엽니다. 서비스 타일을 대시보드에 고정하지 않은 경우 다음과 같은 방법으로 서비스를 찾을 수 있습니다.
-
-   * 표시줄의 왼쪽 탐색창에서 **모든 서비스**를 클릭합니다.
-   * 검색 상자에 *검색*을 입력하여 구독에 대한 검색 관련 서비스 목록을 가져옵니다. **Search 서비스**를 클릭합니다. 목록에 서비스가 표시됩니다.
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 ### <a name="check-for-space"></a>공간 확인
 

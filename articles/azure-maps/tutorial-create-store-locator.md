@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 28c2d65e1b1858b653775b4b298c9ab3e1d31e6e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d8256f96a79969103b17047c4ebb55fb140eb0bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991415"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121114"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
 이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
     
 > [!div class="checklist"]
-* Azure Map Control API를 사용하여 새 웹 페이지를 만듭니다.
-* 파일에서 사용자 지정 데이터를 로드하고 지도에 표시합니다.
-* Azure Maps Search 서비스를 사용하여 주소를 찾거나 쿼리를 입력합니다.
-* 브라우저에서 사용자의 위치를 가져온 후 지도에 표시합니다.
-* 여러 계층을 조합하여 지도에 사용자 지정 기호를 만듭니다.  
-* 데이터 요소를 클러스터로 묶습니다.  
-* 지도에 확대/축소 컨트롤을 추가합니다.
+> * Azure Map Control API를 사용하여 새 웹 페이지를 만듭니다.
+> * 파일에서 사용자 지정 데이터를 로드하고 지도에 표시합니다.
+> * Azure Maps Search 서비스를 사용하여 주소를 찾거나 쿼리를 입력합니다.
+> * 브라우저에서 사용자의 위치를 가져온 후 지도에 표시합니다.
+> * 여러 계층을 조합하여 지도에 사용자 지정 기호를 만듭니다.  
+> * 데이터 요소를 클러스터로 묶습니다.  
+> * 지도에 확대/축소 컨트롤을 추가합니다.
 
 <a id="Intro"></a>
 
@@ -42,12 +42,16 @@ ms.locfileid: "55991415"
 코드로 이동하기 전에 디자인부터 시작하는 것이 좋습니다. 매장 로케이터를 원하는 만큼 단순하거나 복잡하게 구성할 수 있습니다. 이 자습서에서는 간단한 매장 로케이터를 만듭니다. 원할 경우 일부 기능을 확장하는 데 도움이 되도록 몇 가지 팁을 전체적으로 포함할 것입니다. Contoso Coffee라는 가상의 회사를 위한 매장 로케이터를 만듭니다. 다음 그림에서는 이 자습서에서 구축하는 매장 로케이터의 일반 레이아웃 와이어프레임을 보여 줍니다.
 
 <br/>
-<center>![Contoso Coffee 커피숍 위치에 대한 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>
+
+![Contoso Coffee 커피숍 위치에 대한 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 이 매장 로케이터의 유용성을 최대화하기 위해 사용자의 화면 너비가 700픽셀보다 작은 경우 조정되는 반응형 레이아웃을 포함합니다. 반응형 레이아웃이 있으면 모바일 디바이스와 같은 작은 화면에서 매장 로케이터를 쉽게 사용할 수 있습니다. 소형 화면 레이아웃의 와이어프레임은 다음과 같습니다.  
 
 <br/>
-<center>![모바일 디바이스의 Contoso Coffee 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>
+
+![모바일 디바이스의 Contoso Coffee 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 이 와이어프레임은 매우 간단한 애플리케이션을 보여 줍니다. 이 애플리케이션에는 검색 상자, 근처 매장 목록, 일부 표식(기호)이 있는 지도, 사용자가 표식을 선택할 때 추가 정보를 표시하는 팝업 창이 있습니다. 이 자습서에서 이 매장 로케이터에 구축하는 기능을 좀 더 자세히 살펴보면 다음과 같습니다.
 
@@ -70,7 +74,9 @@ ms.locfileid: "55991415"
 매장 로케이터 애플리케이션을 개발하기 전에 지도에 표시하려는 매장의 데이터 세트를 만들어야 합니다. 이 자습서에서는 Contoso Coffee라는 가상의 커피숍에 대한 데이터 세트를 사용합니다. 이 간단한 매장 로케이터의 데이터 세트는 Excel 통합 문서에서 관리됩니다. 이 데이터 세트에는 9개 국가, 미국, 캐나다, 영국, 프랑스, 독일, 이탈리아, 네덜란드, 덴마크 및 스페인에 분산되어 있는 10,213개의 Contoso Coffee 커피숍 위치가 포함됩니다. 다음은 이러한 데이터를 보여 주는 스크린샷입니다.
 
 <br/>
-<center>![Excel 통합 문서에 있는 매장 로케이터 데이터의 스크린샷](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>
+
+![Excel 통합 문서에 있는 매장 로케이터 데이터의 스크린샷](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 [Excel 통합 문서를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 
 
@@ -90,12 +96,16 @@ ms.locfileid: "55991415"
 통합 문서를 일반 텍스트 파일로 변환하려면 통합 문서를 탭으로 구분된 파일로 저장합니다. 각 열은 탭 문자로 구분되므로 코드에서 열을 쉽게 구문 분석할 수 있습니다. CSV(쉼표로 구분된 값) 형식을 사용할 수 있지만 이 옵션을 사용하려면 더 많은 구문 분석 논리가 필요합니다. 주변에 쉼표가 있는 모든 필드는 따옴표로 묶어야 합니다. 이 데이터를 Excel에 탭으로 구분된 파일로 내보내려면 **다른 이름으로 저장**을 선택합니다. **저장 형식** 드롭다운 목록에서 **텍스트(탭 구분)(*.txt)** 를 선택합니다. 파일 이름을 *ContosoCoffee.txt*로 지정합니다. 
 
 <br/>
-<center>![저장 형식 대화 상자 스크린샷](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+<center>
+
+![저장 형식 대화 상자 스크린샷](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 텍스트 파일을 메모장에서 열면 다음 그림과 유사하게 나타납니다.
 
 <br/>
-<center>![탭으로 구분된 데이터 세트를 보여 주는 메모장 파일 스크린샷](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>
+
+![탭으로 구분된 데이터 세트를 보여 주는 메모장 파일 스크린샷](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>프로젝트 설정
@@ -103,7 +113,9 @@ ms.locfileid: "55991415"
 프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js*를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data*라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt*를 추가합니다. *images*라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 표식에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
 
 <br/>
-<center>![간단한 매장 로케이터 프로젝트 폴더 스크린샷](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<center>
+
+![간단한 매장 로케이터 프로젝트 폴더 스크린샷](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>사용자 인터페이스 만들기
 
@@ -395,12 +407,12 @@ ms.locfileid: "55991415"
 
 1. *index.js*에 코드를 추가합니다. 다음 코드는 지도를 초기화하고, 페이지 로드가 완료될 때까지 기다리는 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가하고, 이벤트를 연결하여 지도 로드를 모니터링하고, 검색 단추 및 내 위치 단추를 작동합니다. 
 
-  사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가로 제한할 수 있습니다. 검색할 국가를 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
+   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가로 제한할 수 있습니다. 검색할 국가를 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
-  검색이 완료되면 첫 번째 결과를 사용한 후 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하는 경우, 브라우저에 기본 제공된 HTML5 Geolocation API를 사용하여 사용자의 위치를 검색하고 지도 중심을 해당 위치로 이동합니다.  
+   검색이 완료되면 첫 번째 결과를 사용한 후 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하는 경우, 브라우저에 기본 제공된 HTML5 Geolocation API를 사용하여 사용자의 위치를 검색하고 지도 중심을 해당 위치로 이동합니다.  
 
-  > [!Tip]
-  > 팝업 창을 사용할 경우 단일 `Popup` 인스턴스를 만든 후 해당 콘텐츠 및 위치를 업데이트하여 인스턴스를 다시 사용하는 것이 좋습니다. 코드에 추가하는 모든 `Popup` 인스턴스에 대해 페이지에 여러 DOM 요소가 추가됩니다. 페이지에 더 많은 DOM 요소가 있을수록 브라우저가 추적할 내용이 더 많아집니다. 너무 많은 항목이 있는 경우 브라우저가 느려질 수 있습니다.
+   > [!Tip]
+   > 팝업 창을 사용할 경우 단일 `Popup` 인스턴스를 만든 후 해당 콘텐츠 및 위치를 업데이트하여 인스턴스를 다시 사용하는 것이 좋습니다. 코드에 추가하는 모든 `Popup` 인스턴스에 대해 페이지에 여러 DOM 요소가 추가됩니다. 페이지에 더 많은 DOM 요소가 있을수록 브라우저가 추적할 내용이 더 많아집니다. 너무 많은 항목이 있는 경우 브라우저가 느려질 수 있습니다.
 
     ```Javascript
     function initialize() { 
@@ -542,7 +554,7 @@ ms.locfileid: "55991415"
 
 1. 지도의 `load` 이벤트 수신기에 데이터 세트를 로드한후 에 데이터를 렌더링하기 위한 계층 세트를 정의합니다. 클러스터형 데이터 요소를 렌더링하는 데는 풍선 계층이 사용됩니다. 각 클러스터의 요소 수를 풍선 계층 위에 렌더링하는 데 기호 계층이 사용됩니다. 두 번째 기호 계층은 지도의 개별 위치에 대한 사용자 지정 아이콘을 렌더링합니다. 
 
-  풍선 및 아이콘 계층에 `mouseover` 및 `mouseout` 이벤트를 추가하여 사용자가 지도에서 클러스터 또는 아이콘 위로 마우스를 가져갈 때 마우스 커서가 변경되도록 합니다. 클러스터 풍선 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 두 수준으로 지도를 확대하고 사용자가 클러스터를 하나 선택하면 지도 중심을 해당 클러스터로 이동합니다. 아이콘 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 사용자가 개별 위치 아이콘을 선택할 때 커피숍 세부 정보를 표시하는 팝업 창을 표시합니다. 지도 이동이 완료되면 모니터링할 지도에 이벤트를 추가합니다. 이 이벤트가 발생하면 목록 패널에서 항목이 업데이트됩니다.  
+   풍선 및 아이콘 계층에 `mouseover` 및 `mouseout` 이벤트를 추가하여 사용자가 지도에서 클러스터 또는 아이콘 위로 마우스를 가져갈 때 마우스 커서가 변경되도록 합니다. 클러스터 풍선 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 두 수준으로 지도를 확대하고 사용자가 클러스터를 하나 선택하면 지도 중심을 해당 클러스터로 이동합니다. 아이콘 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 사용자가 개별 위치 아이콘을 선택할 때 커피숍 세부 정보를 표시하는 팝업 창을 표시합니다. 지도 이동이 완료되면 모니터링할 지도에 이벤트를 추가합니다. 이 이벤트가 발생하면 목록 패널에서 항목이 업데이트됩니다.  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -916,30 +928,36 @@ ms.locfileid: "55991415"
 사용자가 내 위치 단추를 처음 선택하면 브라우저에 사용자 위치에 액세스하기 위한 권한을 요구하는 보안 경고가 표시됩니다. 사용자가 해당 위치를 공유하는 데 동의하면 지도가 사용자 위치에서 확대되고 근처의 커피숍이 표시됩니다. 
 
 <br/>
-<center>![사용자의 위치에 액세스하기 위한 브라우저 요청 스크린샷](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>
+
+![사용자의 위치에 액세스하기 위한 브라우저 요청 스크린샷](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 커피숍 위치가 포함된 영역에서 충분히 가깝게 확대하면 클러스터가 개별 위치로 분리됩니다. 지도에서 아이콘 중 하나를 선택하거나 측면 패널에서 항목을 선택하여 해당 위치에 대한 정보를 표시하는 팝업 창을 표시합니다.
 
 <br/>
-<center>![완료된 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+<center>
+
+![완료된 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 브라우저 창 너비를 700픽셀보다 작게 조정하거나 모바일 디바이스에서 애플리케이션을 열 경우 작은 화면에 더 잘 맞게 레이아웃이 변경됩니다. 
 
 <br/>
-<center>![작은 화면 버전의 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>
+
+![작은 화면 버전의 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Maps를 사용하여 기본 매장 로케이터를 만드는 방법을 알아봅니다. 이 자습서에서 만드는 매장 로케이터에는 필요한 모든 기능이 있을 수 있습니다. 매장 로케이터에 기능을 추가하거나 더 많은 사용자 지정 사용자 환경을 위해 더 많은 고급 기능을 사용할 수 있습니다. 
 
 > [!div class="checklist"]
-* 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
-* [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
-* [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
-* [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
-* 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
-* 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)으로 배포합니다. 
-* 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)를 참조하세요.
+> * 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
+> * [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
+> * [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
+> * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
+> * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
+> * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)으로 배포합니다. 
+> * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)를 참조하세요.
 
 이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
 

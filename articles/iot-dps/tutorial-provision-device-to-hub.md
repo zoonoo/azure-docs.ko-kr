@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189016"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227017"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 
@@ -43,7 +43,7 @@ ms.locfileid: "53189016"
       [![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - X.509 기반 디바이스의 경우 다음과 같은 항목이 필요합니다.
-    - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 장치별 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다. 
+    - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록에는 X.509 시스템에 대한 디바이스별 *서명자 인증서*를 사용하고, 등록 그룹에는 *루트 인증서*를 사용해야 합니다. 
 
       [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -75,7 +75,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 
 실제 디바이스의 예제는 [MXChip Iot DevKit에 대한 방법 가이드](how-to-connect-mxchip-iot-devkit.md)를 참조하세요.
 
-디바이스를 시작하고 디바이스의 클라이언트 응용 프로그램이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
+장치를 시작하고 장치의 클라이언트 애플리케이션이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
 
 ## <a name="verify-the-device-is-registered"></a>디바이스가 등록되어 있는지 확인
 
@@ -84,7 +84,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 1. 디바이스가 Device Provisioning Service에 등록 요청을 보냅니다.
 2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
-4. 그러면 디바이스의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다. 
+4. 그러면 디바이스의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다. 
 5. 허브에 성공적으로 연결되면 IoT Hub의 **IoT 디바이스** 탐색기에 디바이스가 표시됩니다. 
 
     ![포털에서 허브에 연결 성공](./media/tutorial-provision-device-to-hub/hub-connect-success.png)

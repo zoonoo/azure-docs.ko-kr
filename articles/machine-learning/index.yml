@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250685"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519932"
 abstract:
   description: 다음 Azure Machine Learning 제품을 사용하여 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다.  자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
 documentType: LandingData
@@ -38,8 +38,8 @@ sections:
   - text: <b>빠른 시작:</b>
     type: paragraph
   - items:
-    - html: <a href="service/quickstart-create-workspace-with-python">Python을 사용하여 시작</a>
-    - html: <a href="service/quickstart-get-started">Azure Portal을 사용하여 시작</a>
+    - html: <a href="service/quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
+    - html: <a href="service/quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
     style: unordered
     type: list
   - text: <b>MNIST 데이터를 사용하는 이미지 분류 자습서:</b>

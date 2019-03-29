@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3bccf50d9236fb5b51b89f31ffc2ec9b0d2c74cd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bf33860b111900fed850158d6b80d5a9d4404893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181608"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 지원되는 언어 목록 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "56727284"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-선호하는 IDE 또는 편집기를 사용하여 새 Go 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `get-languages.go`라는 파일의 프로젝트에 복사합니다.
+즐겨찾는 IDE 또는 편집기를 사용하여 새 Go 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 그런 다음, 이 코드 조각을 `get-languages.go`라는 파일의 프로젝트/폴더에 복사합니다.
 
 ```go
 package main
@@ -134,6 +134,8 @@ go run get-languages.go
 코드를 우리 것과 비교하고 싶다면 전체 샘플은 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에 있습니다.
 
 ## <a name="sample-response"></a>샘플 응답
+
+국가 약어는 이 [언어 목록](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 

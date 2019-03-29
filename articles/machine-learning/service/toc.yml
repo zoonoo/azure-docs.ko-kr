@@ -90,15 +90,18 @@ items:
         href: how-to-vscode-tools.md
       - name: 학습 및 배포
         href: how-to-vscode-train-deploy.md
-  - name: 데이터 준비
+  - name: 데이터 작업
     displayName: data prep, etl, elt, data preparation
     items:
-    - name: 데이터 로드
-      href: how-to-load-data.md
-    - name: 데이터 변환
-      href: how-to-transform-data.md
-    - name: 데이터 쓰기
-      href: how-to-write-data.md
+    - name: 데이터 탐색 및 준비
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: 데이터 로드
+        href: how-to-load-data.md
+      - name: 데이터 변환
+        href: how-to-transform-data.md
+      - name: 데이터 쓰기
+        href: how-to-write-data.md
   - name: 데이터 저장소에서 데이터 가져오기
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -198,9 +201,9 @@ items:
   - name: ML 제품 비교
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 0e40f17725cb56dbc346fffcce0f672f2394ca1d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 52bc0220f3eb2fa28d344f68fe86310eabeee47c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359979"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540383"

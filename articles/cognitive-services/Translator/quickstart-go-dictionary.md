@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: b9f1b3b7ab99ca878227d8bf618545ec90aca4ac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 356c414d6e3823f927cbb201aeb0a0186e421b5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732044"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175536"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>빠른 시작: Go를 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -32,7 +32,7 @@ ms.locfileid: "56732044"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-선호하는 IDE 또는 편집기를 사용하여 새 Go 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `alt-translations.go`라는 파일의 프로젝트에 복사합니다.
+즐겨찾는 IDE/편집기를 사용하여 새 Go 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 그런 다음, 이 코드 조각을 `alt-translations.go`라는 파일의 프로젝트/폴더에 복사합니다.
 
 ```go
 package main
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. Then, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -227,10 +227,10 @@ go run alt-translations.go
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub의 [Go용 Azure SDK](https://github.com/Azure/azure-sdk-for-go)에서 Cognitive Services API용 Go 패키지를 살펴봅니다.
+GitHub의 [Go용 Azure SDK](https://github.com/Azure/azure-sdk-for-go)에서 Cognitive Services API용 Go 예제를 살펴봅니다.
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Go 패키지 살펴보기](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [GitHub에서 Go 예제 살펴보기](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>참고 항목
 

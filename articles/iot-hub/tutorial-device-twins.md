@@ -3,23 +3,22 @@ title: Azure IoT Hub에서 디바이스 상태 동기화 | Microsoft Docs
 description: 디바이스 쌍을 사용하여 디바이스와 IoT 허브 간의 상태를 동기화합니다.
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421915"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088080"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여 주고, 장치에서 reported 속성 업데이트를 받고 처리하는 방법을 강조 표시하고 있습니다.
+다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여 주고, 디바이스에서 reported 속성 업데이트를 받고 처리하는 방법을 강조 표시하고 있습니다.
 
 ![백 엔드 애플리케이션](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 이 자습서에서는 디바이스와 IoT 허브 간에 상태 정보를 동기화하는 방법을 알아보았습니다. 디바이스 쌍을 사용하여 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-[디바이스 펌웨어 업데이트 프로세스 구현](tutorial-firmware-update.md)
+> [디바이스 펌웨어 업데이트 프로세스 구현](tutorial-firmware-update.md)

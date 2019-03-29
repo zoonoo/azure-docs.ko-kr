@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105712"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>빠른 시작: Java용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 
@@ -41,7 +41,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Vide
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>프로젝트 만들기 및 초기화
+## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
 
 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
@@ -61,7 +61,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Vide
 
 ## <a name="create-a-search-client"></a>검색 클라이언트 만들기
 
-2. `VideoSearchAPIImpl` 클라이언트를 구현합니다. 그러려면 API 엔드포인트와 `ServiceClientCredentials` 클래스의 인스턴스가 필요합니다.
+1. `VideoSearchAPIImpl` 클라이언트를 구현합니다. 그러려면 API 엔드포인트와 `ServiceClientCredentials` 클래스의 인스턴스가 필요합니다.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Vide
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>검색 요청 전송 및 응답 수신 
+## <a name="send-a-search-request-and-receive-the-response"></a>검색 요청 전송 및 응답 수신 
 
 1. 문자열로 구독 키를 사용하는 `VideoSearch()`라는 함수를 만듭니다. 이전에 만든 검색 클라이언트를 인스턴스화합니다.
     

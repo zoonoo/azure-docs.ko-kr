@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d27d385fa6fba93b7221d241f46894e9cfb9dea6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f89e1e89736929b7d50444800550708a55e45db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103420"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 언어 검색
 
@@ -131,9 +131,17 @@ request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+"Pretty Print"(응답의 서식)로 응답을 출력하려면 이 함수를 프로그램 클래스에 추가합니다.
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
@@ -154,6 +162,8 @@ dotnet run
 ```
 
 ## <a name="sample-response"></a>샘플 응답
+
+국가 약어는 이 [언어 목록](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)에서 찾습니다.
 
 ```json
 [

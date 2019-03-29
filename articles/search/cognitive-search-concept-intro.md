@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133062"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -92,31 +92,9 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
 ## <a name="where-do-i-start"></a>시작 단계
 
-**1단계: API를 제공하는 지역에서 [Azure Search 리소스 만들기](search-create-service-portal.md)** 
+**1단계: [Azure Search 리소스 만들기](search-create-service-portal.md)** 
 
-+ 미국 중서부
-+ 미국 중남부
-+ 미국 중북부
-+ 미국 동부
-+ 미국 동부 2
-+ 미국 서부
-+ 미국 서부 2
-+ 미국 중부
-+ 캐나다 중부
-+ 서유럽
-+ 북유럽
-+ 영국 남부
-+ 프랑스 중부
-+ 브라질 남부
-+ 동아시아
-+ 동남아시아
-+ 인도 중부
-+ 일본 서부
-+ 일본 동부
-+ 한국 중부
-+ 오스트레일리아 동부
-
-**2단계: 워크플로를 완벽하게 습득하기 위한 실무 경험**
+**2단계: 실습 환경에 대한 일부 빠른 시작 및 예제 사용해보기**
 
 + [빠른 시작(포털)](cognitive-search-quickstart-blob.md)
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)

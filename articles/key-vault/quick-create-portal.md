@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000622"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-http://portal.azure.com 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -43,7 +43,6 @@ http://portal.azure.com 에서 Azure Portal에 로그인합니다.
     - **구독**: 구독을 선택합니다.
     - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
     - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
-    - **대시보드에 고정** 확인란을 선택합니다.
     - 다른 옵션은 기본값으로 그대로 둡니다.
 6. 위의 정보를 제공한 후 **만들기**를 선택합니다.
 
@@ -70,7 +69,11 @@ http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 비밀이 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 그런 다음, 속성 중 일부를 볼 수 있습니다. 현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.
 
-![비밀 속성](./media/quick-create-portal/version.png)
+![비밀 속성](./media/quick-create-portal/current-version-hidden.png)
+
+오른쪽 창에서 "비밀 값 표시" 단추를 클릭하면 숨겨진 값을 볼 수 있습니다. 
+
+![표시된 비밀 값](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

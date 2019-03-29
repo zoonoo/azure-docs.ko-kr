@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176381"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>빠른 시작: Node.js를 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -32,7 +32,7 @@ ms.locfileid: "56729715"
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-선호하는 IDE 또는 편집기를 사용하여 새 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `dictionary-lookup.js`라는 파일의 프로젝트에 복사합니다.
+즐겨찾는 IDE 또는 편집기를 사용하여 새 프로젝트를 만들거나 데스크톱에 새 폴더를 만듭니다. 이 코드 조각을 `alt-translations.js`라는 파일의 프로젝트/폴더에 복사합니다.
 
 ```javascript
 const request = require('request');
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 이것으로, Translator Text API를 호출하여 JSON 응답을 반환하는 간단한 프로그램이 만들어집니다. 이제 프로그램을 실행해 보겠습니다.
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 코드를 우리 것과 비교하고 싶다면 전체 샘플은 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)에 있습니다.

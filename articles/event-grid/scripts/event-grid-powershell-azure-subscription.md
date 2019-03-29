@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d4b7f49edca6c72681734f70dba3be8722edd91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3d3d7a864bf6941dfb0bf7496b291639e7e5ea6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180554"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Azure PowerShell을 사용하여 Azure 구독에 대한 이벤트 구독
 
@@ -29,9 +29,13 @@ ms.locfileid: "53269314"
 
 ## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## <a name="sample-script---preview-module"></a>샘플 스크립트 - 미리 보기 모듈
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.ps1 "Subscribe to Azure subscription")]
 
@@ -41,7 +45,7 @@ ms.locfileid: "53269314"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Event Grid 구독을 만듭니다. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999960"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -30,15 +30,17 @@ Azure Migrate의 기능:
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0, 6.5 또는 6.7)에서 관리되어야 합니다.
-- Hyper-VM 및 물리적 서버를 평가하려는 경우 Hyper-VM의 경우 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc)를 사용하고 물리적 머신의 경우 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 사용합니다.
+- Hyper-V 지원은 프로덕션 지원을 통해 현재 미리 보기로 제공되고 있습니다. 사용해 보고 싶다면 [여기](https://aka.ms/migratefuture)에서 가입하세요.
+- 실제 서버의 평가를 위해 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 활용할 수 있습니다.
 - 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다.
 - 대규모 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보기](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 -  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.
+
     **지리** | **스토리지 위치**
     --- | ---
     Azure Government | 미국 정부 버지니아
-    아시아 | 동남아시아
+    아시아 | 동남 아시아 또는 동아시아
     유럽 | 북유럽 또는 유럽 서부
     미국 | 미국 동부 또는 미국 중서부
 
@@ -72,27 +74,27 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate의 작동 방식
 
-1.  사용자가 Azure Migrate 프로젝트를 만듭니다.
-2.  Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 사용하여 온-프레미스 컴퓨터에 대한 정보를 검색합니다. 어플라이언스를 만들려면 Open Virtualization Appliance (.ova) 형식의 설치 파일을 다운로드하여 온-프레미스 vCenter Server에서 VM으로 가져옵니다.
+1. 사용자가 Azure Migrate 프로젝트를 만듭니다.
+2. Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 사용하여 온-프레미스 컴퓨터에 대한 정보를 검색합니다. 어플라이언스를 만들려면 Open Virtualization Appliance (.ova) 형식의 설치 파일을 다운로드하여 온-프레미스 vCenter Server에서 VM으로 가져옵니다.
 3. vCenter Server의 VM에 연결하고 연결하는 동안 여기에 새 암호를 지정합니다.
 4. 검색을 시작하려면 VM에서 수집기를 실행합니다.
 5. 수집기는 VMware PowerCLI cmdlet을 사용하여 VM 메타데이터를 수집합니다. 검색은 에이전트 없이 수행되며, 및 VMware 호스트 또는 VM에 어떠한 것도 설치하지 않습니다. 수집된 메타데이터에는 VM 정보(코어, 메모리, 디스크, 디스크 크기 및 네트워크 어댑터)가 포함됩니다. 수집기는 CPU 및 메모리 사용량, 디스크 IOPS, 디스크 처리량(MBps) 및 네트워크 출력(MBps)을 포함하여 VM에 대한 성능 데이터도 수집합니다.
-5.  메타데이터는 Azure Migrate 프로젝트에 푸시됩니다. Azure Portal에서 메타데이터를 볼 수 있습니다.
-6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. 더 상세한 그룹화를 위해 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
-7.  그룹을 정의한 후에 이에 대해 평가합니다.
-8.  평가가 완료되면 포털에서 보거나 Excel 형식으로 다운로드할 수 있습니다.
+5. 메타데이터는 Azure Migrate 프로젝트에 푸시됩니다. Azure Portal에서 메타데이터를 볼 수 있습니다.
+6. 평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. 더 상세한 그룹화를 위해 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
+7. 그룹을 정의한 후에 이에 대해 평가합니다.
+8. 평가가 완료되면 포털에서 보거나 Excel 형식으로 다운로드할 수 있습니다.
 
-  ![Azure Migrate 아키텍처](./media/migration-planner-overview/overview-1.png)
+   ![Azure Migrate 아키텍처](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>포트 요구 사항이 어떻게 됩니까?
 
 다음 표에 Azure Migrate 통신에 필요한 포트가 요약되어 있습니다.
 
-구성 요소 | 통신 대상 |  세부 정보
---- | --- |---
-데이터 수집기  | Azure Migrate 서비스 | 수집기는 SSL 포트 443을 통해 서비스에 연결합니다.
-데이터 수집기 | vCenter Server | 기본적으로 수집기는 443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성합니다.
-온-프레미스 VM | Log Analytics 작업 영역 | [TCP 443] | [MMA(Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md)는 TCP 포트 443을 사용하여 Log Analytics에 연결합니다. MMA 에이전트가 필요한 종속성 시각화를 사용하는 경우 이 포트가 필요합니다.
+| 구성 요소 | 통신 대상 |  세부 정보 |
+| --- | --- |--- |
+|데이터 수집기  | Azure Migrate 서비스 | 수집기는 SSL 포트 443을 통해 서비스에 연결합니다.|
+|데이터 수집기 | vCenter Server | 기본적으로 수집기는 443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성합니다.|
+|온-프레미스 VM | Log Analytics 작업 영역 | [MMA(Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md)는 TCP 포트 443을 사용하여 Log Analytics 로그에 연결합니다. MMA 에이전트가 필요한 종속성 시각화를 사용하는 경우 이 포트가 필요합니다.|
 
 
 ## <a name="what-happens-after-assessment"></a>평가 후 어떻게 되나요?

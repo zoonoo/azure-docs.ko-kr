@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088114"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 
@@ -87,7 +87,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    
    ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- 터미널 창에서 Ctrl+C를 사용하여 애플리케이션을 중지하고, **y**를 선택하여 일괄 작업을 종료합니다.
+   터미널 창에서 Ctrl+C를 사용하여 애플리케이션을 중지하고, **y**를 선택하여 일괄 작업을 종료합니다.
 
 ## <a name="_Toc395783179"></a>필요한 모듈 설치
 
@@ -99,7 +99,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    npm install async --save
    ```
 
-2. npm을 통해 **@azure/cosmos** 모듈을 설치합니다. 
+2. npm을 통해 **\@azure/cosmos** 모듈을 설치합니다. 
 
    ```bash
    npm install @azure/cosmos
@@ -183,7 +183,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -243,9 +243,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. **tasklist.js** 파일을 저장하고 닫습니다.
