@@ -65,7 +65,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ## <a name="launch-the-publish-wizard"></a>게시 마법사 시작
 
-**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
@@ -113,7 +113,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 앱 이름입니다.
 
-**만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
+**만들기**를 선택하여 Azure 리소스를 만듭니다.
 
 ![앱 이름 구성](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
@@ -121,13 +121,13 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
+[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 앱 이름은 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 축하합니다. ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
 ## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 재배포
 
-**솔루션 탐색기**에서 _Pages/Index.cshtml_을 엽니다.
+**솔루션 탐색기**에서 _Pages/Index.cshtml_ 파일을 엽니다.
 
 두 개의 `<div>` 태그를 다음 코드로 바꿉니다.
 
@@ -138,7 +138,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 </div>
 ```
 
-Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 게시 요약 페이지에서 **게시**를 선택합니다.
 ![Visual Studio 게시 요약 페이지](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
@@ -159,11 +159,11 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [SQL Database를 사용하는 ASP.NET Core](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [SQL Database를 사용한 ASP.NET Core](app-service-web-tutorial-dotnetcore-sqldb.md)
