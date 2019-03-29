@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961057"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258550"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
@@ -30,7 +30,7 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
+이 빠른 시작을 완료하려면 Speech Services 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [Speech Services 평가판 사용해 보기](get-started.md)를 참조하세요.
 
 ## <a name="create-and-configure-a-project"></a>프로젝트 만들기 및 구성
 
@@ -61,11 +61,11 @@ Android Studio가 새 Android 프로젝트를 준비하는 데 잠시 시간이 
 Cognitive Services 음성 SDK의 현재 버전은 `1.3.1`입니다.
 
 Android용 Speech SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
-https://csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스트됩니다.
+https:\//csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스팅됩니다.
 
 Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio 메뉴 모음에서 **파일** > **프로젝트 구조**를 선택하여 프로젝트 구조 창을 엽니다. 프로젝트 구조 창에서 다음과 같이 변경합니다.
 
-1. 창의 왼쪽 목록에서 **프로젝트**를 선택합니다. 작은따옴표로 묶은 Maven 리포지토리 URL을 추가하여 **기본 라이브러리 리포지토리** 설정을 편집합니다. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. 창의 왼쪽 목록에서 **프로젝트**를 선택합니다. 작은따옴표로 묶은 Maven 리포지토리 URL을 추가하여 **기본 라이브러리 리포지토리** 설정을 편집합니다. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -137,7 +137,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
    ![배포 대상 선택 창 스크린샷 ](media/sdk/qs-java-android-12-deploy.png)
 
-애플리케이션에서 단추를 눌러 음성 인식 섹션을 시작합니다. 다음 15초의 영어 음성이 음성 서비스로 전송되어 스크립트로 바뀝니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
+애플리케이션에서 단추를 눌러 음성 인식 섹션을 시작합니다. 다음 15초간의 영어 음성이 Speech Services로 전송되어 전사됩니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
 
 ![Android 애플리케이션 스크린샷](media/sdk/qs-java-android-13-gui-on-device.png)
 

@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/19/2019
+ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c0da70426d8962999fd8d2cf2852a9bd8d255fc8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 931bc26e22db4bbf02a18d4824b9c846f1e66b18
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190662"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN vpngateway 간의 차이점은 무엇입니까?
 
-Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. ExpressRoute 연결과 지점 및 사이트 간 연결 기능은 현재 미리 보기 상태입니다. CPE 분기 디바이스는 Azure Virtual WAN으로 자동 프로비전하고 연결합니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
+Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. ExpressRoute 연결과 지점 및 사이트 간 연결 기능은 현재 미리 보기 상태입니다. CPE 분기 디바이스는 Azure Virtual WAN으로 자동 프로비저닝하고 연결합니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
 
-### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>디바이스 공급자(Virtual WAN 파트너)는 시작 시 지원되나요? 
+### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>디바이스 공급자(Virtual WAN 파트너)는 시작 시 지원되나요?
 
 현재 많은 파트너가 완전히 자동화된 Virtual WAN 환경을 지원합니다. 자세한 내용은 [Virtual WAN 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)를 참조하세요. 
 
@@ -69,7 +69,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="is-there-support-for-bgp"></a>BGP에 대한 지원이 있습니까?
 
-예, BGP가 지원됩니다. NVA VNet의 경로가 적절하게 보급되었는지 확인하려면 스포크(NVA VNet에 연결되어 있는 경우)가 BGP를 사용하지 않도록 설정해야 합니다. NVA VNet은 가상 허브에 연결됩니다. 또한 스포크 VNet 경로가 온-프레미스 시스템으로 전파되도록 스포크 VNet을 가상 허브에 연결합니다.
+예, BGP가 지원됩니다. VPN 사이트를 만들 때 BGP 매개 변수를 제공할 수 있습니다. 이는 해당 사이트에 대해 Azure에서 생성된 모든 연결이 BGP에 대해 활성화됨을 의미합니다. 또한 NVA와 함께 VNet이 있고 이 NVA VNet이 Virtual WAN 허브에 연결된 경우 NVA VNet의 경로가 적절하게 보급되도록 하기 위해 NVA VNet에 연결된 스포크는 BGP를 사용하지 않도록 설정해야 합니다. 또한 스포크 VNet 경로가 온-프레미스 시스템으로 전파되도록 이러한 스포크 VNet을 가상 허브 VNet에 연결합니다.
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>가상 허브에서 UDR을 사용하여 트래픽을 보낼 수 있나요?
 
@@ -79,9 +79,17 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
  
 예. [가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지를 참조하세요.
 
+### <a name="how-do-i-calculate-price-of-a-hub"></a>허브의 가격을 계산하는 방법은?
+ 
+허브의 서비스에 대해 지불합니다. 예를 들어, Azure Virtual WAN에 연결해야 하는 10개 분기 또는 온-프레미스 디바이스는 허브의 VPN 엔드포인트에 연결하는 것을 의미합니다. 1 배율 단위의 VPN이 500Mbps면 이는 시간당 $0.361로 청구됩니다. 각 연결은 시간당 $0.08로 청구됩니다. 10개 연결의 경우 시간당 총 서비스 요금은 $0.361 + 시간당 $.8입니다. Azure에서 발생하는 트래픽에 대한 데이터 요금이 적용됩니다. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>출시 파트너 목록에 없는 새 파트너는 어떻게 온보딩하나요?
 
 azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다.
+
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우에는 어떻게 하나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
+
+네, 디바이스가 IPsec IKEv1 또는 IKEv2를 지원하는 경우 연결할 수 있습니다. Virtual WAN 파트너는 디바이스에서 Azure VPN 엔드포인트로의 연결을 자동화합니다. 이는 ‘분기 정보 업로드’, ‘IPsec 및 구성’ 및 ‘연결성’과 같은 단계를 자동화하는 것을 의미합니다. 디바이스가 Virtual WAN 파트너 에코시스템에서 온 것이 아니기 때문에 IPsec 연결을 설정하려면 Azure 구성을 가져오고 디바이스를 업데이트하는 작업을 수동으로 많이 수행해야 합니다. 
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure Virtual WAN을 만들 수 있나요?
 
@@ -99,6 +107,10 @@ azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKE
 
 Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 중서부 지역을 제외한 모든 지역의 허브에서 2Gbps의 최대 1,000개 분기 연결을 연결할 수 있습니다. 중서부 지역의 경우 20Gbps를 사용할 수 있습니다. 앞으로 추가 지역에는 20Gbps로 출시됩니다. 연결은 온-프레미스 VPN 디바이스에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
 
+### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Virtual WAN이 SD-WAN 디바이스를 지원하는 방법
+
+Virtual WAN 파트너는 Azure VPN 엔드포인트로의 IPsec 연결을 자동화합니다. Virtual WAN 파트너가 SD-WAN 공급 기업인 경우 SD-WAN 컨트롤러가 자동화 및 Azure VPN 엔드포인트로의 IPsec 연결을 관리함을 의미합니다. 독점적인 SD-WAN 기능을 위해 Azure VPN 대신 SD-WAN 디바이스가 자체 엔드포인트를 필요로 하는 경우, Azure VNet에 SD-WAN 엔드포인트를 배포하고 Azure Virtual WAN과 공존할 수 있습니다.
+
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>이 Virtual WAN은 각 사이트의 ExpressRoute가 필요한가요?
 
 아니요, Virtual WAN은 각 사이트의 ExpressRoute가 필요하지 않습니다. 디바이스에서 Azure Virtual WAN 허브로의 인터넷 링크를 통해 표준 IPsec 사이트 간 연결을 사용합니다. 사이트는 ExpressRoute 회로를 사용하여 공급자 네트워크에 연결할 수 있습니다. 가상 허브(미리 보기)에서 ExpressRoute를 사용하여 연결된 사이트의 경우 VPN과 ExpressRoute 간의 분기 간 트래픽 흐름을 사용할 수 있습니다. 
@@ -109,12 +121,12 @@ Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결�
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Virtual WAN은 온-프레미스 디바이스가 여러 ISP를 병렬로 사용하는 것을 허용하나요 아니면 항상 단일 VPN 터널인가요?
 
-예, 분기 디바이스에 따라 단일 분기에서 활성-활성 터널(터널 2개 = Azure Virtual WAN 연결 1개)이 가능합니다.
+Virtual WAN VPN으로 들어오는 연결은 항상 분기에서 사용 가능한 링크를 사용하는 활성-활성 터널입니다(동일한 허브/지역 내 복원력을 위해). 이 링크는 온-프레미스 분기에서 ISP 링크일 수 있습니다. Virtual WAN은 복수의 ISP를 병렬로 설정하는 특별한 논리를 제공하지 않습니다. 분기에서 ISP 간 장애 조치(failover)를 관리하는 것은 완전히 분기 중심의 네트워크 운영입니다. 즐겨찾는 SD-WAN 솔루션을 사용하여 분기에서 경로 선택을 수행할 수 있습니다.
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Azure 백본에서 트래픽은 어떻게 라우팅되나요?
 
-트래픽은 분기 장치 -> ISP -> Microsoft Edge -> Microsoft DC -> Microsoft Edge -> ISP -> 분기 장치 패턴을 따릅니다.
+트래픽은 분기 디바이스 -> ISP -> Microsoft Edge -> Microsoft DC(Hub VNet) -> Microsoft Edge -> ISP -> 분기 디바이스 패턴을 따릅니다.
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>이 모델은 각 사이트에서 무엇이 필요합니까? 인터넷 연결만 있으면 되나요?
 
-예. 인터넷 연결과 물리적 디바이스(Microsoft의 통합 [파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)가 제공하는 디바이스 권장)만 있으면 됩니다. 필요한 경우 선호 디바이스에서 Azure로의 연결과 구성을 수동으로 관리할 수 있습니다.
+예. IPsec을 지원하는 인터넷 연결과 물리적 디바이스(이왕이면 Microsoft의 통합 [파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615))만 있으면 됩니다. 필요한 경우 선호 디바이스에서 Azure로의 연결과 구성을 수동으로 관리할 수 있습니다.

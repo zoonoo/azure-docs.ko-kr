@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cac68506803cda2c4e537feac84da2a82bc128bd
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000878"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444285"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>자습서: PowerShell을 사용하여 S2S VPN 연결 만들기 및 관리
 
@@ -82,7 +82,7 @@ S2S VPN 연결을 만드는 워크플로는 간단합니다.
 * 온-프레미스 주소 공간
 * (선택 사항) BGP 특성(BGP 피어 IP 주소 및 AS 번호)
 
-[New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1) 명령을 사용하여 로컬 네트워크 게이트웨이를 만듭니다.
+[New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway) 명령을 사용하여 로컬 네트워크 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -91,7 +91,7 @@ New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>S2S VPN 연결 만들기
 
-다음으로, [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 명령을 사용하여 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사이트 간 VPN에 대한 '-ConnectionType'은 *IPsec*입니다.
+다음으로, [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) 명령을 사용하여 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사이트 간 VPN에 대한 '-ConnectionType'은 *IPsec*입니다.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -108,7 +108,7 @@ BGP를 사용하는 경우 연결에 BGP를 사용하려면 선택적 "**-Enable
 
 ### <a name="view-and-update-your-pre-shared-key"></a>미리 공유한 키 보기 및 업데이트
 
-Azure S2S VPN 연결은 미리 공유한 키(비밀)를 사용하여 온-프레미스 VPN 디바이스와 Azure VPN 게이트웨이 사이에서 인증합니다. [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 및 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 명령을 사용하여 연결에 대해 미리 공유한 키를 보고 업데이트할 수 있습니다.
+Azure S2S VPN 연결은 미리 공유한 키(비밀)를 사용하여 온-프레미스 VPN 디바이스와 Azure VPN 게이트웨이 사이에서 인증합니다. [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) 및 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey) 명령을 사용하여 연결에 대해 미리 공유한 키를 보고 업데이트할 수 있습니다.
 
 > [!IMPORTANT]
 > 미리 공유한 키는 **인쇄 가능한 ASCII 문자**로 구성된 128자 미만의 문자열입니다.
@@ -136,7 +136,7 @@ Azure VPN 게이트웨이는 BGP 동적 라우팅 프로토콜을 지원합니�
 * 온-프레미스 로컬 네트워크 게이트웨이 ASN
 * 온-프레미스 로컬 네트워크 게이트웨이 BGP 피어 IP 주소
 
-BGP 속성을 구성하지 않은 경우 [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) 및 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1) 명령은 VPN 게이트웨이 및 로컬 네트워크 게이트웨이에 이러한 속성을 추가합니다.
+BGP 속성을 구성하지 않은 경우 [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) 및 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway) 명령은 VPN 게이트웨이 및 로컬 네트워크 게이트웨이에 이러한 속성을 추가합니다.
 
 BGP 속성을 구성하려면 다음 예제를 사용합니다.
 
@@ -149,7 +149,7 @@ Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-[Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 명령을 사용하여 BGP를 설정합니다.
+[Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection) 명령을 사용하여 BGP를 설정합니다.
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection `
@@ -212,7 +212,7 @@ Azure VPN 게이트웨이에 대한 S2S VPN 연결 2개가 있습니다.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>S2S VPN 연결 삭제
 
-[Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 명령을 사용하여 S2S VPN 연결을 삭제합니다.
+[Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection) 명령을 사용하여 S2S VPN 연결을 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
