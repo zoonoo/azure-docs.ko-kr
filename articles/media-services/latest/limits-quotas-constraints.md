@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897567"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621688"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -27,7 +27,8 @@ ms.locfileid: "57897567"
 | Azure Media Services 계정당 자산 | 1,000,000|
 | 동적 매니페스트 필터|100|
 | 작업당 JobInputs | 50(고정)|
-| 작업당 JobOutputs/변환의 TransformOutputs | 20(고정) |
+| 작업당 JobOutputs | 20(고정) |
+| Transform의 TransformOutputs | 20(고정) |
 | JobInput당 파일|10(고정)|
 | 파일 크기| 일부 시나리오에서는 Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. <sup>(1)</sup> |
 | Media Services 계정 작업당 작업 | 500,000<sup>(2)</sup>(고정)|
@@ -35,7 +36,8 @@ ms.locfileid: "57897567"
 | 작업 열거|응답 페이지 매기기, 페이지당 작업 500건|
 | Media Services 계정당 Live Events |5|
 | 단일 구독의 Media Services 계정 | 25(고정) |
-| LiveEvent당 실행 중인 상태의 라이브 출력 |3|
+| 라이브 이벤트 당 실행 중인 라이브 출력 |3|
+| 라이브 출력 최대 기간 | 25 시간 |
 | Storage 계정 | 100<sup>(4)</sup>(고정) |
 | Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2 (고정)|
 | 스트리밍 정책 | 100 <sup>(3)</sup> |

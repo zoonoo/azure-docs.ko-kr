@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762843"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621416"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -1809,7 +1809,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
     ...
 ```
 
-사용할 수 있습니다, 템플릿을 배포 하 고 리소스를 업데이트 하려면 인하지 않으려는 될 때마다 새 고유 이름을 생성 해야 하는 경우는 [utcNow](#utcnow) uniqueString 사용 하 여 함수입니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예를 들어 참조 [utcNow](#utcNow)합니다.
+사용할 수 있습니다, 템플릿을 배포 하 고 리소스를 업데이트 하려면 인하지 않으려는 될 때마다 새 고유 이름을 생성 해야 하는 경우는 [utcNow](#utcnow) uniqueString 사용 하 여 함수입니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예를 들어 참조 [utcNow](#utcnow)합니다.
 
 ### <a name="return-value"></a>반환 값
 

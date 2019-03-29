@@ -4,17 +4,17 @@ description: Azure Automation에 포함된 업데이트 관리, 변경 내용 �
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837765"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619733"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -22,11 +22,11 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-the-solutions"></a>솔루션을 사용하도록 설정
 
-기존 가상 머신으로 이동합니다. **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다. 가상 컴퓨터는 Automation 계정의 위치에 관계 없이 모든 지역에 있을 수 있습니다.
+기존 가상 머신으로 이동합니다. **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다. 가상 컴퓨터는 Automation 계정의 위치에 관계 없이 모든 지역에 있을 수 있습니다. 때 VM에서 솔루션을 온 보 딩 할 수는 `Microsoft.OperationalInsights/workspaces/read` VM 작업 영역에 대 한 등록 인지 확인할 수 있는 권한이 있습니다. 일반적 필요한 추가 사용 권한에 대 한 자세한 내용은 참조 하세요 [컴퓨터를 등록 하는 데 필요한 권한을](automation-role-based-access-control.md#onboarding)합니다.
 
 VM에 대해서만 솔루션을 활성화하려면 **이 VM에 대해 활성화**가 선택되었는지 확인합니다. 솔루션에 여러 컴퓨터를 등록하려면 **이 구독에서 VM에 대해 활성화**를 선택한 다음, **클릭하여 활성화할 컴퓨터 선택**을 선택합니다. 한 번에 여러 컴퓨터를 등록하는 방법에 대해 알아보려면 [업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록](automation-onboard-solutions-from-automation-account.md)을 참조하세요.
 
@@ -85,13 +85,13 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 1. Azure Portal에서 Automation 계정을 열고 Automation 계정 페이지에서 왼쪽의 **관련된 리소스** 섹션 아래의 **연결된 작업 영역**을 선택합니다.
 
-1. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
+2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
    ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 
-1. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
+3. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
 
 업데이트 관리 솔루션을 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 

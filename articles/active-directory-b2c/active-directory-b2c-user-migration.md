@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484715"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621318"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.
@@ -257,7 +257,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 ### <a name="41-update-your-application-setting"></a>4.1: 애플리케이션 설정 업데이트
 1. RESTful API 데모를 테스트하려면 Visual Studio에서 `AADB2C.UserMigration.sln`을 엽니다.
 
-1. `AADB2C.UserMigration.API` 프로젝트에서 *appsettings.json* 파일을 엽니다. 설정을 [2.2단계](#step-22-configure-the-application-settings)에서 구성된 것으로 바꿉니다.
+1. 에 `AADB2C.UserMigration.API` 프로젝트를 열고는 *Web.config* 파일입니다. 설정을 [2.2단계](#step-22-configure-the-application-settings)에서 구성된 것으로 바꿉니다.
 
     ```json
     {

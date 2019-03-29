@@ -2,20 +2,20 @@
 title: '자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드 | Microsoft Docs'
 description: 이 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용하여 공용 Azure Blob에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466532"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620192"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -67,7 +67,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 양식**을 작성합니다. 
 
-    | 설정 | 제안 값 | 설명 | 
+    | 설정 | 제안 값 | Description | 
     | ------- | --------------- | ----------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
     | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
@@ -80,7 +80,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서의 경우 SQL Data Warehouse의 **Gen1**을 선택합니다. 기본적으로 슬라이더는 **DW1000c**로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2** SQL Data Warehouse의 합니다. 로 설정 되어 슬라이더 **DW1000c** 기본적으로 합니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
-    | 인증 | 공개 | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
+    | Authentication | 공개 | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
     | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 

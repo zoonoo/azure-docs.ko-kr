@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499083"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621433"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -42,13 +42,12 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. |자세한 내용은 [이 섹션](media-services-deliver-content-overview.md#known-issues)을 참조하세요. |
 | Media Services .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure Redis Cache에서 작동하지 않습니다. |SDK AssetCollection 개체를 직렬화하여 Azure Redis Cache에 추가하려는 경우 예외가 throw됩니다. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
 
 ## <a name="december-2018"></a>2018년 12월
 
-Azure Media Services의 [Media Hyperlapse 미리 보기](media-services-hyperlapse-content.md) 기능은 곧 사용 중지됩니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
+Azure Media Services의 Media Hyperlapse 미리 보기 기능은 곧 사용 되지 것입니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
 
 ## <a name="october-2018"></a>2018년 10월
 
@@ -260,7 +259,6 @@ OpenID Connect 검색 문서를 노출하는 ID 공급자(Azure AD, Google 및 S
 
 * [Media Services로 Live Encoding 미리 보기](media-services-manage-live-encoder-enabled-channels.md)
 * [동적 매니페스트](media-services-dynamic-manifest-overview.md)
-* [Azure Media Hyperlapse 미디어 프로세서 미리 보기](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>2015년 4월 릴리스
 ### <a name="general-media-services-updates"></a>일반 Media Services 업데이트
