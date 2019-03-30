@@ -3,8 +3,8 @@ title: Service Fabric의 애플리케이션 수명 주기 | Microsoft Docs
 description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
-ms.author: ryanwi
-ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: atsenthi
+ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446966"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664984"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
 다른 플랫폼과 마찬가지로, Azure 서비스 패브릭 기반의 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 애플리케이션의 전체 애플리케이션 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 애플리케이션 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. 이 문서에서는 서비스 패브릭 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용하는 방법 및 API에 대한 개요를 제공합니다.

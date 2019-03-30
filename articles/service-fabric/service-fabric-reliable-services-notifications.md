@@ -4,7 +4,7 @@ description: 서비스 패브릭 Reliable Services 알림에 대한 개념 설�
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433517"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662672"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
-알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. *신뢰할 수 있는 상태 관리자* 및 *신뢰할 수 있는 사전*의 두 가지 개체 유형에서 알림을 지원합니다.
+알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. 두 가지 유형의 개체에는 알림을 지원합니다. *신뢰할 수 있는 상태 관리자* 하 고 *신뢰할 수 있는 사전*합니다.
 
 알림을 사용하는 일반적인 이유:
 
@@ -46,9 +46,9 @@ ms.locfileid: "47433517"
 신뢰할 수 있는 상태 관리자는 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐와 같은 신뢰할 수 있는 상태 컬렉션을 유지 관리합니다. 신뢰할 수 있는 상태 관리자는 이 컬렉션이 변경될 때, 즉 신뢰할 수 있는 상태가 추가 또는 제거되거나 전체 컬렉션이 다시 작성될 때 알림을 실행합니다.
 신뢰할 수 있는 상태 관리자 컬렉션은 다음 세 가지 경우에 다시 작성됩니다.
 
-* 복구: 복제본이 시작되면 디스크에서 이전 상태를 복구합니다. 복구가 끝나면 **NotifyStateManagerChangedEventArgs** 를 사용하여 복구된 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
-* 전체 복사: 복제본을 구성 집합에 포함하려면 빌드해야 합니다. 경우에 따라 주 복제본의 신뢰할 수 있는 상태 관리자 상태의 전체 복사본을 유휴 보조 복제본에 적용해야 합니다. 보조 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 주 복제본에서 획득한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
-* 복원: 재해 복구 시나리오에서 **RestoreAsync**를 사용하여 백업에서 복제본의 상태를 복원할 수 있습니다. 이러한 경우 주 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 백업에서 복원한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 복구: 복제본 시작 되 면 디스크에서 이전 상태로 복구 합니다. 복구가 끝나면 **NotifyStateManagerChangedEventArgs** 를 사용하여 복구된 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 전체 복사: 복제본 수 구성 집합에 가입 하기 전에를 구축할 수 있습니다. 경우에 따라 주 복제본의 신뢰할 수 있는 상태 관리자 상태의 전체 복사본을 유휴 보조 복제본에 적용해야 합니다. 보조 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 주 복제본에서 획득한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 복원: 재해 복구 시나리오에는 복제본의 상태를 통해 백업에서 복원할 수 있습니다 **RestoreAsync**합니다. 이러한 경우 주 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 백업에서 복원한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
 
 트랜잭션 알림 및/또는 상태 관리자 알림을 등록하려면 신뢰할 수 있는 상태 관리자의 **TransactionChanged** 또는 **StateManagerChanged** 이벤트에 등록해야 합니다. 이러한 이벤트 처리기에 등록하는 일반적인 위치는 상태 저장 서비스의 생성자입니다. 생성자에 등록하면 **IReliableStateManager**의 수명 동안 변경 내용으로 발생되는 모든 알림을 놓치지 않게 됩니다.
 
@@ -84,11 +84,11 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 ```
 
 **StateManagerChanged** 이벤트 처리기는 **NotifyStateManagerChangedEventArgs**를 사용하여 이벤트에 대한 세부 정보를 제공합니다.
-**NotifyStateManagerChangedEventArgs**에는 두 가지 하위 클래스인 **NotifyStateManagerRebuildEventArgs**와 **NotifyStateManagerSingleEntityChangedEventArgs**가 있습니다.
+**NotifyStateManagerChangedEventArgs** 두 서브 클래스에: **NotifyStateManagerRebuildEventArgs** 하 고 **NotifyStateManagerSingleEntityChangedEventArgs**합니다.
 **NotifyStateManagerChangedEventArgs**의 작업 속성을 사용하여 **NotifyStateManagerChangedEventArgs**를 올바른 하위 클래스로 캐스트합니다.
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction.Add** 및 **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction.Add** 하 고 **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
 다음은 예제 **StateManagerChanged** 알림 처리기입니다.
 
@@ -109,11 +109,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>신뢰할 수 있는 사전 알림
 신뢰할 수 있는 사전은 다음 이벤트에 대한 알림을 제공합니다.
 
-* Rebuild: **ReliableDictionary** 가 복구 또는 복사된 로컬 상태 또는 백업에서 해당 상태를 복구하면 호출됩니다.
-* Clear: **ClearAsync** 메서드를 통해 **ReliableDictionary**의 상태를 지울 때 호출됩니다.
-* Add: 항목이 **ReliableDictionary**에 추가될 때 호출됩니다.
-* Update: **IReliableDictionary** 의 항목이 업데이트되었을 때 호출됩니다.
-* Remove: **IReliableDictionary** 의 항목이 삭제되었을 때 호출됩니다.
+* 다시 빌드: 될 때 호출 **ReliableDictionary** 복구 또는 복사 된 로컬 상태 또는 백업에서 해당 상태를 복구 했습니다.
+* 선택을 취소 합니다. 될 때 호출 상태의 **ReliableDictionary** 통해 합니다 **ClearAsync** 메서드.
+* 추가: 항목에 추가 될 때 호출 **ReliableDictionary**합니다.
+* 업데이트: 항목을 호출 **IReliableDictionary** 업데이트 되었습니다.
+* 제거 합니다. 항목을 호출 **IReliableDictionary** 삭제 되었습니다.
 
 신뢰할 수 있는 사전 알림을 가져오려면 **IReliableDictionary**에서 **DictionaryChanaged** 이벤트 처리기에 등록해야 합니다. 이러한 이벤트 처리기를 등록하는 일반적인 위치는 **ReliableStateManager.StateManagerChanged** 추가 알림입니다.
 **IReliableDictionary**가 **IReliableStateManager**에 추가되었을 때 등록하면 알림을 놓치지 않게 됩니다.
@@ -167,7 +167,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** 및 **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add** 하 고 **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 

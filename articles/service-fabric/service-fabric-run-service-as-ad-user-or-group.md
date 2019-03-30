@@ -3,8 +3,8 @@ title: AD 사용자 또는 그룹으로 Azure Service Fabric 서비스 실행 | 
 description: Service Fabric Windows 독립 실행형 클러스터에서 Active Directory 사용자 또는 그룹으로 서비스를 실행하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: dkkapur
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
-ms.openlocfilehash: 624cb54778950a8a973bcf6cefddf66cba2bd0fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: dekapur
+ms.openlocfilehash: 3e0bb62609f13430bd2beab2332a31983874eb8e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206995"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664746"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Active Directory 사용자 또는 그룹으로 서비스 실행
 Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용하여 Active Directory 사용자 또는 그룹으로 서비스를 실행할 수 있습니다.  기본적으로 서비스 패브릭 애플리케이션은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 서로 다른 계정에서 애플리케이션을 실행하면 공유 호스트 환경에서도 서로를 더욱 안전하게 보호할 수 있습니다. 여기에는 Azure AD(Azure Active Directory)가 아닌 도메인 내의 Active Directory 온-프레미스가 사용됩니다.  [gMSA(그룹 관리 서비스 계정)](service-fabric-run-service-as-gmsa.md)로 서비스를 실행할 수도 있습니다.
@@ -51,8 +51,8 @@ Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용�
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 다음 단계는 아래 문서를 참조하세요.
-* [응용 프로그램 모델의 이해](service-fabric-application-model.md)
+* [애플리케이션 모델의 이해](service-fabric-application-model.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+* [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
