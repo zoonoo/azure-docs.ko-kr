@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385044"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649971"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>ACS(Azure Container Service)에서 AKS(Azure Kubernetes Service)로 마이그레이션
 
@@ -35,7 +35,7 @@ ACS와 AKS는 마이그레이션에 영향을 주는 일부 주요 영역에서 
 
 ### <a name="differences-between-kubernetes-versions"></a>Kubernetes 버전 간의 차이점
 
-새 버전의 Kubernetes로 마이그레이션하는 경우(예: 1.7.x에서 1.9.x) 주의가 필요한 k8s API가 약간 변경되었습니다.
+Kubernetes의 최신 버전으로 마이그레이션하는 경우 (예: 1.7.x 1.9.x에), 몇 가지 주의 해야 하는 k8s API로 변경 합니다.
 
 * [ThirdPartyResource를 CustomResourceDefinition으로 마이그레이션](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [버전 1.8 및 1.9에서 워크로드 API 변경](https://kubernetes.io/docs/reference/workloads-18-19/)
@@ -48,10 +48,10 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 
 예제:
 
-| 이름 | 개수 | VM 크기 | 운영 체제 |
+| name | 카운트 | VM 크기 | 운영 체제 |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 |  Windows |
+| agentpool1 | 1 | Standard_D2_v2 | Windows |
 
 마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 검토하여 자세히 알아볼 수 있습니다. 현재 할당량을 확인하려면 Azure Portal에서 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동하고, 구독을 선택한 다음, `Usage + quotas`를 선택합니다.
 
@@ -91,7 +91,7 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 7. 유효성 검사
 8. AKS 클러스터를 가리키도록 트래픽 지정
 
-> **중요**: 쓰기 작업을 정지하지 않으려면 디스크 스냅숏 이후에 작성된 데이터가 누락되므로 새 배포에 데이터를 복제해야 합니다.
+> **중요**: 정지 쓰기를 하지 않으려는 경우 해야 새 배포로 데이터를 복제할 디스크 스냅숏 이후에 기록 된 데이터를 누락 될 것으로
 
 Managed Disks를 만들고 Kubernetes 클러스터 간에 볼륨을 마이그레이션하는 데 도움이 되는 오픈 소스 도구가 있습니다.
 
@@ -144,7 +144,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ### <a name="3-optional-migrate-volumes"></a>3. (선택 사항) 볼륨 마이그레이션
 
-ACS 클러스터에서 AKS 클러스터로 볼륨을 마이그레이션합니다. 자세한 내용은 [영구적 볼륨 마이그레이션](#Migrating-Persistent-Volumes) 섹션에 나와 있습니다.
+ACS 클러스터에서 AKS 클러스터로 볼륨을 마이그레이션합니다. 자세한 내용은 [영구적 볼륨 마이그레이션](#migrating-persistent-volumes) 섹션에 나와 있습니다.
 
 ### <a name="4-deploy-applications"></a>4. 애플리케이션 배포
 

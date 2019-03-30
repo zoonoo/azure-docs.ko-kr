@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369754"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650124"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -46,7 +46,7 @@ Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도�
 * [스토리지 분석](#storage-analytics) 을 사용하여 Azure Storage에 대한 액세스 감사
 
   이 섹션에서는 저장소 분석 로그에서 요청에 대한 정보를 찾는 방법을 설명합니다. 실제 스토리지 분석 로그 데이터에 대해 살펴보고, 성공 여부에 관계없이 Storage 계정 키 사용, 공유 액세스 서명 사용 또는 익명 방식 중 어떤 방식으로 요청이 수행되는지를 확인하는 방법을 알아봅니다.
-* [CORS를 사용하여 브라우저 기반 클라이언트를 사용하도록 설정](#Cross-Origin-Resource-Sharing-CORS)
+* [CORS를 사용하여 브라우저 기반 클라이언트를 사용하도록 설정](#cross-origin-resource-sharing-cors)
 
   이 섹션에서는 CORS(크로스-원본 자원 공유)를 허용하는 방법을 설명합니다. 도메인 간 액세스와 Azure Storage에 기본 제공된 CORS 기능으로 이러한 액세스 방식을 처리하는 방법을 살펴봅니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5e2c92c22f98913da0e3668ceb84b212cc48396a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568926"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650991"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -37,8 +37,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *zh* - 중국어 간체|
-|visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> ‘범주’ - Cognitive Services [설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의된 분류에 따라 이미지 콘텐츠를 분류합니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>‘설명’ - 완전한 문장으로 이미지 콘텐츠를 설명합니다.</li><li>‘얼굴’ - 얼굴이 있는지 여부를 검색합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li> *ImageType* -이미지가 클립 아트 인지 선 그리기 인지 검색 합니다.</li><li>  ‘색’ - 강조 색, 기준 색, 이미지가 흑백인지 여부를 결정합니다.</li><li>‘성인’ - 이미지가 본질적으로 음란물(노출 또는 성적 행위 묘사)인지 여부를 검색합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
-| 세부 정보   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>‘유명인’ - 이미지에서 검색된 경우 유명인을 식별합니다.</li><li>‘랜드마크’ - 이미지에서 검색된 경우 랜드마크를 식별합니다.</li></ul>
+|visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> ‘범주’ - Cognitive Services [설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의된 분류에 따라 이미지 콘텐츠를 분류합니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>*설명* -이미지 완료 영어 문장을 사용 하 여 콘텐츠를 설명 합니다.</li><li>*얼굴* -얼굴 있는지 검색 합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li> *ImageType* -이미지가 클립 아트 인지 선 그리기 인지 검색 합니다.</li><li>  *색* -주요 색상을 강조 색을 결정 이미지로 검정 및 흰색 & 합니다.</li><li>*성인* -이미지 (보여주고 노출 또는 성별 act)는 본질적으로 공격적 인지 검색 합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
+| 세부 정보   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인 200,000 명을* -이미지에서 검색 하는 경우 유명인 200,000 명을 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 하는 경우 랜드마크를 식별 합니다.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>기술 입력

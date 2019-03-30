@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
+ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578886"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629603"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm 복원
 
@@ -24,7 +24,7 @@ ms.locfileid: "58578886"
 > * Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
 > * 백업 정책 정의
 > * 여러 가상 머신을 보호하기 위해 백업 정책 적용
-> * 하기 전에 보호 된 가상 컴퓨터에 대 한 주문형 백업 작업을 트리거 수를 백업 (또는 보호) 가상 컴퓨터를 완료 해야 합니다는 [필수 구성 요소](backup-azure-arm-vms-prepare.md) Vm을 보호 하기 위한 환경을 준비 합니다.
+> * 보호된 가상 머신에 대한 주문형 백업 작업 트리거. 가상 머신을 백업하거나 보호하려면 먼저 [필수 조건](backup-azure-arm-vms-prepare.md)을 완료하여 VM을 보호하기 위한 환경을 준비해야 합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -184,10 +184,18 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 - [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet은 백업 정책 정보를 보유하는 PowerShell 개체를 만듭니다.
 - 일정 및 보존 정책 개체를 새로 만들기-AzRecoveryServicesBackupProtectionPolicy cmdlet에 대 한 입력으로 사용 됩니다.
 
-다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 예제에서는 이러한 변수를 사용하여 보호 정책, *NewPolicy*를 만들 때 매개 변수를 정의합니다.
+기본적으로 시작 시간은 일정 정책 개체에 정의 됩니다. 원하는 시작 시간에 시작 시간을 변경 하려면 다음 예제를 사용 합니다. 물론 원하는 시작 시간 UTC 여야 합니다. 아래 예제에서는 원하는 시작 시간은 매일 백업의 오전 01시 UTC를 가정 합니다.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 예제에서는 이러한 변수를 사용하여 보호 정책, *NewPolicy*를 만들 때 매개 변수를 정의합니다.
+
+```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```

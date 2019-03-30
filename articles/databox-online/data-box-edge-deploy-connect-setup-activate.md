@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403479"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629156"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: 연결을 설정 하 고 Azure 데이터 가장자리가 상자의 활성화 
 
@@ -75,7 +75,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
     ![로컬 웹 UI "장치 이름" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (선택 사항) 왼쪽 창에서 **네트워크 설정**을 선택하고 설정을 구성합니다.  
-    물리적 디바이스에는 6개의 네트워크 인터페이스가 표시됩니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3, 4 포트, 포트 5 및 6 포트는 10gbps 네트워크 인터페이스로 사용할 수 있는 모든 25-Gbps 네트워크 인터페이스입니다. 포트 1은 관리 전용 포트로 자동으로 구성되고, 포트 2 및 포트 6은 모두 데이터 포트입니다. 합니다 **네트워크 설정** 페이지는 아래와 같습니다.
+    물리적 장치에서 6 개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3, 4 포트, 포트 5 및 6 포트는 10gbps 네트워크 인터페이스로 사용할 수 있는 모든 25-Gbps 네트워크 인터페이스입니다. 포트 1은 관리 전용 포트로 자동으로 구성되고, 포트 2 및 포트 6은 모두 데이터 포트입니다. 합니다 **네트워크 설정** 페이지는 아래와 같습니다.
     
     ![로컬 웹 UI "네트워크 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 
         ![로컬 웹 UI "시간 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. 왼쪽 창에서 **클라우드 설정**을 선택하고 Azure Portal에서 Data Box Edge 서비스로 디바이스를 활성화합니다.
+5. (선택 사항) 왼쪽된 창에서 선택 **저장소 설정** 장치의 저장소 복원 력을 구성 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 기본적으로 장치에 대 한 저장소 중복이 되지 않습니다 하 고 장치에서 데이터 디스크에 오류가 발생할 경우 데이터 손실이 발생 하는 합니다. 복원 옵션을 사용 하도록 설정 하면 저장소 장치를 다시 구성 됩니다 및 장치 데이터 손실 없이 한 데이터 디스크 오류를 견딜 수 있습니다. 복원 력 있는 저장소 구성 장치의 사용 가능한 용량을 줄일 수 있습니다.
+
+    > [!IMPORTANT] 
+    > 장치를 활성화 하기 전에 복원 력은 구성할 수 있습니다. 
+
+    ![로컬 웹 UI "저장소 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. 왼쪽 창에서 **클라우드 설정**을 선택하고 Azure Portal에서 Data Box Edge 서비스로 디바이스를 활성화합니다.
     
     1. **활성화 키** 상자에 Data Box Edge에 대해 [활성화 키 가져오기](data-box-edge-deploy-prep.md#get-the-activation-key)에서 얻은 활성화 키를 입력합니다.
     2. **적용**을 선택합니다.
@@ -132,7 +139,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 
         ![로컬 웹 UI "클라우드 설정" 페이지 업데이트](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. 업데이트가 성공적으로 완료 된 후 몇 분을 대기 해야 합니다. 장치가 성공적으로 활성화 되어 있는지를 나타내는 페이지를 업데이트 합니다.
+    4. 업데이트가 성공적으로 완료 된 후 몇 분 정도 대기 해야 합니다. 장치가 성공적으로 활성화 되어 있는지를 나타내는 페이지를 업데이트 합니다.
 
         ![로컬 웹 UI "클라우드 설정" 페이지 업데이트](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 

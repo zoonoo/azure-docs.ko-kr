@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578410"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648506"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure Search에서 필터 및 order-by 절의 OData 식 구문
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - `search.in` 함수는 지정된 문자열 필드가 지정된 값 목록 중 하나와 같은지 여부를 테스트합니다. 문자열 컬렉션 필드의 단일 값을 지정된 값 목록과 비교하기 위해 아무 항목 또는 모든 항목에서 사용할 수 있습니다. 필드와 목록의 각 값 간의 같음 여부는 `eq` 연산자의 경우와 같이 대/소문자 구분 방식으로 결정됩니다. 따라서 `search.in(myfield, 'a, b, c')`과 같은 식은 `search.in`이 훨씬 더 나은 성능을 제공한다는 점을 제외하고 `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`와 같습니다. 
 
-  `search.in` 함수의 첫 번째 매개 변수는 문자열 필드 참조(또는 `search.in`이 `any` 또는 `all` 식 내에서 사용될 경우 문자열 컬렉션 필드에 대한 범위 변수)입니다. 두 번째 매개 변수는 공백 및/또는 쉼표로 구분된 값 목록을 포함하는 문자열입니다. 값이 공백 및 쉼표를 포함하므로 다른 구분 기호를 사용해야 할 경우 `search.in`에 대해 선택적인 세 번째 매개 변수를 지정할 수 있습니다. 
-
-  이 세 번째 매개 변수는 두 번째 매개 변수의 값 목록을 구문 분석할 때 문자열의 각 문자 또는 이 문자열의 하위 세트가 구분 기호로 취급되는 문자열입니다.
+   `search.in` 함수의 첫 번째 매개 변수는 문자열 필드 참조(또는 `search.in`이 `any` 또는 `all` 식 내에서 사용될 경우 문자열 컬렉션 필드에 대한 범위 변수)입니다. 
+  
+   두 번째 매개 변수는 공백 및/또는 쉼표로 구분된 값 목록을 포함하는 문자열입니다. 
+  
+   세 번째 매개 변수는 여기서 문자열의 각 문자나이 문자열의 하위 집합으로 처리 됩니다 구분 기호를 두 번째 매개 변수 값은 구문 분석할 때 문자열입니다. 값이 공백 및 쉼표를 포함하므로 다른 구분 기호를 사용해야 할 경우 `search.in`에 대해 선택적인 세 번째 매개 변수를 지정할 수 있습니다. 
 
   > [!NOTE]   
   > 일부 시나리오에서는 필드를 많은 수의 상수 값과 비교해야 합니다. 예를 들어, 필터를 사용하여 보안 조정을 구현하려면 문서 ID 필드를 요청 사용자에게 읽기 액세스 권한을 부여하는 ID 목록과 비교해야 할 수 있습니다. 이와 같은 시나리오에서는 좀 더 복잡한 같음 식 분리 대신, `search.in` 함수를 사용하는 것이 훨씬 바람직합니다. 예를 들어, `Id eq 123 or Id eq 456 or ....` 대신 `search.in(Id, '123, 456, ...')`을 사용합니다. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-모든 호텔 찾기 이름의 'Roach motel' 또는 '예산 호텔' 같음). 구 기본 구분 기호는 공백을 포함 합니다. 구분 기호 재정의 지정 하려면 새 구분 기호를 필터 식의 일부로 작은따옴표로 묶습니다.  
+모든 호텔 찾기 이름의 'Roach motel' 또는 '예산 호텔' 같음). 구 기본 구분 기호는 공백을 포함 합니다. 세 번째 문자열 매개 변수로 specicfy 작은따옴표에서는 다른 구분 기호 수행할 수 있습니다.  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ $filter=search.in(name, 'Roach motel|Budget hotel', '|')
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-여러 태그, '가 열된 수건 랙' 또는 '헤어 드라이기 포함'에서 일치 항목을 찾습니다. 기본 공백 구분 기호를 되돌리는 없을 때 대체 구분 기호를 지정 해야 합니다. 
+태그에 '가 열된 수건 랙' 또는 '헤어 드라이기 포함'와 같은 컬렉션 내의 구 일치를 찾습니다. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

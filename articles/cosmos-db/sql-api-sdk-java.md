@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003252"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648559"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -43,15 +43,15 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * 해시 V2에 대 한 PartitionKey의 버그가 수정 되었습니다.
 
-### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * 복합 인덱스에 대 한 지원이 추가 되었습니다.
 * 새로 고침을 강제로 전역 종단점 관리자에 대 한 버그가 수정 되었습니다.
 * 직접 모드에서 사전 조건 사용 하 여 업 서 트 버그가 수정 되었습니다.
 
-### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 * 게이트웨이 주소 캐시에 대 한 버그가 수정 되었습니다.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0

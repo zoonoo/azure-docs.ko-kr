@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
-ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650379"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 개인 통신 링크입니다. 
@@ -62,7 +62,7 @@ Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 
 
 * **역할 기반 Access Control(RBAC)** - RBAC는 Azure Active Directory를 기반으로 합니다.  Azure RBAC에 대한 자세한 내용은 [여기](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 * **네트워킹** – Microsoft Azure의 다양한 네트워킹 항목에 대해 다룹니다.
-* **Azure AD(Azure Active Directory)** – Azure AD는 Microsoft Azure 및 타사 SaaS 응용 프로그램에 대한 ID 관리를 제공합니다. Azure AD에 대한 자세한 내용은 [여기](https://azure.microsoft.com/documentation/services/active-directory/)를 참조하세요.  
+* **Azure AD(Azure Active Directory)** – Azure AD는 Microsoft Azure 및 타사 SaaS 애플리케이션에 대한 ID 관리를 제공합니다. Azure AD에 대한 자세한 내용은 [여기](https://azure.microsoft.com/documentation/services/active-directory/)를 참조하세요.  
 
 ## <a name="network-speeds"></a>네트워크 속도
 ExpressRoute는 50Mb/s ~ 10Gb/s까지 네트워크 속도를 지원합니다. 따라서 고객은 자신의 고유 환경에 필요한 네트워크 대역폭의 양을 구입할 수 있습니다.
@@ -75,7 +75,7 @@ ExpressRoute는 50Mb/s ~ 10Gb/s까지 네트워크 속도를 지원합니다. �
 ExpressRoute는 고속 연결을 효율적으로 활용하기 위해 여러 vNet에서 단일 ExpressRoute 회로로의 연결을 지원합니다. 동일한 고객을 소유 하는 여러 Azure 구독 중에서 단일 ExpressRoute 회로를 공유할 수 있습니다.
 
 ## <a name="configuring-expressroute"></a>ExpressRoute 구성
-단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#ExpressRoute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 개인 피어링으로 분리됩니다. ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 사설 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
+단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#expressroute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 개인 피어링으로 분리됩니다. ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 사설 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
 
 ### <a name="connect-through-model"></a>Connect-through 모델
 connect-through 구성에서는 고객 데이터 센터 리소스를 Azure에서 호스트된 구독으로 연결하기 위한 모든 네트워킹 기초를 사용자가 담당합니다. Azure 기능을 사용하려는 각 고객은 고유한 ExpressRoute 연결이 필요하며 이는 사용자가 관리합니다. 사용자는 ExpressRoute 회로를 확보하는 데 고객이 사용하는 것과 동일한 방법을 사용합니다. 회로 프로비전 및 회로 상태에 대한 [ExpressRoute 워크플로](expressroute-workflows.md) 문서에 설명된 동일한 단계를 따릅니다. 그런 다음 온-프레미스 네트워크와 Azure vNet 간의 트래픽 흐름을 제어하기 위해 BGP(Border Gateway Protocol) 경로를 구성합니다.

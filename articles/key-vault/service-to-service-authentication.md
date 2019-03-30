@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097909"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629845"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -101,7 +101,7 @@ Visual Studio를 사용하여 토큰 공급자 파일 관련 오류와 같은 �
 
 `az account get-access-token`을 사용하여 액세스를 확인합니다.  오류가 발생할 경우 1단계가 성공적으로 완료되었는지 확인합니다. 
 
-Azure CLI가 기본 디렉터리에 설치되지 않은 경우 `AzureServiceTokenProvider`가 Azure CLI 경로를 찾을 수 없다는 오류가 보고될 수 있습니다.  **AzureCLIPath** 환경 변수를 사용하여 Azure CLI 설치 폴더를 정의합니다. `AzureServiceTokenProvider`는 필요한 경우 **AzureCLIPath** 환경 변수에 지정된 디렉터리를 **Path** 환경 변수에 추가합니다.
+Azure CLI가 기본 디렉터리에 설치되지 않은 경우 `AzureServiceTokenProvider`가 Azure CLI 경로를 찾을 수 없다는 오류가 보고될 수 있습니다.  사용 된 **AzureCLIPath** 환경 변수를 Azure CLI 설치 폴더를 정의 합니다. `AzureServiceTokenProvider`는 필요한 경우 **AzureCLIPath** 환경 변수에 지정된 디렉터리를 **Path** 환경 변수에 추가합니다.
 
 여러 계정을 사용하여 Azure CLI에 로그인하거나 계정에 여러 구독에 대한 액세스 권한이 있는 경우 특정 구독이 사용되도록 지정해야 합니다.  이렇게 하려면 다음을 사용합니다.
 

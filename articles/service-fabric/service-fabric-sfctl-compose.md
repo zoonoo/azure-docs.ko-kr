@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl compose 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278154"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667510"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Docker Compose 응용 프로그램을 만들고, 삭제하고, 관리합니다.
+Docker Compose 애플리케이션을 만들고, 삭제하고, 관리합니다.
 
 ## <a name="commands"></a>명령
 
@@ -144,12 +144,12 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 | --force-restart | 코드 버전이 변경되지 않은 경우에도 업그레이드 중에 프로세스를 강제로 다시 시작합니다. <br><br> 업그레이드는 구성 또는 데이터만 변경합니다. |
 | --has-pass | 컨테이너 레지스트리에 대한 암호를 묻는 메시지를 표시합니다. |
 | --health-check-retry | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다. |
-| --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 애플리케이션 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --health-check-wait | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다. |
 | --replica-set-check | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. <br><br> 이 시간 제한이 만료되면 가용성 손실 문제와 상관없이 업그레이드 도메인 처리가 진행됩니다. 시간 제한은 각 업그레이드 도메인의 시작 시 다시 설정됩니다. 유효한 값은 0과 42949672925 사이입니다. |
 | --svc-type-health-map | 서비스의 상태를 평가하는 데 사용된 상태 정책을 설명하는 JSON 인코딩된 개체 목록입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --unhealthy-app | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. <br><br> 예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. |
+| --unhealthy-app | 오류를 보고하기 전에 허용되는 비정상 애플리케이션의 최대 백분율입니다. <br><br> 예를 들어 애플리케이션의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 애플리케이션의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 애플리케이션이 적어도 하나 있다면 상태는 경고로 평가됩니다. 클러스터에 있는 애플리케이션 인스턴스의 총 수를 비정상 애플리케이션의 수로 나눠 계산합니다. |
 | --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --upgrade-kind | 기본값\: Rolling. |
 | --upgrade-mode | 사용할 수 있는 값\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값\: UnmonitoredAuto. |
@@ -192,7 +192,7 @@ Service Fabric 작성 배포 업그레이드를 롤백합니다.
 ## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
 이 Service Fabric 작성 배포에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다.
 
-응용 프로그램 상태 문제 디버깅을 지원하기 위한 세부 정보와 함께 작성 배포 업그레이드의 상태에 대한 정보를 반환합니다.
+애플리케이션 상태 문제 디버깅을 지원하기 위한 세부 정보와 함께 작성 배포 업그레이드의 상태에 대한 정보를 반환합니다.
 
 ### <a name="arguments"></a>인수
 

@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982270"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670838"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
@@ -95,13 +95,21 @@ SQL Database는 다음 두 가지 구매 모델을 제공합니다.
 
 - **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
 - **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
-- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
+- **Azure Monitor 로그**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-Azure의 업계 선도적인 99.99% 가용성 [SLA](https://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
+기존 SQL Server 환경에서 일반적으로 해야 로컬 으로부터 보호 하기 위해 정확한 (동기적으로 유지 관리) (AlwaysOn 가용성 그룹 또는 장애 조치 클러스터 인스턴스와 같은 기능을 사용 하 여) 데이터 복사본을 사용 하 여 설정 하는 2 개 (이상) 컴퓨터를 단일 컴퓨터/구성 요소 오류가 발생 합니다.  이 고가용성을 제공 하지만 데이터 센터 제거 자연 재해 로부터 보호 하지 않습니다.
+ 
+재해 복구 중대 한 이벤트가 지리적으로 분산 된다는 가정 지역화 집합이 다른 컴퓨터/컴퓨터 데이터의 복사본으로 멀리 떨어진 곳에 충분 합니다.  SQL Server에서이 기능을 가져오려면 Always On 가용성 그룹 비동기 모드에서 실행을 사용할 수 있습니다.  밝은 문제의 속도 사람들이 되므로 잠재적 데이터 손실에 대 한 계획 되지 않은 장애 조치를 수행할 때 트랜잭션을 커밋하기 전에 멀리 발생 하는 복제 될 때까지 기다리는 않으려는 의미 합니다.
+
+프리미엄 및 비즈니스 중요 한 서비스에서 데이터베이스 계층을 이미 [매우 비슷한 작업을 수행](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 가용성 그룹의 동기화 합니다. 사용 하 여 저장소를 통해 중복성을 제공 하는 낮은 서비스 계층의 데이터베이스를 [다르지만 동등한 메커니즘](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)합니다. 단일 컴퓨터 장애 로부터 보호 하는 논리가 있습니다.  활성 지역 복제 기능을 사용 하면 재해 로부터 보호 하는 기능 전체 지역 소멸 되는 위치입니다.
+
+Azure 가용성 영역은 고가용성 문제입니다.  단일 지역 내에서 빌드하면 단일 데이터 센터 중단 으로부터 보호 하려고 합니다.  따라서 전원 또는 네트워크를 구성 하려면의 손실을 방지 하려고 합니다. SQL Azure 다른 가용성 영역에서 서로 다른 복제본을 배치 하 여 작동 (건물, 효과적으로) 그렇지 않은 경우 이전 처럼 작동 합니다. 
+
+사실, Azure의 업계 선도적인 99.99% 가용성 서비스 수준 계약 [(SLA)](https://azure.microsoft.com/support/legal/sla/), 전 세계 Microsoft 관리 데이터 센터의 지원을 받아 24/7을 실행 중인 앱을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
 - **[자동 백업](sql-database-automated-backups.md)**:
 
@@ -141,11 +149,14 @@ SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 
 
 ### <a name="adaptive-query-processing"></a>적응 쿼리 처리
 
-또한 다중 문 테이블 반환 함수, 일괄 처리 모드 메모리 부여 피드백 및 일괄 처리 모드 적응 조인에 대해 인터리브된 실행을 포함하여 [적응 쿼리 처리](/sql/relational-databases/performance/adaptive-query-processing) 기능 모음을 SQL Database에 추가하려고 합니다. 이러한 적응 쿼리 처리 기능은 각각 유사한 "알아보기 및 적용" 방법을 적용하고 지금까지 다루기 힘든 쿼리 최적화 문제와 관련된 성능 문제를 추가로 해결할 수 있도록 합니다.
+또한 다중 문 테이블 반환 함수, 일괄 처리 모드 메모리 부여 피드백 및 일괄 처리 모드 적응 조인에 대해 인터리브된 실행을 포함하여 [적응 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing) 기능 모음을 SQL Database에 추가하려고 합니다. 이러한 적응 쿼리 처리 기능은 각각 유사한 "알아보기 및 적용" 방법을 적용하고 지금까지 다루기 힘든 쿼리 최적화 문제와 관련된 성능 문제를 추가로 해결할 수 있도록 합니다.
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수
 
 SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-database-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 합니다.
+
+> [!IMPORTANT]
+> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
 
 ### <a name="advance-threat-protection"></a>고급 위협 방지
 
@@ -204,7 +215,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
 
- 아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다. Azure SQL Database에서 계획된 유지 관리 이벤트를 준비하는 방법에 대한 자세한 내용은 [Azure SQL Database의 Azure 유지 관리 이벤트 계획](sql-database-planned-maintenance.md)을 참조하세요.
+아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다. Azure SQL Database에서 계획된 유지 관리 이벤트를 준비하는 방법에 대한 자세한 내용은 [Azure SQL Database의 Azure 유지 관리 이벤트 계획](sql-database-planned-maintenance.md)을 참조하세요.
 
 ### <a name="azure-hybrid-benefit-questions"></a>Azure 하이브리드 혜택 질문
 
@@ -234,7 +245,7 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server 엔지니어링 팀에 문의
 
 - [DBA 스택 교환](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): 기술 관련 질문
 - [사용자 의견](https://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server 관련 토론

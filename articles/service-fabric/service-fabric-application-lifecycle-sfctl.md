@@ -3,17 +3,17 @@ title: Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애�
 description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에서 애플리케이션을 배포하고 제거하는 방법을 알아봅니다.
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492752"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662995"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리
 
@@ -64,7 +64,7 @@ sfctl application upload --path ~/app_package_dir
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
-`application-type-build-path`의 값은 응용 프로그램 패키지를 업로드하는 디렉터리의 이름입니다.
+`application-type-build-path`의 값은 애플리케이션 패키지를 업로드하는 디렉터리의 이름입니다.
 
 ### <a name="delete-the-application-package"></a>애플리케이션 패키지 삭제
 
@@ -76,7 +76,7 @@ sfctl application provision --application-type-build-path app_package_dir
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`는 응용 프로그램을 만들 때 업로드한 디렉터리의 이름이어야 합니다.
+`content-path`는 애플리케이션을 만들 때 업로드한 디렉터리의 이름이어야 합니다.
 
 ### <a name="create-an-application-from-an-application-type"></a>애플리케이션 유형에서 애플리케이션 만들기
 
@@ -86,7 +86,7 @@ sfctl store delete --content-path app_package_dir
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`은 응용 프로그램 인스턴스에 사용하려는 이름입니다. 이전에 프로비전된 애플리케이션 매니페스트에서 추가 매개 변수를 얻을 수 있습니다.
+`app-name`은 애플리케이션 인스턴스에 사용하려는 이름입니다. 이전에 프로비전된 애플리케이션 매니페스트에서 추가 매개 변수를 얻을 수 있습니다.
 
 애플리케이션 이름은 `fabric:/` 접두사로 시작해야 합니다.
 
@@ -169,4 +169,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 
 * [Service Fabric CLI 기본 사항](service-fabric-cli.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)
-* [Service Fabric 응용 프로그램 업그레이드 시작](service-fabric-application-upgrade.md)
+* [Service Fabric 애플리케이션 업그레이드 시작](service-fabric-application-upgrade.md)

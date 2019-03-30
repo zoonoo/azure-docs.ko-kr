@@ -4,15 +4,15 @@ description: 이 문서에는 Azure Site Recovery를 사용하여 다른 Azure �
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312056"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649886"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
 
@@ -34,6 +34,9 @@ Azure Site Recovery로 보호되는 모든 인스턴스는 처음 31일 동안 �
 3. [Azure VM에 대한 재해 복구 설정](azure-to-azure-how-to-enable-replication.md)
 4. [테스트 장애 조치 실행](azure-to-azure-tutorial-dr-drill.md)
 5. [주 지역에 대한 장애 조치 및 장애 복구](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>어떻게는 용량 보장 대상 지역의 Azure Vm에 대 한 되나요?
+Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
 
 ## <a name="replication"></a>복제
 
@@ -79,7 +82,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
-크래시 일치 복구 지점은 스냅숏을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅숏을 만들 때 메모리에 있던 내용이 포함되지 않습니다. 
+크래시 일치 복구 지점은 스냅숏을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅숏을 만들 때 메모리에 있던 내용이 포함되지 않습니다.
 
 현재 대부분의 애플리케이션은 크래시 일치 스냅숏을 제대로 복구할 수 있습니다. 크래시 일치 복구 지점은 데이터베이스가 없는 운영 체제와 파일 서버, DHCP 서버, 인쇄 서버 등의 애플리케이션에 일반적으로 적합합니다.
 
@@ -87,9 +90,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>애플리케이션 일치 복구 지점은 무엇인가요? 
-애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다. 
-
-추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
+애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다. 추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>애플리케이션 일치 복구 지점이 애플리케이션 성능에 미치는 영향은 무엇입니까?
 애플리케이션 일치 복구 지점은 메모리와 프로세스의 모든 데이터를 캡처하므로 애플리케이션을 수신 거부하기 위해 Windows에 VSS 같은 프레임워크가 필요합니다. 워크로드가 이미 바쁘게 진행되고 있는 상태에서 이 작업이 매우 자주 수행될 경우 성능이 저하될 수 있습니다. 일반적으로 데이터베이스 이외 워크로드의 경우 앱 일치 복구 지점에 낮은 빈도를 사용하지 않는 것이 좋고, 데이터베이스 워크로드에도 1시간이면 충분합니다. 
@@ -116,8 +117,8 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>24시간 복제 정책을 설정했고 문제가 있어 Site Recovery에서 24시간을 초과하는 지난 복구 지점을 생성하지 못하는 경우 어떻게 되나요? 이전 복구 지점이 손실되나요?
 아니요, Site Recovery는 이전 복구 지점을 모두 유지합니다. 복구 지점 보존 기간에 따라, 이 경우 24시간 동안 새 요소가 생성된 경우에만 Site Recovery가 오래된 지점을 바꿉니다. 이 경우 몇 가지 문제로 인해 새로 생성된 복구 지점이 없으므로 보존 기간에 도달하면 모든 이전 지점이 그대로 유지됩니다.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>VM에서 복제를 사용하도록 설정한 후 복제 정책을 변경하려면 어떻게 할까요? 
-**Site Recovery 자격 증명 모음** > **Site Recovery 인프라** > **복제 정책**으로 이동합니다. 편집할 정책을 선택하고 변경 내용을 저장합니다. 변경 내용은 모든 기존 복제에도 적용됩니다. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>VM에서 복제를 사용하도록 설정한 후 복제 정책을 변경하려면 어떻게 할까요?
+**Site Recovery 자격 증명 모음** > **Site Recovery 인프라** > **복제 정책**으로 이동합니다. 편집할 정책을 선택하고 변경 내용을 저장합니다. 변경 내용은 모든 기존 복제에도 적용됩니다.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>모든 복구 지점이 VM의 전체 복사본인가요, 아니면 차등 복사본인가요?
 생성되는 첫 번째 복구 지점에 전체 복사본이 있습니다. 모든 연속 복구 지점에는 델타 변경 내용이 있습니다.
@@ -125,7 +126,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>복구 지점의 보존 기간을 늘리면 스토리지 비용도 증가하나요?
 예. 보존 기간을 24시간에서 72시간으로 늘리면 Site Recovery에서 추가 48시간의 복구 지점을 저장합니다. 추가된 시간에 대해 스토리지 요금이 부과됩니다. 예를 들어 단일 복구 지점에 10GB의 델타 변경 내용이 있고 GB당 비용이 매월 $0.16인 경우 매월 $1.6 * 48의 추가 요금이 부과됩니다.
 
-## <a name="multi-vm-consistency"></a>다중 VM 일관성 
+## <a name="multi-vm-consistency"></a>다중 VM 일관성
 
 ### <a name="what-is-multi-vm-consistency"></a>다중 VM 일관성은 무엇인가요?
 복구 지점이 모든 복제된 가상 머신에서 일관되는지 확인하는 것을 의미합니다.
@@ -134,7 +135,7 @@ Site Recovery는 “다중 VM 일관성” 옵션을 제공하며, 이 옵션을
 자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)합니다.
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>다중 VM 일관성 복제 그룹 내에서 단일 가상 머신을 장애 조치(failover)할 수 있나요?
-"다중 VM 일관성" 옵션을 선택하면 애플리케이션은 한 그룹 내의 모든 가상 머신에서 종속성을 가지게 됩니다. 따라서 단일 가상 머신 장애 조치는 허용되지 않습니다. 
+"다중 VM 일관성" 옵션을 선택하면 애플리케이션은 한 그룹 내의 모든 가상 머신에서 종속성을 가지게 됩니다. 따라서 단일 가상 머신 장애 조치는 허용되지 않습니다.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>다중 VM 일관성 복제 그룹의 일부분으로 얼마나 많은 가상 머신을 복제할 수 있나요?
 복제 그룹에서 16개의 가상 머신을 함께 복제할 수 있습니다.
@@ -145,9 +146,12 @@ CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설�
 
 ## <a name="failover"></a>장애 조치(failover)
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>어떻게는 용량 보장 대상 지역의 Azure Vm에 대 한 되나요?
+Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
+
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
 
-자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(failover)를 시작하거나 [PowerShell](azure-to-azure-powershell.md)을 사용하여 장애 조치(failover)를 트리거할 수 있습니다. 
+자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(failover)를 시작하거나 [PowerShell](azure-to-azure-powershell.md)을 사용하여 장애 조치(failover)를 트리거할 수 있습니다.
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>장애 조치(failover) 후 공용 IP 주소를 유지할 수 있나요?
 
@@ -158,7 +162,8 @@ CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설�
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>장애 조치(failover) 후 서버에는 원본 VM과 동일한 IP 주소가 없습니다. 새 IP 주소가 할당되는 이유는 무엇인가요?
 
-Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도합니다. 다른 가상 머신에서 해당 IP 주소를 가져가는 경우 Site Recovery는 대상으로 사용 가능한 다음 IP 주소를 설정합니다. Site Recovery가 주소 지정을 처리하는 방법에 대한 자세한 내용은 [가상 네트워크에 대한 네트워크 매핑 및 IP 주소 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)을 참조하세요.
+Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도합니다. 다른 가상 머신에서 해당 IP 주소를 가져가는 경우 Site Recovery는 대상으로 사용 가능한 다음 IP 주소를 설정합니다.
+Site Recovery가 주소 지정을 처리하는 방법에 대한 자세한 내용은 [가상 네트워크에 대한 네트워크 매핑 및 IP 주소 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)을 참조하세요.
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>**최신(가장 낮은 RPO)** 복구 지점은 무엇인가요?
 **최신(가장 낮은 RPO)** 옵션을 사용하면 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리한 다음, 해당 복구 지점에 장애 조치하기 전에 각 VM에 대한 복구 지점을 만듭니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
@@ -173,7 +178,7 @@ Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도
 중단 후에 장애 조치(failover)를 트리거할 수 있습니다. Site Recovery는 주 지역에서의 연결이 없어도 장애 조치(failover)를 수행할 수 있습니다.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>가상 머신 장애 조치(failover)의 RTO는 어떻게 되나요?
-Site Recovery의 [RTO는 2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 그러나 대부분의 경우 Site Recovery는 몇 분 내에 가상 머신을 장애 조치(failover)합니다. VM이 작동할 때까지 걸린 시간이 표시되는 장애 조치(failover) 작업으로 이동하여 RTO를 계산할 수 있습니다. 복구 계획 RTO의 경우에는 아래 섹션을 참조하세요. 
+Site Recovery의 [RTO는 2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 그러나 대부분의 경우 Site Recovery는 몇 분 내에 가상 머신을 장애 조치(failover)합니다. VM이 작동할 때까지 걸린 시간이 표시되는 장애 조치(failover) 작업으로 이동하여 RTO를 계산할 수 있습니다. 복구 계획 RTO의 경우에는 아래 섹션을 참조하세요.
 
 ## <a name="recovery-plans"></a>복구 계획
 
@@ -188,7 +193,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>복구 플랜에서 순서를 지정하려면 어떻게 하나요?
 
-복구 플랜에서 여러 개의 그룹을 만들어 순서를 지정할 수 있습니다. 모든 그룹을 한 번에 장애 조치합니다. 함께 장애 조치된 동일한 그룹의 일부인 VM은 다른 그룹 다음에 옵니다. 복구 계획을 사용하여 애플리케이션을 모델링하는 방법을 알아보려면 [복구 계획](recovery-plan-overview.md#model-apps)을 참조하세요. 
+복구 플랜에서 여러 개의 그룹을 만들어 순서를 지정할 수 있습니다. 모든 그룹을 한 번에 장애 조치합니다. 함께 장애 조치된 동일한 그룹의 일부인 VM은 다른 그룹 다음에 옵니다. 복구 계획을 사용하여 애플리케이션을 모델링하는 방법을 알아보려면 [복구 계획](recovery-plan-overview.md#model-apps)을 참조하세요.
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>복구 플랜의 RTO를 확인하려면 어떻게 할까요?
 복구 플랜의 RTO를 확인하려면 복구 플랜을 테스트 장애 조치(failover)를 수행하고 **Site Recovery 작업**으로 이동합니다.
@@ -199,7 +204,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>복구 플랜에 자동화 Runbook을 추가할 수 있나요?
 예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구 
+## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>주 지역에서 재해 복구 지역으로 장애 조치(failover)를 수행한 후에는 DR 지역의 VM이 자동으로 보호되나요?
 아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
@@ -208,7 +213,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 상황에 따라 다릅니다. 예를 들어 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치 된 Azure VM 다시 보호]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)를 참조하세요.
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>장애 복구(failback)하는 데 시간이 얼마나 걸리나요?
-다시 보호 후 장애 복구에 대한 시간은 일반적으로 주 지역에서 보조 지역으로 장애 조치(failover)를 수행하는 시간과 비슷합니다. 
+다시 보호 후 장애 복구에 대한 시간은 일반적으로 주 지역에서 보조 지역으로 장애 조치(failover)를 수행하는 시간과 비슷합니다.
 
 ## <a name="capacity"></a>용량
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>예약 인스턴스를 사용 하 여 Site Recovery가 작동 하나요?

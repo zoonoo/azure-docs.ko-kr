@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652453"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
@@ -134,7 +134,8 @@ ms.locfileid: "56816907"
    ![저장된 템플릿 배포](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 감사 로그를 보려면 [Resource Manager로 작업 감사](./resource-group-audit.md)를 참조하세요.
-* 배포 오류를 해결하려면 [배포 작업 보기](./resource-manager-deployment-operations.md)를 참조하세요.
-* 배포 또는 리소스 그룹에서 템플릿을 내보내려면 참조 [Azure Resource Manager 템플릿 내보내기](./manage-resource-groups-portal.md#export-resource-groups-to-templates)합니다.
-* 여러 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](./deployment-manager-overview.md)를 참조하세요.
+
+- 감사 로그를 보려면 [Resource Manager로 작업 감사](./resource-group-audit.md)를 참조하세요.
+- 배포 오류를 해결하려면 [배포 작업 보기](./resource-manager-deployment-operations.md)를 참조하세요.
+- 배포 또는 리소스 그룹에서 템플릿을 내보내려면 참조 [Azure Resource Manager 템플릿 내보내기](./manage-resource-groups-portal.md#export-resource-groups-to-templates)합니다.
+- 여러 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](./deployment-manager-overview.md)를 참조하세요.

@@ -3,8 +3,8 @@ title: Azure Service Fabric 애플리케이션 모델 | Microsoft Docs
 description: 서비스 패브릭에서 애플리케이션 및 서비스를 모델링 및 설명하는 방법
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
-ms.openlocfilehash: dd453f393620923041eb8fa07b551f4945f48235
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204637"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666276"
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 애플리케이션 모델링
 이 문서에서는 Azure Service Fabric 애플리케이션 모델의 개요 및 매니페스트 파일을 통해 애플리케이션과 서비스를 정의하는 방법에 대해 설명합니다.
@@ -50,10 +50,10 @@ ms.locfileid: "34204637"
 
 
 ## <a name="next-steps"></a>다음 단계
-- [응용 프로그램 확장성](service-fabric-concepts-scalability.md)에 대해 알아봅니다.
+- [애플리케이션 확장성](service-fabric-concepts-scalability.md)에 대해 알아봅니다.
 - 서비스 [상태](service-fabric-concepts-state.md), [분할](service-fabric-concepts-partitioning.md) 및 [가용성](service-fabric-availability-services.md)에 대해 알아봅니다.
-- [응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에 응용 프로그램 및 서비스가 어떻게 정의되어 있는지 읽어 봅니다.
-- [응용 프로그램 호스팅 모델](service-fabric-hosting-model.md)에서는 배포된 서비스 및 서비스 호스트 프로세스 복제본(또는 인스턴스) 간의 관계에 대해 설명합니다.
+- [애플리케이션 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에 애플리케이션 및 서비스가 어떻게 정의되어 있는지 읽어 봅니다.
+- [애플리케이션 호스팅 모델](service-fabric-hosting-model.md)에서는 배포된 서비스 및 서비스 호스트 프로세스 복제본(또는 인스턴스) 간의 관계에 대해 설명합니다.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

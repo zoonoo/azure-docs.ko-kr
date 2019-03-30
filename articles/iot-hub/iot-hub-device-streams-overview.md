@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076278"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649650"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 
@@ -101,7 +101,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="whitelist-device-streaming-endpoints"></a>디바이스 스트리밍 엔드포인트를 허용 목록에 추가
 
-[앞서](#Overview) 설명한 대로 디바이스 스트림 시작 프로세스 중에 디바이스에서 IoT Hub 스트리밍 엔드포인트에 대한 아웃바운드 연결을 만듭니다. 디바이스 또는 해당 네트워크의 방화벽에서 443 포트를 통해 스트리밍 게이트웨이에 대한 아웃바운드 연결을 허용해야 합니다(통신은 TLS를 사용하여 암호화된 WebSocket 연결을 통해 수행됨).
+[앞서](#overview) 설명한 대로 디바이스 스트림 시작 프로세스 중에 디바이스에서 IoT Hub 스트리밍 엔드포인트에 대한 아웃바운드 연결을 만듭니다. 디바이스 또는 해당 네트워크의 방화벽에서 443 포트를 통해 스트리밍 게이트웨이에 대한 아웃바운드 연결을 허용해야 합니다(통신은 TLS를 사용하여 암호화된 WebSocket 연결을 통해 수행됨).
 
 디바이스 스트리밍 엔드포인트의 호스트 이름은 Azure IoT Hub 포털의 개요 탭에서 확인할 수 있습니다. ![대체 텍스트](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "디바이스 스트림 엔드포인트")
 

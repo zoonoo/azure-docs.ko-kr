@@ -4,7 +4,7 @@ description: Azure Service Fabric 클러스터를 모니터링 하기를 시각�
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483168"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670509"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대 한 Azure Monitor 로그 설정
 
-Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링 하는 것이 좋습니다. Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용 하기 위해 배포의 업데이트 된 Resource Manager 템플릿을 유지 관리 하면 동일한 템플릿을 사용 하 여 Azure Monitor 로그 환경을 설정 합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
+Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 추천됩니다. Azure Resource Manager, PowerShell 또는 Azure Marketplace를 통해 Log Analytics 작업 영역을 설정할 수 있습니다. 나중에 사용 하기 위해 배포의 업데이트 된 Resource Manager 템플릿을 유지 관리 하면 동일한 템플릿을 사용 하 여 Azure Monitor 로그 환경을 설정 합니다. 진단을 사용하도록 설정하여 클러스터를 이미 배포한 경우 Marketplace를 통한 배포가 더 용이합니다. 배포하는 계정에 구독 수준 액세스 권한이 없는 경우 PowerShell 또는 Resource Manager 템플릿을 사용하여 배포합니다.
 
 > [!NOTE]
-> Azure Monitor 로그 클러스터 모니터링을 설정 하려면 진단을 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 사용 하도록 설정 해야 합니다. 자세한 내용은 [Windows 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-wad.md) 및 [Linux 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-lad.md)을 참조하세요.
+> Azure Monitor 로그 클러스터 모니터링을 설정 하려면 진단을 클러스터 수준 또는 플랫폼 수준 이벤트를 보기 위해 사용 하도록 설정 해야 합니다. 자세한 내용은 [Windows 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-event-aggregation-wad.md) 및 [Linux 클러스터에서 진단을 설정하는 방법](service-fabric-diagnostics-oms-syslog.md)을 참조하세요.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링 하는 것
 Windows를 사용 하 여 클러스터 이벤트가 저장 된 저장소 계정에 Azure Monitor 로그를 연결 하려면 다음 단계를 사용 하 여 계속 합니다. 
 
 >[!NOTE]
->Linux 클러스터에 대해서는 이 환경을 설정할 수 없습니다. 
+>Windows 클러스터에 대 한 Service Fabric 분석 솔루션만 지원 됩니다. Linux 클러스터에 대 한 문서를 참조 하세요 온 [Linux 클러스터에 대 한 Azure Monitor 로그를 설정 하는 방법을](service-fabric-diagnostics-oms-syslog.md)합니다.  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 

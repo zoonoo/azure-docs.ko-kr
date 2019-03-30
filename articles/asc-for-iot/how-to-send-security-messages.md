@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620137"
+ms.locfileid: "58650158"
 ---
 # <a name="send-security-messages-sdk"></a>SDK의 보안 메시지 보내기
 
@@ -92,7 +92,7 @@ ASC를 사용 하 여 IoT 에이전트에 대 한 사용 하지 않고 보안 �
 
 IoT 용 ASC에서 처리 하기 위해 장치에서 장치 데이터를 보내도록 IoT 처리 파이프라인에 대 한 ASC에 올바른 라우팅에 대 한 메시지를 표시 하려면 다음 Api 중 하나를 사용 합니다. 이러한 방식으로 전송 된 메시지 처리 되어 ASC에서 보안 insights로 Azure Security Center 또는 둘 다 IoT Hub에서 IoT에 대 한 표시 됩니다. 
 
-올바른 머리글을 표시 하는 경우에 전송 되는 모든 데이터도 준수 해야 합니다 [ASC IoT 메시지 스키마에 대 한](https://github.com/Azure/ASC-for-IoT-Schemas)합니다. 
+올바른 머리글을 표시 하는 경우에 전송 되는 모든 데이터도 준수 해야 합니다 [ASC IoT 메시지 스키마에 대 한](https://aka.ms/iot-security-schemas)합니다. 
 
 ### <a name="send-security-message-api"></a>보안 메시지 API를 전송 합니다.
 

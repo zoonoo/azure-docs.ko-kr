@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e2c60d48595f2c3687bd178e0f4eed010f14b568
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191533"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669625"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -40,6 +40,8 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
+> [!NOTE]
+> 미국 동부 2 지역에 대 한 프로토콜 **aspaaseastus2**합니다.
 
 ## <a name="connection-string"></a>연결 문자열
 

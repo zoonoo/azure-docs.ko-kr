@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013262"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630748"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -162,8 +162,13 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 또한 [코드로 설정](../../azure-monitor/app/api-custom-events-metrics.md#ikey)할 수 있습니다.
 
-```Java
-    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가
@@ -474,7 +479,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법을 자세히 알아봅니다.][availability]
 
-## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

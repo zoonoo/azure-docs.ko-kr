@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38d845e133b5ae1a091fd9fee698b2bf801135e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a56cc0c575a6e50a38aea91c8fc2e1855617457f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880605"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648387"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -306,7 +306,7 @@ $resp.Content
    수정 하 고 아래 명령을 입력 합니다.
 
    * 대체 `livy2-conf` 원하는 구성 요소를 사용 하 여 합니다.
-   * 바꿉니다 `INITIAL` 에 대 한 검색 된 실제 값을 사용 하 여 `tag` 에서 [모든 구성을 가져오도록](#Get-all-configurations)합니다.
+   * 바꿉니다 `INITIAL` 에 대 한 검색 된 실제 값을 사용 하 여 `tag` 에서 [모든 구성을 가져오도록](#get-all-configurations)합니다.
 
      **A. Bash**  
      ```bash

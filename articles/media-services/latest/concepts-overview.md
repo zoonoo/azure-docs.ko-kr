@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351493"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630546"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
@@ -30,7 +30,7 @@ ms.locfileid: "58351493"
 
 관리, 암호화, 인코딩, 분석 및 Azure에서 미디어 콘텐츠 스트리밍을 시작 하려면 Media Services 계정을 만들고에 디지털 파일을 업로드할 **자산**합니다.
 
-- [클라우드 업로드 및 저장](storage-account-concept.md)
+- [클라우드 업로드 및 스토리지](storage-account-concept.md)
 - [자산 개념](assets-concept.md)
 
 ## <a name="encoding"></a>Encoding
@@ -102,6 +102,11 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 - [Event Grid 이벤트를 처리합니다.](reacting-to-media-services-events.md)
 - [스키마](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+모니터 메트릭 및 진단 로그 도움이 되는 응용 프로그램 Azure Monitor를 사용 하 여 수행 하는 방법을 이해 합니다.
+
 - [메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md)
 - [진단 로그 스키마](media-services-diagnostic-logs-schema.md)
 
@@ -113,4 +118,9 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+* [원격 파일 및 스트림 비디오 – REST 인코딩](stream-files-tutorial-with-rest.md)
+* [업로드 된 파일 및 스트림 비디오-.NET 인코딩](stream-files-tutorial-with-api.md)
+* [Stream 라이브-.NET](stream-live-tutorial-with-api.md)
+* [-.NET 비디오를 분석합니다](analyze-videos-tutorial-with-api.md)
+* [AES-128 동적 암호화-.NET](protect-with-aes128.md)
+* [다중 DRM-.NET을 사용 하 여 동적으로 암호화](protect-with-drm.md) 

@@ -1,5 +1,5 @@
 ---
-title: 종량제 구독의 Azure 예약 사용량 이해 | Microsoft Docs
+title: 종 량 제 구독에 대 한 Azure 예약 사용량 이해 | Microsoft Docs
 description: 종량제 구독에서 Azure Reservations의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883783"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652538"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
 
@@ -64,7 +64,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 및 Cosmos DB 예약된 용량 예약의 사용량
 
-다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다. 
+다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다.
 
 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
@@ -93,6 +93,10 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 2. **ConsumptionMeter**는 SQL Database 리소스에 대한 요금제 ID입니다.
 3. **요금제 ID**는 예약 요금제입니다. 이 요금제의 비용은 $0입니다. 예약 할인을 받을 수 있는 모든 SQL Database 리소스는 이 요금제 ID를 CSV 파일로 표시합니다.
 
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -104,9 +108,3 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
-
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
-
-

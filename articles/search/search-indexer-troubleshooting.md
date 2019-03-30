@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652419"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 
 Azure Search로 데이터를 인덱싱할 때 인덱서에는 많은 문제가 발생할 수 있습니다. 오류의 주요 범주는 다음과 같습니다.
 
-* [데이터 원본에 연결](#Data-Source-Connection-Errors)
-* [문서 처리](#Document-Processing-Errors)
-* [인덱스에 대한 문서 수집](#Index-Errors)
+* [데이터 원본에 연결](#data-source-connection-errors)
+* [문서 처리](#document-processing-errors)
+* [인덱스에 대한 문서 수집](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>데이터 원본 연결 오류
 

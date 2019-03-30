@@ -4,7 +4,7 @@ description: 서비스 간 통신은 Service Fabric 애플리케이션의 중요
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211228"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665749"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>서비스 패브릭 테스트 용이성 시나리오: 서비스 통신
 Azure 서비스 패브릭에서 마이크로 서비스 및 서비스 지향 아키텍처 스타일이 자연스럽게 드러납니다. 이러한 유형의 분산 아키텍처에서 구성 요소화된 마이크로 서비스 애플리케이션은 서로 통신이 필요한 여러 서비스로 구성됩니다. 가장 간단한 경우에도 일반적으로 상태 비저장 웹 서비스 그리고 통신이 필요한 상태 저장 데이터 저장소 서비스가 있습니다.
@@ -44,7 +44,7 @@ Service Fabric에서 제공하는 기본 제공 서비스 통신 구성 요소 �
 
 시스템이 원활하게 실행되도록 이러한 시나리오를 정상적으로 처리하는 것이 중요합니다. 이렇게 하려면 다음에 주의합니다.
 
-* 연결 가능한 모든 서비스에는 수신하는 *주소*가 있습니다(예: HTTP 또는 WebSockets). 서비스 인스턴스 또는 파티션이 이동하면 주소 끝점이 변경됩니다. (다른 IP 주소로 다른 노드에 이동합니다.) 기본 제공 통신 구성 요소를 사용하는 경우 사용자를 대신하여 구성 요소에서 다시 해결 서비스 주소를 처리합니다.
+* 연결 가능한 모든 서비스에는 수신하는 *주소*가 있습니다(예: HTTP 또는 WebSockets). 서비스 인스턴스 또는 파티션이 이동하면 주소 엔드포인트가 변경됩니다. (다른 IP 주소로 다른 노드에 이동합니다.) 기본 제공 통신 구성 요소를 사용하는 경우 사용자를 대신하여 구성 요소에서 다시 해결 서비스 주소를 처리합니다.
 * 서비스 인스턴스에서 수신기를 다시 시작하기 때문에 서비스 대기 시간이 일시적으로 늘어날 수 있습니다. 서비스 인스턴스를 이동한 후에 서비스가 수신기를 여는 속도에 따라 다릅니다.
 * 새 노드에서 서비스가 열린 후에 기존 연결을 닫았다가 다시 열어야 합니다. 정상적인 노드 종료 또는 재시작의 경우 기존 연결이 정상적으로 종료될 때까지 시간이 허용됩니다.
 

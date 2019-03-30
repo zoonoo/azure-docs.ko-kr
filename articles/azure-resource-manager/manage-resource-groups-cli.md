@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c9e6cc68cbd629642849d323d4271722f3232aa3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824938"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650746"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -82,6 +82,10 @@ Azure Resource Manager 리소스의 삭제를 정렬 하는 방법에 대 한 �
 ## <a name="deploy-a-resource-group-and-resources"></a>리소스 그룹 및 리소스 배포
 
 리소스 그룹을 만들고 Resource Manager 템플릿을 사용 하 여 리소스 그룹에 배포할 수 있습니다. 자세한 내용은 [리소스 그룹 만들기 및 리소스 배포](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)를 참조하세요.
+
+## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
+
+이 기능은 라고도 *오류 발생 시 롤백*합니다. 자세한 내용은 [배포 실패 시 다시 배포](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails)합니다.
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 이동
 

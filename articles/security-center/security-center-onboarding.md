@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100073"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665494"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  표준 평가판을 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -33,7 +33,7 @@ Security Center 표준 계층에는 다음 기능이 포함됩니다.
 ## <a name="detecting-unprotected-resources"></a>보호되지 않는 리소스 검색     
 Security Center에서는 Security Center 표준 계층이 적용되지 않은 모든 Azure 구독이나 작업 영역을 자동으로 검색합니다. 여기에는 Security Center 무료 계층을 사용하는 Azure 구독과 보안 솔루션이 사용하도록 설정되지 않은 작업 영역이 포함됩니다.
 
-전체 Azure 구독을 표준 계층으로 업그레이드할 수도 있고(구독 내의 모든 리소스에 계층이 상속됨), 특정 리소스 그룹만 업그레이드하는 고유한 정책을 정의할 수도 있습니다. 리소스 그룹의 정책 설정이 고유한 경우 구독을 표준 계층으로 업그레이드할 때 Security Center에서 가격 책정 정책을 재정의하지 않습니다. 표준 적용 계층 구독을 구독에서 모든 지원 되는 리소스에 적용 됩니다. 표준 적용 계층 작업 영역에 작업 영역에 보고 하는 모든 리소스에 적용 됩니다.
+전체 Azure 구독을 구독 내에서 모든 지원 되는 리소스에 의해 상속 된 표준 계층으로 업그레이드할 수 있습니다. 표준 적용 계층 작업 영역에 작업 영역에 보고 하는 모든 리소스에 적용 됩니다.
 
 > [!NOTE]
 > 특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다. [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용하고 작업 영역의 컴퓨터 하위 집합을 대상으로 지정할 수 있습니다.  솔루션 대상을 사용하는 경우 Security Center에는 작업 영역에 솔루션이 없는 것으로 표시됩니다.

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521468"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661789"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -39,7 +39,7 @@ ms.locfileid: "58521468"
 >
 > Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 포트 11000 ~ 12000의 SQL [서비스 태그](../virtual-network/security-overview.md#service-tags)에 속하는 모든 Azure IP 주소에 대해 VM 방화벽 규칙 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
 > [!NOTE]
-> 이 토픽은 단일 데이터베이스 및 탄력적 풀을 호스팅하는 Azure SQL Database 서버와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목에서는 단일 데이터베이스 및 탄력적 풀, SQL Data Warehouse 데이터베이스, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 호스트 하는 Azure SQL Database 서버에 적용 됩니다. 간단히 하기 위해 SQL Database는 SQL Database, SQL Data Warehouse, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 참조할 때 사용 됩니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 

@@ -4,7 +4,7 @@ description: 수행할 상태 확인 및 업그레이드를 자동으로 실행 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099195"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670620"
 ---
 # <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
 이 문서에서는 Azure Service Fabric 애플리케이션을 업그레이드하는 동안 적용되는 다양한 매개 변수를 설명합니다. 애플리케이션 업그레이드 매개 변수는 업그레이드 중에 적용되는 시간 제한 및 상태 확인을 제어하며, 업그레이드가 실패할 때 적용해야 하는 정책을 지정합니다. 애플리케이션 매개 변수는 다음을 사용하여 업그레이드에 적용됩니다.
@@ -94,11 +94,12 @@ Service Fabric CLI를 사용하는 Service Fabric 애플리케이션 업그레�
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 구성표가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 ‘fabric:/myapp/app1’인 경우 애플리케이션 ID가 6.0 이상에서는 ‘myapp~app1’이고 이전 버전에서는 ‘myapp/app1’입니다.|
+| application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 구성표가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ' fabric: / myapp/app1 ', 응용 프로그램 id 수 ' myapp\~app1' 6.0 + 및 이전 버전에서는 ' myapp/app1 '.|
 application-version |업그레이드 대상인 애플리케이션 형식의 버전입니다.|
 매개 변수  |JSON 인코딩된 애플리케이션 매개 변수 목록은 애플리케이션을 업그레이드할 때 적용되기 위해 재정의합니다.|
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
+
 | 매개 변수 | 설명 |
 | --- | --- |
 default-service-health-policy | 기본적으로 서비스 유형의 상태를 평가하는 데 사용되는 [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 인코딩된 상태 정책 사양입니다. 맵은 기본적으로 비어 있습니다. |

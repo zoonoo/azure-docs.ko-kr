@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630463"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -217,7 +217,7 @@ VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 
 
 ### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 모든 클라이언트에 지점 및 사이트 간 패키지를 다시 배포합니다.
+이 문제를 해결 하려면 다시 다운로드 하 고 모든 클라이언트에서 사이트 패키지에 위치를 다시 배포 합니다.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>한 번에 너무 많은 VPN 클라이언트 연결
 

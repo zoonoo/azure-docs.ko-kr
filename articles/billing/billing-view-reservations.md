@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904306"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650226"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Azure Portal에서 Azure에 대한 예약 보기
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portal에서 Azure 예약 확인
 
-구독 유형 및 사용 권한에 따라 Azure 리소스에 대한 예약을 보는 몇 가지 방법이 있습니다.
+구독 유형 및 권한에 따라 여러 가지 방법으로 Azure에 대 한 예약을 볼 수 있습니다.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>소유자 또는 읽기 권한자로 예약 보기
 
@@ -62,15 +62,26 @@ API를 사용하여 데이터를 가져오려면 [엔터프라이즈 고객의 �
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 예약이란?](billing-save-compute-costs-reservations.md)
+- [Azure에 대 한 예약 이란?](billing-save-compute-costs-reservations.md)
+- [Azure에 대 한 예약 관리](billing-manage-reserved-vm-instance.md)
+
+서비스 계획을 구입 합니다.
+
 - [Cosmos DB 예약 용량 선불](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure 예약 관리](billing-manage-reserved-vm-instance.md)
+
+소프트웨어 플랜을 구입 합니다.
+
+- [Azure 예약에서 Red Hat 소프트웨어 계획에 대 한 요금을 선불합니다](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+사용량을 파악 합니다.
+
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

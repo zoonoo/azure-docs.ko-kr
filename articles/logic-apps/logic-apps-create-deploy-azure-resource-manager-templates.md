@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894583"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652487"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
 
-Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제공하여 워크플로를 자동화하기 위한 논리 앱을 만들 뿐만 아니라 배포에 사용되는 리소스 및 매개 변수를 정의합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. [논리 앱의 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 및 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
+Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제공하여 워크플로를 자동화하기 위한 논리 앱을 만들 뿐만 아니라 배포에 사용되는 리소스 및 매개 변수를 정의합니다.
+이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. [논리 앱의 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 및 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
 
 ## <a name="define-the-logic-app"></a>논리 앱 정의
-
 이 예제 논리 앱 정의는 한 시간에 한 번 실행되며, `testUri` 매개 변수에서 지정된 위치를 ping합니다.
-템플릿은 논리 앱 이름(```logicAppName```) 및 테스트할 ping 위치(```testUri```)에 매개 변수 값을 사용합니다. [템플릿에서 이러한 매개 변수를 정의](#define-parameters)하는 방법에 대해 자세히 알아봅니다. 또한 템플릿은 논리 앱의 위치를 Azure 리소스 그룹과 같은 위치로 설정합니다. 
+템플릿은 논리 앱 이름(```logicAppName```) 및 테스트할 ping 위치(```testUri```)에 매개 변수 값을 사용합니다. [템플릿에서 이러한 매개 변수를 정의](#define-parameters)하는 방법에 대해 자세히 알아봅니다.
+또한 템플릿은 논리 앱의 위치를 Azure 리소스 그룹과 같은 위치로 설정합니다.
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
 
 템플릿에서 매개 변수에 대한 설명은 다음과 같습니다.
 
-| 매개 변수 | 설명 | JSON 정의 예제 | 
-| --------- | ----------- | ----------------------- | 
+| 매개 변수 | 설명 | JSON 정의 예제 |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | 템플릿에서 만든 논리 앱의 이름을 정의합니다. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | 테스트를 위해 ping할 위치를 정의합니다. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | 테스트를 위해 ping할 위치를 정의합니다. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 [Logic Apps 워크플로 정의 및 속성에 대한 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 및 [JSON으로 논리 앱 정의에 대한 빌드](logic-apps-author-definitions.md)에 대해 자세히 알아봅니다.
@@ -93,7 +94,8 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
 
 [![Azure에 배포](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-이 작업을 통해 논리 앱의 세부 정보를 제공하고 템플릿 또는 매개 변수를 변경할 수 있는 Azure Portal에 로그인합니다. 예를 들어 Azure Portal에서는 다음과 같은 세부 정보를 묻는 메시지를 표시합니다.
+이 작업을 통해 논리 앱의 세부 정보를 제공하고 템플릿 또는 매개 변수를 변경할 수 있는 Azure Portal에 로그인합니다.
+예를 들어 Azure Portal에서는 다음과 같은 세부 정보를 묻는 메시지를 표시합니다.
 
 * Azure 구독 이름
 * 사용하려는 리소스 그룹
@@ -110,13 +112,13 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-```
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

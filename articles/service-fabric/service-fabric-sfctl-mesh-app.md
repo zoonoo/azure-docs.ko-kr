@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl mesh app 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3c2194f6a001e4fc49dcf1694f8a9cda41550ace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: fb812412c7dd07800c1e2231c9472a122ab7d7d4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282969"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661839"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 애플리케이션 리소스를 가져오고 삭제합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "53282969"
 
 |인수|설명|
 | --- | --- |
-| --name -n [필수] | 응용 프로그램 이름입니다. |
+| --name -n [필수] | 애플리케이션 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -77,7 +77,7 @@ ms.locfileid: "53282969"
 
 |인수|설명|
 | --- | --- |
-| --name -n [필수] | 응용 프로그램 이름입니다. |
+| --name -n [필수] | 애플리케이션 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

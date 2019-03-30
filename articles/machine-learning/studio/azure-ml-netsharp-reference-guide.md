@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905157"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651493"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -63,9 +63,9 @@ Azure Machine Learning Studio에서 만드는 신경망 모델의 아키텍처�
 + 나선 및 가중 공유 번들과 같은 특수 연결 구조를 정의합니다.
 + 여러 가지 활성화 함수를 지정합니다.
 
-사양 언어 구문에 대한 자세한 내용은 [구조 사양](#Structure-specifications)을 참조하세요.
+사양 언어 구문에 대한 자세한 내용은 [구조 사양](#structure-specifications)을 참조하세요.
 
-일부 일반적인 Machine Learning 태스크에 대한 신경망 정의의 예는 [예제](#Examples-of-Net#-usage)를 참조하세요.
+일부 일반적인 Machine Learning 태스크에 대한 신경망 정의의 예는 [예제](#examples-of-net-usage)를 참조하세요.
 
 ## <a name="general-requirements"></a>일반 요구 사항
 

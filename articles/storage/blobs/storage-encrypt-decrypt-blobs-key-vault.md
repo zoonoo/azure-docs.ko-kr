@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116102"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650413"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
+
 ## <a name="introduction"></a>소개
 이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
@@ -26,6 +27,7 @@ Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-va
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure Storage 계정
@@ -33,6 +35,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Micro
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>클라이언트 쪽 암호화 개요
+
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.
@@ -43,6 +46,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 4. 그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다.
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
+
 이 자습서를 계속하려면 자습서 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
@@ -55,11 +59,12 @@ Azure Active directory를 사용하여 애플리케이션을 등록하는 경우
 키 자격 증명 모음에 두 키를 모두 만듭니다. 자습서의 나머지 부분에서는 이름 ContosoKeyVault 및 TestRSAKey1을 사용했다고 가정합니다.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>패키지 및 AppSettings를 사용하여 콘솔 애플리케이션 만들기
+
 Visual Studio에서 새 콘솔 애플리케이션을 만듭니다.
 
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -93,6 +98,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>콘솔 애플리케이션에 토큰을 가져오는 메서드 추가
+
 다음 메서드는 사용자 키 자격 증명 모음에 대한 액세스를 인증해야 하는 키 자격 증명 모음 클래스에 의해 사용됩니다.
 
 ```csharp
@@ -112,6 +118,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
+
 Main 함수에 다음 코드를 추가합니다.
 
 ```csharp
@@ -141,6 +148,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>Blob 암호화 및 업로드
+
 Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
 ```csharp
@@ -167,6 +175,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## <a name="decrypt-blob-and-download"></a>Blob 암호 해독 및 다운로드
+
 암호 해독은 실제로 확인 프로그램 클래스가 합리적인 경우입니다. 암호화에 사용되는 키의 ID는 해당 메타 데이터의 Blob과 연결되므로 키를 검색하고 키와 Blob 사이의 연결을 기억할 이유가 없습니다. 다만 키가 키 자격 증명 모음에 남아 있는지 확인하기만 하면 됩니다.   
 
 RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEK를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
@@ -189,6 +198,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## <a name="use-key-vault-secrets"></a>키 자격 증명 모음 암호 사용
+
 암호는 기본적으로 대칭 키이므로 SymmetricKey 클래스를 통해 암호를 클라이언트 쪽 암호화와 함께 사용할 수 있습니다. 하지만 위에서 지적했듯이 키 자격 증명 모음의 암호는 SymmetricKey에 정확하게 매핑되지 않습니다. 여기서 이해해야 할 몇 가지 사항이 있습니다.
 
 * SymmetricKey 키의 키는 고정 길이 128, 192, 256, 384 또는 512비트여야 합니다.
@@ -221,6 +231,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 이것으로 끝입니다. 마음껏 즐기세요!
 
 ## <a name="next-steps"></a>다음 단계
+
 C#에서 Microsoft Azure Storage 사용에 대한 자세한 내용은 [.NET용 Microsoft Azure Storage Client Library](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 참조하세요.
 
 Blob REST API에 대한 자세한 내용은 [Blob 서비스 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)를 참조하세요.

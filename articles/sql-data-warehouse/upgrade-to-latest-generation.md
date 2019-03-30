@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314843"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651076"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 
@@ -34,8 +34,8 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. 사용자의 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 GEN1-GEN2 마이그레이션이 지원되는지 확인합니다. 자동 마이그레이션 날짜를 기록해 둡니다. 자동 프로세스 충돌을 방지하려면 자동 프로세스 시작 날짜 전에 수동 마이그레이션을 진행하도록 계획합니다.
-2. 아직 지원되지 않는 지역에 있는 경우 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal)합니다.
-3. 사용자의 지역이 지원되는 [Azure Portal을 통해 업그레이드](#Upgrade-in-a-supported-region-using-the-Azure-portal)합니다.
+2. 아직 지원되지 않는 지역에 있는 경우 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
+3. 사용자의 지역이 지원되는 [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
 4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
 
    | 계산에 최적화된 Gen1 계층 | 계산에 최적화된 Gen2 계층 |

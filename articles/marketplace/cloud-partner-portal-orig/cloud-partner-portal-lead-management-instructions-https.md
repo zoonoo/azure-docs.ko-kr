@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894124"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648353"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 
@@ -48,8 +48,8 @@ HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고
 
 7. 다음 단계 중 하나를 사용하여 **요청 본문 JSON 스키마**를 구성합니다.
 
-   - 이 문서의 끝에 나오는 [JSON 스키마](#JSON-schema)를 **요청 본문 JSON 스키마** 텍스트 상자에 복사합니다.
-   - **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다. **샘플 JSON 페이로드 입력 및 붙여넣기** 텍스트 상자에서 [JSON 예제](#JSON-example)에 붙여넣습니다. **완료**를 선택하여 스키마를 만듭니다.
+   - 이 문서의 끝에 나오는 [JSON 스키마](#json-schema)를 **요청 본문 JSON 스키마** 텍스트 상자에 복사합니다.
+   - **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다. **샘플 JSON 페이로드 입력 및 붙여넣기** 텍스트 상자에서 [JSON 예제](#json-example)에 붙여넣습니다. **완료**를 선택하여 스키마를 만듭니다.
 
    >[!Note]
    >흐름의 이 시점에서 CRM 시스템에 연결하거나 이메일 알림을 구성할 수 있습니다.

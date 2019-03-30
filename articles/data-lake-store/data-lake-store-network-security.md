@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652132"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합
 
@@ -75,7 +75,7 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
 
 - Data Lake Storage Gen1 가상 네트워크 통합 지원을 사용할 수 있기 전에 만들어진 HDInsight 클러스터는 이 새 기능을 지원하기 위해 다시 만들어야 합니다.
  
-- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용**을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용**을 선택 취소합니다. 자세한 내용은 [예외](##Exceptions) 섹션을 참조하세요.
+- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용**을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용**을 선택 취소합니다. 자세한 내용은 [예외](#exceptions) 섹션을 참조하세요.
 
 - Data Lake Storage Gen1 가상 네트워크 통합은 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에서 작동하지 않습니다.
   

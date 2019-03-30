@@ -3,8 +3,8 @@ title: Azure Service Fabric 애플리케이션 배포 | Microsoft Docs
 description: PowerShell을 사용하여 Service Fabric에서 애플리케이션을 배포 및 제거하는 방법
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: ryanwi
-ms.openlocfilehash: dbfbbd38a24d4f82ef7fd09ce57b87fb5e5327dc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 6bd3f45958870a20ac0386bd2f8a67ef4b4c0010
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880809"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670560"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 > [!div class="op_single_selector"]
@@ -359,7 +359,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ## <a name="next-steps"></a>다음 단계
 [애플리케이션 패키지 작성](service-fabric-package-apps.md)
 
-[서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
 

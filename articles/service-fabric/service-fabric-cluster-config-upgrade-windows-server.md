@@ -4,7 +4,7 @@ description: 독립 실행형 Service Fabric 클러스터를 실행하는 구성
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857878"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665614"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>독립 실행형 클러스터의 구성 업그레이드 
 
@@ -73,19 +73,19 @@ Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Confi
 
 네 가지 옵션이 지원됩니다.  
 
-* 단일 인증서 업그레이드: 업그레이드 경로는 인증서 A(기본) -> 인증서 B(기본) -> 인증서 C(기본) ->....입니다.
+* 단일 인증서 업그레이드: 업그레이드 경로 인증서는 (기본)-> 인증서 B (기본)-> 인증서 C (기본)->...
 
-* 이중 인증서 업그레이드: 업그레이드 경로는 인증서 A(기본) -> 인증서 A(기본) 및 B(보조) -> 인증서 B(기본) -> 인증서 B(기본) 및 C(보조) -> 인증서 C(기본) ->....입니다.
+* 이중 인증서 업그레이드: 업그레이드 경로 인증서 A (기본)-> 인증서 A (기본) 및 B (보조)-> 인증서 B (기본)-> 인증서 B (기본) 및 C (보조)-> 인증서 C (기본)->...
 
-* 인증서 형식 업그레이드: 지문 기반 인증서 구성 <-> CommonName 기반 인증서 구성입니다. 예를 들어, 인증서 지문 A(기본) 및 지문 B(보조) -> 인증서 CommonName C입니다.
+* 인증서 형식 업그레이드: 지문 기반 인증서 구성 <>-CommonName 기반 인증서 구성입니다. 예를 들어, 인증서 지문 A(기본) 및 지문 B(보조) -> 인증서 CommonName C입니다.
 
-* 인증서 발급자 지문 업그레이드: 업그레이드 경로는 Certificate CN=A,IssuerThumbprint=IT1(기본) -> Certificate CN=A,IssuerThumbprint=IT1,IT2(기본) -> Certificate CN=A,IssuerThumbprint=IT2(기본)입니다.
+* 인증서 발급자 지문 업그레이드: 업그레이드 경로 인증서 CN = A, IssuerThumbprint IT1 = (기본)-> Certificate = A, IssuerThumbprint IT1, IT2 = (기본)-> Certificate = A, IssuerThumbprint IT2 = (기본).
 
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정하는 방법 알아보기
 * [클러스터를 확장 및 축소](service-fabric-cluster-scale-up-down.md)하는 방법 알아보기
-* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

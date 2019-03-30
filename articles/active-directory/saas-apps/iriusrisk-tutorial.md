@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170703"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>자습서: IriusRisk와 Azure Active Directory 통합
 
@@ -89,7 +89,7 @@ IriusRisk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[IriusRisk 테스트 사용자 만들기](#create-a-iriusrisk-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 IriusRisk에 있습니다.
+1. **[IriusRisk 테스트 사용자 만들기](#create-an-iriusrisk-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 IriusRisk에 있습니다.
 1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 

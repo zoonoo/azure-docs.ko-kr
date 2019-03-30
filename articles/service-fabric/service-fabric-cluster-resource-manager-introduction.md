@@ -4,7 +4,7 @@ description: 서비스 패브릭 클러스터 리소스 관리자를 소개합�
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903366"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660888"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 리소스 관리자 소개
 이전에 IT 시스템 또는 온라인 서비스를 관리하는 작업은 특정 물리적 또는 가상 머신을 특정 서비스 또는 시스템에 전담하는 것을 의미했습니다. 서비스는 계층으로 설계되었습니다. “웹” 계층 및 “데이터” 또는 “저장소” 계층이 있었습니다. 애플리케이션에는 요청이 들어오고 나가는 메시지 계층과 캐싱에 전용으로 사용되는 머신 세트이 있었습니다. 워크로드의 각 계층 또는 형식에 특정 컴퓨터가 전용으로 지정되어 있었습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있었습니다. 특정 유형의 워크로드로 인해 컴퓨터가 너무 뜨거워지는 문제가 발생한 경우 해당 계층에 동일한 구성으로 더 많은 컴퓨터를 추가했습니다. 그러나 모든 워크로드를 쉽게 확장할 수 있는 것은 아니었습니다. 특히 데이터 계층을 사용할 때는 컴퓨터를 더 큰 컴퓨터로 바꾸었습니다. 간편성. 머신에 오류가 발생한 경우 머신을 복원할 수 있을 때까지 전체 애플리케이션 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.

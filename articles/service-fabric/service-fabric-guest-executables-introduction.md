@@ -3,8 +3,8 @@ title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell
-ms.openlocfilehash: cdaf3dae12c2c9da1f6bcbebbff560b98e62bade
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212843"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670645"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
 Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.
@@ -33,7 +33,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * 상태 모니터링. Service Fabric 상태 모니터링은 애플리케이션이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
 * 애플리케이션 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
 * 밀도. 한 클러스터에서 여러 애플리케이션을 실행할 수 있으므로 애플리케이션을 고유의 하드웨어에서 실행할 필요가 없습니다.
-* 검색 가능성: REST 사용 Service Fabric 명명 서비스를 호출하여 클러스터에서 다른 서비스를 찾을 수 있습니다. 
+* 검색 기능: REST를 사용 하 여 서비스를 찾는 다른 클러스터의 Service Fabric Naming 서비스를 호출할 수 있습니다. 
 
 ## <a name="samples"></a>샘플
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -42,7 +42,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 ## <a name="overview-of-application-and-service-manifest-files"></a>애플리케이션 및 서비스 매니페스트 파일 개요
 게스트 실행 파일을 배포하는 일환으로 [애플리케이션 모델](service-fabric-application-model.md)에 설명된 Service Fabric 패키징 및 배포 모델을 이해하는 것이 유용합니다. Service Fabric 패키징 모델은 두 XML 파일(애플리케이션 및 서비스 매니페스트)에 의존합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 Service Fabric SDK와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
-* **응용 프로그램 매니페스트** 응용 프로그램 매니페스트는 응용 프로그램을 설명하는 데 사용되며 응용 프로그램을 구성하는 서비스와 하나 이상의 서비스 배포 방법(예: 인스턴스 수)을 정의하는 데 사용되는 기타 매개 변수를 나열합니다.
+* **애플리케이션 매니페스트** 애플리케이션 매니페스트는 애플리케이션을 설명하는 데 사용되며 응용 프로그램을 구성하는 서비스와 하나 이상의 서비스 배포 방법(예: 인스턴스 수)을 정의하는 데 사용되는 기타 매개 변수를 나열합니다.
 
   Service Fabric에서 애플리케이션은 배포 및 업그레이드 단위입니다. 애플리케이션은 잠재적인 오류 및 잠재적 롤백이 관리되는 하나의 단위로 업그레이드될 수 있습니다. Service Fabric은 업그레이드 프로세스의 성공을 보장하며, 업그레이드가 실패할 경우 애플리케이션을 알 수 없거나 불안정한 상태로 남겨 두지 않습니다.
 * **서비스 매니페스트** 서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스의 이름 및 유형과 같은 데이터와 그에 대한 코드 및 구성을 포함합니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
@@ -77,7 +77,7 @@ ApplicationPackageRoot는 애플리케이션을 정의하는 ApplicationManifest
 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 * [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
 * [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
-* [Visual Studio를 사용하여 처음으로 게스트 실행 가능 응용 프로그램 만들기](quickstart-guest-app.md)
+* [Visual Studio를 사용하여 처음으로 게스트 실행 가능 애플리케이션 만들기](quickstart-guest-app.md)
 * 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 

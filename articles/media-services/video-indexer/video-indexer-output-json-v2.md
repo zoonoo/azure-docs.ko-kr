@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314878"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650091"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>v2 API에서 생성된 Video Indexer 출력 검사
-
-> [!Note]
-> Video Indexer V1 API는 2018년 8월 1일부터 더 이상 사용되지 않습니다. 이제는 Video Indexer v2 API를 사용해야 합니다. <br/>Video Indexer v2 API를 사용하여 개발하려면 [여기](https://api-portal.videoindexer.ai/)의 지침을 참조하세요. 
 
 **비디오 인덱스 가져오기** API를 호출하고 응답 상태가 정상이면 자세한 JSON 출력을 응답 콘텐츠로 가져옵니다. JSON 콘텐츠에는 지정된 비디오 인사이트의 세부 정보가 포함됩니다. 인사이트에는 전사, OCR, 얼굴, 주제, 블록 등과 같은 차원이 포함됩니다. 차원에는 각 차원이 비디오에 나타난 시점을 보여 주는 시간 범위의 인스턴스가 있습니다.  
 
@@ -163,7 +160,7 @@ ms.locfileid: "58314878"
 |레이블|[labels](#labels) 차원입니다.|
 |샷|[shots](#shots) 차원입니다.|
 |brands|[brands](#brands) 차원입니다.|
-|audioEffects|[audioEffects](#audioEffects) 차원입니다.|
+|audioEffects|[audioEffects](#audioeffects) 차원입니다.|
 |감정|[sentiments](#sentiments) 차원입니다.|
 |visualContentModeration|[visualContentModeration](#visualcontentmoderation) 차원입니다.|
 |textualContentModeration|[textualContentModeration](#textualcontentmoderation) 차원입니다.|
@@ -550,9 +547,9 @@ id|블록의 ID입니다.|
 |SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 가장 긴 단독 발언 내에 화자의 침묵이 있으면 포함됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.| 
 |SpeakerTalkToListenRatio|화자의 단독 발언에 소요된 시간(그 사이 침묵 제외)을 비디오의 총 시간으로 나눈 값을 기반으로 계산됩니다. 시간은 소수점 이하 세 자리에서 반올림됩니다.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|이름|설명|
+|name|설명|
 |---|---|
 |id|오디오 효과 ID입니다.|
 |형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|

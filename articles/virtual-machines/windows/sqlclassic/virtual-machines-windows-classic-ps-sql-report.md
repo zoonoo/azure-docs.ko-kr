@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445639"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650277"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
    4. 관리할 **로컬 컴퓨터**를 선택한 후 **마침**을 클릭합니다.
    5. **확인**을 클릭한 다음 **인증서 - 개인** 노드를 확장한 다음 **인증서**를 클릭합니다. 인증서 이름은 VM의 DNS 이름을 따서 지정되고 **cloudapp.net**으로 끝납니다. 인증서 이름을 마우스 오른쪽 단추로 클릭하고 **복사**를 클릭합니다.
    6. **T신뢰할 수 있는 루트 인증 기관** 노드를 확장한 다음 **인증서**를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 클릭합니다.
-   7. 유효성을 검사하려면 **신뢰할 수 있는 루트 인증 기관** 에서 인증서 이름을 두 번 클릭하여 오류가 없는지, 인증서가 표시되는지 확인합니다. 이 항목에 포함된 HTTPS 스크립트를 사용하여 보고서 서버를 구성하려면 스크립트의 매개 변수로 인증서 **지문** 의 값이 필요합니다. **지문 값을 가져오려면**다음을 완료합니다. 또한 [스크립트를 사용하여 보고서 서버 및 HTTPS 구성](#use-script-to-configure-the-report-server-and-HTTPS)섹션에 지문을 검색하는 PowerShell 샘플도 있습니다.
+   7. 유효성을 검사하려면 **신뢰할 수 있는 루트 인증 기관** 에서 인증서 이름을 두 번 클릭하여 오류가 없는지, 인증서가 표시되는지 확인합니다. 이 항목에 포함된 HTTPS 스크립트를 사용하여 보고서 서버를 구성하려면 스크립트의 매개 변수로 인증서 **지문** 의 값이 필요합니다. **지문 값을 가져오려면**다음을 완료합니다. 또한 [스크립트를 사용하여 보고서 서버 및 HTTPS 구성](#use-script-to-configure-the-report-server-and-https)섹션에 지문을 검색하는 PowerShell 샘플도 있습니다.
       
       1. 인증서의 이름(예: Ssrsnativecloud.cloudapp.net)을 두 번 클릭합니다.
       2. **세부 정보** 탭을 클릭합니다.

@@ -3,8 +3,8 @@ title: Azure 마이크로 서비스 소개 | Microsoft Docs
 description: 마이크로 서비스 접근 방식을 통해 클라우드 애플리케이션을 빌드하는 것이 왜 현대 애플리케이션 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
-ms.author: msfussell
-ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 1e02e4fdf0dbe04d8756fc6355c6a9e414b27d2b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102819"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665605"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유
 

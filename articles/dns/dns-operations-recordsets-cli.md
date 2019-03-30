@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963818"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650976"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -68,7 +68,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 
 `az network dns record-set <record-type> create` 명령을 사용하여 레코드 집합을 만듭니다. 도움말을 보려면 `az network dns record-set <record-type> create --help`을 참조하세요.
 
-레코드 집합을 명시적으로 만들면 [TTL(Time to Live)](dns-zones-records.md#time-to-live) 및 메타데이터와 같은 레코드 집합 속성을 지정할 수 있습니다. [레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 응용 프로그램 특정 데이터를 연결하는 데 사용할 수 있습니다.
+레코드 집합을 명시적으로 만들면 [TTL(Time to Live)](dns-zones-records.md#time-to-live) 및 메타데이터와 같은 레코드 집합 속성을 지정할 수 있습니다. [레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 애플리케이션 특정 데이터를 연결하는 데 사용할 수 있습니다.
 
 다음 예제에서는 `--ttl` 매개 변수(약식 `-l`)를 사용하여 60초 TTL이 있는 비어 있는 'A' 형식의 레코드 집합을 만듭니다.
 
@@ -92,7 +92,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 
 각각의 경우에 단일 레코드를 만드는 방법을 보여줍니다. 레코드는 기존 레코드 집합 또는 암시적으로 생성된 레코드 집합에 추가됩니다. 레코드 집합 생성 및 레코드 집합 매개 변수를 명시적으로 정의하는 방법은 [DNS 레코드 집합 만들](#create-a-dns-record-set)를 참조하세요.
 
-SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어지거나 삭제될 수 없기 때문에 SOA 레코드 집합을 만드는 예제를 제공하지 않습니다. 그러나 [뒷부분의 예제에 표시된 대로 SOA를 수정할 수 있습니다](#to-modify-an-SOA-record).
+SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어지거나 삭제될 수 없기 때문에 SOA 레코드 집합을 만드는 예제를 제공하지 않습니다. 그러나 [뒷부분의 예제에 표시된 대로 SOA를 수정할 수 있습니다](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>AAAA 레코드 만들기
 
@@ -270,7 +270,7 @@ az network dns record-set a update --resource-group myresourcegroup --zone-name 
 
 ### <a name="to-modify-the-metadata-of-an-existing-record-set"></a>기존 레코드 집합의 메타데이터를 수정하려면
 
-[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 응용 프로그램 특정 데이터를 연결하는 데 사용할 수 있습니다. 기존 레코드 집합의 메타데이터를 수정하려면 `az network dns record-set <record-type> update`을 사용합니다. 도움말을 보려면 `az network dns record-set <record-type> update --help`을 참조하세요.
+[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 애플리케이션 특정 데이터를 연결하는 데 사용할 수 있습니다. 기존 레코드 집합의 메타데이터를 수정하려면 `az network dns record-set <record-type> update`을 사용합니다. 도움말을 보려면 `az network dns record-set <record-type> update --help`을 참조하세요.
 
 다음 예제에서는 "dept=finance" 및 "environment=production"라는 두 개의 메타데이터 항목을 가진 레코드 집합을 수정하는 방법을 보여 줍니다. 기존 메타데이터는 지정된 값으로 *대체*됩니다.
 

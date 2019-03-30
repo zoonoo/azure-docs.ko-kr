@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887054"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651272"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
@@ -143,7 +143,7 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 ## <a name="action"></a>action
 
-Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니다. Scheduler는 HTTP, 저장소 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#errorAction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
+Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니다. Scheduler는 HTTP, 저장소 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#erroraction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
 
 * 동작의 서비스 유형
 * 동작의 세부 정보

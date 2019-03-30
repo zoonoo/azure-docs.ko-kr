@@ -1,24 +1,27 @@
 ---
 title: Windows 가상 데스크톱 미리 보기 Windows 7 및 Windows 10-Azure에 연결
-description: Windows 7 또는 Windows 10을 사용 하 여 Windows 가상 데스크톱 미리 보기 클라이언트에 연결 하는 방법입니다.
+description: Windows 7 또는 Windows 10을 사용 하 여 Windows 가상 데스크톱 미리 보기 서비스에 연결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399740"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630372"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 및 Windows 10 사용 하 여 연결
+# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 및 Windows 10을 사용하여 연결
 
 > 적용 대상 Windows 7 및 Windows 10입니다.
 
 다운로드할 수 있는 클라이언트는 사용할 수 있는 Windows 7 및 Windows 10을 실행 하는 장치에서 Windows 가상 데스크톱 미리 보기 리소스에 액세스를 제공 하는 합니다.
+
+> [!IMPORTANT]
+> 사용 하지 마세요 **RemoteApp 및 데스크톱 연결 (RADC)** 하거나 **원격 데스크톱 연결 (MSTSC)** Windows 가상 데스크톱 클라이언트 중 하나를 지원 하지 않으므로 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
 
 ## <a name="install-the-client"></a>클라이언트 설치
 
@@ -30,21 +33,17 @@ ms.locfileid: "58399740"
 
 피드를 구독 합니다.
 
-1. 모든 앱 목록에서 클라이언트를 시작, 원격 데스크톱을 찾아보십시오.
-2. 기본 페이지에서 회사 또는 학교 계정을 중 하나를 선택 합니다. 기본 피드 URL을 등록 합니다.
-   - 사용 하 여 필요한 경우 다른 URL을 제공할 수도 있습니다는 **URL 대신** 옵션입니다.
-3. 사용자 계정으로 로그인 합니다.
-
-> [!NOTE]
-> 관리자가 전자 메일 검색을 설정 하는 경우 클라이언트는 자동으로 조회 피드 URL 전자 메일 주소를 입력 합니다.
+1. 클라이언트를 시작, 모든 앱 목록에서 조회에 대 한 **원격 데스크톱**합니다.
+1. 선택 **Subscribe** 서비스에 연결 하 고 리소스를 검색할 기본 페이지입니다.
+1. **로그인** 메시지가 표시 되 면 사용자 계정으로 합니다.
 
 인증이 완료 되 면 이제를 사용할 수 있는 리소스 목록이 표시 됩니다.
 
 두 가지 방법 중 하나에서 리소스를 시작할 수 있습니다.
 
-- 클라이언트의 기본 페이지로 이동한 다음 리소스를 선택 합니다.
+- 클라이언트의 기본 페이지에서 응용 프로그램을 시작 하는 리소스를 두 번 클릭 합니다.
 - 시작 메뉴에서 다른 앱 평소와 같이 리소스를 시작 합니다.
-  -  검색 표시줄에서 앱에 대 한 검색할 수 있습니다.
+  - 검색 표시줄에서 앱에 대 한 검색할 수 있습니다.
 
 ## <a name="update-the-client"></a>클라이언트 업데이트
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902878"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630400"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -54,10 +54,6 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics용 C# 사용자 지정 역직렬 변환기
 
 개발자는 이제 Azure Stream Analytics에서 수신한 이벤트를 역직렬화하기 위해 C#에서 사용자 지정 역직렬 변환기를 구현할 수 있습니다. 역직렬화할 수 있는 형식의 예로는 Parquet, Protobuf, XML 또는 임의의 이진 형식이 있습니다.
-
-### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure 리소스를 Azure Data Lake Storage에 인증하기 위한 관리형 ID
-
-Azure Data Lake Storage Gen1에 쓰는 동안 Azure 리소스 기반 인증을 위해 관리 ID와 함께 실시간 파이프라인을 작동할 수 있게 하므로 프로그래밍 방식으로 작업을 만들 수 있습니다. 자세한 내용은 [Use Managed identities for Azure resources to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md)(Azure 리소스의 관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대한 Azure Stream Analytics 작업 인증)을 참조하세요.
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 

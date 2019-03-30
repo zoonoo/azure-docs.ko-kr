@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577122"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650464"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search의 미리 입력에 대 한 인덱스를 확인 기 추가
 
@@ -77,7 +77,7 @@ Suggester를 만든 후 추가 합니다 [제안 API](https://docs.microsoft.com
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
-C#에서 정의 [Suggester 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)합니다. Suggester 컬렉션이 하나씩만 사용할 수 있습니다. 추가 해야 `using System.Collections.Generic;` 개체의 목록을 만들 수 있도록 합니다. 
+C#에서 정의 [Suggester 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)합니다. `Suggesters` 컬렉션 이지만 하나씩만 사용할 수 있습니다. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

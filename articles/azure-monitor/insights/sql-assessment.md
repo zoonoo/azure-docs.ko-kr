@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics를 사용하여 SQL Server 환경 최적화 | Microsoft Docs
-description: Azure Log Analytics에서 SQL Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
+title: Azure Monitor를 사용 하 여 SQL Server 환경 최적화 | Microsoft Docs
+description: Azure Monitor를 통해 일정 한 간격으로 위험 및 사용자 환경의 상태를 평가 하기 위해 SQL Health Check 솔루션을 사용할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372474"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629114"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log Analytics에서 SQL Server Health Check 솔루션을 사용하여 사용자 SQL 환경 최적화
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경 최적화
 
 ![SQL Health Check 기호](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -40,24 +40,24 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* SQL Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Log Analytics 서비스에서 사용됩니다.  
+* SQL Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
 * 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
 * Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
   > [!NOTE]
-  > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Log Analytics 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
+  > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Azure Monitor로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
   >
   >
 
-SQL Server 서버에 대해 상태 검사를 수행하려면 에이전트와, 다음 지원되는 방법 중 하나를 통한 Log Analytics 연결이 필요합니다.
+SQL Server 서버에 대 한 상태 검사를 수행 하려면 에이전트와 지원 되는 다음 방법 중 하나를 사용 하 여 Azure Monitor에 대 한 연결 필요 합니다.
 
 1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
-2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Log Analytics 서비스와 통합되지 않은 경우, 서버는 Log Analytics와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
+2. System Center 2016-Operations Manager 또는 Operations Manager 2012 R2로 모니터링 되며 관리 그룹은 Azure Monitor와 통합 되지 경우 서버 멀티홈으로 Log Analytics 데이터를 수집 하 고 고 서비스로 전달할 수를 수 있습니다. Operations Manager에서 모니터링 합니다.  
 3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
-Operations Manager 관리 그룹에 보고하는 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음 관리 서버에서 Log Analytics 서비스로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
+Operations Manager 관리 그룹에 보고 하는 데이터를 수집 하 여 SQL Server에서 에이전트를 할당 된 관리 서버에 전달 하 고은 관리 서버에서 직접 Azure Monitor에 전송 합니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
-SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Manager 실행 계정을 구성해야 합니다. 자세한 내용은 아래의 [Log Analytics용 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-log-analytics)을 참조하세요.
+SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Manager 실행 계정을 구성해야 합니다. 참조 [Azure Monitor에 대 한 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-log-analytics) 아래 자세한 내용은 합니다.
 
 ## <a name="sql-health-check-data-collection-details"></a>SQL Health Check 데이터 수집 세부 정보
 SQL Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
@@ -157,43 +157,37 @@ PowerShell 창을 열고 사용자 정보로 업데이트 한 후 다음 스크�
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다
 
 ## <a name="use-health-check-focus-area-recommendations"></a>상태 검사 사용 초점 영역 권장 사항
-Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다.  설치 후 Azure Portal의 솔루션 페이지에서 SQL Health Check 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
+Azure Monitor에서 평가 솔루션을 사용 하려면, 먼저 솔루션이 설치 되어 있어야 합니다.  을 설치한 후 SQL Health Check 타일을 사용 하 여 권장 사항의 요약을 볼 수 있습니다 합니다 **개요** Azure portal에서 Azure Monitor에 대 한 페이지입니다.
 
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-1. Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
-3. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **개요** 타일을 선택합니다.  
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택합니다.
+3. 에 **Insights** 선택 메뉴의 섹션 **자세한**합니다.  
 4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![SQL Health Check 권장 사항의 이미지](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
-무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
+무시하려는 권장 사항이 있는 경우 Azure Monitor에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
-1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.
+1. Azure Monitor 메뉴에서 클릭 **로그**합니다.
 2. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
-    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    로그 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
-2. Log Analytics에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
-3. Log Analytics에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
+2. Azure Monitor에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음, 파일을 저장하고 닫습니다.
+3. Azure Monitor에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * Operations Manager 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -203,14 +197,8 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 2. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
 3. 무시된 권장 사항을 나중에 보려면 IgnoreRecommendations.txt 파일을 제거합니다. 또는 파일에서 RecommendationID를 제거할 수도 있습니다.
 
 ## <a name="sql-health-check-solution-faq"></a>SQL Health Check 솔루션 FAQ
@@ -263,4 +251,4 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [로그를 검색하여](../../azure-monitor/log-query/log-query-overview.md) 상세 SQL Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+* [쿼리 로그](../log-query/log-query-overview.md) 에 상세 SQL Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003147"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650755"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -99,15 +99,15 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
     |  오류 |  제안 |
     |---|---|
-    |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termService-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스 사용 안 함](#termService-service-is-disabled)을 참조하세요.  |  
-    |1058 - ERROR_SERVICE_DISABLED  |[TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요.  |
+    |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termservice-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스 사용 안 함](#termservice-service-is-disabled)을 참조하세요.  |  
+    |1058 - ERROR_SERVICE_DISABLED  |[TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요.  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.|
-    |1067 - ERROR_PROCESS_ABORTED  |[TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요.  |
+    |1067 - ERROR_PROCESS_ABORTED  |[TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요.  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[TermService 서비스가 로그온 실패로 인해 실패](#termService-service-fails-because-of-logon-failure)를 참조하세요. |
-    |1070 - ERROR_SERVICE_START_HANG   | [TermService 서비스가 충돌 또는 중단](#termService-service-crashes-or-hangs)을 참조하세요. |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | [TermService 서비스 사용 안 함](#termService-service-is-disabled)을 참조하세요.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |[TermService 서비스가 로그온 실패로 인해 실패](#termservice-service-fails-because-of-logon-failure)를 참조하세요. |
+    |1070 - ERROR_SERVICE_START_HANG   | [TermService 서비스가 충돌 또는 중단](#termservice-service-crashes-or-hangs)을 참조하세요. |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | [TermService 서비스 사용 안 함](#termservice-service-is-disabled)을 참조하세요.  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. |
     |1753   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.   |
     

@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336272"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661227"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -47,6 +47,11 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 ## <a name="fpgas"></a>FPGA
 
 요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.
+
+## <a name="automated-machine-learning"></a>자동화된 기계 학습
+
+Tensor Flow 자동화 된 기계 학습 tensor flow 버전 1.13 현재 지원 하지 않습니다. 이 설치 하면 패키지 종속성 작동을 중지 합니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 중입니다. 
+
 
 ## <a name="databricks"></a>Databricks
 

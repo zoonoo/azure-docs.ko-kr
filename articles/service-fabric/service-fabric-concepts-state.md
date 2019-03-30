@@ -4,7 +4,7 @@ description: Service Fabric 서비스에서 서비스 상태를 정의하고 관
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 48345be959bb9bebf7c30fa71de91b7881863d66
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054960"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670356"
 ---
 # <a name="service-state"></a>서비스 상태
 **서비스 상태**는 서비스가 작동하기 위해 필요한 메모리 내 또는 디스크의 데이터를 나타냅니다. 예를 들어 서비스가 작업을 수행하기 위해 읽고 쓰는 데이터 구조 및 멤버 변수를 포함합니다. 서비스의 구성 방식에 따라 디스크에 저장되어 있는 파일이나 기타 리소스도 포함할 수 있습니다. 예를 들어 데이터베이스가 데이터 및 트랜잭션 로그를 저장하는 데 사용하는 파일이 있습니다.

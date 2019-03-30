@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시는, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339587"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669779"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>오류 "내부 보기 실패: ENOSPC 보기" Node.js 응용 프로그램에 디버깅을 연결 하는 경우
+
+### <a name="reason"></a>이유
+
+디버거를 사용 하 여 연결 하려고 하는 Node.js 응용 프로그램을 사용 하 여 pod를 실행 하는 노드를 초과 합니다 *fs.inotify.max_user_watches* 값입니다. 경우에 따라 [기본값인 *fs.inotify.max_user_watches* 디버거를 pod에 직접 연결을 처리 하기 너무 작거나](https://github.com/Azure/AKS/issues/772)합니다.
+
+### <a name="try"></a>시도해 보기
+임시 해결 방법이이 문제에 대 한 값을 늘려야 하는 것 *fs.inotify.max_user_watches* 클러스터의 각 노드에 변경 내용을 적용 하려면 해당 노드를 다시 시작 합니다.

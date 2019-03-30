@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl mesh service 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c40cf2340568e704a5c76ad367c07c85826943b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667585"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다.
@@ -40,7 +40,7 @@ ms.locfileid: "53282919"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 응용 프로그램 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -61,7 +61,7 @@ ms.locfileid: "53282919"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 응용 프로그램 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
 | --name -n[필수] | 서비스의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
