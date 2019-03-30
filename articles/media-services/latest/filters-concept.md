@@ -15,7 +15,7 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58309541"
@@ -26,7 +26,7 @@ ms.locfileid: "58309541"
 
 필터는 고객이 다음과 같은 작업을 수행할 수 있도록 하는 서버 쪽 규칙입니다. 
 
-- 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생합니다. 예: 
+- 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생합니다. 예를 들면 다음과 같습니다.
   - 라이브 이벤트의 하위 클립을 표시하는 매니페스트를 줄입니다("하위 클립 필터링").
   - 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 - 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다(“변환 필터링”). 

@@ -172,7 +172,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 
 동일한 저장소 계정을 여러 리소스에 대 한 로그를 수집 하려면를 사용할 수 있으므로 blob 이름에 전체 리소스 ID에 액세스 하거나 다운로드 해야 하는 blob만 유용 합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-Blob을 다운로드할 폴더를 만듭니다. 예: 
+Blob을 다운로드할 폴더를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -192,7 +192,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 다운로드 하 여 blob을 파일로 저장 하는이 구조를 사용 합니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예: 
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들면 다음과 같습니다.
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 
@@ -268,7 +268,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **identity** |REST API 요청에 제공 된 토큰의 id입니다. "User"는 일반적으로 "서비스 주체" 또는 Azure PowerShell cmdlet에서 생성 되는 요청의 경우와 같이 "사용자 + appId" 조합 합니다. |
 | **properties** |작업에 따라 달라 지는 정보 (**operationName**). 대부분의 경우이 필드는 클라이언트 정보 (클라이언트에서 전달 된 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드를 포함 합니다. 개체가 요청의 결과로 반환 되는 경우에 또한 (예를 들어 **: KeyCreate** 또는 **VaultGet**), 키도 포함 된 URI ("id"), URI 또는 암호 정보 URI에 자격 증명 모음. |
 
-합니다 **operationName** 필드 값은 *ObjectVerb* 형식입니다. 예: 
+합니다 **operationName** 필드 값은 *ObjectVerb* 형식입니다. 예를 들면 다음과 같습니다.
 
 * 모든 주요 자격 증명 모음 작업에는 `Vault<action>` 형식으로 `VaultGet` 및 `VaultCreate`합니다.
 * 모든 주요 작업은는 `Key<action>` 형식으로 `KeySign` 고 `KeyList`입니다.

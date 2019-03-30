@@ -56,7 +56,7 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
     ```
 기본 네트워크 구성 메커니즘은 Ubuntu 17.10 부터는 [NETPLAN]( https://netplan.io)합니다.  NETPLAN YAML 구성 파일에이 위치에서 네트워크 구성을 읽고 설치/인스턴스화 시: / {lib,etc,run}/netplan/*.yaml 합니다.
 
-주십시오를 *dhcp6:true* 구성에서 각 이더넷 인터페이스에 대 한 문입니다.  예: 
+주십시오를 *dhcp6:true* 구성에서 각 이더넷 인터페이스에 대 한 문입니다.  예를 들면 다음과 같습니다.
   
         network:
           version: 2

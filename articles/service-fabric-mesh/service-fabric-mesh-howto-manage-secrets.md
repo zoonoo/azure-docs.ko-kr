@@ -201,7 +201,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-예: 
+예를 들면 다음과 같습니다.
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
