@@ -6,18 +6,21 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7bfd94cb4940c33cb72a39827f67d04a5540ccdb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859694"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663437"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
 이 문서에서는 Azure Resource Manager 템플릿과 Azure PowerShell을 사용하여 프로그래밍 방식으로 Resource Health 활동 로그 경고를 만드는 방법을 설명합니다.
 
 Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 정보를 알려줍니다. Azure Resource Health 경고는 이러한 리소스의 상태가 변경되면 거의 실시간으로 알려줍니다. Resource Health 경고를 프로그래밍 방식으로 만들면 사용자가 경고를 대량으로 생성하고 사용자 지정할 수 있습니다.
+
+> [!NOTE]
+> 리소스 상태 경고는 현재 미리 보기에 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

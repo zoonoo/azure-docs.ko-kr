@@ -4,17 +4,21 @@ description: Azure Migrate의 Collector 어플라이언스 업그레이드에 �
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648676"
 ---
 # <a name="collector-appliance-updates"></a>수집기 어플라이언스 업데이트
+
+이 문서에서는 [Azure Migrate](migrate-overview.md)의 Collector 어플라이언스 업그레이드 정보를 간략하게 제공합니다.
+
+Azure Migrate Collector는 Azure로 마이그레이션하기 전에 평가를 진행하기 위해 온-프레미스 vCenter 환경을 검색하는 데 사용되는 간편한 어플라이언스입니다. [자세히 알아보기](concepts-collector.md).
 
 ## <a name="how-to-upgrade-the-appliance"></a>어플라이언스를 업그레이드 하는 방법
 
@@ -33,11 +37,19 @@ OVA를 다시 다운로드하지 않고도 Collector를 최신 버전으로 업�
 
 ## <a name="collector-update-release-history"></a>Collector 업데이트 릴리스 기록
 
-이 문서에서는 [Azure Migrate](migrate-overview.md)의 Collector 어플라이언스 업그레이드 정보를 간략하게 제공합니다.
-
-Azure Migrate Collector는 Azure로 마이그레이션하기 전에 평가를 진행하기 위해 온-프레미스 vCenter 환경을 검색하는 데 사용되는 간편한 어플라이언스입니다. [자세히 알아보기](concepts-collector.md).
-
 ### <a name="continuous-discovery-upgrade-versions"></a>연속 검색: 업그레이드 버전
+
+#### <a name="version-101014-released-on-03292019"></a>(03/29/2019에 릴리스됨) 1.0.10.14 버전
+
+몇 가지 UI 기능이 포함 되어 있습니다.
+
+업그레이드에 대 한 값을 해시 [1.0.10.14 패키지](https://aka.ms/migrate/col/upgrade_10_14)
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>(03/13/2019에 릴리스됨) 1.0.10.12 버전
 

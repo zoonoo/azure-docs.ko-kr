@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482915"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652640"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -102,7 +102,7 @@ Azure Migrate는 온-프레미스 Vm의 성능 데이터를 수집 하도록 온
    - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Azure를 선택할 수 없습니다 클라우드 어플라이언스
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>"Azure 클라우드 선택 실패"을 Azure를 선택할 수 없습니다 클라우드 어플라이언스를 오류로 실패
 
 이것은 알려진된 문제 이며 수정 문제에 대해 사용할 수 있습니다. 다운로드 하십시오 합니다 [최신 비트를 업그레이드](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) 어플라이언스 및 수정 사항을 적용 하도록 어플라이언스에 업데이트 합니다.
 

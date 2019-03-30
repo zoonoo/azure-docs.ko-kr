@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872656"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648849"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금에 보기 및 다운로드
 
@@ -28,7 +28,7 @@ EA 고객 알고 싶거나를 [Microsoft 고객 계약](#check-your-access-to-a-
 
 특정 역할에 대해서만 계정 관리자 또는 엔터프라이즈 관리자와 같은 Azure 사용량 정보를 가져올 수 있는 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
-있는 경우는 [Microsoft 고객 계약](#Check-your-access-to-a-Microsoft-Customer-Agreement), 청구 프로필 소유자, 참가자, 판독기 이거나 송장 manager Azure 사용량 및 요금을 볼 수 있어야 합니다. 자세한 청구 역할에 대 한 Microsoft 고객 계약에 대 한 참조 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)합니다.
+있는 경우는 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement), 청구 프로필 소유자, 참가자, 판독기 이거나 송장 manager Azure 사용량 및 요금을 볼 수 있어야 합니다. 자세한 청구 역할에 대 한 Microsoft 고객 계약에 대 한 참조 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)합니다.
 
 ## <a name="download-usage-from-the-account-center-csv"></a>계정 센터에서 사용 현황 다운로드(.csv)
 

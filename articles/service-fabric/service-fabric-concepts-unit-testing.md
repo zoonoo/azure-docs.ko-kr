@@ -3,8 +3,8 @@ title: Azure Service Fabric에서 상태 저장 서비스 단위 테스트 | Mic
 description: Service Fabric 상태 저장 서비스의 단위 테스트 개념 및 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: charleszipp
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
-ms.openlocfilehash: c2d98316b81b3d908ebbe6147fe40f231e94c142
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703499"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662570"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 

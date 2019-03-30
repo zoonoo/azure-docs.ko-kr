@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 1b2790a4673fd162deca445b4300850fc0e3a087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851994"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648285"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Azure Machine Learning Studio 작업 영역 배포
 
@@ -25,10 +25,11 @@ Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상�
 Azure 리소스 그룹을 만든 다음, Resource Manager 템플릿을 사용하여 새 Azure Storage 계정 및 새 Azure Machine Learning Studio 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
+
 Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 Azure 저장소 계정이 필요합니다.
 다음 템플릿은 리소스 그룹의 이름을 사용하여 저장소 계정 이름 및 작업 영역 이름을 생성합니다.  또한 작업 영역을 만들 때 속성으로 저장소 계정 이름을 사용합니다.
 
-```
+```json
 {
     "contentVersion": "1.0.0.0",
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -76,10 +77,11 @@ Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 
 c:\temp\ 아래에 mlworkspace.json 파일로 이 템플릿을 저장합니다.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>템플릿을 기반으로 리소스 그룹 배포
+
 * PowerShell 열기
 * Azure Resource Manager 및 Azure 서비스 관리에 대한 모듈 설치
 
-```
+```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
 Install-Module AzureRM -Scope CurrentUser
 
@@ -91,7 +93,7 @@ Install-Module Azure -Scope CurrentUser
 
 * Azure에 대한 인증
 
-```
+```powershell
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzureRmAccount
 ```
@@ -103,7 +105,7 @@ Connect-AzureRmAccount
 
 * 리소스 그룹 만들기
 
-```
+```powershell
 $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
@@ -115,27 +117,28 @@ $rg
 
 * 리소스 그룹 배포를 사용하여 새 Machine Learning 작업 영역을 배포합니다.
 
-```
+```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 배포가 완료되면 배포한 작업 영역의 속성에 액세스하는 것은 간단합니다. 예를 들어 기본 키 토큰에 액세스할 수 있습니다.
 
-```
+```powershell
 # Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 기존 작업 영역의 토큰을 검색하는 또 다른 방법은 Invoke-AzureRmResourceAction 명령을 사용하는 것입니다. 예를 들어 모든 작업 영역의 기본 및 보조 토큰을 나열할 수 있습니다.
 
-```
+```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 작업 영역이 프로비전되면 [Azure Machine Learning Studio용 PowerShell 모듈](https://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다.
 * [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다.

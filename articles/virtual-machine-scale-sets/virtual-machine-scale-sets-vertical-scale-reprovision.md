@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579753"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648268"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 
@@ -98,6 +98,7 @@ ms.locfileid: "58579753"
 * [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>구독으로 Azure Automation 수직 규모 runbook 가져오기
+
 가상 머신 확장 집합을 수직으로 확장하는 데 필요한 Runbook은 Azure Automation Runbook 갤러리에 이미 게시되어 있습니다. 이들을 구독으로 가져오려면 이 문서의 단계를 따릅니다.
 
 * [Azure Automation용 Runbook 및 모듈 갤러리](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ Runbook 메뉴에서 갤러리 찾아보기 옵션을 선택:
 ![Runbook 갤러리][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Runbook에 Webhook 추가
+
 Runbook을 가져온 후에는 가상 머신 확장 집합에서 경고를 통해 트리거될 수 있도록 Runbook에 webhook를 추가합니다. Runbook에 대한 Webhook를 만드는 자세한 방법을 이 문서에서 설명합니다.
 
 * [Azure Automation Webhook](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Runbook을 가져온 후에는 가상 머신 확장 집합에서 경고를 통�
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>가상 머신 확장 집합에 경고 추가
+
 다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Add-AzMetricAlertRule  -Name  $alertName `
 * [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>요약
+
 이 문서에서 간단한 수직 규모 조정 예제를 살펴보았습니다. Automation 계정, Runbook, Webhook, 경고 등 이러한 구성 요소를 사용하여 다양한 이벤트를 사용자 지정 작업 집합과 연결할 수 있습니다.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593321"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651671"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 
@@ -83,17 +83,17 @@ ms.locfileid: "56593321"
 3. [서비스 구성 파일의 CA 인증서 업데이트](#update-ca-certificate-in-service-configuration-file)
 4. [클라이언트 인증서 발급](#issue-client-certificates)
 5. [클라이언트 인증서용 PFX 파일 만들기](#create-pfx-files-for-client-certificates)
-6. [클라이언트 인증서 가져오기](#Import-Client-Certificate)
+6. [클라이언트 인증서 가져오기](#import-client-certificate)
 7. [클라이언트 인증서 지문 복사](#copy-client-certificate-thumbprints)
 8. [서비스 구성 파일에서 허용된 클라이언트 구성](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>기존 클라이언트 인증서 사용
 1. [Find CA Public Key](#find-ca-public-key)
-2. [클라우드 서비스에 CA 인증서 업로드](#Upload-CA-certificate-to-cloud-service)
-3. [서비스 구성 파일의 CA 인증서 업데이트](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [클라이언트 인증서 지문 복사](#Copy-Client-Certificate-Thumbprints)
+2. [클라우드 서비스에 CA 인증서 업로드](#upload-ca-certificate-to-cloud-service)
+3. [서비스 구성 파일의 CA 인증서 업데이트](#update-ca-certificate-in-service-configuration-file)
+4. [클라이언트 인증서 지문 복사](#copy-client-certificate-thumbprints)
 5. [서비스 구성 파일에서 허용된 클라이언트 구성](#configure-allowed-clients-in-the-service-configuration-file)
-6. [클라이언트 인증서 해지 확인 구성](#Configure-Client-Certificate-Revocation-Check)
+6. [클라이언트 인증서 해지 확인 구성](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>허용된 IP 주소
 특정 범위의 IP 주소에서만 서비스 엔드포인트에 액세스하도록 제한할 수 있습니다.

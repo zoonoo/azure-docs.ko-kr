@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084084"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652334"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -43,7 +43,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 애플�
 
 ## <a name="publish-your-application-in-azure"></a>Azure에 애플리케이션 게시
 
-이 문서는 처음으로 이 시나리오를 사용하여 앱을 게시하는 사람들을 위한 것입니다. 게시 단계 외에도 애플리케이션과 PingAccess를 시작하는 방법을 안내합니다. 두 서비스를 이미 구성했지만 게시 단계에서 리프레셔를 원하는 경우 커넥터 설치를 건너뛰고 [애플리케이션 프록시를 사용하여 Azure AD에 앱 추가](#add-your-app-to-Azure-AD-with-Application-Proxy)로 이동할 수 있습니다.
+이 문서는 처음으로 이 시나리오를 사용하여 앱을 게시하는 사람들을 위한 것입니다. 게시 단계 외에도 애플리케이션과 PingAccess를 시작하는 방법을 안내합니다. 두 서비스를 이미 구성했지만 게시 단계에서 리프레셔를 원하는 경우 커넥터 설치를 건너뛰고 [애플리케이션 프록시를 사용하여 Azure AD에 앱 추가](#add-your-app-to-azure-ad-with-application-proxy)로 이동할 수 있습니다.
 
 >[!NOTE]
 >이 시나리오는 Azure AD와 PingAccess 간의 파트너 관계이므로 일부 지침은 Ping ID 사이트에 존재합니다.

@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl mesh service-replica 명령을 설명합�
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: bcf4b8d013783a9fbdb62bcdb8737680bfce7640
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662434"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 복제본 세부 정보를 가져오고 애플리케이션 리소스에 있는 지정된 서비스의 복제본을 나열합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "53283329"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 응용 프로그램 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
 | --service-name[필수] | 서비스의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -62,7 +62,7 @@ ms.locfileid: "53283329"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 응용 프로그램 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
 | --name -n[필수] | 서비스 복제본의 이름입니다. |
 | --service-name[필수] | 서비스의 이름입니다. |
 

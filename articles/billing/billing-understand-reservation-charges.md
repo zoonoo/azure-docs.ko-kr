@@ -1,6 +1,6 @@
 ---
-title: Azure 예약 할인 이해 | Microsoft Docs
-description: 예약 할인이 실행 중인 SQL Database에 적용되는 방식을 알아봅니다.
+title: Azure SQL Database에 대 한 예약 할인을 이해 | Microsoft Docs
+description: Azure SQL Database를 실행 하는 예약 할인은 적용 하는 방법에 대해 알아봅니다.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845465"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649444"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Azure 예약 할인이 SQL Database에 적용되는 방식 이해
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Azure SQL Database에 예약 할인은 적용 하는 방법 이해
 
 Azure SQL Database 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL Database에 자동으로 적용됩니다. 예약은 SQL Database의 계산 비용을 포함합니다. 정상 요금으로 소프트웨어, 저장소 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
 
@@ -54,6 +54,6 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [엔터프라이즈 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

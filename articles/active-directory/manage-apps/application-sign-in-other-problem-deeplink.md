@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3525436c61038d9cdda3a1b1da8e226ab153134f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098256"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649342"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 애플리케이션에 로그인하는 문제
 
@@ -113,7 +113,7 @@ ms.locfileid: "58098256"
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [Azure AD 갤러리에서 애플리케이션 추가](#add-an-application-from-the-Azure-AD-gallery)
+-   [Azure AD 갤러리에서 애플리케이션 추가](#add-an-application-from-the-azure-ad-gallery)
 
 -   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 

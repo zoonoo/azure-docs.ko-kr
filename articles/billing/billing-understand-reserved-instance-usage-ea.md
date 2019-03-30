@@ -1,5 +1,5 @@
 ---
-title: Enterprise의 Azure 예약 사용량 이해 | Microsoft Docs
+title: 엔터프라이즈용 Azure 예약 사용량 이해 | Microsoft Docs
 description: Enterprise 등록에서 Azure Reservation의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857694"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648302"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>엔터프라이즈 등록에서 Azure Reservation 사용량 이해
 
@@ -53,7 +53,7 @@ ms.locfileid: "57857694"
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 및 Cosmos DB 예약된 용량 예약의 사용량
 
-다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다. 
+다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다.
 
 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "57857694"
 |제품| SQL Database Gen 4(2개 코어)|
 |지역 | eastus |
 
-### <a name="usage-in-csv-file"></a>CSV 파일에서 사용 
+### <a name="usage-in-csv-file"></a>CSV 파일에서 사용
 
 **추가 정보**로 필터링하고, **예약 ID**를 입력하고, 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
 
@@ -81,19 +81,20 @@ Azure 예약 사용량은 엔터프라이즈 포털의 사용량 요약 섹션�
 1. VM의 하드웨어 구성 요소는 예약에서 처리되므로 이에 대해서는 청구되지 않습니다. SQL Database 예약의 경우 Azure SQL Database 예약된 용량 사용량으로 **서비스 이름**이 포함된 줄이 표시됩니다.
 2. 이 예제에서는 Azure 하이브리드 혜택이 없으므로 VM과 함께 사용되는 Windows 소프트웨어에 대한 요금이 부과됩니다.
 
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md) 
+- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
-
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240170"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648822"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub의 연결 끊김 문제 감지지 및 해결
 
@@ -32,7 +32,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 1. **진단 설정**을 선택합니다.
 1. **진단 켜기**를 선택합니다.
 1. **연결** 로그가 수집되도록 설정합니다.
-1. 쉽게 분석하려면 **Log Analytics에 보내기**([가격 책정 참고](https://azure.microsoft.com/pricing/details/log-analytics/))를 켜야 합니다. [연결 오류 해결](#Resolve-connectivity-errors)의 예제를 참조하세요.
+1. 쉽게 분석하려면 **Log Analytics에 보내기**([가격 책정 참고](https://azure.microsoft.com/pricing/details/log-analytics/))를 켜야 합니다. [연결 오류 해결](#resolve-connectivity-errors)의 예제를 참조하세요.
 
    ![권장 설정][2]
 
@@ -40,15 +40,14 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>_연결된 디바이스_ 개수 메트릭에 대한 경고 설정
 
-디바이스 연결이 끊어질 때 경고를 받으려면 **연결된 디바이스** 메트릭에서 경고를 구성합니다.
+장치 연결을 끊을 때 경고를 받으려면,에서 경고를 구성 합니다 **연결 된 장치 (미리 보기)** 메트릭.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. IoT Hub로 이동합니다.
-1. **경고(클래식)** 를 선택합니다.
-1. **메트릭 경고 추가(클래식)** 를 선택합니다.
-1. 양식을 채우고 **확인**을 선택합니다.
-
-   ![권장되는 메트릭 경고][3]
+1. **경고**를 선택합니다.
+1. 선택 **새 경고 규칙**합니다.
+1. 선택 **조건 추가**, "연결 된 장치 (미리 보기)"를 선택 합니다.
+1. 프로그램이 원하는 임계값을 설정 하 고 다음 프롬프트를 여는 경고 옵션을 완료 합니다.
 
 자세한 내용은은 [Microsoft Azure의 클래식 경고란?](../azure-monitor/platform/alerts-overview.md)을 참조하세요.
 

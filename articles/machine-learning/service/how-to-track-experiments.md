@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361458"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652317"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
 
@@ -351,7 +351,7 @@ az ml run cancel -r <run_id> -p <project_path>
 Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 분류 모델에 대해 다음 차트를 볼 수 있습니다. 
 + [혼동 행렬](#confusion-matrix)
 + [정밀도-리콜 차트](#precision-recall-chart)
-+ [ROC(수신기 작동 특성)](#ROC)
++ [ROC(수신기 작동 특성)](#roc)
 + [리프트 곡선](#lift-curve)
 + [게인 곡선](#gains-curve)
 + [보정 플롯](#calibration-plot)
@@ -422,7 +422,7 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>예측 대 True
+#### <a name="predicted-vs-true"></a>예측 대 True 
 
 예측 대 실제는 회귀 문제에 대한 예측된 값과 상호 연관된 실제 값 사이의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
 

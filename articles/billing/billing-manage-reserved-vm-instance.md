@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399968"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648642"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
-Azure 예약을 구입하면 다른 구독에 예약을 적용하거나, 예약을 관리할 수 있는 사용자를 변경하거나, 예약의 범위를 변경해야 할 수 있습니다. 또한 예약을 두 개로 분할하여 구입한 일부 인스턴스를 다른 구독에 적용할 수도 있습니다.
+Azure에 대 한 예약을 구입한 후 다른 구독에 예약을 적용 하려면 예약, 관리 또는 예약의 범위를 변경할 수 있는 사용자를 변경 해야 합니다. 또한 예약을 두 개로 분할하여 구입한 일부 인스턴스를 다른 구독에 적용할 수도 있습니다.
 
 Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 최적화 설정을 변경할 수 있습니다. 예약 할인을 동일한 시리즈의 VM에 적용하거나, 특정 VM 크기에 대한 데이터 센터 용량을 예약할 수 있습니다.
 
@@ -123,12 +123,20 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 예약이란?](billing-save-compute-costs-reservations.md)
+- [Azure에 대 한 예약 이란?](billing-save-compute-costs-reservations.md)
+
+서비스 계획을 구입 합니다.
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+소프트웨어 플랜을 구입 합니다.
+- [Azure 예약에서 Red Hat 소프트웨어 계획에 대 한 요금을 선불합니다](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+할인 및 사용을 이해 합니다.
 - [VM 예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [Red Hat Enterprise Linux 소프트웨어 계획 할인이 적용 되는 방식을 이해 합니다.](../billing/billing-understand-rhel-reservation-charges.md)
 - [SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해](../billing/billing-understand-suse-reservation-charges.md)
 - [예약 할인이 적용되는 방식 이해](billing-understand-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540995"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662373"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -58,7 +58,7 @@ ms.locfileid: "58540995"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 가상 컴퓨터를 배포, 가상 컴퓨터를 구성, 클러스터 프레임 워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명를 사용 하 여 [Azure NetApp 파일](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/)합니다.
+이 문서에서는 가상 컴퓨터를 배포, 가상 컴퓨터를 구성, 클러스터 프레임 워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명를 사용 하 여 [Azure NetApp 파일 (공개 미리 보기)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/)합니다.
 예제 구성, 설치 명령 등, ASCS 인스턴스 번호 00, ERS 인스턴스 번호 01, 기본 응용 프로그램 인스턴스 (PA) 02 이며 응용 프로그램 인스턴스 AAS ()는 03 합니다. SAP 시스템 ID QAS 사용 됩니다. 
 
 이 문서에서는 Azure NetApp 파일을 사용 하 여 SAP NetWeaver 응용 프로그램에 대 한 고가용성을 달성 하는 방법에 설명 합니다. 데이터베이스 계층은이 문서에서 자세히 적용 되지 않습니다.

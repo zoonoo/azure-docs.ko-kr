@@ -1,5 +1,5 @@
 ---
-title: SUSE 요금제 할인 및 사용량 이해 - Azure 예약 | Microsoft Docs
+title: SUSE 예약 계획 할인 및 사용-Azure 이해 | Microsoft Docs
 description: 가상 머신의 SUSE 소프트웨어에 SUSE 요금제 할인이 적용되는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863477"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649259"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure의 SUSE Linux Enterprise 소프트웨어 예약 계획 할인은 적용 하는 방법 이해
 
 SUSE Linux 요금제를 구입한 후에 예약에 해당하는 배포된 SUSE VM(가상 머신)에 자동으로 할인이 적용됩니다. SUSE Linux 요금제는 Azure VM에서 SUSE 소프트웨어를 실행하는 비용을 포함합니다.
 
 적절한 SUSE Linux 요금제를 구입하려면 실행하는 SUSE VM과 해당 VM에 있는 vCPU 수를 이해해야 합니다. 다음 섹션은 사용량 CSV 파일에서 구입할 요금제를 식별하는 데 도움이 됩니다.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>할인은 인스턴스 크기 유연성이 있는 다양한 VM 크기에 적용됩니다.
+## <a name="discount-applies-to-different-vm-sizes"></a>다양 한 VM 크기에 할인이 적용 됩니다.
 
 Reserved VM Instances와 같이 SUSE 요금제 구매는 인스턴스 크기 유연성을 제공합니다. 즉, 다른 vCPU 수를 사용하는 VM을 배포할 때도 할인이 적용됩니다. 소프트웨어 요금제 내의 다른 VM 크기에도 할인이 적용됩니다.
 
@@ -40,7 +40,7 @@ Reserved VM Instances와 같이 SUSE 요금제 구매는 인스턴스 크기 유
 
 5개 이상의 vCPU에 대한 비율은 2.6입니다. 따라서 5개 이상의 vCPU가 있는 SUSE에 대한 예약은 소프트웨어 비용에서 약 77%에 해당하는 일부만 부과합니다.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>SUSE Linux 요금제를 구입하기 전에 SUSE VM 사용량 이해
+## <a name="understand-suse-vm-usage-before-you-buy"></a>구입 하기 전에 SUSE VM 사용량 이해
 
 다음 표에는 예약을 구입할 수 있는 소프트웨어 요금제, 해당 관련 사용량 미터 및 각각의 비율이 나와 있습니다.
 
@@ -133,6 +133,6 @@ Azure Portal Marketplace 이름:
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

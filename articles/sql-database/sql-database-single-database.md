@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/29/2019
+ms.openlocfilehash: 19fa1797e2765a642aac19f55f0906ba9aef61a8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431118"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660292"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -54,6 +54,9 @@ ms.locfileid: "57431118"
 ## <a name="security"></a>보안
 
 SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-database-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 도와줍니다.
+
+> [!IMPORTANT]
+> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

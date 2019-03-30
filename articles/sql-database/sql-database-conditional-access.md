@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/24/2018
-ms.openlocfilehash: fa681198088cd4ae13668193939474d0d501b6f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/29/2019
+ms.openlocfilehash: 79d15a46affb2a6b7159ba080d4235073c59919c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098517"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648986"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 데이터 웨어하우스를 사용하여 조건부 액세스(MFA)  
 
-Azure [SQL Database](sql-database-technical-overview.md)와 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Microsoft 조건부 액세스를 지원합니다. 
+Azure [SQL Database](sql-database-technical-overview.md)를 [관리 되는 인스턴스](sql-database-managed-instance.md), 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Microsoft 조건부 액세스를 지원 합니다. 
 
 > [!NOTE]
 > 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.

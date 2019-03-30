@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0880ad2ab02fad574f5204741b0fa03e4ef0338
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109783"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648066"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
@@ -69,9 +69,10 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 1. 표준 PowerShell 창을 열고 다음 명령을 실행합니다.
 
-    ```
+    ```powershell
      Install-Module -Name AzureAD
     ```
+
     관리자가 아닌 사용자로 명령을 실행하는 경우 `-scope currentuser` 옵션을 사용합니다.
 2. 설치 도중 Nuget.org에서 두 개의 패키지를 설치하려면 **Y**를 선택합니다. 두 개의 패키지가 모두 필요합니다. 
 
@@ -81,20 +82,22 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 1. 동일한 PowerShell 창에서 Azure AD 모듈을 가져옵니다.
 
-    ```
+    ```powershell
     Import-Module AzureAD
     ```
 
 2. 테넌트 관리자로 Azure AD 모듈에 로그인합니다.
 
-    ```
+    ```powershell
     Connect-AzureAD
     ```
+
 3. 홈페이지 URL을 기준으로 앱을 찾습니다. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동하여 포털에서 URL을 찾을 수 있습니다. 이 예제에서는 *sharepoint-iddemo*를 사용합니다.
 
+    ```powershell
+    Get-AzureADApplication | Where-Object { $_.Homepage -like "sharepoint-iddemo" } | Format-List DisplayName, Homepage, ObjectID
     ```
-    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
-    ```
+
 4. 여기에 표시된 것과 비슷한 결과가 표시되어야 합니다. 다음 섹션에서 사용할 ObjectID GUID를 복사합니다.
 
     ```
@@ -109,7 +112,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 1. 맞는 앱이 있는지 확인하고 *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4*를 앞의 섹션에서 복사한 ObjectID로 바꿉니다.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
@@ -117,23 +120,25 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 2. 변경 내용을 저장하기 위해 비어 있는 애플리케이션 개체를 만듭니다. 이 변수는 업데이트하려는 값을 보유합니다. 이 단계에서는 아무 것도 만들어지지 않습니다.
 
-    ```
+    ```powershell
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
 3. 홈페이지 URL을 원하는 값으로 설정합니다. 값은 게시된 앱의 하위 도메인 경로여야 합니다. 예를 들어 홈페이지 URL을 `https://sharepoint-iddemo.msappproxy.net/`에서 `https://sharepoint-iddemo.msappproxy.net/hybrid/`로 변경하면 앱 사용자가 사용자 지정 홈페이지로 바로 이동합니다.
 
-    ```
+    ```powershell
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
+
 4. “1단계: 앱의 ObjectID 찾기”에서 복사한 GUID(ObjectID)를 사용하여 업데이트합니다.
 
-    ```
+    ```powershell
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
+
 5. 변경 내용이 성공했는지를 확인하려면 앱을 다시 시작합니다.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 

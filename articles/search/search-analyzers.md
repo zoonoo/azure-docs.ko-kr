@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578767"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651824"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -291,7 +291,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 이 예제는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당합니다. 것이 더 큰 hotels.cs 파일에는 호텔 클래스를 사용 하 여 만드는 호텔 인덱스 정의에서 가져온 코드 조각을 합니다 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플입니다.
 
-호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)지정 합니다 [AnalyzerName 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 제공 하는 모든 Azure Search에서 지원 되는 텍스트 분석기.
+호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)을 지정 하 고는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 형식입니다.
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 사용자 지정 또는 구성이 필요한 경우 인덱스는 분석기 구문 추가 해야 합니다. 이 정의 하 고 나면 추가할 수 있습니다 필드 정의 앞의 예제에서 설명한 것 처럼 합니다.
 
-사용 하 여 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체를 만들려고 합니다. 더 많은 예제를 참조 하세요 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)합니다.
+만들기는 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체입니다. 더 많은 예제를 참조 하세요 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)합니다.
 
 ```csharp
 {

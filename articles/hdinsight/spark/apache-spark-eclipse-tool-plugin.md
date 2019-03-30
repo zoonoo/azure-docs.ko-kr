@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091820"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648774"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -47,7 +47,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
 
 ![Scala 플러그 인 자동 설치](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-[Azure 구독에 로그인](#Sign-in-to-your-Azure-subscription)하거나 Ambari 사용자 이름/암호 또는 도메인 가입 자격 증명을 사용하여 [HDInsight 클러스터를 연결하여](#Link-a-cluster) 시작할 수 있습니다. 
+[Azure 구독에 로그인](#sign-in-to-your-azure-subscription)하거나 Ambari 사용자 이름/암호 또는 도메인 가입 자격 증명을 사용하여 [HDInsight 클러스터를 연결하여](#link-a-cluster) 시작할 수 있습니다. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 1. Eclipse IDE를 시작하고 Azure 탐색기를 엽니다. **창** 메뉴에서 **보기 표시**를 선택한 다음 **기타**를 선택합니다. 열린 대화 상자에서 **Azure**를 확장하고 **Azure 탐색기**를 선택한 다음 **확인**을 선택합니다.
@@ -204,7 +204,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 ## <a name="run-a-spark-scala-application-locally"></a>로컬로 Spark Scala 애플리케이션 실행
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 애플리케이션을 로컬로 실행할 수 있습니다. 일반적으로 이러한 애플리케이션은 저장소 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
 
-### <a name="prerequisite"></a>필수 구성 요소
+### <a name="prerequisite"></a>필수 요소
 Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 **WinUtils.exe**가 없기 때문에 발생합니다. 
 
 이 오류를 해결하려면 [실행 파일](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)을 **C:\WinUtils\bin** 등의 위치에 다운로드한 다음 환경 변수 **HADOOP_HOME**을 추가하고 변수 값을 **C\WinUtils**로 설정합니다.
@@ -238,7 +238,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 ![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.
 
 ## <a name="seealso"></a>참고 항목

@@ -4,7 +4,7 @@ description: 배포된 Service Fabric 서비스 및 서비스 호스트 프로�
 services: service-fabric
 documentationcenter: .net
 author: harahma
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172377"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663284"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.

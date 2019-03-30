@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 1b1583731f9b95bea7fe64efe628b05bb7b9a476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648112"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
 
@@ -80,7 +80,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 
 카탈로그 API는 [AI Gallery 웹 사이트](https://gallery.azure.ai/)에서도 직접 볼 수 있도록 게시된 엔터티에 대한 정보를 Azure AI Gallery에 저장합니다. 
 
-게시된 엔터티를 보려면 다음 URL을 방문하여 `[AuthorId]`를 위의 [작성자 ID 가져오기](#get-an-author-ID)에서 가져온 작성자 ID로 바꿉니다.
+게시된 엔터티를 보려면 다음 URL을 방문하여 `[AuthorId]`를 위의 [작성자 ID 가져오기](#get-an-author-id)에서 가져온 작성자 ID로 바꿉니다.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213453"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652283"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
@@ -27,7 +27,6 @@ ms.locfileid: "54213453"
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>증상
-
 VM에서 DHCP 클라이언트 서비스가 해제되어 Azure의 VM에 RDP로 연결할 수 없습니다. Azure Portal의 [부팅 진단](../troubleshooting/boot-diagnostics.md)에서 스크린샷을 확인하면 VM이 정상적으로 부팅되고 로그인 화면에서 자격 증명을 기다리는 것으로 표시됩니다. 이벤트 뷰어를 사용하여 이벤트 로그를 VM에서 원격으로 봅니다. DHCP 클라이언트 서비스가 시작되지 않거나 시작에 실패하는 것이 보입니다. 다음은 샘플 로그입니다.
 
 **로그 이름**: 시스템 </br>
@@ -37,7 +36,7 @@ VM에서 DHCP 클라이언트 서비스가 해제되어 Azure의 VM에 RDP로 �
 **작업 범주**: 없음 </br>
 **수준**: 오류 </br>
 **키워드**: 클래식</br>
-**사용자**: 해당 없음 </br>
+**사용자**: N/A </br>
 **컴퓨터**: myvm.cosotos.com</br>
 **설명**: DHCP 클라이언트 서비스가 시작 시 멈춥니다.</br>
 
@@ -98,7 +97,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 1. [직렬 콘솔](serial-console-windows.md)에 연결하고 PowerShell 인스턴스를 엽니다.
 2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 3. 원격 데스크톱을 사용하여 VM에 연결을 시도합니다.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP 클라이언트 서비스가 충돌 또는 중지됨
+
 1. 서비스 상태가 **시작하는 중** 또는 **중지하는 중**에서 변하지 않는 경우 서비스를 중지합니다.
 
         sc stop DHCP
@@ -205,5 +205,3 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 ## <a name="next-steps"></a>다음 단계
 
 여전히 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 해결하세요.
-
-

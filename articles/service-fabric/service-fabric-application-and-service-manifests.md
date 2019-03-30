@@ -3,8 +3,8 @@ title: Azure Service Fabric 앱 및 서비스 설명 | Microsoft Docs
 description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
-ms.author: ryanwi
-ms.openlocfilehash: 0cd8131a0e5168ba8cfb6045c3be238162668995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: atsenthi
+ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864578"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662145"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [응용 프로그램 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.

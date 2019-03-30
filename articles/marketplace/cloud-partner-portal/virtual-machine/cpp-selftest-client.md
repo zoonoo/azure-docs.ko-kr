@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309421"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649089"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
 이 문서는 자체 테스트 API를 사용하는 클라이언트 서비스를 만들기 위한 지침으로 사용합니다. VM(가상 머신)에서 최신 Azure Marketplace 게시 요구 사항을 충족하는지 확인하기 위해 자체 테스트 API를 사용하여 VM의 유효성을 사전 검사할 수 있습니다. 이 클라이언트 서비스를 사용하면 Microsoft 인증을 위해 제안을 제출하기 전에 VM을 테스트할 수 있습니다.
-
 
 ## <a name="development-and-testing-overview"></a>개발 및 테스트 개요
 
@@ -41,13 +40,11 @@ ms.locfileid: "58309421"
 
 클라이언트가 만들어지면 VM에 대해 테스트할 수 있습니다.
 
-
 ### <a name="self-test-client-authorization"></a>자체 테스트 클라이언트 권한 부여
 
 다음 다이어그램에서는 클라이언트 자격 증명(공유 비밀 또는 인증서)을 사용하여 서비스 간 호출에 대한 권한 부여가 작동하는 방식을 보여 줍니다.
 
 ![클라이언트 권한 부여 프로세스](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>자체 테스트 클라이언트 API
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 다음 표에서는 API 필드에 대해 설명합니다.
@@ -83,11 +79,9 @@ Request body:    The Request body parameters should use the following JSON forma
 |  PortNo            |  VM에 연결하는 데 사용할 열린 포트 번호 포트 번호는 대개 `22`(Linux), `5986`(Windows)입니다.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>API 사용
 
 PowerShell 또는 cURL을 통해 자체 테스트 API를 사용할 수 있습니다.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>PowerShell을 사용하여 Linux OS에서 API 사용
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 다음 화면 캡처에는 PowerShell에서 API를 호출하는 예가 나와 있습니다.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ cURL을 사용하여 API를 호출하려면 다음 단계를 수행합니다.
 2. 다음 코드 조작과 같이 메서드는 Post이고 콘텐츠 형식은 JSON입니다.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 다음 화면에는 curl을 사용하여 API를 호출하는 예가 나와 있습니다.
 
 ![curl 명령을 사용하여 API 호출](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ https://isvapp.azurewebsites.net/selftest-vm
    다음 단계에서는 테넌트 이름(또는 디렉터리 이름)이나 테넌트 ID(또는 디렉터리 ID)가 필요할 수 있습니다.
 
    **테넌트 정보를 얻으려면,**
-  
+
    **Azure Active Directory 개요**에서 "속성"을 검색한 다음, **속성**을 선택합니다. 다음 화면 캡처를 예로 사용합니다.
 
    - **이름** - 테넌트 이름 또는 디렉터리 이름
@@ -284,7 +278,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 14. **선택**을 클릭합니다.
 15. **완료**를 선택합니다.
 16. **설정** 아래에서 **속성**을 선택합니다.
-17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.  
+17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 
     ![앱에 대한 다중 테넌트 구성](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 요청 본문에 다음 매개 변수를 전달합니다.
 
 ```
@@ -364,7 +359,7 @@ Response:
 
 권한 있는 애플리케이션에 대한 토큰을 Auth0에 요청하려면 다음 형식의 페이로드가 있는 [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) 엔드포인트에 대한 POST 작업을 수행합니다.
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 권한 있는 애플리케이션에 대한 토큰을 Auth0에 요청하려면 다음 형식의 페이로드가 있는 [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) 엔드포인트에 대한 POST 작업을 수행합니다.
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>API에 클라이언트 앱 토큰 전달
 
 인증 헤더에 다음 코드를 사용하여 토큰을 자체 테스트 API에 전달합니다.
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>자체 테스트 클라이언트 테스트
@@ -445,7 +438,7 @@ $result.Content
 
 **Windows VM에 대한 테스트 결과:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ $result.Content
 
 **Linux VM에 대한 테스트 결과:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

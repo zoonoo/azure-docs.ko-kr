@@ -4,7 +4,7 @@ description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 79408c9936000aa18dba9347b8a10fa7dcd8e8ee
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: HT
+ms.openlocfilehash: e2b407733bcab7bc854e8e3703e53eb474f3425b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35759561"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663692"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
@@ -48,7 +48,7 @@ Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업�
 모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
 ## <a name="upgrade-default-services"></a>기본 서비스 업그레이드
-[응용 프로그램 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 응용 프로그램 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
+[애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 애플리케이션 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
 
 1. 클러스터에 존재하지 않는 새 애플리케이션 매니페스트의 기본 서비스가 만들어집니다.
 2. 이전 및 새 애플리케이션 매니페스트 모두에 존재하는 기본 서비스가 업데이트됩니다. 새 애플리케이션 매니페스트에 있는 기본 서비스의 매개 변수는 기존 서비스의 매개 변수를 덮어씁니다. 기본 서비스 업데이트에 실패하는 경우 애플리케이션 업그레이드가 자동으로 롤백됩니다.
@@ -72,16 +72,16 @@ https로 업그레이드 실패가 표시되면 “The Windows HTTP Server API d
 ![Service Fabric 애플리케이션의 업그레이드 프로세스][image]
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
 [PowerShell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+[애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

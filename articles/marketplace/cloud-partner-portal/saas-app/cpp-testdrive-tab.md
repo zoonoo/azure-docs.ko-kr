@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993106"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649036"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS 애플리케이션 시험 사용 탭
 
@@ -53,7 +53,7 @@ ms.locfileid: "57993106"
 |     Azure 리소스 관리자               |    Azure Resource Manager 시험 사용은 게시자가 빌드한 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 유형의 시험 사용에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.               |       [Azure Resource Manager 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       호스트형             |       호스트형 시험 사용을 진행하면 시험 사용 사용자 프로비저닝 및 프로비전 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리하므로 복잡한 설정을 수행할 필요가 없습니다.             |         [호스팅된 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      논리 앱              |       논리 앱 시험 사용은 모든 복잡한 솔루션 아키텍처가 포함된 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.            |      [논리 앱 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Power BI 시험 사용은 사용자 지정 빌드 대시보드에 포함된 링크로 구성됩니다. 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.          |        [Power BI 시험 사용](#Power-BI-test-drive)           |
+|       Power BI             |         Power BI 시험 사용은 사용자 지정 빌드 대시보드에 포함된 링크로 구성됩니다. 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.          |        [Power BI 시험 사용](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI 시험 사용
 

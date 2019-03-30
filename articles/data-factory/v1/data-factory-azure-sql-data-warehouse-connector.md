@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116201"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651754"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -146,7 +146,7 @@ GO
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아닙니다. |
-| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. |True <br/>False(기본값) |아닙니다. |
+| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **SQL Data Warehouse로 데이터를 로드하는 데 PolyBase를 사용하는 것이 좋습니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. |True  <br/>False(기본값) |아닙니다. |
 | polyBaseSettings |**allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |아니오 |
 | rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. |0(기본값), 1, 2, … |아닙니다. |
 | rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |아닙니다. |
@@ -170,7 +170,7 @@ GO
 * 원본 데이터 형식이 **Azure Blob 또는 Azure Data Lake Store**에 있고 형식이 PolyBase와 호환될 경우 PolyBase를 사용하여 Azure SQL Data Warehouse로 직접 복사할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우 대신 **[PolyBase를 사용하여 준비한 복사본](#staged-copy-using-polybase)** 기능을 사용할 수 있습니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환하고 Azure Blob Storage에 저장하여 향상된 처리량을 제공하기도 합니다. 그런 다음 SQL Data Warehouse에 데이터를 로드합니다.
 
-Azure Data Factory에 대한 다음 예와 같이 `allowPolyBase` 속성을 **true**로 설정하여 Azure SQL Data Warehouse로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 `polyBaseSettings` 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.
+Azure Data Factory에 대한 다음 예와 같이 `allowPolyBase` 속성을 **true**로 설정하여 Azure SQL Data Warehouse로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 `polyBaseSettings` 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 [SqlDWSink](#sqldwsink) 섹션을 참조하세요.
 
 ```JSON
 "sink": {

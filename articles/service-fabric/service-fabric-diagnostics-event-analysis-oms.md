@@ -4,7 +4,7 @@ description: Azure Service Fabric 클러스터의 모니터링 및 진단을 실
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662162"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화
- Azure Monitor 로그를 수집 하 고 및 클라우드에서 호스팅되는 서비스 및 응용 프로그램에서 원격 분석을 분석 하 여, 해당 가용성 및 성능을 최대화 하기 위해 분석 도구를 제공 합니다. 이 문서에서는 Azure Monitor 로그 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하려면 쿼리를 실행 하는 방법을 간략하게 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.
+ Azure Monitor 로그는 클라우드에서 호스팅되는 애플리케이션 및 서비스에서 원격 분석 데이터를 수집 및 분석하고, 가용성과 성능을 최대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Azure Monitor 로그 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하려면 쿼리를 실행 하는 방법을 간략하게 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.
 
 * 상태 이벤트 문제는 어떻게 해결하나요?
 * 노드 작동이 중단되면 어떻게 알 수 있나요?
@@ -49,7 +49,7 @@ Azure Monitor 로그가 데이터를 수신한 후 Azure에 여러 개의 *모�
 
 ![Service Fabric 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-다음 이미지는 Service Fabric 분석 솔루션의 홈 페이지를 표시 합니다. 이 홈 페이지에는 클러스터에서 발생 하는 스냅숏 뷰를 제공 합니다.
+다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅숏 보기를 제공합니다.
 
 ![Service Fabric 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
@@ -62,13 +62,13 @@ Azure Monitor 로그가 데이터를 수신한 후 Azure에 여러 개의 *모�
 >[!NOTE]
 >즉시 사용이 가능한 Service Fabric 이벤트 외에도, [진단 확장 프로그램의 구성을 업데이트](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)하여 더 자세한 시스템 이벤트를 수집할 수 있습니다.
 
-## <a name="view-service-fabric-events-including-actions-on-nodes"></a>노드에 대 한 작업을 포함 하 여 보기 Service Fabric 이벤트
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>노드에 대한 작업을 포함한 Service Fabric 이벤트 보기
 
 Service Fabric 분석 페이지에서 **Service Fabric 이벤트**에 대한 그래프를 클릭합니다.
 
 ![Service Fabric 솔루션 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-**목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참조를 **WADServiceFabricSystemEventsTable** Azure Storage 계정 및 마찬가지로 reliable services 및 actors 이벤트 다음에 해당 테이블에서입니다.
+**목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable**에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
     
 ![쿼리 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -114,5 +114,5 @@ Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 �
 * 인프라 모니터링, 즉 성능 카운터를 사용하려면 [Log Analytics 에이전트 추가](service-fabric-diagnostics-oms-agent.md)를 참조하세요. 에이전트는 성능 카운터를 수집하여 기존 작업 영역에 추가합니다.
 * 온-프레미스 클러스터에 대 한 Azure Monitor 로그는 Azure Monitor 로그 데이터를 보낼 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 이 대해 자세히 알아보기 [인터넷 액세스 없이 컴퓨터를 Log Analytics 게이트웨이 사용 하 여 Azure Monitor 로그 연결할](../azure-monitor/platform/gateway.md)합니다.
 * 감지 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md)를 구성합니다.
-* 알아보기 합니다 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) Azure Monitor 로그의 일부로 제공 하는 기능입니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 알아봅니다.
 * Azure Monitor 로그와 제공의 자세한 개요를 확인, 읽을 [Azure Monitor 로그 란?](../operations-management-suite/operations-management-suite-overview.md)합니다.

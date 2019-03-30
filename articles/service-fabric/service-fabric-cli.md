@@ -1,19 +1,19 @@
 ---
 title: Azure Service Fabric CLI 시작
-description: Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 응용 프로그램을 관리하는 방법을 알아봅니다.
+description: Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 애플리케이션을 관리하는 방법을 알아봅니다.
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 579df1c8412ae626ced6776a98e054a13e4a3e64
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273088"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662655"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -54,7 +54,7 @@ Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](ht
 
 플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공식 설치 지침을 사용합니다. 또한 Python 설치 관리자는 기본적으로 pip를 설치합니다.
 
@@ -268,5 +268,5 @@ pip install sfctl
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Service Fabric CLI에서 응용 프로그램 배포](service-fabric-application-lifecycle-sfctl.md)
+* [Azure Service Fabric CLI에서 애플리케이션 배포](service-fabric-application-lifecycle-sfctl.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)

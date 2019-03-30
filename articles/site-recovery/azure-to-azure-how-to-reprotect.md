@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110497"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648905"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -22,10 +22,6 @@ ms.locfileid: "58110497"
 
 - VM이 주 지역으로 복제를 시작하도록 보조 지역의 VM을 다시 보호합니다.
 - 다시 보호를 완료하고 VM이 복제되면 보조 지역에서 주 지역으로 VM을 장애 조치(failover)할 수 있습니다.
-
-> [!WARNING]
-> 주 지역에서 보조 지역으로 컴퓨터를 [마이그레이션](migrate-overview.md#what-do-we-mean-by-migration)하고 다른 리소스 그룹으로 VM을 이동하거나 Azure VM을 삭제한 경우에는 VM을 다시 보호하거나 장애 복구(failback)할 수 없습니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 1. 주 지역에서 보조 지역으로 VM 장애 조치(failover)를 커밋해야 합니다.

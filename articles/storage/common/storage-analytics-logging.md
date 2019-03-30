@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652062"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 저장소 분석 로깅
 
@@ -27,7 +27,6 @@ ms.locfileid: "58351332"
 >  Storage 분석 로깅은 현재 Blob, Queue 및 Table services에 대해서만 사용할 수 있습니다. 그러나 프리미엄 저장소 계정은 지원 되지 않습니다.
 
 ## <a name="requests-logged-in-logging"></a>요청 기록 로깅
-
 ### <a name="logging-authenticated-requests"></a>인증된 요청 로깅
 
  다음과 같은 유형의 인증된 요청이 기록됩니다.
@@ -63,13 +62,13 @@ ms.locfileid: "58351332"
 
 대부분의 저장소 검색 도구를 사용 합니다; blob의 메타 데이터를 볼 수 있습니다. PowerShell을 사용 하 여이 정보를 참조할 수 있습니다 또는 프로그래밍 방식으로 합니다. 다음 PowerShell 코드 조각을 포함 된 로그만 식별 하는 메타 데이터 및 시간을 지정 하는 이름으로 로그 blob 목록을 필터링 한 예로 **쓰기** 작업 합니다.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Azure portal에서 사용 하 여는 **진단 설정 (클래식)** 블레이드�
 
  다음 명령은 읽기에 대 한 로깅을 전환, 쓰기 및 기본 저장소 계정의 큐 서비스에 요청을 5 일로 설정 하는 보존을 사용 하 여 삭제할 수 있습니다.  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  다음 명령은 기본 저장소 계정의 table service에 대해 로깅을 해제 전환합니다.  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.  
 
 ### <a name="enable-storage-logging-programmatically"></a>프로그래밍 방식으로 로깅 저장소를 사용 하도록 설정  
+
  Azure 포털 또는 저장소 로깅을 제어 하는 Azure PowerShell cmdlet을 사용 하는 것 외에도 Azure Storage Api 중 하나을 사용할 수 있습니다. 예를 들어,.NET 언어를 사용 하는 경우 저장소 클라이언트 라이브러리를 사용할 수 있습니다.  
 
  클래스 **CloudBlobClient**를 **CloudQueueClient**, 및 **CloudTableClient** 와 같은 모든는 메서드가 **SetServiceProperties** 및 **SetServicePropertiesAsync** 사용 하는 한 **ServiceProperties** 개체를 매개 변수로 합니다. 사용할 수는 **ServiceProperties** 저장소 로깅을 구성 하는 개체입니다. 예를 들어, 다음 C# 조각은 로깅되는 및 큐 로깅에 대 한 보존 기간을 변경 하는 방법을 보여 줍니다.  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  다음 예제에서는 09 AM, AM, 10 및 20 2014 년 5 월 오전 11 시부터 시간에 대 한 큐 서비스에 대 한 로그 데이터를 다운로드할 수 하는 방법을 보여 줍니다. 합니다 **/S** 날짜와 시간; 로그 파일 이름에 따라 로컬 폴더 구조를 작성 하는 데 AzCopy 사용 하면 매개 변수를 **/V** 매개 변수 하면 자세한 정보 출력을 생성 하는 데 AzCopy는 **/Y** 매개 변수 하면 AzCopy를 로컬 파일을 덮어씁니다. 바꿉니다 **< yourstorageaccount\>**  으로 바꾸고 저장소 계정 이름의 **< yourstoragekey\>**  저장소 계정 키를 사용 하 여 합니다.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  로그 데이터를 다운로드 한 경우에 파일에 로그 항목을 볼 수 있습니다. 이러한 로그 파일 사용 하 여 구분 기호로 분리 된 텍스트 형식으로 많은 로그 읽기 도구가 구문 분석할 수 Microsoft Message Analyzer를 비롯 한 (자세한 내용은 가이드를 참조 하세요. [모니터링, 진단 및 문제 해결 Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). 다른 도구는 형식 지정, 필터링, 정렬 및 로그 파일의 콘텐츠를 검색 하기 위한 다양 한 기능을 갖습니다. 저장소 로깅 로그 파일 형식 및 콘텐츠에 대 한 자세한 내용은 참조 하세요. [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 하 고 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
 * [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [저장소 분석 메트릭 (클래식)](storage-analytics-metrics.md)

@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855872"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652096"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-use-custom-activities.md)
 > * [현재 버전](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 * [새 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet을 Azure Batch 풀을 만듭니다.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
+
 다음 JSON은 샘플 Azure Batch 연결된 서비스를 정의합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 계산 환경](compute-linked-services.md)을 참조하세요.
 
 ```json
@@ -114,7 +116,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 &#42; 속성 `resourceLinkedService` 및 `folderPath`를 둘 다 지정하거나 둘 다 생략해야 합니다.
 
 > [!NOTE]
-> ReferenceObjects 사용자 지정 작업에서으로 연결 된 서비스를 전달 하는 경우 Azure Key Vault에 전달할 좋은 보안 방법 설정 (보안 문자열이 포함 되지 않습니다) 이후 연결 된 서비스 및 fetch 비밀 이름을 직접 키를 사용 하 여 자격 증명 코드에서 자격 증명 모음입니다. 예를 찾을 수 있습니다 [여기](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) AKV 참조에 연결 된 서비스를 사용할 수 있도록 Key Vault에서 자격 증명을 검색 및 코드에서 저장소에 액세스 합니다.  
+> ReferenceObjects 사용자 지정 작업에서으로 연결 된 서비스를 전달 하는 경우 Azure Key Vault에 전달할 좋은 보안 방법 설정 (보안 문자열이 포함 되지 않습니다) 이후 연결 된 서비스 및 fetch 비밀 이름을 직접 키를 사용 하 여 자격 증명 코드에서 자격 증명 모음입니다. 예를 찾을 수 있습니다 [여기](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) AKV 참조에 연결 된 서비스를 사용할 수 있도록 Key Vault에서 자격 증명을 검색 및 코드에서 저장소에 액세스 합니다.
 
 ## <a name="custom-activity-permissions"></a>사용자 지정 활동 권한
 
@@ -147,7 +149,6 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 ## <a name="passing-objects-and-properties"></a>개체 및 속성 전달
 
 이 샘플에서는 referenceObjects 및 extendedProperties를 사용하여 Data Factory 개체 및 사용자 정의 속성을 사용자 지정 애플리케이션에 전달하는 방법을 보여줍니다.
-
 
 ```json
 {
@@ -191,15 +192,15 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 작업이 실행될 때 referenceObjects 및 extendedProperties는 SampleApp.exe와 동일한 실행 폴더에 배포되는 다음 파일에 저장됩니다.
 
-- activity.json
+- `activity.json`
 
   extendedProperties 및 사용자 지정 활동의 속성을 저장합니다.
 
-- linkedServices.json
+- `linkedServices.json`
 
   referenceObjects 속성에 정의된 연결된 서비스의 배열을 저장합니다.
 
-- datasets.json
+- `datasets.json`
 
   referenceObjects 속성에 정의된 데이터 세트의 배열을 저장합니다.
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 다음 PowerShell 명령을 사용하여 파이프라인 실행을 시작할 수 있습니다.
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 파이프라인을 실행하는 경우 다음 명령을 사용하여 실행 출력을 확인할 수 있습니다.
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 사용자 지정 애플리케이션의 **stdout** 및 **stderr**은 작업의 GUID를 사용하여 Azure Batch 연결된 서비스를 만들 때 정의한 Azure Storage 연결된 서비스의 **adfjobs** 컨테이너에 저장됩니다. 다음 코드 조각에 나와 있는 것처럼 작업 실행 출력에서 자세한 경로를 얻을 수 있습니다.
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 다운스트림 작업에서 stdout.txt의 콘텐츠를 사용하려는 경우 "\@activity('MyCustomActivity').output.outputs[0]" 식에서 stdout.txt 파일의 경로를 가져올 수 있습니다.
 
-  > [!IMPORTANT]
-  > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다.
-  > - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다.
+> [!IMPORTANT]
+> - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다.
+> - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다.
 
 ## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
 
@@ -311,10 +314,10 @@ Activity Error section:
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 
 다음 표에서는 Data Factory V2 사용자 지정 작업과 Data Factory 버전 1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다.
 
-
 |차이점      | 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
 | ---- | ---- | ---- |
 |사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.NET DLL을 구현 하 여      |
@@ -344,7 +346,6 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 |작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 세트) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 세트를 통해      |
 |사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.NET SDK (.NET 프레임 4.5.2)를 통해      |
 |로깅      |STDOUT에 직접 작성      |.NET DLL에서로 거 구현      |
-
 
 1 (사용자 지정) DotNet 작업 버전에 대해 작성 된 기존.NET 코드가 있는 경우에 사용자 지정 활동의 현재 버전을 사용 하도록 코드를 수정 해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.
 
@@ -358,6 +359,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요.
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
+
 **자동 크기 조정** 기능으로 Azure Batch 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다.
 
 샘플 수식은 다음과 같은 동작을 수행합니다. 풀이 처음으로 만들어지면 VM 1개로 시작합니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다. 이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 따라서 새 작업이 제출되면 풀이 자동으로 커지고, 작업이 완료되면 VM은 하나씩 사용 가능한 상태로 해제된 후 자동 크기 조정에 따라 해당 VM이 축소됩니다. startingNumberOfVMs 및 maxNumberofVMs은 요구에 맞게 조정될 수 있습니다.

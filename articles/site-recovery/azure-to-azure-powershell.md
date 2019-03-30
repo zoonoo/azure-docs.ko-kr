@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869414"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652079"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 자격 증명 모음에 있는 패브릭 개체는 Azure 지역을 나타냅니다. 기본 패브릭 개체는 자격 증명 모음에 보호 중인 가상 머신이 속한 Azure 지역을 나타내기 위해 작성됩니다. 이 문서의 예제에서는 보호 중인 가상 머신이 미국 동부 지역에 있습니다.
 
-- 패브릭 개체는 지역당 하나만 만들 수 있습니다. 
+- 패브릭 개체는 지역당 하나만 만들 수 있습니다.
 - 이전에 Azure Portal에서 VM에 대해 Site Recovery 복제를 사용하도록 설정한 경우 Site Recovery에서 패브릭 개체를 자동으로 만듭니다. 특정 지역의 패브릭 개체가 있으면 새 개체를 만들 수 없습니다.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>다시 보호 및 원본 지역으로 장애 복구
+
 장애 조치(failover) 후에 원래 지역으로 돌아갈 준비가 되면 Update-AzureRmRecoveryServicesAsrProtectionDirection cmdlet을 사용하여 복제 보호된 항목에 대한 역방향 복제를 시작합니다.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+다시 보호가 완료 되 면 역방향 (미국 동부에 미국 서 부) 및 원본 지역으로 장애 복구에서 장애 조치를 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 보기는 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) 하려면 복구 계획 만들기 및 PowerShell 통해 복구 계획의 장애 조치 테스트 등의 다른 작업을 수행 하는 방법을 알아봅니다.

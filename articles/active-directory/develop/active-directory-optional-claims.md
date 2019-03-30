@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652572"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>방법: Azure AD 앱에 선택적 클레임 제공(공개 미리 보기)
 
@@ -50,14 +50,14 @@ ms.locfileid: "56185454"
 
 ## <a name="standard-optional-claims-set"></a>표준 선택적 클레임 집합
 
-기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 애플리케이션(웹 API)*이* 요청하는 액세스 토큰이 아닌 애플리케이션*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
+기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 애플리케이션(웹 API)*이* 요청하는 액세스 토큰이 아닌 애플리케이션*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
 
 > [!NOTE]
 > 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다. v2.0 엔드포인트에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다. 
 
 **표 2: 표준 선택적 클레임 집합**
 
-| Name                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
+| name                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
@@ -85,7 +85,7 @@ ms.locfileid: "56185454"
 
 **표 3: V2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | name                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -167,7 +167,7 @@ ms.locfileid: "56185454"
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name        | Type                       | 설명                                           |
+| name        | 형식                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -180,7 +180,7 @@ ms.locfileid: "56185454"
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                 | Type                    | 설명                                                                                                                                                                                                                                                                                                   |
+| name                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

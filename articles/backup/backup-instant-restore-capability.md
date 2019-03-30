@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578903"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652674"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
 > [!NOTE]
-> 사용자의 피드백에 따라 Azure Stack 기능과의 혼동을 줄이기 위해 **VM 백업 스택 V2**의 이름을 **즉시 복원**으로 바꾸었습니다.
+> 사용자의 피드백에 따라 Azure Stack 기능과의 혼동을 줄이기 위해 **VM 백업 스택 V2**의 이름을 **즉시 복원**으로 바꾸었습니다.<br/><br/> 모든 Azure backup 사용자 이제 업그레이된 **즉시 복원을**합니다.
 
 인스턴트 복원의 새 모델은 다음과 같은 기능 개선 사항을 제공합니다.
 
@@ -60,15 +60,25 @@ ms.locfileid: "58578903"
 >[!NOTE]
 > 스냅숏 보존 매주 정책에 대 한 5 일로 고정 됩니다.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Azure portal을 사용 하 여 스냅숏 보존 구성
+## <a name="configure-snapshot-retention"></a>스냅숏 보존 구성
 
-**모든 Azure backup 사용자 즉시 복원을 이제 업그레이된**합니다.
+### <a name="using-azure-portal"></a>Azure Portal 사용
 
 Azure portal에서 추가 필드를 볼 수 있습니다 합니다 **VM 백업 정책** 블레이드의 합니다 **즉시 복원을** 섹션입니다. 특정 백업 정책과 연결된 모든 VM에 대해 **VM 백업 정책** 블레이드의 스냅숏 보존 기간을 변경할 수 있습니다.
 
 ![즉시 복원 기능](./media/backup-azure-vms/instant-restore-capability.png)
 
-Powershell을 사용 하 여 스냅숏 보존을 구성 하려면 참조 [이 문서](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention)합니다.
+### <a name="using-powershell"></a>PowerShell 사용
+
+>[!NOTE]
+> Az PowerShell 버전 1.6.0 이상에서 PowerShell을 사용 하 여 정책 즉시 복원을 스냅숏 보존 기간을 업데이트할 수 있습니다.
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+각 정책에 대 한 기본 스냅숏 보존 기간을 2 일로 설정 됩니다. 사용자 1의 최소 및 최대 5 일 값을 변경할 수 있습니다. 매주 정책에 대 한 스냅숏 보존 5 일로 고정 됩니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
