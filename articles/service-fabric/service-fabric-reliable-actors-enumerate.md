@@ -4,7 +4,7 @@ description: Reliable Actors 및 해당 메타데이터를 열거하는 방법�
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 300ab4f73fdae0224d2de5e1e1dea6cc6cfa7438
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04e2c32b18e6897d6443fea68587aba9ae294be5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864374"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664498"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 열거
 Reliable Actors 서비스를 사용하면 클라이언트가 서비스가 호스트하는 행위자에 대한 메타데이터를 열거할 수 있습니다. 행위자 서비스는 분할된 상태 저장 서비스이므로 열거는 파티션에 따라 수행됩니다. 각 파티션에는 많은 행위자가 포함될 수 있으므로 이 열거는 일련의 페이징된 결과로 반환됩니다. 페이지는 모든 페이지를 읽을 때까지 반복됩니다. 다음 예제에서는 행위자 서비스의 한 파티션에 있는 모든 활성 행위자의 목록을 만드는 방법을 보여줍니다.

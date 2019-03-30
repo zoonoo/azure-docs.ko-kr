@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210512"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665052"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
 이 문서에서는 2단계 인증 또는 다단계 인증에 대한 설정을 업데이트하는 방법에 대한 질문에 대답합니다. 계정에 로그인하는 데 문제가 있는 경우 문제 해결 도움말을 보려면 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)을 참조하세요.
@@ -50,7 +50,7 @@ ms.locfileid: "56210512"
     ![검사](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>전화 번호를 변경하거나 기타 전화 번호를 추가하려는 경우
-기타 인증 전화 번호를 추가로 구성하는 것은 중요합니다.  기본 전화 번호로 등록된 기기에 모바일 앱이 설치된 경우가 대부분이므로 이 전화를 분실하거나 도난당했을 경우 기타 전화 번호가 있어야만 계정에 다시 로그인할 수 있습니다.
+기타 인증 전화 번호를 추가로 구성하는 것은 중요합니다.  이기 때문에 기본 전화 번호 및 모바일 앱 아마도 동일한 전화 보조 전화 번호가 가장 빠른 방법은 휴대폰을 분실 하거나 도난당 한 경우 계정에 다시 액세스할 수 있습니다.
 
 > [!NOTE]
 > 기본 전화 번호에 대한 액세스 권한이 없고 계정에 대한 도움이 필요한 경우 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md) 문서를 참조하세요.  

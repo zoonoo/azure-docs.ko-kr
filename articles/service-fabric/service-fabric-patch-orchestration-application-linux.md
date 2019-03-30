@@ -4,7 +4,7 @@ description: Linux Service Fabric 클러스터에 운영 체제 패치를 자동
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285155"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668197"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -47,7 +47,7 @@ ms.locfileid: "52285155"
 - **노드 에이전트 서비스**: 이 상태 비저장 서비스는 모든 Service Fabric 클러스터 노드에서 실행됩니다. 서비스는 다음과 같은 역할을 합니다.
     - Linux에서 노드 에이전트 디먼 부트스트랩
     - 디먼 서비스 모니터링
-- **노드 에이전트 디몬**: 이 Linux 디몬 서비스는 상위 수준의 권한(루트)에서 실행됩니다. 반면, 노드 에이전트 서비스 및 코디네이터 서비스는 하위 수준의 권한에서 실행됩니다. 서비스는 모든 클러스터 노드에서 다음과 같은 업데이트 작업을 수행하는 일을 담당합니다.
+- **노드 에이전트 디 몬**: 이 Linux 디 몬 서비스는 더 높은 수준의 권한 (루트)에서 실행 됩니다. 반면, 노드 에이전트 서비스 및 코디네이터 서비스는 하위 수준의 권한에서 실행됩니다. 서비스는 모든 클러스터 노드에서 다음과 같은 업데이트 작업을 수행하는 일을 담당합니다.
     - 노드에서 자동 OS Update 비활성화
     - 사용자가 제공한 정책에 따라 OS 업데이트 다운로드 및 설치
     - 필요한 경우 OS 업데이트 설치 이후 컴퓨터 다시 시작
@@ -131,10 +131,10 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0
 |:-|-|-|
 |MaxResultsToCache    |long                              | 캐시되어야 하는 업데이트 결과의 최대 수입니다. <br>기본값은 3000입니다. <br> - 노드 수는 20입니다. <br> - 매월 노드에서 발생하는 업데이트 수는 5입니다. <br> - 작업당 결과 수는 10일 수 있습니다. <br> - 지난 3개월 동안의 결과를 저장해야 합니다. |
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. (최대, 한 업그레이드 도메인에 속하는 모든 노드가 업데이트에 해당될 수 있습니다.)
-| UpdateOperationTimeOutInMinutes | int <br>(기본값: 180)                   | 업데이트 작업에 대한 시간 제한을 지정합니다(다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
-| RescheduleCount      | int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 OS 업데이트를 다시 예약하는 최대 횟수입니다.          |
-| RescheduleTimeInMinutes  | int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 OS 업데이트를 다시 예약하는 간격입니다. |
-| UpdateFrequency           | 쉼표로 구분된 문자열(기본값: "매주, 수요일, 7시")     | 클러스터에서 OS 업데이트를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   없음은 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 모든 시간은 UTC 형식입니다.|
+| UpdateOperationTimeOutInMinutes | Int <br>(기본값: 180)                   | 업데이트 작업에 대한 시간 제한을 지정합니다(다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
+| RescheduleCount      | Int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 OS 업데이트를 다시 예약하는 최대 횟수입니다.          |
+| RescheduleTimeInMinutes  | Int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 OS 업데이트를 다시 예약하는 간격입니다. |
+| UpdateFrequency           | 쉼표로 구분된 문자열(기본값: "Weekly, Wednesday, 7:00:00")     | 클러스터에서 OS 업데이트를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   없음은 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 모든 시간은 UTC 형식입니다.|
 | UpdateClassification | 쉼표로 구분된 문자열(기본값: "securityupdates") | 클러스터 노드에 설치되어야 하는 업데이트의 유형입니다. 사용 가능한 값은 securityupdates, 모두입니다. <br> -  securityupdates - 보안 업데이트만 설치 <br> -  모두 - apt에서 사용 가능한 모든 업데이트 설치|
 | ApprovedPatches | 쉼표로 구분된 문자열(기본값: "") | 클러스터 노드에 설치되어야 하는 승인된 업데이트 목록입니다. 쉼표로 구분된 목록은 승인된 패키지 및 필요에 따라 원하는 대상 버전을 포함합니다.<br> 예: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16" <br> 위의 내용은 다음을 설치합니다. <br> - apt-캐시에 사용 가능한 경우 버전 1.2.10ubuntu1의 apt-utils 해당 특정 버전을 사용할 수 없는 경우 작동하지 않습니다. <br> - 사용 가능한 최신 버전으로 python3-jwt 업그레이드 패키지가 없으면 작동하지 않습니다. <br> - 1.2.194 이하인 가장 높은 버전으로 apt-transport-https 업그레이드 이 버전이 없으면 작동하지 않습니다. <br> - 229-4ubuntu16보다 크거나 같은 가장 높은 버전으로 libsystemd0 업그레이드 이러한 버전이 없는 경우 작동하지 않습니다.|
 | RejectedPatches | 쉼표로 구분된 문자열(기본값: "") | 클러스터 노드에 설치하면 안 되는 업데이트 목록입니다. <br> 예: "bash, sudo" <br> 앞의 항목은 모든 업데이트 수신에서 bash, sudo를 필터링합니다. |
@@ -146,7 +146,7 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0
 ## <a name="deploy-the-app"></a>앱 배포
 
 1. 모든 필수 구성 요소 단계를 완료하여 클러스터를 준비합니다.
-2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell 또는 Azure Service Fabric CLI를 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 응용 프로그램 배포](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)의 단계를 따릅니다.
+2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell 또는 Azure Service Fabric CLI를 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 애플리케이션 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 애플리케이션 배포](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)의 단계를 따릅니다.
 3. 배포 시 애플리케이션을 구성하려면 `ApplicationParameter`를 `New-ServiceFabricApplication` cmdlet 또는 제공된 스크립트에 전달합니다. 사용자 편의를 위해 powershell(Deploy.ps1) 및 bash(Deploy.sh) 스크립트는 애플리케이션과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
     - Service Fabric 클러스터에 연결합니다.
@@ -305,7 +305,7 @@ a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 
 Q. **패치 오케스트레이션 앱에서 보안 업데이트인 업데이트를 어떻게 결정하나요?**
 
-a. 패치 오케스트레이션 앱은 사용 가능한 업데이트 중에 보안 업데이트인 업데이트를 확인하기 위해 배포별 논리를 사용합니다. 예: ubuntu에서 앱은 아카이브 $RELEASE-security, $RELEASE-updates에서 업데이트에 대해 검색합니다($RELEASE = xenial 또는 linux 표준 기준 릴리스 버전). 
+a. 패치 오케스트레이션 앱은 사용 가능한 업데이트 중에 보안 업데이트인 업데이트를 확인하기 위해 배포별 논리를 사용합니다. 예를 들면 다음과 같습니다. Ubuntu에서 앱 $RELEASE에서 업데이트에 대 한 검색-보안, $RELEASE-업데이트 ($RELEASE = xenial 또는 linux 표준 기준 릴리스 버전). 
 
  
 Q. **특정 버전의 패키지로 어떻게 잠그나요?**

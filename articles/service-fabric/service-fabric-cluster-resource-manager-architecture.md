@@ -4,7 +4,7 @@ description: 서비스 패브릭 클러스터 리소스 관리자의 아키텍�
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116602"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666802"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
 Service Fabric Cluster Resource Manager는 클러스터에서 실행되는 중앙 서비스입니다. 이 서비스는 특히 리소스 소비 및 배치 규칙 측면에서 클러스터에 있는 서비스의 원하는 상태를 관리합니다. 

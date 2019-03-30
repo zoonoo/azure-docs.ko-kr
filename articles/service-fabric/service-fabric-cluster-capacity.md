@@ -4,7 +4,7 @@ description: Service Fabric 클러스터 용량 계획 고려 사항입니다. �
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 82910f7b29789fa777f6deb2c185c57e847e1c88
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bd76658c939496f27bf3751060c18d17968acd15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109259"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667347"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.

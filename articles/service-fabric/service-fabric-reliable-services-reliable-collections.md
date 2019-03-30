@@ -4,7 +4,7 @@ description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 1/3/2019
 ms.author: aljo
-ms.openlocfilehash: 944bb69ed028338efb243c8646035089566ccf80
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4ed76b207db4712058b5524cd1b31fd65b0e19a4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806507"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664412"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 

@@ -3,8 +3,8 @@ title: Service Fabric 프로젝트 만들기 다음 단계 | Microsoft Docs
 description: Visual Studio에서 방금 만든 애플리케이션 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: rwike77
-ms.openlocfilehash: 4d5e74b9ecffbf8f1161cf6c5ef948cd154d993f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233170"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667930"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
 Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
@@ -33,9 +33,9 @@ Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문�
 - [Windows의 C# Reliable Services 서비스](service-fabric-reliable-services-quick-start.md) 
 - [Windows의 C# Reliable Actors 서비스](service-fabric-reliable-actors-get-started.md) 
 - [Windows의 게스트 실행 가능한 서비스](quickstart-guest-app.md) 
-- [Windows 컨테이너 응용 프로그램](service-fabric-get-started-containers.md) 
+- [Windows 컨테이너 애플리케이션](service-fabric-get-started-containers.md) 
 
-[응용 프로그램 예제](https://aka.ms/servicefabricsamples)를 사용해 볼 수도 있습니다.
+[애플리케이션 예제](https://aka.ms/servicefabricsamples)를 사용해 볼 수도 있습니다.
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>질문이나 의견이 있으신가요?  문제를 보고해야 하나요?
 [일반적인 질문](service-fabric-common-questions.md)을 자세히 읽고 Service Fabric으로 할 수 있는 작업과 사용 방법에 대한 답변을 찾아보세요.
@@ -49,9 +49,9 @@ Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문�
 
 * 애플리케이션을 구성하는 서비스에 대한 참조 집합입니다.
 * 클러스터 엔드포인트와 관련된 기본 설정과 같은 다른 환경에서의 작업에 대한 기본 설정과 기본적으로 업그레이드 배포를 수행하는 여부 사항을 유지하는 데 사용할 수 있는 세 개의 게시 프로필(1-노드 로컬, 5-노드 로컬 및 클라우드)입니다.
-* 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 애플리케이션 구성을 유지하는 데 사용할 수 있는 세 개의 애플리케이션 매개 변수 파일(위와 동일)입니다. [여러 환경에 대한 응용 프로그램을 구성](service-fabric-manage-multiple-environment-app-configuration.md)하는 방법을 알아봅니다.
-* 애플리케이션을 명령줄에서 배포하거나 자동화된 연속 통합 및 배포 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다. [PowerShell을 사용하여 응용 프로그램을 배포](service-fabric-deploy-remove-applications.md)하는 방법에 대해 자세히 알아봅니다.
-* 애플리케이션을 설명하는 애플리케이션 매니페스트입니다. ApplicationPackageRoot 폴더에서 매니페스트를 찾을 수 있습니다. [응용 프로그램 및 서비스 매니페스트](service-fabric-application-model.md)에 대해 자세히 알아봅니다.
+* 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 애플리케이션 구성을 유지하는 데 사용할 수 있는 세 개의 애플리케이션 매개 변수 파일(위와 동일)입니다. [여러 환경에 대한 애플리케이션을 구성](service-fabric-manage-multiple-environment-app-configuration.md)하는 방법을 알아봅니다.
+* 애플리케이션을 명령줄에서 배포하거나 자동화된 연속 통합 및 배포 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다. [PowerShell을 사용하여 애플리케이션을 배포](service-fabric-deploy-remove-applications.md)하는 방법에 대해 자세히 알아봅니다.
+* 애플리케이션을 설명하는 애플리케이션 매니페스트입니다. ApplicationPackageRoot 폴더에서 매니페스트를 찾을 수 있습니다. [애플리케이션 및 서비스 매니페스트](service-fabric-application-model.md)에 대해 자세히 알아봅니다.
 
 
 
@@ -62,12 +62,12 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 서로 통신할 수 있으며 서비스에 연결하고 서비스와 통신하는 클러스터 외부의 클라이언트 애플리케이션이 있을 수 있습니다. Service Fabric에서 [서비스와 통신 및 서비스 간 통신을 설정](service-fabric-connect-and-communicate-with-services.md)하는 방법을 알아봅니다. 
 
 ## <a name="learn-about-configuring-application-security"></a>애플리케이션 보안 구성에 대해 알아보기
-다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 애플리케이션을 실행할 수 있습니다.  [응용 프로그램에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
+다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 애플리케이션을 실행할 수 있습니다.  [애플리케이션에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
 
-애플리케이션에는 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [응용 프로그램에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
+애플리케이션에는 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [애플리케이션에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
 ## <a name="learn-about-the-application-lifecycle"></a>애플리케이션 수명 주기에 대해 알아보기
-다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 응용 프로그램 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.
+다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure에서 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

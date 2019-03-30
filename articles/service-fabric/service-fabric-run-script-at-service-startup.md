@@ -3,8 +3,8 @@ title: Azure Service Fabric 서비스가 시작될 때 스크립트 실행 | Mic
 description: Service Fabric 서비스 설치 진입점에 대한 정책을 구성하고 서비스 시작 시간에 스크립트를 실행하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660394"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
 Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또는 설치 작업을 실행해야 할 수도 있습니다.  예를 들어 환경 변수를 구성합니다. 서비스 실행 파일이 서비스의 서비스 매니페스트에서 시작되기 전에 실행할 스크립트를 지정할 수 있습니다. 서비스 설치 진입점에 대한 RunAs 정책을 구성하면 설치 실행 파일 실행에 사용되는 계정을 변경할 수 있습니다.  별도의 설치 진입점을 통해 짧은 기간 동안 높은 권한의 구성을 실행할 수 있으므로 서비스 호스트 실행 파일을 오랜 기간 동안 높은 권한으로 실행할 필요가 없습니다.

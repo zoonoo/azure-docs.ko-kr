@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2b9b3cdcb712fcf6c415f574dc687e80ae9ee3b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078077"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660514"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files 설정 및 볼륨 만들기 
 
@@ -105,9 +105,9 @@ ms.locfileid: "58078077"
    4. 할당량에 대 한 기본값을 사용 합니다. 
    5. 가상 네트워크에서 클릭 **새로 만들기** 새로운 Azure virtual network (Vnet)를 만들려고 합니다.  그런 다음 다음 정보를 입력 합니다.
        * 입력 **myvnet1** Vnet 이름으로 합니다.
-       * 예를 들어 10.7.0.0/16 주소 공간을 지정 합니다.
+       * 예를 들어 10.7.0.0/16 설정에 대 한 주소 공간 지정
        * 입력 **myANFsubnet** 서브넷 이름으로 합니다.
-       * 예를 들어 10.7.0.0/24 서브넷 주소 범위를 지정 합니다.
+       * 예를 들어 10.7.0.0/24 서브넷 주소 범위를 지정 합니다. 다른 리소스와 전용된 서브넷을 공유할 수 없습니다는 참고 합니다.
        * 선택 **Microsoft.NetApp/volumes** 서브넷 위임에 대 한 합니다.
        * 클릭 **확인** Vnet을 만들어야 합니다.
    6. 서브넷에서 새로 만든된 Vnet 선택 (**myvnet1**) 대리자 서브넷입니다.

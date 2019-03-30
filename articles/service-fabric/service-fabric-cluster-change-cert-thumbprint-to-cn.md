@@ -4,7 +4,7 @@ description: 인증서 지문 대신 인증서 일반 이름을 사용하도록 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: e7d5e51ea7048a134a5085715dec1797af32da17
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664423"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>인증서 지문에서 일반 이름으로 클러스터 변경
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하도록 실행 중인 Service Fabric 클러스터를 업데이트하는 방법을 설명합니다.

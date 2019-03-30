@@ -4,7 +4,7 @@ description: Windows 보안을 사용하여 Windows에서 실행되는 독립 �
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541012"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666685"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호
 Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러스터를 보호해야 합니다. 클러스터에서 프로덕션 작업을 실행하는 경우 특히 보안이 중요합니다. 이 문서에서는 *ClusterConfig.JSON* 파일에서 Windows 보안을 사용하여 노드 간 및 클라이언트-노드 간 보안을 구성하는 방법을 설명합니다.  이 프로세스는 보안[Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 보안 단계 구성에 해당합니다. Service Fabric에서 Windows 보안을 사용하는 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.

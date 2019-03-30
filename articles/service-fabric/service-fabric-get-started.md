@@ -3,8 +3,8 @@ title: Azure 마이크로 서비스에 대한 Windows 개발 환경 설정 | Mic
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
-ms.author: ryanwi
-ms.openlocfilehash: 768b0288f6a6861315da809f05c1d74f655d320b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: ccb5f690b7947192af401233aa03e799e5c5be0b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891538"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668724"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]

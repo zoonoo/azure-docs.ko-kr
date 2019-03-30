@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454744"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668503"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database 고급 데이터 보안 사용
 
@@ -49,6 +49,9 @@ Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔진 �
 |**보안 및 규정 준수** | **관리**|
 |격리된 환경([VNet 통합](sql-database-managed-instance-connectivity-architecture.md), 단일 테넌트 서비스, 전용 계산 및 저장소) <br>[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체(로그인)</a>(**공개 미리 보기**) <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[위협 검색](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
+> [!IMPORTANT]
+> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
+
 Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
 |기능 | 설명|
@@ -61,7 +64,7 @@ Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
+| VNet - 클래식 배포 모델 | 아닙니다. |
 | 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |

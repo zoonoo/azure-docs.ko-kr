@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401127"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664015"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -43,6 +43,9 @@ Security Center는 두 계층으로 제공됩니다.
 **무료 계층**은 Azure 리소스, 기본 보안 정책, 보안 권장 사항, 그리고 파트너의 보안 제품 및 서비스와의 통합 등의 보안 상태를 볼 수 있게 해줍니다.
 
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 무료 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>내 조직에 Azure Security Center의 가격 책정 계층 변경 내용을 수행 하 게 추적할 수는 방법
+Azure 구독의 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자는 여러 수 있으므로, 사용자 가격 책정 계층 변경을 수행한 사람 인지 알고 있어야 할 수도 있습니다. 를 사용 하 여 Azure 활동 로그를 사용할 수 하나. 추가 지침은 하세요 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
@@ -116,22 +119,22 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
    - 작업을 취소하려면 **취소**를 선택합니다.
 
 ### 그렇다면 Microsoft Monitoring Agent vm 확장으로 이미 설치 된?<a name="mmaextensioninstalled"></a>
-Monitoring Agent 확장으로 설치 될 때만 단일 작업 영역에 보고 확장 구성을 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "securityFree" 솔루션 설치가 완료 된 후에 security Center 이미 연결 되어 있는 작업 영역에 VM에서 보안 데이터를 저장 합니다. Security Center는이 프로세스에서 최신 버전으로 확장 버전을 업그레이드할 수 있습니다.
+Monitoring Agent 확장으로 설치 될 때만 단일 작업 영역에 보고 확장 구성을 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "SecurityCenterFree" 솔루션 설치가 완료 된 후에 security Center 이미 연결 되어 있는 작업 영역에 VM에서 보안 데이터를 저장 합니다. Security Center는이 프로세스에서 최신 버전으로 확장 버전을 업그레이드할 수 있습니다.
 
 자세한 내용은 [기존 에이전트 설치의 경우에서 자동 프로 비전](security-center-enable-data-collection.md#preexisting)합니다.
 
 
-### Microsoft Monitoring Agent (직접 에이전트) 확장 것이 아니라 컴퓨터에서 직접 설치 해야 했습니다 될까요?<a name="directagentinstalled"></a>
+### Microsoft Monitoring Agent 했습니다 어떻게 확장 (직접 에이전트) 것이 아니라 컴퓨터에서 직접 설치 되어 있습니까?<a name="directagentinstalled"></a>
 Microsoft Monitoring Agent (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center가 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring agent를 최신 버전으로 업그레이드할 수 있습니다.
 설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍 지원 됨).
-설치 해야 구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역) 인 경우는 "보안"securityFree"솔루션에 Vm 및 컴퓨터에서 이벤트 처리를 시작 하기 위해 Security Center에 대 한 해당 작업 영역에 보고 하는 /입니다.
+설치 해야 구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역) 인 경우는 "보안"SecurityCenterFree"Vm 및 컴퓨터에서 이벤트 처리를 시작 하려면 Security center에 솔루션을 보고 / 작업 영역입니다.
 
 2019-03-17, 기존 에이전트는 감지 하면 전에 Security Center에 구독 등록의 기존 컴퓨터에 Microsoft Monitoring Agent 확장을 설치 하지 않습니다 및 컴퓨터에는 영향을 받지 않습니다. 이러한 컴퓨터를이 컴퓨터에 에이전트 설치 문제를 해결 하는 "컴퓨터에서 에이전트 상태 문제 모니터링 해결" 권장 사항이 참조 하세요.
 
  자세한 내용은 다음 섹션 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](#scomomsinstalled)를 참조하세요.
 
-### SCOM 에이전트를 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
-보안 센터 기존 SCOM에는 Microsoft Monitoring Agent 확장 하 여 나란히 설치 됩니다. 기존 SCOM 에이전트는 일반적으로 SCOM 서버에 보고 계속 됩니다. SCOM 에이전트 및 Microsoft Monitoring Agent가이 프로세스 중 최신 버전으로 업데이트 될 공용 런타임 라이브러리를 공유 하는 note 하십시오.
+### System Center Operations Manager (SCOM) 에이전트를 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
+기존 System Center Operations Manager 에이전트를 security center는 Microsoft Monitoring Agent 확장-side-by-side를 설치 합니다. 기존 SCOM 에이전트는 일반적으로 System Center Operations Manager 서버에 보고 계속 됩니다. System Center Operations Manager 에이전트 및 Microsoft Monitoring Agent가이 프로세스 중 최신 버전으로 업데이트 될 공용 런타임 라이브러리를 공유 하는 note 하십시오. System Center Operations Manager 2012 에이전트 버전을 설치 하면 자동으로 프로 비전 설정 하지 하는 경우 (관리 효율성 기능 손실 될 수 있습니다 System Center Operations Manager server가 버전 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -156,7 +159,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 
 - Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다.  VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
-- Microsoft Monitoring Agent 확장을 설치하면 에이전트 버전이 업데이트됩니다. 이것은 직접 에이전트 및 SCOM 에이전트에 적용됩니다. 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
+- 에이전트의 버전을 업데이트 하는 Microsoft 모니터링 에이전트 (MMA) 확장을 설치 합니다. 이 직접 에이전트와 SCOM 에이전트에 적용 됩니다 (후자의 경우에 SCOM 및 MMA 공유 프로세스에서 업데이트 될 공용 런타임 라이브러리-). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 - 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
@@ -224,9 +227,9 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 ## 기존 Azure Monitor 로그 고객<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center에서 VM과 작업 영역 간의 모든 기존 연결을 재정의하나요?
-VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다.
+VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다. "보안" 또는 "SecurityCenterFree" 솔루션에 대 한 보고 작업 영역에 설치 되어 있는 VM은 보호할 수 있습니다. 
 
-Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 관련 VM에만 적용됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
+Security Center 솔루션이 데이터 수집 화면에서 선택한 작업 영역에 설치 된 경우에 없는 및 솔루션 관련 Vm에만 적용 됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
 
 Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Microsoft Monitoring Agent를 설치하지 않으며, 보안 모니터링 기능이 제한됩니다.
 

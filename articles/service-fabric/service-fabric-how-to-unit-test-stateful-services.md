@@ -3,8 +3,8 @@ title: Azure Service Fabric에서 상태 저장 서비스에 대한 단위 테�
 description: Service Fabric 상태 저장 서비스에 대한 단위 테스트 개발 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: charleszipp
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
-ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093908"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669115"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>상태 저장 서비스에 대한 단위 테스트 만들기
 Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리케이션 또는 도메인별 단위 테스트를 통해 찾지 못할 수 있는 몇 가지 일반적인 실수를 알아냅니다. 상태 저장 서비스에 대한 단위 테스트를 개발하는 경우 유의해야 할 몇 가지 특별한 고려 사항이 있습니다.

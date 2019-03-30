@@ -3,8 +3,8 @@ title: Azure Service Fabric 앱 패키징 | Microsoft Docs
 description: 클러스터에 배포하기 전에 Service Fabric 애플리케이션을 패키지하는 방법입니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
-ms.openlocfilehash: 24cb1fd0666b404d92dfb803f55c850226ff59b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: atsenthi
+ms.openlocfilehash: d32d593fcc93ec2e27676b1bb174940c12c24193
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205813"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667653"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 이 문서에서는 Service Fabric 애플리케이션을 패키지하고 배포를 준비하는 방법에 대해 설명합니다.
@@ -68,7 +68,7 @@ Visual Studio 2015를 사용하여 애플리케이션을 만드는 경우 패키
 패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾을 수 있습니다. Visual Studio에서 애플리케이션을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
 
 ### <a name="build-a-package-by-command-line"></a>명령줄로 패키지 빌드
-`msbuild.exe`를 사용하여 응용 프로그램을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
+`msbuild.exe`를 사용하여 애플리케이션을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -190,16 +190,16 @@ diff 프로비전이 옵션이 아니며 패키지를 포함해야 하는 경우
 버전 6.1부터 Service Fabric은 외부 저장소에서 프로비전을 허용합니다.
 이 옵션을 사용하는 경우 애플리케이션 패키지를 이미지 저장소에 복사할 필요가 없습니다. 대신 `sfpkg`를 만들고 외부 저장소에 업로드한 다음 프로비전할 때 다운로드 URI를 Service Fabric에 제공할 수 있습니다. 동일한 패키지는 여러 클러스터로 프로비전될 수 있습니다. 외부 저장소에서 프로비전하면 각 클러스터에 패키지를 복사하는 데 필요한 시간을 절약합니다.
 
-`sfpkg` 파일은 초기 응용 프로그램 패키지를 포함하는 zip이며 확장명 ".sfpkg"를 갖습니다.
+`sfpkg` 파일은 초기 애플리케이션 패키지를 포함하는 zip이며 확장명 ".sfpkg"를 갖습니다.
 zip 내의 애플리케이션 패키지는 압축되거나 압축이 풀릴 수 있습니다. zip 내의 애플리케이션 패키지의 압축은 [앞에서 언급한](service-fabric-package-apps.md#compress-a-package) 것처럼 코드, 구성 및 데이터 패키지 수준에서 수행됩니다.
 
-`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 응용 프로그램 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)를 사용합니다.
+`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)를 사용합니다.
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-`sfpkg`는 Service Fabric 외부에서 대역 외 외부 저장소로 업로드되어야 합니다. 외부 저장소는 REST http 또는 https 끝점을 노출하는 어떤 저장소도 될 수 있습니다. 프로비전하는 동안 Service Fabric은 GET 작업을 실행하여 `sfpkg` 애플리케이션 패키지를 다운로드하므로 저장소는 패키지에 대한 READ 액세스를 허용해야 합니다.
+`sfpkg`는 Service Fabric 외부에서 대역 외 외부 저장소로 업로드되어야 합니다. 외부 저장소는 REST http 또는 https 엔드포인트를 노출하는 어떤 저장소도 될 수 있습니다. 프로비전하는 동안 Service Fabric은 GET 작업을 실행하여 `sfpkg` 애플리케이션 패키지를 다운로드하므로 저장소는 패키지에 대한 READ 액세스를 허용해야 합니다.
 
 패키지를 프로비전하려면 다운로드 URI와 애플리케이션 유형 정보가 필요한 외부 프로비전을 사용합니다.
 
@@ -207,11 +207,11 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 > 이미지 저장소 상대 경로에 따른 프로비전은 현재 `sfpkg` 파일을 지원하지 않습니다. 따라서 `sfpkg`는 이미지 저장소에 복사되면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 배포 및 제거][10]에서는 PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
+[애플리케이션 배포 및 제거][10]에서는 PowerShell을 사용하여 애플리케이션 인스턴스를 관리하는 방법을 설명합니다.
 
-[여러 환경에 대한 응용 프로그램 매개 변수 관리][11]에서는 여러 응용 프로그램 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
+[여러 환경에 대한 애플리케이션 매개 변수 관리][11]에서는 여러 애플리케이션 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
 
-[응용 프로그램에 대한 보안 정책 구성][12]에서는 액세스를 제한하는 보안 정책에 따라 서비스를 실행하는 방법을 설명합니다.
+[애플리케이션에 대한 보안 정책 구성][12]에서는 액세스를 제한하는 보안 정책에 따라 서비스를 실행하는 방법을 설명합니다.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

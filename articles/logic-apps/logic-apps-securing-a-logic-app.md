@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620617"
+ms.locfileid: "58649291"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
@@ -156,8 +156,9 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 특정 사용자 또는 그룹만 논리 앱에서 작업을 실행할 수 있도록 하려면 관리, 편집 및 보기 등의 작업에 대한 액세스를 제한할 수 있습니다. Logic Apps는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 지원합니다. 이 기능을 사용하여 기본 제공 역할을 사용자 지정하거나 다음과 같은 구독의 멤버에 할당할 수 있습니다.
 
-* **논리 앱 참가자**: 사용자는 논리 앱을 보고, 편집하고, 업데이트할 수 있습니다. 이 역할은 논리 앱을 삭제하거나 관리자 작업을 실행할 수 없습니다.
-* **논리 앱 운영자**: 사용자는 논리 앱 및 실행 기록을 보고, 논리 앱을 사용하도록 사용하지 않도록 설정할 수 있습니다. 이 역할은 논리 앱을 편집하거나 업데이트할 수 없습니다.
+* [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor): 사용자는 논리 앱을 보고, 편집하고, 업데이트할 수 있습니다. 
+
+* [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator): 사용자는 논리 앱 및 실행 기록을 보고, 논리 앱을 사용하도록 사용하지 않도록 설정할 수 있습니다. 이 역할은 논리 앱을 편집하거나 업데이트할 수 없습니다.
 
 다른 사람이 논리 앱을 변경하거나 삭제하지 못하게 하려면 [Azure 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 사용할 수 있습니다. 이 기능을 사용하여 다른 사람이 프로덕션 리소스를 변경하거나 삭제하지 못하도록 할 수 있습니다.
 

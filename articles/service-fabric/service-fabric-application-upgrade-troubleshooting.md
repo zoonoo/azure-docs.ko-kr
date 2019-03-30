@@ -4,7 +4,7 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c6ba61354bf7466819e34a0d619a5a1820dd7b90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212741"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666956"
 ---
 # <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
 이 문서에서는 Azure 서비스 패브릭 애플리케이션 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
@@ -155,7 +155,7 @@ ServiceTypeHealthPolicyMap              :
 2. 수동으로 업그레이드의 남은 부분까지 진행합니다.
 3. 모니터링된 업그레이드 다시 시작
 
-**Start-ServiceFabricApplicationRollback** 명령은 응용 프로그램 롤백을 시작하는 데 언제든지 사용할 수 있습니다. 명령이 성공적으로 반환되면 롤백 요청은 시스템에 등록되고 금방 시작됩니다.
+**Start-ServiceFabricApplicationRollback** 명령은 애플리케이션 롤백을 시작하는 데 언제든지 사용할 수 있습니다. 명령이 성공적으로 반환되면 롤백 요청은 시스템에 등록되고 금방 시작됩니다.
 
 **Resume-ServiceFabricApplicationUpgrade** 명령은 업그레이드의 나머지 부분까지 수동으로 한 번에 업그레이드 도메인 하나씩 진행하는 데 사용할 수 있습니다. 이 모드에서는 안전 검사만 시스템에 의해 수행됩니다. 더 이상의 상태 검사는 수행되지 않습니다. 이 명령은 *UpgradeState*가 현재 업그레이드 도메인의 업그레이드가 끝났으나 다음 업그레이드 도메인이 시작되지 않았음(보류 중)을 의미하는 *RollingForwardPending*을 나타낼 때만 사용됩니다.
 
@@ -212,15 +212,15 @@ PS D:\temp>
 
 *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*보다 빠르면 업그레이드 오류가 발생할 수 있습니다.
 
-업그레이드 도메인에 대한 업그레이드 시간은 *UpgradeDomainTimeout*으로 제한됩니다.  *HealthCheckRetryTimeout* 및 *HealthCheckStableDuration*이 모두 0이 아니고 응용 프로그램이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 *UpgradeDomainTimeout*의 제한 시간이 됩니다. *UpgradeDomainTimeout* 은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
+업그레이드 도메인에 대한 업그레이드 시간은 *UpgradeDomainTimeout*으로 제한됩니다.  *HealthCheckRetryTimeout* 및 *HealthCheckStableDuration*이 모두 0이 아니고 애플리케이션이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 *UpgradeDomainTimeout*의 제한 시간이 됩니다. *UpgradeDomainTimeout* 은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.

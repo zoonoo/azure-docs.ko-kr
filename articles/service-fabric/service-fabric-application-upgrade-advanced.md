@@ -4,7 +4,7 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 168d944f72c1409b5b69c9ab7c07f7fcfa04c7c8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 3cdddac74552b56dfe3567adf30f1a05b6eb8e24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663794"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 애플리케이션 업그레이드: 고급 항목
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>애플리케이션을 업그레이드하는 동안 서비스 유형 추가 또는 제거
@@ -34,9 +34,9 @@ ms.locfileid: "34212326"
 >
 >
 
-*Monitored* 모드에서는 업그레이드가 진행되는 동안 응용 프로그램이 정상 상태를 유지하도록 Service Fabric에서 상태 정책을 적용합니다. 상태 정책을 위반하는 경우 지정된 *FailureAction*에 따라 업그레이드가 일시 중지되거나 자동으로 롤백됩니다.
+*Monitored* 모드에서는 업그레이드가 진행되는 동안 애플리케이션이 정상 상태를 유지하도록 Service Fabric에서 상태 정책을 적용합니다. 상태 정책을 위반하는 경우 지정된 *FailureAction*에 따라 업그레이드가 일시 중지되거나 자동으로 롤백됩니다.
 
-*UnmonitoredManual* 모드에서는 응용 프로그램 관리자가 업그레이드의 진행 상황을 총체적으로 제어합니다. 이 모드는 상태 모니터링을 우회하기 위해 사용자 지정 상태 평가 정책을 적용하거나 일반적이지 않은 업그레이드를 수행하는 경우에 유용합니다(예: 애플리케이션 데이터가 이미 손실). 이 모드에서 실행되는 업그레이드는 각 UD가 완료된 후 스스로 일시 중단되며 [Resume-servicefabricapplicationupgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 재개해야 합니다. 업그레이드가 일시 중단되고 사용자가 업그레이드를 다시 시작할 준비가 완료되면 업그레이드 상태가 *RollforwardPending*으로 표시됩니다([UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet) 참조).
+*UnmonitoredManual* 모드에서는 애플리케이션 관리자가 업그레이드의 진행 상황을 총체적으로 제어합니다. 이 모드는 상태 모니터링을 우회하기 위해 사용자 지정 상태 평가 정책을 적용하거나 일반적이지 않은 업그레이드를 수행하는 경우에 유용합니다(예: 애플리케이션 데이터가 이미 손실). 이 모드에서 실행되는 업그레이드는 각 UD가 완료된 후 스스로 일시 중단되며 [Resume-servicefabricapplicationupgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 재개해야 합니다. 업그레이드가 일시 중단되고 사용자가 업그레이드를 다시 시작할 준비가 완료되면 업그레이드 상태가 *RollforwardPending*으로 표시됩니다([UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet) 참조).
 
 마지막으로, *UnmonitoredAuto* 모드는 사용자 입력이 필요 없고 애플리케이션 상태 정책을 평가하지 않으므로 서비스를 개발하거나 테스트하는 동안 빠른 업그레이드 반복을 수행하는 데 유용합니다.
 
@@ -88,19 +88,19 @@ app1/
 
 ## <a name="rolling-back-application-upgrades"></a>애플리케이션 업그레이드 롤백
 
-업그레이드를 세 가지 모드(*Monitored*, *UnmonitoredAuto* 또는 *UnmonitoredManual*) 중 하나로 롤포워드할 수 있지만, 롤백은 *UnmonitoredAuto* 또는 *UnmonitoredManual* 모드에서만 가능합니다. *UnmonitoredAuto* 모드에서 수행하는 롤백은 *UpgradeReplicaSetCheckTimeout*의 기본값이 다르다는 점을 제외하고 롤포워드와 동일한 방식으로 작동합니다([응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조). *UnmonitoredManual* 모드에서 수행하는 롤백은 롤포워드와 동일한 방식으로 작동합니다. 롤백은 각 UD가 완료되면 자체적으로 일시 중단한 후 [ Resume-servicefabricapplicationupgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 다시 시작하고 롤백을 계속 진행해야 합니다.
+업그레이드를 세 가지 모드(*Monitored*, *UnmonitoredAuto* 또는 *UnmonitoredManual*) 중 하나로 롤포워드할 수 있지만, 롤백은 *UnmonitoredAuto* 또는 *UnmonitoredManual* 모드에서만 가능합니다. *UnmonitoredAuto* 모드에서 수행하는 롤백은 *UpgradeReplicaSetCheckTimeout*의 기본값이 다르다는 점을 제외하고 롤포워드와 동일한 방식으로 작동합니다([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조). *UnmonitoredManual* 모드에서 수행하는 롤백은 롤포워드와 동일한 방식으로 작동합니다. 롤백은 각 UD가 완료되면 자체적으로 일시 중단한 후 [ Resume-servicefabricapplicationupgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 다시 시작하고 롤백을 계속 진행해야 합니다.
 
-*Monitored* 모드에서 *롤백*의 *FailureAction*이 지정된 업그레이드 상태 정책을 위반하거나([응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조) 명시적으로 [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps)을 사용하는 경우 롤백을 자동으로 트리거할 수 있습니다.
+*Monitored* 모드에서 *롤백*의 *FailureAction*이 지정된 업그레이드 상태 정책을 위반하거나([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조) 명시적으로 [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps)을 사용하는 경우 롤백을 자동으로 트리거할 수 있습니다.
 
 롤백 중에 언제든지 [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 *UpgradeReplicaSetCheckTimeout* 값과 모드를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+[애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.

@@ -4,7 +4,7 @@ description: Windows Server를 실행하는 실제 또는 가상 머신에서 Az
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446115"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668495"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
 [Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md) 후 비즈니스 요구는 변경될 수 있으며 클러스터에 노드를 추가 또는 제거해야 할 수 있습니다. 이 문서에서는 이 목표를 달성하는 자세한 단계를 제공합니다. 노드 추가/제거 기능은 로컬 개발 클러스터에서 지원되지 않습니다.

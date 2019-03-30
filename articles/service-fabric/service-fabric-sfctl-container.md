@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl container 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663709"
 ---
 # <a name="sfctl-container"></a>sfctl container
 클러스터 노드에서 컨테이너 관련 명령을 실행합니다.
@@ -38,12 +38,12 @@ ms.locfileid: "53274907"
 
 |인수|설명|
 | --- | --- |
-| --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --code-package-instance-id [필수] | Service Fabric 노드에 배포된 코드 패키지 인스턴스를 고유하게 식별하는 ID입니다. <br><br> 'service code-package-list'로 검색할 수 있습니다. |
-| --code-package-name        [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
+| --code-package-name        [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
 | --container-api-uri-path   [필수] | 컨테이너 REST API의 URI 경로입니다. 컨테이너 이름/ID 대신 '{ID}'를 사용합니다. |
 | --node-name                [필수] | 노드의 이름입니다. |
-| --service-manifest-name    [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
+| --service-manifest-name    [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --container-api-body | 컨테이너 REST API에 대한 HTTP 요청 본문입니다. |
 | --container-api-content-type | 컨테이너 REST API에 대한 콘텐츠 형식입니다. 'application/json'으로 기본값을 지정합니다. |
 | --container-api-http-verb | 컨테이너 REST API에 대한 HTTP 동사입니다. GET으로 기본값을 지정합니다. |
@@ -66,11 +66,11 @@ ms.locfileid: "53274907"
 
 |인수|설명|
 | --- | --- |
-| --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --code-package-instance-id [필수] | 'service code-package-list'에서 검색할 수 있는 코드 패키지 인스턴스 ID입니다. |
-| --code-package-name        [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
+| --code-package-name        [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
 | --node-name                [필수] | 노드의 이름입니다. |
-| --service-manifest-name    [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
+| --service-manifest-name    [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --tail | 로그의 끝에서 표시할 줄의 수입니다. 기본값은 100입니다. 전체 로그를 표시하는 'all'입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 

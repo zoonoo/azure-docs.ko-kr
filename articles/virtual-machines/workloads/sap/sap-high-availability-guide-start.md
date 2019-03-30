@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d62bf6c8aaf38de27594db0b51731a883a84fbe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667058"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -52,6 +52,9 @@ ms.locfileid: "58013503"
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
 [sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
+[high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -223,6 +226,10 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [Azure NetApp 파일을 사용 하 여 SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
 
+* ![RHEL][Logo_Linux] [RHEL에서 GlusterFS 설정으로 SAP ASCS/SCS 고가용성-위한 Azure 인프라 준비][high-availability-guide-rhel-glusterfs]
+
+* ![RHEL][Logo_Linux] [RHEL에서 Pacemaker 설정으로 SAP ASCS/SCS 고가용성-위한 Azure 인프라 준비 ][high-availability-guide-rhel-pacemaker]
+
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure에 SAP NetWeaver 고가용성 시스템 설치
 
 **요약:** 문서를 있는 단계별 예제는 Windows Server 장애 조치 클러스터링 클러스터 및 Azure에서 Linux 클러스터 프레임 워크에서 고가용성 SAP 시스템의 구성과 설치는 다음과 같습니다.
@@ -236,3 +243,5 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation]
 
 * ![Linux][Logo_Linux] [NetApp Azure Files를 사용 하 여 SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 고가용성 SAP NetWeaver 설치][sap-suse-ascs-ha-sap-installation-anf]
+
+* ![RHEL][Logo_Linux] [설치 SAP NetWeaver ASCS/SCS에 RHEL에서 고가용성 구성][sap-rhel-ascs-ha]

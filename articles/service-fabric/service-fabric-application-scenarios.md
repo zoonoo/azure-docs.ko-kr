@@ -3,8 +3,8 @@ title: 애플리케이션 시나리오 및 설계 | Microsoft Docs
 description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 애플리케이션 설계에 대해 논의합니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
-ms.openlocfilehash: a84d8fead42f8314decc144f01d8de1dac30bbdf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199479"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668248"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 Azure 서비스 패브릭은 다양한 유형의 비즈니스 애플리케이션 및 서비스를 쓰고 실행할 수 있도록 하는 안정적이고 유연한 플랫폼을 제공합니다. 이러한 애플리케이션 및 마이크로 서비스는 상태를 저장하지 않을 수도 있고 상태를 저장할 수도 있으며, 가상 머신 간에 리소스를 분산하여 효율성을 극대화합니다. Service Fabric의 고유한 아키텍처는 애플리케이션에서 거의 실시간으로 데이터 분석, 메모리 내 계산, 병렬 트랜잭션 및 이벤트 처리가 가능합니다. 리소스 요구 사항의 변화에 따라 애플리케이션을 간단하게 확장 또는 축소(실제 내부 또는 외부)할 수 있습니다.

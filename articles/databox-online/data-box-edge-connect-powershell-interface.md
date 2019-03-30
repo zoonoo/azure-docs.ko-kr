@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403598"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660463"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure 데이터 상자 Edge 장치를 관리 합니다.
 
@@ -43,6 +43,20 @@ Azure 데이터 가장자리가 상자의 솔루션을 사용 하 여 데이터�
 ## <a name="upload-certificate"></a>인증서 업로드
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+또한 IoT Edge 장치와 연결할 수는 다운스트림 장치 간의 보안 연결을 사용 하려면 IoT Edge 인증서를 업로드할 수 있습니다. 세 가지 IoT Edge 인증서 (*.pem* 형식)를 설치 해야 하는:
+
+- 루트 CA 인증서 또는 CA 소유자
+- 디바이스 CA 인증서
+- 장치 키 인증서
+
+다음 예제에서는 IoT Edge 인증서를 설치 하려면이 cmdlet의 사용법을 보여 줍니다.
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+로 이동 하는 인증서에 대 한 자세한 내용은 [Azure IoT Edge 인증서](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 하거나 [게이트웨이에서 인증서를 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)합니다.
 
 ## <a name="view-device-information"></a>장치 정보 보기
  
