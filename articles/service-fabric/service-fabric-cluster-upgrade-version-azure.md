@@ -4,7 +4,7 @@ description: 클러스터 업데이트 모드 설정, 인증서 업그레이드,
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3e71199c19fffae0bb7dfa6a59245f1d43cd5065
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: 234bff5049babf0c4b1d036b40201720b2736228
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857798"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661635"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
 
@@ -122,7 +122,7 @@ Output:
 ## <a name="next-steps"></a>다음 단계
 *  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
 *  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

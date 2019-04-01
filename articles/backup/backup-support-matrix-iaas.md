@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518493"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649814"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -129,7 +129,7 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 기존 VM에 복원 | 디스크 바꾸기 옵션을 사용합니다.
 Azure SSE(스토리지 서비스 암호화)가 설정된 스토리지 계정을 사용하여 디스크 복원 | 지원되지 않습니다.<br/><br/> SSE를 사용하도록 설정하지 않은 계정으로 복원합니다.
 혼합된 스토리지 계정으로 복원 | 지원되지 않습니다.<br/><br/> 스토리지 계정 유형에 따라, 복원된 모든 디스크가 프리미엄 또는 표준 중 하나가 되며 혼합되지 않습니다.
-영역 중복 저장소 (ZRS)를 사용 하 여 저장소 계정으로 복원 | 지원되지 않습니다.
+영역 중복 저장소 (ZRS)를 사용 하 여 저장소 계정으로 복원 | 지원 (VM에는 백업 2019 년 1 월 이후에 대 한 및 위치 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 사용할)
 가용성 집합에 VM 직접 복원 | 관리 되는 디스크에 대 한 디스크를 복원할 수 있으며 템플릿의 가용성 집합 옵션을 사용 하 여 키를 누릅니다.<br/><br/> 비관리형 디스크에서는 지원되지 않습니다. 비관리형 디스크의 경우, 디스크를 복원하고 가용성 집합에 VM을 만듭니다.
 VM에 관리 되는 업그레이드 후 관리 되지 않는 Vm의 백업 복원|  지원됩니다.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
 VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 |  지원됩니다.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
@@ -149,6 +149,7 @@ Vm에 배포 되는 백업 된 [확장 집합](https://docs.microsoft.com/azure/
 배포 된 Vm 백업 된 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, 타사에서 게시) |   지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 사용자 지정 이미지 (타사)에서 배포 된 Vm 백업 |    지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 Vm 백업  |  지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
+백업 Vm 일관성 | 지원 안 됨 <br/><br/>Azure Backup은 다중 VM 일관성을 지원하지 않습니다.
 
 
 
@@ -165,6 +166,7 @@ Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 
 중복 제거된 디스크 백업 | 지원되지 않습니다.
 보호된 VM에 디스크 추가 |  지원됩니다.
 보호된 VM에서 디스크 크기 조정 |  지원됩니다.
+공유 저장소| CSV 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 좋지 않습니다. CSV 기록기에서 실패할 가능성이 있습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

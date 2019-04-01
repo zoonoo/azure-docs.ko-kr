@@ -166,7 +166,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 2. Mobile DbContext 클래스에 테이블 참조를 구성합니다.
 3. 테이블 컨트롤러를 만듭니다.
 
-데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예: 
+데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예를 들면 다음과 같습니다.
 
     public class TodoItem : EntityData
     {

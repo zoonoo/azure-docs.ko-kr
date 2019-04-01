@@ -260,7 +260,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 WidevineLicenseAcquisitionUrl을 사용하도록 AssetDeliveryConfiguration 값을 업데이트하고 라이선스 배달 서비스의 URL을 지정합니다. AMS 파트너([Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/))를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
 
-예:  
+예를 들면 다음과 같습니다. 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 

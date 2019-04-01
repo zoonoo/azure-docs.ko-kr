@@ -34,7 +34,7 @@ Mobile Apps 클라이언트 및 서버 SDK는 원래 Mobile Services를 기반�
 ## <a name="header-specification"></a>헤더 사양
 키 `ZUMO-API-VERSION` 는 HTTP 헤더 또는 쿼리 문자열에 지정될 수 있습니다. 값은 **x.y.z**형식의 버전 문자열입니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 GET https://service.azurewebsites.net/tables/TodoItem
 

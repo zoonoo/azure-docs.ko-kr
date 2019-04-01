@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407825"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671855"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -219,7 +219,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 **마이그레이션을 수행할 경우 Azure 간 복제를 통해 Azure Site Recovery에 의해 보호되는 Azure VM에 영향을 미치나요?**
 
-예. 현재 Managed Disks가 있는 VM에 대한 Azure Site Recovery Azure 간 보호는 공개 미리 보기 서비스로만 제공됩니다.
+예. 현재 Azure 사이트 복구 Azure Managed Disks를 사용 하 여 Vm에 대 한 Azure 보호에는 GA 서비스로 사용할 수 있습니다.
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
@@ -339,7 +339,7 @@ P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 �
 
 **Azure Backup 및 Azure Site Recovery 서비스에서 지 원하는 최대 디스크 크기는 무엇입니까?**
 
-Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다.
+Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB 더 큰 디스크에 대 한 지원이 곧 추가 될 예정입니다.
 
 **더 큰 디스크 크기에 대 한 크기 권장 되는 VM은 무엇입니까 (> 4 TiB)를 달성 하려면 표준 SSD와 HDD를 표준 디스크 액세스에 최적화 된 디스크 IOPS 및 대역폭?**
 

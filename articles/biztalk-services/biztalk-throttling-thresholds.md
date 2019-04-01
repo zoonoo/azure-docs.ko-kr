@@ -16,7 +16,7 @@ ms.date: 11/07/2016
 ms.author: mandia
 ms.openlocfilehash: daab61a0ea9321b0fb918c60688215c80088e0bc
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51243354"
@@ -42,11 +42,11 @@ Azure BizTalk Services는 제한 상태(일반 상태와 제한된 상태) 및 �
 ## <a name="runtime-behavior"></a>런타임 동작
 Azure BizTalk Services가 제한 상태에 들어가면 다음과 같은 상황이 발생합니다.
 
-* 조정은 역할 인스턴스별로 적용됩니다. 예: <br/>
+* 조정은 역할 인스턴스별로 적용됩니다. 예를 들면 다음과 같습니다.<br/>
   RoleInstanceA가 제한 중입니다. RoleInstanceB는 제한하고 있지 않습니다. 이런 경우 RoleInstanceB의 메시지가 예상대로 처리됩니다. RoleInstanceA의 메시지는 취소되고 다음과 같은 오류를 표시하며 실패합니다.<br/><br/>
   **서버가 사용 중입니다. 나중에 다시 시도하세요.**<br/><br/>
-* 어떤 끌어오기 원본도 메시지를 폴링하거나 다운로드하지 않습니다. 예: <br/>
-  파이프라인이 외부 FTP 원본에서 메시지를 끌어옵니다. 끌어오기를 수행하는 역할 인스턴스가 제한 상태로 전환됩니다. 이런 경우 역할 인스턴스가 제한을 중지할 때까지 파이프라인에서 추가 메시지 다운로드를 중지합니다.
+* 어떤 끌어오기 원본도 메시지를 폴링하거나 다운로드하지 않습니다. 예를 들면 다음과 같습니다.<br/>
+   파이프라인이 외부 FTP 원본에서 메시지를 끌어옵니다. 끌어오기를 수행하는 역할 인스턴스가 제한 상태로 전환됩니다. 이런 경우 역할 인스턴스가 제한을 중지할 때까지 파이프라인에서 추가 메시지 다운로드를 중지합니다.
 * 클라이언트에서 메시지를 다시 제출할 수 있도록 응답이 클라이언트로 전송됩니다.
 * 제한이 해결될 때까지 기다려야 합니다. 특히 낮은 임계값에 도달할 때까지 기다려야 합니다.
 

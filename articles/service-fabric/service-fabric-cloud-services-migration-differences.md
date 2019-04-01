@@ -4,7 +4,7 @@ description: Cloud Services에서 서비스 패브릭으로 애플리케이션�
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669455"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
 Microsoft Azure Service Fabric은 확장성이 뛰어난 매우 안정적인 분산된 애플리케이션을 위한 차세대 클라우드 애플리케이션 플랫폼입니다. 분산된 클라우드 애플리케이션을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
@@ -29,11 +29,11 @@ Cloud Services에서 Service Fabric으로 애플리케이션 마이그레이션�
 ## <a name="applications-and-infrastructure"></a>애플리케이션 및 인프라
 Cloud Services와 Service Fabric 간의 기본적인 차이는 VM, 작업 및 애플리케이션 간의 관계입니다. 여기에서 작업은 특정 작업을 수행하거나 서비스를 제공하도록 작성하는 코드로 정의됩니다.
 
-* **Cloud Services는 VM으로 응용 프로그램 배포에 대한 것입니다.**  작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
+* **Cloud Services는 VM으로 애플리케이션 배포에 대한 것입니다.**  작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
 
 ![Cloud Services 애플리케이션 및 토폴로지][1]
 
-* **서비스 패브릭은 응용 프로그램을 Windows 또는 Linux에서 서비스 패브릭을 실행하는 기존 VM 또는 컴퓨터에 배포에 대한 것입니다.** 작성하는 서비스는 Service Fabric 애플리케이션 플랫폼에서 추상화된 기본 인프라에서 완전히 분리되므로 애플리케이션을 여러 환경에 배포할 수 있습니다. Service Fabric의 작업은 "서비스"라고 하고 하나 이상의 서비스는 Service Fabric 애플리케이션 플랫폼에서 실행하는 공식적으로 정의된 애플리케이션에 그룹화됩니다. 단일 Service Fabric 클러스터에 여러 애플리케이션을 배포할 수 있습니다.
+* **Service Fabric은 애플리케이션을 Windows 또는 Linux에서 Service Fabric을 실행하는 기존 VM 또는 머신에 배포에 대한 것입니다.** 작성하는 서비스는 Service Fabric 애플리케이션 플랫폼에서 추상화된 기본 인프라에서 완전히 분리되므로 애플리케이션을 여러 환경에 배포할 수 있습니다. Service Fabric의 작업은 "서비스"라고 하고 하나 이상의 서비스는 Service Fabric 애플리케이션 플랫폼에서 실행하는 공식적으로 정의된 애플리케이션에 그룹화됩니다. 단일 Service Fabric 클러스터에 여러 애플리케이션을 배포할 수 있습니다.
 
 ![Service Fabric 애플리케이션 및 토폴로지][2]
 
@@ -67,16 +67,16 @@ Service Fabric 애플리케이션은 완전한 애플리케이션에서 동일�
 대부분의 클라우드 서비스 애플리케이션은 둘 이상의 계층으로 구성됩니다. 마찬가지로 Service Fabric 애플리케이션은 둘 이상의 서비스(일반적으로 많은 서비스)로 구성됩니다. 두 일반적인 통신 모델은 직접 통신이며 외부 영구 저장소를 경유합니다.
 
 ### <a name="direct-communication"></a>직접 통신
-직접 통신을 사용하여 계층은 각 계층에서 노출된 끝점을 통해 직접 통신할 수 있습니다. Cloud Services와 같은 상태 비저장 환경에서 이는 부하를 균형 조정하도록 임의로 또는 라운드 로빈 방식으로 VM 역할의 인스턴스를 선택하고 해당 끝점에 직접 연결하는 것을 의미합니다.
+직접 통신을 사용하여 계층은 각 계층에서 노출된 엔드포인트를 통해 직접 통신할 수 있습니다. Cloud Services와 같은 상태 비저장 환경에서 이는 부하를 균형 조정하도록 임의로 또는 라운드 로빈 방식으로 VM 역할의 인스턴스를 선택하고 해당 엔드포인트에 직접 연결하는 것을 의미합니다.
 
 ![Cloud Services 직접 통신][5]
 
  직접 통신은 서비스 패브릭에서 일반적인 통신 모델입니다. 서비스 패브릭과 Cloud Services의 주요 차이점은 Cloud Services에서는 VM에 연결하는 반면 서비스 패브릭에서는 서비스에 연결한다는 점입니다. 이는 몇 가지 이유로 중요한 차이점입니다.
 
-* Service Fabric의 서비스는 이를 호스팅하는 VM에 연결되지 않습니다. 서비스는 클러스터에서 이동할 수 있으며 실제로 다양한 이유(리소스 균형 조정, 장애 조치, 애플리케이션 및 인프라 업그레이드 및 배치 또는 부하 제약 조건)로 이동하도록 예상됩니다. 즉, 서비스 인스턴스의 주소는 언제든지 변경될 수 있습니다. 
-* 서비스 패브릭의 VM은 각각 고유 끝점으로 여러 서비스를 호스팅할 수 있습니다.
+* Service Fabric 서비스에에서 이러한 호스트는 Vm에 연결 되어 있지 서비스는 클러스터에서 이동할 수 있습니다 및 사실 해야 하는 다양 한 이유로 이동: 리소스 분산, 장애 조치, 응용 프로그램 및 인프라 업그레이드 및 배치 또는 부하 제약 조건입니다. 즉, 서비스 인스턴스의 주소는 언제든지 변경될 수 있습니다. 
+* 서비스 패브릭의 VM은 각각 고유 엔드포인트로 여러 서비스를 호스팅할 수 있습니다.
 
-서비스 패브릭은 서비스의 끝점 주소를 확인하는 데 사용할 수 있는 이름 지정 서비스라고 하는 서비스 검색 메커니즘을 제공합니다. 
+서비스 패브릭은 서비스의 엔드포인트 주소를 확인하는 데 사용할 수 있는 이름 지정 서비스라고 하는 서비스 검색 메커니즘을 제공합니다. 
 
 ![서비스 패브릭 직접 통신][6]
 

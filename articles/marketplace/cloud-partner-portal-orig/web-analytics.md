@@ -60,7 +60,7 @@ ms.locfileid: "58097477"
 
 이러한 캠페인 ID를 여러 개 조합하여 캠페인의 트래픽을 생성하는 여러 출처(예: 전자 메일, 블로그, 소셜 미디어 소스 등 고객이 유입되는 위치)를 추가로 지정할 수도 있습니다.
 
-예: 
+예를 들면 다음과 같습니다.
 
 1. 뉴스레터 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>

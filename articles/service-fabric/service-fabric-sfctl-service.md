@@ -4,7 +4,7 @@ description: Service Fabric CLI sfctl service 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276879"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670883"
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -28,32 +28,32 @@ ms.locfileid: "53276879"
 
 |명령|설명|
 | --- | --- |
-| app-name | 서비스에 대한 Service Fabric 응용 프로그램 이름을 가져옵니다. |
+| app-name | 서비스에 대한 Service Fabric 애플리케이션 이름을 가져옵니다. |
 | code-package-list | Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다. |
 | create | 지정된 Service Fabric 서비스를 만듭니다. |
 | delete | 기존 Service Fabric 서비스를 삭제합니다. |
-| deployed-type | Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 지정된 서비스 유형에 대한 정보를 가져옵니다. |
-| deployed-type-list | Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. |
+| deployed-type | Service Fabric 클러스터의 노드에 배포된 애플리케이션의 지정된 서비스 유형에 대한 정보를 가져옵니다. |
+| deployed-type-list | Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. |
 | description | 기존 Service Fabric서비스에 대한 설명을 가져옵니다. |
 | get-container-logs | Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를 가져옵니다. |
 | health | 지정된 Service Fabric 서비스의 상태를 가져옵니다. |
-| info | Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다. |
-| list | 응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다. |
+| info | Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보를 가져옵니다. |
+| list | 애플리케이션 ID로 지정된 애플리케이션에 속하는 모든 서비스에 대한 정보를 가져옵니다. |
 | manifest | 서비스 유형을 설명하는 매니페스트를 가져옵니다. |
 | package-deploy | 지정한 서비스 매니페스트와 연결된 패키지를 지정된 노드의 이미지 캐시에 다운로드합니다. |
-| package-health | Service Fabric 노드 및 응용 프로그램에 배포된 특정 응용 프로그램의 서비스 패키지 상태에 대한 정보를 가져옵니다. |
+| package-health | Service Fabric 노드 및 애플리케이션에 배포된 특정 애플리케이션의 서비스 패키지 상태에 대한 정보를 가져옵니다. |
 | package-info | 지정한 이름과 정확히 일치하는 Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다. |
 | package-list | Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다. |
 | recover | 현재 쿼럼 손실 상태에 있는 지정된 서비스를 복구하려고 시도해야 한다는 것을 Service Fabric 클러스터에 나타냅니다. |
 | report-health | Service Fabric 서비스에 대한 상태 보고서를 보냅니다. |
 | resolve | Service Fabric 파티션을 해결합니다. |
-| type-list | Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. |
+| type-list | Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. |
 | update | 지정된 업데이트 설명을 사용하여 지정된 서비스를 업데이트합니다. |
 
 ## <a name="sfctl-service-app-name"></a>sfctl service app-name
-서비스에 대한 Service Fabric 응용 프로그램 이름을 가져옵니다.
+서비스에 대한 Service Fabric 애플리케이션 이름을 가져옵니다.
 
-지정된 서비스에 대한 응용 프로그램의 이름을 가져옵니다. 제공된 서비스 ID가 있는 서비스가 존재하지 않는 경우 404 FABRIC_E_SERVICE_DOES_NOT_EXIST 오류가 반환됩니다.
+지정된 서비스에 대한 애플리케이션의 이름을 가져옵니다. 제공된 서비스 ID가 있는 서비스가 존재하지 않는 경우 404 FABRIC_E_SERVICE_DOES_NOT_EXIST 오류가 반환됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -75,16 +75,16 @@ ms.locfileid: "53276879"
 ## <a name="sfctl-service-code-package-list"></a>sfctl service code-package-list
 Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 
-지정된 응용 프로그램에 대한 Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
+지정된 애플리케이션에 대한 Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
-| --code-package-name | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
-| --service-manifest-name | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
+| --code-package-name | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
+| --service-manifest-name | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -104,8 +104,8 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 
 |인수|설명|
 | --- | --- |
-| --app-id       [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 'fabric\:/myapp/app1'인 경우 응용 프로그램 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
-| --name         [필수] | 서비스의 이름입니다. 응용 프로그램 ID의 자식이어야 합니다. `fabric\:` URI를 포함한 전체 이름입니다. 예를 들어 서비스 `fabric\:/A/B`는 응용 프로그램 `fabric\:/A`의 자식입니다. |
+| --app-id       [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 'fabric\:/myapp/app1'인 경우 애플리케이션 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
+| --name         [필수] | 서비스의 이름입니다. 애플리케이션 ID의 자식이어야 합니다. `fabric\:` URI를 포함한 전체 이름입니다. 예를 들어 서비스 `fabric\:/A/B`는 애플리케이션 `fabric\:/A`의 자식입니다. |
 | --service-type [필수] | 서비스 형식 이름입니다. |
 | --activation-mode | 서비스 패키지의 활성화 모드입니다. |
 | --constraints | 문자열 형태의 배치 제약 조건입니다. 배치 제약 조건은 노드 속성에 대한 부울 식이며 서비스 요구 사항을 기반으로 특정 노드에 대한 서비스 제한을 허용합니다. 예를 들어, NodeType이 파란색인 노드에 서비스를 배치하려면 "NodeColor == blue"를 지정합니다. |
@@ -154,7 +154,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 |인수|설명|
 | --- | --- |
 | --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
-| --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 응용 프로그램이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 응용 프로그램이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
+| --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 애플리케이션이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 애플리케이션이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -168,15 +168,15 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-deployed-type"></a>sfctl service deployed-type
-Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 지정된 서비스 유형에 대한 정보를 가져옵니다.
+Service Fabric 클러스터의 노드에 배포된 애플리케이션의 지정된 서비스 유형에 대한 정보를 가져옵니다.
 
-Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 특정 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 응답은 서비스 유형의 이름, 해당 등록 상태, 등록한 코드 패키지 및 서비스 패키지의 활성화 ID를 포함합니다. 각 항목은 활성화 ID로 구분된 서비스 유형의 하나의 활성화를 나타냅니다.
+Service Fabric 클러스터의 노드에 배포된 애플리케이션의 특정 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 응답은 서비스 유형의 이름, 해당 등록 상태, 등록한 코드 패키지 및 서비스 패키지의 활성화 ID를 포함합니다. 각 항목은 활성화 ID로 구분된 서비스 유형의 하나의 활성화를 나타냅니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id    [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id    [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name         [필수] | 노드의 이름입니다. |
 | --service-type-name [필수] | Service Fabric 서비스 유형의 이름을 지정합니다. |
 | --service-manifest-name | 배포된 서비스 형식 정보의 목록을 필터링하는 서비스 매니페스트의 이름입니다. 지정된 경우 응답은 이 서비스 매니페스트에 정의된 서비스 형식에 대한 정보만을 포함합니다. |
@@ -193,15 +193,15 @@ Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 특정
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-deployed-type-list"></a>sfctl service deployed-type-list
-Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
+Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
 
-Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 응답은 서비스 유형의 이름, 해당 등록 상태, 등록한 코드 패키지 및 서비스 패키지의 활성화 ID를 포함합니다.
+Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 응답은 서비스 유형의 이름, 해당 등록 상태, 등록한 코드 패키지 및 서비스 패키지의 활성화 ID를 포함합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
 | --service-manifest-name | 배포된 서비스 형식 정보의 목록을 필터링하는 서비스 매니페스트의 이름입니다. 지정된 경우 응답은 이 서비스 매니페스트에 정의된 서비스 형식에 대한 정보만을 포함합니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -247,10 +247,10 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 
 |인수|설명|
 | --- | --- |
-| --application-id        [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --code-package-name     [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
+| --application-id        [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --code-package-name     [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트에 지정된 코드 패키지의 이름입니다. |
 | --node-name             [필수] | 노드의 이름입니다. |
-| --service-manifest-name [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
+| --service-manifest-name [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --previous | 코드 패키지 인스턴스의 종료된/배달 못 한 컨테이너에서 컨테이너 로그를 가져올지 여부를 지정합니다. |
 | --tail | 로그의 끝에서 표시할 줄의 수입니다. 기본값은 100입니다. 전체 로그를 표시하는 'all'입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -291,15 +291,15 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-info"></a>sfctl service info
-Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다.
+Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보를 가져옵니다.
 
-지정된 Service Fabric 응용 프로그램에 속하는 지정된 서비스에 대한 정보를 반환합니다.
+지정된 Service Fabric 애플리케이션에 속하는 지정된 서비스에 대한 정보를 반환합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --service-id     [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -314,15 +314,15 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-list"></a>sfctl service list
-응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다.
+애플리케이션 ID로 지정된 애플리케이션에 속하는 모든 서비스에 대한 정보를 가져옵니다.
 
-응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 반환합니다.
+애플리케이션 ID로 지정된 애플리케이션에 속하는 모든 서비스에 대한 정보를 반환합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --service-type-name | 쿼리할 서비스를 필터링하는 데 사용되는 서비스 유형 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -347,8 +347,8 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 |인수|설명|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
-| --application-type-version [필수] | 응용 프로그램 유형의 버전입니다. |
-| --service-manifest-name    [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
+| --application-type-version [필수] | 애플리케이션 유형의 버전입니다. |
+| --service-manifest-name    [필수] | Service Fabric 클러스터에 애플리케이션 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -368,8 +368,8 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 
 |인수|설명|
 | --- | --- |
-| --app-type-name         [필수] | 해당하는 요청된 서비스 매니페스트에 대한 응용 프로그램 매니페스트의 이름입니다. |
-| --app-type-version      [필수] | 해당하는 요청된 서비스 매니페스트에 대한 응용 프로그램 매니페스트의 버전입니다. |
+| --app-type-name         [필수] | 해당하는 요청된 서비스 매니페스트에 대한 애플리케이션 매니페스트의 이름입니다. |
+| --app-type-version      [필수] | 해당하는 요청된 서비스 매니페스트에 대한 애플리케이션 매니페스트의 버전입니다. |
 | --node-name             [필수] | 노드의 이름입니다. |
 | --service-manifest-name [필수] | 다운로드할 패키지와 연결된 서비스 매니페스트의 이름입니다. |
 | --share-policy | 공유 정책의 JSON 인코딩된 목록입니다. 각 공유 정책 요소는 '이름' 및 '범위'로 구성됩니다. 이름은 공유할 코드, 구성 또는 데이터 패키지의 이름에 해당합니다. 범위는 'None', 'All', 'Code', 'Config' 또는 'Data' 중 하나일 수 있습니다. |
@@ -386,15 +386,15 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-package-health"></a>sfctl service package-health
-Service Fabric 노드 및 응용 프로그램에 배포된 특정 응용 프로그램의 서비스 패키지 상태에 대한 정보를 가져옵니다.
+Service Fabric 노드 및 애플리케이션에 배포된 특정 애플리케이션의 서비스 패키지 상태에 대한 정보를 가져옵니다.
 
-Service Fabric 노드에 배포된 특정 응용 프로그램의 서비스 패키지 상태에 대한 정보를 가져옵니다. EventsHealthStateFilter를 사용하여 필요에 따라 상태에 따라 배포된 서비스 패키지에 보고된 HealthEvent 개체의 컬렉션에 대해 필터링합니다.
+Service Fabric 노드에 배포된 특정 애플리케이션의 서비스 패키지 상태에 대한 정보를 가져옵니다. EventsHealthStateFilter를 사용하여 필요에 따라 상태에 따라 배포된 서비스 패키지에 보고된 HealthEvent 개체의 컬렉션에 대해 필터링합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id      [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name            [필수] | 노드의 이름입니다. |
 | --service-package-name [필수] | 서비스 패키지의 이름입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -413,13 +413,13 @@ Service Fabric 노드에 배포된 특정 응용 프로그램의 서비스 패�
 ## <a name="sfctl-service-package-info"></a>sfctl service package-info
 지정한 이름과 정확히 일치하는 Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다.
 
-지정된 응용 프로그램에 대한 Service Fabric 노드에 배포된 서비스 패키지에 대한 정보를 반환합니다. 이러한 결과는 해당 이름이 매개 변수로 지정된 서비스 패키지 이름과 정확히 일치하는 서비스 패키지입니다.
+지정된 애플리케이션에 대한 Service Fabric 노드에 배포된 서비스 패키지에 대한 정보를 반환합니다. 이러한 결과는 해당 이름이 매개 변수로 지정된 서비스 패키지 이름과 정확히 일치하는 서비스 패키지입니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id      [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name            [필수] | 노드의 이름입니다. |
 | --service-package-name [필수] | 서비스 패키지의 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -437,13 +437,13 @@ Service Fabric 노드에 배포된 특정 응용 프로그램의 서비스 패�
 ## <a name="sfctl-service-package-list"></a>sfctl service package-list
 Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다.
 
-지정된 응용 프로그램에 대한 Service Fabric 노드에 배포된 서비스 패키지에 대한 정보를 반환합니다.
+지정된 애플리케이션에 대한 Service Fabric 노드에 배포된 서비스 패키지에 대한 정보를 반환합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -493,7 +493,7 @@ Service Fabric 서비스에 대한 상태 보고서를 보냅니다.
 | --service-id      [필수] | 서비스 id입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 서비스 이름이 'fabric\:/myapp/app1/svc1'이면 서비스 ID는 6.0 이상에서는 'myapp\~app1\~svc1'이고 이전 버전에서는 'myapp/app1/svc1'입니다. |
 | --source-id       [필수] | 상태 정보를 생성한 클라이언트/watchdog/시스템 구성 요소를 식별하는 원본 이름입니다. |
 | --description | 상태 정보의 설명입니다. <br><br> 보고서에 대한 사람이 읽을 수 있는 정보를 추가하는 데 사용되는 일반 텍스트를 나타냅니다. 설명의 최대 문자열 길이는 4096자입니다. 제공된 문자열이 긴 경우 자동으로 잘립니다. 잘린 경우 설명의 마지막 문자는 "[잘림]" 표식을 포함하고, 총 문자열 크기는 4096자입니다. 표식은 사용자에게 잘림이 발생했음을 나타냅니다. 잘린 경우 설명은 원래 문자열의 4096자보다 작은 문자를 갖습니다. |
-| --immediate | 보고서를 즉시 보낼지 여부를 나타내는 플래그입니다. <br><br> 상태 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 응용 프로그램에 전송됩니다. Immediate가 true로 설정된 경우 보고서는 HTTP 게이트웨이 응용 프로그램이 사용 중인 패브릭 클라이언트 설정에 관계 없이 HTTP 게이트웨이에서 Health 스토어로 즉시 전송됩니다. 이는 가능한 한 빨리 보내야 하는 중요한 보고서에 유용합니다. 타이밍 및 기타 조건에 따라 보고서 전송이 여전히 실패할 수 있습니다. 예를 들어, HTTP 게이트웨이가 닫혀 있거나 메시지가 게이트웨이에 도달하지 않는 경우입니다. Immediate가 false로 설정된 경우 보고서는 HTTP 게이트웨이의 상태 클라이언트 설정에 따라 전송됩니다. 따라서 HealthReportSendInterval 구성에 따라 일괄처리됩니다. 상태 클라이언트가 상태 보고서 처리뿐만 아니라 Health 스토어로 메시지를 보고하는 상태를 최적화하도록 허용하므로 이는 권장 설정입니다. 기본적으로 보고서는 즉시 전송되지 않습니다. |
+| --immediate | 보고서를 즉시 보낼지 여부를 나타내는 플래그입니다. <br><br> 상태 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 애플리케이션에 전송됩니다. Immediate가 true로 설정된 경우 보고서는 HTTP 게이트웨이 애플리케이션이 사용 중인 패브릭 클라이언트 설정에 관계 없이 HTTP 게이트웨이에서 Health 스토어로 즉시 전송됩니다. 이는 가능한 한 빨리 보내야 하는 중요한 보고서에 유용합니다. 타이밍 및 기타 조건에 따라 보고서 전송이 여전히 실패할 수 있습니다. 예를 들어, HTTP 게이트웨이가 닫혀 있거나 메시지가 게이트웨이에 도달하지 않는 경우입니다. Immediate가 false로 설정된 경우 보고서는 HTTP 게이트웨이의 상태 클라이언트 설정에 따라 전송됩니다. 따라서 HealthReportSendInterval 구성에 따라 일괄처리됩니다. 상태 클라이언트가 상태 보고서 처리뿐만 아니라 Health 스토어로 메시지를 보고하는 상태를 최적화하도록 허용하므로 이는 권장 설정입니다. 기본적으로 보고서는 즉시 전송되지 않습니다. |
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -535,16 +535,16 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 엔드
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-service-type-list"></a>sfctl service type-list
-Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
+Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
 
-Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 제공된 응용 프로그램 유형이 존재해야 합니다. 그렇지 않으면 404 상태가 반환됩니다.
+Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. 제공된 애플리케이션 유형이 존재해야 합니다. 그렇지 않으면 404 상태가 반환됩니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
-| --application-type-version [필수] | 응용 프로그램 유형의 버전입니다. |
+| --application-type-version [필수] | 애플리케이션 유형의 버전입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수

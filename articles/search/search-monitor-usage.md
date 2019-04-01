@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652300"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
 
@@ -98,7 +98,7 @@ Azure Monitor 로그와 Blob storage는 Azure 구독의의 수명 동안 무료�
 
 컨테이너가 Blob 스토리지에 표시될 때까지 1시간이 걸립니다. 시간 및 컨테이너당 하나의 Blob가 있습니다. 
 
-[Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) 또는 다른 JSON 편집기를 사용하여 파일을 볼 수 있습니다. 
+[Visual Studio Code](#download-and-open-in-visual-studio-code) 또는 다른 JSON 편집기를 사용하여 파일을 볼 수 있습니다. 
 
 ### <a name="example-path"></a>예제 경로
 
@@ -109,7 +109,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>로그 스키마
 검색 서비스 트래픽 로그가 포함된 Blob은 이 섹션에서 설명한 대로 구성됩니다. 각 Blob에는 로그 개체의 배열이 포함된 **records**라는 하나의 루트 개체가 있습니다. 각 Blob에는 동일한 시간 동안 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
-| 이름 | Type | 예 | 메모 |
+| name | Type | 예 | 메모 |
 | --- | --- | --- | --- |
 | 실시간 |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | ResourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -123,7 +123,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 **속성 스키마**
 
-| 이름 | Type | 예 | 메모 |
+| name | Type | 예 | 메모 |
 | --- | --- | --- | --- |
 | 설명 |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | 쿼리 |문자열 |"?search=AzureSearch&$count=true&api-version=2017-11-11" |쿼리 매개 변수 |
@@ -134,7 +134,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 쿼리 요청에 대한 메트릭이 캡처됩니다.
 
-| 이름 | Type | 예 | 메모 |
+| name | Type | 예 | 메모 |
 | --- | --- | --- | --- |
 | ResourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |

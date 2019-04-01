@@ -29,13 +29,13 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 * 전체 식은  <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 서로 함수를 중첩할 수 있습니다. 예:  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 서로 함수를 중첩할 수 있습니다. 예를 들면 다음과 같습니다. <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
-  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예:  "미국"
-  3. 기타 함수 예:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예:  "회사 이름: \\"Contoso\\""
+  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예를 들면 다음과 같습니다. "미국"
+  3. 기타 함수 예를 들면 다음과 같습니다. FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예를 들면 다음과 같습니다. "회사 이름: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)

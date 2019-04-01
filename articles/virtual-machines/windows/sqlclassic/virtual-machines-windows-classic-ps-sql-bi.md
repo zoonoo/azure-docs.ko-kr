@@ -224,7 +224,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 
 1. TCP 포트 80의 Virtual Machine에 대해 엔드포인트를 만듭니다. 자세한 내용은 이 문서의 [Virtual Machine 엔드포인트 및 방화벽 포트](#virtual-machine-endpoints-and-firewall-ports) 섹션을 참조하세요.
 2. 가상 머신의 방화벽에서 포트 80을 엽니다.
-3. Azure Virtual Machine **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예: 
+3. Azure Virtual Machine **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예를 들면 다음과 같습니다.
    
     **보고서 서버**: http://uebi.cloudapp.net/reportserver  **웹 포털**: http://uebi.cloudapp.net/reports
    

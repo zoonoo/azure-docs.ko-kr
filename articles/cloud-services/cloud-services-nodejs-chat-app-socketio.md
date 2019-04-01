@@ -121,7 +121,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 4. 애플리케이션을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예: 
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

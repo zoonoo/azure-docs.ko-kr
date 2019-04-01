@@ -49,7 +49,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Azure 로그 통합 로그를 가져오는 원본 구독을 확인하려면 어떻게 하나요?
 
-**AzureResourcemanagerJson** 디렉터리에 배치된 감사 로그의 경우 구독 ID는 로그 파일 이름에 있습니다. **AzureSecurityCenterJson** 폴더에 있는 로그의 경우도 마찬가지입니다. 예: 
+**AzureResourcemanagerJson** 디렉터리에 배치된 감사 로그의 경우 구독 ID는 로그 파일 이름에 있습니다. **AzureSecurityCenterJson** 폴더에 있는 로그의 경우도 마찬가지입니다. 예를 들면 다음과 같습니다.
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
