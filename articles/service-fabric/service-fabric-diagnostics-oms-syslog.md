@@ -4,7 +4,7 @@ description: Syslog에서 Linux 클러스터 이벤트를 모니터링하는 방
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245559"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670373"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
 
@@ -96,7 +96,7 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Azure Monitor 로그 통합
-Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 다음 [지침](../azure-monitor/learn/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
+Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 다음 [지침]\(../azure-monitor/learn/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
 
 1. `Advanced Settings` 블레이드로 이동합니다.
 
