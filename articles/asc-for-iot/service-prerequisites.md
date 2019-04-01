@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 필수 구성 요소의 미리 보기 | Microsoft Docs
-description: IoT 서비스 필수 구성 요소에 대 한 ASC를 사용 하 여 시작 하는 데 필요한 모든 세부 정보입니다.
+title: IoT 필수 구성 요소 미리 보기에 대 한 azure Security Center | Microsoft Docs
+description: IoT 서비스 필수 구성 요소에 대 한 Azure Security Center를 사용 하 여 시작 하는 데 필요한 모든 세부 정보입니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5293fe6a8d4a8a44a89890af1c259e2b4b2b7827
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574755"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755084"
 ---
-# <a name="asc-for-iot-prerequisites"></a>ASC IoT 필수 구성 요소
+# <a name="azure-security-center-for-iot-prerequisites"></a>IoT 필수 구성 요소에 대 한 azure Security Center
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 서비스를 이해 하기 위해 IoT 서비스를 시작 해야 할 작업 및 기본 개념에 대 한 ASC의 다른 구성 요소를 설명 합니다. 
+이 문서에서는 다양 한 빌딩 블록의는 Security Center ASC (Azure) IoT 서비스를 시작 해야 할 작업 및 기본 개념에 대 한 서비스를 안전 하 게 이해할 수의 설명이 표시 됩니다. 
 
 ## <a name="minimum-requirements"></a>최소 요구 사항
 

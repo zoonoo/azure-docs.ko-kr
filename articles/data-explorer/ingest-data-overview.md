@@ -3,17 +3,17 @@ title: Azure 데이터 탐색기 데이터 수집
 description: Azure 데이터 탐색기에서 데이터를 수집(로드)할 수 있는 다양한 방법 알아보기
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133130"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755764"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 

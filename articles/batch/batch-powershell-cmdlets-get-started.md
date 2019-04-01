@@ -50,13 +50,13 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 ### <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예: 
+**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예: 
+그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Batch 계정 삭제
 
-**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예: 
+**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -175,7 +175,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount 매개 변수 사용
 
-기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예: 
+기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

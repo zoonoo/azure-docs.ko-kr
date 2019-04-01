@@ -1,6 +1,6 @@
 ---
-title: IoT 미리 보기에 대 한 ASC 보안 메시지 보내기 | Microsoft Docs
-description: ASC를 사용 하 여 IoT에 대 한 보안 메시지를 보내는 방법에 알아봅니다.
+title: IoT 미리 보기에 대 한 Azure Security Center 보안 메시지 보내기 | Microsoft Docs
+description: IoT 용 Azure Security Center를 사용 하 여 보안 메시지를 보내는 방법에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650158"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754784"
 ---
 # <a name="send-security-messages-sdk"></a>SDK의 보안 메시지 보내기
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 방법 가이드를 수집 하 여 IoT 에이전트에 대 한를 ASC를 사용 하지 않고 장치 보안 메시지를 보내려면 선택 하면 IoT 서비스 기능에 대 한 ASC를 설명 하 고 작업을 수행 하는 방법에 설명 합니다.  
+이 방법 가이드를 수집 하 여 IoT 에이전트에 대 한를 ASC를 사용 하지 않고 장치 보안 메시지를 보내려면 선택 하면 IoT 서비스 기능에 대 한 Azure 보안 센터 (ASC)를 설명 하 고 작업을 수행 하는 방법에 설명 합니다.  
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]

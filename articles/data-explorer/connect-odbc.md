@@ -3,17 +3,17 @@ title: ODBC 사용 하 여 Azure 데이터 탐색기로 연결
 description: 이 방법에서는 Azure 데이터 탐색기로 ODBC 연결을 설정한 다음 해당 연결을 사용 하 여 Tableau 사용 하 여 데이터를 시각화 하는 방법을 배웁니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: ad00ad247b047d4acf97eb5d0e96229949181ecf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740624"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757619"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>ODBC 사용 하 여 Azure 데이터 탐색기로 연결
 

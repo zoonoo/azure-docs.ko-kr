@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5fe66634d4f95ba84d13a3d355f28afbedf0f7f0
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: a9de15530981e14e664df605cb3274c9e754ef0d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58012642"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755476"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-rest"></a>REST를 사용 하 여 사용자 지정 변환을 사용 하 여 인코딩하는 방법
+# <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환-REST 사용 하 여 인코딩하는 방법
 
 Azure Media Services로 인코딩 되 면 시작할 수 있습니다 신속 하 게 권장 되는 기본 제공 사전 설정 중에에 설명 된 대로 업계 모범 사례에 따라 하나를 사용 하 여 합니다 [파일을 스트리밍](stream-files-tutorial-with-rest.md#create-a-transform) 자습서입니다. 또한 특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정을 빌드할 수 있습니다.
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983385"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757956"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Azure의 에이전트 상태 솔루션
-Azure에서 에이전트 상태 솔루션을 사용 하면 모든 보고 되는 에이전트가 Log Analytics 작업 영역 또는 System Center Operations Manager 관리 그룹에 직접 연결 된 Azure Monitor를 응답 하지 않는 및 작업 제출에 대 한 이해 데이터입니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
+Azure에서 에이전트 상태 솔루션을 통해 모든 Azure Monitor에서 Log Analytics 작업 영역에 보고 에이전트에 대 한 이해 수 또는 응답 하지 않은 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 및 운영 데이터를 제출합니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 배포하기 전에 [Windows 에이전트](../../log-analytics/log-analytics-windows-agent.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에 보고하도록 지원하는지 확인합니다.
@@ -62,7 +62,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | OS 형식별 배포 | 사용자 환경에 있는 Windows 및 Linux 에이전트 개수에 따른 분할입니다.|
 | 에이전트 버전별 배포 | 사용자 환경에 설치 된 다른 에이전트 버전의 분할과 그 개수입니다.|
 | 에이전트 범주별 배포 | 직접 에이전트, OpsMgr 에이전트 또는 OpsMgr 관리 서버 등 하트비트 이벤트를 전송하는 에이전트의 다양한 범주의 분할입니다.|
-| 관리 그룹별 배포 | 사용자 환경에서 서로 다른 SCOM 관리 그룹의 분할입니다.|
+| 관리 그룹별 배포 | 분할 환경에서 서로 다른 Operations Manager 관리 그룹입니다.|
 | 에이전트의 지리적 위치 | 에이전트가 있는 국가와 각 국가에 설치된 에이전트의 총수에 따른 분할입니다.|
 | 설치된 게이트웨이 개수 | Log Analytics 게이트웨이가 설치되어 있는 서버 수 및 해당 서버의 목록입니다.|
 
@@ -117,4 +117,4 @@ Operations Manager 관리 서버에 보고 하는 각 에이전트는 두 개의
 
 ## <a name="next-steps"></a>다음 단계
 
-* 에 대 한 자세한 [Azure Monitor에서 경고](../platform/alerts-overview.md) Log Analytics에서 경고 생성에 대 한 세부 정보에 대 한 합니다. 
+* 에 대 한 자세한 [Azure Monitor에서 경고](../platform/alerts-overview.md) 자세한 로그 쿼리에서 경고를 생성 합니다. 

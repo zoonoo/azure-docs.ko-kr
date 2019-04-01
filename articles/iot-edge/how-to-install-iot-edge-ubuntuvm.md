@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.author: gregman
-ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5cb15f45508b60a1b7f8c9049b8779c1b7d31150
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116421"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757935"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -85,7 +85,7 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
 1. 디바이스 연결 문자열을 설정합니다. 이 프로세스에 익숙하지 않은 경우 [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](how-to-register-device-cli.md) 방법 가이드를 따를 수 있습니다.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 설정 후에 이 VM에 SSH를 수행하려면 `ssh azureuser@{publicIpAddress}` 명령에 publicIpAddress를 사용합니다.

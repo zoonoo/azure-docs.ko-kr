@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472809"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755524"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -41,7 +41,9 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 
    버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾은 후 GET 요청을 수동으로 전송합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
-   제공된 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 10분 안에 수동 유효성 검사를 완료하지 않은 경우 프로비전 상태가 `Failed`로 설정됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
+   제공된 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 프로 비전 상태가로 설정 된 5 분 이내 수동 유효성 검사를 완료 하지 않은 경우 `Failed`합니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
+
+    이 인증 메커니즘은 웹 후크 엔드포인트 수동 유효성 검사 모드로 배치할 수 전에 유효성 검사 이벤트에 대 한 게시를 받았음을 알 수 있도록 HTTP 상태 코드 200 반환 해야 합니다. 즉, 끝점 200을 반환 하지만 반환 하지 다시 유효성 검사 응답을 프로그래밍 방식으로 모드를 수동 유효성 검사 모드를 전환 됩니다. 유효성 검사 URL에 GET을 5 분 내에 있으면 유효성 검사 핸드셰이크 성공으로 간주 됩니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 

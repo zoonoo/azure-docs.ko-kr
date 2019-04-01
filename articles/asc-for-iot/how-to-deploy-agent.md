@@ -1,6 +1,6 @@
 ---
-title: 선택 하 고 IoT 에이전트 미리 보기에는 ASC를 배포 합니다. | Microsoft Docs
-description: 에 대 한 방법을 선택 하 고 IoT 장치에서 IoT 보안 에이전트에 대 한 ASC를 배포에 대해 알아봅니다.
+title: 선택 하 고 IoT 에이전트 미리 보기에 대 한 Azure Security Center 배포 | Microsoft Docs
+description: 에 대 한 방법을 선택 하 고 IoT 장치에서 IoT 보안 에이전트에 대 한 Azure Security Center 배포에 대해 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 208f7cdbc9d610713d73c5af1e02de5faf11474c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580795"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755290"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>선택 하 고 IoT 장치의 보안 에이전트 배포
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-IoT 용 ASC 보안 에이전트 모니터링 하 고 IoT 장치에서 데이터 수집에 대 한 참조 아키텍처를 제공 합니다.
+IoT 용 azure Security Center (ASC) 모니터링 하 고 IoT 장치에서 데이터를 수집 하는 보안 에이전트에 대 한 참조 아키텍처를 제공 합니다.
 참조 [보안 에이전트 참조 아키텍처](security-agent-architecture.md) 에 대해 자세히 알아보세요.
 
 에이전트 오픈 소스 프로젝트로 개발 됩니다 되며 두 버전에서 사용할 수 있습니다. <br> [C](https://aka.ms/iot-security-github-c), 및 [ C# ](https://aka.ms/iot-security-github-cs)합니다.

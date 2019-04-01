@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 에이전트 미리 보기에 대 한 Windows 설치 | Microsoft Docs
-description: 32 비트 또는 64 비트 Windows 장치에서 IoT 에이전트용 ASC를 설치 하는 방법에 알아봅니다.
+title: Azure Security Center의 미리 보기 IoT 에이전트용 Windows 설치 | Microsoft Docs
+description: 32 비트 또는 64 비트 Windows 장치에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c3293746fcc52570e708fd4bfab446981d49c24
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7e3cb1f44711a8eedb248320db8bce5dfd0eaf0c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621841"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754598"
 ---
-# <a name="deploy-an-asc-for-iot-c-based-security-agent-for-windows"></a>IoT 용를 ASC를 배포 C#-Windows에 대 한 보안 에이전트 기반
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>IoT 용 Azure Security Center는 배포 C#-Windows에 대 한 보안 에이전트 기반
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 가이드에서는 IoT 용 ASC를 설치 하는 방법을 설명 C#-Windows에서 보안 에이전트 기반 합니다.
+이 가이드에서는 IoT 용 Azure 보안 센터 (ASC)를 설치 하는 방법을 설명 C#-Windows에서 보안 에이전트를 기반으로 합니다.
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]

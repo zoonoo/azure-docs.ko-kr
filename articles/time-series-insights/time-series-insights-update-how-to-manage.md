@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094857"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758179"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -33,7 +33,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 [환경을 계획하는 방법](./time-series-insights-update-plan.md)을 알아봅니다.
 
 >[!IMPORTANT]
-> v2 계정을 사용하는 경우 사용할 스토리지 계정에서 cold/archival 속성을 사용하도록 설정하지 마세요.
+> 미리 보기의 경우는 Azure Storage의 범용 v1 사용 중인지 확인 (GPv1) 계정을 합니다.  GPv2 이상용 지원 가까운 시일 안에 추가 됩니다.  
 
 경우에 따라 각 Azure Time Series Insights 미리 보기 환경을 이벤트 원본에 연결할 수 있습니다. 자세한 내용은 [이벤트 허브 원본 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md) 및 [IoT Hub 원본 추가](./time-series-insights-how-to-add-an-event-source-iothub.md)를 참조하세요. 이 단계 중에 타임스탬프 ID 속성 및 고유한 소비자 그룹을 제공합니다. 이렇게 하면 환경에서 적합한 이벤트에 액세스할 수 있습니다.
 

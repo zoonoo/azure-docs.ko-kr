@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445928"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757125"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -43,7 +43,7 @@ Azure IoT Edge를 사용하면 IoT Hub에 대한 연결을 유지하는 단일 �
     현재는 대칭 키 인증을 사용한 다운스트림 디바이스만 IoT Edge 게이트웨이를 통해 연결할 수 있습니다. X.509 인증 기관 및 자체 서명된 X.509 인증서는 현재 지원되지 않습니다.
     
 > [!NOTE]
-> 이 명령에서 인증서를 만드는 데 "게이트웨이 이름이" GatewayHostName 다운스트림 장치 연결 문자열에 IoT Edge config.yaml 파일에는 호스트와 동일한 이름으로 사용 해야 합니다. "게이트웨이 이름이" DNS 또는 호스트 파일 항목을 사용 하거나 IP 주소를 확인할 수 있어야 합니다. 통신 프로토콜을 기반으로 사용 되는 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 다운스트림 장치에서 IoT Edge 투명 사이의 수 여야 합니다. 방화벽 사이 인 경우 해당 포트를 열어야 해야 합니다.
+> 이 문서에서 사용 되는 "게이트웨이 이름" 동일 해야 합니다. IoT Edge config.yaml 파일의 호스트 이름으로 사용 되는 이름을 지정 합니다. 게이트웨이 이름이 DNS 또는 호스트 파일 항목을 사용 하거나 IP 주소를 확인할 수 있어야 합니다. 통신 프로토콜을 기반으로 사용 되는 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 다운스트림 장치에서 IoT Edge 투명 사이의 수 여야 합니다. 방화벽 사이 인 경우 해당 포트를 열어야 해야 합니다.
 
 ## <a name="prepare-a-downstream-device"></a>다운스트림 디바이스 준비
 
@@ -197,6 +197,14 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>게이트웨이 연결 문제 해결
+
+리프 장치에는 게이트웨이 장치에 간헐적으로 연결 하는 경우 확인을 위해 다음 단계를 시도 합니다. 
+
+1. 게이트웨이 장치에서 IoT Edge config.yaml 파일의 호스트 이름으로 동일한 연결을 추가할 게이트웨이 이름 문자열은?
+2. 게이트웨이 이름을 IP 주소로 확인할 수 있는 기능 Intenmittent 연결 또는 DNS를 사용 하 여 리프 장치에서 호스트 파일 항목을 추가 하 여 해결할 수 있습니다.
+3. 통신 포트를 방화벽에서 열려 있습니다? 통신 프로토콜을 기반으로 사용 되는 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 다운스트림 장치에서 IoT Edge 투명 사이의 수 여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

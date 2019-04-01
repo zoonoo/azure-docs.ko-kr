@@ -1,6 +1,6 @@
 ---
-title: IoT 장치 조사 가이드 미리 보기에 대 한 ASC | Microsoft Docs
-description: 이 방법 가이드 IoT 용 ASC를 사용 하 여 Log Analytics를 사용 하 여 의심 스러운 IoT 장치를 확인 하는 방법에 설명 합니다.
+title: IoT 장치 조사 가이드 미리 보기에 대 한 azure Security Center | Microsoft Docs
+description: 이 방법 가이드 IoT 용 Azure Security Center를 사용 하 여 Log Analytics를 사용 하 여 의심 스러운 IoT 장치를 조사 하는 방법에 설명 합니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580540"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755236"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심 스러운 IoT 장치를 조사 합니다.
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-IoT 장치에서 의심 스러운 활동 징후 존재 장치가 노출 되는 하는 경우 참여 것으로 의심 되는 경우 IoT 서비스 경고 및 증명 정보는 ASC 명확한 징후를 제공 합니다. 
+IoT 서비스 경고 및 증명 정보에 대 한 azure Security Center (ASC) IoT 장치에서 의심 스러운 활동 징후 존재 장치가 노출 되는 하는 경우 참여 것으로 의심 되는 경우 명확한 징후를 제공 합니다. 
 
 이 가이드에서는 조직에 잠재적인 위험을 확인 하 고, 수정 및 나중에 유사한 공격을 방지 하는 최선의 방법을 검색 하는 방법을 결정 하는 데 제공 조사 제안 사항을 사용 합니다.  
 

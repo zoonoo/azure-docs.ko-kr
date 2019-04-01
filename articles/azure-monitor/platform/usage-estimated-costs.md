@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480548"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754258"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
 
 > [!NOTE]
 > 이 문서에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.  관련 정보에 대해서는 다음 문서를 참조하세요.
-> - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
+> - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
 > - [Log Analytics에서 데이터 사용 현황 분석](../../azure-monitor/platform/data-usage.md)에서는 데이터 사용량을 분석 및 경고하는 방법을 설명합니다.
 > - [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../../azure-monitor/app/pricing.md)에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.
 
@@ -184,7 +184,7 @@ Invoke-AzResourceAction `
 구독이 여러 개 있고 동일한 테넌트에 호스팅되는 구독을 마이그레이션하려는 경우 다음 스크립트를 사용하여 사용자 고유의 변형을 만들 수 있습니다.
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-세 개의 배열을 생성하는 스크립트를 만들어서 스크립트를 추가로 구체화할 수 있습니다. 한 배열은 ```isGrandFatherableSubscription```이 True로 설정되어 있고 현재 optedInDate의 값이 없는 모든 구독으로 구성됩니다. 두 번째 구독 배열은 현재 새 가격 책정 모델에 있습니다. 세 번째 배열은 테넌트의 구독 중에서 새 가격 책정 모델에 적합하지 않은 구독 id로만 채워집니다.
+세 개의 배열을 생성하는 스크립트를 만들어서 스크립트를 추가로 구체화할 수 있습니다. 모든 구독 Id는 하나의 배열만 구성 됩니다 ```isGrandFatherableSubscription``` True로 설정 하 고 optedInDate 현재 없는 값입니다. 두 번째 구독 배열은 현재 새 가격 책정 모델에 있습니다. 및의 새 가격 책정 모델에 대 한 적격 없는 테 넌 트의 구독 Id로만 채워진는 세 번째 배열:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

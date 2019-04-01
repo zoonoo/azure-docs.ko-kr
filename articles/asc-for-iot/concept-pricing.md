@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 비용 미리 보기에 대 한 이해 | Microsoft Docs
-description: IoT 및 제어 하는 방법에 대 한 ASC와 연결 된 비용에 알아봅니다.
+title: IoT 용 Azure Security Center 미리 보기 비용 이해 | Microsoft Docs
+description: IoT 및 제어 하는 방법에 대 한 Azure Security Center와 사용 하 여 관련 비용에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580660"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758049"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 된 비용
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 IoT 가격 책정 모델에 대 한 ASC를 설명 하 고, 모든 관련 된 비용 요약, 관리 하는 방법에 설명 합니다.
+이 문서에서는 IoT 가격 책정 모델에 대 한 Azure 보안 센터 (ASC)에 대해 설명, 모든 관련 된 비용 요약 및 관리 하는 방법에 설명 합니다.
 
 ## <a name="pricing"></a>가격
 

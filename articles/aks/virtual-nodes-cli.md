@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177673"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757430"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>미리 보기-만들기 및 Azure CLI를 사용 하 여 가상 노드를 사용 하 여 Azure Kubernetes 서비스 (AKS) 클러스터를 구성 합니다.
 
@@ -47,9 +47,9 @@ Microsoft.ContainerInstance  Registered
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>미리 보기 제한 사항
+## <a name="regional-availability-limitations"></a>지역별 가용성 제한 사항
 
-이 기능은 미리 보기 상태인 동안에 다음 지역 배포에 대 한 지원 됩니다.
+지역 가상 노드 배포에 대 한 지원 됩니다.
 
 * 오스트레일리아 동부 (australiaeast)
 * 미국 동부(eastus)
@@ -331,6 +331,8 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --n
 
 - [Kubernetes 수평 방향 Pod 자동 크기 조정기 사용][aks-hpa]
 - [Kubernetes 클러스터 자동 크기 조정기 사용][aks-cluster-autoscaler]
+- [가상 노드에 대해 자동 크기 조정 샘플 확인][virtual-node-autoscale]
+- [Virtual Kubelet 오픈 소스 라이브러리에 대해 자세히 알아보기][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -338,6 +340,8 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --n
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

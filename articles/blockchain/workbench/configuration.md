@@ -104,7 +104,7 @@ ms.locfileid: "57452694"
 
 #### <a name="using-a-property-of-type-array"></a>배열 형식의 속성 사용
 
-구성에서 배열 형식으로 속성을 정의하는 경우 Solidity에서 배열 형식의 공용 속성을 반환하는 명시적인 가져오기 함수를 포함해야 합니다. 예: 
+구성에서 배열 형식으로 속성을 정의하는 경우 Solidity에서 배열 형식의 공용 속성을 반환하는 명시적인 가져오기 함수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
 ```
 function GetQuotes() public constant returns (int[]) {

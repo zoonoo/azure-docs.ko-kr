@@ -3,17 +3,17 @@ title: Azure 데이터 탐색기용 쿼리 작성
 description: 이 방법 문서에서는 Azure 데이터 탐색기에 대해 기본 쿼리와 고급 쿼리를 수행하는 방법을 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961523"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758699"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 데이터 탐색기용 쿼리 작성
 
@@ -51,7 +51,7 @@ StormEvents
 
 이 경우 결과는 다음과 같습니다.
 
-|개수|
+|카운트|
 |-----|
 |   23|
 | |

@@ -3,16 +3,16 @@ title: 자습서 - Jenkins를 사용하여 GitHub에서 AKS(Azure Kubernetes Ser
 description: GitHub에서의 CI(지속적인 통합) 및 AKS(Azure Kubernetes Service)로의 CD(지속적인 배포)를 위해 Jenkins 설정
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188456"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756068"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
 
@@ -227,15 +227,15 @@ Azure에서 만든 역할 할당을 사용하여 이제 ACR 자격 증명을 Jen
 Jenkins 포털 홈페이지의 왼쪽에 있는 **새 항목**을 선택합니다.
 
 1. *azure-vote*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 후 **확인**을 선택합니다.
-1. **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/\<your-github-account\>/azure-voting-app-redis*와 같은 포크된 리포지토리 URL을 입력합니다.
-1. **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
+1. 아래는 **일반적인** 섹션에서 **GitHub 프로젝트** 와 같은 포크 된 리포지토리 URL을 입력 하 고 *https:\//github.com/\<-github-계정\>/azure-voting-app-redis*
+1. 아래는 **소스 코드 관리** 섹션에서 **Git**, 포크 된 리포지토리를 입력 *.git* URL 같은 *https:\//github.com/\<-github-계정\>/azure-voting-app-redis.git*
 
 1. **빌드 트리거** 섹션에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 1. **빌드 환경**에서 **비밀 텍스트 또는 파일 사용**을 선택합니다.
 1. **바인딩**에서 **추가** > **사용자 이름 및 암호(구분)** 를 선택합니다.
-    - **사용자 이름 변수**에 `ACR_ID`를 입력하고, **암호 변수**에 `ACR_PASSWORD`를 입력합니다.
+   - **사용자 이름 변수**에 `ACR_ID`를 입력하고, **암호 변수**에 `ACR_PASSWORD`를 입력합니다.
 
-    ![Jenkins 바인딩](media/aks-jenkins/bindings.png)
+     ![Jenkins 바인딩](media/aks-jenkins/bindings.png)
 
 1. **셸 실행** 형식의 **빌드 단계**를 추가하고 다음 텍스트를 사용합니다. 이 스크립트는 새 컨테이너 이미지를 빌드하고 ACR 레지스트리에 푸시합니다.
 

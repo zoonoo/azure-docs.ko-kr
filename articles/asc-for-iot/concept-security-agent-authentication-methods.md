@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 미리 보기에 대 한 인증 방법을 | Microsoft Docs
-description: IoT 서비스에 대 한 ASC를 사용 하는 경우 사용 가능한 다른 인증 방법에 알아봅니다.
+title: IoT 미리 보기에 대 한 Azure Security Center에 대 한 인증 방법을 | Microsoft Docs
+description: IoT 서비스에 대 한 Azure Security Center를 사용 하는 경우 사용 가능한 다른 인증 방법에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577803"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758388"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법 
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT Hub를 사용 하 여 인증 하려면 AzureIoTSecurity 에이전트를 사용 하 여 사용할 수 있습니다 다른 인증 방법을 설명 합니다.
 
-IoT Hub에 IoT ASC에 각 장치 등록, 보안 모듈이 필요 합니다. 장치를 인증 하려면 ASC IoT에 대 한 두 가지 방법 중 하나를 사용할 수 있습니다. 기존 IoT 솔루션에 가장 적합 한 방법을 선택 합니다. 
+각 장치에 보안 센터 ASC (Azure) IoT Hub에 IoT 용으로 등록 보안 모듈이 필요 합니다. 장치를 인증 하려면 ASC IoT에 대 한 두 가지 방법 중 하나를 사용할 수 있습니다. 기존 IoT 솔루션에 가장 적합 한 방법을 선택 합니다. 
 
 > [!div class="checklist"]
 > * 보안 모듈 옵션

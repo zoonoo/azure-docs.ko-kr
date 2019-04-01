@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199837"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758311"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
@@ -162,9 +162,13 @@ Azure Portal에서 VM에 연결하려고 할 때 Azure는 해당 VM에 구성된
 
   ![jit 프롬프트](./media/security-center-just-in-time/jit-prompt.png)
 
-- VM에 JIT 정책을 구성한 경우 **액세스 요청**을 클릭하여 VM에 대해 설정된 JIT 정책에 따라 액세스 권한을 얻을 수 있습니다.
+- VM에 JIT 정책을 구성한 경우 **액세스 요청**을 클릭하여 VM에 대해 설정된 JIT 정책에 따라 액세스 권한을 얻을 수 있습니다. 다음 기본 매개 변수를 사용 하 여 액세스가 필요 합니다.
+    - **원본 IP**: 'Any' (*) (변경할 수 없음)
+    - **시간 범위**: 3 시간 (변경할 수 없음)
+    - **포트 번호** RDP 포트 3389에 대 한 Windows / Linux에 대 한 포트 22 (포트 번호를 변경할 수 있습니다 합니다 **가상 머신에 연결** 대화 상자.)
 
-  ![jit 액세스 요청](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![jit 액세스 요청](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>JIT 액세스 활동 감사
 

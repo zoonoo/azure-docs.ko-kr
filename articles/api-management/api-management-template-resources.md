@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897285"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757610"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -45,6 +45,29 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ```  
   
+다음 지역화 옵션이 지원 됩니다.
+
+| 로캘    | 언어               |
+|-----------|------------------------|
+| "en"      | "영어"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| "it"      | "Italiano"             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (브라질)"   |
+| "pt-pt"   | "Português (포르투갈)" |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  개발자 포털 템플릿에서 사용할 수 있는 문자열 리소스에 대해서는 다음 표를 참조하세요. 표에서 보여 주는 문자열 리소스에 대한 접두사로 해당 표의 이름을 사용합니다.  
   
 -   [ApisStrings](#ApisStrings)  

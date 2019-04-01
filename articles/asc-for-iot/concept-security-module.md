@@ -1,6 +1,6 @@
 ---
-title: ASC 미리 보기 IoT 보안 모듈 쌍 이해 | Microsoft Docs
-description: 보안 모듈 쌍 및 IoT에 대 한 ASC에서 사용 하는 방법의 개념에 알아봅니다.
+title: IoT 보안 모듈에 대 한 Azure Security Center 미리 보기를 쌍 이해 | Microsoft Docs
+description: 보안 모듈 쌍 및 IoT에 대 한 Azure Security Center에서 사용 하는 방법의 개념에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579379"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758397"
 ---
 # <a name="security-module"></a>보안 모듈
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서는 ASC IoT에 대 한 장치 쌍 및 모듈을 사용 하는 방법을 설명 합니다. 
+이 문서에서는 IoT 용 Azure 보안 센터 (ASC)에서 장치 쌍 및 모듈을 사용 하는 방법을 설명 합니다. 
 
 ## <a name="device-twins"></a>디바이스 쌍
 

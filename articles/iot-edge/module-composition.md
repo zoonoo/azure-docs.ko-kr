@@ -4,17 +4,17 @@ description: 배포 매니페스트에서 배포할 모듈을 선언하는 방�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099973"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758078"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -58,14 +58,14 @@ IoT Edge 런타임(edgeAgent 및 edgeHub)만 포함하는 배포 매니페스트
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -75,9 +75,9 @@ IoT Edge 런타임(edgeAgent 및 edgeHub)만 포함하는 배포 매니페스트
 
 ## <a name="configure-modules"></a>모듈 구성
 
-IoT Edge 런타임에서 사용자 배포에 모듈을 설치하는 방법을 정의합니다. IoT Edge 에이전트는 IoT Edge 디바이스에 대한 설치, 업데이트 및 상태 보고를 관리하는 런타임 구성 요소입니다. 따라서 $edgeAgent 모듈 쌍에는 모든 모듈에 대한 구성 및 관리 정보가 필요합니다. 이 정보에는 Edge 에이전트 자체에 대한 구성 매개 변수가 포함됩니다. 
+IoT Edge 런타임에서 사용자 배포에 모듈을 설치하는 방법을 정의합니다. IoT Edge 에이전트는 IoT Edge 디바이스에 대한 설치, 업데이트 및 상태 보고를 관리하는 런타임 구성 요소입니다. 따라서 $edgeAgent 모듈 쌍에는 모든 모듈에 대한 구성 및 관리 정보가 필요합니다. 이 정보는 IoT Edge 에이전트 자체에 대 한 구성 매개 변수를 포함합니다. 
 
-포함될 수 있거나 포함되어야 하는 속성의 전체 목록은 [Edge 에이전트 및 Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조하세요.
+수 있거나 포함 되어야 하는 속성의 전체 목록은 참조 하세요 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)합니다.
 
 $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
 
@@ -101,10 +101,10 @@ $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -122,8 +122,8 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -144,9 +144,9 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 | `/twinChangeNotifications` | 모든 모듈 또는 리프 디바이스에서 발생하는 모든 쌍 변경(보고된 속성) |
 | `/messages/*` | 일부 출력을 통하거나 어떠한 출력도 없이 모듈 또는 리프 디바이스에서 보낸 모든 디바이스-클라우드 메시지 |
 | `/messages/modules/*` | 일부 출력을 통하거나 어떠한 출력도 없이 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
-| `/messages/modules/{moduleId}/*` | 일부 출력을 통하거나 어떠한 출력도 없이 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
-| `/messages/modules/{moduleId}/outputs/*` | 일부 출력을 통해 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
-| `/messages/modules/{moduleId}/outputs/{output}` | 특정 출력을 통해 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
+| `/messages/modules/<moduleId>/*` | 일부 출력을 통하거나 어떠한 출력도 없이 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
+| `/messages/modules/<moduleId>/outputs/*` | 일부 출력을 통해 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
+| `/messages/modules/<moduleId>/outputs/<output>` | 특정 출력을 통해 특정 모듈에서 보낸 모든 디바이스-클라우드 메시지 |
 
 ### <a name="condition"></a>조건
 조건은 경로 선언의 선택 사항입니다. 싱크에서 원본으로 모든 메시지를 전달하려는 경우 전체 **WHERE** 절을 그대로 둡니다. 또는 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다. IoT Edge 경로는 쌍 태그 또는 속성을 기반으로 하는 메시지 필터링을 지원하지 않습니다. 
@@ -156,7 +156,7 @@ IoT Edge의 모듈 간에 전달되는 메시지는 디바이스와 Azure IoT Hu
 다음 구문을 사용하여 3개 매개 변수 중 하나를 중심으로 쿼리를 작성할 수 있습니다. 
 
 * 시스템 속성: `$<propertyName>` 또는 `{$<propertyName>}`
-* 응용 프로그램 속성: `<propertyName>`
+* 애플리케이션 속성: `<propertyName>`
 * 본문 속성: `$body.<propertyName>` 
 
 메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [디바이스-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-routing-query-syntax.md)을 참조하세요.
@@ -175,11 +175,11 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | sink | 설명 |
 | ---- | ----------- |
 | `$upstream` | 메시지를 IoT Hub로 보냅니다. |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 특정 모듈의 특정 입력으로 메시지 보내기 |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 보내기 |
 
-IoT Edge는 최소 한 번의 보장을 제공합니다. Edge 허브는 경로에서 해당 싱크로 메시지를 전달할 수 없는 경우 로컬에 메시지를 저장합니다. 예를 들어 Edge 허브에서 IoT Hub에 연결할 수 없거나 대상 모듈이 연결되지 않은 경우입니다.
+IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 로컬로 경우 경로를 해당 싱크에 메시지를 배달할 수 없습니다 메시지를 저장 합니다. 예를 들어, IoT Edge 허브는 IoT Hub 또는 대상 모듈에 연결할 수 없으면 연결 되지 않았습니다.
 
-Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `storeAndForwardConfiguration.timeToLiveSecs` 속성에서 지정된 시간까지 메시지를 저장합니다.
+에 지정 된 시간까지 메시지를 저장 하는 IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` 의 속성을 [IoT Edge 허브 desired 속성](module-edgeagent-edgehub.md)합니다.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트 
 
@@ -207,7 +207,7 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -273,6 +273,6 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
 
 ## <a name="next-steps"></a>다음 단계
 
-* $edgeAgent 및 $edgeHub에 포함될 수 있거나 포함되어야 하는 속성의 전체 목록은 [Edge 에이전트 및 Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조하세요.
+* 수 있거나 $edgeAgent $edgeHub에 포함 되어야 하는 속성의 전체 목록은 참조 하세요 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)합니다.
 
 * 이제 IoT Edge 모듈을 사용하는 방법을 알았으므로 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구에 대해 알아봅니다](module-development.md).

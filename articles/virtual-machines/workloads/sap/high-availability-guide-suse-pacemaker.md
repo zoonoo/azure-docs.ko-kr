@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487367"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755712"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -84,7 +84,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-**nfs**는 NFS 클러스터를 식별하는 데 사용되고, **ascsnw1**은 **NW1**의 ASCS 클러스터를 식별하는 데 사용되고, **dbnw1**은 **NW1**의 데이터베이스 클러스터를 식별하는 데 사용되고, **nfs-0** 및 **nfs-1**은 NFS 클러스터 노드의 호스트 이름이고, **nw1-xscs-0** 및 **nw1-xscs-1**은 **NW1** ASCS 클러스터 노드의 호스트 이름이고, **nw1-db-0** 및 **nw1-db-1**은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+**` nfs`** NFS 클러스터를 식별 하는 데 사용 됩니다 **ascsnw1** 의 ASCS 클러스터를 식별 하는 데 사용 됩니다 **NW1**하십시오 **dbnw1** 의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다 **NW1** , **nfs 0** 하 고 **nfs 1** NFS 클러스터 노드의 호스트 이름에는 **nw1-xscs-0** 및 **nw1-xscs-1**의 호스트 이름이 합니다 **NW1** ASCS 클러스터 노드 및 **nw1-db-0** 및 **nw1-db-1** 데이터베이스의 호스트 클러스터 노드가 합니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   softdog 구성 파일 만들기
+   만들기는 ` softdog` 구성 파일
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ o- / ...........................................................................
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** 운영 체제 구성
+1. **[A]**  운영 체제 구성
 
    경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
 
@@ -346,6 +346,18 @@ o- / ...........................................................................
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  HA 클러스터에 대 한 azure로 클라우드-netconfig 구성
+
+   (Pacemaker VIP 할당을 제어 해야) 가상 IP 주소를 제거할 클라우드 네트워크 플러그 인을 방지 하려면 아래 표시 된 대로 네트워크 인터페이스에 대 한 구성 파일을 변경 합니다. 자세한 내용은 참조 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)합니다. 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]** ssh 액세스 사용

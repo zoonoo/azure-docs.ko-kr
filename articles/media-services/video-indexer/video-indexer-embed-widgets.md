@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075069"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758108"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
 이 문서에서는 애플리케이션에 Video Indexer 위젯을 포함하는 방법에 대해 설명합니다. Video Indexer는 **인지 인사이트** 및 **플레이어**라는 두 가지 유형의 위젯을 애플리케이션에 포함할 수 있도록 지원합니다. 
-
-> [!NOTE]
-> 2018년 2월 1일부터 **인지적 인사이트** 위젯 버전 1은 더 이상 사용되지 않습니다. Embed URL 버전의 기본값은 `version=2`입니다.
 
 버전 2부터 위젯 기본 URL에 계정의 지역이 포함됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
 
@@ -34,7 +31,6 @@ ms.locfileid: "58075069"
 |이름|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
-|버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 Embed URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
 
 ### <a name="player-widget"></a>플레이어 위젯
 

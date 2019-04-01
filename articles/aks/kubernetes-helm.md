@@ -2,17 +2,17 @@
 title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
 description: Helm 패키징 도구를 사용 하 여 Azure Kubernetes Service (AKS) 클러스터에서 컨테이너를 배포 하는 방법 알아보기
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2019
-ms.author: iainfou
-ms.openlocfilehash: ccd98f5bf859673ae69b80dfcd0e5020ba289682
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: zarhoads
+ms.openlocfilehash: 0ebf317bf29a378f8cbbed647d3d3e07d2aa6bab
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768555"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757178"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 

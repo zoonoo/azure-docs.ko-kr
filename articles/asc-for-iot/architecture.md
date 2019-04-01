@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 솔루션 아키텍처 미리 보기에 대 한 이해 | Microsoft Docs
-description: IoT 서비스에 대 한 ASC의 정보 흐름에 알아봅니다.
+title: IoT 솔루션 아키텍처 미리 보기에 대 한 Azure Security Center 이해 | Microsoft Docs
+description: IoT 서비스에 대 한 Azure Security Center에서 정보의 흐름에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: ee81d9543525ba1187fc6c078391559929b9bf96
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541904"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754997"
 ---
-# <a name="asc-for-iot-architecture"></a>IoT 아키텍처에 대 한 ASC
+# <a name="azure-security-center-for-iot-architecture"></a>IoT 아키텍처에 대 한 azure Security Center
 
-이 문서에서는 IoT 솔루션에 대 한 Azure Security Center의 기능 시스템 아키텍처를 설명 합니다. 
+이 문서에서는 IoT 솔루션에 대 한 Azure 보안 센터 (ASC)의 기능 시스템 아키텍처를 설명 합니다. 
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="asc-for-iot-components"></a>ASC IoT 구성 요소

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445486"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756801"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
+많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어, (기술 지원 엔지니어, DevOps 엔지니어) 모니터링에서 단독으로 작업 하는 팀 멤버가 있는 경우만 작성할 수를 제한 하면서 모니터링 데이터에 대 한 액세스 권한을 부여 하려는 관리 되는 서비스 공급자를 사용 하는 경우 수정, 또는 리소스를 삭제 합니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
 
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
 Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 두 개의 기본 제공 역할인 모니터링 읽기 권한자와 모니터링 참가자를 제공합니다.
@@ -38,10 +38,10 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 * Application Insights 데이터에 액세스하고 AI Analytics에서 데이터를 봅니다.
 * 작업 영역에 대한 사용 현황 데이터를 포함하여 Log Analytics 작업 영역 데이터를 검색합니다.
 * Log Analytics 관리 그룹을 봅니다.
-* Log Analytics 검색 스키마를 검색합니다.
-* Log Analytics 인텔리전스 팩을 나열합니다.
-* Log Analytics 저장 검색을 검색 및 실행합니다.
-* Log Analytics 저장소 구성을 검색합니다.
+* Log Analytics 작업 영역에서 검색 스키마를 검색 합니다.
+* Log Analytics 작업 영역에서 모니터링 팩을 나열 합니다.
+* 검색 하 고 Log Analytics 작업 영역에서 저장 된 검색을 실행 합니다.
+* Log Analytics 작업 영역 저장소 구성을 검색 합니다.
 
 > [!NOTE]
 > 이 역할은 이벤트 허브에 스트리밍되었거나 저장소 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
@@ -57,9 +57,9 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * [Azure 경고](../../azure-monitor/platform/alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
-* Log Analytics 인텔리전스 팩을 사용하거나 사용하지 않도록 설정합니다.
-* Log Analytics 저장 검색을 만들고 삭제합니다.
-* Log Analytics 저장소 구성을 만들고 삭제합니다.
+* Log Analytics 작업 영역에서 모니터링 팩을 사용 하지 않도록 설정 하거나 사용 합니다.
+* 만들기 및 삭제 하 고 Log Analytics 작업 영역에서 저장 된 검색을 실행 합니다.
+* 만들고 Log Analytics 작업 영역 저장소 구성을 삭제 합니다.
 
 \*또한 개별적으로 사용자가 로그 프로필이 나 진단 설정을 설정 하려면 대상 리소스 (저장소 계정 또는 이벤트 허브 네임 스페이스)에 대 한 Listkey 권한이 부여 되어야 합니다.
 

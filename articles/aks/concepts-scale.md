@@ -2,17 +2,17 @@
 title: 개념 - AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 description: Horizontal Pod Autoscaler, 클러스터 자동 크기 조정기 및 Azure Container Instances 커넥터를 포함하는 AKS(Azure Kubernetes Service)의 크기 조정에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: zarhoads
+ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176500"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755971"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 

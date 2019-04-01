@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 보안 에이전트 아키텍처 미리 보기에 대 한 이해 | Microsoft Docs
-description: IoT 서비스에 대 한 ASC에서 사용 하는 에이전트에 대 한 보안 에이전트 아키텍처를 이해 합니다.
+title: IoT 보안 에이전트 아키텍처 미리 보기에 대 한 Azure Security Center 이해 | Microsoft Docs
+description: IoT 서비스에 대 한 Azure Security Center에서 사용 하는 에이전트에 대 한 보안 에이전트 아키텍처를 이해 합니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651400"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754171"
 ---
 # <a name="security-agent-reference-architecture"></a>보안 에이전트 참조 아키텍처
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-IoT 용 ASC 보안 에이전트 로그, 처리, 집계 및 IoT hub 통해 보안 데이터 전송에 대 한 참조 아키텍처를 제공 합니다.
+IoT 용 azure Security Center (ASC) 로그, 처리, 집계 및 IoT hub 통해 보안 데이터를 전송 하는 보안 에이전트에 대 한 참조 아키텍처를 제공 합니다.
 
 보안 에이전트는 제한 된 IoT 환경에서 작동 하도록 설계 하 고 폭넓게 사용 하는 리소스와 비교할 때 제공 하는 값을 기준으로 합니다.
 

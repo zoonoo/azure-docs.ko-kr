@@ -1,6 +1,6 @@
 ---
-title: IoT Edge 모듈에 대 한를 ASC를 배포 합니다. | Microsoft Docs
-description: 방법은 IoT Edge의 IoT 보안 에이전트용 ASC를 배포 합니다.
+title: IoT Edge 모듈에 대 한 Azure Security Center 배포 | Microsoft Docs
+description: 방법은 IoT Edge의 IoT 보안 에이전트에 대 한 Azure Security Center를 배포 합니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580495"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754775"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>IoT Edge 장치의 보안 모듈 배포
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-IoT 용 ASC **azureiotsecurity** 모듈은 IoT Edge 장치에 대 한 완벽 한 보안 솔루션을 제공 합니다.
+IoT 용 azure 보안 센터 (ASC) **azureiotsecurity** 모듈은 IoT Edge 장치에 대 한 완벽 한 보안 솔루션을 제공 합니다.
 보안 모듈 수집, 집계 및 실행 가능한 보안 권장 사항 및 경고에 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 분석 합니다.
 자세한 내용은 참조 하세요 [IoT Edge에 대 한 보안 모듈](security-edge-architecture.md)합니다.
 

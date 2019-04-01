@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813894"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758196"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -89,6 +89,13 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 
     ![AAD 토큰 가져오기](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>참고 항목
+
+- [Media Services 계정에 파일 업로드 - REST](upload-files-rest-how-to.md)
+- [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)
+- [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>다음 단계
 
-[REST를 사용하여 파일을 스트리밍](stream-files-tutorial-with-rest.md)합니다.  
+- [REST를 사용하여 파일을 스트리밍](stream-files-tutorial-with-rest.md)합니다.  
+- [자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)

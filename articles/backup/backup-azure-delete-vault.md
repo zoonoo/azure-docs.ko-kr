@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620120"
+ms.locfileid: "58652224"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -59,7 +59,7 @@ PowerShell 사용 하 여 강제로 자격 증명 모음을 삭제할 수 있습
    ```powershell
     Connect-AzAccount
    ```
-2. 처음으로 Azure Backup을 사용 하 여, 구독에서 Azure Recovery Service 공급자를 등록 해야만 [레지스터 AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider)합니다.
+2. Azure Backup을 처음 사용하는 경우 [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider)를 사용하여 구독에서 Azure Recovery Service 공급자를 등록해야 합니다.
 
    ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -108,7 +108,7 @@ PowerShell 사용 하 여 강제로 자격 증명 모음을 삭제할 수 있습
 
 
 3. **Backup 중지** > **옵션을 선택**선택 **Backup 데이터 삭제**합니다.
-4. 항목의 이름을 입력 하 고 클릭 **백업 중지**합니다. 
+4. 항목의 이름을 입력 하 고 클릭 **백업 중지**합니다.
    - 이 항목을 삭제할 것인지 확인 합니다.
    - 합니다 **백업 중지** 확인 한 후 단추를 활성화 합니다.
    - 유지 하 고 데이터를 삭제 하지 마십시오 자격 증명 모음을 삭제할 수 없습니다.
@@ -126,7 +126,7 @@ PowerShell 사용 하 여 강제로 자격 증명 모음을 삭제할 수 있습
 ### <a name="remove-backup-infrastructure-servers"></a>백업 인프라 서버 제거
 
 1. 자격 증명 모음 대시보드 메뉴에서 클릭 **Backup 인프라**합니다.
-2. 클릭 **Backup 관리 서버** 서버를 표시 합니다. 
+2. 클릭 **Backup 관리 서버** 서버를 표시 합니다.
 
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ PowerShell 사용 하 여 강제로 자격 증명 모음을 삭제할 수 있습
     ![백업 유형 선택](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . **Backup 중지** > **옵션을 선택**선택 **Backup 데이터 삭제**합니다.
-4. 항목의 이름을 입력 하 고 클릭 **백업 중지**합니다. 
+4. 항목의 이름을 입력 하 고 클릭 **백업 중지**합니다.
    - 이 항목을 삭제할 것인지 확인 합니다.
    - 합니다 **백업 중지** 확인 한 후 단추를 활성화 합니다.
    - 유지 하 고 데이터를 삭제 하지 마십시오 자격 증명 모음을 삭제할 수 없습니다.

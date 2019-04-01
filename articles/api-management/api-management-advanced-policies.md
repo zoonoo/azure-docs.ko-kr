@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401922"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756604"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
@@ -253,7 +253,7 @@ ms.locfileid: "58401922"
 
 | 특성                               | 설명                                                                                                      | 필수 | 기본값     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | 백 엔드 서비스 호출이 실패하는 시간 초과 간격(초)입니다. 최소값은 0 초입니다. 최대 값은 240 초입니다.| 아닙니다.       | 240 초 |
+| timeout="integer"                       | 시간 초과 오류 전에 백 엔드 서비스에서 반환 될 HTTP 응답 헤더에 대 한 대기 시간 (초) 시간의 양 발생 합니다. 최소값은 0 초입니다. 240 초 기본 네트워크 인프라도 적용 되지 않을 수 있습니다 보다 큰 값이이 시간 이후에 유휴 연결을 삭제할 수 있습니다. | 아닙니다.       | 없음 |
 | follow-redirects="true &#124; false"    | 백 엔드 서비스의 리디렉션 뒤에 게이트웨이가 있는지 또는 호출자에게 반환되는지 여부를 지정합니다.      | 아닙니다.       | false       |
 | 버퍼 요청 본문 = "true &#124; false" | 요청을 "true"로 설정은 버퍼링 되 고에서 사용할 때 [다시 시도](api-management-advanced-policies.md#Retry)합니다. | 아닙니다.       | false       |
 

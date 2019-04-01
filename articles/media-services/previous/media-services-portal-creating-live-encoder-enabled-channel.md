@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법 | Microsoft Docs
+title: Azure Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행 | Microsoft Docs
 description: 이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258091"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757788"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행 하는 방법  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행합니다  
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ ms.locfileid: "58258091"
 > [!NOTE]
 > 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
+1. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요. <br/>또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
-2. 채널을 만들고 시작합니다. 
-3. 채널 수집 URL을 검색합니다. 
+1. 채널을 만들고 시작합니다. 
+1. 채널 수집 URL을 검색합니다. 
 
     수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-4. 채널 미리 보기 URL을 검색합니다. 
+1. 채널 미리 보기 URL을 검색합니다. 
 
     이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
-5. 이벤트/프로그램을 만듭니다(자산도 만들어짐). 
-6. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).    
-7. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트를 시작합니다.
-8. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
-9. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
-10. 이벤트를 삭제하고 필요에 따라 자산을 삭제합니다.   
-
-## <a name="in-this-tutorial"></a>자습서 내용
-이 자습서에서는 Azure 포털을 사용하여 다음 작업을 수행합니다. 
-
-1. 라이브 인코딩을 수행할 수 있는 채널 만들기
-2. 라이브 인코더에 제공하기 위해 수집 URL 가져오기. 라이브 인코더는 이 URL을 사용하여 스트림을 채널에 수집합니다.
-3. 이벤트/프로그램(및 자산)을 만듭니다.
-4. 자산을 게시하고 스트리밍 URL을 가져옵니다.  
-5. 콘텐츠를 재생합니다.
-6. 정리합니다.
+1. 이벤트/프로그램을 만듭니다(자산도 만들어짐). 
+1. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).    
+1. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트를 시작합니다.
+1. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
+1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
+1. 이벤트를 삭제하고 필요에 따라 자산을 삭제합니다.   
 
 ## <a name="prerequisites"></a>필수 조건
+
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 
@@ -78,6 +70,7 @@ ms.locfileid: "58258091"
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
 ## <a name="create-a-channel"></a>채널 만들기
+
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services를 선택한 후 Media Services 계정 이름을 클릭합니다.
 2. **라이브 스트리밍**을 선택합니다.
 3. **사용자 지정 만들기**를 선택합니다. 이 옵션을 통해 Live Encoding에 사용할 수 있는 채널을 만들 수 있습니다.
@@ -120,9 +113,10 @@ ms.locfileid: "58258091"
 ## <a name="get-ingest-urls"></a>수집 URL 가져오기
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![수집 url](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>이벤트 만들기 및 관리
+
 ### <a name="overview"></a>개요
 채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트/프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 
@@ -154,7 +148,7 @@ ms.locfileid: "58258091"
 
     이벤트 이름, 자산 이름, 보관 창 및 암호화 옵션을 지정합니다.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![프로그램 만들기](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     **지금 이 라이브 이벤트 게시** 를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
 

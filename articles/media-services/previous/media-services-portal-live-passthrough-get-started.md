@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림 | Microsoft Docs
+title: Azure portal을 사용 하 여 온-프레미스 인코더로 라이브 스트림 | Microsoft Docs
 description: 이 자습서에서는 통과 배달을 위해 구성된 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258713"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758513"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림을 수행하는 방법
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure portal을 사용 하 여 온-프레미스 인코더로 라이브 스트리밍을 수행합니다
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ ms.locfileid: "58258713"
 * [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+
 다음 단계에서는 통과 배달을 위해 구성된 채널을 사용하는 일반적인 라이브 스트리밍 애플리케이션을 만드는 것과 관련된 작업에 대해 설명합니다. 이 자습서에는 통과 채널 및 라이브 이벤트를 생성 및 관리하는 방법을 보여 줍니다.
 
->[!NOTE]
->콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
+> [!NOTE]
+> 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
     
-1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
+1. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.<br/>또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
-2. 통과 채널을 만들고 시작합니다.
-3. 채널 수집 URL을 검색합니다. 
+1. 통과 채널을 만들고 시작합니다.
+1. 채널 수집 URL을 검색합니다. 
    
     수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-4. 채널 미리 보기 URL을 검색합니다. 
+1. 채널 미리 보기 URL을 검색합니다. 
    
     이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
-5. 라이브 이벤트/프로그램을 만듭니다. 
+1. 라이브 이벤트/프로그램을 만듭니다. 
    
     Azure 포털을 사용하는 경우 라이브 이벤트를 만들면 자산도 만들어집니다. 
 
-6. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트/프로그램을 시작합니다.
-7. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
-8. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트/프로그램을 중지합니다.
-9. 이벤트/프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.     
+1. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트/프로그램을 시작합니다.
+1. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
+1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트/프로그램을 중지합니다.
+1. 이벤트/프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.     
 
 > [!IMPORTANT]
 > 온-프레미스 인코더 및 통과 채널을 사용한 라이브 스트리밍과 관련된 개념 및 고려 사항에 대해 알아보려면 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 검토하세요.

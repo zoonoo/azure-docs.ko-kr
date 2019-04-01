@@ -1,6 +1,6 @@
 ---
-title: 설치 하 여 ASC의 IoT 에이전트 미리 보기에 대 한 Linux C 에이전트 배포 가이드 | Microsoft Docs
-description: 32 비트 및 64 비트 Linux에서 IoT 에이전트용 ASC를 설치 하는 방법에 알아봅니다.
+title: 설치 하 여 IoT 에이전트 미리 보기에 대 한 Azure Security Center의 Linux C 에이전트 배포 가이드 | Microsoft Docs
+description: 32 비트 및 64 비트 Linux에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 2b18a09e5b79e7b3d3ea837e937397ac92491f9f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 147813ae096114b4dfc1a20d2e0a70639aa82445
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619852"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754445"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>ASC IoT C 기반 보안에 대 한 에이전트 Linux 배포
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT C 기반 보안 에이전트에 대 한 Azure Security Center 배포
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 가이드에는 설치 하 여 Linux에서 IoT C 기반 보안 에이전트에 대 한 ASC를 배포 하는 방법을 설명 합니다.
+이 가이드에는 설치 하 여 Linux에서 IoT C 기반 보안 에이전트에 대 한 Azure 보안 센터 (ASC)를 배포 하는 방법을 설명 합니다.
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]

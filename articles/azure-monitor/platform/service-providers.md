@@ -1,6 +1,6 @@
 ---
-title: 서비스 공급자의 Log Analytics | Microsoft Docs
-description: MSP(Managed Service Provider), 대기업, ISV(Independent Software Vendor) 및 호스팅 서비스 공급자는 Log Analytics를 통해 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있습니다.
+title: 서비스 공급자에 대 한 azure Monitor | Microsoft Docs
+description: Azure Monitor는 Msp (관리 서비스 공급자), 대기업, 독립 소프트웨어 공급 업체 (Isv) 도움이 및 호스팅 서비스 공급자가 관리 하 고 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 모니터링 합니다.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264775"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756575"
 ---
-# <a name="log-analytics-for-service-providers"></a>서비스 공급자의 Log Analytics
-Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
+# <a name="azure-monitor-for-service-providers"></a>서비스 공급자에 대 한 azure Monitor
+Azure Monitor에서 log Analytics 작업 영역에는 관리 되는 서비스 공급자 (Msp), 대기업, 독립 소프트웨어 공급 업체 (Isv) 및 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라의 서버 관리 및 모니터링 데 도움이 됩니다. 
 
 대기업은 서비스 공급자와 많은 유사성을 공유하는데, 특히 중앙 IT 팀이 다양한 사업부의 IT 관리를 담당한다는 점이 그렇습니다. 간단한 설명을 위해 이 문서에서는 *서비스 공급자*라는 용어를 사용하지만 기업 및 기타 고객에 대해서도 같은 기능을 사용할 수 있습니다.
 
-[CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램에 참여하는 파트너 및 서비스 공급자의 경우 Log Analytics는 [Azure CSP 구독](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에서 제공되는 Azure 서비스 중 하나입니다. 
+파트너 및 속한 서비스 공급자에 대 한의 합니다 [클라우드 솔루션 공급자 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램을 Azure Monitor에서 Log Analytics에서 사용할 수 있는 Azure 서비스 중 하나인 [Azure CSP 구독](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)합니다. 
 
 ## <a name="architectures-for-service-providers"></a>서비스 공급자의 아키텍처
 
@@ -70,11 +70,11 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 두 가지 옵션 중 세 번째 아키텍처 조합입니다. 로그가 각 고객에게 로컬인 첫 번째 분산 아키텍처에 기반하지만 로그의 중앙 리포지토리를 만드는 일부 메커니즘을 사용합니다. 보고 및 분석을 위해 중앙 위치로 로그의 일부를 끌어옵니다. 이 부분은 적은 수의 데이터 형식 또는 일별 통계와 같은 작업 요약일 수 있습니다.
 
-Log Analytics에서 중앙 위치를 구현하는 두 가지 옵션이 있습니다.
+중앙 위치에 로그를 구현 하는 방법은 두 가지가 있습니다.
 
 1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용하는 것입니다.
 
-2. 중앙 위치인 Power BI: Power BI는 다양한 작업 영역이 Log Analytics와 [Power BI](../../azure-monitor/platform/powerbi.md) 간의 통합을 사용하여 데이터를 내보내는 경우 중앙 위치로 작동할 수 있습니다. 
+2. 중앙 위치인 Power BI: Power BI는 다양 한 작업 영역에 Log Analytics 작업 영역 간의 통합을 사용 하 여 데이터를 내보내야 하는 경우 중앙 위치로 작동할 수 있습니다 하 고 [Power BI](../../azure-monitor/platform/powerbi.md)합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
