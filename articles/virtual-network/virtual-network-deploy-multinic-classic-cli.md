@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953373"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650022"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 다중 NIC가 있는 VM(클래식) 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "46953373"
 Azure에서 VM(가상 머신)을 만들고 각 VM에 여러 NIC(네트워크 인터페이스)를 연결할 수 있습니다. 여러 NIC를 사용하면 NIC 간에 트래픽 유형을 분리할 수 있습니다. 예를 들어 하나의 NIC는 인터넷과 통신하는 동안 다른 NIC는 인터넷에 연결되지 않은 내부 리소스와만 통신할 수 있습니다. 여러 NIC 간에 네트워크 트래픽을 분리하는 기능은 애플리케이션 전달 및 WAN 최적화 솔루션과 같은 많은 네트워크 가상 어플라이언스에 필요합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](../virtual-machines/linux/multiple-nics.md)을 사용하여 이러한 단계를 수행하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](../virtual-machines/linux/multiple-nics.md)을 사용하여 이러한 단계를 수행하는 방법을 알아봅니다.
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -44,14 +44,14 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 ## <a name="deploy-the-back-end-vms"></a>백 엔드 VM 배포
 백 엔드 VM은 만드는 리소스에 따라 다음과 같이 다릅니다.
 
-* **데이터 디스크용 Storage 계정**. 성능 향상을 위해 데이터베이스 서버의 데이터 디스크는 SSD(반도체 드라이브) 기술을 사용하며, 이 기술에는 프리미엄 저장소 계정이 필요합니다. 배포할 Azure 위치에서 프리미엄 저장소가 지원되는지 확인하세요.
+* **데이터 디스크용 Storage 계정**. 성능 향상을 위해 데이터베이스 서버의 데이터 디스크는 SSD(반도체 드라이브) 기술을 사용하며, 이 기술에는 Premium Storage 계정이 필요합니다. 배포할 Azure 위치에서 Premium Storage가 지원되는지 확인하세요.
 * **NIC**. 각 VM에 데이터베이스 액세스용으로 하나, 그리고 관리용으로 하나씩, 두 개의 NIC가 사용됩니다.
 * **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다.
 
 ### <a name="step-1---start-your-script"></a>1단계 - 스크립트 시작
 사용되는 전체 bash 스크립트를 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)에서 다운로드할 수 있습니다. 다음 단계에 완료하여 스크립트가 사용자 환경에서 작동하도록 변경합니다.
 
-1. 위의 [필수 조건](#Prerequisites)에서 배포한 기존 리소스 그룹을 기반으로 다음 변수 값을 변경합니다.
+1. 위의 [필수 조건](#prerequisites)에서 배포한 기존 리소스 그룹을 기반으로 다음 변수 값을 변경합니다.
 
     ```azurecli
     location="useast2"
@@ -85,7 +85,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
         --location $location
     ```
 
-2. VM에서 사용할 OS 및 데이터 디스크에 대해 프리미엄 저장소 계정을 만듭니다.
+2. VM에서 사용할 OS 및 데이터 디스크에 대해 Premium Storage 계정을 만듭니다.
 
     ```azurecli
     azure storage account create $prmStorageAccountName \

@@ -1,6 +1,6 @@
 ---
 title: Azure 보안 센터 (ASC)를 사용 하 여 IoT 미리 보기에 대 한 시작 | Microsoft Docs
-description: 시작 ASC의 IoT 기능 및 서비스에 대 한 기본 워크플로 이해 합니다.
+description: 시작 IoT 기능 및 서비스에 대 한 Azure Security Center의 기본 워크플로 이해 합니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648319"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755122"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>IoT 용 Azure 보안 센터 (ASC)를 사용 하 여 시작 
+# <a name="get-started-with-azure-security-center-for-iot"></a>IoT 용 Azure Security Center 시작 
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서는 IoT 서비스에 대 한 설명은 ASC의 다른 구성 요소를 제공 하 고 시작 하는 방법에 설명 [서비스를 사용 하도록 설정 하면](quickstart-onboard-iot-hub.md)합니다. 
+이 문서는 IoT 서비스에 대 한 설명은 Azure 보안 센터 (ASC)의 다른 구성 요소를 제공 하 고 시작 하는 방법에 설명 [서비스를 사용 하도록 설정 하면](quickstart-onboard-iot-hub.md)합니다. 
 
 IoT에 대 한 ASC 보안 분석 IoT hub 구성, 장치 id 및 허브-장치 통신 패턴을 제공 하 여 IoT Hub에 원활 하 게 통합할 수 있습니다.
 ASC IoT에 대 한 향상 된 보안 기능에 대 한 에이전트 기반 컬렉션 IoT 장치에서 보안 데이터를 제공합니다.

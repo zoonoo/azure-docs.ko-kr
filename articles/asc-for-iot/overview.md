@@ -1,6 +1,6 @@
 ---
-title: ASC IoT 미리 보기에 대 한 새로운 기능 | Microsoft Docs
-description: ASC에 대 한 IoT 기능 및 서비스에 알아봅니다.
+title: IoT 미리 보기에 대 한 Azure Security Center 란 | Microsoft Docs
+description: IoT 기능 및 서비스에 대 한 Azure Security Center에 알아봅니다.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578818"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757584"
 ---
-# <a name="introducing-asc-for-iot"></a>ASC IoT에 대 한 소개
+# <a name="introducing-azure-security-center-for-iot"></a>IoT 용 Azure Security Center 소개
 
 > [!IMPORTANT]
-> IoT 용 ASC는 현재 공개 미리 보기로 제공 됩니다.
+> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="secure-your-azure-iot-solution"></a>Azure IoT 솔루션 보안 유지 
@@ -35,7 +35,7 @@ ms.locfileid: "58578818"
 
 사물 인터넷 세계를 변환 신속 하 게 됩니다. 연결 된 장치 및 백 엔드 시스템에서 대대적인 insights 기능을 사용 하 여 변환할 수 있습니다 이제 전례 없는 수준의 운영 및 비즈니스 조직 하는 데 강력한 응용 프로그램 및 서비스에 대 한 이러한 정보 성능을 제공 합니다. 그러나 수십억 개의 새 장치를 인터넷에 연결 되 고 우리의 일상 생활 및 우리의 비즈니스;에 통합 하는 대로 보안 운영 팀에는 해당 보안 전략 이러한 새 공격 노출 영역에 맞게 충분히 빠르게 발전을 확인 해야 합니다. 다른 시스템과 마찬가지로 구현의 모든 단계에서 보호를 해야 IoT 솔루션 보안 유지 합니다. 
 
-IoT 용 ASC 워크 edge에서 실행 중인 온-프레미스, Azure 및 다른 클라우드에서 통합된 가시성 및 제어, 적응형 위협 방지 및 지능형 위협 탐지 및 응답을 제공 하 여 하이브리드 워크 로드 보호를 간소화 합니다. 
+IoT 용 azure Security Center (ASC) 워크 로드,에 지에서 실행 중인 온-프레미스 및 Azure에서 통합된 가시성 및 제어, 적응형 위협 방지 및 지능형 위협 탐지 및 응답을 제공 하 여 하이브리드 워크 로드 보호 간소화 다른 클라우드입니다. 
 
 ![IoT 아키텍처에 대 한 ASC](./media/architecture/asc-for-iot-architecture.png)
 
