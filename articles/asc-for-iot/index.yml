@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542236"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578223"
 documentType: LandingData
-title: IoT용 ASC(Azure Security Center) 미리 보기 설명서
+title: IoT용 ASC 미리 보기 설명서
 metadata:
-  title: IoT용 ASC(Azure Security Center) 미리 보기 설명서 - 자습서, 빠른 시작 | Microsoft Doc
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: IoT용 ASC 미리 보기 설명서 - 자습서, 빠른 시작 | Microsoft Doc
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: IoT용 Azure Security Center 미리 보기를 사용하여 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장합니다. 모든 Azure 관련 리소스의 보안에 관해 진정한 파노라마 시각을 얻을 수 있습니다. 빠른 배포 옵션과 IoT Hub 모듈 쌍을 사용한 완벽한 통합으로 다양한 사용자 지정 옵션 및 현재 디바이스 관리 도구와의 간편한 통합을 제공합니다. 
+  description: IoT용 ASC 미리 보기를 사용하여 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장합니다. 모든 Azure 관련 리소스의 보안에 관해 진정한 파노라마 시각을 얻을 수 있습니다. 빠른 배포 옵션과 IoT Hub 모듈 쌍을 사용한 완벽한 통합으로 다양한 사용자 지정 옵션 및 현재 디바이스 관리 도구와의 간편한 통합을 제공합니다. 
 sections:
 - title: 5분 빠른 시작
   items:
@@ -32,19 +32,19 @@ sections:
     - image:
         src: media/index/deploy.svg
       text: IoT용 ASC 사용
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image:
         src: media/index/get-started.svg
       text: IoT용 ASC 시작
-      href: /azure/ascforiot/quickstart-getting-started
-- title: 단계별 자습서
+      href: /azure/asc-for-iot/getting-started
+- title: 방법 가이드
   items:
   - type: paragraph
     text: 보안 정책을 정의하고, 악의적인 작업으로부터 디바이스를 보호하고, 보안 경고 및 인시던트에 대응하는 방법을 알아봅니다.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">IoT용 ASC를 사용한 위협 탐지</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT용 ASC를 사용한 위협 탐지</a>
 - title: Microsoft Learn을 통해 기술 쌓기
   items:
   - type: list

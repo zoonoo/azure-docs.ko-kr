@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665664"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757635"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -147,7 +147,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-를 방지 하려면 관리자가 실수로 잘못 구성 된 조건부 액세스 정책을 통해 자신의 테 넌 트는 자신을 잠그지에서 새 경고 및 업데이트 된 지침 Azure portal에서 만든 했습니다. 새 지침에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 조건부 액세스의 서비스 종속성을 이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)합니다.
+를 방지 하려면 관리자가 실수로 잘못 구성 된 조건부 액세스 정책을 통해 자신의 테 넌 트는 자신을 잠그지에서 새 경고 및 업데이트 된 지침 Azure portal에서 만든 했습니다. 새 지침에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 조건부 액세스의 서비스 종속성을 이란](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)합니다.
 
 ---
 

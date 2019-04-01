@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: 보안 에이전트
     href: security-agent-architecture.md
+  - name: Edge 보안 모듈
+    href: security-edge-architecture.md
   - name: 서비스 필수 구성 요소
     href: service-prerequisites.md
   - name: IoT용 ASC 시작
@@ -23,26 +25,8 @@ items:
   - name: 사용자 지정 보안 경고 만들기
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: 자습서
-  items:
-  - name: 보안 에이전트 배포
-    items:
-    - name: C# 기반 보안 에이전트를 Windows 디바이스에 배포
-      href: tutorial-deploy-windows-cs.md
-    - name: C# 기반 보안 에이전트를 Linux 디바이스에 배포
-      href: tutorial-deploy-linux-cs.md
-    - name: C 기반 보안 에이전트를 Linux 디바이스에 배포
-      href: tutorial-deploy-linux-c.md
-  - name: 디바이스 조사
-    href: tutorial-investigate-device.md
-  - name: 사용자 고유의 보안 메시지 보내기
-    href: tutorial-send-security-messages.md
 - name: 개념
   items:
-  - name: 어떤 에이전트를 배포해야 하나요?
-    href: select-deploy-agent.md
-  - name: 보안 에이전트 구성
-    href: concept-agent-configuration.md
   - name: 보안 에이전트 인증
     href: concept-security-agent-authentication-methods.md
   - name: 보안 모듈
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: 보안 권장 사항
     href: concept-recommendations.md
+  - name: 가격 책정 및 관련 비용
+    href: concept-pricing.md
 - name: 방법 가이드
   items:
+  - name: 어떤 에이전트를 배포해야 하나요?
+    items:
+    - name: 배포할 에이전트 선택
+      href: how-to-deploy-agent.md
+    - name: C# 기반 보안 에이전트를 Windows 디바이스에 배포
+      href: how-to-deploy-windows-cs.md
+    - name: C# 기반 보안 에이전트를 Linux 디바이스에 배포
+      href: how-to-deploy-linux-cs.md
+    - name: C 기반 보안 에이전트를 Linux 디바이스에 배포
+      href: how-to-deploy-linux-c.md
+  - name: Edge 보안 모듈 배포
+    href: how-to-deploy-edge.md
+  - name: 보안 에이전트 구성
+    href: how-to-agent-configuration.md
+  - name: 사용자 고유의 보안 메시지 보내기
+    href: how-to-send-security-messages.md
   - name: 원시 보안 데이터 액세스
     href: how-to-security-data-access.md
-  - name: 보안 모듈 쌍 수정
-    href: how-to-modify-security-module-twin.md
+  - name: 디바이스 조사
+    href: how-to-investigate-device.md
 - name: 리소스
   items:
   - name: 질문과 대답
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541325"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575167"

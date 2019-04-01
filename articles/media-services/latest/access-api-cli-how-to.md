@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223167"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756014"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
@@ -40,10 +40,19 @@ Azure Media 서비스 API에 연결하려면 Azure AD 서비스 주체 인증을
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="next-steps"></a>다음 단계
-
-[파일 스트리밍](stream-files-dotnet-quickstart.md)
-
 ## <a name="see-also"></a>참고 항목
+
+- [미디어 예약 단위 크기 조정 - CLI](media-reserved-units-cli-how-to.md)
+- [Media Services 계정 만들기 - CLI](./scripts/cli-create-account.md) 
+- [계정 자격 증명 다시 설정 - CLI](./scripts/cli-reset-account-credentials.md)
+- [자산 만들기 - CLI](./scripts/cli-create-asset.md)
+- [파일 업로드 - CLI](./scripts/cli-upload-file-asset.md)
+- [변환 만들기 - CLI](./scripts/cli-create-transform.md)
+- [작업 만들기 - CLI](./scripts/cli-create-jobs.md)
+- [EventGrid 만들기 - CLI](./scripts/cli-create-event-grid.md)
+- [자산 게시 - CLI](./scripts/cli-publish-asset.md)
+- [필터링 - CLI](filters-dynamic-manifest-cli-howto.md)
+
+## <a name="next-steps"></a>다음 단계
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
