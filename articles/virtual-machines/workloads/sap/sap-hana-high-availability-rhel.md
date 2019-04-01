@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082180"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669047"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -108,7 +108,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     * **Db 형식**: **HANA**를 선택합니다.
     * **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     * **시스템 가용성**: **HA**를 선택합니다.
-    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
+    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 새 사용자가 만들어진 컴퓨터에 로그인 할 수 있습니다.
     * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다. 새 가상 네트워크를 만들려면 공백으로 두세요.
 
 ### <a name="manual-deployment"></a>수동 배포
@@ -185,7 +185,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 > [!IMPORTANT]
 > Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
-> SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421) 현재 net.ipv4.tcp_timestamps 1로 설정 하 라는 일치 하지 않는 문 포함 되어 있습니다. Azure 부하 분산 장치 뒤에 배치 하는 Azure Vm에 대 한 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다.
+> SAP 참고 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)합니다. 
 
 ## <a name="install-sap-hana"></a>SAP HANA 설치
 
@@ -342,7 +342,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[A]** 방화벽 구성
 
-   Azure 부하 분산 장치 프로브 포트의 방화벽 규칙을 만듭니다.
+   Azure 부하 분산 장치 프로브 포트에 대 한 방화벽 규칙을 만듭니다.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -382,14 +382,14 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **NW1**을 SAP 시스템의 SID로 바꿉니다.
 
-   \<hanasid>adm으로 로그인하고 다음 명령을 실행합니다.
+   다음으로 실행 < hanasid\>adm 명령:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   \<hanasid>adm으로 로그인하고 데이터베이스를 백업합니다.
+   로 데이터베이스 백업 < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. \<hanasid>adm으로 로그인하고 다음 명령을 실행합니다.
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 로 다음 명령을 < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 필요한 사용자를 만듭니다.
 
-   루트로 로그인하고 다음 명령을 실행합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
+   다음 명령을 루트로 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[A]** 키 저장소 항목을 만듭니다.
 
-   루트로 로그인하고 다음 명령을 실행하여 새로운 키 저장소 항목을 만듭니다.
+   새 키 저장소 항목을 만드는 루트로 다음 명령을 실행 합니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 데이터베이스를 백업합니다.
 
-   루트로 로그인하고 데이터베이스를 백업합니다.
+   루트로 데이터베이스 백업:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   \<hanasid>adm으로 로그인하고 기본 사이트를 만듭니다.
+   기본 사이트를 만들려면 < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[2]** 보조 노드에서 시스템 복제를 구성합니다.
 
-   \<hanasid>adm으로 로그인하고 보조 사이트를 등록합니다.
+   보조 사이트에 등록 < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
