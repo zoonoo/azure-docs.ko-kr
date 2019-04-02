@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ed127d6be6966baba7d6f862624ef7bca16f40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 50ab4d3c9134e94b60c4dd3eeb5603f450b036c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309558"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794039"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -109,6 +109,10 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 **Q: Azure AD 암호 보호에 System Center Operations Manager 관리 팩을 사용할 수 있나요?**
 
 아니요.
+
+**Q: 이유는 Azure 여전히 거부 취약 한 암호 감사 모드로 설정 될 정책을 구성 하는 경우에?**
+
+감사 모드는 온-프레미스 Active Directory 환경에만 지원 됩니다. Azure는 암시적으로 항상 "강제 적용" 모드에서 암호를 평가 하는 경우.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 

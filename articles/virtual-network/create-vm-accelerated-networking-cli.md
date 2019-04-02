@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213299"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805366"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -42,13 +42,16 @@ ms.locfileid: "57213299"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Azure linux 커널로 Ubuntu 14.04**
+* **Ubuntu 16.04 이상** 
+* **SLES12 SP3 이상** 
+* **RHEL 7.4 이상**
+* **CentOS 7.4 이상**
 * **CoreOS Linux**
 * **Debian “Stretch”(백포트 커널 포함)**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 이상 사용 하 여 Red Hat 호환 커널 (RHCK)**
+* **UEK 버전 5 사용 하 여 oracle Linux 7.5 이상**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 

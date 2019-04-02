@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996704"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794022"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -34,6 +34,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
 
 - 조직 Office 365 구독
@@ -42,12 +43,16 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
  
 
 ## <a name="management-packs"></a>관리 팩
+
 이 솔루션은 [연결된 관리 그룹](../platform/om-agents.md)에 관리 팩을 설치하지 않습니다.
   
+
 ## <a name="install-and-configure"></a>설치 및 구성
+
 먼저 [구독에 Office 365 솔루션](solutions.md#install-a-monitoring-solution)을 추가합니다. 추가된 후에는 이 섹션의 구성 단계를 수행하여 Office 365 구독에 대한 액세스 권한을 부여해야 합니다.
 
 ### <a name="required-information"></a>필요한 정보
+
 이 절차를 시작하려면 먼저 다음 정보를 수집해야 합니다.
 
 Log Analytics 작업 영역에서 수집할 정보:
@@ -64,6 +69,7 @@ Office 365 구독에서 수집할 정보:
 - 클라이언트 암호: 인증에 필요한 암호화된 문자열입니다.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
+
 첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 응용 프로그램을 만드는 것입니다.
 
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com/))에 로그인합니다.
@@ -111,11 +117,12 @@ Office 365 구독에서 수집할 정보:
     ![구성](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>관리자 동의 추가
+
 관리 계정을 처음으로 사용하는 경우 애플리케이션에 대한 관리자 동의를 제공해야 합니다. 이 작업은 PowerShell 스크립트를 사용하여 수행할 수 있습니다. 
 
 1. 다음 스크립트를 *office365_consent.ps1*로 저장합니다.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Office 365 구독에서 수집할 정보:
     ```
 
 2. 다음 명령을 사용하여 스크립트를 실행합니다. 자격 증명을 묻는 메시지가 두 번 표시됩니다. 먼저 Log Analytics 작업 영역용 자격 증명을 입력한 다음 Office 365 테넌트의 전역 관리자 자격 증명을 입력합니다.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     예제:
 
     ```
@@ -175,11 +184,12 @@ Office 365 구독에서 수집할 정보:
     ![관리자 동의](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 가입
+
 마지막 단계는 애플리케이션을 Log Analytics 작업 영역에 가입하는 것입니다. 이 작업 역시 PowerShell 스크립트를 사용합니다.
 
 1. 다음 스크립트를 *office365_subscription.ps1*로 저장합니다.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ Office 365 구독에서 수집할 정보:
     ```
 
 2. 다음 명령을 사용하여 스크립트를 실행합니다.
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     예제:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ Office 365 구독에서 수집할 정보:
 
 애플리케이션이 해당 작업 영역에 이미 가입되고 있거나 이 테넌트가 다른 작업 영역에 가입되어 있으면 이 오류가 표시될 수 있습니다.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 잘못된 매개 변수 값을 제공하면 다음 오류가 발생할 수 있습니다.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>제거
+
 [관리 솔루션을 제거](solutions.md#remove-a-monitoring-solution)의 프로세스를 사용하여 Office 365 관리 솔루션을 제거할 수 있습니다. 이렇게 해도 Office 365에서 Azure Monitor로 데이터 수집이 중단되지 않습니다. 아래 절차에 따라 Office 365에서 구독을 취소하고 데이터 수집을 중지합니다.
 
 1. 다음 스크립트를 *office365_unsubscribe.ps1*로 저장합니다.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ At line:12 char:18
 
     예제:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>데이터 수집
+
 ### <a name="supported-agents"></a>지원되는 에이전트
+
 Office 365 솔루션은 [Log Analytics 에이전트](../platform/agent-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
 
 ### <a name="collection-frequency"></a>수집 빈도
+
 데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [webhook 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Azure Monitor로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Azure Monitor에서 사용할 수 있습니다.
 
 ## <a name="using-the-solution"></a>솔루션 사용
@@ -511,6 +527,7 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생성하는 모든 레코드의 **Type**은 **OfficeActivity**입니다.  **OfficeWorkload** 속성에 따라 해당 레코드가 참조하는 Office 365 서비스(Exchange, AzureActiveDirectory, SharePoint 또는 OneDrive)가 결정됩니다.  **RecordType** 속성은 작업의 유형을 지정합니다.  속성은 각 작업 유형에 따라 달라지며, 아래 표에 나와 있습니다.
 
 ### <a name="common-properties"></a>공용 속성
+
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
 | 자산 | 설명 |
@@ -528,6 +545,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
+
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
 | 자산 | 설명 |
@@ -539,6 +557,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory 계정 로그온
+
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
 | 자산 | 설명 |
@@ -552,6 +571,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
 | 자산 | 설명 |
@@ -569,6 +589,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="data-center-security"></a>데이터 센터 보안
+
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
 | 자산 | 설명 |
@@ -584,6 +605,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="exchange-admin"></a>Exchange 관리
+
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
 | 자산 | 설명 |
@@ -598,6 +620,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="exchange-mailbox"></a>Exchange 사서함
+
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
 | 자산 | 설명 |
@@ -620,6 +643,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="exchange-mailbox-audit"></a>Exchange 사서함 감사
+
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
 | 자산 | 설명 |
@@ -634,6 +658,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange 사서함 감사 그룹
+
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
 | 자산 | 설명 |
@@ -652,6 +677,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="sharepoint-base"></a>Sharepoint 기본 속성
+
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
 | 자산 | 설명 |
@@ -668,6 +694,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="sharepoint-schema"></a>SharePoint 스키마
+
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
 | 자산 | 설명 |
@@ -680,6 +707,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint 파일 작업
+
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
 | 자산 | 설명 |
@@ -700,6 +728,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색
+
 다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다.
 
 | 쿼리 | 설명 |
@@ -713,6 +742,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md)를 사용하여 자세한 업데이트 데이터를 확인합니다.
 * [고유한 대시보드 만들기](../learn/tutorial-logs-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
 * 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../platform/alerts-overview.md)를 수행합니다.  

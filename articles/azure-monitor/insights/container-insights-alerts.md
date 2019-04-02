@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886779"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804827"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 성능 문제에 대 한 경고를 설정 하는 방법
 컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. 
 
 이 문서에서는 다음과 같은 경우에 대 한 경고를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-* 경우 클러스터의 노드에서 CPU 및 메모리 사용률 하거나 정의 된 임계값을 초과 합니다.
+* 클러스터의 노드에서 CPU 또는 메모리 사용률이 정의 된 임계값 초과 하는 경우.
 * CPU 또는 메모리 사용률 컨트롤러 내 컨테이너 중 하나에 해당 하는 리소스에 설정 된 한계를 비교 하 여 정의 된 임계값 초과 하는 경우.
+* **NotReady** 상태 노드 계산
+* Pod 단계 수가 **실패**를 **보류 중인**를 **알 수 없는**를 **실행**, 또는 **성공**
 
-클러스터 또는 컨트롤러에 대 한 높은 CPU 또는 메모리 사용률이 때 경고를 제공 하는 로그 쿼리를 기반으로 하는 메트릭 측정 경고 규칙을 만들 수 있습니다. 쿼리는 이제 연산자를 사용 하는 현재 날짜/시간을 비교 하 고 1 돌아갑니다. 컨테이너용 Azure Monitor에서 저장하는 모든 날짜는 UTC 형식입니다.
+CPU 또는 메모리 사용률이 높은 클러스터의 노드에서 다음을 할 수 있습니다 하는 경우 경고를 하나 만들거나 메트릭 경고를 제공 하는 로그 쿼리를 사용 하 여 메트릭 측정 경고 규칙을 합니다. 메트릭 경고의 로그 경고 보다 대기 시간이 낮은 반면 고급 쿼리 및 메트릭 경고를 보다 정교 성이 로그 경고를 제공 합니다. 로그 경고에 대 한 쿼리는 이제 연산자를 사용 하는 현재 날짜/시간을 비교 하 고 1 돌아갑니다. 컨테이너용 Azure Monitor에서 저장하는 모든 날짜는 UTC 형식입니다.
 
-Azure Monitor의 경고를 잘 모르겠으면 시작하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md)를 참조하세요. 로그 쿼리를 사용하는 경고에 대한 자세한 내용은 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)를 참조하세요.
+를 시작 하기 전에 Azure Monitor에서 경고를 사용 하 여 잘 모르는 경우 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md)합니다. 로그 쿼리를 사용 하 여 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다. 메트릭 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)합니다.
 
 ## <a name="resource-utilization-log-search-queries"></a>리소스 사용률 로그 검색 쿼리
 이 섹션의 쿼리는 각 경고 시나리오를 지원 하기 위해 제공 됩니다. 쿼리는 아래에서 7 단계에 필요 합니다 [경고 만들기](#create-alert-rule) 섹션 아래.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+모든 노드 및 수의 상태를 사용 하 여 다음 쿼리는 반환 **준비** 하 고 **NotReady**합니다.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+Pod 단계 계산 다음 쿼리는 모든 단계-기반 **실패**를 **보류 중인**를 **알 수 없는**를 **실행**, 또는 **성공**합니다.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>와 같은 특정 pod 단계에서 경고를 발생 시 **보류 중인**, **실패**, 또는 **알 수 없는**, 쿼리의 마지막 줄을 수정 해야 합니다. 에 대 한 경고를 예를 들어 *개의 작업이* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`합니다.  
 
 ## <a name="create-alert-rule"></a>경고 규칙 만들기
 이전에 제공 되는 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor의 로그 경고를 만들려면 다음 단계를 수행 합니다.  

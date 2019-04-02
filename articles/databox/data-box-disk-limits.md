@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880452"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791646"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -50,11 +50,11 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 - *BlockBlob* 및 *PageBlob* 공유에 기록된 모든 파일은 각각 블록 Blob 및 페이지 Blob으로 업로드됩니다.
 - *BlockBlob* 및 *PageBlob* 폴더 아래에 만들어진 모든 빈 디렉터리 계층 구조(어떤 파일도 없는)는 업로드되지 않습니다.
 - 데이터를 Azure에 업로드할 때 오류가 발생하는 경우 오류 로그는 대상 저장소 계정에서 만들어집니다. 업로드가 완료되면 오류 로그 경로를 포털에서 사용할 수 있으며, 정정 작업을 수행하려면 로그를 검토할 수 있습니다. 업로드된 데이터를 확인하지 않고 원본에서 데이터를 삭제하지 마세요.
-- 순서 대로 관리 디스크를 지정한 경우 다음 추가 고려 사항을 검토 합니다.
+- 관리 디스크를 순서대로 지정했다면 다음 추가 고려 사항을 검토합니다.
 
-    - Precreated 모든 폴더 및 모든 Data Box 디스크에서 리소스 그룹에 지정 된 이름의 한 관리 디스크를 하나만 수 있습니다. Precreated 폴더에 업로드 된 Vhd는 고유한 이름이 있어야 함을 의미 합니다. 지정 된 이름을 리소스 그룹에 이미 기존 관리 디스크에 맞지 않습니다 있는지 확인 합니다. Vhd 이름이 동일한 경우에 해당 이름 가진 관리 되는 디스크에 하나의 VHD 변환 됩니다. 다른 Vhd 준비 저장소 계정에 페이지 blob으로 업로드 됩니다.
-    - 항상 precreated 폴더 중 하나에 Vhd를 복사 합니다. 이러한 폴더 외부 또는 사용자가 만든 폴더에 Vhd를 복사 하는 경우 Vhd는 페이지 blob으로 Azure Storage 계정에 업로드 됩니다 및 디스크를 관리 되지 합니다.
-    - 관리 디스크 만들기 고정된 Vhd는 업로드할 수 있습니다. 동적 Vhd, 차이점 보관용 Vhd 또는 VHDX 파일은 지원 되지 않습니다.
+    - 사전 생성된 폴더 전체 및 Data Box Disk 전체에서 리소스 그룹에 지정된 이름의 관리 디스크 하나만 가질 수 있습니다. 즉, 사전 생성된 폴더에 업로드된 VHD는 이름이 고유해야 함을 의미합니다. 지정된 이름이 리소스 그룹의 기존 관리 디스크와 일치하지 않도록 해야 합니다. VHD 이름이 동일할 경우 단 하나의 VHD만 해당 이름의 관리 디스크로 변환됩니다. 다른 VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
+    - 항상 사전 생성된 폴더 중 하나에 VHD를 복사합니다. 이러한 폴더 외부 또는 사용자가 만든 폴더 안에 VHD를 복사하는 경우 VHD는 Azure Storage 계정에 관리 디스크가 아닌 페이지 Blob으로 업로드됩니다.
+    - 고정된 VHD만 업로드하여 관리 디스크를 만들 수 있습니다. 동적 VHD, 차이점 보관용 VHD 또는 VHDX 파일은 지원되지 않습니다.
 
 ## <a name="azure-storage-account-size-limits"></a>Azure Storage 계정 크기 제한
 
@@ -93,4 +93,4 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Box 시스템 요구 사항](data-box-system-requirements.md) 검토
+- 검토 [Data Box 디스크 시스템 요구 사항](data-box-disk-system-requirements.md)

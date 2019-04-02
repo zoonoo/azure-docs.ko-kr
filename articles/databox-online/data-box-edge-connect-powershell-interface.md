@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660463"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791578"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure 데이터 상자 Edge 장치를 관리 합니다.
 
@@ -59,6 +59,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 로 이동 하는 인증서에 대 한 자세한 내용은 [Azure IoT Edge 인증서](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 하거나 [게이트웨이에서 인증서를 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)합니다.
 
 ## <a name="view-device-information"></a>장치 정보 보기
+
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -75,9 +76,10 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
     다음 예제에서는이 cmdlet의 사용법을 보여 줍니다.
 
-    ```
+    ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
+
     Cmdlet에 사용 되는 매개 변수 설명은 다음과 같습니다.
     - `Path`: 계산 로그 패키지를 만들려는 공유 네트워크 경로 제공 합니다.
     - `Credential`: 네트워크 공유에 대 한 사용자 이름과 암호를 제공 합니다.

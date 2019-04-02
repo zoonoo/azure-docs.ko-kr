@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082707"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791629"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
 API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변경하도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 명명된 값을 사용하여 생성할 수 있습니다. 
@@ -34,12 +34,12 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 ![명명된 값](./media/api-management-howto-properties/named-values.png)
 
-속성 값은 리터럴 문자열 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 포함할 수 있습니다. 예를 들어 `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
+속성 값은 리터럴 문자열 및 [정책 식](/azure/api-management/api-management-policy-expressions)을 포함할 수 있습니다. 예를 들어 `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
-| 이름 | 값 | Secret | 태그들 |
+| name | 값 | Secret | 태그들 |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## <a name="to-add-and-edit-a-property"></a>속성을 추가하고 편집하려면
@@ -55,7 +55,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 속성이 생성되면 속성을 클릭하여 속성을 편집할 수 있습니다. 속성 이름을 변경한 경우 해당 속성을 참조하는 모든 정책이 새 이름을 사용하도록 자동으로 업데이트됩니다.
 
-REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)을 참조하세요.
+REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](/rest/api/apimanagement/property?Patch)을 참조하세요.
 
 ## <a name="to-delete-a-property"></a>속성을 삭제하려면
 
@@ -66,7 +66,7 @@ REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내�
 > 
 > 
 
-REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)를 참조하세요.
+REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](/rest/api/apimanagement/property?Delete)를 참조하세요.
 
 ## <a name="to-search-and-filter-named-values"></a>명명된 값을 검색하고 필터링하려면
 
@@ -111,8 +111,8 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 ## <a name="next-steps"></a>다음 단계
 * 정책 작업에 대한 자세한 정보
   * [API Management의 정책](api-management-howto-policies.md)
-  * [정책 참조](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [정책 참조](/azure/api-management/api-management-policies)
+  * [정책 식](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

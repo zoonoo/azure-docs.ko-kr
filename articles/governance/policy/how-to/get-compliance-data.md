@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535215"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802959"
 ---
-# <a name="getting-compliance-data"></a>준수 데이터 가져오기
+# <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
 Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 그룹](../../management-groups/overview.md)에 있는 리소스에 제공하는 정보 또는 컨트롤입니다. 이 컨트롤은 리소스가 잘못된 위치에 생성되거나, 일반적이고 일관된 태그 사용을 적용하거나, 적절한 구성 및 설정에 대한 기존 리소스를 감사하지 않도록 방지하는 다양한 방식으로 사용될 수 있습니다. 모든 경우에 환경의 준수 상태를 이해할 수 있도록 Policy에 의해 데이터가 생성됩니다.
 
@@ -93,9 +93,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | True  | 비준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
@@ -120,27 +120,27 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 **준수** 상태의 리소스를 _총 리소스 수_로 나누는 방법을 통해 규정 준수 비율이 결정됩니다.
 _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다. 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
 
-![간단한 규정 준수 예제](../media/getting-compliance-data/simple-compliance.png)
+![정책 준수 규정 준수 페이지의 예제](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>포털
 
 Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는 그래픽 환경을 보여줍니다. **정책** 페이지에서 **개요** 옵션은 정책 및 이니셔티브 모두에 사용할 수 있는 준수 범위에 대한 세부 정보를 제공합니다. 준수 상태 및 할당별 개수뿐만 아니라 지난 7일 동안의 준수를 표시하는 차트가 포함됩니다.
 **준수** 페이지에는 차트를 제외하고 이 동일한 정보 대부분이 포함되지만 추가 필터링 및 정렬 옵션을 제공합니다.
 
-![정책 준수 페이지](../media/getting-compliance-data/compliance-page.png)
+![준수 정책 페이지의 예](../media/getting-compliance-data/compliance-page.png)
 
 정책 또는 이니셔티브가 서로 다른 범위에 할당될 수 있으므로 테이블에는 각 할당의 범위 및 할당된 정의의 형식이 포함됩니다. 각 할당의 비준수 리소스 및 비준수 정책 수도 제공됩니다. 테이블에서 정책 또는 이니셔티브를 클릭하면 해당하는 특정 배포에 대한 준수를 자세히 살펴봅니다.
 
-![정책 준수 세부 정보](../media/getting-compliance-data/compliance-details.png)
+![정책 준수 세부 정보 페이지의 예](../media/getting-compliance-data/compliance-details.png)
 
 **리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
 리소스 생성 요청에 의해 트리거되는 이벤트(추가, 감사, 거부, 배포)는 **이벤트** 탭에 표시됩니다.
 
-![정책 준수 이벤트](../media/getting-compliance-data/compliance-events.png)
+![정책 준수 이벤트의 예](../media/getting-compliance-data/compliance-events.png)
 
 자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
-![정책 준수 활동 로그](../media/getting-compliance-data/compliance-activitylog.png)
+![정책 준수 활동 로그의 예](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>호환 되지 않는 이해
 

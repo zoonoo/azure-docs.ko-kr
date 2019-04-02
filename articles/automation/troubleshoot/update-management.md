@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448669"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804465"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "58448669"
 
 온보딩 후 15분이 지났는데도 가상 머신에 다음 메시지가 계속 표시됩니다.
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -47,7 +47,7 @@ The components for the 'Update Management' solution have been enabled, and now t
    1. Log Analytics 작업 영역의 범위 구성에 대 한 저장된 된 검색에서 VM을 제거할 `MicrosoftDefaultScopeConfig-Updates` 표시 됩니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
    2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` 실행
    3. `Restart-Service HealthService`를 실행하여 `HealthService`를 다시 시작합니다. 그러면 키가 다시 생성되고 새 UUID가 생성됩니다.
-   4. 이렇게 작동하지 않는 경우 이미지에 sysprep을 수행한 다음, 팩트 후에 MMA 에이전트를 설치합니다.
+   4. 이 작동 하지 않으면 sysprep 이미지 첫 번째 사후 MMA 에이전트를 설치 합니다.
 
 ### <a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트에 있는 컴퓨터의 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
@@ -55,7 +55,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 다른 Azure 테넌트에 있는 컴퓨터의 업데이트 배포를 만들려고 하면 다음 오류가 발생합니다.
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -104,7 +104,7 @@ Hybrid Runbook Worker를 다시 등록하고 다시 설치해야 할 수 있습�
 
 다음과 같은 오류 메시지가 표시됩니다.
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -122,15 +122,15 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -148,7 +148,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -203,7 +203,7 @@ Linux Hybrid Worker가 비정상 상태입니다.
 
 다음 로그 파일의 사본을 작성하여 문제 해결 목적으로 보존합니다.
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -229,7 +229,7 @@ Linux에서 업데이트 실행이 제대로 시작된 뒤 업데이트 실행 �
 
 패치 문제를 해결할 수 없는 경우 문제 해결을 위해 다음 업데이트 배포가 시작되기 **전에** 다음 로그 파일의 사본을 작성하여 보관합니다.
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005428"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805077"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005428"
 `Add-AzureAccount` 또는 `Connect-AzureRmAccount` cmdlet을 사용할 때 오류가 발생합니다.
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -81,7 +81,7 @@ Unknown_user_type: Unknown User Type
 
 `Select-AzureSubscription` 또는 `Select-AzureRmSubscription` cmdlet으로 작업하면 다음 오류가 발생합니다.
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -119,7 +119,7 @@ The subscription named <subscription name> cannot be found.
 
 Azure 사용자 이름 및 암호를 사용하여 Azure에 인증할 때 다음 오류가 발생합니다.
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -139,7 +139,7 @@ Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서�
 
 `-Wait` 스위치를 사용하여 자식 Runbook을 호출하면 다음 오류가 발생하며 출력 스트림에 개체가 포함되어 있습니다.
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -179,7 +179,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 다음 메시지와 함께 Runbook에 대한 작업 스트림에 오류가 표시됨
 
-```
+```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
@@ -205,7 +205,7 @@ Az 및 AzureRM cmdlet은 동일한 Runbook에 가져와 사용할 수 없습니�
 
 다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -264,7 +264,7 @@ Start-AzureRmAutomationRunbook `
 
 다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -289,7 +289,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 다음 오류로 인해 Runbook이 실패합니다.
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -323,7 +323,7 @@ The job was tried three times but it failed
 
 다음 오류로 인해 Runbook이 실패합니다.
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -375,7 +375,7 @@ Runbook이 PowerShell 워크플로인 경우, 워크플로가 일시 중단되�
 
 다음 오류로 인해 Runbook 작업이 실패합니다.
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -398,7 +398,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 다음 오류로 인해 Runbook 작업이 실패합니다.
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -421,7 +421,7 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 
 3시간 동안 실행된 후에 Runbook이 **중지됨** 상태로 표시됩니다. 또한 다음과 같은 오류가 표시될 수도 있습니다.
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -469,7 +469,7 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 
 `Get-AzureRmAutomationJobOutput` cmdlet을 실행할 때 다음 오류 메시지가 나타납니다.
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 

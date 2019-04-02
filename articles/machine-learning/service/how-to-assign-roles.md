@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993811"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805604"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 
@@ -33,7 +33,7 @@ Azure Machine Learning 작업 영역을 Azure 리소스입니다. 다른 Azure �
 | **소유자** | 보기, 만들기, 편집 또는 삭제 (있는 경우) 하는 기능을 포함 하는 작업 영역에 대 한 모든 작업 영역에서 자산입니다. 또한 역할 할당을 변경할 수 있습니다. |
 
 > [!IMPORTANT]
-> Azure에서 여러 수준으로 범위 역할 액세스를 수 있습니다. 예를 들어,이 작업 그룹에 대 한 소유자 액세스를 사용 하 여 사용자가 작업 그룹을 포함 하는 리소스 그룹에 소유자 액세스를 권한이 없을 수입니다. 자세한 내용은 [RBAC 어떻게 작동](/azure/role-based-access-control/overview#how-rbac-works)합니다.
+> Azure에서 여러 수준으로 범위 역할 액세스를 수 있습니다. 예를 들어,이 작업 영역에 대 한 소유자 액세스를 사용 하 여 사용자가 작업 영역을 포함 하는 리소스 그룹에 소유자 액세스를 권한이 없을 수입니다. 자세한 내용은 [RBAC 어떻게 작동](/azure/role-based-access-control/overview#how-rbac-works)합니다.
 
 특정 기본 제공 역할에 대 한 자세한 내용은 참조 하세요. [Azure에 대 한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)입니다.
 

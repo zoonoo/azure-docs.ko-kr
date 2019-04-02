@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885951"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792470"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
+
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다.
 
 가상 머신 리소스에 대한 자세한 설명은 [Azure Resource Manager 템플릿의 가상 머신](template-description.md)를 참조하세요. 템플릿에 있는 모든 리소스에 대한 자세한 내용은 [Azure Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
@@ -44,7 +45,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 1. **도구** > **Nuget 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 2. 콘솔에서 다음이 명령을 입력합니다.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -206,15 +207,17 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 3. azureauth.properties 파일을 저장합니다.
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
+
     
+
 ## <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
 1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 기존 문에 추가합니다.
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -226,7 +229,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -241,7 +244,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 애플리케이션에 대한 값을 지정하려면 다음 코드를 Main 메서드에 추가합니다.
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -256,7 +259,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 계정을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -296,7 +299,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 템플릿을 배포하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -315,7 +318,7 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 리소스 그룹을 삭제하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -328,5 +331,6 @@ azure.ResourceGroups.DeleteByName(groupName);
 2. **Enter** 키를 눌러 리소스를 삭제하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. 배포에 대한 정보를 보려면 배포 상태를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../resource-manager-common-deployment-errors.md)을 살펴봅니다.
 * [C#를 사용하여 Azure Virtual Machine 배포](csharp.md)를 검토하여 가상 머신 및 지원 리소스 배포 방법에 대해 알아 봅니다.

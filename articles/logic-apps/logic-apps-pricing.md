@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 4e5b63642b5090b50d29d6d3adc49ea683b90faa
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437716"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805179"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -38,12 +38,12 @@ Azure Logic Apps는 논리 앱에서 실행 되는 모든 작업을 측정 합�
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-내에서 실행 되는 새 논리 앱에 대 한는 [ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 기본 제공 작업 및 표준 커넥터에 대 한 고정된 된 월간 가격을 지불 합니다. ISE는 Azure 가상 네트워크의 리소스에 액세스할 수 있는 격리된 논리 앱을 만들고 실행하는 방법을 제공합니다.
+[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 기본 제공 작업 및 표준 커넥터에 대 한 고정된 월별 가격을 지불 합니다. ISE에 원하는 만큼 많은 연결을 포함 하는 하나의 무료 엔터프라이즈 커넥터를도 포함 되어 있습니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다. 
+
+ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다.
 
 > [!NOTE]
 > ISE에는 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
-
-ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. ISE는 원하는 만큼 많은 연결을 포함하는 하나의 체험 엔터프라이즈 커넥터를 포함합니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다.
 
 <a name="connectors"></a>
 

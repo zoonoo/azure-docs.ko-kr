@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484257"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793762"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 
@@ -116,8 +116,10 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
     $ErrorActionPreference = "Continue"
    }
    ```
+
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>데이터베이스에서 실행할 T-SQL 스크립트 만들기
-   ```
+
+   ```powershell
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -137,7 +139,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 ## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>사용자 지정 데이터베이스 그룹에서 스크립트를 실행하는 작업을 만듭니다.
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -148,50 +150,53 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
    ```
 
 ## <a name="execute-the-job"></a>작업 실행
+
 다음 PowerShell 스크립트를 사용하여 기존 작업을 실행할 수 있습니다.
 
 실행하려는 작업 이름이 반영되도록 다음 변수를 업데이트합니다.
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
    ```
 
 ## <a name="retrieve-the-state-of-a-single-job-execution"></a>단일 작업 실행 상태 검색
+
 **IncludeChildren** 매개 변수와 함께 동일한 **Get-AzureSqlJobExecution cmdlet**을 사용하여 자식 작업 실행 상태, 즉 작업 대상인 각 데이터베이스에 대한 각 작업 실행의 특정 상태를 표시할 수 있습니다.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>여러 작업 실행 간에 상태 보기
+
 **Get-AzureSqlJobExecution** cmdlet에는 제공된 매개 변수를 통해 필터링되는 여러 작업 실행을 표시하는 데 사용할 수 있는 여러 선택적 매개 변수가 있습니다. 아래에서는 Get-AzureSqlJobExecution을 사용할 수 있는 여러 방법을 보여 줍니다.
 
 모든 활성 최상위 작업 실행을 검색합니다.
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution
    ```
 
 비활성 작업 실행을 포함하여 모든 최상위 작업 실행을 검색합니다.
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
 비활성 작업 실행을 포함하여 제공된 작업 실행 ID의 모든 자식 작업 실행을 검색합니다.
 
-   ```
+   ```powershell
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
 비활성 작업을 포함하여 일정/작업 조합으로 만든 모든 작업 실행을 검색합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
@@ -199,7 +204,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 비활성 작업을 포함하여 지정된 분할된 데이터베이스 맵을 대상으로 하는 모든 작업을 검색합니다.
 
-   ```
+   ```powershell
     $shardMapServerName = "{Shard Map Server Name}"
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
@@ -209,7 +214,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 비활성 작업을 포함하여 지정된 사용자 지정 컬렉션을 대상으로 하는 모든 작업을 검색합니다.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
@@ -217,7 +222,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 특정 작업 실행 내의 작업 태스크 실행 목록을 검색합니다.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Write-Output $jobTaskExecutions
@@ -226,16 +231,18 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 작업 태스크 실행 세부 정보를 검색합니다.
 
 다음 PowerShell 스크립트를 사용하여 실행 실패를 디버그할 때 특히 유용한 작업 태스크 실행 세부 정보를 볼 수 있습니다.
-   ```
+
+   ```powershell
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>작업 태스크 실행 내의 오류 검색
+
 JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대한 속성이 포함되어 있습니다. 작업 태스크 실행에 실패한 경우 수명 주기 속성이 *Failed*로 설정되고 메시지 속성은 결과 예외 메시지 및 해당 스택으로 설정됩니다. 작업이 수행되지 않은 경우 지정된 작업에 대해 실패한 작업 태스크 세부 정보를 보는 것이 중요합니다.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Foreach($jobTaskExecution in $jobTaskExecutions)
@@ -248,14 +255,16 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="waiting-for-a-job-execution-to-complete"></a>작업 실행이 완료될 때까지 대기
+
 다음 PowerShell 스크립트를 사용하여 작업 태스크가 완료될 때까지 기다릴 수 있습니다.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>사용자 지정 실행 정책 만들기
+
 Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용자 지정 실행 정책 만들기를 지원합니다.
 
 실행 정책은 현재 다음과 같은 정의를 허용합니다.
@@ -278,7 +287,7 @@ Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용�
 
 원하는 실행 정책을 만듭니다.
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -290,9 +299,10 @@ Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용�
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>사용자 지정 실행 정책 업데이트
+
 업데이트하려는 실행 정책을 업데이트합니다.
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -329,38 +339,41 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
 
 작업 삭제를 트리거하려면 **Remove-AzureSqlJob** cmdlet을 사용하고 **JobName** 매개 변수를 설정합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
 ## <a name="create-a-custom-database-target"></a>사용자 지정 데이터베이스 대상 만들기
+
 실행에 직접 사용하거나 사용자 지정 데이터베이스 그룹에 포함할 수 있는 Elastic Database 작업에서 사용자 지정 데이터베이스 대상을 정의할 수 있습니다. **탄력적 풀** 은 PowerShell API를 통해 직접 지원되지 않으므로 풀에 있는 모든 데이터베이스를 포함하는 사용자 지정 데이터베이스 컬렉션 대상 및 사용자 지정 데이터베이스 대상을 만듭니다.
 
 원하는 데이터베이스 정보가 반영되도록 다음 변수를 설정합니다.
 
-   ```
+   ```powershell
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상 만들기
+
 정의된 여러 데이터베이스 대상에서 실행할 수 있도록 사용자 지정 데이터베이스 컬렉션 대상을 정의할 수 있습니다. 데이터베이스 그룹을 만든 후 사용자 지정 컬렉션 대상에 데이터베이스를 연결할 수 있습니다.
 
 원하는 사용자 지정 컬렉션 대상 구성이 반영되도록 다음 변수를 설정합니다.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상에 데이터베이스 추가
+
 데이터베이스 대상을 사용자 지정 데이터베이스 컬렉션 대상에 연결하여 데이터베이스 그룹을 만들 수 있습니다. 사용자 지정 데이터베이스 컬렉션 대상을 대상으로 하는 작업을 만들 때마다 실행 시 그룹에 연결된 데이터베이스를 대상으로 하도록 확장됩니다.
 
 특정 사용자 지정 컬렉션에 원하는 데이터베이스를 추가합니다.
 
-   ```
+   ```powershell
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,9 +381,10 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상 내의 데이터베이스 검토
+
 **Get-AzureSqlJobTarget** cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상 내의 자식 데이터베이스를 검색할 수 있습니다.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -378,9 +392,10 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상에서 스크립트를 실행하는 작업 만들기
+
 **New-AzureSqlJob** cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상에서 정의된 데이터베이스 그룹에 대한 작업을 만들 수 있습니다. Elastic Database 작업은 각각 사용자 지정 데이터베이스 컬렉션 대상과 연결된 데이터베이스에 해당하는 여러 자식 작업으로 작업을 확장하고 각 데이터베이스에 대해 스크립트가 실행되도록 합니다. 스크립트는 재시도 복구에 대해 idempotent여야 합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $customCollectionName = "{Custom Collection Name}"
@@ -391,6 +406,7 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ## <a name="data-collection-across-databases"></a>데이터베이스에서 데이터 수집
+
 **Elastic Database 작업** 은 데이터베이스 그룹에 대한 쿼리 실행을 지원하고 지정된 데이터베이스 테이블에 결과를 보냅니다. 각 데이터베이스의 쿼리 결과를 볼 수 있으면 테이블을 쿼리할 수 있습니다. 이는 많은 데이터베이스에서 쿼리를 실행하는 비동기 메커니즘을 제공합니다. 데이터베이스 중 하나를 일시적으로 사용할 수 없는 경우와 같은 오류 사례는 재시도를 통해 자동으로 처리됩니다.
 
 반환된 결과 집합의 스키마와 일치하는 지정된 대상 테이블이 아직 없는 경우 자동으로 만들어집니다. 스크립트 실행에서 여러 결과 집합이 반환되는 경우 Elastic Database 작업은 제공된 대상 테이블에 첫 번째 결과 집합만 보냅니다.
@@ -399,7 +415,7 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
 
 원하는 스크립트, 자격 증명 및 실행 대상이 반영되도록 다음을 설정합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $executionCredentialName = "{Execution Credential Name}"
@@ -413,7 +429,8 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>데이터 수집 시나리오에 대한 작업 만들기 및 시작
-   ```
+
+   ```powershell
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -421,10 +438,12 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>작업 트리거를 사용하여 작업 실행 일정 만들기
+
 다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 1분 간격을 사용하지만 New-AzureSqlJobSchedule은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
 
 새 일정을 만듭니다.
-   ```
+
+   ```powershell
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
@@ -433,11 +452,12 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>시간 일정에 따라 작업을 실행하는 작업 트리거 만들기
+
 시간 일정에 따라 작업을 실행하는 작업 트리거를 정의할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 작업 트리거를 만들 수 있습니다.
 
 원하는 작업 및 일정에 맞게 다음 변수를 설정합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
@@ -445,16 +465,18 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
    ```
 
 ### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>일정에 따라 작업이 실행되지 않도록 예약된 연결 제거
+
 작업 트리거를 통한 되풀이 작업 실행을 중단하려면 작업 트리거를 제거할 수 있습니다.
 **Remove-AzureSqlJobTrigger** cmdlet을 사용하여 일정에 따라 작업이 실행되지 않도록 작업 트리거를 제거합니다.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>탄력적 데이터베이스 쿼리 결과를 Excel로 가져오기
+
  쿼리의 결과를 엑셀파일로 가져올 수 있습니다.
 
 1. Excel 2013을 실행 합니다.
@@ -471,9 +493,11 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
 다른 분할된 데이터베이스에 저장된 **Customers** 테이블의 모든 행으로 Excel 시트를 채웁니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 Excel의 데이터 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합 도구 및 BI과 연결하기 위해 서버 이름, 데이터베이스 이름, 자격 증명과 연결 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
 
 ### <a name="cost"></a>비용
+
 Elastic Database 쿼리 기능을 사용 하는 것은 무료입니다. 단, 현재 이 기능은 프리미엄 및 중요 비즈니스용 데이터베이스 및 탄력적 풀을 끝점으로 사용할 수 있지만 분할은 모든 서비스 계층이 될 수 있습니다.
 
 가격 정보는 [SQL Database 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.

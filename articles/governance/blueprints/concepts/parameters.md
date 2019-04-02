@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838020"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805575"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -67,11 +67,11 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 1. 청사진에 추가되고 매개 변수 옵션이 있는 아티팩트는 **매개 변수** 열에 **X/Y 매개 변수 채워짐**으로 표시됩니다. 아티팩트 행을 클릭하여 아티팩트 매개 변수를 편집합니다.
 
-   ![청사진 매개 변수](../media/parameters/parameter-column.png)
+   ![Blueprint 정의에서 blueprint 매개 변수](../media/parameters/parameter-column.png)
 
 1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
 
-   ![청사진 정적 매개 변수](../media/parameters/static-parameter.png)
+   ![청사진 아티팩트에 blueprint 정적 매개 변수](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
@@ -182,7 +182,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 1. 에 **할당 blueprint** 페이지에서 찾을 합니다 **아티팩트 매개 변수** 섹션. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
 
-   ![청사진 동적 매개 변수](../media/parameters/dynamic-parameter.png)
+   ![Blueprint 할당 중에 blueprint 동적 매개 변수](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 

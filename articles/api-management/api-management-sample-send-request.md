@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970181"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792487"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -27,7 +27,7 @@ Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게
 [로깅, 모니터링 및 분석에 대한 Azure 이벤트 허브 서비스](api-management-log-to-eventhub-sample.md)와 상호 작용하는 방법은 이전에 살펴보았습니다. 이 문서에서는 외부 HTTP 기반 서비스와 상호 작용할 수 있도록 하는 정책을 보여 줍니다. 이러한 정책은 원격 이벤트를 트리거하거나 원래 요청 및 응답을 몇 가지 방식으로 조작하는 데 사용할 정보를 검색하는 데에 사용할 수 있습니다.
 
 ## <a name="send-one-way-request"></a>일방-요청-보내기
-아마도 가장 간단한 외부 상호 작용은 외부 서비스가 일종의 중요한 이벤트 알림을 받을 수 있도록 하는 자체 유도 스타일의 요청일 것입니다. 제어 흐름 정책 `choose`는 관심이 있는 모든 유형의 조건을 검색하는 데 사용될 수 있습니다.  조건을 만족하는 경우 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) 정책을 사용하여 외부 HTTP 요청을 만들 수 있습니다. Hipchat 및 Slack과 같은 메시징 시스템에 대한 요청이나 SendGrid 및 MailChimp와 같은 메일 API, 또는 PagerDuty와 같은 중요한 지원 인시던트일 수 있습니다. 이러한 메시징 시스템에는 모두 호출될 수 있는 간단한 HTTP API가 있습니다.
+아마도 가장 간단한 외부 상호 작용은 외부 서비스가 일종의 중요한 이벤트 알림을 받을 수 있도록 하는 자체 유도 스타일의 요청일 것입니다. 제어 흐름 정책 `choose`는 관심이 있는 모든 유형의 조건을 검색하는 데 사용될 수 있습니다.  조건을 만족하는 경우 [send-one-way-request](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) 정책을 사용하여 외부 HTTP 요청을 만들 수 있습니다. Hipchat 및 Slack과 같은 메시징 시스템에 대한 요청이나 SendGrid 및 MailChimp와 같은 메일 API, 또는 PagerDuty와 같은 중요한 지원 인시던트일 수 있습니다. 이러한 메시징 시스템에는 모두 호출될 수 있는 간단한 HTTP API가 있습니다.
 
 ### <a name="alerting-with-slack"></a>Slack에 경고
 다음 예제에서는 HTTP 응답 상태 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 방법을 보여줍니다. 500 범위 오류는 API의 클라이언트가 자체로 해결할 수 없는 백 엔드 API에 문제가 있음을 나타냅니다. 일반적으로 API Management 부분에 일종의 개입이 필요합니다.  
@@ -62,7 +62,7 @@ Slack에는 인바운드 웹 후크가 있습니다. 인바운드 웹 후크를 
 ![Slack 웹 후크](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>자체 유도로 충분합니까?
-자체 유도 스타일의 요청을 사용할 때 장단점이 있습니다. 어떤 이유가 있는 경우 요청이 실패한 다음 실패가 보고되지 않습니다. 이 특정 상황에서는 보조 오류 보고 시스템이 가진 복잡성 및 응답을 기다리는 추가 성능 비용이 보장됩니다. 응답을 확인하는 데 중요한 시나리오의 경우 [전송-요청](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 정책이 더 효율적입니다.
+자체 유도 스타일의 요청을 사용할 때 장단점이 있습니다. 어떤 이유가 있는 경우 요청이 실패한 다음 실패가 보고되지 않습니다. 이 특정 상황에서는 보조 오류 보고 시스템이 가진 복잡성 및 응답을 기다리는 추가 성능 비용이 보장됩니다. 응답을 확인하는 데 중요한 시나리오의 경우 [전송-요청](/azure/api-management/api-management-advanced-policies#SendRequest) 정책이 더 효율적입니다.
 
 ## <a name="send-request"></a>전송-요청
 `send-request` 정책을 사용하면 복잡한 처리 기능을 수행하는 외부 서비스를 사용할 수 있고 이후 정책 처리에 사용할 수 있는 API 관리 서비스에 데이터를 반환할 수 있습니다.
@@ -209,7 +209,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 이러한 요청은 순서대로 실행되며 이는 가장 좋은 방법은 아닙니다. 
 
 ### <a name="responding"></a>응답
-복합 응답을 생성하려면 [반환-응답](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
+복합 응답을 생성하려면 [반환-응답](/azure/api-management/api-management-advanced-policies#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
 
 ```xml
 <return-response response-variable-name="existing response variable">

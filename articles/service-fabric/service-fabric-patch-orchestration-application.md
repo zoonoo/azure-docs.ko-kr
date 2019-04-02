@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665817"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762840"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665817"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> 응용 프로그램 버전 1.2. * 30 년 4 월 2019에 지원 되지 않는 것입니다. 최신 버전으로 업그레이드 하십시오.
+
 
 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)는 Azure에서 패치된 운영 체제를 유지하는 모범 사례이며, POA(패치 오케스트레이션 애플리케이션)는 비 Azure 호스트 클러스터에 대한 OS 패치 일정을 기반으로 구성을 사용하는 Service Fabrics RepairManager Systems 서비스에 대한 래퍼입니다. 비 Azure 호스트 클러스터의 경우 POA가 필요하지 않지만, 가동 중지 시간 없이 Service Fabric 클러스터 호스트를 패치하려면 업그레이드 도메인에 의한 패치 설치를 예약해야 합니다.
 

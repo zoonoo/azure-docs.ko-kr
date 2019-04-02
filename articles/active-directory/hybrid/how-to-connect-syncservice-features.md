@@ -16,14 +16,15 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b3da5b2340b6bd4dd49dd6f8278f2fced477bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190724"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792402"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
+
 Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니다.
 
 * **Azure AD Connect 동기화**라고 하는 온-프레미스 구성 요소(**동기화 엔진**이라고도 함)
@@ -65,26 +66,29 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 | UserWriteback |현재 지원되지 않습니다. |
 
 ## <a name="duplicate-attribute-resiliency"></a>중복 특성 복원력
+
 중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동으로 변경됩니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](how-to-connect-syncservice-duplicate-attribute-resiliency.md)을 참조하세요.
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName 소프트 일치
+
 이 기능을 사용하도록 설정하면 [기본 SMTP 주소](https://support.microsoft.com/kb/2641663)외에도 UPN에 소프트 일치를 사용하고 항상 사용하도록 설정됩니다. Azure AD의 기존 클라우드 사용자를 온-프레미스 사용자와 일치하는 데 소프트 일치를 사용합니다.
 
 온-프레미스 AD 계정이 클라우드에서 만든 기존 계정과 일치해야 하고 Exchange Online을 사용하지 않는 경우 이 기능은 특히 유용합니다. 이 시나리오에서는 일반적으로 클라우드에서 SMTP 특성을 설정할 이유가 없습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 Azure AD 디렉터리에서 이 기능을 사용하도록 설정하지 않은 경우 다음을 실행하여 설정할 수 있습니다.  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName 업데이트 동기화
+
 경험상 다음 조건이 모두 충족되지 않으면 온-프레미스에서 동기화 서비스를 사용하여 UserPrincipalName 특성에 대한 업데이트는 차단되었습니다.
 
 * 사용자가 관리됨(페더레이션되지 않음)
@@ -96,19 +100,19 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 Azure AD 디렉터리에서 이 기능을 사용하도록 설정하지 않은 경우 다음을 실행하여 설정할 수 있습니다.  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
 이 기능을 사용하도록 설정하면 기존 userPrincipalName 값이 그대로 유지됩니다. userPrincipalName 특성 온-프레미스의 다음 변경 시 사용자에 대한 일반 델타 동기화가 UPN을 업데이트합니다.  
 
 ## <a name="see-also"></a>참고 항목
+
 * [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
-

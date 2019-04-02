@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 계정으로 작업
 description: 이 문서에서는 Azure Cosmos DB 계정을 만들고 사용하는 방법을 설명합니다.
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839579"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762602"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 완전 관리형 PaaS(platform-as-a-service)입니다. Azure 
 
 Azure Cosmos 계정은 글로벌 배포와 고가용성을 위한 기본 단위입니다. 데이터를 여러 Azure 지역에 걸쳐 글로벌 배포하려면 언제든지 Azure Cosmos 계정에서 Azure 지역을 추가하거나 제거할 수 있습니다. Azure Cosmos 계정이 단일 또는 복수 쓰기 지역을 갖도록 구성할 수 있습니다. 자세한 내용은 [Azure Cosmos 계정에서 Azure 지역을 추가하고 제거하는 방법](how-to-manage-database-account.md)을 참조하세요. Azure Cosmos 계정에서 [기본 일관성 ](consistency-levels.md) 수준을 구성할 수 있습니다. Azure Cosmos DB는 처리량 99번째 백분위수의 대기 시간, 일관성 및 고가용성을 포함하는 종합적인 SLA를 제공합니다. 자세한 내용은 [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)를 참조하세요.
 
-Azure Cosmos 계정에 포함된 모든 데이터에 대한 액세스를 안전하게 관리하려면 계정에 연결된 마스터 키를 사용할 수 있습니다. Azure Cosmos 계정에서 VNET 서비스 엔드포인트와 IP 방화벽을 구성하여 데이터에 대한 보안 액세스를 강화할 수 있습니다. 
+Azure Cosmos 계정 내에서 모든 데이터에 대 한 액세스를 안전 하 게 관리 하려면 사용 합니다 [마스터 키](secure-access-to-data.md) 계정과 연결 된입니다. 데이터에 대 한 액세스를 추가로 보호 하기 위해 구성할 수 있습니다는 [VNET 서비스 끝점](vnet-service-endpoint.md) 하 고 [IP 방화벽](firewall-support.md) Azure Cosmos 계정에서. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 계정의 요소
 
@@ -33,7 +33,7 @@ Azure 구독을 사용하면 현재 Azure Cosmos 계정을 최대 100개까지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Cosmos 계정을 관리하는 방법을 알아보고 Azure Cosmos DB의 각종 개념을 살펴볼 수 있습니다.
+Azure Cosmos 계정과 다른 개념을 관리 하는 방법에 알아봅니다.
 
 * [Azure Cosmos 계정을 관리하는 방법](how-to-manage-database-account.md)
 * [글로벌 분포](distribute-data-globally.md)

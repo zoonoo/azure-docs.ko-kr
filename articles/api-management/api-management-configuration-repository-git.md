@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851349"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793274"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -57,7 +57,7 @@ Git 구성 설정을 확인하고 구성하려면 **보안** 메뉴를 클릭하
 >
 >
 
-REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정하는 방법은 [REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)을 참조하세요.
+REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정하는 방법은 [REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정](/rest/api/apimanagement/tenantaccess?EnableGit)을 참조하세요.
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git 리포지토리에 서비스 구성 저장
 
@@ -69,7 +69,7 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 구성이 리포지토리에 저장된 후 해당 구성을 복제할 수 있습니다.
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅숏 커밋](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot)을 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅숏 커밋](/rest/api/apimanagement/tenantaccess?CommitSnapshot)을 참조하세요.
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>로컬 컴퓨터에 리포지토리 복제
 
@@ -266,7 +266,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
   * [서비스 배포 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/wds)
   * [서비스 관리 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * REST API를 사용하여 서비스 인스턴스 관리
-  * [API Management REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API 참조](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

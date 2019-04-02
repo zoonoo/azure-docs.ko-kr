@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 69417551c1c8d410f75e74a8164c8b8a223ab835
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541233"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805332"
 ---
 # <a name="backup-and-restore"></a>Backup 및 복원
 
@@ -58,7 +58,7 @@ Azure(큰 인스턴스)의 SAP HANA에 기반한 저장소 인프라는 볼륨�
 - /hana/data 및 /hana/shared(/usr/sap 포함) 볼륨을 통해 스냅숏을 트리거하는 경우 SAP HANA 스냅숏이 저장소 스냅숏을 실행하기 전에 스냅숏 기술이 SAP HANA 스냅숏을 시작합니다. 이 SAP HANA 스냅숏은 저장소 스냅숏을 복구한 후에 최종 로그 복원에 대한 설치 지점입니다. HANA 스냅숏을 성공적으로 수행하려면 활성 HANA 인스턴스가 필요합니다.  HSR 시나리오에서 저장소 스냅숏은 HANA 스냅숏을 수행할 수 없는 현재의 보조 노드에서 지원되지 않습니다.
 - 저장소 스냅숏이 성공적으로 실행된 후에 SAP HANA 스냅숏이 삭제됩니다.
 - 트랜잭션 로그 백업은 자주 수행되며 /hana/logbackups 볼륨 또는 Azure에 저장됩니다. 트랜잭션 로그 백업을 포함하는 /hana/logbackups 볼륨을 트리거하여 별도의 스냅숏을 생성할 수 있습니다. 이 경우에 HANA 스냅숏을 실행할 필요가 없습니다.
-- 데이터베이스를 특정 시점으로 복원해야 하는 경우 Azure Service Management에서 Microsoft Azure 지원(프로덕션 중단의 경우) 또는 SAP HANA를 요청하여 특정 저장소 스냅숏으로 복원합니다. 예를 들어 샌드박스 시스템을 원래 상태로 복원하는 계획이 있습니다.
+- 시간에 특정 시점으로 데이터베이스를 복원 해야, 요청 Azure 복원에는 Microsoft Azure 지원 (프로덕션 작동 중단) 또는 SAP HANA를 특정 저장소 스냅숏으로 합니다. 예를 들어 샌드박스 시스템을 원래 상태로 복원하는 계획이 있습니다.
 - 저장소 스냅숏에 포함된 SAP HANA 스냅숏은 저장소 스냅숏을 만든 후에 실행되고 저장된 트랜잭션 로그 백업에 적용하는 오프셋 지점입니다.
 - 이러한 트랜잭션 로그 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원합니다.
 
@@ -167,15 +167,16 @@ MACs hmac-sha1
 
 HANA 대규모 인스턴스 테넌트의 저장소 스냅숏 인터페이스에 대한 액세스할 수 있도록 설정하려면 공개 키를 통한 로그인 프로시저를 설정해야 합니다. 테넌트에 있는 첫 번째 Azure의 SAP HANA(대규모 인스턴스) 서버에서 저장소 인프라에 액세스하는 데 사용할 공개 키를 만듭니다. 공개 키를 사용하면 저장소 스냅숏 인터페이스에 로그인하는 데 암호가 필요하지 않습니다. 공개 키를 만들면 암호 자격 증명을 유지할 필요 없습니다. SAP HANA 큰 인스턴스 서버의 Linux에서 공개 키를 생성하려면 다음 명령을 실행합니다.
 ```
-  ssh-keygen –t dsa –b 1024
+  ssh-keygen -t rsa –b 5120 -C ""
 ```
-새 위치는 **_/root/.ssh/id\_dsa.pub**입니다. 실제 암호를 입력하지 마십시오. 그렇지 않으면 로그인할 때마다 암호를 입력해야 합니다. 대신, **Enter**를 두 번 선택하여 로그인에 대한 “암호 입력” 요구 사항을 제거합니다.
+
+새 위치가 **_/root/.ssh/id\_rsa.pub**합니다. 실제 암호를 입력하지 마십시오. 그렇지 않으면 로그인할 때마다 암호를 입력해야 합니다. 대신, **Enter**를 두 번 선택하여 로그인에 대한 “암호 입력” 요구 사항을 제거합니다.
 
 폴더를 **/root/.ssh/** 로 변경한 다음, `ls` 명령을 실행하여 공개 키가 예상대로 수정되었는지 확인합니다. 키가 있는 경우 다음 명령을 실행하여 복사할 수 있습니다.
 
 ![이 명령을 실행하면 공개 키가 복사됩니다.](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-이 시점에서 Azure Service Management의 SAP HANA에 연락하여 공개 키를 제공하십시오. 서비스 담당자는 공개 키를 사용하여 HANA 큰 인스턴스 테넌트에 대해 획득되는 기본 저장소 인프라에 등록합니다.
+이 시점에서 SAP HANA on Azure 문의 하 고 공개 키를 사용 하 여 제공 합니다. 서비스 담당자는 공개 키를 사용하여 HANA 큰 인스턴스 테넌트에 대해 획득되는 기본 저장소 인프라에 등록합니다.
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>4단계: SAP HANA 사용자 계정 만들기
 
@@ -262,7 +263,7 @@ Perl 스크립트를 처리하는 경우:
 - **removeTestStorageSnapshot.pl**: 이 스크립트는 **testStorageSnapshotConnection.pl** 스크립트로 만든 테스트 스냅숏을 삭제합니다.
 - **azure\_hana\_dr\_failover.pl**: 이 스크립트는 다른 지역으로 DR 장애 조치(failover)를 시작합니다. DR 지역의 HANA 대규모 인스턴스 단위 또는 장애 조치하려는 단위에서 스크립트를 실행해야 합니다. 이 스크립트는 기본 쪽에서 보조 쪽으로의 저장소 복제를 중지하고 DR 볼륨에서 최신 스냅숏을 복원하며 DR 볼륨에 대한 탑재 지점을 제공합니다.
 - **azure\_hana\_test\_dr\_failover.pl**: 이 스크립트는 DR 사이트로 테스트 장애 조치(failover)를 수행합니다. azure_hana_dr_failover.pl 스크립트와 달리 이 실행은 기본에서 보조로의 저장소 복제를 중단하지 않습니다. 복제된 저장소 볼륨의 복제본이 DR 쪽에 생성되고 복제된 볼륨의 탑재 지점이 제공됩니다. 
-- **HANABackupCustomerDetails.txt**: 이 파일은 SAP HANA 구성에 맞게 수정해야 하는 수정 가능한 구성 파일입니다. *HANABackupCustomerDetails.txt* 파일은 저장소 스냅숏을 실행하는 스크립트의 제어 및 구성 파일입니다. 사용자의 목적에 맞게 파일을 조정하고 설정하십시오. 인스턴스를 배포할 때 Azure Service Management의 SAP HANA에서 **Storage Backup 이름** 및 **Storage IP 주소**를 수신합니다. 이 파일에서는 변수의 시퀀스, 순서 또는 간격을 수정할 수 없습니다. 그러면 스크립트가 제대로 실행되지 않습니다. 또한 Azure Service Management의 SAP HANA에서 확장 노드 또는 마스터 노드의 IP 주소(스케일 아웃의 경우)를 수신했습니다. SAP HANA를 설치하는 동안 얻은 HANA 인스턴스 번호도 알고 있습니다. 이제 구성 파일에 백업 이름을 추가해야 합니다.
+- **HANABackupCustomerDetails.txt**: 이 파일은 SAP HANA 구성에 맞게 수정해야 하는 수정 가능한 구성 파일입니다. *HANABackupCustomerDetails.txt* 파일은 저장소 스냅숏을 실행하는 스크립트의 제어 및 구성 파일입니다. 사용자의 목적에 맞게 파일을 조정하고 설정하십시오. 받게 합니다 **Storage Backup 이름** 하며 **저장소 IP 주소** SAP hana 인스턴스를 배포할 때 Azure에서. 이 파일에서는 변수의 시퀀스, 순서 또는 간격을 수정할 수 없습니다. 그러면 스크립트가 제대로 실행되지 않습니다. 또한 받게 확장 노드 또는 마스터 노드의 IP 주소 (확장의 경우)에서 SAP HANA on Azure. SAP HANA를 설치하는 동안 얻은 HANA 인스턴스 번호도 알고 있습니다. 이제 구성 파일에 백업 이름을 추가해야 합니다.
 
 강화 또는 스케일 아웃 배포의 경우 HANA 대규모 인스턴스 단위와 서버 IP 주소의 서버 이름을 입력한 후에 구성 파일은 다음 예와 같습니다. 백업하거나 복구하려는 각 SAP HANA SID에 필요한 모든 필드에 정보를 입력합니다.
 
@@ -628,9 +629,9 @@ HANA Backup ID:
 
 프로덕션 중단 시나리오에서 저장소 스냅숏에서 복구하는 프로세스는 Microsoft Azure 지원에서 고객 인시던트로 시작될 수 있습니다. 프로덕션 시스템에서 데이터가 삭제되고 데이터를 검색하는 유일한 방법이 프로덕션 데이터베이스를 복원하는 것인 경우 긴급한 문제입니다.
 
-다른 경우, 지정 시간 복구는 긴급성이 낮고 사전에 계획될 수 있습니다. 우선 순위 플래그를 발생시키는 대신 Azure의 SAP HANA Service Management를 사용하여 이 복구를 계획할 수 있습니다. 예를 들어 새로운 개선 패키지를 적용하여 SAP 소프트웨어를 업그레이드하도록 계획하는 경우가 있을 수 있습니다. 이런 경우 개선 패키지를 업그레이드하기 전의 상태를 나타내는 스냅숏으로 되돌려야 합니다.
+다른 경우, 지정 시간 복구는 긴급성이 낮고 사전에 계획될 수 있습니다. 우선 순위 플래그를 발생 시키는 대신 Azure에서 SAP HANA를 사용 하 여이 복구를 계획할 수 있습니다. 예를 들어 새로운 개선 패키지를 적용하여 SAP 소프트웨어를 업그레이드하도록 계획하는 경우가 있을 수 있습니다. 이런 경우 개선 패키지를 업그레이드하기 전의 상태를 나타내는 스냅숏으로 되돌려야 합니다.
 
-요청을 보내기 전에 준비해야 합니다. Azure Service Management 팀의 SAP HANA는 요청을 처리하고 복원된 볼륨을 제공할 수 있습니다. 나중에 사용자는 스냅숏을 기반으로 HANA 데이터베이스를 복원할 수 있습니다. 
+요청을 보내기 전에 준비해야 합니다. 그런 다음 Azure 팀의 SAP HANA 요청을 처리 하 고 복원된 된 볼륨을 제공할 수 있습니다. 나중에 사용자는 스냅숏을 기반으로 HANA 데이터베이스를 복원할 수 있습니다. 
 
 요청에 대해 준비하는 방법을 아래에 나와 있습니다.
 
@@ -648,9 +649,9 @@ HANA Backup ID:
 
 1. Azure 지원 요청을 열어서 특정 스냅숏의 복원에 대한 지침을 포함합니다.
 
-   - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 스토리지 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
+   - 복원 중: Azure의 SAP HANA 조정, 검증 및 올바른 저장소 스냅숏이 복원 된 확인 전화 회의 참석 하도록 요청할 수도 있습니다. 
 
-   - 복원한 후에: Azure Service Management의 SAP HANA에서는 스토리지 스냅숏이 복원된 시기를 알려줍니다.
+   - 복원한 후에: Azure 서비스에서 SAP HANA 저장소 스냅숏을 복원 되었을 때이 알려 줍니다.
 
 1. 복원 프로세스가 완료되면 모든 데이터 볼륨을 다시 탑재합니다.
 
@@ -752,5 +753,5 @@ HANA snapshot deletion successfully.
 스크립트가 HANA 스냅숏의 생성을 기록하는 방법을 이 샘플에서 볼 수 있습니다. 확장 사례의 경우 이 프로세스는 마스터 노드에서 시작됩니다. 마스터 노드는 각 작업자 노드에서 SAP HANA 스냅숏을 동기적으로 생성하기 시작합니다. 그러면 저장소 스냅숏이 만들어집니다. 저장소 스냅숏을 성공적으로 실행한 후에 HANA 스냅숏이 삭제됩니다. HANA 스냅숏 삭제는 마스터 노드에서 시작됩니다.
 
 
-**다음 단계**
-- [재해 복구 원칙 및 준비](hana-concept-preparation.md)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+- 참조 [재해 복구 원칙 및 준비](hana-concept-preparation.md)합니다.

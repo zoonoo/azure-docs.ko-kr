@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652334"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791526"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -54,7 +54,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 애플�
 
 애플리케이션 프록시 커넥터는 원격 직원의 트래픽을 게시된 앱으로 전달하는 Windows Server 서비스입니다. 자세한 설치 지침은 [Azure Portal에서 애플리케이션 프록시 사용](application-proxy-add-on-premises-application.md)을 참조하세요.
 
-1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다.
 2. **Azure Active Directory** > **응용 프로그램 프록시**를 선택합니다.
 3. **커넥터 다운로드**를 선택하여 애플리케이션 프록시 커넥터 다운로드를 시작합니다. 설치 지침을 따릅니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 
-1. 마지막 섹션에 있지 않았던 경우 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 마지막 섹션에서 그렇지 않은 경우에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다.
 2. **Azure Active Directory** > **Enterprise 애플리케이션**을 선택합니다.
 3. 블레이드의 위쪽에서 **추가**를 선택합니다.
 4. **온-프레미스 애플리케이션**을 선택합니다.
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 다음 예제에서는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
-1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다.
 2. **Azure Active Directory** > **앱 등록**을 선택합니다.
 3. 애플리케이션 &gt; **매니페스트**를 선택합니다.
 4. **편집**을 선택하고, *acceptedMappedClaims* 필드를 검색하고, 값을 **true**로 변경합니다.

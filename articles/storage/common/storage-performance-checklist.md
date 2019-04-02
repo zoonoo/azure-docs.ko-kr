@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445990"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793971"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
@@ -269,7 +269,7 @@ Blob을 빠르게 업로드하려면 답변할 첫 번째 질문은 "Blob을 하
 * C++: blob_request_options::set_parallelism_factor 메서드를 사용합니다.
 
 #### <a name="subheading22"></a>여러 Blob을 빠르게 업로드
-Blob 여러 개를 빠르게 업로드하려면 Blob을 병렬로 업로드합니다. 이 방식은 병렬 블록 업로드를 통해 Blob을 하나씩 업로드하는 것보다 빠릅니다. 저장소 서비스의 여러 파티션으로 업로드가 분산되기 때문입니다. 단일 Blob은 초당 60MB(약 480Mbps)의 처리량만을 지원합니다. 이 문서를 작성할 당시 미국 기반 LRS 계정은 최대 20Gbps의 수신 속도를 지원합니다. 이 속도는 개별 Blob이 지원하는 처리량보다 훨씬 높습니다.  이 시나리오에서는 기본적으로 업로드를 병렬로 수행하는 [AzCopy](#subheading18)를 사용하는 것이 좋습니다.  
+Blob 여러 개를 빠르게 업로드하려면 Blob을 병렬로 업로드합니다. 이 방식은 병렬 블록 업로드를 통해 Blob을 하나씩 업로드하는 것보다 빠릅니다. 저장소 서비스의 여러 파티션으로 업로드가 분산되기 때문입니다. 단일 Blob은 초당 60MB(약 480Mbps)의 처리량만을 지원합니다. 작성 당시 미국 기반 LRS 계정은 개별 blob이 지 원하는 처리량 보다 훨씬 높습니다 20-Gbps ingress까지 지원 합니다.  이 시나리오에서는 기본적으로 업로드를 병렬로 수행하는 [AzCopy](#subheading18)를 사용하는 것이 좋습니다.  
 
 ### <a name="subheading23"></a>적절한 Blob 유형 선택
 Azure Storage는 두 가지 형식의 Blob 즉, *페이지* Blob과 *블록* Blob을 지원합니다. 지정된 사용 시나리오에 대해 선택하는 Blob 유형은 솔루션의 성능과 확장성에 영향을 줍니다. 블록 Blob은 많은 양의 데이터를 효율적으로 업로드하려는 경우 적절합니다. 예를 들어 클라이언트 애플리케이션이 사진이나 동영상을 Blob Storage에 업로드해야 할 수 있습니다. 페이지 Blob은 애플리케이션이 데이터에 대해 임의 쓰기를 수행해야 하는 경우 적절합니다. 예를 들어 Azure VHD는 페이지 Blob으로 저장됩니다.  
@@ -297,9 +297,7 @@ Azure Storage는 두 가지 형식의 Blob 즉, *페이지* Blob과 *블록* Blo
 자세한 내용은 [Microsoft Azure Tables: JSON 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) 및 [Table Service 작업용 페이로드 형식](https://msdn.microsoft.com/library/azure/dn535600.aspx) 게시물을 참조하세요.
 
 #### <a name="subheading26"></a>Nagle 해제
-Nagle 알고리즘은 네트워크 성능을 개선하기 위한 수단으로 TCP/IP 네트워크에서 광범위하게 구현됩니다. 그러나 대화형 작업을 많이 수행하는 환경 등 일부 상황에서는 이 알고리즘이 적합하지 않습니다. Azure Storage의 경우 Nagle 알고리즘은 테이블 및 큐 서비스에 대한 요청 성능을 떨어뜨릴 수 있으므로 가능한 경우에는 해제해야 합니다.  
-
-자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 블로그 게시물을 참조하세요. 이 게시물에서는 테이블 및 큐 요청에서 Nagle 알고리즘이 부적절하게 상호 작용하는 이유와 클라이언트 애플리케이션에서 Nagle 알고리즘을 사용하지 않도록 설정하는 방법에 대해 설명합니다.  
+Nagle 알고리즘은 네트워크 성능을 개선하기 위한 수단으로 TCP/IP 네트워크에서 광범위하게 구현됩니다. 그러나 대화형 작업을 많이 수행하는 환경 등 일부 상황에서는 이 알고리즘이 적합하지 않습니다. Azure Storage의 경우 Nagle 알고리즘은 테이블 및 큐 서비스에 대한 요청 성능을 떨어뜨릴 수 있으므로 가능한 경우에는 해제해야 합니다.
 
 ### <a name="schema"></a>스키마
 테이블 서비스의 성능에 영향을 주는 가장 큰 단일 요인은 데이터를 표시 및 쿼리하는 방법입니다. 각 애플리케이션별로 다르기는 하지만 이 섹션에서는 다음 항목과 관련된 일반적인 검증된 작업 방식 중 몇 가지에 대해 간략하게 설명합니다.  
@@ -373,7 +371,7 @@ Azure Storage에서는 일괄 처리 트랜잭션을 ETG(엔터티 그룹 트랜
 ##### <a name="subheading37"></a>단일 엔터티에 데이터 계열 저장
 경우에 따라 애플리케이션은 자주 한꺼번에 검색해야 하는 데이터 계열을 저장합니다. 예를 들어 애플리케이션은 지난 24시간의 데이터에 대한 롤링 차트를 그리기 위해 시간에 따른 CPU 사용량을 추적할 수 있습니다. 이 경우 사용할 수 있는 한 가지 방법은 시간당 테이블 엔터티 하나를 저장하는 것입니다. 이때 각 엔터티는 특정 시간을 나타내며 해당 시간의 CPU 사용량을 저장합니다. 이 데이터를 그리려면 애플리케이션이 가장 최근의 24시간에 해당하는 데이터를 포함하는 엔터티를 검색해야 합니다.  
 
-또는 애플리케이션은 단일 엔터티의 별도 속성으로 매시간의 CPU 사용량을 저장할 수 있습니다. 매시간을 업데이트하기 위해 애플리케이션은 단일 **InsertOrMerge Upsert** 호출을 사용하여 최근 시간에 대한 값을 업데이트할 수 있습니다. 이 경우 애플리케이션은 데이터를 그리기 위해 24시간 동안의 엔터티가 아닌 엔터티 하나만 검색하면 되므로 쿼리의 효율성이 높아집니다(위의 [쿼리 범위](#subheading30) 설명 참조).
+또는 애플리케이션은 단일 엔터티의 별도 속성으로 매시간의 CPU 사용량을 저장할 수 있습니다. 매시간을 업데이트하기 위해 애플리케이션은 단일 **InsertOrMerge Upsert** 호출을 사용하여 최근 시간에 대한 값을 업데이트할 수 있습니다. 데이터를 그리는, 응용 프로그램 하기만 24 위한 효율적인 쿼리를 만드는 대신 단일 엔터티를 검색 (토론에서 위와 [쿼리 범위](#subheading30)).
 
 ##### <a name="subheading38"></a>Blob에 구조적 데이터 저장
 구조적 데이터를 테이블에 저장해야 하는 경우도 있지만 엔터티 범위는 항상 함께 검색되며 일괄로 삽입할 수 있습니다.  이와 관련한 좋은 예가 로그 파일입니다.  몇 분 동안의 로그를 일괄로 생성하여 삽입할 수 있으며 항상 몇 분 동안의 로그를 한 번에 검색할 수도 있습니다.  성능 측면에서는 테이블 대신 Blob을 사용하는 것이 보다 효율적입니다. 기록/반환되는 개체 수를 크게 줄일 수 있을 뿐 아니라 일반적으로 수행해야 하는 요청 수도 줄일 수 있기 때문입니다.  
@@ -390,7 +388,7 @@ Azure Storage에서는 일괄 처리 트랜잭션을 ETG(엔터티 그룹 트랜
 Nagle 알고리즘에 대해 설명하는 테이블 구성 섹션을 참조하세요. Nagle 알고리즘은 대개 큐 요청 성능을 떨어뜨리므로 사용하지 않도록 설정해야 합니다.  
 
 ### <a name="subheading41"></a>메시지 크기
-메시지 크기가 증가함에 따라 큐 성능 및 확장성은 감소합니다. 그러므로 받는 사람이 메시지에서 필요로 하는 정보만 포함해야 합니다.  
+큐 성능 및 확장성 증가 하는 메시지 크기에 따라 감소 합니다. 그러므로 받는 사람이 메시지에서 필요로 하는 정보만 포함해야 합니다.  
 
 ### <a name="subheading42"></a>일괄 검색
 단일 작업에서 큐의 메시지를 32개까지 검색할 수 있습니다. 따라서 클라이언트 애플리케이션으로부터의 왕복 횟수를 줄일 수 있으므로 모바일 디바이스 등 대기 시간이 긴 환경에서 특히 유용합니다.  
@@ -401,7 +399,7 @@ Nagle 알고리즘에 대해 설명하는 테이블 구성 섹션을 참조하�
 최신 비용 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.  
 
 ### <a name="subheading44"></a>UpdateMessage
-**UpdateMessage** 를 사용하면 표시 안 함 시간 제한을 늘리거나 메시지의 상태 정보를 업데이트할 수 있습니다. 이 기능은 유용하기는 하지만 각 **UpdateMessage** 작업이 확장성 목표 계산에 포함된다는 점을 기억해야 합니다. 그러나 각 작업 단계가 완료되면 작업을 다음 큐에 순서대로 전달하는 워크플로보다는 UpdateMessage 작업이 훨씬 더 효율적인 방식일 수 있습니다. **UpdateMessage** 작업을 사용하는 경우 애플리케이션이 단계가 완료될 때마다 작업의 다음 단계를 위해 메시지를 다시 큐에 대기시키는 대신 메시지에 작업 상태를 저장한 다음, 작업을 계속할 수 있습니다.  
+**UpdateMessage** 를 사용하면 표시 안 함 시간 제한을 늘리거나 메시지의 상태 정보를 업데이트할 수 있습니다. 이 기능은 유용하기는 하지만 각 **UpdateMessage** 작업이 확장성 목표 계산에 포함된다는 점을 기억해야 합니다. 그러나 각 작업 단계가 완료되면 작업을 다음 큐에 순서대로 전달하는 워크플로보다는 UpdateMessage 작업이 훨씬 더 효율적인 방식일 수 있습니다. 사용 하는 **UpdateMessage** 작업 메시지에 작업 상태를 저장 하 고 다음 단계를 완료 될 때마다 작업의 다음 단계에 대 한 메시지를 requeuing 대신 작업을 계속 응용 프로그램을 허용 합니다.  
 
 자세한 내용은 [방법: 큐 대기 메시지의 콘텐츠 변경](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message) 문서를 참조하세요.  
 

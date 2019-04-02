@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816570"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802561"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -139,11 +139,11 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-   ![정책 검색](../media/remediate-resources/search-policy.png)
+   ![모든 서비스에 대 한 정책 검색](../media/remediate-resources/search-policy.png)
 
 1. Azure Policy 페이지의 왼쪽에서 **수정**을 선택합니다.
 
-   ![수정 선택](../media/remediate-resources/select-remediation.png)
+   ![정책 페이지에서 업데이트 관리를 선택 합니다.](../media/remediate-resources/select-remediation.png)
 
 1. 비준수 리소스가 있는 모든 **deployIfNotExists** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비준수 리소스가 있는 정책을 클릭합니다. **새 수정 작업** 페이지가 열립니다.
 
@@ -152,11 +152,11 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. **새 수정 작업** 페이지에서 **범위** 줄임표를 사용해 수정할 리소스를 필터링하여 정책이 할당된 하위 리소스를 선택합니다. 개별 리소스 개체까지 포함하여 선택해야 합니다. 또한 **위치** 드롭다운을 사용하여 리소스를 추가로 필터링합니다. 테이블에 나열된 리소스만 수정됩니다.
 
-   ![수정 - 리소스 선택](../media/remediate-resources/select-resources.png)
+   ![수정-해결 하는 리소스를 선택 합니다.](../media/remediate-resources/select-resources.png)
 
 1. 리소스를 필터링한 후에 **수정**을 클릭하여 수정 작업을 시작합니다. 정책 준수 페이지에서 **수정 작업** 탭이 열리고 작업 진행 상태가 표시됩니다.
 
-   ![수정 - 작업 진행률](../media/remediate-resources/task-progress.png)
+   ![수정-재구성 작업의 진행 상황](../media/remediate-resources/task-progress.png)
 
 1. 정책 준수 페이지에서 **수정 작업**을 클릭하여 진행 상황 관련 세부 정보를 확인합니다. 작업에 사용된 필터링과 수정 중인 리소스 목록이 표시됩니다.
 

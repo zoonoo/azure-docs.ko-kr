@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 3/22/2019
 ms.author: dugill
-ms.openlocfilehash: 5144a35dd695ce30f4a7ff940f0bca7e6ba9d23c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372553"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805519"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 
@@ -255,7 +255,7 @@ ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganiz
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>사용자 Azure AD에서 애플리케이션 서비스 주체의 ObjectId 가져오기
-이제 애플리케이션 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API를 쿼리하여 디렉터리에 있는 애플리케이션의 서비스 주체의 개체 ID를 결정합니다.
+이제 애플리케이션 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API를 쿼리하여 디렉터리에 있는 애플리케이션의 서비스 주체의 개체 ID를 결정합니다.
 
 ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) 메서드가 이 호출을 구현합니다.
 

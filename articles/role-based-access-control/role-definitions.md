@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342782"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804533"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -97,11 +97,11 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 - 컨테이너에 Storage Blob 쓰기
 - 큐의 메시지 삭제
 
-다음은 [Storage Blob 데이터 판독기(미리 보기)](built-in-roles.md#storage-blob-data-reader-preview) 역할 정의입니다. 여기에는 `Actions` 및 `DataActions` 속성의 작업이 모두 포함됩니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
+다음은 [Storage Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 둘 다에서 작업을 포함 하는 역할 정의 `Actions` 및 `DataActions` 속성. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 ### <a name="data-operations-example"></a>데이터 작업 예제
 
-관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 스토리지 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
+관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob이 할당 합니다 [Storage Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 저장소 계정 범위에서 역할입니다. 다음 다이어그램은 이 예제를 보여 줍니다.
 
 ![역할 기반 액세스 제어가 관리 및 데이터 작업을 모두 지원하도록 확장되었습니다.](./media/role-definitions/rbac-management-data.png)
 
-Alice의 [소유자](built-in-roles.md#owner) 역할과 Bob의 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할은 다음 작업을 수행합니다.
+합니다 [소유자](built-in-roles.md#owner) Alice에 대 한 역할 및 [Storage Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) Bob에 대 한 역할이 다음 작업을 합니다.
 
 소유자
 
 &nbsp;&nbsp;&nbsp;&nbsp;작업<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Storage Blob 데이터 기여자(미리 보기)
+Storage Blob 데이터 Contributor
 
 &nbsp;&nbsp;&nbsp;&nbsp;작업<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Storage Blob 데이터 기여자(미리 보기)
 
 Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그녀의 권한은 그녀가 모든 관리 작업을 수행할 수 있도록 상속됩니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
 
-Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할에 지정된 `Actions` 및 `DataActions`로만 제한됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
+Bob의 권한은 제한만 `Actions` 하 고 `DataActions` 에 지정 된 된 [Storage Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
 
 스토리지의 관리 및 데이터 평면 보안에 대한 자세한 내용은 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)를 참조하세요.
 

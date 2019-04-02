@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 3/27/2019
-ms.openlocfilehash: 37e6f316a5202429396ddd2a31cb14fe61341e89
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b0c71d0f101ea262b6ce56c845ef9f375a7de85e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759484"
+ms.locfileid: "58804210"
 ---
 # <a name="azure-hdinsight-enhanced-writes-for-apache-hbase-preview"></a>Azure HDInsight (미리 보기)의 Apache HBase에 대 한 기록 향상
 
@@ -56,4 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>다음 단계
 
-* 에 대 한 공식 Apache HBase 설명서의 [해 로그 쓰기 기능](https://hbase.apache.org/book.html#wal)합니다.
+* 에 대 한 공식 Apache HBase 설명서는 [미리 로그 쓰기 기능](https://hbase.apache.org/book.html#wal)
+* 향상 된 기록 하는 데 HDInsight의 Apache HBase 클러스터를 업그레이드 하려면 참조 [Apache HBase 클러스터를 새 버전으로 마이그레이션하기](apache-hbase-migrate-new-version.md)합니다.

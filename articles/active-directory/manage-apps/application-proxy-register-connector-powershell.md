@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170825"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792521"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "56170825"
 * 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
 * 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
 
-[애플리케이션 프록시 커넥터](application-proxy-connectors.md)가 작동하려면 글로벌 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
+에 대 한 합니다 [응용 프로그램 프록시 커넥터](application-proxy-connectors.md) 하려면 응용 프로그램 관리자 및 암호를 사용 하 여 Azure AD 디렉터리에 등록 해야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다. 
 

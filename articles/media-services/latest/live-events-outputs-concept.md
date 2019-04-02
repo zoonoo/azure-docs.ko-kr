@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189362"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762357"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
-Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전달할 수 있습니다. Media Services v3에서 라이브 스트리밍 이벤트를 구성하려면 이 문서에서 설명하는 개념을 이해해야 합니다.
-
-* [라이브 이벤트](#live-events)
-* 라이브 이벤트 유형
-* 라이브 이벤트 유형 비교
-* [라이브 이벤트 만들기 옵션](#live-event-creation-options)
-* [라이브 이벤트 수집 URL](#live-event-ingest-urls)
-* [라이브 이벤트 미리 보기 URL](#live-event-preview-url)
-* [라이브 출력](#live-outputs)
+Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전달할 수 있습니다. Media Services v3의 라이브 스트리밍 이벤트를 구성 하려면이 문서에서 설명 하는 개념을 이해 해야 합니다. <br/>섹션 목록 페이지의 오른쪽에 나열 됩니다.
 
 ## <a name="live-events"></a>라이브 이벤트
 
@@ -62,10 +54,10 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 
 H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 1080p의 해상도 및 초당 30프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md) 문서를 참조하세요.
 
-라이브 인코딩을 사용 하는 경우 (라이브 이벤트로 **표준**), 들어오는 스트림을 다중 비트 전송률 또는 계층에 어떻게 인코딩됩니다 인코딩 사전 설정을 정의 합니다. 정보를 참조 하세요 [시스템 미리 설정을](live-event-types-comparison.md#system-presets)합니다.
+라이브 인코딩을 사용 하는 경우(라이브 이벤트를 **표준**으로 설정) 인코딩 사전 설정은 수신 스트림을 다중 비트 전송률 또는 레이어로 인코딩하는 방법을 정의합니다. 자세한 내용은 [시스템 미리 설정](live-event-types-comparison.md#system-presets)을 참조하세요.
 
 > [!NOTE]
-> 현재 값만 허용 미리 설정 된 라이브 이벤트의 표준 형식에 대 한 *Default720p*합니다. 사용자 지정 라이브 인코딩 사전 설정을 사용 하는 경우 문의 amshelp@microsoft.com합니다. 해상도 및 비트 전송률의 원하는 테이블을 지정 해야 합니다. 수행할 720p로 하나의 계층 및 계층에 최대 6 인지 확인 합니다.
+> 현재 표준 형식의 라이브 이벤트에 허용되는 유일한 미리 설정 값은 *Default720p*입니다. 사용자 지정 라이브 인코딩 미리 설정을 사용해야 하는 경우 amshelp@microsoft.com으로 문의하세요. 원하는 해상도 및 비트 전송률 표를 지정해야 합니다. 720p에서 레이어가 하나만 있고, 6레이어 이하인지 확인합니다.
 
 ## <a name="live-event-creation-options"></a>라이브 이벤트 만들기 옵션
 
@@ -132,6 +124,10 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
 > [!IMPORTANT]
 > 계속하기 전에 비디오가 미리 보기 URL로 전달되고 있는지 확인합니다.
+
+## <a name="live-event-long-running-operations"></a>라이브 이벤트 장기 실행 작업
+
+세부 정보를 참조 하세요. [장기 실행 작업](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>라이브 출력
 

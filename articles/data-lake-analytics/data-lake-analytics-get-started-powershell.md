@@ -9,14 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: f74ebb4e36f9648b2f78e968877a9ef861888af8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad0a8ea4d06b5085179d4fd3c162114c00518ce1
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133444"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792538"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다음 U-SQL 작업을 제출하고 실행하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
@@ -36,13 +37,13 @@ Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다�
 
 구독 이름을 사용하여 로그인하려면
 
-```
+```powershell
 Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 구독 이름 대신 구독 ID를 사용하여 로그인할 수도 있습니다.
 
-```
+```powershell
 Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
@@ -61,7 +62,7 @@ CurrentStorageAccount :
 
 이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 
-```
+```powershell
 $rg = "<ResourceGroupName>"
 $adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
@@ -70,7 +71,7 @@ $location = "East US 2"
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 대한 정보 가져오기
 
-```
+```powershell
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
@@ -78,7 +79,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 U-SQL 스크립트를 보유할 PowerShell 변수를 만듭니다.
 
-```
+```powershell
 $script = @"
 @a  = 
     SELECT * FROM 
@@ -96,13 +97,13 @@ OUTPUT @a
 
 `Submit-AdlJob` cmdlet 및 `-Script` 매개 변수를 사용하여 스크립트 텍스트를 제출합니다.
 
-```
+```powershell
 $job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 또는 `-ScriptPath` 매개 변수를 사용하여 스크립트 파일을 제출할 수 있습니다.
 
-```
+```powershell
 $filename = "d:\test.usql"
 $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
@@ -110,23 +111,24 @@ $job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 
 `Get-AdlJob`을 사용하여 작업 상태를 불러옵니다. 
 
-```
+```powershell
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 작업이 완료될 때까지 Get-AdlJob을 반복해서 호출하는 대신 `Wait-AdlJob` cmdlet을 사용합니다.
 
-```
+```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 `Export-AdlStoreItem`을 사용하여 출력 파일을 다운로드합니다.
 
-```
+```powershell
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>참고 항목
+
 * 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.

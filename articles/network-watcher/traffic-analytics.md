@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081069"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805060"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -64,6 +64,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 미국 중부
 * 미국 서부
 * 미국 서부 2
+* 프랑스 중부
 * 서유럽
 * 북유럽
 * 브라질 남부
@@ -71,20 +72,26 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 영국 남부
 * 오스트레일리아 동부
 * 오스트레일리아 남동부
+* 동아시아
 * 동남아시아
+* 한국 중부
 * 인도 중부
 * 인도 남부
 * 일본 동부 
+* 일본 서부
 * 미국 정부 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 캐나다 중부
 * 미국 중서부
+* 미국 서부 2
 * 미국 동부
+* 프랑스 중부
 * 서유럽
 * 영국 남부
 * 오스트레일리아 남동부
 * 동남아시아
+* 한국 중부
 * 인도 중부
 * 일본 동부
 * 미국 정부 버지니아

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ef408022174bc53300626b71f28bafe0561dc343
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 07865b2120aa91381d3711688e1a5c8e3187fab3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486243"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793384"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -28,11 +28,13 @@ ms.locfileid: "58486243"
 자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 [Azure AD B2C 사용자 경험에서 REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서에서 단계를 완료합니다.
 
 ## <a name="step-1-add-authentication-support"></a>1단계: 인증 지원 추가
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
+
 1. 앞에서 만든 Visual Studio 프로젝트를 엽니다.
 
 2. 다음 애플리케이션 설정을 `appSettings` 요소의 web.config 파일에 추가합니다.
@@ -55,15 +57,17 @@ ms.locfileid: "58486243"
     ```
 
 ### <a name="step-12-install-owin-libraries"></a>1.2단계: OWIN 라이브러리 설치
+
 시작하려면 Visual Studio 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
 
-```
+```powershell
 PM> Install-Package Microsoft.Owin
 PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>1.3단계: 인증 미들웨어 클래스 추가
+
 *App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이렇게 하려면 다음을 수행합니다.
 
 1. *App_Start* 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 후 **클래스**를 선택합니다.
@@ -187,6 +191,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
 ### <a name="step-14-add-an-owin-startup-class"></a>1.4단계: OWIN 시작 클래스 추가
+
 `Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이렇게 하려면 다음을 수행합니다.
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** **추가** > 를 선택한 다음 **OWIN**을 검색합니다.
 
@@ -212,17 +217,21 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
 ### <a name="step-15-protect-the-identity-api-class"></a>1.5단계: ID API 클래스 보호
+
 Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러 클래스에 추가합니다. 이 태그는 권한 부여 요구 사항을 충족하는 사용자에게 컨트롤러에 대한 액세스를 제한합니다.
 
 ![컨트롤러에 권한 부여 태그 추가](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
 ## <a name="step-2-publish-to-azure"></a>2단계: Azure에 게시
+
 프로젝트를 게시하려면 솔루션 탐색기에서 **Contoso.AADB2C.API** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3단계: Azure AD B2C에 RESTful 서비스 앱 ID 및 앱 비밀 추가
+
 클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>3.1단계: RESTful 서비스 클라이언트 ID 추가
+
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
 
@@ -244,6 +253,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 9. `B2C_1A_B2cRestClientId` 키를 만들었는지 확인합니다.
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>3.2단계: RESTful 서비스 클라이언트 비밀 추가
+
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
 2. **정책 키**를 선택하여 테넌트에 사용 가능한 키를 봅니다.
@@ -264,6 +274,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 9. `B2C_1A_B2cRestClientSecret` 키를 만들었는지 확인합니다.
 
 ## <a name="step-4-change-the-technical-profile-to-support-basic-authentication-in-your-extension-policy"></a>4단계: 확장 정책에서 기본 인증을 지원하도록 기술 프로필 변경
+
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 
 2. `Id="REST-API-SignUp"`이 포함된 `<TechnicalProfile>` 노드를 검색합니다.
@@ -271,6 +282,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 3. `<Metadata>` 요소를 찾습니다.
 
 4. 다음과 같이 *AuthenticationType*을 *기본*으로 변경합니다.
+
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```
@@ -283,6 +295,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
         <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
     </CryptographicKeys>
     ```
+
     코드 조각을 추가한 후에 기술 프로필은 다음 XML 코드와 비슷하게 표시됩니다.
     
     ![기본 인증 XML 요소를 추가합니다.](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
@@ -302,6 +315,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 6. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>6단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
+
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
@@ -339,9 +353,10 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
     ```
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
+
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic)을 제공했습니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)에서 전체 코드를 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [클라이언트 인증서를 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
+* [클라이언트 인증서를 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

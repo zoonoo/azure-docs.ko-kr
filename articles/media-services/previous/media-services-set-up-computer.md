@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e42386c380c94e36f1dbe0d418bf5a42f2486fd0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 546e8e50bc34307c46d33e217d5bc0887b548774
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293671"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801813"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Media Services 개발 환경 설정  
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 다음 단계에서는 Azure Media Services를 사용하여 개발할 때 필요한 필수 조건에 대해 설명합니다.
 

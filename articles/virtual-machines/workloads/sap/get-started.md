@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91228074e13453ce53c0b4a7606479d45e8a90ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182781"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762806"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>SAP 워크로드 시나리오 호스팅 및 실행에 Azure 사용
 
@@ -36,14 +36,16 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 ## <a name="latest-changes"></a>최신 변경 내용
 
+릴리스의 [Azure HANA Large Instances는 Azure portal을 통해 제어](hana-li-portal.md)
+
+릴리스의 [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](high-availability-guide-suse-netapp-files.md)
+
+하는 바를 확실히 **Linux OS 매개 변수 net.ipv4.tcp_timestamps** 부하 분산 장치를 Azure와 함께에서 설정
+
 [Azure 가용성 영역을 사용하여 SAP 워크로드 구성](sap-ha-availability-zones.md) 릴리스
 
 [SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)의 릴리스
 
-대기 시간이 중요한 SAP 시스템 통신 경로에서의 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 사용과 구성에 대한 설명
-
-- [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560875"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793705"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
 
@@ -85,6 +85,10 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 | 213 |제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
 | 2812 |저장 프로시저를 찾을 수 없습니다. '*'. |
 | 8144 |프로시저 또는 함수 *에 너무 많은 인수가 지정되었습니다. |
+
+## <a name="custom-applications"></a>사용자 지정 애플리케이션
+
+개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램 개발을 고려할 수 있습니다. 데이터베이스를 통해 액세스할 수에 대 한 포털에 나열 된 모든 권장 사항을 [Get-azurermsqldatabaserecommendedaction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>다음 단계
 권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL Database Advisor는 데이터베이스 성능을 향상할 수 있는 권장 사항을 계속 제공하고 모니터링합니다. 

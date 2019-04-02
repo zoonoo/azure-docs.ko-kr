@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759474"
+ms.locfileid: "58762925"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -31,8 +31,6 @@ Azure HDInsight 클러스터에 다른 유형의 virtual machines 또는 노드�
 | 영역 노드 | HBase 클러스터 유형에 대해 (데이터 노드를 라고도 함) 지역 노드 지역 서버를 실행 합니다. 지역 서버는 제공 하 고 HBase에서 관리 하는 데이터의 부분을 관리 합니다. 영역 노드를 추가 또는 컴퓨팅 기능을 확장 하 고 비용을 관리 하려면 클러스터에서 제거할 수 있습니다.|
 | Nimbus 노드 | Storm 클러스터 유형에 대해 Nimbus 노드는 헤드 노드 비슷한 기능을 제공 합니다. Nimbus 노드는 Storm 토폴로지를 실행 하는 조정 Zookeeper 통해 클러스터의 다른 노드로 작업을 할당 합니다. |
 | 감독자 노드 | Storm 클러스터 유형에 대해 감독자 노드 Nimbus 노드에 원하는 처리를 수행 하 여 제공 된 지침을 실행 합니다. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase 및 R Server 클러스터 유형
 
 ## <a name="basic-virtual-network-resources"></a>기본 가상 네트워크 리소스
 

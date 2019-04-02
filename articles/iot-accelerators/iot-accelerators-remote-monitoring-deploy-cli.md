@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182135"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793777"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
@@ -62,6 +62,8 @@ pcs login
 
 ### <a name="basic"></a>Basic
 
+기본 배포에서 수행할 수 있습니다 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) 또는 CLI를 사용 합니다.
+
 기본 배포는 솔루션을 보여주기 위한 것입니다. 비용을 줄이기 위해 모든 마이크로 서비스가 단일 가상 머신에 배포됩니다. 이 배포는 프로덕션 레디 아키텍처를 사용하지 않습니다.
 
 기본 배포는 Azure 구독에 다음 서비스를 만듭니다.
@@ -80,6 +82,8 @@ pcs login
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
 
 ### <a name="standard"></a>Standard
+
+CLI를 통해서만 표준 배포를 수행할 수 있습니다.
 
 표준 배포는 개발자가 사용자 지정하고 확장할 수 있는 프로덕션 레디 배포입니다. 크기 조정 및 확장성을 위해 빌드된 프로덕션 레디 아키텍처를 사용자 지정할 준비가 완료되었으면 표준 배포 옵션을 사용합니다. 애플리케이션 마이크로 서비스는 Azure Kubernetes Service를 사용하여 Docker 컨테이너로 빌드되고 배포됩니다. Kubernetes 오케스트레이터는 마이크로 서비스를 배포, 확장 및 관리합니다.
 

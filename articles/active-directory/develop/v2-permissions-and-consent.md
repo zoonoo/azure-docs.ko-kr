@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123762"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793495"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 엔드포인트의 사용 권한 및 동의
 
@@ -260,7 +260,7 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대한 자
 
 `/.default` 범위를 사용하여 앱을 v1.0 엔드포인트에서 v2.0 엔드포인트로 편리하게 마이그레이션할 수 있습니다. 이것은 애플리케이션 등록 시 구성된 정적 사용 권한 목록을 참조하는 모든 애플리케이션에 대한 기본 제공 범위입니다. `scope` 값 `https://graph.microsoft.com/.default`는 기본적으로 v1.0 엔드포인트 `resource=https://graph.microsoft.com`과 같습니다. 즉, Azure Portal에서 애플리케이션이 등록된 Microsoft Graph의 범위를 사용하여 토큰을 요청합니다.
 
-/.default 범위는 모든 OAuth 2.0 흐름에서 사용할 수 있지만 [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow .md) 및 [클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)에 특히 필요합니다.  
+/.Default 범위 모든 OAuth 2.0 흐름에서 사용할 수 있지만에 특히 필요 합니다 [에-대리 흐름](v2-oauth2-on-behalf-of-flow.md) 및 [클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)합니다.  
 
 > [!NOTE]
 > 클라이언트는 정적(`/.default`) 동의와 동적 동의를 단일 요청에 결합할 수 없습니다. 따라서 `scope=https://graph.microsoft.com/.default+mail.read`에서는 이러한 범위 형식의 조합으로 인해 오류가 발생합니다.

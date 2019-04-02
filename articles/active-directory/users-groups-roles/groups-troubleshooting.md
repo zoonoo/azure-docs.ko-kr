@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897676"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791558"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>문제 해결 및 그룹 문제 해결
 
 ## <a name="troubleshooting-group-creation-issues"></a>그룹 만들기 문제 해결
+
 **Azure portal에서 보안 그룹 만들기를 사용 하지 않도록 설정 하지만 Powershell을 통해 그룹을 만들 수 있습니다** 는 **사용자는 Azure portal에서 보안 그룹을 만들 수 있습니다** Azure 포털 컨트롤의 설정 여부 비관리자 액세스 패널 또는 Azure portal에서 보안 그룹을 만들 수 있습니다. Powershell 통해 보안 그룹 만들기를 제어 하지 않습니다.
 
 Powershell에서 관리자가 아닌 사용자에 대 한 그룹 만들기를 사용 하지 않도록 설정 합니다.
 1. 관리자가 아닌 사용자가 그룹을 만들 수 있는지 확인합니다.
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. `UsersPermissionToCreateGroupsEnabled : True`가 반환되면 관리자가 아닌 사용자가 그룹을 만들 수 있는 것입니다. 이 기능을 사용하지 않도록 설정하려면
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

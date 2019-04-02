@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a4ba784402774750d4d7770652589b598ee00d8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad5869a2a79d41245b731409e9e4fe4c5a460b19
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485580"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793223"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 실시간 데이터 2.0 (미리 보기) 솔루션
 
@@ -291,7 +291,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 필요한 상태 구성을 통해 종속성 에이전트를 배포하려면 xPSDesiredStateConfiguration 모듈 및 다음과 같은 코드를 사용할 수 있습니다.
 
-```
+```powershell
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
@@ -341,6 +341,7 @@ Node $NodeName
 }
 
 ```
+
 ### <a name="uninstall-the-dependency-agent"></a>종속성 에이전트 제거
 
 다음 섹션을 사용하여 종속성 에이전트를 제거할 수 있도록 돕습니다.

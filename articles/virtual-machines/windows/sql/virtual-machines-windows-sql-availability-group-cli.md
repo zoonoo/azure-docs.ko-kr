@@ -14,15 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8af860293fc332437d67ff4db63d7686be7efff0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765274"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762874"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure SQL VM CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
-이 문서에서는 사용 하는 방법을 설명 [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) Windows 장애 조치 클러스터 (WSFC) 배포 및 SQL Server Vm 클러스터를 추가할 뿐만 내부 Load Balancer 및 Always On 가용성 그룹에 대 한 수신기를 만듭니다.  Always On 가용성 그룹의 실제 배포도 이루어집니다 수동으로 SQL Server Management Studio (SSMS)를 통해. 
+이 문서에서는 사용 하는 방법을 설명 [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/) Windows 장애 조치 클러스터 (WSFC) 배포 및 SQL Server Vm 클러스터를 추가할 뿐만 내부 Load Balancer 및 Always On 가용성 그룹에 대 한 수신기를 만듭니다.  Always On 가용성 그룹의 실제 배포도 이루어집니다 수동으로 SQL Server Management Studio (SSMS)를 통해. 
 
 ## <a name="prerequisites"></a>필수 조건
 Azure SQL VM CLI를 사용 하 여 Always On 가용성 그룹의 설치를 자동화 하려면 다음 필수 구성 요소를 이미 있어야 할: 
@@ -42,7 +42,7 @@ Azure SQL VM CLI를 사용 하 여 Always On 가용성 그룹의 설치를 자�
 클러스터에 저장소 계정을 클라우드 미러링 모니터 서버 역할을 해야 합니다. 모든 기존 저장소 계정을 사용할 수 있습니다 또는 새 저장소 계정을 만들 수 있습니다. 기존 저장소 계정을 사용 하려는 경우 다음 섹션을 건너뜁니다. 
 
 다음 코드 조각에는 저장소 계정을 만듭니다. 
-```cli
+```azurecli
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 Azure SQL VM CLI [az sql vm 그룹](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) 그룹에서 가용성 그룹을 호스팅하는 Windows 장애 조치 클러스터 (WSFC) 서비스의 메타 데이터를 관리 하는 명령입니다. 클러스터 메타 데이터에는 AD 도메인, 클러스터 계정, 클라우드 감시 및 SQL Server 버전으로 사용할 저장소 계정을 포함 합니다. 사용 하 여 [az sql vm 그룹 만들기](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) 는 첫 번째 SQL Server VM을 추가할 때 있게 WSFC에 대 한 메타 데이터를 정의 정의 된 대로 클러스터 생성 됩니다. 
 
 다음 코드 조각은 클러스터에 대 한 메타 데이터를 정의합니다.
-```cli
+```azurecli
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 
 다음 코드 조각은 클러스터를 만들고 첫 번째 SQL Server VM을 추가 합니다. 
 
-```cli
+```azurecli
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ Always On 가용성 그룹 (AG) 수신기는 내부 Azure 부하 분산 장치 (
 
 다음 코드 조각 내부 Load Balancer를 만듭니다.
 
-```cli
+```azurecli
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -118,7 +118,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
   > 각 SQL Server VM에 대한 공용 IP 리소스에 표준 Load Balancer와 호환되는 표준 SKU가 있어야 합니다. VM 공용 IP 리소스의 SKU를 확인하려면 **리소스 그룹**으로 이동하여 원하는 SQL Server VM에 대한 **공용 IP 주소** 리소스를 선택하고 **개요** 창의 **SKU** 아래에서 값을 찾습니다.  
 
 ## <a name="step-6---create-availability-group-listener"></a>6 단계-가용성 그룹 수신기 만들기
-가용성 그룹을 수동으로 만든 후 사용 하 여 수신기를 만들 수 있습니다 [az sql vm ag 수신기](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create)합니다. 
+가용성 그룹을 수동으로 만든 후 사용 하 여 수신기를 만들 수 있습니다 [az sql vm ag 수신기](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create)합니다. 
 
 
 - 합니다 **서브넷 리소스 ID** 의 값인 `/subnets/<subnetname>` vNet 리소스의 리소스 ID를 추가 합니다. 서브넷 리소스 ID를 식별 하려면 다음을 수행 합니다.
@@ -133,7 +133,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 
 다음 코드 조각 가용성 그룹 수신기를 만듭니다.
 
-```cli
+```azurecli
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -145,70 +145,69 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
   --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
   --subnet <subnet resource id> `
-  --sqlvms <names of SQL VM’s hosting AG replicas ex: sqlvm1 sqlvm2>
+  --sqlvms <names of SQL VM's hosting AG replicas ex: sqlvm1 sqlvm2>
 ```
-## <a name="modify-number-of-replicas-in-availability-group"></a>가용성 그룹의 복제본 수를 수정 합니다.
-리소스 및 리소스 공급자에 의해 관리 되는 이제는 Azure에서 호스팅되는 SQL Server Vm을 가용성 그룹에 배포할 때 복잡성이 추가 계층 없는 `virtual machine group`합니다. 따라서를 추가 또는 가용성 그룹에 복제본을 제거할 때 SQL Server Vm에 대 한 정보를 사용 하 여 수신기 메타 데이터를 업데이트 하는 추가 단계가입니다. 따라서 추가 SQL Server VM 복제본을 가용성 그룹에 추가할 때 사용 해야 합니다 [az sqlvm aglistener 추가-sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-add-sqlvm) 수신기 메타 데이터를 SQL Server VM을 추가 하는 명령입니다. 마찬가지로, 복제본을 가용성 그룹에서 제거 하는 경우 사용 해야 합니다 [az sqlvm ag 수신기 제거 sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-remove-sqlvm) 수신기에서 해당 SQL Server VM의 메타 데이터를 제거 하려면. 
 
-### <a name="adding-a-replica"></a>복제본 추가
+## <a name="modify-number-of-replicas-in-availability-group"></a>가용성 그룹의 복제본 수를 수정 합니다.
+리소스 및 리소스 공급자에 의해 관리 되는 이제는 Azure에서 호스팅되는 SQL Server Vm을 가용성 그룹에 배포할 때 복잡성이 추가 계층 없는 `virtual machine group`합니다. 따라서를 추가 또는 가용성 그룹에 복제본을 제거할 때 SQL Server Vm에 대 한 정보를 사용 하 여 수신기 메타 데이터를 업데이트 하는 추가 단계가입니다. 따라서 가용성 그룹에 있는 복제본의 수를 수정할 때 사용 해야 합니다 [az sql vm 그룹 ag 수신기 업데이트](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) SQL Server Vm의 메타 데이터를 사용 하 여 수신기를 업데이트 하는 명령입니다. 
+
+
+### <a name="add-a-replica"></a>복제본 추가
+
 새 복제본을 가용성 그룹에 추가 하려면 다음을 수행 합니다.
 
-1. 클러스터에 SQL Server VM을 추가 합니다. 
+1. 클러스터에 SQL Server VM을 추가 합니다.
+   ```azurecli
+   # Add SQL Server VM to the Cluster
+   # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
+   # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
 
-    ```cli
-    # Add SQL Server VM to the Cluster
-    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
-    #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
-
-    az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
-    -b <bootstrap account password> -p <operator account password> -s <service account password>
-    ```
+   az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
+   -b <bootstrap account password> -p <operator account password> -s <service account password>
+   ```
 1. SQL Server Management Studio (SSMS)를 사용 하 여 가용성 그룹 내 복제본으로 SQL Server 인스턴스를 추가 합니다.
-1. SQL Server VM 메타 데이터 수행 수신기를 추가 합니다.
-    ```cli
-    # Add SQL VM metadata to cluster
-    # example: az sqlvm aglistener add-sqlvm  --group-name Cluster`
-    # --name AGListener` --resource-group SQLVM-RG `
-    #--sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener add-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ```
+1. 수신기에 SQL Server VM 메타 데이터를 추가 합니다.
+   ```azurecli
+   # Update the listener metadata with the new VM
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
 
-### <a name="removing-a-replica"></a>복제본 제거
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
+   ```
+
+### <a name="remove-a-replica"></a>복제본 제거
+
 복제본을 가용성 그룹에서 제거 하려면 다음을 수행 합니다.
 
 1. SQL Server Management Studio (SSMS)를 사용 하 여 가용성 그룹에서 복제본을 제거 합니다. 
 1. 수신기에서 SQL Server VM 메타 데이터를 제거 합니다.
-    ```cli
-    #Remove SQL VM metadata from listener
-    # example: az sqlvm aglistener remove-sqlvm --group-name Cluster `
-    --name AGListener` --resource-group SQLVM-RG `
-    --sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener remove-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ``` 
-1. 클러스터 메타 데이터에서 SQL Server VM을 제거 합니다.
+   ```azurecli
+   # Update the listener metadata by removing the VM from the SQLVMs list
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
 
-    ```cli
-    # Remove SQL VM from cluster metadata
-    #example: az sqlvm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-    
-    az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
-    ```
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
+   ```
+1. 클러스터에서 SQL Server VM을 제거 합니다.
+   ```azurecli
+   # Remove SQL VM from cluster
+   # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+
+   az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
+   ```
 
 ## <a name="remove-availability-group-listener"></a>가용성 그룹 수신기 제거
 나중에 Azure CLI를 사용 하 여 구성 된 가용성 그룹 수신기를 제거 해야 하는 경우에 SQL VM 리소스 공급자를 통해 이동 해야 합니다. 수신기가 SQL VM 리소스 공급자를 통해 등록되었으므로 SQL Server Management Studio를 통해 수신기를 삭제하는 것만으로는 충분하지 않습니다. 실제로 삭제할 Azure CLI를 사용 하 여 SQL VM 리소스 공급자를 통해. 이렇게 하면 SQL VM 리소스 공급자에서 AG 수신기 메타데이터가 제거되고 가용성 그룹에서 수신기가 물리적으로 삭제됩니다. 
 
 다음 코드 조각은 SQL 리소스 공급자 및 가용성 그룹에서 SQL 가용성 그룹 수신기를 삭제합니다. 
 
-```cli
+```azurecli
 # Remove the AG listener
-# example: az sqlvm aglistener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
-az sqlvm aglistener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
+# example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
+
+az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
 ## <a name="next-steps"></a>다음 단계

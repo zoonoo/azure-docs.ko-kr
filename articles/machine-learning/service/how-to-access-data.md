@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 85910e2f422ea45b2468f20b4ff9425f64ca3cbe
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481640"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793416"
 ---
 # <a name="access-data-from-your-datastores"></a>사용자 데이터 저장소에서 데이터에 액세스
 
@@ -123,13 +123,14 @@ ws.set_default_datastore('your datastore name')
 
 ```Python
 import azureml.data
-from azureml.data import AzureFileDatastore, AzureBlobDatastore
+from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
 
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
           show_progress=True)
 ```
+
 `target_path`는 업로드할 파일 공유 또는 blob 컨테이너의 위치를 지정합니다. 기본 위치는 `None`입니다(데이터가 루트에 업로드됨). `overwrite=True`를 사용하는 경우 `target_path`에서 기존 데이터를 덮어씁니다.
 
 또는 데이터 저장소의 `upload_files()` 메서드를 통해 개별 파일 목록을 데이터 저장소에 업로드합니다.
@@ -142,6 +143,7 @@ ds.download(target_path='your target path',
             prefix='your prefix',
             show_progress=True)
 ```
+
 `target_path`는 데이터를 다운로드할 로컬 디렉터리의 위치입니다. 다운로드할 파일 공유 또는 blob 컨테이너의 폴더 경로를 지정하려면 `prefix`에 해당 경로를 입력합니다. `prefix`가 `None`이면 파일 공유 또는 blob 컨테이너의 모든 콘텐츠가 다운로드됩니다.
 
 <a name="train"></a>
@@ -151,7 +153,7 @@ ds.download(target_path='your target path',
 
 다음 표에서 [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) 계산 대상을 실행 하는 동안 데이터 저장소를 사용 하는 방법을 지시 하는 방법입니다.
 
-방법|방법|설명|
+Way|방법|설명|
 ----|-----|--------
 탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| 계산 대상에 데이터 저장소를 탑재 하려면 사용 합니다.
 다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|지정 된 위치에 데이터 저장소의 콘텐츠를 다운로드 하는 데 `path_on_compute`합니다. <br> 교육 실행 컨텍스트에 대 한이 다운로드를 실행 하기 전에 발생합니다.
@@ -159,7 +161,7 @@ ds.download(target_path='your target path',
 
  ```Python
 import azureml.data
-from azureml.data import DataReference
+from azureml.data.data_reference import DataReference
 
 ds.as_mount()
 ds.as_download(path_on_compute='your path on compute')

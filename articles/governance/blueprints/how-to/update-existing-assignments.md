@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999854"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805757"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -32,17 +32,17 @@ ms.locfileid: "57999854"
 
 1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 클릭 합니다 **할당 업데이트할** 단추 또는 blueprint 할당을 마우스 오른쪽 단추로 클릭 하 고 선택 **할당을 업데이트**합니다.
 
-   ![할당 업데이트](../media/update-existing-assignments/update-assignment.png)
+   ![기존 blueprint 할당을 업데이트 합니다.](../media/update-existing-assignments/update-assignment.png)
 
 1. 합니다 **할당 blueprint** 페이지는 원래 할당의 모든 값으로 미리 채워진 로드 됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
-   ![업데이트된 할당 - 잠김](../media/update-existing-assignments/updated-assignment.png)
+   ![기존 blueprint 할당-변경 하는 잠금 모드를 업데이트 합니다.](../media/update-existing-assignments/updated-assignment.png)
 
 1. 다른 방법에 대 한 세부 정보를 찾는 **할당 작업** 드롭다운을 사용 하 여 합니다. 목차 **관리 되는 리소스** 선택한 할당 작업에 의해 업데이트 합니다.
 
-   ![할당 작업](../media/update-existing-assignments/assignment-operations.png)
+   ![Blueprint 할당의 할당 작업](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 

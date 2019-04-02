@@ -1,19 +1,19 @@
 ---
 title: Apache Ambari를 사용하여 클러스터 구성 최적화 - Azure HDInsight
 description: Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터를 구성하고 최적화합니다.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722926"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805383"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -51,7 +51,7 @@ NameNode Java 힙 크기를 수정하려면:
 
     ![NameNode Java 힙 크기 편집](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. NameNode Java 힙 크기가 1GB에서 2GB로 변경되었습니다.
+1. NameNode Java 힙 크기는 2GB에서 1GB로 변경 됩니다.
 
     ![편집된 NameNode Java 힙 크기](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단�
 
 1.  병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 False입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
  
-1.  병렬로 실행되는 작업 수를 제한하려면 `hive.exec.parallel.thread.number` 속성을 수정합니다. 기본값은 8입니다.
+1.  병렬로 실행 하는 작업의 수를 제한 하려면 수정 된 `hive.exec.parallel.thread.number` 속성입니다. 기본값은 8입니다.
 
     ![Hive 병렬 실행](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -178,10 +178,10 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 | 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | 아니요 |
+| Gzip | Gzip | DEFLATE | .gz | 아닙니다. |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
+| Snappy | N/A | Snappy | Snappy | 아닙니다. |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
@@ -282,7 +282,7 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 | 설정 | 권장 | HDInsight 기본값 |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = 더 안전하고 느림; false = 빠름 | false |
-| `tez.am.resource.memory.mb` | 대부분의 경우 상한 4GB | 자동 조정 |
+| `tez.am.resource.memory.mb` | 대부분의 상한 4GB | 자동 조정 |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 
 1. 수정할 속성의 값을 찾아서 주석 처리를 제거하고 변경합니다.
 
-1. 창의 오른쪽 위에서 **저장**을 선택하여 새 값을 저장합니다. 일부 속성은 서비스를 다시 시작해야 할 수도 있습니다.
+1. 선택 **저장할** 새 값을 저장 하려면 창의 오른쪽 상단에 있습니다. 일부 속성은 서비스를 다시 시작해야 할 수도 있습니다.
 
     ![고급 Pig 속성](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

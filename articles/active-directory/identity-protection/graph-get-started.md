@@ -18,12 +18,12 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517456"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793988"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
@@ -153,6 +153,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
    > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Microsoft Graph에 인증하고 ID 위험 이벤트 API를 쿼리합니다.
+
 이 시점에서 다음 항목이 만들어 집니다.
 
 - 테넌트 도메인의 이름
@@ -239,6 +240,7 @@ GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPasse
 ### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>특정 사용자에 대한 모든 위험한 로그인 가져오기(signIn API)
 
 사용자가 손상되었다고 생각하는 경우 모든 해당 위험한 로그인을 검색하여 해당 위험 상태를 더 잘 이해할 수 있습니다. 
+
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758542"
+ms.locfileid: "58804873"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
@@ -42,6 +42,30 @@ v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드�
 * 에 대 한 URL (서명을 제거) 작업의 HTTP 입력 Url의 쿼리 문자열 부분을 반환 하지 않습니다.
 
 [콘텐츠 키 정책 가져오기 - .NET](get-content-key-policy-dotnet-howto.md) 예제를 참조합니다.
+
+## <a name="long-running-operations"></a>장기 실행 작업
+
+작업 표시 `x-ms-long-running-operation` Azure Media services에서 [swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) 긴 작업을 실행 합니다. 
+
+Azure 비동기 작업을 추적 하는 방법에 대 한 세부 정보를 참조 하세요. [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
+
+* LiveEvent 만들기
+* LiveEvent 업데이트
+* LiveEvent 삭제
+* LiveEvent 시작
+* LiveEvent 중지
+* LiveEvent 다시 설정
+* LiveOutput 만들기
+* LiveOutput 삭제
+* StreamingEndpoint 만들기
+* StreamingEndpoint 업데이트
+* StreamingEndpoint 삭제
+* StreamingEndpoint 시작
+* StreamingEndpoint 중지
+* StreamingEndpoint 크기 조정
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652072"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793614"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -35,7 +35,7 @@ RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경�
 
 * **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
-Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 다른 역할을 보려면 StorSimple 장치 관리자 서비스로 이동한 다음 **액세스 제어(IAM) > 역할**로 이동하십시오.
+Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있는 다른 역할을 보려면 StorSimple 디바이스 관리자 서비스로 이동한 다음 **액세스 제어(IAM) &gt; 역할**로 이동하십시오.
 
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>StorSimple 인프라 관리자에 대한 사용자 지정 역할 만들기
@@ -50,7 +50,7 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
 3. Reader 역할을 컴퓨터에서 JSON 템플릿으로 내보냅니다.
 
-    ```
+    ```powershell
     Get-AzureRMRoleDefinition -Name "Reader"
 
     Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
@@ -72,7 +72,7 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
     위의 사항에 주의하면서 파일을 편집합니다.
 
-    ```
+    ```json
     {
         "Name":  "StorSimple Infrastructure Admin",
         "Id":  "<guid>",
@@ -113,18 +113,24 @@ Azure Portal에서 StorSimple 장치 사용자에 대해 사용할 수 있는 �
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>PowerShell을 통해 사용자 지정 역할 생성을 위한 샘플 출력
 
+```powershell
+Connect-AzureRmAccount
 ```
-PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
+```Output
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
 TenantId              : <tenant_ID>
 SubscriptionId        : <subscription_ID>
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader"
+```
 
+```Output
 Name             : Reader
 Id               : <guid>
 IsCustom         : False
@@ -132,11 +138,14 @@ Description      : Lets you view everything, but not make any changes.
 Actions          : {*/read}
 NotActions       : {}
 AssignableScopes : {/}
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+```
 
-PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
-
+```Output
 Name             : StorSimple Infrastructure Admin
 Id               : <tenant_ID>
 IsCustom         : True
@@ -148,8 +157,6 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
-
-PS C:\WINDOWS\system32>
 ```
 
 ## <a name="add-users-to-the-custom-role"></a>사용자 지정 역할에 사용자 추가
@@ -188,4 +195,3 @@ PS C:\WINDOWS\system32>
 ## <a name="next-steps"></a>다음 단계
 
 [내부 및 외부 사용자에 대한 사용자 지정 역할 할당](../role-based-access-control/role-assignments-external-users.md) 방법에 대해 배웁니다.
-

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728571"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793308"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -72,13 +72,13 @@ API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호�
 API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
 * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
-* 사용자 고유의 백업을 만들고 [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
+* 사용자 고유의 백업을 만들고 [API Management REST API](/rest/api/apimanagement/)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
 * Git를 사용하여 서비스 구성을 다운로드한 다음 새 인스턴스에 업로드합니다. 자세한 내용은 [Git를 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법](api-management-configuration-repository-git.md)을 참조하세요.
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>API Management 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?
 예, 다음을 사용하여 프로그래밍 방식으로 API Management를 관리할 수 있습니다.
 
-* [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+* [API Management REST API](/rest/api/apimanagement/)
 * [Microsoft Azure ApiManagement 서비스 관리 라이브러리 SDK](https://aka.ms/apimsdk)
 * [서비스 배포](https://docs.microsoft.com/powershell/module/wds) 및 [서비스 관리](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet
 
@@ -97,7 +97,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 4. URL을 사용하여 관리 포털에 액세스합니다.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>추가하려는 정책을 정책 편집기에서 사용할 수 없는 이유는 무엇입니까?
-추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](https://msdn.microsoft.com/library/azure/dn894080.aspx)에서 정책의 사용 섹션을 확인하세요.
+추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](/azure/api-management/api-management-policies)에서 정책의 사용 섹션을 확인하세요.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
 단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>직접 API 업데이트 메서드 ####
-1. API Management를 사용하여 [백 엔드](https://msdn.microsoft.com/library/azure/dn935030.aspx) 엔터티를 만듭니다.       
+1. API Management를 사용하여 [백 엔드](/rest/api/apimanagement/) 엔터티를 만듭니다.     
 2. **skipCertificateChainValidation** 속성을 **true**로 설정합니다.     
 3. 자체 서명된 인증서를 더 이상 허용하지 않으려면 백 엔드 엔터티를 삭제하거나 **skipCertificateChainValidation** 속성을 **false**로 설정합니다.
 

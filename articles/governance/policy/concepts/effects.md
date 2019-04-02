@@ -4,17 +4,17 @@ description: Azure Policy 정의는 준수가 관리되고 보고되는 방법�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551264"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802646"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -180,9 +180,10 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 - **Type**[필수]
   - 일치하는 관련된 리소스의 형식을 지정합니다.
-  - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
+  - 하는 경우 **details.type** 아래에 있는 리소스 종류는 **경우** 조건 리소스의 리소스에 대 한 정책 쿼리 **형식** 계산된 리소스의 범위 내에서. 계산된 리소스와 동일한 리소스 그룹 내에서 고, 그렇지 정책 쿼리 합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
+  - 조건에 대 한 값 하는 경우 **if.field.type** 하 고 **then.details.type** 다음 일치 **이름** 됩니다 _필요_ 여야합니다`[field('name')]`. 그러나는 [감사](#audit) 효과 대신 고려해 야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -253,6 +254,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
+  - 조건에 대 한 값 하는 경우 **if.field.type** 하 고 **then.details.type** 다음 일치 **이름** 됩니다 _필요_ 여야합니다`[field('name')]`.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.

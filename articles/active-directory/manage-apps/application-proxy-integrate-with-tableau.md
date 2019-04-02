@@ -13,12 +13,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e154a53dc32aea0b3fbe093526546b080b02ceff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188463"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793580"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
@@ -50,7 +50,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 **앱을 게시하려면**: 
 
 
-1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다. 
 
 2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다. 
 

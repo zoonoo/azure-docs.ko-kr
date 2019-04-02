@@ -1,6 +1,6 @@
 ---
-title: 샘플-ISO 27001 blueprint-컨트롤 매핑
-description: ISO 27001 blueprint 샘플의 컨트롤 매핑입니다.
+title: 샘플-ISO 27001 ASE/SQL 작업 blueprint-컨트롤 매핑
+description: Azure 정책 및 RBAC를 ISO 27001 앱 서비스 환경/SQL Database 워크 로드 blueprint 샘플의 컨트롤 매핑.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579702"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802714"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure 청사진 ISO 27001 blueprint 샘플의 컨트롤 매핑
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 작업 blueprint 샘플의 컨트롤 매핑
 
 다음 문서는 Azure 청사진 ISO 27001 ASE/SQL 작업 blueprint 샘플 ISO 27001 컨트롤에 매핑되는 방법을 자세히 설명 합니다. 컨트롤에 대 한 자세한 내용은 참조 하세요. [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html)합니다.
 

@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361985"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805468"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
-Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어 구문에 대한 설명서를 제공합니다. 예제 SQL 쿼리의 연습은 [Cosmos DB에서 SQL 쿼리](how-to-sql-query.md)를 참조하세요.  
+Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정에 사용 되는 SQL 쿼리 언어 구문에 대 한 설명서를 제공 합니다. 연습은 SQL 쿼리 예제를 참조 하세요 [Cosmos DB에서 SQL 쿼리 예제](how-to-sql-query.md)합니다.  
   
-또한 [Query Playground](https://www.documentdb.com/sql/demo)도 방문하여 Cosmos DB를 체험하고 데이터 세트에 대해 SQL 쿼리를 실행해 보세요.  
+방문 합니다 [쿼리 실습](https://www.documentdb.com/sql/demo), Cosmos DB를 시도 하 고 수 있는 샘플 데이터 집합에 대해 SQL 쿼리를 실행 합니다.  
   
 ## <a name="select-query"></a>SELECT 쿼리  
-ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다. 예를 들어 [SELECT 쿼리 예제](how-to-sql-query.md#SelectClause)를 참조하세요.
+ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절에서 원본 열거 될 다음 WHERE 절의 필터 JSON 문서의 하위 집합을 검색할 원본에 적용 됩니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. 예를 들어 [SELECT 쿼리 예제](how-to-sql-query.md#SelectClause)를 참조하세요.
   
 **구문**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   유효한 JSON 배열 식이입니다. 유효 하려면 큰따옴표를 사용 하 여 문자열 값을 써야 하는 참고 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)
+   JSON 배열 식으로 계산할 유효한 스칼라 식이입니다. Note는 중첩 된 문자열 값 유효 하려면 큰따옴표를 사용 하 여 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)
   
   **반환 형식**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   다음 예제에서는 StringToArray 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
   
-```  
+ 유효한 입력을 사용 하는 예제는 다음과 같습니다.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- 결과 집합은 다음과 같습니다.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ 결과 집합은 다음과 같습니다.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ 다음은 잘못 된 입력의 예입니다. 
+   
+ 배열 내에서 작은따옴표는 유효한 JSON이 없습니다.
+쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 배열입니다. 문자열 배열의 문자열 내의 이스케이프 되어야 하거나 "[\"\"]" 주변 따옴표는 하나 여야 합니다 또는 ' [""]'.
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ 결과 집합은 다음과 같습니다.
+
+```
+[{}]
+```
+
+ 잘못 된 입력의 예는 다음과 같습니다.
+   
+ JSON 배열로 전달 되는 식 구문 분석 됩니다. 배열 형식과 따라서 undefined를 반환 하려면 다음 평가 하지 않습니다.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ 결과 집합은 다음과 같습니다.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  부울으로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   유효한 식입니다.  
+   부울 식으로 계산할 유효한 스칼라 식이입니다.  
   
   **반환 형식**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **예**  
   
   다음 예제에서는 StringToBoolean 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
-  
+ 
+ 유효한 입력을 사용 하는 예제는 다음과 같습니다.
+
+ 이전 또는 이후에 "true"/ "false"만 공백이 허용 됩니다.
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  결과 집합은 다음과 같습니다.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ 잘못 된 입력의 예는 다음과 같습니다.
+ 
+ 부울 대/소문자 구분 되며 모든 소문자 예: "true" 및 "false"를 사용 하 여 작성 해야 합니다.
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{}]
+``` 
+
+ 전달 되는 식, 부울 식으로 구문 분석 됩니다. 부울 값을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   유효한 식입니다.  
+   Null 식으로 계산할 유효한 스칼라 식이입니다.
   
   **반환 형식**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **예**  
   
   다음 예제에서는 StringToNull 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
-  
+
+ 유효한 입력을 사용 하는 예제는 다음과 같습니다.
+ 
+ 이전 또는 "null" 이후에는 공백이 허용 됩니다.
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  결과 집합은 다음과 같습니다.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ 잘못 된 입력의 예는 다음과 같습니다.
+
+ Null은 대/소문자 구분 및 "null" 즉, 모든 소문자 문자를 사용 하 여 작성 해야 합니다.
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{}]
+```  
+
+ 전달 되는 식, null 식으로 구문 분석 됩니다. null을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   유효한 JSON 숫자 식이입니다. Json에서 숫자는 정수 또는 부동 소수점 있어야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+   JSON 숫자 식으로 계산할 유효한 스칼라 식이입니다. Json에서 숫자는 정수 또는 부동 소수점 있어야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
   
   **반환 형식**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **예**  
   
   다음 예제에서는 StringToNumber 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
-  
+
+ 만 전이나 후에 공백이 허용 됩니다.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  결과 집합은 다음과 같습니다.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ 올바른 숫자를 이어야 합니다 하는 JSON 될 정수 또는 부동 소수점 숫자입니다.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+{{}}
+```  
+
+ 전달 되는 식은 후행 숫자 식입니다. 이러한 입력 번호를 입력 하 고 따라서 undefined를 반환 하는 평가 하지 않습니다. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   유효한 JSON 개체 식이입니다. 유효 하려면 큰따옴표를 사용 하 여 문자열 값을 써야 하는 참고 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+   JSON 개체 식으로 계산할 유효한 스칼라 식이입니다. Note는 중첩 된 문자열 값 유효 하려면 큰따옴표를 사용 하 여 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
   
   **반환 형식**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   다음 예제에서는 StringToObject 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
   
-```  
+ 유효한 입력을 사용 하는 예제는 다음과 같습니다.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ 결과 집합은 다음과 같습니다.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ 잘못 된 입력의 예는 다음과 같습니다.
+쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 개체입니다. 문자열 개체의 문자열 내의 이스케이프 되어야 하거나 "{\"는\":\"str\"}" 주변 따옴표는 하나 여야 합니다 또는 ' {"a": "str"}'.
+
+ 속성 이름을 둘러싸는 작은따옴표는 유효한 JSON이 없습니다.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ 결과 집합은 다음과 같습니다.
+
 ```  
-  
- 결과 집합은 다음과 같습니다.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ 주변 따옴표 없이 속성 이름은 유효한 JSON 하지 않습니다.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ 결과 집합은 다음과 같습니다.
+
 ```  
+[{}]
+``` 
+
+ 잘못 된 입력의 예는 다음과 같습니다.
+ 
+ JSON 개체로 전달 되는 식 구문 분석 됩니다. 개체를 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ 결과 집합은 다음과 같습니다.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBSTRING  
  지정한 문자 0 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다.  

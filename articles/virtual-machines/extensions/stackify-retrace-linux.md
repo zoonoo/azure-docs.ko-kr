@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979720"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792423"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
 
 ## <a name="overview"></a>개요
+
 Stackify는 문제를 빠르게 찾고 해결할 수 있도록 애플리케이션에 대한 세부 정보를 추적하는 제품을 제공합니다. Retrace는 개발자 팀을 위해 완벽하게 통합된 다중 환경의 강력한 앱 성능입니다. 이는 모든 개발자 팀에 필요한 여러 도구를 결합합니다.
 
 Retrace는 단일 플랫폼에서 모든 환경에 걸쳐 다음 기능을 모두 제공하는 유일한 도구입니다.
@@ -40,6 +41,7 @@ Retrace는 단일 플랫폼에서 모든 환경에 걸쳐 다음 기능을 모�
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제 
+
 Retrace 에이전트를 실행할 수 있는 Linux 배포판은 다음과 같습니다.
 
 | 배포 | 버전 |
@@ -50,12 +52,14 @@ Retrace 에이전트를 실행할 수 있는 Linux 배포판은 다음과 같습
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
+
 Linux용 Stackify 에이전트 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
 Stackify에 연결할 수 있도록 네트워크 구성을 조정해야 할 수도 있습니다(https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall 참조). 
 
 
 ## <a name="extension-schema"></a>확장 스키마
+
 ---
 
 다음 JSON은 Stackify Retrace 확장에 대한 스키마를 보여 줍니다. 확장에는 `environment` 및 `activationKey`가 필요합니다.
@@ -151,7 +155,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 확장에는 `environment` 및 `activationKey`가 필요합니다.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

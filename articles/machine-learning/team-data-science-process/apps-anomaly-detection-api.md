@@ -11,14 +11,18 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899352"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793138"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
+
+> [!NOTE]
+> 이 항목은 유지 관리 합니다. 사용 하 여 것이 좋습니다 합니다 [비정상 탐지기 API 서비스](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) Azure Cognitive Services에서 비즈니스, 운영, 비정상 및 IoT 메트릭을 검색 하는 갤러리의 Machine Learning 알고리즘에서 제공 합니다.
+
 ## <a name="overview"></a>개요
 [이상 감지 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)는 Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.
 

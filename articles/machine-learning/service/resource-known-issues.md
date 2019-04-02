@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661227"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791748"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -104,8 +104,7 @@ SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다.
-로그 파일 위치는 다음과 같습니다.
+도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 방문 [Azure portal](https://portal.azure.com) 선택한 서버 작업 영역으로 이동한 **작업 영역 > 실험 > 실행 > 로그**합니다.
 
 ## <a name="resource-quotas"></a>리소스 할당량
 

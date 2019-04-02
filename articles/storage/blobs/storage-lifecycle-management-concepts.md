@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: df38fd30c1bfba4993e9992783a130262a703370
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579515"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803267"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "58579515"
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거 
 
-추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, REST Api 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
+추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI [REST Api](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
 > [!NOTE]
 > 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
@@ -115,10 +115,10 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
 |----------------|----------------|-------|----------|
-| 이름           | 문자열 |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
+| 이름           | 문자열 |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True  |
 | 사용 | BOOLEAN | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | False | 
-| 형식           | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True |
-| 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
+| 형식           | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True  |
+| 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True  |
 
 ## <a name="rules"></a>규칙
 

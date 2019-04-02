@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 01d00b33a4575f17cffb7ba878372367046271a1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578427"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762483"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 
@@ -55,7 +55,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
+| 형식 | 합니다 **형식** 속성으로 설정 되어 있어야 **RestService**합니다. | 예 |
 | URL | REST 서비스의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | 엔드포인트에 연결할 때 서버 쪽 SSL 인증서의 유효성을 검사할지 여부를 나타냅니다. | 아닙니다.<br /> (기본값: **true**) |
 | authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |

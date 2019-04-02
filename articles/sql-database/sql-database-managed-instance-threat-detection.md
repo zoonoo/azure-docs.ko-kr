@@ -12,18 +12,18 @@ ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 0c6bf22527278d0d2217a8b384eb8bcd2210856a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779518"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793053"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에서 위협 탐지(미리 보기) 구성
 
-[관리되는 인스턴스](sql-database-managed-instance-index.yml)에 대한 [위협 탐지](sql-database-threat-detection-overview.md)는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 검색합니다. 위협 탐지는 **잠재적인 SQL 삽입**, **비정상적인 위치 또는 데이터 센터에서 액세스**, **생소한 보안 주체 또는 잠재적으로 위험한 애플리케이션의 액세스** 및 **무차별 SQL 자격 증명 대입 공격**을 식별할 수 있습니다. 자세한 내용은 [위협 탐지 경고](sql-database-threat-detection-overview.md#threat-detection-alerts)를 참조하세요.
+[관리되는 인스턴스](sql-database-managed-instance-index.yml)에 대한 [위협 탐지](sql-database-threat-detection-overview.md)는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 검색합니다. 위협 탐지는 **잠재적인 SQL 삽입**, **비정상적인 위치 또는 데이터 센터에서 액세스**, **생소한 보안 주체 또는 잠재적으로 위험한 애플리케이션의 액세스** 및 **무차별 SQL 자격 증명 대입 공격**을 식별할 수 있습니다. 자세한 내용은 [위협 탐지 경고](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts)를 참조하세요.
 
-[이메일 알림](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) 또는 [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)을 통해 탐지된 위협에 대한 알림을 받을 수 있습니다.
+[이메일 알림](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) 또는 [Azure Portal](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)을 통해 탐지된 위협에 대한 알림을 받을 수 있습니다.
 
 [위협 탐지](sql-database-threat-detection-overview.md)는 고급 SQL 보안 기능용 통합 패키지인 [ADS](sql-database-advanced-data-security.md)(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 위협 탐지에 액세스하고 관리할 수 있습니다. 위협 탐지 서비스는 처음 30일간 무료이며 관리되는 인스턴스당 매월 15달러가 부과됩니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772860"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801984"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
  
@@ -52,7 +52,7 @@ ms.locfileid: "57772860"
 
 ### <a name="continuous-data-ingestion-over-network"></a>네트워크를 통한 지속적인 데이터 수집
 
-| 기능                                       | Data Box Gateway(미리 보기) | Data Box Edge(미리 보기)  | Azure 데이터 팩터리        |
+| 기능                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | 폼 팩터                                   | 가상 디바이스             | 물리적 디바이스          | Azure Portal의 서비스, 온-프레미스의 에이전트                                                            |
 | 하드웨어                                      | 하이퍼바이저            | Microsoft 제공    | 해당 없음                                                            |

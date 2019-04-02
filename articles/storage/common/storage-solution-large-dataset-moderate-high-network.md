@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496896"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805585"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -62,7 +62,7 @@ ms.locfileid: "58496896"
 
 오프라인 데이터 전송을 사용하는 경우 다음 표를 사용하여 주요 기능의 차이점을 파악합니다.
 
-|                                     |    Data Box Disk(미리 보기)    |    Data Box                                      |    Data Box Heavy(미리 보기)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    데이터 크기                        |    최대 35TB                 |    디바이스당 최대 80TB                       |    디바이스당 최대 800TB               |    변수                            |
 |    데이터 형식                        |    Azure Blob                  |    Azure Blob<br>Azure 파일                    |    Azure Blob<br>Azure 파일            |    Azure Blob<br>Azure 파일          |
@@ -83,7 +83,7 @@ ms.locfileid: "58496896"
 
 ### <a name="high-network-bandwidth"></a>높은 네트워크 대역폭
 
-|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    Data Box Gateway 또는 Data Box Edge(미리 보기)           |    Azure 데이터 팩터리                                            |
+|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    데이터 상자 게이트웨이나 가장자리가 상자의 데이터          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    데이터 형식                  |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files                           |   데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원    |
 |    폼 팩터                |    명령줄 도구                        |    프로그래밍 인터페이스                    |    Microsoft에서 가상 <br>또는 물리적 디바이스 제공     |    Azure Portal의 서비스                                            |

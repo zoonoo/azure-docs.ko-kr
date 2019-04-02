@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113268"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762687"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -139,12 +139,7 @@ ms.locfileid: "58113268"
 
 1. **IaaS 확장을 사용 하 여 SQL Server의 명명 된 인스턴스를 사용할 수**?
    
-   예, SQL server에서 유일한 인스턴스인 명명된 된 인스턴스 및 원래 기본 인스턴스를 제대로 제거 된 경우. 명명된 된 인스턴스를 사용 하려면 다음을 수행 합니다.
-    1. Marketplace에서 SQL Server VM을 배포 합니다. 
-    1. IaaS 확장을 제거 합니다.
-    1. SQL Server를 완전히 제거 합니다.
-    1. 명명된 된 인스턴스를 사용 하 여 SQL Server를 설치 합니다. 
-    1. IaaS 확장을 설치 합니다. 
+   예, SQL server에서 유일한 인스턴스인 명명된 된 인스턴스 및 원래 기본 인스턴스 되었으면 [제대로 제거](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation)합니다. 기본 인스턴스가 없는 경우 단일 SQL Server VM에서 명명 된 인스턴스를 여러 가지 IaaS 확장 설치에 실패 합니다. 
 
 1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
@@ -176,6 +171,10 @@ ms.locfileid: "58113268"
 1. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
 
     [Microsoft SQL Server Data Tools - Visual Studio 2013용 Business Intelligence](https://www.microsoft.com/en-us/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하세요.
+
+1. **SQL Server Vm에서 지원 되는 MSDTC를 사용 하 여 분산된 트랜잭션을?합니다**
+   
+    예. 로컬 DTC는 SQL Server 2016 SP2에 대 한 지원 되며 큽니다. 그러나 장애 조치 중 진행 중인 트랜잭션으로 Always On 가용성 그룹을 활용 하 여 실패 하 고 다시 시도해 야 하는 경우 응용 프로그램을 테스트 해야 합니다. 클러스터 된 DTC는 Windows Server 2019부터 사용할 수 있습니다. 
 
 ## <a name="resources"></a>리소스
 

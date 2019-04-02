@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852341"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762245"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 
@@ -36,17 +36,39 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 
     ![도움말 및 지원 단추](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. 문제 유형으로 **청구**를 선택하고 청구서로 결제할 구독을 선택한 후 지원 계획을 선택하고 **다음**을 선택합니다.
+2. 문제 유형으로 **청구**를 선택하고 청구서로 결제할 구독을 선택한 후 지원 계획을 선택하고 **다음**을 선택합니다.
 
-1. **문제 유형** 상자에서 **청구서로 지불**을 선택합니다.
+3. **문제 유형** 상자에서 **청구서로 지불**을 선택합니다.
 
-1. **세부 정보** 상자에 다음 정보를 입력하고 **다음**을 선택합니다.
+ 4. **세부 정보** 상자에 다음 정보를 입력하고 **다음**을 선택합니다.
 
-    * 회사 이름
-    * 청구 주소
-    * [계정 관리자의 전자 메일 주소](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - 합니다 **회사 이름** 하 고 **주소를 회사** 사용자가 제공한 Azure 계정에 대 한 정보를 사용 하 여 일치 해야 합니다.  참조를 확인 하거나 정보를 업데이트 하려면 [Azure 계정 프로필 정보 변경](billing-how-to-change-azure-account-profile.md)합니다.
+    - 크레딧 한도 승인 하기 전에 Azure portal에서 청구 연락처를 추가 해야 합니다. 연락처 세부 정보를 회사의 Accounts Payable 또는 재무 부서 관련 되어야 합니다. 대금 청구 연락처를 업데이트 하려면로 이동 [Azure 계정 센터](https://account.azure.com/Profile)합니다.
 
-1. 연락처 정보와 기본 연락 방법을 확인한 다음 **만들기**를 클릭합니다.
+5. 연락처 정보와 기본 연락 방법을 확인한 다음 **만들기**를 클릭합니다.
 
 필요한 신용 수준 때문에 신용 검사를 실행해야 할 경우 신용 검사 신청서를 보내 드립니다. 신청서를 제출하면 신용 신청을 처리하는 데 5-7일 정도 걸릴 수 있습니다.
 

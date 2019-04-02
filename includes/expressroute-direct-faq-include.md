@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825764"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807747"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct는 Microsoft 글로벌 백본에 대한 직접 100Gbps 포�
 
 ExpressRoute Direct는 고정 금액으로 포트 쌍에 대한 요금이 청구됩니다. 표준 회로는 추가 시간 없이 포함되며 프리미엄에는 약간의 추가 요금이 포함됩니다. 피어링 위치의 영역에 따라 회로별로 송신에 대한 요금이 청구됩니다.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>ExpressRoute Direct 포트 쌍의 청구 상태는 언제 표시되나요?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>경우 ExpressRoute 직접 포트 쌍에 대 한 청구 시작을 하나요?
 
 ExpressRoute Direct 포트 쌍은 연결 중 하나 또는 둘 다를 사용할 수 있는 날짜나 ExpressRoute Direct 리소스가 생성된 날짜부터 45일 후 중 더 이른 날짜에 청구됩니다. 45일 유예 기간은 고객이 공동 장소 공급자와 연결 간 프로세스를 완료할 수 있도록 하기 위해 제공됩니다.

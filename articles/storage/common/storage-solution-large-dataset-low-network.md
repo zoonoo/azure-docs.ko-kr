@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776668"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805094"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>네트워크 대역폭이 부족하거나 없을 경우 대용량 데이터 세트의 데이터 전송
  
@@ -45,7 +45,7 @@ ms.locfileid: "57776668"
 
 다음 표에서는 주요 기능의 차이점을 요약해서 보여 줍니다.
 
-|                                     |    Data Box Disk(미리 보기)    |    Data Box                                      |    Data Box Heavy(미리 보기)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    데이터 크기                        |    최대 35TB                 |    디바이스당 최대 80TB                       |    디바이스당 최대 800TB               |    변수                            |
 |    데이터 형식                        |    Azure Blob                  |    Azure Blob<br>Azure 파일                    |    Azure Blob<br>Azure 파일            |    Azure Blob<br>Azure 파일          |

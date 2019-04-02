@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c7b1f737d0331ecd40ab318cec0c082a3f7ddd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181340"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791551"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>사용자 개인 정보 및 Azure AD 원활한 Single Sign-On
 
@@ -50,7 +50,7 @@ Azure AD Connect를 설치 또는 업그레이드하거나 Seamless SSO 구성�
 
 Windows 탐색기를 사용하여 이러한 추적 로그 파일을 검토한 후 삭제할 수 있고, 다음과 같은 PowerShell 스크립트를 사용하여 필요한 작업을 수행할 수도 있습니다.
 
-```
+```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
  
 Foreach ($file in $Files) { 
@@ -67,6 +67,7 @@ Foreach ($file in $Files) {
 감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](https://technet.microsoft.com/library/dd277403.aspx)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
   - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
   - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

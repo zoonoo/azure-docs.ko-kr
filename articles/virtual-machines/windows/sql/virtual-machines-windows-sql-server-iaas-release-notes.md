@@ -13,16 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: d5c003b2588813f8e8a1dfc2923b9d4c8d8c6cc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820436"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762323"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure Virtual Machines의 SQL Server 릴리스 정보
 
 Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 배포할 수 있습니다. 이 문서에서는 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 최신 릴리스에 제공되는 새 기능과 향상된 기능을 요약합니다. 이 문서에는 릴리스와 직접적인 관련은 없지만 동일한 시간대에 게시된 주목할 만한 콘텐츠 업데이트도 나열되어 있습니다. 다른 Azure 서비스의 개선 사항은 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
+
+## <a name="march-2019"></a>2019 년 3 월
+
+### <a name="service-improvements"></a>서비스 개선 사항
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+| **사용자 지정 이미지 지원 가능성** | 이제 설치할 수 있습니다는 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 사용자 지정 운영 체제 및 SQL 이미지를 제공 하는 제한 된 기능의 [융통성 있는 라이선스](virtual-machines-windows-sql-ahb.md)합니다. 로 라이선스 유형을 'AHUB'으로 지정할 SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록 하는 경우 그렇지 않은 경우 등록이 실패 합니다. 사용자 지정 이미지에 대 한 Azure portal에서 SQL 구성 블레이드를 통해 관리 효율성 지원 되지 않습니다.   | 
+| **명명 된 인스턴스 지원 가능성** | 사용할 수 있습니다 합니다 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 기본 인스턴스에 제대로 제거 된 경우 명명된 된 인스턴스를 사용 하 여 합니다. | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>설명서 개선
+
+없음
 
 
 ## <a name="february-2019"></a>2019년 2월
@@ -32,15 +46,9 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 | **포털 개선** | 가져오기-사용자-라이선스를 사용 하 여 종 량 제에서 SQL Server VM에 대 한 라이선스 모델을 변경할 수는 이제 합니다 [Azure portal](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1)합니다.|
-|**Azure SQL VM CLI를 사용 하 여 AG 배포 간소화** | 이제 이전에 Azure에서 SQL Server VM에 가용성 그룹 배포 보다는 것이 쉽습니다. Azure SQL VM CLI를 사용 하면 명령줄에서 모든 및 짧은 기간 내에 WSFC, ILB와 AG 수신기를 만들 수 있습니다. 자세한 내용은 [SQL Server Azure VM에 대 한 Always On 가용성 그룹을 구성 하려면 사용 하 여 Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)합니다. | 
+|**Azure SQL VM CLI를 사용 하 여 AG 배포 간소화** | 이제 이전에 Azure에서 SQL Server VM에 가용성 그룹 배포 보다는 것이 쉽습니다. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) 레코드 시간에 모두 명령줄에서에서 WSFC, ILB와 AG 수신기를 만들 수 있습니다. 자세한 내용은 [SQL Server Azure VM에 대 한 Always On 가용성 그룹을 구성 하려면 사용 하 여 Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)합니다. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>설명서 개선
-
-| 설명서 개선 | 세부 정보 |
-| --- | --- |
-|없음 | |
-| | |
 
 ## <a name="december-2018"></a>2018년 12월
 

@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096013"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802799"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -77,7 +77,7 @@ ms.locfileid: "58096013"
 5.  Microsoft 프리미어 지원 계약 – MS TAM(기술 담당 관리자)을 식별합니다. SAP의 지원 요구 사항에 대해서는 SAP 지원 참고 [#2015553](https://launchpad.support.sap.com/#/notes/2015553)을 읽어보세요. 
 6.  Azure 구독의 수 및 다른 구독의 코어 할당량을 정의합니다. 필요에 따라 [지원 요청을 열어 Azure 구독 할당량을 늘립니다](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). 
 7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 감소 및 데이터 마이그레이션 계획. SAP NetWeaver 시스템의 경우 SAP는 많은 수의 데이터 볼륨을 제한하는 방법에 대한 지침을 제공합니다. SAP는 SAP ERP 시스템의 데이터 관리에 대해 [이 심층 가이드](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF)를 발표했습니다. 그러나 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에 적용됩니다.
-8.  자동화된 배포 방법을 정의하고 결정합니다. Azure의 인프라 배포 이면에서 사용되는 자동화의 목표는 결정적 방식으로 배포하고 결정적 결과를 얻는 것입니다. 많은 고객이 Powershell 또는 CLI 기반 스크립트를 사용합니다. 하지만 SAP용 Azure 인프라를 배포하고 SAP 소프트웨어를 설치하는 데 사용할 수 있는 다양한 오픈 소스 기술이 있습니다. 다음과 같은 예제를 GitHub에서 찾을 수 있습니다.
+8.  자동화된 배포 방법을 정의하고 결정합니다. Azure의 인프라 배포 이면에서 사용되는 자동화의 목표는 결정적 방식으로 배포하고 결정적 결과를 얻는 것입니다. 많은 고객이 Powershell 또는 CLI 기반 스크립트를 사용합니다. 하지만 SAP용 Azure 인프라를 배포하고 SAP 소프트웨어를 설치하는 데 사용할 수 있는 다양한 오픈 소스 기술이 있습니다. GitHub에서 예제를 찾을 수 있습니다.
     1.  [Azure Cloud의 자동화된 SAP 배포](https://github.com/Azure/sap-hana)
     2.  [SAP HANA 설치](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  고객, 시스템 통합업체, Microsoft 및 기타 관련 당사자 간의 정기적인 디자인 및 배포 검토 케이던스를 정의합니다.
@@ -88,19 +88,21 @@ ms.locfileid: "58096013"
 파일럿은 프로젝트 계획 및 준비 이전에 또는 동시에 실행할 수 있습니다. 이 단계에서 계획 및 준비 단계 동안 수행한 접근 방법 및 디자인을 테스트할 수도 있습니다. 파일럿 단계를 실제 개념 증명으로 늘릴 수 있습니다. 파일럿 배포 동안 전체 HA/DR 솔루션 뿐만 아니라 보안 디자인을 설정하고 유효한지 검사하는 것이 좋습니다. 일부 고객의 경우 이 단계에서 확장성 테스트도 수행할 수 있습니다. 다른 고객은 SAP 샌드박스 시스템의 배포를 파일럿 단계로 사용합니다. 파일럿 실행을 위해 Azure로 마이그레이션하려는 시스템을 식별했다고 가정하겠습니다.
 
 1. Azure로의 데이터 전송을 최적화합니다. Express 회로에 대역폭이 충분한 경우 주로 온-프레미스에서 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 고객 사례를 전송하는 것이 가장 빨랐습니다. 다른 고객의 경우는 인터넷을 통해 진행하는 것이 더 빠른 것으로 확인되었습니다.
-2. SAP의 유형이 다른 플랫폼 마이그레이션에서는 데이터베이스 데이터의 내보내기 및 가져오기, 내보내기 및 가져오기 단계 테스트와 최적화가 여기에 해당합니다. SQL Server를 대상 플랫폼으로 포함하는 대규모 마이그레이션의 경우 [여기](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/)에서 권장 사항을 찾을 수 있습니다. 마이그레이션을 SAP 릴리스 업그레이드와 결합하고 설명서[예: [SUM 2.0 SP03의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2631152)]에 나와 있는 것처럼 특정 원본 및 대상 DBMS 플랫폼 조합을 이행할 때 조합된 릴리스 업그레이드 또는 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스가 필요하지 않은 경우 마이그레이션 모니터/SWPM 접근 방법을 수행할 수 있습니다. 
+2. SAP의 유형이 다른 플랫폼 마이그레이션에서는 데이터베이스 데이터의 내보내기 및 가져오기, 내보내기 및 가져오기 단계 테스트와 최적화가 여기에 해당합니다. SQL Server를 대상 플랫폼으로 포함하는 대규모 마이그레이션의 경우 [여기](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070)에서 권장 사항을 찾을 수 있습니다. 마이그레이션을 SAP 릴리스 업그레이드와 결합하고 설명서[예: [SUM 2.0 SP03의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2631152)]에 나와 있는 것처럼 특정 원본 및 대상 DBMS 플랫폼 조합을 이행할 때 조합된 릴리스 업그레이드 또는 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스가 필요하지 않은 경우 마이그레이션 모니터/SWPM 접근 방법을 수행할 수 있습니다. 
    1.  원본으로 내보내기, Azure로 파일 업로드 내보내기, 성능 가져오기.  내보내기와 가져오기 간의 중복을 최대화합니다.
    2.  인프라 크기 조정에 반영하기 위해 목표 및 대상 플랫폼 간의 데이터베이스 볼륨 평가    
    3.  유효성 검사 및 타이밍 최적화 
 3. 기술 유효성 검사 
    1. VM 유형
       1.  SAP 지원 참고 사항, SAP HANA 하드웨어 디렉터리 및 SAP PAM의 리소스를 확인하여 Azure의 지원되는 VM, 해당 VM 유형의 지원되는 OS 릴리스 및 지원되는 SAP 및 DBMS 릴리스에 변경된 내용이 없는지 검토합니다.
-      2.  Azure에 배포하는 애플리케이션 및 인프라의 크기가 유효한지 다시 확인합니다. 기존 애플리케이션을 이동하는 경우 종종, 사용하는 인프라 및 [SAP 벤치마크 웹 페이지](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd)에서 필요한 SAPS를 파생하고 SAPS 지원 참고 사항 [#1928533](https://launchpad.support.sap.com/#/notes/1928533)에 나열된 SAPS 번호와 비교할 수 있습니다. 또한 [이 문서](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/)의 내용에 유의하세요.
+      2.  Azure에 배포하는 애플리케이션 및 인프라의 크기가 유효한지 다시 확인합니다. 기존 애플리케이션을 이동하는 경우 종종, 사용하는 인프라 및 [SAP 벤치마크 웹 페이지](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd)에서 필요한 SAPS를 파생하고 SAPS 지원 참고 사항 [#1928533](https://launchpad.support.sap.com/#/notes/1928533)에 나열된 SAPS 번호와 비교할 수 있습니다. 또한 [이 문서](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208)의 내용에 유의하세요.
       3.  최대 스토리지 처리량과 계획 단계에서 선택한 여러 다른 VM 유형의 네트워크 처리량에 대한 Azure VM의 크기 조정을 평가하고 테스트합니다. 해당 데이터는 다음 위치에서 찾을 수 있습니다.
           1.  [Azure의 Windows 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기 조정을 위해서는 **캐시되지 않은 최대 디스크 처리량**을 고려하는 것이 중요합니다.
           2.  [Azure의 Linux 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기 조정을 위해서는 **캐시되지 않은 최대 디스크 처리량**을 고려하는 것이 중요합니다.
    2. Storage
-      1.  데이터베이스 VM에 대해 Azure Premium Storage를 사용합니다.
+      1.  사용 하 여 [Azure 표준 SSD 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) 성능 이외의 중요 한 DBMS 배포 및 SAP 응용 프로그램 계층을 나타내는 Vm에 대 한 최소
+      2.  사용 하지 않도록 권장 [Azure 표준 HDD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) 일반적
+      2.  사용 하 여 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 성능에 민감한 멀리 DBMS Vm에 대 한
       2.  [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용합니다.
       3.  M-Series가 있는 DBMS 로그 드라이브에 대해 Azure Write Accelerator를 사용합니다. [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)에 설명된 Write Accelerator 제한 및 사용법을 숙지합니다.
       4.  다른 DBMS 형식의 경우 [일반 SAP 관련 DBMS 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 일반 문서가 나타내는 DBMS 특정 설명서를 확인합니다.
@@ -124,6 +126,7 @@ ms.locfileid: "58096013"
               4.  Oracle Linux 7.5. RHCKL 커널을 사용하는 경우 이 릴리스는 3.10.0-862.13.1.el7이어야 합니다. Oracle UEK 커널을 사용하는 경우 릴리스 5가 필요합니다.
           4.   SAP 지원 참고 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 SAP 지원 참고 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 SAP 애플리케이션 계층 VM 및 DBMS VM 간의 네트워크 대기 시간을 테스트하고 평가합니다. SAP 지원 참고 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가합니다. 네트워크 대기 시간은 보통 및 적절한 범위에 있어야 합니다. [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)에 설명된 대로 VM과 HANA 대규모 인스턴스 단위 간의 트래픽에 예외가 적용됩니다.
           5.   ILB 배포가 Direct Server Return을 사용하도록 설정되어 있는지 확인합니다. 이 설정은 Azure ILB가 DBMS 계층의 고가용성 구성에 사용되는 경우 대기 시간을 줄여줍니다.
+          6.   Linux 네트워크 매개 변수는 Linux 게스트 운영 체제 검사와 함께에서 Azure Load Balancer를 사용 하는 경우 **net.ipv4.tcp_timestamps** 로 설정 된 **0**합니다. 이전 버전의 SAP 권장 사항에 대해 유의 [#2382421](https://launchpad.support.sap.com/#/notes/2382421)합니다. 한편 SAP note는 Azure Load Balancer와 함께에서 작동 하도록 0으로 설정 해야 하는 매개 변수가 있다는 사실을 반영 하도록 업데이트 됩니다.
    4. 고가용성 및 재해 복구 배포. 
       1. 특정 Azure 가용성 영역을 정의하지 않고 SAP 애플리케이션 계층을 배포하는 경우 단일 SAP 시스템의 SAP 대화 인스턴스 또는 미들웨어 인스턴스를 실행하는 모든 VM이 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)에 배포되어 있는지 확인합니다. 
          1.   SAP Central Services 및 DBMS에 대해 고가용성이 필요하지 않은 경우 이러한 VM을 SAP 애플리케이션 계층이 있는 동일한 가용성 집합으로 배포할 수 있습니다.

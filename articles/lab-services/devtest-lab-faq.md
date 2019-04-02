@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337700"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803377"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -44,7 +44,7 @@ DevTest Labs 팀 블로그에서 20 년 3 월 2019 기준으로 만료 되었습
 앞으로 이동 하 여 Twitter 핸들을 사용 하 여 중단 업데이트 드리며 했습니다. 가동 중단 및 알려진된 버그에 대 한 최신 업데이트는 Twitter에서 팔 로우 합니다.
 
 ### <a name="twitter"></a>Twitter 
-이 Twitter 핸들: azlabservices
+이 Twitter 핸들: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 질문이 여기 나열 되지 않으면, 알려주세요을 도와 드리겠습니다 답변을 찾을 수 있습니다.
@@ -139,7 +139,9 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>기존 Azure VM을 DevTest Labs 랩으로 어떻게 이동하나요?
 기존 VM을 DevTest Labs에 복사하려면:
 
-1. [Windows PowerShell 스크립트](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)를 사용하여 기존 VM의 VHD 파일을 복사합니다.
+1. PowerShell 스크립트를 사용 하 여 기존 VM의 VHD 파일을 복사 합니다.
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * 클래식: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. DevTest Labs 랩 내에 [사용자 지정 이미지를 만듭니다](devtest-lab-create-template.md).
 3. 사용자 지정 이미지에서 랩에 VM을 만듭니다.
 

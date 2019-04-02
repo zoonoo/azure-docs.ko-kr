@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902249"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762942"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
 솔루션 시작 및 사용자 정의 일정에 Azure 가상 컴퓨터를 중지, Azure Monitor 로그를 통해 통찰력을 제공 및 사용 하 여 선택적 이메일을 전송 하는 작업이 없는 동안 Vm 시작/중지 [작업 그룹](../azure-monitor/platform/action-groups.md)합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
+
+> [!NOTE]
+> Azure 솔루션을 배포할 때 Automation 계정으로 가져온 모듈을 사용 하 여 솔루션을 거쳤습니다 작업이 없는 동안 Vm 시작/중지 합니다. 솔루션은 현재 Azure 모듈의 최신 버전을 사용 하 여 작동 하지. 이 작업이 없는 동안 Vm 시작/중지를 실행 하는 데 사용 하는 Automation 계정에만 영향을 줍니다. 계속 사용할 수 있습니다 Azure 모듈의 최신 버전에 다른 Automation 계정에에 설명 된 대로 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](automation-update-azure-modules.md)
 
 이 솔루션은 VM 비용을 최적화하려는 사용자에게 분산된 저비용 자동화 옵션을 제공합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 

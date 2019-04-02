@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444715"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801137"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하려면 Azure portal을 사용 하 여
 
@@ -47,11 +47,11 @@ Azure AD 계정을 사용 하 여 Azure portal에서 blob 또는 큐 데이터�
 
 Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다음과 같습니다.
 
-- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Posix 액세스 제어를 Azure Data Lake 저장소 Gen2 (미리 보기).
-- [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Blob에 대 한 읽기/쓰기/삭제 권한입니다.
-- [Storage Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Blob에 대 한 읽기 / 쓰기 권한입니다.
-- [Storage 큐 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): 큐에 대 한 읽기/쓰기/삭제 권한입니다.
-- [Storage 큐 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): 큐에 대 한 읽기 / 쓰기 권한입니다.
+- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Posix 액세스 제어를 Azure Data Lake 저장소 Gen2 (미리 보기).
+- [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Blob에 대 한 읽기/쓰기/삭제 권한입니다.
+- [Storage Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Blob에 대 한 읽기 / 쓰기 권한입니다.
+- [Storage 큐 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): 큐에 대 한 읽기/쓰기/삭제 권한입니다.
+- [Storage 큐 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): 큐에 대 한 읽기 / 쓰기 권한입니다.
     
 사용자 지정 역할에는 기본 제공 역할에 의해 제공 되 권한인의 다양 한 조합을 지원할 수 있습니다. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 하 고 [Azure 리소스에 대 한 역할 정의 이해할](../../role-based-access-control/role-definitions.md)합니다.
 

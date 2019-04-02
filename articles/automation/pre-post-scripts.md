@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441511"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793661"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -116,6 +116,9 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 모든 속성을 포함하는 전체 예제는 다음에서 확인할 수 있습니다. [소프트웨어 업데이트 구성 - 이름으로 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
+> [!NOTE]
+> `SoftwareUpdateConfigurationRunContext` 개체에는 컴퓨터에 대 한 중복 항목이 포함 될 수 있습니다. 이 동일한 컴퓨터에서 여러 번 실행 하는 사전 및 사후 스크립트를 발생할 수 있습니다. 문제를 해결 하려면이 동작을 사용 하 여 `Sort-Object -Unique` 스크립트에서 고유한 VM 이름만 선택 합니다.
+
 ## <a name="samples"></a>샘플
 
 사전 및 사후 스크립트에 대한 샘플은 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)에서 찾을 수 있거나 Azure Portal을 통해 가져올 수 있습니다. 포털을 통해 가져오려면 Automation 계정의 **프로세스 자동화** 아래에서 **Runbook 갤러리**를 선택합니다. 필터에 대해 **업데이트 관리**를 사용합니다.
@@ -167,7 +170,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 

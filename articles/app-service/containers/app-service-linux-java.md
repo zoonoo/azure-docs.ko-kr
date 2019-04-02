@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335847"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803528"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -154,6 +154,14 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 ### <a name="configure-tlsssl"></a>TLS/SSL 구성
 
 [기존 사용자 지정 SSL 인증서 바인딩](/azure/app-service/app-service-web-tutorial-custom-ssl)의 지침에 따라 기존 SSL 인증서를 업로드하고 애플리케이션의 도메인 이름에 바인딩합니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
+
+### <a name="use-keyvault-references"></a>사용 하 여 KeyVault 참조
+
+[Azure KeyVault](../../key-vault/key-vault-overview.md) 액세스 정책 및 감사 기록 사용 하 여 중앙 집중식된 보안 관리를 제공 합니다. KeyVault에 비밀 (예: 암호 또는 연결 문자열)을 저장 하 고 환경 변수를 통해 응용 프로그램에서 이러한 비밀에 액세스할 수 있습니다.
+
+먼저 지침을 따르세요 [Key Vault에 응용 프로그램 액세스 권한을 부여](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) 하 고 [비밀에 대 한 KeyVault 참조 응용 프로그램 설정에서 하](../app-service-key-vault-references.md#reference-syntax)합니다. App Service 터미널을 원격으로 액세스 하는 동안 환경 변수를 인쇄 하 여 암호에 대 한 참조 확인을 확인할 수 있습니다.
+
+Spring 또는 Tomcat 구성 파일에서 이러한 암호를 삽입, 환경 변수 주입 구문을 사용 하 여 (`${MY_ENV_VAR}`). Spring 구성 파일에 대 한이 설명서를 참조 하십시오이 온 [구성을 표면화](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)합니다.
 
 ## <a name="data-sources"></a>데이터 원본
 

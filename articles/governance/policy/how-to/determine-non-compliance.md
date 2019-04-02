@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314129"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802748"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -46,7 +46,7 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 
 1. 합니다 **준수 세부 정보** 현재 정책 할당 된 리소스의 최신 평가의 정보를 창에 표시 됩니다. 이 예제에서는 필드 **Microsoft.Sql/servers/version** 것 _12.0_ 예상 하는 정책을 정의 하는 동안 _14.0_합니다. 여러 가지 이유로 리소스 비준수를 각이 창에 나열 됩니다.
 
-   ![규정 준수 세부 정보 창](../media/determine-non-compliance/compliance-details-pane.png)
+   ![비준수에 대 한 이유와 준수 세부 정보 창](../media/determine-non-compliance/compliance-details-pane.png)
 
    에 **auditIfNotExists** 또는 **deployIfNotExists** 세부 정보를 포함 하는 정책 정의 **details.type** 속성과 선택적 속성입니다. 목록에 대해서 [auditIfNotExists 속성](../concepts/effects.md#auditifnotexists-properties) 하 고 [deployIfNotExists 속성](../concepts/effects.md#deployifnotexists-properties)합니다. **마지막으로 리소스를 평가** 에서 관련 리소스를 **세부 정보** 정의의 섹션입니다.
 
@@ -118,11 +118,11 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 
 1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
 
-   ![정책 변경 기록 - 탭](../media/determine-non-compliance/change-history-tab.png)
+   ![규정 준수 리소스 페이지에서 정책 변경 기록 탭](../media/determine-non-compliance/change-history-tab.png)
 
 1. 검색된 변경 중 하나를 선택합니다. _visual diff_ 리소스가 표시 됩니다에 대 한 합니다 **변경 내용** 페이지입니다.
 
-   ![정책 변경 기록 - 시각적 차이](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![정책 변경 기록을 변경 기록 페이지의 시각적 Diff](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색 된 변경 내용은 리소스의 현재 호환성 상태 관련이 있을 수 있습니다.
 

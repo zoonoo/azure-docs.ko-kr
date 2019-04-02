@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3e754d81a18b683e601608b856bbc9da1b790dbd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259383"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804178"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 Azure Portal을 통해 AMS(Azure Media Services) 계정을 신속하게 만들 수 있습니다. 계정을 사용하여 Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍할 수 있는 Media Services에 액세스할 수 있습니다. Media Services 계정을 만들 때 연결된 스토리지 계정도 만듭니다(또는 기존 스토리지 계정 사용). Media Services 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
 

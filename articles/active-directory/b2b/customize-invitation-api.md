@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111313"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793389"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
 조직에 가장 잘 작동하는 방식으로 초대 프로세스를 사용자 지정하기 원하는 많은 고객이 있습니다. API를 사용하면 이 작업을 수행할 수 있습니다. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>초대 API의 기능
+
 이 API는 다음과 같은 기능을 제공합니다.
 
 1. *어떤* 전자 메일 주소가 있는 내부 사용자도 초대할 수 있습니다.
@@ -68,21 +69,25 @@ ms.locfileid: "58111313"
 
 
 ## <a name="authorization-model"></a>인증 모델
+
 API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 
 ### <a name="app--user-mode"></a>앱 + 사용자 모드
+
 이 모드에서 API를 사용하는 모든 사용자에게 B2B 초대를 만들기 위한 권한이 있어야 합니다.
 
 ### <a name="app-only-mode"></a>앱 전용 모드
+
 앱 전용 컨텍스트에서 초대가 성공하려면 앱에 User.Invite.All 범위가 필요합니다.
 
 자세한 내용은 https://developer.microsoft.com/graph/docs/authorization/permission_scopes를 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell
+
 PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ New-AzureADMSInvitation
 
 **Filter** 옵션을 사용하여 **UserState**별로 결과를 필터링할 수 있습니다. 아래 예제에서는 보류 중인 초대를 보유한 사용자만 표시하도록 결과를 필터링하는 방법을 보여 줍니다. 이 예제에서는 표시할 속성을 지정할 수 있는 **Format-List** 옵션도 보여 줍니다. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 - [B2B 공동 작업 초대 전자 메일의 요소](invitation-email-elements.md)
 - [B2B 공동 작업 초대 상환](redemption-experience.md)
 - [초대 없이 B2B 공동 작업 사용자 추가](add-user-without-invite.md)
-

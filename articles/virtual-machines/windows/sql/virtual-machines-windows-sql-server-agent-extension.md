@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767128"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762704"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
 > [!div class="op_single_selector"]
@@ -70,17 +70,31 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 > 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 확장이 지원하는 기능은 에이전트를 제거한 후 SQL VM에 사용할 수 없습니다.
 
 ## <a name="installation"></a>설치
-SQL Server IaaS 에이전트 확장은 SQL Server 가상 머신 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다. 이러한 SQL Server VM 중 하나에서 확장을 수동으로 다시 설치해야 하는 경우 다음 PowerShell 명령을 사용합니다.
+SQL Server IaaS 에이전트 확장은 SQL Server 가상 머신 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다. SQL IaaS 확장은 SQL Server VM에서 단일 인스턴스에 대 한 관리 효율성을 제공합니다. 기본 인스턴스의 경우 기본 인스턴스를 확장 한 다음 작동 하 고 다른 인스턴스 관리를 지원 하지 않습니다. 기본 인스턴스가 없는 하지만 명명 된 인스턴스를 하나만 있으면 명명된 된 인스턴스를 관리 합니다. 기본 인스턴스가 없는 경우 명명 된 인스턴스가 여러 개 확장 설치에 실패 합니다. 
+
+
+
+이러한 SQL Server VM 중 하나에서 확장을 수동으로 다시 설치해야 하는 경우 다음 PowerShell 명령을 사용합니다.
 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
-> [!IMPORTANT]
+> [!WARNING]
 > 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server 서비스가 다시 시작됩니다. 그러나 SQL IaaS 확장을 업데이트해도 SQL Server 서비스가 다시 시작되지 않습니다. 
 
 > [!NOTE]
-> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 확장을 수동으로 설치하고 관리할 수 있지만 Azure Portal에서 SQL Server 구성 설정을 가져오지 못합니다. 그러나 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 이를 사용자 지정하는 것이 매우 좋습니다.
+> 사용자 지정 SQL Server 이미지에 SQL Server IaaS 에이전트 확장을 설치할 수 있지만, 기능은 현재 제한 [라이선스 유형을 변경](virtual-machines-windows-sql-ahb.md)합니다. SQL IaaS 확장에서 제공 하는 다른 기능에만 작동 [SQL Server VM 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (종 량 제 또는 bring your-own license).
+
+### <a name="use-a-single-named-instance"></a>명명 된 인스턴스는 단일을 사용 합니다.
+SQL IaaS 확장 작동 명명된 된 인스턴스를 사용 하 여 SQL Server 이미지에는 기본 인스턴스를 제대로 제거할 경우 IaaS 확장을 다시 설치 하는 경우.
+
+SQL Server의 명명된 된 인스턴스를 사용 하려면 다음을 수행 합니다.
+   1. Marketplace에서 SQL Server VM을 배포 합니다. 
+   1. 내에서 IaaS 확장을 제거 합니다 [Azure portal](https://portal.azure.com)합니다.
+   1. SQL Server SQL Server VM 내에서 완전히 제거 합니다.
+   1. SQL Server VM 내에서 명명된 된 인스턴스를 사용 하 여 SQL Server를 설치 합니다. 
+   1. Azure portal 내에서 IaaS 확장을 설치 합니다.  
 
 ## <a name="status"></a>상태
 확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 창에서 **모든 설정**을 선택하고 **확장**을 클릭합니다. **SqlIaasExtension** 확장이 나열되어야 합니다.
@@ -98,7 +112,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>제거
-Azure Portal에서 가상 머신 속성의 **확장** 창에서 줄임표를 클릭하여 확장을 제거할 수 있습니다. 그런 다음 **삭제**를 클릭합니다.
+Azure portal에서 줄임표를 클릭 하 여 확장을 제거할 수 있습니다 합니다 **확장** 가상 머신 속성의 창. 그런 다음 **삭제**를 클릭합니다.
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장 제거](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

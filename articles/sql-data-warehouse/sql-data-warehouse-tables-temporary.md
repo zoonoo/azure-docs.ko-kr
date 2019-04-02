@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/01/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434762"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793104"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 임시 테이블
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
 
 ## <a name="what-are-temporary-tables"></a>임시 테이블이란?
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 임시 테이블은 Microsoft Azure SQL Data Warehouse의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.  Azure SQL Data Warehouse의 임시 테이블은 저장 프로시저의 내부 및 외부를 비롯하여 세션 내의 어디에서나 액세스할 수 있으므로 Azure SQL Database의 임시 테이블과 약간 다릅니다.
+특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 임시 테이블은 Microsoft Azure SQL Data Warehouse의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
 ## <a name="create-a-temporary-table"></a>임시 테이블 만들기
 임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예를 들면 다음과 같습니다.
@@ -215,7 +215,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
-임시 테이블을 구현하는 경우 SQL Data Warehouse는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.
+임시 테이블을 구현하는 경우 SQL Data Warehouse는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.  임시 테이블은 해시 또는 라운드 로빈 배포를 사용 하 여만 만들 수 있습니다.  복제 된 임시 테이블 배포 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 테이블 개발에 대해 자세히 알아보려면 [테이블 개요](sql-data-warehouse-tables-overview.md)를 참조하세요.

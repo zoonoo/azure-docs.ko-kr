@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 5f304a02e73ea5691fdbce2743c2a633d2170949
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 1025f358df5e19d7be22b3a26d671ded9f2393b9
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650311"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802631"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -33,16 +33,19 @@ ms.locfileid: "58650311"
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
 2. Recovery Services 자격 증명 모음은 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
 
     ```powershell
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
+
 3. 사용 하 여는 **새로 만들기-AzRecoveryServicesVault** cmdlet을 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
+
 4. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
    > [!TIP]
@@ -51,8 +54,8 @@ ms.locfileid: "58650311"
    >
 
     ```powershell
-    $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
-    Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    $Vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    Set-AzRecoveryServicesBackupProperties -Vault $Vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
@@ -131,8 +134,8 @@ MARSAgentInstaller.exe /?
 Recovery Services 자격 증명 모음을 만든 후에, 최신 에이전트 및 보관 자격 증명을 다운로드하여 편리한 위치(예: C:\Downloads)에 저장합니다.
 
 ```powershell
-$credspath = "C:\downloads"
-$credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
 Windows Server 또는 Windows 클라이언트 컴퓨터에서, [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet을 실행하여 컴퓨터를 자격 증명 모음에 등록합니다.
@@ -141,28 +144,26 @@ Windows Server 또는 Windows 클라이언트 컴퓨터에서, [Start-OBRegistra
 에이전트 설치 관리자는 $Env:PSModulePath 변수를 업데이트하지 않습니다. 즉, 모듈 자동 로드에 실패합니다. 이 문제를 해결하려면 다음을 수행하면 됩니다.
 
 ```powershell
-$Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
+$Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 또는 다음과 같이 스크립트에 모듈을 수동으로 로드할 수 있습니다.
 
 ```powershell
-Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
-
+Import-Module -Name 'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
 ```
 
 Online Backup cmdlet을 로드하면 자격 증명 모음을 등록합니다.
 
-
 ```powershell
-Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
+Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 ```
 
 ```Output
-CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
+CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
-ServiceResourceName: testvault
-Region              :WestUS
+ServiceResourceName : testvault
+Region              : WestUS
 Machine registration succeeded.
 ```
 
@@ -175,7 +176,7 @@ Machine registration succeeded.
 
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
-대역폭 사용 역시 주의 정해진 요일에 대해 ```work hour bandwidth``` 및 ```non-work hour bandwidth``` 옵션으로 제어할 수 있습니다.
+대역폭 사용 역시 주의 정해진 요일에 대해 `work hour bandwidth` 및 `non-work hour bandwidth` 옵션으로 제어할 수 있습니다.
 
 프록시 및 대역폭 세부 정보 설정은 [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet을 사용합니다.
 
@@ -200,9 +201,7 @@ Server properties updated successfully.
 Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
 ```powershell
-ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
-$PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
-$PassCode   = 'AzureR0ckx'
+$PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
 ```
 
@@ -226,7 +225,7 @@ Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 
 이 문서에서는 백업을 자동화하기 때문에 아무것도 구성되지 않은 것으로 가정합니다. 먼저 [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet을 사용하여 새로운 백업 정책을 만듭니다.
 
 ```powershell
-$newpolicy = New-OBPolicy
+$NewPolicy = New-OBPolicy
 ```
 
 지금은 정책이 비어 있으며 포함하거나 제외시킬 항목, 백업 실행 시기 및 백업이 저장될 위치를 정의하려면 다른 cmdlet이 필요합니다.
@@ -241,13 +240,13 @@ $newpolicy = New-OBPolicy
 예를 들어, 토요일과 일요일마다 오후 4시에 실행되는 백업 정책을 구성할 수 있습니다.
 
 ```powershell
-$sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
+$Schedule = New-OBSchedule -DaysOfWeek Saturday, Sunday -TimesOfDay 16:00
 ```
 
 백업 일정은 정책과 연결되어야 하며 이 작업은 [Set-OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet을 사용하여 수행할 수 있습니다.
 
 ```powershell
-Set-OBSchedule -Policy $newpolicy -Schedule $sched
+Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```
 
 ```Output
@@ -258,13 +257,13 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet을 사용하여 새 보존 정책을 만들 때 Azure Backup을 사용하여 백업 복구 지점을 유지해야 할 일수를 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
 
 ```powershell
-$retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
+$RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
 보존 정책은 cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)를 사용하여 기본 정책과 연결되어야 합니다.
 
 ```powershell
-Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
+Set-OBRetentionPolicy -Policy $NewPolicy -RetentionPolicy $RetentionPolicy
 ```
 
 ```Output
@@ -289,7 +288,7 @@ PolicyState     : Valid
 ```
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>백업할 파일 포함 및 제외
 
-```OBFileSpec``` 개체는 백업에 포함 및 제외시킬 파일을 정의합니다. 이 개체는 컴퓨터에서 보호된 파일 및 폴더를 자세히 살펴보는 규칙의 집합입니다. 필요에 따라 원하는 만큼 파일을 포함 또는 제외시키고 정책과 연결할 수 있습니다. 새 OBFileSpec 개체를 만드는 경우 다음 작업을 수행할 수 있습니다.
+`OBFileSpec` 개체는 백업에 포함 및 제외시킬 파일을 정의합니다. 이 개체는 컴퓨터에서 보호된 파일 및 폴더를 자세히 살펴보는 규칙의 집합입니다. 필요에 따라 원하는 만큼 파일을 포함 또는 제외시키고 정책과 연결할 수 있습니다. 새 OBFileSpec 개체를 만드는 경우 다음 작업을 수행할 수 있습니다.
 
 * 포함시킬 파일 및 폴더 지정
 * 제외시킬 파일 및 폴더 지정
@@ -300,9 +299,9 @@ PolicyState     : Valid
 아래 예제에서는 C: 및 D: 볼륨을 백업하고 Windows 폴더 및 임시 폴더에 있는 운영 체제 바이너리를 제외시킵니다. 이를 수행하기 위해 [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet을 사용하여 두 개의 파일 사양을 만드는데, 하나는 포함용이고 또 하나는 제외용입니다. 파일 사양을 만들고 나면 [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet을 사용하여 정책과 연결됩니다.
 
 ```powershell
-$inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
-$exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
-Add-OBFileSpec -Policy $newpolicy -FileSpec $inclusions
+$Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
+$Exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
+Add-OBFileSpec -Policy $NewPolicy -FileSpec $Inclusions
 ```
 
 ```Output
@@ -343,7 +342,7 @@ PolicyState     : Valid
 ```
 
 ```powershell
-Add-OBFileSpec -Policy $newpolicy -FileSpec $exclusions
+Add-OBFileSpec -Policy $NewPolicy -FileSpec $Exclusions
 ```
 
 ```Output
@@ -393,7 +392,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>정책 적용
 
-이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure Backup에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
+이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure Backup에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 `-Confirm:$false` 플래그를 cmdlet과 함께 사용합니다.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -403,10 +402,10 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-정책 개체 커밋은 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet을 사용하여 수행됩니다. 이 작업에서도 확인 메시지가 표시됩니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
+정책 개체 커밋은 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet을 사용하여 수행됩니다. 이 작업에서도 확인 메시지가 표시됩니다. 확인 메시지를 건너뛰려면 `-Confirm:$false` 플래그를 cmdlet과 함께 사용합니다.
 
 ```powershell
-Set-OBPolicy -Policy $newpolicy
+Set-OBPolicy -Policy $NewPolicy
 ```
 
 ```Output
@@ -539,8 +538,8 @@ The backup operation completed successfully.
 Azure Backup에서 항목을 복원하려면 먼저 항목의 원본을 식별해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
 
 ```powershell
-$source = Get-OBRecoverableSource
-$source
+$Source = Get-OBRecoverableSource
+$Source
 ```
 
 ```Output
@@ -558,7 +557,7 @@ ServerName : myserver.microsoft.com
 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 백업 시점 목록을 검색합니다. 이 예제에서는 원본 볼륨 *D:* 의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
 
 ```powershell
-$rps = Get-OBRecoverableItem -Source $source[1]
+$Rps = Get-OBRecoverableItem -Source $Source[1]
 ```
 
 ```Output
@@ -584,17 +583,18 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime :
 ```
-개체 ```$rps``` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 ```$rps[0]```을 사용합니다.
+
+개체 `$Rps` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 `$Rps[0]`을 사용합니다.
 
 ### <a name="choosing-an-item-to-restore"></a>복원할 항목 선택
 
-복원할 정확한 파일 또는 폴더를 식별하려면 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 재귀적으로 사용합니다. 이런 방식으로 ```Get-OBRecoverableItem```만 사용하여 폴더 계층 구조를 탐색할 수 있습니다.
+복원할 정확한 파일 또는 폴더를 식별하려면 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 재귀적으로 사용합니다. 이런 방식으로 `Get-OBRecoverableItem`만 사용하여 폴더 계층 구조를 탐색할 수 있습니다.
 
-이 예제에서는 *finances.xls* 파일을 복원하려는 경우 개체 ```$filesFolders[1]```을 사용하여 해당 파일을 참조할 수 있습니다.
+이 예제에서는 *finances.xls* 파일을 복원하려는 경우 개체 `$FilesFolders[1]`을 사용하여 해당 파일을 참조할 수 있습니다.
 
 ```powershell
-$filesFolders = Get-OBRecoverableItem $rps[0]
-$filesFolders
+$FilesFolders = Get-OBRecoverableItem $Rps[0]
+$FilesFolders
 ```
 
 ```Output
@@ -611,8 +611,8 @@ ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
 ```
 
 ```powershell
-$filesFolders = Get-OBRecoverableItem $filesFolders[0]
-$filesFolders
+$FilesFolders = Get-OBRecoverableItem $FilesFolders[0]
+$FilesFolders
 ```
 
 ```Output
@@ -642,7 +642,7 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```Get-OBRecoverableItem``` cmdlet을 사용하여 복원할 항목을 검색할 수도 있습니다. 이 예제에서 *finances.xls* 를 검색하려면 다음 명령을 실행하여 파일에 대한 핸들을 가져올 수 있습니다.
 
 ```powershell
-$item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
+$Item = Get-OBRecoverableItem -RecoveryPoint $Rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
 ### <a name="triggering-the-restore-process"></a>복원 프로세스 트리거
@@ -650,13 +650,13 @@ $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -Sear
 복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp*로 복원한다고 가정해 보겠습니다. 또한 대상 폴더 *C:\temp*에 이미 존재하는 파일은 건너뛴다고 가정해 보겠습니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
 
 ```powershell
-$recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
+$RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-이제 ```Get-OBRecoverableItem``` cmdlet의 출력에서 선택한 ```$item```에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원 프로세스를 트리거합니다.
+이제 `Get-OBRecoverableItem` cmdlet의 출력에서 선택한 `$Item`에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원 프로세스를 트리거합니다.
 
 ```powershell
-Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
+Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption
 ```
 
 ```Output
@@ -667,7 +667,6 @@ Estimating size of backup items...
 Job completed.
 The recovery operation completed successfully.
 ```
-
 
 ## <a name="uninstalling-the-azure-backup-agent"></a>Azure Backup 에이전트 제거
 
@@ -692,7 +691,7 @@ Azure Backup 에이전트, 정책, 데이터 원본과 관련된 모든 관리�
 기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
 ```powershell
-Get-Service WinRM
+Get-Service -Name WinRM
 ```
 
 ```Output
@@ -704,7 +703,7 @@ Running  winrm              Windows Remote Management (WS-Manag...
 PowerShell을 원격 작업용으로 구성해야 합니다.
 
 ```powershell
-Enable-PSRemoting -force
+Enable-PSRemoting -Force
 ```
 
 ```Output
@@ -714,19 +713,19 @@ WinRM firewall exception enabled.
 ```
 
 ```powershell
-Set-ExecutionPolicy unrestricted -force
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 ```
 
 이제 에이전트 설치부터 시작하여 컴퓨터를 원격으로 관리할 수 있습니다. 예를 들어, 다음 스크립트는 에이전트를 원격 컴퓨터로 복사하고 설치합니다.
 
 ```powershell
-$dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-$agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
-$args = "/q"
-Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
+$DLoc = "\\REMOTESERVER01\c$\Windows\Temp"
+$Agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+$Args = "/q"
+Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $DLoc -Force
 
-$s = New-PSSession -ComputerName REMOTESERVER01
-Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePath $d $a -Wait } -ArgumentList $agent $args
+$Session = New-PSSession -ComputerName REMOTESERVER01
+Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath $D $A -Wait } -ArgumentList $Agent, $Args
 ```
 
 ## <a name="next-steps"></a>다음 단계

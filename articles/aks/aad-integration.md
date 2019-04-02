@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2ed053479b11bada4cfc0ec808ad148f024dee6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087536"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803251"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -149,7 +149,15 @@ Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역�
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-다음으로 다음 매니페스트를 사용하여 Azure AD 계정에 대한 ClusterRoleBinding을 만듭니다. 이 예제에서는 계정에 클러스터의 모든 네임스페이스에 대한 모든 권한을 제공합니다. *rbac-aad-user.yaml*과 같은 파일을 만들고 다음 내용을 붙여 넣습니다. 사용자 이름을 Azure AD 테넌트의 이름으로 업데이트합니다.
+다음으로 다음 매니페스트를 사용하여 Azure AD 계정에 대한 ClusterRoleBinding을 만듭니다. 이 예제에서는 계정에 클러스터의 모든 네임스페이스에 대한 모든 권한을 제공합니다. 
+
+가져오기의 *objectId* 필요한 사용자의 계정을 사용 하 여 합니다 [az ad 사용자 표시] [ az-ad-user-show] 명령입니다. 필요한 계정의 사용자 계정 이름 (UPN)을 제공 합니다.
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+*rbac-aad-user.yaml*과 같은 파일을 만들고 다음 내용을 붙여 넣습니다. 이전 단계에서 얻은 Azure AD에서 사용자 계정의 개체 ID를 사용 하 여 사용자 이름을 업데이트 합니다.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +171,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 다음 예제와 같이 [kubectl apply][kubectl-apply] 명령을 사용하여 바인딩을 적용합니다.
@@ -242,3 +250,4 @@ error: You must be logged in to the server (Unauthorized)
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

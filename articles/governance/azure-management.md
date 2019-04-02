@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338073"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804142"
 ---
-# <a name="management-in-azure"></a>Azure의 관리
+# <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요
 
 Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서에서는 Azure에서 리소스를 배포 및 유지 관리하기 위해 다양한 관리 영역을 다룹니다.
 
@@ -22,7 +22,7 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 
 다음 다이어그램에서는 애플리케이션이나 리소스를 유지 관리하는 데 필요한 관리의 다른 영역을 보여줍니다. 이러한 여러 영역을 수명 주기로 간주할 수 있습니다. 각 영역은 리소스의 수명을 계속 연속하는 데 필요 합니다. 이 리소스 수명은 초기 배포로 시작하고 연속된 작업을 거친 다음, 마지막으로 사용 중지될 때 끝납니다.
 
-![관리 분야](../monitoring/media/management-overview/management-capabilities.png)
+![Azure의 관리 분야](../monitoring/media/management-overview/management-capabilities.png)
 
 단일 Azure 서비스가 특정 관리 영역의 요구 사항을 완전히 충족시키지 못합니다. 대신, 각 요구 사항은 함께 작동하는 여러 서비스를 통해 실현됩니다. Application Insights와 같은 일부 서비스는 웹 애플리케이션에 대한 대상 모니터링 기능을 제공합니다. Azure Monitor 로그와 같은 다른 서비스는 기타 서비스에 대한 관리 데이터를 저장합니다. 이 기능을 사용하면 다양한 서비스에서 수집된 다양한 유형의 데이터를 분석할 수 있습니다.
 

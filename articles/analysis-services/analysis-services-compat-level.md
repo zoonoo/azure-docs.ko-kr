@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880129"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803496"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 테이블 형식 모델에 대한 호환성 수준
 
@@ -27,7 +27,11 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
 *  해당 항목 내의 데이터 외의 테이블 및 열 이름에 대한 개체 수준 보안.
 *  불균형 계층 구조에 대한 향상된 지원.
 *  성능 및 모니터링 향상.
- 
+
+> [!NOTE]
+> Azure Analysis Services 1465 호환성 수준에서 가져온된 Power BI Desktop 파일을 지원합니다. 그러나 이었던 항상 미리 보기 기능, Power BI Desktop 기능에서 가져오기 중단 되었으며 2019 년 3 월에에서 서비스에서 제거 됩니다. 기존 모델 1465 호환성 수준에서 계속 지원 합니다.  
+
+
 ## <a name="set-compatibility-level"></a>호환성 수준 설정
 
  SSDT에서 새 테이블 형식 모델 프로젝트를 만들 때 **테이블 형식 모델 디자이너** 대화 상자에서 호환성 수준을 지정할 수 있습니다. 
@@ -47,6 +51,9 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
  SSMS에서 서버 이름 > **속성** > **지원되는 호환성 수준**을 마우스 오른쪽 단추로 클릭합니다.  
   
  이 속성을 서버에서 실행되는 데이터베이스의 가장 높은 호환성 수준을 지정합니다(미리 보기 제외). 지원되는 호환성 수준을 변경할 수 없습니다.  
+
+> [!NOTE]
+> SSMS는 Azure Analysis Services 서버에 연결 하는 경우에 **지원 되는 호환성 수준** 속성이 표시 됩니다 **1200**합니다. 알려진된 문제 이며 향후 SSMS에서 해결 될 것이 업데이트 합니다. 해결 하는 경우이 속성에는 가장 높은 지원 되는 호환성 수준을 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

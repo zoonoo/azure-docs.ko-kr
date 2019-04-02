@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483208"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803581"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>CLI 또는 PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하려면 Azure AD id 사용
 
@@ -61,7 +61,7 @@ Azure CLI를 지원 합니다 `--auth-mode` blob 및 큐 데이터 작업에 대
         --encryption-services blob
     ```
     
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
     > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.
@@ -114,7 +114,7 @@ Azure CLI를 지원 합니다 `--auth-mode` blob 및 큐 데이터 작업에 대
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
+1. 컨테이너를 만들기 전에 할당 된 [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 자신에 게는 역할입니다. 계정 소유자 인 경우에 명시적 권한을 저장소 계정에 대 한 데이터 작업을 수행 해야 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](storage-auth-aad-rbac.md)합니다.
 
     > [!IMPORTANT]
     > RBAC 역할 할당에 전파 하는 데는 몇 분 정도 걸릴 수 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754784"
+ms.locfileid: "58762772"
 ---
 # <a name="send-security-messages-sdk"></a>SDK의 보안 메시지 보내기
 
@@ -88,7 +88,7 @@ ASC IoT에 대 한 다음 조건을 사용 하 여 보안 메시지를 정의 �
 
 ## <a name="send-security-messages"></a>보안 메시지 보내기 
 
-ASC를 사용 하 여 IoT 에이전트에 대 한 사용 하지 않고 보안 메시지를 전송 합니다 [Azure IoT C# 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [Azure IoT C 장치 SDK](https://github.com/Azure/azure-iot-sdk-c)합니다.
+ASC를 사용 하 여 IoT 에이전트에 대 한 사용 하지 않고 보안 메시지를 전송 합니다 [Azure IoT C# 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) 또는 [Azure IoT C 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)합니다.
 
 IoT 용 ASC에서 처리 하기 위해 장치에서 장치 데이터를 보내도록 IoT 처리 파이프라인에 대 한 ASC에 올바른 라우팅에 대 한 메시지를 표시 하려면 다음 Api 중 하나를 사용 합니다. 이러한 방식으로 전송 된 메시지 처리 되어 ASC에서 보안 insights로 Azure Security Center 또는 둘 다 IoT Hub에서 IoT에 대 한 표시 됩니다. 
 

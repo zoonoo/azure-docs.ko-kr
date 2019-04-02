@@ -16,14 +16,15 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193331"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793325"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
+
 이 항목에서는 암호 해시 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
 
 버전 1.1.614.0 이상인 Azure AD(Azure Active Directory) Connect 배포의 경우, 암호 해시 동기화 문제를 해결하는 데 마법사에서 문제 해결 작업을 사용할 수 있습니다.
@@ -47,12 +48,14 @@ ms.locfileid: "57193331"
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>암호가 동기화되지 않음: 문제 해결 작업을 사용하여 문제 해결
+
 문제 해결 작업을 사용하여 암호가 동기화되지 않은 이유를 파악할 수 있습니다.
 
 > [!NOTE]
 > 문제 해결 작업은 Azure AD Connect 버전 1.1.614.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="run-the-troubleshooting-task"></a>문제 해결 작업 실행
+
 암호가 동기화되지 않는 문제를 해결하려면
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
@@ -70,6 +73,7 @@ ms.locfileid: "57193331"
 7. 하위 메뉴에서 **암호 해시 동기화가 전혀 작동하지 않음**을 선택합니다.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
+
 문제 해결 작업에서는 다음 검사를 수행합니다.
 
 * Azure AD 테넌트에 암호 해시 동기화 기능이 사용되는지 확인합니다.
@@ -95,26 +99,31 @@ ms.locfileid: "57193331"
 이 섹션의 나머지 부분에서는 이 작업과, 해당 문제에서 반환되는 특정 결과에 대해 설명합니다.
 
 #### <a name="password-hash-synchronization-feature-isnt-enabled"></a>암호 해시 동기화 기능이 사용되지 않음
+
 Azure AD Connect 마법사를 통해 암호 해시 동기화를 사용하도록 설정하지 않은 경우 다음 오류가 반환됩니다.
 
 ![암호 해시 동기화가 사용되지 않음](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
 #### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Azure AD Connect 서버가 준비 모드에 있음
+
 Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가 일시적으로 사용되지 않고 다음 오류가 반환됩니다.
 
 ![Azure AD Connect 서버가 준비 모드에 있음](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### <a name="no-password-hash-synchronization-heartbeat-events"></a>암호 해시 동기화 하트비트 이벤트 없음
+
 각각의 온-프레미스 Active Directory 커넥터에 자체 암호 해시 동기화 채널이 있습니다. 암호 해시 동기화 채널이 설정되었으며 동기화할 암호 변경 내용이 없는 경우, Windows 애플리케이션 이벤트 로그 아래에 하트비트 이벤트(EventId 654)가 30분마다 생성됩니다. 각각의 온-프레미스 Active Directory 커넥터에 대해 cmdlet은 지난 3시간 동안의 해당 하트비트 이벤트를 검색합니다. 하트비트 이벤트가 발견되면 다음 오류가 반환됩니다.
 
 ![암호 해시 동기화 하트비트 이벤트 없음](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
 #### <a name="ad-ds-account-does-not-have-correct-permissions"></a>AD DS 계정에 올바른 사용 권한이 없음
+
 온-프레미스 Active Directory 커넥터가 암호 해시 동기화에 사용하는 AD DS 계정에 적절한 사용 권한이 없으면 다음 오류가 반환됩니다.
 
 ![잘못된 자격 증명](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>잘못된 AD DS 계정 사용자 이름 또는 암호
+
 온-프레미스 Active Directory 커넥터가 암호 해시 동기화에 사용하는 AD DS 계정에 잘못된 사용자 이름 또는 암호가 있으면 다음 오류가 반환됩니다.
 
 ![잘못된 자격 증명](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
@@ -129,6 +138,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 > 문제 해결 작업은 Azure AD Connect 버전 1.1.614.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+
 특정 사용자 개체에 대한 문제 해결
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
@@ -146,6 +156,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 7. 하위 메뉴에서 **특정 사용자 계정에 대해 암호가 동기화되지 않음**을 선택합니다.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
+
 문제 해결 작업에서는 다음 검사를 수행합니다.
 
 * Active Directory 커넥터 공간, 메타버스 및 Azure AD 커넥터 공간에서 Active Directory 개체의 상태를 검사합니다.
@@ -161,16 +172,19 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 이 섹션의 나머지 부분에서는 cmdlet 및 해당 문제에서 반환되는 특정 결과에 대해 설명합니다.
 
 #### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Active Directory 개체가 Azure AD로 내보내지지 않음
+
 이 온-프레미스 Active Directory 계정에 대한 암호 해시 동기화는 Azure AD 테넌트에 해당 개체가 없으므로 실패합니다. 다음 오류가 반환됩니다.
 
 ![Azure AD 개체가 없음](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>사용자에게 임시 암호가 있음
+
 현재, Azure AD Connect는 임시 암호를 Azure AD와 동기화하는 기능을 지원하지 않습니다. **다음 로그온할 때 암호 변경** 옵션이 온-프레미스 Active Directory 사용자에 설정되어 있으면 임시 암호로 간주됩니다. 다음 오류가 반환됩니다.
 
 ![임시 암호는 내보내지지 않음](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
 #### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>마지막 암호 동기화 시도의 결과를 사용할 수 없음
+
 기본적으로 Azure AD Connect는 7일 동안의 암호 해시 동기화 시도 결과를 저장합니다. 선택한 Active Directory 개체에 대한 결과를 사용할 수 없는 경우 다음 경고가 반환됩니다.
 
 ![단일 개체에 대한 진단 출력 - 암호 동기화 기록 없음](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
@@ -178,12 +192,14 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>암호가 동기화되지 않음: 진단 cmdlet을 사용하여 문제 해결
+
 `Invoke-ADSyncDiagnostics` cmdlet을 사용하여 암호가 동기화되지 않은 이유를 파악할 수 있습니다.
 
 > [!NOTE]
 > `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+
 암호가 동기화되지 않는 문제를 해결하려면
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
@@ -197,12 +213,14 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 
 ## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>한 개체가 암호를 동기화하지 않음: 진단 cmdlet을 사용하여 문제 해결
+
 `Invoke-ADSyncDiagnostics` cmdlet을 사용하여 한 개체가 암호를 동기화하지 않는 이유를 확인할 수 있습니다.
 
 > [!NOTE]
 > `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+
 사용자에 대해 암호가 동기화되지 않는 문제를 해결하려면
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
@@ -212,17 +230,21 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 3. `Import-Module ADSyncDiagnostics`을 실행합니다.
 
 4. 다음 cmdlet을 실행합니다.
+
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
+
    예를 들면 다음과 같습니다.
-   ```
+
+   ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
 
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>암호가 동기화되지 않음: 수동 문제 해결 단계
+
 암호가 동기화되지 않는 이유를 확인하려면 다음 단계를 따르세요.
 
 1. 연결 서버가 [스테이징 모드](how-to-connect-sync-staging-server.md)인가요? 스테이징 모드의 서버는 암호를 동기화하지 않습니다.
@@ -276,6 +298,7 @@ Azure AD와 연결되어 있나요?
 10. 스크립트에서 하트비트가 없음을 보여 주는 경우 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)에서 스크립트를 실행합니다.
 
 ## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>한 개체가 암호를 동기화하지 않음: 수동 문제 해결 단계
+
 개체의 상태를 검토하여 암호 해시 동기화 문제를 쉽게 해결할 수 있습니다.
 
 1. **Active Directory 사용자 및 컴퓨터**에서 해당 사용자를 검색하고 **다음 로그온할 때 반드시 암호 변경** 확인란이 선택 취소되어 있는지 확인합니다.  
@@ -325,6 +348,7 @@ Azure AD와 연결되어 있나요?
     ![커넥터 공간 개체 속성 대화 상자](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
 ### <a name="password-sync-log"></a>암호 동기화 로그
+
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
 | 상태 | 설명 |
@@ -343,7 +367,8 @@ Azure AD와 연결되어 있나요?
 ## <a name="scripts-to-help-troubleshooting"></a>문제 해결에 도움이 되는 스크립트
 
 ### <a name="get-the-status-of-password-sync-settings"></a>암호 동기화 설정의 상태 가져오기
-```
+
+```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
 $aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
@@ -397,12 +422,13 @@ Write-Host
 ```
 
 #### <a name="trigger-a-full-sync-of-all-passwords"></a>모든 암호의 전체 동기화 트리거
+
 > [!NOTE]
 > 이 스크립트는 한 번만 실행합니다. 이 스크립트를 두 번 이상 실행해야 한다면 문제가 있는 것입니다. 문제를 해결하려면 Microsoft 지원에 문의하세요.
 
 다음 스크립트를 사용하여 모든 암호의 전체 동기화를 트리거할 수 있습니다.
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
 Import-Module adsync
@@ -417,6 +443,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure AD Connect 동기화로 암호 해시 동기화 구현](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
