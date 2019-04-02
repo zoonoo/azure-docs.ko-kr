@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884202"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443841"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure SQL Data Warehouse에서 계산 일시 중지 및 다시 시작
 
@@ -61,8 +61,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 
     ![서버 이름 및 리소스 그룹](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 데이터베이스 이름에 해당하는 데이터 웨어하우스 이름을 적어 둡니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다. 이러한 항목을
-5.  일시 중지 및 다시 시작 명령에서 사용합니다.
+4. 데이터베이스 이름에 해당하는 데이터 웨어하우스 이름을 적어 둡니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다.
 6. 서버가 foo.database.windows.net인 경우 PowerShell cmdlet에 서버 이름의 첫 번째 부분만 사용합니다. 위 그림에서 전체 서버 이름은 newserver-20171113.database.windows.net입니다. PowerShell cmdlet에서 접미사를 삭제하고 **newserver-20171113**을 서버 이름으로 사용합니다.
 
 ## <a name="pause-compute"></a>계산 일시 중지
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>데이터 웨어하우스 작업의 상태 확인
+
+데이터 웨어하우스의 상태를 확인하려면, [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description) cmdlet을 사용합니다.
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

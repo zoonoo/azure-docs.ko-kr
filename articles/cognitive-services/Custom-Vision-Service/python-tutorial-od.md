@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727028"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485971"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
+이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,7 +30,7 @@ ms.locfileid: "57727028"
 
 Python용 Custom Vision Service SDK를 설치하려면 PowerShell에서 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -57,11 +57,14 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
+
+publish_iteration_name = "detectModel"
 
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
+obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
 
 # Create a new project
 print ("Creating project...")
@@ -131,9 +134,13 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다. 다음 코드를 추가합니다.
 
 ```Python
+# Update this with the path to where you downloaded the images.
+base_image_url = "<path to the images>"
+
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -142,23 +149,27 @@ for file_name in fork_image_regions.keys():
     x,y,w,h = fork_image_regions[file_name]
     regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
 for file_name in scissors_image_regions.keys():
     x,y,w,h = scissors_image_regions[file_name]
     regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
-
-trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+upload_result = trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-### <a name="train-the-project"></a>프로젝트 학습
+### <a name="train-the-project-and-publish"></a>프로젝트 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```Python
 import time
@@ -170,12 +181,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -187,19 +198,19 @@ from azure.cognitiveservices.vision.customvision.prediction import CustomVisionP
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
-with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.predict_image(project.id, test_data, iteration.id)
+with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:
+    results = predictor.detect_image(project.id, publish_iteration_name, test_data)
 
-# Display the results.
+# Display the results.    
 for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
+    print("\t" + prediction.tag_name + ": {0:.2f}% bbox.left = {1:.2f}, bbox.top = {2:.2f}, bbox.width = {3:.2f}, bbox.height = {4:.2f}".format(prediction.probability * 100, prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height))
 ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 *sample.py* 파일을 실행합니다.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 

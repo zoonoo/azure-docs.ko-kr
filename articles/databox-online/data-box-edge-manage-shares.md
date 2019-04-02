@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897815"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519836"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Azure Portal을 사용하여 Azure Data Box Edge에서 공유 관리
 
 이 문서에서는 Azure Data Box Edge에서 공유를 관리하는 방법을 설명합니다. 로컬 웹 UI 또는 Azure Portal을 통해 Azure Data Box Edge를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다.
-
-> [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 
 ## <a name="about-shares"></a>공유에 대한 정보
 
@@ -67,8 +63,10 @@ Azure에 데이터를 전송하려면 Azure Data Box Edge에 공유를 만들어
 
         ![NFS 공유 추가](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. **만들기**를 클릭하여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
- 
+7. Edge 컴퓨팅 모듈에서 공유에 손쉽게 액세스하려면 로컬 탑재 지점을 사용합니다. 공유가 생성된 후 자동으로 탑재될 수 있도록 **Edge 컴퓨팅과 공유 사용**을 선택합니다. 이 옵션을 선택하면 Edge 모듈이 로컬 탑재 지점과도 컴퓨팅을 사용할 수 있습니다.
+
+8. **만들기**를 클릭하여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
+
 ## <a name="add-a-local-share"></a>로컬 공유 추가
 
 1. Azure Portal에서 Data Box Edge 리소스로 이동한 다음, **게이트웨이 > 공유**로 이동합니다. 명령 모음에서 **+ 공유 추가**를 선택합니다.
@@ -93,11 +91,56 @@ Azure에 데이터를 전송하려면 Azure Data Box Edge에 공유를 만들어
 
     공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
 
-    ![공유 블레이드가 업데이트된 보기](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![공유 블레이드가 업데이트된 보기](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     이 공유의 Edge 컴퓨팅 모듈에 대한 로컬 탑재 지점을 보려면 공유를 선택합니다.
 
     ![로컬 공유 세부 정보 보기](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+## <a name="mount-a-share"></a>공유 탑재
+
+Data Box Edge 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만든 경우에는 공유를 탑재해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
+
+
+1. Azure Portal에서 Data Box Edge 리소스로 이동한 다음, **게이트웨이 > 공유**로 이동합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함**으로 상태가 표시됩니다.
+
+    ![공유 선택](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. **탑재**를 선택합니다.
+
+    ![탑재 선택](media/data-box-edge-manage-shares/select-mount.png)
+
+3. 확인하라는 메시지가 표시되면 **예**를 선택합니다. 그러면 공유가 탑재됩니다.
+
+    ![탑재 확인](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. 공유가 탑재된 후 공유 목록으로 이동합니다. **컴퓨팅에 사용됨** 열에 공유 상태가 **사용함**으로 표시되는 것을 볼 수 있습니다.
+
+    ![탑재된 공유](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. 공유를 다시 선택하여 공유에 대한 로컬 탑재 지점을 봅니다. Edge 컴퓨팅 모듈은 이 로컬 탑재 지점을 공유에 사용합니다.
+
+    ![공유에 대한 로컬 탑재 지점](media/data-box-edge-manage-shares/share-mountpoint.png)
+
+## <a name="unmount-a-share"></a>공유 분리
+
+공유를 분리하려면 Azure Portal에서 다음 단계를 수행합니다.
+
+1. Azure Portal에서 Data Box Edge 리소스로 이동한 다음, **게이트웨이 > 공유**로 이동합니다.
+
+    ![공유 선택](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. 공유 목록에서 분리할 공유를 선택합니다. 분리할 공유가 다른 모듈에서 사용되지 않는지 확인하는 것이 좋습니다. 공유가 모듈에서 사용되면 해당 모듈과 관련된 문제가 표시됩니다. **분리**를 선택합니다.
+
+    ![분리 선택](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. 확인하라는 메시지가 표시되면 **예**를 선택합니다. 그러면 공유가 분리됩니다.
+
+    ![분리 확인](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. 공유가 분리된 후 공유 목록으로 이동합니다. **컴퓨팅에 사용됨** 열에 공유 상태가 **사용 안 함**으로 표시되는 것을 볼 수 있습니다.
+
+    ![분리된 공유](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>공유 삭제
 
@@ -123,7 +166,8 @@ Azure에 데이터를 전송하려면 Azure Data Box Edge에 공유를 만들어
 새로 고침 기능을 사용하면 공유의 콘텐츠를 새로 고칠 수 있습니다. 공유를 새로 고치면 마지막 새로 고침 이후 클라우드에 추가된 Blob과 파일을 비롯한 모든 Azure 개체를 찾기 위해 검색이 시작됩니다. 그런 다음, 이러한 추가 파일이 다운로드되어 디바이스에서 공유의 콘텐츠를 새로 고칩니다.
 
 > [!IMPORTANT]
-> 로컬 공유는 새로 고칠 수 없습니다.
+> - 로컬 공유는 새로 고칠 수 없습니다.
+> - 사용 권한 및 ACL(액세스 제어 목록)은 새로 고침 작업에서 유지되지 않습니다. 
 
 공유를 새로 고치려면 Azure Portal에서 다음 단계를 수행합니다.
 

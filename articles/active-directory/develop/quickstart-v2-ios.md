@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201469"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439265"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>빠른 시작: iOS 네이티브 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -44,7 +44,7 @@ ms.locfileid: "58201469"
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 회신 URL을 `msal<AppId>://auth`로 추가해야 합니다. 여기서 msal<AppId>은 이 애플리케이션 ID입니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 회신 URL을 `msal<AppId>://auth`로 추가해야 합니다. 여기서 msal\<AppId>는 이 애플리케이션 ID입니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |위치:||
 > |---------|---------|
-> | `forScopes` | 요청된 범위(즉, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`))를 포함합니다. |
+> | `forScopes` | 요청된 범위(즉, Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 Web API(즉, `api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)를 포함합니다. |
 
 #### <a name="getting-an-access-token-silently"></a>자동으로 액세스 토큰 가져오기
 

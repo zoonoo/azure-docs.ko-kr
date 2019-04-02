@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095622"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371286"
 ---
 # <a name="quickstart-self-service-password-reset"></a>빠른 시작: 셀프 서비스 암호 재설정
 
@@ -46,7 +46,7 @@ ms.locfileid: "58095622"
       * **모바일 앱 코드(미리 보기)**
    * **저장**을 클릭합니다.
 
-     ![인증][Authentication]
+     ![SSPR에 대한 인증 방법 선택][Authentication]
 
 4. **등록** 페이지에서 다음을 선택합니다.
    * 사용자가 로그인 시 등록하도록 요구: **예**

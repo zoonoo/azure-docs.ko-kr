@@ -9,16 +9,18 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/29/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 59a6907e3f015bba657bc395aee2e97f601fcf7f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2db1cdc74fc986d5b8aeec441c3178f781d5248c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037687"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497281"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>PowerShell에서 Azure Cosmos DB의 MongoDB API를 사용하여 Azure Cosmos DB 계정 만들기
 
 이 PowerShell 스크립트 샘플에서는 Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정을 만듭니다. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,7 +33,7 @@ ms.locfileid: "54037687"
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -40,9 +42,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 데이터베이스 또는 탄력적 풀을 호스트하는 논리 서버를 만듭니다. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 데이터베이스 또는 탄력적 풀을 호스트하는 논리 서버를 만듭니다. |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

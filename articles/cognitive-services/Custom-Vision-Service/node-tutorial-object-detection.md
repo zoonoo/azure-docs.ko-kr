@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9cc1e2cd3735d8292ebca803b83351bb97de8b83
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752374"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487263"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Node.js와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Node.js 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
+이 문서에서는 Node.js와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Node.js 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,9 +58,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
@@ -181,9 +184,9 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project"></a>프로젝트 학습
+### <a name="train-the-project-and-publish"></a>프로젝트 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```javascript
     console.log("Training...");
@@ -198,11 +201,11 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
     }
     console.log("Training status: " + trainingIteration.status);
 
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -210,7 +213,7 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
+    const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
 
     // Show results
     console.log("Results:");
@@ -224,7 +227,7 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 *sample.js*를 실행합니다.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

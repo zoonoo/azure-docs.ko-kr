@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111857"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316952"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -129,7 +129,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
     >
     > Storm 클러스터를 만드는 데 이 문서의 템플릿을 사용하지 않을 경우 클러스터에 스크립트 작업을 수동으로 적용해야 합니다.
     >
-    > 스크립트 작업은 `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
+    > 스크립트 작업은 [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh)에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
 토폴로지는 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: a9ff0ae5488dfcda747d25724ef9917ba1a1f472
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 00684df614771437f33655538a808468ee778d29
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872291"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487008"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>빠른 시작: Java용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Java와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 
+이 문서에서는 Java와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -28,11 +28,12 @@ ms.locfileid: "55872291"
 - Maven 설치
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Custom Vision SDK 및 샘플 코드 다운로드
+
 Custom Vision을 사용하는 Java 앱을 작성하려면 Custom Vision maven 패키지가 필요합니다. 이러한 요소는 여러분이 다운로드할 샘플 프로젝트에 포함되어 있지만, 여기서 개별적으로 액세스할 수도 있습니다.
 
 Maven 중앙 리포지토리에서 Custom Vision SDK를 설치할 수 있습니다.
-* [교육 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [예측 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+- [교육 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [예측 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 [Cognitive Services Java SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) 프로젝트를 복제 또는 다운로드합니다. **Vision/CustomVision/** 폴더로 이동합니다.
 
@@ -42,7 +43,7 @@ Maven 중앙 리포지토리에서 Custom Vision SDK를 설치할 수 있습니�
 
 프로그램은 키 데이터를 환경 변수로 저장하도록 구성됩니다. PowerShell에서 **Vision/CustomVision** 폴더로 이동하여 이러한 변수를 설정합니다. 다음 명령을 입력합니다.
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -75,9 +76,9 @@ Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionS
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-project"></a>프로젝트 학습
+### <a name="train-the-project-and-publish"></a>프로젝트 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
@@ -91,7 +92,7 @@ Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionS
 
 maven을 사용하여 솔루션을 컴파일하고 실행하려면 PowerShell을 통해 프로젝트 디렉터리에서 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

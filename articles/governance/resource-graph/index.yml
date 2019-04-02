@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b79f900c9d1fa78c131b132975f9352c4696b201
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726909"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803419"
 documentType: LandingData
-title: Azure Resource Graph 설명서
+title: Azure Resource Graph 서비스에 대한 설명서
 metadata:
   title: Azure Resource Graph 설명서 - 자습서, API 참조
   description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 지원하는 Azure의 서비스입니다.

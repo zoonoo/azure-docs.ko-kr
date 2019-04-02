@@ -10,57 +10,43 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e0f768b876b49ec006ce98decf121d73d334b6d8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195623"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439522"
 ---
 ### <a name="run-the-service"></a>서비스 실행
 
-1. F5 키를 눌러(또는 터미널 창에서 `azds up` 입력) 서비스를 실행합니다. 새로 선택한 공간인 _dev/scott_에서 서비스가 자동으로 실행됩니다. 
-1. `azds list-up`를 다시 실행하여 서비스가 자체 공간에서 실행되는지 확인할 수 있습니다. *mywebapi*의 인스턴스가 _dev/scott_ 공간에서 실행되고 있는지 확인합니다(_dev_에서 실행되는 버전은 여전히 실행되지만 나열되지 않음).
+서비스를 실행하려면, F5 키를 눌러서(또는 터미널 창에서 `azds up` 입력) 서비스를 실행합니다. 새로 선택한 공간인 _dev/scott_에서 서비스가 자동으로 실행됩니다. `azds list-up`를 다시 실행하여 서비스가 자체 공간에서 실행되는지 확인합니다.
 
-    ```
-    Name                      DevSpace  Type     Updated  Status
-    mywebapi                  scott     Service  3m ago   Running
-    mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
-    webfrontend               dev       Service  26m ago  Running
-    ```
+```cmd
+$ azds list-up
 
-1. `azds list-uris`를 실행하고 *webfrontend*에 대한 액세스 지점 URL을 확인합니다.
-
-    ```
-    Uri                                                                        Status
-    -------------------------------------------------------------------------  ---------
-    http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
-    ```
-
-1. *scott.s* 접두사와 함께 URL을 사용하여 애플리케이션으로 이동합니다. 이 업데이트된 URL은 계속 확인됩니다. 이 URL은 _dev/scott_ 공간에 대해 고유합니다. 특수한 URL은 “Scott URL”로 전송된 요청이 일단 _dev/scott_ 공간의 서비스로 라우팅을 시도하고, 시도가 실패하면 _dev_ 공간의 서비스로 대체됨을 나타냅니다.
-
-<!--
-TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
-
-You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
-
-```
 Name                      DevSpace  Type     Updated  Status
 mywebapi                  scott     Service  3m ago   Running
-mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-```
+*mywebapi* 인스턴스가 이제 _dev/scott_ 공간에서 실행되는 것을 확인할 수 있습니다. _dev_에서 실행되는 버전은 계속 실행되지만 나열되지 않습니다.
+
+`azds list-uris`를 실행하여 현재 공간에 대한 URL을 나열합니다.
+
+```cmd
+$ azds list-uris
+
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
--->
 
-![](../articles/dev-spaces/media/common/space-routing.png)
+*webfrontend*에 대한 공용 액세스 지점 URL에 *scott.s*가 접두사로 추가된 것을 확인할 수 있습니다. 이 URL은 _dev/scott_ 공간에 대해 고유합니다. 이 URL 접두사는 요청을 _dev/scott_ 버전의 서비스로 라우팅하도록 수신 컨트롤러에 지시합니다. 이 URL이 포함된 요청이 Dev Spaces에서 처리될 때, 수신 컨트롤러는 먼저 _dev/scott_ 공간의 *webfrontend* 서비스로 요청을 라우팅하려고 시도합니다. 이것이 실패하면 요청은 _dev_ 공간의 *webfrontend* 서비스로 대체 라우팅됩니다. Kubernetes *port-forward* 기능을 사용하여 localhost를 통해 서비스에 액세스하는 localhost URL도 있습니다. Azure Dev Spaces의 URL 및 라우팅에 대한 자세한 내용은 [Azure Dev Spaces 작동 및 구성 방법](../articles/dev-spaces/how-dev-spaces-works.md)을 참조하세요.
+
+
+
+![공간 라우팅](../articles/dev-spaces/media/common/Space-Routing.png)
 
 기본 제공되는 이 Azure Dev Spaces 기능을 사용하면 각 개발자가 자신의 공간에서 서비스의 전체 스택을 다시 만들 필요 없이 공유 공간에서 코드를 테스트할 수 있습니다. 이 라우팅을 사용하려면 이 가이드의 이전 단계에서 설명한 대로 앱 코드에서 전파 헤더를 전달해야 합니다.
 

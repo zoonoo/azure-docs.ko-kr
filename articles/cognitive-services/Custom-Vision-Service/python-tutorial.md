@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/2/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 66fc773dd354f80428d6fd65906610b901260a59
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 47e2f2a03c08ae1e44dcba35b440880ce06f6f95
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407037"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484464"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 이미지 분류 프로젝트 만들기
 
-이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
+이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,7 +30,7 @@ ms.locfileid: "57407037"
 
 Python용 Custom Vision Service SDK를 설치하려면 PowerShell에서 다음 명령을 실행합니다.
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -56,6 +56,9 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
+
+publish_iteration_name = "classifyModel"
 
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
@@ -86,31 +89,29 @@ base_image_url = "<path to project>"
 
 print("Adding images...")
 
-image_entry = lambda image_path, tag_id: ImageFileCreateEntry(
-    name=image_path.split("/")[-1], contents=image_path, tag_ids=[tag_id]
-)
+image_list = []
 
-image_list = [
-    image_entry(
-        base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num),
-        hemlock_tag.id,
-    )
-    for image_num in range(1, 10)
-] + [
-    image_entry(
-        base_image_url
-        + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num),
-        cherry_tag.id,
-    )
-    for image_num in range(1, 10)
-]
+for image_num in range(1, 11):
+    file_name = "hemlock_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Hemlock/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[hemlock_tag.id]))
 
-trainer.create_images_from_files(project.id, images=image_list)
+for image_num in range(1, 11):
+    file_name = "japanese_cherry_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
+
+upload_result = trainer.create_images_from_files(project.id, images=image_list)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-### <a name="train-the-classifier"></a>분류자 학습
+### <a name="train-the-classifier-and-publish"></a>분류자 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```Python
 import time
@@ -122,12 +123,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -135,28 +136,27 @@ print ("Done!")
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
-
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
-test_img_url = base_image_url + "Images/Test/test_image.jpg"
-results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
+with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
+    results = predictor.classify_image(project.id, publish_iteration_name, image_contents.read())
 
-# Display the results.
-for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
+    # Display the results.
+    for prediction in results.predictions:
+        print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 *sample.py* 파일을 실행합니다.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 
 애플리케이션의 출력은 다음 텍스트와 비슷할 것입니다.
 
-```
+```console
 Creating project...
 Adding images...
 Training...

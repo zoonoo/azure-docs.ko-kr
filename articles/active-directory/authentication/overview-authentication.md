@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 사용자 인증
+title: Azure Active Directory 사용자 인증 - Azure Active Directory
 description: Azure AD 관리자로서 최종 사용자에게 미치는 영향을 줄이면서 사용자 인증을 보호하려면 어떻게 해야 할까요?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b054dd8c78968ffb65b92ab7ee4fe1b21501b0d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192520"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314657"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>어떤 인증 방법을 사용할 수 있을까요?
 

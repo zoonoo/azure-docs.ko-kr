@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836527"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488045"
 ---
 1. [Google 클라우드 콘솔](https://console.developers.google.com/cloud-resource-manager)로 이동하고 Google 계정 자격 증명으로 로그인합니다. 
 2. 도구 모음에서 **프로젝트 만들기**를 선택합니다. 
    
     ![새 프로젝트 만들기](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. **프로젝트 이름**에 프로젝트 이름을 입력하고 **만들기**를 클릭합니다.
-4. 도구 모음에서 **경고** 단추를 선택하고 목록에서 프로젝트를 선택합니다. 프로젝트에 대한 대시보드가 표시됩니다. URL을 사용하여 대시보드를 직접 탐색할 수도 있습니다. https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. 도구 모음에서 **경고** 단추를 선택하고 목록에서 프로젝트를 선택합니다. 프로젝트에 대한 대시보드가 표시됩니다. 다음 URL을 사용하여 대시보드를 직접 탐색할 수도 있습니다. `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![경고에서 프로젝트 선택](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. 대시보드의 **프로젝트 정보** 타일에 **프로젝트 번호**를 기록해 둡니다. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836527"
 
     ![API 키 복사](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다. 프로젝트 대시보드를 다시 탐색하려면 URL을 사용합니다. https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다. 프로젝트 대시보드를 다시 탐색하려면 다음 URL을 사용합니다. `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

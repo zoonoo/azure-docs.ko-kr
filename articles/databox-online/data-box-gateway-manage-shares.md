@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165670"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516895"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
 
 이 문서에서는 Azure Data Box Gateway에서 공유를 관리하는 방법을 설명합니다. 로컬 웹 UI 또는 Azure Portal을 통해 Azure Data Box Gateway를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 저장소 계정의 저장소 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다.
-
-> [!IMPORTANT]
-> - Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 
 ## <a name="about-shares"></a>공유에 대한 정보
 
@@ -88,6 +84,9 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 새로 고침 기능을 사용하면 온-프레미스 공유의 콘텐츠를 새로 고칠 수 있습니다. 공유를 새로 고치면 마지막 새로 고침 이후 클라우드에 추가된 Blob과 파일을 비롯한 모든 Azure 개체를 찾기 위해 검색이 시작됩니다. 이러한 추가 파일은 디바이스에서 온-프레미스 공유의 콘텐츠를 새로 고치는 데 사용됩니다. 
 
+> [!NOTE]
+> 사용 권한 및 ACL(액세스 제어 목록)은 새로 고침 작업에서 유지되지 않습니다. 
+
 공유를 새로 고치려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1.  Azure Portal에서 **공유**로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
@@ -111,7 +110,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 오류가 있으면 경고가 발생합니다. 경고에는 원인 및 문제 해결을 위한 권장 사항이 자세히 설명되어 있습니다. 또한 경고는 업데이트나 삭제에 실패한 파일을 비롯하여 오류에 대한 전체 요약이 포함된 파일로 연결됩니다.
 
 >[!IMPORTANT]
-> 현재 미리 보기 릴리스에서는 한 번에 공유를 둘 이상의 공유를 새로 고치지 마십시오.
+> 현재 릴리스에서는 한 번에 둘 이상의 공유를 새로 고치지 마십시오.
 
 ## <a name="sync-storage-keys"></a>저장소 키 동기화
 

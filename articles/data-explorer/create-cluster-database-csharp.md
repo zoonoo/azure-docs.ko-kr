@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287374"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417907"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287374"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-이 빠른 시작에서는 C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법에 대해 설명합니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 C#을 사용하여 클러스터와 데이터베이스를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
+* Visual Studio 2017이 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
-- 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="install-c-nuget"></a>C# nuget 설치
 
-- Azure Data Explore(Kusto)용 nuget 패키지가 필요합니다. 이 Nuget은 https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/에서 찾을 수 있습니다.
-- 인증용 nuget Microsoft.IdentityModel.Clients.ActiveDirectory(https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)도 필요합니다.
+1. [Azure Data Explorer(Kusto) nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)를 설치합니다.
 
+1. 인증에 사용할 [Microsoft.IdentityModel.Clients.ActiveDirectory nuget 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 설치합니다.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터 만들기
 
@@ -72,10 +71,10 @@ ms.locfileid: "58287374"
    | resourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
 
     사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
-    
-    'credentials'를 사용자의 자격 증명으로 설정합니다(자세한 내용은 https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet 참조).
 
-2. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
+1. [자격 증명](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)을 설정합니다.
+
+1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

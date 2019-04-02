@@ -2,17 +2,18 @@
 title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 마이그레이션 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터를 마이그레이션하는 방법을 설명합니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110310"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360370"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -37,7 +38,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 시작하기 전에 재해 복구를 위한 [VMware](vmware-azure-architecture.md) 또는 [Hyper-V](hyper-v-azure-architecture.md) 아키텍처를 검토하는 것이 좋습니다.
 
 > [!TIP]
-> VMware VM을 Azure로 마이그레이션할 에이전트가 없는 방법을 찾으시나요? [여기를 클릭](https://aka.ms/migrateVMs-signup)
+> VMware VM을 Azure로 마이그레이션하기 위해 새로운 에이전트 없는 경험에 참여하시겠습니까? [자세히 알아보기](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -113,7 +114,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 6. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 다음을 수행합니다.
 
-   - 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+   - 마이그레이션 프로세스가 완료되고, 온-프레미스 VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
    - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다.
 
      ![마이그레이션 완료](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
@@ -128,7 +129,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 머신을 Azure로 마이그레이션한 후 완료해야 하는 여러 단계가 있습니다.
 
-[복구 계획]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)의 기본 제공 자동화 스크립트 기능을 사용하여 마이그레이션 프로세스의 일부로 몇몇 단계를 자동화할 수 있습니다.   
+[복구 계획](site-recovery-runbook-automation.md)의 기본 제공 자동화 스크립트 기능을 사용하여 마이그레이션 프로세스의 일부로 몇몇 단계를 자동화할 수 있습니다.   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Azure의 마이그레이션 후 단계
@@ -139,7 +140,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
     - VMware 머신과 물리적 서버를 마이그레이션하는 경우 모바일 서비스 설치 관리자는 Windows 머신에 사용 가능한 Azure VM 에이전트를 설치합니다. Linux VM에서는 장애 조치(failover) 후 에이전트를 설치하는 것이 좋습니다.
     - Azure VM을 보조 지역으로 마이그레이션하는 경우 마이그레이션 전에 VM에서 Azure VM 에이전트를 프로비전해야 합니다.
     - Hyper-V VM을 Azure로 마이그레이션하는 경우 마이그레이션 후에 Azure VM에 Azure VM 에이전트를 설치합니다.
-- VM에서 Site Recovery 공급자/에이전트를 수동으로 제거합니다. VMware VM 또는 물리적 서버를 마이그레이션하는 경우 Azure VM에서 [모바일 서비스를 제거][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]합니다.
+- VM에서 Site Recovery 공급자/에이전트를 수동으로 제거합니다. VMware VM 또는 물리적 서버를 마이그레이션하는 경우 VM에서 모바일 서비스를 제거합니다.
 - 복원력 개선:
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](azure-to-azure-quickstart.md).

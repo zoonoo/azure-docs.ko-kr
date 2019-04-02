@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182917"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361390"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -58,7 +58,7 @@ Azure Notebooks로 시작하는 것이 쉽습니다! Azure Machine Learning Data
 
 사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 
-1. [Azure Machine Learning Python 빠른 시작](quickstart-create-workspace-with-python.md)을 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
+1. [[Azure Machine Learning Python 빠른 시작](quickstart-run-local-notebook.md)](setup-create-workspace.md#python)의 설치 단계를 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
 1. `pip install azureml-dataprep`를 사용하여 사용 환경에 Data Prep SDK를 설치합니다.
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
@@ -70,17 +70,18 @@ Azure Notebooks로 시작하는 것이 쉽습니다! Azure Machine Learning Data
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>개발 환경 설정
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+개발 작업에 대한 모든 설정은 Python Notebook에서 수행할 수 있습니다. 설정에 포함되는 작업은 다음과 같습니다.
 
-* Install the SDK
-* Import Python packages
+* SDK 설치
+* Python 패키지 가져오기
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>패키지 설치 및 가져오기
 
-Use the following to install necessary packages if you don't already have them.
+패키지가 아직 없는 경우 다음을 사용하여 필요한 패키지를 설치합니다.
 
 ```shell
 pip install azureml-dataprep

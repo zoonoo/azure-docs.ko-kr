@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
+ms.date: 3/21/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5485d1dbde48a9fe52196bbeb449b6e4186a88e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901737"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402612"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -59,7 +59,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Application Insights 리소스 설정
 
-Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이자, 애플리케이션 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다. Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **Application Insights**를 클릭합니다.
+Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이자, 애플리케이션 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다.
+
+Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **모니터링 + 관리**, **Application Insights**를 차례로 클릭합니다.
 
 ![새 AI 리소스 만들기](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -72,83 +74,92 @@ Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이�
 
 ## <a name="add-application-insights-to-the-applications-services"></a>애플리케이션의 서비스에 Application Insights 추가
 
-상승된 권한으로 Visual Studio 2017을 시작합니다. 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하면 이 작업을 수행할 수 있습니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 애플리케이션으로 이동합니다. *Voting.sln*을 열고, 애플리케이션의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
+시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 관리자 권한으로 Visual Studio 2017을 시작합니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 애플리케이션으로 이동합니다. *Voting.sln* 파일을 엽니다. 애플리케이션의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
 
-VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구성하려면 다음 단계를 따르세요.
+다음 단계에 따라 VotingWeb 및 VotingData 서비스에 대해 Application Insights를 구성합니다.
 
-1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **추가 -> Application Insights 원격 분석 ...** 을 선택합니다.    
+1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고, **추가 > 연결된 서비스 > Application Insights를 사용하여 모니터링**을 클릭합니다.
+
+    ![AI 구성](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>프로젝트 형식에 따라 서비스 이름을 마우스 오른쪽 단추로 클릭할 때 추가-> Application Insights 원격 분석...을 클릭해야 합니다.
+
 2. **시작**을 클릭합니다.
-3. Azure 구독 설정에 사용한 계정에 로그인하고 Application Insights 리소스를 만든 구독을 선택합니다. “리소스” 드롭다운의 *기존 Application Insights 리소스*에서 리소스를 찾습니다. **등록**을 클릭하여 Application Insights를 서비스에 추가합니다.
+3. Azure 구독을 설정할 때 사용한 계정에 로그인한 다음, Application Insights 리소스를 만든 구독을 선택합니다. “리소스” 드롭다운의 *기존 Application Insights 리소스*에서 리소스를 찾습니다. **등록**을 클릭하여 Application Insights를 서비스에 추가합니다.
 
     ![AI 등록](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
 
 4. 팝업되는 대화 상자가 작업을 완료하면 **마침**을 클릭합니다.
 
-애플리케이션에서 서비스 **둘 다**에 대해 위의 단계를 수행하여 애플리케이션에 대한 Application Insights 구성을 마쳐야 합니다. 들어오고 나가는 요청 및 서비스 간의 통신을 확인하기 위해 서비스 둘 다에 동일한 Application Insights 리소스가 사용됩니다.
+> [!NOTE]
+> 애플리케이션에서 서비스 **둘 다**에 대해 위의 단계를 수행하여 애플리케이션에 대한 Application Insights 구성을 마쳐야 합니다.
+> 들어오고 나가는 요청 및 서비스 간의 통신을 확인하기 위해 서비스 둘 다에 동일한 Application Insights 리소스가 사용됩니다.
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>서비스에 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 추가
 
 Application Insights에는 시나리오에 따라 사용할 수 있는 두 개의 Service Fabric 특정 NuGet이 있습니다. 하나는 Service Fabric의 네이티브 서비스에 사용되고, 다른 하나는 컨테이너 및 게스트 실행 파일에 사용됩니다. 이 경우 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet을 사용하여 가져오는 서비스 컨텍스트 정보를 활용합니다. Application Insights SDK 및 Service Fabric 특정 NuGet에 대한 자세한 내용은 [Service Fabric용 Microsoft Application Insights](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요.
 
-NuGet을 설정하는 단계는 다음과 같습니다.
+다음은 NuGet 패키지를 설정하는 단계입니다.
 
-1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’** 을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리...** 를 클릭합니다.
+1. 솔루션 탐색기의 맨 위에서 **솔루션 ‘Voting’** 을 마우스 오른쪽 단추로 클릭하고, **솔루션에 대한 NuGet 패키지 관리...** 를 클릭합니다.
 2. “NuGet - 솔루션” 창의 맨 위 탐색 메뉴에서 **찾아보기**를 클릭하고 검색 표시줄 옆에 있는 **시험판 포함** 상자를 선택합니다.
+>[!NOTE]
+>Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
+
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
-
-    >[!NOTE]
-    >Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
-
-4. 오른쪽에서 애플리케이션의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
+4. 오른쪽에서 애플리케이션의 두 서비스, 즉, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. 팝업되는 *변경 내용 검토* 대화 상자에서 **확인**을 클릭하고 *라이선스 승인*을 적용합니다. 서비스에 NuGet 추가가 완료됩니다.
+5. 나타나는 *변경 내용 미리 보기* 대화 상자에서 **확인**을 클릭하고, *라이선스 승인*에 동의합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
-   1. 각 *\<ServiceName>.cs*의 맨 위에 두 개의 *using* 문을 추가합니다.
+    1. 다음과 같이 각 *\<ServiceName>.cs*의 맨 위에서 기존 *using* 문 뒤에 *using* 문 2개를 추가합니다.
 
-      ```csharp
-      using Microsoft.ApplicationInsights.Extensibility;
-      using Microsoft.ApplicationInsights.ServiceFabric;
-      ```
+    ```csharp
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.ServiceFabric;
+    ```
 
-   2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다.
-      *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
+    2. 두 파일의 *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서, 다른 singleton 서비스가 선언된 *ConfigureServices* > *services* 아래에 다음을 추가합니다.
+    ```csharp
+    .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+    ```
+    *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
 
-      ```csharp
-      return new WebHostBuilder()
-       .UseKestrel()
-       .ConfigureServices(
-           services => services
-               .AddSingleton<HttpClient>(new HttpClient())
-               .AddSingleton<FabricClient>(new FabricClient())
-               .AddSingleton<StatelessServiceContext>(serviceContext)
-               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-       .UseContentRoot(Directory.GetCurrentDirectory())
-       .UseStartup<Startup>()
-       .UseApplicationInsights()
-       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-       .UseUrls(url)
-       .Build();
-      ```
+    ```csharp
+    return new WebHostBuilder()
+        .UseKestrel()
+        .ConfigureServices(
+            services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
+                .AddSingleton<StatelessServiceContext>(serviceContext)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseStartup<Startup>()
+        .UseApplicationInsights()
+        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+        .UseUrls(url)
+        .Build();
+    ```
 
-      마찬가지로, *VotingData.cs*에는 다음 내용이 있어야 합니다.
+    마찬가지로, *VotingData.cs*에는 다음 내용이 있어야 합니다.
 
-      ```csharp
-      return new WebHostBuilder()
-       .UseKestrel()
-       .ConfigureServices(
-           services => services
-               .AddSingleton<StatefulServiceContext>(serviceContext)
-               .AddSingleton<IReliableStateManager>(this.StateManager)
-               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-       .UseContentRoot(Directory.GetCurrentDirectory())
-       .UseStartup<Startup>()
-       .UseApplicationInsights()
-       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-       .UseUrls(url)
-       .Build();
-      ```
+    ```csharp
+    return new WebHostBuilder()
+        .UseKestrel()
+        .ConfigureServices(
+            services => services
+                .AddSingleton<StatefulServiceContext>(serviceContext)
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseStartup<Startup>()
+        .UseApplicationInsights()
+        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+        .UseUrls(url)
+        .Build();
+    ```
 
-위와 같이 `UseApplicationInsights()` 메서드가 두 파일 모두에서 호출되는 지 다시 확인합니다.
+위와 같이 `UseApplicationInsights()` 메서드가 *VotingWeb.cs* 및 *VotingData.cs* 파일 둘 다에서 호출되는지 다시 확인합니다.
 
 >[!NOTE]
 >이 샘플 앱은 서비스 통신을 위해 http를 사용합니다. Service Remoting V2로 앱을 개발하는 경우 위에 나온 것과 같은 위치에 다음 코드 줄을 추가해야 합니다.
@@ -163,6 +174,9 @@ ConfigureServices(services => services
 
 이제 애플리케이션을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 애플리케이션을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음, 애플리케이션을 배포합니다.
 
+>[!NOTE]
+>최신 버전의 .NET Core SDK가 설치되지 않은 경우 빌드 오류가 발생할 수 있습니다.
+
 애플리케이션 배포가 완료되면 Voting Sample 단일 페이지 애플리케이션을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
 
 ![AI 샘플 응답](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
@@ -176,7 +190,9 @@ Azure Portal에서 Application Insights 리소스로 이동합니다.
 **개요**를 클릭하여 리소스의 방문 페이지로 돌아갑니다. 그런 다음 맨 위의 **검색**을 클릭하여 추적이 들어오는 것을 확인합니다. 추적이 Application Insights에 나타나는 데 몇 분 정도 걸립니다. 아무것도 표시되지 않는 경우 잠시 기다렸다가 맨 위의 **새로 고침** 단추를 누릅니다.
 ![AI see traces](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-*검색* 창에서 아래로 스크롤하면 Application Insights에서 기본적으로 제공되는 들어오는 모든 원격 분석이 표시됩니다. Voting 애플리케이션에서 수행한 각 작업에 대해 *VotingWeb*에서 나가는 PUT 요청(PUT Votes/Put [name]), *VotingData*에서 들어오는 PUT 요청(PUT VoteData/Put [name]), 표시되는 데이터 새로 고침에 대한 GET 요청 쌍이 있어야 합니다. HTTP 요청이므로 localhost에 대한 HTTP 종속성 추적도 있습니다. 응답이 어떻게 추가되었는지에 대해 표시되는 내용의 예는 다음과 같습니다. ![AI 샘플 요청 추적](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+*검색* 창에서 아래로 스크롤하면 Application Insights에서 기본적으로 제공되는 들어오는 모든 원격 분석이 표시됩니다. Voting 애플리케이션에서 수행한 각 작업에 대해 *VotingWeb*에서 나가는 PUT 요청(PUT Votes/Put [name]), *VotingData*에서 들어오는 PUT 요청(PUT VoteData/Put [name]), 표시되는 데이터 새로 고침에 대한 GET 요청 쌍이 있어야 합니다. HTTP 요청이므로 localhost에 대한 HTTP 종속성 추적도 있습니다. 응답이 어떻게 추가되었는지에 대해 표시되는 내용의 예는 다음과 같습니다.
+
+![AI 샘플 요청 추적](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 추적 중 하나를 클릭하여 추적에 대한 자세한 정보를 볼 수 있습니다. *응답 시간* 및 *요청 URL*을 포함하여 Application Insights에서 제공하는 요청에 대한 유용한 정보가 있습니다. 또한 Service Fabric 특정 NuGet를 추가했으므로 아래 *사용자 지정 데이터* 섹션의 Service Fabric 클러스터 컨텍스트에서 애플리케이션에 대한 데이터가 제공됩니다. 여기에는 서비스 컨텍스트가 포함되므로 요청 원본의 *PartitionID* 및 *ReplicaId*를 확인하고, 애플리케이션의 오류를 진단할 때 문제를 더 효율적으로 지역화할 수 있습니다.
 

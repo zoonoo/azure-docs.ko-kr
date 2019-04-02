@@ -1,6 +1,6 @@
 ---
 title: Blueprint 샘플 인덱스
-description: Azure Blueprints에 대한 샘플 인덱스
+description: Azure Blueprints에서 배포하는 규정 준수 및 표준 환경 샘플의 인덱스입니다.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

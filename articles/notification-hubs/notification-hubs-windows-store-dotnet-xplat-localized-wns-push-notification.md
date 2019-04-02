@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b4f308e7053e000115f22abd291d934d90c11a94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837595"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402715"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows 앱에 지역화된 알림 푸시
 
@@ -116,7 +116,7 @@ ms.locfileid: "57837595"
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -190,7 +190,21 @@ ms.locfileid: "57837595"
     }
     ```
 
-## <a name="send-localized-notifications-from-your-back-end"></a>백 엔드에서 지역화된 알림 보내기
+
+
+## <a name="run-the-uwp-application"></a>UWP 애플리케이션 실행
+
+1. 유니버설 Windows 플랫폼 애플리케이션을 실행합니다. **등록 성공** 메시지가 표시될 때까지 기다립니다.
+
+    ![모바일 애플리케이션 및 등록](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. **범주** 및 **로캘**을 선택하고 **구독**을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
+
+    ![모바일 애플리케이션](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. **구독**에 대한 **확인** 메시지가 표시됩니다.
+
+    ![구독 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## <a name="update-console-app-to-send-localized-notifications"></a>지역화된 알림을 보내도록 콘솔 앱 업데이트
 
 템플릿 알림을 보낼 때 속성 집합만 제공하면 되지만 이 자습서에서는 백 엔드 애플리케이션이 최신 뉴스의 지역화된 버전을 포함하는 속성 집합을 보냅니다. 예를 들면 다음과 같습니다.
 
@@ -243,20 +257,10 @@ private static async void SendTemplateNotificationAsync()
 
 이 간단한 호출은 Notification Hub에서 올바른 네이티브 페이로드를 빌드하여 특정 태그에 가입된 모든 디바이스에 전달할 때 플랫폼과 상관없이 지역화된 뉴스를 **모든** 디바이스에 전달합니다.
 
-## <a name="test-the-app"></a>앱 테스트
+## <a name="run-console-app-to-send-localized-notification"></a>지역화된 알림을 보내는 콘솔 앱 실행
+**콘솔 앱**을 실행하여 각 범주에 대한 알림을 지원되는 각 언어로 보냅니다. 구독한 범주에 대한 알림만 수신되는지와 메시지가 선택한 로캘에 대한 것인지 확인합니다.
 
-1. 유니버설 Windows 스토어 애플리케이션을 실행합니다. **등록 성공** 메시지가 표시될 때까지 기다립니다.
-
-    ![모바일 애플리케이션 및 등록](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. **범주** 및 **로캘**을 선택하고 **구독**을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
-
-    ![모바일 애플리케이션](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. **구독**에 대한 **확인** 메시지가 표시됩니다.
-
-    ![구독 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. 확인 메시지를 받은 후에 **콘솔 앱**을 실행하여 각 범주에 대한 알림을 보내도록 지원되는 각 언어로 보냅니다. 구독한 범주에 대한 알림만 수신되는지와 메시지가 선택한 로캘에 대한 것인지 확인합니다.
-
-    ![알림 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![알림 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## <a name="next-steps"></a>다음 단계
 

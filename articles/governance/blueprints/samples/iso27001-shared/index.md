@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Azure Blueprints ISO 27001 Shared Services 청사진 샘플에 대한 개요
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
 ISO 27001 Shared Services 청사진은 ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. 이 청사진은 고객이 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하는 클라우드 기반 아키텍처를 구축하는 데 도움이 됩니다.
 

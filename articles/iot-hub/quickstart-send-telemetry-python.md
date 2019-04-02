@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 51398c893f212bc51f3edd20ee4c666d91779352
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243366"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520006"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Python)으로 읽습니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Python을 사용하여 작성되었습니다. 현재, Python용 Microsoft Azure IoT SDK는 각 플랫폼에 대해 특정 버전의 Python만 지원합니다. 자세한 내용은 [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)를 참조하세요.
+이 빠른 시작에서 실행하는 샘플 애플리케이션은 Python을 사용하여 작성되었습니다. 현재, Python용 Microsoft Azure IoT SDK는 각 플랫폼에 대해 특정 버전의 Python만 지원합니다. 자세한 내용은 [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)를 참조하세요.
 
 이 빠른 시작은 사용자가 Windows 개발 컴퓨터를 사용한다고 가정합니다. Windows 시스템의 경우 [Python 3.6.x](https://www.python.org/downloads/release/python-368/)만 지원됩니다. 선택한 Python 설치 관리자는 사용하는 시스템의 아키텍처를 기반으로 해야 합니다. 시스템 CPU 아키텍처가 32비트면 x86 설치 관리자를 다운로드하고, 64비트 아키텍처면 x86-64 설치 관리자를 다운로드합니다. 또한 아키텍처에 대해 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)가 설치되어 있는지 확인합니다(x86 또는 x64).
 

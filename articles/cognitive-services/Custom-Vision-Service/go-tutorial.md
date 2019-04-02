@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9a45cc3f8aaae3fb000858f8903ed4aff248513c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f740974d17ad5f95bca6530a61619ee0283f819a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885267"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479991"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>빠른 시작: Custom Vision Go SDK를 사용하여 이미지 분류 프로젝트 만들기
 
-이 문서에는 Go와 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작하는 데 참고할 수 있는 정보와 샘플 코드가 제공됩니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 예제를 템플릿으로 사용하여 Go 애플리케이션을 빌드할 수 있습니다. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
+이 문서에는 Go와 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작하는 데 참고할 수 있는 정보와 샘플 코드가 제공됩니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 예제를 템플릿으로 사용하여 Go 애플리케이션을 빌드할 수 있습니다. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample Project"
+    iteration_publish_name = "classifyModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -89,7 +91,7 @@ func main() {
 프로젝트에 분류 태그를 만들려면 *sample.go* 끝에 다음 코드를 추가합니다.
 
 ```go
-    # Make two tags in the new project
+    // Make two tags in the new project
     hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
     cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
@@ -127,9 +129,9 @@ func main() {
     }
 ```
 
-### <a name="train-the-classifier"></a>분류자 학습
+### <a name="train-the-classifier-and-publish"></a>분류자 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```go
     fmt.Println("Training...")
@@ -144,11 +146,10 @@ func main() {
     }
     fmt.Println("Training status: " + *iteration.Status)
 
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -157,7 +158,7 @@ func main() {
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.ClassifyImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
     for _, prediction := range *results.Predictions {
         fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
@@ -170,7 +171,7 @@ func main() {
 
 *sample.go*를 실행합니다.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

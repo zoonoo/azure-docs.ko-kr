@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 52e39b705b8bd0e20c846f065702bcaf7b3a45f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035681"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487281"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>자습서: .NET Core 앱을 빌드하여 SQL API 계정에 저장된 데이터 관리
 
@@ -76,7 +76,7 @@ ms.locfileid: "54035681"
 
    ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴 스크린샷](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. **NuGet** 탭에서 창의 맨 위에 있는 **찾아보기**를 선택하고 검색 상자에 **azure documentdb**를 입력합니다.
+6. **NuGet** 탭에서 창의 맨 위에 있는 **찾아보기**를 선택하고 검색 상자에 **azure documentdb**를 입력합니다. **시험판 포함** 확인란이 선택되었는지 확인합니다.
 
 7. 결과에서 **Microsoft.Azure.DocumentDB.Core**를 찾아 **설치**를 선택합니다.
 

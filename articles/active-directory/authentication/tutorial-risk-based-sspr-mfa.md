@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162699"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370562"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
 
@@ -61,7 +61,7 @@ Azure AD ID 보호에는 사용자를 Multi-Factor Authentication에 등록하�
    1. 이 정책을 설정하면 모든 사용자는 Multi-Factor Authentication에서 사용할 준비 방법을 등록해야 합니다.
 1. **저장**을 클릭합니다.
 
-   ![사용자가 Azure AD ID 보호를 사용하여 로그인 시 MFA에 등록하도록 요구](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![사용자가 로그인 시 MFA에 등록해야 합니다.](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>위험 기반 암호 변경 사용
 

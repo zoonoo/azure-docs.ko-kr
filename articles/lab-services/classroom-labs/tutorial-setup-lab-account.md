@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079932"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336357"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>자습서: Azure Lab Services로 랩 계정 설정
 Azure Lab Services에서 랩 계정은 조직의 랩을 관리하는 중앙 계정 역할을 합니다. 랩 계정에서 랩을 만들고 랩 계정의 모든 랩에 적용되는 정책을 설정할 수 있는 권한을 다른 사람에게 부여하세요. 이 자습서에서는 랩 관리자 권한으로 랩 계정을 만드는 방법을 알아봅니다. 
@@ -37,10 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs로 랩 계정을 만드는 방법을 설명합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. **DEVOPS** 섹션에서 **랩 계정**을 선택합니다. **랩 계정** 옆에 있는 별표(`*`)를 선택하여 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. 다음부터는 **즐겨찾기** 아래에서 **랩 계정**을 선택합니다.
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. **DEVOPS** 섹션에서 **랩 서비스**를 선택합니다. **랩 서비스** 옆에 있는 별표(`*`)를 선택하면 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가됩니다. 다음부터는 **즐겨찾기** 아래에서 **랩 서비스**를 선택합니다.
 
-    ![모든 서비스 -> 랩 계정](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. **랩 계정** 페이지에서 도구 모음에 있는 **추가**를 선택합니다. 
+    ![모든 서비스 -> 랩 서비스](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. **랩 서비스** 페이지에서 도구 모음에 있는 **추가**를 선택합니다. 
 
     ![랩 계정 페이지에서 추가 선택](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. **랩 계정** 페이지에서 다음 작업을 수행합니다. 

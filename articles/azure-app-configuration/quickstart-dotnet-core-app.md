@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: e00c086e0b91c0f48821143ff118c62afdd76e82
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225385"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485172"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
@@ -51,7 +51,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 1. 다음 명령을 실행하여 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
@@ -60,6 +60,11 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 3. *Program.cs*를 열고, `builder.AddAzureAppConfiguration()` 메서드를 호출하여 App Configuration을 사용하도록 `Main` 메서드를 업데이트합니다.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();
@@ -100,7 +105,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 앱 구성 저장소를 만들고, .NET Core 콘솔 앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
+이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 .NET Core 콘솔 앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure 리소스 통합을 위한 관리 ID](./integrate-azure-managed-service-identity.md)

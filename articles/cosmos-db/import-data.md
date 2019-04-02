@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099528"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315813"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -195,7 +195,7 @@ SQL 원본과 마찬가지로, 중첩 구분 기호 속성을 사용하여 가�
 
 DomainInfo.Domain_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. Azure Cosmos DB의 결과 문서 예는 다음과 같습니다.
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": “ACUS.GOV”, “Domain_Name_Address”: “https:\//www.ACUS.GOV” }, “Federal Agency”: "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 가져오기 도구는 CSV 파일의 따옴표가 없는 값에 대한 형식 정보를 유추하려고 합니다(따옴표로 묶인 값은 항상 문자열로 처리됨).  숫자, 날짜/시간, 부울 순서로 형식이 식별됩니다.  
 

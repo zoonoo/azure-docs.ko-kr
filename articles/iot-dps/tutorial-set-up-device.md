@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f0b62f73650294349e1879b306beebabdaf974a7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eae674693b647eed5bce0a38236d44d457c1c2ae
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633404"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486923"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
@@ -45,20 +45,22 @@ ms.locfileid: "45633404"
 
 Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio 2017을 사용하는 SDK를 빌드합니다.
 
-1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.11.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
+1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다. 다운로드 한 버전에 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 암호화 해시 값은 이미 제공된 CMake 다운로드 링크에서도 찾을 수 있습니다.
 
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.13.4 버전에 대한 암호화 해시를 확인했습니다.
+
+    ```powershell
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    3.11.4 버전에 대한 다음 해시 값이 작성 시 CMake 사이트에 나열되었습니다.
+
+    작성 시 3.13.4 버전에 대한 다음 해시 값이 CMake 사이트에 나열됩니다.
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
@@ -150,10 +152,10 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 
 ## <a name="create-the-device-registration-software"></a>디바이스 등록 소프트웨어 만들기
 
-마지막 단계는 디바이스를 IoT Hub 서비스에 등록하도록 Device Provisioning Service 클라이언트 SDK를 사용하는 등록 응용 프로그램을 작성하는 것입니다. 
+마지막 단계는 장치를 IoT Hub 서비스에 등록하도록 Device Provisioning Service 클라이언트 SDK를 사용하는 등록 애플리케이션을 작성하는 것입니다. 
 
 > [!NOTE]
-> 이 단계에서는 워크스테이션에서 SDK 샘플 등록 응용 프로그램을 실행하여 얻은 시뮬레이션된 디바이스를 사용하는 것으로 가정합니다. 하지만 물리적 디바이스에 배포할 등록 응용 프로그램을 작성하는 경우에도 동일한 개념이 적용됩니다. 
+> 이 단계에서는 워크스테이션에서 SDK 샘플 등록 애플리케이션을 실행하여 얻은 시뮬레이션된 장치를 사용하는 것으로 가정합니다. 하지만 물리적 장치에 배포할 등록 애플리케이션을 작성하는 경우에도 동일한 개념이 적용됩니다. 
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
 
@@ -205,7 +207,7 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-처음에는 시뮬레이션된 디바이스를 사용하고, 그 다음에는 테스트 서비스 설정을 사용하여 Device Provisioning Service 클라이언트 등록 응용 프로그램을 구체화해야 할 수도 있습니다. 응용 프로그램이 테스트 환경에서 작동되면 특정 디바이스에 대해 빌드하고, 실행 파일을 사용자 디바이스 이미지에 복사할 수 있습니다. 
+처음에는 시뮬레이션된 장치를 사용하고, 그 다음에는 테스트 서비스 설정을 사용하여 Device Provisioning Service 클라이언트 등록 애플리케이션을 구체화해야 할 수도 있습니다. 애플리케이션이 테스트 환경에서 작동되면 특정 디바이스에 대해 빌드하고, 실행 파일을 사용자 디바이스 이미지에 복사할 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -225,5 +227,5 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 자동 프로비전을 위한 Azure IoT Hub Device Provisioning Service에 등록하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [IoT Hub에 장치 프로비전](tutorial-provision-device-to-hub.md)
+> [IoT Hub에 디바이스 프로비전](tutorial-provision-device-to-hub.md)
 

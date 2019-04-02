@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 5e636617a61de3c2f8e3dd891b205c17caaaf454
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090375"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361203"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -31,9 +31,11 @@ ms.locfileid: "58090375"
 
 ## <a name="prerequisites"></a>필수 조건
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 문서를 참조하세요.
+* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps) 문서를 참조하세요.
 
 * SSH 클라이언트. 이 문서의 단계는 SSH를 사용하여 클러스터에 연결합니다.
 
@@ -50,54 +52,54 @@ ms.locfileid: "58090375"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Login-AzureRmAccount` cmdlet으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Login-AzAccount` cmdlet으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 이름과 위치를 묻는 메시지를 표시한 다음 새 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 이름과 위치를 묻는 메시지를 표시한 다음 새 리소스 그룹을 만듭니다.
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) 를 사용하여 새 스토리지 계정을 만듭니다.
+HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 새 스토리지 계정을 만듭니다.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
         -ResourceGroupName $resourceGroup `
         -Name $storageName `
         -Type Standard_LRS `
         -Location $location
 ```
 
-HDInsight는 BLOB 컨테이너의 저장소 계정에 데이터를 저장합니다. [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer)를 사용하여 새 컨테이너를 만듭니다.
+HDInsight는 BLOB 컨테이너의 저장소 계정에 데이터를 저장합니다. [New-AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer)를 사용하여 새 컨테이너를 만듭니다.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
-$storageKey = (Get-AzureRmStorageAccountKey `
+$storageKey = (Get-AzStorageAccountKey `
                 -ResourceGroupName $resourceGroup `
                 -Name $storageName)[0].Value
-$storageContext = New-AzureStorageContext `
+$storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzureStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
-[New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster)를 사용하여 HDInsight 클러스터에 Apache Kafka를 만듭니다.
+[New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster)를 사용하여 HDInsight 클러스터에 Apache Kafka를 만듭니다.
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -115,7 +117,7 @@ $disksPerNode=2
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $kafkaConfig.Add("kafka", "1.0")
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
         -Location $location `
@@ -138,7 +140,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]  
 > `-DisksPerWorkerNode` 매개 변수는 HDInsight의 Kafka 확장성을 구성합니다. HDInsight의 Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 
 >
-> 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다. `-WorkerNodeSize` 매개 변수를 사용하여 VM 유형을 설정할 수 있습니다. 매개 변수에 대한 자세한 내용은 [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 설명서를 참조하세요.
+> 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다. `-WorkerNodeSize` 매개 변수를 사용하여 VM 유형을 설정할 수 있습니다. 매개 변수에 대한 자세한 내용은 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) 설명서를 참조하세요.
 
 
 > [!IMPORTANT]  
@@ -333,10 +335,10 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, HDInsight 및 모든 관련 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹, HDInsight 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]  

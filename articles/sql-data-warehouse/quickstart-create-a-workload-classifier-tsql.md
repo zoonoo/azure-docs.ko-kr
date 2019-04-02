@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3355f9068d35f29483e257e5c236275f76a1c9d0
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 8ae9ad4d1101c3b42c46c51546ac82e5b4a134c8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008610"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519855"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기(미리 보기)
 
@@ -51,7 +51,9 @@ END
 ;
 ```
 
-## <a name="create-theceo-user-in-mysampledatawarehouse"></a>mySampleDataWarehouse에 TheCEO 사용자 만들기
+## <a name="create-user"></a>사용자 만들기
+
+mySampleDataWarehouse에 "TheCEO"라는 [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest)
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -61,7 +63,9 @@ END
 ;
 ```
 
-## <a name="create-a-workload-classifier-for-theceo-with-high-importance"></a>중요도가 높은 TheCEO에 대한 워크로드 분류자 만들기
+## <a name="create-a-workload-classifier"></a>워크로드 분류자 만들기
+
+중요도가 높은 "TheCEO"에 대한 [워크로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 만들기
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];

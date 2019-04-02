@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189651"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371335"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 1. 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **솔루션용 NuGet 패키지 관리**를 클릭합니다.
 1. **시험판 포함** 확인란을 선택합니다.
 1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
-1. NuGet 패키지를 선택하고 설치합니다. 소프트웨어의 버그가 수정될 때까지 v3.0.0이 아니라 2019년 3월 18일 현재의 v2.8.0이 필요할 수 있습니다.
+1. NuGet 패키지를 선택하고 설치합니다. 현재는 샘플 코드가 v3.0.0으로 업데이트될 때까지 v2.8.0로 다운그레이드해야 할 수도 있습니다(2019년 3월 18일부터).
 
 > [!Tip]
 >  C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.

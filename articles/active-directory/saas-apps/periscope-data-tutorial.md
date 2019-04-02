@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862219"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>자습서: Periscope Data와 Azure Active Directory 통합
 
@@ -138,7 +138,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     e. 인스턴스의 **식별자** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는  **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
-    f. XML 파일의 첫 번째 태그에서 **entityID** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
+    f. XML 파일의 첫 번째 태그를 찾고 **entityID** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
 
     g. SAML 프로토콜이 포함된 **IDPSSODescriptor** 태그를 찾습니다. 해당 섹션 내에서 **use=signing**이 포함된 **KeyDescriptor** 태그를 찾습니다. **X509Certificate** 값을 복사하고 **인증서** 텍스트 상자에 붙여넣습니다.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874884"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314589"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>자습서: Service Fabric에서 Java 웹 API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
@@ -912,7 +912,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 4. Eclipse용 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -&gt; 애플리케이션 게시...** 를 클릭 
 5. **애플리케이션 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.
-6. 웹 브라우저로 이동하고 `http://localhost:8080`에 액세스하여 로컬 Service Fabric 클러스터에서 실행 중인 애플리케이션을 봅니다. 
+6. 웹 브라우저로 이동하고 http:\//localhost:8080에 액세스하여 로컬 Service Fabric 클러스터에서 실행 중인 애플리케이션을 봅니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100856"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402204"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결 
 
-이 문서에서는 Azure Data Box Gateway에서 문제를 해결하는 방법을 설명합니다. 
-
-> [!IMPORTANT]
-> - Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 Azure Data Box Gateway에서 문제를 해결하는 방법을 설명합니다. 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 진단 실행
@@ -53,7 +48,7 @@ ms.locfileid: "58100856"
 
     ![사용자 추가 클릭](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. 지원 패키지가 생성된 후에는 **지원 패키지 다운로드**를 클릭합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지의 압축을 풀면 시스템 로그 파일을 볼 수 있습니다.
+2. 지원 패키지가 생성된 후에는 **지원 패키지 다운로드**를 클릭합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지 압축을 풀 수 있습니다.
 
     ![사용자 추가 클릭](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0972df18c65ee6b61db4113eaebc1f2912cd6064
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892883"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349487"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
@@ -34,7 +34,10 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!TIP]
-> [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity)를 사용하여 데이터베이스 작업의 상태를 가져오고 [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)를 사용하여 데이터베이스에서 업데이트 작업을 취소합니다.
+> 메트릭의 전체 목록은 [지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases)을 참조하세요.
+
+> [!TIP]
+> [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity)를 사용하여 데이터베이스 작업의 상태를 가져오고 [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)를 사용하여 데이터베이스 업데이트 작업을 취소합니다.
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

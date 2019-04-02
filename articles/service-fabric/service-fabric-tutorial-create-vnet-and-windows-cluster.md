@@ -3,7 +3,7 @@ title: Azure에서 Windows를 실행하는 Service Fabric 클러스터 만들기
 description: 이 자습서에서는 PowerShell을 사용하여 Windows Service Fabric 클러스터를 Azure 가상 네트워크 및 네트워크 보안 그룹에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225147"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498182"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -58,6 +58,7 @@ ms.locfileid: "58225147"
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
 * [Azure 클러스터](service-fabric-azure-clusters-overview.md)에 대한 주요 개념을 검토합니다.
+* 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
 다음 절차에서는 7개 노드 Service Fabric 클러스터를 만듭니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 Azure에서 Service Fabric 클러스터를 실행함으로써 발생하는 비용을 계산합니다.
 
@@ -157,7 +158,7 @@ ms.locfileid: "58225147"
 |clusterName|mysfcluster123| 클러스터의 이름입니다. 문자와 숫자만 포함할 수 있습니다. 길이는 3자에서 23자 사이일 수 있습니다.|
 |location|southcentralus| 클러스터의 위치입니다. |
 |certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 SHA1 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다.</p> |
-|certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다. </p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다. </p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 “/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”와 같습니다.</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Azure Active Directory 클라이언트 인증 설정
@@ -181,7 +182,7 @@ Azure AD를 Service Fabric 클러스터로 구성하는 데 관련된 단계를 
 
 `SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다. 사용자에 대한 사용자 이름과 암호를 지정합니다. 예: 
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

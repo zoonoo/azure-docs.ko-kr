@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246953"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402884"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>빠른 시작: Azure Sentinel 미리 보기 시작
 
@@ -118,7 +118,22 @@ ms.locfileid: "57246953"
 
 데이터를 보는 사용자의 역할과 원하는 정보를 기준으로 다른 대시보드를 만들 수 있습니다. 예를 들어, 네트워크 관리자를 위해 방화벽 데이터를 포함하는 대시보드를 만들 수 있습니다. 항목을 확인하려는 빈도, 매일 검토하려는 항목이 있는지 여부 및 1시간에 1번 확인하려는 기타 항목을 기준으로 대시보드를 만들 수도 있습니다. 예를 들어, 1시간 간격으로 Azure AD 로그인을 확인하여 오류를 검색할 수 있습니다. 
 
+## <a name="create-new-detections"></a>새 탐지 만들기
 
+[Azure Sentinel에 연결한 데이터 원본](connect-data-sources.md)에 대한 탐지를 생성하여 조직내 위험 요소를 조사할 수 있습니다.
+
+새 탐지를 만들 때 Microsoft 보안 연구원들이 만든 기본 제공 탐지를 활용하세요. 이 기본 제공 탐지는 사용자가 연결한 데이터 원본에 맞게 조정됩니다.
+
+1. [GitHub 커뮤니티에서](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) **Detections** 폴더로 이동하여 관련 폴더를 선택합니다.
+   ![관련 폴더](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  **Analytics** 탭으로 이동하여 **추가**를 선택합니다.
+   ![Log Analytics에서 규칙 만들기](./media/qs-get-visibility/query-params.png)
+
+3.  모든 매개 변수를 규칙에 복사하고 **만들기**를 클릭합니다.
+   ![경고 규칙 만들기](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure Sentinel 사용을 시작하는 방법을 알아보았습니다. [위협 감지 방법](tutorial-detect-threats.md)에 대한 자습서도 계속 진행하세요.
 > [!div class="nextstepaction"]

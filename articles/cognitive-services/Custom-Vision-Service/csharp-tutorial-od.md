@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9d8340d505308753855fa0fcd286949e80d3ecaa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879278"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472602"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 개체 검색 프로젝트 만들기
 
@@ -26,10 +26,11 @@ ms.locfileid: "55879278"
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Custom Vision SDK 및 샘플 코드 다운로드
+
 Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet 패키지가 필요합니다. 이러한 요소는 여러분이 다운로드할 샘플 프로젝트에 포함되어 있지만, 여기서 개별적으로 액세스할 수도 있습니다.
 
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
 [Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ObjectDetection** 폴더로 이동하여 Visual Studio에서 _ObjectDetection.csproj_를 엽니다.
 
@@ -75,21 +76,48 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 �
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=106-117)]
 
-### <a name="set-the-current-iteration-as-default"></a>현재 반복을 기본값으로 설정
+### <a name="publish-the-current-iteration"></a>현재 반복 게시
 
-이 코드는 현재 반복을 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=119-124)]
+```csharp
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### <a name="create-a-prediction-endpoint"></a>예측 엔드포인트 만들기
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=126-131)]
+```csharp
+// Create a prediction endpoint, passing in the obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
 
 ### <a name="use-the-prediction-endpoint"></a>예측 엔드포인트 사용
 
 이 스크립트 부분은 테스트 이미지를 로드하고, 모델 엔드포인트를 쿼리하고, 예측 데이터를 콘솔에 출력합니다.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=133-145)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var imageFile = Path.Combine("Images", "test", "test_image.jpg");
+using (var stream = File.OpenRead(imageFile))
+{
+        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+
+        // Loop over each prediction and write out the results
+        foreach (var c in result.Predictions)
+        {
+                Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
+        }
+}
+```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -104,6 +132,7 @@ Making a prediction:
         fork: 98.2% [ 0.111609578, 0.184719115, 0.6607002, 0.6637112 ]
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
+
 그런 다음, 테스트 이미지(**Images/Test/** 에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다. 이제 아무 키를 눌러 응용 프로그램을 종료할 수 있습니다.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]

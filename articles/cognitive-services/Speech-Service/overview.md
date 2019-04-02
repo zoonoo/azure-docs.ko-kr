@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871650"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519632"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -39,9 +39,9 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 
 Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
+* 2019년 3월 - 특정 지역에서 사용할 수 있는 전체 음성 목록을 반환하는 새로운 텍스트 음성 변환 엔드포인트가 제공됩니다. 자세한 내용은 [Text-to-speech API 참조(REST)](rest-text-to-speech.md)를 참조하세요.
 * 2019년 2월 - [Unity(베타)](quickstart-csharp-unity.md) 지원을 포함하는 Speech SDK 1.3.0을 출시했습니다. 오디오에 대한 스트리밍 원본을 선택할 수 있는 `AudioInput` 클래스에 대한 지원이 추가되었습니다. 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2018년 12월 - [Python](quickstart-python.md) 및 [Node.js](quickstart-js-node.md) 뿐만 아니라 Ubuntu 18.04 LTS 지원을 포함하는 Speech SDK 1.2.0을 출시했습니다. 자세한 내용은 [릴리스 정보](releasenotes.md)를 참조하세요.
-* 2018년 12월 - [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md)를 위한 텍스트 음성 변환 빠른 시작이 추가되었습니다. 추가 샘플은 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http)에서 사용할 수 있습니다.
 
 ## <a name="try-speech-services"></a>Speech Services 사용해 보기
 

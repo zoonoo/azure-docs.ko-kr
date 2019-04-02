@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 48774c616fa8fb477218264cb58e09659142a5cd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497944"
+ms.locfileid: "58540655"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기
 
@@ -71,7 +71,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-**보안 주체 <guid>가 디렉터리에 없다**는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
+**보안 주체 \<guid>가 디렉터리에 없다**는 오류 메시지가 표시된다면, 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
 
 일반적으로 *네트워크 참가자*와 *Storage 계정 참가자*를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 

@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 애플리케�
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 애플리케이션에 대한 Azure Load Balancer에서 애플리케이션 포트 열기
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 05/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0549f5f2b5b0f8fdfc18b8c091c1065d6137b8c6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 72badb5ca2e8973fd64f5339eaff55ceb79a5ce3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366174"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498267"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 애플리케이션 포트 열기
 
 Azure에서 실행되는 Service Fabric 애플리케이션은 Azure Load Balancer 뒤에 있습니다. 이 샘플 스크립트는 Service Fabric 애플리케이션이 외부 클라이언트와 통신할 수 있도록 Azure Load Balancer에서 포트를 엽니다. 필요에 따라 매개 변수를 사용자 지정합니다. 또한 클러스터가 네트워크 보안 그룹에 위치하는 경우 [인바운드 네트워크 보안 그룹 규칙을 추가](service-fabric-powershell-add-nsg-rule.md)하여 인바운드 트래픽을 허용합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 필요한 경우 [Service Fabric SDK](../service-fabric-get-started.md)를 사용하여 Service Fabric PowerShell 모듈을 설치합니다. 
 
@@ -38,12 +40,12 @@ Azure에서 실행되는 Service Fabric 애플리케이션은 Azure Load Balance
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Azure 리소스를 가져옵니다.  |
-| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Azure Load Balancer를 가져옵니다. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Load Balancer에 프로브 구성을 추가합니다.|
-| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Load Balancer에 대한 프로브 구성을 가져옵니다. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | Load Balancer에 규칙 구성을 추가합니다. |
-| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Load Balancer에 대한 목표 상태를 설정합니다. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Azure 리소스를 가져옵니다.  |
+| [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | Azure Load Balancer를 가져옵니다. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) | Load Balancer에 프로브 구성을 추가합니다.|
+| [Get-AzLoadBalancerProbeConfig](/powershell/module/az.network/get-azloadbalancerprobeconfig) | Load Balancer에 대한 프로브 구성을 가져옵니다. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) | Load Balancer에 규칙 구성을 추가합니다. |
+| [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) | Load Balancer에 대한 목표 상태를 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

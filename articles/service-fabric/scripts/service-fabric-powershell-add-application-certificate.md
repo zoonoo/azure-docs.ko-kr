@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에 애플리케이션 인증서 추가
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d5e1540a347bb14e7479bc445afa98e220b5475a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598713"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497064"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 인증서 추가
 
 이 샘플 스크립트는 지정된 Azure Key Vault에서 자체 서명된 인증서를 만들고 Service Fabric 클러스터의 모든 노드에 설치합니다. 또한 인증서는 로컬 폴더로도 다운로드됩니다. 다운로드한 인증서의 이름은 Key Vault의 인증서 이름과 동일합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -34,11 +36,11 @@ ms.locfileid: "31598713"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용합니다. 표의 각 명령은 명령 관련 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 머신 확장 세트에 새 애플리케이션 인증서를 추가합니다.  |
+| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 머신 확장 세트에 새 애플리케이션 인증서를 추가합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

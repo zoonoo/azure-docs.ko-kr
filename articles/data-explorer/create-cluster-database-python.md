@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287389"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472585"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -25,15 +25,15 @@ ms.locfileid: "58287389"
 > * [Python](create-cluster-database-python.md)
 >  
 
-이 빠른 시작에서는 Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법에 대해 설명합니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 Python을 사용하여 클러스터와 데이터베이스를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="install-python-package"></a>Python 패키지 설치
 
-Azure Data Explorer(Kusto)용 Python 패키지를 설치하려면 해당 경로에 Python이 있는 명령 프롬프트를 열고 다음 명령을 실행합니다.
+Azure Data Explorer(Kusto)용 Python 패키지를 설치하려면 경로에 Python이 있는 명령 프롬프트를 엽니다. 다음 명령을 실행합니다.
 
 ```
 pip install azure-mgmt-kusto
@@ -43,7 +43,26 @@ pip install azure-mgmt-kusto
 
 1. 다음 명령을 사용하여 클러스터를 만듭니다.
 
+    ```Python
+    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto.models import Cluster, AzureSku
+
+    credentials = xxxxxxxxxxxxxxx
     
+    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    location = 'Central US'
+    sku = 'D13_v2'
+    capacity = 5
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    
+    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
+    
+    cluster_operations = kustoManagementClient.clusters
+    
+    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    ```
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
@@ -53,9 +72,9 @@ pip install azure-mgmt-kusto
 
     사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
     
-    'credentials'를 사용자의 자격 증명으로 설정합니다(자세한 내용은 https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python 참조).
+1. [*자격 증명*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)을 설정합니다.
 
-2. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
+1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +110,7 @@ pip install azure-mgmt-kusto
    | soft_delete_period | *3650 days, 0:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
    | hot_cache_period | *3650 days, 0:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
 
-2. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
+1. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

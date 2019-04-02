@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352889"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447245"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
-   ![새로 만들기->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFIncCopyTutorialDF**를 입력합니다. 
       
      ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
@@ -305,9 +306,9 @@ END
     1. **저장 프로시저 이름**에 대해 **usp_write_watermark**를 선택합니다. 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다. 
 
-        | 이름 | type | 값 | 
+        | Name | type | 값 | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 문자열 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

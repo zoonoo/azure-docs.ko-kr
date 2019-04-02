@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cce28b031b146d8a56d37647022261294f07f0be
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0d0b3b38fe39e32c6a3c7c39de5cbed4f7400d92
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213571"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435895"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
@@ -30,7 +30,7 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 
 | **성능 기능 및 최적화** | **표준 Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
-| [동적 사이트 가속](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [동적 사이트 가속](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview)를 통해 제공됨 | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 적응 이미지 압축](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 개체 프리페치](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | [일반 웹 배달 최적화](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, 평균 파일 크기가 10MB보다 작으면 이 최적화 유형을 선택합니다.  | **&#x2713;** |  **&#x2713;** |

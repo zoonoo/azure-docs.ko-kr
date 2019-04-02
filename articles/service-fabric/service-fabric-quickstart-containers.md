@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804655"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482337"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -105,7 +105,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 예: 
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
@@ -149,7 +149,7 @@ Thumbprint                                Subject
 
 클러스터의 각 애플리케이션에는 고유한 이름이 있어야 합니다. 이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
-브라우저를 열고 이전 단계에서 **연결 엔드포인트** 필드에 입력한 주소로 이동합니다. 필요에 따라 URL에 `http://` 스키마 식별자를 앞쪽에 추가하고 `:80` 포트를 추가할 수 있습니다. 예: http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80
+브라우저를 열고 이전 단계에서 **연결 엔드포인트** 필드에 입력한 주소로 이동합니다. 필요에 따라 URL에 `http://` 스키마 식별자를 앞쪽에 추가하고 `:80` 포트를 추가할 수 있습니다. 예: http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 

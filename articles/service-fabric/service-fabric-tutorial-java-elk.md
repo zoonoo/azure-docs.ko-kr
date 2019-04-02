@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112506"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313008"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
 
@@ -34,9 +34,9 @@ ms.locfileid: "37112506"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
-> * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
-> * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
+> * [Java Service Fabric Reliable Services 애플리케이션 빌드](service-fabric-tutorial-create-java-app.md)
+> * [로컬 클러스터에서 애플리케이션 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Azure 클러스터에 애플리케이션 배포](service-fabric-tutorial-java-deploy-azure.md)
 > * 애플리케이션에 대한 모니터링 및 진단 설정
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
@@ -44,14 +44,14 @@ ms.locfileid: "37112506"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [2부](service-fabric-tutorial-debug-log-local-cluster.md)에서 지정된 위치로 로그를 내보내는 응용 프로그램을 설정합니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [2부](service-fabric-tutorial-debug-log-local-cluster.md)에서 지정된 위치로 로그를 내보내는 애플리케이션을 설정합니다.
 * [3부](service-fabric-tutorial-java-deploy-azure.md)를 완료하고 Event Hubs에 로그를 보내기 위해 실행 중인 Service Fabric 클러스터를 구성합니다.
 * '수신 대기' 권한과 시리즈 3부에서 연결된 기본 키가 있는 Event Hubs 정책입니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
-[이 자습서 시리즈의 1부](service-fabric-tutorial-create-java-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+[이 자습서 시리즈의 1부](service-fabric-tutorial-create-java-app.md)에서 투표 예제 애플리케이션을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
@@ -109,7 +109,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. 다음 내용을 사용하여 기존 Logstash 구성 파일을 만들거나 수정합니다. 파일을 만들 때 Azure에서 ELK Bitnami 이미지를 사용하는 경우 ```/opt/bitnami/logstash/conf/access-log.conf```에서 만들어야 합니다.
+4. 다음 콘텐츠를 사용하여 기존 Logstash 구성 파일을 만들거나 수정합니다. 파일을 만들면 Azure에 ELK Bitnami 이미지를 사용하는 경우 ```/opt/bitnami/logstash/conf/access-log.conf```에 생성됩니다.
 
     ```json
     input
@@ -149,7 +149,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. **http://SERVER-IP**에서 Kibana 대시보드에 액세스하고 Kibana에 대한 사용자 이름 및 암호를 입력합니다. Azure에서 ELK 이미지를 사용한 경우 기본 사용자 이름은 'user'가 되고 암호는 **부팅 진단**에서 가져옵니다.
+8. **http:\//SERVER-IP**에서 Kibana 대시보드에 액세스하고 Kibana에 대한 사용자 이름 및 암호를 입력합니다. Azure에서 ELK 이미지를 사용한 경우 기본 사용자 이름은 'user'가 되고 암호는 **부팅 진단**에서 가져옵니다.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

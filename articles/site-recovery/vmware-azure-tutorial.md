@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848833"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310594"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
 
-이 자습서에서는 Azure Site Recovery를 사용하여 Azure에 VMware VM의 복제를 설정하고 활성화하는 방법을 보여줍니다. 자습서에서는 기본 설정을 사용하여 Site Recovery를 배포하는 방법을 설명합니다. 가장 간단한 경로를 사용하고 일부 옵션을 표시하지 않습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 사용자 지정하지 않고 기본 설정을 사용하여 Site Recovery를 배포하는 방법을 보여줍니다. 더 복잡한 옵션의 경우 방법에 있는 문서를 검토하세요.
+
+    - [복제 원본](vmware-azure-set-up-source.md) 및 [구성 서버](vmware-azure-deploy-configuration-server.md)를 설정합니다.
+    - [복제 대상](vmware-azure-set-up-target.md)을 설정합니다.
+    - [복제 정책](vmware-azure-set-up-replication.md) 및 [복제 사용](vmware-azure-enable-replication.md)을 구성합니다.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 복제 원본 및 대상을 입력합니다.
@@ -37,14 +43,10 @@ ms.locfileid: "57848833"
 - VMware VM에 재해 복구를 설정하는 방법에 대해 자세히 알아보려면 다음 리소스를 검토하고 사용합니다.
     - VMware에서 재해 복구에 대한 [일반적인 질문을 참고](vmware-azure-common-questions.md)합니다.
     - 지원 항목 및 VMware의 필수 항목에 대해 [자세히 알아](vmware-physical-azure-support-matrix.md)봅니다.
--  VMware에 대한 모든 배포 옵션을 포함하는 자세한 지침은 **방법 가이드**를 참고합니다.
-    - [복제 원본](vmware-azure-set-up-source.md) 및 [구성 서버](vmware-azure-deploy-configuration-server.md)를 설정합니다.
-    - [복제 대상](vmware-azure-set-up-target.md)을 설정합니다.
-    - [복제 정책](vmware-azure-set-up-replication.md) 및 [복제 사용](vmware-azure-enable-replication.md)을 구성합니다.
 - 이 자습서에서는 단일 VM을 복제하는 방법을 보여줍니다. 여러 VM을 배포하려는 경우에는 배포를 계획하는 데 도움이 되는 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 사용해야 합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
 
 그리고 다음 팁을 검토합니다.
-- 이 자습서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 수행할 수 없는 경우 [아래 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 직접 설정하세요.
+- 이 자습서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 이를 수행할 수 없는 경우 [이러한 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 직접 설정하세요.
 - 이 자습서에서 Site Recovery는 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
   >[Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버 템플릿을 직접 다운로드할 수 있습니다.
   OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다. 

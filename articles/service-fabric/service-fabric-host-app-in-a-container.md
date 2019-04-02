@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 270fa85f7f51c2f29e8dd67dd68c6dc605929c6e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807527"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313348"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -232,7 +232,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![애플리케이션 게시][publish-app]
 
-출력 창의 배포 진행률을 따릅니다.  애플리케이션을 배포할 때 클러스터 주소와 애플리케이션 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
+출력 창의 배포 진행률을 따릅니다.  애플리케이션을 배포할 때 클러스터 주소와 애플리케이션 포트에서 브라우저와 유형을 엽니다. 예를 들어 http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/입니다.
 
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
 

@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113336"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480126"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Azure Portal의 알림 허브에서 푸시 알림 설정
 
@@ -29,7 +29,7 @@ Azure Notification Hubs는 사용하기 쉽고 확장 가능한 푸시 엔진을
 
 APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Notification Hub**에서 **Apple(APNS)** 을 선택합니다.
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Apple(APNS)** 을 선택합니다.
 
 1. **인증 모드**의 경우 **인증서** 또는 **토큰**을 선택합니다.
 
@@ -42,7 +42,7 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
 
    b. **토큰**을 선택한 경우:
 
-   * **키 Id**, **번들 Id**, **팀 Id** 및 **토큰**에 대한 값을 입력합니다.
+   * **키 ID**, **번들 ID**, **팀 ID** 및 **토큰**에 대한 값을 입력합니다.
    * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
      ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
@@ -53,7 +53,7 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
 
 FCM(Google Firebase Cloud Messaging)에 대한 푸시 알림을 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Notification Hub**에서 **Google(GCM/FCM)** 을 선택합니다. 
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Google(GCM/FCM)** 을 선택합니다. 
 2. 앞에서 저장한 FCM 프로젝트의 **API 키**를 붙여넣습니다. 
 3. **저장**을 선택합니다. 
 
@@ -67,7 +67,7 @@ FCM(Google Firebase Cloud Messaging)에 대한 푸시 알림을 설정하려면 
 
 WNS(Windows Push Notification Service)를 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Notification Hub**에서 **Windows(WNS)** 를 선택합니다.
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Windows(WNS)** 를 선택합니다.
 2. **패키지 SID** 및 **보안 키**에 사용할 값을 입력합니다.
 3. **저장**을 선택합니다.
 
@@ -79,7 +79,7 @@ WNS(Windows Push Notification Service)를 설정하려면 다음을 수행합니
 
 Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 다음을 수행합니다. 
 
-1. Azure Portal의 **Notification Hub**에서 **Windows Phone(MPNS)** 을 선택합니다.
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Windows Phone(MPNS)** 을 선택합니다.
 1. 인증되지 않았거나 인증된 푸시 알림 사용:
 
    a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장**을 선택합니다.
@@ -99,7 +99,7 @@ Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 �
 
 ADM(Amazon Device Messaging)에 대한 푸시 알림을 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Notification Hub**에서 **Amazon(ADM)** 을 선택합니다.
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Amazon(ADM)** 을 선택합니다.
 2. **클라이언트 ID** 및 **클라이언트 비밀**에 대한 값을 입력합니다.
 3. **저장**을 선택합니다.
     
@@ -111,7 +111,7 @@ ADM(Amazon Device Messaging)에 대한 푸시 알림을 설정하려면 다음�
 
 Baidu용 푸시 알림을 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Notification Hub**에서 **Baidu(Android China)** 를 선택합니다. 
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Baidu(Android China)** 를 선택합니다. 
 2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **Api 키**를 입력합니다. 
 3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키**를 입력합니다. 
 4. **저장**을 선택합니다. 

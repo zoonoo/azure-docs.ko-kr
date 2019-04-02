@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863324"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499559"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -52,10 +52,11 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 
 * 컨테이너 그룹당 다중 컨테이너 수
 * 볼륨 탑재([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
+* Azure Monitor로 [리소스 사용량 메트릭](container-instances-monitor.md)
 * [가상 네트워크 배포](container-instances-vnet.md)(미리 보기)
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
-Azure Container Instances는 LTSC(장기 서비스 채널) 버전 기반의 Windows Server 2016 이미지를 지원합니다. 1709 및 1803 같은 SAC(Windows 반기 채널) 릴리스는 지원되지 않습니다.
+Azure Container Instances는 현재 LTSC(장기 서비스 채널) 버전 기반의 Windows Server 2016 이미지를 지원합니다. 1709 및 1803 같은 SAC(Windows 반기 채널) 릴리스는 지원되지 않습니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 

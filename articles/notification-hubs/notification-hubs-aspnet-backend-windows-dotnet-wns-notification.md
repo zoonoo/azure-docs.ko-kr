@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844987"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402511"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -53,13 +53,13 @@ ms.locfileid: "57844987"
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>클라이언트 프로젝트에 대한 코드 업데이트
+## <a name="update-the-code-for-the-uwp-client"></a>UWP 클라이언트의 코드 업데이트
 
 이 섹션에서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 프로젝트는 Windows 스토어와 이미 연결되어 있어야 합니다. 또한 알림 허브를 사용하도록 구성되어야 합니다. 이 섹션에서는 새 WebAPI 백 엔드를 호출할 코드를 추가하고, 알림을 등록하고 보내는 데 이 코드를 사용합니다.
 
 1. Visual Studio에서 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에서 만든 솔루션을 엽니다.
-2. 솔루션 탐색기에서 **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
-3. 왼쪽에서 **온라인**을 클릭합니다.
+2. 솔루션 탐색기에서 UWP(유니버설 Windows 플랫폼) 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+3. 왼쪽에서 **찾아보기**를 선택합니다.
 4. **검색** 상자에 **Http 클라이언트**를 입력합니다.
 5. 결과 목록에서 **System.Net.Http**를 클릭하고, **설치**를 클릭합니다. 설치를 완료합니다.
 6. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Newtonsoft.json** 패키지를 설치한 다음, NuGet 패키지 관리자 창을 닫습니다.

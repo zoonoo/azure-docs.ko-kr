@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: 원격 모니터링 FAQ
       href: iot-accelerators-faq-rm-v2.md
-- name: 연결된 팩터리
+- name: 산업용 IoT
   items:
   - name: 개요
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: 아키텍처
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: 산업용 IoT란?
+      href: overview-iot-industrial.md
+    - name: OPC 쌍
+      items:
+      - name: OPC 쌍이란?
+        href: overview-opc-twin.md
+      - name: OPC 쌍 아키텍처
+        href: overview-opc-twin-architecture.md
+    - name: OPC 자격 증명 모음
+      items:
+      - name: OPC 자격 증명 모음이란?
+        href: overview-opc-vault.md
+    - name: 연결된 팩터리
+      items:
+      - name: 연결된 팩터리 개요
+        href: iot-accelerators-connected-factory-features.md
+      - name: 연결된 팩터리 아키텍처
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: 빠른 시작
     items:
     - name: 연결된 팩터리 솔루션 사용
       href: quickstart-connected-factory-deploy.md
   - name: 방법 가이드
     items:
-    - name: 대시보드 사용
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: 게이트웨이 배포
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: OPC 게시자 사용
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: 솔루션 가속기 구성
-      href: iot-accelerators-connected-factory-configure.md
-    - name: 솔루션 가속기 사용자 지정
-      href: iot-accelerators-connected-factory-customize.md
+    - name: 연결된 팩터리
+      items:
+      - name: 대시보드 사용
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: 게이트웨이 배포
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: OPC 게시자 사용
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: 솔루션 가속기 구성
+        href: iot-accelerators-connected-factory-configure.md
+      - name: 솔루션 가속기 사용자 지정
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC 쌍
+      items:
+      - name: OPC 쌍 서비스 배포
+        href: howto-opc-twin-deploy-existing.md
+      - name: IoT Edge에 OPC 쌍 모듈 배포
+        href: howto-opc-twin-deploy-modules.md
+      - name: OPC 쌍 종속성만 배포
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC 자격 증명 모음
+      items:
+      - name: 기존 프로젝트에 OPC 자격 증명 모음 배포
+        items:
+        - name: OPC 클라이언트 및 OPC PLC 통신 보안
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: OPC UA 클라이언트 및 OPC UA 서버 애플리케이션 보안
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: 처음부터 OPC 자격 증명 모음 배포
+        href: howto-opc-vault-deploy-scratch.md
   - name: 리소스
     items:
     - name: GitHub 리포지토리
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: 원격 모니터링 V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342040"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757193"

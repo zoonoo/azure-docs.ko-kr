@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009664"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315830"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -324,7 +324,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. VM에 대해 기록된 주소로 웹 브라우저를 엽니다. 예를 들어 *http://13.72.77.9:3300*입니다. 다음 페이지와 유사한 출력이 표시됩니다.
+2. VM에 대해 기록된 주소로 웹 브라우저를 엽니다. 예를 들어 *http:\//13.72.77.9:3300*입니다. 다음 페이지와 유사한 출력이 표시됩니다.
 
     ![책 레코드](media/tutorial-mean/meanstack-init.png)
 

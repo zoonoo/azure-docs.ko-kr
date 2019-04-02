@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2f55ca6d0dae8ca1eaba1f409bd6a9faa75baf9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849213"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361900"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
 
@@ -87,7 +87,7 @@ Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용](quickstart-get-started.md)(비설치 방법)하거나 [Python](quickstart-create-workspace-with-python.md)(SDK 설치 방법)에서 시작하도록 Machine Learning Service 작업 영역을 만듭니다.
+- 시작하려면 [Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md).
 
 - 다음 전체 자습서를 따릅니다. 
   + [Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 

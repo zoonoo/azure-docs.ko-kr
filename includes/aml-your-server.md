@@ -9,14 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 18ba86ce7876ba8275eb4853e4fc9ea0f35fa186
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302213"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395513"
 ---
-1. [Azure Machine Learning Python 빠른 시작](../articles/machine-learning/service/quickstart-create-workspace-with-python.md)을 완료하여 SDK를 설치하고 작업 영역을 만듭니다.  원한다면 **Notebook 사용** 섹션을 건너뛰어도 됩니다.
+1. [Azure Machine Learning Service 작업 영역 만들기](../articles/machine-learning/service/setup-create-workspace.md#portal)의 지침을 사용하여 Miniconda 환경을 만들고, 작업 영역을 만들고, 작업 영역 구성 파일(**aml_config/config.json**)을 씁니다.
+
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
     ```

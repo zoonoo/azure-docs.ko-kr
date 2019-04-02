@@ -3,7 +3,7 @@ title: '자습서: Service Fabric 독립 실행형 클라이언트 설치 - Azur
 description: 이 자습서에서는 이전 자습서 문서에서 만든 클러스터에 Service Fabric 독립 실행형 클라이언트를 설치하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240344"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370417"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Service Fabric Explorer 표시
 
-이제 http://localhost:19080/Explorer/index.html을 사용하여 컴퓨터 중 하나에서 직접 또는 http://<*IPAddressofaMachine*>:19080/Explorer/index.html을 사용하여 원격으로 Service Fabric Explorer를 사용하여 클러스터에 연결할 수 있습니다.
+이제 http:\//localhost:19080/Explorer/index.html을 사용하여 머신 중 하나에서 직접 또는 http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html을 사용하여 원격으로 Service Fabric Explorer를 사용하여 클러스터에 연결할 수 있습니다.
 
 ## <a name="add-and-remove-nodes"></a>노드 추가 및 제거
 
@@ -148,7 +148,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 시리즈의 3부로 이동하여 사용자가 만든 클러스터로 애플리케이션을 설치합니다.
 
 > [!div class="nextstepaction"]
-> [서비스 패브릭 클러스터에 응용 프로그램 설치](service-fabric-tutorial-standalone-install-an-application.md)
+> [서비스 패브릭 클러스터에 애플리케이션 설치](service-fabric-tutorial-standalone-install-an-application.md)
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png

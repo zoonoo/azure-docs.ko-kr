@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287384"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472483"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287384"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법에 대해 설명합니다.
-
-Windows, Linux 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 PowerShell cmdlet 및 스크립트를 실행하여 [Azure Data Explorer](https://docs.microsoft.com/azure/kusto/ )를 만들고 구성할 수 있습니다.
-
-[**Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )입니다. Azure PowerShell 및 **Az.Kusto**를 사용하여 다음 작업을 수행할 수 있습니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 Powershell을 사용하여 클러스터와 데이터베이스를 만듭니다. [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="configure-parameters"></a>매개 변수 구성
 
-Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 로컬에서 CLI를 실행하는 경우 다음 단계에 따라 Azure에 로그인하고 현재 구독을 설정합니다.
+Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 로컬에서 CLI를 실행하는 경우 1과 2단계에 따라 Azure에 로그인하고 현재 구독을 설정합니다.
 
 1. 다음 명령을 실행하여 Azure에 로그인합니다.
 
@@ -46,12 +47,12 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
     Connect-AzAccount
     ```
 
-2. 클러스터를 만들려는 구독을 설정합니다.
+1. 클러스터를 만들 구독을 설정합니다.
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Az.Kusto 모듈을 디바이스에 설치합니다.
+1. Azure CLI를 로컬이나 Azure Cloud Shell에서 실행하는 경우 디바이스에 Az.Kusto 모듈을 설치해야 합니다.
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -73,7 +74,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 
     사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
 
-2. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
+1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -97,7 +98,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
    | SoftDeletePeriod | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
    | HotCachePeriod | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
 
-2. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
+1. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
@@ -116,7 +117,5 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 
 ## <a name="next-steps"></a>다음 단계
 
-[**여기서**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ) 더 많은 Az.Kusto 명령을 찾을 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)
+* [추가 Az.Kusto 명령](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)

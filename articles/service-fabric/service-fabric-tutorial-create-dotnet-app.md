@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851366"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317207"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
@@ -466,7 +466,7 @@ VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서�
         ],
 ```
 로컬 개발 클러스터에서 사용되는 역방향 프록시 포트를 찾아보려면 로컬 Service Fabric 클러스터 매니페스트에서 **HttpApplicationGatewayEndpoint** 요소를 확인하세요.
-1. 브라우저 창을 열고 http://localhost:19080으로 이동하여 Service Fabric Explorer 도구를 엽니다.
+1. 브라우저 창을 열고 http:\//localhost:19080으로 이동하여 Service Fabric Explorer 도구를 엽니다.
 2. **클러스터 -> 매니페스트**를 선택합니다.
 3. HttpApplicationGatewayEndpoint 요소 포트를 기록해 둡니다. 기본적으로 19081이어야 합니다. 19081이 아닌 경우 다음 VotesController.cs 코드의 GetProxyAddress 메서드에서 포트를 변경해야 합니다.
 

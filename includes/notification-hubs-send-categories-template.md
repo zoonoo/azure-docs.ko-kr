@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835851"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405604"
 ---
 이 섹션에서는 .NET 콘솔 앱에서 태그가 지정된 템플릿 알림으로 속보를 보냅니다. 
 
-1. Visual Studio에서 다음과 같이 새로운 Visual C# 콘솔 애플리케이션을 만듭니다.
+1. Visual Studio에서 다음과 같이 새로운 Visual C# 콘솔 애플리케이션을 만듭니다. a. 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+    b. **Visual C#** 을 확장하고 **Windows 데스크톱**을 선택합니다. 
+    다. 템플릿 목록에서 **콘솔 앱(.NET Framework)** 을 선택합니다. 
+    d. 앱의 **이름**을 입력합니다. 
+    e. 앱의 **폴더**를 선택합니다.
+    f. **확인**을 선택하여 프로젝트를 만듭니다. 
+2. Visual Studio 주 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 차례로 선택한 후 콘솔 창에서 다음 문자열을 입력합니다.
    
-      ![콘솔 애플리케이션 링크][13]
-
-2. Visual Studio 주 메뉴에서 **도구** > **라이브러리 패키지 관리자** > **패키지 관리자 콘솔**을 차례로 선택한 후 콘솔 창에서 다음 문자열을 입력합니다.
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. **Enter** 키를 선택합니다.  
     이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지]를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.

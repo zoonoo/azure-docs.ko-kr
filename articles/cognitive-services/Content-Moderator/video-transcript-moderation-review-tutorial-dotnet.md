@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904340"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522080"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -234,7 +234,7 @@ ms.locfileid: "57904340"
 `CreateVideoReviewInContentModerator()`는 다음 작업을 수행하려면 다른 여러 메서드를 호출합니다.
 
 > [!NOTE]
-> 콘솔 애플리케이션은 썸네일을 생성하기 위한 [FFmpeg](https://ffmpeg.org/) 라이브러리를 사용합니다. 이러한 썸네일(이미지)은 [비디오 조정 출력](#sample-video-moderation-response)에서 프레임 타임스탬프에 해당합니다.
+> 콘솔 애플리케이션은 썸네일을 생성하기 위한 [FFmpeg](https://ffmpeg.org/) 라이브러리를 사용합니다. 이러한 썸네일(이미지)은 비디오 조정 출력의 프레임 타임스탬프에 해당합니다.
 
 |Task|메서드|파일|
 |-|-|-|

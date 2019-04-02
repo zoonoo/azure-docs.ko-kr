@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c65ae71350383896c81fd7057d425822069fc5aa
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136940"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316204"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project Acoustics Unreal/Wwise 디자인 자습서
 이 자습서에서는 Unreal 및 Wwise의 Project Acoustics 디자인 설정 및 워크플로에 대해 설명합니다.
@@ -35,44 +35,44 @@ Project Acoustics가 활성 상태이면 Wwise에서 설정한 폐색 볼륨, LP
 
 이 설정을 사용하면 Project Acoustics 시뮬레이션에서 -18dB의 폐색을 계산하는 경우 아래 곡선의 X=18에 입력하고 해당 Y 값이 적용된 감쇠가 됩니다. 절반 폐색을 수행하려면 엔드포인트를 -100dB 대신 -50dB로 설정하거나 -200dB로 설정하여 폐색을 과장합니다. 게임에 가장 적합한 곡선을 조정하고 미세 튜닝할 수 있습니다.
  
-![프로젝트 폐색 곡선](media/wwise-occlusion-curve.png)
+![Wwise 폐색 곡선 편집기의 스크린샷](media/wwise-occlusion-curve.png)
 
 ### <a name="disable-wwise-obstruction-curves"></a>Wwise 장애 곡선 비활성화
 Wwise 장애 곡선은 건성 수준(dry level)에 영향을 미치지만, Project Acoustics는 디자인 컨트롤과 시뮬레이션을 사용하여 습/건 비율(wet/dry ratio)을 적용합니다. 장애 볼륨 곡선을 사용하지 않도록 설정하는 것이 좋습니다. 습성을 설계하려면 나중에 설명하는 Wetness Adjust(습성 조정) 컨트롤을 사용합니다.
  
 장애 LPF/HPF 곡선을 다른 용도로 사용하는 경우 X=0, Y=0으로 설정했는지 확인합니다. 즉 장애가 없는 경우 LPF 또는 HPF가 없습니다.
 
-![프로젝트 장애 곡선](media/wwise-obstruction-curve.png)
+![Wwise 장애 곡선 편집기의 스크린샷](media/wwise-obstruction-curve.png)
 
 ### <a name="design-project-acoustics-mixer-parameters"></a>Project Acoustics 믹서 매개 변수 디자인
 Project Acoustics Bus(Project Acoustics 버스)의 믹서 플러그 인 탭을 방문하여 글로벌 반향 속성을 제어할 수 있습니다. "Project Acoustics Mixer(Custom)"(Project Acoustics 믹서(사용자 지정))를 두 번 클릭하여 믹서 플러그 인의 설정 패널을 엽니다.
 
 또한 믹서 플러그 인에 "Perform Spatialization"(공간화 수행) 옵션이 있음을 확인할 수 있습니다. Project Acoustic의 기본 제공 공간화를 사용하려면 "Perform Spatialization"(공간화 수행) 확인란을 선택하고 HRTF 또는 Paning(패닝) 중에서 선택합니다. 설정한 Dry Aux(건성 보조) 버스를 사용하지 않도록 설정해야 합니다. 그렇지 않으면 직접 경로가 두 번 들립니다. "Wetness Adjust(습성 조정)" 및 "Reverb Time Scale Factor(반향 시간 배율)"를 사용하여 반향 믹스를 글로벌로 제어합니다. 'Perform Spatialization(공간화 수행)' 확인란과 같은 믹서 플러그 인 구성 변경 내용을 선택하려면 Unreal을 다시 시작한 다음, 재생하기 전에 soundbank를 다시 생성해야 합니다.
 
-![Project Acoustics 믹서 플러그 인 옵션](media/mixer-plugin-global-settings.png)
+![Project Acoustics Wwise 믹서 플러그 인 옵션의 스크린샷](media/mixer-plugin-global-settings.png)
 
 ## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Wwise 액터-믹서 계층 구조에서 Project Acoustics 디자인 컨트롤을 설정합니다.
 개별 액터-믹서의 매개 변수를 제어하려면 Actor-Mixer(액터-믹서)를 두 번 클릭한 다음, 해당 믹서 플러그 인 탭을 클릭합니다. 여기서는 소리별 수준에서 모든 매개 변수를 변경할 수 있습니다. 이러한 값은 Unreal 쪽에서 설정한 값과 결합됩니다(아래 설명 참조). 예를 들어 Project Acoustics Unreal 플러그 인에서 개체에 대한 Outdoorness Adjustment(실외 상태 조정)를 0.5로 설정하고 Wwise에서 -0.25로 설정하면 해당 소리에 적용된 실외 상태 조정은 0.25입니다.
 
-![소리 믹서별 설정](media/per-sound-mixer-settings.png)
+![Wwise 액터-믹서 계층 구조의 사운드 믹서별 설정 스크린샷](media/per-sound-mixer-settings.png)
 
 ### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>보조 버스의 건성 전송과 출력 버스의 습성 전송이 있는지 확인합니다.
 필수 액터-믹서 설정은 Wwise에서 일반적인 건성 및 습성 라우팅을 상호 교환합니다. 액터-믹서의 출력 버스(Project Acoustics Bus로 설정됨)에서 대한 반향 신호와 사용자 정의 보조 버스를 따라 건성 신호를 생성합니다. 이 라우팅은 Project Acoustics Wwise 플러그 인에서 사용하는 Wwise 믹서 플러그 인 API의 기능으로 인해 필요합니다.
 
-![음성 디자인 지침](media/voice-design-guidelines.png)
+![Project Acoustics에 대한 음성 디자인 지침을 보여주는 Wwise 편집기의 스크린샷](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>거리 감쇠 곡선 설정
 Project Acoustics를 사용하는 액터-믹서에서 사용되는 감쇠 곡선에 "출력 버스 볼륨"으로 설정된 사용자 정의 보조 전송이 있는지 확인합니다. Wwise에서 이 작업은 기본적으로 새로 만든 감쇠 곡선에 대해 수행됩니다. 기존 프로젝트를 마이그레이션하는 경우 곡선 설정을 확인합니다. 
 
 기본적으로 Project Acoustics 시뮬레이션에는 플레이어 위치 주변으로 45m의 반경이 있습니다. 일반적으로 감쇠 곡선은 해당 거리 주변에서 -200dB로 설정하는 것이 좋습니다. 이 거리는 가혹한 제약 조건이 아닙니다. 무기와 같은 일부 소리의 경우 더 큰 반경이 필요할 수도 있습니다. 이러한 경우 플레이어 위치에서 45m 이내의 기하 도형만 참여한다는 점에 주의해야 합니다. 플레이어가 방에 있고 소리 원본이 방 밖에서 100m 떨어진 곳에 있으면 제대로 폐색됩니다. 원본이 방에 있고 플레이어가 방 밖에서 100m 떨어진 곳에 있으면 제대로 폐색되지 않습니다.
 
-![감쇠 곡선](media/atten-curve.png)
+![Wwise 감쇠 곡선의 스크린샷](media/atten-curve.png)
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>장면 전체 Project Acoustics 속성 설정
 
 Acoustics Space(음향 공간) 액터는 시스템의 동작을 수정하고 디버깅에 유용한 많은 컨트롤을 표시합니다.
 
-![Acoustics Space(음향 공간) 컨트롤](media/acoustics-space-controls.png)
+![Unreal 음향 공간 컨트롤의 스크린샷](media/acoustics-space-controls.png)
 
 * **Acoustics Data(음향 데이터):** Content/Acoustics 디렉터리에서 베이킹된 음향 자산을 할당해야 합니다. Project Acoustics 플러그 인에서 Content/Acoustics 디렉터리를 프로젝트에서 패키징된 디렉터리에 자동으로 추가합니다.
 * **Tile Size(타일 크기):** 음향 데이터를 RAM에 로드하려는 수신기 주변 영역의 범위입니다. 플레이어 바로 주변의 수신기 프로브가 로드되는 한 결과는 모든 프로브에 대한 음향 데이터의 로드와 동일합니다. 타일이 클수록 RAM이 더 많이 사용되지만 디스크 I/O는 줄어듭니다.
@@ -88,7 +88,7 @@ Acoustics Space(음향 공간) 액터는 시스템의 동작을 수정하고 디
 ## <a name="actor-specific-acoustics-design-controls"></a>액터별 음향 컨트롤 디자인
 이러한 디자인 컨트롤에는 Unreal의 개별 오디오 구성 요소에 대한 범위가 지정됩니다.
 
-![오디오 구성 요소 컨트롤](media/audio-component-controls.png)
+![Unreal 오디오 구성 요소 컨트롤의 스크린샷](media/audio-component-controls.png)
 
 * **cclusion Multiplier(폐색 승수):** 폐색 효과를 제어합니다. 값이 1보다 크면 폐색을 증폭시킵니다. 값이 1보다 작으면 폐색을 최소화합니다.
 * **Wetness Adjustment(습성 조정):** 추가 반향 dB
@@ -104,7 +104,7 @@ Acoustics Space(음향 공간) 액터는 청사진을 통해 액세스할 수 �
 ### <a name="add-finer-grained-control-over-streaming-load"></a>스트리밍 로드보다 더 세분화된 제어 추가
 플레이어 위치에 따라 자동으로 스트림하는 대신 음향 데이터 스트리밍을 직접 관리하려면 Force Load Tile(타일 강제 로드) 청사진 기능을 사용할 수 있습니다.
 
-![청사진 스트리밍](media/blueprint-streaming.png)
+![Unreal의 Blueprint 스트리밍 옵션 스크린샷](media/blueprint-streaming.png)
 
 * **Target(대상):** AcousticsSpace 액터
 * **Center Position(가운데 위치):** 데이터가 로드되어야 하는 영역의 중심
@@ -113,12 +113,12 @@ Acoustics Space(음향 공간) 액터는 청사진을 통해 액세스할 수 �
 
 타일 크기는 Force Load Tile(타일 강제 로드)을 호출하기 전에 이미 설정되어 있어야 합니다. 예를 들어 ACE 파일을 로드하고, 타일 크기를 설정하고, 한 영역에서 스트림하려면 다음과 같이 수행할 수 있습니다.
 
-![스트리밍 설정](media/streaming-setup.png)
+![Unreal의 스트리밍 설정 옵션 스크린샷](media/streaming-setup.png)
 
 ### <a name="optionally-query-for-surface-proximity"></a>필요에 따라 표면 근접성 쿼리
 수신기 주변의 특정 방향에서 표면에 대한 근접성을 확인하려면 Query Distance(거리 쿼리) 기능을 사용할 수 있습니다. 이 기능은 방향 지연 반사 구동 및 표면 근접성으로 구동되는 다른 게임 논리에 유용할 수 있습니다. 이 쿼리는 음향 조회 테이블에서 결과를 가져오므로 광선 발사(ray cast)보다 비용이 적게 듭니다.
 
-![Distance Query(거리 쿼리)](media/distance-query.png)
+![Blueprint 거리 쿼리 예제의 스크린샷](media/distance-query.png)
 
 * **Target(대상):** AcousticsSpace 액터
 * **Look Direction(보기 방향):** 수신기를 중심으로 쿼리할 방향입니다.

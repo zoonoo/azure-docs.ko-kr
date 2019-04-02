@@ -1,5 +1,5 @@
 ---
-title: '자습서: Custom Vision Service REST API 사용'
+title: '자습서: Custom Vision REST API를 사용하여 모델 만들기, 학습 및 내보내기'
 titlesuffix: Azure Cognitive Services
 description: REST API를 사용하여 Custom Vision 모델 생성, 교육, 테스트, 내보내기를 수행합니다.
 services: cognitive-services
@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/07/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: e33eb58dd4228bb1093c239bae960f71c0f3788c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 54b5f7bb16803adf91a0a8ea60cfa68d1e322d07
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884996"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351102"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>자습서: Custom Vision REST API 사용
-
-Custom Vision REST API를 사용하여 모델 생성, 교육, 테스트, 내보내기를 수행하는 방법을 알아봅니다.
+# <a name="tutorial-create-train-and-export-a-model-with-rest"></a>자습서: REST를 사용하여 모델 만들기, 학습 및 내보내기
 
 이 문서에 수록된 정보는 REST 클라이언트에서 REST API를 사용하여 Custom Vision Service를 교육하는 방법을 보여줍니다. 예제는 bash 환경의 `curl` 유틸리티와 Windows PowerShell의 `Invoke-WebRequest`로 API를 사용하는 방법을 보여줍니다.
 
@@ -34,9 +32,7 @@ Custom Vision REST API를 사용하여 모델 생성, 교육, 테스트, 내보�
 ## <a name="prerequisites"></a>필수 조건
 
 * REST(Representational State Transfer)의 기본적인 사항을 숙지해야 합니다. 이 문서에서는 HTTP 동사, JSON 또는 REST에서 일반적으로 사용되는 다른 요소에 대해 자세히 다루지 않습니다.
-
 * [curl](https://curl.haxx.se) 유틸리티 또는 Windows PowerShell 3.0(또는 그 이상)이 설치된 bash(Bourne Again Shell).
-
 * Custom Vision 계정. 자세한 내용은 [분류자 빌드](getting-started-build-a-classifier.md) 문서를 참조하세요.
 
 ## <a name="get-keys"></a>키 가져오기
@@ -121,29 +117,29 @@ $resp.Content
 요청에 대한 응답은 다음 JSON 문서와 유사합니다.
 
 ```json
-[
-    {
-        "id": "ee85a74c-405e-4adc-bb47-ffa8ca0c9f31",
-        "name": "General",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    {
-        "id": "c151d5b5-dd07-472a-acc8-15d29dea8518",
-        "name": "Food",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    {
-        "id": "ca455789-012d-4b50-9fec-5bb63841c793",
-        "name": "Landmarks",
-        "type": "Classification",
-        "exportable": false,
-        "enabled": true
-    },
-    ...
+[  
+  {  
+    "id":"ee85a74c-405e-4adc-bb47-ffa8ca0c9f31",
+    "name":"General",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  {  
+    "id":"c151d5b5-dd07-472a-acc8-15d29dea8518",
+    "name":"Food",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  {  
+    "id":"ca455789-012d-4b50-9fec-5bb63841c793",
+    "name":"Landmarks",
+    "type":"Classification",
+    "exportable":false,
+    "enabled":true
+  },
+  ...
 ]
 ```
 
@@ -209,41 +205,41 @@ $resp.Content
 요청에 대한 응답은 다음 JSON 문서와 유사합니다.
 
 ```json
-{
-    "isBatchSuccessful": true,
-    "images": [
-        {
-            "sourceUrl": "http://myimages/cat.jpg",
-            "status": "OK",
-            "image": {
-                "id": "081adaee-a76b-4d94-a70e-e4fd0935a28f",
-                "created": "2018-08-13T13:24:22.0815638",
-                "width": 640,
-                "height": 480,
-                "imageUri": "https://linktoimage",
-                "thumbnailUri": "https://linktothumbnail",
-                "tags": [
-                    {
-                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-                        "tagName": null,
-                        "created": "2018-08-13T13:24:22.104936"
-                    }
-                ],
-                "regions": [
-                    {
-                        "regionId": "40f206a1-3f8a-4de7-a6c3-c7b4643117df",
-                        "tagName": null,
-                        "created": "2018-08-13T13:24:22.104936",
-                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-                        "left": 119,
-                        "top": 94,
-                        "width": 240,
-                        "height": 140
-                    }
-                ]
-            }
-        }
-    ]
+{  
+  "isBatchSuccessful":true,
+  "images":[  
+    {  
+      "sourceUrl":"http://myimages/cat.jpg",
+      "status":"OK",
+      "image":{  
+        "id":"081adaee-a76b-4d94-a70e-e4fd0935a28f",
+        "created":"2018-08-13T13:24:22.0815638",
+        "width":640,
+        "height":480,
+        "imageUri":"https://linktoimage",
+        "thumbnailUri":"https://linktothumbnail",
+        "tags":[  
+          {  
+            "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+            "tagName":null,
+            "created":"2018-08-13T13:24:22.104936"
+          }
+        ],
+        "regions":[  
+          {  
+            "regionId":"40f206a1-3f8a-4de7-a6c3-c7b4643117df",
+            "tagName":null,
+            "created":"2018-08-13T13:24:22.104936",
+            "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+            "left":119,
+            "top":94,
+            "width":240,
+            "height":140
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -305,18 +301,18 @@ $resp.Content
 요청에 대한 응답은 다음 JSON 문서와 유사합니다.
 
 ```json
-{
-    "id": "369b010b-2a92-4f48-a918-4c1a0af91888",
-    "project": "45d1b19b-69b8-4b22-8e7e-d1ca37504686",
-    "iteration": "23de09d6-42a1-413e-839e-8db6ee6d3496",
-    "created": "2018-08-16T17:39:20.7944508Z",
-    "predictions": [
-        {
-            "probability": 0.8390652,
-            "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
-            "tagName": "cat"
-        }
-    ]
+{  
+  "id":"369b010b-2a92-4f48-a918-4c1a0af91888",
+  "project":"45d1b19b-69b8-4b22-8e7e-d1ca37504686",
+  "iteration":"23de09d6-42a1-413e-839e-8db6ee6d3496",
+  "created":"2018-08-16T17:39:20.7944508Z",
+  "predictions":[  
+    {  
+      "probability":0.8390652,
+      "tagId":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+      "tagName":"cat"
+    }
+  ]
 }
 ```
 
@@ -345,11 +341,11 @@ $resp.Content
 요청에 대한 응답은 다음 JSON 문서와 유사합니다.
 
 ```json
-{
-    "platform": "CoreML",
-    "status": "Exporting",
-    "downloadUri": null,
-    "flavor": null
+{  
+  "platform":"CoreML",
+  "status":"Exporting",
+  "downloadUri":null,
+  "flavor":null
 }
 ```
 
@@ -374,14 +370,16 @@ $resp.Content
 요청에 대한 응답은 다음 JSON 문서와 유사합니다.
 
 ```json
-[
-    {
-        "platform": "CoreML",
-        "status": "Done",
-        "downloadUri": "https://linktoexportedmodel",
-        "flavor": null
-    }
+[  
+  {  
+    "platform":"CoreML",
+    "status":"Done",
+    "downloadUri":"https://linktoexportedmodel",
+    "flavor":null
+  }
 ]
 ```
+
+## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a)를 참조하세요.

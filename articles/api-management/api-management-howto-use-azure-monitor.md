@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454807"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517949"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -184,7 +184,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | CorrelationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
 | location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
 | httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
-| ResourceId | string | "API Management 리소스 Id /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| ResourceId | string | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | 현재 요청의 속성 |
 | 메서드 | string | 들어오는 요청의 HTTP 메서드 |
 | URL | string | 들어오는 요청의 URL |

@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: daauld
-ms.openlocfilehash: 93a6d923aff49811a4b5b0bc2236af8d0bd4c067
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77ba3144afcc48d68466341c154bc1d8eef54d3b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885271"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479209"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>빠른 시작: Custom Vision Go SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Go와 Custom Vision SDK를 사용하여 개체 검색 모델을 빌드하는 데 참고할 수 있는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 예제를 템플릿으로 사용하여 Go 애플리케이션을 빌드할 수 있습니다.
+이 문서에서는 Go와 Custom Vision SDK를 사용하여 개체 검색 모델을 빌드하는 데 참고할 수 있는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 예제를 템플릿으로 사용하여 Go 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample OD Project"
+    iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -211,16 +213,16 @@ func main() {
         
     scissor_batch, _ := trainer.CreateImagesFromFiles(ctx, *project.ID, training.ImageFileCreateBatch{ 
         Images: &scissor_images,
-     })
+    })
      
     if (!*scissor_batch.IsBatchSuccessful) {
         fmt.Println("Batch upload failed.")
-    }    
+    }     
 ```
 
-### <a name="train-the-project"></a>프로젝트 학습
+### <a name="train-the-project-and-publish"></a>프로젝트 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```go
     iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -234,12 +236,10 @@ func main() {
         fmt.Println("Training status:", *iteration.Status)
     }
 
-    // Mark iteration as default
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -248,9 +248,9 @@ func main() {
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_od_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.DetectImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
-    for _, prediction := range *results.Predictions {
+    for _, prediction := range *results.Predictions    {
         boundingBox := *prediction.BoundingBox
 
         fmt.Printf("\t%s: %.2f%% (%.2f, %.2f, %.2f, %.2f)", 
@@ -269,7 +269,7 @@ func main() {
 
 *sample.go*를 실행합니다.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

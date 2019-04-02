@@ -4,23 +4,23 @@ description: Azure Active Directory와 TargetProcess 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1c7cd88bb5abf27066658f175d2447d334ce6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872219"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>자습서: TargetProcess와 Azure Active Directory 통합
 
@@ -78,10 +78,11 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 TargetProcess의 관련 
 TargetProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[TargetProcess 테스트 사용자 만들기](#create-targetprocess-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 TargetProcess에 만듭니다.
+2. **[TargetProcess Single Sign-On 구성](#configure-targetprocess-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[TargetProcess 테스트 사용자 만들기](#create-targetprocess-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 TargetProcess에 만듭니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -105,12 +106,12 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![TargetProcess 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.tpondemand.com/`
+    a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.tpondemand.com/` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<subdomain>.tpondemand.com/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.tpondemand.com/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다.  이러한 값을 얻으려면 [TargetProcess 클라이언트 지원 팀](mailto:support@targetprocess.com)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [TargetProcess 클라이언트 지원 팀](mailto:support@targetprocess.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -126,44 +127,43 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     다. 로그아웃 URL
 
-7. **TargetProcess** 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+### <a name="configure-targetprocess-single-sign-on"></a>TargetProcess Single Sign-On 구성
+
+1. **TargetProcess** 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
     ![이미지](./media/target-process-tutorial/install_extension.png)
 
-8. 브라우저에 확장을 추가한 후 **TargetProcess 설정**을 클릭하면 TargetProcess 애플리케이션으로 이동됩니다. 애플리케이션에서 관리자 자격 증명을 입력하여 TargetProcess에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 9~13단계를 자동으로 수행합니다.
+2. 브라우저에 확장을 추가한 후 **TargetProcess 설정**을 클릭하면 TargetProcess 애플리케이션으로 이동됩니다. 애플리케이션에서 관리자 자격 증명을 입력하여 TargetProcess에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
 
     **애플리케이션을 수동으로 구성하려는 경우 다음 단계를 수행합니다.**
 
-9. TargetProcess 애플리케이션에 관리자 권한으로 로그온합니다.
+3. TargetProcess 애플리케이션에 관리자 권한으로 로그온합니다.
 
-10. 위쪽의 메뉴에서 **설정**을 클릭합니다.
+4. 위쪽의 메뉴에서 **설정**을 클릭합니다.
 
     ![설정](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. **설정**을 클릭합니다.
+5. **설정** 탭을 클릭합니다.
 
     ![설정](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. **Single Sign-On**을 클릭합니다.
+6. **Single Sign-On** 탭을 클릭합니다.
 
     ![Single Sign-On을 클릭합니다.](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. Single Sign-On 설정 대화 상자에서 다음 단계를 수행합니다.
+7. Single Sign-On 설정 대화 상자에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 
     a. **Single Sign-On 사용**을 클릭합니다.
 
-    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
+    b. **로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
     다. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여 넣습니다.
 
     d. **JIT 프로비전 사용**을 클릭합니다.
 
     e. **저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -198,7 +198,7 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에 **TargetProcess**를 입력하고 선택합니다.
+2. 애플리케이션 목록에서 **TargetProcess**를 선택합니다.
 
     ![애플리케이션 목록의 TargetProcess 링크](common/all-applications.png)
 
@@ -218,7 +218,7 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="create-targetprocess-test-user"></a>TargetProcess 테스트 사용자 만들기
 
-이 섹션은 TargetProcess에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. TargetProcess는 기본적으로 사용할 수 있는 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 없는 경우 TargetProcess에 액세스하는 동안 생성됩니다.
+이 섹션에서는 TargetProcess에서 Britta Simon이라는 사용자를 만듭니다. TargetProcess는 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. TargetProcess에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 > [!Note]
 > 사용자를 수동으로 만들어야 하는 경우  [TargetProcess 지원 팀](mailto:support@targetprocess.com)에 문의하세요.
@@ -231,8 +231,8 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

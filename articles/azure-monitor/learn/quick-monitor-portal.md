@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011761"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437512"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -101,6 +101,10 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 자세한 내용은 GitHub 리포지토리의 [오픈 소스 JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 참조하세요.
+
+## <a name="video"></a>비디오
+
+* [처음부터 .NET 애플리케이션으로 Application Insight 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)에 대한 외부의 단계별 비디오입니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure Application Insights로 모니터링하기 위해 애플리케이션을 활성화했습니다.  애플리케이션에서 통계를 모니터링하고 문제를 감지하는 방법을 알아보려면 이 자습서를 계속합니다.

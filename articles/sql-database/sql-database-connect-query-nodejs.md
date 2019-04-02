@@ -10,13 +10,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: 49fe9f51026c4cb096fd8248b53d2e5b5b574923
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/25/2019
+ms.openlocfilehash: cd0435ffc27402299da85434693dcdf32a4083ca
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236025"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444709"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 쿼리
 
@@ -32,11 +32,11 @@ ms.locfileid: "56236025"
   |:--- |:--- |:---|
   | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)| [VM에서 연결](sql-database-managed-instance-configure-vm.md)|
   |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
   |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
-  |||[github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
+  |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
   |||
 
   > [!IMPORTANT]
@@ -67,8 +67,8 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## <a name="add-code-to-query-database"></a>코드를 추가하여 데이터베이스 쿼리
@@ -84,8 +84,13 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.windows.net', // update me
         options:
         {

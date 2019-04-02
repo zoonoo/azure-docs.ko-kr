@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855957"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539499"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="define-api-keys-and-endpoints"></a>API 키 및 엔드포인트 정의
 
-의에서 설명한 대로 이 자습서에서는 세 가지 Cognitive Services를 사용합니다. 따라서 세 개의 해당 키와 API 엔드포인트가 필요합니다. **Program** 클래스에 다음 필드를 확인합니다. 
+의에서 설명한 대로 이 자습서에서는 세 가지 Cognitive Services를 사용합니다. 따라서 세 개의 해당 키와 API 엔드포인트가 필요합니다. **Program** 클래스에 다음 필드를 확인합니다.
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 메서드
+## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags 메서드
 
-다음 메서드는 이미지 URL 및 Computer Vision 구독 정보를 사용하고 이미지에서 유명인 존재 여부를 분석합니다. 유명인이 한 명 이상 발견되면 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다. 
+다음 메서드는 이미지 URL 및 Computer Vision 구독 정보를 사용하고 이미지에서 유명인 존재 여부를 분석합니다. 유명인이 한 명 이상 발견되면 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 메서드
 
-다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)의 존재 여부를 검사합니다.
+다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)의 존재 여부를 검사합니다. [GitHub 리포지토리](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)의 **sample-images** 폴더에 있는 이미지를 사용하여 이 예제의 일부 범주를 신속하게 학습할 수 있습니다.
 
 ![펜, 장난감 및 국기 학습 이미지가 있는 Custom Vision 웹 페이지](images/tutorial-ecommerce-custom-vision.PNG)
 
-분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다. 
+분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

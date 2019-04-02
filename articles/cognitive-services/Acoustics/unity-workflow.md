@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138022"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310628"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Project Acoustics Unity 디자인 자습서
 이 자습서에서는 Unity의 Project Acoustics 디자인 도구 및 워크플로에 대해 설명합니다.
@@ -37,16 +37,16 @@ Project Acoustics는 다양한 원본 관련 음향 효과 디자인 컨트롤�
 ### <a name="adjust-distance-based-attenuation"></a>거리 기반 감쇠 조정
 **Project Acoustics** Unity Spatializer 플러그 인이 제공하는 오디오 DSP는 Unity 편집기에 기본 제공되는 원본별 거리 기반 감쇠를 유지합니다. 거리 기반 감쇠에 대한 컨트롤은 **3D Sound Settings**(3D 소리 설정) 아래에 있는 소리 원본의 **Inspector**(검사기) 패널에 있는 **Audio Source**(오디오 원본) 구성 요소에 있습니다.
 
-![거리 감쇠](media/distance-attenuation.png)
+![Unity 거리 감쇠 옵션 패널의 스크린샷](media/distance-attenuation.png)
 
 Acoustics는 플레이어 위치에 따라 중앙에 배치되는 “시뮬레이션 지역” 상자에서 계산을 수행합니다. 소리 원본이 이 시뮬레이션 지역 외부에 있는 플레이어에서 멀리 떨어진 경우 해당 상자 내의 기하 도형만 소리 전파에 영향을 미치며(예: 폐색 유발), Occluder가 플레이어 근처에 있을 때 소리 전파 효과가 좋습니다. 그러나 플레이어가 열린 공간에 있지만 Occluder가 멀리 있는 소리 원본 가까이에 있을 경우 소리가 비현실적으로 잘 들릴 수 있습니다. 이러한 경우 Microsoft에서 제안하는 해결 방법은 플레이어에서 상자 가장자리까지의 기본 수평 거리인 약 45m 위치에서 소리 감쇠가 0이 되도록 조정하는 것입니다.
 
-![SpeakerMode](media/speaker-mode.png)
+![Unity SpeakerMode 옵션 패널의 스크린샷](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>폐색 및 전송 조정
 **AcousticsAdjust** 원본에 스크립트를 연결하면 해당 원본에 대한 매개 변수를 조정할 수 있습니다. 스크립트를 연결하려면 **Inspector**(검사기) 패널 맨 아래의 **Add Component**(구성 요소 추가)를 클릭하고 **Scripts(스크립트) > Acoustics Adjust(음향 조정)** 로 이동합니다. 이 스크립트에는 다음 6개의 컨트롤이 있습니다.
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Unity AcousticsAdjust 스크립트의 스크린샷](media/acoustics-adjust.png)
 
 * **Enable Acoustics**(음향 효과 사용) - 이 원본에 음향 효과가 적용되는지 여부를 제어합니다. 선택을 취소하면 원본이 HRTF 또는 이동을 통해 입체화되지만 음향 효과는 사용되지 않습니다. 즉, 레벨 및 감소 시간과 같은 장애, 폐색 또는 동적 반향 매개 변수가 사용되지 않습니다. 반향은 고정된 수평 및 감쇠 시간을 사용하여 계속 적용됩니다.
 * **폐색** - 음향 시스템에서 계산되는 폐색 dB 수준에 승수를 적용합니다. 이 승수가 1보다 큰 경우 폐색이 과장되고, 1보다 작으면 폐색 효과를 느끼기 어려우며, 이 값이 0이면 폐색이 사용되지 않도록 설정됩니다.
@@ -59,14 +59,14 @@ Acoustics는 플레이어 위치에 따라 중앙에 배치되는 “시뮬레�
 
 **AcousticsAdjustExperimental** 스크립트를 원본에 연결하면 해당 원본의 매개 변수를 실험적으로 좀 더 조정해볼 수 있습니다. 스크립트를 연결하려면 **Inspector**(검사기) 패널 맨 아래의 **Add Component**(구성 요소 추가)를 클릭하고 **Scripts(스크립트) > Acoustics Adjust Experimental(실험적 음향 조정)** 로 이동합니다. 현재 다음과 같은 1개의 실험적 컨트롤이 있습니다.
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Unity AcousticsAdjustExperimental 스크립트의 스크린샷](media/acoustics-adjust-experimental.png)
 
 * **Perceptual Distance Warp**(지각 거리 변형) - 건성-습성 비율을 계산하는 데 사용되는 거리에 지수 변형을 적용합니다. 음향 시스템은 거리에 따라 매끄럽게 변화하고 지각 거리 단서를 제공하는 공간 전체의 습성 수준을 계산합니다. 변형 값이 1보다 크면 거리 관련 반향 수준이 늘어나고 소리가 "멀리서" 들리므로 이 효과가 과장됩니다. 반면 변형 값이 1보다 작으면 거리 관련 반향 변화를 느끼기 어려워지고 소리가 좀 더 "가깝게" 들립니다.
 
 ## <a name="design-acoustics-for-all-sources"></a>모든 원본에 대한 디자인 음향 효과
 모든 원본의 매개 변수를 조정하려면 Unity의 **Audio Mixer**에서 채널 스트립을 클릭한 후 **Project Acoustics Mixer** 효과에서 매개 변수를 조정합니다.
 
-![믹서 사용자 지정](media/mixer-parameters.png)
+![Project Acoustics Unity Mixer 사용자 지정 패널의 스크린샷](media/mixer-parameters.png)
 
 * **습도 조정** - 원본 수신기 거리를 기준으로 하여 장면의 모든 원본에서 반향력(dB)을 조정합니다. 음수 값은 소리가 좀 더 끊어지게 만들지만 양수 값은 소리를 좀 더 반향적으로 만듭니다.
 * **RT60 배율 조정** - 반향 시간의 증가 배율 조정기입니다.
@@ -75,7 +75,7 @@ Acoustics는 플레이어 위치에 따라 중앙에 배치되는 “시뮬레�
 ## <a name="check-proper-sound-source-placement"></a>적절한 소리 원본 배치 확인
 점유된 복셀 내부에 배치된 소리 원본은 음향 효과 처리를 받지 못합니다. 복셀은 가시적인 장면 기하 도형을 지나 확장되기 때문에 원본을 복셀 내부에 배치할 수는 있지만, 시각적 기하 도형에 의해 폐색되지 않은 것처럼 보입니다. **장면** 보기의 오른쪽 상단에 있는 **Gizmos** 메뉴의 복셀 그리드 확인란을 전환하여 Project Acoustics 복셀을 볼 수 있습니다.
 
-![Gizmo 메뉴](media/gizmos-menu.png)  
+![Unity Gizmo 메뉴의 스크린샷](media/gizmos-menu.png)  
 
 또한 복셀 표시는 게임의 시각적 구성 요소에 변환이 적용되었는지를 확인하는 데 도움이 될 수 있습니다. 변환이 적용된 경우 **Acoustics Manager**를 호스트하는 GameObject에도 동일한 변환을 적용합니다.
 
@@ -84,11 +84,11 @@ Acoustics는 플레이어 위치에 따라 중앙에 배치되는 “시뮬레�
 
 디자인 타임 복셀:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![디자인 타임 동안 Project Acoustics 복셀의 스크린샷](media/voxels-design-time.png)
 
 런타임 복셀:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![런타임 동안 Project Acoustics 복셀의 스크린샷](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [디자인 프로세스](design-process.md)의 개념을 강조 표시하는 사례 연구 살펴보기

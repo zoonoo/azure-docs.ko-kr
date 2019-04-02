@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 393fca972676f2584a9ef4fc457b33161a325089
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477780"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521638"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 
-SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하는 클라우드 기반 EDW(Enterprise Data Warehouse)이며 페타바이트 데이터에서 복잡한 쿼리를 신속하게 실행합니다. SQL Data Warehouse를 빅 데이터 솔루션의 주요 구성 요소로 사용합니다. 간단한 PolyBase T-SQL 쿼리를 사용하여 빅 데이터를 SQL Data Warehouse로 가져온 다음 MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 데이터 웨어하우스는 비즈니스가 정보에 대해 신뢰할 수 있는 단일 버전의 정보입니다.  
+SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하는 클라우드 기반 EDW(Enterprise Data Warehouse)이며 페타바이트 데이터에서 복잡한 쿼리를 신속하게 실행합니다. SQL Data Warehouse를 빅 데이터 솔루션의 주요 구성 요소로 사용합니다. 간단한 [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL 쿼리를 사용하여 빅 데이터를 SQL Data Warehouse로 가져온 다음, MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 데이터 웨어하우스는 비즈니스가 정보에 대해 신뢰할 수 있는 단일 버전의 정보입니다.  
 
 
 ## <a name="key-component-of-big-data-solution"></a>빅 데이터 솔루션의 핵심 구성 요소

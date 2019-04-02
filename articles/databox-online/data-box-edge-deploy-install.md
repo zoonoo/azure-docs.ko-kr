@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093772"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399985"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge 설치(미리 보기)
+# <a name="tutorial-install-azure-data-box-edge"></a>자습서: Azure Data Box Edge 설치
 
 이 자습서에서는 Data Box Edge 물리적 디바이스를 설치하는 방법에 대해 설명합니다. 설치 절차에는 포장 풀기, 랙 탑재 및 디바이스에 케이블 연결이 포함됩니다. 
 
@@ -29,9 +29,6 @@ ms.locfileid: "58093772"
 > * 랙에 디바이스 탑재
 > * 디바이스에 케이블 연결
 
-> [!IMPORTANT]
-> Data Box Edge 솔루션은 미리 보기 상태입니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 ## <a name="prerequisites"></a>필수 조건
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
@@ -40,7 +37,7 @@ ms.locfileid: "58093772"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-* [Azure Data Box Edge 배포 준비(미리 보기)](data-box-edge-deploy-prep.md)의 모든 단계를 완료했습니다.
+* [Azure Data Box Edge 배포 준비](data-box-edge-deploy-prep.md)의 모든 단계를 완료했습니다.
     * 디바이스를 배포할 Data Box Edge 리소스를 만들었습니다.
     * Data Box Edge 리소스를 통해 디바이스를 활성화하기 위한 활성화 키를 생성했습니다.
 
@@ -75,38 +72,90 @@ ms.locfileid: "58093772"
 3. 상자를 개봉합니다. 상자를 개봉한 후 다음이 있는지 확인합니다.
     - 단일 인클로저 Edge 디바이스 1개
     - 전원 코드 2개
-    - 공구가 필요 없는 슬라이드형 랙 탑재 키트 1개(측면 레일 2개 및 장착 하드웨어 포함)
+    - 하나의 레일 키트 어셈블리
+    - 보안, 환경 및 규정 정보 소책자
 
 여기에 나열된 항목 중에 받지 못한 것이 있으면 Data Box Edge 지원에 문의하세요. 다음 단계는 디바이스를 랙에 탑재하는 것입니다.
 
 
 ## <a name="rack-the-device"></a>랙에 디바이스 탑재
 
-디바이스는 표준 19인치 랙에 설치해야 합니다. 다음 절차에 따라 전면 및 후면 포스트가 있는 표준 19인치 랙에 디바이스를 탑재합니다.
+디바이스는 표준 19인치 랙에 설치해야 합니다. 다음 절차에 따라 표준 19인치 랙에 디바이스를 탑재합니다.
 
 > [!IMPORTANT]
 > Data Box Edge 디바이스는 올바른 작동을 위해 랙에 탑재되어야 합니다.
 
 
-1. 전면 제어기를 당겨 슬라이드 조립 부품에서 내부 레일의 잠금을 해제합니다. 걸쇠 잠금 장치를 풀고 중간 레일을 안쪽으로 밀어 레일을 후퇴시킵니다.  
-    이제 내부 및 외부 레일이 분리됩니다.
+### <a name="prerequisites"></a>필수 조건
 
-    ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- 시작하기 전에 보안, 환경 및 규정 정보 소책자의 보안 지침을 읽으세요. 이 소책자는 디바이스와 함께 배송되었습니다.
+- 랙 엔클로저의 맨 아래에 가장 가까운 할당된 공간에 레일 설치를 시작합니다.
+- 툴링 레일 탑재 구성의 경우, #10-32, #12-24, #M5 또는 #M6의 8개의 나사를 공급해야 합니다. 나사의 헤드 지름은 10mm(0.4")보다 작아야 합니다.
 
-2. 랙 캐비닛 수직 멤버에 외부 레일을 설치합니다. 방향을 잡을 수 있도록 레일 슬라이드가 **Front(전면)** 로 표시되어 있고 그 끝은 인클로저의 앞쪽을 향해 부착됩니다.    
-   1. 레일 어셈블리의 앞면/뒷면에서 레일 핀을 찾으세요. 랙 포스트 사이에 맞도록 레일을 확장합니다. 먼저 랙의 뒤쪽에 외부 레일을 붙입니다. 후면 탑재 브래킷을 조정하여 후면 랙 탑재 구멍에 맞춥니다.   
+### <a name="identify-the-rail-kit-contents"></a>레일 키트 콘텐츠 식별
 
-   2. 금속 고리가 노출되도록 후면 브래킷의 제동기를 누르고 있습니다. 후면 브래킷을 탑재 구멍에 맞춰 끼운 다음, 제동기에서 손을 뗍니다.
+레일 키트 어셈블리를 설치하기 위한 구성 요소를 찾습니다.
+1. A7 Dell ReadyRails II 슬라이딩 레일 어셈블리 2개
+2. 벨크로 스트랩 2개
 
-   3. 전면 브래킷을 탑재 구멍에 맞춥니다.
+![레일 키트 콘텐츠 식별](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. 이제 전면 브래킷이 랙에 고정됩니다. 필요에 따라 포스트를 사용하여 레일을 안전하게 보호하도록 M5 X 10L 나사를 선택적으로 사용할 수 있습니다. 
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>도구가 필요 없는 레일의 설치 및 제거(사각형 구멍 또는 원형 구멍 랙)
 
-      ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. **FRONT** 레이블이 표시된 왼쪽 및 오른쪽 레일 끝 부분을 안쪽을 향하도록 배치하고 각 끝 부분을 수직 랙 플랜지 전면의 구멍에 끼워지도록 방향을 조정합니다.
+2. 각 끝 부분을 원하는 U 공간의 하단 및 상단 구멍에 맞춥니다.
+3. 수직 랙 플랜지에 완전히 끼워지고 래치가 딸깍 소리를 내며 고정될 때까지 레일의 뒷쪽 끝을 연결합니다. 이러한 단계를 반복하여 프론트 엔드 피스를 수직 랙 플랜지에 배치하고 끼웁니다.
+4. 레일을 제거하려면 끝 부분 중간 지점에 있는 래치 해제 버튼을 당긴 상태로 각 레일을 분리합니다.
 
-3. 내부 레일을 섀시에 부착하려면 내부 레일의 열쇠 구멍 개구부를 섀시 측면의 위치 결정 핀에 맞춥니다. 섀시 위치 결정 핀의 머리 부분을 내부 레일의 열쇠 구멍 개구부로 내밉니다. 레일이 딸깍 소리를 내며 제자리에 고정될 때까지 섀시 전면을 향해 레일을 당깁니다. 다른 내부 레일에서도 반복합니다. 내부 레일을 사용하여 섀시를 슬라이드에 밀어 랙 설치를 완료합니다.
+![도구가 필요 없는 레일의 설치 및 제거](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![랙 탑재 레일 설치](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>툴링 레일의 설치 및 제거(나사 구멍 랙)
+
+1. 일자 드라이버를 사용하여 전면 및 후면 탑재 브라켓에서 핀을 제거합니다.
+2. 레일 래치 하위 부품을 당긴 후 회전시켜서 탑재 브라켓에서 제거합니다.
+3. 두 쌍의 나사를 사용하여 왼쪽 및 오른쪽 탑재 레일을 전면 수직 랙 플랜지에 연결합니다.
+4. 왼쪽 및 오른쪽 후면 브라켓을 후면 수직 랙 플랜지의 앞에 댄 후, 두 쌍의 나사를 사용하여 연결합니다.
+
+![툴링 레일의 설치 및 제거](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>랙에 시스템 설치
+
+1. 내부 슬라이드 레일이 제자리에 고정될 때까지 랙에서 잡아당깁니다.
+2. 시스템의 각 면에서 후면 레일 스탠드오프를 찾아 슬라이드 어셈블리에서 후면 J-슬롯 쪽으로 내립니다. 모든 레일 스탠드오프가 J-슬롯에 장착될 때까지 시스템을 아래로 회전시킵니다.
+3. 잠금 레버가 딸깍 소리를 내며 고정될 때까지 시스템을 안쪽으로 밀어넣습니다.
+4. 양쪽 레일의 슬라이드 해제 잠금 버튼을 누르고 시스템을 랙으로 밀어넣습니다.
+
+![랙에 시스템 설치](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>랙에서 시스템 제거
+
+1. 내부 레일 양쪽에서 잠금 레버를 찾습니다.
+2. 해당 해제 위치까지 회전시켜서 각 레버의 잠금을 해제합니다.
+3. 시스템의 양쪽을 단단히 잡고 레일 스탠드오프가 J-슬롯 전면에 올 때까지 앞으로 당깁니다. 시스템으로 들어올려 랙에서 분리하고 수평면에 놓습니다.
+
+![랙에서 시스템 제거](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>슬램 래치 연결 및 해제
+
+참고:  슬램 래치가 장착되지 않은 시스템의 경우 이 절차의 3단계에서 설명한 대로 나사를 사용하여 시스템을 고정하세요.
+
+1. 전면을 본 상태에서 시스템 양쪽에 있는 슬램 래치를 찾습니다.
+2. 래치는 시스템이 랙과 맞물리면 자동으로 연결되며 래치를 위로 당기면 해제됩니다.
+3. 랙 또는 기타 불안정한 환경에서 배송하기 위해 시스템을 고정하려면 각 래치 아래에 있는 하드 마운트 나사를 찾아 #2 십자 드라이버로 각 나사를 조입니다.
+
+![슬램 래치 연결 및 해제](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### <a name="route-the-cables"></a>케이블 연결
+
+> [!NOTE]
+>  선택 사항인 CMA(케이블 관리 암)를 주문하지 않은 경우 레일 키트에 제공된 두 개의 벨크로 스트랩을 사용하여 시스템 후면에서 케이블을 연결합니다.
+
+1. 양쪽 랙 플랜지의 내부 측면에 외부 CMA 브라켓을 찾습니다.
+2. 케이블을 시스템 커넥터에서 왼쪽 및 오른쪽으로 당겨 빼내서 조심스럽게 모읍니다.
+3. 벨크로 스트랩을 시스템의 각 측면에 있는 외부 CMA 브라켓의 툴링 슬롯에 끼워서 케이블 묶음을 고정시킵니다.
+
+
+![케이블 연결](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>디바이스에 케이블 연결
 
@@ -121,13 +170,26 @@ ms.locfileid: "58093772"
 - 2개 전원 분배 장치에 대한 액세스(권장)
 
 > [!NOTE]
-> - 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
+> - 단 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25/10-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
 > - 최상의 성능을 얻고 많은 양의 데이터를 처리하려면 모든 데이터 포트를 연결하는 것이 좋습니다.
-> - Edge 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다. 
+> - Edge 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.
 
-Edge 디바이스에는 8개의 NVMe SSD가 있습니다. 전면 패널에는 상태 LED 및 전원 단추도 있습니다. 디바이스의 후면에는 중복 PSU(전원 공급 디바이스)가 있습니다. 디바이스에는 6개의 네트워크 인터페이스(2개의 1-Gbps 인터페이스 및 4개의 25-Gbps 인터페이스)가 있습니다. 디바이스에는 BMC(베이스보드 관리 컨트롤러)가 있습니다. 디바이스의 백플레인에서 다양한 포트가 식별됩니다.
+Edge 디바이스에는 8개의 NVMe SSD가 있습니다. 전면 패널에는 상태 LED 및 전원 단추도 있습니다. 디바이스의 후면에는 중복 PSU(전원 공급 디바이스)가 있습니다. 디바이스에는 6개의 네트워크 인터페이스가 있습니다.
+
+- 1-Gbps 인터페이스 2개
+- 10-Gbps 인터페이스로도 사용할 수 있는 25-Gbps 인터페이스 4개
+- BMC(베이스보드 관리 컨트롤러) 
+
+디바이스의 백플레인에서 다양한 포트가 식별됩니다.
  
   ![케이블로 연결된 디바이스의 백플레인](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+디바이스에는 6개 포트에 해당하는 네트워크 카드가 두 개 있습니다. 
+
+ - QLogic FastLinQ 41264
+ - QLogic FastLinQ 41262
+
+이러한 네트워크 카드에 대해 지원되는 케이블, 스위치 및 트랜시버의 전체 목록은 [Cavium FastlinQ 41000 시리즈 상호 운용성 행렬](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)로 이동합니다.
  
 디바이스의 전원 및 네트워크에 케이블을 연결하려면 다음 단계를 수행합니다.
 
@@ -137,8 +199,7 @@ Edge 디바이스에는 8개의 NVMe SSD가 있습니다. 전면 패널에는 �
 
 3. 1-GbE 네트워크 인터페이스 PORT 1을 물리적 디바이스 구성에 사용되는 컴퓨터에 연결합니다. PORT 1은 전용 관리 인터페이스입니다.
 
-4. 하나 이상의 PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다. PORT 2를 연결하는 경우 RJ-45 네트워크 케이블을 사용합니다. 25-GbE 네트워크 인터페이스의 경우 SFP+ 동 케이블을 사용합니다.  
-
+4. 하나 이상의 PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다. PORT 2를 연결하는 경우 RJ-45 네트워크 케이블을 사용합니다. 10/25-GbE 네트워크 인터페이스의 경우 SFP+ 동선 케이블을 사용합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

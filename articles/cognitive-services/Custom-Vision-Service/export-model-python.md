@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 55704ed6236872c4f225775559e54370757a26a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007145"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350457"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
 
@@ -24,16 +24,14 @@ Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.micros
 > [!NOTE]
 > 이 자습서는 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다.
 
-## <a name="install-required-components"></a>필요한 구성 요소 설치
-
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 사용하려면 다음을 수행해야 합니다.
 
 - Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
 - pip를 설치합니다.
 
-또한 다음 패키지도 설치해야 합니다.
+다음으로 다음과 같은 패키지를 설치해야 합니다.
 
 ```
 pip install tensorflow
@@ -113,7 +111,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 # Resize that square down to 256x256
 augmented_image = resize_to_256_square(max_square_image)
 ```
-
 
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>모델의 특정 입력 크기에 맞게 가운데 자르기
 
@@ -209,10 +206,10 @@ with tf.Session() as sess:
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## <a name="next-steps"></a>다음 단계
 
-또한 모바일 애플리케이션으로 모델을 래핑할 수도 있습니다.
+다음으로, 모바일 애플리케이션에 모델을 래핑하는 방법을 알아봅니다.
 * [Android 애플리케이션에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Swift iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Xamarin을 사용하는 iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-

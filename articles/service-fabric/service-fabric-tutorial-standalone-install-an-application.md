@@ -3,7 +3,7 @@ title: 독립 실행형 Service Fabric 클러스터에서 애플리케이션 설
 description: 이 자습서에서는 독립 실행형 Service Fabric 클러스터에 애플리케이션을 설치하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 65c0ca98393fbb4f54eee2f4864218f231765904
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 392fcdd9b9df3eb37c8e105c846a6bddfddeb4d1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208576"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370434"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
-Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 배포합니다.
+Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 응용 프로그램을 배포합니다.
 
 이 자습서는 시리즈의 3부입니다.  Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric을 사용하여 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서에서는 이 독립 실행형 클러스터를 호스트하는 데 필요한 AWS 인프라를 만드는 방법을 보여 줍니다.
 
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Service Fabric 클러스터에 앱 배포
 
-애플리케이션이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+응용 프로그램이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 1. Visual Studio 열기
 
@@ -69,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 3부에서 클러스터에 애플리케이션을 배포하는 방법을 알아보았습니다.
+시리즈의 3부에서 클러스터에 응용 프로그램을 배포하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 샘플 앱 다운로드

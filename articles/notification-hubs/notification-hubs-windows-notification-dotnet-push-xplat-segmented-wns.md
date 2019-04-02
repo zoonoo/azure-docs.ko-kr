@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890001"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402459"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>자습서: 유니버설 Windows 플랫폼 애플리케이션을 실행하는 특정 Windows 디바이스에 알림 푸시
 
@@ -222,30 +222,28 @@ ms.locfileid: "57890001"
 
 이제 앱이 완료되었습니다. 이제 사용자가 범주 선택을 변경할 때 알림 허브에 등록하는 데 사용한 디바이스 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음 섹션에서는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
-## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>앱 실행 및 알림 생성
-
+## <a name="run-the-uwp-app"></a>UWP 앱 실행 
 1. Visual Studio에서 **F5**를 눌러 앱을 컴파일 및 시작합니다. 앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
 
-    ![뉴스 속보 앱][1]
+    ![뉴스 속보 앱](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다.
 
     앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 등록된 범주가 반환되어 대화 상자에 표시됩니다.
 
-    ![범주 토글 및 구독 단추][19]
+    ![범주 토글 및 구독 단추](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. 다음 방법 중 하나로 백 엔드에서 새 알림을 보냅니다.
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>태그가 지정된 알림을 보내는 콘솔 앱 만들기
 
-   * **콘솔 앱**: 콘솔 앱을 시작합니다.
-   * **Java/PHP**: 앱 또는 스크립트를 실행합니다.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     선택한 범주에 대한 알림이 알림 메시지로 나타납니다.
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>태그가 지정된 알림을 보내는 콘솔 앱 실행
 
-     ![토스트 알림][14]
+1. 이전 섹션에서 만든 앱을 실행합니다.
+2. 선택한 범주에 대한 알림이 알림 메시지로 나타납니다. 알림을 선택하면 첫 번째 UWP 앱 창이 표시됩니다. 
+
+     ![토스트 알림](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -260,11 +258,6 @@ ms.locfileid: "57890001"
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

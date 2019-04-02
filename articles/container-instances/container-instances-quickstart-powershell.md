@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8c50a3069ea8b1303e45c571425a6f4c9b4c0d5b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732294"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368191"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -43,14 +43,14 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure PowerShell을 사용하여 컨테이너 인스턴스를 만들려면 [New-AzContainerGroup][New-AzContainerGroup] cmdlet에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 Docker Hub 레지스트리의 `microsoft/iis:nanoserver` Windows 이미지를 사용합니다. 이 이미지는 Nano Server에서 실행하도록 IIS(인터넷 정보 서비스)를 패키지합니다.
+이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure PowerShell을 사용하여 컨테이너 인스턴스를 만들려면 [New-AzContainerGroup][New-AzContainerGroup] cmdlet에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 `mcr.microsoft.com/windows/servercore/iis:nanoserver` 이미지를 사용합니다. 이 이미지는 Nano Server에서 실행하도록 Microsoft IIS(인터넷 정보 서비스)를 패키지합니다.
 
 열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 DNS 이름 레이블이 있는 컨테이너를 배포하여 IIS를 공개적으로 연결할 수 있도록 합니다.
 
 컨테이너 인스턴스를 시작하려면 다음과 유사한 명령을 실행합니다. 인스턴스를 만드는 Azure 지역 내에서 고유한 `-DnsNameLabel` 값을 설정합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
  ```azurepowershell-interactive
-New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 몇 초 내에 Azure로부터 응답을 받습니다. 컨테이너의 `ProvisioningState`는 처음에는 **Creating**(만드는 중)이지만 1-2분 내에 **Succeeded**(성공)으로 전환됩니다. [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet을 사용하여 배포 상태를 확인합니다.

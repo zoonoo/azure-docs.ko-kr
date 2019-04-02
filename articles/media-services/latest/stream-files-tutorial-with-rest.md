@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a33001216fb805b700d077aa8c9d42fae9bd6bae
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 704c26670f9fe2a3d7d0011fee4621a8e8c33028
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416805"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314963"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -189,7 +189,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 [작업](https://docs.microsoft.com/rest/api/media/jobs)은 만들어진 **변환**을 지정된 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
 
-이 예제에서 작업의 입력은 HTTPS URL("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/")을 기반으로 합니다.
+이 예제에서 작업의 입력은 HTTPS URL(“https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/”)을 기반으로 합니다.
 
 1. Postman의 왼쪽 창에서 "인코딩 및 분석"을 선택합니다.
 2. 그런 다음, "작업 만들기 또는 업데이트"를 선택합니다.

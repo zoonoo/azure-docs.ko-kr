@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109744"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517915"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝(미리 보기)
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
 ## <a name="overview"></a>개요
 
@@ -31,9 +31,6 @@ ms.locfileid: "56109744"
 > * 가상 디바이스 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-> [!IMPORTANT]
-> - Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -78,7 +75,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 * 호스트에 연결된 Microsoft Windows 클라이언트의 Microsoft Hyper-V 관리자
 * 가상 디바이스를 만드는 기본 하드웨어(호스트 시스템)에서 가상 디바이스에 대해 다음 리소스를 전용으로 사용할 수 있는지 확인합니다.
 
-    * 코어 4개 이상
+    * 최소 4개의 가상 프로세서
     * RAM 8GB 이상
     * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 
     * 250GB OS 디스크
@@ -91,63 +88,65 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 1. Windows Server 호스트에서 로컬 드라이브에 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 VHDX 이미지를 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
 2. **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
+    ![서버 관리자에서 Hyper-V 관리자 선택](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   
 3. **Hyper-V 관리자**의 범위 창에서 시스템 노드를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음 **새로 만들기** > **Virtual Machine**을 클릭합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
+   ![Hyper-V 관리자에서 새 가상 머신 만들기](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. 새 Virtual Machine 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5. **이름 및 위치 지정** 페이지에서 가상 디바이스의 **이름**을 입력합니다. **다음**을 클릭합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
+   ![이름 및 위치 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. **세대 지정** 페이지에서 .vhdx 디바이스 이미지 유형으로 **세대 2**를 선택하고 **다음**을 클릭합니다.    
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
+   ![세대 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. **메모리 할당** 페이지에서 **시작 메모리**를 **8192MB** 이상으로 지정하고, 동적 메모리는 사용하도록 설정하지 않은 후 **다음**을 클릭합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
+   ![메모리 할당 페이지](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
 8. **네트워킹 구성** 페이지에서 인터넷에 연결된 가상 스위치를 지정하고 **다음**을 클릭합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
+   ![네트워킹 구성 페이지](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
 9. **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 디바이스 이미지의 위치를 지정한 후 **다음**을 클릭합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
+   ![가상 하드 디스크 연결 페이지](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. **요약**을 검토하고 **마침**을 클릭하여 가상 머신을 만듭니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에서 호스트 시스템을 선택합니다. **Virtual Machines** 목록의 오른쪽 창에서 방금 만든 Virtual Machines를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
+    ![새 가상 머신 마법사 완료 페이지](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
+11. 최소 요구 사항을 충족하려면 가상 프로세서 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에서 호스트 시스템을 선택합니다. **Virtual Machines** 목록의 오른쪽 창에서 방금 만든 Virtual Machines를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
+    ![가상 머신 설정](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수**를 4(또는 그 이상)로 설정합니다. **적용**을 클릭합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
+    ![설정 페이지에서 가상 프로세서 수 설정](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
 13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 2TB 추가해야 합니다. **설정** 페이지에서:
 
     1. 왼쪽 창의 **SCSI 컨트롤러**를 선택합니다.
     2. 오른쪽 창의 **하드 드라이브**를 선택하고 **추가**를 클릭합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
+    ![설정 페이지에 하드 드라이브 추가](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
 14. **하드 드라이브** 페이지에서 **가상 하드 디스크** 옵션을 선택하고 **새로 만들기**를 클릭합니다. **새 가상 하드 디스크 마법사**가 시작됩니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
+    ![새 가상 하드 디스크 마법사](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
 1. 새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 2. **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다.
    
 17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크는 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. 
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
+    ![디스크 유형 선택 페이지](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다. 2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다.  그러나 데이터 디스크를 추가하여 디스크를 확장할 수 있습니다. **다음**을 클릭합니다.
+    ![이름 및 위치 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다. 
+    
+    2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 그러나 데이터 디스크를 추가하여 디스크를 확장할 수 있습니다. **다음**을 클릭합니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
+    ![디스크 구성 페이지](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
+    ![새 가상 하드 디스크 마법사 완료 페이지](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
 21. **설정** 페이지로 돌아갑니다. **확인**을 클릭하여 **설정** 페이지를 닫고 Hyper-V 관리자 창으로 돌아갑니다.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+    ![설정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
 가상 디바이스를 시작하여 연결하려면 다음 단계를 수행합니다.
@@ -155,12 +154,12 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
 1. 가상 디바이스를 시작합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
+   ![가상 디바이스 시작](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. 디바이스가 실행된 후에 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.
 
-3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 디바이스에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
+3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러서 가상 디바이스에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
+   ![가상 디바이스에 로그인](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
    
 6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 디바이스를 부팅한 경우에는 다음 메시지가 표시됩니다.
     
@@ -172,15 +171,15 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
     
 9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
+   ![IP 주소 및 연결 URL이 있는 가상 디바이스 배너](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
 디바이스가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
-<!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [진단 테스트를 실행하여 웹 UI 설정 문제를 해결](data-box-gateway-troubleshoot.md#run-diagnostics)합니다.
+- [로그 패키지를 생성하고 로그 파일을 살펴봅니다](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>다음 단계
 

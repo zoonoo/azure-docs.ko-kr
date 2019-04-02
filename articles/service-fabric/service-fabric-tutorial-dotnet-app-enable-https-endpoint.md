@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857711"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316894"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -341,9 +341,9 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-솔루션 탐색기에서 **투표** 애플리케이션을 선택하고 **애플리케이션 URL** 속성을 "<https://localhost:443>"으로 설정합니다.
+솔루션 탐색기에서 **Voting** 애플리케이션을 선택하고 **애플리케이션 URL** 속성을 “https:\//localhost:443”으로 설정합니다.
 
-모든 파일을 저장하고 F5 키를 눌러 로컬에서 애플리케이션을 실행합니다.  애플리케이션이 배포되면 웹 브라우저에 [https://localhost:443](https://localhost:443)이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
+모든 파일을 저장하고 F5 키를 눌러 로컬에서 애플리케이션을 실행합니다.  애플리케이션이 배포되면 웹 브라우저에 https:\//localhost:443이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
 ![투표 애플리케이션][image2]
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313316"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372134"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>빠른 시작: Face .NET SDK를 사용하여 이미지에서 얼굴 감지
 
@@ -32,8 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **FaceDetection**으로 이름을 지정합니다. 
 1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
-1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 후, 다음 패키지를 설치합니다.
+1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 다음, 다음 패키지를 설치합니다.
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>얼굴 감지 코드 추가
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bab7cdd478ba33eb797df0e68206b0aaa54be6a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b6353b2c720a188571a0f6a4e27a89a49c857173
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892611"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311579"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -282,11 +282,11 @@ sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azu
 ./install.sh
 ```
 
-브라우저를 열고 http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://containertestcluster.eastus.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 애플리케이션이 표시됩니다.
+실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http:\//containertestcluster.eastus.cloudapp.azure.com:80)로 이동합니다. 웹 UI에서 선택 애플리케이션이 표시됩니다.
 
 ![votingapp][votingapp]
 

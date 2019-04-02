@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958714"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401652"
 ---
 # <a name="quickstart-get-intent-using-java"></a>빠른 시작: Java를 사용하여 의도 가져오기
 
@@ -29,9 +29,8 @@ ms.locfileid: "56958714"
 ## <a name="prerequisites"></a>필수 조건
 
 * [JDK SE](https://aka.ms/azure-jdks)(Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) 또는 선호하는 IDE
 * 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ ms.locfileid: "56958714"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기 
+## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다. 
+Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다. 프로젝트에 Apache 라이브러리를 꼭 추가해야 합니다.
 
 1. 다음 코드를 복사하여 `LuisGetRequest.java` 파일에 클래스를 만듭니다.
 
@@ -53,9 +52,9 @@ Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일�
 
 2. `YOUR-KEY` 변수 값을 LUIS 키로 바꿉니다.
 
-3. `javac -cp ":lib/*" LuisGetRequest.java`를 사용하여 Java 프로그램을 컴파일합니다. 
+3. 명령줄 `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`에서 파일 경로를 바꾸고 java 프로그램을 컴파일합니다.
 
-4. `java -cp ":lib/*" LuisGetRequest.java`키를 눌러 애플리케이션을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+4. 명령줄 `java -cp .;<FILE_PATH>\* LuisGetRequest.java`에서 파일 경로를 바꾸고 애플리케이션을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
     ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Java 파일을 삭제합니다. 
+Java 파일/프로젝트 폴더를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

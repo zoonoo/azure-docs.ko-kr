@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226065"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487552"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -75,7 +75,7 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 
 1. 다음 명령을 실행하여 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
@@ -96,12 +96,19 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 4. Program.cs를 열고, `config.AddAzureAppConfiguration()` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -179,7 +186,7 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 앱 구성 저장소를 만들고, ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
+이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure 리소스 통합을 위한 관리 ID](./integrate-azure-managed-service-identity.md)

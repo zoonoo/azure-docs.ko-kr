@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 9355262d764d96c576e1d5ce07f22d28e7aa2c76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6a0fd87c787108935430ca43310a662418833c96
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480756"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -51,14 +51,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서는 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. GitHub에서 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 복제하고 빌드하는 데 사용되는 개발 환경을 준비합니다. GitHub의 SDK에는 이 빠른 시작에 사용된 샘플 코드가 포함됩니다. 
 
-1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.13.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.13.4 버전에 대한 암호화 해시를 확인했습니다.
+1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다. 다운로드 한 버전에 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 암호화 해시 값은 이미 제공된 CMake 다운로드 링크에서도 찾을 수 있습니다.
 
-    ```PowerShell
+    다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.13.4 버전에 대한 암호화 해시를 확인했습니다.
+
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
+
     작성 시 3.13.4 버전에 대한 다음 해시 값이 CMake 사이트에 나열됩니다.
 
     ```
@@ -85,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     cd cmake
     ```
 
-4. `cmake` 디렉터리에서 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다.
+4. 개발 클라이언트 플랫폼과 관련된 SDK 버전을 빌드하려면 `cmake` 디렉터리에서 다음 명령을 실행합니다.
 
    * Linux:
 

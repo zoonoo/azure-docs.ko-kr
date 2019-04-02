@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540149"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312209"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "53540149"
    ---|---
    **Name** | 의미 있는 등록 이름을 입력합니다.  
    **애플리케이션 유형** | SPA 웹 애플리케이션을 빌드하는 것이므로 "웹앱/API"로 둡니다.
-   **로그온 URL** | 애플리케이션의 홈/로그인 페이지 URL을 입력합니다. 애플리케이션이 Azure App Service에 호스트될 예정이므로(차후에) "https://azurewebsites.net" 도메인 내에서 URL을 사용해야 합니다. 이 예제에서는 이름이 등록 이름을 기반으로 합니다.
+   **로그온 URL** | 애플리케이션의 홈/로그인 페이지 URL을 입력합니다. 애플리케이션이 Azure App Service에 호스트될 예정이므로(차후에) “https:\//azurewebsites.net” 도메인 내에서 URL을 사용해야 합니다. 이 예제에서는 이름이 등록 이름을 기반으로 합니다.
 
    여기까지 마쳤으면 **만들기**를 클릭하여 새 애플리케이션 등록을 만듭니다.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295694"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336255"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -21,7 +21,7 @@ Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공
 
 Azure Virtual WAN은 사이트 간 VPN(일반적으로 사용 가능), ExpressRoute(미리 보기), 지점 및 사이트 간 사용자 VPN(미리 보기)과 같은 다양한 Azure 클라우드 연결 서비스를 단일 운영 인터페이스로 통합합니다. Azure VNet에 대한 연결은 가상 네트워크 연결을 사용하여 설정합니다.
 
-![Virtual WAN 다이어그램](./media/virtual-wan-about/vwangraphic.png)
+![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan1.png)
 
 이 문서에서는 Azure Virtual WAN의 네트워크 연결에 대해 간략하게 설명합니다. Virtual WAN은 다음과 같은 이점을 제공합니다.
 
@@ -49,7 +49,7 @@ Azure Virtual WAN은 사이트 간 VPN(일반적으로 사용 가능), ExpressRo
 
 ## <a name="connectivity"></a>연결
 
-Virtual WAN을 사용하면 사이트 간, 지점 및 사이트 간, ExpressRoute(미리 보기)의 세 가지 연결 유형을 허용합니다.
+Virtual WAN은 사이트 간, 지점 및 사이트 간(미리 보기) 및 ExpressRoute(미리 보기)의 세 가지 연결 유형을 허용합니다.
 
 ### <a name="s2s"></a>사이트 간 VPN 연결
 

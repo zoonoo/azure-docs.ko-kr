@@ -1,6 +1,6 @@
 ---
-title: .NET API를 사용하여 코드에서 인덱스 만들기 - Azure Search
-description: Azure Search .NET SDK 및 C# 샘플 코드를 사용하여 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
+title: C#에서 인덱스 만들기 - Azure Search
+description: Azure Search .NET SDK를 사용하여 C#에서 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287148"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370587"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>빠른 시작: 1 - C#에서 Azure Search 인덱스 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "58287148"
 
 > [!div class="checklist"]
 > * 검색 서비스에 연결할 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 개체를 만듭니다.
-> * `Indexes.Create`에서 매개 변수로 전달할 [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 개체를 만듭니다.
+> * `Indexes.Create`에 매개 변수로 전달할 [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 개체를 만듭니다.
 > * `SearchServiceClient`에서 `Indexes.Create` 메서드를 호출하여 `Index`를 서비스에 보냅니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -32,7 +32,7 @@ ms.locfileid: "58287148"
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
-검색 서비스의 URL 엔드포인트 및 관리자 API 키입니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+검색 서비스의 URL 엔드포인트 및 관리자 API 키를 가져옵니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
   1. Azure Portal의 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 필드 데이터 형식과 동작을 정의하는 스키마를 기반으로 하여 빈 Azure Search 인덱스를 만들었습니다. 이 시리즈의 다음 빠른 시작에서는 검색 가능한 콘텐츠를 사용하여 인덱스를 로드하는 방법에 대해 설명합니다.
+이 빠른 시작에서는 필드 데이터 형식과 동작을 정의하는 스키마를 기반으로 하여 빈 Azure Search 인덱스를 만들었습니다. 인덱스는 이름 및 특성 사용 필드의 컬렉션으로 구성된 “기본 기능” 인덱스입니다. 더 현실적인 인덱스는 [점수 매기기 프로필](index-add-scoring-profiles.md), 자동 완성 지원을 위한 [제안기](index-add-suggesters.md), [동의어](search-synonyms.md) 및 가능한 [사용자 지정 분석기](index-add-custom-analyzers.md)와 같은 다른 요소를 포함할 수 있습니다. 기본 워크플로를 이해한 후 이러한 기능을 다시 살펴보는 것이 좋습니다.
+
+이 시리즈의 다음 빠른 시작에서는 검색 가능한 콘텐츠를 사용하여 인덱스를 로드하는 방법에 대해 설명합니다.
 
 > [!div class="nextstepaction"]
 > [C#을 사용하여 Azure Search 인덱스에 데이터 로드](search-import-data-dotnet.md)

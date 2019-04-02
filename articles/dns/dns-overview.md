@@ -2,17 +2,16 @@
 title: Azure DNS란?
 description: Microsoft Azure의 DNS 호스팅 서비스 개요입니다. Microsoft Azure에 도메인을 호스트하세요.
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294317"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339463"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -39,6 +38,7 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 자세한 내용은 [DNS 영역 및 레코드를 보호하는 방법](dns-protect-zones-recordsets.md)을 참조하세요. 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS는 현재 DNSSEC를 지원하지 않습니다. 대부분의 경우 애플리케이션에서 HTTPS/TLS를 일관되게 사용하여 DNSSEC에 대한 필요성을 줄일 수 있습니다. DNSSEC가 DNS 영역에 대한 중요한 요구 사항인 경우 타사 DNS 호스팅 공급자에서 이러한 영역을 호스팅할 수 있습니다.
 
 ## <a name="ease-of-use"></a>사용 편의성
@@ -57,12 +57,11 @@ Azure DNS는 개인 DNS 영역(현재는 공개 미리 보기)도 지원합니�
 
 ## <a name="alias-records"></a>별칭 레코드
 
-Azure DNS는 별칭 레코드 집합을 지원합니다. 별칭 레코드 집합을 사용하면 Azure 공용 IP 주소 또는 Azure Traffic Manager 프로필 등의 Azure 리소스를 참조할 수 있습니다. 기본 리소스의 IP 주소가 변경되면 별칭 레코드 집합도 DNS 확인 중에 자체적으로 원활하게 업데이트됩니다. 별칭 레코드 집합은 서비스 인스턴스를 가리키며 서비스 인스턴스는 IP 주소에 연결됩니다. 
+Azure DNS는 별칭 레코드 집합을 지원합니다. 별칭 레코드 세트를 사용하여 Azure 공용 IP 주소, Azure Traffic Manager 프로필 또는 Azure CDN(Content Delivery Network) 엔드포인트와 같은 Azure 리소스를 참조할 수 있습니다. 기본 리소스의 IP 주소가 변경되면 별칭 레코드 집합도 DNS 확인 중에 자체적으로 원활하게 업데이트됩니다. 별칭 레코드 집합은 서비스 인스턴스를 가리키며 서비스 인스턴스는 IP 주소에 연결됩니다.
 
-또한 이제는 별칭 레코드를 사용하여 apex 또는 naked 도메인을 Traffic Manager로 지정할 수도 있습니다. 예를 들어 contoso.com이 있습니다.
+또한 이제는 별칭 레코드를 사용하여 apex 또는 naked 도메인을 Traffic Manager 프로필 또는 CDN 엔드포인트로 지정할 수도 있습니다. 예를 들어 contoso.com이 있습니다.
 
 자세한 내용은 [Azure DNS 별칭 레코드 개요](dns-alias.md)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

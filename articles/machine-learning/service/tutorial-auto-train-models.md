@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295813"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362053"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -67,22 +67,11 @@ Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Le
 
 ### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
 
-사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  `matplotlib`, `automl` 및 `notebooks` 추가 기능이 설치되었는지 확인합니다.
 
-1. [Azure Machine Learning Python 빠른 시작](quickstart-create-workspace-with-python.md)을 완료하여 Miniconda 환경을 만들고 작업 영역을 만듭니다.
-1. `pip install azureml-sdk[automl,notebooks]`를 사용하여 사용 환경에 `automl` 및 `notebooks`라는 추가 요소를 설치합니다.
-1. `pip install maplotlib`를 사용하여 `maplotlib`를 설치합니다.
-1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. 복제된 디렉터리에서 노트북 서버를 시작합니다.
-
-    ```shell
-    jupyter notebook
-    ```
+이러한 단계를 완료한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
 
 ## <a name="start"></a>개발 환경 설정
 

@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e483df4e3392d64619cc074d21ee560ef3c5df5d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459203"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370808"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -65,21 +65,15 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM을 지원합니다. 디스크 크기를 선택하면 값이 다음 형식으로 반올림됩니다. 예를 들어 디스크 크기가 128GB 미만인 경우 디스크 유형은 P10입니다. 디스크 크기가 129GB에서 512GB 사이이면 크기는 P20입니다. 512GB 초과이면 크기는 P30입니다.
 
 ### <a name="premium-disk-performance"></a>프리미엄 디스크 성능
-
-|Premium Storage 디스크 유형 | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 디스크 크기(반올림) | 32GiB | 64GiB | 128GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB)
-| 디스크당 최대 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 | 12,500 |
-디스크당 처리량 | 25MB/초 | 50MB/초 | 100MB/초 | 150MB/초 | 200MB/s | 250MB/초 | 250MB/초 | 480MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Linux VM 크기](sizes.md)를 참조하세요.
 
-
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
-Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+Azure Cloud Shell은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 
@@ -187,8 +181,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-
-## <a name="snapshot-a-disk"></a>디스크 스냅숏
+## <a name="take-a-disk-snapshot"></a>디스크 스냅숏 만들기
 
 디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅숏을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 애플리케이션 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
 
