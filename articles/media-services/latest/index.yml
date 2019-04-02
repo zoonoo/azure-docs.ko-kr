@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663653"
 documentType: LandingData
 title: Azure Media Services v3 설명서
 metadata:
-  document_id: 
-  title: Azure Media Services v3 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Media Services를 사용하여 주문형 스트리밍, 라이브 브로드캐스팅 및 비디오 분석을 수행하는 방법을 알아봅니다. 자습서, API 참조 등입니다.
+  document_id: null
+  title: 'Azure Media Services v3 설명서 - 자습서, API 참조 | Microsoft Docs'
+  description: 'Media Services를 사용하여 주문형 스트리밍, 라이브 브로드캐스팅 및 비디오 분석을 수행하는 방법을 알아봅니다. 자습서, API 참조 등입니다.'
   services: media-services
   author: Juliako
   manager: femila
@@ -21,114 +15,114 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다. <br/> SDK는 <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI 사양(Swagger)</a>을 기반으로 합니다.
+  description: 'Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다. <br/> SDK는 <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI 사양(Swagger)</a>을 기반으로 합니다.'
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+  - title: null
     items:
-    - title: 개념 알아보기
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 스토리지</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>
-    - title: v3 API로 개발
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p>
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Media Services 계정을 만들고, 비디오 인코딩을 시작하고, Azure Media Player를 사용하여 재생하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+      - type: list
+        style: cards
+        className: cardImageOuter
+        items:
+          - title: 개념 알아보기
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 스토리지</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
+          - title: v3 API로 개발
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p>'
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: media/index/dotnet.svg
-      text: .NET을 사용하여 인코딩 및 스트리밍
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-    - image:
-        src: media/index/cli.svg
-      text: CLI를 사용하여 인코딩 및 스트리밍
-      href: /azure/media-services/latest/stream-files-cli-quickstart
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js를 사용하여 인코딩 및 스트리밍
-      href: /azure/media-services/latest/stream-files-nodejs-quickstart
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Media Services v3을 사용하여 주문형 파일 및 라이브 브로드캐스팅을 스트리밍하고 비디오를 분석하는 방법을 알아봅니다.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 1
+      - type: paragraph
+        text: 'Media Services 계정을 만들고, 비디오 인코딩을 시작하고, Azure Media Player를 사용하여 재생하는 방법을 알아봅니다.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            text: .NET을 사용하여 인코딩 및 스트리밍
+            href: /azure/media-services/latest/stream-files-dotnet-quickstart
+          - image:
+              src: media/index/cli.svg
+            text: CLI를 사용하여 인코딩 및 스트리밍
+            href: /azure/media-services/latest/stream-files-cli-quickstart
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js를 사용하여 인코딩 및 스트리밍
+            href: /azure/media-services/latest/stream-files-nodejs-quickstart
+  - title: 단계별 자습서
     items:
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>이 자습서에서는 로컬 비디오 파일을 업로드하고, 파일을 인코딩하고, 인코딩된 콘텐츠를 스트리밍합니다.<p/>
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-      title: 업로드된 파일 인코딩 및 비디오 스트리밍
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>이 자습서에는 라이브 이벤트를 설정하는 방법을 설명합니다. 그런 다음, .NET을 사용하여 통과 형식의 라이브 이벤트를 만드는 방법을 보여줍니다.</p>
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-      title: 라이브 브로드캐스트
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>이 자습서에서는 Azure Media Services API를 사용하여 비디오를 분석하는 방법을 보여줍니다.</p>
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-      title: 비디오 분석
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>AES-128로 콘텐츠를 동적으로 암호화하도록 Media Services API를 구성하고 사용하는 방법을 알아봅니다.</p>
-      href: /azure/media-services/latest/protect-with-aes128
-      title: AES-128로 동적으로 암호화
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>다중 DRM(PlayReady, Widevine 및 FairPlay)으로 콘텐츠를 동적으로 암호화하도록 Media Services API를 구성하고 사용하는 방법을 알아봅니다.</p>
-      href: /azure/media-services/latest/protect-with-drm
-      title: 다중 DRM으로 동적으로 암호화
-    - image:
-        src: media/index/rest.svg
-      html: <p>이 자습서에서는 URL을 기반으로 원격 파일을 인코딩하고 비디오를 스트리밍하는 방법을 보여줍니다.</p>
-      href: /azure/media-services/latest/stream-files-tutorial-with-rest
-      title: 원격 파일 인코딩 및 비디오 스트리밍
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 다음은 API를 사용하여 Media Services v3로 비디오 및 라이브 브로드캐스트를 스트리밍하고 비디오를 분석하는 방법을 보여주는 GitHub 샘플입니다.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: Media Services v3을 사용하여 주문형 파일 및 라이브 브로드캐스팅을 스트리밍하고 비디오를 분석하는 방법을 알아봅니다.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 1
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>이 자습서에서는 로컬 비디오 파일을 업로드하고, 파일을 인코딩하고, 인코딩된 콘텐츠를 스트리밍합니다.<p/>'
+            href: /azure/media-services/latest/stream-files-tutorial-with-api
+            title: 업로드된 파일 인코딩 및 비디오 스트리밍
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>이 자습서에는 라이브 이벤트를 설정하는 방법을 설명합니다. 그런 다음, .NET을 사용하여 통과 형식의 라이브 이벤트를 만드는 방법을 보여줍니다.</p>'
+            href: /azure/media-services/latest/stream-live-tutorial-with-api
+            title: 라이브 브로드캐스트
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>이 자습서에서는 Azure Media Services API를 사용하여 비디오를 분석하는 방법을 보여줍니다.</p>
+            href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+            title: 비디오 분석
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>AES-128로 콘텐츠를 동적으로 암호화하도록 Media Services API를 구성하고 사용하는 방법을 알아봅니다.</p>
+            href: /azure/media-services/latest/protect-with-aes128
+            title: AES-128로 동적으로 암호화
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>다중 DRM(PlayReady, Widevine 및 FairPlay)으로 콘텐츠를 동적으로 암호화하도록 Media Services API를 구성하고 사용하는 방법을 알아봅니다.</p>'
+            href: /azure/media-services/latest/protect-with-drm
+            title: 다중 DRM으로 동적으로 암호화
+          - image:
+              src: media/index/rest.svg
+            html: <p>이 자습서에서는 URL을 기반으로 원격 파일을 인코딩하고 비디오를 스트리밍하는 방법을 보여줍니다.</p>
+            href: /azure/media-services/latest/stream-files-tutorial-with-rest
+            title: 원격 파일 인코딩 및 비디오 스트리밍
+  - title: 샘플
     items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
-    - image:
-        src: media/index/rest.svg
-      text: Postman을 사용한 REST
-      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
-    - image:
-        src: media/index/logo_dotnet_core.svg
-      text: Visual Studio Code를 사용한 .NET Core
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
-    - image:
-        src: media/index/dotnet.svg
-      text: Visual Studio를 사용하여 .NET
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node .js
-      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
-- title: 참고 자료
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 다음은 API를 사용하여 Media Services v3로 비디오 및 라이브 브로드캐스트를 스트리밍하고 비디오를 분석하는 방법을 보여주는 GitHub 샘플입니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: Azure CLI
+            href: 'https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services'
+          - image:
+              src: media/index/rest.svg
+            text: Postman을 사용한 REST
+            href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
+          - image:
+              src: media/index/logo_dotnet_core.svg
+            text: Visual Studio Code를 사용한 .NET Core
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials'
+          - image:
+              src: media/index/dotnet.svg
+            text: Visual Studio를 사용하여 .NET
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials'
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node .js
+            href: 'https://github.com/Azure-Samples/media-services-v3-node-tutorials'
+  - title: 참고 자료
     items:
-    - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
-    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST (영문)</a>
-    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
-    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
-    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>
+      - type: paragraph
+        text: ''
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
+          - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST (영문)</a>'
+          - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
+          - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
+          - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>'
