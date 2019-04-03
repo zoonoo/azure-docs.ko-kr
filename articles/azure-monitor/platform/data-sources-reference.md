@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001998"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848544"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 
@@ -48,7 +48,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 메트릭](data-collection.md)에 대해 자세히 알아보기
+- [Azure Monitor 메트릭](data-platform.md)에 대해 자세히 알아보기
 - [Azure 활동 로그](activity-logs-overview.md)에 대해 자세히 알아보기
 - [Azure 진단 로그](diagnostic-logs-overview.md)에 대해 자세히 알아보기
 

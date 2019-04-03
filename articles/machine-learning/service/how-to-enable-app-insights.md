@@ -1,7 +1,7 @@
 ---
-title: Application Insights로 모델 모니터링
+title: 모니터 ML 모델에 Azure Application Insights 설정
 titleSuffix: Azure Machine Learning service
-description: Application Insights를 사용하여 Azure Machine Learning 서비스를 통해 배포된 웹 서비스 모니터링
+description: Azure Application Insights를 사용 하 여 Azure Machine Learning 서비스를 사용 하 여 배포 된 웹 서비스를 모니터링 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847952"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885505"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
@@ -36,7 +36,7 @@ ms.locfileid: "57847952"
 * AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>SDK에서 사용 및 사용하지 않도록 설정
+## <a name="use-sdk-to-configure"></a>SDK를 사용 하 여 구성 
 
 ### <a name="update-a-deployed-service"></a>배포된 서비스 업데이트
 1. 작업 영역에서 서비스를 식별합니다. `ws` 값은 작업 영역의 이름입니다.
@@ -77,7 +77,7 @@ Application Insights를 사용하지 않도록 설정하려면 다음 코드를 
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>포털에서 사용 및 사용하지 않도록 설정
+## <a name="use-portal-to-configure"></a>포털을 사용 하 여 구성
 
 Azure Portal에서 Application Insights를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
@@ -85,15 +85,15 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
 1. **배포** 탭에서 Application Insights를 사용하도록 설정하려는 서비스를 선택합니다.
 
-   [![배포 탭의 서비스 목록](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![L배포 탭에서 서비스의 ist](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. **편집**을 선택합니다.
 
-   [![편집 단추](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Edit 단추](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. **고급 설정**에서 **AppInsights 진단 사용** 확인란을 선택합니다.
 
-   [![진단을 사용하도록 설정하기 위한 확인란을 선택함](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![S선택 된 확인란 진단을 사용 하도록 설정 하는 것에 대 한](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. 화면 맨 아래에서 **업데이트**를 선택하여 변경 내용을 적용합니다. 
 
@@ -101,11 +101,11 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
 1. **배포**를 선택하고 서비스를 선택한 후 **편집**을 선택합니다.
 
-   [![편집 단추 사용](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![U편집 단추 se](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. **고급 설정**에서 **AppInsights 진단 사용** 확인란을 선택 취소합니다. 
 
-   [![진단을 사용하도록 설정하기 위한 확인란을 선택 취소함](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![C진단을 사용 하도록 설정 하는 것에 대 한 확인 상자를 알아본](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. 화면 맨 아래에서 **업데이트**를 선택하여 변경 내용을 적용합니다. 
  
@@ -119,12 +119,12 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
 1. **개요** 탭을 선택하면 서비스에 대한 기본 메트릭 집합이 표시됩니다.
 
-   [![개요](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. 사용자 지정 추적을 살펴보려면 **분석**을 선택합니다.
 4. 스키마 섹션에서 **추적**을 선택합니다. 그런 후 **실행**을 선택하여 쿼리를 실행합니다. 데이터가 테이블 형식으로 표시되며 점수 매기기 파일에서 사용자 지정 호출로 매핑되어야 합니다. 
 
-   [![사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![C사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../azure-monitor/app/app-insights-overview.md)을 참조하세요.
     
@@ -138,6 +138,4 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 ## <a name="next-steps"></a>다음 단계
 또한 프로덕션에서 모델에 대한 데이터를 수집할 수 있습니다. [프로덕션에서 모델용 데이터 수집](how-to-enable-data-collection.md) 문서를 읽어보세요. 
 
-
-## <a name="other-references"></a>기타 참조
-* [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+참조할 [컨테이너에 대 한 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)합니다.

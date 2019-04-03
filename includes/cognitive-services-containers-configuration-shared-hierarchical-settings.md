@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
 ms.openlocfilehash: 03ec8740a4cf36bf3d09dade8a24b155c09d1299
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740789"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887263"
 ---
 컨테이너에 대한 설정은 계층 구조이며 호스트 컴퓨터의 모든 컨테이너는 공유 계층 구조를 사용합니다.
 

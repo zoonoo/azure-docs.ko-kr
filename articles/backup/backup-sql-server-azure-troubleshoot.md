@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286017"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847441"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -98,12 +98,18 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 |---|---|---|
 | 데이터베이스를 오프라인 상태로 만들지 못해서 복원에 실패했습니다. | 복원 작업을 수행하는 동안 대상 데이터베이스를 오프라인 상태로 만들어야 합니다. Azure Backup에서 이 데이터를 오프라인 상태로 만들 수 없습니다. | Azure Portal 오류 메뉴의 추가 세부 정보를 사용하여 근본 원인의 범위를 좁힙니다. 자세한 내용은 [SQL 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)를 참조하십시오. |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 대상에서 지문이 포함된 서버 인증서를 찾을 수 없습니다. | 대상 인스턴스의 마스터 데이터베이스에 유효한 암호화 지문이 없습니다. | 원본 인스턴스에서 사용되는 유효한 인증서 지문을 대상 인스턴스로 가져옵니다. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| 오류 메시지 | 가능한 원인 | 권장 작업 |
+|---|---|---|
+| 복구에 사용 되는 로그 백업에 대량 로그 변경 내용이 포함 되어 있습니다. SQL 지침에 따라 시간 임의의 지점에서 중지를 사용할 수 없습니다. | 데이터베이스를 대량 로그 복구 모드의 경우 대량 로그 트랜잭션 및 다음 로그 트랜잭션 간에 데이터를 복구할 수 없습니다. | 복구에 대 한 시간에 다른 시점을 선택 하세요. [자세히 알아보기](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>등록 오류
 

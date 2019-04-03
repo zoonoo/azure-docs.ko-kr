@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816631"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851062"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -97,7 +97,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. 스키마 정의를 끝낸 후에 **파일** | **저장**을 클릭한 후 스키마를 저장할 디렉터리로 이동하고 **저장**을 클릭합니다.
 
-    나중에 DSN과 함께 이 스키마를 사용하려면 Azure Cosmos DB ODBC 드라이버 DSN 설정 창을 열고(ODBC 데이터 원본 관리자 사용) 고급 옵션을 클릭한 후 스키마 파일 상자에서 저장된 스키마로 이동합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
+1. DSN을 사용 하 여이 스키마를 사용 하려면 엽니다는 **Azure Cosmos DB ODBC 드라이버 DSN 설정 창** (통해 ODBC 데이터 원본 관리자 사용)를 클릭 **고급 옵션**를 선택한 다음는 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
 
 ## <a id="table-mapping"></a>4단계: 테이블 구분 기호 매핑 방법을 사용하여 스키마 정의 만들기
 

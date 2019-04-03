@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518000"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863086"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -46,7 +46,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>암호 해시 동기화의 작동 방식에 대한 자세한 설명
 다음 섹션에서는 Active Directory와 Azure AD 간에 암호 해시 동기화가 작동하는 방식에 대해 자세히 설명합니다.
 
-![자세한 암호 흐름](./media/how-to-connect-password-hash-synchronization/arch3a.png)
+![자세한 암호 흐름](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. 2분마다 AD Connect 서버의 암호 해시 동기화 에이전트는 DC에서 저장된 암호 해시(unicodePwd 특성)를 요청합니다.  이 요청은 DC 간 데이터를 동기화하는 데 사용된 표준 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) 복제 프로토콜을 통해 전송됩니다. 암호 해시를 얻으려면 서비스 계정에 디렉터리 변경 내용 복제 및 모든 디렉터리 변경 내용 복제 AD 권한(설치 시 기본적으로 부여)이 있어야 합니다.
@@ -117,7 +117,7 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 ### <a name="password-hash-synchronization-and-fips"></a>암호 해시 동기화 및 FIPS
 서버가 FIPS(Federal Information Processing Standard)에 따라 잠긴 다음 MD5가 비활성화됩니다.
 
-**암호 해시 동기화에 MD5를 사용하려면 다음 단계를 수행합니다.**
+**암호 해시 동기화에 MD5를 사용 하려면 다음 단계를 수행 합니다.**
 
 1. %programfiles%\Azure AD Sync\Bin으로 이동합니다.
 2. miiserver.exe.config를 엽니다.
@@ -141,6 +141,6 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 암호 해시 동기화에 문제가 있으면 [암호 해시 동기화 문제 해결](tshoot-connect-password-hash-synchronization.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
-* [ADFS에서 암호 해시 동기화로 마이그레이션하기 위한 단계별 배포 계획 가져오기](https://aka.ms/authenticationDeploymentPlan)
+* [ADFS에서 암호 해시 동기화로 마이그레이션에 대 한 단계별 배포 계획 가져오기](https://aka.ms/authenticationDeploymentPlan)

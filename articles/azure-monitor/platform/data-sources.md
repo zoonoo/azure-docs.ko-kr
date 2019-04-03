@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763430"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849684"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 모니터의 데이터 원본
-이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 애플리케이션의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-collection.md)를 참조하세요.
+이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 애플리케이션의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-platform.md)를 참조하세요.
 
 Azure의 모니터링 데이터는 계층, 즉 애플리케이션과 운영 체제인 가장 높은 계층 및 Azure 플랫폼의 구성 요소인 가장 낮은 계층으로 구성될 수 있는 다양한 원본에서 제공됩니다. 이 내용은 다음 섹션에서 자세히 설명하는 각 계층이 포함된 다음 다이어그램에 나와 있습니다.
 
@@ -59,7 +59,7 @@ Azure Portal의 해당 페이지에서 특정 리소스에 대한 활동 로그�
 
 
 ### <a name="metrics"></a>메트릭
-대부분의 Azure 서비스는 성능 및 작업을 반영하는 [플랫폼 메트릭](data-collection.md#metrics)을 생성합니다. 특정 [메트릭은 리소스의 각 형식마다 다릅니다](metrics-supported.md).  메트릭 분석에서 액세스할 수 있으며, Log Analytics를 사용하여 추세 및 기타 분석을 위해 로그에 복사할 수 있습니다.
+대부분의 Azure 서비스는 성능 및 작업을 반영하는 [플랫폼 메트릭](data-platform-metrics.md)을 생성합니다. 특정 [메트릭은 리소스의 각 형식마다 다릅니다](metrics-supported.md).  메트릭 분석에서 액세스할 수 있으며, Log Analytics를 사용하여 추세 및 기타 분석을 위해 로그에 복사할 수 있습니다.
 
 
 ### <a name="resource-diagnostic-logs"></a>리소스 진단 로그
@@ -116,4 +116,4 @@ Azure Monitor는 [데이터 수집기 API](../../azure-monitor/platform/data-col
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor에서 수집한 모니터링 데이터의 유형](data-collection.md)과 이 데이터를 보고 분석하는 방법에 대해 자세히 알아보세요.
+- [Azure Monitor에서 수집한 모니터링 데이터의 유형](data-platform.md)과 이 데이터를 보고 분석하는 방법에 대해 자세히 알아보세요.

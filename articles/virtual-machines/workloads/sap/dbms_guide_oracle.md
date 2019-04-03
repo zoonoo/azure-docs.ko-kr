@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483522"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850795"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -235,7 +235,6 @@ ms.locfileid: "58483522"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -376,9 +375,9 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 구성 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| \oracle\<SID>\origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
 | \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
@@ -389,13 +388,13 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 구성 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | 없음 | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | Premium | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
+| \oracle\<SID>\origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 권장  |
+| \oracle\SID\sapdata(n+1)* | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
@@ -466,9 +465,9 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 
 | 구성 요소 | 디스크 | 구성 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID > / origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID > / origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID > / origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
+| /oracle/\<SID > / origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1...n | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
 | /oracle/\<SID > / oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
@@ -480,13 +479,13 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 | 구성 요소 | 디스크 | 구성 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium | 없음 | 사용할 수 있음  |
-| /oracle/\<SID>/origlogaB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
-| /oracle/\<SID > / sapdata(n+1) * | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch* | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
+| /oracle/\<SID>/origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/sapdata1...n | 프리미엄 | 읽기 전용 | 권장  |
+| /oracle/\<SID > / sapdata(n+1) * | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM

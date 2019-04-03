@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: b9bfa49a94bca7f80cacedea0a08b1c0a6128ef8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884876"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1)에서 사용할 수 있습니다.
@@ -29,11 +29,11 @@ ms.locfileid: "58619563"
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>어떤 구성 및 버전을 사용할 수 있나요?
-최신 주요 버전인 Visual Studio 2017과 Visual Studio 2015의 이미지는 Azure Marketplace에서 찾을 수 있습니다.  출시 예정된 주 버전 Visual Studio 2019 미리 보기에 대한 지원을 최근에 추가했습니다.  출시된 각 주 버전에 대해 처음 출시된 버전(RTW)과 최신 업데이트 버전이 표시됩니다.  이러한 각 버전에는 Visual Studio Enterprise 및 Visual Studio Community Edition이 제공됩니다.  이 이미지는 최신 Visual Studio 및 Windows 업데이트가 포함되도록 최소한 매월 업데이트됩니다.  이미지의 이름은 그대로 유지되지만, 각 이미지의 설명에는 설치된 제품 버전 및 이미지의 '당시' 날짜가 포함됩니다.
+Azure Marketplace에서 가장 최근의 주 버전인 Visual Studio 2019, Visual Studio 2017 및 Visual Studio 2015에 대 한 이미지를 찾을 수 있습니다.  각 주 버전 출시에 대 한 참조를 원래 "웹 출시" (RTW) 버전과 최신 업데이트 된 버전입니다.  이러한 각 버전에는 Visual Studio Enterprise 및 Visual Studio Community Edition이 제공됩니다.  이 이미지는 최신 Visual Studio 및 Windows 업데이트가 포함되도록 최소한 매월 업데이트됩니다.  이미지의 이름은 그대로 유지되지만, 각 이미지의 설명에는 설치된 제품 버전 및 이미지의 '당시' 날짜가 포함됩니다.
 
 | 릴리스 버전                                              | 에디션                     |     제품 버전      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: 미리 보기 (RC4)                        |           Enterprise         |    버전 16.0.0 RC4    |
+|     Visual Studio 2019: RTW                                  |    Enterprise, Community     |      16.0.0 버전      |
 | Visual Studio 2017: 최신(버전 15.9)                    |    Enterprise, Community     |      15.9.10 버전     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      15.0.22 버전     |
 |   Visual Studio 2015: 최신(Update 3)                      |    Enterprise, Community     |  버전 14.0.25431.01   |
@@ -97,7 +97,7 @@ Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅
 
 빠른 요약: 시스템 준비 도구(Sysprep)를 사용하여 실행 중인 VM을 종료한 다음, Azure Portal의 UI를 통해 VM을 이미지 *(그림 1)* 로 캡처합니다. Azure에서는 선택한 저장소 계정의 이미지를 포함하는 `.vhd` 파일을 저장합니다. 그러면 새 이미지가 구독의 리소스 목록에 이미지 리소스로 표시됩니다.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(그림 1) Azure Portal의 UI를 통해 이미지를 캡처합니다.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(그림 1) Azure portal UI 통해 이미지를 캡처하십시오.*</center>
 
 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](/azure/virtual-machines/windows/capture-image-resource)를 참조하세요.
 
@@ -112,5 +112,5 @@ Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅
 ## <a name="next-steps"></a>다음 단계
 미리 구성된 Visual Studio 이미지에 대해 잘 알게 되었으므로 다음 단계는 새 VM을 만드는 것입니다.
 
-* [Azure Portal을 통해 VM 만들기](quick-create-portal.md)
-* [Windows 가상 머신 개요](overview.md)
+* [Azure portal 통해 VM 만들기](quick-create-portal.md)
+* [Windows Virtual Machines 개요](overview.md)

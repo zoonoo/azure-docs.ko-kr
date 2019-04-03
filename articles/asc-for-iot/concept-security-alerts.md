@@ -1,31 +1,31 @@
 ---
 title: IoT 미리 보기에 대 한 Azure Security Center에 대 한 보안 경고 가이드 | Microsoft Docs
 description: 보안 경고 및 Azure Security Center를 사용 하 여 IoT 기능 및 서비스에 대 한 권장된 된 수정을에 대해 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755114"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861981"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>IoT 보안 경고에 대 한 azure Security Center
 
 > [!IMPORTANT]
 > IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 IoT 용 azure Security Center (ASC) 악의적인 활동을 경고 하도록 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 합니다.
 또한 예상된 장치 동작의 지식에 따라 사용자 지정 경고를 만들 수 있습니다.
@@ -95,4 +95,4 @@ IoT 용 azure Security Center (ASC) 악의적인 활동을 경고 하도록 고�
 
 - [개요](overview.md)
 - [보안 데이터에 액세스](how-to-security-data-access.md)
-- [장치를 조사 합니다.](how-to-investigate-device.md)
+- [디바이스 조사](how-to-investigate-device.md)

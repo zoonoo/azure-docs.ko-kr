@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839732"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883012"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서에서 용어 이해
 
@@ -49,7 +49,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 | P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적용으로 사용할를 고유 하 고 Microsoft에서 생성 된 청구서 번호 |
 | 청구서 날짜 |청구서 생성 되는 일반적으로 5 ~ 12 일 후 청구 주기 종료 날짜입니다. 청구 프로필 속성에 송장 날짜를 확인할 수 있습니다.|
-| 지불 조건 |Microsoft 청구서에 대 한 지불 방법입니다. *30 일 동안 net* 확인 하 여 지불 나 송장 일 로부터 30 일 이내 전송 연결 수 있음을 의미 합니다. |
+| 지불 조건 |Microsoft 청구서에 대 한 지불 방법입니다. *30 일 동안 net* 송장 일 로부터 30 일 이내에 지불을 의미 합니다. |
 
 ### <a name="billing-summary"></a>청구 요약
 
@@ -110,6 +110,6 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 ## <a name="next-steps"></a>다음 단계
 
 - [청구 프로필의 청구서 요금 이해](billing-mca-understand-your-bill.md)
-- [Azure 청구서 및 일간 사용 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
+- [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md)
 - [조직의 Azure 가격을 확인합니다](billing-ea-pricing.md)
 - [청구 프로필에 대 한 세금 문서 보기](billing-mca-download-tax-document.md)

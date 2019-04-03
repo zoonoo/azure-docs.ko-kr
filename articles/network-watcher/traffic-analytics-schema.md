@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109123"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879338"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석의 스키마 및 데이터 집계
 
@@ -120,7 +120,7 @@ ms.locfileid: "58109123"
 1. Azure Virtual Network에 속하는 IP 주소 중 하나는 ExternalPublic-다른 IP 주소는 Azure에 있지 않은 공용 IP, 트래픽 분석 처리 간격을 사용 하는 ASC 피드의 악의적인 주소로 보고 되지 않았습니다 " FlowIntervalStartTime_t"및"FlowIntervalEndTime_t"입니다. 
 1. 다른 IP 주소는 Azure에서 되지 및 처리 간격에 대 한 트래픽 분석을 사용 하는 ASC 피드의 악성으로 보고 되는 공용 IP를 azure 가상 네트워크에 속한 IP 주소 중 하나로 MaliciousFlow " FlowIntervalStartTime_t"및"FlowIntervalEndTime_t"입니다. 
 1. 다른 IP 주소로 RFC 1918에 정의 된 대로 개인 IP 범위에 속하는 고객 소유 사이트 또는 Azure Virtual Network 트래픽 분석 하 여 매핑할 수 없습니다 하는 동안 Azure Virtual Network에 속한 IP 주소 중 하나 UnknownPrivate-합니다.
-1. 알 수 없음-IP 중 하나에 매핑할 수 없습니다 온-프레미스 (사이트)를 비롯 하 여 Azure에 고객 토폴로지를 사용 하 여 흐름에서 해결 합니다.
+1. 알 수 없음-IP 중 하나에 매핑할 수 없습니다 Azure에서 고객 토폴로지를 사용 하 여 흐름에서 주소 뿐만 아니라 온-프레미스 (사이트).
 
 ### <a name="next-steps"></a>다음 단계
 자주 묻는 질문과 대답을 참조 하세요 [트래픽 분석 FAQ](traffic-analytics-faq.md) 기능에 대 한 세부 정보를 보려면 [트래픽 분석 설명서](traffic-analytics.md)

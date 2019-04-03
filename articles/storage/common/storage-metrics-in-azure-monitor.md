@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899029"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884366"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -284,9 +284,9 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 
 리소스 ID는 Azure에서 리소스의 고유 ID입니다. Azure Monitor REST API를 사용하여 메트릭 정의 또는 값을 읽는 경우 작동하려는 리소스에 대한 리소스 ID를 사용해야 합니다. 리소스 ID 템플릿은 다음 형식을 따릅니다.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 저장소는 Azure Monitor를 통해 저장소 계정 수준 및 서비스 수준에서 모두 메트릭을 제공합니다. 예를 들어 Blob Storage에 대해서만 메트릭을 검색할 수 있습니다. 각 수준에는 해당 수준에 대해서만 메트릭을 검색하는 데 사용하는 자체 리소스 ID가 있습니다.
 
@@ -294,34 +294,38 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 
 다음은 저장소 계정에 대한 리소스 ID를 지정하는 형식을 보여 줍니다.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>저장소 서비스에 대한 리소스 ID
 
 다음은 각 저장소 서비스에 대한 리소스 ID를 지정하는 형식을 보여 줍니다.
 
-* Blob service 리소스 ID `
+* Blob service 리소스 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* Table service 리소스 ID `
+```
+* Table service 리소스 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* 큐 서비스 리소스 ID `
+```
+* 큐 서비스 리소스 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* 파일 서비스 리소스 ID `
+```
+* 파일 서비스 리소스 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure Monitor REST API의 리소스 ID
 
 다음은 Azure Monitor REST API를 호출할 때 사용하는 패턴을 보여 줍니다.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>용량 메트릭
 용량 메트릭 값은 매 1시간마다 Azure Monitor에 전송됩니다. 값은 매일 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
@@ -402,15 +406,15 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 ## <a name="faq"></a>FAQ
 
-**새 메트릭에서 클래식 스토리지 계정을 지원하나요?**
+**새 메트릭 클래식 저장소 계정을 지원 하나요?**
 
 아니요, Azure Monitor의 새 메트릭은 Azure Resource Manager 스토리지 계정만 지원합니다. 스토리지 계정에서 메트릭을 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)을 참조하세요.
 
-**Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
+**Azure Storage Managed Disks 또는 관리 되지 않는 디스크에 대 한 메트릭을 지원 하나요?**
 
 예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)를 참조하세요.
 
-**새 메트릭을 사용하여 클래식 메트릭을 어떻게 매핑 및 마이그레이션하나요?**
+**매핑 및 새 메트릭 사용 하 여 클래식 메트릭 마이그레이션해야 하는 방법**
 
 [Azure Storage 메트릭 마이그레이션](./storage-metrics-migration.md)에서 클래식 메트릭과 새 메트릭 간의 자세한 매핑을 찾을 수 있습니다.
 

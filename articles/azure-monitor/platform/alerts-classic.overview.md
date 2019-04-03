@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993029"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847861"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -88,14 +88,14 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 경고 규칙에 대한 정보를 확인하고 구성할 수 있습니다.
 
-* [메트릭](../../azure-monitor/platform/data-collection.md)에 대해 자세히 알아보기
+* [메트릭](data-platform.md)에 대해 자세히 알아보기
 * [Azure Portal을 통해 클래식 메트릭 경고](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 PowerShell](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 CLI(명령줄 인터페이스)](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) 구성
-* [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에 대해 자세히 알아보기
-* [Azure Portal을 통해 활동 로그 경고](../../azure-monitor/platform/activity-log-alerts.md) 구성
+* [활동 로그](activity-logs-overview.md)에 대해 자세히 알아보기
+* [Azure Portal을 통해 활동 로그 경고](activity-log-alerts.md) 구성
 * [Resource Manager를 통해 활동 로그 경고](alerts-activity-log.md) 구성
-* [활동 로그 경고 웹후크 스키마](../../azure-monitor/platform/activity-log-alerts-webhook.md) 검토
-* [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
-* [최신 경고](../../azure-monitor/platform/alerts-metric.md) 구성
+* [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md) 검토
+* [작업 그룹](action-groups.md)에 대해 자세히 알아보세요.
+* [최신 경고](alerts-metric.md) 구성

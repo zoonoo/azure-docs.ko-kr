@@ -3,20 +3,20 @@ title: '.NET SDK: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 
 description: Azure Data Lake Storage Gen1 .NET SDK를 사용하여 Data Lake Storage Gen1에서 폴더 만들기 등의 파일 시스템 작업을 수행할 수 있습니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119499"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876958"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "58119499"
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 애플리케이션 |
-   | 이름 |CreateADLApplication |
+   | name |CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
@@ -59,8 +59,8 @@ ms.locfileid: "58119499"
    2. **NuGet 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
-      * `Microsoft.Azure.DataLake.Store` - 이 자습서는 v1.0.0을 사용합니다.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.3.1을 사용합니다.
+      * `Microsoft.Azure.DataLake.Store` -이 자습서는 v1.0.0을 사용 합니다.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -이 자습서는 v2.3.1을 사용 합니다.
     
       **NuGet 패키지 관리자**를 닫습니다.
 
@@ -178,8 +178,8 @@ Data Lake Storage Gen1 파일 시스템 SDK를 사용하는 방법에 대한 몇
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>참고 항목
-* [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [.NET SDK를 사용 하 여 데이터 레이크 저장소 Gen1에서 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [Data Lake Storage Gen1.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
-* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)

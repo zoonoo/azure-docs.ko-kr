@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113217"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846953"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Azure Portal에서 읽기 복제본을 만들기 및 관리
 
 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
-> [!IMPORTANT]
-> 읽기 복제본 기능은 공개 미리 보기로 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 
 ## <a name="prepare-the-master-server"></a>마스터 서버 준비
-이러한 단계는 범용 또는 메모리 최적화 계층에서 마스터 서버를 준비하는 데 사용합니다.
-
-마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면 서버를 다시 시작해야 변경 내용이 적용됩니다.
+이러한 단계는 범용 또는 메모리 최적화 계층에서 마스터 서버를 준비하는 데 사용합니다. 마스터 서버는 azure.replication_support 매개 변수를 설정 하 여 복제를 위한 준비 되었습니다. 복제 매개 변수에 변경 되 면 서버를 다시 시작이 변경 내용을 적용 하려면 필요 합니다. Azure portal에서 이러한 두 단계는 단추만에 의해 캡슐화 됩니다 **복제 지원을 사용 하도록 설정**합니다.
 
 1. Azure Portal에서 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 왼쪽 메뉴에서 **서버 매개 변수**를 선택합니다.
+2. 서버 사이드바에서 아래 **설정을**를 선택 **복제**합니다.
 
-3. `azure.replication_support` 매개 변수를 검색합니다.
+3. 선택 **복제 지원을 사용 하도록 설정**합니다. 
 
-   ![azure.replication_support 매개 변수 검색](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![복제 지원을 사용 하도록 설정](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. `azure.replication_support` 매개 변수 값을 **REPLICA**로 설정합니다. **저장**을 선택하여 변경 내용을 저장합니다.
+4. 복제 지원을 사용 하도록 설정 하려는 것을 확인 합니다. 이 작업에는 마스터 서버를 다시 시작 됩니다. 
 
-   ![매개 변수를 REPLICA로 설정하고 변경 내용 저장](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![복제 지원을 사용 하도록 설정 확인](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. 작업이 완료 되 면 두 개의 Azure 포털 알림을 받게 됩니다. 서버 매개 변수를 업데이트 하기 위한 하나의 알림이 있습니다. 즉시 따르는 서버 다시 시작에 대 한 다른 알림이 있습니다.
 
-5. 변경 내용을 저장하면 알림을 받습니다.
+   ![성공 알림-을 사용 하도록 설정](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![알림 저장](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. 복제 도구 모음을 업데이트 하려면 Azure portal 페이지를 새로 고칩니다. 이제이 서버에 대 한 읽기 복제본을 만들 수 있습니다.
 
-6. 서버를 다시 시작하여 변경 내용을 적용합니다. 서버를 다시 시작하는 방법을 알아보려면 [Azure Database for PostgreSQL 서버 다시 시작](howto-restart-server-portal.md)을 참조하세요.
+   ![업데이트 된 도구 모음](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+복제 지원을 사용 하도록 설정 하는 것은 마스터 서버 당 일회성 작업입니다. A **복제 지원을 사용 하지 않도록 설정** 단추가 편의 위해 제공 됩니다. 권장 하지 않습니다 복제 지원을 사용 하지 않도록 설정 하지 않는 한이 마스터 서버에서 복제 데이터베이스를 만들지 않겠다는 것입니다. 마스터 서버에 기존 복제본 복제 지원을 비활성화할 수 없습니다.
 
 
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
@@ -52,9 +52,7 @@ ms.locfileid: "58113217"
 
 1. 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다. 
 
-2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
-
-   범용 또는 메모리 최적화 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하지 않으면 알림이 수신됩니다. 복제본을 만들기 전에 이러한 단계를 완료합니다.
+2. 서버 사이드바에서 아래 **설정을**를 선택 **복제**합니다.
 
 3. **복제본 추가**를 선택합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용하여 작업 영역 만들기
+title: Azure Resource Manager 템플릿을 사용 하 여 작업 영역 만들기
 titleSuffix: Azure Machine Learning service
 description: Azure Resource Manager 템플릿을 사용하여 새 Azure Machine Learning Service 작업 영역을 만드는 방법을 알아봅니다.
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850080"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883193"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>템플릿을 사용하여 Azure Machine Learning Service 작업 영역 만들기
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning Service 작업 영역을 만드는 몇 가지 방법을 설명합니다. 
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning Service 작업 영역을 만드는 몇 가지 방법을 설명합니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
@@ -30,9 +31,7 @@ ms.locfileid: "57850080"
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
-
-다음 템플릿을 사용하여 Azure Machine Learning Service 작업 영역 및 관련된 Azure 리소스를 만들 수 있습니다.
+다음 Resource Manager 템플릿은 Azure Machine Learning 서비스 작업 영역 및 연결 된 Azure 리소스를 만드는 데 사용할 수 있습니다.
 
 ```json
 {
@@ -183,11 +182,11 @@ Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소�
 
 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 리소스 관리자 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure Resource Manager 템플릿으로 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 템플릿 사용 하 여 응용 프로그램 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 695fdfba1573ff97b05f8e8b50a05bef9dbf48de
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522267"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846166"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search에서 언어에 따라 필터링하는 방법 
 
@@ -39,7 +39,7 @@ Azure Search에서 쿼리는 단일 인덱스를 대상으로 합니다. 단일 
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) 및 [인덱스 정의(REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json)를 참조하세요.
+> 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) 및 [인덱스 정의(REST)](search-create-index-rest-api.md)를 참조하세요.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 

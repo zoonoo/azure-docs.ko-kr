@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a1bb630c14ef504cb60a6847643a60f1cc90a1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368650"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861865"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
 
@@ -26,6 +26,9 @@ ms.locfileid: "58368650"
 
 * 이벤트 로그 메시지에서 사소한 오타가 오류를 수정 합니다.
 * 최종 일반 공급 버전으로 업데이트 EULA 계약에 동의
+
+> [!NOTE]
+> 1.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
 
 ## <a name="121160"></a>1.2.116.0
 

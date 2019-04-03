@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758108"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877570"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -92,7 +92,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 
 이 섹션에서는 두 개의 Video Indexer 위젯 간의 상호 작용을 수행하는 방법을 보여 주며, 사용자가 애플리케이션에서 인사이트 컨트롤을 클릭하면 플레이어에서 관련 시점으로 이동합니다.
 
-`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 1. **플레이어** 위젯 포함 코드를 복사합니다.
 2. **인지 인사이트** 포함 코드를 복사합니다.

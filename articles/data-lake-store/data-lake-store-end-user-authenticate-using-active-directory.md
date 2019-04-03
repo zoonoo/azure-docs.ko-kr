@@ -1,22 +1,22 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 인증 | Microsoft Docs'
+title: '최종 사용자 인증: Azure Active Directory 사용 하 여 azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954785"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880086"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * 위임된 권한 설정
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 애플리케이션 만들기
+## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 응용 프로그램 만들기
 
 Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 애플리케이션을 만들고 구성합니다. 지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
@@ -80,7 +80,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 ![웹앱 만들기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "네이티브 앱 만들기")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 애플리케이션 ID 및 리디렉션 URI 가져오기
+## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 응용 프로그램 ID 및 리디렉션 URI 가져오기
 
 애플리케이션 ID를 검색하려면 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 
@@ -95,7 +95,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 3. 표시되는 값을 복사합니다.
 
 
-## <a name="step-3-set-permissions"></a>3단계: 사용 권한 설정
+## <a name="step-3-set-permissions"></a>3단계: 권한 설정
 
 1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음, 만든 Azure AD 네이티브 애플리케이션을 찾아서 클릭합니다.
 
@@ -118,8 +118,8 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD 네이티브 애플리케이션을 만들고 .NET SDK, Java SDK, REST API 등을 사용하여 만든 클라이언트 애플리케이션에 필요한 정보를 수집했습니다. 계속해서 Azure AD 웹 애플리케이션을 사용해 Data Lake Storage Gen1에 먼저 인증한 후 저장소에서 다른 작업을 수행하는 방법에 대해 설명하는 다음 문서를 확인할 수 있습니다.
 
-* [Java SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)
-* [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)
-* [Python을 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)
-* [REST API를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)
+* [최종 사용자 인증 데이터 레이크 저장소 Gen1를 사용 하 여 Java SDK를 사용 하 여](data-lake-store-end-user-authenticate-java-sdk.md)
+* [.NET SDK를 사용 하 여 데이터 레이크 저장소 Gen1를 사용 하 여 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)
+* [Python을 사용 하 여 데이터 레이크 저장소 Gen1를 사용 하 여 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)
+* [REST API를 사용 하 여 데이터 레이크 저장소 Gen1를 사용 하 여 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)
 

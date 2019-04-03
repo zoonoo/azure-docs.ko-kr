@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531643"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880035"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 
@@ -66,13 +66,13 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | **형식** 속성을 **AzureDataExplorer**로 설정해야 합니다. | 예 |
-| endpoint | `https://<clusterName>.<regionName>.kusto.windows.net ` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
+| endpoint | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
 | 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이 일반적으로 알고으로 "**기관 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. Azure Portal의 오른쪽 위를 마우스로 가리켜 검색합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 클라이언트 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 키**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 
-**연결된 서비스 속성 예제:**
+**연결 된 서비스 속성 예제:**
 
 ```json
 {
@@ -106,7 +106,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 | 형식 | **형식** 속성을 **AzureDataExplorerTable**로 설정해야 합니다. | 예 |
 | 테이블 | 연결된 서비스가 참조하는 테이블의 이름입니다. | 싱크의 경우 예이며, 원본의 경우 아니오입니다. |
 
-**데이터 세트 속성 예제**
+**데이터 집합 속성 예제**
 
 ```json
 {

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315098"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848784"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -137,7 +137,7 @@ ms.locfileid: "57315098"
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Monitor에서 수집하는 데이터](platform/data-collection.md)에 대해 알아봅니다.
+- [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
 - 에 대 한 자세한 [통합 문서](../azure-monitor/app/usage-workbooks.md)합니다.

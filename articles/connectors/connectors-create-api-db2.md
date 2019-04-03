@@ -10,12 +10,12 @@ ms.reviewer: plarsen, LADocs
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: c46fd1791751ebf912670875f9c8e18e8b0c5c40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311308"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878403"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 IBM DB2 리소스 관리
 
@@ -109,7 +109,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) | 
 | **서버** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server:50000”) <p><p>**참고**: 이 값은 TCP/IP 주소를 나타내는 문자열 또는 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식에서 별칭입니다. |
 | **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 한 DRDA 관계형 데이터베이스 이름 (RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
-| **인증** | 예 | 연결에 대한 인증 유형(예: “기본”) <p><p>**참고**: Basic 또는 Windows (Kerberos)을 포함 하는 목록에서이 값을 선택 합니다. |
+| **Authentication** | 예 | 연결에 대한 인증 유형(예: “기본”) <p><p>**참고**: Basic 또는 Windows (Kerberos)을 포함 하는 목록에서이 값을 선택 합니다. |
 | **사용자 이름** | 예 | 데이터베이스에 대한 사용자 이름 <p><p>**참고**: 이 값은 특정 데이터베이스를 기반으로 하는 길이 문자열: <p><p>- z/OS용 DB2에는 8바이트 문자열이 허용됩니다. <br>- i용 DB2에는 10바이트 문자열이 허용됩니다. <br>- Linux 또는 UNIX용 DB2에는 8바이트 문자열이 허용됩니다. <br>- Windows용 DB2에는 30바이트 문자열이 허용됩니다. |
 | **암호** | 예 | 데이터베이스의 암호 |
 | **게이트웨이** | 예 | 설치된 온-프레미스 데이터 게이트웨이의 이름 <p><p>**참고**: Azure 구독 및 리소스 그룹 내에서 모든 설치 된 데이터 게이트웨이 포함 하는 목록에서이 값을 선택 합니다. |

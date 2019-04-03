@@ -4,19 +4,19 @@ description: Azure Data Lake Storage Gen1에서 Azure PowerShell을 사용할 �
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235605"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885318"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침
 
@@ -26,12 +26,12 @@ ms.locfileid: "56235605"
 
 ## <a name="performance-related-properties"></a>성능 관련 속성
 
-| 자산            | 기본값 | 설명 |
+| 자산            | Default | 설명 |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | 이 매개 변수로 각 파일의 업로드 또는 다운로드를 위한 병렬 스레드 수를 선택할 수 있습니다. 이 숫자는 파일당 할당할 수 있는 최대 스레드 수를 나타내지만 시나리오에 따라 스레드 수가 줄어들 수 있습니다 .예를 들어 1KB 파일을 업로드하는 경우 20개의 스레드를 요청해도 하나의 스레드만 발생합니다.  |
 | ConcurrentFileCount | 10      | 이 매개 변수는 특히 폴더 업로드 또는 다운로드를 위한 것입니다. 이 매개 변수는 업로드 또는 다운로드할 수 있는 동시 파일 수를 결정합니다. 이 숫자는 한 번에 업로드 또는 다운로드할 수 있는 최대 동시 파일 수를 나타내지만 시나리오에 따라 동시 수가 줄어들 수 있습니다. 예를 들어 두 개 파일을 업로드하는 경우 15개를 요청해도 두 개의 동시 파일 업로드가 발생합니다. |
 
-**예제**
+**예**
 
 이 명령은 파일당 20개의 스레드와 100개의 동시 파일을 사용하여 Data Lake Storage Gen1에서 사용자의 로컬 드라이브로 파일을 다운로드합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "56235605"
 
         Total thread count = total physical cores * 6
 
-    **예제**
+    **예**
 
     16개의 코어가 있는 D14 VM에서 PowerShell 명령을 실행 중이라고 가정합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "56235605"
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
-    **예제**
+    **예**
 
     1GB ~ 10GB 범위의 파일 100개가 있다고 가정하면 수식에서 가장 큰 파일 크기로 10GB를 사용하며 다음과 같습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "56235605"
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
-    **예제**
+    **예**
 
     사용 중인 예제 값 기준
 
@@ -95,8 +95,8 @@ ms.locfileid: "56235605"
 * **제한 오류**: 동시성이 너무 높으면 제한 오류가 표시될 수 있습니다. 제한 오류가 표시되면 동시성을 줄이거나 문의해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용](data-lake-store-data-scenarios.md) 
-* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
-* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빅 데이터 요구 사항에 대 한 사용 하 여 Azure 데이터 레이크 저장소 Gen1](data-lake-store-data-scenarios.md) 
+* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

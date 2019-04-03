@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4252b0f26ef3c02216a41dde5d2e1cb5ea0efd6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556395"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848039"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Media Services 메트릭 및 진단 로그를 모니터링 합니다.
 
 [Azure Monitor](../../azure-monitor/overview.md) 응용 프로그램을 수행 하는 방법을 이해할 수 있도록 진단 로그 및 메트릭 모니터링 하는 사용 하도록 설정 합니다. Azure Monitor에서 수집한 모든 데이터는 두 가지 기본 형식, 메트릭 및 로그 중 하나에 적합 합니다. Media Services에 대 한 진단 정보를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 알림과 경고를 만들 수 있습니다. 시각화 하 고 사용 하 여 메트릭 데이터를 분석할 수 있습니다 [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)합니다. 로그를 보낼 수 있습니다 [Azure Storage](https://azure.microsoft.com/services/storage/)로 스트리밍하 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 내보낼 [Log Analytics](https://azure.microsoft.com/services/log-analytics/), 또는 타사 서비스를 사용 합니다.
 
-자세한 내용은 참조 하세요 [Azure Monitor 메트릭](../../azure-monitor/platform/data-collection.md) 하 고 [Azure Monitor 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)합니다.
+자세한 내용은 참조 하세요 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 하 고 [Azure Monitor 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)합니다.
 
 이 항목에서는 현재 사용할 수 있는 설명 [Media Services 메트릭을](#media-services-metrics) 하 고 [Media Services 진단 로그](#media-services-diagnostic-logs)합니다.
 

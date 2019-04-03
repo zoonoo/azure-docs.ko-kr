@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124086"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880154"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -35,11 +35,11 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 준수 문제 및 상태
 
-| **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  
+| **SCIM 2.0 규정 준수 문제** |  **고정?** | **수정 날짜**  |  
 |---|---|---|
 | Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | 
 | 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | 
-|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예.  |  2018년 12월 18일  | 
+|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | 
 |  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>설명한 서비스 수정이 내 기존 SCIM 앱에 자동으로 적용되었나요?
@@ -52,7 +52,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 ## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>기존의 SCIM 기반 사용자 프로비저닝 작업을 마이그레이션하여 최신 서비스 수정을 포함할 수 있나요?
 
-예 Single Sign-On에 이 애플리케이션 인스턴스를 이미 사용 중인 경우 기존 프로비저닝 작업을 마이그레이션하여 최신 수정을 포함하도록 해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 기존의 SCIM 앱에서 이전 프로비저닝 작업을 제거하고 새 동작을 나타내는 새 프로비저닝 작업을 작성하는 방법을 설명합니다.
+예. Single Sign-On에 이 애플리케이션 인스턴스를 이미 사용 중인 경우 기존 프로비저닝 작업을 마이그레이션하여 최신 수정을 포함하도록 해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 기존의 SCIM 앱에서 이전 프로비저닝 작업을 제거하고 새 동작을 나타내는 새 프로비저닝 작업을 작성하는 방법을 설명합니다.
 
 > [!NOTE]
 > 애플리케이션이 여전히 개발 중이고 Single Sign-On 또는 사용자 프로비저닝에 아직 배포되지 않은 경우, 가장 쉬운 해결 방법은 Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 애플리케이션 항목을 삭제하고 **애플리케이션 만들기 > 비갤러리** 옵션을 사용하여 애플리케이션의 새 항목을 추가하면 됩니다. 이는 아래 절차 실행의 대안입니다.
@@ -82,20 +82,20 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 10. 아래 명령을 실행하여 최신 서비스 수정 사항이 있는 새 프로비저닝 작업을 만듭니다.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. 마지막 단계의 결과에서 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다. 선택적으로, 아래 명령을 실행하여 이전 특성 매핑을 다시 적용하고 [new-job-id]를 방금 복사한 새 작업 ID로 바꾸고 7단계의 JSON 출력을 요청 본문으로 입력합니다.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. 첫 번째 웹 브라우저 창으로 돌아가서 애플리케이션에 해당하는 **프로비저닝** 탭을 선택합니다.
 13. 구성을 확인한 후 프로비저닝 작업을 시작합니다. 
 
 ## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>이전 사용자 프로비저닝 동작이 있는 새 비갤러리 앱을 추가할 수 있나요?
 
-예 수정 이전에 존재했던 이전 동작에 애플리케이션을 코딩한 경우 새 인스턴스를 배포해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 이전 동작을 표시하는 SCIM 프로비저닝 작업을 작성하는 방법에 대해 설명합니다.
+예. 수정 이전에 존재했던 이전 동작에 애플리케이션을 코딩한 경우 새 인스턴스를 배포해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 이전 동작을 표시하는 SCIM 프로비저닝 작업을 작성하는 방법에 대해 설명합니다.
  
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.
@@ -112,5 +112,5 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 
 ## <a name="next-steps"></a>다음 단계
-[SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 구성에 대해 자세히 알아보기](user-provisioning.md)
+[프로 비전 및 프로 비전 해제가 SaaS 응용 프로그램에 자세히 알아보기](user-provisioning.md)
 

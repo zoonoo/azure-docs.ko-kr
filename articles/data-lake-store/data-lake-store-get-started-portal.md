@@ -3,19 +3,19 @@ title: Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작 | Micros
 description: Azure Portal을 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 Data Lake Storage Gen1 계정에서 기본적인 작업을 수행합니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005690"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883584"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -123,8 +123,8 @@ Data Lake Storage Gen1 계정을 삭제하려면 Data Lake Storage Gen1 블레�
 ![Data Lake Storage Gen1 계정 삭제](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Data Lake 계정 삭제")
 
 ## <a name="next-steps"></a>다음 단계
-* [빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용](data-lake-store-data-scenarios.md) 
-* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
-* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빅 데이터 요구 사항에 대 한 사용 하 여 Azure 데이터 레이크 저장소 Gen1](data-lake-store-data-scenarios.md) 
+* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

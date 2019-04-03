@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727402"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863222"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -50,7 +50,7 @@ Azure SQL Database 자동 조정은 핵심 논리를 SQL Server 자동 조정 �
 
 ## <a name="use-automatic-tuning"></a>자동 조정 사용
 
-자동 조정을 구독에서 수동으로 사용하도록 설정해야 합니다. Azure Portal을 사용하여 자동으로 조정을 사용하도록 하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
+자동 조정을 구독에서 사용 하도록 설정 해야 합니다. Azure Portal을 사용하여 자동으로 조정을 사용하도록 하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
 
 성능 향상의 자동화된 확인을 포함하여 자동으로 적용되는 조정 권장 사항을 통해 자동 조정을 자율적으로 작동할 수 있습니다. 
 
@@ -74,7 +74,9 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 
 자동 조정은 데이터베이스 성능을 최적화하여 [Azure Portal](sql-database-advisor-portal.md)에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 **FORCE LAST GOOD PLAN** 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다. 
 
-포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다. 조정 권장 사항을 수동으로 적용하는 경우에는 자동 성능 검증 및 반전 메커니즘을 사용할 수 없습니다.
+포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
+
+조정 권장 사항을 수동으로 적용하는 경우에는 자동 성능 검증 및 반전 메커니즘을 사용할 수 없습니다. 또한 수동으로 적용 된 권장 사항을 24 ~ 48 시간에 대 한 활성 및 권장 사항 목록에 표시 된 유지 됩니다. 전에 자동으로 시스템을 삭제 합니다. 권장 사항을 더 빨리 제거 하려는 경우 수동으로 취소할 수 있습니다.
 
 자동 조정 옵션은 데이터베이스당 별도로 설정 또는 해제하거나 SQL Database 서버에서 구성하고 서버에서 설정을 상속하는 모든 데이터베이스에서 적용할 수 있습니다. SQL Database 서버는 자동 조정 설정에 대한 Azure 기본값을 상속할 수 있습니다. 현재 Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 

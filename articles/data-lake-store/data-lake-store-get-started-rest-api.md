@@ -3,21 +3,21 @@ title: 'REST API: 계정 관리 작업 Azure 데이터 레이크 저장소 Gen1 
 description: Azure Data Lake Storage Gen1 및 WebHDFS REST API를 사용하여 Data Lake Storage Gen1 계정에서 계정 관리 작업을 수행하는 방법을 설명합니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530129"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880171"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -76,5 +76,5 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
+* [오픈 소스 빅 데이터 응용 프로그램을 Azure 데이터 레이크 저장소 Gen1 호환](data-lake-store-compatible-oss-other-applications.md)
 

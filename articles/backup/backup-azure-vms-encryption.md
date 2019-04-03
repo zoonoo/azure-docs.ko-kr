@@ -1,5 +1,5 @@
 ---
-title: Azure Backup으로 암호화된 VM 백업 및 복원
+title: 백업 및 Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm 복원
 description: 이 문서에서는 Azure Disk Encryption을 사용하여 암호화된 VM의 백업 및 복원 환경에 대해 설명합니다.
 services: backup
 author: geetha
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: 004d35290d7bfa365d2e1d0ea605c14b03ffb4a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 28126df0dfd9a03e93a76fa5071331603c4819a4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114759"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851025"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -28,8 +28,8 @@ ms.locfileid: "56114759"
    | **관리되는 VM**  | 예 | 예  |
 
    > [!NOTE]
-   > Azure Backup은 독립 실행형 키를 사용하여 암호화된 VM을 지원합니다. VM을 암호화하는 데 사용되는 인증서의 일부인 키는 현재 지원되지 않습니다.
-   >   
+   > Azure Backup 독립 실행형 키를 사용 하 여 암호화 된 Vm을 지원 합니다. VM을 암호화하는 데 사용되는 인증서의 일부인 키는 현재 지원되지 않습니다.
+   >
 
 ## <a name="prerequisites"></a>필수 조건
 * VM이 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 사용하여 암호화되었습니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "56114759"
 
 * Backup에 암호화된 VM에 대한 키 및 비밀이 담긴 키 자격 증명 모음 액세스 권한이 부여되었습니다.
 
-## <a name="backup-encrypted-vm"></a>암호화된 VM 백업
+## <a name="back-up-an-encrypted-vm"></a>암호화 된 VM 백업
 다음 단계를 사용하여 백업 목표를 설정하고, 정책을 정의하며, 항목을 구성하고, 백업을 트리거합니다.
 
 ### <a name="configure-backup"></a>백업 구성
@@ -59,7 +59,7 @@ ms.locfileid: "56114759"
 1. **백업** 타일에서 **백업 목표**를 선택합니다.
 
       ![시나리오 블레이드](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-1. **작업이 실행되는 위치**에서 **Azure**를 선택합니다. **백업할 항목**에서 **가상 컴퓨터**를 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **작업이 실행되는 위치**에서 **Azure**를 선택합니다. 아래 **를 백업 하 시겠습니까?** 를 선택 **가상 머신**합니다. 그런 다음 **확인**을 선택합니다.
 
    ![시나리오 블레이드 열기](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 1. **백업 정책 선택**에서 자격 증명 모음에 적용할 백업 정책을 선택합니다. 그런 다음 **확인**을 선택합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "56114759"
 
       ![암호화된 VM 선택](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 1. 이 페이지에서는 선택한 암호화된 VM에 연결된 키 자격 증명 모음에 대한 메시지를 보여 줍니다. 백업을 사용하려면 키 자격 증명 모음의 키와 비밀에 대한 읽기 전용 액세스 권한이 있어야 합니다. 이 권한을 사용하여 연결된 VM과 함께 키와 비밀을 백업합니다.<br>
-**멤버 사용자**인 경우, 백업 사용 프로세스는 원활하게 키 자격 증명 모음에 대한 액세스를 가져와서 사용자 간섭을 물어보지 않고도 암호화된 VM을 백업할 수 있게 됩니다.
+경우는 **멤버 사용자**, 백업 사용 프로세스는 사용자 개입 없이 암호화 된 Vm을 백업 하기 위해 key vault에 대 한 액세스를 획득 원활 하 게 됩니다.
 
    ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
@@ -88,10 +88,10 @@ ms.locfileid: "56114759"
 백업 작업을 트리거하려면 [Recovery Services 자격 증명 모음에 Azure VM 백업](backup-azure-arm-vms.md)의 단계를 따릅니다.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>암호화를 사용하도록 설정한 상태로 이미 백업한 VM 백업 진행  
-Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나중에 암호화가 설정된 경우 백업이 계속될 수 있게 Backup에 Key Vault 액세스 권한을 부여해야 합니다. [다음 섹션의 단계](#provide-permissions-to-azure-backup)를 사용하여 이러한 권한을 제공할 수 있습니다. 또는 [PowerShell 설명서](backup-azure-vms-automation.md)의 "백업 사용" 섹션에 있는 PowerShell 단계를 따릅니다.
+나중에 암호화에 사용할 수 있는 이미 Recovery Services 자격 증명 모음에 백업 중인 Vm에 있는 경우 백까지 백업이 계속 키 자격 증명 모음 액세스 권한을 부여 해야 합니다. [다음 섹션의 단계](#provide-permissions)를 사용하여 이러한 권한을 제공할 수 있습니다. 또는 [PowerShell 설명서](backup-azure-vms-automation.md)의 "백업 사용" 섹션에 있는 PowerShell 단계를 따릅니다.
 
-## <a name="provide-permissions-to-azure-backup"></a>Backup에 사용 권한 제공
-키 자격 증명 모음에 액세스하고 암호화된 VM의 백업을 수행하기 위해 다음 단계를 사용하여 Backup에 관련 사용 권한을 제공합니다.
+## <a name="provide-permissions"></a>사용 권한 제공
+다음 단계를 사용 하 여 key vault에 액세스 하 고 암호화 된 Vm의 백업을 수행 하려면 Azure Backup에 대 한 관련 사용 권한을 제공 합니다.
 1. **모든 서비스**를 선택하고 **Key Vault**를 검색합니다.
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
@@ -137,7 +137,7 @@ Azure Backup은 이제 이전에 제공하던 Azure AD를 사용한 Azure 암호
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-|Backup | 오류 코드: UserErrorKeyVaultPermissionsNotConfigured<br><br>오류 메시지: Azure Backup 서비스에는 암호화된 Virtual Machines의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. | [이전 섹션의 단계](#provide-permissions-to-azure-backup)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 [PowerShell을 사용하여 가상 머신 백업 및 복원](backup-azure-vms-automation.md#enable-protection) 문서의 “보호 사용” 섹션에 나온 PowerShell 단계를 따를 수도 있습니다. |  
+|Backup | 오류 코드: UserErrorKeyVaultPermissionsNotConfigured<br><br>오류 메시지: Azure Backup 서비스에는 암호화된 Virtual Machines의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. | [이전 섹션의 단계](#provide-permissions)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 [PowerShell을 사용하여 가상 머신 백업 및 복원](backup-azure-vms-automation.md#enable-protection) 문서의 “보호 사용” 섹션에 나온 PowerShell 단계를 따를 수도 있습니다. |  
 | 복원 | 이 VM과 연결된 키 자격 증명 모음이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키 자격 증명 모음을 만들려면 [Azure Key Vault란?](../key-vault/key-vault-overview.md)을 사용하세요. 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 | 오류 코드: UserErrorKeyVaultKeyDoesNotExist<br><br> 오류 메시지: 이 VM과 연결된 키가 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 | 오류 코드: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>오류 메시지: Backup 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |앞에서 설명한 대로 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)의 "백업된 디스크 복원" 섹션의 단계를 따라 먼저 디스크를 복원합니다.  그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

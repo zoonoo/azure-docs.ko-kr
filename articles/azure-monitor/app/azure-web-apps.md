@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804995"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862610"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -118,7 +118,7 @@ ms.locfileid: "58804995"
 * 선택 **설정을** > **응용 프로그램 설정**
    * 응용 프로그램 설정에서 새로 추가 **앱 설정 이름은** 하 고 **값**:
 
-     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      값: `false`
 
@@ -137,7 +137,7 @@ Application Insights로 원격 분석 수집을 사용 하도록 설정 하기 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드에 필수적인 기능 최적의 성능을 보장 하기 위해 사용 됩니다. | `default` 또는 `recommended`입니다. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드에 필수적인 기능 최적의 성능을 보장 하기 위해 사용 됩니다. | `default` 또는 `recommended`합니다. |
 |InstrumentationEngine_EXTENSION_VERSION | 제어 하는 경우 이진 재작성 엔진 `InstrumentationEngine` 켜 집니다. 이 설정은 성능에 영향 및 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL 및 Azure 테이블이 텍스트 컨트롤 종속성 호출이 함께 캡처됩니다. 성능 경고:이 설정을 사용 하려면를 `InstrumentationEngine`입니다. | `~1` |
 
@@ -322,9 +322,9 @@ $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Re
 > 수동 SDK 기반 계측을 통해 Azure App Service에서 Java 및 Node.js 응용 프로그램은 에서만 지원 하며 하므로 이러한 시나리오에는 아래 단계를 적용 되지 않습니다.
 
 1. 응용 프로그램을 통해 모니터링 되는 확인 `ApplicationInsightsAgent`합니다.
-    * 확인 ' ApplicationInsightsAgent_EXTENSION_AGENT 앱 설정 "~ 2"의 값으로 설정 됩니다.
+    * 확인 `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정 "~ 2"의 값으로 설정 됩니다.
 2. 응용 프로그램 모니터링 요구 사항을 충족 하는지 확인 합니다.
-    * 로 이동 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * 찾을 대상 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![스크린샷 https://yoursitename.scm.azurewebsites/applicationinsights 결과 페이지](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -353,10 +353,10 @@ $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Re
 Application Insights 에이전트 확장에 대 한 최신 정보를 확인 합니다 [릴리스](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-* [라이브 앱에서 프로파일러를 실행합니다](../../azure-monitor/app/profiler.md).
+* [라이브 앱에서 프로파일러를 실행합니다](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
-* [Azure 진단을 사용](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)하여 Application Insights에 보냅니다.
-* [서비스 상태 메트릭을 모니터링](../../azure-monitor/platform/data-collection.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
-* 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../../azure-monitor/platform/alerts-overview.md)합니다.
-* [가용성 웹 테스트를 설정](../../azure-monitor/app/monitor-web-app-availability.md) 합니다.
+* [Azure 진단을 사용](../platform/diagnostics-extension-to-application-insights.md)하여 Application Insights에 보냅니다.
+* [서비스 상태 메트릭을 모니터링](../platform/data-platform.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
+* 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../platform/alerts-overview.md)합니다.
+* [JavaScript 앱 및 웹 페이지용 Application Insights](javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
+* [가용성 웹 테스트를 설정](monitor-web-app-availability.md) 합니다.

@@ -1,21 +1,21 @@
 ---
-title: Azure Storage에 대 한 advanced Threat Protection
+title: Advanced Threat Protection for Azure Storage
 description: 계정 작업에서 잘못된 부분을 검색하여 잠재적으로 해로운 계정 액세스 시도에 대해 알리도록 Azure Storage Advanced Threat Protection을 구성합니다.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133232"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850708"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced Threat Protection
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
 Azure Storage에 대 한 advanced Threat Protection 제공를 액세스 하거나 악용 저장소 계정은 비정상적이 고 잠재적으로 해로운 시도 감지 하는 보안 인텔리전스 계층을 추가 합니다. 이 보호 레이어를 사용하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리할 필요 없이 위협을 해결 수 있습니다. 
 
@@ -51,6 +51,24 @@ Azure Storage에 대 한 advanced Threat Protection 읽기, 쓰기 및 삭제 �
 
 Advanced Threat Protection을 사용 하 여 Azure Storage 계정을 배포 하는 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정 합니다.
 자세한 내용은 [Advanced Threat Protection을 사용 하 여 저장소 계정](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)합니다.
+
+### <a name="using-azure-policy"></a>Azure Policy를 사용 하 여
+
+Azure 정책을 사용 하 여 특정 구독 또는 리소스 그룹에서 저장소 계정에서 Advanced Threat Protection을 사용 하도록 설정 합니다.
+
+1. Azure 점심 **정책-정의** 페이지입니다.
+
+1. 검색 된 **저장소 계정에서 Advanced Threat Protection 배포** 정책입니다.
+
+     ![검색 정책](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Azure 구독 또는 리소스 그룹을 선택 합니다.
+
+    ![구독 또는 그룹 선택](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. 정책을 할당 합니다.
+
+    ![정책 정의 페이지](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>REST API 사용
 Rest API 명령을 사용 하 여 만들기, 업데이트 또는 특정 저장소 계정에 대 한 Advanced Threat Protection 설정을 가져옵니다.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109140"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862865"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -112,11 +112,11 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오는 URL입니다.
 
-* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/로 이 URL을 자동으로 파생합니다.
+* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/입니다.
 
-* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
+* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/plugins/servlet/saml/auth.
 
-* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 https://*<domain:port>*/plugins/servlet/saml/auth로 이 URL을 자동으로 파생합니다.
+* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/plugins/servlet/saml/auth.
 
 * **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
 
@@ -146,7 +146,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **WebSudo를 사용하지 않으려는 경우(보안 관리자 세션 해제)**:
 
-  * Jira의 경우 보안 관리자 세션(즉, 관리 기능에 액세스하기 전에 암호 확인)이 기본적으로 사용됩니다. Jira 인스턴스에서 이 기능을 제거하려는 경우 jira-config.properties 파일에서 다음 줄을 지정합니다. `ira.websudo.is.disabled = true`
+  * Jira의 경우 보안 관리자 세션(즉, 관리 기능에 액세스하기 전에 암호 확인)이 기본적으로 사용됩니다. Jira 인스턴스에서이 기능을 제거 하려는 경우 jira-config.properties 파일에서 다음 줄을 지정 합니다. `ira.websudo.is.disabled = true`
 
   * Confluence의 경우 [Confluence 지원 사이트](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)의 단계를 따릅니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487237"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863182"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
 
@@ -44,7 +44,13 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>프록시 서비스를 도메인의 DC 에이전트에서 호출을 받을 수는 있지만 Azure와 통신할 수 없는
 
-프록시 컴퓨터에 나열 된 끝점에 연결 되어 있는지 확인 합니다 [배포 요구 사항](howto-password-ban-bad-on-premises-deploy.md)합니다.
+1. 프록시 컴퓨터에 나열 된 끝점에 연결 되어 있는지 확인 합니다 [배포 요구 사항](howto-password-ban-bad-on-premises-deploy.md)합니다.
+
+1. 포리스트와 서버는 동일한 Azure 테 넌 트에 등록 된 모든 프록시 있는지를 확인 합니다.
+
+   실행 하 여이 확인할 수 있습니다는 `Get-AzureADPasswordProtectionProxy` 및 `Get-AzureADPasswordProtectionDCAgent` 와 비교 하 여 PowerShell cmdlet는 `AzureTenant` 각 속성 항목 반환 합니다. 올바른 작업에 대 한 이러한 같아야 포리스트 내의 모든 DC 에이전트 및 프록시 서버.
+
+   실행 하 여 복구할 수는 Azure 테 넌 트 등록 일치 하지 않습니다 조건이 없으면이 `Register-AzureADPasswordProtectionProxy` 및/또는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 필요에 따라 모든 등록에 대해 동일한 Azure 테 넌 트에서 자격 증명을 사용 해야 합니다.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC 에이전트 암호화 하거나 암호 정책 파일 및 기타 상태를 해독할 수 아닙니다.
 
@@ -146,6 +152,6 @@ Azure AD 암호 보호 소프트웨어 및 정리를 모든 관련 된 상태에
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 암호 보호에 대한 질문과 대답](howto-password-ban-bad-on-premises-faq.md)
+[Azure AD 암호 보호에 대 한 질문과 대답](howto-password-ban-bad-on-premises-faq.md)
 
 전역 및 사용자 지정 금지된 암호 목록에 대한 자세한 내용은 [잘못된 암호 금지](concept-password-ban-bad.md) 문서 참조

@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12a914b2cdef0a40493dac1a539cf0c2a7703093
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999817"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847600"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
-이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법을 알아봅니다. SDK는 간단 하 게 열 추가, 불필요 한 행 또는 열을 필터링 하 고 누락 값을 대체 하는 함수를 제공 합니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다.
+이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 변환 하는 다양 한 방법을 알아봅니다. SDK는 간단 하 게 열 추가, 불필요 한 행 또는 열을 필터링 하 고 누락 값을 대체 하는 함수를 제공 합니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다.
 
 이 방법에서는 다음 작업에 대 한 예제를 보여 줍니다.
 

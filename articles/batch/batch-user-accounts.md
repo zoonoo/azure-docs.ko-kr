@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813911"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877519"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
@@ -30,9 +30,9 @@ Azure Batch의 태스크는 항상 사용자 계정으로 실행됩니다. 기�
 
 Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유형의 사용자 계정을 제공합니다.
 
-- **자동 사용자 계정.** 자동 사용자 계정은 Batch 서비스에 의해 자동으로 생성되는 기본 제공 사용자 계정입니다. 기본적으로 태스크는 자동 사용자 계정에서 실행됩니다. 태스크가 실행될 자동 사용자 계정을 나타내도록 태스크에 대한 자동 사용자 지정을 구성할 수 있습니다. 자동 사용자 지정을 사용하면 태스크를 실행할 자동 사용자 계정의 권한 상승 수준 및 범위를 지정할 수 있습니다. 
+- **자동 사용자 계정입니다.** 자동 사용자 계정은 Batch 서비스에 의해 자동으로 생성되는 기본 제공 사용자 계정입니다. 기본적으로 태스크는 자동 사용자 계정에서 실행됩니다. 태스크가 실행될 자동 사용자 계정을 나타내도록 태스크에 대한 자동 사용자 지정을 구성할 수 있습니다. 자동 사용자 지정을 사용하면 태스크를 실행할 자동 사용자 계정의 권한 상승 수준 및 범위를 지정할 수 있습니다. 
 
-- **명명된 사용자 계정.** 풀을 만들 때 풀에 대해 하나 이상의 명명된 사용자 계정을 지정할 수 있습니다. 각 사용자 계정은 풀의 각 노드에서 생성됩니다. 계정 이름 외에도 계정 암호, 권한 상승 수준을 지정할 수 있으며, Linux 풀의 경우에는 SSH 개인 키도 지정할 수 있습니다. 태스크를 추가할 때 해당 태스크를 실행할 명명된 사용자 계정을 지정할 수 있습니다.
+- **명명 된 사용자 계정입니다.** 풀을 만들 때 풀에 대해 하나 이상의 명명된 사용자 계정을 지정할 수 있습니다. 각 사용자 계정은 풀의 각 노드에서 생성됩니다. 계정 이름 외에도 계정 암호, 권한 상승 수준을 지정할 수 있으며, Linux 풀의 경우에는 SSH 개인 키도 지정할 수 있습니다. 태스크를 추가할 때 해당 태스크를 실행할 명명된 사용자 계정을 지정할 수 있습니다.
 
 > [!IMPORTANT] 
 > Batch 서비스 버전 2017-01-01.4.0에서는 해당 버전을 호출하기 위해 코드를 업데이트해야 하는 주요 변경 내용이 추가되었습니다. 이전 버전의 Batch에서 코드를 마이그레이션하는 경우 REST API 또는 Batch 클라이언트 라이브러리에서 **runElevated** 속성이 더 이상 지원되지 않습니다. 태스크의 새로운 **userIdentity** 속성을 사용하여 권한 상승 수준을 지정합니다. 클라이언트 라이브러리 중 하나를 사용하는 경우 Batch 코드를 업데이트하기 위한 빠른 지침을 보려면 [최신 Batch 클라이언트 라이브러리로 코드 업데이트](#update-your-code-to-the-latest-batch-client-library) 섹션을 참조하세요.
@@ -314,7 +314,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`가 지정되지 않음 | 업데이트 필요 없음                                                                                               |
+| `CloudTask.RunElevated` 지정 되지 않음 | 업데이트 필요 없음                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -322,15 +322,15 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`가 지정되지 않음 | 업데이트 필요 없음                                                                                                                     |
+| `CloudTask.withRunElevated` 지정 되지 않음 | 업데이트 필요 없음                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
 | 코드에서 사용되는 원본...                      | 업데이트 대상...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user` <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
-| `run_elevated=False`                      | `user_identity=user` <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated`가 지정되지 않음 | 업데이트 필요 없음                                                                                                                                  |
+| `run_elevated=True`                       | `user_identity=user`여기서 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`여기서 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated` 지정 되지 않음 | 업데이트 필요 없음                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>다음 단계

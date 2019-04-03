@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404762"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884145"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 
@@ -34,7 +34,7 @@ Key Vault의 서비스 한도는 리소스의 오용을 방지하고 모든 Key 
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>서비스 한도에 대응하여 앱을 제한하는 방법
 
-다음은 앱 제한에 대한 **모범 사례**입니다.
+다음은 **모범 사례** 서비스는 제한 되는 경우 구현 해야 합니다.
 - 요청당 작업 수를 줄입니다.
 - 요청의 빈도를 줄입니다.
 - 즉시 재시도를 방지합니다. 
@@ -115,7 +115,7 @@ Key Vault의 서비스 한도는 리소스의 오용을 방지하고 모든 Key 
 ```
 
 
-이 코드를 클라이언트 C\# 애플리케이션(다른 Web API 클라이언트 마이크로 서비스, ASP.NET MVC 애플리케이션 또는 C\# Xamarin 애플리케이션)에서 사용하는 것은 간단합니다. 다음 예제는 HttpClient 클래스를 사용하는 방법을 보여 줍니다.
+C 클라이언트에서이 코드를 사용 하 여\# 응용 프로그램은 간단 합니다. 다음 예제는 HttpClient 클래스를 사용하는 방법을 보여 줍니다.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

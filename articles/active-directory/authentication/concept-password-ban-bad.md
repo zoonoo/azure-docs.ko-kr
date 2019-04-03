@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369074"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884349"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -100,14 +100,17 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 [contoso] + [blank] + [f] + [9] + [!] = 5점입니다. 이 암호는 점수가 5점 이상이므로 수락됩니다.
 
    > [!IMPORTANT]
-   > 금지된 암호 알고리즘과 전역 목록은 지속적인 보안 분석 및 연구를 토대로 Azure에서 언제든지 변경할 수 있으며 실제로 변경됩니다. 온-프레미스 DC 에이전트 서비스의 경우에는 DC 에이전트 소프트웨어를 다시 설치해야 업데이트된 알고리즘이 적용됩니다.
+   > 금지된 암호 알고리즘과 전역 목록은 지속적인 보안 분석 및 연구를 토대로 Azure에서 언제든지 변경할 수 있으며 실제로 변경됩니다. 온-프레미스 DC 에이전트 서비스에 대 한 업데이트 된 알고리즘만 적용 됩니다 DC 에이전트 소프트웨어를 다시 설치 합니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
 |   | 전역 금지 암호 목록을 사용하여 Azure AD 암호 보호 | 사용자 지정 금지 암호 목록을 사용하여 Azure AD 암호 보호|
 | --- | --- | --- |
-| 클라우드 전용 사용자 | Azure AD Free | Azure AD Basic |
+| 클라우드 전용 사용자 | Azure AD Free | Azure AD Premium P1 또는 P2 |
 | 온-프레미스 Windows Server Active Directory에서 동기화된 사용자 | Azure AD Premium P1 또는 P2 | Azure AD Premium P1 또는 P2 |
+
+> [!NOTE]
+> 또한 Azure Active Directory에 동기화 되지 않은 온-프레미스 Windows Server Active Directory 사용자 동기화 된 사용자에 대 한 기존 라이선스 기반 Azure AD 암호 보호의 이점을 이용 합니다.
 
 비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
@@ -120,4 +123,4 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 ## <a name="next-steps"></a>다음 단계
 
 * [사용자 지정 금지 암호 목록 구성](howto-password-ban-bad.md)
-* [온-프레미스에서 Azure AD 암호 보호 에이전트 사용](howto-password-ban-bad-on-premises-deploy.md)
+* [Azure AD 암호 보호 에이전트 온-프레미스 사용](howto-password-ban-bad-on-premises-deploy.md)

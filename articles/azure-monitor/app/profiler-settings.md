@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118428"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884162"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -39,6 +39,9 @@ Azure Application Insights Profiler 설정 창을 열려면 Application Insights
 Azure App Service Environment가 구성된 방식에 따라 에이전트 상태를 확인하기 위한 호출이 차단될 수 있습니다. 에이전트가 실행되고 있는데도 창에는 에이전트가 실행되고 있지 않다는 메시지가 표시될 수 있습니다. 에이전트가 실행되고 있는지 확인하려면 애플리케이션의 웹 작업을 점검합니다. 모든 앱 설정 값이 올바르며 애플리케이션에 Application Insights 사이트 확장이 설치되어 있으면 Profiler가 실행되고 있는 것입니다. 애플리케이션이 충분한 트래픽을 수신하고 있다면 목록에 최근 프로파일링 세션이 표시되어야 합니다.
 
 ## <a id="profileondemand"></a> 수동으로 Profiler 트리거
+
+### <a name="minimum-requirements"></a>최소 요구 사항 
+수동으로 프로파일러 세션을 트리거하는 사용자에 대 한 최소한 "쓰기" 액세스 권한 Application Insights 구성 요소에 대해 해당 역할에 필요 합니다. 대부분의 경우에서이 액세스 권한을 자동으로 만들어지고 추가 작업이 필요. 문제가 있는 경우에 "Application Insights 구성 요소 기여자" 역할이 추가할 구독 범위 역할을 것입니다. [Azure Monitoring과 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control)합니다.
 
 클릭 한 번으로 Profiler를 수동 트리거할 수 있습니다. 웹 성능 테스트를 실행 중이라고 가정해 보겠습니다. 이 경우 추적을 통해 부하 발생 시의 웹앱 성능을 파악해야 합니다. 부하 테스트를 실행할 시점은 알고 있으므로 추적이 캡처되는 시기를 제어할 수 있어야 합니다. 하지만 샘플링 간격이 무작위이면 추적이 캡처되는 시기를 확인하지 못할 수도 있습니다.
 
@@ -122,7 +125,7 @@ App Services **앱 설정** 창으로 이동하여 다음 설정을 확인합니
     ![확장 업데이트 점검][check-for-extension-update]
 
 ## <a name="next-steps"></a>다음 단계
-[Profiler 사용 및 추적 보기](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Profiler를 사용 하도록 설정 하 고 추적을 보고](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

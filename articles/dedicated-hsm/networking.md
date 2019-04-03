@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083133"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886349"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -60,7 +60,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="site-to-site-vpn"></a>사이트 간 VPN
 
-사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행하는 이유는 HSM의 온-프레미스에 대한 백업 설비를 보유하고 백업을 실행하는 경우 Azure 기반 전용 HSM 및 온-프레미스 간 연결이 필요하기 때문입니다.
+사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행 하는 이유는 HSM의 온-프레미스 및 백업을 실행 하는 경우 둘 간의 연결을 필요로 하는 것에 대 한 백업 기능을 하는 것입니다.
 
 ## <a name="connecting-virtual-networks"></a>가상 네트워크 연결
 

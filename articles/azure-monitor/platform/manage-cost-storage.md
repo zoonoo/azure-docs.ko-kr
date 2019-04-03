@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755809"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878148"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics에 대 한 사용량 및 비용 관리
 
@@ -110,7 +110,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 2. 작업 영역 창의 **일반**에서 **가격 책정 계층**을 선택합니다.  
 
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
-    ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![가격 책정 계획 선택](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 작업 영역을 현재 가격 책정 계층으로 이동하려는 경우 [Azure Monitor에서 구독의 모니터링 가격 책정 모델을 변경](usage-estimated-costs.md#moving-to-the-new-pricing-model)하여 해당 구독에 있는 모든 작업 영역의 가격 책정 계층을 변경해야 합니다.
 
@@ -122,7 +122,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 레거시 무료 가격 책정 계층을 사용 중이고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.  Log Analytics는 데이터 수집을 시작하고 중지할 때 Operation 형식의 이벤트를 만듭니다. 일일 한도에 도달하고 데이터 누락이 있는지 확인하려면 검색에서 다음 쿼리를 실행합니다. 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 데이터 수집이 중지되는 경우 OperationStatus가 Warning입니다. 데이터 수집이 시작되는 경우 OperationStatus가 Succeeded입니다. 다음 표에서 데이터 수집을 중지하는 이유 및 데이터 수집을 다시 시작하는 권장되는 작업을 설명합니다.  
 
@@ -186,9 +186,11 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 
 보려는 **크기** 컴퓨터 단위로 수집 되는 청구 가능한 이벤트를 사용 합니다 `_BilledSize` 속성 ([로그-표준-속성 &#40; _billedsize.md](learn more)) 크기 (바이트) 제공 하는:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 합니다 `_IsBillable` 속성 수집 된 데이터 요금이 발생 하는지 여부를 지정 합니다 ([로그-표준-properties.md #_isbillable](Learn more).)
 
@@ -205,26 +207,32 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 
 특정 컴퓨터로 데이터를 전송하는 청구 가능 데이터 형식 수를 확인하려면 다음을 사용합니다.
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독으로 데이터 볼륨
 
 Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니다는 **크기** 수집 하는 청구 가능한 이벤트 __컴퓨터당__를 사용 하 여는 `_ResourceId` 리소스에 전체 경로 제공 하는 속성 ([ 로그-표준-properties.md #_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니다는 **크기** 수집 하는 청구 가능한 이벤트 __Azure 구독 당__, 구문 분석을 `_ResourceId` 속성:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 변경 `subscriptionId` 에 `resourceGroup` Azure resouurce 그룹별로 청구 가능한 수집 된 데이터 볼륨을 표시 됩니다. 
 
@@ -295,7 +303,8 @@ Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니�
 
 고유한 Automation 노드의 수를 보려면 다음 쿼리를 사용합니다.
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니�
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>데이터 컬렉션이 예상보다 높은 경우 경고를 만듭니다.
 
@@ -330,7 +340,7 @@ Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니�
 - **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
-   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로
+   - **검색 쿼리** 를 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *1440*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.
@@ -344,7 +354,7 @@ Azure에서 호스트 되는 노드에서 데이터를 가져올 수 있습니�
 - **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
-   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
+   - **검색 쿼리** 를 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *180*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.

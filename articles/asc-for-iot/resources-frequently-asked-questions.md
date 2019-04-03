@@ -1,31 +1,31 @@
 ---
 title: Azure Security Center에 대 한 질문과 대답 IoT 미리 보기 | Microsoft Docs
 description: 가장 자주 묻는 질문 대답 Azure Security Center에 대 한 IoT 기능 및 서비스를 찾습니다.
-services: ASCforiot
+services: asc-for-iot
+ms.service: ASCforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 97fda6c2-1ecb-491f-b48d-41788bd7e0d3
-ms.service: ASCforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: cd9e77e09e2a2fd5fe1108e98da028d26fc623c7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755335"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863052"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT 용 azure Security Center에 대 한 질문과 대답  
 
 > [!IMPORTANT]
 > IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT에 대 한 자주 묻는 질문 및 답변에 대 한 Azure 보안 센터 (ASC)의 목록을 제공 합니다. 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cdee17185b7051220f66ede3b9da50a333409e6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119276"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879219"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>일반적인 SAS URL 문제 및 수정
 
@@ -33,7 +33,7 @@ ms.locfileid: "58119276"
 | SAS URL에 없는 "sp = rl"이 없습니다. | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | SAS URL을 `Read` 및 `List`로 설정된 권한으로 업데이트합니다. | 
 | SAS URL의 VHD 이름에 공백이 있습니다. | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | 공백을 제거하도록 SAS URL을 업데이트합니다. |
 | SAS URL 권한 부여 오류 | `Failure: Copying Images. Not able to download blob due to authorization error` | SAS URI 형식을 검토하고 수정합니다. 필요한 경우 다시 생성합니다. |
-| "st" 및 "se" SAS URL 매개 변수에 전체 날짜/시간 사양이 없습니다. | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | **시작 날짜** 및 **종료 날짜** SAS URL 매개 변수(`st` 및 ` se` 하위 문자열)는 `11-02-2017T00:00:00Z`와 같이 전체 날짜/시간 형식이어야 합니다. 약식 버전은 유효하지 않습니다. (Azure CLI의 일부 명령은 기본적으로 약식 값을 생성할 수 있습니다.) | 
+| "st" 및 "se" SAS URL 매개 변수에 전체 날짜/시간 사양이 없습니다. | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | SAS URL **시작 날짜** 하 고 **종료 날짜** 매개 변수 (`st` 및 `se` 부분 문자열)와 같은 전체 날짜/시간 형식으로 있어야 `11-02-2017T00:00:00Z`합니다. 약식 버전은 유효하지 않습니다. (Azure CLI의 일부 명령은 기본적으로 약식 값을 생성할 수 있습니다.) | 
 |  |  |  |
 
 자세한 내용은 [SAS(공유 액세스 서명) 사용](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)을 참조하세요.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881769"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
 
@@ -48,7 +48,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 ## <a name="supported-virtualization-platforms-for-device"></a>디바이스에 지원되는 가상화 플랫폼
 
-| **운영 체제/플랫폼**  |**버전**   |**참고 사항**  |
+| **운영 체제/플랫폼**  |**버전**   |**메모**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware 도구는 지원되지 않습니다.         |
@@ -85,11 +85,15 @@ Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭�
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
+### <a name="url-patterns-for-azure-government"></a>Azure Government에 대 한 URL 패턴
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>다음 단계
 
-* [Azure Data Box Gateway 배포](data-box-gateway-deploy-prep.md)
+* [Azure 데이터 상자 게이트웨이 배포](data-box-gateway-deploy-prep.md)
 

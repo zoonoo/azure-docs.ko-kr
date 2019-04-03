@@ -1,25 +1,25 @@
 ---
 title: IoT 보안 모듈에 대 한 Azure Security Center 미리 보기를 쌍 이해 | Microsoft Docs
 description: 보안 모듈 쌍 및 IoT에 대 한 Azure Security Center에서 사용 하는 방법의 개념에 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758397"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862440"
 ---
 # <a name="security-module"></a>보안 모듈
 
@@ -31,9 +31,9 @@ ms.locfileid: "58758397"
 
 ## <a name="device-twins"></a>디바이스 쌍
 
-Azure에서 구축 된 IoT 솔루션에 대 한 장치 쌍 장치 관리 및 프로세스 자동화에 중요 한 역할을 재생 합니다.  
+Azure에 구축된 IoT 솔루션의 경우 디바이스 쌍은 디바이스 관리와 프로세스 자동화 모두에서 중요한 역할을 수행합니다.  
 
-IoT 용 ASC 제공 기존 IoT 장치 관리 플랫폼에 완벽 한 통합에서 장치 보안 상태를 관리할 수 있도록 확인 뿐 아니라 기존 장치 제어 기능을 사용 합니다. IoT Hub를 사용 하 여 통합을 구현 하는 메커니즘을 쌍입니다.  
+IoT용 ASC는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 활용할 수 있도록 지원합니다. IoT Hub를 사용 하 여 통합을 구현 하는 메커니즘을 쌍입니다.  
 
 개념에 자세히 알아보려면 [장치 쌍](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) Azure IoT Hub에서. 
 

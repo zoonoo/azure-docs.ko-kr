@@ -1,25 +1,25 @@
 ---
 title: 설치 하 여 Linux 배포 가이드 C# IoT 미리 보기에 대 한 Azure Security Center의 에이전트 | Microsoft Docs
 description: 32 비트 및 64 비트 Linux에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758342"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862105"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>IoT 용 Azure Security Center를 배포할 C#-Linux에 대 한 보안 에이전트 기반
 
@@ -40,66 +40,66 @@ ms.locfileid: "58758342"
 
 다른 플랫폼 및 에이전트 버전에 대 한 참조 [적합 한 보안 에이전트 선택](how-to-deploy-agent.md)합니다.
 
-1. 보안 에이전트를 배포 하려면 설치 하려는 컴퓨터의 로컬 관리자 권한이 필요 합니다. 
+1. 보안 에이전트를 배포하려면 설치하려는 머신에 대한 로컬 관리자 권한이 필요합니다. 
 
-1. [보안 모듈을 만드는](quickstart-create-security-twin.md) 장치에 대 한 합니다.
+1. 디바이스에 대한 [보안 모듈을 만듭니다](quickstart-create-security-twin.md).
 
 ## <a name="installation"></a>설치 
 
-보안 에이전트를 배포 하려면 다음을 수행 합니다.
+보안 에이전트를 배포하려면 다음을 수행합니다.
 
-1. 컴퓨터에 최신 버전을 다운로드 [Github](https://aka.ms/iot-security-github-cs)합니다.
+1. [Gittub](https://aka.ms/iot-security-github-cs)에서 최신 버전을 머신에 다운로드합니다.
 
-1. 패키지의 콘텐츠를 추출 하 고 이동 합니다 _/설치_ 폴더입니다.
+1. 패키지의 콘텐츠를 추출하고 _/Install_ 폴더로 이동합니다.
 
 1. 에 실행 권한을 추가 합니다 **InstallSecurityAgent 스크립트** 실행 하 여 `chmod +x InstallSecurityAgent.sh` 
 
-1. 다음을 실행 합니다. 
+1. 다음으로, 다음을 실행합니다. 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   참조 [인증을 구성 하는 방법을](concept-security-agent-authentication-methods.md) 인증 매개 변수에 대 한 자세한 내용은 합니다.
+   인증 매개 변수에 대한 자세한 내용은 [인증 구성 방법](concept-security-agent-authentication-methods.md)을 참조하세요.
 
 이 스크립트는 다음을 수행합니다.
 
-- 필수 구성 요소를 설치 합니다.
+- 필수 구성 요소를 설치합니다.
 
-- (사용 하 여 대화형 로그인을 사용 하지 않도록 설정) 서비스 사용자를 추가 합니다.
+- 대화형 로그인을 사용하지 않도록 설정된 서비스 사용자를 추가합니다.
 
-- 로 에이전트를 설치를 **디먼** -이 장치를 사용 하 여 가정 **systemd** 서비스 관리에 대 한 합니다.
+- 에이전트를 **디먼**으로 설치합니다. 여기서는 서비스 관리를 위해 디바이스에서 **systemd**를 사용한다고 가정합니다.
 
-- 구성 **sudoers** 루트로 특정 태스크를 수행 하려면 에이전트를 허용 하도록 합니다.
+- 에이전트에서 특정 작업을 루트로 수행할 수 있도록 **sudoers**를 구성합니다.
 
-- 제공 된 인증 매개 변수를 사용 하 여 에이전트를 구성합니다.
+- 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
 
-추가적인 도움말이 필요한 경우 스크립트를 실행 합니다. – help 매개 변수를 사용 하 여: `./InstallSecurityAgent.sh --help`
+추가 도움말을 보려면 -help 매개 변수를 사용하여 스크립트를 실행합니다. `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>에이전트 제거
 
-에이전트를 제거 하려면 – u 매개 변수를 사용 하 여 스크립트를 실행 합니다. `./InstallSecurityAgent.sh -u`합니다. 
+에이전트를 제거하려면 -u 매개 변수를 사용하여 스크립트를 실행합니다(`./InstallSecurityAgent.sh -u`). 
 
 > [!NOTE]
-> 제거할 설치 중 설치 된 모든 누락 된 필수 구성 요소를 제거 하지 않습니다.
+> 설치 제거는 설치 중에 설치된 모든 누락된 필수 구성 요소를 제거하지 않습니다.
 
 ## <a name="troubleshooting"></a>문제 해결  
 
-1. 실행 하 여 배포 상태를 확인 합니다.
+1. 다음을 실행하여 배포 상태를 확인합니다.
 
     `systemctl status ASCIoTAgent.service`
 
-2. 로깅을 사용 하도록 설정 합니다.  
-   에이전트가 시작 되지 않으면, 자세한 내용을 보려면 로깅을 설정 합니다.
+2. 로깅을 사용하도록 설정합니다.  
+   에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다.
 
-   로깅 켜기:
+   다음을 수행하여 로깅을 설정합니다.
 
-   1. 모든 Linux 편집기에서 편집을 위해 구성 파일을 엽니다.
+   1. Linux 편집기에서 편집할 구성 파일을 엽니다.
 
         `vi /var/ASCIoTAgent/General.config`
 
-   1. 다음 값을 편집 합니다. 
+   1. 다음 값을 편집합니다. 
 
       ```
       <add key="logLevel" value="Debug"/>
@@ -107,25 +107,25 @@ ms.locfileid: "58758342"
       <add key="diagnosticVerbosityLevel" value="Some" /> 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       합니다 **logFilePath** 값은 구성할 수 있습니다. 
+       **logFilePath** 값은 구성할 수 있습니다. 
 
        > [!NOTE]
-       > 로깅을 설정 하는 것이 좋습니다 **해제** 완료 되 면 문제를 해결 합니다. 로깅 두면 **에서** 증가 로그 파일 크기 및 데이터 사용 합니다.
+       > 문제가 해결되면 로깅을 **해제**하는 것이 좋습니다. 로깅을 **설정**으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
 
-   1. 실행 하 여 에이전트를 다시 시작 합니다.
+   1. 다음을 실행하여 에이전트를 다시 시작합니다.
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. 오류에 대 한 자세한 내용은 로그 파일을 봅니다.  
+   1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 살펴봅니다.  
 
        로그 파일 위치는: `/var/ASCIoTAgent/IotAgentLog.log`
 
-       에 대해 선택한 이름에 따라 파일 위치 경로 변경 합니다 **logFilePath** 에서 2 단계. 
+       2단계에서 **logFilePath**에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT 서비스에 대 한 ASC 읽기 [개요](overview.md)
-- 에 대해 자세히 알아보려면 ASC IoT 용 [아키텍처](architecture.md)
-- 사용 하도록 설정 된 [서비스](quickstart-onboard-iot-hub.md)
-- 읽기는 [FAQ](resources-frequently-asked-questions.md)
-- 이해 [경고](concept-security-alerts.md)
+- IoT용 ASC 서비스 [개요](overview.md)를 참조합니다.
+- IoT용 ASC 서비스 [아키텍처](architecture.md)를 자세히 알아봅니다.
+- [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
+- [FAQ](resources-frequently-asked-questions.md)를 참조합니다.
+- [경고](concept-security-alerts.md)를 살펴봅니다.

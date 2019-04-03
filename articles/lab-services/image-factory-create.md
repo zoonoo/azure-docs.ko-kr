@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439900"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879151"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
 이 문서에서 제공 되는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.는 [Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "58439900"
 
 DevTest Labs에서 준비 상태가 개발자 데스크톱을 가져오려면 상당한 가속기는 사용자 지정 이미지를 사용 합니다. 사용자 지정 이미지의 단점은 점 랩을 유지 하기 위해 추가 하는 것입니다. 예를 들어, 시간이 지남에 따라 제품의 평가판이 만료 (또는) 사용자 지정 이미지를 주기적으로 새로 고침을 강제 적용 하는 새로 출시 된 보안 업데이트 적용 되지 않습니다. 이미지 팩터리를 사용 하 여 정의 기반으로 하는 사용자 지정 이미지를 생성 하는 자동화 된 프로세스를 소스 코드 제어 체크 인 이미지에 대 한 정의 해야 합니다.
 
-솔루션 속도를 추가 유지 관리 비용을 제거 하는 동안 사용자 지정 이미지에서 가상 컴퓨터를 만들 수 있습니다. 이 솔루션을 사용 하 여 자동으로 사용자 지정 이미지 만들기, 다른 DevTest Labs를 보여주고자 하 수 이전 이미지를 사용 중지 합니다. 다음 비디오에서는 이미지 팩터리 및 DevTest Labs를 사용 하 여 구현 하는 방법을 배웁니다.  모든 Azure Powershell 스크립트를 자유롭게 사용 가능 하 고 있는 여기: [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory)합니다.
+솔루션 속도를 추가 유지 관리 비용을 제거 하는 동안 사용자 지정 이미지에서 가상 컴퓨터를 만들 수 있습니다. 이 솔루션을 사용 하 여 자동으로 사용자 지정 이미지 만들기, 다른 DevTest Labs를 보여주고자 하 수 이전 이미지를 사용 중지 합니다. 다음 비디오에서는 이미지 팩터리 및 DevTest Labs를 사용 하 여 구현 하는 방법을 배웁니다.  모든 Azure Powershell 스크립트를 자유롭게 사용 가능 하 고 있는 여기: [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory)합니다.
 
 <br/>
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543732"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885743"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow 식 작성기
 
@@ -51,7 +51,7 @@ Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수
 
 ## <a name="regular-expressions"></a>정규식
 
-Azure Data Factory Data Flow 식 언어([여기서 전체 참조 문서](https://aka.ms/dataflowexpressions) 참조)를 통해 정규식 구문을 포함하는 함수를 사용할 수 있습니다. 정규식 함수를 사용하는 경우 식 작성기는 백슬래시(\))를 이스케이프 문자 시퀀스로 해석하려고 합니다. 정규식에 백슬래시를 사용하는 경우 전체 regex를 틱 ` `으로 묶거나 이중 백슬래시를 사용합니다.
+Azure Data Factory Data Flow 식 언어([여기서 전체 참조 문서](https://aka.ms/dataflowexpressions) 참조)를 통해 정규식 구문을 포함하는 함수를 사용할 수 있습니다. 식 작성기는 백슬래시를 해석 하려고 정규식 함수를 사용할 때는 (\\) 이스케이프 문자 시퀀스로 합니다. 정규식의 백슬래시를 사용 하는 경우 전체 정규식 틱을 단위로 묶습니다 하나 (\`) 하거나 이중 백슬래시를 사용 합니다.
 
 예제: 틱 사용
 

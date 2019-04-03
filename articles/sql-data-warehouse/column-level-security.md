@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 06/15/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: f1452b1f15fe176107015957cdd1cd1cff5f4e55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58172855"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879185"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다.

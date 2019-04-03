@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233262"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885494"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SharePoint 리소스 모니터링 및 관리
 
@@ -72,7 +72,7 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
    표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
 
-1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용하는 경우 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택해야 합니다. 작업을 완료하면 **만들기**를 선택합니다.
+1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용 하는 경우 선택 해야 **온-프레미스 데이터 게이트웨이 통해 연결**합니다. 작업을 완료하면 **만들기**를 선택합니다.
 
 1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 

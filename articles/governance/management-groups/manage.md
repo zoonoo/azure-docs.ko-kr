@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801775"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881055"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -330,7 +330,7 @@ Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹�
 
 이 경로 사용 하는 예제는 PowerShell에서 관리 그룹에 새 역할 할당을 할당 하는 경우
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -345,7 +345,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
-- [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
+- [변경, 삭제 또는 관리 그룹을 관리 하는 방법](manage.md)
 - [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
-- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
+- [REST API에서 관리 그룹을 검토](/rest/api/resources/managementgroups)
 - [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)

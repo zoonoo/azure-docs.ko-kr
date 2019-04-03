@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: ce510168e2aa92758a3468fa55ff7b2a8d39b547
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360270"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885896"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning Service에서 로깅 사용
 
@@ -115,7 +115,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Azure Portal에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [방법](how-to-enable-app-insights.md#enable-and-disable-in-the-portal)을 참조하세요.
+Azure Portal에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [방법](how-to-enable-app-insights.md)을 참조하세요.
 
 ## <a name="python-native-logging-settings"></a>Python 기본 로깅 설정
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407186"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879389"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -31,7 +31,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 이 문서에서는 개요 및 Media Services 및 다른 관련 된 문서에 대 한 링크를 사용 하 여 라이브 스트리밍의 지침을 제공 합니다.
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
 
 ## <a name="dynamic-packaging"></a>동적 패키징
 
@@ -73,7 +73,7 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 
 1. Media Services 계정에서 **스트리밍 엔드포인트**가 실행되고 있는지 확인합니다. 
 2. [라이브 이벤트](live-events-outputs-concept.md)를 만듭니다. <br/>이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 또는 스트리밍을 시작할 준비가 되었을 때 이벤트를 시작해도 됩니다.<br/> autostart를 true로 설정하면 Live Event가 생성 직후 시작됩니다. 라이브 이벤트가 실행되는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 라이브 이벤트 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.
-3. 수집 URL을 가져오고, URL을 사용하여 기여 피드를 보내도록 온-프레미스 인코더를 구성합니다.<br/>[추천되는 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요.
+3. 수집 URL을 가져오고 기여 피드를 보낼 URL을 사용 하도록 온-프레미스 인코더를 구성 합니다.<br/>[추천되는 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요.
 4. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
 5. 새 **자산** 개체를 만듭니다.
 6. **라이브 출력**을 만들고 만든 자산 이름을 사용합니다.<br/>**라이브 출력**은 스트림을 **자산**에 보관합니다.
@@ -85,9 +85,9 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 
 ## <a name="other-important-articles"></a>다른 중요 문서
 
-- [추천되는 라이브 인코더](recommended-on-premises-live-encoders.md)
+- [권장되는 라이브 인코더](recommended-on-premises-live-encoders.md)
 - [클라우드 DVR 사용](live-event-cloud-dvr.md)
-- [라이브 이벤트 유형의 기능 비교](live-event-types-comparison.md)
+- [라이브 이벤트 유형을 기능 비교](live-event-types-comparison.md)
 - [상태 및 청구](live-event-states-billing.md)
 - [대기 시간](live-event-latency.md)
 

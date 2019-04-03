@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850720"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878012"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure 테이블에 대한 리드 관리 지침
 
@@ -34,7 +34,7 @@ ms.locfileid: "57850720"
 
     ![Azure Storage 계정을 만드는 단계](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  키로 사용할 저장소 계정 연결 문자열을 복사하여 Cloud 파트너 포털의 **저장소 계정 연결 문자열** 필드에 붙여넣습니다. 연결 문자열의 예는 다음과 같습니다. `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  키로 사용할 저장소 계정 연결 문자열을 복사하여 Cloud 파트너 포털의 **저장소 계정 연결 문자열** 필드에 붙여넣습니다. 연결 문자열의 예로 `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Azure 저장소 키](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
@@ -90,7 +90,7 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 
      ![Azure 테이블 이름에 대한 사용자 지정 값 선택](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **필터 쿼리** – 이 필드를 클릭하면 과거 시간 가져오기 아이콘이 팝업 창에 표시됩니다. **과거 시간**을 선택하고 타임스탬프로 사용하여 쿼리를 필터링합니다. 또는 `gt datetime'@{body('Get_past_time')}'` 필드에 이 함수를 붙여넣을 수 있습니다.
+   - **필터 쿼리** – 이 필드를 클릭하면 과거 시간 가져오기 아이콘이 팝업 창에 표시됩니다. **과거 시간**을 선택하고 타임스탬프로 사용하여 쿼리를 필터링합니다. 또는 필드에이 함수를 붙여넣을 수 있습니다. `gt datetime'@{body('Get_past_time')}'`
 
      ![필터 쿼리 함수 설정](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -148,4 +148,4 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 
 ## <a name="next-steps"></a>다음 단계
 
-[잠재 고객 가져오기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)
+[잠재 고객 구성](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

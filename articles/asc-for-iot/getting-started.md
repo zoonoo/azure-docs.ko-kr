@@ -1,25 +1,25 @@
 ---
 title: Azure 보안 센터 (ASC)를 사용 하 여 IoT 미리 보기에 대 한 시작 | Microsoft Docs
 description: 시작 IoT 기능 및 서비스에 대 한 Azure Security Center의 기본 워크플로 이해 합니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: aac15d766439a725f593ca421cbdc6da496f29f4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755122"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862695"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>IoT 용 Azure Security Center 시작 
 

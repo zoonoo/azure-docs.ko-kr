@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479532"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862890"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -83,16 +83,6 @@ Azure AD 암호 보호 실시간 정책 응용 프로그램 엔진을 하지 않
 Active Directory 포리스트에서 Azure AD 암호 보호의 배포에는 해당 포리스트의 Azure AD 사용 하 여 등록을 해야합니다. 또한 Azure AD를 사용 하 여 배포 된 각 프록시 서비스를 등록 합니다. 이 포리스트 및 프록시 등록 특정 연관 된 Azure AD 테 넌 트를 등록 하는 동안 사용 되는 자격 증명에 의해 암시적으로 식별 되는 합니다.
 
 Active Directory 포리스트 및 포리스트 내의 모든 배포 된 프록시 서비스는 동일한 테 넌 트를 사용 하 여 등록 되어야 합니다. 다른 Azure AD에 등록 되 고 포리스트 테 넌 트에 Active Directory 포리스트 또는 모든 프록시 서비스를 보유 하는 지원 되지 않습니다. 잘못 구성 된 배포의 증상에 암호 정책을 다운로드할 수 있습니다.
-
-## <a name="license-requirements"></a>라이선스 요구 사항
-
-Azure AD의 모든 사용자에 게 전역 금지 된 암호 목록 혜택 적용 됩니다.
-
-사용자 지정 암호 차단 목록에는 Azure AD Basic 라이선스가 필요합니다.
-
-Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다.
-
-추가 라이선스 정보를 참조 하세요 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)합니다.
 
 ## <a name="download"></a>다운로드
 

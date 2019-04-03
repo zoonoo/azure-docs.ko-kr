@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401218"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885029"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
 
 다음 예제에서는 R 코드를 배포하는 기본 단계를 보여 줍니다.
 * `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 R 확장을 사용하도록 설정합니다.
-* ` REDUCE` 연산을 사용하여 키의 입력 데이터를 분할합니다.
+* 사용 된 `REDUCE` 키에 입력된 데이터를 분할 하는 작업입니다.
 * U-SQL용 R 확장에는 리듀서에 할당된 각 꼭짓점에서 R 코드를 실행하는 기본 제공 리듀서(`Extension.R.Reducer`)가 포함됩니다. 
-* 각각 `inputFromUSQL` 및 `outputToUSQL `이라는 명명된 전용 데이터 프레임을 사용하여 U-SQL과 R 간에 데이터를 전달합니다. 입력 및 출력 DataFrame 식별자 이름은 고정되어 있습니다. 즉 사용자가 입력 및 출력 DataFrame 식별자의 미리 정의된 이름을 변경할 수 없습니다.
+* 사용 전용된 이라는 라는 데이터 프레임이 `inputFromUSQL` 및 `outputToUSQL` U-SQL 및 R. 입력 간에 데이터를 전달 및 출력 DataFrame 식별자 이름은 고정 되어에 각각 (즉, 사용자 입력의 미리 정의 된 이름을 변경할 수 없으며 데이터 프레임 출력 식별자)입니다.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL 스크립트에 R 코드 포함
 
@@ -93,7 +93,7 @@ U-SQL 스크립트를 사용하여 DEPLOY RESOURCE 문과 함께 R 스크립트�
 ### <a name="datatypes"></a>데이터 형식
 * U-SQL의 문자열 및 숫자 열은 R DataFrame과 U-SQL 간에 있는 그대로 변환됩니다[지원되는 형식: `double`, `string`, `bool`, `integer`, `byte`].
 * `Factor` 데이터 형식은 U-SQL에서 지원되지 않습니다.
-* `byte[]`는 base64로 인코딩된 `string`로 직렬화되어야 합니다.
+* `byte[]` base64로 인코딩된로 직렬화 되어야 합니다 `string`합니다.
 * 일단 U-SQL에서 R 입력 데이터 프레임을 만들거나 `stringsAsFactors: true` 리듀서 매개 변수를 설정하여 U-SQL 문자열을 R 코드의 요소로 변환할 수 있습니다.
 
 ### <a name="schemas"></a>스키마
@@ -207,6 +207,6 @@ U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+* [Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082163"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880783"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Azure Security Center에서 Azure SQL 서비스 및 데이터 보호
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.  이러한 권장 사항은 가상 머신(VM), 네트워킹, SQL 및 데이터, 애플리케이션 등의 Azure 리소스 유형에 적용됩니다.
@@ -64,10 +64,8 @@ Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니�
 |Data Lake Store|5|Azure Data Lake Store에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |SQL|30|SQL 데이터베이스에서 취약성 수정|SQL 취약성 평가는 데이터베이스에서 보안 취약성을 검사하고 잘못된 구성, 과도한 권한 및 보호되지 않는 중요한 데이터와 같은 모범 사례에서 비일관성을 노출합니다. 발견된 취약성을 해결하면 데이터베이스 보안 상태가 크게 향상될 수 있습니다.|
 |SQL|20|SQL Server에 대한 Azure AD 관리자 프로비전|SQL Server에 대한 Azure AD 관리자를 프로비전하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다.|
-|Storage 계정|15|스토리지 계정에 대한 무제한 네트워크 액세스 사용 안 함|스토리지 계정 방화벽 설정에서 무제한 네트워크 액세스를 감사합니다. 또는, 허용되는 네트워크의 애플리케이션만 스토리지 계정에 액세스할 수 있도록 네트워크 규칙을 구성합니다. 특정 인터넷 또는 온-프레미스 클라이언트의 연결을 허용하기 위해 특정 Azure Virtual Network에서의 트래픽 또는 공용 인터넷 IP 주소 범위에 액세스 권한을 부여할 수 있습니다.|
-|Storage 계정|1|새 AzureRM 리소스로 스토리지 계정 마이그레이션|향상 된 보안 기능을 제공 하 여 저장소 계정에 대 한 새 Azure Resource Manager v2 사용: 더 강력한 액세스 제어 (RBAC), 더 나은 감사, Resource Manager 기반 배포 및 거 버 넌 스, 관리 되는 id에 대 한 키 자격 증명 모음에 대 한 액세스 암호, Azure AD 기반 인증 및 태그에 대 한 지원 및 보안 관리를 간소화 하기 위해 리소스 그룹입니다.|
-
-
+|Storage 계정|15|스토리지 계정에 대한 무제한 네트워크 액세스 사용 안 함|스토리지 계정 방화벽 설정에서 무제한 네트워크 액세스를 감사합니다. 또는, 허용되는 네트워크의 애플리케이션만 스토리지 계정에 액세스할 수 있도록 네트워크 규칙을 구성합니다. 특정 인터넷 또는 온-프레미스 클라이언트에서 연결을 허용 하도록 공용 인터넷 IP 주소 범위 또는 특정 Azure virtual network의 트래픽에 대 한 액세스를 부여할 수 있습니다.|
+|Storage 계정|1|Azure Resource Manager 모델 리소스에 저장소 계정 마이그레이션|저장소 계정에 대 한 새 Azure Resource Manager v2를 사용 하 여 같은 향상 된 보안 기능을 제공 합니다: 강력한 액세스 제어 (RBAC), 더 나은 감사, Resource Manager 기반 배포 및 거 버 넌 스, 관리 되는 id에 대 한 키 자격 증명 모음에 대 한 액세스 암호 및 Azure AD 기반 인증 및 태그에 대 한 지원 및 보안 관리를 간소화 하기 위해 리소스 그룹입니다.|
 
 ## <a name="see-also"></a>참고 항목
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.

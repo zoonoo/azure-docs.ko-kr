@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870689"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850077"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -70,10 +70,10 @@ Azure 활동 로그에서 Event Hubs 네임스페이스로 데이터를 보내�
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure 리소스 메트릭 및 진단 로그
 
 Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니다.
-1. [리소스 진단 로그](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Metrics](../../azure-monitor/platform/data-collection.md)(메트릭)
+1. [리소스 진단 로그](diagnostic-logs-overview.md)
+2. [Metrics](data-platform.md)(메트릭)
 
-두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. [이 가이드에 따라](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 특정 리소스에 대한 리소스 진단 설정을 지정합니다. 로그를 수집하려는 각 리소스에 대한 리소스 진단 설정을 지정합니다.
+두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. [이 가이드에 따라](diagnostic-logs-stream-event-hubs.md) 특정 리소스에 대한 리소스 진단 설정을 지정합니다. 로그를 수집하려는 각 리소스에 대한 리소스 진단 설정을 지정합니다.
 
 > [!TIP]
 > [정책 규칙에서 DeployIfNotExists 효과를 사용하여](../../governance/policy/concepts/definition-structure.md#policy-rule) Azure Policy를 통해 특정 범위 내의 모든 리소스가 항상 진단 설정으로 지정되도록 할 수 있습니다.

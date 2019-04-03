@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089151"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882092"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -49,9 +49,9 @@ ms.locfileid: "58089151"
    ```
 
 2. 기본 구독을 설정합니다. <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > `/home/<user>/.azure/azureProfile.json`을 사용하여 이후 세션에서 구독을 기억합니다.
@@ -99,6 +99,6 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
    ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>
-[Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
-[Azure Files Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>
+[Cloud Shell의 Bash에 대 한 파일 유지 알아보기](persisting-shell-storage.md) <br>
+[Azure CLI에 알아봅니다](https://docs.microsoft.com/cli/azure/) <br>
+[Azure Files storage에 알아보기](../storage/files/storage-files-introduction.md) <br>

@@ -1,38 +1,38 @@
 ---
 title: IoT 미리 보기에 대 한 Azure Security Center 보안 메시지 보내기 | Microsoft Docs
 description: IoT 용 Azure Security Center를 사용 하 여 보안 메시지를 보내는 방법에 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: a9974fd15ae9c8c420992c3ae1084feebae0f57d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762772"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862406"
 ---
-# <a name="send-security-messages-sdk"></a>SDK의 보안 메시지 보내기
+# <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
 > [!IMPORTANT]
 > IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 방법 가이드를 수집 하 여 IoT 에이전트에 대 한를 ASC를 사용 하지 않고 장치 보안 메시지를 보내려면 선택 하면 IoT 서비스 기능에 대 한 Azure 보안 센터 (ASC)를 설명 하 고 작업을 수행 하는 방법에 설명 합니다.  
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]
-> * 에 대 한 전송 보안 메시지 API를 사용 합니다.C#
-> * C에 대 한 메시지를 보내는 보안 API 사용
+> * C#용 보안 메시지 보내기 API 사용
+> * C용 보안 메시지 보내기 API 사용
 
 ## <a name="asc-for-iot-capabilities"></a>ASC IoT 기능에 대 한
 
@@ -49,7 +49,7 @@ ASC IoT에 대 한 다음 조건을 사용 하 여 보안 메시지를 정의 �
 스키마는 이벤트 유형을 포함 하 여 보안 메시지의 유효 하 고 필요한 속성을 정의 합니다.
 
 [!NOTE]
-> 메시지 스키마를 사용 하 여 준수 하지 않는 전송 무시 됩니다. 무시 메시지는 현재 저장 하지 보내는 데이터를 시작 하기 전에 스키마를 확인 해야 합니다. 
+> 스키마를 준수하지 않은 상태로 보내는 메시지는 무시됩니다. 무시된 메시지는 현재 저장되지 않으므로 데이터 보내기를 시작하기 전에 스키마를 확인해야 합니다. 
 > Azure IoT C를 사용 하 여 보안 메시지로 설정 되지 않은 메시지 전송 /C# SDK를 IoT 파이프라인에 대 한 ASC 라우팅되지 것입니다
 
 ## <a name="valid-message-example"></a>유효한 메시지 예제
@@ -90,13 +90,13 @@ ASC IoT에 대 한 다음 조건을 사용 하 여 보안 메시지를 정의 �
 
 ASC를 사용 하 여 IoT 에이전트에 대 한 사용 하지 않고 보안 메시지를 전송 합니다 [Azure IoT C# 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) 또는 [Azure IoT C 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)합니다.
 
-IoT 용 ASC에서 처리 하기 위해 장치에서 장치 데이터를 보내도록 IoT 처리 파이프라인에 대 한 ASC에 올바른 라우팅에 대 한 메시지를 표시 하려면 다음 Api 중 하나를 사용 합니다. 이러한 방식으로 전송 된 메시지 처리 되어 ASC에서 보안 insights로 Azure Security Center 또는 둘 다 IoT Hub에서 IoT에 대 한 표시 됩니다. 
+IoT용 ASC에서 처리하기 위해 디바이스에서 디바이스 데이터를 보내려면 다음 API 중 하나를 사용하여 IoT용 ASC 처리 파이프라인으로 올바르게 라우팅하기 위한 메시지를 표시합니다. 이 방식으로 보낸 메시지는 IoT Hub 또는 Azure Security Center의 IoT용 ASC 내에서 보안 인사이트로 처리되고 표시됩니다. 
 
-올바른 머리글을 표시 하는 경우에 전송 되는 모든 데이터도 준수 해야 합니다 [ASC IoT 메시지 스키마에 대 한](https://aka.ms/iot-security-schemas)합니다. 
+올바른 헤더로 표시된 경우에도 보내지는 모든 데이터는 [IoT용 ASC 메시지 스키마](https://aka.ms/iot-security-schemas)를 준수해야 합니다. 
 
-### <a name="send-security-message-api"></a>보안 메시지 API를 전송 합니다.
+### <a name="send-security-message-api"></a>보안 메시지 보내기 API
 
-합니다 **보안 메시지를 보낼** API는 C에서 현재 사용할 및 C#합니다.  
+**보안 메시지 보내기** API는 현재 C 및 C#에서 사용할 수 있습니다.  
 
 #### <a name="c-api"></a>C# API
 
@@ -157,10 +157,10 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- IoT 서비스에 대 한 ASC 읽기 [개요](overview.md)
-- 에 대해 자세히 알아보려면 ASC IoT 용 [아키텍처](architecture.md)
-- 사용 하도록 설정 된 [서비스](quickstart-onboard-iot-hub.md)
-- 읽기는 [FAQ](resources-frequently-asked-questions.md)
-- 에 액세스 하는 방법을 알아봅니다 [원시 보안 데이터](how-to-security-data-access.md)
-- 이해 [권장 사항](concept-recommendations.md)
-- 이해 [경고](concept-security-alerts.md)
+- IoT용 ASC 서비스 [개요](overview.md)를 참조합니다.
+- IoT용 ASC 서비스 [아키텍처](architecture.md)를 자세히 알아봅니다.
+- [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
+- [FAQ](resources-frequently-asked-questions.md)를 참조합니다.
+- [원시 보안 데이터](how-to-security-data-access.md)에 액세스하는 방법을 알아봅니다.
+- [추천 사항](concept-recommendations.md)을 살펴봅니다.
+- [경고](concept-security-alerts.md)를 살펴봅니다.

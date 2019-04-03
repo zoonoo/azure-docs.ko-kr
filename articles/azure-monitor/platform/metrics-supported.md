@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449557"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851173"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -653,7 +653,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-### <a name="request-metrics"></a>요청 메트릭
+### <a name="request-metrics"></a>메트릭 요청
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
 |---|---|---|---|---|---| ---| ---| ---|
@@ -1608,7 +1608,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
 
 ## <a name="next-steps"></a>다음 단계
-
-* [Azure Monitor의 메트릭에 대해 읽기](../../azure-monitor/platform/data-collection.md)
-* [메트릭에 대한 경고 만들기](../../azure-monitor/platform/alerts-overview.md)
-* [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Azure Monitor의 메트릭에 대해 읽기](data-platform.md)
+* [메트릭에 대한 경고 만들기](alerts-overview.md)
+* [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](diagnostic-logs-overview.md)

@@ -3,21 +3,21 @@ title: Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합 | Micros
 description: Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합하는 방법 이해
 documentationcenter: ''
 services: data-lake-store
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e377a29167ace21e021568f3c65cefd1098d1dab
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127147"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879306"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
 Azure Data Lake Storage Gen1을 다른 Azure 서비스와 함께 사용하여 광범위한 시나리오를 활용할 수 있습니다. 다음 문서에는 Data Lake Storage Gen1과 통합될 수 있는 서비스가 나열되어 있습니다.
@@ -27,9 +27,9 @@ Data Lake Storage Gen1을 사용하는 [Azure HDInsight](https://azure.microsoft
 
 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터를 프로비전하는 방법에 대한 지침은 다음을 참조하세요.
 
-* [Azure Portal을 사용하여 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 기본 저장소로 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 추가 저장소로 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Azure Portal을 사용 하 여 데이터 레이크 저장소 Gen1를 사용 하 여 HDInsight 클러스터를 프로 비전](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure PowerShell을 사용 하 여 기본 저장소로 Data Lake 저장소 Gen1는 HDInsight 클러스터를 프로 비전](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Azure PowerShell을 사용 하 여 추가 저장소로 Data Lake 저장소 Gen1는 HDInsight 클러스터를 프로 비전](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 ## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>Data Lake Storage Gen1을 Azure Data Lake Analytics와 함께 사용
 [Azure 데이터 레이크 분석](../data-lake-analytics/data-lake-analytics-overview.md) 을 사용하면 클라우드 규모에서 빅 데이터 작업을 수행할 수 있습니다. 이를 통해 동적으로 리소스를 프로비전할 뿐만 아니라 지원되는 많은 데이터 원본(예: Data Lake Storage Gen1)에 저장될 수 있는 테라바이트 또는 심지어 엑사바이트의 데이터를 분석할 수 있습니다. Data Lake Analytics는 Data Lake Storage Gen1에서 작업할 때 특히 최적화되어 빅 데이터 워크로드에 대한 최상의 성능, 처리량 및 병렬화를 제공합니다.
@@ -67,6 +67,6 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데�
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-* [포털을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
-* [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)  
+* [Get Started with Data Lake 저장소 Gen1가 포털을 사용 하 여](data-lake-store-get-started-portal.md)
+* [데이터 레이크 저장소 Gen1 시작 PowerShell을 사용 하 여](data-lake-store-get-started-powershell.md)  
 

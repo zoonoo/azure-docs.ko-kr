@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437104"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847532"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -346,7 +346,10 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 기본적으로 IoT Edge 모듈 자체 격리 된 컨테이너 네트워크에서 시작 됩니다. 장치는이 개인 네트워크 내 DNS 이름 확인에 문제가 있을 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
-컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 라는 파일을 만들고 `daemon.json` 사용 하려면 DNS 서버를 지정 합니다. 예를 들면 다음과 같습니다.
+
+**옵션 1: 엔진 설정을 컨테이너에서 DNS 서버 설정**
+
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용할 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 라는 파일을 만들고 `daemon.json` 사용 하려면 DNS 서버를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```
 {
@@ -371,6 +374,22 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (관리자 Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**옵션 2: 모듈에 대해 IoT Edge 배포에 DNS 서버 설정**
+
+각 모듈에 대 한 DNS 서버를 설정할 수 있습니다 *createOptions* IoT Edge 배포에서 합니다. 예를 들면 다음과 같습니다.
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+에 대해이 설정 해야 합니다 *edge 에이전트* 하 고 *edge 허브* 모듈입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 

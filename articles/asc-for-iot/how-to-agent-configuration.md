@@ -1,31 +1,31 @@
 ---
 title: IoT 에이전트 미리 보기에 대 한 Azure Security Center 구성 | Microsoft Docs
 description: IoT 용 Azure Security center 사용에 대 한 에이전트를 구성 하는 방법에 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757377"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862780"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
 > [!IMPORTANT]
 > IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 워크 로드에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT 보안 에이전트에 대 한 Azure 보안 센터 (ASC) 설명 ASC IoT 보안 에이전트에 대 한 구성으로 변경 하는 방법입니다.
 
@@ -140,4 +140,4 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
 
 - [ASC IoT 권장 사항에 대 한 이해](concept-recommendations.md)
 - [ASC IoT 경고에 대 한 탐색](concept-security-alerts.md)
-- [원시 보안 데이터에 액세스](how-to-security-data-access.md)
+- [원시 보안 데이터 액세스](how-to-security-data-access.md)

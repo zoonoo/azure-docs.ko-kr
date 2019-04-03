@@ -1,27 +1,27 @@
 ---
 title: IoT 용 Azure Security Center 미리 보기 비용 이해 | Microsoft Docs
 description: IoT 및 제어 하는 방법에 대 한 Azure Security Center와 사용 하 여 관련 비용에 알아봅니다.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758049"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862712"
 ---
-# <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 된 비용
+# <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
 > [!IMPORTANT]
 > IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
@@ -85,6 +85,6 @@ IoT 용 ASC에 두 가지 유형의 관련된 비용을 직접 가격의 일부�
 ## <a name="see-also"></a>참고 항목
 
 - 액세스에 [원시 보안 데이터](how-to-security-data-access.md)
-- [장치를 조사 합니다.](how-to-investigate-device.md)
+- [디바이스 조사](how-to-investigate-device.md)
 - 이해 및 탐색 [보안 권장 사항](concept-recommendations.md)
 - 이해 및 탐색 [보안 경고](concept-security-alerts.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)
-description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다.
+description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
 manager: douge
@@ -12,20 +12,20 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243763"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850199"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure 테이블 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 버전 1.x를 사용합니다.
+이 문서에서는 Azure Table Storage 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 버전 1.x를 사용합니다.
 
-Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) 을 참조하세요.
+Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) 을 참조하세요.
 
 일부 코드 조각에서는 **Table** 특성이 수동으로 호출된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
 
@@ -139,10 +139,10 @@ Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **Cl
             tableBinding.Execute(insertOperation);
         }
 
-**CloudTable** 개체를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
+**CloudTable** 개체를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
 ## <a name="related-topics-covered-by-the-queues-how-to-article"></a>큐 방법 문서에서 다루는 관련 항목
-큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure 큐 저장소 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](../storage/vs-storage-webjobs-getting-started-queues.md)을 참조하세요.
+큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure Queue Storage 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](../storage/vs-storage-webjobs-getting-started-queues.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.

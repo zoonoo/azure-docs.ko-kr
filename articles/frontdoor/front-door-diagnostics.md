@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - 메트릭 및 기록 | Microsoft Docs
-description: 이 문서는 Azure Front Door Service가 지원하는 다양한 메트릭 및 액세스 로그를 이해하는 데 도움이 됩니다.
+title: 메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링 합니다. | Microsoft Docs
+description: 이 문서에서는 다양 한 메트릭과 Azure 프런트 도어 서비스가 지 원하는 액세스 로그에 설명
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407031"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862117"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>첫 번째 관문에 대 한 메트릭 및 로그 모니터링
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링합니다.
 
 Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다.
 
-* [메트릭](#metrics): 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
-* [로그](#diagnostic-logging): 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
+- **메트릭**. 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
+- **로그**합니다. 활동 및 진단 로그는 성능, 액세스 및 기타 데이터를 저장 하거나 모니터링을 위해 리소스에서 사용할 수 있습니다.
 
-## <a name="metrics"></a>메트릭
+### <a name="metrics"></a>메트릭
 
-메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대한 기능입니다. Front Door의 경우 다음 메트릭을 사용할 수 있습니다.
+메트릭은 포털에서 성능 카운터를 볼 수 있도록 하는 특정 Azure 리소스에 대 한 기능입니다. 다음은 첫 번째 관문 메트릭을 사용할 수 있습니다.
 
 | 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | 설명 |
 | --- | --- | --- | --- | --- |
 | RequestCount | 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
 | ResponseSize | 응답 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 클라이언트로, 응답으로 전송된 바이트 수 |
-| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트가 Front Door의 마지막 응답 바이트를 승인할 때까지 클라이언트 요청이 Front Door에서 수신될 때 계산된 시간 |
+| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트는 첫 번째 관문에서 마지막 응답 바이트를 승인할 때까지 첫 번째 관문에서 받은 클라이언트 요청의 시간 계산 합니다. |
 | BackendRequestCount | 백 엔드 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
 | BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
@@ -42,35 +42,36 @@ Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 
 
 ## <a name="activity-log"></a>활동 로그
 
-활동 로그에 첫 번째 관문에서 수행 된 작업에 대 한 정보를 제공 합니다. 활동 로그를 사용 하 여 확인할 수 있습니다는 "무엇을, 누가, 언제" 한 모든 쓰기 작업 (PUT, POST, DELETE)에 첫 번째 관문에서 수행 합니다.
+활동 로그 프런트 도어 서비스에서 수행 된 작업에 대 한 정보를 제공 합니다. 또한 결정 합니다 누가, 및에 대 한 쓰기 작업 (put, post 또는 delete) 프런트 도어 서비스에서 수행 된 시기입니다.
 
-> [!NOTE]
-> 활동 로그에는 읽기(GET) 작업 또는 Azure Portal에서 수행되었거나 원본 Management API를 사용하는 작업이 포함되지 않습니다.
+>[!NOTE]
+>활동 로그는 읽기 (get) 작업을 포함 하지 않습니다. 또한 이러한 Azure portal 또는 원래 관리 API를 사용 하 여 수행할 작업을 포함 하지 않습니다.
 
-활동 로그에 프런트 도어에 액세스할 수도 있고 Azure Monitor에서 모든 Azure 리소스의 로그에 액세스할 수 있습니다. 
-
-활동 로그를 보려면
+액세스 활동 프런트 도어 서비스 또는 Azure Monitor에서 Azure 리소스의 모든 로그를 기록합니다. 활동 로그를 보려면
 
 1. 첫 번째 관문 인스턴스를 선택 합니다.
-2. **활동 로그**를 클릭합니다.
+2. 선택 **활동 로그**합니다.
 
     ![활동 로그](./media/front-door-diagnostics/activity-log.png)
 
-3. 원하는 필터링 범위를 선택하고 **적용**을 클릭합니다.
+3. 필터링 된 범위를 선택 하 고 선택한 **적용**합니다.
 
 ## <a name="diagnostic-logging"></a>진단 로그
-진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다. 에 대해 자세히 알아보세요 [Azure Monitor 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)합니다. 
+진단 로그는 작업 및 감사 및 문제해결에 대 한 중요 한 오류에 대 한 풍부한 정보를 제공 합니다. 진단 로그는 활동 로그에서 다릅니다.
 
-첫 번째 관문 프로그램에 대 한 진단 로그를 구성:
+활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 정보를 제공 합니다. 진단 로그는 리소스에서 수행 하는 작업에 대 한 정보를 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)합니다.
 
-1. APIM 서비스 인스턴스를 선택합니다.
-2. **진단 설정**을 클릭합니다.
+![진단 로그](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![진단 로그](./media/front-door-diagnostics/diagnostic-log.png)
+첫 번째 관문 서비스에 대 한 진단 로그를 구성:
 
-3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
+1. Azure API Management 서비스를 선택 합니다.
 
-Azure 프런트 도어 서비스는 현재 진단을 제공 다음 스키마를 갖는 각 항목으로 개별 API에 대 한 로그 (시간 단위로 일괄 처리) 요청:
+2. 선택할 **진단 설정**합니다.
+
+3. **진단 켜기**를 선택합니다. 저장소 계정에 대 한 메트릭과 함께 진단 로그 보관 하 고, 이벤트 허브로 스트림 또는 Azure Monitor 로그로 보낼 합니다.
+
+첫 번째 관문 서비스는 현재 진단 로그 (시간 단위로 일괄 처리)를 제공 합니다. 진단 로그는 다음 스키마를 갖는 각 항목으로 개별 API 요청을 제공 합니다.
 
 | 자산  | 설명 |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Azure 프런트 도어 서비스는 현재 진단을 제공 다음 스키마를 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
-- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.
+- [Front Door 프로필 만들기](quickstart-create-front-door.md)
+- [첫 번째 관문의 작동 원리](front-door-routing-architecture.md)

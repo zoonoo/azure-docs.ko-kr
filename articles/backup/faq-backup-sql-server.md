@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284581"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876431"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -42,7 +42,7 @@ ms.locfileid: "58284581"
 예. SQL Server 인스턴스에 대한 영향을 최소화하기 위해 백업 정책이 실행되는 속도를 제한할 수 있습니다. 설정을 변경하려면:
 1. SQL Server 인스턴스에서는 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더를 만들기는 *ExtensionSettingsOverrides.json* 파일입니다.
 2. 에 *ExtensionSettingsOverrides.json* 파일에서 변경 합니다 **DefaultBackupTasksThreshold** 낮은 값 (예를 들어, 5)으로 설정 합니다. <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. 변경 내용을 저장하고 파일을 닫습니다.
 4. SQL Server 인스턴스에서 **작업 관리자**를 엽니다. **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작합니다.
@@ -57,7 +57,7 @@ SQL 제한 사항에 따라 복사 전체 백업을 보조 복제본에서 실�
 아니요. Azure Backup은 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure 및 온-프레미스 컴퓨터 간에 분산 되는 가용성 그룹 (AG), 주 복제본은 Azure에서 실행 중인 경우에 AG은 보호할 수 있습니다. 또한 Azure Backup Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>지역에서 가용성 그룹을 보호할 수 있습니까?
-Azure Backup Recovery Services 자격 증명 모음 검색 하 고 자격 증명 모음과 동일한 지역에 있는 모든 노드를 보호할 수 있습니다. SQL Server Always On 가용성 그룹에 여러 Azure 지역에 걸쳐 있는 경우 주 노드에 있는 지역에서 백업 될 때까지 설정 합니다. Azure Backup 검색 하 고 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 보호할 수 있습니다. 백업 기본 설정을 충족 되지 않으면 백업이 실패 하 고 실패 경고를 받을 수 있습니다.
+Azure Backup Recovery Services 자격 증명 모음 검색 하 고 자격 증명 모음과 동일한 지역에 있는 모든 노드를 보호할 수 있습니다. SQL Server Always On 가용성 그룹에 여러 Azure 지역에 걸쳐 있는 경우 주 노드에 있는 지역에서 백업 될 때까지 설정 합니다. 그러면 Azure Backup이 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 검색하고 보호할 수 있습니다. 백업 기본 설정을 충족 되지 않으면 백업이 실패 하 고 실패 경고를 받을 수 있습니다.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업에 경고가 만들어지나요?
 아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고에 대 한 자세한 동작 된다 [여기](backup-azure-monitoring-built-in-monitor.md)합니다. 그러나 원하는 경우 권한이 경고 성공한 작업에 대해서도 사용할 수 있습니다 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)합니다.

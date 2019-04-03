@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402068"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885267"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>자주 묻는 질문-Azure Vm 백업
 
@@ -68,7 +68,7 @@ Azure backup에 Key Vault에 액세스 권한을 제공 합니다. [Azure Backup
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
 예. **스냅숏 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>(즉, Azure Backup 서비스에서 만든 리소스 그룹에 대 한 잠금을 사용 하도록 ` AzureBackupRG_<geo>_<number>`), 내 백업이 계속 작동 하려면?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>(즉, Azure Backup 서비스에서 만든 리소스 그룹에 대 한 잠금을 사용 하도록 `AzureBackupRG_<geo>_<number>`), 내 백업이 계속 작동 하려면?
 Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 백업을 최대 18 개의 복원 지점 제한 없기 때문에 실패 하기 시작 합니다.
 
 사용자가 잠금을 제거 하 고 이후 백업이 성공 하려면 해당 리소스 그룹에서 복원 지점 컬렉션의 선택을 취소 해야 [이 단계를 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거 합니다.
@@ -88,7 +88,7 @@ WA 지원 디스크에는 스냅숏을 만들 수 없습니다. 그러나 Azure 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
 
-비공개 미리 보기는 SAP HANA 백업에 대 일 분의 RPO를 사용 하 여 실행 합니다. SQL DB 백업과 비슷한 방식으로 빌드되었으며, SAP HANA에서 인증한 backInt 인터페이스를 타사 솔루션에 사용합니다. 원하는 경우 메일을 보내세요 ` AskAzureBackupTeam@microsoft.com ` 주체를 사용 하 여 **Azure Vm에서 SAP hana 백업에 대 한 비공개 미리 보기 등록**합니다.
+비공개 미리 보기는 SAP HANA 백업에 대 일 분의 RPO를 사용 하 여 실행 합니다. SQL DB 백업과 비슷한 방식으로 빌드되었으며, SAP HANA에서 인증한 backInt 인터페이스를 타사 솔루션에 사용합니다. 원하는 경우 메일을 보내세요 `AskAzureBackupTeam@microsoft.com` 주체를 사용 하 여 **Azure Vm에서 SAP hana 백업에 대 한 비공개 미리 보기 등록**합니다.
 
 
 ## <a name="restore"></a>복원

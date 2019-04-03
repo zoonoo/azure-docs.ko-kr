@@ -3,21 +3,21 @@ title: Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록 | Micros
 description: Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533456"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877887"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
 이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake Storage Gen1과 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
@@ -74,10 +74,10 @@ ms.locfileid: "57533456"
      ![카탈로그에서 데이터 검색](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "카탈로그에서 데이터 검색")
 1. 이제 데이터에 주석 및 설명서를 추가하는 등의 작업을 수행할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
 
-    * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
-    * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
+    * [Data Catalog에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
+    * [Data Catalog에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 
 ## <a name="see-also"></a>참고 항목
-* [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
-* [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
-* [Data Lake Storage Gen1과 다른 Azure 서비스 통합](data-lake-store-integrate-with-other-services.md)
+* [Data Catalog에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
+* [Data Catalog에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
+* [다른 Azure 서비스를 사용 하 여 데이터 레이크 저장소 Gen1 통합](data-lake-store-integrate-with-other-services.md)

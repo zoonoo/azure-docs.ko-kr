@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002283"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850679"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -47,13 +47,13 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 
 7. Grafana 서버의 공용 IP 주소를 가져옵니다. 리소스의 목록으로 돌아가서 **공용 IP 주소**를 선택합니다.
 
-## <a name="log-in-to-grafana"></a>Grafana에 로그인
+## <a name="sign-in-to-grafana"></a>Grafana에 로그인
 
 1. 서버의 IP 주소를 사용하여 브라우저에서 *http://\<IP 주소\>:3000* 또는 *\<DNSName>\:3000*의 로그인 페이지를 엽니다. 3000은 기본 포트이지만, 설정하는 동안 다른 포트를 설치했을 수도 있습니다. 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
 
     ![Grafana 로그인 화면](./media/grafana-plugin/grafana-login-screen.png)
 
-2. 사용자 이름 *admin* 및 이전에 만든 Grafana 서버 관리자 암호를 사용하여 로그인합니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin*이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
+2. 사용자 이름을 사용 하 여 로그인 *관리자* 및 이전에 만든 Grafana 서버 관리자 암호입니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin*이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
 
 ## <a name="configure-data-source-plugin"></a>데이터 원본 플러그 인 구성
 
@@ -167,5 +167,5 @@ Azure에서 Grafana 환경 설정한 경우 사용자가 VM을 사용 중인지 
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고, 텍스트 상자에서 **Grafana**를 입력한 다음, **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor 메트릭 개요](../../azure-monitor/platform/data-collection.md)
+* [Azure Monitor 메트릭 개요](data-platform.md)
 

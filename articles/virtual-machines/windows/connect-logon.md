@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 136b9141ccccfedf8d37fa0832b0673495d82417
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284785"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846556"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법
 Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 머신에 연결한 다음 로그온합니다.
@@ -56,7 +56,9 @@ Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>PowerShell을 사용하여 가상 머신에 연결
 
-PowerShell를 사용 중이며 AzureRM 모듈이 설치되어 있는 경우 아래와 같이 `Get-AzRemoteDesktopFile` cmdlet을 사용하여 연결할 수도 있습니다.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+PowerShell를 사용 중 이며 Aure PowerShell 모듈이 설치 되어 있는 경우 사용 하 여 연결할 수도 있습니다는 `Get-AzRemoteDesktopFile` , 아래와 같이 cmdlet.
 
 이 예제에서는 위와 비슷한 프롬프트를 통해 RDP 연결을 즉시 시작합니다.
 

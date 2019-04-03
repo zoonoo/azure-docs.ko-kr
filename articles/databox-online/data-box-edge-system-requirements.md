@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401767"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884655"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 데이터 상자 가장자리에 대 한 시스템 요구 사항
 
@@ -86,10 +86,14 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) |   |
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             |   |
 
+### <a name="url-patterns-for-azure-government"></a>Azure Government에 대 한 URL 패턴
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>다음 단계
 
-- [Azure Data Box Edge 배포](data-box-Edge-deploy-prep.md)
+- [Azure 데이터 상자 Edge에 배포](data-box-edge-deploy-prep.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437108"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882432"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -133,11 +133,11 @@ ms.locfileid: "57437108"
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 
-* `fileUris`: (선택 사항 문자열 배열) 스크립트의 URI 목록
-* `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
-* `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
-* `storageAccountName`: (선택 사항, 문자열) 저장소 계정의 이름
-* `storageAccountKey`: (선택 사항, 문자열) 저장소 계정의 액세스 키
+* `fileUris`: (옵션, 문자열 배열) 스크립트의 uri 목록
+* `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True, DNS 확인을 사용 하지 않도록 설정 하려면 False로 설정 합니다.
+* `commandToExecute`: (옵션, 문자열) 실행할 진입점 스크립트
+* `storageAccountName`: (옵션, 문자열) 저장소 계정의 이름
+* `storageAccountKey`: (옵션, 문자열) 저장소 계정의 액세스 키
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 
@@ -296,8 +296,7 @@ az vm extension set
 
 1. 사용은 명령이 실행하기 시작할 때입니다.
 1. 다운로드는 fileUris에 지정된 스크립트 파일이 아니라 Azure의 CustomScript 확장 패키지의 다운로드에 관련됩니다.
-1. 데이터가 기록되는 로그 파일 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`을 확인할 수도 있습니다.
+1. 로그 파일에 작성 한 것을 확인할 수 있습니다. `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 다음 단계는 로그 파일 검사로 이동하는 것입니다. 다음과 같은 형식입니다.
 

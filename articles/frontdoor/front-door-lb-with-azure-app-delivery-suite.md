@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439029"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879662"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure 애플리케이션 배달 제품군을 통해 부하 분산
 
@@ -26,10 +26,10 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
 ![애플리케이션 배달 제품군 ][1]
  
 이러한 서비스는 두 가지 범주로 구분됩니다.
-1. **글로벌 부하 분산 서비스**(예: Traffic Manager 및 Front Door)는 최종 사용자의 트래픽을 지역 백 엔드, 클라우드 또는 하이브리드 온-프레미스 서비스 전체에 배포합니다. 글로벌 부하 분산은 트래픽을 가장 가까운 서비스 백 엔드로 라우팅하고, 서비스 안정성 또는 성능의 변화에 대응하여 사용자에게 항상 최고의 성능을 유지합니다. 
+1. **전역 부하 분산 서비스** Traffic Manager 및 첫 번째 관문 분산 최종 사용자 트래픽을 지역 백 엔드에 클라우드에서 또는 하이브리드도 온-프레미스 서비스와 같이 합니다. 글로벌 부하 분산은 트래픽을 가장 가까운 서비스 백 엔드로 라우팅하고, 서비스 안정성 또는 성능의 변화에 대응하여 사용자에게 항상 최고의 성능을 유지합니다. 
 2. **지역 부하 분산 서비스**(예: 표준 Load Balancer 또는 Application Gateway)는 한 지역 내의 VM(가상 머신) 또는 영역 서비스 엔드포인트 간의 VNET(가상 네트워크) 내에서 트래픽을 배포하는 기능을 제공합니다.
 
-애플리케이션에서 글로벌 서비스와 지역 서비스를 결합하면 성능 기준에 맞고 신뢰할 수 있는 안전한 종단 간 방법을 제공하여 사용자 간의 트래픽을 IaaS, PaaS 또는 온-프레미스 서비스로 라우팅할 수 있습니다. 다음 섹션에서는 이러한 각 서비스에 대해 설명합니다.
+응용 프로그램에서 전역 및 지역 서비스를 결합 IaaS, PaaS, 또는 온-프레미스 서비스는 종단 간 신뢰할 수 있는, 성능과 하 고 사용자의 트래픽 라우팅하는 데 대 한 보안 방법을 제공 합니다. 다음 섹션에서는 이러한 각 서비스에 대해 설명합니다.
 
 ## <a name="global-load-balancing"></a>전역 부하 분산
 **Traffic Manager**는 전역 DNS 부하 분산을 제공 합니다. 들어오는 DNS 요청을 보고, 고객이 선택한 라우팅 정책에 따라 정상적인 백 엔드를 통해 응답합니다. 라우팅 메서드의 옵션은 다음과 같습니다.
