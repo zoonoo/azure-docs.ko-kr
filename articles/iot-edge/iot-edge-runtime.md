@@ -32,7 +32,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에서 다음 기능을 수행합니�
 
 ![런타임은 인사이트 및 모듈 상태를 IoT Hub에 전달합니다.](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 런타임의 기능은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. *IoT Edge 에이전트*가 모듈을 배포하고 모니터링 하는 동안 *IoT Edge 허브*는 통신을 담당합니다.
+IoT Edge 런타임의 기능은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. *IoT Edge 에이전트*가 모듈을 배포하고 모니터링하는 동안 *IoT Edge 허브*는 통신을 담당합니다.
 
 IoT Edge 허브와 IoT Edge 에이전트는 모두 IoT Edge 디바이스에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
 
