@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729151"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369448"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -25,7 +25,7 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-account]을 만듭니다.
 
@@ -38,12 +38,12 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-acc
 **컨테이너 이름**, **컨테이너 이미지** 및 **리소스 그룹** 텍스트 상자에 다음 값을 입력합니다. 다른 값은 기본값으로 두고 **확인**을 선택합니다.
 
 * 컨테이너 이름: `mycontainer`
-* 컨테이너 이미지: `microsoft/aci-helloworld`
+* 컨테이너 이미지: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * 리소스 그룹: **새로 만들기** > `myResourceGroup`
 
 ![Azure Portal에서 새 컨테이너 인스턴스의 기본 설정 구성][aci-portal-03]
 
-이 빠른 시작의 경우 **공용**의 기본 설정을 그대로 유지하여 공개 `microsoft/aci-helloworld` 이미지를 배포합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
+이 빠른 시작의 경우 **공용**의 기본 설정을 그대로 유지하여 공개 Microsoft `aci-helloworld` 이미지를 배포합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
 
 **구성** 아래에서 컨테이너의 **DNS 이름 레이블**을 지정합니다. 이름은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 컨테이너는 `<dns-name-label>.<region>.azurecontainer.io`에서 공개적으로 연결할 수 있습니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
@@ -89,7 +89,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-acc
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 공용 Docker Hub 리포지토리의 이미지로 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 개인 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
+이 빠른 시작에서는 공용 Microsoft 이미지에서 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 개인 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)
