@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352088"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878029"
 ---
 # <a name="saas-fulfillment-api"></a>SaaS Fulfillment API
 
@@ -94,7 +94,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 |  --------   |  ---------------  |
 | ApiVersion  |  이 요청에 사용할 작업의 버전입니다.  |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -162,7 +162,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 | subscriptionId     |   해결 API를 통해 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자   |
 |  ApiVersion        |   이 요청에 사용할 작업의 버전   |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -226,7 +226,7 @@ Response Body:
 |  ---------------   |  ---------------  |
 |  ApiVersion        |   이 요청에 사용할 작업의 버전  |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -275,7 +275,7 @@ Response Body:
 
 영구 리소스 id입니다. marketplace 토큰을 확인 하면 해결 끝점 리소스 ID는 SAAS 구독의 고유 식별자입니다.  사용자가 ISV의 웹 사이트로 리디렉션되면 URL에 쿼리 매개 변수의 토큰이 포함됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다. 
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+**올리기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
 
 *쿼리 매개 변수:*
 
@@ -283,7 +283,7 @@ Response Body:
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전  |
 
-*요청 헤더:*
+*헤더 요청:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -333,7 +333,7 @@ Response body:
 
 #### <a name="activate-a-subscription"></a>구독 활성화
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
+**올리기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
 
 *쿼리 매개 변수:*
 
@@ -342,7 +342,7 @@ Response body:
 |  ApiVersion        |  이 요청에 사용할 작업의 버전  |
 | subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자  |
 
-*요청 헤더:*
+*헤더 요청:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -390,7 +390,7 @@ Response body:
 
 업데이트 하거나 제공 된 값을 사용 하 여 구독 계획을 변경 합니다.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+**패치 합니다.<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
 
 *쿼리 매개 변수:*
 
@@ -399,7 +399,7 @@ Response body:
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
 | subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -418,7 +418,7 @@ Request Body:
 }
 ```
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -466,7 +466,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
 | subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
-*요청 헤더:*
+*헤더 요청:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -511,7 +511,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 제공 된 값을 사용 하 여 구독을 업데이트 합니다.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**패치 합니다.<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
 
 *쿼리 매개 변수:*
 
@@ -521,7 +521,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 | subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 |  operationId       | 완료 중인 작업입니다. |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -581,7 +581,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |    ApiVersion                |   이 요청에 사용할 작업의 버전입니다.                |
 | subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
-*요청 헤더:*
+*헤더 요청:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
@@ -644,11 +644,11 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
 
-*요청 헤더:*
+*헤더 요청:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  콘텐츠 형식      |  ` application/json`   |
+|  콘텐츠 형식      |  `application/json`   |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
 |  권한 부여     | JWT(JSON Web Token) 전달자 토큰입니다.  |

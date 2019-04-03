@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d0fbabdae9b560a882bd4681eb9e681fd2a0398a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101773"
 documentType: LandingData
 title: Azure Monitor 설명서
 metadata:
@@ -21,124 +15,124 @@ metadata:
 abstract:
   description: 이제 Log Analytics 및 Application Insights가 포함된 Azure Monitor는 클라우드 및 온-프레미스 리소스와 애플리케이션의 성능 및 가용성을 최대화할 수 있는 원격 분석 데이터를 수집하고 분석하기 위한 정교한 도구를 제공합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
 sections:
-- title: 추천 콘텐츠
-  items:
-  - type: paragraph
-    text: 다음 링크를 사용하여 Log Analytics 및 Application Insights에 대한 추천 콘텐츠 목록을 확인하세요.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+  - title: 추천 콘텐츠
     items:
-    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
-    - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Azure 리소스에서 수집된 메트릭 및 로그를 수집하고 분석하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 다음 링크를 사용하여 Log Analytics 및 Application Insights에 대한 추천 콘텐츠 목록을 확인하세요.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
+          - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/Chart.svg
-      text: 메트릭 모니터링
-      href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
-    - image:
-        src: /azure/azure-monitor/media/index/log-analytics.svg
-      text: 로그 분석
-      href: /azure/log-analytics/query-language/get-started-analytics-portal
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
-      text: Azure VM
-      href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: Linux 컴퓨터
-      href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows 컴퓨터
-      href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-    - image:
-        src: https://docs.microsoft.com/media/common/i_alert.svg
-      text: 구독 감사 및 경고
-      href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
-  - type: paragraph
-    text: Azure Monitor Application Insights를 사용하여 애플리케이션 모니터링을 시작하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: Azure 리소스에서 수집된 메트릭 및 로그를 수집하고 분석하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/Chart.svg'
+            text: 메트릭 모니터링
+            href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
+          - image:
+              src: /azure/azure-monitor/media/index/log-analytics.svg
+            text: 로그 분석
+            href: /azure/log-analytics/query-language/get-started-analytics-portal
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/virtualmachine.svg'
+            text: Azure VM
+            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Linux 컴퓨터
+            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Windows 컴퓨터
+            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_alert.svg'
+            text: 구독 감사 및 경고
+            href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
+      - type: paragraph
+        text: Azure Monitor Application Insights를 사용하여 애플리케이션 모니터링을 시작하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/dotnet.svg'
+            text: .NET
+            href: /azure/application-insights/quick-monitor-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
+            text: .NET Core
+            href: /azure/application-insights/app-insights-dotnetcore-quick-start
+          - image:
+              src: 'https://docs.microsoft.com/media/common/nodejs.svg'
+            text: Node.js
+            href: /azure/application-insights/app-insights-nodejs-quick-start
+          - image:
+              src: 'https://docs.microsoft.com/media/common/java.svg'
+            text: 자바
+            href: /azure/application-insights/app-insights-java-quick-start
+          - image:
+              src: /azure/application-insights/media/index/mobile-center.png
+            text: 모바일
+            href: /azure/application-insights/app-insights-mobile-center-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_web-color.svg'
+            text: Website
+            href: /azure/application-insights/app-insights-website-monitoring
+  - title: 단계별 자습서
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/dotnet.svg
-      text: .NET
-      href: /azure/application-insights/quick-monitor-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
-      text: .NET Core
-      href: /azure/application-insights/app-insights-dotnetcore-quick-start
-    - image:
-        src: https://docs.microsoft.com/media/common/nodejs.svg
-      text: Node.js
-      href: /azure/application-insights/app-insights-nodejs-quick-start
-    - image:
-        src: https://docs.microsoft.com/media/common/java.svg
-      text: 자바
-      href: /azure/application-insights/app-insights-java-quick-start
-    - image:
-        src: /azure/application-insights/media/index/mobile-center.png
-      text: 모바일
-      href: /azure/application-insights/app-insights-mobile-center-quickstart
-    - image:
-        src: https://docs.microsoft.com/media/common/i_web-color.svg
-      text: Website
-      href: /azure/application-insights/app-insights-website-monitoring
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: 수집된 데이터 작업을 분석, 시각화 및 수행하는 방법을 알아봅니다.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: '수집된 데이터 작업을 분석, 시각화 및 수행하는 방법을 알아봅니다.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">수집된 데이터 보기 또는 분석</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">대시보드 만들기 및 공유</a>
+          - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">일정 또는 애플리케이션 성능에 기반한 자동 크기 조정</a>
+          - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">모니터링 데이터 보관</a>
+      - type: paragraph
+        text: 웹 애플리케이션의 성능과 사용을 지속적으로 향상시키는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/application-insights/app-insights-tutorial-runtime-exceptions">런타임 예외 찾기 및 진단</a>
+          - html: <a href="/azure/application-insights/app-insights-tutorial-performance">성능 문제 찾기 및 진단</a>
+          - html: <a href="/azure/application-insights/app-insights-tutorial-alert">애플리케이션 상태에 대한 모니터링 및 경고</a>
+          - html: <a href="/azure/application-insights/app-insights-tutorial-users">고객 사용 및 정보 분석</a>
+          - html: <a href="/azure/application-insights/app-insights-tutorial-dashboards">사용자 지정 KPI 대시보드 만들기</a>
+  - title: 무료 Pluralsight 동영상 교육
     items:
-    - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">수집된 데이터 보기 또는 분석</a>
-    - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">대시보드 만들기 및 공유</a>
-    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">일정 또는 애플리케이션 성능에 기반한 자동 크기 조정</a>
-    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">모니터링 데이터 보관</a>
-  - type: paragraph
-    text: 웹 애플리케이션의 성능과 사용을 지속적으로 향상시키는 방법을 알아봅니다.
-  - type: list
-    style: ordered
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure 관리자
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+  - title: 샘플
     items:
-    - html: <a href="/azure/application-insights/app-insights-tutorial-runtime-exceptions">런타임 예외 찾기 및 진단</a>
-    - html: <a href="/azure/application-insights/app-insights-tutorial-performance">성능 문제 찾기 및 진단</a>
-    - html: <a href="/azure/application-insights/app-insights-tutorial-alert">애플리케이션 상태에 대한 모니터링 및 경고</a>
-    - html: <a href="/azure/application-insights/app-insights-tutorial-users">고객 사용 및 정보 분석</a>
-    - html: <a href="/azure/application-insights/app-insights-tutorial-dashboards">사용자 지정 KPI 대시보드 만들기</a>
-- title: 무료 Pluralsight 동영상 교육
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 다음 예제를 사용하여 Log Analytics를 구성하고 관리합니다.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+  - title: 참고 자료
     items:
-    - title: Azure 관리자
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 다음 예제를 사용하여 Log Analytics를 구성하고 관리합니다.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 명령줄
-      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/loganalytics">REST API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/powershell/module/az.operationalinsights">Azure PowerShell</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/loganalytics">REST API 참조</a></p>

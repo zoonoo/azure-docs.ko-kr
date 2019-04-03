@@ -63,6 +63,8 @@ items:
     - name: 엔터프라이즈 보안 개요
       displayName: authorization authentication encryption
       href: concept-enterprise-security.md
+    - name: 사용자 및 역할 관리
+      href: how-to-assign-roles.md
     - name: 가상 네트워크 사용
       displayName: vnet
       href: how-to-enable-virtual-network.md
@@ -76,8 +78,6 @@ items:
       href: how-to-manage-workspace.md
     - name: Resource Manager 템플릿 사용
       href: how-to-create-workspace-template.md
-    - name: 사용자 및 역할 관리
-      href: how-to-assign-roles.md
   - name: 개발 환경 설정 
     items:
     - name: 개발 환경 구성
@@ -201,9 +201,9 @@ items:
   - name: ML 제품 비교
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 52bc0220f3eb2fa28d344f68fe86310eabeee47c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 4b38742208ad88b8dd1eeff8cce0d0055294ec12
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540383"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862933"

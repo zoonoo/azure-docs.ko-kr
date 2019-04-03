@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 09ccc938f6b09b9f0d5c5849770fe8b49b4b0e55
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 34f207b3c82ada0cb20152bb71ae900f5de132cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541192"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878318"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "58541192"
 ## <a name="list-of-errors"></a>오류 목록
 - **[Azure 리소스 할당량 문제(오류 코드 150097)](#azure-resource-quota-issues-error-code-150097)** 
 - **[신뢰할 수 있는 루트 인증서(오류 코드 151066)](#trusted-root-certificates-error-code-151066)** 
-- **[Site Recovery용 아웃바운드 연결(오류 코드 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
+- **[Site Recovery (오류 코드 151195)에 대 한 아웃 바운드 연결](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 리소스 할당량 문제(오류 코드 150097)
 재해 복구 지역으로 사용할 대상 위치에 Azure VM을 만들려면 구독이 사용되도록 설정되어 있어야 합니다. 또한 구독은 특정 크기의 VM을 만들 수 있도록 할당량이 충분해야 합니다. 기본적으로 Site Recovery는 대상 VM에 대해 원본 VM과 동일한 크기를 선택합니다. 일치하는 크기를 사용할 수 없는 경우 가능한 가장 근접한 크기가 자동으로 선택됩니다. 원본 VM 구성을 지원하는 일치하는 크기가 없는 경우 다음 오류 메시지가 나타납니다.
@@ -185,7 +185,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
   - Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 액세스할 수 있어야 합니다. 가상 머신에서 필요한 ip 범위에 액세스할 수 있는지 확인합니다.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과할 때 A2A 복제가 실패했습니다(151072).
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽은 온-프레미스 프록시 서버 (151072)를 통해 A2A 복제가 실패 했습니다.
 - **가능한 원인** </br>
   - 사용자 지정 프록시 설정이 유효하지 않으며 ASR Mobility Service 에이전트가 IE에서 프록시 설정을 자동으로 검색하지 않았습니다.
 
@@ -193,8 +193,8 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 - **해결 방법**
   1. Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
   2. ASR Mobility Service에 대해서만 프록시를 설정하려는 경우 다음 위치에 있는 ProxyInfo.conf에서 프록시 세부 정보를 제공할 수 있습니다.</br>
-     - ***Linux***에서 ``/usr/local/InMage/config/``
-     - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
+     - ``/usr/local/InMage/config/`` on ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
   3. ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
@@ -224,13 +224,13 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
 
- **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
+ **원인 1:  리소스 그룹 및 원본 가상 머신과 다른 위치에 있습니다.** <br>
 현재 Azure Site Recovery에서는 원본 지역 리소스 그룹과 가상 머신이 같은 위치에 있어야 합니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다.
 
-**원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
+**원인 2: 리소스 그룹이 선택한 구독에 속하지 않습니다.** <br>
 제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
 
- **원인 3: 부실 구성** <br>
+ **원인 3: 오래 된 구성** <br>
 복제를 사용하려는 VM이 보이지 않는 경우 Azure VM에 남아 있는 부실한 Site Recovery 구성이 그 원인일 수 있습니다. 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
 
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
@@ -245,9 +245,9 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 [부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음 
- **원인 1:  가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
+ **원인 1:  가상 컴퓨터에 설치 실패 또는 응답 하지 않는 상태의 일부 확장** <br>
  [가상 머신] > [설정] > [확장]으로 이동하여 실패한 상태의 확장자가 있는지 확인합니다. 실패한 확장을 제거하고 가상 머신 보호를 다시 시도합니다.<br>
- **원인 2:  [VM의 프로비저닝 상태가 잘못됨](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **원인 2:  [VM의 프로 비전 상태가 올바르지 않습니다.](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM의 프로비전 상태가 잘못되었습니다(오류 코드 150019).
 
@@ -266,12 +266,12 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>대상 가상 네트워크를 선택할 수 없음 - [네트워크 선택] 탭이 회색으로 표시됩니다.
 
-**원인 1: VM이 '대상 네트워크'에 이미 매핑된 네트워크에 연결된 경우**
+**원인 1: 경우에 VM '대상 네트워크'에 이미 매핑된 네트워크에 연결 됩니다.**
 - 원본 VM이 가상 네트워크의 일부이고 동일한 가상 네트워크의 다른 VM이 대상 리소스 그룹의 네트워크와 이미 매핑되어 있으면 기본적으로 네트워크 선택 드롭다운이 비활성화됩니다.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**원인 2: 이전에 Azure Site Recovery를 사용하여 VM을 보호했고 복제를 사용하지 않도록 설정한 경우**
+**원인 2: 이전에 Azure Site Recovery를 사용 하 여 VM을 보호 하 고 복제를 사용 하지 않도록 설정 했습니다.**
  - VM의 복제를 사용하지 않도록 설정하면 네트워크 매핑을 삭제하지 않습니다. VM이 보호되었던 복구 서비스 자격 증명 모음에서 삭제되어야 합니다. </br>
  [복구 서비스 자격 증명 모음] > [Site Recovery 인프라] > [네트워크 매핑]으로 이동합니다. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)

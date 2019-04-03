@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56736960"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
@@ -72,8 +72,8 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 
 모든 트리거와 바인딩은 [function.json](./functions-reference.md) 파일에 `direction` 속성이 있습니다.
 
-- 트리거의 경우 방향은 언제나 `in`입니다
-- 입력 및 출력 바인딩은 `in`과 `out`을 사용합니다
+- 트리거의 경우 방향은 언제나 `in`
+- 입력 및 출력 바인딩을 사용 하 여 `in` 및 `out`
 - 일부 바인딩은 특수 방향인 `inout`을 사용합니다. 사용 하는 경우 `inout`만 합니다 **고급 편집기** 를 통해 사용할 수는 **통합** 포털의 탭 합니다.
 
 [클래스 라이브러리의 특성](functions-dotnet-class-library.md)을 사용하여 트리거 및 바인딩을 구성하는 경우 방향은 특성 생성자에서 제공되거나 매개 변수 형식에서 유추됩니다.
