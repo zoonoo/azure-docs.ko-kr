@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651493"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886100"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -149,7 +149,7 @@ output Result auto from Hidden all;
 
 현재 다음 5가지 연결 번들이 지원됩니다.
 
-+ **전체** 번들 - 키워드 `all`로 나타냅니다.
++ **전체** 번들-키워드 `all`
 + **필터링된** 번들 - 키워드 `where`로 나타내고 조건자 식이 뒤따릅니다.
 + **나선형** 번들 - 키워드 `convolve`로 나타내고 나선 특성이 뒤따릅니다.
 + **풀링** 번들 - 키워드 **max pool** 또는 **mean pool**로 나타냅니다.
@@ -450,14 +450,15 @@ output Digit [10] from Hid3 all;
 + 키워드 `convolve`는 `Conv1` 및 `Conv2`라는 계층이 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
 + 네트워크에는 두 번째 숨겨진 계층인 `Conv2`에 완전히 연결된 세 번째 숨겨진 계층인 `Hid3`이 있습니다.
 + `Digit` 출력 계층은 세 번째 계층인 `Hid3`에만 연결됩니다. 키워드 `all`은 출력 계층이 `Hid3`에 완전히 연결되었음을 나타냅니다.
-+ 나선 인자 수는 3이며, `InputShape`, `KernelShape`, `Stride, and `Sharing` 튜플의 길이입니다.
++ 나선 인자는 3: 튜플의 길이 `InputShape`, `KernelShape`를 `Stride`, 및 `Sharing`합니다.
 + 커널당 가중치 수는 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`입니다. 또는 `26 * 50 = 1300`입니다.
 + 다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5`
+    `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
-+ 총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`와 같이 계산할 수 있습니다.
++ 계층의 선언 된 차원인을 사용 하 여 총 노드 수를 계산할 수 있습니다 [50, 5, 5]를 다음과 같이 합니다. `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + `Sharing[d]`가 `d == 0`에 대해서만 False이므로 커널 수는 `MapCount * NodeCount\[0] = 10 * 5 = 50`입니다.
 
 ## <a name="acknowledgements"></a>승인

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791526"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882793"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -163,7 +163,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 >[!NOTE]
 >사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 애플리케이션에 할당해야 합니다.  이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
->정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 애플리케이션에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
+>정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  먼저 사용 해야 경우 이렇게 하는 PowerShell에서, `New-AzureADPolicy` 다음으로 응용 프로그램에 할당 하 고 `Set-AzureADServicePrincipalPolicy`입니다.  자세한 내용은 [Azure AD 정책 설명서](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
 
 ### <a name="optional---use-a-custom-claim"></a>선택 사항 - 사용자 지정 클레임 사용
 애플리케이션에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 애플리케이션에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
@@ -182,6 +182,6 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD에 대한 PingAccess 구성(영문)](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
+- [Azure AD 용 PingAccess 구성](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Azure AD 애플리케이션 프록시에서 Single Sign-On을 제공하는 방법](application-proxy-single-sign-on.md)
 - [애플리케이션 프록시 문제 해결](application-proxy-troubleshoot.md)

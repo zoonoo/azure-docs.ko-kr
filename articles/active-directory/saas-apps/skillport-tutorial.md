@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0facd15d8bc0701448707f48b5a1e93fe3ac592c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200731"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>자습서: Skillport와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Skillport와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Skillport 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -58,13 +58,13 @@ Skillport와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 ## <a name="adding-skillport-from-the-gallery"></a>갤러리에서 Skillport 추가
 Skillport의 Azure AD 통합을 구성하려면 갤러리의 Skillport를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Skillport를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Skillport를 추가 하려면 다음 단계를 수행 합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -99,7 +99,7 @@ Skillport에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Skillport 애플리케이션에서 Single Sign-On을 구성합니다.
 
-**Skillport에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**Skillport와 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.**
 
 1. Azure Portal의 **Skillport** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
@@ -127,7 +127,7 @@ Skillport에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     다. **회신 URL** 텍스트 상자에 URL을 입력합니다.
     
-      EU 데이터 센터: ` https://adfs.skillport.eu/adfs/ls/`
+      EU 데이터 센터: `https://adfs.skillport.eu/adfs/ls/`
     
       미국 데이터 센터: `https://sso.skillport.com/sp/ACS.saml2`
  
@@ -146,7 +146,7 @@ Skillport에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ![Azure AD 사용자 만들기][100]
 
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+**Azure ad에서 테스트 사용자를 만들려면 다음 단계를 수행 합니다.**
 
 1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -182,7 +182,7 @@ Skillport 테스트 사용자를 만들려면 최종 사용자의 요구 사항�
 
 ![사용자 할당][200] 
 
-**Britta Simon을 Skillport에 할당하려면 다음 단계를 수행합니다.**
+**Britta Simon을 Skillport에 할당 하려면 다음 단계를 수행 합니다.**
 
 1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
@@ -216,7 +216,7 @@ Skillport 테스트 사용자를 만들려면 최종 사용자의 요구 사항�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 
 

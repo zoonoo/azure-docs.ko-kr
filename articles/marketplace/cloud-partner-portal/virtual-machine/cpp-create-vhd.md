@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096574"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883686"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Azure 호환 VHD 만들기
 
 이 문서에서는 Azure Marketplace에서 VM(가상 머신) 제안용 VHD(가상 하드 디스크)를 만드는 데 필요한 단계에 대해 자세히 설명합니다.  RDP(원격 데스크톱 프로토콜) 사용, VM 크기 선택, 최신 Windows 업데이트 설치 및 VHD 이미지 일반화와 같은 다양한 측면에 대한 모범 사례도 포함되어 있습니다.  다음 섹션에서는 주로 Windows 기반 VHD에 중점을 두고 있습니다. Linux 기반 VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 배포판의 Linux](../../../virtual-machines/linux/endorsed-distros.md)를 참조하세요. 
 
 > [!WARNING]
-> Azure를 사용하여 미리 구성된 보증 운영 체제가 포함된 VM을 만들려면 이 항목의 지침을 따르는 것이 좋습니다.  솔루션과 호환되지 않는 경우 승인된 운영 체제를 사용하여 온-프레미스 VM을 만들고 구성할 수 있습니다.  그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
+> Azure를 사용하여 미리 구성된 보증 운영 체제가 포함된 VM을 만들려면 이 항목의 지침을 따르는 것이 좋습니다.  솔루션을 사용 하 여 호환 되지 않으면 다음 있기을 만들고 승인 된 운영 체제를 사용 하 여 온-프레미스 VM을 구성 합니다.  그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
 
 
 ## <a name="select-an-approved-base"></a>승인된 기본 이미지 선택

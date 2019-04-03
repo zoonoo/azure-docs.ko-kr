@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888771"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887001"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>SharePoint 2010에서 SharePoint 2013으로 업그레이드한 다음 SharePoint용 StorSomple 어댑터 설치
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55888771"
 > 다음과 같은 이유로 계획된 유지 관리 기간 동안 이 업그레이드가 발생하도록 예약해야 합니다.
 > 
 > * 어댑터를 다시 설치할 때까지 이전에 구체화된 콘텐츠를 사용할 수 없습니다.
-> * 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 디바이스로 이동해야 합니다. 또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용하여 콘텐츠를 마이그레이션할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요. 
+> * 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 디바이스로 이동해야 합니다. Microsoft에서는 `RBS Migrate()` SharePoint 콘텐츠 마이그레이션에 포함 된 PowerShell cmdlet. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요. 
 > 
 > 
 

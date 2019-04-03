@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319883"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877809"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Java 및 IntelliJ(미리 보기)를 사용하여 첫 번째 Azure 함수 만들기
-
-> [!NOTE]
-> Azure Functions용 Java는 현재 미리 보기로 제공되고 있습니다.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
 이 문서에서는 다음을 안내합니다.
 - IntelliJ IDEA 및 Apache Maven을 사용하여 [서버리스](https://azure.microsoft.com/overview/serverless-computing/) 함수 프로젝트를 만드는 방법
@@ -55,8 +52,8 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 1. **Archetype 추가** 창에서 다음과 같이 필드를 완성합니다.
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _버전_: [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![IntelliJ IDEA의 archetype에서 Maven 프로젝트 만들기](media/functions-create-first-java-intellij/functions-create-intellij.png)의 최신 버전을 사용합니다.  
+    - _버전_: 최신 버전을 사용 하 여 [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![IntelliJ IDEA에서 원형에서 Maven 프로젝트 만들기](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. **확인**을 선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
@@ -71,7 +68,7 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 1. **Maven 프로젝트** 도구 모음을 엽니다.
 1. **수명 주기**를 확장하고 **패키지**를 엽니다. 새로 만든 대상 디렉터리에 솔루션이 빌드 및 패키징됩니다.
 1. **플러그 인** > **azure-functions**를 확장하고 **azure-functions:run**을 열어 Azure Functions 로컬 런타임을 시작합니다.  
-  ![Azure Functions에 대한 Maven 도구 모음](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Azure Functions에 대 한 maven 도구 모음](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. 함수 테스트를 완료했으면 실행 대화 상자를 닫습니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 

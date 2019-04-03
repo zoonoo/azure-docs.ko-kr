@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995122"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883720"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
@@ -292,7 +292,7 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
     프로젝션에는 각 창의 끝에 대한 타임스탬프를 반환하는 `System.Timestamp`가 포함됩니다. 
 
-    연속 창을 사용할 것인지를 지정하려면 `GROUP BY `절에 [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) 함수를 사용합니다. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서 연속 창은 5초 간격으로 구성되므로 5초 분량의 호출에 대한 국가별 개수를 가져옵니다.
+    연속 창을 사용할 것인지를 지정 하려면 사용 합니다 [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) 함수는 `GROUP BY` 절. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서 연속 창은 5초 간격으로 구성되므로 5초 분량의 호출에 대한 국가별 개수를 가져옵니다.
 
 2. **테스트**를 다시 클릭합니다. 결과에서 **WindowEnd** 아래 타임스탬프가 5초 단위로 증가하는 것을 알 수 있습니다.
 
@@ -416,6 +416,6 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 일반적인 Stream Analytics에 대한 자세한 내용은 다음 문서를 살펴보세요.
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

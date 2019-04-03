@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438056"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885607"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
 특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
@@ -85,7 +85,7 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 
  URL에서 안전하지 않은 문자 및 예약된 문자를 모두 인코딩하세요. 예를 들어, '#'은 URL에서 조각/앵커 식별자이므로 안전하지 않은 문자입니다. 이 문자는 URL에서 사용할 경우 `%23`으로 인코딩해야 합니다. '&' 및 '='는 매개 변수를 구분하고 Azure Search에서 값을 지정하므로 예약된 문자의 예입니다. 자세한 내용은 [RFC1738: URL(Uniform Resource Locator)](https://www.ietf.org/rfc/rfc1738.txt)을 참조하세요.
 
- 안전하지 않은 문자는 ``" ` < > # % { } | \ ^ ~ [ ] ``입니다. 예약된 문자는 `; / ? : @ = + &`입니다.
+ 안전하지 않은 문자는 ``" ` < > # % { } | \ ^ ~ [ ]``입니다. 예약된 문자는 `; / ? : @ = + &`입니다.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>우선 순위 연산자: 그룹화 및 필드 그룹화  
  괄호를 사용(괄호문 내에 연산자를 포함)하여 하위 쿼리를 만들 수 있습니다. 예를 들어, `motel+(wifi||luxury)`는 용어 motel과 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다.|
@@ -168,5 +168,5 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 ## <a name="see-also"></a>참고 항목  
 
 + [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   
++ [필터 및 정렬에 대 한 OData 식 구문](query-odata-filter-orderby-syntax.md)   
 + [Azure Search의 단순 쿼리 구문](query-simple-syntax.md)   

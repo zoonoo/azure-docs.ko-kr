@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805400"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862950"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -52,9 +52,9 @@ Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩�
 > [!NOTE]
 > 서비스에 제대로 보고하려면 업데이트 관리를 수행할 때 특정 URL 및 포트가 사용되도록 설정되어야 합니다. 이러한 요구 사항에 대한 자세한 내용은 [Hybrid Worker에 대한 네트워크 계획](automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
 
-예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다. 
+예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다.
 
-예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다.
+예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이 기간에는 유지 관리 기간을 이라고 합니다. 유지 관리 기간이 10 분 동안 다시 부팅 해야 하 고 적절 한 다시 부팅 옵션을 선택한 경우 다시 부팅 예약 되어 있습니다. 예상 보다 오래 걸리는 패치 및 유지 관리 기간에 10 분 이내에 다시 부팅이 발생 하지 않습니다.
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 각 에이전트에서 하위 Runbook을 시작하여 필수 업데이트를 설치합니다.
 
@@ -134,10 +134,10 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 시스템 패치를 시작하려면 업데이트 관리 솔루션을 사용하도록 설정해야 합니다. 다양한 방법으로 업데이트 관리에 컴퓨터를 등록할 수 있습니다. 아래에는 권장/지원되는 솔루션 등록 방법이 나와 있습니다.
 
-* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
-* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
-* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
-* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
+* [가상 컴퓨터에서](automation-onboard-solutions-from-vm.md)
+* [여러 컴퓨터를 검색 합니다.](automation-onboard-solutions-from-browse.md)
+* [Automation 계정에서](automation-onboard-solutions-from-automation-account.md)
+* [Azure Automation runbook을 사용 하 여](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 

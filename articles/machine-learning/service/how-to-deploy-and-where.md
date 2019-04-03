@@ -1,5 +1,5 @@
 ---
-title: 모델을 웹 서비스로 배포
+title: 방법 및 모델을 배포할 수 있는 위치
 titleSuffix: Azure Machine Learning service
 description: 다음을 포함하는 Azure Machine Learning 서비스 모델을 배포하는 방법 및 위치를 알아봅니다. Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 Field-Programmable Gate Array
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622130"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878301"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
-Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다 하는 여러 방법을 제공 합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다.
+이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다. 
 
-모델은 다음과 같은 계산 대상에 배포할 수 있습니다.
+## <a name="compute-targets-for-deployment"></a>배포에 대 한 목표를 계산 합니다.
+
+다음 위치에 학습 된 모델을 배포 하는 Azure Machine Learning SDK를 사용 합니다.
 
 | 계산 대상 | 배포 유형 | 설명 |
 | ----- | ----- | ----- |
@@ -31,6 +33,8 @@ Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다
 | [ACI(Azure Container Instances)](#aci) | 테스트 | 개발 또는 테스트에 적합합니다. **프로덕션 워크 로드에 적합 하지 않습니다.** |
 | [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
 | [FPGA(Field-programmable Gate Array)](#fpga) | (미리 보기) 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
+
+## <a name="deployment-workflow"></a>배포 워크플로
 
 모델을 배포하는 프로세스는 모든 컴퓨팅 대상에서 유사합니다.
 
@@ -46,7 +50,7 @@ Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites-for-deployment"></a>배포 필수 구성 요소
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -585,7 +589,7 @@ Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge �
 
 장치를 등록 하는 다른 방법은 다음과 같습니다.
 
-* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
@@ -609,11 +613,11 @@ Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge �
 
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
-* [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
-* [일괄 처리 예측 실행 방법](how-to-run-batch-predictions.md)
+* [ML 모델을 웹 서비스로 배포 사용](how-to-consume-web-service.md)
+* [일괄 처리 예측을 실행 하는 방법](how-to-run-batch-predictions.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
-* [Azure Machine Learning Service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)
-* [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
+* [Azure Machine Learning 서비스 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning 서비스를 사용 하 여 Azure Virtual Network를 사용 하 여](how-to-enable-virtual-network.md)
+* [추천 시스템을 구축 하기 위한 모범 사례](https://github.com/Microsoft/Recommenders)
 * [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

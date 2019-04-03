@@ -1,33 +1,24 @@
 ---
-title: 스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정 - Azure
+title: 스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 description: '스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 추가 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다.'
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/02/2019
+ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361696"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885573"
 ---
-# <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 
 Azure HDInsight는 사용자 지정 스크립트를 호출하여 클러스터를 사용자 지정하는 **스크립트 동작**이라는 구성 메서드를 제공합니다. 이러한 스크립트는 추가 구성 요소를 설치하고 구성 설정을 변경하는 데 사용합니다. 스크립트 작업은 클러스터를 만드는 중이거나 만든 후에 사용할 수 있습니다.
 
-> [!IMPORTANT]  
-> 이미 실행 중인 클러스터에 스크립트 작업을 사용하는 기능은 Linux 기반 HDInsight 클러스터에만 제공됩니다.
->
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight Windows 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다. HDInsight 애플리케이션에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>권한
 
@@ -154,7 +145,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 스크립트�
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| 이름 | 스크립트 |
+| name | 스크립트 |
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
@@ -186,7 +177,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-    | 이름 |스크립트 작업의 이름을 지정합니다. |
+    | name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -219,13 +210,15 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 템플릿을 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 동작 사용
 
-이 섹션을 사용 하 여는 [추가 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet는 클러스터를 사용자 지정 스크립트를 호출 합니다. 시작하기 전에 Azure PowerShell을 설치하고 구성해야 합니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)를 참조하세요.
+이 섹션을 사용 하 여는 [추가 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet는 클러스터를 사용자 지정 스크립트를 호출 합니다. 시작하기 전에 Azure PowerShell을 설치하고 구성해야 합니다. 다음 PowerShell 명령을 사용 하려면 필요 합니다 [AZ 모듈](https://docs.microsoft.com/powershell/azure/overview)합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 다음 스크립트에서는 PowerShell을 사용하여 클러스터를 만들 때 스크립트 동작을 적용하는 방법을 보여 줍니다.
 
@@ -266,7 +259,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-    | 이름 |스크립트 작업의 이름을 지정합니다. |
+    | name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -277,7 +270,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Azure PowerShell에서 실행 중인 클러스터에 스크립트 동작 적용
 
-시작하기 전에 Azure PowerShell을 설치하고 구성해야 합니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)를 참조하세요.
+다음 PowerShell 명령을 사용 하려면 필요 합니다 [AZ 모듈](https://docs.microsoft.com/powershell/azure/overview)합니다.
 
 다음 예제에서는 스크립트 동작을 실행 중인 클러스터에 적용하는 방법을 보여 줍니다.
 
@@ -376,7 +369,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 | `Remove-AzHDInsightPersistedScriptAction` |지속형 스크립트 동작을 임시 스크립트 동작으로 강등합니다. |
 
 > [!IMPORTANT]  
-> `Remove-AzHDInsightPersistedScriptAction`은 스크립트에서 수행한 동작을 실행 취소하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
+> `Remove-AzHDInsightPersistedScriptAction` 스크립트에서 수행한 작업을 취소 하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
 
 다음 예제 스크립트에서는 cmdlet을 사용하여 스크립트를 승격한 다음, 강등하는 방법을 보여 줍니다.
 
@@ -394,7 +387,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |지속형 스크립트 동작을 임시 스크립트 동작으로 강등합니다. |
 
 > [!IMPORTANT]  
-> `azure hdinsight script-action persisted delete`은 스크립트에서 수행한 동작을 실행 취소하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
+> `azure hdinsight script-action persisted delete` 스크립트에서 수행한 작업을 취소 하지 않습니다. 이 cmdlet만 지속된 플래그를 제거합니다.
 
 ### <a name="the-hdinsight-net-sdk"></a>HDInsight .NET SDK
 
@@ -464,7 +457,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 
-    * **헤드 노드**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **헤드 노드에**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
     * **작업자 노드**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
@@ -524,8 +517,8 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight용 스크립트 동작 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
-* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [설치 하 고 HDInsight 클러스터에서 Apache Giraph를 사용 합니다.](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"

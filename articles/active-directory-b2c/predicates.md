@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737028"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881004"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -194,7 +194,7 @@ ms.locfileid: "56737028"
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
 - **Uppercase**(`IncludesCharacters` 메서드 사용)는 암호가 대문자를 포함하는지 유효성을 검사합니다.
 - **Number**(`IncludesCharacters` 메서드 사용)는 암호가 숫자를 포함하는지 유효성을 검사합니다.
-- **Symbol**(`IncludesCharacters` 메서드 사용)은 암호가 `@#$%^&*\-_+=[]{}|\:',?/~"();!` 기호를 포함하는지 유효성을 검사합니다.
+- **기호** 를 사용 하 여 `IncludesCharacters` 메서드 암호 다음 기호 중 하나 포함 되어 있는지를 확인 `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN**(`MatchesRegex` 메서드 사용)은 암호가 숫자만 포함하는지 유효성을 검사합니다.
 - **AllowedAADCharacters**(`MatchesRegex` 메서드 사용)는 잘못된 문자를 포함하는 암호를 입력했는지 유효성을 검사합니다.
 - **DisallowedWhitespace**(`MatchesRegex` 메서드 사용)는 암호가 공백 문자로 시작하거나 끝나지 않는지 유효성을 검사합니다.
@@ -356,7 +356,8 @@ ms.locfileid: "56737028"
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange">
+    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

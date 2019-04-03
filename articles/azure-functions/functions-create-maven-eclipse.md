@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167548"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881429"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Java 및 Eclipse를 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
-
-> [!NOTE] 
-> Azure Functions용 Java는 현재 미리 보기로 제공되고 있습니다.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Java 및 Eclipse를 사용 하 여 첫 번째 함수 만들기 
 
 이 문서에서는 Eclipse IDE 및 Apache Maven을 통해 [서버리스](https://azure.microsoft.com/solutions/serverless/) 함수 프로젝트를 만들고, 테스트 및 디버그한 다음, Azure Functions에 배포하는 방법을 보여줍니다. 
 
@@ -52,8 +49,8 @@ Azure Functions를 실행 및 디버그하기 위한 로컬 환경을 제공하�
 1. **Add Archetype**을 선택하고 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)에 대한 항목을 추가합니다.
     - Archetype Group ID: com.microsoft.azure
     - Archetype Artifact ID: azure-functions-archetype
-    - 버전: [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)의 최신 버전을 사용합니다.  
+    - 버전: 사용 하 여 최신 버전 [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Eclipse Maven 만들기](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. **확인**을 클릭하고 현재 프로젝트에 대한 세부 정보를 입력한 후 **마침**을 클릭합니다.
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
@@ -73,7 +70,7 @@ Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭�
 
 이전 단계의 **Run As**(다음으로 실행) 구성 설정에서 `azure-functions:run`을 `mvn azure-functions:run -DenableDebug`로 변경하고 업데이트된 구성을 실행하여 디버그 모드로 함수 앱을 시작합니다.
 
-**Run**(실행) 메뉴를 선택하고 **Debug Configurations**(디버그 구성)을 엽니다. **Remote Java Application**(원격 Java 응용 프로그램)을 선택하고 새 항목을 만듭니다. 구성에 이름을 지정하고 설정을 입력합니다. 포트는 함수 호스트에 의해 열린 디버그 포트(기본값: `5005`)와 일치해야 합니다. 설정 후 `Debug`를 클릭하여 디버그를 시작합니다.
+**Run**(실행) 메뉴를 선택하고 **Debug Configurations**(디버그 구성)을 엽니다. **Remote Java Application**(원격 Java 애플리케이션)을 선택하고 새 항목을 만듭니다. 구성에 이름을 지정하고 설정을 입력합니다. 포트는 함수 호스트에 의해 열린 디버그 포트(기본값: `5005`)와 일치해야 합니다. 설정 후 `Debug`를 클릭하여 디버그를 시작합니다.
 
 ![Eclipse에서 함수 디버깅](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 

@@ -3,28 +3,28 @@ title: Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 Azure HDInsi
 description: Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight Hadoop 클러스터 만들기 및 사용
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: a8c45a83-a8e3-4227-8b02-1bc1e1de6767
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 25e4c308b55b66038be6825a239f185e5e813af5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085765"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883431"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
-> * [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Azure 포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [PowerShell 사용 (기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용 (추가 저장소)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [리소스 관리자를 사용 하 여](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
@@ -47,7 +47,7 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-default-storage"></a>Data Lake Storage Gen1을 기본 스토리지로 사용하는 클러스터 만들기
 
-**Data Lake Storage Gen1 계정을 기본 스토리지 계정으로 사용하는 HDInsight 클러스터를 만들려면**
+**기본 저장소 계정으로 Data Lake 저장소 Gen1 계정을 사용 하 여 HDInsight 클러스터를 만들려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
@@ -67,7 +67,7 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 다음 지침에 따라 Azure 스토리지 계정을 기본 스토리지로, Data Lake Storage Gen1 계정을 추가 스토리지로 사용하는 HDInsight 클러스터를 만듭니다.
 
-**Data Lake Storage Gen1 계정을 추가 스토리지 계정으로 사용하는 HDInsight 클러스터를 만들려면**
+**추가 저장소 계정으로 Data Lake 저장소 Gen1 계정을 사용 하 여 HDInsight 클러스터를 만들려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
@@ -93,7 +93,7 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 있습니다.
 
-**Azure Portal에서 서비스 주체를 만들려면**
+**Azure portal에서 서비스 주체를 만들려면**
 
 1. 저장소 블레이드에서 **Data Lake Store 액세스**를 클릭합니다.
 2. **Data Lake Storage Gen1 액세스** 블레이드에서 **새로 만들기**를 클릭합니다.
@@ -105,7 +105,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 4. **액세스**를 클릭하여 폴더 액세스를 구성합니다.  [파일 권한 구성](#configure-file-permissions)을 참조하세요.
 
 
-**Azure Portal에서 기존 서비스 주체를 사용하려면**
+**Azure portal에서 기존 서비스 주체를 사용 하려면**
 
 1. **Data Lake Store 액세스**를 클릭합니다.
 1. **Data Lake Storage Gen1 액세스** 블레이드에서 **기존 항목 사용**을 클릭합니다.
@@ -129,7 +129,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 
     - 파일 액세스가 필요한 폴더에서 권한
 
-**Data Lake Storage Gen1 계정 루트 수준에서 권한을 할당하려면**
+**데이터 레이크 저장소 Gen1 계정 루트 수준에서 권한을 할당 하려면**
 
 1. **Data Lake Storage Gen1 액세스** 블레이드에서 **액세스**를 클릭합니다. **파일 권한 선택** 블레이드가 열립니다. 그리고 구독의 모든 Data Lake Storage Gen1 계정이 나열됩니다.
 2. 확인란이 표시되도록 Data Lake Storage Gen1 계정의 이름을 마우스로 가리킨 다음(이름을 클릭하면 안 됨) 확인란을 선택합니다.
@@ -142,7 +142,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 4. **실행**을 클릭하여 권한을 할당합니다.
 5. **Done**을 클릭합니다.
 
-**HDInsight 클러스터 루트 수준에서 권한을 할당하려면**
+**HDInsight 클러스터 루트 수준에서 권한을 할당 하려면**
 
 1. **Data Lake Storage Gen1 액세스** 블레이드에서 **액세스**를 클릭합니다. **파일 권한 선택** 블레이드가 열립니다. 그리고 구독의 모든 Data Lake Storage Gen1 계정이 나열됩니다.
 1. **파일 권한 선택** 블레이드에서 Data Lake Storage Gen1 계정 이름을 클릭하여 해당 내용을 표시합니다.
@@ -185,9 +185,9 @@ Data Lake Storage Gen1 계정에서 데이터를 사용하는 경우 다음과 �
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 설명:
-* `adl://hdiadlsg1storage.azuredatalakestore.net/`은 Data Lake Storage Gen1 계정의 루트입니다.
-* `/clusters/myhdiadlcluster`는 클러스터를 만드는 동안에 지정한 클러스터 데이터의 루트입니다.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`는 쿼리에서 사용하는 샘플 파일의 위치입니다.
+* `adl://hdiadlsg1storage.azuredatalakestore.net/` 데이터 레이크 저장소 Gen1 계정의 루트가입니다.
+* `/clusters/myhdiadlcluster` 클러스터를 만드는 동안 지정한 클러스터 데이터의 루트가입니다.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` 쿼리에서 사용 하는 샘플 파일의 위치가입니다.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-storage-gen1-account-as-additional-storage"></a>추가 스토리지인 Data Lake Storage Gen1에서 데이터에 대한 Hive 쿼리 실행
 
@@ -195,8 +195,8 @@ Data Lake Storage Gen1 계정에서 데이터를 사용하는 경우 다음과 �
 
 Blob Storage에서 Data Lake Storage Gen1로 데이터를 복사하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
-* [Distcp를 사용하여 Azure Storage Blob와 Data Lake Storage Gen1 간에 데이터 복사](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy를 사용하여 Azure Storage Blob에서Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Distcp를 사용 하 여 Azure Storage blob과 Data Lake 저장소 Gen1 간에 데이터 복사](data-lake-store-copy-data-wasb-distcp.md)
+* [AdlCopy를 사용 하 여 Azure Storage blob에서 Data Lake 저장소 Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-storage-gen1-with-a-spark-cluster"></a>Spark 클러스터에서 Data Lake Storage Gen1 사용
 Spark 클러스터를 사용하여 Data Lake Storage Gen1 계정에 저장된 데이터에서 Spark 작업을 실행할 수 있습니다. 자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)을 참조하세요.
@@ -207,7 +207,7 @@ Data Lake Storage Gen1 계정을 사용하면 Storm 토폴로지에서 데이터
 
 ## <a name="see-also"></a>참고 항목
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [PowerShell: 데이터 레이크 저장소 Gen1를 사용 하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

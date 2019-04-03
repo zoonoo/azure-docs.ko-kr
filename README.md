@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168556"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882211"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure 설명서
 
@@ -12,7 +12,7 @@ ms.locfileid: "58168556"
 
 ## <a name="getting-started"></a>시작하기
 
-오픈 소스에 기여하면 단순히 업데이트를 제공하는 것을 넘어서 문제가 발생했을 때 알려줄 수도 있습니다. [지침 기여](.github/CONTRIBUTING.md)를 읽고 자세한 내용을 알아보세요.
+오픈 소스에 기여하면 단순히 업데이트를 제공하는 것을 넘어서 문제가 발생했을 때 알려줄 수도 있습니다. [지침 기여](CONTRIBUTING.md)를 읽고 자세한 내용을 알아보세요.
 
 ### <a name="prerequisites"></a>필수 조건
 

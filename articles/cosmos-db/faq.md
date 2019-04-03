@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259910"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881044"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -201,7 +201,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>이유는 포털의 데이터 탐색기에서 볼 때 반올림되는 문서에서 긴 부동 소수점 값이기 때문입니다.
 
-이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정된 배정밀도 부동 소수점 형식 숫자를 사용하고 -(253 - 1)과 253-1 사이의 숫자(즉, 9007199254740991)를 안전하게 유지할 수 있습니다.
+이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정 된 배정밀도 부동 소수점 형식 숫자를 사용 하 고 안전 하 게-사이의 숫자를 포함할 수 있습니다 (2<sup>53</sup> -1) 및 2<sup>53</sup>-1 (즉, 9007199254740991)만 합니다.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>개체 계층 구조에서 사용 권한이 허용되나요?
 
@@ -570,7 +570,7 @@ Gremlin 연결은 WebSocket 연결을 통해 이루어집니다. WebSocket 연�
 
 **executionProfile()** 미리 보기 단계를 사용하여 쿼리 실행 계획에 대한 분석을 제공할 수 있습니다. 이 단계는 다음 예와 같이 Gremlin 쿼리 끝에 추가해야 합니다.
 
-**쿼리 예제**
+**쿼리 예**
 
 ```
 g.V('mary').out('knows').executionProfile()

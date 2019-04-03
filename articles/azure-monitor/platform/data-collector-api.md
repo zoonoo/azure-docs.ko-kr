@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449362"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883941"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -166,6 +166,11 @@ Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의
 이후에 다음 항목을 제출한 경우 레코드 종류가 생성되기 전에 Azure Monitor는 **number_s**, **boolean_s** 및 **string_s**의 세 가지 속성을 가진 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
 
 ![샘플 레코드 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>예약 된 속성
+예약 되어 있으므로 사용자 지정 레코드 형식에서는 사용할 수 없습니다. 페이로드 이러한 속성 이름을 포함 하는 경우 오류를 받습니다.
+
+- tenant
 
 ## <a name="data-limits"></a>데이터 제한
 Azure Monitor 데이터 수집 API에 게시되는 데이터와 관련된 몇 가지 제약 조건이 있습니다.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802799"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878726"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -39,7 +39,7 @@ ms.locfileid: "58802799"
     2. 관련된 여러 다른 대상의 책임과 할당을 정의하는 RACI(책임 할당 매트릭스)를 만들고 사용합니다. 상위 수준에서 시작한 후, 계획 전반 및 첫 번째 배포를 진행하면서 점점 더 세부적인 수준에서 작업합니다.
     2. 개괄적인 솔루션 아키텍처
     3. 배포할 Azure 지역 결정. Azure 지역 목록에 대해서는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)을 확인하세요. 각 Azure 지역에서 사용할 수 있는 서비스에 대해서는 문서 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/)을 확인하세요.
-    4. 온-프레미스에서 Azure에 연결하기 위한 네트워킹 아키텍처. [Azure의 가상 데이터 센터 청사진](https://docs.microsoft.com/azure/architecture/vdc/)을 숙지합니다.
+    4. 네트워킹 온-프레미스에서 Azure에 연결 하는 아키텍처입니다. [Azure의 가상 데이터 센터 청사진](https://docs.microsoft.com/azure/architecture/vdc/)을 숙지합니다.
     5. Azure에서 높은 비즈니스 영향 데이터를 실행하기 위한 보안 원칙. 관련 자료를 읽으려면 먼저 [Azure 보안 설명서](https://docs.microsoft.com/azure/security/)를 읽어보세요.
 2.  기술 디자인 문서 – 이 문서는 다음 내용을 포함합니다.
     1.  솔루션 블록 다이어그램 
@@ -60,8 +60,8 @@ ms.locfileid: "58802799"
         2.  동일한 영역 내의 고가용성의 경우, Azure에서 원하는 DBMS가 제공해야 하는 기능을 확인합니다. 대부분의 DBMS는 프로덕션 시스템에서 권장되는 동기화 방법인 동기 상시 대기를 제공합니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 관련 문서부터 시작해서 다양한 데이터베이스에 대한 SAP 관련 설명서를 확인하세요.
             1.  SQL Server에 대해 [여기](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017)에서 설명된 것처럼, DBMS 계층의 공유 디스크 구성에서 Windows 장애 조치(Failover) 클러스터 서비스를 사용하는 것은 지원되지 **않습니다**. 대신, 다음과 같은 솔루션을 사용할 수 있습니다.
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
-                2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-                3.  [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+                2.  [Oracle 데이터 가드](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                3.  [HANA 시스템 복제](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  여러 Azure 지역 간에 재해 복구의 경우, 다른 DBMS 공급업체가 제공하는 가능한 기능을 확인합니다. 대부분은 비동기 복제 또는 로그 전달을 지원합니다.
         4.  SAP 애플리케이션 계층의 경우, 동일한 Azure 지역 또는 DR 지역에 있는 프로덕션 배포의 복제본인 비즈니스 재발 테스트 시스템을 실행할지 여부를 정의합니다. 후자의 경우, 해당 비즈니스 재발 시스템을 프로덕션의 DR 대상으로 지정할 수 있습니다.
         5.  DR 사이트에 비프로덕션 시스템을 배치하지 않으려면 SAP 애플리케이션 계층을 Azure DR 지역에 복제하는 실행 가능한 방법으로 Azure Site Recovery를 검토합니다. [다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)도 참조하세요. 
@@ -72,13 +72,13 @@ ms.locfileid: "58802799"
     2.  Azure 내 네트워크 토폴로지 및 다른 SAP 시스템의 할당
     3.  Azure의 인프라 및 SAP 애플리케이션을 관리하는 다른 팀을 위한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 구조
     3.  리소스 그룹 토폴로지 
-    4.  [태그 지정 전략](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+    4.  [태그 전략](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
     5.  VM 및 기타 인프라 구성 요소 및/또는 논리적 이름에 대한 명명 규칙
 5.  Microsoft 프리미어 지원 계약 – MS TAM(기술 담당 관리자)을 식별합니다. SAP의 지원 요구 사항에 대해서는 SAP 지원 참고 [#2015553](https://launchpad.support.sap.com/#/notes/2015553)을 읽어보세요. 
 6.  Azure 구독의 수 및 다른 구독의 코어 할당량을 정의합니다. 필요에 따라 [지원 요청을 열어 Azure 구독 할당량을 늘립니다](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). 
 7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 감소 및 데이터 마이그레이션 계획. SAP NetWeaver 시스템의 경우 SAP는 많은 수의 데이터 볼륨을 제한하는 방법에 대한 지침을 제공합니다. SAP는 SAP ERP 시스템의 데이터 관리에 대해 [이 심층 가이드](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF)를 발표했습니다. 그러나 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에 적용됩니다.
 8.  자동화된 배포 방법을 정의하고 결정합니다. Azure의 인프라 배포 이면에서 사용되는 자동화의 목표는 결정적 방식으로 배포하고 결정적 결과를 얻는 것입니다. 많은 고객이 Powershell 또는 CLI 기반 스크립트를 사용합니다. 하지만 SAP용 Azure 인프라를 배포하고 SAP 소프트웨어를 설치하는 데 사용할 수 있는 다양한 오픈 소스 기술이 있습니다. GitHub에서 예제를 찾을 수 있습니다.
-    1.  [Azure Cloud의 자동화된 SAP 배포](https://github.com/Azure/sap-hana)
+    1.  [Azure Cloud에서 자동화 된 SAP 배포](https://github.com/Azure/sap-hana)
     2.  [SAP HANA 설치](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  고객, 시스템 통합업체, Microsoft 및 기타 관련 당사자 간의 정기적인 디자인 및 배포 검토 케이던스를 정의합니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "58802799"
  
 파일럿은 프로젝트 계획 및 준비 이전에 또는 동시에 실행할 수 있습니다. 이 단계에서 계획 및 준비 단계 동안 수행한 접근 방법 및 디자인을 테스트할 수도 있습니다. 파일럿 단계를 실제 개념 증명으로 늘릴 수 있습니다. 파일럿 배포 동안 전체 HA/DR 솔루션 뿐만 아니라 보안 디자인을 설정하고 유효한지 검사하는 것이 좋습니다. 일부 고객의 경우 이 단계에서 확장성 테스트도 수행할 수 있습니다. 다른 고객은 SAP 샌드박스 시스템의 배포를 파일럿 단계로 사용합니다. 파일럿 실행을 위해 Azure로 마이그레이션하려는 시스템을 식별했다고 가정하겠습니다.
 
-1. Azure로의 데이터 전송을 최적화합니다. Express 회로에 대역폭이 충분한 경우 주로 온-프레미스에서 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 고객 사례를 전송하는 것이 가장 빨랐습니다. 다른 고객의 경우는 인터넷을 통해 진행하는 것이 더 빠른 것으로 확인되었습니다.
+1. Azure로의 데이터 전송을 최적화합니다. 통해 고객의 경우 전송에 크게 의존 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 온-프레미스에서 Express 회로 대역폭 충분 한 경우 가장 빠른 되었습니다. 다른 고객의 경우는 인터넷을 통해 진행하는 것이 더 빠른 것으로 확인되었습니다.
 2. SAP의 유형이 다른 플랫폼 마이그레이션에서는 데이터베이스 데이터의 내보내기 및 가져오기, 내보내기 및 가져오기 단계 테스트와 최적화가 여기에 해당합니다. SQL Server를 대상 플랫폼으로 포함하는 대규모 마이그레이션의 경우 [여기](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070)에서 권장 사항을 찾을 수 있습니다. 마이그레이션을 SAP 릴리스 업그레이드와 결합하고 설명서[예: [SUM 2.0 SP03의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2631152)]에 나와 있는 것처럼 특정 원본 및 대상 DBMS 플랫폼 조합을 이행할 때 조합된 릴리스 업그레이드 또는 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스가 필요하지 않은 경우 마이그레이션 모니터/SWPM 접근 방법을 수행할 수 있습니다. 
    1.  원본으로 내보내기, Azure로 파일 업로드 내보내기, 성능 가져오기.  내보내기와 가져오기 간의 중복을 최대화합니다.
    2.  인프라 크기 조정에 반영하기 위해 목표 및 대상 플랫폼 간의 데이터베이스 볼륨 평가    
@@ -159,7 +159,7 @@ ms.locfileid: "58802799"
 6. 성능 테스트
    1.  SAP 추적 및 측정값을 기준으로 하는 SAP에서 상위 10개의 온라인 보고서를 현재 구현(해당하는 경우)과 비교합니다. 
    2.  SAP 추적 및 측정값을 기준으로 하는 SAP에서 상위 10개의 일괄 처리 작업을 현재 구현(해당하는 경우)과 비교합니다. 
-   3.  SAP 추적 및 측정값을 기준으로 하는 SAP에서 인터페이스를 통한 SAP 시스템으로의 데이터 전송을 비교합니다. 온-프레미스에서 Azure로의 전송처럼 여러 위치 간에 전송이 진행되는 경우 인터페이스에 주안점을 둡니다. 
+   3.  SAP 추적 및 측정값을 기준으로 하는 SAP에서 인터페이스를 통한 SAP 시스템으로의 데이터 전송을 비교합니다. 전송은 온-프레미스에서 Azure로 이동 하는 등의 다른 위치 간에 이제 알고 있는 인터페이스에 집중 
 
 
 ## <a name="non-production-phase"></a>비프로덕션 단계 

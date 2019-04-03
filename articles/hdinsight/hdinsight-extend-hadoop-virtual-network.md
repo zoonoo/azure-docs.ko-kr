@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: 6661ed7e8950c1658ef89858140e2d196999d543
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803088"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883567"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -111,10 +111,10 @@ ms.locfileid: "58803088"
 
 4. HDInsight 클러스터를 만들고 구성 중 Azure Virtual Network를 선택합니다. 클러스터 만들기 프로세스를 이해하려면 다음 문서의 단계를 사용하세요.
 
-    * [Azure Portal을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [Azure PowerShell을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Azure 클래식 CLI를 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-    * [Azure Resource Manager 템플릿을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+    * [Azure portal을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Azure PowerShell을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [클래식 Azure CLI를 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Azure Resource Manager 템플릿을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
    > 가상 네트워크에 HDInsight 추가하기는 선택적 구성 단계입니다. 클러스터를 구성할 때 가상 네트워크를 선택해야 합니다.
@@ -246,7 +246,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 #### <a name="forced-tunneling-to-on-premise"></a>온-프레미스에 강제 터널링
 
-강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight는 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 __않습니다__. Azure 방화벽이 나 Azure에서 호스트 되는 네트워크 가상 어플라이언스를 사용 하는 경우에 모니터링을 위해 트래픽을 라우팅하고 나가는 모든 트래픽이 허용 Udr을 사용할 수 있습니다.
+강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight 않습니다 __되지__ 강제 터널링을 온-프레미스 네트워크에 지원 합니다. Azure 방화벽이 나 Azure에서 호스트 되는 네트워크 가상 어플라이언스를 사용 하는 경우에 모니터링을 위해 트래픽을 라우팅하고 나가는 모든 트래픽이 허용 Udr을 사용할 수 있습니다.
 
 ## <a id="hdinsight-ip"></a> 필수 IP 주소
 
@@ -328,7 +328,7 @@ UDR(사용자 정의 경로)을 사용 중인 경우 경로를 지정하고 “�
 
 다음 리소스 관리 템플릿은 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다. 또한 이 템플릿은 가상 네트워크에 HDInsight 클러스터를 만듭니다.
 
-* [보안 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [보안된 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
 > 이 예제에 사용된 IP 주소를 사용 중인 Azure 지역에 맞게 변경합니다. 이 정보는 [네트워크 보안 그룹 및 사용자 정의 경로가 있는 HDInsight](#hdinsight-ip) 섹션에서 확인할 수 있습니다.

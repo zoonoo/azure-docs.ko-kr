@@ -3,21 +3,21 @@ title: 'Python: 계정 관리 작업 Azure 데이터 레이크 저장소 Gen1 | 
 description: Python SDK를 사용하여 Azure Data Lake Storage Gen1 계정 관리 작업을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533327"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880205"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -135,5 +135,5 @@ pip install azure-datalake-store
 
 ## <a name="see-also"></a>참고 항목
 
-* [azure-datalake-store Python(파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
+* [azure data lake-store Python (파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
+* [오픈 소스 빅 데이터 응용 프로그램을 Azure 데이터 레이크 저장소 Gen1 호환](data-lake-store-compatible-oss-other-applications.md)

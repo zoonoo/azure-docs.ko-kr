@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793495"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881650"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 엔드포인트의 사용 권한 및 동의
 
@@ -55,9 +55,9 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다. 줄여서 *사용 권한*이라고도 합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
 
-* `Calendars.Read`를 사용하여 사용자의 일정 읽기
-* `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
-* `Mail.Send`을 사용하여 사용자로 메일 보내기
+* 사용 하 여 사용자의 일정 읽기 `Calendars.Read`
+* 사용 하 여 사용자의 일정에 쓰기 `Calendars.ReadWrite`
+* 사용 하 여 사용자로 메일 보내기 `Mail.Send`
 
 앱은 대부분 v2.0 권한 부여 엔드포인트에 대한 요청에서 범위를 지정하여 이러한 사용 권한을 요청합니다. 그러나 특정 상위 사용 권한은 관리자 동의를 통해서만 부여할 수 있으며 일반적으로 [관리자 동의 엔드포인트](v2-permissions-and-consent.md#admin-restricted-permissions)를 사용하여 요청/부여합니다. 더 알아보려면 계속 읽어 보세요.
 
@@ -82,7 +82,7 @@ OpenID Connect의 v2.0 구현에는 특정 리소스에 적용되지 않는 몇 
 
 ### <a name="openid"></a>openid
 
-앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. v2.0 토큰 엔드포인트에서 `openid` 범위를 사용하여 ID 토큰을 획득할 수도 있습니다. 이 토큰을 사용하면 앱의 다양한 구성 요소 간 HTTP 호출의 보안을 유지할 수 있습니다.
+앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. `openid` 인증 앱에서 사용할 수 있는 ID 토큰을 획득 하려면 v2.0 토큰 끝점에 범위를 사용할 수 있습니다.
 
 ### <a name="email"></a>이메일
 
@@ -139,9 +139,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 제한*으로 설정할 수 있습니다. 이러한 종류의 권한으로는 다음과 같은 것이 있습니다.
 
-* `User.Read.All`을 사용하여 모든 사용자의 전체 프로필 읽기
-* `Directory.ReadWrite.All`를 사용하여 조직의 디렉터리에 데이터 쓰기
-* `Groups.Read.All`을 사용하여 조직 디렉터리의 모든 그룹 읽기
+* 사용 하 여 모든 사용자의 전체 프로필 읽기 `User.Read.All`
+* 데이터를 사용 하 여 조직의 디렉터리에 작성 `Directory.ReadWrite.All`
+* 사용 하 여 조직의 디렉터리에서 모든 그룹 읽기 `Groups.Read.All`
 
 소비자 사용자는 이러한 데이터에 대한 애플리케이션 액세스 권한을 부여할 수 있는 반면 조직 사용자는 동일한 집합인 회사의 중요한 데이터에 대한 액세스 권한을 부여하지 않도록 제한됩니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다.
 
@@ -283,7 +283,7 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대한 자
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>예 3: 사용자가 동의했으며 클라이언트가 추가 범위를 요청함
 
-사용자는 클라이언트에 대한 `mail.read`에 이미 동의했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 사용하여 토큰을 요청하고 `prompt=consent`를 통해 동의를 요청하면 사용자에게 애플리케이션에서 등록한 모든 권한에 대해서만 동의 화면이 표시됩니다. 즉, `contacts.read`는 동의 화면에 표시되지만 `mail.read`는 표시되지 않습니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
+사용자는 클라이언트에 대한 `mail.read`에 이미 동의했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 사용하여 토큰을 요청하고 `prompt=consent`를 통해 동의를 요청하면 사용자에게 애플리케이션에서 등록한 모든 권한에 대해서만 동의 화면이 표시됩니다. `contacts.read` 동의 화면에 표시 됩니다 있지만 `mail.read` 것입니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
 
 ### <a name="using-the-default-scope-with-the-client"></a>클라이언트에서 /.default 범위 사용
 

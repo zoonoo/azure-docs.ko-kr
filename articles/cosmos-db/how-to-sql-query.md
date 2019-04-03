@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885335"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -27,7 +27,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 두 개의 간단한 JSON 항목과 이 데이터에 대한 쿼리를 작성해 보겠습니다. 가족에 대해 두 개의 JSON 항목을 만들고 이 JSON 항목을 컨테이너에 삽입한 다음, 데이터를 쿼리합니다. 다음은 Andersen과 Wakefield 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 단순한 JSON 항목입니다. 이 항목에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
 
-**항목1**
+**Item1**
 
 ```JSON
 {
@@ -53,7 +53,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 다음은 한 가지 미묘한 차이점이 있는 두 번째 항목입니다. `givenName` 및 `familyName`이 `firstName` 및 `lastName` 대신 사용됩니다.
 
-**항목2**
+**항목 2**
 
 ```json
 {
@@ -263,7 +263,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM <from_specification> 절은 선택 사항입니다. 구문에 대해 자세히 알아보려면 [FROM 구문](sql-api-query-reference.md#bk_from_clause)을 참조하세요. `SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컨테이너가 열거할 소스임을 나타냅니다. 컨테이너 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컨테이너를 나타낼 수 있습니다.
 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
-* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 같습니다. `AS` 는 식별자를 별칭으로 지정하는 선택적 키워드입니다.  
+* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 같습니다. `AS` 별칭에는 선택적 키워드를 식별자입니다.  
 
 * 별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.  
 
@@ -403,15 +403,15 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+| **Op** | **Undefined** | **Null** | **BOOLEAN** | **Number** | **문자열** | **Object** | **배열** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Null** | Undefined | **확인** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **BOOLEAN** | Undefined | Undefined | **확인** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **확인** | Undefined | Undefined | Undefined |
+| **문자열** | Undefined | Undefined | Undefined | Undefined | **확인** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **확인** | Undefined |
+| **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **확인** |
 
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우:
 
@@ -448,17 +448,17 @@ SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 
 
 **OR 연산자**
 
-| 또는 | True | False | Undefined |
+| 또는 | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |True |True |
+| True  |True |True |True |
 | False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
 **AND 연산자**
 
-| AND | True | False | Undefined |
+| AND | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
+| True  |True |False |Undefined |
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
@@ -466,8 +466,8 @@ SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 
 
 | NOT |  |
 | --- | --- |
-| True |False |
-| False |True |
+| True  |False |
+| False |True  |
 | Undefined |Undefined |
 
 ## <a name="in-keyword"></a>IN 키워드
@@ -818,7 +818,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
     [ 1 ]
 ```
 
-다음 표에서는 SQL API에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다.
+다음 표에서는 SQL API에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG` 반면 숫자 값에 대해 수행 됩니다 `COUNT`하십시오 `MIN`, 및 `MAX` 숫자, 문자열, 부울 및 null을 통해 수행할 수 있습니다.
 
 | 사용 현황 | 설명 |
 |-------|-------------|
@@ -1138,7 +1138,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
     }
 ```
 
-`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1\*1\*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1\*1\*2 = 2개의 행을 생성합니다.
+`AndersenFamily` 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1\*1\*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1\*1\*2 = 2개의 행을 생성합니다.
 
 다음 예제에는 애완 동물 이름이 "Shadow"가 아닌 모든 튜플을 제외하는 `pet`에 대한 추가 필터가 있습니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
 
@@ -1440,7 +1440,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 | 사용 현황 | 설명 |
 | --- | --- |
-| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
+| [길이 (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 문자열 식의 일부를 반환합니다. |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 첫 번째 문자열 식이 두 번째 문자열 식으로 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
@@ -1452,7 +1452,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 선행 공백을 제거한 후에 문자열 식을 반환합니다. |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 후행 공백을 잘라낸 후에 문자열 식을 반환합니다. |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
-| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
+| [위 (str_expr)](sql-api-query-reference.md#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
 | [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 문자열 값을 지정한 횟수 만큼 반복합니다. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 문자열 값의 순서와 반대로 반환합니다. |
@@ -2208,7 +2208,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 .NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` and `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다.
 
-또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. `EnableScanInQuery` 를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컨테이너의 경우 `PartitionKey`를 사용하여 단일 파티션에 대해 쿼리를 실행할 수 있고(Azure Cosmos DB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있음) `EnableCrossPartitionQuery`를 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다.
+만들어 페이징을 명시적으로 제어할 수 있습니다 `IDocumentQueryable` 를 사용 하 여는 `IQueryable` 읽으면 다음 개체를 `ResponseContinuationToken` 값 전달 하는 것으로 다시 `RequestContinuationToken` 에서 `FeedOptions`합니다. `EnableScanInQuery` 구성 된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 검색을 사용 하도록 설정할 수 있습니다. 분할된 컨테이너의 경우 `PartitionKey`를 사용하여 단일 파티션에 대해 쿼리를 실행할 수 있고(Azure Cosmos DB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있음) `EnableCrossPartitionQuery`를 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다.
 
 쿼리가 포함된 추가 샘플은 [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)을 참조하세요.
 
@@ -2254,7 +2254,7 @@ Cosmos DB는 저장 프로시저 및 트리거를 사용하여 컨테이너에 �
 
 1. [Azure Cosmos DB 소개][introduction]
 2. [Azure Cosmos DB SQL 사양](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+3. [Azure Cosmos DB.NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB 일관성 수준][consistency-levels]
 5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [https://json.org/](https://json.org/)

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369788"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885080"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -75,7 +75,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 사용자가 자신의 전화 번호의 유효성을 검사하는 경우 오류가 표시됩니다. | 이 오류는 입력한 휴대폰 번호와 파일에서 휴대폰 번호가 일치하지 않을 때 발생합니다. 사용자가 암호 재설정을 위해 전화 기반 방법을 사용하려고 할 때 영역 및 국가 코드를 포함하여 전체 전화 번호를 입력하는지 확인합니다. |
 | 요청을 처리하는 중 오류가 발생했습니다. | 많은 문제로 인해 발생할 수 있지만 일반적으로 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. 이 오류가 나타나고 비즈니스에 영향을 주는 경우 추가적인 도움이 필요하면 Microsoft 지원에 문의하세요. |
 | 온-프레미스 정책 위반 | 암호가 온-프레미스 Active Directory 암호 정책에 맞지 않습니다. |
-| 암호 퍼지 정책을 준수하지 않음 | 사용된 암호는 금지 암호 목록에 표시되고 사용할 수 없습니다. |
+| 암호 퍼지 정책을 준수하지 않음 | 에 사용 된 암호를 표시 합니다 [암호 목록을 차단](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) 하며 사용할 수 있습니다. |
 
 ## <a name="troubleshoot-password-writeback"></a>비밀번호 쓰기 저장 문제 해결
 
@@ -266,7 +266,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 * **지원 코드**: 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
    * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
 
-   ![화면 아래쪽에서 지원 코드 찾기][Support code]
+   ![화면 맨 아래에 있는 지원 코드 찾기][Support code]
 
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 선택하고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
 * **날짜, 시간 및 표준 시간대**: 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.
@@ -285,14 +285,14 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 
 다음 문서에서는 Azure AD를 통한 암호 재설정에 대한 추가 정보를 제공합니다.
 
-* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [성공적인 SSPR 롤아웃을 완료 어떻게 해야 합니까?](howto-sspr-deployment.md)
+* [암호 변경 또는 재설정](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
-* [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
-* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
-* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
-* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
+* [라이선스 질문 있습니까?](concept-sspr-licensing.md)
+* [SSPR에서 사용 되는 데이터 및 데이터를 채워야 사용자에 대 한?](howto-sspr-authenticationdata.md)
+* [어떤 인증 방법이 사용자에 게 사용할 수 있습니까?](concept-sspr-howitworks.md#authentication-methods)
+* [Sspr 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
+* [비밀 번호 쓰기 저장 이란 무엇이 고에 대 한 중요 않은 이유는?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
-* [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
+* [모든 SSPR 옵션과 이란 무엇 이며 무엇을 의미?](concept-sspr-howitworks.md)
+* [검사 하지 않은 어딘가에 다른 질문이](active-directory-passwords-faq.md)

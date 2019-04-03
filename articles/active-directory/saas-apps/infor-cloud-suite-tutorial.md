@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7e912d01b6f8b7119e0fa0e88341b7cb56a93d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860672"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>자습서: Infor CloudSuite와 Azure Active Directory 통합
 
@@ -61,7 +61,7 @@ Infor CloudSuite와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 
 Infor CloudSuite가 Azure AD에 통합되도록 구성하려면 갤러리의 Infor CloudSuite를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Infor CloudSuite를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Infor CloudSuite를 추가 하려면 다음 단계를 수행 합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
@@ -97,7 +97,7 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Infor CloudSuite 애플리케이션에서 Single Sign-On을 구성합니다.
 
-**Infor CloudSuite에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**Infor CloudSuite를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.**
 
 1. Azure Portal의 **Infor CloudSuite** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
@@ -119,7 +119,7 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     
     | | |
     |-|-|
-    | ` http://mingle-sso.inforcloudsuite.com`|
+    | `http://mingle-sso.inforcloudsuite.com`|
     | `http://mingle-sso.se1.inforcloudsuite.com`|
     | `http://mingle-sso.eu1.inforcloudsuite.com`|
     | `http://mingle-sso.se2.inforcloudsuite.com`|
@@ -129,9 +129,9 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     | | |
     |-|-|
-    | ` https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
+    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
     | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
     | |
 
@@ -145,7 +145,7 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     |-|-|
     | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
+    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
@@ -223,7 +223,7 @@ Infor CloudSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

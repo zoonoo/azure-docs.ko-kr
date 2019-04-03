@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: d69ddcd44fd947f3d1dc61ac960e7b55258c163e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b0d12021be5a5dca348ea3ffa3f0b853725812da
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872015"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882245"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
 
@@ -50,7 +50,7 @@ ms.locfileid: "56872015"
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 작업 영역의 "전체 이름"입니다. 
 
-    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
     >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다. 

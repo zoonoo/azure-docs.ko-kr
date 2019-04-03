@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427822"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863181"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -41,3 +41,6 @@ Azure AD(Azure Active Directory) B2C에서 LinkedIn 계정을 [ID 공급자](act
 7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 클라이언트 ID를 **클라이언트 ID**로 입력한 후, 기록한 클라이언트 암호를 이전에 만든 LinkedIn 계정 애플리케이션의 **클라이언트 암호**로 입력합니다.
 8. **확인**, **만들기**를 차례로 클릭하여 LinkedIn 계정 구성을 저장합니다.
 
+## <a name="migration-from-v10-to-v20"></a>V1.0에서 v2.0로 마이그레이션
+
+최근에 LinkedIn [해당 API의 v1.0에서 v2.0에 업데이트](https://engineering.linkedin.com/blog/2018/12/developer-program-updates)합니다. 마이그레이션의 일부로, Azure AD B2C는 등록 하는 동안 LinkedIn 사용자의 전체 이름을 가져올 수만 있습니다. 전자 메일 주소를 사용 하면 수집 되는 특성 중 하나인 경우 중 등록, 사용자 수동으로 전자 메일 주소를 입력 하며 유효성을 검사 합니다.

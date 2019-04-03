@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "58111483"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
@@ -29,7 +29,7 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 이 문서에서는 사용자가 이미 다음 문서를 읽었다고 가정합니다.
 
 * [Azure Functions 개발자 가이드](functions-reference.md)
-* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2017 도구](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
@@ -344,7 +344,7 @@ C# 및 기타 .NET 언어에서는 특성의 [*declarative*](https://en.wikipedi
   }
   ```
 
-  `BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 명령적 바인딩에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
+  `BindingTypeAttribute` 바인딩 정의 하는.NET 특성이 며 및 `T` 는 해당 바인딩 형식에서 지원 되는 입력 또는 출력 형식입니다. `T` 일 수 없습니다는 `out` 매개 변수 형식 (같은 `out JObject`). 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 명령적 바인딩에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
@@ -405,7 +405,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [트리거 및 바인딩에 대해 자세히 알아보기](functions-triggers-bindings.md)
+> [트리거 및 바인딩에 자세히 알아보기](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions에 대한 모범 사례에 대해 자세히 알아보기](functions-best-practices.md)
+> [Azure Functions에 대 한 모범 사례 자세히 알아보기](functions-best-practices.md)

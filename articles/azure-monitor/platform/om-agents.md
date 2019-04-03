@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793818"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878358"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -220,7 +220,7 @@ Operations Manager 관리 그룹과 Log Analytics 작업 영역 간의 통합이
     > 계속 진행하기 전에 이름에 Advisor 또는 IntelligencePack이 포함된 사용자 지정 관리 팩이 없는지 확인합니다. 그렇지 않으면 다음 단계에 관리 그룹에서 이들을 삭제합니다.
     > 
 
-1. 명령 셸 프롬프트에서 `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. 명령 셸 프롬프트에서 입력 합니다. `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 그런 다음 `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 다른 System Center Advisor 관리 팩에 대해 종속성이 있는 나머지 모든 관리 팩을 제거하려면 이전에 TechNet 스크립트 센터에서 다운로드한 *RecursiveRemove.ps1*을 사용합니다.  
  
@@ -345,7 +345,7 @@ Operations Manager 관리 그룹과 Log Analytics 작업 영역 간의 통합이
 나중에 관리 그룹을 Log Analytics 작업 영역에 다시 연결하려는 경우 `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` 관리 팩 파일을 다시 가져와야 합니다. 환경에 배포된 System Center Operations Manager 버전에 따라 다음 위치에서 이 파일을 찾을 수 있습니다.
 
 * System Center 2016 - Operations Manager 이상의 `\ManagementPacks` 폴더 아래에 있는 원본 미디어.
-* 관리 그룹에 적용된 최신 업데이트 롤업. Operations Manager 2012의 경우 원본 폴더는 ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups`이고 2012 R2의 경우 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`에 있습니다.
+* 관리 그룹에 적용된 최신 업데이트 롤업. 소스 폴더는 Operations Manager 2012 `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` 2012 R2의 경우에 위치 하 고 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,26 +1,25 @@
 ---
-title: Visual Studio로 논리 앱 관리 - Azure Logic Apps | Microsoft Docs
+title: Visual Studio-Azure Logic Apps를 사용 하 여 logic apps 관리
 description: Visual Studio 클라우드 탐색기를 사용하여 Logic Apps 및 기타 Azure 자산 관리
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519734"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862746"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 논리 앱을 만들고, 편집하고, 관리하고, 배포할 수 있지만, 소스 제어에 논리 앱을 추가하고 다양한 버전을 게시하고 다양한 배포 환경에 대한 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿을 만들려는 경우에도 Visual Studio를 사용할 수 있습니다. Visual Studio 클라우드 탐색기로 다른 Azure 리소스와 함께 논리 앱을 찾고 관리할 수 있습니다. 예를 들어 Azure Portal에서 이미 배포된 논리 앱을 열고, 다운로드하고, 편집하고, 실행하고, 실행 기록을 보고, 해제하고, 설정할 수 있습니다. Visual Studio에서 Azure Logic Apps를 작업하는 데 익숙하지 않다면 [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 참조하세요.
+를 만들 수 있지만 편집, 관리 및 논리 앱을 배포 합니다 <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 소스 제어, 다른 버전을 게시, 만들기를 논리 앱을 추가 하려는 경우에 Visual Studio를 사용할 수 있습니다 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 다양 한 배포 환경에 대 한 템플릿. Visual Studio 클라우드 탐색기로 다른 Azure 리소스와 함께 논리 앱을 찾고 관리할 수 있습니다. 예를 들어 Azure Portal에서 이미 배포된 논리 앱을 열고, 다운로드하고, 편집하고, 실행하고, 실행 기록을 보고, 해제하고, 설정할 수 있습니다. Visual Studio에서 Azure Logic Apps를 작업하는 데 익숙하지 않다면 [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Visual Studio에서 논리 앱을 배포하거나 게시하면 Azure Portal에서 해당 앱의 버전을 덮어씁니다. 따라서 Azure Portal에서 변경한 내용을 계속 유지하려면 다음에 Visual Studio에서 배포 또는 게시하기 전에 Azure Portal에서 [Visual Studio를 사용하여 논리 앱을 새로 고침](#refresh)해야 합니다.
@@ -33,22 +32,32 @@ ms.locfileid: "58519734"
 
 * 다음 도구가 없으면 다운로드하여 설치합니다. 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 또는 Visual Studio 2015 - Community Edition 이상</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015-Community edition 이상</a>합니다. 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK(2.9.1 이상)</a> 및 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > Visual Studio 2019 또는 2017를 설치할 때 선택 했는지 확인 합니다 **Azure 개발** 워크 로드.
+    > 자세한 내용은 [Visual Studio 클라우드 탐색기에서 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)합니다.
+    >
+    > Visual Studio 2019에서 클라우드 탐색기 Azure portal에서 논리 앱 디자이너를 열 수 있지만 포함 된 논리 앱 디자이너를 열고 아직 없습니다.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017용 Azure Logic Apps 도구</a> 또는 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 버전</a> 
-  
+    Visual Studio 2015 용 클라우드 탐색기를 설치 하려면 [Visual Studio Marketplace에서 클라우드 탐색기를 다운로드](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)합니다. 
+    자세한 내용은 [Visual Studio 클라우드 탐색기 (2015)에 대 한 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)합니다.
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 이상)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * Visual Studio 버전에 대 한 azure Logic Apps 도구:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">Visual Studio 내에서 이 확장을 설치하는 방법</a>을 알아볼 수 있습니다. 
     설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
-
-* Visual Studio 2017 또는 Visual Studio 2015 용 cloud Explorer
-
-  * Visual Studio 2017 용 Visual Studio 설치 관리자를 실행 하 고 설치 합니다 **Azure 워크 로드**합니다. 자세한 내용은 [Visual Studio 클라우드 탐색기에서 Azure에 accuonts 연관 된 리소스를 관리](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017)합니다.
-
-  * Visual Studio 2015 용 [Visual Studio Marketplace에서 클라우드 탐색기를 다운로드](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)합니다. 
-  자세한 내용은 [Visual Studio 클라우드 탐색기 (2015)에 대 한 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)합니다.
 
 * 포함된 Logic Apps 디자이너를 사용하는 동안 웹에 액세스
 
@@ -184,12 +193,13 @@ Azure Portal에서 논리 앱을 삭제하려면 클라우드 탐색기에서 �
 
 Logic Apps 디자이너에서 논리 앱 프로젝트를 열 때 Azure 구독을 선택하는 옵션이 제공되지 않을 수 있습니다. 그 대신, 사용하려는 Azure 구독이 아닌 다른 구독으로 논리 앱이 열립니다. 사용자가 논리 앱의 .json 파일을 연 후 Visual Studio가 처음에 선택된 구독을 나중에 사용하기 위해 캐시하기 때문에 이 동작이 발생합니다. 이 문제를 해결하려면 다음 단계 중 하나를 수행합니다.
 
-* 논리 앱의 .json 파일 이름을 바꿉니다. 구독 캐시는 파일 이름에 따라 달라집니다. 
-* 이전에 솔루션의 *모든* 논리 앱에 대해 선택한 구독을 제거하려면 솔루션의 디렉터리에서 *숨겨진* .vs 폴더를 삭제합니다. 이 위치에 구독 정보가 저장됩니다. 
+* 논리 앱의 .json 파일 이름을 바꿉니다. 구독 캐시는 파일 이름에 따라 달라집니다.
+
+* 에 대 한 이전에 선택한 구독을 제거할 *모든* 솔루션에서 logic apps 숨겨진된 Visual Studio 설정에서에서 폴더를 삭제 (.vs) 솔루션의 디렉터리입니다. 이 위치에 구독 정보가 저장됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Visual Studio를 사용하여 배포된 논리 앱을 관리하는 방법을 배웠습니다. 다음으로 배포에 대한 논리 앱 정의 사용자 지정에 대해 알아보겠습니다.
 
 > [!div class="nextstepaction"]
-> [JSON에서 논리 앱 정의를 작성](../logic-apps/logic-apps-author-definitions.md)
+> [JSON에서 논리 앱 정의 작성](../logic-apps/logic-apps-author-definitions.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878590"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -139,9 +139,9 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 저장소 에뮬레이터에 대한 서비스 엔드포인트는 다음과 같습니다.
 
-* Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Blob 서비스: `http://127.0.0.1:10000/<account-name>/<resource-path>`
 * 큐 서비스: `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
+* 테이블 서비스: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>RA-GRS를 사용하여 보조 계정 주소 지정
 버전 3.1부터는 저장소 에뮬레이터에 대해 RA-GRS(읽기 권한 지역 중복 복제)를 사용할 수 있습니다. 클라우드와 로컬 에뮬레이터의 저장소 리소스에 대해 계정 이름에 -secondary를 추가하면 보조 위치에 액세스할 수 있습니다. 예를 들어 저장소 에뮬레이터에서 읽기 전용 보조 계정을 사용하여 Blob에 액세스하려는 경우 다음 주소를 사용할 수 있습니다.
@@ -172,7 +172,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 | **시작** |저장소 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작합니다. |
 | **중지** |저장소 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
 | **상태** |저장소 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
-| **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
+| **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
 | **Init** |에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스트하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL 데이터베이스를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 시도합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>스토리지 에뮬레이터와 Azure Storage의 차이점

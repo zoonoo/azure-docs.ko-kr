@@ -3,21 +3,21 @@ title: Data Lake Storage Gen1의 액세스 제어에 대한 개요 | Microsoft D
 description: Azure Data Lake Storage Gen1에서 액세스 제어가 작동하는 방식 이해하기
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539601"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877672"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -47,9 +47,9 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 |            |    파일     |   폴더 |
 |------------|-------------|----------|
-| **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열하려면 **읽기** 및 **실행**이 필요합니다.|
-| **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
-| **실행(X)** | Data Lake Storage Gen1의 컨텍스트에서 아무것도 의미하지 않습니다. | 폴더의 자식 항목을 트래버스하는 데 필요합니다. |
+| **Read (R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열하려면 **읽기** 및 **실행**이 필요합니다.|
+| **쓰기 (W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
+| **실행 (X)** | Data Lake Storage Gen1의 컨텍스트에서 아무것도 의미하지 않습니다. | 폴더의 자식 항목을 트래버스하는 데 필요합니다. |
 
 ### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
@@ -124,13 +124,13 @@ Data Lake Storage Gen1 계정에 대한 **소유자** 역할에 속해 있는 �
 
 ### <a name="the-owning-group"></a>소유 그룹
 
-**배경**
+**백그라운드**
 
 POSIX ACL에서 모든 사용자는 "주 그룹"과 연결됩니다. 예를 들어 "alice" 사용자는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
 Data Lake Storage Gen1의 사용자와 연결된 “기본 그룹”이 없으므로 아래와 같이 소유 중인 그룹이 할당됩니다.
 
-**새 파일이나 폴더의 소유 그룹 할당**
+**새 파일 또는 폴더의 소유 그룹 할당**
 
 * **사례 1**: "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
 * **사례 2**(기타 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
@@ -288,14 +288,14 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
-* [Linux의 POSIX Access Control 목록](https://www.linux.com/news/posix-acls-linux)(영문)
-* [HDFS 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(영문)
+* [Linux의 POSIX 액세스 제어 목록](https://www.linux.com/news/posix-acls-linux)
+* [HDFS 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
 * [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
+* [액세스 제어 목록을 사용 하 여 Linux에서 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>참고 항목
 

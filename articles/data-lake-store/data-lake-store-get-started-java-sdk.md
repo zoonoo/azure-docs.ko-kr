@@ -3,21 +3,21 @@ title: 'Java SDK: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 
 description: Azure Data Lake Storage Gen1 Java SDK를 사용하여 Data Lake Storage Gen1에서 폴더 만들기 등의 파일 시스템 작업을 수행하는 방법을 설명합니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530299"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883550"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -209,7 +209,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
 2. 명령줄 빌드에서 실행할 수 있는 독립 실행형 jar을 생성하려면 [Maven 어셈블리 플러그 인](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html)을 사용하여 포함된 모든 종속성을 가진 jar을 빌드합니다. [GitHub의 소스 코드 예제](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)에서 pom.xml에 예제가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Java SDK에 대한 JavaDoc 탐색](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+* [Java에 대 한 JavaDoc 탐색 SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
 
 

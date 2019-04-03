@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102121"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884080"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -52,142 +52,142 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>표 1: JWT(JSON Web Token) 제한된 클레임 집합
 
-|클레임 형식(이름)|
+| 클레임 형식(이름) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appId|
-|appidacr|
-|어설션|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|코드|
-|controls|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceId|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|이메일|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|iat|
-|identityprovider|
-|idp|
-|in_corp|
-|instance|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|암호|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|puid|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resource|
-|role|
-|roles|
-|scope|
-|scp|
-|sid|
-|signature|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|사용자 이름|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| aio |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appId |
+| appidacr |
+| 어설션 |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| 코드 |
+| controls |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceId |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| 이메일 |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| graph |
+| group_sids |
+| groups |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| iat |
+| identityprovider |
+| idp |
+| in_corp |
+| instance |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| 암호 |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| puid |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resource |
+| role |
+| roles |
+| scope |
+| scp |
+| sid |
+| signature |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| upn |
+| user_setting_sync_url |
+| username |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>표 2: SAML 제한된 클레임 집합
 
-|클레임 형식(URI)|
+| 클레임 형식(URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 **데이터 형식:** 부울(True 또는 False)
 
-**요약:** 이 속성은 기본 클레임 집합이 이 정책의 영향을 받는 토큰에 포함되는지 여부를 결정합니다. 
+**요약:** 이 속성은 기본 클레임 집합이 이 정책의 영향을 받는 토큰에 포함되는지 여부를 결정합니다.
 
 - True로 설정된 경우 기본 클레임 집합의 모든 클레임이 정책의 영향을 받는 토큰에 내보내집니다. 
 - False로 설정된 경우 기본 클레임 집합의 클레임은 동일한 정책의 클레임 스키마 속성에 개별적으로 추가되지 않는 한 토큰에 포함되지 않습니다.
@@ -284,51 +284,51 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-3-valid-id-values-per-source"></a>표 3: 원본별 유효한 ID 값
 
-|원본|ID|설명|
+| 원본 | ID | 설명 |
 |-----|-----|-----|
-|사용자|surname|성|
-|사용자|givenname|이름|
-|사용자|displayname|표시 이름|
-|사용자|objectId|ObjectID|
-|사용자|mail|메일 주소|
-|사용자|userprincipalname|사용자 계정 이름|
-|사용자|department|department|
-|사용자|onpremisessamaccountname|온-프레미스 SAM 계정 이름|
-|사용자|netbiosname|NetBios 이름|
-|사용자|dnsdomainname|DNS 도메인 이름|
-|사용자|onpremisesecurityidentifier|온-프레미스 보안 식별자|
-|사용자|companyname|조직 이름|
-|사용자|streetaddress|주소|
-|사용자|postalcode|우편 번호|
-|사용자|preferredlanguange|기본 설정 언어|
-|사용자|onpremisesuserprincipalname|온-프레미스 UPN|
-|사용자|mailNickname|메일 애칭|
-|사용자|extensionattribute1|확장 특성 1|
-|사용자|extensionattribute2|확장 특성 2|
-|사용자|extensionattribute3|확장 특성 3|
-|사용자|extensionattribute4|확장 특성 4|
-|사용자|extensionattribute5|확장 특성 5|
-|사용자|extensionattribute6|확장 특성 6|
-|사용자|extensionattribute7|확장 특성 7|
-|사용자|extensionattribute8|확장 특성 8|
-|사용자|extensionattribute9|확장 특성 9|
-|사용자|extensionattribute10|확장 특성 10|
-|사용자|extensionattribute11|확장 특성 11|
-|사용자|extensionattribute12|확장 특성 12|
-|사용자|extensionattribute13|확장 특성 13|
-|사용자|extensionattribute14|확장 특성 14|
-|사용자|extensionattribute15|확장 특성 15|
-|사용자|othermail|다른 메일|
-|사용자|country|국가|
-|사용자|city|City|
-|사용자|state|시스템 상태|
-|사용자|jobtitle|직위|
-|사용자|employeeid|직원 ID|
-|사용자|facsimiletelephonenumber|팩스 번호|
-|애플리케이션, 리소스, 대상 그룹|displayname|표시 이름|
-|애플리케이션, 리소스, 대상 그룹|objected|ObjectID|
-|애플리케이션, 리소스, 대상 그룹|tags|서비스 주체 태그|
-|회사|tenantcountry|테넌트 국가|
+| 사용자 | surname | 성 |
+| 사용자 | givenname | 이름 |
+| 사용자 | displayname | 표시 이름 |
+| 사용자 | objectId | ObjectID |
+| 사용자 | mail | 메일 주소 |
+| 사용자 | userprincipalname | 사용자 계정 이름 |
+| 사용자 | department|department|
+| 사용자 | onpremisessamaccountname | 온-프레미스 SAM 계정 이름 |
+| 사용자 | netbiosname| NetBios 이름 |
+| 사용자 | dnsdomainname | DNS 도메인 이름 |
+| 사용자 | onpremisesecurityidentifier | 온-프레미스 보안 식별자 |
+| 사용자 | companyname| 조직 이름 |
+| 사용자 | streetaddress | 주소 |
+| 사용자 | postalcode | 우편 번호 |
+| 사용자 | preferredlanguange | 기본 설정 언어 |
+| 사용자 | onpremisesuserprincipalname | 온-프레미스 UPN |
+| 사용자 | mailNickname | 메일 애칭 |
+| 사용자 | extensionattribute1 | 확장 특성 1 |
+| 사용자 | extensionattribute2 | 확장 특성 2 |
+| 사용자 | extensionattribute3 | 확장 특성 3 |
+| 사용자 | extensionattribute4 | 확장 특성 4 |
+| 사용자 | extensionattribute5 | 확장 특성 5 |
+| 사용자 | extensionattribute6 | 확장 특성 6 |
+| 사용자 | extensionattribute7 | 확장 특성 7 |
+| 사용자 | extensionattribute8 | 확장 특성 8 |
+| 사용자 | extensionattribute9 | 확장 특성 9 |
+| 사용자 | extensionattribute10 | 확장 특성 10 |
+| 사용자 | extensionattribute11 | 확장 특성 11 |
+| 사용자 | extensionattribute12 | 확장 특성 12 |
+| 사용자 | extensionattribute13 | 확장 특성 13 |
+| 사용자 | extensionattribute14 | 확장 특성 14 |
+| 사용자 | extensionattribute15 | 확장 특성 15 |
+| 사용자 | othermail | 다른 메일 |
+| 사용자 | country | 국가 |
+| 사용자 | city | City |
+| 사용자 | state | 시스템 상태 |
+| 사용자 | jobtitle | 직위 |
+| 사용자 | employeeid | 직원 ID |
+| 사용자 | facsimiletelephonenumber | 팩스 번호 |
+| 애플리케이션, 리소스, 대상 그룹 | displayname | 표시 이름 |
+| 애플리케이션, 리소스, 대상 그룹 | objected | ObjectID |
+| 애플리케이션, 리소스, 대상 그룹 | tags | 서비스 주체 태그 |
+| 회사 | tenantcountry | 테넌트 국가 |
 
 **TransformationID:** TransformationID 요소는 Source 요소가 “transformation”으로 설정된 경우에만 제공해야 합니다.
 
@@ -386,32 +386,32 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 |원본|ID|설명|
 |-----|-----|-----|
-|사용자|mail|메일 주소|
-|사용자|userprincipalname|사용자 계정 이름|
-|사용자|onpremisessamaccountname|온-프레미스 SAM 계정 이름|
-|사용자|employeeid|직원 ID|
-|사용자|extensionattribute1|확장 특성 1|
-|사용자|extensionattribute2|확장 특성 2|
-|사용자|extensionattribute3|확장 특성 3|
-|사용자|extensionattribute4|확장 특성 4|
-|사용자|extensionattribute5|확장 특성 5|
-|사용자|extensionattribute6|확장 특성 6|
-|사용자|extensionattribute7|확장 특성 7|
-|사용자|extensionattribute8|확장 특성 8|
-|사용자|extensionattribute9|확장 특성 9|
-|사용자|extensionattribute10|확장 특성 10|
-|사용자|extensionattribute11|확장 특성 11|
-|사용자|extensionattribute12|확장 특성 12|
-|사용자|extensionattribute13|확장 특성 13|
-|사용자|extensionattribute14|확장 특성 14|
-|사용자|extensionattribute15|확장 특성 15|
+| 사용자 | mail|메일 주소|
+| 사용자 | userprincipalname|사용자 계정 이름|
+| 사용자 | onpremisessamaccountname|온-프레미스 SAM 계정 이름|
+| 사용자 | employeeid|직원 ID|
+| 사용자 | extensionattribute1 | 확장 특성 1 |
+| 사용자 | extensionattribute2 | 확장 특성 2 |
+| 사용자 | extensionattribute3 | 확장 특성 3 |
+| 사용자 | extensionattribute4 | 확장 특성 4 |
+| 사용자 | extensionattribute5 | 확장 특성 5 |
+| 사용자 | extensionattribute6 | 확장 특성 6 |
+| 사용자 | extensionattribute7 | 확장 특성 7 |
+| 사용자 | extensionattribute8 | 확장 특성 8 |
+| 사용자 | extensionattribute9 | 확장 특성 9 |
+| 사용자 | extensionattribute10 | 확장 특성 10 |
+| 사용자 | extensionattribute11 | 확장 특성 11 |
+| 사용자 | extensionattribute12 | 확장 특성 12 |
+| 사용자 | extensionattribute13 | 확장 특성 13 |
+| 사용자 | extensionattribute14 | 확장 특성 14 |
+| 사용자 | extensionattribute15 | 확장 특성 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>표 6: SAML NameID에 허용되는 변환 메서드
 
-|TransformationMethod|제한|
+| TransformationMethod | 제한 |
 | ----- | ----- |
-|ExtractMailPrefix|없음|
-|Join|조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다.|
+| ExtractMailPrefix | 없음 |
+| Join | 조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다. |
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 
@@ -437,19 +437,19 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
 
 1. 최신 [Azure AD PowerShell 모듈 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview)를 다운로드합니다.
 1. Connect 명령을 실행하여 Azure AD 관리자 계정에 로그인합니다. 새 세션을 시작할 때마다 이 명령을 실행합니다.
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. 조직에서 만든 모든 정책을 확인하려면 다음 명령을 실행합니다. 다음 시나리오에서 대부분의 작업 후에 이 명령을 실행하여 정책이 예상대로 생성되는지 확인하는 것이 좋습니다.
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급된 토큰에서 기본 클레임을 생략하는 정책 만들기 및 할당
-   이 예제에서는 연결된 서비스 주체에 발급된 토큰에서 기본 클레임 집합을 제거하는 정책을 만듭니다.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급 된 토큰에서 기본 클레임을 생략 하는 정책을 만들고 설정 합니다.
+
+이 예제에서는 연결된 서비스 주체에 발급된 토큰에서 기본 클레임 집합을 제거하는 정책을 만듭니다.
 
 1. 클레임 매핑 정책을 만듭니다. 특정 서비스 주체에 연결되는 이 정책은 토큰에서 기본 클레임 집합을 제거합니다.
    1. 정책을 만들려면 이 명령을 실행합니다. 
@@ -462,7 +462,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 ObjectId도 가져와야 합니다. 
+1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 ObjectId도 가져와야 합니다.
    1. 조직의 모든 서비스 주체를 보려면 Microsoft Graph를 쿼리하면 됩니다. 또는 Azure AD Graph Explorer에서 Azure AD 계정으로 로그인합니다.
    2. 서비스 주체의 ObjectId가 있으면 다음 명령을 실행합니다.  
      
@@ -475,7 +475,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
 이 예제에서는 연결된 서비스 주체에 발급된 토큰에 EmployeeID 및 TenantCountry를 추가하는 정책을 만듭니다. EmployeeID는 SAML 토큰 및 JWT 둘 다에서 이름 클레임 형식으로 내보내집니다. TenantCountry는 SAML 토큰 및 JWT 둘 다에서 국가 클레임 형식으로 내보내집니다. 이 예제에서는 토큰에 기본 클레임 집합을 계속 포함합니다.
 
 1. 클레임 매핑 정책을 만듭니다. 특정 서비스 주체에 연결되는 이 정책은 토큰에 EmployeeID 및 TenantCountry 클레임을 추가합니다.
-   1. 정책을 만들려면 이 명령을 실행합니다.  
+   1. 정책을 만들려면 다음 명령을 실행합니다.  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
@@ -499,10 +499,10 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
 이 예제에서는 연결된 서비스 주체에 발급된 JWT에 사용자 지정 클레임 “JoinedData”를 내보내는 정책을 만듭니다. 이 클레임에는 사용자 개체의 extensionattribute1 특성에 저장된 데이터와 ".sandbox"를 조인하여 만든 값이 포함됩니다. 이 예제에서는 토큰에 기본 클레임 집합을 제외합니다.
 
 1. 클레임 매핑 정책을 만듭니다. 특정 서비스 주체에 연결되는 이 정책은 토큰에 EmployeeID 및 TenantCountry 클레임을 추가합니다.
-   1. 정책을 만들려면 이 명령을 실행합니다. 
+   1. 정책을 만들려면 다음 명령을 실행합니다.
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. 새 정책을 보고 정책 ObjectId를 가져오려면 다음 명령을 실행합니다. 
@@ -517,3 +517,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>참고 항목
+
+Azure portal 통해 SAML 토큰에서 발급 된 클레임 사용자 지정 하는 방법에 알아보려면 참조 [방법: 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급 된 클레임 사용자 지정](active-directory-saml-claims-customization.md)

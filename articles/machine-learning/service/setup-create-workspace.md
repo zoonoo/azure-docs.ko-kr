@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521009"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879287"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 만들기
 
@@ -37,11 +37,11 @@ Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->다른 Azure 서비스와 마찬가지로, 특정 한도 및 할당량이 Machine Learning과 관련돼 있습니다. [할당량 및 더 많은 요청 방법에 대해 알아보세요.](how-to-manage-quotas.md)
+>다른 Azure 서비스와 마찬가지로, 특정 한도 및 할당량이 Machine Learning과 관련돼 있습니다. [할당량 및 더 요청 하는 방법에 알아봅니다.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>필수 조건
-작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 ## <a name="portal"></a> Azure portal
 
@@ -116,7 +116,7 @@ SDK를 설치하기 전에, 격리된 Python 환경을 만드는 것이 좋습�
     ```
 
 > [!IMPORTANT]
-> 몇 가지 명령줄 도구가 같이 따옴표를 추가 해야 합니다.
+> 일부 명령줄 도구에서는 다음과 같이 따옴표를 추가해야 할 수도 있습니다.
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 >
@@ -139,7 +139,7 @@ Python SDK를 사용하여 Jupyter Notebook에서 작업 영역을 만듭니다.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. [Azure Portal의 구독 목록](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 `<azure-subscription-id>` 매개 변수에 대한 값을 찾습니다. 역할이 소유자 또는 기여자인 구독을 사용합니다.
+1. [Azure Portal의 구독 목록](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 `<azure-subscription-id>` 매개 변수에 대한 값을 찾습니다. 역할이 소유자 또는 기여자인 구독을 사용합니다. 역할에 대 한 자세한 내용은 참조 하세요. [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md) 문서.
 
    ```python
    from azureml.core import Workspace

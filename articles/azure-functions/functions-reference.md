@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56339492"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
@@ -48,9 +48,9 @@ function.json 파일은 함수의 트리거, 바인딩 및 기타 구성 설정�
 
 | 자산 | 값/형식 | 설명 |
 | --- | --- | --- |
-| `type` |string |바인딩 형식 예: `queueTrigger` |
+| `type` |문자열 |바인딩 형식 예: `queueTrigger` |
 | `direction` |'in', 'out' |함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
-| `name` |string |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
+| `name` |문자열 |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
 
 ## <a name="function-app"></a>함수 앱
 함수 앱은 함수가 실행되는 Azure의 실행 컨텍스트를 제공합니다. Function App은 함께 관리, 배포 및 크기 조정되는 하나 이상의 개별 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 
@@ -84,7 +84,7 @@ Azure Portal에 기본 제공된 함수 편집기를 사용하면 코드와 *fun
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.
 
-* [Azure Functions](https://github.com/Azure/Azure-Functions)
+* [Azure 기능](https://github.com/Azure/Azure-Functions)
 * [Azure Functions 호스트](https://github.com/Azure/azure-functions-host/)
 * [Azure Functions 포털](https://github.com/azure/azure-functions-ux)
 * [Azure Functions 템플릿](https://github.com/azure/azure-functions-templates)

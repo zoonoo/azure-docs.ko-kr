@@ -3,29 +3,29 @@ title: PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지�
 description: Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기 및 사용
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 84bed7031307316545cc8e468196c6b12cde7bb7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237064"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878271"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Azure 포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [PowerShell 사용 (기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용 (추가 저장소)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [리소스 관리자를 사용 하 여](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 Azure PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 Azure HDInsight 클러스터를 구성하는 방법을 알아봅니다. Data Lake Storage Gen1을 추가 스토리지로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Data Lake Storage Gen1을 추가 스토리지로 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
 
@@ -255,7 +255,7 @@ Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성한 �
 
 ## <a name="see-also"></a>참고 항목
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Azure Portal: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Portal: 데이터 레이크 저장소 Gen1를 사용 하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

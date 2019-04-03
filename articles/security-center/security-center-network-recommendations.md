@@ -3,7 +3,7 @@ title: Azure Security Center에서 네트워크 리소스 보호 | Microsoft Doc
 description: 이 문서에서는 Azure 네트워크 리소스를 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure Security Center의 권장 사항에 대해 설명합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118006"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863154"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -30,10 +30,9 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 > **네트워킹** 페이지에서 네트워크 관점에서 본 Azure 리소스 상태에 대해 자세히 알아볼 수 있습니다. 네트워크 맵 및 적응 네트워크 컨트롤은 Azure Security Center 표준 계층에서만 사용할 수 있습니다. [무료 계층을 사용하는 경우 **레거시 네트워킹 보기** 단추를 클릭하여 네트워킹 리소스 권장 사항을 받을 수 있습니다](#legacy-networking).
 >
 
-**네트워킹** 페이지에서는 네트워크 리소스의 상태에 대한 자세한 정보를 볼 수 있는 섹션의 개요를 제공합니다.
+합니다 **네트워킹** 심층 있습니다 섹션의 개요를 제공 하는 블레이드에서 네트워크 리소스의 상태에 대 한 자세한 정보를 보려면 자세히:
 
 - 네트워크 맵(Azure Security Center 표준 계층만 해당)
-- NSG 강화(출시 예정입니다. 미리 보기에 등록하세요.)
 - 네트워킹 보안 권장 사항
 - 레거시 **네트워킹** 블레이드(이전 네트워킹 블레이드) 
  
@@ -49,7 +48,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
  
 토폴로지 맵의 기본 보기에 다음이 표시됩니다.
 - Azure에서 선택한 구독입니다. 맵은 여러 구독을 지원합니다.
-- Resource Manager 리소스 형식의 VM, 서브넷 및 Vnet(클래식 Azure 리소스는 지원되지 않습니다.)
+- Vm, 서브넷 및 Vnet (클래식 Azure 리소스는 지원 되지 않습니다)의 Resource Manager 리소스 종류의
+- 피어 링 된 Vnet
 - [네트워크 권장 사항](security-center-recommendations.md)의 심각도가 높거나 보통인 리소스만  
 - 인터넷 연결 리소스
 - 맵은 Azure에서 선택한 구독에 대해 최적화됩니다. 선택 항목을 수정하는 경우 맵이 다시 계산되고 새 설정을 기반으로 다시 최적화됩니다.  
@@ -98,9 +98,9 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 리소스로 드릴다운하려면:
 1. 맵에서 특정 리소스를 선택하면 오른쪽 창이 열리고 리소스에 대한 일반 정보, 연결된 보안 솔루션(있는 경우) 및 리소스와 관련된 권장 사항을 제공합니다. 선택한 리소스의 각 형식에 대해 동일한 동작 형식입니다. 
-2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽**을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다.
+2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽**을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어, 선택 하면 VM, 통신할 수 있는 모든 Vm은 표시 및와 통신할 수 있는 모든 서브넷은 표시 된 서브넷을 선택 하면 합니다.
 
-**이 데이터는 크로스오버 및 상호 작용을 이해하기 위해 여러 규칙을 분석하는 고급 Machine Learning 알고리즘과 함께 네트워크 보안 그룹의 분석을 기반으로 합니다.** 
+**이 데이터는 네트워크 보안 그룹 뿐만 아니라 고급 기계 학습 crossovers와 상호 작용을 이해 하는 여러 규칙을 분석 하는 알고리즘의 분석을 기반으로 합니다.** 
 
 ![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)
 

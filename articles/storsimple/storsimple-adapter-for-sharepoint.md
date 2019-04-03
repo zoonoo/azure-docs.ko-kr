@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232870"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885590"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요
 SharePoint용 StorSimple 어댑터는 Microsoft Azure StorSimple 유연한 저장소 및 데이터 보호를 SharePoint 서버 팜에 제공할 수 있도록 하는 구성 요소입니다. 어댑터를 사용하여 SQL Server 콘텐츠 데이터베이스에서 Microsoft Azure StorSimple 하이브리드 클라우드 저장소 디바이스에 BLOB(Binary Large Object) 콘텐츠를 이동할 수 있습니다.
 
-SharePoint용 StorSimple 어댑터는 RBS(Remote BLOB Storage) 공급자로서 기능하며 SQL Server 원격 BLOB 저장소 기능을 사용하여 StorSimple 디바이스에서 지원하는 파일 서버에 구조화되지 않은 SharePoint 콘텐츠(Blob 형식)를 저장합니다.
+SharePoint용 StorSimple 어댑터는 RBS(Remote BLOB Storage) 공급자로서 기능하며 SQL Server 원격 BLOB 스토리지 기능을 사용하여 StorSimple 장치에서 지원하는 파일 서버에 구조화되지 않은 SharePoint 콘텐츠(Blob 형식)를 저장합니다.
 
 > [!NOTE]
 > SharePoint용 StorSimple 어댑터는 SharePoint Server 2010 RBS(Remote BLOB Storage)를 지원합니다. SharePoint Server 2010 EBS(External BLOB Storage)를 지원하지 않습니다.
@@ -59,7 +59,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
 * 콘텐츠의 총 크기가(콘텐츠 데이터베이스 크기와 연결되고 구체화된 BLOB의 크기를 더한 크기) SharePoint에서 지원하는 RBS 크기 제한을 초과하지 않도록 합니다. 이 제한은 200GB입니다. 
   
-    **콘텐츠 데이터베이스 및 BLOB 크기를 측정하려면**
+    **측정값 콘텐츠 데이터베이스 및 BLOB 크기**
   
   1. 중앙 관리 WFE에서 이 쿼리를 실행합니다. SharePoint 관리 셸을 시작하고 다음 Windows PowerShell 명령을 입력하여 콘텐츠 데이터베이스의 크기를 가져옵니다.
      
@@ -84,7 +84,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 * StorSimple 디바이스에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 SQL Server 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다. 
 
 > [!WARNING]
-> RBS를 사용하도록 설정하지 않은 경우 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
+> RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>SharePoint 설치용 StorSimple 어댑터
 SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스를 구성해야 하고 SharePoint 서버 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
@@ -223,12 +223,12 @@ SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 표면
 1. 각 표면화된 개체를 다운로드합니다.
 2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정**으로 이동합니다.
 3. **Azure StorSimple**에서 **StorSimple 어댑터 구성**을 클릭합니다.
-4. **StorSimple 어댑터 구성** 페이지에서 EBS(External BLOB Storage)로부터 제거하려는 각 콘텐츠 데이터베이스 아래의 **사용 안 함** 단추를 클릭합니다. 
+4. **StorSimple 어댑터 구성** 페이지에서 외부 Blob Storage에서 제거하려는 각 콘텐츠 데이터베이스 아래의 **사용 안 함** 단추를 클릭합니다. 
 5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
 
-또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+Microsoft를 사용할 수 있습니다 또는 `RBS Migrate()` SharePoint에 포함 된 PowerShell cmdlet. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
 
-Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계인 [어댑터 제거](#uninstall-the-adapter)로 이동합니다.
+Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계로 이동 합니다. [어댑터 제거](#uninstall-the-adapter)합니다.
 
 ### <a name="uninstall-the-adapter"></a>어댑터 제거
 Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 옵션 중 하나를 사용하여 SharePoint용 StorSimple 어댑터를 제거합니다.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101774"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877383"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java Enterprise 가이드
 
@@ -119,4 +119,5 @@ App Service는 애플리케이션 문제를 해결하는 데 도움이 되는 �
 
 -   왼쪽 탐색 창에서 **진단 로그**를 클릭하여 로그를 켭니다. **파일 시스템**을 클릭하여 스토리지 할당량 및 보존 기간을 설정하고 변경 내용을 저장합니다. 이러한 로그는 `/home/LogFiles/`에서 찾을 수 있습니다.
 -   실행 중인 애플리케이션의 로그를 보려면 [SSH를 사용하여 애플리케이션 인스턴스에 연결합니다](app-service-linux-ssh-support.md).
--   포털의 **진단 로그** 패널 또는 다음과 같은 Azure CLI 명령을 사용하여 검사 진단 로그를 확인합니다. ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   검사 진단 로그는 **진단 로그** 패널 포털 또는 Azure CLI 명령을 사용 하 여:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: b6d4a44a53ba553ab4fd514c81867156192b69f5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662539"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886270"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
-> * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
+> * [C#Windows에서](service-fabric-reliable-services-secure-communication.md)
+> * [Java on Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
@@ -129,7 +129,7 @@ C# 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를 �
        }
        ```
 
-        settings.xml 파일에 `TransportSettings` 섹션을 추가하면 `FabricTransportRemotingListenerSettings `는 기본적으로 이 섹션의 모든 설정을 로드합니다.
+        settings.xml 파일에 `TransportSettings` 섹션을 추가하면 `FabricTransportRemotingListenerSettings`는 기본적으로 이 섹션의 모든 설정을 로드합니다.
 
         ```xml
         <!--"TransportSettings" section .-->

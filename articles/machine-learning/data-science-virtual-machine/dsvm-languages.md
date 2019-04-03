@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990794"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877417"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -145,8 +145,8 @@ DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환
 | ------------- | ------------- |
 | 지원되는 언어 버전 | Microsoft R Open 3.x(CRAN-R과 100% 호환 가능)<br /> Microsoft R Server 9.x Developer Edition(R 플랫폼용으로 준비된 확장 가능한 Enterprise 버전)|
 | 지원되는 DSVM 버전      | Linux, Windows     |
-| DSVM에 구성/설치 방법  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
-| 샘플 링크      | R에 대한 샘플 Jupyter 노트북이 포함되어 있습니다.     |
+| DSVM에 구성/설치 방법  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| 샘플에 대한 링크      | R에 대한 샘플 Jupyter 노트북이 포함되어 있습니다.     |
 | DSVM의 관련 도구      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>사용/실행 방법    
 
@@ -193,7 +193,7 @@ R은 모든 사용자가 읽을 수 있는 전역 환경의 DSVM에 설치됩니
 | ------------- | ------------- |
 | 지원되는 언어 버전 | 0.6 |
 | 지원되는 DSVM 버전      | Linux, Windows     |
-| DSVM에 구성/설치 방법  | Windows: `C:\JuliaPro-VERSION`에 설치됨<br /> Linux: `/opt/JuliaPro-VERSION`에 설치됨    |
+| DSVM에 구성/설치 방법  | Windows: 에 설치 `C:\JuliaPro-VERSION`<br /> Linux: 에 설치 `/opt/JuliaPro-VERSION`    |
 | 샘플에 대한 링크      | Julia에 대한 샘플 Jupyter 노트북이 포함되어 있습니다.     |
 | DSVM의 관련 도구      | Python, R      |
 ### <a name="how-to-use--run-it"></a>사용/실행 방법    
@@ -209,7 +209,7 @@ DSVM에 설치되고 바탕 화면 바로 가기로 사용할 수 있는 Julia I
 
 * Jupyter에서 사용
 
-Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 `Julia VERSION`을 선택할 수 있습니다. 
+Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 선택할 수 있습니다. `Julia VERSION` 
 
 * Julia 패키지 설치
 
@@ -226,7 +226,7 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 
 * Jupyter에서 사용
 
-Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 `Julia VERSION`을 선택할 수 있습니다. 
+Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 선택할 수 있습니다. `Julia VERSION` 
 
 * Julia 패키지 설치
 

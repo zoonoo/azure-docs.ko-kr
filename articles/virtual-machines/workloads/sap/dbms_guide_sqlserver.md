@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992488"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881089"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992488"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -316,7 +315,7 @@ ms.locfileid: "57992488"
 
 
 > [!IMPORTANT]
-> 이 문서의 범위는 SQL Server의 Windows 버전입니다. SAP는 어떤 SAP 소프트웨어에서도 Linux 버전의 SQL Server를 지원하지 않습니다. 이 문서에서는 Microsoft Azure 플랫폼의 PaaS(Platform as a Service) 제품인 Microsoft Azure SQL Database에 대해 설명하지 않습니다. 이 문서에서는 Azure의 IaaS(서비스 제공 인프라)를 활용하여 Azure Virtual Machines에서 온-프레미스 배포에 대해 알려진 SQL Server 제품을 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 다르므로 서로 혼합하지 않아야 합니다. <https://azure.microsoft.com/services/sql-database/>도 참조하세요.
+> 이 문서의 범위는 SQL Server의 Windows 버전입니다. SAP는 어떤 SAP 소프트웨어에서도 Linux 버전의 SQL Server를 지원하지 않습니다. 이 문서에서는 Microsoft Azure 플랫폼의 PaaS(Platform as a Service) 제품인 Microsoft Azure SQL Database에 대해 설명하지 않습니다. 이 문서에서는 Azure의 IaaS(서비스 제공 인프라)를 활용하여 Azure Virtual Machines에서 온-프레미스 배포에 대해 알려진 SQL Server 제품을 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 다르므로 서로 혼합하지 않아야 합니다. 참고 항목: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -363,7 +362,7 @@ Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Pre
 ### <a name="formatting-the-disks"></a>디스크 형식 설정
 SQL Server의 경우 SQL Server 서버 데이터 및 로그 파일이 포함된 디스크의 NTFS 블록 크기는 64KB여야 합니다. D:\ 드라이브의 형식을 설정할 필요가 없습니다. 이 드라이브는 미리 포맷되어 있습니다.
 
-파일의 내용을 제거하여 데이터베이스를 복원하거나 만들더라도 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행되고 있는 사용자 컨텍스트에 특정 권한이 있는지 확인해야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행되는 경우 해당 사용자에게 **볼륨 유지 관리 작업 수행** 사용자 권한을 할당해야 합니다.  자세한 내용은 이 Microsoft 기술 자료 문서(<https://support.microsoft.com/kb/2574695>)를 참조하세요.
+파일의 내용을 제거하여 데이터베이스를 복원하거나 만들더라도 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행되고 있는 사용자 컨텍스트에 특정 권한이 있는지 확인해야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행되는 경우 해당 사용자에게 **볼륨 유지 관리 작업 수행** 사용자 권한을 할당해야 합니다.  자세한 내용은이 Microsoft 기술 자료 문서를 참조 하세요. <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
 I/O 대역폭이 제한 요인이 될 수 있는 구성에서 측정마다 IOPS를 줄여 Azure와 같이 IaaS 시나리오에서 실행할 수 있는 워크로드를 늘릴 수 있습니다. 따라서 아직 수행하지 않은 경우 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP와 Microsoft 모두에서 SQL Server 페이지 압축을 적용하는 것이 좋습니다.
@@ -409,7 +408,7 @@ Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virt
 2.  SQL Server 2012 CU4 이상에서는 데이터베이스를 Azure 저장소 URL에 백업할 수 있습니다.
 3.  Azure Blob Storage의 데이터베이스 파일에 대한 파일-스냅숏 백업 이 방법은 SQL Server 데이터 및 로그 파일이 Azure Blob Storage에 있는 경우에만 작동합니다.
 
-첫 번째 방법은 잘 알려져 있으며 대부분의 경우 온-프레미스 환경에서도 적용됩니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 저장소 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
+첫 번째 방법은 잘 알려져 있고도 온-프레미스 환경에서 대부분의 경우에 적용 합니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 저장소 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
 
 두 번째 방법은 [URL에 대한 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017) 문서에서 자세히 설명하고 있습니다. SQL Server의 다른 릴리스에서는 이 기능이 약간 다릅니다. 따라서 이러한 특정 SQL Server 릴리스와 관련하여 설명서를 확인해야 합니다. 이 문서에는 많은 제한 사항이 나와 있습니다. 다음에 대해 백업을 수행할 수 있습니다.
 
@@ -451,7 +450,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 * 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.
 * 다음 명령을 실행합니다. Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
-  * `<local_admin_account_name`>은 갤러리를 통해 처음으로 VM을 배포할 때 관리자 계정으로 정의된 계정입니다.
+  * `<local_admin_account_name`> 갤러리를 통해 처음으로 VM을 배포할 때 관리자 계정으로 정의 된 계정입니다.
 
 이 프로세스는 몇 분밖에 안 걸립니다. 단계가 올바르게 수행되었는지 확인하려면 다음 단계를 수행하세요.
 
@@ -477,8 +476,8 @@ HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구�
 SQL Server 로그 전달 기능은 Azure에서 거의 사용되지 않아 하나의 Azure 지역 내에서 고가용성을 달성할 수 없었습니다. 그러나 다음 시나리오에서 SAP 고객은 Azure와 함께 로그 전달을 성공적으로 사용하고 있었습니다.
 
 - Azure 지역 간 재해 복구 시나리오
-- 온-프레미스에서 Azure 지역으로의 재해 복구 구성
-- 온-프레미스에서 Azure로 전환하는 시나리오. 이러한 경우 로그 전달은 Azure에서 새 DBMS 배포를 온-프레미스에서 진행 중인 프로덕션 시스템과 동기화하는 데 사용됩니다. 전환 시점에서 프로덕션이 종료되고, 마지막 및 최신 트랜잭션 로그 백업이 Azure DBMS 배포로 전송되었는지 확인합니다. 그러면 프로덕션에 대한 Azure DBMS 배포가 열립니다.  
+- Azure 지역에 온-프레미스에서 재해 복구 구성
+- 온-프레미스에서 Azure로 시나리오를 cut over입니다. 이러한 경우 로그 전달은 Azure에서 새 DBMS 배포를 온-프레미스에서 진행 중인 프로덕션 시스템과 동기화하는 데 사용됩니다. 전환 시점에서 프로덕션이 종료되고, 마지막 및 최신 트랜잭션 로그 백업이 Azure DBMS 배포로 전송되었는지 확인합니다. 그러면 프로덕션에 대한 Azure DBMS 배포가 열립니다.  
 
 
 
@@ -487,16 +486,16 @@ SAP에서 지원하는 데이터베이스 미러링(SAP Note [965908]참조)은 
 
 클라우드 전용 배포 시 가장 쉬운 방법은 Azure에서 이러한 DBMS VM(및 이상적인 전용 SAP VM)을 한 도메인 내에 배치할 수 있도록 다른 도메인을 설정하는 것입니다.
 
-도메인을 사용할 수 없는 경우 <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>에서 설명한 대로 데이터베이스 미러링 엔드포인트에 대한 인증서를 사용할 수도 있습니다.
+도메인 가능 하지 않은 경우 데이터베이스 미러링 끝점에서 설명한 대로 대 한 인증서를 사용할 수도 있습니다. <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-Azure에서 데이터베이스 미러링을 설정하기 위한 자습서는 <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server>에서 찾을 수 있습니다. 
+Azure의 데이터베이스 미러링 설정에 대 한 자습서는 여기에서 찾을 수 있습니다. <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server Always On
 Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]참조) Azure에서 SAP와 함께 지원됩니다. 이 시점에서 Azure는 온-프레미스에서 가능한 AD/DNS 개체를 만들 수 없으므로 SQL Server 가용성 그룹 수신기(Azure 가용성 집합과 다름)를 배포하는 것과 관련된 몇 가지 특별한 고려 사항이 있습니다. 따라서 Azure의 특정 동작을 극복하려면 몇 가지 다른 설치 단계가 필요합니다.
 
 가용성 그룹 수신기를 사용하는 경우 몇 가지 고려 사항이 있습니다.
 
-* 가용성 그룹 수신기는 Windows Server 2012 이상을 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되어 있는지 확인해야 합니다. 
+* 가용성 그룹 수신기는 Windows Server 2012 이상을 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012에 대 한이 패치가 적용 되어 있는지 확인 해야 합니다. <https://support.microsoft.com/kb/2854082> 
 * Windows Server 2008 R2의 경우 이 패치가 없으며, 연결 문자열에서 장애 조치 파트너를 지정하여 데이터베이스 미러링과 동일한 방식으로 Always On을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908] 참조).
 * 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 두 VM이 우발적으로 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않도록 하려면 Always On 구성에서 해당 VM의 네트워크 인터페이스에 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이 문서][virtual-networks-reserved-private-ip]에서 설명).
 * 현재 기능의 Azure는 클러스터가 만들어진 노드와 동일한 IP 주소를 클러스터 이름에 할당하므로 클러스터에 특정 IP 주소를 할당해야 하는 WSFC 클러스터를 구성할 때는 특별한 단계가 필요합니다. 즉, 클러스터에 다른 IP 주소를 할당하기 위해서는 수동 단계를 수행해야 합니다.
@@ -525,13 +524,13 @@ Azure에서 SAP SQL Server 데이터베이스를 배포하는 경우 많은 고�
 ### <a name="applying-sql-server-tde"></a>SQL Server TDE 적용
 온-프레미스에서 실행되는 다른 DBMS에서 Azure에서 실행되는 Windows/SQL Server로 이기종 마이그레이션을 수행하는 경우, SQL Server에 빈 대상 데이터베이스를 미리 만들어야 합니다. 다음 단계로 SQL Server TDE 기능을 적용합니다. 한편 프로덕션 시스템은 온-프레미스에서 계속 실행되고 있습니다. 이 순서로 수행하려는 이유는 빈 데이터베이스를 암호화하는 프로세스에 시간이 상당히 오래 걸릴 수 있다는 것입니다. 그러면 SAP 가져오기 프로세스에서 가동 중지 시간 단계 동안 데이터를 암호화된 데이터베이스로 가져옵니다. 암호화된 데이터베이스로 가져오는 오버헤드는 가동 중지 시간 단계에서 내보내기 단계 이후에 데이터베이스를 암호화하는 것보다 시간으로 인한 영향이 훨씬 적습니다. 데이터베이스를 기반으로 하여 실행되는 SAP 워크로드를 사용하여 TDE를 적용하려고 할 때 부정적인 경험을 하게 됩니다. 따라서 TDE 배포를 특정 데이터베이스에서 SAP 워크로드 없이 수행해야 하는 작업으로 처리하는 것이 좋습니다.
 
-SAP SQL Server 데이터베이스를 온-프레미스에서 Azure로 이동하는 경우 암호화를 가장 빠르게 적용할 수 있는 인프라에서 테스트하는 것이 좋습니다. 이를 위해 다음 사실에 유념하세요.
+Azure로 온-프레미스에서 SAP SQL Server 데이터베이스를 이동 하는 있는 경우에는 인프라 적용 가장 빠른 암호화를 가져올 수 있습니다에 테스트 하는 것이 좋습니다. 이를 위해 다음 사실에 유념하세요.
 
 - 데이터베이스에 데이터 암호화를 적용하는 데 사용되는 스레드 수는 정의할 수 없습니다. 스레드 수는 주로 SQL Server 데이터 및 로그 파일이 분산되는 디스크 볼륨의 수에 따라 달라집니다. 즉, 더 명확한 볼륨(드라이브 문자)이 있을수록 암호화를 수행하기 위해 더 많은 스레드가 병렬로 참여하게 됩니다. 이러한 구성은 Azure VM에서 SQL Server 데이터베이스 파일용 저장소 공간을 하나 또는 여러 개를 구축하는 경우의 이전 디스크 구성 제안과 약간 충돌합니다. 볼륨 수가 적은 구성에서는 암호화를 실행하는 스레드 수가 적습니다. 단일 스레드 암호화는 64KB 익스텐트를 읽고, 암호화한 다음, 익스텐트가 암호화되었음을 알리는 레코드를 트랜잭션 로그 파일에 기록합니다. 결과적으로 트랜잭션 로그의 부하는 중간 수준입니다.
-- 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. SQL Server 데이터베이스를 온-프레미스에서 암호화한 다음, 백업을 Azure에 복사하여 Azure에서 데이터베이스를 복원하려고 했을 때 이 동작은 문제로 발전할 수 있었습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
+- 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. 이 동작은 SQL Server 데이터베이스 온-프레미스를 암호화 하 고 Azure에서 데이터베이스를 복원 하는 Azure에 백업 복사를 계획할 때 문제가 발생 개발할 수 있습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
 - SQL Server 2016에서 SQL Server는 효율적인 방식으로 암호화된 데이터베이스도 압축할 수 있는 새로운 기능을 도입했습니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/)를 참조하세요.
  
-SAP 워크로드를 거의 사용하지 않고 TDE 암호화 애플리케이션을 처리하는 경우, 온-프레미스와 Azure 중 어느 것에서 TDE를 SAP 데이터베이스에 적용하는 것이 더 나은지 여부에 대한 특정 구성을 테스트해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
+TDE 암호화 없이 거의 SAP 워크 로드에만 응용 프로그램 처리를 SAP 데이터베이스 온-프레미스에 TDE를 적용 하거나 Azure에서 이렇게 하려면 더 나은 인지에 특정 구성에서 테스트 해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 Azure는 암호화 키를 저장하기 위해 [Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스를 제공합니다. 다른 쪽의 SQL Server는 Azure Key Vault를 TDE 인증서 저장소로 활용할 수 있는 커넥터를 제공합니다.

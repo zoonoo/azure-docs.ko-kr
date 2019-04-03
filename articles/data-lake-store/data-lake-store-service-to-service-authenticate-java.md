@@ -3,20 +3,20 @@ title: '서비스 간 인증: Azure Active Directory를 사용 하 여 Azure 데
 description: Azure Active Directory를 사용하여 Java로 Azure Data Lake Storage Gen1 서비스 간 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 257db3ab0a155dd79ef74365f956293886e2f658
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529738"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879168"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -82,6 +82,6 @@ Data Lake Storage Gen1 SDK는 Data Lake Storage Gen1 계정과 통신하는 데 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 최종 사용자 인증을 사용하여 Java SDK로 Data Lake Storage Gen1을 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Java SDK를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [Java SDK를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-get-started-java-sdk.md)
+* [Java SDK를 사용 하 여 데이터 레이크 저장소 Gen1에서 데이터 작업](data-lake-store-get-started-java-sdk.md)
 
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Azure에서 가상 네트워크 트래픽을 라우팅하는 방법과 Azure 라우팅을 사용자 지정하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: jdial
-ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: malop;kumud
+ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123575"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878505"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -181,7 +181,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 ### <a name="requirements"></a>요구 사항
 
 1. 동일한 Azure 지역에 두 개의 가상 네트워크를 구현하고 리소스에서 가상 네트워크 간에 통신할 수 있도록 합니다.
-2. 온-프레미스 네트워크에서 인터넷을 통한 VPN 터널을 통해 두 가상 네트워크와 안전하게 통신할 수 있도록 합니다. *또는 ExpressRoute 연결을 사용할 수 있지만 이 예제에서는 VPN 연결이 사용됩니다.*
+2. 온-프레미스 네트워크에서 인터넷을 통한 VPN 터널을 통해 두 가상 네트워크와 안전하게 통신할 수 있도록 합니다. *또는 ExpressRoute 연결을 사용할 수 있지만이 예제에서는 VPN 연결이 사용 됩니다.*
 3. 하나의 가상 네트워크에 하나의 서브넷이 있는 경우:
  
     - Azure Storage 및 서브넷 내의 아웃바운드 트래픽을 제외하고는 서브넷의 모든 아웃바운드 트래픽을 검사하고 로깅하기 위해 네트워크 가상 어플라이언스를 통과하도록 합니다.
@@ -255,8 +255,8 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
-- [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [경로 및 네트워크 가상 어플라이언스를 사용 하 여 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
+- [Azure VPN Gateway에 대 한 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [서브넷에 대한 모든 경로 보기](diagnose-network-routing-problem.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
 - 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.

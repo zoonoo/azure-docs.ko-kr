@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c9d5b214d0c79f84372ba679db1cbd4a7ad9858
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372593"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884179"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -36,7 +36,7 @@ ms.locfileid: "58372593"
 
  파일 | path
  ---- | -----
- Linux용 Log Analytics 에이전트 로그 파일 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
+ Linux용 Log Analytics 에이전트 로그 파일 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Log Analytics 에이전트 구성 로그 파일 | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
  문제 해결을 위해 또는 GitHub 문제를 제출하기 전에 로그 수집기 도구를 사용하여 중요한 로그를 검색하는 것이 좋습니다. 도구 및 도구 실행 방법에 대한 자세한 내용은 [여기](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)서 확인할 수 있습니다.
@@ -380,13 +380,13 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 
 **백그라운드:** Linux용 Log Analytics 에이전트가 권한 있는 사용자 `root`로 실행되지 않고 `omsagent` 사용자로 실행됩니다. 대부분의 경우 이 사용자가 특정 파일을 읽으려면 명시적 권한을 부여해야 합니다. `omsagent` 사용자에게 권한을 부여하려면 다음 명령을 실행합니다.
 
-1. `sudo usermod -a -G <GROUPNAME> <USERNAME>` 명령을 사용하여 `omsagent` 사용자를 특정 그룹에 추가합니다.
-2. 필수 파일 `sudo chmod -R ugo+rx <FILE DIRECTORY>`에 대한 공용 읽기 액세스 권한을 부여합니다.
+1. 추가 된 `omsagent` 특정 그룹에는 사용자 `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. 필요한 파일을 공용 읽기 액세스 권한을 부여합니다 `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Linux용 Log Analytics 에이전트 1.1.0-217 미만 버전에서 발생하는 것으로 알려진 경쟁 조건 문제입니다. 최신 에이전트로 업데이트한 후 `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` 명령을 사용하여 최신 버전의 출력 플러그 인을 가져오세요.
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>문제: 새 작업 영역에 다시 등록하려고 시도
-에이전트를 새 작업 영역에 다시 등록하려고 시도할 때 Log Analytics 에이전트 구성을 정리한 후 다시 등록해야 합니다. 에이전트에서 이전 구성을 정리하려면 `--purge` 명령을 사용하여 셸 번들을 실행합니다.
+에이전트를 새 작업 영역에 다시 등록하려고 시도할 때 Log Analytics 에이전트 구성을 정리한 후 다시 등록해야 합니다. 에이전트에서 이전 구성을 정리 하려면와 함께 shell 번들을 실행 `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge

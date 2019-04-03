@@ -3,20 +3,20 @@ title: '최종 사용자 인증: Azure Active Directory를 사용 하 여 Azure 
 description: Azure Active Directory와 Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d2c0cc277b2115f50455a1caa825306cc173d94c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 8b558fca964f33d47d331e007329d1bae2626877
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538989"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881259"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -73,11 +73,11 @@ ms.locfileid: "57538989"
             
         AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
 
-Data Lake Storage Gen1 SDK는 Data Lake Storage Gen1 계정에 대해 이야기하는 데 필요한 보안 토큰을 관리할 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
+Data Lake Storage Gen1 SDK는 Data Lake Storage Gen1 계정과 통신하는 데 필요한 보안 토큰을 관리할 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 최종 사용자 인증을 사용하여 Java SDK로 Azure Data Lake Storage Gen1을 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Java SDK를 Azure Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [Java SDK를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-get-started-java-sdk.md)
+* [Java SDK를 사용 하 여 데이터 레이크 저장소 Gen1에서 데이터 작업](data-lake-store-get-started-java-sdk.md)
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092551"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877791"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -49,7 +49,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원
 다음 표에서의 Docker 오케스트레이션 및 Azure Monitor를 사용 하 여 모니터링 되는 컨테이너 인벤토리, 성능 및 로그의 지원 운영 체제를 간략하게 설명 합니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
+| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -124,11 +124,11 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터**를 클릭하여 **작업 영역 ID** 및 **기본 키**를 확인합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
-**CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
+**CoreOS 제외한 모든 Linux 컨테이너 호스트**
 
 - Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
 
-**CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
+**CoreOS를 포함 하 여 모든 Linux 컨테이너 호스트:**
 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
@@ -136,7 +136,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우:**
+**CoreOS를 포함 하 여 모든 Azure Government Linux 컨테이너 호스트:**
 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
@@ -365,7 +365,7 @@ Kubernetes의 경우 Linux용 Log Analytics 에이전트를 설치하려면 스�
         KEY:    88 bytes
         ```
 
-    5. ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```을 실행하여 omsagent daemon-set 만들기
+    5. Omsagent를 실행 하 여 디먼 집합 만들기 ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Log Analytics 에이전트 DaemonSet이 다음과 같이 실행 중인지 확인합니다.
 
@@ -409,7 +409,7 @@ Windows Kubernetes의 경우 Log Analytics 에이전트를 설치하려면 스�
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. ``` kubectl create -f omsagentsecret.yaml ```을 실행하여 omsagent daemon-set 만들기
+    3. Omsagent를 실행 하 여 디먼 집합 만들기 ```kubectl create -f omsagentsecret.yaml```
     4. 확인하려면 다음을 실행합니다.
 
         ```
@@ -436,7 +436,7 @@ Windows Kubernetes의 경우 Log Analytics 에이전트를 설치하려면 스�
         KEY:    88 bytes
         ```
 
-    5. ```kubectl create -f ws-omsagent-de-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
+    5. Omsagent를 실행 하 여 디먼 집합 만들기 ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Log Analytics 에이전트 DaemonSet이 다음과 같이 실행 중인지 확인합니다.
 
@@ -451,7 +451,7 @@ Windows Kubernetes의 경우 Log Analytics 에이전트를 설치하려면 스�
 #### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포
 Helm을 사용하여 Linux Kubernetes 환경에 Log Analytics 에이전트를 배포하려면 다음 단계를 수행합니다.
 
-1. ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```을 실행하여 omsagent daemon-set 만들기
+1. Omsagent를 실행 하 여 디먼 집합 만들기 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. 결과는 다음과 유사합니다.
 
     ```
@@ -567,12 +567,12 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 
 - **컨테이너 이벤트** - 컨테이너 상태 및 실패한 컨테이너가 있는 컴퓨터를 보여 줍니다.
 - **컨테이너 로그** - 시간에 따라 생성되는 컨테이너 로그 파일의 차트 및 로그 파일 수가 가장 높은 컴퓨터의 목록을 보여 줍니다.
-- **Kubernetes 이벤트** - 시간에 따라 생성되는 Kubernetes 이벤트의 차트 및 Pod가 이벤트를 생성하는 이유에 대한 목록을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
-- **Kubernetes 네임스페이스 인벤토리** - 네임스페이스 및 Pod의 수를 표시하고 해당 계층을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
-- **컨테이너 노드 인벤토리** - 컨테이너 노드/호스트에서 사용되는 오케스트레이션 형식의 수를 보여 줍니다. 컴퓨터 노드/호스트가 컨테이너의 수를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **Kubernetes 이벤트** - 시간에 따라 생성되는 Kubernetes 이벤트의 차트 및 Pod가 이벤트를 생성하는 이유에 대한 목록을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용 됩니다.*
+- **Kubernetes 네임스페이스 인벤토리** - 네임스페이스 및 Pod의 수를 표시하고 해당 계층을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용 됩니다.*
+- **컨테이너 노드 인벤토리** - 컨테이너 노드/호스트에서 사용되는 오케스트레이션 형식의 수를 보여 줍니다. 컴퓨터 노드/호스트가 컨테이너의 수를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용 됩니다.*
 - **컨테이너 이미지 인벤토리** - 사용된 총 컨테이너 이미지 수 및 이미지 형식의 수를 표시합니다. 이미지 수는 이미지 태그를 기준으로 나열됩니다.
 - **컨테이너 상태** - 컨테이너를 실행 중인 총 컨테이너 노드/호스트 컴퓨터 수를 표시합니다. 컴퓨터는 실행 중인 호스트 수를 기준으로 나열됩니다.
-- **컨테이너 프로세스** - 시간에 따른 실행 중인 컨테이너 프로세스의 꺾은선형 차트를 보여 줍니다. 컨테이너는 컨테이너 내 실행 중인 명령/프로세스를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **컨테이너 프로세스** - 시간에 따른 실행 중인 컨테이너 프로세스의 꺾은선형 차트를 보여 줍니다. 컨테이너는 컨테이너 내 실행 중인 명령/프로세스를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용 됩니다.*
 - **컨테이너 CPU 성능** - 컴퓨터 노드/호스트에 대한 시간에 따른 평균 CPU 사용률의 꺾은선형 차트를 보여 줍니다. 또한 평균 CPU 사용률을 기준으로 컴퓨터 노드/호스트를 나열합니다.
 - **컨테이너 메모리 성능** - 시간에 따른 메모리 사용량의 꺾은선형 차트를 보여 줍니다. 또한 인스턴스 이름을 기준으로 컴퓨터 메모리 사용률을 나열합니다.
 - **컴퓨터 성능** - 시간에 따른 CPU 성능의 백분율, 시간에 따른 메모리 사용량의 백분율 및 시간에 따른 사용 가능한 디스크 공간의 메가바이트를 꺾은 선형 차트로 표시합니다. 차트에서 해당 줄 위로 마우스를 이동하면 자세한 정보를 볼 수 있습니다.
@@ -604,11 +604,11 @@ Log Analytics가 열리고 컨테이너 상태에 대 한 정보를 표시 합�
 2. Log Analytics가 열리고 다음과 유사한 컨테이너의 상태를 표시 합니다.  
    ![컨테이너 상태](./media/containers/containers-log-search.png)
 3. 실패 한 줄을 확장 하 고 클릭 + 해당 조건을 쿼리에 추가 하려면. 다음 줄을 주석 Summarize 쿼리에서 합니다.
-   ![실패한 컨테이너](./media/containers/containers-state-failed-select.png)  
+   ![실패 한 컨테이너](./media/containers/containers-state-failed-select.png)  
 1. 이미지 ID를 보려면 결과에서 줄을 차례로 확장 하 고 쿼리 실행  
    ![실패 한 컨테이너](./media/containers/containers-state-failed.png)  
-1. 다음 로그 쿼리를 입력 합니다. `ContainerImageInventory | where ImageID == <ImageID>`를 입력하여 이미지 크기 및 중지되고 실패한 이미지 수와 같은 이미지에 대한 세부 정보를 확인합니다.  
-   ![실패한 컨테이너](./media/containers/containers-failed04.png)
+1. 다음 로그 쿼리를 입력 합니다. `ContainerImageInventory | where ImageID == <ImageID>` 이미지 크기 및 중지 되 고 실패 한 이미지 수와 같은 이미지에 대 한 세부 정보를 확인 합니다.  
+   ![실패 한 컨테이너](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>컨테이너 데이터에 대 한 쿼리 로그
 특정 오류 문제를 해결할 때는 환경 내 발생 위치를 확인하는 것이 도움이 될 수 있습니다. 다음 로그 유형은 원하는 정보를 반환하는 쿼리를 만드는 데 도움이 됩니다.
@@ -625,8 +625,8 @@ Log Analytics가 열리고 컨테이너 상태에 대 한 정보를 표시 합�
 
 
 ### <a name="to-query-logs-for-container-data"></a>컨테이너 데이터에 대 한 쿼리 로그
-* 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`를 검색합니다.  
-    ![Ubuntu 컨테이너에 대한 검색](./media/containers/search-ubuntu.png)
+* 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, 검색 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+    ![Ubuntu 컨테이너에 대 한 검색](./media/containers/search-ubuntu.png)
 
   해당 컨테이너에 대 한 세부 정보를 보려면 결과에서 행을 확장 합니다.
 

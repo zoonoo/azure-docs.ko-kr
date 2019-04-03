@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564241"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863205"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -78,6 +78,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 선택한 권장 사항은 데이터베이스에 적용됩니다.
 
 ### <a name="removing-recommendations-from-the-list"></a>목록에서 권장 사항 제거
+
 권장 사항 목록에 목록에서 제거할 항목이 포함된 경우 권장 사항을 삭제할 수 있습니다.
 
 1. **권장 사항** 목록에서 권장 사항을 선택하여 세부 정보를 엽니다.
@@ -110,18 +111,21 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 원하는 구성을 선택한 후 적용을 클릭합니다.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>권장 T-SQL 스크립트를 수동으로 실행
+### <a name="manually-apply-recommendations-through-t-sql"></a>수동으로 T-SQL을 통해 권장 사항을 적용합니다
+
 권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
 
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요.
+*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요. 또한 수동으로 적용 된 권장 사항을 24 ~ 48 시간에 대 한 활성 및 권장 사항 목록에 표시 된 유지 됩니다. 전에 자동으로 시스템을 삭제 합니다. 권장 사항을 더 빨리 제거 하려는 경우 수동으로 취소할 수 있습니다.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
+
 **보류 중**, **유효성 검사 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
 
 1. **튜닝 기록** 영역에서 권장 사항을 선택하면 **권장 사항 세부 정보** 페이지가 열립니다.
 2. **취소** 를 클릭하여 권장 사항을 적용하는 과정을 중단합니다.
 
 ## <a name="monitoring-operations"></a>모니터링 작업
+
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
 | 상태 | 설명 |

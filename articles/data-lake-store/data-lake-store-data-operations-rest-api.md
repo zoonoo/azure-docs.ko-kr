@@ -3,20 +3,20 @@ title: 'REST API: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 
 description: WebHDFS REST API를 사용하여 Azure Data Lake Storage Gen1에서 파일 시스템 작업 수행
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529255"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877634"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 * 먼저 엔드포인트 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`에 대해 GET 요청을 제출합니다. 이 호출은 다음 GET 요청을 제출할 위치를 반환합니다.
 * 그러면 엔드포인트 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`에 대해 GET 요청을 제출합니다. 이 호출은 파일 콘텐츠를 표시합니다.
 
-그러나 첫 번째 단계와 두 번째 단계 간에 입력 매개 변수의 차이가 없으므로 `-L` 매개 변수를 사용하여 첫 번째 요청을 제출할 수 있습니다. `-L` 옵션은 기본적으로 두 요청을 하나로 결합하며 cURL이 새 위치에서 요청을 다시 실행하도록 만듭니다. 마지막으로, 모든 요청 호출의 출력이 다음 코드 조각에 나온 것처럼 표시됩니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+그러나 첫 번째 단계와 두 번째 단계 간에 입력 매개 변수의 차이가 없으므로 `-L` 매개 변수를 사용하여 첫 번째 요청을 제출할 수 있습니다. `-L` 옵션은 기본적으로 두 개의 요청을 하나로 결합 하며 cURL이 새 위치에서 요청을 다시 실행 하면 마지막으로, 모든 요청 호출의 출력이 다음 코드 조각에 나온 것처럼 표시됩니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -163,5 +163,5 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
+* [오픈 소스 빅 데이터 응용 프로그램을 Azure 데이터 레이크 저장소 Gen1 호환](data-lake-store-compatible-oss-other-applications.md)
 

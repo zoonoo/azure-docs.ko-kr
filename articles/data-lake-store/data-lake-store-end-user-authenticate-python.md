@@ -3,20 +3,20 @@ title: '최종 사용자 인증: Azure Active Directory를 사용 하 여 Azure 
 description: Azure Active Directory와 Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2e8859667e3a69f51ae23bab0487bf15d9eeeab6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537187"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881282"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -118,6 +118,6 @@ Data Lake Storage Gen1 계정에 대한 파일 시스템 작업을 수행할 수
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 최종 사용자 인증을 사용하여 Python으로 Azure Data Lake Storage Gen1을 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Python을 Azure Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)
-* [Python을 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-python.md)
+* [Python을 사용 하 여 데이터 레이크 저장소 Gen1에서 계정 관리 작업](data-lake-store-get-started-python.md)
+* [Python을 사용 하 여 데이터 레이크 저장소 Gen1에서 데이터 작업](data-lake-store-data-operations-python.md)
 

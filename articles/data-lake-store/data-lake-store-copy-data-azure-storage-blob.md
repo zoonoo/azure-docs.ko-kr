@@ -3,21 +3,21 @@ title: Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 description: AdlCopy 도구를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544647"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879814"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 > [!div class="op_single_selector"]
@@ -179,6 +179,6 @@ AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 �
 * 1.0.13 - 여러 adlcopy 명령을 통해 데이터를 동일한 Azure Data Lake Storage Gen1 계정에 복사하는 경우 실행할 때마다 자격 증명을 다시 입력할 필요가 없습니다. 이제 Adlcopy가 여러 번 실행할 때 해당 정보를 캐시합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
-* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

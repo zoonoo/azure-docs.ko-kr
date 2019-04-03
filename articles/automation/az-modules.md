@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585065"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862729"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
 
@@ -69,7 +69,7 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 
 ## <a name="after-migration-details"></a>마이그레이션 후 세부 정보
 
-마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 Runbook은 실행하지 않아야 합니다.
+마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 runbook은 실행 하지 마십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

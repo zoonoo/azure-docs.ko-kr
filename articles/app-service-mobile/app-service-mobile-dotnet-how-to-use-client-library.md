@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093010"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886015"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +68,7 @@ Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
 
 * **Visual Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 다음, `Microsoft.Azure.Mobile.Client` 패키지를 검색하고 **설치**를 클릭합니다.
-* **Xamarin Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 클릭한 다음, `Microsoft.Azure.Mobile.Client ` 패키지를 검색하고 **패키지 추가**를 클릭합니다.
+* **Xamarin Studio** 프로젝트를 마우스 오른쪽 단추로 클릭, 클릭 **추가** > **NuGet 패키지 추가**를 검색 합니다 `Microsoft.Azure.Mobile.Client` 패키지를 찾은 다음 클릭 **패키지 추가** .
 
 기본 활동 파일에 다음 **using** 문을 추가합니다.
 
@@ -98,10 +98,10 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 * [쿼리 데이터](#querying)
 * [반환된 데이터 필터링](#filtering)
 * [반환된 데이터 정렬](#sorting)
-* [페이지에서 데이터 반환](#paging)
+* [페이지에 데이터 반환](#paging)
 * [특정 열 선택](#selecting)
-* [ID로 레코드 조회](#lookingup)
-* [형식화되지 않은 쿼리 처리](#untypedqueries)
+* [Id로 레코드 조회](#lookingup)
+* [형식화 되지 않은 쿼리를 사용 하 여 처리](#untypedqueries)
 * [데이터 삽입](#inserting)
 * 데이터 업데이트
 * [데이터 삭제](#deleting)
@@ -130,7 +130,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 * [반환된 데이터 필터링](#filtering)
 * [반환된 데이터 정렬](#sorting)
-* [페이지에서 데이터 반환](#paging)
+* [페이지에 데이터 반환](#paging)
 * [특정 열 선택](#selecting)
 * [ID를 기준으로 데이터 조회](#lookingup)
 
@@ -618,8 +618,8 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
 예를 들면 다음과 같습니다.
 
-* `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
-* `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출
+* `InvokeApiAsync("completeAll",...)` 백 엔드에서 /api/completeAll 호출
+* `InvokeApiAsync("/.auth/me",...)` 백 엔드에서 /.auth/me 호출
 
 InvokeApiAsync를 사용하여 Azure Mobile Apps로 정의되지 않은 WebAPI를 포함한 WebAPI를 호출할 수 있습니다.  InvokeApiAsync()를 사용할 경우 인증 헤더를 포함한 적합한 헤더가 요청과 함께 전송됩니다.
 
@@ -650,7 +650,7 @@ Mobile Apps는 다음과 같이 다양한 외부 ID 공급자를 사용하여 �
 #### <a name="adal"></a>Active Directory 인증 라이브러리를 사용하여 사용자 인증
 Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 인증을 시작하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다.
 
-1. 다음으로 [Active Directory 로그인에 대한 App Service를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
+1. 다음으로 [Active Directory 로그온에 App Service를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 애플리케이션에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
@@ -797,7 +797,7 @@ private async Task AuthenticateAsync()
 ```
 
 ### <a name="serverflow"></a>서버 관리 인증
-ID 공급자를 등록하고 나면, 공급자의 [LoginAsync] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면, 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
 ```csharp
 private MobileServiceUser user;
@@ -825,7 +825,7 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-Facebook 이외의 ID 공급자를 사용하는 경우, [LoginAsync] 값을 공급자에 대한 값으로 변경합니다.
+Facebook 이외의 ID 공급자를 사용하는 경우, [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
 
 서버 흐름에서 Azure App Service는 선택한 공급자의 로그인 페이지를 표시하여 OAuth 인증 흐름을 관리합니다.  ID 공급자가 결과를 반환하면 Azure App Service가 App Service 인증 토큰을 생성합니다. [LoginAsync] 메서드는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON web token)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
@@ -883,7 +883,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 * [푸시 알림 등록](#register-for-push)
 * [Microsoft Store 패키지 SID 가져오기](#package-sid)
-* [플랫폼 간 템플릿을 사용하여 등록](#register-xplat)
+* [플랫폼 간 템플릿을 사용 하 여 등록](#register-xplat)
 
 ### <a name="register-for-push"></a>방법: 푸시 알림 등록
 Mobile Apps 클라이언트를 사용하면 Azure Notification Hubs로 푸시 알림을 등록할 수 있습니다. 등록할 때 플랫폼 특정 푸시 알림 서비스(PNS)에서 구하는 핸들을 가져옵니다. 그런 다음 등록을 만들 때 태그와 함께 이 값을 제공합니다. 다음 코드는 Windows 알림 서비스(WNS)를 통한 푸시 알림에 Windows 앱을 등록합니다.
@@ -1043,16 +1043,16 @@ public class MyHandler : DelegatingHandler
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
-[Active Directory 로그인에 대한 App Service를 구성하는 방법]: ../app-service/configure-authentication-provider-aad.md
+[Active Directory 로그인에 대 한 App Service를 구성 하는 방법]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
-[LoginAsync]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[형식화되지 않은 테이블에 참조를 만듭니다]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[형식화 되지 않은 테이블에 대 한 참조를 만듭니다.]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
@@ -1062,13 +1062,13 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[여기서]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
@@ -1076,7 +1076,7 @@ public class MyHandler : DelegatingHandler
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Notification Hubs API]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Notification Hubs Api]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [Mobile Apps 파일 샘플]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311767"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885998"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -34,7 +34,7 @@ Azure Portal의 Multi-Factor Authentication 관련 설정은 **Azure Active Dire
 | ------- | ----------- |
 | 계정 잠금 | 연이어 거부된 인증 시도가 너무 많은 경우 Multi-Factor Authentication 서비스에서 계정을 일시적으로 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | MFA 서버(온-프레미스)에서 특정 사용자가 Multi-Factor Authentication 요청을 수신하지 못하도록 차단하는 데 사용됩니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
-| [사기 행위 경고](#fraud-alert) | 사용자가 MFA 서버의 사기성 확인 요청을 보고할 수 있는 기능과 관련된 설정을 구성합니다. |
+| [사기 행위 경고](#fraud-alert) | 사용자가 사기성 확인 요청을 보고서 수와 관련 된 설정 구성 |
 | 공지 | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
 | [OATH 토큰](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
 | [전화 통화 설정](#phone-call-settings) | 클라우드 및 온-프레미스 환경의 인사말 및 전화 통화 관련 설정을 구성합니다. |
@@ -57,7 +57,7 @@ Azure Portal의 Multi-Factor Authentication 관련 설정은 **Azure Active Dire
 
 ## <a name="block-and-unblock-users"></a>사용자 차단 및 차단 해제
 
-_사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 요청을 받지 못하도록 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. 이 기능은 MFA 서버(온-프레미스)에만 해당합니다.
+_사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 요청을 받지 못하도록 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
 
 ### <a name="block-a-user"></a>사용자 차단
 
@@ -77,7 +77,7 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 
 ## <a name="fraud-alert"></a>사기 행위 경고
 
-사용자가 자신의 리소스에 액세스하려는 사기성 시도를 보고할 수 있도록 _사기 행위 경고_ 기능을 구성합니다. 사용자가 모바일 앱 또는 자신의 전화를 사용하여 사기 행위 시도를 보고할 수 있습니다. 이 기능은 MFA 서버(온-프레미스)에만 해당합니다.
+사용자가 자신의 리소스에 액세스하려는 사기성 시도를 보고할 수 있도록 _사기 행위 경고_ 기능을 구성합니다. 사용자가 모바일 앱 또는 자신의 전화를 사용하여 사기 행위 시도를 보고할 수 있습니다.
 
 ### <a name="turn-on-fraud-alerts"></a>사기 행위 경고 설정
 

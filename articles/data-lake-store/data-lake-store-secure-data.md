@@ -3,21 +3,21 @@ title: Azure Data Lake Storage Gen1에 저장된 데이터 보호 | Microsoft Do
 description: 그룹 및 액세스 제어 목록을 사용하여 Azure Data Lake Storage Gen1의 데이터를 보호하는 방법에 대해 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296739"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885675"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
 Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니�
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen1 계정**. 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* **Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory의 보안 그룹 만들기
 AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
@@ -149,10 +149,10 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-* [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
-* [Data Lake Storage Gen1을 통해 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1을 통해 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Storage Blob에서 Data Lake 저장소 Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)
-* [.NET SDK를 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
+* [Get Started with Data Lake 저장소 Gen1가.NET SDK를 사용 하 여](data-lake-store-get-started-net-sdk.md)
+* [데이터 레이크 저장소 Gen1에 대 한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
