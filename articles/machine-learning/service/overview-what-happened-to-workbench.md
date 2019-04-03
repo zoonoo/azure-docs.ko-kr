@@ -20,7 +20,7 @@ ms.locfileid: "58360287"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
-Azure Machine Learning Workbench 애플리케이션 및 일부 초기 기능은 2018년 9월 릴리스에서 Azure 더 이상 사용되지 않거나 대체되어 [아키텍처](concept-azure-machine-learning-architecture.md)를 향상시켰습니다. 
+Azure Machine Learning Workbench 애플리케이션과 일부 초기 기능은 [아키텍처](concept-azure-machine-learning-architecture.md) 향상을 위해 2018년 9월 릴리스부터 더 이상 사용되지 않고 다른 기능으로 대체되었습니다. 
 
 환경을 향상시키기 위해 릴리스에는 고객 피드백을 반영한 중요 업데이트가 포함되어 있습니다. 실험 실행에서 모델 배포에 이르기까지 핵심 기능은 변경되지 않았습니다. 그러나 이제 강력한 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 및 [Azure CLI](reference-azure-machine-learning-cli.md)를 사용하여 시스템 학습 작업과 파이프라인을 수행할 수 있습니다.  
 
