@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762610"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917479"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
 ## <a name="overview"></a>개요
-이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
+이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 
 이 자습서에서는 애플리케이션을 구축하고 로컬에서 실행하는 방법, 애플리케이션을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 애플리케이션을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 6. Visual Studio 2015 이상을 사용하는 경우 ContosoAdsWeb 프로젝트의 애플리케이션 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\v11.0"을 "(localdb)\MSSQLLocalDB"로 변경합니다.
 7. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
 
-    클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
+    클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
     클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 애플리케이션 홈페이지가 표시됩니다.
 
@@ -178,7 +178,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
     클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
 
-    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](https://msdn.microsoft.com/library/azure/gg715317.aspx)을 참조하세요.
+    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](/previous-versions/azure/reference/gg715317(v=azure.100))을 참조하세요.
 7. **만들기**를 클릭합니다.
 
     ![새 저장소 계정](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost `Create` 서드이며, 이 메서드는 파일을 업로드하고 Blob Storage에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
+대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost `Create` 서드이며, 이 메서드는 파일을 업로드하고 Blob Storage에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) 개체를 제공합니다.
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ public override void Run()
 
 일부 경우 큐 메시지의 내용으로 인해 처리 오류가 발생하기도 합니다. 이를 *포이즌 메시지*라고 하며, 단순히 오류를 로깅한 후 루프를 다시 시작하는 경우에는 끊임없이 메시지 처리를 시도할 수도 있습니다.  그러므로 catch 블록은 앱이 현재 메시지를 처리하려고 시도한 횟수를 확인한 후 횟수가 5번이 넘는 경우 큐에서 메시지가 삭제되는 if 문을 포함합니다. 큐 메시지가 발견되는 경우
 
-큐 메시지가 발견되는 경우 `ProcessQueueMessage`이(가) 호출됩니다.
+`ProcessQueueMessage` 큐 메시지가 발견 되 면 호출 됩니다.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Azure Storage 모범 사례 및 패턴에 대한 비디오 소개는 [Microsoft 
 
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Cloud Services 1부: 소개](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
+* [Azure Cloud Services 1 부: 소개](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Cloud Services를 관리 하는 방법](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [클라우드 서비스 공급자 선택 방법](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -14,22 +14,22 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774340"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905956"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Microsoft Azure Stack의 디스크, blob, 테이블, 큐 및 계정 관리 기능에 대 한 저장소 서비스를 제공합니다. 관리 또는 Azure Stack 저장소에서 데이터를 이동 하려는 경우 Azure storage 도구 집합을 사용할 수 있습니다. 이 문서에서는 사용 가능한 도구 개요를 제공 합니다.
 
 요구 사항에는 다음 도구 중 가장 적합 한 결정 합니다.
 
-* [AZCopy](#azcopy)
+* [AzCopy](#azcopy)
 
     저장소 계정 내에서 또는 저장소 계정 간에 다른 개체에 개체에서 데이터를 복사할 다운로드할 수 있는 저장소별, 명령줄 유틸리티입니다.
 
@@ -71,7 +71,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 사용 하 여 Microsoft Az
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>데이터 전송 위한 AzCopy 명령 예제
 
-다음 예제에서는 Azure Stack blob에서 데이터를 복사 하는 것에 대 한 일반적인 시나리오를 수행 합니다. 자세한 내용은 참조 하세요 [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 하 고 [Linux에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)합니다.
+다음 예제에서는 Azure Stack blob에서 데이터를 복사 하는 것에 대 한 일반적인 시나리오를 수행 합니다. 자세한 내용은 참조 하세요 [Windows에서 AzCopy](../../storage/common/storage-use-azcopy.md) 하 고 [Linux에서 AzCopy](../../storage/common/storage-use-azcopy-linux.md)합니다.
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>로컬 디스크에 모든 blob 다운로드
 
@@ -156,7 +156,7 @@ Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 �
    > [!NOTE]
    > 이 스크립트에 대 한 루트 디렉터리에서 실행할 **AzureStack_Tools**합니다.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -263,8 +263,8 @@ CLI 설치 및 구성을 완료 하면 Azure Stack 저장소 리소스와 상호
 1. 원하는 텍스트 편집기를 연 다음 앞서의 스크립트를 복사하여 편집기에 붙여넣습니다.
 2. 스크립트의 변수 구성 설정을 반영 하도록 업데이트 합니다.
 3. 필요한 변수를 업데이트 한 후 스크립트를 저장 하 고 편집기를 종료 합니다. 다음 단계에서는 스크립트 이름으로 **my_storage_sample.sh**를 지정했다고 가정합니다.
-4. 필요한 경우 다음과 같이 스크립트를 실행 가능으로 표시합니다. `chmod +x my_storage_sample.sh`
-5. 스크립트를 실행합니다. 예를 들어 Bash에서는 `./my_storage_sample.sh`입니다.
+4. 필요한 경우 스크립트를 실행 가능으로 표시 합니다. `chmod +x my_storage_sample.sh`
+5. 스크립트를 실행합니다. 예를 들어 Bash에서는 다음과 같습니다. `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash

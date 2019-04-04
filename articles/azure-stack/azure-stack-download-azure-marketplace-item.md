@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768402"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487637"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -101,14 +101,14 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 3. 여러 구독이 있는 경우 등록에 사용한 것을 선택 하려면 다음 명령을 실행 합니다.  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. 다음 스크립트를 사용 하 여 마켓플레이스 배포 도구의 최신 버전을 다운로드 합니다.  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 5. 배포 모듈을 가져올 하 고 후 다음 명령을 실행 하 여 도구를 시작 합니다. 대체 `Destination folder path` Azure Marketplace에서 다운로드 한 파일을 저장할 위치를 사용 하 여 합니다.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 3. 배포 모듈을 가져올 다음 다음 스크립트를 실행 하 여 마켓플레이스 배포 도구를 시작 합니다.
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    이 스크립트를 대신 사용할 수 있습니다 합니다 [이 문서에 설명 된 절차](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) 가져오려는 합니다. Azure portal을 사용 하 여 VHD 이미지입니다.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 
 4.  PowerShell을 사용 하 여 사용 하 여 Azure Stack의 마켓플레이스 항목 게시 하는 **추가 AzsGalleryItem** cmdlet. 예를 들면 다음과 같습니다.  
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

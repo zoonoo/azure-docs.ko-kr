@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 78391a9892ff568bfa41b16beb4a5b599ceee6c6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337382"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917450"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
 
-검색 쿼리가 처리되는 즉시, Bing은 [응답](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)의 모든 이미지에 대한 썸네일 정보를 생성합니다. 이 정보는 반환되는 썸네일을 모두 또는 하위 집합을 표시하는 데 사용할 수 있습니다. 하위 집합을 표시하는 경우 나머지 이미지를 볼 수 있는 옵션도 제공해야 합니다.
+검색 쿼리가 처리되는 즉시, Bing은 [응답](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)의 모든 이미지에 대한 썸네일 정보를 생성합니다. 이 정보는 반환되는 썸네일을 모두 또는 하위 집합을 표시하는 데 사용할 수 있습니다. 하위 집합을 표시 하는 경우 나머지 이미지를 볼 수 있는 옵션을 제공 합니다.
 
 
 <!-- Removing image until we can replace it with a sanatized version.

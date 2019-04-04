@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540434"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905990"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석
 
@@ -31,7 +31,7 @@ ms.locfileid: "58540434"
 Azure 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음 작업을 수행할 수 있습니다.
 
 - 미리 정의된 보기를 사용하여 활동 로그 분석
-- 여러 Azure 구독의 활동 로그를 분석하고 검색
+- 분석 하 고 여러 Azure 구독에서 활동 로그를 검색 합니다.
 - 활동 로그를 90일 이상 보관<sup>1</sup>
 - 활동 로그와 다른 Azure 플랫폼 및 애플리케이션 데이터 간에 상관 관계 지정
 - 상태에 따라 집계된 운영 활동 보기
@@ -55,7 +55,7 @@ Azure 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음 작�
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아닙니다. | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
+| [Azure Storage 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 

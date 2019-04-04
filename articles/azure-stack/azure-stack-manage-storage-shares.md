@@ -1,6 +1,6 @@
 ---
 title: Azure Stack의 storage 용량 관리 | Microsoft Docs
-description: 모니터링 하 고 Azure Stack에 대 한 사용 가능한 저장소 공간을 관리 합니다.
+description: 모니터링 하 고 Azure Stack에 대 한 Azure Stack 저장소 용량 및 가용성 저장소 공간을 관리 합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: e5188a7f7a1ce889c8f4340f100cfe767ff2dff8
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225708"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629388"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -53,7 +53,6 @@ Azure Stack 저장소 용량 확장을 지원 하지 않으므로, 반드시 [�
 
 사용 가능한 공간에 작업을 공유 사용량이 적을 때 [회수](#reclaim-capacity) 공간 성공 또는 사용할 수 없는, Azure Stack 클라우드 운영자 다른 하나의 공유에서 blob 컨테이너에 마이그레이션할 수 있습니다.
 
-- 컨테이너 및 blob에 대 한 자세한 내용은 참조 하세요. [Blob storage](azure-stack-key-features.md#blob-storage) 주요 기능 및 Azure Stack의 개념입니다.
 - Azure Stack에서 blob storage를 사용 하 여 테 넌 트 사용자가 작업 하는 방법에 대 한 자세한 내용은 [Azure Stack 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.
 
 
@@ -102,12 +101,12 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 > [!IMPORTANT]
 > 클라우드 운영자로 서 전체 사용량에 도달 하지 못하도록 공유를 유지 합니다. 공유 경우 100% 사용, 저장소 서비스 더 이상 해당 공유에 대 한 함수입니다. 사용 가능한 공간을 복구 하 고 100%를 사용 하는 공유에 대 한 작업을 복원 하려면 Microsoft 지원에 문의 해야 합니다.
 
-**경고**: 파일 공유를 사용 하는 80%를 초과, 수신 된 *경고* 관리 포털에서 경고: ![예: 경고](media/azure-stack-manage-storage-shares/alert-warning.png)
+**경고**: 파일 공유를 사용 하는 80%를 초과, 수신 된 *경고* 관리 포털에서 경고: ![예제: 경고](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**높음**: 파일 공유 사용 90%를 초과 하는 경우 수신 된 *위험* 관리 포털에서 경고: ![예: 중요 한 경고](media/azure-stack-manage-storage-shares/alert-critical.png)
+**높음**: 파일 공유 사용 90%를 초과 하는 경우 수신 된 *위험* 관리 포털에서 경고: ![예제: 중요 한 경고](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**세부 정보를 보려면**: 관리 포털에서 완화 옵션을 보려면 경고에 대 한 세부 정보를 열 수 있습니다. ![예: 경고 세부 정보 보기](media/azure-stack-manage-storage-shares/alert-details.png)
+**세부 정보를 보려면**: 관리 포털에서 완화 옵션을 보려면 경고에 대 한 세부 정보를 열 수 있습니다. ![예제: 경고 세부 정보 보기](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>사용 가능한 공간 관리
@@ -142,14 +141,14 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 1. 했는지 확인 [Azure PowerShell 설치 및 구성](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](https://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
 2. 마이그레이션하려는 공유에 데이터를 이해 하려면 컨테이너를 검사 합니다. 볼륨의 마이그레이션에 대 한 최상의 후보 컨테이너를 식별 하려면 사용 합니다 **Get AzsStorageContainer** cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name
    $shares = Get-AzsStorageShare -FarmName $farm_name
    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
    ```
    $Containers를 검사 합니다.
 
-   ```PowerShell
+   ```powershell
    $containers
    ```
 
@@ -157,14 +156,14 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 
 3. 마이그레이션한 컨테이너를 보유할 최상의 대상 공유를 확인 합니다.
 
-   ```PowerShell
+   ```powershell
    $destinationshares = Get-AzsStorageShare -SourceShareName
    $shares[0].ShareName -Intent ContainerMigration
    ```
 
    $Destinationshares를 검사 합니다.
 
-   ```PowerShell 
+   ```powershell 
    $destinationshares
    ```
 
@@ -172,20 +171,20 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 
 4. 컨테이너에 대 한 마이그레이션을 시작 합니다. 마이그레이션은 비동기입니다. 첫 번째 마이그레이션 완료 되기 전에 마이그레이션의 추가 컨테이너를 시작 하는 경우 각각의 상태를 추적 하려면 작업 ID를 사용 합니다.
 
-   ```PowerShell
+   ```powershell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
    그런 다음 $jobId를 검사 합니다. 다음 예제에서는 바꿉니다 *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* 확인 하려면 작업 ID를 사용 하 여:
 
-   ```PowerShell
+   ```powershell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
 5. 작업 ID를 사용 하 여 마이그레이션 작업의 상태를 확인 합니다. 컨테이너 마이그레이션이 완료 되 면 **MigrationStatus** 로 설정 된 **완료**합니다.
 
-   ```PowerShell 
+   ```powershell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
@@ -193,7 +192,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 
 6. 진행 중인 마이그레이션 작업을 취소할 수 있습니다. 마이그레이션 작업은 비동기적으로 처리를 취소 합니다. $Jobid를 사용 하 여 취소를 추적할 수 있습니다.
 
-   ```PowerShell
+   ```powershell
    Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
    ```
 

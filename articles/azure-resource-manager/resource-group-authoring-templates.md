@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781904"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904936"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
 이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
 이 문서에서는 Resource Manager 템플릿 사용 하 여에 대해 알고 있는 사용자를 위한 것입니다. 구조 및 템플릿의 구문에 대 한 자세한 정보를 제공합니다. 템플릿 만들기 소개를 참조 하세요 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -44,13 +47,13 @@ ms.locfileid: "57781904"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다.<br><br> 리소스 그룹 배포의 경우 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`을 사용합니다.<br><br>구독 배포의 경우 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`을 사용합니다. |
+| $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다.<br><br> 리소스 그룹 배포의 경우 다음을 사용 합니다. `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 다음을 사용 합니다. `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
 | apiProfile |아닙니다. | 리소스 종류에 대 한 API 버전 컬렉션으로 사용 되는 API 버전입니다. 템플릿에서 각 리소스에 대 한 API 버전을 지정할 필요가 없도록 하려면이 값을 사용 합니다. API 프로필 버전을 지정 하 고 리소스 형식에 대 한 API 버전을 지정 하지 않는 Resource Manager 프로필에 정의 된 해당 리소스 종류에 대 한 API 버전을 사용 합니다.<br><br>API 프로필 속성이 Azure Stack 및 전역 Azure와 같은 다른 환경에 템플릿을 배포할 때 특히 유용 합니다. 서식 파일에 두 환경 모두에서 지원 되는 버전을 자동으로 사용 하도록 하려면 API 프로필 버전을 사용 합니다. 현재 API 프로필 버전 및 API 버전 프로필에 정의 된 리소스의 목록을 참조 하세요 [API 프로필](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)합니다.<br><br>자세한 내용은 [API 프로필을 사용 하 여 버전 추적](templates-cloud-consistency.md#track-versions-using-api-profiles)합니다. |
 | [매개 변수](#parameters) |아닙니다. |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
 | [variables](#variables) |아닙니다. |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
 | [functions](#functions) |아닙니다. |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
-| [resources](#resources) |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
+| [리소스](#resources) |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
 | [outputs](#outputs) |아닙니다. |배포 후 반환되는 값입니다. |
 
 각 요소에는 사용자가 설정할 수 있는 속성이 있습니다. 이 기사에서는 템플릿의 섹션에 대해 자세히 설명합니다.
@@ -267,8 +270,8 @@ ms.locfileid: "57781904"
 
 |Template  |설명  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json)(매개 변수 개체) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
+|[기본 값에 대 한 함수를 사용 하 여 매개 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
+|[매개 변수 개체](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 
 ## <a name="variables"></a>variables
 
@@ -698,7 +701,7 @@ ms.locfileid: "57781904"
 
 예를 들면 다음과 같습니다.
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 올바른 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 올바르지 않습니다
 
 ## <a name="outputs"></a>outputs
 

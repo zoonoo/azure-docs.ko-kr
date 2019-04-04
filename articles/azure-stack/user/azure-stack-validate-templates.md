@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247309"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484053"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>템플릿 유효성 검사 도구를 사용 하 여 Azure Stack에 대 한 템플릿을 확인합니다
 
@@ -47,13 +47,13 @@ ms.locfileid: "55247309"
 1. Azure Stack에 연결 되어 있는지 확인 합니다. Azure Stack 개발 키트 호스트에서 이러한 단계를 수행할 수 있습니다 또는 사용할 수는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 워크스테이션에서 연결 합니다.
 2. 가져오기의 **AzureRM.CloudCapabilities** PowerShell 모듈:
 
-    ```PowerShell
+    ```powershell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
 3. 사용 된 `Get-CloudCapabilities` 서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만들 cmdlet. 지정 하지 않으면 **-OutputPath**, 파일 AzureCloudCapabilities.Json 현재 디렉터리에 만들어집니다. 사용자의 실제 위치를 사용 합니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
@@ -63,14 +63,14 @@ ms.locfileid: "55247309"
 
 1. 가져오기의 **AzureRM.TemplateValidator.psm1** PowerShell 모듈:
 
-    ```PowerShell
+    ```powershell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
 2. 템플릿 유효성 검사기를 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
@@ -98,7 +98,7 @@ ms.locfileid: "55247309"
 
 이 예제에서는 모든 유효성을 검사 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates) 로컬 저장소에 다운로드 합니다. 예제에서는 가상 머신 크기 및 Azure Stack 개발 키트 기능에 대 한 확장의 유효성도 검사 합니다.
 
-```PowerShell
+```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `

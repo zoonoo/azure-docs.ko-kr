@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480637"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905447"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -89,7 +89,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 이 섹션에서는 PowerShell 명령을 사용하여 클래식 메트릭 경고를 만들고, 보고, 관리하는 방법을 보여 줍니다. 문서의 예제에서는 클래식 메트릭 경고에 대해 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다.
 
-1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
+1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 2. 먼저 Azure 구독에 로그인합니다.
 

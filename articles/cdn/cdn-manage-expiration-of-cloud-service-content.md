@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540272"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917960"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
 > * [Azure 웹 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
+> * [Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.](cdn-manage-expiration-of-blob-content.md)
 > 
 
 TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(콘텐츠 전송 네트워크)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 애플리케이션 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
@@ -56,7 +56,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
    ![CDN 캐싱 페이지](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**전역 캐싱 규칙을 사용하여 웹 서버의 Cache-Control 헤더를 설정하려면:**
+**전역 캐싱 규칙을 사용 하 여 웹 서버의 Cache-control 헤더를 설정 합니다.**
 
 1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
       
@@ -68,7 +68,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 1. **저장**을 선택합니다.
 
-**사용자 지정 캐싱 규칙을 사용하여 웹 서버 파일의 Cache-Control 헤더를 설정하려면:**
+**사용자 지정 캐싱 규칙을 사용 하 여 웹 서버 파일의 Cache-control 헤더를 설정 합니다.**
 
 1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
 
@@ -109,7 +109,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 **cacheControlMaxAge** 특성을 사용하려면 **cacheControlMode** 특성의 값을 `UseMaxAge`로 설정해야 합니다. 이 설정으로 인해 HTTP 헤더 및 지시문, `Cache-Control: max-age=<nnn>`이 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위 값의 형식은 `<days>.<hours>:<min>:<sec>`입니다. 해당 값은 초로 변환되고 `Cache-Control` `max-age` 지시문의 값으로 사용됩니다. `<clientCache>` 요소에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>프로그래밍 방식으로 Cache-Control 헤더 설정
-ASP.NET 애플리케이션의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.  
+ASP.NET 애플리케이션의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 및 [HttpCachePolicy 클래스](/dotnet/api/system.web.httpcachepolicy)를 참조하세요.  
 
 ASP.NET에서 프로그래밍 방식으로 애플리케이션 콘텐츠를 캐시하려면 다음 단계를 따릅니다.
    1. `HttpCacheability`를 `Public`으로 설정하여 콘텐츠를 캐시 가능하게 표시합니다. 
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 웹 콘텐츠의 TTL 설정을 쉽게 확인할 수 있습니다. 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 웹 콘텐츠에 `Cache-Control` 응답 헤더가 포함되어 있는지 테스트합니다. **wget**, [Postman](https://www.getpostman.com/) 또는 [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [**clientCache** 요소에 대한 자세한 내용](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [**HttpResponse.Cache** 속성에 대한 자세한 내용](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [**HttpCachePolicy 클래스**에 대한 자세한 내용](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
-* [캐싱 개념에 대해 알아보기](cdn-how-caching-works.md)
+* [에 대 한 세부 정보를 읽어 합니다 **clientCache** 요소](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [설명서를 참조 합니다 **HttpResponse.Cache** 속성](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [에 대 한 설명서는 **HttpCachePolicy 클래스**](/dotnet/api/system.web.httpcachepolicy)  
+* [캐싱 개념 알아보기](cdn-how-caching-works.md)

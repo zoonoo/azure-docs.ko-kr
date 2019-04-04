@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123728"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918895"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -33,7 +33,7 @@ ms.locfileid: "58123728"
 
 토큰 인증은 요청에 요청자에 대한 인코딩된 정보가 포함된 토큰 값을 포함하도록 요구하여 요청이 신뢰할 수 있는 사이트에서 생성되었는지 확인합니다. 인코딩된 정보가 요구 사항을 충족하는 경우에만 요청자에게 콘텐츠가 제공되며, 그렇지 않으면 요청이 거부됩니다. 다음 매개 변수 중 하나 이상을 사용하여 요구 사항을 설정할 수 있습니다.
 
-- 국가: 지정 된 국가에서 시작 된 요청 허용 하거나 거부 자신의 [국가 코드](https://msdn.microsoft.com/library/mt761717.aspx)합니다.
+- 국가: 지정 된 국가에서 시작 된 요청 허용 하거나 거부 자신의 [국가 코드](/previous-versions/azure/mt761717(v=azure.100))합니다.
 - URL: 지정 된 자산 또는 경로 일치 하는 요청만 허용 합니다.
 - 호스트: 허용 하거나 요청 헤더에 지정된 된 호스트를 사용 하는 요청을 거부 합니다.
 - 참조 페이지: 허용 하거나 지정된 된 참조 페이지에서 요청을 거부 합니다.
@@ -120,7 +120,7 @@ ms.locfileid: "58123728"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>하나 이상의 지정된 국가에서 시작된 요청만 허용합니다. 다른 모든 국가에서 시작된 요청은 거부됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](https://msdn.microsoft.com/library/mt761717.aspx)를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
+      >    <td>하나 이상의 지정된 국가에서 시작된 요청만 허용합니다. 다른 모든 국가에서 시작된 요청은 거부됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

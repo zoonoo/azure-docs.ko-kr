@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731930"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482184"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack에 대 한 확장 호스트 준비
 
@@ -47,13 +47,13 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
 1. 하드웨어 수명 주기 호스트 또는 Azure Stack 관리 워크스테이션에서 관리자 권한으로 PowerShell을 엽니다.
 2. Azure Stack 준비 상태 검사기 도구를 설치 하려면 다음 cmdlet을 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. 필요한 폴더 구조를 만들려면 다음 스크립트를 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
 4. 현재 Azure Stack에서 사용 하는 기존 인증서를 적절 한 디렉터리에 배치 합니다. 예를 들어, 배치 합니다 **관리자 ARM** 인증서는 `Arm Admin` 폴더입니다. 다음에 새로 만든된 호스팅 인증서를 저장 합니다 `Admin extension host` 및 `Public extension host` 디렉터리입니다.
 5. 인증서 확인을 시작 하려면 다음 cmdlet을 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
 2. 다음 스크립트 블록을 실행 하려면 PowerShell ISE를 열려면
 3. 끝점 호스트 관리에 대 한 인증서를 가져옵니다.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
     }
     ```
 4. 호스팅 끝점에 대 한 인증서를 가져옵니다.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를
 
 방화벽을 통해 게시 하는 데 필요한 두 개의 새로운 끝점 있습니다. 에 Azure Stack에서 실행 해야 하는 다음 코드를 사용 하 여 공용 VIP 풀에서 할당 된 Ip를 검색할 수 있습니다 [환경에는 끝점 권한 있는](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>샘플 출력
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791748"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892741"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "58791748"
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 
-**오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
+**오류 메시지: 'PyYAML' 제거할 수 없습니다.**
 
 Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
 
@@ -50,7 +50,7 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
-Tensor Flow 자동화 된 기계 학습 tensor flow 버전 1.13 현재 지원 하지 않습니다. 이 설치 하면 패키지 종속성 작동을 중지 합니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 중입니다. 
+Tensor Flow 자동화 된 기계 학습 tensor flow 버전 1.13 현재 지원 하지 않습니다. 이 버전을 설치 하면 패키지 종속성 작동을 중지 합니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 중입니다. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 1. 분리 및 노트북을 클러스터 다시 연결 합니다. 
 
-이 문제가 해결 되지 않으면, 클러스터를 다시 시작 하십시오.
+이러한 단계는 문제를 해결 하지는 클러스터를 다시 시작 하십시오.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -123,7 +123,3 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 ```
 
 예를 들어 원격 실행을 위해 제출된 ML 파이프라인에서 컴퓨팅 대상을 만들거나 연결하려고 시도하면 오류가 나타납니다.
-
-## <a name="get-more-support"></a>더 많은 지원 받기
-
-지원 요청을 제출하여 기술 지원, 포럼 등의 도움을 받을 수 있습니다. [자세한 정보...](support-for-aml-services.md)

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863222"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905361"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -70,9 +70,9 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** -워크 로드의 성능을 향상 시킬 수 인덱스를 만들고 자동으로 쿼리 성능이 향상 되었습니다를 확인 하는 인덱스를 식별 합니다. | 예 | 아닙니다. | 
 | **DROP INDEX** -오랜 시간 동안 사용 되지 않은 인덱스 및 고유 인덱스를 제외 하 고 매일 중복 및 복제 인덱스를 식별 (> 90 일). 현재 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. | 예 | 아닙니다. |
-| **FORCE LAST GOOD PLAN** -적합 한 계획을 이전 보다 느린 하 고 회귀 된 계획 대신 마지막으로 알려진된 좋은 계획을 사용 하 여 쿼리 실행 계획을 사용 하 여 식별 SQL 쿼리. | 예 | 예 |
+| **FORCE LAST GOOD PLAN** (자동 계획 수정)-적합 한 계획을 이전 보다 느린 하 고 회귀 된 계획 대신 마지막으로 알려진된 좋은 계획을 사용 하 여 쿼리 실행 계획을 사용 하 여 식별 SQL 쿼리. | 예 | 예 |
 
-자동 조정은 데이터베이스 성능을 최적화하여 [Azure Portal](sql-database-advisor-portal.md)에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 **FORCE LAST GOOD PLAN** 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다. 
+자동 조정은 데이터베이스 성능을 최적화하여 [Azure Portal](sql-database-advisor-portal.md)에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 **FORCE LAST GOOD PLAN** 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다. T-SQL을 통해 자동 조정 옵션 구성을 참조 하 고 FORCE LAST GOOD PLAN 하는 방법에 대 한 자세한 [자동 계획 수정에서는 자동 튜닝](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)합니다.
 
 포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 

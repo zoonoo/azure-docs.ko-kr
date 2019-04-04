@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39ed9ee9dab7f2ec97d2fb6a0148db333648b227
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767110"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481470"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
@@ -43,7 +43,7 @@ ms.locfileid: "57767110"
 
 2. Automation 스크립트를 다운로드 하려면 다음 스크립트를 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
     Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
@@ -52,7 +52,7 @@ ms.locfileid: "57767110"
 
 3. 적절 한 매개 변수 값을 사용 하 여 다음 스크립트를 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
                           -VaaSAccountTenantId <VaaSAccountTenantId> `

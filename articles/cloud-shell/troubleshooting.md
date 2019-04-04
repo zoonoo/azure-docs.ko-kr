@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100570"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905514"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
 Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음과 같습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>일반적인 문제 해결
 
@@ -39,7 +41,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
-- **세부 정보**: Cloud Shell을 통해 스토리지 계정을 만들 때 관리자가 배치한 Azure 정책으로 인해 실패합니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **세부 정보**: Cloud Shell을 통해 스토리지 계정을 만들 때 관리자가 배치한 Azure 정책으로 인해 실패합니다. 오류 메시지에 포함 됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **해결 방법**: Azure 관리자에게 문의하여 스토리지 만들기를 거부하는 Azure 정책을 제거하거나 업데이트합니다.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>스토리지 대화 상자 - 오류: 400 DisallowedOperation
@@ -74,7 +76,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 > Azure VM에는 공용 연결 IP 주소가 있어야 합니다.
 
 - **세부 정보**: WinRM에 대한 기본 Windows 방화벽 설정으로 인해 사용자에게 다음 오류가 나타날 수 있습니다. `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **해결 방법**:  `Enable-AzureRmVMPSRemoting`을 실행하여 대상 머신에서 PowerShell 원격의 모든 측면을 사용하도록 설정합니다.
+- **해결 방법**:  `Enable-AzVMPSRemoting`을 실행하여 대상 머신에서 PowerShell 원격의 모든 측면을 사용하도록 설정합니다.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`은 결과를 Azure 드라이브에 업데이트합니다.
 

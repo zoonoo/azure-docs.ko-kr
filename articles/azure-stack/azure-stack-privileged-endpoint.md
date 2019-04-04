@@ -15,18 +15,18 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef75b161bcdb9e1b9658612b783dff46d1fa2502
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082673"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484341"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack에서 권한 있는 끝점을 사용 하 여
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack 운영자로 대부분의 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure Resource Manager Api를 사용 해야 합니다. 그러나 덜 일반적인 작업 일부를 사용 해야 합니다 *privileged 끝점* (PEP). PEP는 필요한 작업을 수행 하는 데 필요한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔. 끝점 사용 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) cmdlet의 제한 된 집합만 노출 합니다. 액세스 하는 PEP 제한 집합이 cmdlet 호출, 권한이 낮은 계정을 사용 됩니다. 관리자 계정이 없는 필요 합니다. 추가 보안을 위해 스크립팅 허용 되지 않습니다.
+Azure Stack 운영자는 대부분의 일상적인 관리 작업에 관리자 포털, PowerShell 또는 Azure Resource Manager API를 사용해야 합니다. 그러나 덜 일반적인 작업 일부를 사용 해야 합니다 *privileged 끝점* (PEP). PEP는 필요한 작업을 수행 하는 데 필요한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔. 끝점 사용 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) cmdlet의 제한 된 집합만 노출 합니다. 액세스 하는 PEP 제한 집합이 cmdlet 호출, 권한이 낮은 계정을 사용 됩니다. 관리자 계정이 없는 필요 합니다. 추가 보안을 위해 스크립팅 허용 되지 않습니다.
 
 다음과 같은 작업을 수행 하는 PEP를 사용할 수 있습니다.
 
@@ -53,7 +53,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
     - 통합된 시스템을의 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 하는 확정 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
@@ -61,7 +61,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
    - 통합 시스템:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -70,7 +70,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
      `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
    - ASDK 실행 하는 경우:
      
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName azs-ercs01 `
@@ -109,11 +109,11 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하기 위한 팁 
 
-PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 끝점입니다. 강력한 보안 계층을 제공 하는 동안 JEA 끝점을 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능 중 일부를 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 작업이 실패 하 고 오류 **ScriptsNotAllowed**합니다. 이는 예상된 동작입니다.
+PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 끝점입니다. 강력한 보안 계층을 제공 하는 동안 JEA 끝점을 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능 중 일부를 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 작업이 실패 하 고 오류 **ScriptsNotAllowed**합니다. 이는 정상적인 동작입니다.
 
 따라서 예를 들어 특정된 cmdlet에 대 한 매개 변수 목록을 가져오려고 하면 다음 명령을 실행 합니다.
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -125,7 +125,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
 
     통합된 시스템에서의 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 하는 확정 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
@@ -133,7 +133,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
    - 통합 시스템:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -142,7 +142,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
      `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
    - ASDK 실행 하는 경우:
      
-     ```PowerShell
+     ```powershell
       $cred = Get-Credential
 
       $session = New-PSSession -ComputerName azs-ercs01 `
@@ -154,7 +154,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
      - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
 
 3. 로컬 컴퓨터에 PEP 세션 가져오기
-    ```PowerShell 
+    ```powershell 
         Import-PSSession $session
     ```
 4. 이제 탭 완성 기능을 사용할 수 있으며 Azure Stack의 보안 태세를 낮추던 모든 함수 및 PEP의 cmdlet을 사용 하 여 로컬 PowerShell 세션에서 일반적으로 스크립팅을 수행. 마음껏 즐기세요!

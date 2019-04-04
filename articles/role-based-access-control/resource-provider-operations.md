@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805808"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906211"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 연산 문자열의 형식은 `{Company}.{ProviderName}/{resourceType}/{action}`입니다.
+이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 작업 문자열의 형식이: `{Company}.{ProviderName}/{resourceType}/{action}`
 
 리소스 공급자 작업은 계속 업데이트됩니다. 최신 작업을 가져오려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)를 사용합니다.
 
@@ -1433,10 +1433,10 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | 클러스터의 업그레이드 프로필을 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerService/managedClusters/write | 새 관리되는 클러스터를 만들거나 기존 관리되는 클러스터를 업데이트합니다. |
 > | 조치 | Microsoft.ContainerService/openShiftClusters/delete | Open Shift 클러스터 삭제 |
-> | 조치 | Microsoft.ContainerService/openShiftClusters/read | Open Shift 클러스터 가져오기 |
+> | 조치 | Microsoft.ContainerService/openShiftClusters/read | Open Shift 클러스터를 가져오기 |
 > | 조치 | Microsoft.ContainerService/openShiftClusters/write | 새 Open Shift 클러스터를 만들거나 기존 Open Shift 클러스터를 업데이트합니다. |
-> | 조치 | Microsoft.ContainerService/openShiftManagedClusters/delete | Open Shift 관리형 클러스터 삭제 |
-> | 조치 | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift 관리형 클러스터 가져오기 |
+> | 조치 | Microsoft.ContainerService/openShiftManagedClusters/delete | Open Shift 관리 되는 클러스터를 삭제 합니다. |
+> | 조치 | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift 관리 되는 클러스터를 가져오기 |
 > | 조치 | Microsoft.ContainerService/openShiftManagedClusters/write | 새 Open Shift 관리형 클러스터를 만들거나 기존 Open Shift 관리 클러스터를 업데이트합니다. |
 > | 조치 | Microsoft.ContainerService/operations/read | Microsoft.ContainerService 리소스 공급자에서 사용 가능한 작업을 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerService/register/action | Microsoft.ContainerService 리소스 공급자에 구독을 등록합니다. |

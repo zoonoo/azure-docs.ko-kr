@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099834"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893982"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>의도 및 엔터티에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -432,13 +432,13 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 [PersonName](luis-reference-prebuilt-person.md) 및 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 엔터티는 일부 [언어 문화권](luis-reference-prebuilt-entities.md)에서 사용할 수 있습니다. 
 
 ### <a name="names-of-people"></a>사용자의 이름
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="names-of-places"></a>위치 이름
-위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
 역할은 엔터티의 컨텍스트 차이입니다.

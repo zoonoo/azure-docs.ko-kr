@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905106"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
 
@@ -128,7 +128,7 @@ Azure에 대 한 현재 권장 TCP MSS 고정 1350 바이트 터널 인터페이
 
 #### <a name="latency-and-round-trip-time"></a>대기 시간 및 왕복 시간
 
-네트워크 대기 시간 속도의 광섬유 파이버 네트워크를 통해 적용 됩니다. 현실적으로, tcp 네트워크 처리량은 또한 효과적으로 관리 (실제 최대값) 때문에 왕복 시간 (RTT)의 두 가지 네트워크 장치 간의 합니다.
+네트워크 대기 시간 속도의 광섬유 파이버 네트워크를 통해 적용 됩니다. 현실적으로, tcp 네트워크 처리량 이기도 효과적으로 관리 (실제 최대값) 왕복 시간 (RTT) 때문에 두 개의 네트워크 장치 간의 합니다.
 
 | | | | |
 |-|-|-|-|

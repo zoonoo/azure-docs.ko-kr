@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b3261679b64e054bb8f750ad99983661a5b6035
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919293"
 ---
 ## <a name="specifying-formats"></a>형식 지정
 Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
@@ -25,15 +25,15 @@ Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 존재할 가능성이 없고 희귀하며 인쇄할 수 없는 문자를 사용하는 방법을 고려해 볼 수 있습니다(예: SOH(Head of Start)를 나타내는 "\u0001"을 지정). |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
-| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아니요 |
-| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 문자로 쉼표(',')가 있지만 텍스트에 쉼표 문자를 사용하려는 경우(예: "Hello, world") 이스케이프 문자로 ‘$’를 정의하고 원본에 문자열 "Hello$, world"를 사용합니다. |아니요 |
-| quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
-| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아니요 |
-| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아니요 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/>**False(기본값)** |아니요 |
-| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수  |아니요 |
-| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>False |아니요 |
+| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 존재할 가능성이 없고 희귀하며 인쇄할 수 없는 문자를 사용하는 방법을 고려해 볼 수 있습니다(예: SOH(Head of Start)를 나타내는 "\u0001"을 지정). |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아닙니다. |
+| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아닙니다. |
+| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 문자로 쉼표(',')가 있지만 텍스트에 쉼표 문자를 사용하려는 경우(예: "Hello, world") 이스케이프 문자로 ‘$’를 정의하고 원본에 문자열 "Hello$, world"를 사용합니다. |아닙니다. |
+| quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아닙니다. |
+| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아닙니다. |
+| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](/dotnet/api/system.text.encoding)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아닙니다. |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True <br/>**False(기본값)** |아닙니다. |
+| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수  |아닙니다. |
+| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>False |아닙니다. |
 
 #### <a name="textformat-example"></a>TextFormat 예제
 다음 예제는 TextFormat에 대한 서식 속성 중 일부를 보여줍니다.
@@ -75,17 +75,17 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
-| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아니요 |
-| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아닙니다. |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 아닙니다. |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아닙니다. |
+| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아닙니다. |
+| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아닙니다. |
 
 #### <a name="json-file-patterns"></a>JSON 파일 패턴
 
 복사 작업에서는 JSON 파일의 다음 패턴을 구문 분석할 수 있습니다.
 
-- **유형 I: setOfObjects**
+- **유형 i: setOfObjects**
 
     각 파일에 단일 개체 또는 줄로 구분된/연결된 여러 개체가 포함되어 있습니다. 출력 데이터 세트에서 이 옵션을 선택하는 경우 복사 활동에서는 줄마다 개체가 하나씩 포함된(각 개체가 줄로 구분된) JSON 파일 하나를 생성합니다.
 
@@ -102,7 +102,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
         }
         ```
 
-    * **줄로 구분된 JSON 예제**
+    * **줄으로 구분 된 JSON의 예**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -110,7 +110,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **연결된 JSON 예제**
+    * **연결 된 JSON 예제**
 
         ```json
         {
@@ -178,7 +178,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 유형과 유의할 일반 요소를 참조하세요.
 
-**샘플 1: 개체 및 배열에서 데이터 추출**
+**샘플 1: 개체 및 배열에서 데이터를 추출 합니다.**
 
 이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체를 하나의 레코드로 매핑하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고  
 
@@ -213,8 +213,8 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 
 **JsonFormat** 형식의 입력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
 
-- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 사각형 데이터 세트의 구조 정의 지정 섹션을 참조하세요.
-- `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 배열에서 데이터를 복사하려면 **array[x].property**를 사용하여 x번째 개체에서 지정된 속성의 값을 추출하거나, **array[*].property**를 사용하여 이러한 속성을 포함한 모든 개체에서 값을 찾을 수 있습니다.
+- `structure` 섹션의 테이블 형식 데이터를 변환 하는 동안 사용자 지정 된 열 이름 및 해당 데이터 형식을 정의 합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 사각형 데이터 세트의 구조 정의 지정 섹션을 참조하세요.
+- `jsonPathDefinition` 데이터를 추출 하는 위치를 나타내는 각 열에 대 한 JSON 경로 지정 합니다. 배열에서 데이터를 복사하려면 **array[x].property**를 사용하여 x번째 개체에서 지정된 속성의 값을 추출하거나, **array[*].property**를 사용하여 이러한 속성을 포함한 모든 개체에서 값을 찾을 수 있습니다.
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 }
 ```
 
-**샘플 2: 배열에서 동일한 패턴을 사용하여 여러 개체 배열에서 교차 적용**
+**샘플 2: 간 동일한 패턴을 사용 하 여 여러 개체 배열에서 적용**
 
 이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체가 여러 레코드로 변환하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고  
 
@@ -286,9 +286,9 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 
 **JsonFormat** 형식의 입력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
 
-- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 사각형 데이터 세트의 구조 정의 지정 섹션을 참조하세요.
-- `jsonNodeReference`는 **배열** 주문 줄에서 동일한 패턴을 사용하는 개체에서 데이터를 반복하고 추출하도록 지정합니다.
-- `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 다음 예제에서 "ordernumber", "orderdate" 및 "city"는 "$."로 시작하는 JSON 경로를 사용하는 루트 개체 아래에 있지만, "order_pd"및 "order_price"는 "$.를 사용하지 않는 배열 요소에서 파생된 경로로 정의됩니다."
+- `structure` 섹션의 테이블 형식 데이터를 변환 하는 동안 사용자 지정 된 열 이름 및 해당 데이터 형식을 정의 합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 사각형 데이터 세트의 구조 정의 지정 섹션을 참조하세요.
+- `jsonNodeReference` 반복 하 고에서 동일한 패턴을 사용 하 여 개체에서 데이터를 추출 **배열** orderlines 합니다.
+- `jsonPathDefinition` 데이터를 추출 하는 위치를 나타내는 각 열에 대 한 JSON 경로 지정 합니다. 다음 예제에서 "ordernumber", "orderdate" 및 "city"는 "$."로 시작하는 JSON 경로를 사용하는 루트 개체 아래에 있지만, "order_pd"및 "order_price"는 "$.를 사용하지 않는 배열 요소에서 파생된 경로로 정의됩니다."
 
 ```json
 "properties": {
@@ -326,7 +326,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 }
 ```
 
-**주의 사항:**
+**다음 사항에 유의하세요.**
 
 * `structure` 및 `jsonPathDefinition`이 Data Factory 데이터 세트에 정의되지 않은 경우 복사 작업은 첫 번째 개체에서 스키마를 검색하고 전체 개체를 평면화합니다.
 * JSON 입력에 배열이 있는 경우 복사 작업은 기본적으로 전체 배열 값을 문자열로 변환합니다. `jsonNodeReference` 및/또는 `jsonPathDefinition`을 사용하여 데이터를 추출하거나 `jsonPathDefinition`에서 지정하지 않고 건너뛸 수 있습니다.

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 67bf0499b6dcf4257380f601c802723b2993a092
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771483"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893353"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "57771483"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 Mobile Apps을 가져옵니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx) 을 참조하세요.
+* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](/visualstudio/cross-platform/setup-and-install) 을 참조하세요.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
 다음 단계에 따라 새 Mobile App 백 엔드를 만드세요.
@@ -71,7 +71,7 @@ ms.locfileid: "57771483"
 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. [Azure Mobile Apps NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [앱에 오프 라인 동기화 추가](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [앱에 인증 추가](app-service-mobile-xamarin-android-get-started-users.md)
 * [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-android-get-started-push.md)
 * [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)

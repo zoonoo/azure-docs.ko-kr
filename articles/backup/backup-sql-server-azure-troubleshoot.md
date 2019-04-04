@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847441"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916689"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -49,7 +49,7 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | 요청된 백업 유형을 데이터베이스 복구 모델에서 허용하지 않을 때 발생합니다. 이 오류는 다음과 같은 상황에서 발생할 수 있습니다. <br/><ul><li>단순 복구 모델을 사용하는 데이터베이스에 로그 백업이 허용되지 않습니다.</li><li>마스터 데이터베이스에 차등 및 로그 백업이 허용되지 않습니다.</li></ul>자세한 내용은 [SQL 복구 모델](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) 설명서를 참조하세요. | 단순 복구 모델에서 DB에 대한 로그 백업이 실패하면 다음 옵션 중 하나를 시도합니다.<ul><li>데이터베이스가 단순 복구 모드인 경우 로그 백업을 사용하지 않도록 설정합니다.</li><li>[SQL 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server)를 사용하여 데이터베이스 복구 모델을 전체 또는 대량 기록으로 변경합니다. </li><li> 여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있고 복구 모델을 변경하지 않으려는 경우에는 오류를 무시합니다. 전체 및 차등 백업은 일정에 따라 작동합니다. 로그 백업은 예상대로 건너뜁니다.</li></ul>마스터 데이터베이스를 사용하면서 차등 백업이나 로그 백업을 구성한 경우 다음 중 원하는 단계를 사용합니다.<ul><li>포털을 사용하여 마스터 데이터베이스의 백업 정책 일정을 전체로 변경합니다.</li><li>여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있는 경우에는 오류를 무시합니다. 전체 백업은 일정에 따라 작동합니다. 차등 또는 로그 백업은 예상대로 발생하지 않습니다.</li></ul> |
-| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행되는 [백업 및 복원 제한 사항에 대한 블로그 항목](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)을 참조하세요.| [SSMS(SQL Server Management Studio)를 사용하여 백업 작업을 모니터링합니다.](manage-monitor-sql-database-backup.md) 충돌하는 작업이 실패하면 작업을 다시 시작합니다.|
+| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행되는 [백업 및 복원 제한 사항에 대한 블로그 항목](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)을 참조하세요.| [백업 작업을 모니터링 하려면 SQL Server Management Studio (SSMS)를 사용 합니다.](manage-monitor-sql-database-backup.md) 충돌하는 작업이 실패하면 작업을 다시 시작합니다.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
@@ -67,7 +67,7 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| Azure Backup에서 SQL 인스턴스에 연결할 수 없습니다. | Azure Backup은 SQL 인스턴스에 연결할 수 없습니다. | Azure Portal 오류 메뉴의 추가 세부 정보를 사용하여 근본 원인의 범위를 좁힙니다. 오류를 해결하려면 [SQL 백업 문제 해결](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)을 참조하세요.<br/><ul><li>기본 SQL 설정이 원격 연결을 허용하지 않는 경우에는 설정을 변경합니다. 설정 변경은 아래 링크를 참조하세요.<ul><li>[https://msdn.microsoft.com/library/bb326495.aspx](https://msdn.microsoft.com/library/bb326495.aspx)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>로그인 문제가 있는 경우 아래 링크를 참조하여 문제를 해결합니다.<ul><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup에서 SQL 인스턴스에 연결할 수 없습니다. | Azure Backup은 SQL 인스턴스에 연결할 수 없습니다. | Azure Portal 오류 메뉴의 추가 세부 정보를 사용하여 근본 원인의 범위를 좁힙니다. 오류를 해결하려면 [SQL 백업 문제 해결](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)을 참조하세요.<br/><ul><li>기본 SQL 설정이 원격 연결을 허용하지 않는 경우에는 설정을 변경합니다. 설정을 변경 하는 방법은 다음 문서를 참조 하세요.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>로그인 문제가 있는 경우 아래 링크를 참조하여 문제를 해결합니다.<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -108,7 +108,7 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| 복구에 사용 되는 로그 백업에 대량 로그 변경 내용이 포함 되어 있습니다. SQL 지침에 따라 시간 임의의 지점에서 중지를 사용할 수 없습니다. | 데이터베이스를 대량 로그 복구 모드의 경우 대량 로그 트랜잭션 및 다음 로그 트랜잭션 간에 데이터를 복구할 수 없습니다. | 복구에 대 한 시간에 다른 시점을 선택 하세요. [자세히 알아보기](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| 복구에 사용 되는 로그 백업에 대량 로그 변경 내용이 포함 되어 있습니다. SQL 지침에 따라 시간 임의의 지점에서 중지를 사용할 수 없습니다. | 데이터베이스를 대량 로그 복구 모드의 경우 대량 로그 트랜잭션 및 다음 로그 트랜잭션 간에 데이터를 복구할 수 없습니다. | 복구에 대 한 시간에 다른 시점을 선택 하세요. [자세한 정보](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="registration-failures"></a>등록 오류
@@ -169,7 +169,8 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
   * 확장 구성에 원인이 되 만료 연장 된 기간에 대 한 VM은 종료
   * VM이 삭제 및 삭제 된 VM과 동일한 리소스 그룹에 동일한 이름의 다른 VM이 만들어진
   * 전체 백업 구성을 받지 AG 노드 중 하나, 자격 증명 모음에 가용성 그룹 등록 시 하나 또는 새 노드를 추가 하면이 발생할 수 있습니다.  <br>
-    위의 시나리오에서 VM에 다시 등록 작업을 트리거하는 것이 좋습니다. 이 옵션만 PowerShell을 통해 사용할 수 있으며도 Azure portal에서 제공 될 예정입니다.
+   
+위의 시나리오에서 VM에 다시 등록 작업을 트리거하는 것이 좋습니다. 이 옵션만 PowerShell을 통해 사용할 수 있으며도 Azure portal에서 제공 될 예정입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

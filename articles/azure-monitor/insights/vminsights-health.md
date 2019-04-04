@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076822"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918946"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 Azure 가상 머신의 상태 이해하기
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Azure Monitor를 사용 하 여 다른 조건을 모니터링할 수 있습니다, 있지만 모델 및 핵심 구성 요소 상태 또는 가상 컴퓨터의 전반적인 상태를 나타내는 설계 되지 않은 것입니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
@@ -28,23 +28,6 @@ Azure VM 및 기본 운영 체제의 전반적인 상태를 보려면 VM용 Azur
 이 문서는 감지된 상태 문제를 신속하게 평가하고, 조사하고, 해결하는 방법을 이해하는 데 도움이 됩니다.
 
 VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-onboard.md)을 참조하세요.
-
-> [!NOTE]
-> 2019년 2월 11일부터 VM용 Azure Monitor의 현재 상태 모델(현재 상태 진단 환경에서 표시됨)에서 새 버전의 상태 모델로의 마이그레이션이 시작됩니다. 상태 롤업 처리의 성능을 개선하는 이 업데이트에는 상태 진단 보기에 표시되는 상세 상태 모델이 포함됩니다. 
-> 
-> 새로운 상태 모델을 사용하면 자식 상태 조건에서 부모/엔터티 수준 상태 조건으로 롤업하는 과정의 속도가 빨라지므로 부모의 성능 상태가 원하는 상태나 대상으로 지정된 상태로 업데이트될 때의 대기 시간이 짧아집니다. 보기에서 각 범주를 선택해야 하는 이전의 탭 기반 방법과는 달리, 새로운 모델에서는 **성능** 및 **가용성** 범주에서 상태 조건을 계속 필터링할 수 있습니다.
-> 
-> 상태 진단 환경에 대한 자세한 내용은 이 문서의 상태 진단 [섹션](#health-diagnostics)을 참조하세요. 
-> 
-> 이 업데이트를 통해 개선되는 사항은 다음과 같습니다. 
-> 
-> - 상태 롤업 처리(대기 시간 단축)  
-> - 성능 상태 변경 시 경고 생성 속도 향상 
-> - 모든 VM의 집계된 가상 머신 보기에서 성능 상태 업데이트 속도 향상 
-> 
-> 현재 제공되는 기능 중에서 VM용 Azure Monitor의 상태 기능 도입으로 인해 사용이 불가능해지는 기능은 없습니다.
-> 
-> 이러한 변화로 인해 상태 진단의 두 환경에도 변화가 생겼습니다. 즉, 상태 변경 기록이 재설정되며 상태 진단 페이지의 상태 변경 열에서 상태 조건의 이전 상태 변경 내용을 검토할 수 없습니다. 모든 중요 업무용 VM의 기록 데이터를 확인하려는 경우에는 참조용으로 상태 조건 데이터 및 해당 상태 변경 내용의 스크린샷을 생성할 수 있습니다. 
 
 ## <a name="monitoring-configuration-details"></a>모니터링 구성 세부 정보
 이 섹션에서는 Azure Windows 및 Linux 가상 머신을 모니터링하도록 정의된 기본 상태 조건을 설명합니다. 모든 상태 조건은 비정상 상태가 충족되면 경고를 표시하도록 미리 구성됩니다. 
@@ -70,7 +53,7 @@ VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 
 - 총 사용된 대역폭 비율
 - 쓰기에 사용된 대역폭 비율
 - 사용 중인 커밋된 메모리 비율
-- 물리적 디스크의 유휴 시간 비율
+- 디스크의 유휴 시간 비율
 - DHCP 클라이언트 서비스 상태
 - DNS 클라이언트 서비스 상태
 - RPC 서비스 상태
@@ -89,10 +72,7 @@ VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 
 - 논리적 디스크에서 사용 가능한 공간 비율
 - 논리적 디스크에서 사용 가능한 inode 비율
 - 네트워크 어댑터 상태
-- 프로세서 백분율 DPC 시간
-- 프로세서 백분율 프로세서 시간
 - 총 프로세서 시간 비율
-- 총 DPC 시간 비율
 - 운영 체제에서 사용 가능한 메모리의 메가바이트
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인

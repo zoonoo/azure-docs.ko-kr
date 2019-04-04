@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106409"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905072"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -36,7 +36,7 @@ ms.locfileid: "58106409"
 
    ![](media/quickstart-powershell/shell-icon.png)
 
-2. 드롭다운에서 PowerShell 환경을 선택하면 Azure 드라이브 `(Azure:)`에 들어가게 됩니다.
+2. PowerShell 환경 드롭다운 목록에서 선택한 Azure 드라이브의 수 `(Azure:)`
 
    ![](media/quickstart-powershell/environment-ps.png)
 
@@ -68,7 +68,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. 기본 구독에 `cd`
+ 2. `cd` 기본 설정 된 구독
 
     ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
@@ -267,7 +267,7 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 
 ### <a name="using-ssh"></a>SSH 사용
 
-[여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)의 지침에 따라 AzureRM cmdlet을 사용하여 새 VM 구성을 만듭니다.
+지침을 따릅니다 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) Azure PowerShell cmdlet을 사용 하는 새 VM 구성을 만듭니다.
 `New-AzVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
 새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 `Azure` 드라이브에서 상황별 Azure 명령을 가져오려면 `Get-AzCommand`를 입력합니다.
 
-또는 사용 가능한 Azure 명령을 알아보려면 언제나 `Get-Command *azurerm* -Module AzureRM.*`을 사용할 수 있습니다.
+또는 사용 가능한 Azure 명령을 알아보려면 언제나 `Get-Command *az* -Module Az.*`을 사용할 수 있습니다.
 
 ## <a name="install-custom-modules"></a>사용자 지정 모듈 설치
 

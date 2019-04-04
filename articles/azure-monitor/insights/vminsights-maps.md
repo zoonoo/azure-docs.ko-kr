@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984852"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916736"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 애플리케이션 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 애플리케이션 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
@@ -43,7 +43,7 @@ VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일
 
 ![속성 창의 로그 검색 목록](./media/vminsights-maps/properties-pane-logs-01.png)
 
-*로그*\*를 닫고, **속성** 창으로 돌아가서 **경고**를 선택하여 상태 조건에서 VM에 대해 경고가 발생한 경고를 확인합니다. 맵은 Azure 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 발생하면 서버에 아이콘이 표시되고 머신 경고 창에 경고가 나열됩니다. 
+닫기 **로그** 돌아가서 합니다 **속성** 창과 선택 **경고** 경고를 확인할 경고 상태 조건에서 VM에 대해 발생 합니다. 맵은 Azure 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 발생하면 서버에 아이콘이 표시되고 머신 경고 창에 경고가 나열됩니다. 
 
 ![속성 창의 머신 경고](./media/vminsights-maps/properties-pane-alerts-01.png)
 

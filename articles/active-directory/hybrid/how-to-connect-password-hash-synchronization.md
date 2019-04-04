@@ -12,13 +12,15 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
+search.appverid:
+- MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863086"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916379"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 36b49002a5e947f2803e00974f242e49eb26d45b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309253"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905684"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
@@ -25,6 +25,9 @@ ms.locfileid: "56309253"
 
 > [!IMPORTANT]
 > 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독**의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="resources-groups-and-subscriptions"></a>리소스, 그룹 및 구독
 
@@ -81,14 +84,14 @@ ms.locfileid: "56309253"
 | 역할 | 리소스 그룹에서 할 수 있는 일 |
 | --- | --- |
 | [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |사용자 액세스를 포함하여 모든 것을 변경할 수 있습니다. |
-| [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
+| [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
 | [Application Insights 구성 요소 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights 리소스, 웹 테스트 및 경고를 편집할 수 있습니다. |
 | [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
 | [Application Insights 스냅숏 디버거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅숏 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
 | [데이터 제거자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)을 참조하세요.   |
 | ExpressRoute 관리자 | 기본 경로를 삭제하고 관리할 수 있습니다.|
-| [Log Analytics 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
+| [Log Analytics 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
 | [Log Analytics 독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
 | masterreader | 사용자가 모든 것을 볼 수 있지만 변경은 할 수 없도록 허용합니다. |
 | [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다. |
@@ -96,7 +99,7 @@ ms.locfileid: "56309253"
 | [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있습니다. |
 | 리소스 정책 참가자(미리 보기) | 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다.  |
 | [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | 사용자가 Azure 리소스에 다른 사용자에 대한 액세스를 관리할 수 있도록 허용합니다.|
-| [웹 사이트 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.|
+| [웹 사이트 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.|
 
 '편집'에는 다음 항목을 만들고, 삭제하고, 업데이트하는 작업이 포함됩니다.
 
@@ -112,7 +115,7 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-* [Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)
+* [역할 기반 access control Azure에서](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>역할 멤버 자격을 확인하기 위한 PowerShell 쿼리
 
@@ -121,7 +124,7 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 ### <a name="query-entire-subscription-for-admin-roles--contributor-roles"></a>관리자 역할 + 기여자 역할을 위한 전체 구독 쿼리
 
 ```powershell
-(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>소유자 및 기여자에 대한 특정 Application Insights 리소스의 컨텍스트 내에서 쿼리
@@ -130,14 +133,14 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 $resourceGroup = “RGNAME”
 $resourceName = “AppInsightsName”
 $resourceType = “microsoft.insights/components”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>소유자 및 기여자에 대한 특정 리소스 그룹의 컨텍스트 내에서 쿼리
 
 ```powershell
 $resourceGroup = “RGNAME”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 <!--Link references-->

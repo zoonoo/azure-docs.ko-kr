@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444883"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904834"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
 파트너로서 고객 참여에 미치는 영향을 추적할 수 있습니다. 고객 리소스를 관리하는 데 사용되는 계정에 파트너 ID를 연결할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>고객의 액세스 권한 가져오기
 
@@ -57,9 +59,8 @@ ms.locfileid: "58444883"
 2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)을 참조하세요.
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
 
@@ -121,19 +122,19 @@ C:\ az managementpartner delete --partner-id 12345
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**파트너 ID를 연결할 수 있는 사용자는 누구인가요?**
+**파트너 ID를 연결할 수는?**
 
 고객의 Azure 리소스를 관리하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다.
 
-**파트너 ID가 연결된 후에 파트너 ID를 변경할 수 있나요?**
+**수 파트너 ID에 연결 되 면 변경할 수 있나요?**
 
 예. 연결된 파트너 ID를 변경하거나, 추가하거나, 제거할 수 있습니다.
 
-**사용자가 둘 이상의 고객 테넌트에 계정을 보유한 경우에 어떻게 되나요?**
+**경우에 어떻게 사용자가 고객 테 넌 트를 둘 이상에서 계정을?**
 
 파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
-**다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
+**다른 파트너 또는 고객 편집 또는 제거할 수 파트너 ID에 대 한 링크?**
 
 링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다. 
 

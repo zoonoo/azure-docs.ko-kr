@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255424"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918419"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -75,8 +75,8 @@ ms.locfileid: "51255424"
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
 * '/' 애플리케이션의 서버 오류.
-* 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
-* 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
+* 설명: 현재 웹 요청을 실행 하는 동안 처리 되지 않은 예외가 발생 했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
+* 예외 정보: System.IO.FIleNotFoundException: 파일 또는 어셈블리를 로드할 수 없습니다 ' Microsoft.WindowsAzure.StorageClient, 버전 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
 예를 들면 다음과 같습니다.
 
@@ -96,7 +96,7 @@ Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 w
 7. 역할이 시작될 때 Internet Explorer에서 자세한 오류 정보가 표시됩니다. 또한 표준 Windows 문제해결 도구를 사용하여 추가로 문제를 진단할 수 있습니다.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>IntelliTrace를 사용하여 문제 진단
-.NET Framework 4를 사용하는 작업자 및 웹 역할의 경우 Microsoft Visual Studio Enterprise에서 사용 가능한 [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)를 사용할 수 있습니다.
+.NET Framework 4를 사용하는 작업자 및 웹 역할의 경우 Microsoft Visual Studio Enterprise에서 사용 가능한 [IntelliTrace](/visualstudio/debugger/intellitrace)를 사용할 수 있습니다.
 
 IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수행합니다.
 

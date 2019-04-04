@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652674"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905973"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -28,6 +28,7 @@ ms.locfileid: "58652674"
 * 표준 SSD 디스크 표준 HDD 디스크와 Premium SSD 디스크를 지원합니다.
 *   복원할 때 비관리형 VM의 원래 스토리지 계정(디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>이 기능의 새로운 사항
 
@@ -74,9 +75,9 @@ Azure portal에서 추가 필드를 볼 수 있습니다 합니다 **VM 백업 �
 > Az PowerShell 버전 1.6.0 이상에서 PowerShell을 사용 하 여 정책 즉시 복원을 스냅숏 보존 기간을 업데이트할 수 있습니다.
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 각 정책에 대 한 기본 스냅숏 보존 기간을 2 일로 설정 됩니다. 사용자 1의 최소 및 최대 5 일 값을 변경할 수 있습니다. 매주 정책에 대 한 스냅숏 보존 5 일로 고정 됩니다.
 

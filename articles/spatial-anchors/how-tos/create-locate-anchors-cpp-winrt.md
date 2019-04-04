@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 792053eef32ffc3a5e93136c203612927e44a5a2
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 966a8bd5990f955a3ec66ae465d14a0369d0cdf9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632449"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915311"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>만들기 및 Azure 공간 앵커를 사용 하 여 C + 앵커를 찾는 방법 + WinRT
 
@@ -268,7 +268,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
                 // This anchor has already been reported and is being tracked
                 break;
             case LocateAnchorStatus::NotLocatedAnchorDoesNotExist:
-                // The anchor was deleted or never exited in the first place
+                // The anchor was deleted or never existed in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
             case LocateAnchorStatus::NotLocated:

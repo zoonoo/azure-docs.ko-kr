@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554237"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919294"
 ---
 >[!NOTE]
 >고정 되지 않는 리소스에 대 한 할당량 증가 요청 하려면 지원 티켓을 엽니다. 더 높은 한도 가져오려고 시도할 때 추가 Azure Media Services 계정을 만들지 마세요.
@@ -39,7 +39,7 @@ ms.locfileid: "57554237"
 
 2017 년 4 월 1 일부 터 계정의 90 일이 지난 작업 레코드는 자동으로 삭제 된 연결 된 태스크 레코드와 함께 합니다. 자동으로 삭제할 레코드 총 수가 최고 할당량 미만인 경우에 발생 합니다. 작업 및 태스크 정보를 보관 하려면에 설명 된 코드를 사용 [Media Services.NET SDK를 사용 하 여 자산 관리](../articles/media-services/previous/media-services-dotnet-manage-entities.md)합니다.
 
-<sup>3</sup>목록 작업 엔터티를 요청 하기 요청당 최대 1,000 개 작업이 반환 됩니다. 제출 된 모든 작업 한 추적을 위쪽을 사용 하거나에 설명 된 대로 쿼리를 건너뛸 [OData 시스템 쿼리 옵션](https://msdn.microsoft.com/library/gg309461.aspx)합니다.
+<sup>3</sup>목록 작업 엔터티를 요청 하기 요청당 최대 1,000 개 작업이 반환 됩니다. 제출 된 모든 작업 한 추적을 위쪽을 사용 하거나에 설명 된 대로 쿼리를 건너뛸 [OData 시스템 쿼리 옵션](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7))합니다.
 
 <sup>4</sup>로케이터 사용자별 액세스 제어를 관리 하도록 설계 되지 않습니다. 개별 사용자에 게 서로 다른 액세스 권한을 부여 하려면 디지털 권한 관리 (DRM) 솔루션을 사용 합니다. 자세한 내용은 [Azure Media Services를 사용 하 여 콘텐츠 보호](../articles/media-services/previous/media-services-content-protection-overview.md)합니다.
 

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093683"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916821"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
-이 문서에서는 기존 CDN 프로필에서 [Azure CDN(Content Delivery Network)](cdn-overview.md) 엔드포인트를 만드는 모든 설정에 대해 설명합니다. 프로필과 엔드포인트를 만든 후에는 고객에게 콘텐츠를 제공할 수 있습니다. 프로필 및 엔드포인트를 만드는 빠른 시작은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
+이 문서에서는 기존 CDN 프로필에서 [Azure CDN(Content Delivery Network)](cdn-overview.md) 엔드포인트를 만드는 모든 설정에 대해 설명합니다. 프로필과 엔드포인트를 만든 후에는 고객에게 콘텐츠를 제공할 수 있습니다. 프로필 및 끝점을 만드는 빠른 시작을 참조 하세요. [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 CDN 엔드포인트를 만들려면 먼저 하나 이상의 CDN 엔드포인트를 포함할 수 있는 CDN 프로필을 하나 이상 만들어야 합니다. 인터넷 도메인, 웹 애플리케이션 또는 일부 기타 조건으로 CDN 엔드포인트를 구성하려면 여러 프로필을 사용하면 됩니다. CDN 가격은 CDN 프로필 수준에서 적용되기 때문에 다양한 Azure CDN 가격 책정 계층을 사용하려면 여러 CDN 프로필을 만들어야 합니다. CDN 프로필을 만들려면 [새 CDN 프로필 만들기](cdn-create-new-endpoint.md#create-a-new-cdn-profile)를 참조하세요.
@@ -47,7 +47,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
 3. **이름**에 새 CDN 엔드포인트의 고유한 이름을 입력합니다. 이 이름은 _<endpointname>_.azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 
 4. **원본 형식**으로는 다음 원본 형식 중 하나를 선택합니다. 
-   - Azure Storage용 **저장소**
+   - Azure Storage용 **스토리지**
    - Azure Cloud Services용 **클라우드 서비스**
    - Azure Web Apps용 **웹앱**
    - 그 외에 공개적으로 액세스 가능한 (Azure 또는 다른 곳에 호스트된) 원본 웹 서버용 **사용자 지정 원본**
@@ -67,7 +67,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
    > [!NOTE]
    > **원본 포트** 값은 엔드포인트가 원본 서버에서 정보를 검색하는 데 사용하는 포트에만 영향을 줍니다. 엔드포인트 자체는 **원본 포트** 값에 관계없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에만 사용할 수 있습니다.  
    > 
-   > **Akamai의 Azure CDN** 프로필의 엔드포인트에서는 원본 포트에 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](https://msdn.microsoft.com/library/mt757337.aspx)를 참조하세요.  
+   > **Akamai의 Azure CDN** 프로필의 엔드포인트에서는 원본 포트에 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](/previous-versions/azure/mt757337(v=azure.100))를 참조하세요.  
    > 
    > Azure CDN 사용자 지정 도메인에 대한 HTTPS 지원은 **Akamai의 Azure CDN** 제품에서 제공되지 않습니다. 자세한 내용은 [Azure CDN 사용자 지정 도메인에서 HTTPS 구성](cdn-custom-ssl.md)을 참조하세요.
     
@@ -75,14 +75,14 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
 
     프로필 형식에 따라 다음과 같은 최적화 형식 설정이 지원됩니다.
     - **Microsoft의 Azure CDN 표준** 프로필:
-       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
+       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
 
     - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필:
-       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
+       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
        - [**동적 사이트 가속**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
     - **Akamai의 Azure CDN 표준** 프로필:
-       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
+       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
        - [**일반 미디어 스트리밍**](cdn-optimization-overview.md#general-media-streaming)
        - [**주문형 비디오 미디어 스트리밍**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**대용량 파일 다운로드**](cdn-optimization-overview.md#large-file-download)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078820"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916260"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services에 대 한 배포 문제: FAQ(질문과 대답)
 
@@ -70,7 +70,7 @@ Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클
  
 - REST API를 통해 배포.
 
-    Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 스토리지 계정 모두를 통해 작업할 수 있는 Blob Storage에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/ee460813.aspx)에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.
+    Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 스토리지 계정 모두를 통해 작업할 수 있는 Blob Storage에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](/previous-versions/azure/reference/ee460813(v=azure.100))에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.
   
 - [Azure Portal](https://portal.azure.com)을 통해 배포.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Virtual Machines에서 SQL Server에 대 한 성능 모범 사례
-description: Microsoft Azure Stack Virtual Machines에서 SQL Server 성능을 최적화 하기 위한 모범 사례를 제공 합니다.
+title: SQL Server에 대 한 유용한 정보를 사용 하 고 Azure Stack virtual machines에서 성능을 향상 시키기 위해 | Microsoft Docs
+description: 이 문서에서는 성능을 향상 시키고 Azure Stack Vm의 SQL Server를 최적화 하는 데 SQL server 모범 사례를 제공 합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123405"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879067"
 ---
-# <a name="optimize-sql-server-performance"></a>SQL Server 성능 최적화
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Azure Stack에서 성능을 최적화 하기 위해 SQL server 모범 사례
 
-이 문서에서는 Microsoft Azure Stack virtual machines에서 SQL Server 성능을 최적화 하기 위한 지침을 제공 합니다. Azure Stack virtual machines에서 SQL Server를 실행 하는 경우 동일한 데이터베이스 성능 튜닝 옵션 온-프레미스 서버 환경에서 SQL Server에 적용을 사용 합니다. Azure Stack 클라우드에 관계형 데이터베이스 성능은 여러 요인에 따라 달라 집니다. 가상 머신의 크기 패밀리 및 데이터 디스크의 구성 요소에 포함 됩니다.
+이 문서에서는 SQL Server를 최적화 하 고 Microsoft Azure Stack virtual machines에서 성능을 향상 하려면 SQL server 모범 사례를 제공 합니다. Azure Stack virtual machines에서 SQL Server를 실행 하는 경우 동일한 데이터베이스 성능 튜닝 옵션 온-프레미스 서버 환경에서 SQL Server에 적용을 사용 합니다. Azure Stack 클라우드에 관계형 데이터베이스 성능은 여러 요인에 따라 달라 집니다. 가상 머신의 크기 패밀리 및 데이터 디스크의 구성 요소에 포함 됩니다.
 
 SQL Server 이미지를 만들 때 [Azure Stack 포털에 가상 컴퓨터를 프로 비전 하는 것이 좋습니다.](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)합니다. Azure Stack 관리 포털에서 관리 Marketplace에서에서 SQL IaaS 확장을 다운로드 하 고 여러분이 SQL 가상 머신 가상 하드 드라이브 (Vhd)를 다운로드 합니다. 여기에 SQL2014SP2, SQL2016SP1, SQL2017 포함 됩니다.
 
@@ -37,7 +37,8 @@ SQL Server 이미지를 만들 때 [Azure Stack 포털에 가상 컴퓨터를 �
 > [!NOTE]  
 > Azure virtual machines의 SQL Server에 대 한 성능 지침을 참조 하세요 [이 문서에서는](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="checklist-for-sql-server-best-practices"></a>SQL server 모범 사례에 대 한 검사 목록
+
 Azure Stack virtual machines에서 SQL Server 성능을 최적화 하기 위한 다음 검사 목록은:
 
 
@@ -112,7 +113,7 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 
        예를 들어, 다음 PowerShell 인터리빙 크기가 64KB 이며 2 열 수가 설정 된 새 저장소 풀을 만듭니다.
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

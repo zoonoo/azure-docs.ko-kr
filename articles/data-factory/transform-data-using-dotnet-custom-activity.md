@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652096"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904579"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 
@@ -356,7 +356,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
   - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다.
   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다.
 
-Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요.
+Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 
@@ -382,10 +382,10 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
-* [Hive 작업](transform-data-using-hadoop-hive.md)
-* [Pig 작업](transform-data-using-hadoop-pig.md)
-* [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
+* [하이브 활동](transform-data-using-hadoop-hive.md)
+* [Pig 활동](transform-data-using-hadoop-pig.md)
+* [MapReduce 활동](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
-* [Spark 작업](transform-data-using-spark.md)
+* [Spark 활동](transform-data-using-spark.md)
 * [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

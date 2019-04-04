@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842511"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916465"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -134,9 +134,9 @@ Azure portal의 **키 관리** 페이지에서 이 cmdlet에 필요한 정보를
 
 Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다. 단, 기본적으로 설치되어 Azure Automation의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
 
-Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](https://msdn.microsoft.com/library/dd878350.aspx)를 참조하세요. 
+Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](/powershell/developer/windows-powershell)를 참조하세요. 
 
-설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 **PSModulePath** 환경 변수가 참조하는 위치에 있어야 합니다. 상세 정보는 [PSModulePath 설치 경로 수정](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)을 참조하세요.
+설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 **PSModulePath** 환경 변수가 참조하는 위치에 있어야 합니다. 상세 정보는 [PSModulePath 설치 경로 수정](/powershell/developer/windows-powershell)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

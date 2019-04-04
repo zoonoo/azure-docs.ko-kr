@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517604"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895565"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -46,11 +46,11 @@ ms.locfileid: "58517604"
 정책이 작동되려면 다음을 구성해야 합니다.
 
 
-|대상           | 방법                                  | 이유|
-|:--            | :--                                  | :-- |
-|**클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
-| **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
-| **액세스 제어** | 하나 이상의 액세스 제어를 선택합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다.|
+| 대상           | 방법                                  | 이유 |
+| :--            | :--                                  | :-- |
+| **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
+| **개요** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
+| **액세스 제어** | 하나 이상의 액세스 제어를 선택합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다. |
 
 
 
@@ -111,6 +111,13 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 예, 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 어떻게 구성 해야?
+
+Office 365 앱을 상호 연결 되는 때문에 일반적으로 할당 앱 함께 정책을 만들 때 사용 하는 것이 좋습니다.
+
+Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online 및 Office 365 Yammer 일반적인 상호 연결 된 응용 프로그램에 포함 됩니다.
+
+세션이 나 태스크의 시작 부분에 대 한 액세스를 제어할 때 multi-factor authentication과 같은 사용자 상호 작용을 필요로 하는 정책을 중요 한 것입니다. 그렇지 않으면 사용자가 앱 내의 일부 작업을 완료할 수 없습니다. 예를 들어 전자 메일 아니라 SharePoint 액세스를 관리 되지 않는 장치에서 multi-factor authentication 인증을 해야 하는 경우 전자 메일에서 작업 하는 사용자는 메시지에 SharePoint 파일을 첨부할 수 없습니다. 자세한 내용은 문서에서 찾을 수 있습니다 [Azure Active Directory 조건부 액세스의 서비스 종속성을 이란?](service-dependencies.md)합니다.
 
 
 
@@ -123,7 +130,7 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 사용자 환경에서 다음과 같은 구성을 피해야 합니다.
 
 
-**모든 사용자에 대한 모든 클라우드 앱:**
+**모든 사용자에 대 한 모든 클라우드 앱:**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 
@@ -132,7 +139,7 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 - **도메인 가입 필요** - 이 정책 차단 액세스에도 도메인에 가입된 디바이스가 아직 없는 경우에 조직의 모든 사용자에 대한 액세스를 차단할 가능성이 있습니다.
 
 
-**모든 사용자 경우 모든 클라우드 앱, 모든 디바이스 플랫폼은 다음과 같습니다.**
+**모든 사용자에 대 한 모든 클라우드 앱, 모든 장치 플랫폼:**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 

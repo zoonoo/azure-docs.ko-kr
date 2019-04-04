@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095996"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905616"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 애플리케이션 SKU 탭
 
@@ -57,7 +57,7 @@ ms.locfileid: "58095996"
   >[!NOTE] 
   >Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족의 고객 및 이러한 실체에 서비스를 제공할 자격이 있는 파트너에 대한 액세스를 제어할 수 있는 정부 커뮤니티 클라우드입니다.
 
-- **비공개 SKU인가요?** - 이 SKU를 선택한 고객 그룹에서만 사용할 수 있는 경우 예를 선택합니다.
+- **이 개인 SKU는 무엇입니까?** - 이 SKU를 선택한 고객 그룹에서만 사용할 수 있는 경우 예를 선택합니다.
 
     ![솔루션 템플릿에 대한 SKU 세부 정보 양식](./media/azureapp-sku-details-solutiontemplate.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "58095996"
   >[!NOTE] 
   >Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족의 고객 및 이러한 실체에 서비스를 제공할 자격이 있는 파트너에 대한 액세스를 제어할 수 있는 정부 커뮤니티 클라우드입니다.
 
-- **비공개 SKU인가요?** - 이 SKU를 선택한 고객 그룹에서만 사용할 수 있는 경우 예를 선택합니다.
+- **이 개인 SKU는 무엇입니까?** - 이 SKU를 선택한 고객 그룹에서만 사용할 수 있는 경우 예를 선택합니다.
 - **국가/지역 가용성** – **지역 선택**을 사용하여 사용할 수 있는 국가/지역 목록을 표시합니다. 각 국가/지역을 확인하고 **확인**을 선택하여 선택한 내용을 저장합니다. 
 
    ![국가 및 지역 가용성 목록](./media/azure-app-select-country-region.png)
@@ -124,7 +124,7 @@ ms.locfileid: "58095996"
   >이 패키지는 이 애플리케이션을 프로비전하는 데 필요한 중첩된 템플릿 또는 스크립트를 포함해야 합니다. 파일  MainTemplate.json, applianceMainTemplate.json 및 applianceCreateUIDefinition.json은 루트 폴더에 있어야 합니다.
 
 - **테넌트 ID** - 조직의 Azure Active Directory 테넌트 ID입니다.
-- **JIT 액세스 사용** – 이 제품을 사용하여 고객 배포에 대한 Just-In-Time 관리 액세스 권한을 사용하도록 설정하려면 **예**를 선택합니다.
+- **JIT 액세스를 사용 하 시겠습니까?** – 이 제품을 사용하여 고객 배포에 대한 Just-In-Time 관리 액세스 권한을 사용하도록 설정하려면 **예**를 선택합니다.
 
   >[!NOTE] 
   >JIT를 사용하는 경우 JIT 액세스를 지원하도록 CreateUiDefinition.json 파일을 업데이트해야 합니다.
@@ -135,7 +135,7 @@ ms.locfileid: "58095996"
 
 #### <a name="authorization"></a>권한 부여
 
-관리되는 리소스 그룹에 대해 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 식별자를 추가합니다. 부여된 사용 권한은 역할 정의 ID로 표시됩니다. 소유자, 참가자 또는 임의 사용자 지정 역할일 수 있습니다.
+관리되는 리소스 그룹에 대해 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 식별자를 추가합니다. 부여된 사용 권한은 역할 정의 ID로 표시됩니다. 소유자, 참가자 또는 사용자 지정 역할 수 있습니다.
 
 #### <a name="policy-settings"></a>정책 설정
 
@@ -144,7 +144,7 @@ ms.locfileid: "58095996"
 
    ![관리되는 애플리케이션에 대한 권한 부여 및 정책 설정](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
-**새 권한 부여를 만들려면**
+**새 권한 부여를 만들려면:**
 
 1. **권한 부여** 아래에서 **+ 새 권한 부여**를 선택합니다.
 2. **보안 주체 ID**에 대해 관리되는 리소스 그룹에 대해 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 식별자를 추가합니다. 부여된 사용 권한은 역할 정의로 표시됩니다.
@@ -153,7 +153,7 @@ ms.locfileid: "58095996"
 >[!NOTE] 
 >여러 권한 부여를 추가할 수 있습니다. 그러나 Active Directory 사용자 그룹을 만들고 "PrincipalId"에 해당 ID를 지정하는 것이 좋습니다. 이렇게 하면 사용자 그룹에 더 많은 사용자를 추가할 수 있으며 SKU를 업데이트하지 않아도 됩니다.
 
-**새 정책을 만들려면**
+**새 정책을 만들려면:**
 
 1. **정책 설정** 아래에서 **+ 새 정책**을 선택합니다.
 2. **정책 이름**에 정책의 새 이름을 입력합니다. 이름의 최대 길이는 50자입니다.

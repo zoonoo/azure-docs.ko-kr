@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848869"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916345"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -76,11 +76,33 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 5. 동일한 차트에 여러 필터를 적용하려면 1~4단계를 반복하면 됩니다.
 
+## <a name="multiple-metrics-and-charts"></a>여러 메트릭 및 차트
+
+또한 여러 개의 메트릭을 그릴 또는 한 번에 여러 메트릭 차트를 표시 하는 차트를 만들 수 있습니다. 이 기능을 사용 하면 수 있습니다.
+
+- 상관 관계를 지정 관련된 메트릭의 방법을 값을 확인 하려면 동일한 그래프에는 다른 관련이
+- 다른 인접에서 측정 단위를 사용 하 여 메트릭을 표시합니다
+- 시각적으로 집계 하 고 여러 리소스의 메트릭을 비교합니다
+
+예를 들어 5 개의 저장소 계정을 있고 서로 되는 총 공간을 확인 하려는 시간에서 특정 지점에서 개별 및 모든 값의 합계를 보여 주는 (누적된) 영역형 차트를 만들면 됩니다.
+
+### <a name="multiple-metrics-on-a-chart"></a>차트에 여러 메트릭
+
+먼저 [새 차트를 만들려면](#create-a-new-chart)합니다. 클릭 **메트릭을 추가** 하 고 다른 메트릭을 같은 차트에 추가 하는 단계를 반복 합니다.
+
+### <a name="multiple-charts"></a>여러 개의 차트
+
+클릭 합니다 **차트 추가** 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
+
+### <a name="order-or-delete-multiple-charts"></a>여러 차트를 삭제 하거나 다시 정렬
+
+를 주문 하거나 여러 차트를 삭제 하려면 줄임표를 클릭 ( **...**  ) 차트 메뉴를 열고 적절 한 메뉴 항목의 기호 **위로**를 **아래로 이동**, 또는 **삭제**합니다.
+
 ## <a name="apply-splitting-to-a-chart"></a>차트에 분할 적용
 
-차원별로 메트릭 분할하여 메트릭의 다른 세그먼트가 서로 비교되는 방법을 시각화하고 차원의 외부 세그먼트를 식별할 수 있습니다. 
+차원별로 메트릭 분할하여 메트릭의 다른 세그먼트가 서로 비교되는 방법을 시각화하고 차원의 외부 세그먼트를 식별할 수 있습니다.
 
-### <a name="to-apply-splitting"></a>분할을 적용 하려면
+### <a name="apply-splitting"></a>분할 적용
 
 1. 차트 위쪽의 **분할 적용**을 클릭합니다.
  
@@ -141,7 +163,7 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-*차트에 데이터가 표시되지 않습니다.*
+*데이터가 차트에 표시 되지 않습니다.*
 
 * 필터는 창의 모든 차트에 적용됩니다. 하나의 필터에 포커스를 둔 동안 다른 차트에서 모든 데이터를 제외하는 필터를 설정하지 않았는지 확인하세요.
 

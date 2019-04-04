@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093309"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917756"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>국가별 Azure CDN 콘텐츠 제한
 
@@ -47,16 +47,16 @@ ms.locfileid: "49093309"
 예를 들어 다음 모든 디렉터리 경로 필터가 유효합니다.   
 */*                                 
 */Photos/*     
-*/Photos/Strasbourg/*     
+*/Photos/strasbourg/*     
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>작업의 유형 정의
 
 **작업** 목록에서 **허용** 또는 **차단**을 선택합니다. 
 
-- **허용**: 지정한 국가의 사용자만 재귀 경로에서 요청된 자산에 대해 액세스가 허용됩니다.
+- **허용**: 지정한 국가의 사용자만 재귀 경로에서 요청 된 자산에 대 한 액세스를 허용 됩니다.
 
-- **차단**: 지정한 국가의 사용자는 재귀 경로에서 요청된 자산에 대해 액세스가 거부됩니다. 해당 위치에 대해 다른 국가 필터링 옵션이 구성되지 않은 경우에는 다른 모든 사용자는 액세스가 허용 됩니다
+- **블록**: 사용자 지정된 된 국가에서 재귀 경로에서 요청 된 자산에 액세스가 거부 됩니다. 해당 위치에 대해 다른 국가 필터링 옵션이 구성되지 않은 경우에는 다른 모든 사용자는 액세스가 허용 됩니다
 
 예를 들어 */Photos/Strasbourg/* 경로 차단에 대한 지역 필터링 규칙은 다음 파일을 필터링합니다.     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
@@ -110,5 +110,5 @@ ms.locfileid: "49093309"
 
 * 동일한 상대 경로에는 한 가지 규칙만 적용할 수 있습니다. 즉, 동일한 상대 경로를 가리키는 국가 필터를 여러 개 만들 수 없습니다. 그러나 폴더는 국가 필터가 재귀적이므로 여러 국가 필터를 가질 수 있습니다. 즉, 이전에 구성된 폴더의 하위 폴더에 다른 국가 필터를 할당할 수 있습니다.
 
-* 지역 필터링 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다. Akamai 및 Verizon 프로필은 동일한 국가 코드의 대부분을 지원하지만 몇 가지 차이점이 있습니다. 자세한 내용은 [Azure CDN 국가 코드](https://msdn.microsoft.com/library/mt761717.aspx)를 참조하세요. 
+* 지역 필터링 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다. Akamai 및 Verizon 프로필은 동일한 국가 코드의 대부분을 지원하지만 몇 가지 차이점이 있습니다. 자세한 내용은 [Azure CDN 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 참조하세요. 
 

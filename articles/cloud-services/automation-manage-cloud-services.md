@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328871"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918470"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services 관리
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure Cloud Services 관리를 간소화하는 방법을 소개합니다.
@@ -32,12 +32,12 @@ Azure Automation은 조직이 성장함에 따라 요구를 충족하기 위해 
 Azure Automation에 의해 자동으로 실행되도록 클라우드 관리 작업을 이동하여 작업 오버헤드를 줄이고 IT/DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Azure Automation을 통해 Azure Cloud Services 관리 향상
-[Azure PowerShell 도구](https://msdn.microsoft.com/library/azure/jj156055.aspx)에서 사용할 수 있는 PowerShell cmdlet을 통해 Azure Automation에서 Azure Cloud Services를 관리할 수 있습니다. Azure Automation에서는 이러한 클라우드 서비스 PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 클라우드 서비스 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+[Azure PowerShell 도구](/powershell/)에서 사용할 수 있는 PowerShell cmdlet을 통해 Azure Automation에서 Azure Cloud Services를 관리할 수 있습니다. Azure Automation에서는 이러한 클라우드 서비스 PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 클라우드 서비스 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 Azure Cloud Services를 관리하는 Azure Automation을 사용하는 몇 가지 예제는 다음과 같습니다.
 
-* [Azure Blob Storage에서 cscfg 또는 cspkg가 업데이트될 때마다 클라우드 서비스의 연속 배포](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [클라우드 서비스 인스턴스를 병렬로 다시 부팅할 때 한 번에 하나의 도메인 업그레이드](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Azure Blob 저장소에서 cscfg 또는 cspkg가 업데이트 될 때마다 클라우드 서비스의 연속 배포](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [클라우드 서비스 인스턴스를 한 번에 하나의 업그레이드 도메인으로 병렬로 다시 부팅](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>다음 단계
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 클라우드 서비스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure Automation에 대해 자세히 알아보세요.

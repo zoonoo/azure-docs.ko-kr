@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a3032ee96accdbafb32c96f4e9f3c89a0b3458
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d30a5ca0910c5ceebb38dec7b4cdbffd9b3cf27e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539499"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916787"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -110,7 +110,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-[TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) 메서드의 `kind` 매개 변수는 유지된 파일을 분류합니다. 미리 정의된 4개의 [TaskOutputKind][net_taskoutputkind] 형식, 즉 `TaskOutput`, `TaskPreview`, `TaskLog` 및 `TaskIntermediate.`가 있습니다. 사용자 정의 범주의 출력도 정의할 수 있습니다.
+[TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 메서드의 `kind` 매개 변수는 유지된 파일을 분류합니다. 미리 정의된 4개의 [TaskOutputKind][net_taskoutputkind] 형식, 즉 `TaskOutput`, `TaskPreview`, `TaskLog` 및 `TaskIntermediate.`가 있습니다. 사용자 정의 범주의 출력도 정의할 수 있습니다.
 
 이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 Batch를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 출력 검색 에서 확인할 수 있습니다.
 
@@ -202,7 +202,7 @@ Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azur
 
 Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 출력의 태스크로 이동한 다음 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.
 
-![Azure Portal의 태스크 출력 블레이드][2]
+![Azure 포털의 태스크 출력 블레이드][2]
 
 ## <a name="code-sample"></a>코드 샘플
 

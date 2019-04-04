@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651246"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906109"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -33,9 +33,9 @@ ms.locfileid: "58651246"
 
 이 문서의 예제에서는 이미 [Azure PowerShell을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones.md)고 가정합니다.
 
-## <a name="introduction"></a>소개
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>소개
 
 Azure DNS에 DNS 레코드를 만들기 전에 먼저 Azure DNS에서 DNS 레코드를 DNS 레코드 집합으로 구성하는 방법을 이해해야 합니다.
 
@@ -398,4 +398,4 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 <br>
 Azure DNS를 사용하는 경우 [영역 및 레코드를 보호](dns-protect-zones-recordsets.md)하는 방법에 대해 알아봅니다.
 <br>
-[Azure DNS PowerShell 참조 설명서](/powershell/module/azurerm.dns)를 검토합니다.
+[Azure DNS PowerShell 참조 설명서](/powershell/module/az.dns)를 검토합니다.

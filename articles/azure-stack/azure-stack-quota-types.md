@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349708"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497180"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-[할당량](azure-stack-plan-offer-quota-overview.md#plans) 사용자 구독 프로 비전 하거나 사용할 수 있는 리소스의 한계를 정의 합니다. 예를 들어 할당량 사용자 최대 5 개의 Vm을 만들 수 있습니다. 각 리소스에는 자체 할당량 유형을 가질 수 있습니다.
+[할당량](azure-stack-plan-offer-quota-overview.md#plans) 사용자 구독 프로 비전 하거나 사용할 수 있는 리소스의 한계를 정의 합니다. 예를 들어 할당량을 통해 사용자가 VM을 최대 5개까지 만들 수 있도록 허용할 수 있습니다. 각 리소스에는 자체 할당량 유형을 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 사용자 포털에서 또는 변경 된 할당량을 적용 하기 전에 사용할 수 있는 새 할당량에 대 한 최대 2 시간이 걸릴 수 있습니다.
 
 ## <a name="compute-quota-types"></a>계산 할당량 형식
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349708"
 | 프리미엄 관리 디스크의 최대 용량 (GB)의 | 2048 | Premium의 최대 용량이이 위치에 만든 디스크를 관리 합니다. |
 
 > [!NOTE]  
-> 관리 되지 않는 디스크 (페이지 blob)의 최대 용량은 별도의 관리 되는 디스크 할당량, 저장소 할당량에서 설정 해야 합니다.
+> 비관리 디스크 (페이지 blob)의 최대 용량 관리 되는 디스크 할당량 분리 됩니다. 이 값을 설정할 수 있습니다 **저장소 할당량**합니다.
 
-## <a name="storage-quota-types"></a>저장소 할당량 유형 
+## <a name="storage-quota-types"></a>저장소 할당량 유형
 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
@@ -51,15 +54,15 @@ ms.locfileid: "58349708"
 | 저장소 계정의 총 수 |20 |이 위치에서 구독을 만들 수 있는 저장소 계정의 최대 수입니다. |
 
 > [!NOTE]  
-> 저장소 할당량을 적용 하기 전에 최대 2 시간이 걸릴 수 있습니다. 관리 디스크의 최대 용량은 별도의 총 저장소 할당량, 계산 할당량에서 설정 해야 합니다.
+> 관리 디스크의 최대 용량은 총 저장소 할당량 분리 됩니다. 이 값을 설정할 수 있습니다 **할당량을 계산**합니다.
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
-| 최대 공용 Ip |50 |이 위치에서 구독을 만들 수 있는 공용 Ip의 최대 수입니다. |
+| 최대 공용 Ip |50 |이 위치에서 구독을 만들 수 있는 공용 IP 주소의 최대 수입니다. |
 | 최대 가상 네트워크 |50 |이 위치에서 구독을 만들 수 있는 가상 네트워크의 최대 수입니다. |
-| 최대 가상 네트워크 게이트웨이 |1 |이 위치에서 구독을 만들 수 있는 가상 네트워크 게이트웨이 (VPN Gateway)의 최대 수입니다. |
+| 최대 가상 네트워크 게이트웨이 |1 |이 위치에서 구독을 만들 수 있는 가상 네트워크 게이트웨이 (VPN gateway)의 최대 수입니다. |
 | 최대 네트워크 연결 |2 |이 위치에서 모든 가상 네트워크 게이트웨이 간에 구독을 만들 수 있는 네트워크 연결 (지점 간 또는 사이트 간)의 최대 수입니다. |
 | 최대 부하 분산 장치 |50 |이 위치에서 구독을 만들 수 있는 부하 분산 장치의 최대 수입니다. |
 | 최대 Nic |100 |이 위치에서 구독을 만들 수 있는 네트워크 인터페이스의 최대 수입니다. |

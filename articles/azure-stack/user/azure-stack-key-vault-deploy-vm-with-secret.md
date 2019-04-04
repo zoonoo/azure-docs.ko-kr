@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779252"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487756"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Azure Stack Key Vault에 저장 된 보안 암호를 사용 하 여 가상 머신 만들기
 
@@ -53,7 +53,7 @@ Azure Stack key vault에 비밀 형태로 암호와 같은 값을 저장할 수 
 
 다음 스크립트를 key vault를 만들고 비밀을 key vault에 암호를 저장 합니다. 사용 된 `-EnabledForDeployment` 키 자격 증명 모음을 만들 때 매개 변수입니다. 이 매개 변수 사용 하면 Azure Resource Manager 템플릿에서 key vault를 참조할 수 있습니다.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ SecretName, 사용자 환경에 따라 가상 머신 값의 adminUsername KeyVau
 
 이제 다음 PowerShell 스크립트를 사용 하 여 템플릿을 배포할:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

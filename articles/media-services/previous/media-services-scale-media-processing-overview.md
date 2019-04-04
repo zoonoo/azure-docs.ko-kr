@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294232"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918351"
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요 
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -48,7 +48,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 ## <a name="billing"></a>결제
 
-미디어 예약 단위의 실제 사용 시간(분)을 기준으로 요금이 청구됩니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
+요금이 청구 됩니다 기반 미디어 예약 단위를 프로 비전 되는 시간 (분)에서 계정에 있습니다. 인지에 관계 없이 이런 계정에서 실행 중인 모든 작업이 있습니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
 
 ## <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
@@ -60,7 +60,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+> * [자바](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 

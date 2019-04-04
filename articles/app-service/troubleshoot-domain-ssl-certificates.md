@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449132"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905820"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
 이 문서는 Azure App Service의 웹앱에 대한 도메인 또는 SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제를 나열합니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 선택합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>인증서 문제
 
@@ -314,7 +317,7 @@ Azure portal 통해 도메인을 구매 하는 경우 추가 비용 없이 개�
 
 **전송할 수 있습니까 도메인 하나의 구독에서 다른 구독으로?**
 
-도메인을 사용 하 여 다른 구독/리소스 그룹을 이동할 수 있습니다 합니다 [Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet.
+도메인을 사용 하 여 다른 구독/리소스 그룹을 이동할 수 있습니다 합니다 [이동 AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
 **Azure App Service 앱을 현재 없는 경우 내 사용자 지정 도메인을 관리 하려면 어떻게 하나요?**
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877791"
+ms.locfileid: "58905756"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -192,7 +192,7 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 
 * 각 OpenShift 노드에서 직접 [Linux용 Log Analytics 에이전트를 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)  
 * Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](../../azure-monitor/learn/quick-collect-azurevm.md)  
-* OpenShift 디먼 집합으로 Log Analytics 에이전트 설치  
+* OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치 합니다.  
 
 이 섹션에서는 OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
 

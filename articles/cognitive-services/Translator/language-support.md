@@ -3,25 +3,25 @@ title: 언어 지원 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 지원하는 자연 언어 목록입니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241578"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918045"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
 Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합니다. NMT(신경 기계 번역)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 신경계를 사용할 수 있을 때 Translator Text API V3를 통해 기본 방식으로 사용할 수 있습니다.
 
-[기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
+[기계 번역의 작동 원리에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
 **V2 Translator API**
 
@@ -264,11 +264,11 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 언어 메서드를 사용하여 Translator Text API v3.0에 대해 지원되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
 
-[언어 작업 참조 설명서 보기](reference/v3-0-languages.md)
+[언어 작업 참조 설명서](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>사용자 지정
 
-다음 언어에서 영어를 사용 하 여 사용자 지정에 사용할 수 있는 [사용자 지정 변환기](http://aka.ms/CustomTranslator)합니다.
+다음 언어에서 영어를 사용 하 여 사용자 지정에 사용할 수 있는 [사용자 지정 변환기](https://aka.ms/CustomTranslator)합니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -290,6 +290,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 히브리어      | `he`          |
 | 힌디어      | `hi`          |
 | 헝가리어      | `hu`          |
+| 아이슬란드어 | `is` |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
 | 한국어      | `ko`          |
@@ -309,9 +310,10 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 터키어      | `tr`          |
 | 우크라이나어      | `uk`          |
 | 베트남어      | `vi`          |
+| 웨일스어 | `cy` |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Microsoft Translator 웹 사이트에서 목록에 액세스
 
 언어를 빠르게 확인하려는 경우 Microsoft Translator 웹 사이트는Translator Text 및 Speech API에서 지원하는 모든 언어를 표시합니다. 이 목록에는 언어 코드와 같은 개발자별 정보는 포함되지 않습니다.
 
-[언어 목록을 참조하세요](https://www.microsoft.com/translator/languages.aspx).
+[언어 목록을 참조 하세요.](https://www.microsoft.com/translator/languages.aspx)

@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088437"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485753"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -61,7 +61,7 @@ Azure Stack 통합 시스템 또는 Azure Stack 개발 키트 호스트에서 �
 
 다음 PowerShell 명령을 실행 하는 경우는 AzureStack\CloudAdmin에 대 한 권한 있는 끝점 및 자격 증명을 제공 해야 합니다.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -353,7 +353,7 @@ GO
 13. **설정**을 선택합니다.
 14. 선택 **필요한 권한** > **권한 부여** > **예**합니다.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ AD FS에서 보안이 유지 되는 Azure Stack 환경에서는 다음 작업을
 5. 에 **자격 증명** 창 AD FS 클라우드 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
 6. 인증서 암호를 확인 하 고 인증서 파일 경로 제공 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

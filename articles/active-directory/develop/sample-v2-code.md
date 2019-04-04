@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b518235efa4cd236afd8f79cb70cf30696931fdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1aca8eb16e9474f8ec834178748c27682372f7b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086771"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905395"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory 코드 샘플(v2.0 엔드포인트)
 
@@ -47,9 +47,9 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 애플리케이션을 작성하는 방법을 보여 줍니다. 이 샘플은 MSAL.js의 특징 중 하나를 사용합니다.
 
-* [JavaScript용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
-* [Angular용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
-* [AngularJS용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
+* [JavaScript 용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
+* [Microsoft Authentication Library for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
+* [AngularJS 용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
 
   플랫폼 |  Microsoft Graph 호출
   -------- |  ---------------------
@@ -64,7 +64,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
  플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출
  -------- | ------------------- | ---------------------------------
 ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [ASP.NET Core 웹 앱 로그인 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | 동일한 샘플에 [Microsoft Graph를 호출 하는 ASP.NET Core 웹 앱](https://aka.ms/aspnetcore-webapp-call-msgraph) 단계
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 퀵 스타트](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 빠른 시작](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
@@ -74,7 +74,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
 ------------------ | -------- |  ----------| ---------- | -------------------------
-데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NET.png) | Windows 통합 인증 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 사용자 이름/암호 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | 대화형 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
@@ -101,11 +101,11 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="web-apis"></a>Web API
 
-다음 샘플은 Azure AD v2.0 엔드포인트로 Web API를 보호하는 방법을 보여 줍니다. 이 API는 WPF 애플리케이션이 실행하지만, 모든 애플리케이션에서 호출할 수 있습니다.
+다음 샘플은 Azure AD v2.0 엔드포인트로 Web API를 보호하는 방법을 보여 줍니다. 이 API는 WPF 애플리케이션이 실행하지만, 모든 애플리케이션에서 호출할 수 있습니다. Web API는 또한 Microsoft Graph를 호출합니다.
 
 플랫폼 | 샘플
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)의 WebAPI(서비스)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)의 WebAPI(서비스)
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플
 

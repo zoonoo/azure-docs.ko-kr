@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993321"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500205"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service에서 Azure Stack 업데이트 5 릴리스 정보
 
@@ -59,11 +59,14 @@ Azure Stack 업데이트 5의 azure App Service는 다음과 같은 향상 된 �
 
 - 업데이트 **테 넌 트 앱 서비스, 관리자의 경우 함수 포털 및 Kudu 도구**합니다. Azure Stack 포털 SDK 버전과 일치 합니다.
 
+- 업데이트가 **Azure Functions 런타임은** 하 **v1.0.12205**합니다.
+
 - 업데이트 **Kudu 도구** 작동 하는 고객에 대 한 스타일 지정 및 기능을 사용 하 여 문제를 해결 하려면 **끊어진** Azure Stack. 
 
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
+  - ASP.NET Core 2.1.6 및 2.2.0 추가
   - 추가 NodeJS 10.14.1
   - 추가 된 NPM 6.4.1
   - 79.20129.3767에 업데이트 된 Kudu

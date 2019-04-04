@@ -1,5 +1,5 @@
 ---
-title: 미리 빌드된 Currency 엔터티
+title: 통화 미리 작성 된 엔터티
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 currency 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 76531e3ebba5519d9ddab7733abb2890003cbcd5
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9efaaa6bdd0f2b51efca398464dbf08de56d831d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339915"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579277"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 Currency 엔터티
 미리 빌드된 currency 엔터티는 LUIS 앱 문화권에 관계없이 많은 액면가 및 국가에서 통화를 검색합니다. 이 엔터티를 이미 학습했기 때문에 currency를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Currency 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 

@@ -3,7 +3,7 @@ title: 만들기 및 Azure Stack에서 사용 하기 위해 Red Hat Enterprise L
 description: RedHat Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: ''
 tags: ''
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242232"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883126"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
@@ -100,6 +101,13 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+1. 중지 하 고에서 cloud-init을 제거 합니다.
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
@@ -246,15 +254,17 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     dracut -f -v
     ```
 
-1. Cloud-Init을 제거합니다.
+1. 중지 하 고에서 cloud-init을 제거 합니다.
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -265,22 +275,55 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
+1. Azure Stack에 대 한 사용자 지정 vhd를 만들 때 2.2.20 2.2.35.1 (모두 제외) 사이 WALinuxAgent 버전이 1903 하기 전에 빌드를 실행 하는 Azure Stack 환경에서 작동 하지 않는 염두에 둡니다. 이 해결 하려면 1901/1902 핫픽스를 적용 하거나이 부분의 지침의 나머지 절반을 따릅니다. 
+
+1903 Azure Stack 빌드를 실행 하는 경우 (또는 위에서) 1901/1902 핫픽스, Redhat extras 리포지토리에서 WALinuxAgent 패키지를 다운로드 하거나 다음과 같이 합니다.
+    
+   WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행 하 여 기타 리포지토리를 사용 합니다.
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+   다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    waagent 서비스를 사용하도록 설정합니다.
+   waagent 서비스를 사용하도록 설정합니다.
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+1903 하기 전에 Azure Stack 빌드를 실행 하 고이 정보를 1901/1902 핫픽스를 적용 하지 않은, 경우를 WALinuxAgent를 다운로드 하려면 이러한 지침을 따릅니다.
+    
+   a.   Setuptools 다운로드
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. 다운로드 하 여 github에서 에이전트의 최신 버전의 압축을 풉니다. 예제는이 "2.2.36" 다운로드는 github 리포지토리에서 버전입니다.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
@@ -420,6 +463,13 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
 
     ```bash
     dracut -f -v
+    ```
+
+1. 중지 하 고에서 cloud-init을 제거 합니다.
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이 설정이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
@@ -581,6 +631,10 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -657,15 +711,15 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
 
 `/etc/dracut.conf`를 편집하고 다음 내용을 추가합니다.
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 Initramfs를 다시 빌드합니다.
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 자세한 내용은 [initramfs 다시 작성](https://access.redhat.com/solutions/1958)합니다.
 

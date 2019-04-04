@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7af06347dd1ca5a3e7e27e5db4849b5540b106b9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d71df99096e58b3ac7adc920b91891b9a50cd6f7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250013"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479584"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에 템플릿 배포
 
@@ -40,7 +40,7 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell�
 2. 관리자 권한 PowerShell 명령 프롬프트를 엽니다.
 3. 바꿉니다 `username` 고 `password` 와 사용자 이름 및 암호를 스크립트를 실행 한 후 다음 스크립트에서:
 
-    ```PowerShell
+    ```powershell
     # Set deployment variables
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"

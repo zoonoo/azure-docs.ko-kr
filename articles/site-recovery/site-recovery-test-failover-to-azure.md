@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976561"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904715"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행 
 
@@ -42,7 +42,7 @@ ms.locfileid: "53976561"
     - Site Recovery는 VM의 **Compute 및 네트워크** 설정에서 제공한 것과 동일한 이름 및 IP 주소를 사용하여 서브넷에 테스트 VM을 만들려고 시도합니다.
     - 동일한 이름의 서브넷을 테스트 장애 조치(Failover)에 사용된 Azure Virtual Network에서 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 VM이 만들어집니다.
     - 해당 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 VM은 서브넷의 사용 가능한 다른 IP 주소를 받습니다. [자세히 알아보기](#create-a-network-for-test-failover).
-4. Azure에 장애 조치(Failover)하고 데이터 암호화를 사용하는 경우 **암호화 키**에서 공급자 설치 중에 암호화를 사용하도록 설정할 때 발행된 인증서를 선택합니다. 암호화를 사용하지 않도록 설정한 경우에는 이 단계를 무시해도 됩니다.
+4. Azure에 장애 조치(Failover)하고 데이터 암호화를 사용하는 경우 **암호화 키**에서 공급자 설치 중에 암호화를 사용하도록 설정할 때 발행된 인증서를 선택합니다. 암호화를 사용할 수 없는 경우이 단계를 무시할 수 있습니다.
 5. **작업** 탭에서 장애 조치 진행 상황을 추적합니다. Azure 포털에서 테스트 복제본 컴퓨터가 표시되어야 합니다.
 6. Azure VM에서 RDP 연결을 시작하려면 장애 조치(Failover)된 VM의 네트워크 인터페이스에서 [공용 IP를 추가](https://aka.ms/addpublicip)해야 합니다.
 7. 모든 항목이 예상대로 작동할 경우 **테스트 장애 조치(Failover) 정리**를 클릭합니다. 그러면 테스트 장애 조치(Failover) 중에 만들어진 VM이 삭제됩니다.
@@ -104,12 +104,12 @@ ms.locfileid: "53976561"
 
 장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 표에 요약된 요구 사항을 따르세요.
 
-**장애 조치(Failover)** | **위치**: | **actions**
+**장애 조치(failover)** | **위치** | **작업**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스하려면 컴퓨터에서 RDP를 활성화하고, **도메인 및 개인** 네트워크의 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 RDP를 허용해야 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
-**Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토합니다.
-**Linux를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
-**Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
+**Windows를 실행 하는 azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스하려면 컴퓨터에서 RDP를 활성화하고, **도메인 및 개인** 네트워크의 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 RDP를 허용해야 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행 하는 azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토합니다.
+**Linux를 실행 하는 azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
+**Linux를 실행 하는 azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
 
 [여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 

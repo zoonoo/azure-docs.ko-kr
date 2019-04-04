@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8473ece2ed08798836dc66067e1ce042924f469
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431258"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905095"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지 속성 함수를 실행 하는 방법
 
@@ -133,7 +133,7 @@ WebJobs SDK는 다음과 같은 Azure Functions 기능을 지원하지 않습니
 
 * [FunctionName 특성](#functionname-attribute)
 * [HTTP 트리거](#http-trigger)
-* [지속성 함수 HTTP 관리 API](#http-management-api)
+* [지 속성 함수 HTTP 관리 API](#http-management-api)
 
 ### <a name="functionname-attribute"></a>FunctionName 특성
 
@@ -218,50 +218,60 @@ while (true)
 
 ## <a name="webjobs-sdk-3x"></a>WebJobs SDK 3.x
 
-이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발 하는 방법에 설명 합니다. WebJobs SDK 3.x 프로젝트를 개발 하는 경우이 섹션에서는 도움이 차이점을 이해 합니다.
+이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발 하는 방법에 설명 합니다. 개발 하는 경우는 [WebJobs SDK 3.x](../../app-service/webjobs-sdk-get-started.md) 프로젝트에이 섹션에서는 차이점을 이해 합니다.
 
 도입 된 주요 변경에는.NET Framework 대신.NET Core의 사용입니다. WebJobs SDK 3.x 프로젝트를 만들려면 지침은 이러한 예외를 사용 하 여 동일 합니다.
 
-1. .NET Core 콘솔 앱을 만듭니다. Visual studio에서 **새 프로젝트** 대화 상자에서 **.NET Core** > **콘솔 앱 (.NET Core)** 합니다. 프로젝트 파일은 해당 `TargetFramework`가 `netcoreapp2.0`이 되도록 지정합니다.
+1. .NET Core 콘솔 앱을 만듭니다. Visual studio에서 **새 프로젝트** 대화 상자에서 **.NET Core** > **콘솔 앱 (.NET Core)** 합니다. 프로젝트 파일은 해당 `TargetFramework`가 `netcoreapp2.x`이 되도록 지정합니다.
 
-1. WebJobs SDK 시험판 버전을 선택 3.x 다음 패키지:
+1. WebJobs SDK 릴리스 버전을 선택 3.x 다음 패키지:
 
     * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. 저장소 연결 문자열을 가져오고에서 Application Insights 계측 키를 *appsettings.json* .NET Core 구성 프레임 워크를 사용 하 여 파일입니다. 변경 된 `Main` 메서드 코드를이 작업을 수행 합니다. 예를 들면 다음과 같습니다.
+1. 저장소 연결 문자열 및 Application Insights 계측 키에는 *appsettings.json* .NET Core 구성 프레임 워크를 사용 하 여 파일입니다. 예를 들면 다음과 같습니다.
+
+    ```json
+        {
+            "AzureWebJobsStorage": "<replace with storage connection string>",
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "<replace with Application Insights instrumentation key>"
+        }
+    ```
+
+1. 변경 된 `Main` 메서드 코드를이 작업을 수행 합니다. 예를 들면 다음과 같습니다.
 
    ```cs
    static void Main(string[] args)
    {
-       var builder = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json");
+        var hostBuilder = new HostBuilder()
+            .ConfigureWebJobs(config =>
+            {
+                config.AddAzureStorageCoreServices();
+                config.AddAzureStorage();
+                config.AddTimers();
+                config.AddDurableTask(options =>
+                {
+                    options.HubName = "MyTaskHub";
+                    options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
+                });
+            })
+            .ConfigureLogging((context, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddApplicationInsights(config =>
+                {
+                    config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                });
+            })
+            .UseConsoleLifetime();
 
-       var appSettingsConfig = builder.Build();
+        var host = hostBuilder.Build();
 
-       using (var loggerFactory = new LoggerFactory())
-       {
-           var config = new JobHostConfiguration();
-
-           config.DashboardConnectionString = "";
-           config.StorageConnectionString =
-               appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
-           var instrumentationKey =
-               appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
-
-           config.LoggerFactory = loggerFactory
-               .AddApplicationInsights(instrumentationKey, null)
-               .AddConsole();
-
-           config.UseTimers();
-           config.UseDurableTask(new DurableTaskExtension
-           {
-               HubName = "MyTaskHub",
-           });
-           var host = new JobHost(config);
-           host.RunAndBlock();
-       }
+        using (host)
+        {
+            host.Run();
+        }
    }
    ```
 

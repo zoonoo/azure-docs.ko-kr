@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337118"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905718"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -80,7 +80,7 @@ DNSSEC 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트�
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS에서는 영역 전송(AXFR/IXFR)을 지원하나요?
 
-아니요. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
+아니요. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
 
 영역 전송 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c)합니다.
 
@@ -116,10 +116,10 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>별칭 레코드 집합의 대상으로 지원되는 리소스는 무엇인가요?
 
-- **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
-- **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
+- **DNS A/AAAA 레코드 집합에서에서 공용 IP 리소스를 가리킵니다.** A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
+- **DNS A/AAAA/CNAME 레코드 집합에서 Traffic Manager 프로필을 가리킵니다.** DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
 - **Azure 콘텐츠 배달 네트워크 (CDN) 끝점을 가리키도록**합니다. Azure storage 및 Azure CDN을 사용 하 여 정적 웹 사이트를 만들 때 유용 합니다.
-- **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
+- **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다.** 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Azure Portal에서 별칭 레코드를 만들고 업데이트할 수 있나요?
 
@@ -149,7 +149,7 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 공동 호스팅을 설정 하려면 두 공급자의 이름 서버를 가리키도록 도메인의 NS 레코드를 수정 합니다. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
-또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
+또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>4개의 Azure DNS 이름 서버 모두에 도메인을 위임해야 하나요?
 

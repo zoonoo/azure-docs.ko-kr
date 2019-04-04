@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629629"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906126"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -21,6 +21,9 @@ Azure Application Gateway 다양 한 시나리오에 대 한 다양 한 방법�
 ![응용 프로그램 게이트웨이 구성 요소 흐름 차트](./media/configuration-overview/configuration-overview1.png)
 
 이 이미지에 있는 세 가지 수신기 응용을 프로그램을 보여 줍니다. 첫 번째 두 가지에 대 한 다중 사이트 수신기 `http://acme.com/*` 고 `http://fabrikam.com/*`, 각각. 모두 포트 80에서 수신 합니다. 세 번째 기본 수신기 엔드-투-엔드 Secure Sockets Layer (SSL) 종료 된 경우
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -136,11 +139,11 @@ SSL 종료 및 종단 간 SSL 암호화를 구성 하려면 대칭 키를 파생
 Http/2 프로토콜 지원은 응용 프로그램 게이트웨이 수신기에 연결 하는 클라이언트에 제공 됩니다. 백 엔드 서버 풀에 대 한 통신은 HTTP/1.1 끝났습니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 다음 Azure PowerShell 코드 조각은이 기능을 사용 하는 방법을 보여 줍니다.
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>WebSocket 지원
@@ -343,4 +346,4 @@ App service에 기존 사용자 지정 DNS 이름이 매핑되는 사용자 지�
 
 - [Azure portal에서 응용 프로그램 게이트웨이 만들기](quick-create-portal.md)
 - [PowerShell을 사용 하 여 응용 프로그램 게이트웨이 만들기](quick-create-powershell.md)
-- [Azure CLI를 사용 하 여 응용 프로그램 게이트웨이 만들기](quick-create-cli.md)
+- [Azure CLI를 사용하여 Application Gateway 만들기](quick-create-cli.md)

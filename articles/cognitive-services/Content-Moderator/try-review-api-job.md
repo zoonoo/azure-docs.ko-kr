@@ -1,5 +1,5 @@
 ---
-title: API 콘솔을 사용하여 콘텐츠 조정 작업 실행 - Content Moderator
+title: REST API 콘솔-Content Moderator를 사용 하 여 사용 하 여 조정 작업
 titlesuffix: Azure Cognitive Services
 description: Review API의 작업 운영을 사용하여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대한 종합적인 콘텐츠 조정 작업을 시작할 수 있습니다.
 services: cognitive-services
@@ -7,101 +7,116 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9fac80ff152b0f7b9c36c182759d41245364fff9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862431"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756089"
 ---
-# <a name="start-a-moderation-job-from-the-api-console"></a>API 콘솔에서 조정 작업 시작
+# <a name="define-and-use-moderation-jobs-rest"></a>정의 및 조정 작업 (REST)를 사용 합니다.
 
-Review API의 [작업 운영](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)을 사용하여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대한 종합적인 콘텐츠 조정 작업을 시작할 수 있습니다. 
-
-조정 작업은 Content Moderator Image Moderation API 또는 Text Moderation API를 사용하여 콘텐츠를 검색합니다. 그러면 조정 작업은 워크플로(검토 도구에 정의된)를 사용하여 검토 도구에서 검토를 생성합니다. 
-
-조정자 역할을 맡은 사람이 자동 할당된 태그 및 예측 데이터를 검토하고 최종 조정 결정을 제출하면 Review API가 모든 정보를 API 엔드포인트에 제출합니다.
+조정 작업은 특정 유형의 콘텐츠 조정, 워크플로 및 검토의 기능에 대 한 래퍼 역할도합니다. 이 가이드에서는 작업 REST Api를 사용 하 여 시작 하 고 콘텐츠 조정 작업을 확인 하는 방법을 보여 줍니다. Api의 구조를 이해 하면 이러한 모든 REST 호환 플랫폼이 호출을 쉽게 이식할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com/)로 이동합니다. 아직 등록하지 않은 경우 지금 등록합니다. 검토 도구 내에서, 이 `Job` 작업에 사용할 [사용자 지정 워크플로를 정의](Review-Tool-User-Guide/Workflows.md)합니다.
+- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
+- (선택 사항) [사용자 지정 워크플로 정의](./Review-Tool-User-Guide/Workflows.md) ; 작업을 사용 하는 기본 워크플로 사용할 수도 있습니다.
 
-## <a name="use-the-api-console"></a>API 콘솔 사용
-온라인 콘솔을 사용하여 API를 테스트하려면 콘솔에 입력할 몇 가지 값이 필요합니다.
-    
-- `teamName`: 검토 도구의 자격 증명 화면에서 `Id` 필드를 사용합니다. 
-- `ContentId`: 이 문자열은 API로 전달되고 콜백을 통해 반환됩니다. **ContentId**는 내부 식별자 또는 메타데이터를 수정 작업 `Workflowname`의 결과와 연결하는 데 유용합니다. 이전 섹션에서 [만든 워크플로](Review-Tool-User-Guide/Workflows.md)의 이름
-- `Ocp-Apim-Subscription-Key`: **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+## <a name="create-a-job"></a>작업 만들기
 
-API 콘솔 액세스는 **자격 증명** 창에서 수행합니다.
+조정 작업을 만들려면로 이동 합니다 [작업-만들기](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API 페이지를 참조 하 고 키 지역에 대 한 단추를 선택 (에서 끝점 URL에서 찾을 수 있습니다는 **자격 증명** 페이지를 [검토 도구](https://contentmoderator.cognitive.microsoft.com/)). 이 API 콘솔에서 쉽게 생성 하 고 수 있는 REST API 호출 실행을 시작 합니다.
 
-### <a name="navigate-to-the-api-reference"></a>API 참조로 이동
-**자격 증명** 창에서 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)를 선택합니다.
+![작업-만들기 페이지 지역 선택](images/test-drive-job-1.png)
 
-  `Job.Create` 페이지가 열립니다.
+### <a name="enter-rest-call-parameters"></a>REST 호출 매개 변수를 입력 합니다.
 
-### <a name="select-your-region"></a>지역 선택
-**개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다.
-  ![작업 - 페이지 지역 선택 만들기](images/test-drive-job-1.png)
+REST 호출을 생성 하는 다음 값을 입력 합니다.
 
-  `Job.Create` API 콘솔이 열립니다. 
+- **teamName**: 팀 ID를 설정할 때 만든 프로그램 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 계정 (에 **Id** 검토 도구 사용자의 자격 증명 화면에서 필드).
+- **ContentType**: "Image", "Text" 또는 "비디오" 수 있습니다.
+- **ContentId**: 사용자 지정 식별자 문자열입니다. 이 문자열은 API로 전달되고 콜백을 통해 반환됩니다. 조정 작업의 결과 사용 하 여 내부 식별자 또는 메타 데이터를 연결 하는 데 유용 합니다.
+- **workflowname**: 이전에 만든 워크플로 (또는 기본 워크플로에 대 한 "기본")의 이름입니다.
+- **CallbackEndpoint**: (선택 사항) 정보를 받을 콜백 검토가 완료 되 면 URL입니다.
+- **Ocp-Apim-Subscription-Key**: Content Moderator 키입니다. 이 찾을 수 있습니다는 **설정을** 탭의 [검토 도구](https://contentmoderator.cognitive.microsoft.com)합니다.
 
-### <a name="enter-parameters"></a>매개 변수 입력
+### <a name="fill-in-the-request-body"></a>요청 본문의 채우기
 
-필수 쿼리 매개 변수의 값과 구독 키를 입력합니다. **요청 본문** 상자에서 검색할 정보의 위치를 지정합니다. 이 예제에서는 [샘플 이미지](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png)를 사용하겠습니다.
+REST 호출의 본문에 단일 필드를 포함 **ContentValue**합니다. 텍스트를 중재 하는 경우 원시 텍스트 콘텐츠를 붙여 넣거나 이미지/비디오를 중재 하는 경우 이미지 또는 비디오 URL을 입력 합니다. 다음 샘플 이미지 URL을 사용할 수 있습니다. [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
-  ![작업 - 콘솔 쿼리 매개 변수, 헤더 및 요청 본문 상자 만들기](images/job-api-console-inputs.PNG)
+![작업 - 콘솔 쿼리 매개 변수, 헤더 및 요청 본문 상자 만들기](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>요청 제출
-**보내기**를 선택합니다. 작업 ID가 생성됩니다. 그 다음 단계에서 사용할 수 있도록 이 ID를 복사합니다.
 
-  `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
+**보내기**를 선택합니다. 작업에 성공 하면 합니다 **응답 상태** 됩니다 `200 OK`, 및 **응답 콘텐츠** 작업에 대 한 ID 상자에 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
 
-### <a name="open-the-get-job-details-page"></a>[가져오기 작업 세부 정보] 페이지가 열림
-**가져오기**를 선택한 다음, 지역과 일치하는 단추를 선택하여 API를 엽니다.
+![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-job-3.PNG)
 
-  ![작업 - 콘솔 만들기 결과 가져오기](images/test-drive-job-4.png)
+## <a name="get-job-status"></a>작업 상태 가져오기
 
-### <a name="review-the-response"></a>응답 검토
+상태 및 실행 중이거나 완료 된 작업의 세부 정보를 얻으려면로 이동 합니다 [작업-가져오기](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c3) API 페이지를 참조 하 고 해당 지역에 대 한 단추를 선택 (키 관리 되는 영역).
 
-**teamName** 및 **JobID**의 값을 입력합니다. 구독 키를 입력하고 **보내기**를 선택합니다. 다음 응답은 샘플 작업 상태 및 세부 정보를 보여줍니다.
+![작업-Get 지역 선택](images/test-drive-region.png)
 
-```
-    {
-        "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "TeamName": "some team name",
-        "Status": "InProgress",
-        "WorkflowId": "OCR",
-        "Type": "Image",
-        "CallBackEndpoint": "",
-        "ReviewId": "",
-        "ResultMetaData": [],
-        "JobExecutionReport": 
-        [
-            {
-            "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-            },
-            {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-            },
-            {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-            }
-        ]
+위의 섹션에서와 같이 REST 호출 매개 변수를 입력 합니다. 이 단계에서는 **JobId** 작업을 만들 때 받은 고유 ID 문자열입니다. **보내기**를 선택합니다. 작업에 성공 하면 합니다 **응답 상태** 됩니다 `200 OK`, 및 **응답 콘텐츠** 상자는 다음과 같은 JSON 형식으로 작업을 표시:
+
+```json
+{  
+  "Id":"2018014caceddebfe9446fab29056fd8d31ffe",
+  "TeamName":"some team name",
+  "Status":"Complete",
+  "WorkflowId":"OCR",
+  "Type":"Image",
+  "CallBackEndpoint":"",
+  "ReviewId":"201801i28fc0f7cbf424447846e509af853ea54",
+  "ResultMetaData":[  
+    {  
+      "Key":"hasText",
+      "Value":"True"
+    },
+    {  
+      "Key":"ocrText",
+      "Value":"IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
     }
+  ],
+  "JobExecutionReport":[  
+    {  
+      "Ts":"2018-01-07T00:38:29.3238715",
+      "Msg":"Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.2928416",
+      "Msg":"Job marked completed and job content has been removed"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.0856472",
+      "Msg":"Execution Complete"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.7714671",
+      "Msg":"Successfully got hasText response from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.4181346",
+      "Msg":"Getting hasText from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:25.5122828",
+      "Msg":"Starting Execution - Try 1"
+    }
+  ]
+}
 ```
 
-## <a name="navigate-to-the-review-tool"></a>검토 도구로 이동
-Content Moderator 대시보드에서 **검토** > **이미지**를 선택합니다. 스캔한 이미지가 나타나고, 사람이 즉시 검토할 수 있는 상태입니다.
+![작업-REST 호출 응답 가져오기](images/test-drive-job-5.png)
 
-  ![세 명의 자전거 선수로 이루어진 검토 도구 이미지](images/ocr-sample-image.PNG)
+### <a name="examine-the-new-reviews"></a>새 review(s) 검사
+
+검토를 만드는 콘텐츠 작업 결과 볼 수 있습니다에 [검토 도구](https://contentmoderator.cognitive.microsoft.com)합니다. 선택 **검토** > **이미지**/**텍스트**/**비디오** (에 따라 새로운 콘텐츠 사용). 콘텐츠가 표시 하는 사용자 검토 준비가 되었습니다. 자동 할당 된 태그와 예측 데이터를 검토 하 고 최종 조정 결정을 제출 하는 사람이 중재자, 후 지정 된 콜백 끝점 끝점에이 정보는 모두 작업 API를 제출 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [Jobs .NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.
+이 가이드에서는 만들고 REST API를 사용 하 여 콘텐츠 조정 작업을 쿼리 하는 방법을 알아보았습니다. 같은 엔드-투-엔드 조정 시나리오에 작업을 다음으로 통합 합니다 [상거래 조정](./ecommerce-retail-catalog-moderation.md) 자습서입니다.

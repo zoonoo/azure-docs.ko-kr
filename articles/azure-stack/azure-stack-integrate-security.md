@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3694425ac72d3b75d66d870e3746bc1738ba0138
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009483"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481912"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 데이터 센터 통합-syslog 전달
 
@@ -185,13 +185,13 @@ Syslog 서버 구성을 완전히 제거 및 syslog 전달을 중지 합니다.
 
 **클라이언트에서 syslog 서버 구성을 제거합니다**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **클라이언트에서 클라이언트 인증서를 제거 합니다.**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -201,13 +201,13 @@ Syslog 서버에 syslog 클라이언트가 성공적으로 연결한 경우 이�
 
 **Syslog 클라이언트에서 서버 구성을 확인합니다**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Syslog 클라이언트에서 인증서 설치 확인**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

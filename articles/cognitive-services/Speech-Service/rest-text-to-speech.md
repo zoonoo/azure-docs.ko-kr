@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497672"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660972"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -44,14 +44,25 @@ ms.locfileid: "58497672"
 
 | 지역 | 엔드포인트 |
 |--------|----------|
-| 미국 서부 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
-| 미국 서부2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 동부 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 동부2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 오스트레일리아 동부 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 브라질 남부 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 캐나다 중부 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 중부 | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 동아시아 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 동부 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 동부 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 프랑스 중부 | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 인도 중부 | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 일본 동부 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 한국 중부 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 중북부 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 중남부 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 영국 남부 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 서유럽 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 서부 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 미국 서부 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
 
 ### <a name="request-headers"></a>헤더 요청
 

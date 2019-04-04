@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4cf454a654124468fd31e6412530416da381acf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 52aa57b0a0de0a8ca82e57adda8b41862aa66980
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884900"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918657"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Windows IaaS VM용 Azure Disk Encryption 사용
 
@@ -51,7 +51,7 @@ ms.locfileid: "57884900"
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **KEK를 사용하여 실행 중인 VM 암호화:** 
+- **KEK를 사용 하 여 실행 중인 VM을 암호화 합니다.** 
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -85,13 +85,13 @@ ms.locfileid: "57884900"
 ### <a name="bkmk_RunningWinVMCLI"></a> Azure CLI를 통해 기존 또는 실행 중인 VM에서 암호화 사용
 Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
 
-- **실행 중인 VM 암호화:**
+- **실행 중인 VM을 암호화 합니다.**
 
     ```azurecli-interactive
     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
     ```
 
-- **KEK를 사용하여 실행 중인 VM 암호화:**
+- **KEK를 사용 하 여 실행 중인 VM을 암호화 합니다.**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
@@ -131,7 +131,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 | 매개 변수 | 설명 |
 | --- | --- |
 | vmName | 암호화 작업을 실행할 VM의 이름. |
-| keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroup"`을 사용하여 가져올 수 있습니다.|
+| keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. Cmdlet을 사용 하 여 가져올 수 있습니다 `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | 키 자격 증명 모음을 포함하는 리소스 그룹의 이름|
 |  keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
 | volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. 
@@ -145,7 +145,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Azure PowerShell을 사용한 가상 머신 확장 집합 암호화
 
-사용 된 [집합 AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) Windows 가상 머신 확장 집합에서 암호화를 사용 하도록 설정 하려면 cmdlet. 리소스 그룹, VM 및 키 자격 증명 모음은 필수 구성 요소로 이미 만들어져 있어야 합니다.
+사용 된 [집합 AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) Windows 가상 머신 확장 집합에서 암호화를 사용 하도록 설정 하려면 cmdlet. 리소스 그룹, 가상 머신 확장 집합 및 키 자격 증명 모음이 이미 만들어져 있어야 필수 조건으로 구성 합니다.
 
 -  **실행 중인 가상 머신 확장 집합 암호화**:
     ```azurepowershell
@@ -191,14 +191,14 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>Azure CLI를 사용한 가상 머신 확장 집합 암호화
 
-[az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)을 사용하여 Windows 가상 머신 확장 집합에서 암호화를 사용하도록 설정합니다. 확장 집합에서 업그레이드 정책을 수동으로 설정하는 경우 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 암호화를 시작합니다. 리소스 그룹, VM 및 키 자격 증명 모음은 필수 구성 요소로 이미 만들어져 있어야 합니다.
+[az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)을 사용하여 Windows 가상 머신 확장 집합에서 암호화를 사용하도록 설정합니다. 확장 집합에서 업그레이드 정책을 수동으로 설정하는 경우 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 암호화를 시작합니다. 리소스 그룹, 가상 머신 확장 집합 및 키 자격 증명 모음이 이미 만들어져 있어야 필수 조건으로 구성 합니다.
 
--  **실행 중인 가상 머신 확장 집합 암호화**
+-  **실행 중인 가상 머신 확장 집합을 암호화 합니다.**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
     ```
 
--  **키를 래핑하는 KEK를 사용하여 실행 중인 가상 머신 확장 집합 암호화**
+-  **암호화 키를 래핑하지 KEK를 사용 하 여 설정 하는 실행 중인 가상 머신 확장**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
@@ -223,7 +223,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 Windows 가상 머신 확장 집합을 암호화하거나 암호 해독하려면 아래의 Azure Resource Manager 템플릿 및 지침을 사용합니다.
 
 - [Windows 가상 머신 확장 집합에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [점프 상자를 통해 Windows VM의 VM 확장 집합 배포 및 Windows VM 확장 집합에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+- [Jumpbox 사용 하 여 Windows Vm의 VM 확장 집합을 배포 및 Windows VM 확장 집합에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 - [Windows VM 확장 집합에서 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. **Deploy to Azure**를 클릭합니다.
@@ -300,13 +300,13 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Azure CLI를 사용하여 새로 추가된 디스크에서 암호화 사용
  암호화를 사용하도록 설정하는 명령을 실행하는 경우 Azure CLI 명령은 자동으로 새 순서 버전을 제공합니다. 이 예제에서는 volume-type 매개 변수에 "All"을 사용합니다. OS 디스크만 암호화하는 경우에는 volume-type 매개 변수를 OS로 변경해야 합니다. Powershell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도록 설정할 때 고유 시퀀스 버전을 제공하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.   
 
--  **실행 중인 VM 암호화:**
+-  **실행 중인 VM을 암호화 합니다.**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
-- **KEK를 사용하여 실행 중인 VM 암호화:**
+- **KEK를 사용 하 여 실행 중인 VM을 암호화 합니다.**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
@@ -325,7 +325,7 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
      ```
-- **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** 
+- **Resource Manager 템플릿 사용 하 여 암호화를 사용 하지 않도록 설정 합니다.** 
 
     1. [실행중인 Windows VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 템플릿에서 **Azure에 배포**를 클릭합니다.
     2. 구독, 리소스 그룹, 위치, VM, 볼륨 유형, 약관 및 규약을 선택합니다.
@@ -334,4 +334,4 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Linux용 Azure Disk Encryption 사용](azure-security-disk-encryption-linux.md)
+> [Linux 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-linux.md)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98d084794accb99e0fecac85f7de861ec35bc15e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446038"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service에서 Azure Stack 업데이트 2 릴리스 정보
 
@@ -52,6 +52,8 @@ Azure Stack Update 2 빌드 번호에 App Service는 **72.0.13698.10**
 Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 기능 및 수정 합니다.
 
 - 업데이트 **테 넌 트 앱 서비스, 관리자의 경우 함수 포털 및 Kudu 도구**합니다. Azure Stack 포털 SDK 버전과 일치 합니다.
+
+- 업데이트가 **Azure Functions 런타임은** 하 **v1.0.11612**합니다.
 
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 

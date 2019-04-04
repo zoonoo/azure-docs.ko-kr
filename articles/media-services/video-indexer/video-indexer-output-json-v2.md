@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650091"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892578"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>v2 API에서 생성된 Video Indexer 출력 검사
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>API에 의해 생성 된 비디오 인덱서 출력 검토
 
-**비디오 인덱스 가져오기** API를 호출하고 응답 상태가 정상이면 자세한 JSON 출력을 응답 콘텐츠로 가져옵니다. JSON 콘텐츠에는 지정된 비디오 인사이트의 세부 정보가 포함됩니다. 인사이트에는 전사, OCR, 얼굴, 주제, 블록 등과 같은 차원이 포함됩니다. 차원에는 각 차원이 비디오에 나타난 시점을 보여 주는 시간 범위의 인스턴스가 있습니다.  
+**비디오 인덱스 가져오기** API를 호출하고 응답 상태가 정상이면 자세한 JSON 출력을 응답 콘텐츠로 가져옵니다. JSON 콘텐츠에는 지정된 비디오 인사이트의 세부 정보가 포함됩니다. 정보 같은 차원이 포함: 대 본을 Ocr, 얼굴, 항목, 블록, 등입니다. 차원에는 각 차원이 비디오에 나타난 시점을 보여 주는 시간 범위의 인스턴스가 있습니다.  
 
 또한 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트의 비디오에서 **재생** 단추를 눌러 비디오의 요약된 인사이트를 시각적으로 검사할 수도 있습니다. 자세한 내용은 [비디오 인사이트 보기 및 편집](video-indexer-view-edit.md)을 참조하세요.
 
@@ -83,7 +83,7 @@ ms.locfileid: "58650091"
 |얼굴|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [faces](#faces)를 참조하세요.|
 |키워드|0개 이상의 키워드가 포함될 수 있습니다. 자세한 내용은 [keywords](#keywords)를 참조하세요.|
 |감정|0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [sentiments](#sentiments)를 참조하세요.|
-|audioEffects| 0개 이상의 오디오 효과가 포함될 수 있습니다. 자세한 내용은 [audioEffects](#audioeffects)를 참조하세요.|
+|audioEffects| 0개 이상의 오디오 효과가 포함될 수 있습니다. 자세한 내용은 [audioEffects](#audioEffects)를 참조하세요.|
 |레이블| 0개 이상의 레이블이 포함될 수 있습니다. 자세한 내용은 [labels](#labels)를 참조하세요.|
 |brands| 0개 이상의 브랜드가 포함될 수 있습니다. 자세한 내용은 [brands](#brands)를 참조하세요.|
 |통계 | 자세한 내용은 [statistics](#statistics)를 참조하세요.|
@@ -153,14 +153,14 @@ ms.locfileid: "58650091"
 |sourceLanguage|비디오의 소스 언어입니다(하나의 마스터 언어를 가정함). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
 |언어|인사이트 언어입니다(소스 언어에서 변환됨). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
 |대본|[transcript](#transcript) 차원입니다.|
-|ocr|[ocr](#ocr) 차원입니다.|
+|ocr|합니다 [OCR](#ocr) 차원입니다.|
 |키워드|[keywords](#keywords) 차원입니다.|
 |blocks|하나 이상의 [blocks](#blocks)가 포함될 수 있습니다.|
 |얼굴|[faces](#faces) 차원입니다.|
 |레이블|[labels](#labels) 차원입니다.|
 |샷|[shots](#shots) 차원입니다.|
 |brands|[brands](#brands) 차원입니다.|
-|audioEffects|[audioEffects](#audioeffects) 차원입니다.|
+|audioEffects|[audioEffects](#audioEffects) 차원입니다.|
 |감정|[sentiments](#sentiments) 차원입니다.|
 |visualContentModeration|[visualContentModeration](#visualcontentmoderation) 차원입니다.|
 |textualContentModeration|[textualContentModeration](#textualcontentmoderation) 차원입니다.|
@@ -419,61 +419,85 @@ id|블록의 ID입니다.|
   ] 
 ```
 
+#### <a name="scenes"></a>장면
+
+|name|설명|
+|---|---|
+|id|장면 id입니다.|
+|인스턴스|이 장면 (장면 있습니다 1 개 인스턴스)의 시간 범위 목록입니다.|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### <a name="shots"></a>샷
 
 |이름|설명|
 |---|---|
 |id|샷 ID입니다.|
-|keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
-|인스턴스|이 샷의 시간 범위 목록(샷에는 인스턴스가 하나만 있음)입니다.|
+|keyFrames|목록 (각각에 ID와 인스턴스 시간 범위 목록) 샷 내의 키 프레임입니다. 각 키 프레임 인스턴스 필드가 thumbnailId, 키 프레임의 미리 보기를 포함 하는 id입니다.|
+|인스턴스|목록 (샷에 하나만 사용할 수 있습니다 1 개 인스턴스)이 샷의 시간 범위입니다.|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### <a name="brands"></a>brands

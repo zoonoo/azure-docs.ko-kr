@@ -3,19 +3,19 @@ title: Translator Text API Transliterate 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API Transliterate 메서드를 사용합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a0fcd7159be075f0e311e9a242d389dca62f4a37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859620"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918623"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
 
@@ -60,7 +60,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
-    <td>_한 가지 권한 부여_<br/>_헤더_</td>
+    <td>_하나의 권한 부여_<br/>_머리글_</td>
     <td>*필수 요청 헤더*<br/>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요.</td>
   </tr>
   <tr>
@@ -165,7 +165,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 다음 예제에서는 2개의 일본어 문자열을 로마자 일본어로 변환하는 방법을 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 이 예제에서 요청에 대한 JSON 페이로드는 다음과 같습니다.
 

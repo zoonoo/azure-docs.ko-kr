@@ -11,20 +11,20 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/03/2019
+ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661789"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918606"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
 이 문서에서는 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처와 다양한 구성 요소가 Azure SQL 인스턴스에 트래픽을 전달하는 방법을 설명합니다. 이러한 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure SQL Database 또는 SQL Data Warehouse에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
 
 > [!IMPORTANT]
-> **[예정된 변경 내용] Azure SQL 서버에 대한 서비스 엔드포인트 연결에서 `Default` 연결 동작이 `Redirect`로 변경됩니다.**
+> **[예정 된 변경 내용] Azure SQL 서버에 서비스 끝점 연결에는 `Default` 연결 동작 변경 내용 `Redirect`합니다.**
 > 고객은 연결 아키텍처에 따라 새 서버를 만들고, 연결 유형이 명시적으로 설정된 기존 서버를 리디렉션(선호) 또는 프록시로 설정하는 것이 좋습니다.
 >
 > 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
@@ -35,9 +35,9 @@ ms.locfileid: "58661789"
 > 서비스 엔드포인트 사용자는 다음과 같은 시나리오에서 계속 영향을 받을 수 있습니다.
 >
 > - 애플리케이션이 기존 서버에 자주 연결하지 않아 원격 분석을 통해 해당 애플리케이션에 대한 정보를 캡처하지 못했습니다.
-> - 자동화된 배포 논리가 서비스 엔드포인트 연결에 대한 기본 동작을 `Proxy`로 가정하고 SQL Database 서버를 만듭니다.
+> - 자동화 된 배포 논리는 서비스 끝점 연결에 대 한 기본 동작은 가정 하 고 SQL Database 서버를 만듭니다. `Proxy`
 >
-> Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 포트 11000 ~ 12000의 SQL [서비스 태그](../virtual-network/security-overview.md#service-tags)에 속하는 모든 Azure IP 주소에 대해 VM 방화벽 규칙 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
+> Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 경우 지역에서 Sql에 속해 있는 모든 Azure IP 주소를 VM 방화벽 규칙과 네트워크 보안 그룹 (NSG)를 열어야 할 [서비스 태그](../virtual-network/security-overview.md#service-tags) 11000-11999 포트에 대 한 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
 > [!NOTE]
 > 이 항목에서는 단일 데이터베이스 및 탄력적 풀, SQL Data Warehouse 데이터베이스, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 호스트 하는 Azure SQL Database 서버에 적용 됩니다. 간단히 하기 위해 SQL Database는 SQL Database, SQL Data Warehouse, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 참조할 때 사용 됩니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "58661789"
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 활성화하려면 클라이언트는 지역에서 포트 1433의 Azure SQL Database 게이트웨이 IP 주소 뿐만 아니라 포트 11000 ~ 12000의 [서비스 태그](../virtual-network/security-overview.md#service-tags)에서 NSG(네트워크 보안 그룹)를 사용하여 지역의 모든 Azure IP 주소에 대한 아웃바운드 방화벽 규칙을 허용해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 클라이언트 연결을 사용 하려면 사용 하 여 네트워크 보안 그룹 (NSG)를 사용 하 여 지역에서 모든 Azure IP 주소에 아웃 바운드 방화벽 규칙을 허용 해야 합니다 [서비스 태그](../virtual-network/security-overview.md#service-tags)) 포트 11000-11999, 뿐 아니라 Azure SQL Database 게이트웨이 IP 포트 1433에서 주소입니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
 - **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다.
 - **기본값:** 연결 정책을 `Proxy` 또는 `Redirect` 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c7bfa8351a2599ff8616364a093cd6154e90830c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850865"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917093"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행합니다  
 > [!div class="op_single_selector"]
@@ -42,6 +42,8 @@ ms.locfileid: "58850865"
 > 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
+
+    카메라 액세스 없으면와 같은 도구 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 수 비디오 파일에서 라이브 피드를 생성 합니다.
 1. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요. <br/>또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.

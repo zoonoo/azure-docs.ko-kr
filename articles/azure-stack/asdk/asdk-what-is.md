@@ -17,15 +17,15 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 54eb2ff43a5f36999294b8d0c580bc425ab65b28
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983375"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629077"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack 개발 키트 란?
-[Microsoft Azure Stack 통합 시스템](../azure-stack-poc.md) 4-16 노드에서 크기 및 하드웨어 파트너와 Microsoft에서 지원 됩니다. Azure Stack 통합 시스템을 사용 하 여 프로덕션 워크 로드에 대 한 새로운 시나리오를 사용 하도록 설정 합니다. 통합된 시스템 인프라를 관리 하 고 서비스를 제공 하는 Azure Stack 운영자 인 경우 참조 우리의 [연산자 설명서](https://docs.microsoft.com/azure/azure-stack)합니다.
+[Microsoft Azure Stack 통합 시스템](../azure-stack-poc.md) 4-16 노드에서 크기 및 하드웨어 파트너와 Microsoft에서 지원 됩니다. 프로덕션 워크로드용으로 새로운 시나리오를 활용하려면 Azure Stack 통합 시스템을 사용하세요. 통합된 시스템 인프라를 관리 하 고 서비스를 제공 하는 Azure Stack 운영자 인 경우 참조 우리의 [연산자 설명서](https://docs.microsoft.com/azure/azure-stack)합니다.
 
 Azure Stack 개발 키트 (ASDK)는 단일 노드 배포를 다운로드 하 고 사용할 수 있는 Azure Stack **무료로**합니다. 모든 ASDK 구성 요소가 충족 하거나 초과 해야 하는 단일 호스트 서버 컴퓨터에서 실행 되는 가상 컴퓨터에 설치 합니다 [최소 하드웨어 요구 사항을](asdk-deploy-considerations.md#hardware)합니다. Azure Stack을 평가 하 고 최신 응용 프로그램에서 Azure를 사용 하 여 일관 된 도구 및 Api를 사용 하 여 개발할 수 있는 환경을 제공 하는 ASDK 것을 *비프로덕션* 환경입니다. 
 
@@ -49,7 +49,7 @@ ASDK에 자세히 알아보려면이 짧은 비디오를 시청 하세요.
 |설명|ASDK|Azure Stack 다중 노드|
 |-----|-----|-----|
 |**규모**|모든 구성 요소는 단일 노드 서버 컴퓨터에 설치 됩니다.|4-16 노드의 크기에 이르기까지 다양 합니다.|
-|**복원력**|단일 노드 구성은 고가용성을 제공 하지 않습니다.|[고가용성](../azure-stack-key-features.md#high-availability-for-azure-stack) 기능을 지원 합니다.|
+|**복원력**|단일 노드 구성은 고가용성을 제공 하지 않습니다.|[고가용성](../azure-stack-overview.md#providing-high-availability) 기능을 지원 합니다.|
 |**네트워킹**|ASDK 호스트에는 모든 ASDK 네트워크 트래픽을 라우팅합니다. 요구 사항은 없습니다 스위치를 추가 합니다.|복잡 [라우팅 인프라 네트워크](../azure-stack-network.md#network-infrastructure) 다중 노드 배포에 반드시-Top-of-rack TOR (), 베이스 보드 관리 컨트롤러 (BMC) 및 테두리 (데이터 센터 네트워크) 스위치를 포함 합니다.|
 |**패치 및 업데이트 프로세스**|ASDK의 새 버전으로 이동 하려면 개발 키트 호스트 컴퓨터에서 ASDK 다시 배포 해야 합니다.|[패치 및 업데이트](../azure-stack-updates.md) 설치 된 Azure Stack 버전을 업데이트 하는 데 사용 하는 프로세스입니다.|
 |**지원**|MSDN Azure Stack 포럼입니다. Microsoft 고객 서비스 및 지원 (CSS) 지원은 *되지* 비-프로덕션 환경에 사용할 수 있습니다.|[MSDN Azure Stack 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) 전체 CSS 지원 합니다.|

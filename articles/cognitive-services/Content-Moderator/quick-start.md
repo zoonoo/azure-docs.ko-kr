@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861173"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756462"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
@@ -69,5 +69,5 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
 - 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md) 또는 [C# 빠른 시작](image-moderation-quickstart-dotnet.md)을 사용하여 이미지를 검사하고 태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 성인/외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [C# 빠른 시작](text-moderation-quickstart-dotnet.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 기계 지원 텍스트 분류(미리 보기) 및 PII(개인 식별 정보)가 있는지 검사합니다. 
+- 텍스트 조정을 구현합니다. 사용 하 여는 [API 콘솔](try-text-api.md) 사용 또는 [ C# 빠른 시작](text-moderation-quickstart-dotnet.md) 잠재적인 불경 한 언어, 원치 않는 텍스트 컴퓨터 기반 분류 (미리 보기) 및 개인 데이터에 대 한 텍스트 콘텐츠를 검색 합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314877"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577207"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
 QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
+
+<a name="add-datasource"></a>
 
 ## <a name="edit-your-knowledge-base-content"></a>기술 자료 콘텐츠 편집
 
@@ -52,7 +54,7 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
 
 ## <a name="add-a-qna-pair"></a>QnA 쌍 추가
 
-**QnA 쌍 추가**를 선택하여 기술 자료 표에 새 행을 추가합니다.
+에 **설정을** 페이지에서 **QnA 추가 쌍** 기술 자료 테이블에 새 행을 추가 하려면.
 
 ![QnA 쌍 추가](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

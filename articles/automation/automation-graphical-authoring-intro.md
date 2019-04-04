@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427239"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918147"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -48,7 +48,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 |:--- |:--- |
 | Cmdlet |Runbook에서 사용할 수 있는 모든 cmdlet을 포함합니다. 이러한 cmdlet은 모듈별로 구성됩니다. 자동화 계정에 설치한 모든 모듈을 사용할 수 있습니다. |
 | Runbook |자동화 계정의 Runbook을 포함합니다. 이러한 runbook을 자식 runbook으로 사용될 캔버스에 추가할 수 있습니다. 편집 중인 runbook인 동일한 코어 유형의 runbook만 표시됩니다. 그래픽 runbook의 경우 PowerShell 기반 runbook만 표시되는 반면 그래픽 PowerShell 워크플로 runbook의 경우 PowerShell 워크플로 기반 runbook만 표시됩니다. |
-| 자산 |Runbook에서 사용할 수 있는 자동화 계정의 [자동화 자산](https://msdn.microsoft.com/library/dn939988.aspx) 을 포함합니다. 자산을 Runbook에 추가하면 선택한 자산을 가져오는 워크플로 활동이 추가됩니다. 변수 자산의 경우 변수를 가져오는 활동을 추가할지 또는 변수를 설정하는 활동을 추가할지 선택할 수 있습니다. |
+| 자산 |Runbook에서 사용할 수 있는 자동화 계정의 [자동화 자산](/previous-versions/azure/dn939988(v=azure.100)) 을 포함합니다. 자산을 Runbook에 추가하면 선택한 자산을 가져오는 워크플로 활동이 추가됩니다. 변수 자산의 경우 변수를 가져오는 활동을 추가할지 또는 변수를 설정하는 활동을 추가할지 선택할 수 있습니다. |
 | Runbook 컨트롤 |현재 Runbook에서 사용할 수 있는 Runbook 컨트롤 활동을 포함합니다. *분기 동기화* 는 여러 입력을 사용하며 모두 완료될 때까지 기다렸다가 워크플로를 계속합니다. *코드* 작업은 그래픽 runbook 종류에 따라 하나 이상의 PowerShell 또는 PowerShell 워크플로 코드 줄을 실행합니다. 사용자 지정 코드 또는 다른 작업으로 수행하기 어려운 기능에 이 작업을 사용할 수 있습니다. |
 
 ### <a name="configuration-control"></a>구성 컨트롤
@@ -324,9 +324,9 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 | 자산 | 설명 |
 |:--- |:--- |
-| 이름 |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
+| name |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
 | 설명 |입력 매개 변수에 대한 선택적 설명입니다. |
-| type |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
+| Type |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 |매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |
 | 기본값 |값을 제공하지 않은 경우 매개 변수에 사용되는 값을 지정합니다. Null 또는 특정 값일 수 있습니다. |
 

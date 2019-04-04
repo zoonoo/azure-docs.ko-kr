@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 14095d4ffbd23a57ef769aa702b6e7c3c8af9994
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257811"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485988"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. 연결 된 시나리오에서는 Azure를 선택할 수 있습니다 AD 또는 AD FS 합니다. 연결이 끊긴된 시나리오에서 AD FS만 지원 됩니다.
@@ -86,14 +86,14 @@ Active Directory 사이트에 대 한 자세한 내용은 참조 하세요 [사�
 
 1. 관리자 권한 Windows PowerShell 세션 (관리자 권한으로 실행)를 열고 권한 있는 끝점의 IP 주소에 연결 합니다. 에 대 한 자격 증명을 사용 하 여 **CloudAdmin** 인증할 수 있습니다.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 권한 있는 끝점에 연결 했으므로 다음 명령을 실행 합니다. 
 
-   ```PowerShell  
+   ```powershell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -131,20 +131,20 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 권한 있는 끝점에 연결 했으므로 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -169,7 +169,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
     $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
     $webclient = New-Object System.Net.WebClient
     $webclient.Encoding = [System.Text.Encoding]::UTF8
@@ -185,7 +185,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
 
-   ```PowerShell  
+   ```powershell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
@@ -193,13 +193,13 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 2. 권한 있는 끝점에 연결 했으므로 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
 3. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -249,7 +249,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 
 2. 에 대 한 Windows Forms 기반 인증의 유효성을 검사 엑스트라넷 인트라넷을 사용 하도록 설정 됩니다. 먼저 있는지 유효성 검사는 다음 cmdlet을 실행 하 여 이미 사용 하도록 설정 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
@@ -260,13 +260,13 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 
    **AD FS 2016에 대 한**
 
-   ```PowerShell  
+   ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **For AD FS 2012/2012 R2**
 
-   ```PowerShell  
+   ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
@@ -278,7 +278,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    > [!note]  
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우에이 단계가 적용 하지 않습니다. 이 명령은 건너뛰고 통합을 사용 하 여 계속 해도 됩니다.
 
-   ```PowerShell  
+   ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
@@ -306,14 +306,14 @@ SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS�
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 다음 cmdlet을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Reset-DatacenterIntegrationConfiguration
    ```
 
@@ -322,7 +322,7 @@ SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS�
    > [!IMPORTANT]
    > 기본 공급자 구독의 원래 소유자를 구성 해야 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -332,14 +332,14 @@ Cmdlet 중 하나라도 실패를 사용 하 여 추가 로그를 수집할 수 
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. 그런 다음 다음 cmdlet을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

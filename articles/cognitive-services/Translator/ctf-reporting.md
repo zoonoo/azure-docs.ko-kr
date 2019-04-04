@@ -3,19 +3,19 @@ title: CTF(Collaborative Translation Framework) 보고 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: CTF(Collaborative Translation Framework) 보고 사용 방법입니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123422"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917399"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -36,7 +36,7 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 
 
 ## <a name="methods"></a>메서드
-| 이름 |    설명|
+| name |    설명|
 |:---|:---|
 | GetUserTranslationCounts 메서드 | 사용자가 만든 번역 개수를 가져옵니다. |
 | GetUserTranslations 메서드 | 사용자가 만든 번역을 검색합니다. |
@@ -116,7 +116,7 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 > [!NOTE]
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.
 
-**GitHib에서 코드 예제 보기**
+**GitHib에 코드 예제 보기**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -153,7 +153,7 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 | to| **선택 사항** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|
 | minRating| **선택 사항** 번역된 텍스트의 최소 품질 등급을 나타내는 정수 값입니다. 유효한 값은 -10에서 10 사이입니다. 기본값은 1입니다.|
 | maxRating| **선택 사항** 번역된 텍스트의 최대 품질 등급을 나타내는 정수 값입니다. 유효한 값은 -10에서 10 사이입니다. 기본값은 1입니다.|
-| 사용자| **선택 사항. 제출을 보낸 사람에 따라 결과를 필터링하는 데 사용되는 문자열입니다.**|
+| 사용자| **선택 사항입니다. 전송의 송신자를 기반으로 결과 필터링 하는 데 사용 되는 문자열**|
 | 카테고리| **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 general만 지원합니다.|
 | minDateUtc| **선택 사항** 번역을 검색하려는 시작 날짜입니다. 날짜는 UTC 형식이어야 합니다.|
 | maxDateUtc| **선택 사항** 번역을 검색하려는 종료 날짜입니다. 날짜는 UTC 형식이어야 합니다.|
@@ -189,6 +189,6 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 > [!NOTE]
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.
 
-**GitHib에서 코드 예제 보기**
+**GitHib에 코드 예제 보기**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술 프로필 정의 | Microsoft Docs
-description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술 프로필을 정의합니다.
+title: OAuth1 기술 프로필을 Azure Active Directory B2C에서 사용자 지정 정책에서 정의 | Microsoft Docs
+description: Azure Active Directory B2C에서 사용자 지정 정책에서 OAuth1 기술 프로필을 정의 합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 08fb0baf85b09b4804c83617dbae9ae9c69f0224
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162738"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915785"
 ---
-# <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -70,12 +70,12 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
-| ProviderName | 아니요 | ID 공급자의 이름입니다. |
+| ProviderName | 아닙니다. | ID 공급자의 이름입니다. |
 | request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
 | authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
 | access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
-| ClaimsEndpoint | 아니요 | 사용자 정보 엔드포인트의 URL입니다. | 
-| ClaimsResponseFormat | 아니요 | 클레임 응답 형식입니다.|
+| ClaimsEndpoint | 아닙니다. | 사용자 정보 엔드포인트의 URL입니다. | 
+| ClaimsResponseFormat | 아닙니다. | 클레임 응답 형식입니다.|
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
@@ -93,7 +93,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 예제:
 
-- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
+- [사용자 지정 정책을 사용 하 여 OAuth1 id 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
 
 
 

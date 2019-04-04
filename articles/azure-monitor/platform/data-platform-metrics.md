@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 487f70e4055f16c56092f2f970d2a34238e7febe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851843"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905038"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
@@ -39,7 +39,7 @@ Azure Monitor의 메트릭은 간단 하 고 거의 실시간 시나리오에 �
 | 경고 | 구성 된 [메트릭 경고 규칙](alerts-metric.md) 알림을 보내거나를 사용 하는 [작업을 자동화](action-groups.md) 메트릭 값을 임계값을 초과 하는 경우. |
 | 자동화 |  사용 하 여 [자동 크기 조정](autoscale-overview.md) 늘리거나 줄이려면 임계값을 초과 하는 메트릭 값을 기반으로 하는 리소스입니다. |
 | 내보내기 | [로그에 메트릭 라우팅](diagnostic-logs-stream-log-store.md) Azure Monitor 로그에서 데이터와 함께 Azure Monitor 메트릭 데이터를 분석 하 고 93 일 이상에 대 한 메트릭 값을 저장 합니다.<br>메트릭을 Stream을 [Event Hub](stream-monitoring-data-event-hubs.md) 외부 시스템으로 라우팅하도록 합니다. |
-| 장치 | 메트릭 값을 사용 하 여 명령줄에서 액세스 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>메트릭 값을 사용 하 여 사용자 지정 응용 프로그램에서 액세스할 [REST API](rest-api-walkthrough.md)합니다.<br>사용 하 여 명령줄에서 메트릭 값에 액세스할 [CLI](/azure/monitor/metrics)합니다. |
+| 장치 | 메트릭 값을 사용 하 여 명령줄에서 액세스 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>메트릭 값을 사용 하 여 사용자 지정 응용 프로그램에서 액세스할 [REST API](rest-api-walkthrough.md)합니다.<br>사용 하 여 명령줄에서 메트릭 값에 액세스할 [CLI](/azure/monitor/metrics)합니다. |
 | 보관 | 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](..//learn/tutorial-archive-data.md)합니다. |
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093544"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918878"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093544"
 Microsoft Azure BizTalk Services에 대한 릴리스 정보는 이 릴리스의 알려진 문제를 포함합니다.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>BizTalk Services 11월 업데이트의 새로운 기능
-* BizTalk Services 포털에서 휴지 상태의 암호화를 사용할 수 있습니다. [BizTalk Services 포털에서 휴지 상태의 암호화 사용](https://msdn.microsoft.com/library/azure/dn874052.aspx)을 참조하세요.
+* BizTalk Services 포털에서 휴지 상태의 암호화를 사용할 수 있습니다. [BizTalk Services 포털에서 휴지 상태의 암호화 사용](/previous-versions/azure/dn874052(v=azure.100))을 참조하세요.
 
 ## <a name="update-history"></a>업데이트 내역
 ### <a name="october-update"></a>10월 업데이트
@@ -39,14 +39,14 @@ Microsoft Azure BizTalk Services에 대한 릴리스 정보는 이 릴리스의 
   * **시나리오**: Azure Active Directory의 조직 계정(예: user@fabrikam.com 또는 user@contoso.com)을 사용하여 BizTalk 서비스 배포를 등록했습니다. 이 시나리오에서는 동일한 조직 내의 Azure Active Directory 사용자만 BizTalk Services 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. Microsoft 계정을 사용할 수 없습니다.  
 * BizTalk 서비스를 만드는 경우 BizTalk Services 포털에 자동으로 등록됩니다.
   * **시나리오**: Azure에 로그인하고 BizTalk 서비스를 만든 후 처음으로 **관리**를 선택합니다. BizTalk Services 포털이 열리면 BizTalk Services가 자동으로 등록되고 배포할 준비가 됩니다.  
-    [BizTalk Services 포털에서 BizTalk Services 배포 등록 및 업데이트](https://msdn.microsoft.com/library/azure/hh689837.aspx)를 참조하세요.  
+    [BizTalk Services 포털에서 BizTalk Services 배포 등록 및 업데이트](/previous-versions/azure/hh689837(v=azure.100))를 참조하세요.  
 
 ### <a name="august-14-update"></a>8월 14일 업데이트
-* 규약 및 브리지 분리 – 이제 BizTalk Services 포털에서 거래 업체 규약 및 브리지가 분리됩니다. 이제 규약 및 브리지를 별도로 만들고 런타임에 브리지가 EDI 메시지의 값에 따라 규약으로 확인됩니다. [Azure BizTalk Services에서 규약 만들기](https://msdn.microsoft.com/library/azure/hh689908.aspx), [BizTalk Services 포털을 사용하여 EDI 브리지 만들기](https://msdn.microsoft.com/library/azure/dn793986.aspx), [BizTalk Services 포털을 사용하여 AS2 브리지 만들기](https://msdn.microsoft.com/library/azure/dn793993.aspx) 및 [런타임에 브리지를 규약으로 확인하는 방법](https://msdn.microsoft.com/library/azure/dn794001.aspx)을 참조하세요.  
+* 규약 및 브리지 분리 – 이제 BizTalk Services 포털에서 거래 업체 규약 및 브리지가 분리됩니다. 이제 규약 및 브리지를 별도로 만들고 런타임에 브리지가 EDI 메시지의 값에 따라 규약으로 확인됩니다. [Azure BizTalk Services에서 규약 만들기](/previous-versions/azure/hh689908(v=azure.100)), [BizTalk Services 포털을 사용하여 EDI 브리지 만들기](/previous-versions/azure/dn793986(v=azure.100)), [BizTalk Services 포털을 사용하여 AS2 브리지 만들기](/previous-versions/azure/dn793993(v=azure.100)) 및 [런타임에 브리지를 규약으로 확인하는 방법](/previous-versions/azure/dn794001(v=azure.100))을 참조하세요.  
 * 규약에 대한 템플릿을 만드는 옵션이 중단되었습니다.  
-* 송신 측 규약의 경우 각 스키마에 대해 서로 다른 구분 기호 집합을 지정할 수 있습니다. 이 구성은 송신 측 규약의 프로토콜 설정 아래에 지정됩니다. 자세한 내용은 [Azure BizTalk Services에 X12 규약 만들기](https://msdn.microsoft.com/library/azure/hh689847.aspx) 및 [Azure BizTalk Services에 EDIFACT 규약 만들기](https://msdn.microsoft.com/library/azure/dn606267.aspx)를 참조하세요. 두 개의 새 엔터티가 동일한 목적을 위해 TPM OM API에 추가됩니다. [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) 및 [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)를 참조하세요.  
-* 파생 형식을 포함한 표준 XSD 항목이 이제 지원됩니다. [맵에 표준 XSD 항목 사용](https://msdn.microsoft.com/library/azure/dn793987.aspx) 및 [매핑 시나리오 및 예제에서 파생 형식 사용](https://msdn.microsoft.com/library/azure/dn793997.aspx)을 참조하세요.  
-* AS2는 메시지 서명을 위한 새 MIC 알고리즘 및 새로운 암호화 알고리즘을 지원합니다. [Azure BizTalk Services에서 AS2 규약 만들기](https://msdn.microsoft.com/library/azure/hh689890.aspx)를 참조하세요.  
+* 송신 측 규약의 경우 각 스키마에 대해 서로 다른 구분 기호 집합을 지정할 수 있습니다. 이 구성은 송신 측 규약의 프로토콜 설정 아래에 지정됩니다. 자세한 내용은 [Azure BizTalk Services에 X12 규약 만들기](/previous-versions/azure/hh689847(v=azure.100)) 및 [Azure BizTalk Services에 EDIFACT 규약 만들기](/previous-versions/azure/dn606267(v=azure.100))를 참조하세요. 두 개의 새 엔터티가 동일한 목적을 위해 TPM OM API에 추가됩니다. [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) 및 [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100))를 참조하세요.  
+* 파생 형식을 포함한 표준 XSD 항목이 이제 지원됩니다. [맵에 표준 XSD 항목 사용](/previous-versions/azure/dn793987(v=azure.100)) 및 [매핑 시나리오 및 예제에서 파생 형식 사용](/previous-versions/azure/)을 참조하세요.  
+* AS2는 메시지 서명을 위한 새 MIC 알고리즘 및 새로운 암호화 알고리즘을 지원합니다. [Azure BizTalk Services에서 AS2 규약 만들기](/previous-versions/azure/hh689890(v=azure.100))를 참조하세요.  
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -85,7 +85,7 @@ IEA 규약을 벗어나는 공백이 있는 경우 디스어셈블러는 현재 
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Azure BizTalk Services 포털에서 추적
 추적 이벤트는 EDI 메시지 처리 및 모든 상관관계까지 캡처됩니다. 메시지가 프로토콜 단계를 벗어나 실패하는 경우 추적은 성공한 것으로 표시됩니다. 이 경우 **추적**의 **세부 정보** 열 아래 로그 섹션에서 오류에 대한 자세한 정보를 참조하세요.
-X12 수신 및 송신 설정([Azure BizTalk Services에 X12 규약 만들기](https://msdn.microsoft.com/library/azure/hh689847.aspx))에서 프로토콜 단계에 대한 정보를 제공합니다.  
+X12 수신 및 송신 설정([Azure BizTalk Services에 X12 규약 만들기](/previous-versions/azure/hh689847(v=azure.100)))에서 프로토콜 단계에 대한 정보를 제공합니다.  
 
 ### <a name="update-agreement"></a>업데이트 규약
 BizTalk Services 포털을 사용하면 규약을 구성할 때 ID의 한정자를 수정할 수 있습니다. 이로 인해 속성이 일치하지 않을 수 있습니다. 예를 들어, ZZ:1234567 및 ZZ:7654321 한정자를 사용하는 규약이 있습니다. BizTalk Services 포털 프로필 설정에서 ZZ:1234567을 01:ChangedValue로 변경합니다. 규약을 열면 ZZ:1234567 대신 01:ChangedValue가 표시됩니다.
@@ -109,7 +109,8 @@ AS2 메시지의 첨부 파일의 송신 및 수신은 지원되지 않습니다
 * 변경 내용을 저장하지 않고 .bcs 파일(Visual Studio에서 탭 닫기)을 닫습니다.  
 * 솔루션 탐색기에서 .bcs 파일을 다시 엽니다.  
   연결된 .bridgeconfig 파일에 지정된 새 이름이 있는 반면, 디자인 화면의 엔터티 이름은 여전이 이전 이름인 것을 확인할 수 있습니다. 브리지 구성 요소를 두 번 클릭하여 브리지 구성을 열려고 하면 다음 오류가 발생합니다.  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` 이 시나리오가 발생하지 않도록 하려면 BizTalk 서비스 프로젝트에서 엔터티 이름을 변경한 후 변경 내용을 저장해야 합니다.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  이 시나리오에는 실행을 방지 하려면 BizTalk 서비스 프로젝트에서 엔터티 이름을 바꾼 후 변경 내용을 저장 해야 합니다.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Visual Studio 프로젝트에서 아티팩트가 제외되어도 BizTalk 서비스 프로젝트가 성공적으로 빌드됩니다.
 BizTalk 서비스 프로젝트에 아티팩트(예를 들어 XSD 파일)를 추가하고 해당 아티팩트를 브리지 구성에 포함(예를 들어 요청 메시지 형식으로 지정)한 후 Visual Studio 프로젝트에서 제외하는 시나리오를 고려해 보세요. 이러한 경우 프로젝트를 빌드하면 삭제된 아티팩트가 Visual Studio 프로젝트에 포함된 것과 동일한 위치의 디스크에 제공되는 한 오류가 발생하지 않습니다.
@@ -176,12 +177,12 @@ DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>아티팩트 저장소에서 인증서를 업데이트 한 후에도 브리지가 업데이트된 인증서를 사용하지 않음
 다음과 같은 시나리오를 고려해 보세요.  
 
-**시나리오 1: 브리지에서 서비스 엔드포인트로 전송되는 메시지를 보호하기 위해 지문 기반 인증서 사용**  
+**시나리오 1: 지문 기반 인증서를 사용 하 여 브리지에서 서비스 끝점에 메시지 전송 보안**  
 BizTalk 서비스 프로젝트에서 지문 기반 인증서를 사용하는 시나리오를 고려해 보세요. BizTalk Services 포털에서 이름은 같지만 다른 지문으로 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
 
 **해결 방법**: BizTalk 서비스 프로젝트에서 인증서를 업데이트하고 프로젝트를 다시 배포합니다.  
 
-**시나리오 2: 브리지에서 서비스 엔드포인트로 전송되는 메시지를 보호하기 위해 이름 기반 동작을 사용하여 인증서 식별**
+**시나리오 2: 이름 기반 동작을 사용 하 여 브리지에서 서비스 끝점의 메시지 전송 보안에 대 한 인증서를 식별 합니다.**
 
 BizTalk 서비스 프로젝트에서 이름 기반 동작을 사용하여 인증서 식별하는 시나리오를 고려해 보세요. BizTalk Services 포털에서 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
 
@@ -224,5 +225,5 @@ BizTalk Services 미리 보기 구독에 배포된 XML 브리지가 있는 시�
 이 문서 전체에서 '파이프라인'과 '브리지'라는 용어는 같은 의미로 사용됩니다. 모두 BizTalk Services에 배포된 메시지 처리 단위로 근본적으로 의미가 같습니다.  
 
 ### <a name="concepts"></a>개념
-[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk Services](/previous-versions/azure/hh689864(v=azure.100))   
 

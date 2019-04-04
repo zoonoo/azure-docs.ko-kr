@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522843"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876583"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>빠른 시작: Python을 사용 하 여 텍스트 음성 변환 음성 목록을 가져옵니다.
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 다음 요청 및 반환 된 음성의 목록을 저장 하려는 합니다. 먼저 `base_url` 및 `path`를 설정해야 합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `base_url`을 업데이트해야 합니다. 자세한 내용은 [Speech Services 영역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)합니다.
 
-다음으로, 요청에 대해 필수 헤더를 추가 합니다. 마지막으로 서비스에 대한 요청을 만듭니다. 요청이 성공하고 200 상태 코드가 반환되면 음성 응답이 타임스탬프가 있는 파일에 기록됩니다.
+다음으로, 요청에 대해 필수 헤더를 추가 합니다. 마지막으로 서비스에 대한 요청을 만듭니다. 요청에 성공 하면 200 상태 코드가 반환 됩니다을 하는 경우 응답 파일에 기록 됩니다.
 
 이 코드를 `GetVoices` 클래스에 복사합니다.
 
@@ -131,7 +131,7 @@ python get-voices.py
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Python 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [GitHub의 Python 샘플 탐색](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>참고 항목
 

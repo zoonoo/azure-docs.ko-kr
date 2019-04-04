@@ -1,46 +1,40 @@
 ---
-title: '빠른 시작: .NET을 사용하여 조정 작업 시작 - Content Moderator'
+title: .NET-Content Moderator를 사용 하 여 사용 하 여 조정 작업
 titlesuffix: Azure Cognitive Services
-description: .NET용 Azure Content Moderator SDK를 사용하여 조정 작업을 시작하는 방법입니다.
+description: Azure Content Moderator에 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 조정 작업을 시작 하려면 콘텐츠 중재자.NET SDK를 사용 합니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0664e75a299246d9dd2cc14dbab31d22a1bd9c4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878081"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757036"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>빠른 시작: .NET을 사용하여 조정 작업 시작
+# <a name="define-and-use-moderation-jobs-net"></a>정의 및 조정 작업 (.NET)를 사용 합니다.
 
-이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
- 
+조정 작업은 특정 유형의 콘텐츠 조정, 워크플로 및 검토의 기능에 대 한 래퍼 역할도합니다. 이 가이드에서는 정보 제공 및 사용 하는 데 코드 샘플을 시작 합니다 [Content Moderator SDK for.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 에:
+
 - 검사할 조정 작업을 시작하고 중재자를 위한 검토 만들기
 - 보류 중인 검토의 상태 가져오기
 - 검토의 최종 상태 추적 및 가져오기
-- 콜백 URL로 결과 제출
+- 검토 결과 콜백 URL로 제출
 
-이 문서에서는 사용자가 Visual Studio 및 C#에 이미 익숙한 것으로 가정합니다.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
-
-REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator를 구독하고 키를 가져옵니다.
-
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
-
-Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정에 등록](https://contentmoderator.cognitive.microsoft.com/)하고 검토 팀을 만듭니다. 작업을 시작하고 검토 도구에서 검토를 보도록 검토 API를 호출하려면 팀 ID 및 검토 도구가 필요합니다.
+- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
 
-이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
+이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다.
 
-SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
@@ -71,14 +65,16 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 프로그램의 using 문을 수정합니다.
 
-    using Microsoft.Azure.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator.Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading;
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
@@ -87,48 +83,49 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 > [!IMPORTANT]
 > **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트합니다.
 
+```csharp
+/// <summary>
+/// Wraps the creation and configuration of a Content Moderator client.
+/// </summary>
+/// <remarks>This class library contains insecure code. If you adapt this
+/// code for use in production, use a secure method of storing and using
+/// your Content Moderator subscription key.</remarks>
+public static class Clients
+{
+    /// <summary>
+    /// The region/location for your Content Moderator account,
+    /// for example, westus.
+    /// </summary>
+    private static readonly string AzureRegion = "YOUR API REGION";
 
     /// <summary>
-    /// Wraps the creation and configuration of a Content Moderator client.
+    /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    /// <remarks>This class library contains insecure code. If you adapt this 
-    /// code for use in production, use a secure method of storing and using
-    /// your Content Moderator subscription key.</remarks>
-    public static class Clients
+    private static readonly string AzureBaseURL =
+        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+    /// <summary>
+    /// Your Content Moderator subscription key.
+    /// </summary>
+    private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+    /// <summary>
+    /// Returns a new Content Moderator client for your subscription.
+    /// </summary>
+    /// <returns>The new client.</returns>
+    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+    /// When you have finished using the client,
+    /// you should dispose of it either directly or indirectly. </remarks>
+    public static ContentModeratorClient NewClient()
     {
-        /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
-        /// </summary>
-        private static readonly string AzureRegion = "YOUR API REGION";
+        // Create and initialize an instance of the Content Moderator API wrapper.
+        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-        /// <summary>
-        /// Your Content Moderator subscription key.
-        /// </summary>
-        private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-        /// <summary>
-        /// Returns a new Content Moderator client for your subscription.
-        /// </summary>
-        /// <returns>The new client.</returns>
-        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-        /// When you have finished using the client,
-        /// you should dispose of it either directly or indirectly. </remarks>
-        public static ContentModeratorClient NewClient()
-        {
-            // Create and initialize an instance of the Content Moderator API wrapper.
-            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-            client.Endpoint = AzureBaseURL;
-            return client;
-        }
+        client.Endpoint = AzureBaseURL;
+        return client;
     }
+}
+```
 
 ### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
@@ -140,47 +137,48 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
 >
 > 팀 이름은 **API** 섹션에서 **ID** 필드의 값입니다.
 
+```csharp
+/// <summary>
+/// The moderation job will use this workflow that you defined earlier.
+/// See the quickstart article to learn how to setup custom workflows.
+/// </summary>
+private const string WorkflowName = "OCR";
 
-    /// <summary>
-    /// The moderation job will use this workflow that you defined earlier.
-    /// See the quickstart article to learn how to setup custom workflows.
-    /// </summary>
-    private const string WorkflowName = "OCR";
-    
-    /// <summary>
-    /// The name of the team to assign the job to.
-    /// </summary>
-    /// <remarks>This must be the team name you used to create your 
-    /// Content Moderator account. You can retrieve your team name from
-    /// the Content Moderator web site. Your team name is the Id associated 
-    /// with your subscription.</remarks>
-    private const string TeamName = "***";
+/// <summary>
+/// The name of the team to assign the job to.
+/// </summary>
+/// <remarks>This must be the team name you used to create your
+/// Content Moderator account. You can retrieve your team name from
+/// the Content Moderator web site. Your team name is the Id associated
+/// with your subscription.</remarks>
+private const string TeamName = "***";
 
-    /// <summary>
-    /// The URL of the image to create a review job for.
-    /// </summary>
-    private const string ImageUrl =
-        "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png";
+/// <summary>
+/// The URL of the image to create a review job for.
+/// </summary>
+private const string ImageUrl =
+    "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png";
 
-    /// <summary>
-    /// The name of the log file to create.
-    /// </summary>
-    /// <remarks>Relative paths are relative to the execution directory.</remarks>
-    private const string OutputFile = "OutputLog.txt";
+/// <summary>
+/// The name of the log file to create.
+/// </summary>
+/// <remarks>Relative paths are relative to the execution directory.</remarks>
+private const string OutputFile = "OutputLog.txt";
 
-    /// <summary>
-    /// The number of seconds to delay after a review has finished before
-    /// getting the review results from the server.
-    /// </summary>
-    private const int latencyDelay = 45;
+/// <summary>
+/// The number of seconds to delay after a review has finished before
+/// getting the review results from the server.
+/// </summary>
+private const int latencyDelay = 45;
 
-    /// <summary>
-    /// The callback endpoint for completed reviews.
-    /// </summary>
-    /// <remarks>Reviews show up for reviewers on your team. 
-    /// As reviewers complete reviews, results are sent to the
-    /// callback endpoint using an HTTP POST request.</remarks>
-    private const string CallbackEndpoint = "";
+/// <summary>
+/// The callback endpoint for completed reviews.
+/// </summary>
+/// <remarks>Reviews show up for reviewers on your team.
+/// As reviewers complete reviews, results are sent to the
+/// callback endpoint using an HTTP POST request.</remarks>
+private const string CallbackEndpoint = "";
+```
 
 ## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>자동 조정에 코드 추가, 검토 만들기 및 작업 세부 정보 가져오기
 
@@ -189,59 +187,61 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
 
 **Main** 메서드에 다음 코드를 추가하여 시작합니다.
 
-    using (TextWriter writer = new StreamWriter(OutputFile, false))
+```csharp
+using (TextWriter writer = new StreamWriter(OutputFile, false))
+{
+    using (var client = Clients.NewClient())
     {
-        using (var client = Clients.NewClient())
-        {
-            writer.WriteLine("Create review job for an image.");
-            var content = new Content(ImageUrl);
-        
-            // The WorkflowName contains the name of the workflow defined in the online review tool.
-            // See the quickstart article to learn more.
-            var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
-                    TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
+        writer.WriteLine("Create review job for an image.");
+        var content = new Content(ImageUrl);
 
-            // Record the job ID.
-            var jobId = jobResult.Result.Body.JobIdProperty;
+        // The WorkflowName contains the name of the workflow defined in the online review tool.
+        // See the quickstart article to learn more.
+        var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
+                TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-                jobResult.Result.Body, Formatting.Indented));
+        // Record the job ID.
+        var jobId = jobResult.Result.Body.JobIdProperty;
 
-            Thread.Sleep(2000);
-            writer.WriteLine();
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+            jobResult.Result.Body, Formatting.Indented));
 
-            writer.WriteLine("Get review job status.");
-            var jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-                    TeamName, jobId);
+        Thread.Sleep(2000);
+        writer.WriteLine();
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-                    jobDetails.Result.Body, Formatting.Indented));
+        writer.WriteLine("Get review job status.");
+        var jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+                TeamName, jobId);
 
-            Console.WriteLine();
-            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            Console.WriteLine("Then, press any key to continue.");
-            Console.ReadKey();
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+                jobDetails.Result.Body, Formatting.Indented));
 
-            Console.WriteLine();
-            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
-            Thread.Sleep(latencyDelay * 1000);
+        Console.WriteLine();
+        Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+        Console.WriteLine("Then, press any key to continue.");
+        Console.ReadKey();
 
-            writer.WriteLine("Get review details.");
-            jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-            TeamName, jobId);
+        Console.WriteLine();
+        Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
+        Thread.Sleep(latencyDelay * 1000);
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-            jobDetails.Result.Body, Formatting.Indented));
-        }
-        writer.Flush();
-        writer.Close();
+        writer.WriteLine("Get review details.");
+        jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+        TeamName, jobId);
+
+        // Log just the response body from the returned task.
+        writer.WriteLine(JsonConvert.SerializeObject(
+        jobDetails.Result.Body, Formatting.Indented));
     }
+    writer.Flush();
+    writer.Close();
+}
+```
 
 > [!NOTE]
-> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외를 throw합니다. 
+> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외를 throw합니다.
 >
 > 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
@@ -249,8 +249,10 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
 
 콘솔에서 다음과 같은 예제 출력이 표시됩니다.
 
-    Perform manual reviews on the Content Moderator site.
-    Then, press any key to continue.
+```console
+Perform manual reviews on the Content Moderator site.
+Then, press any key to continue.
+```
 
 Content Moderator 검토 도구에 로그인하여 보류 중인 이미지 검토를 확인합니다.
 
@@ -263,60 +265,62 @@ Content Moderator 검토 도구에 로그인하여 보류 중인 이미지 검�
 > [!NOTE]
 > 출력 파일에서 **Teamname**, **ContentId**, **CallBackEndpoint** 및 **WorkflowId** 문자열은 이전에 사용한 값을 반영합니다.
 
-    Create moderation job for an image.
+```json
+Create moderation job for an image.
+{
+    "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
+}
+
+Get review details.
+{
+    "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+    "TeamName": "some team name",
+    "Status": "InProgress",
+    "WorkflowId": "OCR",
+    "Type": "Image",
+    "CallBackEndpoint": "",
+    "ReviewId": "",
+    "ResultMetaData": [],
+    "JobExecutionReport": [
     {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
-
-    Get review details.
+        "Ts": "2018-01-07T00:38:26.7714671",
+        "Msg": "Successfully got hasText response from Moderator"
+    },
     {
-        "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "TeamName": "some team name",
-        "Status": "InProgress",
-        "WorkflowId": "OCR",
-        "Type": "Image",
-        "CallBackEndpoint": "",
-        "ReviewId": "",
-        "ResultMetaData": [],
-        "JobExecutionReport": [
-        {
-            "Ts": "2018-01-07T00:38:26.7714671",
-            "Msg": "Successfully got hasText response from Moderator"
-        },
-        {
-            "Ts": "2018-01-07T00:38:26.4181346",
-            "Msg": "Getting hasText from Moderator"
-        },
-        {
-            "Ts": "2018-01-07T00:38:25.5122828",
-            "Msg": "Starting Execution - Try 1"
-        }
-        ]
+        "Ts": "2018-01-07T00:38:26.4181346",
+        "Msg": "Getting hasText from Moderator"
+    },
+    {
+        "Ts": "2018-01-07T00:38:25.5122828",
+        "Msg": "Starting Execution - Try 1"
     }
+    ]
+}
+```
 
-
-## <a name="your-callback-url-if-provided-receives-this-response"></a>사용자의 콜백 URL(제공되는 경우)은 이 응답을 받습니다.
+## <a name="your-callback-url-if-provided-receives-this-response"></a>콜백 Url(제공되는 경우)은 이 응답을 받습니다.
 
 다음 예제와 같은 응답이 표시됩니다.
 
 > [!NOTE]
 > 사용자의 콜백 응답에서 **ContentId** 및 **WorkflowId** 문자열은 이전에 사용한 값을 반영합니다.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-        "WorkFlowId": "OCR",
-        "Status": "Complete",
-        "ContentType": "Image",
-        "CallBackType": "Job",
-        "ContentId": "contentID",
-        "Metadata": {
-            "hastext": "True",
-            "ocrtext": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-            "imagename": "contentID"
-        }
+```json
+{
+    "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
+    "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+    "WorkFlowId": "OCR",
+    "Status": "Complete",
+    "ContentType": "Image",
+    "CallBackType": "Job",
+    "ContentId": "contentID",
+    "Metadata": {
+        "hastext": "True",
+        "ocrtext": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+        "imagename": "contentID"
     }
-
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

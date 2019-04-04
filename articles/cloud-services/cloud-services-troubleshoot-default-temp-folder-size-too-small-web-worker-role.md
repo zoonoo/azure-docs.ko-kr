@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4757b20e1a3d9830c2d52a5fbc85fd935b27fb62
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7862e4d5c4dd603dacf5784df6c4194392ebc351
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245038"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918198"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>클라우드 서비스 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.
 클라우드 서비스 작업자 또는 웹 역할의 기본 임시 디렉터리에는 최대 100MB 크기의 공간이 있으며 특정 시점에 꽉 찰 수도 있습니다. 이 문서는 임시 디렉터리에 대한 공간 부족을 방지하는 방법을 설명합니다.
@@ -33,8 +33,8 @@ ms.locfileid: "51245038"
 ## <a name="suggestion-to-fix-the-problem"></a>문제를 해결하려는 제안
 다음 대안 중 하나를 구현합니다.
 
-* 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 애플리케이션 내에서 실행되는 코드에서 로컬 스토리지 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) 메서드를 호출합니다.
-* 로컬 저장소 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 저장소 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) 메서드 내에서 수행되어야 합니다.
+* 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 애플리케이션 내에서 실행되는 코드에서 로컬 스토리지 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 호출합니다.
+* 로컬 저장소 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 저장소 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드 내에서 수행되어야 합니다.
 
 다음 코드 예제에서는 OnStart 메서드 내에서 TEMP 및 TMP에 대한 대상 디렉터리를 수정하는 방법을 보여줍니다.
 

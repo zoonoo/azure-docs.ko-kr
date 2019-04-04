@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5ed1e393c78f0f8d74ad6ae8096fb8b3e384e6e0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308828"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885437"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Text Analytics Docker 컨테이너 구성
 
@@ -47,9 +47,9 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Text Analytics의** 개요(`Endpoint` 레이블이 지정됨)
+* Azure Portal: **텍스트 분석** 개요, 레이블이 지정 `Endpoint`
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
 
@@ -77,14 +77,10 @@ Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
-|옵션| Name | 데이터 형식 | 설명 |
+|옵션| name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Text Analytics 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="hierarchical-settings"></a>계층 구조 설정
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
 
@@ -114,17 +110,10 @@ Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
+### <a name="logging-example"></a>로깅 예 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="language-detection-container-docker-examples"></a>언어 감지 컨테이너 Docker 예제
@@ -134,20 +123,13 @@ Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 ### <a name="basic-example"></a>기본 예제
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
+### <a name="logging-example"></a>로깅 예
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
  
 ## <a name="sentiment-analysis-container-docker-examples"></a>감정 분석 컨테이너 Docker 예제
@@ -157,20 +139,13 @@ Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 ### <a name="basic-example"></a>기본 예제
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
+### <a name="logging-example"></a>로깅 예
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648642"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904444"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
 Azure에 대 한 예약을 구입한 후 다른 구독에 예약을 적용 하려면 예약, 관리 또는 예약의 범위를 변경할 수 있는 사용자를 변경 해야 합니다. 또한 예약을 두 개로 분할하여 구입한 일부 인스턴스를 다른 구독에 적용할 수도 있습니다.
 
 Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 최적화 설정을 변경할 수 있습니다. 예약 할인을 동일한 시리즈의 VM에 적용하거나, 특정 VM 크기에 대한 데이터 센터 용량을 예약할 수 있습니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="change-the-scope-for-a-reservation"></a>예약할 범위 변경
 
@@ -70,25 +73,25 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
     ```powershell
     # Get the reservation orders you have access to
-    Get-AzureRmReservationOrder
+    Get-AzReservationOrder
     ```
 
 2. 예약의 세부 정보를 가져옵니다.
 
     ```powershell
-    Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
 
 3. 예약을 두 개로 분할하고 인스턴스를 배포합니다.
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. 다음 명령을 실행하여 범위를 업데이트할 수 있습니다.
 
     ```powershell
-    Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
 ## <a name="cancellations-and-exchanges"></a>취소 및 교환
@@ -96,7 +99,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 예약 형식에 따라 예약을 취소하거나 교환할 수 있습니다. 자세한 내용은 다음 항목에서 취소 및 교환 섹션을 참조하세요.
 
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Azure Reservations에서 SUSE 소프트웨어 플랜에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
@@ -128,17 +131,17 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 서비스 계획을 구입 합니다.
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
-- [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [Azure Cosmos DB 예약 용량을 사용 하 여 Azure Cosmos DB 리소스에 대 한 요금을 선불합니다](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 소프트웨어 플랜을 구입 합니다.
 - [Azure 예약에서 Red Hat 소프트웨어 계획에 대 한 요금을 선불합니다](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Azure Reservations에서 SUSE 소프트웨어 플랜에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 할인 및 사용을 이해 합니다.
-- [VM 예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [VM 예약 할인은 적용 하는 방법 이해](billing-understand-vm-reservation-charges.md)
 - [Red Hat Enterprise Linux 소프트웨어 계획 할인이 적용 되는 방식을 이해 합니다.](../billing/billing-understand-rhel-reservation-charges.md)
 - [SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해](../billing/billing-understand-suse-reservation-charges.md)
-- [예약 할인이 적용되는 방식 이해](billing-understand-reservation-charges.md)
-- [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
-- [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
+- [다른 예약 할인은 적용 되는 방식을 이해합니다](billing-understand-reservation-charges.md)
+- [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약을 사용 하 여 포함 하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)

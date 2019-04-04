@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: baee8c8e931a18c1d72b52c6141c29cba98f9c53
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6b8e0fea73dc24f7e680482be1f06fba6d702804
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096404"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916243"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk Services의 관리 및 개발 작업 목록
 
@@ -32,31 +32,31 @@ Microsoft Azure BizTalk Services로 작업할 때 고려해야 할 몇 가지 �
 
 | 단계 | 담당자 | Task | 관련 링크 |
 | --- | --- | --- | --- |
-| 1. |관리자 |Microsoft 계정 또는 조직 계정을 사용하여 Microsoft Azure 구독 만들기 |[Azure Portal](https://portal.azure.com) |
-| 2. |관리자 |BizTalk 서비스 만들기 또는 프로비전 |[BizTalk Service 만들기](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
-| 3. |관리자 |사용자 또는 회사의 BizTalk Services 배포 등록 |[BizTalk Services 포털에서 BizTalk Services 배포 등록 및 업데이트](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
+| 1. |관리자 |Microsoft 계정 또는 조직 계정을 사용하여 Microsoft Azure 구독 만들기 |[Azure portal](https://portal.azure.com) |
+| 2. |관리자 |BizTalk 서비스 만들기 또는 프로비전 |[BizTalk 서비스 만들기](/previous-versions/azure/reference/dn232347(v=azure.100)) |
+| 3. |관리자 |사용자 또는 회사의 BizTalk Services 배포 등록 |[등록 하 고 BizTalk Services 포털에서 BizTalk 서비스 배포를 업데이트 합니다.](/previous-versions/azure/hh689837(v=azure.100)) |
 | 4. |관리자 |애플리케이션이 온-프레미스 LOB(기간 업무) 시스템에 연결하는 데 BizTalk 어댑터 서비스를 사용하거나 큐 또는 토픽 대상을 사용하는 경우 적용합니다.  Azure Service Bus 네임스페이스 만들기 이 네임스페이스, Service Bus 발급자 이름 및 Service Bus 발급자 키 값을 개발자에게 제공합니다. |[방법: 만들기 또는 수정 된 Service Bus 서비스 Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 고 [가져오기 발급자 이름과 발급자 키 값](biztalk-issuer-name-issuer-key.md) |
-| 5. |Developer |SDK를 설치하고 Visual Studio에서 BizTalk 서비스 프로젝트를 만듭니다. |[Azure BizTalk Services SDK 설치](https://msdn.microsoft.com/library/azure/hh689760.aspx) 및 [Azure에서 다양한 메시징 엔드포인트 만들기](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
-| 6. |Developer |BizTalk 서비스 프로젝트를 Azure에서 호스트된 BizTalk 서비스에 배포합니다. |[BizTalk Services 프로젝트 배포 및 새로 고침](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
-| 7. |관리자 |EDI를 사용하는 경우 적용합니다.  파트너를 추가하고 Microsoft Azure BizTalk Services 포털에서 계약을 만들 수 있습니다. 계약을 만들 때 개발자가 만든 브리지 및/또는 변환을 계약 설정에 추가할 수 있습니다. |[BizTalk Services 포털에서 EDI, AS2 및 EDIFACT 구성](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |관리자 |[REST](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 성능 메트릭을 포함한 BizTalk 서비스의 상태를 모니터링합니다. |[BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
-| 9. |관리자 |Microsoft Azure BizTalk Services 포털을 사용하여 BizTalk Services에서 사용하는 아티팩트를 관리하고 메시지가 브리지 파일에서 처리될 때 메시지를 추적합니다. |[BizTalk Services 포털 사용](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
-| 10. |관리자 |BizTalk 서비스를 백업하려면 백업 계획을 만듭니다. |[BizTalk Services에서 무중단 업무 방식 및 재해 복구](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
+| 5. |Developer |SDK를 설치하고 Visual Studio에서 BizTalk 서비스 프로젝트를 만듭니다. |[Azure BizTalk Services SDK 설치](/previous-versions/azure/hh689760(v=azure.100)) 및 [Azure에서 다양한 메시징 엔드포인트 만들기](/previous-versions/azure/hh689766(v=azure.100)) |
+| 6. |Developer |BizTalk 서비스 프로젝트를 Azure에서 호스트된 BizTalk 서비스에 배포합니다. |[배포 및 BizTalk Services 프로젝트를 새로 고침](/previous-versions/azure/hh689881(v=azure.100)) |
+| 7. |관리자 |EDI를 사용하는 경우 적용합니다.  파트너를 추가하고 Microsoft Azure BizTalk Services 포털에서 계약을 만들 수 있습니다. 계약을 만들 때 개발자가 만든 브리지 및/또는 변환을 계약 설정에 추가할 수 있습니다. |[BizTalk Services 포털에서 EDI, AS2 및 EDIFACT 구성](/previous-versions/azure/hh689853(v=azure.100)) |
+| 8. |관리자 |[REST](/previous-versions/azure/reference/dn232347(v=azure.100))를 사용하여 성능 메트릭을 포함한 BizTalk 서비스의 상태를 모니터링합니다. |[BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 9. |관리자 |Microsoft Azure BizTalk Services 포털을 사용하여 BizTalk Services에서 사용하는 아티팩트를 관리하고 메시지가 브리지 파일에서 처리될 때 메시지를 추적합니다. |[BizTalk Services 포털 사용](/previous-versions/azure/dn874043(v=azure.100)) |
+| 10. |관리자 |BizTalk 서비스를 백업하려면 백업 계획을 만듭니다. |[비즈니스 연속성 및 재해 복구 BizTalk Services의](/previous-versions/azure/dn509557(v=azure.100)) |
 
 ## <a name="next-steps"></a>다음 단계
-[자습서 및 샘플](https://msdn.microsoft.com/library/azure/hh689895.aspx)
+[자습서 및 샘플](/previous-versions/azure/hh689895(v=azure.100))
 
-[Visual Studio에서 프로젝트 만들기](https://msdn.microsoft.com/library/azure/hh689811.aspx)
+[Visual Studio에서 프로젝트 만들기](/previous-versions/azure/hh689811(v=azure.100))
 
-[Azure BizTalk Services SDK 설치](https://msdn.microsoft.com/library/azure/hh689760.aspx)
+[Azure BizTalk Services SDK 설치](/previous-versions/azure/hh689760(v=azure.100))
 
 ## <a name="concepts"></a>개념
-[Visual Studio에서 프로젝트 만들기](https://msdn.microsoft.com/library/azure/hh689811.aspx)  
-[EDI, AS2 및 EDIFACT 메시징(B2B)](https://msdn.microsoft.com/library/azure/hh689898.aspx)  
+[Visual Studio에서 프로젝트 만들기](/previous-versions/azure/hh689811(v=azure.100))  
+[EDI, AS2 및 EDIFACT 메시징 (기업 간)](/previous-versions/azure/hh689898(v=azure.100))  
 
 ## <a name="other-resources"></a>기타 리소스
-[원본, 대상 및 브리지 메시징 엔드포인트 추가](https://msdn.microsoft.com/library/azure/hh689877.aspx)  
-[메시지 맵 및 변환 학습 및 만들기](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
-[BizTalk 어댑터 서비스(BAS) 사용](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
+[원본, 대상 및 브리지 메시징 끝점 추가](/previous-versions/azure/hh689877(v=azure.100))  
+[메시지 맵 및 변환 학습 및 만들기](/previous-versions/azure/hh689905(v=azure.100))  
+[BizTalk 어댑터 서비스 (BAS) 사용](/previous-versions/azure/hh689889(v=azure.100))  
 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)
 

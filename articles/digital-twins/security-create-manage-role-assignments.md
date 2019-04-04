@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118594"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905310"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
 Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 기반 액세스 제어)를 사용하여 리소스 액세스를 관리합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>역할 할당 개요
 
@@ -36,7 +39,7 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 아래 표에서는 각 특성을 설명합니다.
 
-| 특성 | 이름 | 필수 | 형식 | 설명 |
+| 특성 | name | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | roleId | 역할 정의 식별자 | 예 | 문자열 | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
 | objectId | 개체 식별자 | 예 | 문자열 | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
@@ -83,8 +86,8 @@ Azure Digital Twins는 역할 할당에 대해 모든 *CREATE*, *READ*, 및 *DEL
 애플리케이션 ID가 있으면 다음 PowerShell 명령을 실행합니다.
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 **관리자** 역할이 있는 사용자는 URL에 대해 인증된 HTTP POST 요청을 수행하여 사용자에게 공간 관리자 역할을 할당할 수 있습니다.
@@ -162,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **매개 변수 값** | **필수** |  **형식** |  **설명** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | 문자열 |   UserId objectIdType의 objectId입니다. |
-| YOUR_PATH | True | 문자열 |   액세스를 확인할 선택한 경로입니다. |
-| YOUR_ACCESS_TYPE |  True | 문자열 |   확인할 액세스 형식입니다. |
-| YOUR_RESOURCE_TYPE | True | 문자열 |  확인할 리소스입니다. |
+| YOUR_USER_ID |  True  | 문자열 |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | True  | 문자열 |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_ACCESS_TYPE |  True  | 문자열 |   확인할 액세스 형식입니다. |
+| YOUR_RESOURCE_TYPE | True  | 문자열 |  확인할 리소스입니다. |
 
 요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 

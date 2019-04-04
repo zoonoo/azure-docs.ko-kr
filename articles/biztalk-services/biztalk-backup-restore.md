@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ee86b9aa2d920668cf036f3e8f8634e9289e8913
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230294"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916872"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Backup 및 복원
 
@@ -34,7 +34,7 @@ Azure BizTalk Services에는 Backup 및 복원 기능이 포함되어 있습니�
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 일부 버전에서는 Backup 및 복원을 사용하지 못할 수도 있습니다. [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
+* 일부 버전에서는 Backup 및 복원을 사용하지 못할 수도 있습니다. 참조 [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)합니다.
 * Backup 콘텐츠는 동일한 BizTalk 서비스 또는 새로운 BizTalk 서비스로 복원할 수 있습니다. 동일한 이름을 사용하여 BizTalk 서비스를 복원하려면 기존 BizTalk 서비스를 삭제해야 하며 이름을 사용할 수 있어야 합니다. BizTalk 서비스를 삭제한 후 동일한 이름의 서비스를 사용하려면 시간이 좀 더 오래 걸릴 수 있습니다. 동일한 이름의 서비스를 사용할 수 있을 때까지 기다릴 수 없으면 새 BizTalk 서비스로 복원합니다.
 * BizTalk Services는 동일한 버전 이상으로 복원할 수 있습니다. BizTalk Services를 백업이 만들어진 버전보다 낮은 버전으로 복원할 수는 없습니다.
   
@@ -42,14 +42,14 @@ Azure BizTalk Services에는 Backup 및 복원 기능이 포함되어 있습니�
 * EDI 제어 번호는 제어 번호의 연속성을 유지할 수 있도록 백업됩니다. 마지막 백업 후 메시지가 처리되는 경우 이 백업 콘텐츠를 복원하면 제어 번호가 중복될 수 있습니다.
 * 일괄 처리에 활성 메시지가 있는 경우 백업을 실행하기 **전에** 일괄 처리를 수행합니다. 필요에 따라 백업을 만들거나 예약된 백업을 만들 때 배치의 메시지는 저장되지 않습니다. 
   
-    **일괄 처리의 활성 메시지가 있는 상태에서 백업하면 이러한 메시지는 백업되지 않으므로 손실됩니다.**
-* 선택 사항: BizTalk Services 포털에서 모든 관리 작업을 중지합니다.
+    **백업이 수행 되지 않고 일괄 처리의 활성 메시지가 있는 경우 이러한 메시지는 백업 되지 않습니다 및 않으므로 손실 됩니다.**
+* 선택 사항: BizTalk Services 포털에서 모든 관리 작업을 중지 합니다.
 
 ## <a name="create-a-backup"></a>백업 만들기
-언제든 백업을 만들어 완벽하게 제어할 수 있습니다. 백업을 만들려면 [Azure에서 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용합니다.
+언제든 백업을 만들어 완벽하게 제어할 수 있습니다. 백업을 만들려면 [Azure에서 BizTalk Services를 관리하기 위한 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))를 사용합니다.
 
 ## <a name="restore"></a>복원
-백업을 복원하려면 [Azure에서 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용합니다.
+백업을 복원하려면 [Azure에서 BizTalk Services를 관리하기 위한 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))를 사용합니다.
 
 ### <a name="postrestore"></a>백업을 복원한 후
 BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상태에서는 새 환경을 작동하기 전에 다음을 비롯한 구성 변경을 적용할 수 있습니다.
@@ -92,7 +92,7 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 
 <tr>
 <td colspan="2">
- <strong>Azure BizTalk 서비스</strong></td>
+ <strong>Azure BizTalk Service</strong></td>
 </tr> 
 <tr>
 <td>SSL 인증서</td> 
@@ -132,18 +132,18 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 </table>
 
 ## <a name="next"></a>다음
-Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
+Azure BizTalk Services를 만들려면 [BizTalk Services: 프로 비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)합니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
-## <a name="see-also"></a>참고 항목
-* [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Backup에서 BizTalk 서비스 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+## <a name="see-also"></a>관련 항목
+* [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [BizTalk 서비스 백업에서 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Edition 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
 * [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [BizTalk Services: 발급자 이름 및 발급자 키](https://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [어떻게 시작 하는 Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

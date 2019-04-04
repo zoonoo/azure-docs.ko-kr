@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894039"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487518"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
@@ -29,7 +29,7 @@ Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 �
 
 각 릴리스의 Microsoft 소프트웨어 업데이트는 단일 업데이트 패키지로 제공 됩니다. Azure Stack 운영자로 가져올 수 있습니다, 설치 및 이러한의 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
-원래 장비 제조업체 (OEM) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트, OEM 하드웨어 공급 업체에서 별도 패키지로 전달 되는 동안 가져온, 설치 하며 업데이트 패키지 가져온, 설치 및 관리 되는 Microsoft에서 동일한 방식으로 업데이트 패키지를 관리 합니다.
+원래 장비 제조업체 (OEM) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트는 OEM 하드웨어 공급업체를 통해 별도의 패키지로 제공되지만, Microsoft 업데이트 패키지와 동일한 방법으로 가져오고, 설치하고, 관리됩니다.
 
 지원 시스템을 유지 하려면 특정 버전 수준으로 업데이트 하는 Azure Stack을 유지 해야 합니다. 검토 하 고 있는지 확인 합니다 [Azure Stack 서비스 정책](azure-stack-servicing-policy.md)합니다.
 
@@ -48,7 +48,7 @@ Azure Stack에는 Microsoft 소프트웨어 업데이트의 응용 프로그램�
 
 - 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 

@@ -16,12 +16,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: c6bee5c66661f59a6287d624bf5a55428ebbe56e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bad40b840d6bd511ad0526c47e8a43f692a5cc2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238121"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483580"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell에 대 한 API 버전 프로필 사용
 
@@ -33,7 +33,7 @@ API 버전 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 
 
 합니다 **AzureRM.Bootstrapper** 모듈이 PowerShell 갤러리를 통해 사용할 수 있는 API 버전 프로필을 사용 하는 데 필요한 PowerShell cmdlet을 제공 합니다. 다음 cmdlet을 사용 하 여 설치 합니다 **AzureRM.Bootstrapper** 모듈:
 
-```PowerShell
+```powershell
 Install-Module -Name AzureRm.BootStrapper
 ```
 
@@ -55,7 +55,7 @@ Install-Module -Name AzureRm.BootStrapper
 
 사용 합니다 **설치 AzureRmProfile** cmdlet을 사용 합니다 **2018-03-01-하이브리드** Azure Stack에 필요한 AzureRM 모듈을 설치 하려면 API 버전 프로필. 이 API 버전 프로필을 사용 하 여 Azure Stack 연산자 모듈이 설치 되지 않습니다. 설치의 3 단계에서에서 별도로 명시 합니다 [Azure Stack 용 PowerShell 설치](../azure-stack-powershell-install.md) 문서.
 
-```PowerShell
+```powershell
 Install-AzureRMProfile -Profile 2018-03-01-hybrid
 ```
 
@@ -67,7 +67,7 @@ Install-AzureRMProfile -Profile 2018-03-01-hybrid
 2. 다운로드 하 고 아직 설치 되지 않은 경우 모듈을 설치 합니다.
 3. 현재 PowerShell 세션으로 모듈을 가져옵니다.
 
-```PowerShell
+```powershell
 # Installs and imports the specified API version profile into the current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser
 
@@ -77,7 +77,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser -Force
 
 API 버전 프로필에서 선택한 AzureRM 모듈을 가져올 설치를 실행 합니다 **사용 하 여 AzureRMProfile** cmdlet을 사용 합니다 **모듈** 매개 변수:
 
-```PowerShell
+```powershell
 # Installs and imports the compute, storage and network modules from the specified API version profile into your current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
@@ -86,7 +86,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.S
 
 사용 합니다 **Get AzureRmProfile** cmdlet을 사용할 수 있는 API 버전 프로필의 목록을 가져옵니다.
 
-```PowerShell
+```powershell
 # lists all API version profiles provided by the AzureRM.BootStrapper module.
 Get-AzureRmProfile -ListAvailable
 
@@ -102,13 +102,13 @@ Get-AzureRmProfile
 2. 아직 설치 되지 않은 경우 설치 하 라는 메시지가 표시 됩니다.  
 3. 설치 하 고 업데이트 된 모듈을 현재 PowerShell 세션으로 가져옵니다.  
 
-```PowerShell
+```powershell
 Update-AzureRmProfile -Profile 2018-03-01-hybrid
 ```
 
 <!-- To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
-```PowerShell 
+```powershell 
 Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
 ``` -->
 
@@ -123,7 +123,7 @@ Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
 
 사용 된 **제거 AzureRmProfile** 지정된 된 API 버전 프로필을 제거 하려면 cmdlet.
 
-```PowerShell
+```powershell
 Uninstall-AzureRmProfile -Profile  2018-03-01-hybrid
 ```
 

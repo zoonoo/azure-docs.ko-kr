@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d659262195fef0cc6871bac409dd5914b70f401
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105093"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916124"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>하이브리드 연결 만들기 및 관리
 
@@ -41,16 +41,16 @@ ms.locfileid: "58105093"
 > 
 > 예를 들어, **10.4.5.6** (의사 코드)을 온-프레미스 호스트로 정의합니다.
 > 
-> **다음 시나리오는 다음과 같은 경우 적용됩니다**.  
+> **다음 시나리오를 작동합니다.**  
 > `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
-> **다음 시나리오는 다음과 같은 경우 적용되지 않습니다**.  
+> **다음 시나리오를 작동 하지 않습니다.**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 > 
 > 
 
 ## <a name="CreateHybridConnection"></a>하이브리드 연결 만들기
-[Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md) **또는** [BizTalk Services REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 하이브리드 연결을 만들 수 있습니다. 
+[Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md) **또는** [BizTalk Services REST API](/previous-versions/azure/reference/dn232347(v=azure.100))를 사용하여 하이브리드 연결을 만들 수 있습니다. 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -118,9 +118,9 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>관련 항목
-[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[Microsoft Azure에서 BizTalk Services를 관리 하기 위한 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))  
 [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)  
-[BizTalk Service 만들기](biztalk-provision-services.md)  
+[BizTalk 서비스 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

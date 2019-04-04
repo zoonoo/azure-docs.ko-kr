@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486396"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906092"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -241,7 +241,7 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
 
 IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 스토리지 계정으로의 액세스 권한을 부여하려면 네트워크에서 사용되는 인터넷 연결 IP 주소를 식별해야 합니다. 네트워크 관리자에게 도움을 요청합니다.
 
-[ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하여 네트워크를 Azure 네트워크에 연결할 수 있습니다. 여기서 각 회로는 두 개의 공용 IP 주소로 구성됩니다. Microsoft Edge에서 찾을 수 있으며, [Azure 공용 피어링](/azure/expressroute/expressroute-circuit-peerings)을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결할 수 있습니다. Azure Storage와 통신할 수 있도록 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만듭니다. ExpressRoute 회로의 공용 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어링의 경우 사용되는 NAT IP 주소는 고객이 제공하거나 서비스 공급자가 제공합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
 
 ### <a name="managing-ip-network-rules"></a>IP 네트워크 규칙 관리
 
@@ -361,7 +361,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ### <a name="storage-analytics-data-access"></a>저장소 분석 데이터 액세스
 
-경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 네트워크 규칙에 예외를 허용하여 스토리지 계정 로그 파일, 메트릭 테이블 또는 둘 모두에 대한 읽기 액세스를 허용할 수 있습니다. [저장소 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
+경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 네트워크 규칙에 예외를 허용하여 스토리지 계정 로그 파일, 메트릭 테이블 또는 둘 모두에 대한 읽기 액세스를 허용할 수 있습니다. [저장소 분석 작업에 대해 알아봅니다.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>예외 관리
 

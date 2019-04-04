@@ -3,19 +3,19 @@ title: N-Best 번역 반환 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Microsoft Translator Text API를 사용하여 N-Best 번역을 반환합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 41027cf83fd6074822c70b6039906592cb8698b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878649"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918317"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
 
@@ -38,7 +38,7 @@ Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서�
 | 매개 변수 | 설명 |
 |:---|:---|
 | appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
-| text | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
+| 텍스트 | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
 | from | **필수** 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. |
 | to | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
 | maxTranslations | **필수** 반환할 번역의 최대 수를 나타내는 int입니다. |

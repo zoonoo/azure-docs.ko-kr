@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251353"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917563"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -102,7 +102,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
     > [!Note] 
     > 사전 1811 버전에 대 한 확장 호스트 인증서를 추가 하는 암호를 회전할 필요가 없습니다. 문서의 지침을 따라야 [Azure Stack에 대 한 확장 호스트에 대 한 준비](azure-stack-extension-host-prepare.md) 확장 호스트 인증서를 추가 합니다.
 
-2. 연산자에는 경고 열기 및 Azure Stack 암호 회전 하는 동안 자동으로 닫기 알 수 있습니다.  이 동작이 예상 되 고 경고를 무시할 수 있습니다.  연산자를 실행 하 여 이러한 경고의 유효성을 확인할 수 있습니다 **테스트 AzureStack**합니다.  SCOM 모니터링을 사용 하 여 운영자에 대 한 시스템 유지 관리 모드로 배치 하 고 Azure Stack 시스템을 이러한 경고는 ITSM 시스템에 도달 하지 못하도록 없게 되지만 Azure Stack 시스템에 연결할 수 없는 경우 경고를 발생 시 계속 됩니다.
+2. 운영자는 Azure Stack 비밀이 회전하는 동안 경고가 열리고 자동으로 닫히는 모습을 볼 수 있습니다.  이 동작이 예상 되 고 경고를 무시할 수 있습니다.  연산자를 실행 하 여 이러한 경고의 유효성을 확인할 수 있습니다 **테스트 AzureStack**합니다.  SCOM 모니터링을 사용 하 여 운영자에 대 한 시스템 유지 관리 모드로 배치 하 고 Azure Stack 시스템을 이러한 경고는 ITSM 시스템에 도달 하지 못하도록 없게 되지만 Azure Stack 시스템에 연결할 수 없는 경우 경고를 발생 시 계속 됩니다.
 
 3. 유지 관리 작업의 사용자를 게 알립니다. 일반 유지 관리 기간을 최대한, 업무 외 시간을 예약 합니다. 유지 관리 작업 사용자 워크 로드와 포털 작업에 영향을 줄 수 있습니다.
 
@@ -122,7 +122,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 > **.\Certificates\AAD** 나 ***.\Certificates\ADFS*** Azure Stack에 사용 되는 Id 공급자에 따라
 >
 > 로 끝나는 폴더 구조에 가장 중요 한 것 **AAD** 하거나 **ADFS** 폴더와 모든 하위 디렉터리는이 구조 내에서 고, 그렇지 **시작-SecretRotation**으로 표시 됩니다.
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 1. 새로 만든 내 **\Certificates\\\<IdentityProvider >** 전 단계에서 만든 디렉터리에 따라 디렉터리 구조에 새 대체 외부 인증서 집합을 배치 합니다 필수 인증서 섹션에 설명 된 형식으로 된 [Azure Stack PKI 인증서 요구 사항](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates)합니다.
 
     AAD Id 공급자에 대 한 폴더 구조의 예:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
     > [!Note]
     > 비밀 회전 실패 하면 오류 메시지의 지침에 따라 하 고 다시 실행 **시작 SecretRotation** 사용 하 여 합니다 **-다시 실행** 매개 변수입니다.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     비밀 회전 오류가 반복 하는 발생 하는 경우 지원에 문의 하세요.
@@ -220,7 +220,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 
 다음 PowerShell 예제에서는 cmdlet 및 암호를 회전 하기 위해 실행 매개 변수를 보여 줍니다.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ Remove-PSSession -Session $PEPSession
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,25 +270,25 @@ Azure Stack 시스템의 암호를 회전합니다. Azure Stack 권한 있는 �
 
 #### <a name="for-external-secret-rotation"></a>외부 비밀 회전
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>내부 비밀 회전
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>다시 실행 하는 외부 암호 회전
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>다시 실행 하는 내부 비밀 회전
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -312,7 +312,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 이 통해 Azure Stack에 실행 해야 [환경에는 끝점 권한 있는](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ PS C:\> Start-SecretRotation -Internal
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>외부 인프라 비밀만 회전  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Remove-PSSession -Session $PEPSession
 >
 > ***1811 +* 내부 모두 회전할 수 및 외부 인증서를 더 이상!!!**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Remove-PSSession -Session $PEPSession
 
 베이스 보드 관리 컨트롤러 (BMC) 서버의 실제 상태를 모니터링합니다. 사양 및 사용자 계정 이름 및 암호에 BMC의 업데이트에 대 한 지침에는 원래 장비 제조업체 (OEM) 하드웨어 공급 업체에 따라 달라 집니다. 정기적으로 Azure Stack 구성 요소에 대 한 암호를 업데이트 해야 합니다.
 
-1. Azure Stack 물리적 서버에서 BMC에 OEM 지침에 따라 업데이트 합니다. 사용자 계정 이름 및 사용자 환경에서 각 BMC에 대 한 암호에는 동일 해야 합니다.
+1. Azure Stack 물리적 서버에서 BMC에 OEM 지침에 따라 업데이트 합니다. 사용자 이름 및 사용자 환경에서 각 BMC에 대 한 암호에는 동일 해야 합니다. BMC 사용자 이름이 16 자를 초과할 수 없습니다는 참고 합니다.
 2. Azure Stack 세션에서 권한 있는 끝점을 엽니다. 자세한 내용은 [권한 있는 끝점을 사용 하 여 Azure Stack에서](azure-stack-privileged-endpoint.md)합니다.
 3. 프롬프트에 변경 된 후에 PowerShell **[IP 주소 또는 ERCS VM 이름]: PS >** 또는 **[azs ercs01]: PS >** 실행 환경에 따라 `Set-BmcCredential` 실행 하 여 `Invoke-Command`입니다. 권한 있는 끝점 세션 변수를 매개 변수로 전달 합니다. 예를 들면 다음과 같습니다.
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ Remove-PSSession -Session $PEPSession
 
     또한 암호를 사용 하 여 코드 줄으로 정적 PowerShell 버전을 사용할 수 있습니다.
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

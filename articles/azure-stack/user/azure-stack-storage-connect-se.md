@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763370"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622011"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage 탐색기는 Azure Stack 구독 또는 저장소 계정에 연결
 
@@ -49,25 +49,27 @@ Azure Stack 또는 Azure Stack 구독에 액세스 하려면 storage 탐색기�
 
 1. 열기 `mmc.exe` Azure Stack 호스트 컴퓨터를 또는 Azure Stack에 VPN 연결을 사용 하 여 로컬 컴퓨터입니다. 
 
-2. **파일**를 선택 **스냅인 추가/제거**를 추가한 다음 **인증서** 관리 하 **내 사용자 계정**합니다.
+2. **파일**를 선택 **스냅인 추가/제거**합니다. 선택 **인증서** 스냅인 사용할 수 있습니다. 
 
-3.  아래 **Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates 콘솔**합니다. Find **AzureStackSelfSignedRootCert**.
+3. **컴퓨터 계정**을 선택하고, **다음**을 선택합니다. 선택 **로컬 컴퓨터**를 선택한 후 **마침**합니다.
+
+4.  아래 **Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates 콘솔**합니다. Find **AzureStackSelfSignedRootCert**.
 
     ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. 인증서를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **모든 작업** > **내보내기**를 사용 하 여 인증서를 내보내려면 지침에 따라 **Base-64로 인코딩된 X.509 (. CER)** 합니다.
+5. 인증서를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **모든 작업** > **내보내기**를 사용 하 여 인증서를 내보내려면 지침에 따라 **Base-64로 인코딩된 X.509 (. CER)** 합니다.
 
     내보낸 인증서는 다음 단계에서 사용됩니다.
 
-5. Storage 탐색기 시작 표시 하는 경우는 **Azure Storage에 연결** 대화 상자에서 취소 합니다.
+6. Storage 탐색기 시작 표시 하는 경우는 **Azure Storage에 연결** 대화 상자에서 취소 합니다.
 
-6. 에 **편집할** 메뉴에서 **SSL 인증서**를 선택한 후 **인증서 가져오기**. 파일 선택 대화 상자를 사용하여 이전 단계에서 내보낸 인증서를 찾아 엽니다.
+7. 에 **편집할** 메뉴에서 **SSL 인증서**를 선택한 후 **인증서 가져오기**. 파일 선택 대화 상자를 사용하여 이전 단계에서 내보낸 인증서를 찾아 엽니다.
 
     인증서를 가져온 후 storage 탐색기를 다시 시작할 것인지 묻는 메시지가 나타납니다.
 
     ![Storage 탐색기로 인증서 가져오기](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Storage 탐색기는 다음 작업을 다시 시작 되 면 선택 합니다 **편집** 하는지 확인 하 고 메뉴에서 **대상 Azure Stack** 을 선택 합니다. 그렇지 않은 경우 선택 **대상 Azure Stack**, 한 다음 변경 내용을 적용 하려면 storage 탐색기를 다시 시작 합니다. 이 구성은 Azure Stack 환경과의 호환성을 위해 필요합니다.
+8. Storage 탐색기는 다음 작업을 다시 시작 되 면 선택 합니다 **편집** 하는지 확인 하 고 메뉴에서 **대상 Azure Stack Api** 을 선택 합니다. 그렇지 않은 경우 선택 **대상 Azure Stack**, 한 다음 변경 내용을 적용 하려면 storage 탐색기를 다시 시작 합니다. 이 구성은 Azure Stack 환경과의 호환성을 위해 필요합니다.
 
     ![대상 Azure Stack이 선택되었는지 확인](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Storage 탐색기는 Azure Active Directory (Azure AD) 계정에 속한 Azure St
 
     ![Azure Stack 계정 추가](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Azure Storage 대화 상자에 연결에서 아래 **Azure 환경**를 선택 **Azure** 또는 **Azure 중국**사용 되는 Azure Stack 계정에 따라 다름, 선택 **로그인** 하나 이상의 활성 Azure Stack 구독과 연결 된 Azure Stack 계정으로 로그인 합니다.
+3. Azure Storage 대화 상자에 연결에서 아래 **Azure 환경**를 선택 **Azure**를 **Azure 중국**, **Azure Germany**,  **Azure 미국 정부**, 또는 **새 환경 추가**에 사용 되는 Azure Stack 계정에 따라 다릅니다. 선택 **로그인** 하나 이상의 활성 Azure Stack 구독과 연결 된 Azure Stack 계정으로 로그인 합니다.
 
     ![Azure Storage에 연결](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

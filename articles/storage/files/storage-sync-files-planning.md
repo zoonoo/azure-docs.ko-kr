@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480722"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918640"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -278,6 +278,8 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 동아시아           | 동남아시아     |
 | 미국 동부             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
+| 한국 중부       | 한국 남부        |
+| 한국 남부         | 한국 중부      |
 | 북유럽        | 서유럽        |
 | 미국 중북부    | 미국 중남부   |
 | 인도 남부         | 인도 중부      |
@@ -292,7 +294,7 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 
 ## <a name="next-steps"></a>다음 단계
 * [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
-* [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+* [Azure Files 배포에 대한 계획](storage-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 * [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

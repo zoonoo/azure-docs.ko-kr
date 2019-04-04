@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871214"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905735"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Monitor에서 Log Analytics 작업 영역을 배포하는 방법을 보여 줍니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
-
 
 * 구독의 Azure 리소스  
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터  
@@ -34,15 +31,17 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
  
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
 
-* [Azure 가상 머신에서 데이터 수집](../learn/quick-collect-azurevm.md)
-* [하이브리드 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md)
-* [하이브리드 Windows 컴퓨터에서 데이터 수집](quick-collect-windows-computer.md)
+* [Azure virtual machines에서 데이터를 수집 합니다.](../learn/quick-collect-azurevm.md)
+* [하이브리드 Linux 컴퓨터에서 데이터를 수집 합니다.](../learn/quick-collect-linux-computer.md)
+* [하이브리드 Windows 컴퓨터에서 데이터를 수집 합니다.](quick-collect-windows-computer.md)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.7.0, AzureRM 또는 Az 모듈 버전 1.0.0 설치 하 고 PowerShell을 로컬로 사용 하려는 경우 이상. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+설치 하 고 PowerShell을 로컬로 사용 하려는 경우이 자습서는 Azure PowerShell Az 모듈을 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 사용 하 여 작업 영역 만들기 [새로 만들기-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)합니다. 다음 예제에서는 로컬 머신의 Resource Manager 템플릿을 사용하여 *eastus* 위치의 리소스 그룹 *Lab*에 *TestWorkspace*라는 작업 영역을 생성합니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 

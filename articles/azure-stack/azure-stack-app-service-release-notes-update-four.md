@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: c8900e639e6baba29067c50d4ac754d4dbda2dd6
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991084"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449233"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service에서 Azure Stack 업데이트 4 릴리스 정보
 
@@ -64,6 +64,8 @@ Azure Stack 업데이트 4의 azure App Service는 다음과 같은 향상 된 �
 - App Service 2018-02-01 API 버전에 대 한 지원 추가
 
 - 업데이트 **테 넌 트 앱 서비스, 관리자의 경우 함수 포털 및 Kudu 도구**합니다. Azure Stack 포털 SDK 버전과 일치 합니다.
+
+- 업데이트가 **Azure Functions 런타임은** 하 **v1.0.11959**합니다.
 
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 

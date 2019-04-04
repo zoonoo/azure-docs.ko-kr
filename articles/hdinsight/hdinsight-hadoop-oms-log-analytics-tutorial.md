@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 399a6bcb6e0bfd0edaddca471ba2c8e0802d3394
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886454"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904783"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight 클러스터 모니터링을 사용 하 여 Azure Monitor 로그
 
-HDInsight, Hadoop 클러스터 작업을 모니터링 하려면 Azure Monitor 로그를 사용 하도록 설정 하는 방법과 HDInisght 모니터링 솔루션을 추가 하는 방법에 알아봅니다.
+HDInsight, Hadoop 클러스터 작업을 모니터링 하려면 Azure Monitor 로그를 사용 하는 방법 및 솔루션을 모니터링 하는 HDInsight를 추가 하는 방법에 알아봅니다.
 
 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 는 클라우드를 모니터링 하 고 온-프레미스 환경의 해당 가용성 및 성능을 유지 하는 Azure Monitor의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
 

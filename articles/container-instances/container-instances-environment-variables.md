@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370001"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904902"
 ---
 # <a name="set-environment-variables"></a>환경 변수 설정
 
@@ -25,6 +25,8 @@ ms.locfileid: "58370001"
 *MinLength*: 계산되는 단어의 최소 문자 수입니다. 숫자가 높을수록 "of" 및 "the"와 같은 일반적인 단어를 무시합니다.
 
 환경 변수로 비밀을 전달해야 하는 경우 Azure Container Instances는 Windows와 Linux 컨테이너 모두에 사용 가능한 [보안 값](#secure-values)을 지원합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Azure CLI 예제
 
@@ -141,7 +143,7 @@ Azure:\
 
 Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려면 컨테이너를 만들 때 **구성** 페이지에서 지정합니다.
 
-포털로 배포할 때 현재 세 개의 변수로 제한되며, 이 `"variableName":"value"` 형식으로 입력해야 합니다.
+포털을 사용 하 여 배포할 때 세 개의 변수를 현재 제한 및이 형식으로 입력 해야 합니다. `"variableName":"value"`
 
 예를 보려면 시작 합니다 [aci wordcount] [ aci-wordcount] 사용 하 여 컨테이너를 *NumWords* 및 *MinLength* 변수입니다.
 
@@ -255,6 +257,6 @@ my-secret-value
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

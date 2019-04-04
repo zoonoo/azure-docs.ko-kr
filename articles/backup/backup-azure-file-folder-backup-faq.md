@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827417"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918572"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -116,10 +116,10 @@ Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송
 서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다. Backup 자격 증명 모음에 서버의 새 이름을 등록합니다. 자격 증명 모음에 새 이름을 등록하면 첫 번째 백업 작업은 *전체* 백업입니다. 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우에는 **데이터 복구** 마법사의 [**다른 서버**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 옵션을 사용합니다.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Azure Backup 에이전트를 사용하여 Backup 정책에서 지정할 수 있는 최대 파일 경로 길이는 무엇인가요? <br/>
-Azure Backup 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). 보호하려는 파일의 경로가 Windows API에 허용되는 길이보다 긴 경우 상위 폴더 또는 디스크 드라이브를 백업합니다.  
+Azure Backup 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). 보호하려는 파일의 경로가 Windows API에 허용되는 길이보다 긴 경우 상위 폴더 또는 디스크 드라이브를 백업합니다.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup 에이전트를 사용하는 Azure Backup 정책의 파일 경로에 어떤 문자가 허용되나요? <br>
- Azure Backup 에이전트는 NTFS에 의존합니다. 파일 사양의 일부분으로 [NTFS 지원 문자](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) 를 사용할 수 있습니다. 
+ Azure Backup 에이전트는 NTFS에 의존합니다. 파일 사양의 일부분으로 [NTFS 지원 문자](/windows/desktop/FileIO/naming-a-file#naming_conventions) 를 사용할 수 있습니다. 
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>백업 정책을 구성했는데도 "Azure Backup이 이 서버에 대해 구성되지 않았습니다"라는 경고가 표시됩니다. <br/>
 이 경고는 로컬 서버에 저장된 백업 일정 설정과 백업 자격 증명 모음에 저장된 설정이 동일하지 않은 경우에 발생합니다. 서버 혹은 설정이 좋은 상태로 복구된 경우, 백업 일정은 동기화를 잃을 수 있습니다. 이 경고가 발생하면 [백업 정책을 다시 구성](backup-azure-manage-windows-server.md) 한 다음 **지금 백업 실행** 을 수행하여 로컬 서버를 Azure와 다시 동기화합니다.

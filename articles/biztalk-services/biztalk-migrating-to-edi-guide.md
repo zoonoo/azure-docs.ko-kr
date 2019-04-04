@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: e6f0b11c99cbe8778b51024c418ffba70da61a77
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983033"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917382"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 
@@ -32,7 +32,7 @@ EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교�
 
 일부 고객은 BizTalk Services를 새로운 EDI 솔루션을 위한 "최적의" 플랫폼으로 보고 있지만, 많은 고객들은 최신 BizTalk Server EDI 솔루션을 사용하고 있으며 이 버전을 Azure로 마이그레이션하려고 할 수 있습니다. BizTalk Services EDI는 BizTalk Server EDI 아키텍처(거래 파트너, 엔터티, 규약)와 동일한 주요 엔터티에 기반을 둔 아키텍처로 설계되었으며, BizTalk Server EDI 아키텍처를 BizTalk Services로 마이그레이션할 수 있습니다.
 
-이 문서에서는 BizTalk Server EDI를 BizTalk Services에 마이그레이션 하는 데 관련된 차이점 중 일부에 대해 설명합니다. 이 문서에서는 BizTalk Server EDI 처리 및 거래 파트너 규약에 대한 실무 지식이 있다고 가정 합니다. BizTalk Server EDI에 대한 자세한 내용은 [BizTalk Server를 사용하여 거래 파트너 관리](https://msdn.microsoft.com/library/bb259970.aspx)를 참조하세요.
+이 문서에서는 BizTalk Server EDI를 BizTalk Services에 마이그레이션 하는 데 관련된 차이점 중 일부에 대해 설명합니다. 이 문서에서는 BizTalk Server EDI 처리 및 거래 파트너 규약에 대한 실무 지식이 있다고 가정 합니다. BizTalk Server EDI에 대한 자세한 내용은 [BizTalk Server를 사용하여 거래 파트너 관리](/biztalk/core/trading-partner-management-using-biztalk-server)를 참조하세요.
 
 ## <a name="which-version-of-biztalk-server-edi-artifacts-can-be-migrated-to-biztalk-services"></a>BizTalk Services에 어떤 버전의 BizTalk Server EDI 아티팩트를 마이그레이션할 수 있나요?
 파트너, 프로필 및 규약을 포함하도록 리모델링 되었을 때 BizTalk Server EDI 모듈이 BizTalk Server 2010에 대해 크게 향상 되었습니다. BizTalk Services는 거래 파트너와 해당 거래 파트너 내 사업부를 구성하는 데 동일한 모델을 사용합니다. 결과적으로, BizTalk Server 2010 이상 버전의 EDI 아티팩트를 BizTalk Services에 마이그레이션하는 것이 훨씬 더 수월해졌습니다. BizTalk Server 2010 이전 버전에 관련된 EDI 아티팩트를 마이그레이션하려면 먼저 BizTalk Server 2010으로 업그레이드한 다음 BizTalk Services에 EDI 아티팩트를 마이그레이션합니다.
@@ -65,10 +65,10 @@ BizTalk Services는 Microsoft Azure Compute 인스턴스(웹 또는 작업자 �
 이 문서는 BizTalk Services에 다른 BizTalk Server EDI 아티팩트 중 일부를 마이그레이션하는 데 대한 개념적 지침을 제공합니다.
 
 ## <a name="sendreceive-ports-to-trading-partners"></a>거래 파트너에 대한 송신/수신 포트
-BizTalk Server에서 사용자는 거래 파트너에서 EDI/XML 메시지를 수신하는 수신 위치 및 수신 포트를 설정하고 거래 파트너에게 EDI/XML 메시지를 보낼 송신 포트를 설정합니다. 그런 다음 BizTalk Server 관리 콘솔을 사용하 여 이 포트를 거래 파트너 규약에 연결합니다. BizTalk Services에서 거래 파트너로부터 메시지를 수신하고 거래 파트너에 메시지를 전송하는 위치는 BizTalk Services 포털에서 거래 파트너 규약 자체의 일부(전송 설정의 일부)로 구성됩니다.  따라서 BizTalk Services에 그 자체로는 "송신 포트" 및 "수신 위치"의 개념이 실제로는 없습니다. 자세한 내용은 [규약 만들기](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx)를 참조하세요.
+BizTalk Server에서 사용자는 거래 파트너에서 EDI/XML 메시지를 수신하는 수신 위치 및 수신 포트를 설정하고 거래 파트너에게 EDI/XML 메시지를 보낼 송신 포트를 설정합니다. 그런 다음 BizTalk Server 관리 콘솔을 사용하 여 이 포트를 거래 파트너 규약에 연결합니다. BizTalk Services에서 거래 파트너로부터 메시지를 수신하고 거래 파트너에 메시지를 전송하는 위치는 BizTalk Services 포털에서 거래 파트너 규약 자체의 일부(전송 설정의 일부)로 구성됩니다.  따라서 BizTalk Services에 그 자체로는 "송신 포트" 및 "수신 위치"의 개념이 실제로는 없습니다. 자세한 내용은 [규약 만들기](/previous-versions/azure/hh689908(v=azure.100))를 참조하세요.
 
 ## <a name="pipelines-bridges"></a>파이프라인 (브리지)
-BizTalk Server EDI에서 파이프라인은 애플리케이션에서 필요에 따라 특정 처리 능력에 대한 사용자 지정 논리를 포함할 수 있는 메시지 처리 엔터티입니다. BizTalk Services의 경우, 해당하는 서비스는 EDI 브리지일 것입니다. 그러나 지금은 BizTalk Services에서 EDI 브리지는 "닫혀" 있습니다.  즉, 사용자 고유의 사용자 지정 활동을 EDI 브리지에 추가할 수 없습니다. 모든 사용자 지정 처리는 메시지를 거래 파트너 규약의 일부로 구성된 브리지에 입력하기 이전 또는 이후에 애플리케이션에서 EDI 브리지 외부로 수행해야 합니다. EAI 브리지에는 사용자 지정 처리를 수행하는 옵션이 제공 됩니다. 사용자 지정 처리를 원하는 경우, 메시지를 EAI 브리지로 처리하기 이전 또는 이후에 EAI 브리지를 사용할 수 있습니다. 자세한 내용은 [브리지에 사용자 지정 코드를 포함하는 방법](https://msdn.microsoft.com/library/azure/dn232389.aspx)을 참조하세요.
+BizTalk Server EDI에서 파이프라인은 애플리케이션에서 필요에 따라 특정 처리 능력에 대한 사용자 지정 논리를 포함할 수 있는 메시지 처리 엔터티입니다. BizTalk Services의 경우, 해당하는 서비스는 EDI 브리지일 것입니다. 그러나 지금은 BizTalk Services에서 EDI 브리지는 "닫혀" 있습니다.  즉, 사용자 고유의 사용자 지정 활동을 EDI 브리지에 추가할 수 없습니다. 모든 사용자 지정 처리는 메시지를 거래 파트너 규약의 일부로 구성된 브리지에 입력하기 이전 또는 이후에 애플리케이션에서 EDI 브리지 외부로 수행해야 합니다. EAI 브리지에는 사용자 지정 처리를 수행하는 옵션이 제공 됩니다. 사용자 지정 처리를 원하는 경우, 메시지를 EAI 브리지로 처리하기 이전 또는 이후에 EAI 브리지를 사용할 수 있습니다. 자세한 내용은 [브리지에 사용자 지정 코드를 포함하는 방법](/previous-versions/azure/dn232389(v=azure.100))을 참조하세요.
 
 사용자 지정 코드 및/또는 거래 업체 규약이 메시지를 수신하기 전 또는 규약이 메시지를 처리하고 Service Bus 엔드포인트로 라우팅 후 메시징 큐 및 항목 Service Bus를 사용하여 게시/구독 흐름을 삽입할 수 있습니다.
 
@@ -93,7 +93,7 @@ BizTalk Services 변환의 새로운 기능의 다른 예로는 **루프 작업*
 또 다른 예는 **If Then Else** 식 매핑 작업입니다.  if then else 작업은 BizTalk 매퍼에서 수행할 수 있지만 간단해 보이는 작업을 수행 하는 데 여러 펑토이드가 필요합니다.
 
 ### <a name="migrating-biztalk-server-maps"></a>BizTalk Server 맵 마이그레이션
-Microsoft Azure BizTalk Services는 BizTalk Services 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**은 [BizTalk Services SDK 다운로드](https://go.microsoft.com/fwlink/p/?LinkId=235057)와 함께 제공되는 **도구** 패키지의 일부로 사용할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk Services 변환으로 변환](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)을 참조하세요.
+Microsoft Azure BizTalk Services는 BizTalk Services 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**은 [BizTalk Services SDK 다운로드](https://go.microsoft.com/fwlink/p/?LinkId=235057)와 함께 제공되는 **도구** 패키지의 일부로 사용할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk Services 변환으로 변환](/previous-versions/azure/hh949812(v=azure.100))을 참조하세요.
 
 [BizTalk Server 맵을 BizTalk Services 변환으로 마이그레이션](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)하는 방법에 대해서는 BizTalk MVP인 Sandro Pereira가 제공한 샘플을 살펴볼 수도 있습니다.
 
@@ -103,13 +103,13 @@ BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레�
 * [*WCF 워크플로 서비스를 Service Bus 큐 및 항목과 통합하는 방법*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo salvatori 작성. 
 * 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](https://go.microsoft.com/fwlink/p/?LinkId=237314).
 * [*Windows Workflow Foundation 개발자 센터*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10))합니다.
-* MSDN의 [*WF4(Windows Workflow Foundation 4) 설명서*](https://msdn.microsoft.com/library/dd489441.aspx).
+* MSDN의 [*WF4(Windows Workflow Foundation 4) 설명서*](/dotnet/framework/windows-workflow-foundation/index).
 
 ## <a name="other-considerations"></a>기타 고려 사항
 BizTalk Services를 사용하는 동안 확인 해야 하는 몇가지 고려 사항은 다음과 같습니다.
 
 ### <a name="fallback-agreements"></a>대체(fallback) 계약
-BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizTalk Services에는 지금까지 대체 규약 개념이 **없습니다** .  BizTalk Server에서 대체 계약을 사용하는 방법에 대한 자세한 내용은 BizTalk 설명서 항목인 [EDI 처리에서 계약의 역할](https://go.microsoft.com/fwlink/p/?LinkId=237317) 및 [전역 구성 또는 대체 규약 속성](https://msdn.microsoft.com/library/bb245981.aspx)을 참조하세요.
+BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizTalk Services에는 지금까지 대체 규약 개념이 **없습니다** .  BizTalk Server에서 대체 계약을 사용하는 방법에 대한 자세한 내용은 BizTalk 설명서 항목인 [EDI 처리에서 계약의 역할](https://go.microsoft.com/fwlink/p/?LinkId=237317) 및 [전역 구성 또는 대체 규약 속성](/biztalk/core/configuring-global-or-fallback-agreement-properties)을 참조하세요.
 
 ### <a name="routing-to-multiple-destinations"></a>여러 대상으로 라우팅
 현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 엔드포인트에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.

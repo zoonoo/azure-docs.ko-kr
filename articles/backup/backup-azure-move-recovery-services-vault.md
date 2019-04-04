@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199247"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905769"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure 구독 및 리소스 그룹(제한된 공개 미리 보기)에서 Recovery Services 자격 증명 모음 이동
 
@@ -21,6 +21,8 @@ ms.locfileid: "58199247"
 
 > [!NOTE]
 > Recovery Services 자격 증명 모음 및 해당 관련된 리소스와 다른 리소스 그룹으로 이동 하려면 해야 먼저 [원본 구독을 등록](#register-the-source-subscription-to-move-your-recovery-services-vault)합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>자격 증명 모음 이동을 위한 필수 구성 요소
 
@@ -50,24 +52,24 @@ ms.locfileid: "58199247"
 1. Azure 계정에 로그인
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. 등록하려는 구독 선택
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. 이 구독 등록
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. 명령 실행
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Azure Portal 또는 PowerShell을 사용하여 이동 작업을 시작하기 전에 구독이 허용 목록에 추가되도록 30분 정도 기다립니다.
@@ -137,18 +139,18 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 
 ## <a name="use-powershell-to-move-a-vault"></a>PowerShell을 사용하여 자격 증명 모음 이동
 
-Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동하려면 `Move-AzureRMResource` cmdlet을 사용합니다. `Move-AzureRMResource`에는 리소스 이름 및 리소스 종류가 필요합니다. `Get-AzureRmRecoveryServicesVault` cmdlet에서 가져올 수 있습니다.
+Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동하려면 `Move-AzResource` cmdlet을 사용합니다. `Move-AzResource` 리소스 이름 및 리소스의 형식에 필요합니다. `Get-AzRecoveryServicesVault` cmdlet에서 가져올 수 있습니다.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 리소스를 다른 구독으로 이동하기 위해 `-DestinationSubscriptionId` 매개 변수를 포함합니다.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 위의 cmdlet을 실행한 후 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. **Y**를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.

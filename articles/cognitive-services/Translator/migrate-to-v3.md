@@ -3,19 +3,19 @@ title: V3으로 마이그레이션 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API의 V2에서 V3으로 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916719"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -44,13 +44,13 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 | V2 API 메서드   | V3 API 호환성 |
 |:----------- |:-------------|
 | `Translate`     | [번역](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [번역](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [언어](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [언어](reference/v3-0-languages.md)       |
+| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [검색](reference/v3-0-detect.md)         |
-| `DetectArray`     | [검색](reference/v3-0-detect.md)         |
+| `Detect`     | [Detect](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 기능은 더 이상 지원되지 않습니다.       |
 | `AddTranslationArray`    | 기능은 더 이상 지원되지 않습니다.          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -112,7 +112,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 > 
 > Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.   
 
-Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
+Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정 하는 방법에 대 한 자세한 정보](custom-translator/overview.md)
 
 V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
 
@@ -141,8 +141,8 @@ Translator API 버전은 번역 레코드를 만들지 않습니다. 번역은 �
 ## <a name="links"></a>링크
 
 * [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)
-* [Microsoft Azure 법률 정보](https://azure.microsoft.com/support/legal)
-* [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* [Microsoft Azure 법적 정보](https://azure.microsoft.com/support/legal)
+* [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>다음 단계
 

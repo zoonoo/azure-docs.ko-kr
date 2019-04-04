@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549071"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905922"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum 인증 증명 컨소시엄
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
 [이 솔루션](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)은 최소한의 Azure 및 Ethereum 지식으로 다중 멤버 컨소시엄 인증 증명 Ethereum 네트워크를 더 쉽게 배포, 구성 및 관리할 수 있도록 설계되었습니다.
@@ -218,7 +220,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 리소스 그룹|컨소시엄 네트워크를 배포하는 리소스 그룹입니다.||해당 없음
 위치|리소스 그룹에 대한 Azure 지역입니다.||해당 없음
 
-샘플 배포는 다음과 같습니다. ![기본 사항 블레이드](./media/ethereum-poa-deployment/basic-blade.png)
+배포 하는 샘플은 아래 참조: ![기본 블레이드](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>배포 지역
 
@@ -235,7 +237,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
   네 번째 지역|컨소시엄 네트워크를 배포하는 네 번째 지역(지역 수를 4로 선택한 경우에만 볼 수 있음)|모든 허용된 Azure 지역|해당 없음
   다섯 번째 지역|컨소시엄 네트워크를 배포하는 다섯 번째 지역(지역 수를 5로 선택한 경우에만 볼 수 있음)|모든 허용된 Azure 지역|해당 없음
 
-샘플 배포는 다음과 같습니다. ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
+배포 하는 샘플은 아래 참조: ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>네트워크 크기 및 성능
 
@@ -250,9 +252,9 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
   유효성 검사기 노드 저장소 성능|배포한 유효성 검사기 노드 각각을 지원하는 관리 디스크의 유형입니다.|표준 SSD 및 프리미엄|표준 SSD
   유효성 검사기 노드 가상 머신 크기|유효성 검사기 노드에 사용되는 가상 머신 크기입니다.|표준 A, 표준 D, 표준 D-v2, 표준 F 시리즈, 표준 DS 및 표준 FS|표준 D1 v2
 
-[저장소 가격 정보](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Storage 가격 정보](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-[가상 머신 가격 정보](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+[가상 머신 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
 가상 머신 및 저장소 계층에는 네트워크 성능은 떨어지게 됩니다.  원하는 비용 효율성에 따라 다음 SKU를 사용하는 것이 좋습니다.
 
@@ -262,7 +264,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
   D2_v3|표준 SSD|중간|중간|중간
   F16s|프리미엄 SSD|높음|높음|낮음
 
-샘플 배포는 다음과 같습니다: ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
+배포 하는 샘플은 아래 참조: ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Ethereum 설정
 
@@ -281,7 +283,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 블록 다시 봉인 기간(초)|네트워크에 트랜잭션이 없을 때 빈 블록이 작성되는 빈도입니다. 빈도가 높으면 블록이 더 빨리 작성되지만 저장소 비용이 증가합니다.|임의의 숫자|15
 트랜잭션 권한 계약(고급 옵션 = 사용)|트랜잭션 권한 지정 계약에 대한 바이트 코드입니다. 스마트 계약 배포 및 Ethereum 계정의 허용된 목록에 실행을 제한합니다.|계약 바이트 코드|해당 없음
 
-샘플 배포는 다음과 같습니다: ![Ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
+배포 하는 샘플은 아래 참조: ![ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>모니터링
 
@@ -298,7 +300,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 기존 log analytics에 대 한 키 정보 (기존 Azure Monitor 로그 연결할 기존 조인 =)|기존 Azure Monitor 로그 인스턴스에 연결 하는 데 기본 키||해당 없음
 
 
-샘플 배포는 다음과 같습니다. ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+배포 하는 샘플은 아래 참조: ![azure 모니터](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>요약
 
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,10 +407,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### <a name="service-monitoring"></a>서비스 모니터링

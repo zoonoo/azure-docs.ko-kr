@@ -11,22 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.lastreviewed: 04/04/2019
+ms.openlocfilehash: ee98aee0873796c2a06db73d3365e3ff9ef87ccf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187764"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915886"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보
 
 이 문서는 변경 내용, 수정 및 알려진된 문제에는 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](../azure-stack-updates.md#determine-the-current-version)합니다.
 
 에서 새로운 기능을 ASDK 구독 하 여 최신 합니다 [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [피드](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)합니다.
+
+## <a name="build-1903"></a>1903 빌드
+
+1903 페이로드는 ASDK 릴리스에 포함 되지 않습니다.
 
 ## <a name="build-11902069"></a>1.1902.0.69 빌드
 

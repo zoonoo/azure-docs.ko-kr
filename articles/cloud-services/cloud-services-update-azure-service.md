@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008096"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917229"
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "39008096"
 ## <a name="update-an-azure-service"></a>Azure 서비스 업데이트
 Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다.  Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
 
-업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. upgradeDomainCount 특성에 대한 자세한 내용은 [WebRole 스키마](https://msdn.microsoft.com/library/azure/gg557553.aspx) 또는 [WorkerRole 스키마](https://msdn.microsoft.com/library/azure/gg557552.aspx)를 참조하세요.
+업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. upgradeDomainCount 특성에 대한 자세한 내용은 [WebRole 스키마](/previous-versions/azure/reference/gg557553(v=azure.100)) 또는 [WorkerRole 스키마](/previous-versions/azure/reference/gg557552(v=azure.100))를 참조하세요.
 
 서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds) 을 참조하세요.
 
@@ -60,7 +60,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 | 로컬 저장소 설정 |증가만<sup>2</sup> |예 |예 |
 | 서비스에서 역할 추가 또는 제거 |예 |예 |예 |
 | 특정 역할의 인스턴스 수 |예 |예 |예 |
-| 서비스에 대한 끝점의 개수 또는 유형 |예<sup>2</sup> |아니오 |예 |
+| 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아닙니다. |예 |
 | 구성 설정의 이름 및 값 |예 |예 |예 |
 | 구성 설정의 값(이름 제외) |예 |예 |예 |
 | 새 인증서 추가 |예 |예 |예 |
@@ -82,7 +82,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 * 업그레이드 도메인 수 변경
 * 로컬 리소스의 크기 줄이기.
 
-서비스 정의에 로컬 리소스의 크기 줄이기와 같은 다른 업데이트를 하는 경우 대신 VIP 교환 업데이트를 수행해야 합니다. 자세한 내용은 [교환 배포](https://msdn.microsoft.com/library/azure/ee460814.aspx)를 참조하세요.
+서비스 정의에 로컬 리소스의 크기 줄이기와 같은 다른 업데이트를 하는 경우 대신 VIP 교환 업데이트를 수행해야 합니다. 자세한 내용은 [교환 배포](/previous-versions/azure/reference/ee460814(v=azure.100))를 참조하세요.
 
 <a name="howanupgradeproceeds"></a>
 
@@ -121,7 +121,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>업데이트 롤백
-Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 수락된 후 서비스에 추가 작업을 시작할 수 있도록 하여 업데이트하는 동안 서비스 관리에 유연성을 제공합니다. 배포에서 업데이트(구성 변경) 또는 업그레이드가 **진행 중** 상태일 때 롤백을 수행할 수 있습니다. 업데이트 또는 업그레이드는 아직 새 버전으로 업데이트되지 않은 서비스의 인스턴스가 하나 이상 있는 한 진행 중인 것으로 간주됩니다. 롤백이 허용되는지 여부를 테스트하려면 [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업으로 반환되는 RollbackAllowed 플래그의 값이 true로 설정되었는지 확인합니다.
+Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 수락된 후 서비스에 추가 작업을 시작할 수 있도록 하여 업데이트하는 동안 서비스 관리에 유연성을 제공합니다. 배포에서 업데이트(구성 변경) 또는 업그레이드가 **진행 중** 상태일 때 롤백을 수행할 수 있습니다. 업데이트 또는 업그레이드는 아직 새 버전으로 업데이트되지 않은 서비스의 인스턴스가 하나 이상 있는 한 진행 중인 것으로 간주됩니다. 롤백이 허용되는지 여부를 테스트하려면 [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100)) 작업으로 반환되는 RollbackAllowed 플래그의 값이 true로 설정되었는지 확인합니다.
 
 > [!NOTE]
 > VIP 교환 업그레이드는 실행 중인 서비스의 전체 인스턴스를 다른 것으로 교체하는 것을 포함하므로 **전체** 업데이트 또는 업그레이드의 롤백을 호출하는 것이 적합합니다.
@@ -135,13 +135,13 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
 
 다음과 같은 기능으로 이 기능이 제공됩니다.
 
-* 아직 새 버전으로 업데이트되지 않은 서비스에 하나 이상의 인스턴스가 있는 한 구성 업데이트([배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx)을 호출하여 트리거됨) 또는 업그레이드([업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하여 트리거됨)에서 호출될 수 있는 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업.
-* [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업의 응답 본문의 일부로 반환되는 Locked 요소 및 RollbackAllowed 요소
+* 아직 새 버전으로 업데이트되지 않은 서비스에 하나 이상의 인스턴스가 있는 한 구성 업데이트([배포 구성 변경](/previous-versions/azure/reference/ee460809(v=azure.100))을 호출하여 트리거됨) 또는 업그레이드([업그레이드 배포](/previous-versions/azure/reference/ee460793(v=azure.100))를 호출하여 트리거됨)에서 호출될 수 있는 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)) 작업.
+* [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100)) 작업의 응답 본문의 일부로 반환되는 Locked 요소 및 RollbackAllowed 요소
 
   1. Locked 요소를 사용하면 지정된 배포에서 변경 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
-  2. RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
+  2. RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
 
-  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. "x-ms-버전: 2011-10-01" 이상 버전으로 설정된 요청 헤더를 사용하여 해당 메서드가 호출되는 경우 해당 요소는 반환됩니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](https://msdn.microsoft.com/library/azure/gg592580.aspx)를 참조하세요.
+  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. 이러한 요소는으로 설정 된 요청 헤더를 사용 하 여 두이 메서드는 호출 하는 경우에 반환 됩니다 "x-ms-버전: 2011-10-01 "이상 버전. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 업데이트 또는 업그레이드의 롤백이 지원되지 않는 경우는 다음과 같습니다.
 
@@ -149,9 +149,9 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
 * 할당량 제한 - 업데이트가 규모 축소 작업이었던 경우 롤백 작업을 완료할 충분한 계산 할당량이 없게 됩니다. 각 Azure 구독에는 해당 구독에 속하는 모든 호스팅된 서비스에서 사용할 수 있는 코어의 최대 수를 지정하는 연결된 할당량이 있습니다. 특정 업데이트의 롤백 수행으로 구독이 할당량을 초과하게 되는 경우 해당 롤백을 사용할 수 없습니다.
 * 경합 상태 - 초기 업데이트가 완료된 경우 롤백할 수 없습니다.
 
-업데이트 롤백이 유용한 경우의 예는 Azure 호스티드 서비스로 주요 전체 업그레이드가 롤아웃되는 속도를 제어하도록 수동 모드에서 [업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx) 작업을 수행하는 경우입니다.
+업데이트 롤백이 유용한 경우의 예는 Azure 호스티드 서비스로 주요 전체 업그레이드가 롤아웃되는 속도를 제어하도록 수동 모드에서 [업그레이드 배포](/previous-versions/azure/reference/ee460793(v=azure.100)) 작업을 수행하는 경우입니다.
 
-업그레이드를 롤아웃하는 동안 수동 모드에서 [배포 업그레이드](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하고 업그레이드 도메인을 시작합니다. 어느 시점에서 업그레이드를 모니터링할 때 검사하는 첫 번째 업그레이드 도메인의 일부 역할 인스턴스가 응답하지 않게 되는 경우 배포에서 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업을 호출할 수 있습니다. 이 작업은 업그레이드되지 않은 인스턴스 및 이전 서비스 패키지 및 구성으로 업그레이드된 롤백 인스턴스를 그대로 유지합니다.
+업그레이드를 롤아웃하는 동안 수동 모드에서 [배포 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100))를 호출하고 업그레이드 도메인을 시작합니다. 어느 시점에서 업그레이드를 모니터링할 때 검사하는 첫 번째 업그레이드 도메인의 일부 역할 인스턴스가 응답하지 않게 되는 경우 배포에서 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)) 작업을 호출할 수 있습니다. 이 작업은 업그레이드되지 않은 인스턴스 및 이전 서비스 패키지 및 구성으로 업그레이드된 롤백 인스턴스를 그대로 유지합니다.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ Azure 패브릭 컨트롤러에서 서비스 업데이트 또는 업그레이드
 
 첫 번째 업데이트가 진행 중일 동안 두 번째 업데이트 작업을 시작하는 것은 롤백 작업과 유사하게 수행됩니다. 두 번째 업데이트가 자동 모드에 있는 경우 첫 번째 업그레이드 도메인은 동일한 지점에서 오프라인되는 여러 업그레이드 도메인에서 인스턴스를 이끌도록 즉시 업그레이드됩니다.
 
-변경 작업은 다음과 같습니다. [배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx), [배포 업그레이드](https://msdn.microsoft.com/library/azure/ee460793.aspx), [배포 상태 업데이트](https://msdn.microsoft.com/library/azure/ee460808.aspx), [배포 삭제](https://msdn.microsoft.com/library/azure/ee460815.aspx) 및 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+변경 작업은 다음과 같습니다. [배포 구성 변경](/previous-versions/azure/reference/ee460809(v=azure.100)), [배포 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100)), [배포 상태를 업데이트할](/previous-versions/azure/reference/ee460808(v=azure.100))를 [배포를 삭제](/previous-versions/azure/reference/ee460815(v=azure.100)), 및 [롤백 업데이트 또는 업그레이드](/previous-versions/azure/reference/hh403977(v=azure.100))합니다.
 
-두 작업 [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx)는 지정된 배포에서 변경 작업을 호출할 수 있는지 여부를 확인하도록 검사할 수 있는 Locked 플래그를 반환합니다.
+두 작업 [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100))는 지정된 배포에서 변경 작업을 호출할 수 있는지 여부를 확인하도록 검사할 수 있는 Locked 플래그를 반환합니다.
 
-Locked 플래그를 반환하는 이러한 메서드의 버전을 호출하려면 요청 헤더를 "x-ms-버전: 2011-10-01" 이상으로 설정해야 합니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](https://msdn.microsoft.com/library/azure/gg592580.aspx)를 참조하세요.
+Locked 플래그를 반환 하는 이러한 메서드의 버전을 호출 하려면 요청 헤더를 설정 해야 합니다 있습니다 "x-ms-버전: 2011-10-01 "이상. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 <a name="distributiondfroles"></a>
 

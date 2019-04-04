@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7699c9279138aedfdcfe63fb42e65ad102ac92c9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102437"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652470"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -48,14 +48,14 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 
 - Azure Stack 1901 이상:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
+    > Azure Stack 모듈 버전 1.7.1은 크게 변경 되었습니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration171)합니다.
 
   - Azure Stack 1811:
 
@@ -87,7 +87,7 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 
 - **인터넷 연결 없이** ASDK 호스트 컴퓨터에서. 연결이 끊긴 시나리오에서는 먼저 다음 PowerShell 명령을 사용 하 여 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 해야 합니다.
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -99,7 +99,7 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 
   다음으로, ASDK 컴퓨터에 다운로드 한 패키지를 복사할 위치를 기본 저장소로 등록 및이 리포지토리에서 AzureRM 및 azurestack의 경우 모듈을 설치:
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -114,7 +114,7 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 
 [Azurestack의 경우 도구](https://github.com/Azure/AzureStack-Tools) 는 관리 및 Azure Stack에 리소스를 배포 하기 위한 PowerShell 모듈을 호스팅하는 GitHub 리포지토리입니다. 이러한 도구를 얻으려면 GitHub 리포지토리를 복제 하거나 AzureStack 도구 폴더에서 다음 스크립트를 실행 하 여 다운로드 합니다.
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 

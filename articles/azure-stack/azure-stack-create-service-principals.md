@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0f5a4dc76830740d69547a01ce40b5e10cf4a74b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809251"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499411"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
@@ -89,11 +89,11 @@ AD FS를 사용 하 여 서비스 주체 만들기에 두 가지 방법 중 하�
 | Type | 조치 |
 | --- | --- |
 | AD FS 인증서 | [만들기](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS 인증서 | [업데이트](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS 인증서 | [제거](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS 인증서 | [업데이트](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS 인증서 | [제거](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS 클라이언트 암호 | [만들기](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS 클라이언트 암호 | [업데이트](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS 클라이언트 암호 | [제거](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS 클라이언트 암호 | [제거](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>인증서를 사용 하 여 서비스 주체 만들기
 
@@ -124,7 +124,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 cmdlet을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -173,7 +173,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
    > [!Note]  
    > 유효성 검사를 사용 하 여 자체 서명 된 인증서를 만들 수 있습니다 용도로 아래 예제:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -254,7 +254,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 cmdlet을 실행 합니다.
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -272,7 +272,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 2. Cmdlet 실행 후 셸에서 SPN을 사용 하려면 필요한 세부 정보를 표시 합니다. 클라이언트 비밀을 저장 했는지 확인 합니다.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -304,7 +304,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 cmdlet을 실행 합니다.
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -318,7 +318,7 @@ Id에 대 한 AD FS를 사용 하는 동안 서비스 주체를 만들 때 인�
 
 2. 자동화에는 다음이 완료 되 면 새로 생성 된 SPN 인증에 필요한 암호 표시 됩니다. 새 클라이언트 암호를 저장 해야 합니다.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

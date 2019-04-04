@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351068"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915697"
 ---
 # <a name="scaling-media-processing"></a>미디어 처리 크기 조정
 
@@ -47,7 +47,7 @@ Azure Media Services를 사용하면 MRU(미디어 예약 단위)를 관리하�
 > [!NOTE]
 > Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10개의 S3 MRU를 사용하여 계정을 프로비전하는 것이 좋습니다. 10개가 넘는 S3 MRU가 필요한 경우 [Azure Portal](https://portal.azure.com/)을 사용하여 지원 티켓을 엽니다.
 >
-> 현재 다른 v3 리소스를 관리 하는 Azure portal을 사용할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
+> 현재 다른 v3 리소스를 관리 하는 Azure portal을 사용할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>결제
 
-계정에서 MRU를 프로비전하는 개수, 형식 및 시간에 따라 요금이 청구됩니다. 작업을 실행하는지 여부와 상관없이 요금이 부과됩니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
+요금이 청구 됩니다 기반 미디어 예약 단위를 프로 비전 되는 시간 (분)에서 계정에 있습니다. 인지에 관계 없이 이런 계정에서 실행 중인 모든 작업이 있습니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
 
 ## <a name="next-step"></a>다음 단계
 

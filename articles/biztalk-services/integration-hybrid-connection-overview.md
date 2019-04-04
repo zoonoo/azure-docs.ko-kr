@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765546"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918300"
 ---
 # <a name="hybrid-connections-overview"></a>하이브리드 연결 개요
 
@@ -91,12 +91,12 @@ ms.locfileid: "57765546"
 | 80, 443 |이러한 포트는 Azure에 일부 데이터를 요청하는 데 사용됩니다. 또한 포트 9352 및 5671를 사용할 수 없는 경우 *다음으로* 포트 80 및 443가 데이터 전송 및 제어 채널로 사용되는 대체(fallback) 포트입니다.<br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다. <br/><br/>**참고** 다른 TCP 포트 대신 이를 대체(fallback) 포트로 사용하는 것이 좋습니다. HTTP/WebSocket이 데이터 채널에 대한 기본 TCP 대신 프로토콜로 사용됩니다. 성능이 저하될 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+[하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>관련 항목
-[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[Microsoft Azure에서 BizTalk Services를 관리 하기 위한 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))  
 [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)  
-[BizTalk Service 만들기](biztalk-provision-services.md)  
+[BizTalk 서비스 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

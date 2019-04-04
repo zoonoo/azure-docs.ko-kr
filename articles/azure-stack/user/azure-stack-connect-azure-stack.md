@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77cfade382d2c2533b803412157a1d5268e89983
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b7a5aef76ec72b0de76fb4517ffda02808eab9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764322"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882492"
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
@@ -55,7 +55,7 @@ ms.locfileid: "57764322"
 
 개발 키트에는 VPN 연결을 만들려면 로컬 Windows 기반 컴퓨터에서 관리자 권한 PowerShell 세션을 열고 다음 스크립트 (사용자 환경에 대 한 IP 주소 및 암호 값을 업데이트 하도록 확인)를 실행 합니다.
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -92,9 +92,9 @@ Add-AzsVpnConnection `
 
 다음 두 가지 방법 중 하나를 사용 하 여 Azure Stack 인스턴스에 연결 합니다.  
 
-* 사용 하 여는 `Connect-AzsVpn ` 명령: 
+* 사용 하 여는 `Connect-AzsVpn` 명령: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

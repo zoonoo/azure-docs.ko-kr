@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648523"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918725"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
-예약 가상 머신 인스턴스에 Azure Hybrid Use Benefit이 없는 경우, 다음 섹션에 나열된 소프트웨어 미터에 대한 요금이 청구됩니다.
+Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 없는 경우에 다음 섹션에 나열 된 소프트웨어 미터에 대 한 청구 됩니다.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 소프트웨어 요금제는 예약 요금에 포함되지 않습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "58648523"
 
 ## <a name="rates-for-azure-meters"></a>Azure 미터에 대한 요금
 
-Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](https://msdn.microsoft.com/library/azure/mt219004)를 참조하세요.
+Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](/previous-versions/azure/reference/mt219004(v=azure.100))를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure에 대 한 예약에 대 한 자세한 내용은 다음 문서를 참조 합니다.
@@ -74,9 +74,9 @@ Azure에 대 한 예약에 대 한 자세한 내용은 다음 문서를 참조 �
 - [Azure에 대 한 예약 이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure에 대 한 예약 관리](billing-manage-reserved-vm-instance.md)
-- [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
-- [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 할인은 적용 하는 방법 이해](billing-understand-vm-reservation-charges.md)
+- [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

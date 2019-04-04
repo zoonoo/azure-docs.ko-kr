@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097443"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918776"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure Portal을 사용하여 BizTalk Services 만들기
 
@@ -38,9 +38,9 @@ ms.locfileid: "58097443"
 BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습니다. 이러한 작업 목록은 [BizTalk Services 상태 차트](biztalk-service-state-chart.md)를 참조하세요.
 
 ## <a name="post-provisioning-steps"></a>프로비전 후 단계
-* [로컬 컴퓨터에 인증서 설치](#InstallCert)
-* [프로덕션이 준비된 인증서 추가](#AddCert)
-* [Access Control 네임스페이스 가져오기](#ACS)
+* [로컬 컴퓨터에서 인증서를 설치 합니다.](#InstallCert)
+* [프로덕션이 준비 된 인증서를 추가 합니다.](#AddCert)
+* [Access Control 네임 스페이스 가져오기](#ACS)
 
 #### <a name="InstallCert"></a>로컬 컴퓨터에 인증서 설치
 
@@ -59,16 +59,16 @@ Visual Studio에서 BizTalk 서비스를 배포할 때 이 Access Control 네임
 Access Control 값은 모든 애플리케이션에서 사용할 수 있습니다. Azure BizTalk Services가 만들어지면 이 Access Control 네임스페이스는 BizTalk 서비스 배포 인증을 제어합니다. 구독을 변경하거나 네임스페이스를 관리하려면 왼쪽 탐색 창에서 **ACTIVE DIRECTORY** 를 선택한 다음 해당 네임스페이스를 선택합니다. 작업 표시줄에 옵션이 나열됩니다.
 
 **관리** 를 클릭하면 Access Control 관리 포털이 열립니다. Access Control 관리 포털에서 BizTalk 서비스는 **서비스 ID**를 사용합니다.  
-![Access Control 관리 포털의 ACS 서비스 ID][ACSServiceIdentities]
+![ACS 서비스 Id access에서 Control 관리 포털][ACSServiceIdentities]
 
 Access Control Service ID는 애플리케이션이나 클라이언트가 Access Control을 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
 
 > [!IMPORTANT]
-> BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*지정한 자격 증명으로 Access Control 관리 서비스 계정에 연결할 수 없습니다*
+> BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*지정된 된 자격 증명을 사용 하 여 Access Control 관리 서비스 계정에 연결할 수 없습니다.*
 > 
 > 
 
-[ACS 네임스페이스 관리](https://msdn.microsoft.com/library/azure/hh674478.aspx) 에는 일부 지침 및 권장 사항이 나열되어 있습니다.
+[ACS 네임스페이스 관리](/previous-versions/azure/azure-services/hh674478(v=azure.100)) 에는 일부 지침 및 권장 사항이 나열되어 있습니다.
 
 ## <a name="requirements-explained"></a>요구 사항 설명
 다음 요구 사항은 무료 버전에는 적용되지 않습니다.
@@ -93,9 +93,9 @@ Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사�
 <br/><br/>
 BizTalk 서비스를 만들 때 기존 Azure SQL Server, Azure SQL Database를 사용하거나 새로운 서버 또는 데이터베이스를 자동으로 만들 수 있습니다.
 <br/><br/>
-SQL Database 크기는 자동으로 구성됩니다.  일반적으로 기본 크기는 BizTalk 서비스에 사용하기에 충분합니다. 크기를 변경하면 가격이 영향을 받습니다. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Azure SQL Database의 계정 및 대금 청구</a>
- 참조<br/><br/>
-<strong>참고</strong>
+SQL Database 크기는 자동으로 구성됩니다.  일반적으로 기본 크기는 BizTalk 서비스에 사용하기에 충분합니다. 크기를 변경하면 가격이 영향을 받습니다. 참조 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Database의 계정 및 청구</a>
+<br/><br/>
+<strong>메모</strong>
 <br/>
 <ul>
 <li> 새 Azure SQL Server 및 데이터베이스를 만들면 Azure 서비스가 자동으로 사용하도록 설정됩니다. BizTalk 서비스의 경우에는 Azure 서비스를 사용하도록 설정해야 합니다.</li>
@@ -170,11 +170,11 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
 ## <a name="see-also"></a>참고 항목
 * [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: 상태 차트](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: 백업 및 복원](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: 제한](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
-* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [VNet](integration-hybrid-connection-overview.md)
+* [어떻게 시작 하는 Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [하이브리드 연결](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

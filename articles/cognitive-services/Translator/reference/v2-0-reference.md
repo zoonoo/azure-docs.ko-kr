@@ -3,19 +3,19 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: V2.0 Translator Text API에 대한 참조 문서입니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4f08b728198d6ee508cbd8267c593abc59e4cb37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075256"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918011"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -241,7 +241,7 @@ Translator Service에서 지원되고 요청된 언어로 지역화되는 언어
 ## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>구현 참고 사항
-Translation Service에서 지원하는 언어를 나타내는 언어 코드의 목록을 가져옵니다.  `Translate` 및 `TranslateArray`는 이러한 임의의 두 언어 간을 번역할 수 있습니다.
+Translation Service에서 지원하는 언어를 나타내는 언어 코드의 목록을 가져옵니다.  `Translate` 및 `TranslateArray` 이러한 언어 중 임의의 두 카드 간에 변환할 수 있습니다.
 
 요청 URI는 `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`입니다.
 
@@ -327,7 +327,7 @@ binary
 |text|(empty)   |필수 사항입니다. wave 스트림에 대해 읽을 지정된 언어의 문장을 포함하는 문자열입니다. 읽을 텍스트 크기는 2,000자를 초과하지 않아야 합니다.|쿼리|문자열|
 |언어|(empty)   |필수 사항입니다. 텍스트를 읽을 지원되는 언어 코드를 나타내는 문자열입니다. 이 코드는 메서드 `GetLanguagesForSpeak`에서 반환된 코드 목록에 있어야 합니다.|쿼리|문자열|
 |format|(empty)|선택 사항입니다. content-type ID를 지정하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|쿼리|문자열|
-|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize`는 오디오 신호의 품질을 지정하는 데 사용할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male`은 음성의 원하는 성별을 지정하는 데 사용할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 막대(<code>\|</code>)를 사용하세요. 예: `MaxQuality|Male`.</li></li></ul> |쿼리|문자열|
+|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize` 오디오 신호의 품질을 지정할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male` 을 원하는 음성의 성별을 지정할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 막대(<code>\|</code>)를 사용하세요. 예: `MaxQuality|Male`.</li></li></ul> |쿼리|문자열|
 |권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|문자열|
 |Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|문자열|
 
@@ -597,7 +597,7 @@ AddTranslationArray 메서드가 성공했습니다. 2018년 1월 31일 이후�
 
 * `Category`: 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.
 * `ContentType`: 유일하게 지원되는 기본 옵션은 “text/plain”입니다.
-* `IncludeMultipleMTAlternatives`: 둘 이상의 대안이 MT 엔진에서 반환되어야 할지 여부를 결정하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
+* `IncludeMultipleMTAlternatives`: MT 엔진에서 둘 이상의 대안을 반환할지 여부를 결정 하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
     - 등급: 등급은 다음과 같이 적용됩니다. 1) 최고의 자동 번역 등급은 5입니다. 2) CTF의 대안은 검토자의 권한인 -10 ~ +10을 반영합니다. 3) 자동으로 생성된(n-best) 번역 대안의 등급은 0이며, 일치 정도는 100입니다.
     - 대안 수: 반환된 대안 수는 최대 maxTranslations이지만 더 작을 수도 있습니다.
     - 언어 쌍: 이 기능은 중국어 간체 및 번체 간 양방향 번역에 사용할 수 없습니다. Microsoft Translator의 다른 모든 지원되는 언어 쌍에 대해 사용할 수 있습니다.
@@ -698,7 +698,7 @@ MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일�
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest`에는 다음과 같은 요소가 포함되어 있습니다.
+`GetTranslationsArrayRequest` 다음 요소가 포함 됩니다.
 
 * `AppId`: 필수 사항입니다. Authorization 헤더가 사용되는 경우 appid 필드를 비워 두고, 사용되지 않는 경우 `"Bearer" + " " + "access_token"`을 포함하는 문자열을 포함합니다.
 * `From`: 필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다.
@@ -706,7 +706,7 @@ MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일�
 * `Options`: 선택 사항입니다. 아래에 나열된 값을 포함하는 Options 개체입니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다. 지정된 요소는 사전순으로 나열되어야 합니다.
     - Category: 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 general입니다.
     - `ContentType`: 유일하게 지원되는 기본 옵션은 text/plain입니다.
-    - `IncludeMultipleMTAlternatives`: 둘 이상의 대안이 MT 엔진에서 반환되어야 할지 여부를 결정하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
+    - `IncludeMultipleMTAlternatives`: MT 엔진에서 둘 이상의 대안을 반환할지 여부를 결정 하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
         - 등급: 등급은 다음과 같이 적용됩니다. 1) 최고의 자동 번역 등급은 5입니다. 2) CTF의 대안은 검토자의 권한인 -10 ~ +10을 반영합니다. 3) 자동으로 생성된(n-best) 번역 대안의 등급은 0이며, 일치 정도는 100입니다.
         - 대안 수: 반환된 대안 수는 최대 maxTranslations이지만 더 작을 수도 있습니다.
         - 언어 쌍: 이 기능은 중국어 간체 및 번체 간 양방향 번역에 사용할 수 없습니다. Microsoft Translator의 다른 모든 지원되는 언어 쌍에 대해 사용할 수 있습니다.
@@ -753,9 +753,9 @@ MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일�
 * `From`: 메서드가 `From` 언어를 지정하지 않을 경우 자동 언어 감지의 결과가 됩니다. 그렇지 않은 경우 지정된 From 언어입니다.
 * `State`: 요청 및 응답을 상호 연결하게 하는 사용자 상태입니다. `TranslateOptions` 매개 변수에 지정된 것과 동일한 값을 포함합니다.
 
-`TranslationMatch` 개체는 다음으로 구성됩니다.
+`TranslationMatch` 개체는 다음과 같이 구성 됩니다.
 * `Error`: 특정 입력 문자열에서 오류가 발생하는 경우 오류 코드에 저장됩니다. 그렇지 않으면 이 필드가 비어 있습니다.
-* `MatchDegree`: 시스템은 입력 문장과 일치하는 문장을 저장소에서 찾습니다. 정확하지 않은 일치도 검색됩니다.  `MatchDegree`는 입력 텍스트가 저장소의 원본 텍스트와 얼마나 일치하는지를 나타냅니다. 반환되는 값은 0부터 100까지로, 0은 유사성이 없는 것이고 100은 대/소문자까지 정확하게 일치하는 것입니다.
+* `MatchDegree`: 시스템은 입력 문장과 일치하는 문장을 저장소에서 찾습니다. 정확하지 않은 일치도 검색됩니다.  `MatchDegree` 저장소에 있는 원래 텍스트 입력된 텍스트와 일치 하는 정도 나타냅니다. 반환되는 값은 0부터 100까지로, 0은 유사성이 없는 것이고 100은 대/소문자까지 정확하게 일치하는 것입니다.
 * `MatchedOriginalText`: 이 결과에서 일치된 원본 텍스트입니다. 일치된 원본 텍스트가 입력 텍스트와 다른 경우에만 반환됩니다. 유사 일치의 원본 텍스트를 반환하는 데 사용됩니다. Microsoft Translator 결과에 대해서는 반환되지 않습니다.
 * `Rating`: 품질 결정 담당자의 권한을 나타냅니다. Machine Translation 결과의 등급은 5입니다. 익명으로 제공되는 번역은 등급이 1~4이지만, 정식으로 제공된 번역은 등급이 6~10입니다.
 * `Count`: 이 등급의 현재 번역이 선택된 횟수입니다. 자동으로 번역된 응답의 경우 이 값이 0입니다.
@@ -787,7 +787,7 @@ MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [v3 Translator Text API로 마이그레이션](../migrate-to-v3.md)
+> [Translator Text API v3로 마이그레이션](../migrate-to-v3.md)
 
 
 

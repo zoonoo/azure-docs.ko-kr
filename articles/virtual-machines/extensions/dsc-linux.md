@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823011"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904477"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -57,27 +57,27 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 
 지원되는 모든 공용 구성 매개 변수는 다음과 같습니다.
 
-* `FileUri`: (선택 사항, 문자열) MOF 파일/메타 MOF 파일/사용자 지정 리소스 ZIP 파일의 URI
-* `ResourceName`: (선택 사항, 문자열) 사용자 지정 리소스 모듈의 이름
-* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값은 Register, Push, Pull, Install, Remove입니다. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
-* `NodeConfigurationName`: (선택 사항, 문자열) 적용할 노드 구성의 이름
-* `RefreshFrequencyMins`: (선택 사항, 정수) DSC가 끌어오기 서버에서 구성을 가져오려고 시도하는 빈도(분)를 지정합니다. 
+* `FileUri`: (옵션, 문자열)는 MOF 파일/메타 MOF 파일/사용자 지정 리소스 ZIP 파일의 uri입니다.
+* `ResourceName`: (옵션, 문자열) 사용자 지정 리소스 모듈의 이름
+* `ExtensionAction`: (옵션, 문자열) 확장의 용도 지정 합니다. 유효한 값은 Register, Push, Pull, Install, Remove입니다. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
+* `NodeConfigurationName`: (옵션, 문자열) 적용 하는 노드 구성의 이름입니다.
+* `RefreshFrequencyMins`: (선택 사항, int) 빈도 (분 단위로 지정) DSC 끌어오기 서버에서 구성을 가져오려고 시도 합니다. 
        끌어오기 서버의 구성이 대상 노드의 현재 구성과 다르면 보류 중인 저장소에 복사되고 적용됩니다.
-* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값은 다음과 같습니다. ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
-* `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
+* `ConfigurationMode`: (옵션, 문자열) DSC 구성을 적용 해야 하는 방법을 지정 합니다. 유효한 값은 다음과 같습니다. ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
+* `ConfigurationModeFrequencyMins`: (선택 사항, int) 빈도 (분 단위로 지정) DSC 원하는 상태로 구성 되었는지 확인 합니다.
 
 > [!NOTE]
-> 2.3 버전 미만을 사용하는 경우 mode 매개 변수는 ExtensionAction과 동일합니다. 모드는 오버로드되는 용어로 보입니다. 따라서 혼동을 방지하기 위해 ExtensionAction이 2.3 버전 이후부터 사용되고 있습니다. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
+> 2.3 버전 미만을 사용하는 경우 mode 매개 변수는 ExtensionAction과 동일합니다. 모드는 오버 로드 된 용어 것 같습니다. 따라서 혼동을 방지하기 위해 ExtensionAction이 2.3 버전 이후부터 사용되고 있습니다. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 보호된 구성
 
 지원되는 모든 보호된 구성 매개 변수는 다음과 같습니다.
 
-* `StorageAccountName`: (선택 사항, 문자열) 파일이 포함된 저장소 계정의 이름
-* `StorageAccountKey`: (선택 사항, 문자열) 파일이 포함된 저장소 계정의 키
-* `RegistrationUrl`: (선택 사항, 문자열) Azure Automation 계정의 URL
-* `RegistrationKey`: (선택 사항, 문자열) Azure Automation 계정의 액세스 키
+* `StorageAccountName`: (옵션, 문자열) 파일이 포함 된 저장소 계정의 이름
+* `StorageAccountKey`: (옵션, 문자열) 파일이 포함 된 저장소 계정 키
+* `RegistrationUrl`: (옵션, 문자열)는 Azure Automation 계정의 URL
+* `RegistrationKey`: (옵션, 문자열)는 Azure Automation 계정의 액세스 키
 
 
 ## <a name="scenarios"></a>시나리오

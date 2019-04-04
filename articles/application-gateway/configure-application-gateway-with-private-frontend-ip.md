@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100175"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905541"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>내부 부하 분산 장치 (ILB) 끝점을 사용 하 여 응용 프로그램 게이트웨이 구성
 
@@ -25,13 +25,16 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 내부 끝점 (프런�
 - 응용 프로그램 게이트웨이에 대 한 개인 프런트 엔드 IP 구성을 만들려면
 - 개인 프런트 엔드 IP 구성을 사용 하 여 응용 프로그램 게이트웨이 만들기
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-<https://portal.azure.com>에서 Azure Portal에 로그인
+Azure portal에 로그인 <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크 만들기 또는 기존 계정을 사용할 수 있습니다. 이 예제에서는 새 가상 네트워크를 만듭니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 응용 프로그램 게이트웨이 인스턴스는 별도 서브넷에서 생성 됩니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
+Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크를 만들거나 기존 가상 네트워크를 선택할 수 있습니다. 이 예제에서는 새 가상 네트워크를 만듭니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 별도의 서브넷으로 Application Gateway 인스턴스가 만들어집니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
 
 1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
@@ -54,11 +57,11 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 ## <a name="add-backend-pool"></a>백 엔드 풀 추가
 
-백 엔드 풀 요청 제공 하는 백 엔드 서버로 요청을 라우팅하기 위해 사용 됩니다. 백 엔드 Nic, 가상 머신 확장 집합, 공용 Ip 구성 될 수 있습니다, 내부 Ip를 정규화 된 도메인 이름 (FQDN) 및 다중 테 넌 트 백 엔드를 Azure App Service와 같은 이 예제에서는 가상 머신 대상 백 엔드로 사용 합니다. 기존 virtual machines를 사용 하거나 새로 만들 것입니다. 이 예제에서는 Azure application gateway 백 엔드 서버로 사용 하는 두 개의 가상 머신을 만듭니다. 이 위해 수행 합니다.
+백 엔드 풀은 요청에 대응할 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드는 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 가상 머신을 대상 백 엔드로 사용합니다. 기존 가상 머신을 사용하거나 새 가상 머신을 만들 수 있습니다. 이 예제에서는 Azure에서 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 이를 위해서 다음 사항을 수행합니다.
 
-1. 2 개의 새 VM을 만듭니다 *myVM* 및 *myVM2*, 백 엔드 서버로 사용할 수 있습니다.
-2. Application gateway를 성공적으로 만들어졌는지 확인 하려면 가상 컴퓨터에 IIS를 설치 합니다.
-3. 백 엔드 풀으로 백 엔드 서버를 추가 합니다.
+1. 백 엔드 서버로 사용할 두 개의 새 VMS, *myVM* 및 *myVM2*를 만듭니다.
+2. 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
+3. 백 엔드 서버를 백 엔드 풀에 추가합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -67,7 +70,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 3. 가상 머신에 대해 다음 값을 입력합니다.
    - *myVM* - 가상 머신의 이름
    - *azureuser* - 관리자 사용자 이름
-   - *Azure123456!* - 암호
+   - *Azure123456!* 암호
    - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 4. **확인**을 클릭합니다.
 5. 선택 **DS1_V2** 크기의 가상 머신 및 클릭 **선택**합니다.
@@ -82,7 +85,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다.
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

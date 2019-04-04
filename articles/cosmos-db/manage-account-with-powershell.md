@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 80ed88bbc901d2cbcd6bc8104e55de73549744f8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 01c351ad08399c0b42e831e325b3f818741d1d83
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477831"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904375"
 ---
 # <a name="manage-azure-cosmos-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 리소스 관리
 
 이 문서에서는 Azure Powershell을 사용하여 Azure Cosmos DB 데이터베이스 계정 관리를 자동화하는 명령에 대해 설명합니다. [다중 하위 지역 데이터베이스 계정][distribute-data-globally]에서 계정 키 및 장애 조치 우선 순위를 관리하는 명령도 포함되어 있습니다. 데이터베이스 계정을 업데이트하면 일관성 정책을 수정하고 하위 지역을 추가/제거할 수 있습니다. Azure Cosmos DB 계정의 플랫폼 간 관리를 위해 [Azure CLI](cli-samples.md), [리소스 공급자 REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 사용할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>시작하기
 
@@ -35,17 +37,17 @@ ms.locfileid: "55477831"
     $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
-    New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -Properties $CosmosDBProperties
+    New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
-* `<default-consistency-level>`Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
-* `<max-interval>` - 제한된 부실(Bounded Staleness) 일관성과 함께 사용되는 경우 이 값은 부실 허용 시간(초)을 나타냅니다. 값의 허용 범위는 1-100입니다.
-* `<max-staleness-prefix>` - 제한된 부실 일관성과 함께 사용되는 경우 이 값은 허용된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
-* `<database-account-name>` - 만들어질 Azure Cosmos DB 데이터베이스 계정의 이름입니다. 소문자, 숫자, '-'(대시) 문자만 사용할 수 있으며, 3-50자여야 합니다.
+* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<ip-range-filter>` CIDR 형식으로 지정 된 데이터베이스 계정에 대 한 클라이언트 Ip의 허용된 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 지정 합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
+* `<default-consistency-level>` Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
+* `<max-interval>` 제한 된 부실 일관성을 사용 하는 경우이 값 허용 부실 (초) 시간 크기를 나타냅니다. 값의 허용 범위는 1-100입니다.
+* `<max-staleness-prefix>` 제한 된 부실 일관성을 사용 하는 경우이 값의 허용 된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<resource-group-location>` 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
+* `<database-account-name>` 만들려는 Azure Cosmos DB 데이터베이스 계정의 이름입니다. 소문자, 숫자, '-'(대시) 문자만 사용할 수 있으며, 3-50자여야 합니다.
 
 예제: 
 
@@ -53,7 +55,7 @@ ms.locfileid: "55477831"
     $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
-    New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
+    New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>메모
 * 앞의 예제에서는 두 개의 하위 지역이 있는 데이터베이스 계정을 만듭니다. 하나의 하위 지역(쓰기 하위 지역으로 지정되고 장애 조치 우선 순위 값이 0임) 또는 세 개 이상의 하위 지역이 있는 데이터베이스 계정도 만들 수 있습니다. 자세한 내용은 [다중 하위 지역 데이터베이스 계정][distribute-data-globally]을 참조하세요.
@@ -70,17 +72,17 @@ ms.locfileid: "55477831"
     $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
-    Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -Properties $CosmosDBProperties
+    Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<default-consistency-level>`Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
-* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
-* `<max-interval>` - 제한된 부실(Bounded Staleness) 일관성과 함께 사용되는 경우 이 값은 부실 허용 시간(초)을 나타냅니다. 값의 허용 범위는 1-100입니다.
-* `<max-staleness-prefix>` - 제한된 부실 일관성과 함께 사용되는 경우 이 값은 허용된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
-* `<database-account-name>` - 업데이트할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<default-consistency-level>` Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
+* `<ip-range-filter>` CIDR 형식으로 지정 된 데이터베이스 계정에 대 한 클라이언트 Ip의 허용된 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 지정 합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
+* `<max-interval>` 제한 된 부실 일관성을 사용 하는 경우이 값 허용 부실 (초) 시간 크기를 나타냅니다. 값의 허용 범위는 1-100입니다.
+* `<max-staleness-prefix>` 제한 된 부실 일관성을 사용 하는 경우이 값의 허용 된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<resource-group-location>` 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
+* `<database-account-name>` 업데이트할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제: 
 
@@ -88,33 +90,33 @@ ms.locfileid: "55477831"
     $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
-    Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
+    Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ## <a id="delete-documentdb-account-powershell"></a> Azure Cosmos DB 데이터베이스 계정 삭제
 
 이 명령을 사용하면 기존 Azure Cosmos DB 데이터베이스 계정을 삭제할 수 있습니다.
 
-    Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+    Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - 삭제할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` 삭제할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
-    Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+    Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## <a id="get-documentdb-properties-powershell"></a> Azure Cosmos DB 데이터베이스 계정의 속성 가져오기
 
 이 명령을 사용하면 기존 Azure Cosmos DB 데이터베이스 계정의 속성을 가져올 수 있습니다.
 
-    Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+    Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
-    Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+    Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## <a id="update-tags-powershell"></a> - Azure Cosmos DB 데이터베이스 계정의 업데이트 태그입니다.
 
@@ -126,64 +128,64 @@ ms.locfileid: "55477831"
 예제:
 
     $tags = @{"dept" = "Finance"; environment = "Production"}
-    Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
+    Set-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
 ## <a id="list-account-keys-powershell"></a> 계정 키 나열
 
 Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. Azure Cosmos DB에서는 2개의 액세스 키를 제공해서 사용자가 Azure Cosmos DB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 사용할 수 있습니다. 두 개의 읽기-쓰기 키(기본 및 보조) 및 두 개의 읽기 전용 키(기본 및 보조)가 있습니다.
 
-    $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+    $keys = Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
-    $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+    $keys = Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## <a id="list-connection-strings-powershell"></a> 연결 문자열 나열
 
 MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하기 위한 연결 문자열은 다음 명령을 사용하여 검색할 수 있습니다.
 
-    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+    $keys = Invoke-AzResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
-    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+    $keys = Invoke-AzResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## <a id="regenerate-account-key-powershell"></a> 계정 키 다시 생성
 
 저장소 연결을 더욱 안전하게 유지할 수 있도록 정기적으로 Azure Cosmos DB 계정의 액세스 키를 변경해야 합니다. 두 개의 액세스 키가 할당되므로 액세스 키 하나를 다시 생성하는 동안 다른 액세스 키를 사용하여 Azure Cosmos DB 계정에 대한 연결을 유지할 수 있습니다.
 
-    Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
+    Invoke-AzResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
-* `<key-kind>` - 다시 생성할 네 가지 유형의 키, 즉 ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] 중 하나입니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<key-kind>` 네 가지 유형의 키 중 하나: ["Primary" | " 보조 "|" PrimaryReadonly "|" SecondaryReadonly"]를 다시 생성 합니다.
 
 예제:
 
-    Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
+    Invoke-AzResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
 ## <a id="modify-failover-priority-powershell"></a> Azure Cosmos DB 데이터베이스 계정의 장애 조치(Failover) 우선 순위 수정
 
 다중 하위 지역 데이터베이스 계정의 경우 Azure Cosmos DB 데이터베이스 계정이 있는 다양한 하위 지역의 장애 조치(Failover) 우선 순위를 변경할 수 있습니다. Azure Cosmos DB 데이터베이스 계정의 장애 조치(Failover)에 대한 자세한 내용은 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포][distribute-data-globally]를 참조하세요.
 
     $failoverPolicies = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0},@{"locationName"="<read-region-location>"; "failoverPriority"=1})
-    Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"failoverPolicies"=$failoverPolicies}
+    Invoke-AzResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
-* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
+* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
-    Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
+    Invoke-AzResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
 ## <a name="next-steps"></a>다음 단계
 

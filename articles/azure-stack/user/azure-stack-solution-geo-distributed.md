@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860587"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481725"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -472,7 +472,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 개인 키 파일은 OpenSSL을 통해 생성 됩니다. 인증서를 PFX로 내보내려면, 자리 표시자를 대체 하 고 다음 명령을 실행 *< 개인 키 파일 >* 하 고 *< 병합 스케일 인증서 파일 >* 개인 키 경로 사용 하 여 병합 및 인증서 파일입니다.
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 

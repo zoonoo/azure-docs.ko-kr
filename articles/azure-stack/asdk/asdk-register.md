@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4dc4c9d4d936bbcf626884c5c90e16f640f268a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078179"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487773"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있도록 하려면 등록이 필요 합니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
@@ -32,7 +32,7 @@ ASDK 프로그램을 등록 하지 않은 경우 발생할 수 있습니다는 *
 
 또한 PowerShell 언어 모드를로 변경 해야 **FullLanguageMode** ASDK를 Azure에 등록 하는 데 사용 하는 컴퓨터입니다. 전체 관리자 권한 PowerShell 창을 열고 다음 PowerShell 명령을 실행 하려면 현재 언어 모드를 설정 되어 있는지 확인 합니다.
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -50,7 +50,7 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
 
 2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 청구 구독 ID와 로컬 ASDK 설치에 로그인 해야 합니다. Azure 청구 구독 ID를 없는 아직 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.<br><br>실행 하는 경우 등록에 대 한 고유 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -89,7 +89,7 @@ Azure Stack 환경에서 등록 하는 토큰을 가져오는 다음 해당 토�
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack 환경에서 등록 토큰 가져오기
 ASDK 호스트 컴퓨터에서 관리자 권한으로 PowerShell을 시작 하 고 이동할 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오려면 다음 PowerShell 명령을 사용 합니다 **RegisterWithAzure.psm1** 모듈을 사용 하 여는 **Get AzsRegistrationToken** cmdlet 등록 토큰을 가져오려면:  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -110,7 +110,7 @@ ASDK 호스트 컴퓨터에서 관리자 권한으로 PowerShell을 시작 하 �
 ### <a name="connect-to-azure-and-register"></a>등록 및 Azure에 연결
 인터넷에 연결 된 컴퓨터 명령을 사용 하 여 다음 PowerShell 가져오기 합니다 **RegisterWithAzure.psm1** 모듈을 사용 하 여 합니다 **등록 AzsEnvironment** cmdlet을 사용 하 여 Azure 등록 방금 만든 등록 토큰 및 고유 등록 이름:  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -134,7 +134,7 @@ ASDK 호스트 컴퓨터에서 관리자 권한으로 PowerShell을 시작 하 �
 
 사용할 수 있습니다 합니다 **Get-content** cmdlet 등록 토큰을 포함 하는 파일을 가리키도록 합니다.
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"

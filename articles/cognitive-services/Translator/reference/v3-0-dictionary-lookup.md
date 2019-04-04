@@ -3,19 +3,19 @@ title: Translator Text API 사전 조회 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API 사전 조회 메서드를 사용합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: e97d308bca585cdb26ccc2f20e125436707c481e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 89b4058c384440b83f60fb6147cd373ecf893011
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876337"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917008"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: 사전 조회
 
@@ -56,7 +56,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
   <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
-    <td>_한 가지 권한 부여_<br/>_헤더_</td>
+    <td>_하나의 권한 부여_<br/>_머리글_</td>
     <td>*필수 요청 헤더*<br/>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요.</td>
   </tr>
   <tr>
@@ -140,7 +140,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 이 예제에서는 영어 용어인 `fly`의 스페인어 대체 번역을 조회하는 방법을 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?ap
 
 이 예제는 조회되는 용어가 유효한 사전 쌍에 없을 때 나타나는 결과를 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

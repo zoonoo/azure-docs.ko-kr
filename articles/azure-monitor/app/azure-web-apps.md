@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862610"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905837"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -22,6 +22,9 @@ ms.locfileid: "58862610"
 
 > [!NOTE]
 > Application Insights 사이트 확장을 통해 수동으로 추가 **개발 도구** > **확장** 는 사용 되지 않습니다. 확장의 안정적인 최신 릴리스는 이제 [사전](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service 이미지의 일부로. 파일에 위치한 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 안정적인 릴리스마다 자동으로 업데이트 됩니다. 모니터링을 사용 하도록 에이전트 기반 지침을 따르는 경우를 사용 되지 않는 확장을 자동으로 제거 됩니다 아래.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -283,12 +286,12 @@ Application Insights에 대해 구성 된 응용 프로그램 설정 사용 하 
 PowerShell을 통해 모니터링 응용 프로그램을 사용 하도록 설정 하기 위해 기본 응용 프로그램 설정만 변경 해야 합니다. 다음은 샘플 응용 프로그램의 리소스 그룹 "AppMonitoredRG"에서 "AppMonitoredSite" 이라는 웹 사이트에 대 한 모니터링을 사용 하도록 설정할 하 고 "012345678-abcd-ef01-2345-6789abcd" 계측 키를 전송할 수 있도록 데이터를 구성 합니다.
 
 ```powershell
-$app = Get-AzureRmWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
+$app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
 $app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
 $newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
-$app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
+$app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
 ## <a name="upgrade-monitoring-extensionagent"></a>모니터링 확장/에이전트 업그레이드

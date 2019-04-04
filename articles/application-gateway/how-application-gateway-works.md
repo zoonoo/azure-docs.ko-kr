@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881098"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905786"
 ---
 # <a name="how-application-gateway-works"></a>Application Gateway의 작동 원리
 
@@ -36,7 +36,7 @@ ms.locfileid: "57881098"
 
 내부 Application Gateway에 개인 IP 주소에만 있습니다. 내부 응용 프로그램 게이트웨이의 DNS 이름을 내부적으로 해당 개인 IP 주소로 확인할 수 있습니다. 따라서 내부 부하 분산 장치 Application Gateway에 대 한 VNET에 대 한 액세스를 사용 하 여 클라이언트의 요청을 라우팅할 수 있습니다.
 
-참고는 인터넷 연결 및 내부 응용 프로그램 게이트웨이가 라우팅할 백 엔드 풀 리소스에 개인 IP 주소, VM NIC 구성 또는 내부적으로 확인할 수 있는 주소를 포함 하는 경우 개인 IP 주소를 사용 하 여 백 엔드 서버에 요청에 백 엔드 풀은 공용 끝점, Application Gateway의 프런트 엔드 공용 IP를 사용 하 여 서버에 도달 하도록 합니다. 프런트 엔드 공용 IP 주소를 프로 비전 하지 않은 경우 아웃 바운드 외부 연결에 대 한 하나 할당 됩니다.
+백 엔드 풀을 내부적으로 확인 가능한 FQDN 또는 개인 IP 주소를 포함 하는 경우 Application Gateway는 해당 인스턴스 개인 IP 주소를 사용 하 여 백 엔드 서버로 요청을 라우팅합니다. 백 엔드 풀에 대 한 외부 끝점 또는 외부에서 확인 가능한 FQDN 있으면, Application Gateway 프런트 엔드 공용 IP 주소를 사용 하 여 백 엔드 서버로 요청을 라우팅합니다. DNS 확인 또는 기반으로 사설 DNS 영역 또는 사용자 지정 DNS 서버를 구성 하는 경우 Azure DNS를 제공 하는 기본값을 사용 합니다. 프런트 엔드 공용 IP 주소를 프로 비전 하지 않은 경우 아웃 바운드 외부 연결에 대 한 하나 할당 됩니다.
 
 ### <a name="modifications-to-the-request"></a>요청 수정
 

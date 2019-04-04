@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077125"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916277"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>404 상태 코드를 반환하는 Azure CDN 끝점 문제 해결
 이 문서에서는 404 HTTP 응답 상태 코드를 반환하는 Azure CDN(Content Delivery Network) 끝점의 문제를 해결할 수 있습니다.
@@ -76,7 +76,7 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 그러나 이전에 테스트한 원본 파일의 URL이 http:\//www.contoso.com:8080/file.txt라고 가정합니다. 호스트 이름 세그먼트 끝에 있는 *:8080* 부분에 유의합니다. 번호 포트 8080을 사용 하 여 www에서 웹 서버에 연결할 브라우저에 지시 하\.contoso.com, 따라서 해야 입력 *8080* 에 **HTTP 포트** 필드입니다. 이러한 포트 설정은 엔드포인트가 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
 
 > [!NOTE]
-> **Akamai의 Azure CDN 표준** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다.  허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](https://msdn.microsoft.com/library/mt757337.aspx)를 참조하세요.  
+> **Akamai의 Azure CDN 표준** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다.  허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](/previous-versions/azure/mt757337(v=azure.100))를 참조하세요.  
 > 
 > 
 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863137"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905206"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -64,14 +64,14 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 | :------------------- | ----- | ----- |
 | [모든 메트릭](#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아닙니다. |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | 예 | 예 |
-| [Errors](#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 예 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아닙니다. |
-| [Timeouts](#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | 예 | 아닙니다. |
-| [Blocks](#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | 예 | 아닙니다. |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): (새로운 쿼리 대기) 쿼리 대기 통계에 대 한 정보가 등은 CPU, 로그 및 잠금. | 예 | 예 |
+| [Errors](#errors-dataset): 데이터베이스에서 SQL 오류에 대 한 정보를 포함합니다. | 예 | 예 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 데이터베이스 대기 형식에 대기 하는 데 소요 된 시간에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
+| [Timeouts](#time-outs-dataset): 데이터베이스에 대 한 정보를 포함합니다. | 예 | 아닙니다. |
+| [Blocks](#blockings-dataset): 데이터베이스에서 이벤트를 차단 하는 방법에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
 | [교착 상태](#deadlocks-dataset): 데이터베이스에서 교착 상태 이벤트에 대 한 정보를 포함합니다. | 예 | 아닙니다. |
-| [AutomaticTuning](#automatic-tuning-dataset): 데이터베이스에서 자동 조정 권장 사항에 대 한 정보를 포함합니다. | 예 | 아닙니다. |
-| [SQLInsights](#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
+| [AutomaticTuning](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함합니다. | 예 | 아닙니다. |
+| [SQLInsights](#intelligent-insights-dataset): Intelligent Insights 데이터베이스 성능에 포함 되어 있습니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 > [!IMPORTANT]
 > 탄력적 풀 및 관리 되는 인스턴스에 포함 된 데이터베이스에서 별도 진단 원격 분석을 사용 하는 자체에 있습니다. 이 아래 설명 된 대로 진단 원격 분석 이러한 리소스를 각각에 대해 별도로 구성 된 것을 명심 해야 합니다.

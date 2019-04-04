@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081511"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484851"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -78,7 +78,7 @@ ms.locfileid: "58081511"
 
     - PowerShell을 관리자 권한 프롬프트를 엽니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ ms.locfileid: "58081511"
 
 2.  PowerShell 세션에서 표시 되는 새 인증서 ID를 기록해 `1C2ED76081405F14747DC3B5F76BB1D83227D824`합니다. ID는 서비스 주체를 만들 때 사용 됩니다.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -126,7 +126,7 @@ ms.locfileid: "58081511"
 
     - 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ Kubernetes 항목 제거 하려면:
 
 2. 갤러리에서 현재 Kubernetes 클러스터 항목을 찾습니다.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ Kubernetes 항목 제거 하려면:
 
 4. 항목을 제거 하려면 다음 PowerShell cmdlet을 사용 합니다.
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

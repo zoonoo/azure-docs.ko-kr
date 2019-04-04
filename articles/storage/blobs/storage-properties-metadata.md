@@ -5,30 +5,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398177"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916583"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 
 Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터와 포함된 데이터를 지원합니다. 이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하여 관리 시스템 속성 및 사용자 정의 메타데이터를 관리하는 방법을 설명합니다.
 
-* **시스템 속성**: 각 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. Azure Storage 클라이언트 라이브러리에서 이러한 속성을 유지 관리합니다.
+* **시스템 속성**:  각 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. Azure Storage 클라이언트 라이브러리에서 이러한 속성을 유지 관리합니다.
 
-* **사용자 정의 메타데이터**: 사용자 정의 메타데이터는 Azure Storage 리소스에 지정하는 하나 이상의 이름-값 쌍으로 구성됩니다. 메타데이터를 사용하여 리소스와 함께 추가 값을 저장할 수 있습니다. 메타데이터 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
+* **사용자 정의 메타 데이터**: 사용자 정의 메타 데이터를 Azure Storage 리소스를 지정 하는 하나 이상의 이름-값 쌍으로 구성 됩니다. 메타데이터를 사용하여 리소스와 함께 추가 값을 저장할 수 있습니다. 메타데이터 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
 
 저장소 리소스에 대한 속성 및 메타데이터 값 검색은 두 단계로 이루어집니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다. 리소스에서 **Exists** 또는 **ExistsAsync** 메서드를 호출하는 경우, 예외가 발생합니다. 이러한 메서드 중 하나를 호출하면 Azure Storage는 **Exists** 메서드 호출의 일부로 해당하는 **FetchAttributes** 메서드를 내부적으로 호출합니다.
 
 > [!IMPORTANT]
 > 저장소 리소스의 속성 또는 메타데이터 값이 채워지지 않은 경우에는 코드가 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하는지 확인합니다.
 >
-> 메타데이터 이름/값 쌍에는 ASCII 문자만 포함될 수 있습니다. 메타데이터 이름/값 쌍은 유효한 HTTP 헤더이며, HTTP 헤더와 관련된 모든 제한 사항을 준수해야 합니다. ASCII 문자가 아닌 문자가 포함된 이름 및 값에 URL 인코딩 또는 Base64 인코딩을 사용하는 것이 좋습니다.
->
+> 메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이므로 HTTP 헤더와 관련 된 모든 제한 사항을 준수 해야 하며 메타 데이터 이름 유효한 HTTP 헤더 이름 이어야 합니다 하 고 ASCII 문자만 포함 될 수 있습니다 및으로 대/소문자 처리 해야 합니다. 비 ASCII 문자가 포함 된 메타 데이터 값은 Base64로 인코딩된 또는 URL 인코딩 이어야 합니다.
 
 ## <a name="setting-and-retrieving-properties"></a>속성 설정 및 검색
 속성 값을 검색하려면 Blob 또는 컨테이너에서 **FetchAttributesAsync** 메서드를 호출하여 속성을 채운 다음 값을 읽습니다.
@@ -100,5 +99,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [.NET용 Azure Storage 클라이언트 라이브러리 참조](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [.NET용 Azure Storage 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [.NET 용 azure Storage 클라이언트 라이브러리](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [.NET NuGet 패키지용 azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)

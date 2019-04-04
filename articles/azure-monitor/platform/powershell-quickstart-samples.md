@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 1ca2faca6c3d34ec4c987df85fff65e0a8fdc7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e9376b0d137534f301332feaf4e99bfa937fbfa9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486058"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905480"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -27,7 +27,7 @@ ms.locfileid: "58486058"
 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="examples-in-this-article"></a>이 문서의 예
-문서의 예에서는 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
+문서의 예에서는 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 ## <a name="sign-in-and-use-subscriptions"></a>로그인 후 구독 사용
 먼저 Azure 구독에 로그인합니다.
@@ -88,10 +88,10 @@ Get-AzLog -Caller 'myname@company.com'
 Get-AzLog -MaxEvents 1000
 ```
 
-`Get-AzLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzLog` 참조를 확인하세요.
+`Get-AzLog` 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzLog` 참조를 확인하세요.
 
 > [!NOTE]
-> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> `Get-AzLog` 15 일 동안의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
 > 
 > 
 
@@ -131,7 +131,7 @@ Get-AzAlertRule -ResourceGroup montest
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` 명령은 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) 을 참조하세요.
+`Get-AzAlertRule` 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) 을 참조하세요.
 
 ## <a name="create-metric-alerts"></a>메트릭 경고 만들기
 `Add-AlertRule` cmdlet을 사용하여 경고 규칙을 만들고, 업데이트하고, 비활성화할 수 있습니다.
@@ -142,7 +142,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 | 매개 변수 | 값 |
 | --- | --- |
-| 이름 |simpletestdiskwrite |
+| name |simpletestdiskwrite |
 | 이 경고 규칙의 위치 |미국 동부 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

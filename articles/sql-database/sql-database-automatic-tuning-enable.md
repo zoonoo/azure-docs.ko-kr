@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726960"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904358"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
 Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드의 성능 향상을 위해 수행할 수 있는 작업을 식별하는 자동으로 관리되는 데이터 서비스입니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드**로 알려져 있습니다.
 
-자동 조정은 [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) 호출 및 [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) 명령을 통해 서버 또는 데이터베이스 수준에서 사용하도록 설정할 수 있습니다.
+자동 조정은 [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) 호출 및 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 명령을 통해 서버 또는 데이터베이스 수준에서 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 관리 되는 인스턴스 FORCE_LAST_GOOD_PLAN 지원 되는 옵션을 통해 구성할 수 있습니다 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 만 합니다. 포털 기반 구성 및 관리 되는 인스턴스를이 문서에서 설명 하는 자동 인덱스 튜닝 옵션이 적용 되지 않습니다.
+> 관리 되는 인스턴스 FORCE_LAST_GOOD_PLAN 지원 되는 옵션을 통해 구성할 수 있습니다 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) 만 합니다. 포털 기반 구성 및 관리 되는 인스턴스를이 문서에서 설명 하는 자동 인덱스 튜닝 옵션이 적용 되지 않습니다.
 
 > [!NOTE]
 > ARM (Azure Resource Manager) 템플릿을 통해 자동 튜닝 옵션을 구성 하는 지금은 지원 되지 않습니다.

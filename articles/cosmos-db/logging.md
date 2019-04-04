@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259774"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904868"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
 하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 Azure 플랫폼에서 사용할 수 있는 로그의 개요를 제공합니다. 로그를 보내기 위해 모니터링 하는 것에 대 한 진단 로깅을 사용 하도록 설정 하는 방법에 알아봅니다 [Azure Storage](https://azure.microsoft.com/services/storage/), 로그를 스트림 하는 방법 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), 및 로그를 내보내는 방법 [Azure Monitor로그](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure에서 사용할 수 있는 로그
 
@@ -132,7 +135,7 @@ Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShe
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 가져와서 기본적으로 첫 번째 구독을 사용합니다.
@@ -140,13 +143,13 @@ Connect-AzureRmAccount
 구독이 여러 개인 경우 Azure Key Vault을 만드는 데 사용된 특정된 구독을 지정해야 할 수 있습니다. 계정에 대한 구독을 보려면 다음 명령을 입력합니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 그런 다음, 로깅하려는 Azure Cosmos DB 계정과 연결된 구독을 지정하려면 다음 명령을 입력합니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Azure PowerShell 구성 방법에 대한 자세한 내용은 [Azure PowerShell �
 추가적인 관리 편이성을 위해 Azure Cosmos DB 데이터베이스를 포함하는 것과 동일한 리소스 그룹을 사용합니다. **ContosoResourceGroup**, **contosocosmosdblogs** 및 **미국 중북부** 매개 변수에 대한 값을 적절히 바꿉니다.
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Azure Cosmos DB 계정 이름을 **account**라는 변수로 설정합니다. 여기서 **ResourceName**은 Azure Cosmos DB 계정의 이름입니다.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>로깅 사용
-Azure Cosmos DB에 대한 로깅을 사용하도록 설정하려면 새 저장소 계정, Azure Cosmos DB 계정 및 로깅을 사용하도록 설정할 범주에 대한 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
+Azure Cosmos DB에 대한 로깅을 사용하도록 설정하려면 새 저장소 계정, Azure Cosmos DB 계정 및 로깅을 사용하도록 설정할 범주에 대한 변수와 함께 `Set-AzDiagnosticSetting` cmdlet을 사용합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 명령의 출력은 다음 샘플과 유사합니다.
@@ -221,7 +224,7 @@ Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId 
 선택적으로 오래된 로그를 자동으로 삭제하는 로그에 대한 보존 정책을 설정할 수도 있습니다. 예를 들어, **-RetentionEnabled** 플래그를 **$true**로 지정하여 보존 정책을 설정합니다. **-RetentionInDays** 매개 변수를 **90**으로 설정하여 90일보다 오래된 로그는 자동으로 삭제되도록 합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 명령의 출력은 다음 샘플과 유사합니다.
@@ -257,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-이 출력에서 확인할 수 있듯이 Blob은 명명 규칙 `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`을 따릅니다.
+이 출력에서 보듯이 blob 명명 규칙을 수행 합니다. `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 날짜 및 시간 값은 UTC를 사용합니다.
 
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 그런 다음, 모든 Blob 목록을 가져옵니다.  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-`Get-AzureStorageBlobContent` 명령을 통해 이 목록을 파이프하여 blob을 대상 폴더에 다운로드합니다.
+`Get-AzStorageBlobContent` 명령을 통해 이 목록을 파이프하여 blob을 대상 폴더에 다운로드합니다.
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ $blobs | Get-AzureStorageBlobContent `
 * 여러 데이터베이스가 있고 **CONTOSOCOSMOSDB3**라는 하나의 데이터베이스에 대한 로그를 다운로드하려는 경우 다음 명령을 사용합니다.
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * 리소스 그룹이 여러 개이고 하나의 리소스 그룹에 대한 로그를 다운로드하려는 경우 `-Blob '*/RESOURCEGROUPS/<resource group name>/*'` 명령을 사용합니다.
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * 2017년 7월의 모든 로그를 다운로드하려는 경우 `-Blob '*/year=2017/m=07/*'` 명령을 사용합니다.
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 다음 명령을 실행할 수도 있습니다.
 
-* 데이터베이스 리소스의 진단 설정 상태를 쿼리하려면 `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId` 명령을 사용합니다.
-* 데이터베이스 계정 리소스에 대한 **DataPlaneRequests** 범주의 로깅을 사용하지 않도록 설정하려면 `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests` 명령을 사용합니다.
+* 데이터베이스 리소스의 진단 설정 상태를 쿼리하려면 `Get-AzDiagnosticSetting -ResourceId $account.ResourceId` 명령을 사용합니다.
+* 데이터베이스 계정 리소스에 대한 **DataPlaneRequests** 범주의 로깅을 사용하지 않도록 설정하려면 `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests` 명령을 사용합니다.
 
 
 이러한 각 쿼리에서 반환된 Blob은 아래 코드와 같이 텍스트로 저장되거나 JSON Blob으로 서식이 지정됩니다.
@@ -437,9 +440,9 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 
 | Azure Storage 필드 또는 속성 | Azure Monitor 로그 속성 | 설명 |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
-| **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
-| **category** | **범주** | Azure Cosmos DB 로그의 경우 **DataPlaneRequests**가 사용 가능한 유일한 값입니다. |
+| **실시간** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
+| **ResourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
+| **카테고리** | **Category** | Azure Cosmos DB 로그의 경우 **DataPlaneRequests**가 사용 가능한 유일한 값입니다. |
 | **operationName** | **OperationName** | 작업의 이름입니다. 이 값은 Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed 또는 Upsert 작업 중 하나일 수 있습니다.   |
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |

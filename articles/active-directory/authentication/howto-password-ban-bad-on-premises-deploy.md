@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499253"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904630"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -37,6 +37,7 @@ ms.locfileid: "58499253"
 ## <a name="deployment-requirements"></a>배포 요구 사항
 
 * Windows Server 2012를 실행 해야 설치 하는 Azure AD 암호 보호에 대 한 서비스 이상 DC 에이전트를 받는 모든 도메인 컨트롤러입니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트에 Windows Server 2012 도메인 또는 포리스트 기능 수준에서 수도 있어야 하는 것을 의미 하지 않습니다. 설명 했 듯이 [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles), 최소 DFL 또는 중 하나는 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 FFL 필요 하지 않습니다.
+* DC 에이전트 서비스가 설치 되어 있는 모든 컴퓨터에.NET 4.5가 설치 되어 있어야 합니다.
 * 설치 하는 Azure AD 암호 보호는 Windows Server 2012 R2를 실행 해야 하는 한 서비스 이상 프록시를 받는 모든 컴퓨터입니다.
 * Azure AD 암호 보호 프록시 서비스를 설치할 모든 컴퓨터에 설치 하는.NET 4.7 있어야 합니다.
   .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
@@ -109,6 +110,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > 이 모드는 Server Core 운영 체제에서 작동 하지 않습니다. 대신 다음 인증 모드 중 하나를 사용 합니다. 또한이 모드는 Internet Explorer 보안 강화 구성을 사용 하는 경우 실패할 수 있습니다. 해결 방법은 해당 구성을 사용 하지 않도록 설정, 프록시를 등록 한 다음 다시 설정 하는 것입니다.
 
@@ -133,7 +135,6 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
        지정할 필요가 현재 합니다 *-ForestCredential* 향후 기능에 대 한 예약 된 매개 변수입니다.
 
-   
    암호 보호에 대 한 프록시 서비스의 등록이 필요한 한 번만 서비스의 수명에 합니다. 프록시 서비스는 그 후에 다른 필요한 유지 관리를 자동으로 수행 합니다.
 
    > [!TIP]
@@ -149,6 +150,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > 이 모드는 Server Core 운영 체제에서 작동 하지 않습니다. 대신 다음 두 가지 인증 모드 중 하나를 사용 합니다. 또한이 모드는 Internet Explorer 보안 강화 구성을 사용 하는 경우 실패할 수 있습니다. 해결 방법은 해당 구성을 사용 하지 않도록 설정, 프록시를 등록 한 다음 다시 설정 하는 것입니다.  
 
@@ -162,6 +164,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
         그런 다음 다른 장치에서 표시 된 지침에 따라 인증을 완료 합니다.
 
      * 자동(암호 기반) 인증 모드:
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
    > [!NOTE]
    > 여러 프록시 서버 환경에 설치 되는 경우 프록시 서버를 사용 하는 포리스트 등록 중요 하지 않습니다.
-
+   >
    > [!TIP]
    > 이 cmdlet은 특정 Azure 테 넌 트에 대해 실행 되는 처음으로 완료 되기 전에 현저한 지연이 있을 수 있습니다. 오류가 보고 된 경우가 아니면이 지연에 대 한 걱정 하지 마세요.
 
@@ -220,7 +223,8 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
 1. 선택 사항: 특정 포트에서 수신 대기할 암호 보호에 대 한 프록시 서비스를 구성 합니다.
    * 도메인 컨트롤러에 암호 보호를 위한 DC 에이전트 소프트웨어를 프록시 서비스와 통신 하도록 TCP를 통한 RPC를 사용 합니다. 프록시 서비스는 기본적으로 모든 사용 가능한 동적 RPC 끝점에서 수신합니다. 하지만이 필요한 경우 네트워킹 토폴로지 또는 환경의 방화벽 요구 사항으로 인해 특정 TCP 포트로 수신 하도록 서비스를 구성할 수 있습니다.
-      * <a id="static" /></a>고정 포트에서 실행 되도록 서비스를 구성 하려면 사용 된 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+      * <a id="static" /></a>정적 포트에서 실행되도록 서비스를 구성하려면 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용합니다.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
          > 이러한 변경 내용을 적용하려면 서비스를 중지했다가 다시 시작해야 합니다.
 
       * 동적 포트에서 실행 되도록 서비스를 구성 하려면 동일한 절차를 사용 하지만 설정 *StaticPort* 0 돌아가기:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
@@ -284,4 +289,4 @@ DC 에이전트 소프트웨어 설계의 높은 가용성과 관련 된 일반�
 
 온-프레미스 서버에서 Azure AD 암호 보호 해야 하는 서비스를 설치한 했으므로 [설치 후 구성 및 보고 정보 수집을 수행할](howto-password-ban-bad-on-premises-operations.md) 배포를 완료 합니다.
 
-[Azure AD 암호 보호에 대한 개념적 개요](concept-password-ban-bad-on-premises.md)
+[Azure AD 암호 보호에 대 한 개념적 개요](concept-password-ban-bad-on-premises.md)

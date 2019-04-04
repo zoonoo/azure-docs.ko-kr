@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812381"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918674"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
@@ -69,7 +69,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 Windows에서는 두 가지 방법, `makecert.exe` 유틸리티 또는 IIS를 사용하여 쉽게 인증서를 만들 수 있습니다.
 
 ### <a name="makecertexe"></a>Makecert.exe
-이 유틸리티는 사용되지 않으므로 여기에 더 이상 설명되지 않습니다. 자세한 내용은 [이 MSDN 문서](https://msdn.microsoft.com/library/windows/desktop/aa386968)를 참조하세요.
+이 유틸리티는 사용되지 않으므로 여기에 더 이상 설명되지 않습니다. 자세한 내용은 [이 MSDN 문서](/windows/desktop/SecCrypto/makecert)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 ```powershell

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2db63be6c6997840f7409a3ca79f1845f30e4ceb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008062"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918436"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
 클라우드 서비스 작업자 또는 웹 역할 서비스 정의 파일에서 런타임 구성 값을 환경 변수로 노출할 수 있습니다. 다음 XPath 값(API 값에 해당)을 사용할 수 있습니다.
 
-이러한 XPath 값을 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 라이브러리를 통해서도 사용할 수 있습니다. 
+이러한 XPath 값을 [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) 라이브러리를 통해서도 사용할 수 있습니다. 
 
 ## <a name="app-running-in-emulator"></a>앱이 에뮬레이터에서 실행 중임
 앱이 에뮬레이터에서 실행 중임을 나타냅니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | 코드 |var x = RoleEnvironment.IsEmulated; |
@@ -37,7 +37,7 @@ ms.locfileid: "39008062"
 ## <a name="deployment-id"></a>배포 ID
 인스턴스의 배포 ID를 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | 코드 |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -45,7 +45,7 @@ ms.locfileid: "39008062"
 ## <a name="role-id"></a>역할 ID
 인스턴스의 현재 역할 ID를 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | 코드 |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -53,7 +53,7 @@ ms.locfileid: "39008062"
 ## <a name="update-domain"></a>도메인 업데이트
 인스턴스의 업데이트 도메인을 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | 코드 |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -61,7 +61,7 @@ ms.locfileid: "39008062"
 ## <a name="fault-domain"></a>장애 도메인
 인스턴스의 장애 도메인을 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | 코드 |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -69,7 +69,7 @@ ms.locfileid: "39008062"
 ## <a name="role-name"></a>역할 이름
 인스턴스의 역할 이름을 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | 코드 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -77,7 +77,7 @@ ms.locfileid: "39008062"
 ## <a name="config-setting"></a>구성 설정
 지정된 구성 설정의 값을 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | 코드 |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -85,7 +85,7 @@ ms.locfileid: "39008062"
 ## <a name="local-storage-path"></a>로컬 저장소 경로
 인스턴스에 대한 로컬 저장소 경로를 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | 코드 |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -93,31 +93,31 @@ ms.locfileid: "39008062"
 ## <a name="local-storage-size"></a>로컬 저장소 크기
 인스턴스의 로컬 저장소 크기를 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | 코드 |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
 
-## <a name="endpoint-protocol"></a>끝점 프로토콜
-인스턴스의 끝점 프로토콜을 검색합니다.
+## <a name="endpoint-protocol"></a>엔드포인트 프로토콜
+인스턴스의 엔드포인트 프로토콜을 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | 코드 |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
 
-## <a name="endpoint-ip"></a>끝점 IP
-지정된 끝점의 IP 주소를 가져옵니다.
+## <a name="endpoint-ip"></a>엔드포인트 IP
+지정된 엔드포인트의 IP 주소를 가져옵니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | 코드 |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
 
-## <a name="endpoint-port"></a>끝점 포트
-인스턴스의 끝점 포트를 검색합니다.
+## <a name="endpoint-port"></a>엔드포인트 포트
+인스턴스의 엔드포인트 포트를 검색합니다.
 
-| type | 예 |
+| Type | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | 코드 |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |

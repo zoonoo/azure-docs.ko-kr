@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439020"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918028"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
 Automation 연결 자산은 외부 서비스 또는 runbook의 애플리케이션이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 애플리케이션에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 **Get-AutomationConnection** 활동을 사용하여 runbook 또는 DSC 구성에 액세스할 수 있습니다. 
 
-연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163818.aspx)를 사용하여 만들어집니다. 그렇지 않으면 Automation 연결 형식을 지정하기 위해 메타데이터 파일을 만들어야 합니다.  이와 관련된 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
+연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100))를 사용하여 만들어집니다. 그렇지 않으면 Automation 연결 형식을 지정하기 위해 메타데이터 파일을 만들어야 합니다.  이와 관련된 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 시스템에서 관리하는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다. Azure Automation에서 이 프로세스를 관리합니다.

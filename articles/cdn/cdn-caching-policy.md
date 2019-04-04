@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540157"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918283"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure Media Services에서 Azure CDN 캐싱 정책 관리
 Azure Media Services는 HTTP 기반 적응 스트리밍 및 점진적 다운로드를 제공합니다. HTTP 기반 스트리밍은 클라이언트 쪽 캐싱뿐만 아니라 프록시 및 CDN 계층의 캐싱을 활용하므로 확장성이 뛰어납니다. 스트리밍 엔드포인트는 일반적인 스트리밍 기능 및 HTTP 캐시 헤더에 대한 구성을 제공합니다. 스트리밍 엔드포인트는 HTTP Cache-Control: max-age 및 Expires 헤더를 설정합니다. HTTP 캐시 헤더에 대한 자세한 내용은 [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)에서 확인할 수 있습니다.
@@ -39,7 +39,7 @@ Azure Media Services는 스트리밍 끝점에 대한 [CDN 통합](https://azure
 Azure Portal 또는 Azure Media Services API를 사용하여 캐시 헤더 값을 구성할 수 있습니다.
 
 1. Azure Portal을 사용하여 캐시 헤더를 구성하려면 스트리밍 엔드포인트 구성에서 [스트리밍 엔드포인트를 관리하는 방법](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) 섹션을 참조하세요.
-2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl)
+2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl)
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl 속성](https://go.microsoft.com/fwlink/?LinkId=615302)
 
 ## <a name="cache-configuration-precedence-order"></a>캐시 구성 우선 순위

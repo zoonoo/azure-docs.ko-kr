@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183801"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917909"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
 AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
@@ -56,7 +56,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 * 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 * SQL Data Warehouse에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
-* SQL Server Management Studio에 대한 Active Directory 유니버설 인증을 통해 Multi-Factor Authentication을 지원합니다. Multi-Factor Authentication에 대한 설명을 보려면 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](../sql-database/sql-database-ssms-mfa-authentication.md)을 참조하세요.
+* 비롯 한 다양 한 도구에 대 한 Active Directory 유니버설 인증을 통해 다단계 인증 지원 [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) 하 고 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)합니다.
 
 > [!NOTE]
 > Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 사용자 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항][Azure AD features and limitations], 특히 추가 고려 사항을 참조하세요.

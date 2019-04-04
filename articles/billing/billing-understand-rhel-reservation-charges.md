@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
-ms.openlocfilehash: 9eba59bcdc9974519fc1ed37078a205eff28f116
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653080"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917059"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure 용 Red Hat Enterprise 소프트웨어 예약 계획 할인은 적용 하는 방법 이해
 
@@ -158,12 +158,12 @@ Azure Portal Marketplace 이름:
 
 예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- [Azure 예약이란?](billing-save-compute-costs-reservations.md)
+- [Azure에 대 한 예약 이란](billing-save-compute-costs-reservations.md)
 - [Azure 예약을 사용 하 여 Red Hat 소프트웨어 계획에 대 한 요금을 선불합니다](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure에 대 한 예약 관리](billing-manage-reserved-vm-instance.md)
-- [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

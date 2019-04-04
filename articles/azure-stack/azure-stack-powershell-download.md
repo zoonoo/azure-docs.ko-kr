@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 05dd3b292f90964c6af21890aaeafab9849a09ed
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9eb8b3aefedb3e3330715408595a21596f33a413
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242980"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480942"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>GitHub에서 Azure Stack 도구 다운로드
 
@@ -28,7 +28,7 @@ ms.locfileid: "55242980"
 
 **Azurestack의 경우 도구** 되는 [GitHub 리포지토리](https://github.com/Azure/AzureStack-Tools) 관리 및 Azure Stack에 리소스를 배포 하기 위한 PowerShell 모듈을 호스팅하는 합니다. VPN 연결을 설정 하려는 경우 Azure Stack 개발 키트와 Windows 기반 외부 클라이언트에 이러한 PowerShell 모듈을 다운로드할 수 있습니다. 이러한 도구를 얻으려면 GitHub 리포지토리를 복제 하거나 다운로드 합니다 **azurestack의 경우 도구** 다음 스크립트를 실행 하 여 폴더:
 
-```PowerShell
+```powershell
 # Change directory to the root directory. 
 cd \
 

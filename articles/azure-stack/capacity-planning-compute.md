@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446327"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915689"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 계산 용량 계획
 합니다 [Azure Stack에서 지 원하는 VM 크기](./user/azure-stack-vm-sizes.md) 기능은 Azure에서 지원 되는 하위 집합입니다. Azure는 과도 한 리소스 (로컬 및 서비스 수준에는 서버)를 방지 하려면 많은 벡터를 따라 리소스 제한을 둡니다. 테 넌 트 사용량에 대해 몇 가지 제한 없이, 다른 테 넌 트 리소스 overconsume 때 테 넌 트 환경을 저하 됩니다. VM에서 네트워크 송신에 대 한 Azure 제한 사항에 맞는 Azure Stack에서 대역폭 caps 있습니다. 저장소 리소스에 대 한 저장소 IOPs 한도 기본 과도 한 리소스를 방지 하려면 Azure Stack에서 저장소 액세스에 대 한 테 넌 트에서 구현 되었습니다.  
@@ -45,7 +45,7 @@ Azure stack 인프라 오류 시 복원할 때 기본 기술 (장애 조치 클�
 
   VM 배치에 사용 가능한 메모리가 Vm-Azure Stack 인프라 오버 헤드를 실행 하 여 사용 된 총 서버 메모리-복원 력 예약 – 메모리 = <sup>1</sup>
 
-  Resiliency reserve = H + R * (N-1) + V * (N-2)
+  Resiliency reserve = H + R * ((N-1) * H) + V * (N-2)
 
 > 위치:
 > - H = 단일 서버 메모리의 크기
@@ -53,7 +53,7 @@ Azure stack 인프라 오류 시 복원할 때 기본 기술 (장애 조치 클�
 > - R = OS 오버 헤드에 대 한 운영 체제 예약<sup>2</sup>
 > - V = 배율 단위에 가장 큰 VM
 
-  <sup>1</sup> azure Stack 인프라 오버 헤드 208 GB =
+  <sup>1</sup> azure Stack 인프라 오버 헤드 230GB =
 
   <sup>2</sup> 오버 헤드에 대 한 운영 체제 예약 = 노드 메모리의 15%입니다. 운영 시스템 예약 값은 예상 값 이며 서버 및 일반 운영 체제 오버 헤드의 실제 메모리 용량에 따라 달라 집니다.
 
