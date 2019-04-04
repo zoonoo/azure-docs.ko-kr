@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833801"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628872"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Azure Spatial Anchors 개요
 
@@ -30,7 +30,7 @@ Spatial Anchors가 설정된 몇 가지 예제 사용 사례는 다음과 같습
 
 - [방법 찾기](concepts/anchor-relationships-way-finding.md). 개발자는 Spatial Anchors를 함께 연결하여 이들 간의 관계를 만들 수도 있습니다. 예를 들어, 앱에는 사용자가 작업을 완료하기 위해 반드시 상호 작용해야 하는 두 개 이상의 관심 지점이 있는 환경이 포함될 수 있습니다. 이러한 관심 지점은 연결된 방식으로 만들 수 있습니다. 나중에 사용자가 다단계 작업을 완료하면 앱은 현재 주변의 앵커를 요청하여 사용자를 작업의 다음 단계로 리디렉션할 수 있습니다.
 
-- [실제에서 가상 콘텐츠 유지](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). 사용자는 앱을 통해 가상 달력을 회의실 벽에 배치할 수 있으며 사람들은 휴대폰 앱 또는 HoloLens 디바이스를 사용하여 이를 볼 수 있습니다. 산업용 설정에서는 사용자가 지원되는 디바이스 카메라로 대상을 가리켜서 머신에 대한 컨텍스트 정보를 받을 수 있습니다.
+- [실제에서 가상 콘텐츠 유지](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). 사용자는 앱을 통해 가상 달력을 회의실 벽에 배치할 수 있으며 사람들은 휴대폰 앱 또는 HoloLens 디바이스를 사용하여 이를 볼 수 있습니다. 산업용 설정에서는 사용자가 지원되는 디바이스 카메라로 대상을 가리켜서 머신에 대한 컨텍스트 정보를 받을 수 있습니다.
 
 Azure Spatial Anchors는 지원되는 디바이스 플랫폼에 대한 관리 서비스 및 클라이언트 SDK로 구성됩니다. 다음 섹션에서는 Azure Spatial Anchors를 사용하여 앱 빌드를 시작하는 방법에 대한 정보를 제공합니다.
 

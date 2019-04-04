@@ -4,7 +4,7 @@ description: Azure PowerShell 스크립트 샘플 - 배포된 클러스터의 RD
 services: service-fabric
 documentationcenter: ''
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ee2ac3a2051ba7dd63aac5928e1713541f23b81f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 871fe502a40b4c22f3e57a2f357e940c7f659314
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500103"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663930"
 ---
 # <a name="update-the-rdp-port-range-values"></a>RDP 포트 범위 값 업데이트
 

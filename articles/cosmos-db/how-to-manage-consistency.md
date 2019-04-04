@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 33c97f95bebbc05362547164628d3615f1c920f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038129"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904324"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
 이 문서에서는 Azure Cosmos DB에서 일관성 수준을 관리하는 방법에 대해 설명합니다. 기본 일관성 수준을 구성하고, 기본 일관성을 재정의하며, 세션 토큰을 수동으로 관리하고, PBS(확률적 제한된 부실) 메트릭을 이해하는 방법을 알아봅니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-the-default-consistency-level"></a>기본 일관성 수준 구성
 
@@ -49,7 +51,7 @@ $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "ipRangeFilter"=$iprangefilter;
                         "enableMultipleWriteLocations"="true"}
 
-New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -ApiVersion "2015-04-08" `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `

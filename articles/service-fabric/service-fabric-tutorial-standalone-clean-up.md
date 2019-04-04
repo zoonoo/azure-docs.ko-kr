@@ -4,7 +4,7 @@ description: 이 자습서에서는 독립 실행형 클러스터를 정리하�
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: e3e618bfd141e5cf7159d8df5b2b59f0d17d000f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 28cc2bf4794620641fb6af46bd4017d74f87e955
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372202"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666999"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>자습서: 독립 실행형 클러스터 정리
 
