@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997908"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916566"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 통계
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "22997908"
 * [연결](#connections)
 
 ## <a name="accessing-real-time-stats"></a>실시간 통계에 액세스
-1. [Azure 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
    
     ![CDN 프로필 블레이드](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "22997908"
 **상태 코드** 그래프는 특정 HTTP 응답 코드가 선택한 시간 범위에 발생한 빈도를 나타냅니다.
 
 > [!TIP]
-> 각 HTTP 상태 코드 옵션에 대한 설명은 [Azure CDN HTTP 상태 코드](https://msdn.microsoft.com/library/mt759238.aspx)를 참조하세요.
+> 각 HTTP 상태 코드 옵션에 대한 설명은 [Azure CDN HTTP 상태 코드](/previous-versions/azure/mt759238(v=azure.100))를 참조하세요.
 > 
 > 
 
@@ -76,7 +76,7 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 **캐시 상태** 그래프는 특정 유형의 캐시 상태가 선택한 시간 범위에 발생한 빈도를 나타냅니다. 
 
 > [!TIP]
-> 각 캐시 상태 코드 옵션에 대한 설명은 [Azure CDN 캐시 상태 코드](https://msdn.microsoft.com/library/mt759237.aspx)를 참조하세요.
+> 각 캐시 상태 코드 옵션에 대한 설명은 [Azure CDN 캐시 상태 코드](/previous-versions/azure/mt759237(v=azure.100))를 참조하세요.
 > 
 > 
 
@@ -90,7 +90,7 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 이 그래프는 에지 서버에 설정된 연결 수를 나타냅니다. CDN을 통과하는 자산에 대한 각 요청은 연결을 발생시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
-* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-* [사용 패턴](cdn-analyze-usage-patterns.md)
+*  [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
+*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+*  [사용 패턴](cdn-analyze-usage-patterns.md)
 

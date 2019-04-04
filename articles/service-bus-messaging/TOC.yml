@@ -105,6 +105,8 @@ items:
         href: service-bus-sas.md
     - name: 토픽 필터 및 작업
       href: topic-filters.md
+    - name: 표준에서 프리미엄 네임스페이스로 마이그레이션
+      href: service-bus-migrate-standard-premium.md
     - name: 분할 큐 및 항목
       href: service-bus-partitioning.md
     - name: 메시지 세션
@@ -121,6 +123,8 @@ items:
         href: service-bus-amqp-protocol-guide.md
       - name: AMQP 요청-응답 기반 작업
         href: service-bus-amqp-request-response.md
+      - name: AMQP 오류
+        href: service-bus-amqp-troubleshoot.md
     - name: 고급 기능
       items:
       - name: 방화벽 사용
@@ -234,9 +238,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 09a7759c89411d53b374552a969f7aefdb89ee98
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 464e19bc796e41045d0c8422718da39f2aa66a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848093"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906279"

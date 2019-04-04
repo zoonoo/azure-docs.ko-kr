@@ -97,7 +97,7 @@ items:
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: 실시간 사기 감지
       href: stream-analytics-real-time-fraud-detection.md
-    - name: IoT 에지에서 작업 실행
+    - name: IoT Edge에서 작업 실행
       href: stream-analytics-edge.md
     - name: 요금 창구 센서 데이터 분석
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
@@ -423,7 +423,7 @@ items:
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
   - name: 블로그
-    href: https://blogs.msdn.com/b/streamanalytics/
+    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
   - name: 피드백 포럼
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: 포럼
@@ -442,9 +442,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: 백서 - 실시간 이벤트 처리
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 83e5f3f9edd1fb58c0b79566c4bb764e7b430bcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 0066db1ee56ada20527e468e689dde84a823f284
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803649"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849532"

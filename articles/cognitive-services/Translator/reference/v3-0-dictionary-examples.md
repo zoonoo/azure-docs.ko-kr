@@ -3,19 +3,19 @@ title: Translator Text API 사전 예제 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API 사전 예제 메서드를 사용합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884786"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916424"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
 
@@ -56,7 +56,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
-    <td>_한 가지 권한 부여_<br/>_헤더_</td>
+    <td>_하나의 권한 부여_<br/>_머리글_</td>
     <td>*필수 요청 헤더*<br/>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요.</td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
   * `Text`: 조회할 용어를 지정하는 문자열입니다. 이 속성은 이전 [사전 조회](./v3-0-dictionary-lookup.md) 요청의 역번역에서 가져온 `normalizedText` 필드의 값이어야 합니다. `normalizedSource` 필드의 값일 수도 있습니다.
 
-  * `Translation`: 이전에 [사전 조회](./v3-0-dictionary-lookup.md) 작업에서 반환된 번역된 텍스트를 지정하는 문자열입니다. 이 속성은 [사전 조회](./v3-0-dictionary-lookup.md) 응답의 `translations` 목록에 포함된 `normalizedTarget` 필드의 값이어야 합니다. 이 서비스는 특정 원본-대상 단어 쌍에 대한 예제를 반환합니다.
+  * `Translation`: 이전에 ](./v3-0-dictionary-lookup.md)사전 조회 작업에서 반환된 번역된 텍스트를 지정하는 문자열입니다. 이 속성은 [사전 조회](./v3-0-dictionary-lookup.md) 응답의 `translations` 목록에 포함된 `normalizedTarget` 필드의 값이어야 합니다. 이 서비스는 특정 원본-대상 단어 쌍에 대한 예제를 반환합니다.
 
 예제는 다음과 같습니다.
 
@@ -104,15 +104,15 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   
   * `examples`: (원본 용어, 대상 용어) 쌍에 대한 예제 목록입니다. 목록의 각 요소는 다음과 같은 속성이 있는 개체입니다.
 
-    * `sourcePrefix`: 완전한 예제를 만들기 위해 `sourceTerm` 값 _앞에_ 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
+    * `sourcePrefix`: 완전한 예제를 만들기 위해  값 _앞에`sourceTerm` 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
 
     * `sourceTerm`: 조회된 실제 용어와 같은 문자열입니다. 이 문자열은 `sourcePrefix` 및 `sourceSuffix`와 함께 추가되어 전체 예제를 형성합니다. 해당 값은 사용자 인터페이스에서 표시될 수 있으므로(예: 굵게 표시) 구분됩니다.
 
-    * `sourceSuffix`: 완전한 예제를 만들기 위해 `sourceTerm` 값 _뒤에_ 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
+    * `sourceSuffix`: 완전한 예제를 만들기 위해  값 _뒤에`sourceTerm` 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
 
-    * `targetPrefix`: `sourcePrefix`과 비슷하지만 대상에 사용되는 문자열입니다.
+    * `targetPrefix`: `sourcePrefix`와 비슷하지만 대상에 사용되는 문자열입니다.
 
-    * `targetTerm`: `sourceTerm`과 비슷하지만 대상에 사용되는 문자열입니다.
+    * `targetTerm`: `sourceTerm`와 비슷하지만 대상에 사용되는 문자열입니다.
 
     * `targetSuffix`: `sourceSuffix`와 비슷하지만 대상에 사용되는 문자열입니다.
 
@@ -123,7 +123,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

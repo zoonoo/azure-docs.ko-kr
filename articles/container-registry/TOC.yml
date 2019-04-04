@@ -7,13 +7,15 @@ items:
     href: container-registry-intro.md
 - name: 빠른 시작
   items:
-  - name: Container Registry - CLI
+  - name: 컨테이너 레지스트리 만들기 - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry - 포털
+  - name: 컨테이너 레지스트리 만들기 - 포털
     href: container-registry-get-started-portal.md
-  - name: Container Registry - PowerShell
+  - name: 컨테이너 레지스트리 만들기 - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Event Grid를 사용하는 이벤트 - CLI
+  - name: 이미지 빌드 및 실행 - CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Event Grid로 이벤트 보내기 - CLI
     href: container-registry-event-grid-quickstart.md
   expanded: true
 - name: 자습서
@@ -89,10 +91,8 @@ items:
     items:
     - name: ACR 작업
       href: container-registry-tasks-overview.md
-    - name: 다단계 작업(미리 보기)
+    - name: 다단계 작업
       href: container-registry-tasks-multi-step.md
-    - name: 다단계 작업 참조(미리 보기)
-      href: container-registry-tasks-reference-yaml.md
   - name: 레지스트리 및 기타 Azure 서비스
     items:
     - name: Azure Container Instances
@@ -119,6 +119,8 @@ items:
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager 템플릿
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: ACR 작업 YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: 웹후크 스키마
     href: container-registry-webhook-reference.md
   - name: Event Grid 스키마
@@ -140,9 +142,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 3b5c8cc63db967fd582d15765f2fd1ca1c7bbb3e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 987b70f527afe9b9d09eeef70c7fa706c3e58932
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847681"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917875"

@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757335"
 documentType: LandingData
 title: IoT용 Azure Security Center 미리 보기 설명서
 metadata:
-  title: IoT용 Azure Security Center 미리 보기 설명서 - 자습서, 빠른 시작 | Microsoft Doc
+  title: 'IoT용 Azure Security Center 미리 보기 설명서 - 자습서, 빠른 시작 | Microsoft Doc'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: IoT용 ASC(Azure Security Center) 미리 보기를 사용하여 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장합니다. 모든 Azure 관련 리소스의 보안에 관해 진정한 파노라마 시각을 얻을 수 있습니다. 빠른 배포 옵션과 IoT Hub 모듈 쌍을 사용한 완벽한 통합으로 다양한 사용자 지정 옵션 및 현재 디바이스 관리 도구와의 간편한 통합을 제공합니다. 
+  description: "IoT용 ASC(Azure Security Center) 미리 보기를 사용하여 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장합니다. 모든 Azure 관련 리소스의 보안에 관해 진정한 파노라마 시각을 얻을 수 있습니다. 빠른 배포 옵션과 IoT Hub 모듈 쌍을 사용한 완벽한 통합으로 다양한 사용자 지정 옵션 및 현재 디바이스 관리 도구와의 간편한 통합을 제공합니다.\_"
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: IoT용 ASC에 대한 IoT Hub를 사용하도록 설정하고, IoT용 ASC 에이전트를 설치하고, 데이터 및 잠재적 위협에 대한 가시성을 확보하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: IoT용 ASC 사용
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: IoT용 ASC 시작
-      href: /azure/asc-for-iot/getting-started
-- title: 방법 가이드
-  items:
-  - type: paragraph
-    text: 보안 정책을 정의하고, 악의적인 작업으로부터 디바이스를 보호하고, 보안 경고 및 인시던트에 대응하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'IoT용 ASC에 대한 IoT Hub를 사용하도록 설정하고, IoT용 ASC 에이전트를 설치하고, 데이터 및 잠재적 위협에 대한 가시성을 확보하는 방법을 알아봅니다.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: IoT용 ASC 사용
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: IoT용 ASC 시작
+            href: /azure/asc-for-iot/getting-started
+  - title: 방법 가이드
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT용 ASC를 사용한 위협 탐지</a>
-- title: Microsoft Learn을 통해 기술 쌓기
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: '보안 정책을 정의하고, 악의적인 작업으로부터 디바이스를 보호하고, 보안 경고 및 인시던트에 대응하는 방법을 알아봅니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT용 ASC를 사용한 위협 탐지</a>
+  - title: Microsoft Learn을 통해 기술 쌓기
     items:
-    - title: Azure의 보안 소개
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">더 많은 대화형 학습 보기...</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure의 보안 소개
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">더 많은 대화형 학습 보기...</a>
+  - title: 참고 자료
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">서비스 업데이트</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">서비스 업데이트</a>'

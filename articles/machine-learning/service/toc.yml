@@ -21,7 +21,7 @@ items:
     displayName: workspace
     href: quickstart-run-cloud-notebook.md
   - name: 로컬 Notebook으로 실험
-    displayName: workspace install sdk
+    displayName: workspace, install, sdk
     href: quickstart-run-local-notebook.md
 - name: 자습서
   items:
@@ -41,7 +41,7 @@ items:
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: 샘플
-  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples-notebooks.md
 - name: 개념
   items:
@@ -54,6 +54,9 @@ items:
   - name: 모델 관리
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
+  - name: 모델 해석력
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
   - name: FPGA를 사용하여 가속화
     href: concept-accelerate-with-fpgas.md
   - name: 기계 학습 파이프라인
@@ -81,20 +84,20 @@ items:
   - name: 개발 환경 설정 
     items:
     - name: 개발 환경 구성
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
+      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code 확장
-      displayName: Visual Studio Code, vscode, tools, ai, vs
+      displayName: Visual Studio Code, VSCode, tools, ai, vs
       items:
       - name: 시작하기
         href: how-to-vscode-tools.md
       - name: 학습 및 배포
         href: how-to-vscode-train-deploy.md
   - name: 데이터 작업
-    displayName: data prep, etl, elt, data preparation
+    displayName: data prep, ETL, ELT, data preparation
     items:
     - name: 데이터 탐색 및 준비
-      displayName: data prep, etl, elt, data preparation
+      displayName: data prep, ETL, ELT, data preparation
       items:
       - name: 데이터 로드
         href: how-to-load-data.md
@@ -108,7 +111,7 @@ items:
   - name: 모델 학습
     items:
     - name: 학습 환경 설정
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
     - name: 학습에서 추정 만들기
       href: how-to-train-ml-models.md
@@ -169,7 +172,7 @@ items:
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: 데이터 내보내기 및 삭제
-    displayName: gdpr
+    displayName: GDPR
     href: how-to-export-delete-data.md
 - name: 참고 자료
   items:
@@ -196,14 +199,16 @@ items:
   - name: 알려진 문제
     displayName: bugs errors troubleshoot
     href: resource-known-issues.md
-  - name: 지원 받기
-    href: support-for-aml-services.md
+  - name: 사용자 포럼
+    href: https://aka.ms/aml-forum-service
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: ML 제품 비교
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 4b38742208ad88b8dd1eeff8cce0d0055294ec12
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cbe10e172a66e7bf43baa3a96900b244b8eb733c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862933"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918742"

@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551979"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893400"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
 
@@ -28,7 +28,7 @@ ms.locfileid: "57551979"
 
 HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)과 동일하게 작동하지만 [swagger 메타데이터](https://swagger.io)의 API 구조 및 출력을 노출하여 논리 앱 디자이너에 더 나은 환경을 제공합니다. HTTP + Swagger 커넥터를 트리거로 사용할 수도 있습니다. 폴링 트리거를 구현하려면 [Logic Apps에서 다른 API, 서비스 및 시스템을 호출하기 위한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md#polling-triggers)에 설명된 폴링 패턴을 따라야 합니다.
 
-[논리 앱 트리거 및 동작](connectors-overview.md)에 대해 알아봅니다.
+[논리 앱 트리거 및 동작](../connectors/apis-list.md)에 대해 알아봅니다.
 
 다음은 논리 앱에서 HTTP + Swagger 작업을 워크플로의 동작으로 사용하는 예제입니다.
 
@@ -72,14 +72,14 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 이 HTTP + Swagger 커넥터가 지원하는 트리거 및 동작에 대한 세부 정보는 다음과 같습니다.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 트리거
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](connectors-overview.md)  HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다.
+트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다.  HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다. [트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
 
 | 트리거 | 설명 |
 | --- | --- |
 | HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 동작
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](connectors-overview.md)  HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다.
+동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.  HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. [작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
 
 | 조치 | 설명 |
 | --- | --- |
@@ -113,7 +113,7 @@ HTTP 응답
 ### <a name="http-responses"></a>HTTP 응답
 다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.
 
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | 200 |확인 |
 | 202 |수락됨 |
@@ -123,7 +123,6 @@ HTTP 응답
 | 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생. |
 
-- - -
 ## <a name="next-steps"></a>다음 단계
 
 * [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)

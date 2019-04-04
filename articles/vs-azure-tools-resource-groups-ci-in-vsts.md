@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456349"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894152"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
 Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합니다. Azure에 빌드, 테스트, 복사 ("스테이징" 라고도 함) 및 템플릿을 배포 합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
@@ -37,7 +37,7 @@ Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합
 * 애플리케이션 이진 파일
 
 ### <a name="nested-templates-and-configuration-scripts"></a>중첩된 템플릿 및 구성 스크립트
-Visual Studio에서 제공하는 템플릿을 사용할 경우(또는 Visual Studio 스니펫으로 빌드한 템플릿) PowerShell 스크립트가 아티팩트를 스테이징할 뿐 아니라, 다른 배포를 위해 리소스에 대한 URI를 매개 변수화합니다. 그런 다음 스크립트는 아티팩트를 Azure의 보안 컨테이너에 복사하고, 해당 컨테이너에 대한 SaS 토큰을 만든 다음 이 정보를 템플릿 배포에 전달합니다. 중첩된 템플릿에 대한 자세한 내용은 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx) 를 참조하세요.  Azure DevOps Services에서 태스크를 사용하는 경우 템플릿 배포에 적합한 태스크를 선택해야 하며, 필요에 따라 준비 단계의 매개 변수 값을 템플릿 배포에 전달해야 합니다.
+Visual Studio에서 제공하는 템플릿을 사용할 경우(또는 Visual Studio 스니펫으로 빌드한 템플릿) PowerShell 스크립트가 아티팩트를 스테이징할 뿐 아니라, 다른 배포를 위해 리소스에 대한 URI를 매개 변수화합니다. 그런 다음 스크립트는 아티팩트를 Azure의 보안 컨테이너에 복사하고, 해당 컨테이너에 대한 SaS 토큰을 만든 다음 이 정보를 템플릿 배포에 전달합니다. 중첩된 템플릿에 대한 자세한 내용은 [템플릿 배포 만들기](/previous-versions/azure/reference/dn790564(v=azure.100)) 를 참조하세요.  Azure DevOps Services에서 태스크를 사용하는 경우 템플릿 배포에 적합한 태스크를 선택해야 하며, 필요에 따라 준비 단계의 매개 변수 값을 템플릿 배포에 전달해야 합니다.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Azure Pipelines에서 연속 배포 설정
 Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이프라인을 업데이트해야 합니다. 이 단계는 요약하면 다음과 같습니다. 

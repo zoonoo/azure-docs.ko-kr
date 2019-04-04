@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181829"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916657"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "58181829"
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>역할이 시작되기 전에 환경 변수를 정의합니다.
-특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [Task] 요소 내부의 [환경] 요소를 사용합니다.
+특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [태스크] 요소 내부의 [환경] 요소를 사용합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -68,12 +68,12 @@ ms.locfileid: "58181829"
 
 *AppCmd.exe*를 호출한 후 **errorlevel**을 확인하는 것이 좋습니다. *.cmd* 파일로 *AppCmd.exe*에 호출을 래핑하는 경우 수행하기 쉽습니다. 알려진 **errorlevel** 응답을 발견하는 경우 무시하거나 다시 전송할 수 있습니다.
 
-*AppCmd.exe*로 반환되는 errorlevel은 winerror.h 파일에 나열되어 있으며 [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx)에서 볼 수도 있습니다.
+*AppCmd.exe*로 반환되는 errorlevel은 winerror.h 파일에 나열되어 있으며 [MSDN](/windows/desktop/Debug/system-error-codes--0-499-)에서 볼 수도 있습니다.
 
 ### <a name="example-of-managing-the-error-level"></a>오류 수준 관리 예제
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽
 
 Azure는 역할 내에서 시작되는 프로세스에 대한 방화벽 규칙을 만듭니다. 예를 들어 서비스 또는 프로그램을 시작하면 Azure는 필요한 방화벽 규칙을 만들어 해당 서비스가 인터넷과 통신할 수 있도록 합니다. 그러나 사용자의 역할(예: COM + 서비스 또는 Windows 예약된 태스크) 외부 프로세스에 의해 시작되는 서비스를 만드는 경우 해당 서비스에 대한 액세스를 허용하는 방화벽 규칙을 수동으로 만들어야 합니다. 이러한 방화벽 규칙은 시작 작업을 사용하여 만들 수 있습니다.
 
-방화벽 규칙을 만드는 시작 작업은 [상승된][task]  **executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
+방화벽 규칙을 만드는 시작 작업은 [상승된][환경]  **executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-[GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) 메서드를 사용하여 Azure SDK에서 로컬 저장소 폴더에 액세스할 수 있습니다.
+[GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 사용하여 Azure SDK에서 로컬 저장소 폴더에 액세스할 수 있습니다.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -472,12 +472,12 @@ EXIT %ERRORLEVEL%
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>시작 작업에 적절하게 executionContext 설정
 시작 작업에 대한 권한을 적절하게 설정합니다. 경우에 따라 역할이 일반 권한으로 실행되더라도 시작 작업을 상승된 권한으로 실행해야 합니다.
 
- [상승된][task] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
+ [상승된][환경] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
 상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
 
 ### <a name="use-the-appropriate-tasktype"></a>적절한 taskType 사용
-[taskType][task] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드**의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
+[taskType][태스크] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드**의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
 
 **간단** 시작 태스크의 경우 ServiceDefinition.csdef 파일에 나열된 태스크의 순서에 따라 태스크를 실행할 순서를 설정할 수 있습니다. **간단** 태스크가 0이 아닌 종료 코드로 끝나는 경우 시작 절차가 중지되고 역할이 시작되지 않습니다.
 
@@ -510,7 +510,7 @@ EXIT %ERRORLEVEL%
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

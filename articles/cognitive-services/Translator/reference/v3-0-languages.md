@@ -3,19 +3,19 @@ title: Translator Text API 언어 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API 언어 메서드를 사용합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122406"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915767"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
@@ -67,11 +67,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 클라이언트는 `scope` 쿼리 매개 변수를 사용하여 관심 있는 언어의 그룹을 정의합니다.
 
-* `scope=translation` 한 언어에서 다른 언어로 텍스트를 번역하는 데 지원되는 언어를 제공합니다.
+* `scope=translation` 다른 언어로; 언어로 텍스트 번역을 지 원하는 언어를 제공 합니다.
 
-* `scope=transliteration`은 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 음차하여 변환하는 기능을 제공합니다.
+* `scope=transliteration` 다른 스크립트를 하나의 스크립트에서 하나의 언어로 텍스트를 변환 하기 위한 기능을 제공 합니다.
 
-* `scope=dictionary`는 `Dictionary` 작업이 데이터를 반환하는 언어 쌍을 제공합니다.
+* `scope=dictionary` 에 대 한 언어 쌍 제공 `Dictionary` 작업 데이터를 반환 합니다.
 
 클라이언트는 쉼표로 구분된 이름 목록을 지정하여 동시에 여러 그룹을 검색할 수 있습니다. 예를 들어 `scope=translation,transliteration,dictionary`는 모든 그룹에 지원되는 언어를 반환합니다.
 
@@ -101,7 +101,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `ltr`이고 왼쪽에서 오른쪽 언어의 경우 입니다.
 
   예제는 다음과 같습니다.
           
@@ -135,7 +135,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
     * `nativeName`: 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `ltr`이고 왼쪽에서 오른쪽 언어의 경우 입니다.
 
     * `toScripts`: 텍스트 변환이 가능한 대상 스크립트 목록입니다. `toScripts` 목록의 각 요소에는 앞에서 설명한 대로 `code`, `name`, `nativeName` 및 `dir` 속성이 있습니다.
 
@@ -192,7 +192,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `ltr`이고 왼쪽에서 오른쪽 언어의 경우 입니다.
 
   * `translations`: 소스 언어로 표현된 쿼리의 대체 번역 및 예제가 포함된 언어 목록입니다. `translations` 목록의 각 요소에는 다음 속성이 있습니다.
 
@@ -200,7 +200,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
     * `nativeName`: 대상 언어에 대한 기본 로캘의 대상 언어 표시 이름입니다.
 
-    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `ltr`이고 왼쪽에서 오른쪽 언어의 경우 입니다.
     
     * `code`: 대상 언어를 식별하는 언어 코드입니다.
 
@@ -281,7 +281,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

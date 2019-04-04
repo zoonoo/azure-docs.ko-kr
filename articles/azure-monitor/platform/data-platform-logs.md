@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851874"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904154"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -46,7 +46,7 @@ Azure Monitor의 로그에는 여러 가지 다른 각 형식에 대 한 속성 
 | 분석 | 사용 하 여 [Log Analytics](../log-query/get-started-portal.md) 쓸 Azure portal에서 [로그 쿼리](../log-query/log-query-overview.md) 및 대화형으로 강력한 데이터 탐색기 분석 엔진을 사용 하 여 로그 데이터를 분석 합니다.<br>사용 된 [Application Insights analytics 콘솔](../app/analytics.md) 로그 쿼리를 작성 하 여 대화형으로 Application Insights에서 로그 데이터를 분석 하는 Azure 포털에서. |
 | 시각화 | 고정 테이블 또는 차트를 렌더링 하는 쿼리 결과 [Azure 대시보드에](../../azure-portal/azure-portal-dashboards.md)합니다.<br>만들기는 [통합 문서](../app/usage-workbooks.md) 여러 대화형 보고서에서 데이터 집합으로 결합 합니다. <br>쿼리의 결과를 [Power BI](powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.<br>쿼리 결과 내보냅니다 [Grafana](grafana-plugin.md) 해당 대시보드를 활용 하 여 다른 데이터 원본으로 결합 합니다.|
 | 경고 | 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [로그 경고 규칙](alerts-log.md)을 구성합니다.<br>구성 된 [메트릭 경고 규칙](alerts-metric-logs.md) 메트릭으로 추출 된 특정 로그 데이터 로그 합니다. |
-| 장치 | 사용 하 여 명령줄에서 로그 쿼리 결과 액세스할 [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics)합니다.<br>사용 하 여 명령줄에서 로그 쿼리 결과 액세스할 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1)합니다.<br>사용 하 여 사용자 지정 응용 프로그램에서 로그 쿼리 결과 액세스할 [REST API](https://dev.loganalytics.io/)합니다. |
+| 장치 | 사용 하 여 명령줄에서 로그 쿼리 결과 액세스할 [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics)합니다.<br>사용 하 여 명령줄에서 로그 쿼리 결과 액세스할 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)합니다.<br>사용 하 여 사용자 지정 응용 프로그램에서 로그 쿼리 결과 액세스할 [REST API](https://dev.loganalytics.io/)합니다. |
 | 내보내기 | 로그 데이터를 검색 하 여 외부 위치에 복사 하는 워크플로 만들 [Logic Apps](~/articles/logic-apps/index.yml)합니다. |
 
 

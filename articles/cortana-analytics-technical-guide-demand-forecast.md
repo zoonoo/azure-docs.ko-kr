@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231175"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893642"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
-## <a name="overview"></a>**개요**
+## **<a name="overview"></a>개요**
 솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 애플리케이션에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 Power BI 대시보드에서 시각화할 수 있는 Machine Learning 예측을 생성하기 시작합니다.
 
 솔루션 템플릿은 [여기](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,13 +27,13 @@ ms.locfileid: "54231175"
 
 이 문서의 목적은 참조 아키텍처 및 이 솔루션 템플릿의 일부로 구독에 프로비전된 다른 구성 요소를 설명하는 것입니다. 문서는 사용자 고유 데이터에서 통찰력/예측을 볼 수 있도록 샘플 데이터를 사용자 고유의 실제 데이터로 대체하는 방법에 대해서도 설명합니다. 또한 문서는 사용자 고유 데이터로 솔루션을 사용자 지정하려는 경우 수정되어야 하는 솔루션 템플릿의 부분을 설명합니다. 이 솔루션 템플릿에 대한 Power BI 대시보드를 빌드하는 방법에 대한 지침은 끝에 제공됩니다.
 
-## <a name="details"></a>**세부 정보**
+## **<a name="details"></a>세부 정보**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>아키텍처 설명
 솔루션을 배포하면 Cortana Analytics Suite 내 다양한 Azure 서비스가 활성화됩니다(즉, Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning, *기타*). 아키텍처 다이어그램은 높은 수준에서 에너지 솔루션 템플릿에 대한 수요 예측이 종단 간에서 생성되는 방법을 보여 줍니다. 솔루션의 배포를 사용하여 만든 솔루션 템플릿 다이어그램을 클릭하여 이러한 서비스를 조사할 수 있습니다. 다음 섹션은 각 부분을 설명합니다.
 
-## <a name="data-source-and-ingestion"></a>**데이터 원본 및 수집**
+## **<a name="data-source-and-ingestion"></a>데이터 원본 및 수집**
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
 이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 애플리케이션에서 생성됩니다. 솔루션 템플릿 다이어그램에서 에너지 예측 데이터 시뮬레이터라는 첫 번째 노드를 선택하면 속성 모음에서 이 애플리케이션 다운로드 및 설치에 대한 지침을 찾을 수 있습니다. 이 애플리케이션은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub)를 피드합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "54231175"
 ### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 설명된 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.
 
-## <a name="data-preparation-and-analysis"></a>**데이터 준비 및 분석**
+## **<a name="data-preparation-and-analysis"></a>데이터 준비 및 분석**
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에서 거의 실시간으로 분석을 제공하는 데 사용되며 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에서 나중에 처리할 들어오는 모든 원시 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관할 뿐만 아니라 [Power BI](https://powerbi.microsoft.com) 대시보드에 결과를 게시합니다.
 
@@ -52,15 +52,15 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
 
-## <a name="data-publishing"></a>**데이터 게시**
+## **<a name="data-publishing"></a>데이터 게시**
 ### <a name="azure-sql-database-service"></a>Azure SQL Database 서비스
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 서비스는 [Power BI](https://powerbi.microsoft.com) 대시보드에서 사용되는 Azure Machine Learning 서비스에서 수신된 예측을 저장하는 데 사용됩니다(Azure Data Factory에서 관리됨).
 
-## <a name="data-consumption"></a>**데이터 사용량**
+## **<a name="data-consumption"></a>데이터 사용량**
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) 서비스는 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스를 사용하여 생성된 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 저장된 수요 예측 결과뿐만 아니라 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스에서 제공된 집계를 포함하는 대시보드를 표시하는 데 사용됩니다. 이 솔루션 템플릿에 대한 Power BI 대시보드를 빌드하는 방법에 대한 지침은 다음 섹션을 참조하세요.
 
-## <a name="how-to-bring-in-your-own-data"></a>**사용자 고유 데이터를 가져오는 방법**
+## **<a name="how-to-bring-in-your-own-data"></a>사용자 고유 데이터를 가져오는 방법**
 이 섹션은 Azure에 사용자 고유 데이터를 가져오는 방법 및 이 아키텍처에 가져오는 데이터에 대한 변경 내용이 필요한 영역을 설명합니다.
 
 가져오는 데이터 세트는 이 솔루션 템플릿에 사용되는 데이터 세트와 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. Azure Machine Learning 서비스를 처음 접하는 경우 [첫 번째 실험을 만드는 방법](machine-learning/studio/create-experiment.md)의 예제를 사용하여 소개를 확인할 수 있습니다.
@@ -93,7 +93,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 다른 Azure Stream Analytics 작업은 모든 [Event Hub](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하여 전체 이벤트 정보는 스토리지로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
 
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+### <a name="azure-data-factory"></a>Azure Data Factory
 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 에너지 솔루션 템플릿에 대한 수요 예측에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 12개의 [파이프라인](data-factory/concepts-pipelines-activities.md)으로 구성됩니다.
 
   솔루션의 배포로 만든 솔루션 템플릿 다이어그램의 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스할 수 있습니다. Azure Portal에서 데이터 팩터리가 표시됩니다. 데이터 세트에서 오류가 표시되는 경우 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것이므로 이러한 오류를 무시할 수 있습니다. 이러한 오류가 발생해도 데이터 팩터리가 제대로 작동합니다.
@@ -106,40 +106,40 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 [Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning/team-data-science-process/create-features.md) 요구 사항에 따라 변경해야 합니다.
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용합니다.
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))를 사용합니다.
 
 이 분할 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandRegion1Hr.hql***입니다.
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 다음 두 작업을 포함합니다.
 
-* Hive 스크립트를 실행하여 시간별 과거 수요 데이터를 변전소 수준, 시간별 하위 지역 수준으로 집계하고 Azure Stream Analytics 작업 중에 Azure Storage에 입력하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용하는 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업
-* [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
+* Hive 스크립트를 실행하여 시간별 과거 수요 데이터를 변전소 수준, 시간별 하위 지역 수준으로 집계하고 Azure Stream Analytics 작업 중에 Azure Storage에 입력하는 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))를 사용하는 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업
+* [복사](/previous-versions/azure/dn835035(v=azure.100)) 작업.
 
 이 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandHistoryRegion.hql***입니다.
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md) 은 여러 작업을 포함하고 해당 최종 결과는 이 솔루션 템플릿과 연결된 Azure Machine Learning 실험의 점수가 매겨진 예측입니다. 각각 ADF 파이프라인에 전달된 다양한 RegionID로 수행되는 서로 다른 하위 지역과 각 하위 지역에 대한 hive 스크립트를 처리한다는 점만 제외하고 거의 동일합니다.  
 이 파이프라인에 포함된 작업은 다음과 같습니다.
 
-* Azure Machine Learning 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 Hive 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업. 이 작업에 대한 Hive 스크립트는 각각 ***PrepareMLInputRegionX.hql***입니다.
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업의 결과를 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업으로 액세스할 수 있는 단일 Azure Storage Blob으로 이동하는 [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
-* 단일 Azure Storage Blob에 배치되는 결과로 이어지는 Azure Machine Learning 실험을 호출하는 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업.
+* Azure Machine Learning 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 Hive 스크립트를 실행하는 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))를 사용한 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업. 이 작업에 대한 Hive 스크립트는 각각 ***PrepareMLInputRegionX.hql***입니다.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업의 결과를 [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 작업으로 액세스할 수 있는 단일 Azure Storage Blob으로 이동하는 [복사](/previous-versions/azure/dn835035(v=azure.100)) 작업.
+* 단일 Azure Storage Blob에 배치되는 결과로 이어지는 Azure Machine Learning 실험을 호출하는 [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 작업.
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 각 ***MLScoringRegionXPipeline***에서 Azure Machine Learning 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 각 ***MLScoringRegionXPipeline***에서 Azure Machine Learning 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](/previous-versions/azure/dn835035(v=azure.100)) 작업)을 포함합니다.
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 ***LoadHistoryDemandDataPipeline***에서 집계된 지속적인 수요 데이터를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 ***LoadHistoryDemandDataPipeline***에서 집계된 지속적인 수요 데이터를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](/previous-versions/azure/dn835035(v=azure.100)) 작업)을 포함합니다.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 솔루션 템플릿 설치의 일부로 Azure Storage Blob에 업로드된 하위 지역/변전소/Topologygeo의 참조 데이터를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 솔루션 템플릿 설치의 일부로 Azure Storage Blob에 업로드된 하위 지역/변전소/Topologygeo의 참조 데이터를 솔루션 템플릿 설치의 일부로 프로비전되는 Azure SQL Database로 이동하는 단일 작업([복사](/previous-versions/azure/dn835035(v=azure.100)) 작업)을 포함합니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 하위 지역의 수요 예측을 제공합니다. 실험은 사용된 데이터 집합에 특정되므로 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
 
-## <a name="monitor-progress"></a>**진행률 모니터링**
+## **<a name="monitor-progress"></a>진행률 모니터링**
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
 
 1. Azure Blob Storage에서 데이터 확인
@@ -154,7 +154,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
     Power BI 실행 부하 과다 경로 대시보드를 설정하여 들어오는 원시 데이터를 모니터링할 수 있습니다. "Power BI 대시보드" 섹션의 지시를 따르세요.
 
-## <a name="power-bi-dashboard"></a>**Power BI 대시보드**
+## **<a name="power-bi-dashboard"></a>Power BI 대시보드**
 ### <a name="overview"></a>개요
 이 섹션은 Azure Machine Learning(콜드 경로)의 예측 결과뿐 아니라 Azure Stream Analytics(실행 부하 과다 경로)에서 실시간으로 데이터를 시각화하도록 Power BI 대시보드를 설정하는 방법을 설명합니다.
 
@@ -179,7 +179,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
    * 위의 **저장** 을 클릭하고 "EnergyStreamDataReport"로 보고서 이름을 지정합니다. “EnergyStreamDataReport”라는 보고서가 왼쪽의 탐색기 창에서 보고서 섹션에 표시됩니다.
    * 이 꺾은선형 차트의 오른쪽 위 모서리에서 **"시각적 개체 고정"**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) 아이콘을 클릭하면 "대시보드에 고정" 창이 대시보드를 선택하도록 표시될 수 있습니다. “EnergyStreamDataReport”를 선택한 후 “고정”을 클릭합니다.
    * 대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
-4. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기: ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>콜드 경로 대시보드 설정
 콜드 경로 데이터 파이프라인에서 중요한 목표는 각 하위 지역의 수요 예측을 가져오는 것입니다. Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQL 데이터베이스에 연결합니다.
@@ -224,14 +224,14 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
    * **새로 고침 예약** 섹션을 확장합니다. "데이터를 최신 상태로 유지"를 켭니다.
    * 필요에 따라 새로 고침을 예약합니다. 자세한 정보를 찾으려면 [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)을 참조하세요.
 
-## <a name="how-to-delete-your-solution"></a>**솔루션을 삭제하는 방법**
+## **<a name="how-to-delete-your-solution"></a>솔루션을 삭제 하는 방법**
 데이터 생성기를 실행하면 비용이 더 높아지므로 솔루션을 활발히 사용하지 않을 때는 데이터 생성기를 중지하였는지 확인합니다. 솔루션을 사용하지 않는 경우에는 삭제합니다. 솔루션을 삭제하면 솔루션을 배포할 때 구독에 프로비전된 모든 구성 요소가 삭제됩니다. 솔루션을 삭제하려면 솔루션 템플릿 왼쪽 패널의 솔루션 이름을 클릭하고 삭제를 클릭합니다.
 
-## <a name="cost-estimation-tools"></a>**비용 예측 도구**
+## **<a name="cost-estimation-tools"></a>비용 예측 도구**
 다음 두 가지 도구는 구독에서 에너지 솔루션 템플릿에 대한 수요 예측을 실행하는 데 필요한 총 비용을 더 이해하는 데 사용할 수 있습니다.
 
-* [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure 비용 추정 도구(데스크톱)](https://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure 비용 추정 도구 (온라인)](https://azure.microsoft.com/pricing/calculator/)
+* [Microsoft Azure 비용 추정 도구 (데스크톱)](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**승인**
+## **<a name="acknowledgements"></a>승인**
 이 문서는 Microsoft 소속 데이터 과학자 Yijing Chen과 소프트웨어 엔지니어 Qiu Min이 작성하였습니다.

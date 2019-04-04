@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/28/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: ca9f25700622a8d8435a1b05bfc46d210038aeaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0c92ff11ba992170b7da89dbbfa9bf14f92a9d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895841"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541301"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -59,7 +59,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![SharePoint Server 2016 평가판](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 평가판](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 평가판 Windows Server 2016 Datacenter의 합니다. | Microsoft |
 | ![Windows Server 2012 R2의 SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2의 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
-| ![Windows Server 2016의 SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2016SP2StandardWindowsServer2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
+| ![Windows Server 2016의 SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 무료 개발자 버전의 SQL Server 2016 SP2 트랜잭션, 데이터 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Express](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 무료 버전의 SQL Server 2016 SP2 express입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2016 SP2 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
@@ -69,12 +69,8 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | SQL Server 2017의 무료 express 버전입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![SQL Server 2017 Enterprise on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2017 웹](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 웹](https://azuremarketplace.microsoft.com/marketplace/apps/cognosys.sql-server-2007-web-win2016-debug-utilities) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
-| ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + Canonical |
-| ![무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft + Canonical |
-| ![무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) | SQL Server 2017의 무료 express 버전입니다. | Microsoft + Canonical |
-| ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + Canonical |
-| ![Ubuntu Server 16.04 LTS에서 SQL Server 2017 웹](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS에서 SQL Server 2017 웹](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + Canonical |
-| ![QL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
+| ![Ubuntu Server 16.04 LTS의 SQL Server 2017](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ubuntu1604) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + Canonical |
+| ![SQL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
 | ![무료 라이선스: SQL Server 2017 Developer SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: SQL Server 2017 Developer SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft + SUSE |
 | ![무료 라이선스: SQL Server 2017 Express SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: SQL Server 2017 Express SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | SQL Server 2017의 무료 express 버전입니다. | Microsoft + SUSE |
 | ![SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |

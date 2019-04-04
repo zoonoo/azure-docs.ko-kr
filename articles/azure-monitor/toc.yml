@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: 연속 모니터링
     href: continuous-monitoring.md
-  - name: 로그 데이터 분석
+  - name: 데이터 플랫폼
     items:
-    - name: 로그 쿼리
-      href: log-query/log-query-overview.md
-    - name: 로그 쿼리 포털
-      href: log-query/portals.md
-  - name: 데이터 모니터링
+    - name: 개요
+      href: platform/data-platform.md
+    - name: 메트릭
+      href: platform/data-platform-metrics.md
+    - name: 로그
+      href: platform/data-platform-logs.md
+  - name: 데이터 원본
     items:
-    - name: 메트릭 및 로그
-      href: platform/data-collection.md
-    - name: 데이터 원본
+    - name: 데이터 원본 요약
       href: platform/data-sources.md
     - name: Azure 데이터 원본
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: 메트릭 저장소에 대한 사용자 지정 메트릭
       href: platform/metrics-custom-overview.md
-    - name: 데이터 보안
-      items:
-      - name: 로그 데이터
-        href: platform/data-security.md
-      - name: 개인 로그 데이터 처리
-        href: platform/personal-data-mgmt.md
-      - name: 응용 프로그램 데이터 수집, 보존 및 저장
-        href: app/data-retention-privacy.md
+  - name: 로그 데이터 분석
+    items:
+    - name: 로그 쿼리
+      href: log-query/log-query-overview.md
+    - name: 로그 쿼리 포털
+      href: log-query/portals.md
+  - name: 데이터 보안
+    items:
+    - name: 로그 데이터
+      href: platform/data-security.md
+    - name: 개인 로그 데이터 처리
+      href: platform/personal-data-mgmt.md
+    - name: 응용 프로그램 데이터 수집, 보존 및 저장
+      href: app/data-retention-privacy.md
   - name: 자세한 정보
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: 활동 로그 경고
       href: platform/activity-log-alerts.md
+    - name: 일반 경고 스키마
+      href: platform/alerts-common-schema.md
   - name: 데이터 가상화
     href: visualizations.md
   - name: 파트너 통합
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: 작업 영역 삭제
         href: platform/delete-workspace.md
-      - name: 작업 영역 관리
-        href: platform/manage-access.md
       - name: 서비스 공급자용 디자인
         href: platform/service-providers.md
   - name: 데이터 수집
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: 스냅숏 디버거
+          href: app/snapshot-debugger.md
       - name: Java 앱
         items:
         - name: 웹 앱
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure Storage에서 진단 또는 로그 데이터
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS 리소스
+        href: platform/collect-azurepass-posh.md
       - name: 사용자 지정 데이터 원본 상관 관계 만들기
         href: app/custom-data-correlation.md
     - name: 사용자 지정 데이터 수집
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: 진단 로그 저장
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure 리소스 데이터를 이벤트 허브로 라우팅
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: 활동 로그를 Event Hubs로 스트림
         href: platform/activity-logs-stream-event-hubs.md
+      - name: 로그 및 메트릭을 이벤트 허브로 라우팅
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: 진단 로그를 이벤트 허브로 라우팅
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 애플리케이션 데이터를 Log Analytics로 라우팅
@@ -650,9 +660,8 @@ items:
   - name: 데이터 가상화
     items:
     - name: 뷰
+      href: platform/view-designer.md
       items:
-      - name: 뷰 디자이너
-        href: platform/view-designer.md
       - name: 타일 참조
         href: platform/view-designer-tiles.md
       - name: 시각화 요소 참조
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: 웹후크 스키마에 대해 알아보기
           href: platform/activity-log-alerts-webhook.md
+        - name: 일반 경고 스키마 정의
+          href: platform/alerts-common-schema-definitions.md
         - name: SMS 경고 동작
           href: platform/alerts-sms-behavior.md
         - name: 경고 속도 제한
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: 모니터
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: 로그
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: 모니터
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629429"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886644"
