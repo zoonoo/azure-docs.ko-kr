@@ -1,19 +1,17 @@
 ---
 title: Azure에서 마이크로 포커스 개발/테스트 환경 | Microsoft Docs
 description: Micro Focus 솔루션을 사용 하 여 Azure virtual machines (Vm)에서 IBM z/OS 메인프레임 워크 로드를 다시 호스트 합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740576"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893778"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Azure에서 마이크로 포커스 개발/테스트 환경
 
@@ -25,5 +23,6 @@ Micro Focus 제공 재호스팅 개발 및 테스트 기존 COBOL 및 PL 확장 
 
 **다음 단계**
 
-- [Azure에서 Micro Focus Enterprise Server 4.0 및 엔터프라이즈 개발자 4.0 설치](./set-up-micro-focus-on-azure.md)
+- [Azure에서 Micro Focus Enterprise Server 4.0 및 엔터프라이즈 개발자 4.0 설치](./set-up-micro-focus-azure.md)
 - [Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 CICS BankDemo 설정](./demo.md)
+- [Enterprise Server를 Azure에서 Docker 컨테이너에서 실행](./run-enterprise-server-container.md)

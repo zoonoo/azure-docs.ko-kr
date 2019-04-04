@@ -19,16 +19,18 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728a67513bd66b6c39d1f366789172ee2963f6cc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517473"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904256"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
 이 항목은 엔터프라이즈 상태 로밍과 관련된 문제를 진단하고 해결하는 방법에 관한 정보와 알려진 문제 목록을 제공합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>문제 해결을 위한 준비 단계 
 
@@ -162,8 +164,8 @@ Azure AD에 등록된 도메인 조인 디바이스는 오랜 시간 디바이�
 사용자가 디바이스의 연결을 해제하고 클라우드에 다시 연결해야 합니다. 이렇게 하려면 로컬 관리자 사용자로 로그인하고 **설정** > **시스템** > **정보**로 이동하여 디바이스의 연결을 해제한 후 "회사 또는 학교에서 관리 또는 연결 끊기"를 선택합니다. 아래 파일을 정리한 다음, **설정** > **시스템** > **정보**에서 "회사 또는 학교에 연결"을 선택하여 디바이스를 Azure AD에 다시 연결합니다. 디바이스를 계속 Azure Active Directory에 연결하고 흐름을 완료합니다.
 
 정리 단계에서 다음 파일을 정리합니다.
-- Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account` 폴더에 있는 모든 파일
+- Settings.dat `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- 폴더에 있는 모든 파일 `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

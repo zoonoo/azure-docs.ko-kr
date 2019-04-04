@@ -13,15 +13,15 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533003"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918504"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services 정의 스키마(.csdef 파일)
-서비스 정의 파일은 애플리케이션에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 엔드포인트를 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)에 설명된 대로 서비스 구성 파일에서 설정됩니다.
+서비스 정의 파일은 애플리케이션에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 엔드포인트를 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](/previous-versions/azure/reference/ee758710(v=azure.100))에 설명된 대로 서비스 구성 파일에서 설정됩니다.
 
 기본적으로 Azure 진단 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://www.windowsazure.com/develop/downloads/)의 설치된 버전으로 바꿉니다.
 

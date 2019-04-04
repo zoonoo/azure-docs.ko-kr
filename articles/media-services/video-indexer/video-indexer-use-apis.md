@@ -9,21 +9,18 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443575"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895667"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
-> [!Note]
-> Video Indexer V1 API는 2018년 8월 1일부터 더 이상 사용되지 않습니다. 이제는 Video Indexer v2 API를 사용해야 합니다. <br/>Video Indexer v2 API를 사용하여 개발하려면 [여기](https://api-portal.videoindexer.ai/)의 지침을 참조하세요. 
-
 Video Indexer는 Microsoft에서 제공하는 다양한 오디오 및 비디오 AI(인공 지능) 기술을 하나의 통합 서비스로 통합하여 더 쉽게 개발할 수 있도록 합니다. 이 API는 개발자가 클라우드 플랫폼의 규모, 글로벌 범위, 가용성 및 안정성에 대해 걱정하지 않고 미디어 AI 기술 사용에 집중할 수 있도록 설계되었습니다. API를 사용하여 파일을 업로드하고, 자세한 비디오 인사이트를 얻으며, 인사이트 및 플레이어 위젯의 URL을 와서 애플리케이션과 기타 작업에 포함시킬 수 있습니다.
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. Video Indexer 계정으로 유료 옵션을 사용 하 여 만든 [Azure 구독 및 Azure Media Services 계정에 연결 된](connect-to-azure.md)합니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
 
 이 문서에서는 개발자가 [Video Indexer API](https://api-portal.videoindexer.ai/)를 활용하는 방법을 보여 줍니다.
 
@@ -211,8 +208,8 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="see-also"></a>참고 항목
 
-- [Video Indexer 개요](video-indexer-overview.md)
-- [지역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+- [비디오 인덱서 개요](video-indexer-overview.md)
+- [영역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>다음 단계
 
