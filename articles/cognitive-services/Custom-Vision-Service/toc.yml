@@ -51,16 +51,12 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: 예측 API 사용
     href: use-prediction-api.md
-  - name: 모델 내보내기
-    items:
-    - name: 모바일로 모델 내보내기
-      href: export-your-model.md
-    - name: Windows ML를 사용한 ONNX 모델 사용
-      href: custom-vision-onnx-windows-ml.md
-    - name: Python에서 TensorFlow 모델 실행
-      href: export-model-python.md
-  - name: REST API를 사용하여 모델 빌드
-    href: rest-api-tutorial.md
+  - name: 모바일로 모델 내보내기
+    href: export-your-model.md
+  - name: Windows ML를 사용한 ONNX 모델 사용
+    href: custom-vision-onnx-windows-ml.md
+  - name: Python에서 TensorFlow 모델 실행
+    href: export-model-python.md
   - name: 계정 데이터 내보내기 또는 삭제
     href: ./export-delete-data.md
   - name: 제한된 평가판 프로젝트를 Azure로 이동
@@ -101,9 +97,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: 릴리스 정보
     href: release-notes.md
-ms.openlocfilehash: 98708f7c3ad2f9547e7dde9f4cf9fc7696ed7ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886712"
+ms.locfileid: "58893553"

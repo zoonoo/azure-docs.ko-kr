@@ -3,17 +3,17 @@ title: '빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 
 description: 이 빠른 시작 문서에서는 Node.js를 사용하여 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: 46abd71d4621bad7ee47f6579b1675b75819b16d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0a23c171d99d46eb29dd589867ce70ca2739ff29
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979924"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756455"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집
 

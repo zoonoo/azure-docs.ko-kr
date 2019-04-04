@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403700"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620090"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -97,12 +97,15 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     
     |설정  |값  |
     |---------|---------|
-    |구독    |이 항목은 이전 선택 항목에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |구독    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
     |리소스 그룹  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.     |
 
 5. 다음 **인스턴스 세부 정보**를 입력하거나 선택합니다.
-   |이름   | 리소스를 식별하는 친숙한 이름입니다.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
-    |지역     |이 릴리스의 경우 미국 동부, 동남 아시아 및 유럽 서부에서 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+
+    |설정  |값  |
+    |---------|---------|
+    |Name   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
+    |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
     
     ![Data Box 게이트웨이 리소스 만들기](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

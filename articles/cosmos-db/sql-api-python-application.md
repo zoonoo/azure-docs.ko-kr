@@ -8,24 +8,24 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431209"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883890"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Java](sql-api-java-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
+> * [자바](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
+이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
 
 이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
 
@@ -417,7 +417,7 @@ def vote():
     ![App Service에 Bottle, Flask 및 Django 앱 게시 결과](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > 웹 페이지가 표시되지 않거나 여전히 “내부 서버 오류로 페이지를 표시할 수 없습니다.” 메시지가 표시된다면 Kudo에서 web.config 파일을 열고 system.webServer 섹션에 ` <httpErrors errorMode="Detailed"></httpErrors>`를 추가한 다음 페이지를 새로 고칩니다. 이렇게 하면 브라우저에 상세 오류 출력이 나타납니다. 
+    > 웹 페이지가 표시되지 않거나 여전히 “내부 서버 오류로 페이지를 표시할 수 없습니다.” 메시지가 표시된다면 Kudo에서 web.config 파일을 열고 system.webServer 섹션에 `<httpErrors errorMode="Detailed"></httpErrors>`를 추가한 다음 페이지를 새로 고칩니다. 이렇게 하면 브라우저에 상세 오류 출력이 나타납니다. 
 
 ## <a name="troubleshooting"></a>문제 해결
 컴퓨터에서 실행하는 첫 번째 Python 앱인 경우 다음 폴더(또는 동등한 설치 위치)가 경로 변수에 포함되어 있도록 합니다.

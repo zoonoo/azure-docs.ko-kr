@@ -3,17 +3,17 @@ title: '자습서: 코드를 한 줄도 쓰지 않고 Azure Data Explorer에서 
 description: 이 자습서에서는 코드를 한 줄도 작성하지 않고 Azure Data Explorer에 데이터를 수집하고 해당 데이터를 쿼리하는 방법을 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889225"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756836"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>자습서: 코드를 한 줄도 쓰지 않고 Azure Data Explorer에서 데이터 수집
 
@@ -38,29 +38,44 @@ ms.locfileid: "56889225"
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure Monitor 데이터 공급자: 진단 및 활동 로그
 
-Azure Monitor 진단 및 활동 로그에서 제공하는 데이터를 확인하고 이해합니다. 이러한 데이터 스키마를 기반으로 수집 파이프라인을 만듭니다.
+아래 Azure Monitor 진단 및 활동 로그에서 제공된 데이터를 확인하고 이해합니다. 이러한 데이터 스키마를 기반으로 수집 파이프라인을 만듭니다. 로그의 각 이벤트에는 레코드 배열이 있습니다. 이 레코드 배열은 나중에 자습서에서 분할됩니다.
 
 ### <a name="diagnostic-logs-example"></a>진단 로그 예제
 
-Azure 진단 로그는 Azure 서비스가 생성한 메트릭이며, 해당 서비스의 작업에 대한 데이터를 제공합니다. 데이터는 1분의 시간 단위로 집계됩니다. 진단 로그의 각 이벤트는 하나의 레코드를 포함합니다. 다음은 쿼리 기간에 Azure Data Explorer 메트릭 이벤트 스키마의 예입니다.
+Azure 진단 로그는 Azure 서비스가 생성한 메트릭이며, 해당 서비스의 작업에 대한 데이터를 제공합니다. 데이터는 1분의 시간 단위로 집계됩니다. 다음은 쿼리 기간에 Azure Data Explorer 메트릭 이벤트 스키마의 예입니다.
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>활동 로그 예제
 
-Azure 활동 로그는 레코드 컬렉션을 포함하는 구독 수준 로그입니다. 이러한 로그는 구독의 리소스에 수행된 작업에 대한 인사이트를 제공합니다. 진단 로그와 달리 활동 로그의 각 이벤트에는 레코드의 배열이 있습니다. 이 자습서의 뒷부분에서는 이 레코드 배열을 분할해야 합니다. 다음은 액세스 확인을 위한 활동 로그 이벤트의 예입니다.
+Azure 활동 로그는 구독에 있는 리소스에 대해 수행되는 작업에 대한 인사이트를 제공하는 구독 수준 로그입니다. 다음은 액세스 확인을 위한 활동 로그 이벤트의 예입니다.
 
 ```json
 {
@@ -129,6 +144,8 @@ Azure Data Explorer *TestDatabase* 데이터베이스에서 **쿼리**를 선택
 
 ### <a name="create-the-target-tables"></a>대상 테이블 만들기
 
+Azure Monitor 로그의 구조는 테이블 형식이 아닙니다. 데이터를 조작하고 각 이벤트를 하나 이상의 레코드로 확장합니다. 원시 데이터는 활동 로그의 경우 *ActivityLogsRawRecords*, 진단 로그의 경우 *DiagnosticLogsRawRecords*라는 중간 테이블로 수집됩니다. 이 때 데이터가 조작되고 확장됩니다. 그런 다음, 업데이트 정책을 사용하여, 확장된 데이터는 활동 로그의 *ActivityLogsRecords* 테이블 및 진단 로그의 *DiagnosticLogsRecords*로 수집됩니다. 따라서 활동 로그 수집용으로 두 개의 개별 테이블을 만들고 진단 로그 수집용으로 두 개의 개별 테이블을 만들어야 합니다.
+
 Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이스에 대상 테이블을 만듭니다.
 
 #### <a name="the-diagnostic-logs-table"></a>진단 로그 테이블
@@ -143,9 +160,13 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 
     ![쿼리 실행](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>활동 로그 테이블
+1. 다음 쿼리를 사용하여 데이터 조작을 위해 *TestDatabase* 데이터베이스에 *DiagnosticLogsRawRecords*라는 중간 데이터 테이블을 만듭니다. **실행**을 선택하여 테이블을 만듭니다.
 
-활동 로그의 구조는 테이블 형식이 아니기 때문에, 데이터를 조작하여 각 이벤트를 하나 이상의 레코드로 확장해야 합니다. 원시 데이터는 *ActivityLogsRawRecords*라는 중간 테이블에 수집됩니다. 이 때 데이터가 조작되고 확장됩니다. 확장된 데이터는 업데이트 정책을 사용하여 *ActivityLogsRecords* 테이블로 수집됩니다. 따라서 활동 로그를 수집하기 위해 두 개의 개별 테이블을 만들어야 합니다.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>활동 로그 테이블
 
 1. 활동 로그 레코드를 받을 *TestDatabase* 데이터베이스에 *ActivityLogsRecords*라는 테이블을 만듭니다. 테이블을 만들려면 다음 Azure Data Explorer 쿼리를 실행합니다.
 
@@ -174,7 +195,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 진단 로그 데이터를 테이블에 매핑하려면 다음 쿼리를 사용합니다.
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>활동 로그에 대한 테이블 매핑
@@ -185,9 +206,11 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>활동 로그 데이터에 대한 업데이트 정책 만들기
+### <a name="create-the-update-policy-for-log-data"></a>로그 데이터에 대한 업데이트 정책 만들기
 
-1. 컬렉션의 각 값이 별도의 행을 받도록 레코드 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. [`mvexpand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
+#### <a name="activity-log-data-update-policy"></a>활동 로그 데이터 업데이트 정책
+
+1. 컬렉션의 각 값이 별도의 행을 받도록 활동 로그 레코드 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. [`mvexpand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>진단 로그 데이터 업데이트 정책
+
+1. 컬렉션의 각 값이 별도의 행을 받도록 진단 로그 레코드 컬렉션을 확장하는 [함수](/azure/kusto/management/functions)를 만듭니다. [`mvexpand`](/azure/kusto/query/mvexpandoperator) 연산자를 사용합니다.
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. 대상 테이블에 [업데이트 정책](/azure/kusto/concepts/updatepolicy)을 추가합니다. 이 정책은 *DiagnosticLogsRawRecords* 중간 데이터 테이블의 새로 수집된 데이터에 대해 자동으로 쿼리를 실행하고 그 결과를 *DiagnosticLogsRecords* 테이블에 수집합니다.
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Azure Event Hubs 네임스페이스 만들기
@@ -252,12 +301,12 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
     ![진단 설정](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. **진단 설정** 창이 열립니다. 다음과 같은 단계를 수행합니다.
-    1. 진단 로그 데이터 이름을 *ADXExportedData*라고 지정합니다.
-    1. **메트릭** 아래에서 **모든 메트릭** 확인란을 선택합니다(선택 사항).
-    1. **이벤트 허브로의 스트림** 확인란을 선택합니다.
-    1. **구성**을 선택합니다.
+   1. 진단 로그 데이터 이름을 *ADXExportedData*라고 지정합니다.
+   1. **메트릭** 아래에서 **모든 메트릭** 확인란을 선택합니다(선택 사항).
+   1. **이벤트 허브로의 스트림** 확인란을 선택합니다.
+   1. **구성**을 선택합니다.
 
-    ![진단 설정 창](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![진단 설정 창](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. **이벤트 허브 선택** 창에서 직접 만든 이벤트 허브로 진단 로그의 데이터를 내보내는 방법을 구성합니다.
     1. **이벤트 허브 네임스페이스 선택** 목록에서 *AzureMonitoringData*를 선택합니다.
@@ -330,7 +379,7 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | **테이블** | *DiagnosticLogsRecords* | *TestDatabase* 데이터베이스에 만든 테이블입니다. |
+    | **테이블** | *DiagnosticLogsRawRecords* | *TestDatabase* 데이터베이스에 만든 테이블입니다. |
     | **날짜 형식** | *JSON* | 테이블에 사용되는 형식입니다. |
     | **열 매핑** | *DiagnosticLogsRecordsMapping* | *TestDatabase* 데이터베이스에 만든 매핑이며, 들어오는 JSON 데이터를 *DiagnosticLogsRecords* 테이블의 열 이름 및 데이터 형식에 매핑합니다.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 쿼리 결과:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

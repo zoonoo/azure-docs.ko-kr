@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863137"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792436"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
+
 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -97,7 +98,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
 1. **도구** -> **NuGet 패키지 관리자** -> **패키지 관리자 콘솔**을 클릭합니다.
 2. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -117,6 +118,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
+
     
 2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
@@ -513,6 +515,7 @@ Press any key to exit...
 
 
 ## <a name="next-steps"></a>다음 단계
+
 이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]

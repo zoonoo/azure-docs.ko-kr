@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551639"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649223"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
+
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 스토리지 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 작업이 성공하면 성공 전자 메일로 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 보내려고 합니다. 복사 작업이 실패하면 실패 전자 메일로 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 보내려고 합니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
 
 대략적인 시나리오 개요: ![개요](media/tutorial-control-flow/overview.png)
@@ -56,6 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     John|Doe
     Jane|Doe
     ```
+
 2. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2branch** 컨테이너를 만들고 **input.txt** 파일을 이 컨테이너에 업로드합니다.
 
 ## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기
@@ -73,7 +75,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
 1. **도구** -> **NuGet 패키지 관리자** -> **패키지 관리자 콘솔**을 클릭합니다.
 2. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -139,6 +141,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
     ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+
 Program.cs 파일에 "CreateOrUpdateDataFactory" 함수를 만듭니다.
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
+
 Program.cs 파일에 "StorageLinkedServiceDefinition" 함수를 만듭니다.
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 **Main** 메서드에 **Azure Storage 연결된 서비스**를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)에서 자세히 알아보세요.
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 세트를 만듭니다. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
+
 **Main** 메서드에 **Azure Blob 데이터 세트**를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
 
 Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>C# 클래스 만들기: EmailRequest
+
 C# 프로젝트에서 **EmailRequest**라는 클래스를 만듭니다. 이 클래스는 전자 메일을 보낼 때 파이프라인이 본문 요청에서 보내는 속성을 정의합니다. 이 자습서에서 파이프라인은 다음 네 가지 파이프라인 속성을 전자 메일로 보냅니다.
 
 - **메시지**: 전자 메일의 본문입니다. 성공적인 복사의 경우 이 속성에는 실행 세부 정보(기록된 데이터 수)가 포함됩니다. 실패한 복사의 경우 이 속성에는 오류 세부 정보가 포함됩니다.
@@ -289,10 +296,13 @@ C# 프로젝트에서 **EmailRequest**라는 클래스를 만듭니다. 이 클�
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 엔드포인트 만들기
+
 전자 메일 보내기를 트리거하려면 [Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 워크플로를 정의합니다. 논리 앱 워크플로를 만드는 방법에 대한 자세한 내용은 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 참조하세요. 
 
 ### <a name="success-email-workflow"></a>성공 전자 메일 워크플로 
+
 `CopySuccessEmail`이라는 논리 앱 워크플로를 만듭니다. 워크플로 트리거를 `When an HTTP request is received`로 정의하고 `Office 365 Outlook – Send an email` 작업을 추가합니다.
 
 ![성공 전자 메일 워크플로](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ C# 프로젝트에서 **EmailRequest**라는 클래스를 만듭니다. 이 클�
     "type": "object"
 }
 ```
+
 이는 이전 섹션에서 만든 **EmailRequest** 클래스와 일치합니다. 
 
 요청은 Logic Apps 디자이너에서 다음과 같이 표시됩니다.
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>실패 전자 메일 워크플로 
+
 **CopySuccessEmail**을 복제하고, **CopyFailEmail**에 대한 다른 Logic Apps 워크플로를 만듭니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. 간단히 `Subject`와 같은 전자 메일의 형식만 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
 
 ![Logic Apps 디자이너 - 실패 전자 메일 워크플로](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+
 Main 메서드에 복사 작업 및 dependsOn 속성이 있는 파이프라인을 만드는 다음 코드를 추가합니다. 이 자습서에서는 파이프라인에 하나의 작업, 즉 Blob 데이터 세트를 원본으로, 다른 Blob 데이터 세트를 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업이 성공하거나 실패하면 서로 다른 전자 메일 작업을 호출합니다.
 
 이 파이프라인에서 사용하는 기능은 다음과 같습니다.
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 **Main** 메서드에 파이프라인을 만드는 다음 코드를 추가합니다.
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>매개 변수
+
 파이프라인의 첫 번째 섹션에서는 매개 변수를 정의합니다. 
 
 - sourceBlobContainer - 원본 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>웹 작업
+
 웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. **CopySuccessEmail** 워크플로와 **CopyFailWorkFlow**를 호출하는 두 가지 웹 작업을 만듭니다.
 
 ```csharp
@@ -481,6 +500,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
             }
         }
 ```
+
 이에 따라 "URL" 속성에서 Logic Apps 워크플로의 요청 URL 엔드포인트를 붙여넣습니다. "Body" 속성에서 "EmailRequest" 클래스의 인스턴스를 전달합니다. 전자 메일 요청에 포함되는 속성은 다음과 같습니다.
 
 - 메시지 - `@{activity('CopyBlobtoBlob').output.dataWritten`의 값을 전달합니다. 이전 복사 작업의 속성에 액세스하고 dataWritten 값을 전달합니다. 실패의 경우 `@{activity('CopyBlobtoBlob').error.message` 대신 오류 출력을 전달합니다.
@@ -491,6 +511,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 이 코드는 성공한 이전 복사 작업에 따라 새 작업 종속성을 만듭니다.
 
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
+
 **Main** 메서드에 **파이프라인 실행**을 트리거하는 다음 코드를 추가합니다.
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Main 클래스 
+
 마지막 Main 메서드는 다음과 같이 표시됩니다. 파이프라인 실행을 트리거하는 프로그램을 빌드하고 실행합니다!
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>파이프라인 실행 모니터링
+
 1. **Main** 메서드에 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행의 상태를 검사합니다.
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>코드 실행
+
 애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 Azure Storage 탐색기와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]

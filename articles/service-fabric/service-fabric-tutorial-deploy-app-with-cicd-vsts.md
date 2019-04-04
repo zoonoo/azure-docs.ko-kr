@@ -3,8 +3,8 @@ title: Azure에서 지속적인 통합 및 Azure Pipelines를 사용하여 Servi
 description: 이 자습서에서는 Azure Pipelines를 사용하여 Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/02/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094960"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668843"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
@@ -36,11 +36,11 @@ ms.locfileid: "53094960"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
-> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)
+> * [애플리케이션을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Azure Pipelines를 사용하여 CI/CD 구성
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ ms.locfileid: "53094960"
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
-[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 애플리케이션을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>게시 프로필 준비
 
-이제 [응용 프로그램을 만들었고](service-fabric-tutorial-create-dotnet-app.md) [응용 프로그램을 Azure에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure Pipelines 내에서 실행되는 배포 프로세스에 사용할 게시 프로필을 애플리케이션 내에서 준비합니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 애플리케이션 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
+이제 [애플리케이션을 만들었고](service-fabric-tutorial-create-dotnet-app.md)[애플리케이션을 Azure에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure Pipelines 내에서 실행되는 배포 프로세스에 사용할 게시 프로필을 애플리케이션 내에서 준비합니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 애플리케이션 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
 연속 통합 워크플로로 사용할 대상 프로필을 애플리케이션 프로젝트 내에서 선택합니다(예: 클라우드).  클러스터 연결 엔드포인트를 지정합니다.  **응용 프로그램 업그레이드** 확인란을 선택하여 Azure DevOps의 각 배포에 대해 응용 프로그램이 업그레이드되도록 합니다.  **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장한 후 **취소**를 클릭하여 대화 상자를 닫습니다.
 
@@ -102,7 +102,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
 
 ![리포지토리 선택][select-repo]
 
-**템플릿 선택**에서 **Azure Service Fabric 응용 프로그램** 템플릿을 선택하고 **적용**을 클릭합니다.
+**템플릿 선택**에서 **Azure Service Fabric 애플리케이션** 템플릿을 선택하고 **적용**을 클릭합니다.
 
 ![빌드 템플릿 선택][select-build-template]
 
@@ -144,7 +144,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 **+ 릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다. **릴리스** 탭에서 릴리스 진행률을 모니터링할 수 있습니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 
@@ -164,7 +164,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -176,7 +176,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 ![Service Fabric Explorer][sfx2]
 
-애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 애플리케이션이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
+애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 응용 프로그램이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
 
 ![Service Fabric Explorer][sfx3]
 
@@ -191,7 +191,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 > * 애플리케이션 자동 배포 및 업그레이드
 
 다음 자습서를 진행합니다.
-> [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+> [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

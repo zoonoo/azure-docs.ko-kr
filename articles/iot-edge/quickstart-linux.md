@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224569"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758667"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -128,7 +128,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 필수 조건에서 설명한 대로 Azure IoT Edge on Ubuntu 가상 머신을 사용하는 경우 디바이스에 IoT Edge 런타임이 이미 설치되어 있습니다. 이전 섹션에서 검색한 디바이스 연결 문자열로 디바이스를 구성하기만 하면 됩니다. 이 작업은 가상 머신에 연결하지 않고 원격으로 수행할 수 있습니다. 다음 명령에서 **{device_connection_string}** 을 자체 문자열로 바꿔서 실행합니다.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 로컬 머신이나 ARM32 디바이스에서 IoT Edge를 실행하는 경우에는 디바이스에 IoT Edge 런타임과 필수 구성 요소를 설치해야 합니다. [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)나 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 수행한 후에 이 빠른 시작으로 돌아오십시오.

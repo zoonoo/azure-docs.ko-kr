@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5a7161d05b153a556cce20ec4f4d0cbbfdf1d2d1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315507"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877723"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -87,17 +87,17 @@ Hyper-V 코어 서버를 사용하는 경우 [여기](#set-up-the-source-environ
 
 1. 다음을 실행하여 AzureSiteRecoveryProvider에서 파일을 추출합니다.
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     그러면 파일이 로컬 디렉터리에 추출됩니다.
  
-2.  ``.\setupdr.exe /i `` 실행
+2.  실행 `.\setupdr.exe /i`
 
     결과가 %Programdata%\ASRLogs\DRASetupWizard.log에 기록됩니다.
 
 3.  다음 명령을 사용하여 서버를 등록합니다.
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
@@ -140,4 +140,4 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
    **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되고 나면 초기 복제가 완료되며 가상 머신은 장애 조치(failover)를 수행할 준비가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
+[재해 복구 훈련 실행](tutorial-dr-drill-azure.md)

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cc312a707f5ab74967b9d3bc050fec7bfcad9dbc
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120111"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851079"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     foreach (string key in insertResult.Info.IncomingPayload)
       {
          byte[] valueInBytes = customPayload[key];
-         string value = Encoding.UTF8.GetString(valueInBytes);
+         double value = Encoding.UTF8.GetString(valueInBytes);
          Console.WriteLine($"CustomPayload:  {key}: {value}");
       }
     ```

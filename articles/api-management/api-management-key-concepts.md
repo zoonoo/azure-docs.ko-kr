@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965158"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793954"
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -101,7 +101,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 ## <a name="policies"> </a> 정책
 정책은 Azure Portal이 구성을 통해 API의 동작을 변경할 수 있게 하는 API Management의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출 수를 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
 
-정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) 및 [변수 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 참조하세요.
+정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](/azure/api-management/api-management-advanced-policies#choose) 및 [변수 설정](/azure/api-management/api-management-advanced-policies#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) 및 [정책 식](/azure/api-management/api-management-policy-expressions)을 참조하세요.
 
 
 API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference]를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies]을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How create and configure advanced product settings]을 참조하세요.

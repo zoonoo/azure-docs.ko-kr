@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226711"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579583"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>빠른 시작: App Configuration으로 Azure 함수 만들기
 
@@ -45,13 +45,19 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 
-1. *Function1.cs*를 열고, App Configuration .NET Core 구성 공급자에 대한 참조를 추가합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. *Function1.cs*를 열고, App Configuration .NET Core 구성 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. `builder.AddAzureAppConfiguration()`을 호출하여 App Configuration을 사용하도록 `Run` 메서드를 업데이트합니다.
+3. `builder.AddAzureAppConfiguration()`을 호출하여 App Configuration을 사용하도록 `Run` 메서드를 업데이트합니다.
 
     ```csharp
     public static async Task<IActionResult> Run(

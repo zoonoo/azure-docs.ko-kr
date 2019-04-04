@@ -4,7 +4,7 @@ description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fab
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a3edac7638d8b63086482cdecf8d74bde426c35
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104270"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665630"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric으로 컨테이너 서비스의 장애 조치(failover) 및 크기 조정을 보여 줍니다.
 

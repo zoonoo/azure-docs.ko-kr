@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090477"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886372"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
@@ -97,7 +97,7 @@ ms.locfileid: "58090477"
 
 이 섹션에서는 Azure Cache for Redis에 대해 간단한 테스트를 표시하는 새 보기를 지원하도록 애플리케이션을 업데이트합니다.
 
-* [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성
 * HomeController 및 레이아웃 업데이트
 * 새 RedisCache 뷰 추가
@@ -116,7 +116,7 @@ ms.locfileid: "58090477"
 2. *web.config* 파일에서 `<appSetting>` 요소를 찾습니다. 그런 다음, 다음 `file` 특성을 추가합니다. 다른 파일 이름 또는 위치를 사용한 경우, 예제에 나타난 값을 해당 값으로 대체합니다.
 
 * 이전: `<appSettings>`
-* 이후: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* 이후:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 애플리케이션에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrets.config* 파일은 배포되지 않습니다.
 

@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure Service Fabric ASP.NET Core 애플리�
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 3/21/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b5485d1dbde48a9fe52196bbeb449b6e4186a88e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9de11c0049cf3db3feea311a2541640437ba8632
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402612"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665205"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203500"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891029"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL(Microsoft 인증 라이브러리)를 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
@@ -215,7 +215,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 결국 `acquireTokenSilent`에 실패합니다(예: 사용자 로그아웃 또는 다른 디바이스에서 사용자가 암호 변경). MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MSALErrorCode.interactionRequired` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-1. 즉시 `acquireToken`에 대한 호출을 수행합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 애플리케이션에 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 일반적으로 사용됩니다. 이 단계별 설치에 따라 생성된 샘플 애플리케이션은 이 패턴을 사용합니다. 이 패턴은 애플리케이션을 처음 실행할 때 작동되는 것을 확인할 수 있습니다. 이 애플리케이션을 사용한 사용자가 없으므로 `applicationContext.allAccounts().first`에는 null 값이 포함되며 ` MSALErrorCode.interactionRequired ` 예외가 throw됩니다. 샘플의 코드는 `acquireToken`를 호출해 예외를 처리하며, 사용자에게 로그인하라는 메시지가 표시됩니다.
+1. 즉시 `acquireToken`에 대한 호출을 수행합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 애플리케이션에 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 일반적으로 사용됩니다. 이 단계별 설치에 따라 생성된 샘플 애플리케이션은 이 패턴을 사용합니다. 이 패턴은 애플리케이션을 처음 실행할 때 작동되는 것을 확인할 수 있습니다. 이 애플리케이션을 사용한 사용자가 없으므로 `applicationContext.allAccounts().first`에는 null 값이 포함되며 `MSALErrorCode.interactionRequired` 예외가 throw됩니다. 샘플의 코드는 `acquireToken`를 호출해 예외를 처리하며, 사용자에게 로그인하라는 메시지가 표시됩니다.
 
 2. 또한 애플리케이션에서는 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 보여줍니다. 따라서 사용자가 로그인할 적절한 시간을 선택하거나 이후에 애플리케이션이 `acquireTokenSilent`를 다시 시작할 수 있습니다. 이는 사용자가 중단 없이 애플리케이션의 기능을 사용할 수 있는 경우(예: 애플리케이션에 사용 가능한 오프라인 콘텐츠가 있는 경우) 일반적으로 사용됩니다. 이 경우 사용자가 보호되는 리소스에 액세스하거나 오래된 정보를 새로 고치기 위해 로그인할 시점을 결정하거나 애플리케이션이 일시적으로 사용할 수 없게 된 후 네트워크가 복원된 경우 `acquireTokenSilent`를 다시 시도하도록 결정할 수 있습니다.
 

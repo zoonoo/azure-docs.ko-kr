@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106647"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652153"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -90,7 +90,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. `DataBoxDiskUnlock.exe`를 실행하고 [디스크에 연결 및 암호 가져오기](#Connect-to-disks-and-get-the-passkey)에서 얻은 암호를 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 샘플 출력은 다음과 같습니다.
+6. `DataBoxDiskUnlock.exe`를 실행하고 [디스크에 연결 및 암호 가져오기](#connect-to-disks-and-get-the-passkey)에서 얻은 암호를 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 샘플 출력은 다음과 같습니다.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
      OpenSSL is already installed.
      ```
 
-6. Data Box Disk 잠금 해제 도구를 실행합니다. [디스크에 연결 및 암호 가져오기](#Connect-to-disks-and-get-the-passkey)에서 얻은 Azure Portal의 암호를 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨의 목록을 지정합니다. 암호 및 볼륨은 작은 따옴표 안에서 지정되어야 합니다. 
+6. Data Box Disk 잠금 해제 도구를 실행합니다. [디스크에 연결 및 암호 가져오기](#connect-to-disks-and-get-the-passkey)에서 얻은 Azure Portal의 암호를 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨의 목록을 지정합니다. 암호 및 볼륨은 작은 따옴표 안에서 지정되어야 합니다. 
 
     다음 명령을 입력합니다.
  

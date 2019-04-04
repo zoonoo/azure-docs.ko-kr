@@ -3,17 +3,17 @@ title: '빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 �
 description: 이 빠른 시작 문서에서는 .NET Standard SDK를 사용하여 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: 0197ae8077a00111e005e5686efcd2597b995bcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 327ab46b01e15b77e675e052dbfe8b3453b566a6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007044"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757114"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집
 

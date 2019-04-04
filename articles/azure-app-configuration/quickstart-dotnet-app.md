@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226847"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576075"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -46,6 +46,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
@@ -105,4 +106,4 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 이 빠른 시작에서는 새 앱 구성 저장소를 만들고, .NET Framework 콘솔 앱에 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 리소스 통합을 위한 관리 ID](./integrate-azure-managed-service-identity.md)
+> [Azure 리소스 통합용 관리 ID](./integrate-azure-managed-service-identity.md)

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871784"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793886"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -36,12 +36,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 이 문서의 연습에서는 Visual Studio 2017을 사용합니다. 또한 Visual Studio 2013 또는 2015를 사용할 수 있습니다.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
+
 [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
+
 [이 아티클](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
 
 1. **Azure Active Directory 애플리케이션을 만듭니다**. 이 자습서에서 만드는.NET 애플리케이션을 나타내는 Microsoft Azure Active Directory에 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
@@ -64,7 +67,7 @@ Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 애플리케이션�
 1. **도구** -> **NuGet 패키지 관리자** -> **패키지 관리자 콘솔**을 클릭합니다.
 2. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>출력 확인
+
 파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
 
 1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 출력 폴더를 보려면 **새로 고침**을 클릭합니다. 
@@ -419,6 +423,7 @@ Press any key to exit...
     ![새로 고침](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
 데이터 팩터리를 프로그래밍 방식으로 삭제하려면 프로그램에 다음 코드 줄을 추가합니다. 
 
 ```csharp
@@ -427,4 +432,5 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요. 

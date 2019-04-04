@@ -3,17 +3,17 @@ title: '빠른 시작: Azure Data Explorer Python 라이브러리를 사용하�
 description: 이 빠른 시작 문서에서는 Python을 사용하여 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 61463f33491cc909a21be99efcbb82094c958edd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063253"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757700"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집
 
@@ -126,7 +126,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="queue-a-message-for-ingestion"></a>수집을 위해 메시지를 큐에 넣음
 
-BLOB 저장소에서 데이터를 끌어온 후 Azure 데이터 탐색기에 수집하기 위해 메시지를 큐에 넣습니다.
+Blob Storage에서 데이터를 끌어온 후 Azure 데이터 탐색기에 수집하기 위해 메시지를 큐에 넣습니다.
 
 ```python
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)

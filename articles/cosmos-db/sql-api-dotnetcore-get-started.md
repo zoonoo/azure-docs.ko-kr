@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 52e39b705b8bd0e20c846f065702bcaf7b3a45f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81c80dbd7ffa8e5c4e7b2ebb1c9d17eb6007ae9f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487281"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802354"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>자습서: .NET Core 앱을 빌드하여 SQL API 계정에 저장된 데이터 관리
 
@@ -206,7 +206,7 @@ private async Task GetStartedDemo()
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -301,7 +301,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 그리고 Andersen Family와 Wakefield Family의 문서 하나씩 두 개의 문서를 삽입합니다. 문서 컬렉션 생성 아래에서 **GetStartedDemo** 메서드에 `// ADD THIS PART TO YOUR CODE` 다음에 코드를 복사하고 붙여 넣습니다.
 
 ```csharp
-await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
