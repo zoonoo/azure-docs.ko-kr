@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998184"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918691"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정
 
@@ -117,6 +117,34 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 이 작업은 사용자 계정에서 언어 모델을 완전히 제거합니다. 삭제된 언어 모델을 사용하던 모든 비디오는 비디오를 다시 인덱싱할 때까지 동일한 인덱스를 유지합니다. 비디오를 다시 인덱싱하는 경우 비디오에 새 언어 모델을 할당할 수 있습니다. 그렇지 않으면 Video Indexer는 기본 모델을 사용하여 비디오를 다시 인덱싱합니다. 
 
+## <a name="customize-language-models-by-correcting-transcripts"></a>대 본을 수정 하 여 언어 모델을 사용자 지정
+
+Video Indexer 실제 수정 사용자를 기반으로 모델의 해당 비디오 기록 하는 언어의 자동 사용자 지정을 지원 합니다.
+
+1. 대 본 수정 되도록 비디오 계정을 비디오에서 편집 하려는 경우를 엽니다. 선택 된 **타임 라인** 탭 합니다.
+
+    ![언어 모델 사용자 지정](./media/customize-language-model/timeline.png)
+1. 에 기록의 자막을 편집 하려면 연필 아이콘을 클릭 합니다. 
+
+    ![언어 모델 사용자 지정](./media/customize-language-model/edits.png)
+
+    Video Indexer 비디오의 기록에서 사용자가 수정 하 고, "에서 기록 편집" 라는 텍스트 파일에 자동으로 추가 하는 모든 줄을 캡처합니다. 이러한 편집이이 비디오를 인덱스에 사용 된 특정 언어 모델 다시 학습 하는 데 사용 됩니다. 
+    
+    이 비디오를 인덱싱할 때 언어 모델을 지정 하지 않은, 경우 모든 편집이이 비디오에 대 한 비디오의 검색된 된 언어 내에서 계정 adaptation를 호출 하는 기본 언어 모델에 저장 됩니다. 
+    
+    같은 줄에 여러 번의 편집 내용이 경우 언어 모델을 업데이트 하는 것에 대 한 수정 된 줄의 마지막 버전에만 사용 됩니다.  
+    
+    > [!NOTE]
+    > 텍스트 수정만 사용자 지정에 사용 됩니다. 즉, 실제 단어 (예: 문장 또는 공백)와 관련이 없는 수정 포함 되지 않습니다. 
+    
+1. 콘텐츠 모델 사용자 지정 페이지의 언어 탭에 표시 하는 대 본 수정 사항이 표시 됩니다.
+
+    ![언어 모델 사용자 지정](./media/customize-language-model/customize.png)
+
+   파일 "에서 기록 편집" 언어 모델의 각를 살펴보려면 클릭 하 여 엽니다. 
+
+    ![원본 대본 편집](./media/customize-language-model/from-transcript-edits.png)
+
 ## <a name="next-steps"></a>다음 단계
 
-[API를 사용하여 언어 모델 사용자 지정](customize-language-model-with-api.md)
+[언어 모델 Api를 사용 하 여 사용자 지정](customize-language-model-with-api.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188592"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893608"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Visual Studio에서 모델 배포
 
@@ -24,7 +24,7 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 시작하려면 다음이 필요합니다.
 
 * Azure의 **Analysis Services 서버** - 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
-* SSDT의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](https://msdn.microsoft.com/library/hh231691.aspx)를 사용해 보세요.
+* SSDT의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](/sql/analysis-services/tabular-modeling-adventure-works-tutorial)를 사용해 보세요.
 * **온-프레미스 게이트웨이** - 하나 이상의 데이터 원본이 조직 네트워크의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. 온-프레미스 데이터 원본에 대한 클라우드 연결에 있는 서버가 모델에서 데이터를 처리하고 새로 고치는 데 게이트웨이가 필요합니다.
 
 > [!TIP]

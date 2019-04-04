@@ -1,6 +1,6 @@
 ---
-title: 추가 하 고 Azure Stack에 VM 이미지를 제거 | Microsoft Docs
-description: 추가 하거나 조직의 사용자 지정 Windows 또는 Linux VM 이미지를 사용 하려면 테 넌 트를 제거 합니다.
+title: Azure Stack에서 VM 이미지를 추가할 | Microsoft Docs
+description: VM 이미지를 추가 하거나 조직의 사용자 지정 Windows 이미지 또는 테 넌 트가 사용 하 여 Linux VM 이미지를 제거 합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109167"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881463"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Azure Stack에서 제공 하는 VM 이미지를 추가 합니다.
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용자에 게 합니다. 이러한 이미지는 Azure Resource Manager 템플릿에서 사용할 수 있습니다. 추가할 수 있습니다도 Azure Marketplace ui Marketplace 항목으로 합니다. 전역 Azure Marketplace를 이미지 형식 또는 사용자 고유의 사용자 지정 이미지를 사용 합니다. 포털 또는 Windows PowerShell을 사용 하 여 이미지를 추가할 수 있습니다.
+Azure Stack에서 사용할 수 있도록 사용자에 게 marketplace에 가상 머신 (VM) 이미지를 추가할 수 있습니다. Azure Stack에 대 한 Azure Resource Manager 템플릿을 사용 하 여 VM 이미지를 추가할 수 있습니다. Marketplace 항목으로는 Azure Marketplace UI를 VM 이미지를 추가할 수 있습니다. 전역 Azure Marketplace에서 이미지 또는 사용자 고유의 사용자 지정 VM 이미지를 사용 합니다. 관리 포털 또는 Windows PowerShell을 사용 하 여 VM 이미지를 추가할 수 있습니다.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>포털을 통해 VM 이미지 추가
 
@@ -83,7 +83,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -94,22 +94,22 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    합니다 **추가 AzsPlatformimage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
    - **publisher**  
-     예: `Canonical`  
+     예를 들면 다음과 같습니다. `Canonical`  
      사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-   - **offer**  
-     예: `UbuntuServer`  
+   - **제품**  
+     예를 들면 다음과 같습니다. `UbuntuServer`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
    - **sku**  
-     예: `14.04.3-LTS`  
+     예를 들면 다음과 같습니다. `14.04.3-LTS`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-   - **version**  
-     예: `1.0.0`  
+   - **버전**  
+     예를 들면 다음과 같습니다. `1.0.0`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
    - **osType**  
-     예: `Linux`  
+     예를 들면 다음과 같습니다. `Linux`  
      이미지의 osType 여야 **Windows** 하거나 **Linux**합니다.  
    - **OSUri**  
-     예: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     예를 들면 다음과 같습니다. `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
      Blob 저장소 URI를 지정할 수 있습니다에 대 한는 `osDisk`합니다.  
 
      자세한 내용은 참조에 대 한 PowerShell 참조를 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 만들기-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
@@ -118,7 +118,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
  
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 2. 사용 하는 경우 **Active Directory Federation Services**, 다음 cmdlet을 사용 합니다.
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 5. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비, 저장소 계정에 이미지를 업로드 및 VM 이미지 PowerShell에서 검색할 수 있는 URI를 가져옵니다.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 6. (선택 사항) VM 이미지의 일부로 배열 데이터 디스크를 업로드할 수 있습니다. 새로 만들기-DataDiskObject cmdlet을 사용 하 여 데이터 디스크를 만듭니다. 관리자 권한 프롬프트에서 PowerShell을 열고 실행 합니다.
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -198,16 +198,16 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
    ```
    합니다 **제거 AzsPlatformImage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
    - **publisher**  
-     예: `Canonical`  
+     예를 들면 다음과 같습니다. `Canonical`  
      사용자 이미지를 배포할 때 사용 하는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-   - **offer**  
-     예: `UbuntuServer`  
+   - **제품**  
+     예를 들면 다음과 같습니다. `UbuntuServer`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 제품 이름 세그먼트입니다. 예로 **WindowsServer**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
    - **sku**  
-     예: `14.04.3-LTS`  
+     예를 들면 다음과 같습니다. `14.04.3-LTS`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
-   - **version**  
-     예: `1.0.0`  
+   - **버전**  
+     예를 들면 다음과 같습니다. `1.0.0`  
      사용자 VM 이미지를 배포할 때 사용 하는 VM 이미지의 버전입니다. 이 버전은 형식  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에 공백 또는 기타 특수 문자가 포함 되지 않습니다.  
     
      제거-AzsPlatformImage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [모듈 설명서 Azure Stack 운영자](https://docs.microsoft.com/powershell/module/)합니다.

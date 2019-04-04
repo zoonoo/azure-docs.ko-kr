@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337479"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891432"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -66,6 +66,17 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
 가능한 오류 다음과 같습니다. 
 
 * 앱 이름이 이미 있습니다. 앱을 다시 가져오기 및 설정 합니다 **선택적 이름** 새 이름입니다. 
+
+## <a name="export-app"></a>앱 내보내기
+
+1. **내 앱** 페이지에서 **새 앱 가져오기**를 선택합니다.
+1. **새 앱 가져오기** 대화 상자에서 LUIS 앱을 정의하는 JSON 파일을 선택합니다.
+
+## <a name="delete-app"></a>앱 삭제
+
+1. **내 앱** 페이지에서 앱 행 끝에 있는 세 개의 점(...)을 선택합니다.
+1. 메뉴에서 **삭제**를 선택합니다.
+1. 확인 창에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165831"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445257"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service에서 Azure Stack 업데이트 1 릴리스 정보
 
@@ -56,6 +56,8 @@ Azure Stack 업데이트 1의 azure App Service는 다음과 같은 향상 된 �
 - **기존 가상 네트워크에 배포할** -기존 가상 네트워크 내에서 고객이 Azure Stack에서 App Service를 지금 배포할 수 있습니다. 기존 가상 네트워크에 배포 고객은 SQL Server 및 개인 포트를 통해 Azure App Service에 필요한 파일 서버에 연결할 수 있습니다. 그러나 기존 가상 네트워크를 배포 하도록 선택할 수 고객에 게 배포 하는 동안 [App Service에서 사용할 서브넷을 만들어야](azure-stack-app-service-before-you-get-started.md#virtual-network) 배포 하기 전에 합니다.
 
 - 업데이트 **테 넌 트 앱 서비스, 관리자의 경우 함수 포털 및 Kudu 도구**합니다. Azure Stack 포털 SDK 버전과 일치 합니다.
+
+- 업데이트가 **Azure Functions 런타임은** 하 **v1.0.11388**합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
     - 추가 **.NET Core 2.0** 지원

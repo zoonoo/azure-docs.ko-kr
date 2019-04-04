@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 94e4d945593c2387b61011b0e7d4056f4af33e01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437359"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876404"
 ---
 # <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
 
@@ -62,6 +62,10 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 1. 배포가 완료되면 구독에 다음 리소스가 생성됩니다.
 
     ![QnA Maker 서비스를 새로 만든 리소스](../media/qnamaker-how-to-setup-service/resources-created.png)
+
+## <a name="region-of-management-service"></a>관리 서비스의 지역
+
+QnA Maker만 사용 되는 포털에 대 한 초기 데이터 처리에 대 한 관리 서비스는 미국 서 부 에서만 사용할 수 있습니다. 이 미국 서 부 서비스에서 고객 데이터가 저장 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

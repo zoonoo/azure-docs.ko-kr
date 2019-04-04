@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172402"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882041"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
@@ -75,7 +75,7 @@ Azure Stack 운영자를 추가 하는 물리적 컴퓨터를 추가 하 여 기
 다음 샘플 PowerShell 스크립트 중 하나를 사용 하기 전에 값을 바꿉니다 *노드 이름* 하 고 *IP 주소* Azure Stack 환경에서 값을 사용 하 여 합니다.
 
   > [!Note]  
-  > 노드 이름을 지정할 때 보다 작거나 15 자로 이름을 유지 해야 합니다. 공백을 포함 하거나 다음 문자를 포함 하는 이름을 사용할 수 없습니다: `\`, `/`, `:`, `*`를 `?`를 `"`, `<`를 `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > 노드 이름을 지정할 때 보다 작거나 15 자로 이름을 유지 해야 합니다. 공백을 포함 하거나 다음 문자를 포함 하는 이름을 사용할 수 없습니다: `\`, `/`, `:`, `*`를 `?`를 `"`, `<`를 `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **노드를 추가 합니다.**
   ```powershell

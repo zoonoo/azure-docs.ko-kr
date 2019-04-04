@@ -14,16 +14,16 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: da1ae76925ffeba7a1df57b4121f8cfe20b2887f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285924"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882109"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>인프라 백업 서비스를 사용 하 여 Azure Stack에 대 한 백업 및 데이터 복구
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 백업 하 고 구성 및 인프라 Backup 서비스를 사용 하 여 서비스 데이터를 복원할 수 있습니다. 각 Azure Stack 설치 서비스의 인스턴스를 포함합니다. Id, 보안 및 Azure Resource Manager 데이터를 복원 하려면 Azure Stack 클라우드에 다시 배포를 위해 서비스에서 생성 된 백업을 사용할 수 있습니다. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "58285924"
 백업 서비스를 사용 하기 전에 했는지 [위치에 대 한 요구 사항](#verify-requirements-for-the-infrastructure-backup-service)합니다.
 
 > [!Note]  
-> 사용자 데이터 및 응용 프로그램 인프라 Backup 서비스가 포함 되지 않습니다. 가리킵니다 [Azure Stack에 배포 된 Vm을 보호](user/azure-stack-manage-vm-protect.md) IaaS VM을 보호 하는 방법에 대 한 자세한 내용은 응용 프로그램을 기반으로 합니다. Azure Stack에서 응용 프로그램을 보호 하는 방법에 대해 포괄적으로 이해를 참조 합니다 [비즈니스 연속성 및 재해 복구 백서에 대 한 Azure Stack onsiderations](http://aka.ms/azurestackbcdrconsiderationswp)합니다.
+> 사용자 데이터 및 응용 프로그램 인프라 Backup 서비스가 포함 되지 않습니다. 가리킵니다 [Azure Stack에 배포 된 Vm을 보호](user/azure-stack-manage-vm-protect.md) IaaS VM을 보호 하는 방법에 대 한 자세한 내용은 응용 프로그램을 기반으로 합니다. Azure Stack에서 응용 프로그램을 보호 하는 방법에 대해 포괄적으로 이해를 참조 합니다 [비즈니스 연속성 및 재해 복구 백서에 대 한 Azure Stack 고려 사항](https://aka.ms/azurestackbcdrconsiderationswp)합니다.
 
 ## <a name="the-infrastructure-backup-service"></a>인프라 백업 서비스
 
@@ -48,7 +48,7 @@ ms.locfileid: "58285924"
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>인프라 Backup 서비스에 대 한 요구 사항 확인
 
-- **스토리지 위치**  
+- **저장 위치**  
   필요한 파일 공유 7 백업을 포함할 수 있는 Azure Stack에서 액세스할 수 있습니다. 각 백업은 약 10GB입니다. 공유에 백업 140 GB를 저장할 수 있어야 합니다. Azure Stack 인프라 백업 서비스에 대 한 저장소 위치를 선택 하는 방법에 대 한 자세한 내용은 참조 하십시오 [백업 컨트롤러 요구 사항](azure-stack-backup-reference.md#backup-controller-requirements)합니다.
 - **자격 증명**  
   도메인 사용자 계정 및 자격 증명 필요, 예를 들어, Azure Stack 관리자 자격 증명을 사용할 수 있습니다.

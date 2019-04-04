@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259861"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904205"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>디바이스 템플릿 설정(새 UI 디자인)
 
@@ -197,8 +197,8 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
    ![위치에 대한 세부 정보가 있는 "위치 구성" 양식](./media/howto-set-up-template/locationcloudproperty2.png)
 
    위치를 추가하려면 지원되는 두 가지 형식이 있습니다.
-   - **주소로서 위치**
-   - **좌표로서 위치**
+   - **위치 주소로**
+   - **좌표 위치**
 
 4. **저장**을 선택합니다. 운영자는 **Device Explorer**에서 위치 값을 업데이트할 수 있습니다.
 
@@ -237,7 +237,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 
 | 표시 이름  | 필드 이름 | 기본 시간 제한 | 데이터 형식 |
 | --------------| -----------|---------------- | --------- |
-| Echo 명령  | echo       |  30             | text      |
+| Echo 명령  | echo       |  30             | 텍스트      |
 
 ![Echo에 대한 세부 정보가 있는 "명령 구성" 양식](./media/howto-set-up-template/commandsecho.png)
 
@@ -280,4 +280,6 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 Azure IoT Central 애플리케이션에서 장치 템플릿을 설정하는 방법을 알아보았으니 다음을 수행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [새 디바이스 템플릿 버전 만들기](howto-version-devicetemplate.md)
+> [새 장치 템플릿 버전을 만들려면](howto-version-devicetemplate.md)
+> [MXChip IoT DevKit 장치를 Azure IoT Central 응용 프로그램에 연결](howto-connect-devkit.md)
+> [일반 클라이언트 응용 프로그램을 Azure에 연결 IoT Central 응용 프로그램 (Node.js)](howto-connect-nodejs.md)

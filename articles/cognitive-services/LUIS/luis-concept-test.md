@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958561"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893234"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
@@ -48,7 +48,7 @@ ms.locfileid: "56958561"
 ## <a name="where-to-find-utterances"></a>발화를 찾을 수 있는 위치
 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://aka.ms/luis-authoring-apis)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
 
-LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[끝점 발언 검토](luis-how-to-review-endoint-utt.md)** 페이지에 나열됩니다. 
+LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[끝점 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다. 
 
 ![엔드포인트 utterances 검토](./media/luis-concept-test/review-endpoint-utterances.png)
  

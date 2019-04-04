@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121399"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903763"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -104,19 +104,19 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|firstname|string|현재 사용자의 이름입니다.|  
-|Lastname|string|현재 사용의 성입니다.|  
-|companyName|string|현재 사용의 회사 이름입니다.|  
-|addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
-|developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
-|구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
-|canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
-|isSystemUser|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
+|`firstName`|문자열|현재 사용자의 이름입니다.|  
+|`lastName`|문자열|현재 사용의 성입니다.|  
+|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
+|`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
+|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`canChangePassword`|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
+|`isSystemUser`|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   
@@ -318,26 +318,26 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
+-   [구독 취소](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|firstname|string|현재 사용자의 이름입니다.|  
-|Lastname|string|현재 사용의 성입니다.|  
-|companyName|string|현재 사용의 회사 이름입니다.|  
-|addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
-|developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
-|구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
-|canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
-|isSystemUser|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
+|`firstName`|문자열|현재 사용자의 이름입니다.|  
+|`lastName`|문자열|현재 사용의 성입니다.|  
+|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
+|`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
+|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`canChangePassword`|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
+|`isSystemUser`|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   
@@ -488,19 +488,19 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|자산|type|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|firstname|string|현재 사용자의 이름입니다.|  
-|Lastname|string|현재 사용의 성입니다.|  
-|companyName|string|현재 사용의 회사 이름입니다.|  
-|addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
-|developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
-|구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
-|changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
-|changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
-|canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
-|isSystemUser|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
+|`firstName`|문자열|현재 사용자의 이름입니다.|  
+|`lastName`|문자열|현재 사용의 성입니다.|  
+|`companyName`|문자열|현재 사용의 회사 이름입니다.|  
+|`addresserEmail`|문자열|현재 사용의 전자 메일 주소입니다.|  
+|`developersUsageStatisticsLink`|문자열|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
+|`subscriptions`|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
+|`applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
+|`changePasswordUrl`|문자열|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
+|`changeNameOrEmailUrl`|문자열|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
+|`canChangePassword`|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
+|`isSystemUser`|부울|현재 사용자가 기본 제공 [그룹](api-management-key-concepts.md#groups)의 구성원인지 여부입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

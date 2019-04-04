@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898859"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895786"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -90,7 +90,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;iisnode.yml`입니다.
+변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값 `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -98,7 +98,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-기본값은 이 기능을 사용하지 않는다는 의미의 0입니다. 0보다 큰 값으로 설정되면 iisnode에서 모든 하위 프로세스를 'idlePageOutTimePeriod' 밀리초마다 페이지 아웃합니다. 페이지 아웃에 대해 이해하려면 [설명서](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx)를 참조하세요. 이 설정은 대량의 메모리를 사용하고 간혹 메모리를 디스크로 페이지 아웃하여 RAM을 확보하려는 애플리케이션의 경우 유용합니다.
+기본값은 이 기능을 사용하지 않는다는 의미의 0입니다. 0보다 큰 값으로 설정되면 iisnode에서 모든 하위 프로세스를 'idlePageOutTimePeriod' 밀리초마다 페이지 아웃합니다. 페이지 아웃에 대해 이해하려면 [설명서](/windows/desktop/api/psapi/nf-psapi-emptyworkingset)를 참조하세요. 이 설정은 대량의 메모리를 사용하고 간혹 메모리를 디스크로 페이지 아웃하여 RAM을 확보하려는 애플리케이션의 경우 유용합니다.
 
 > [!WARNING]
 > 프로덕션 애플리케이션에서 다음 구성 설정을 사용하도록 설정할 대는 주의하세요. 라이브 프로덕션 애플리케이션에서 사용하지 않도록 설정하는 것이 좋습니다.
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-디버그 콘솔 사이트 `https://yoursite.scm.azurewebsites.net/DebugConsole`로 이동합니다.
+디버그 콘솔 사이트로 이동 `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
@@ -274,7 +274,7 @@ win32 오류 코드를 표시하도록 애플리케이션에 대해 FREB를 사�
 | 503 |1002 |win32 오류 코드로 실제 원인을 확인하세요. – 요청을 node.exe로 디스패치할 수 없습니다. |
 | 503 |1003 |명명된 파이프 사용량이 너무 많음 – node.exe에서 CPU를 과도하게 사용 중인지 확인하세요. |
 
-NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure App Service에서 이 값은5000으로 설정됩니다. 따라서 node.exe는 명명된 파이프에서 한 번에 5000개의 요청만 받아들일 수 있습니다. 이 값은 Azure App Service에서 실행 중인 대부분의 노드 애플리케이션에서 충분합니다. `NODE_PENDING_PIPE_INSTANCES`에 대한 값이 높으므로 Azure App Service에 503.1003이 표시되지 않아야 합니다.
+NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure App Service에서 이 값은5000으로 설정됩니다. 따라서 node.exe는 명명된 파이프에서 한 번에 5000개의 요청만 받아들일 수 있습니다. 이 값은 Azure App Service에서 실행 중인 대부분의 노드 애플리케이션에서 충분합니다. 수 해야 503.1003이 표시 되지 Azure App Service에서 높은 값을 `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>추가 리소스
 
@@ -283,6 +283,6 @@ Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 �
 * [Azure App Service에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
 * [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Azure 애플리케이션에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service 웹 앱: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)
 * [Super 암호 Kudu 디버그 콘솔 탐색](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

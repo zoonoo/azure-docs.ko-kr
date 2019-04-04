@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226864"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649410"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -56,18 +56,20 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 핫픽스
 
+이미 1901 및 모든 핫픽스를 설치 하지 않은 아직 할 수 있습니다 [1902를 직접 설치](azure-stack-update-1902.md), 첫 번째 하지 않고 1901 핫픽스를 설치 합니다.
+
 - **1809**: [4481548 – Azure Stack 1.1809.12.114 핫픽스 (kb)](https://support.microsoft.com/help/4481548/)
 - **1811**: 현재 핫픽스 사용 가능 합니다.
-- **1901**: [4481548 – Azure Stack 1.1901.2.103 핫픽스 (kb)](https://support.microsoft.com/help/4494720)
+- **1901**: [4495662 – Azure Stack 1.1901.3.105 핫픽스 (kb)](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-> - 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1901를 업데이트 하기 전에 1811 (있는 경우)에 대 한 합니다.
+> 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1901를 업데이트 하기 전에 1811 (있는 경우)에 대 한 합니다. 1901를 이미 있는 모든 핫픽스를 아직 설치 하지 않은 경우 먼저 1901 핫픽스를 설치 하지 않고 직접 1902를 설치할 수 있습니다.
 
 - 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
    * **AzureRm.Insights**  
          AzureRm의 롤업 모듈 이제 이미 게시 된 버전이 5.1.5 지원 합니다 **api-version 2018-01-01** 메트릭을 메트릭 정의 리소스 종류에 대 한 합니다.
 
-- **AzureStack 1.7.0** 이 주요 변경 내용 릴리스 합니다. 호환성이 손상되는 변경에 대한 자세한 내용은 https://aka.ms/azspshmigration170를 참조하세요.
+- **AzureStack 1.7.1** 이 주요 변경 내용 릴리스 합니다. 호환성이 손상되는 변경에 대한 자세한 내용은 https://aka.ms/azspshmigration171를 참조하세요.
    * **Azs.Backup.Admin 모듈**  
          호환성이 손상되는 변경 내용: Backup이 인증서 기반 암호화 모드로 변경됩니다. 대칭 키에 대한 지원은 사용되지 않습니다.  
    * **Azs.Fabric.Admin 모듈**  
@@ -117,9 +119,6 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - <!-- 3235634 – IS, ASDK -->
   포함 된 크기를 사용 하 여 Vm이 배포의 문제를 해결를 **v2** 접미사; 예를 들어 **Standard_A2_v2**접미사를 지정 하는 필수 **Standard_A2_v2** ( 소문자 v)입니다. 전역 Azure를 사용 하면 이제 사용할 수 있습니다 **Standard_A2_V2** (V 대문자).
-
-<!-- 2869209 – IS, ASDK --> 
-- 사용 하 여 문제를 해결 합니다 [추가 AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), 했던 사용를 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 이제 로컬 경로를 디스크도 사용할 수 있습니다.
 
 <!--  2795678 – IS, ASDK --> 
 - 포털 (DS, Ds_v2, FS, FSv2) 프리미엄 VM 크기의 가상 머신 (Vm)를 만드는 데 때 경고를 생성 하는 문제가 수정 되었습니다. 표준 저장소 계정에 VM은 만들었습니다. 이 영향을 미치지 않습니다 기능적으로 IOPs 또는 대금 청구, 있지만 경고가 수정 되었습니다.

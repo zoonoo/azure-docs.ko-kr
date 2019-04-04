@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765801"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895701"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Azure Service Management 인증서 업로드
 관리 인증서를 사용하면 Azure에서 제공하는 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 
@@ -56,4 +56,4 @@ Azure 인증서(자체 서명 인증서 포함)에 대한 자세한 내용은 [A
     ![설정](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [클래식 배포 모델 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.
+이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [클래식 배포 모델 REST API](/azure/#pivot=sdkstools)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.

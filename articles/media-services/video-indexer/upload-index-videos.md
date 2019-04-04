@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893455"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -22,11 +22,11 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 * URL에서 비디오를 업로드합니다(기본 설정).
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.
-* [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept)를 제공하여 기존 Azure Media Services 자산을 사용합니다(유료 계정에서만 지원됨).
+* 제공 하 여 기존 Azure Media Services 자산을 사용 합니다 [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (유료 계정 에서만 지원).
 
 이 문서에서는 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용하여 URL에 따라 비디오를 업로드하고 인덱싱하는 방법을 보여 줍니다. 이 문서의 코드 샘플에는 바이트 배열을 업로드하는 방법을 보여 주는 주석 처리된 코드가 포함되어 있습니다. <br/>또한 이 문서에서는 API의 프로세스 및 출력을 변경하기 위해 API에 설정할 수 있는 몇 가지 매개 변수에 대해서도 설명합니다.
 
-비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. Video Indexer 계정으로 유료 옵션을 사용 하 여 만든 [Azure 구독 및 Azure Media Services 계정에 연결 된](connect-to-azure.md)합니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="uploading-considerations"></a>업로드 고려 사항
 
@@ -59,7 +59,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |이름|설명|
+        |name|설명|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
@@ -67,7 +67,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - properties
     
-      |이름|설명|
+      |name|설명|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -85,9 +85,9 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 지정할 수 있는 값은 다음과 같습니다.
 
-- `Default` – 오디오와 비디오를 모두 사용하여 인사이트를 인덱싱하고 추출합니다.
-- `AudioOnly` – 오디오만(비디오 무시) 사용하여 인사이트를 인덱싱하고 추출합니다.
-- `DefaultWithNoiseReduction` – 오디오 스트림에 노이즈 감소 알고리즘을 적용하는 한편, 오디오와 비디오 모두에서 인사이트를 인덱싱하고 추출합니다.
+- `Default` -인덱스 및 오디오와 비디오 둘 다를 사용 하 여 통찰력을 얻기
+- `AudioOnly` -인덱스 및 오디오 전용 (무시 하 고 비디오)를 사용 하 여 통찰력을 얻기
+- `DefaultWithNoiseReduction` -인덱스 및 오디오 스트림에 대 노이즈 감소 알고리즘을 적용 하는 동안 오디오와 비디오 둘 다에서 정보를 추출
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ public class AccountContractSlim
 
 ## <a name="next-steps"></a>다음 단계
 
-[v2 API에서 생성된 Azure Video Indexer 출력 검사](video-indexer-output-json-v2.md)
+[API에 의해 생성 된 Azure 비디오 인덱서 출력 검토](video-indexer-output-json-v2.md)

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877570"
+ms.locfileid: "58891587"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -30,7 +30,7 @@ ms.locfileid: "58877570"
 
 |이름|정의|설명|
 |---|---|---|
-|widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
+|widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** 위젯 URL 매개 변수는 버전 2에서에서 지원 되지 않습니다. |
 
 ### <a name="player-widget"></a>플레이어 위젯
 
@@ -254,4 +254,4 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer 인사이트를 보고 편집하는 방법에 대한 자세한 내용은 [이 문서](video-indexer-view-edit.md)를 참조하세요.
 
-[Video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ)도 확인합니다.
+또한 체크 아웃 [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ)합니다.

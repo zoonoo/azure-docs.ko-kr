@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520159"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894681"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -24,7 +24,7 @@ LUIS(Language Understanding) 컨테이너는 [LUIS 앱](https://www.luis.ai)으�
 
 다음 비디오는 이 컨테이너를 사용하는 방법을 보여줍니다.
 
-[![Cognitive Services에 대한 컨테이너 데모](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![CCognitive Services에 대 한 데모를 ontainer](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -81,7 +81,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 1. 필수 _입력 탑재_ 및 청구 설정을 사용하여 [컨테이너를 실행](##run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예](luis-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
 1. [컨테이너의 예측 엔드포인트를 쿼리](#query-the-containers-prediction-endpoint)합니다. 
 1. 컨테이너를 사용하고 나면 LUIS 포털의 출력 탑재에서 [엔드포인트 로그를 가져오고](#import-the-endpoint-logs-for-active-learning) 컨테이너를 [중지](#stop-the-container)합니다.
-1. **엔드포인트 발화 검토** 페이지에서 LUIS 포털의 [활성 학습](luis-how-to-review-endoint-utt.md)을 사용하여 앱을 개선합니다.
+1. **엔드포인트 발화 검토** 페이지에서 LUIS 포털의 [활성 학습](luis-how-to-review-endpoint-utterances.md)을 사용하여 앱을 개선합니다.
 
 컨테이너에서 실행되는 앱은 변경할 수 없습니다. 컨테이너에서 앱을 변경하기 위해서 [LUIS](https://www.luis.ai) 포털을 사용하는 LUIS 서비스에서 앱을 변경하거나 [작성 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 사용해야 합니다. 그 다음 학습 및/또는 게시한 다음, 새 패키지를 다운로드하고 컨테이너를 다시 실행합니다.
 
@@ -166,7 +166,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | 게시된 LUIS 앱의 애플리케이션 ID입니다. |
 |{APPLICATION_ENVIRONMENT} | 게시된 LUIS 앱의 환경입니다. 다음 값 중 하나를 사용합니다.<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | 게시된 LUIS 앱에 대한 LUIS 계정의 작성 키입니다.<br/>LUIS 포털의 **사용자 설정** 페이지에서 작성 키를 가져올 수 있습니다. |
-|{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` - 미국 서부<br/>```westeurope``` - 유럽 서부<br/>```australiaeast``` - 오스트레일리아 동부 |
+|{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` -미국 서 부<br/>```westeurope``` -유럽 서 부<br/>```australiaeast``` -오스트레일리아 동부 |
 
 다음 CURL 명령을 사용하여 게시된 패키지를 다운로드하여 사용자 고유 갑을 대체합니다.
 
@@ -194,7 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | 학습된 LUIS 애플리케이션의 애플리케이션 ID입니다. |
 |{APPLICATION_VERSION} | 학습된 LUIS 애플리케이션의 애플리케이션 버전입니다. |
 |{AUTHORING_KEY} | 게시된 LUIS 앱에 대한 LUIS 계정의 작성 키입니다.<br/>LUIS 포털의 **사용자 설정** 페이지에서 작성 키를 가져올 수 있습니다.  |
-|{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` - 미국 서부<br/>```westeurope``` - 유럽 서부<br/>```australiaeast``` - 오스트레일리아 동부 |
+|{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` -미국 서 부<br/>```westeurope``` -유럽 서 부<br/>```australiaeast``` -오스트레일리아 동부 |
 
 다음 CURL 명령을 사용하여 학습된 패키지를 다운로드합니다.
 
@@ -268,7 +268,7 @@ ApiKey={ENDPOINT_KEY}
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
-|`log`|부울|[활성 학습](luis-how-to-review-endoint-utt.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
+|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
 
 ### <a name="query-published-app"></a>게시된 앱 쿼리
 
@@ -299,9 +299,9 @@ curl -X GET \
 LUIS 컨테이너에 대한 출력 탑재를 지정된 경우 앱 쿼리 로그 파일은 {INSTANCE_ID}가 컨테이너 ID인 출력 디렉터리에 저장됩니다. 앱 쿼리 로그는 LUIS 컨테이너에 제출된 각 예측 쿼리에 대한 쿼리, 응답 및 타임스탬프를 포함합니다. 
 
 다음 위치는 컨테이너의 로그 파일에 대한 중첩 된 디렉터리 구조를 보여줍니다.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기**를 선택하여 이 로그를 업로드합니다. 
 

@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d5f6a89d279f0e1b0babc98ed59a07fa1761707f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856447"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893693"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
 
 ## <a name="what-is-active-learning"></a>활성 학습의 개념
-활성 학습은 2단계 프로세스입니다. 먼저 LUIS는 유효성 검사가 필요한 앱의 엔드포인트에서 수신하는 발화를 선택합니다. 두 번째 단계는 앱 소유자 또는 협력자가 올바른 의도 및 의도 내의 모든 엔터티를 포함하여 [검토](luis-how-to-review-endoint-utt.md)를 위해 선택한 발화의 유효성을 검사하는 것입니다. 발화를 검토한 후 다시 앱을 학습시키고 게시합니다. 
+활성 학습은 2단계 프로세스입니다. 먼저 LUIS는 유효성 검사가 필요한 앱의 엔드포인트에서 수신하는 발화를 선택합니다. 두 번째 단계는 앱 소유자 또는 협력자가 올바른 의도 및 의도 내의 모든 엔터티를 포함하여 [검토](luis-how-to-review-endpoint-utterances.md)를 위해 선택한 발화의 유효성을 검사하는 것입니다. 발화를 검토한 후 다시 앱을 학습시키고 게시합니다. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>검토 목록에 있는 발화
 상위 실행 의도의 점수가 낮거나 상위 두 개 의도의 점수가 너무 근접하면 LUIS는 검토 목록에 발화를 추가합니다. 
@@ -41,4 +41,4 @@ ms.locfileid: "55856447"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하는 방법 알아보기
+* 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하는 방법 알아보기

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553968"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891025"
 ---
 다음 표에서는 Azure Storage에 대한 기본 제한을 설명합니다. 합니다 *수신* 제한은 저장소 계정에 전송 되는 요청에서 모든 데이터를 가리킵니다. 합니다 *송신* 제한은 저장소 계정에서 수신 되는 응답에서 모든 데이터를 가리킵니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 표준 및 프리미엄 계정을 포함 하는 구독 당 지역별 저장소 계정 수 | 250 |
+| 표준 및 프리미엄 계정 모두를 포함하는 구독당 지역당 저장소 계정 수 | 250 |
 | 최대 저장소 계정 용량 | 2 PB 미국 및 유럽, 영국을 포함 하는 다른 모든 지역의 경우 500 TB |
 | Blob 컨테이너, blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지 저장소 계정당 최대 수 | 제한 없음 |
 | 저장소 계정당 최대 요청 속도<sup>1</sup> | 초당 20,000회 요청 |

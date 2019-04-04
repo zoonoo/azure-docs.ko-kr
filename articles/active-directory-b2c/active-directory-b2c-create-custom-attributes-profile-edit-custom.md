@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41c3db1c9a7295d939aa34a36f86c0dfa9fecd91
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094629"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891449"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
 
@@ -296,7 +296,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
 ## <a name="reference"></a>참조
 
-확장 속성에 대한 자세한 내용은 [디렉터리 스키마 확장 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
+확장 속성에 대한 자세한 내용은 [디렉터리 스키마 확장 | Graph API 개념](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
 
 > [!NOTE]
 > * **TechnicalProfile**은 엔드포인트의 이름, 메타데이터 및 프로토콜을 정의하는 요소 형식 또는 함수입니다. **TechnicalProfile**은 ID 경험 프레임워크가 수행하는 클레임의 교환을 설명합니다. 오케스트레이션 단계 또는 다른 **TechnicalProfile**에서 이 함수를 호출하면 **InputClaims** 및 **OutputClaims**가 호출자의 매개 변수로 제공됩니다.  

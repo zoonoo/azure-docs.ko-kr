@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 52ec7c83b4070a4c38963b3ab12f58f923fa889d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562629"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893523"
 ---
 # <a name="social-accounts-claims-transformations"></a>소셜 계정 클레임 변환
 
@@ -38,13 +38,13 @@ Azure AD(Azure Active Directory) B2C에서 소셜 계정 ID는 **alternativeSecu
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternativeSecurityId 속성에 대한 JSON 표현을 만듭니다. 자세한 내용은 [AlternativeSecurityId의 스키마](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType)를 참조하세요.
+Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternativeSecurityId 속성에 대한 JSON 표현을 만듭니다. 자세한 내용은 [AlternativeSecurityId의 스키마](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType)를 참조하세요.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | string | 소셜 ID 공급자가 사용하는 고유한 사용자 식별자를 지정하는 ClaimType입니다. |
-| InputClaim | identityProvider | string | 소셜 계정 ID 공급자 이름(예: facebook.com)을 지정하는 ClaimType입니다. |
-| OutputClaim | alternativeSecurityId | string | ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 소셜 계정 사용자의 ID에 대한 정보를 포함합니다. **issuer**는 `identityProvider` 클레임의 값입니다. **issuerUserId**는 base64 형식인 `key` 클레임의 값입니다. |
+| InputClaim | key | 문자열 | 소셜 ID 공급자가 사용하는 고유한 사용자 식별자를 지정하는 ClaimType입니다. |
+| InputClaim | identityProvider | 문자열 | 소셜 계정 ID 공급자 이름(예: facebook.com)을 지정하는 ClaimType입니다. |
+| OutputClaim | alternativeSecurityId | 문자열 | ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 소셜 계정 사용자의 ID에 대한 정보를 포함합니다. **issuer**는 `identityProvider` 클레임의 값입니다. **issuerUserId**는 base64 형식인 `key` 클레임의 값입니다. |
 
 이 클레임 변환을 사용하여 `alternativeSecurityId` ClaimType을 생성할 수 있습니다. 모든 소셜 ID 공급자 기술 프로필(예: `Facebook-OAUTH`)에서 사용됩니다. 다음 클레임 변환은 사용자 소셜 계정 ID와 ID 공급자 이름을 수신합니다. 이 기술 프로필의 출력은 Azure AD 디렉터리 서비스에서 사용할 수 있는 JSON 문자열 형식입니다.
 
@@ -74,14 +74,14 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | 항목 | string | 출력 클레임에 추가할 ClaimType입니다. |
+| InputClaim | 항목 | 문자열 | 출력 클레임에 추가할 ClaimType입니다. |
 | InputClaim | collection | alternativeSecurityIdCollection | 정책에 사용 가능한 경우 클레임 변환에서 사용하는 ClaimType입니다. 제공된 경우 클레임 변환은 컬렉션의 끝에 `item`을 추가합니다. |
 | OutputClaim | collection | alternativeSecurityIdCollection | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 입력 `collection` 및 `item`의 항목을 둘 다 포함하는 새 컬렉션입니다. |
 
 다음 예제는 새 소셜 ID를 기존 계정에 연결합니다. 새 소셜 ID를 연결하려면
 1. **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingObjectId** 기술 프로필에서 사용자의 **alternativeSecurityIds** 클레임을 출력합니다.
 1. 사용자에게 이 사용자와 연결되지 않은 ID 공급자 중 하나로 로그인하도록 요청합니다.
-1. **CreateAlternativeSecurityId** 클레임 변환을 사용하여 이름이 `AlternativeSecurityId2`인 새 **alternativeSecurityId** 클레임 유형을 만듭니다.
+1. 사용 하는 **CreateAlternativeSecurityId** 클레임 변환, 새 **alternativeSecurityId** 클레임 유형 이름이 `AlternativeSecurityId2`
 1. **AddItemToAlternativeSecurityIdCollection** 클레임 변환을 호출하여 **AlternativeSecurityId2** 클레임을 기존 **AlternativeSecurityIds** 클레임에 추가합니다.
 1. **alternativeSecurityIds** 클레임을 사용자 계정에 저장합니다.
 
@@ -138,7 +138,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | string | 컬렉션에서 제거할 ID 공급자 이름을 포함하는 ClaimType입니다. |
+| InputClaim | identityProvider | 문자열 | 컬렉션에서 제거할 ID 공급자 이름을 포함하는 ClaimType입니다. |
 | InputClaim | collection | alternativeSecurityIdCollection | 클레임 변환에서 사용하는 ClaimType입니다. 클레임 변환은 컬렉션에서 identityProvider를 제거합니다. |
 | OutputClaim | collection | alternativeSecurityIdCollection | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 컬렉션에서 identityProvider가 제거된 후의 새 컬렉션입니다. |
 

@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570116"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895869"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력(미리 보기)에 대해 Stream Analytics 인증
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 되는 id를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 Stream Analytics를 인증 합니다.
 
 Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하여 관리 ID 인증을 지원합니다. 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리되는 애플리케이션이며, 대상 리소스를 인증하는 데 사용될 수 있습니다. 관리 ID는 암호 변경 또는 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 마찬가지로 사용자 기반 인증 방법의 제한을 제거합니다. 또한 관리 ID는 Azure Data Lake Storage Gen1을 출력되는 Stream Analytics 작업 배포의 자동화에 도움이 됩니다.
-
-이 미리 보기에 등록하고 새 기능에 대해 자세히 알려면 [Azure Stream Analytics의 8가지 새로운 기능](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) 블로그 게시물을 참조합니다.
 
 이 문서에서는 Azure Portal, Azure Resource Manager 템플릿 배포 및 Azure Stream Analytics Tools for Visual Studio를 통해 Azure Data Lake Storage Gen1로 출력되는 Azure Stream Analytics 작업에 대해 관리 ID를 사용하도록 설정하기 위한 세 가지 방법을 보여 줍니다.
 
@@ -27,11 +25,11 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 ID(미리 보기)** 를 선택합니다.
+1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 선택 **관리 Id** 아래에 있는 **구성**합니다.
 
-   ![Stream Analytics 관리 ID 미리 보기를 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Stream Analytics 관리 되는 id 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. 오른쪽에 표시 되는 창에서 **시스템 할당 관리 ID(미리 보기) 사용**을 선택합니다. 클릭 **저장할** Azure Active Directory에서 Stream Analytics 작업의 id에 대 한 서비스 주체에 있습니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
+2. 선택 **관리 Id 사용 하 여 시스템 할당** 오른쪽에 표시 되는 창에서. 클릭 **저장할** Azure Active Directory에서 Stream Analytics 작업의 id에 대 한 서비스 주체에 있습니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
 
    구성이 저장되는 경우 서비스 주체의 OID(개체 ID)는 아래와 같이 보안 주체 ID로 나열됩니다.
 
@@ -39,7 +37,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
  
    서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어 작업 이름이 **MyASAJob**인 경우 만든 서비스 주체 이름도 **MyASAJob**이 됩니다.
 
-3. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID(미리 보기)** 를 선택합니다.
+3. ADLS Gen1 출력 싱크로의 출력 속성 창에서 드롭 다운 선택한 인증 모드를 클릭 합니다 * * 관리 Id * * 합니다.
 
 4. 나머지 속성을 입력합니다. ADLS 출력을 만드는 방법에 대한 자세한 내용은 [Stream Analytics를 사용하여 Data Lake Store 출력 만들기](../data-lake-store/data-lake-store-stream-analytics.md)를 참조하세요. 작업을 마쳤으면 **저장**을 클릭합니다.
 
@@ -164,7 +162,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    **PrincipalId**는 서비스 주체의 개체 ID로서 서비스 주체를 만들면 포털 화면에 나열됩니다. Resource Manager 템플릿 배포를 사용하여 작업을 만든 경우 개체 ID는 작업 응답의 ID 속성에 나열됩니다.
 
-   **예제**
+   **예**
 
    ```powershell
    PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
@@ -183,6 +181,6 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Stream Analytics를 사용하여 Data Lake Store 만들기](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Stream analytics를 사용 하 여 Data lake 저장소 출력 만들기](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트](stream-analytics-vs-tools-local-run.md)
-* [Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트](stream-analytics-live-data-local-testing.md) 
+* [Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 로컬로 라이브 데이터를 테스트 합니다.](stream-analytics-live-data-local-testing.md) 

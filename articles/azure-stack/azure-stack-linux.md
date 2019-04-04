@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c957812271d2ddd6639672d862026b30cfd19661
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537136"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804516"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack에 Linux 이미지를 추가 합니다.
 
@@ -38,7 +38,7 @@ Azure Marketplace에서 Linux 이미지를 다운로드 하려면의 절차를 �
 
 가능 하면 준비 되었으며 Azure Stack에 대 한 테스트는 Marketplace 관리를 통해 사용 가능한 이미지를 다운로드 합니다.
 
-Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`) 필요한 경우 일부 버전의 에이전트는 Azure Stack에서 작동 하 고 합니다. 사용자 고유의 이미지를 만드는 경우 WALA의 최신 버전 또는 버전 2.2.20 사용 해야 합니다. 2.2.20 2.2.35.1 (배타) 사이의 버전 Azure Stack에서 작동 하지 않는 참고 합니다. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
+Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`) 필요한 경우 일부 버전의 에이전트는 Azure Stack에서 작동 하 고 합니다. 사용자 고유의 이미지를 만드는 경우 WALA의 최신 버전 또는 버전 2.2.20 사용 해야 합니다. 2.2.20 2.2.35.1 (배타) 사이의 버전 Azure Stack에서 작동 하지 않는 참고 합니다. 2.2.20 사이의 2.2.35.1 에이전트 버전을 사용 하려면 1901 핫픽스/1902 핫픽스를 적용 하거나 1903 릴리스 (이상)에 Azure Stack을 업데이트 하세요. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
 
 다음 지침을 사용 하 여 고유한 Linux 이미지를 준비할 수 있습니다.
 

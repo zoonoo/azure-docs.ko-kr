@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371862"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894596"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
-Azure AD SSPR(Self-service Password Reset)과 MFA(Multi-Factor Authentication)에서는 연결된 기능을 사용할 때 사용자가 주장하는 신원을 확인하기 위해 인증 방법이나 보안 정보 같은 추가적인 정보를 요청할 수 있습니다.
+Azure Multi-factor Authentication 및 셀프 서비스 암호에 대 한 인증 방법을 선택 하는 관리자 재설정 (SSPR) 사용자가 여러 가지 인증 방법을 등록 해야 하는 것이 좋습니다. 인증 방법을 사용자에 대해 사용할 수 없는 경우 다른 메서드를 사용 하 여 인증 하도록 선택할 수 있습니다.
 
-관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다.
+관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 문서를 참조 [셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법](howto-sspr-deployment.md) 고 [클라우드 기반 Azure Multi-factor Authentication을 계획 합니다.](howto-mfa-getstarted.md)
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
@@ -233,9 +233,9 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 ## <a name="next-steps"></a>다음 단계
 
-[조직에 대해 셀프 서비스 암호 재설정을 사용하도록 설정](quickstart-sspr.md)
+[조직에 대 한 셀프 서비스 암호를 사용 하도록 설정](quickstart-sspr.md)
 
-[조직에 Azure Multi-Factor Authentication을 사용하도록 설정](howto-mfa-getstarted.md)
+[조직에 대 한 Azure Multi-factor Authentication을 사용 하도록 설정](howto-mfa-getstarted.md)
 
 [테 넌 트의 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md)
 

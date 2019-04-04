@@ -16,16 +16,16 @@ ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 70408f11c8656fb62c8613777d1837d934f67074
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337928"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487569"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
-Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 합니다. Azure Stack 등록 한 후에 사용량 Azure 상거래에 보고 되 고 등록에 사용 되는 Azure 청구 구독 id를 확인할 수 있습니다.
+Azure Stack을 Azure에 등록하면 Azure에서 마켓플레이스 항목을 다운로드하고 Microsoft에 다시 보고하는 상거래 데이터를 설정할 수 있습니다. Azure Stack 등록 한 후에 사용량 Azure 상거래에 보고 되 고 등록에 사용 되는 Azure 청구 구독 id를 확인할 수 있습니다.
 
 이 문서에서 설명 Azure 사용 하 여 Azure Stack 통합 시스템을 등록 합니다. ASDK Azure를 사용 하 여 등록 하는 방법에 대 한 내용은 [Azure Stack 등록](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) ASDK 설명서에서.
 
@@ -70,7 +70,7 @@ Azure Stack 등록은 사용자가 Azure Active Directory에서 사용자 서비
 
 Azure Stack을 성공적으로 등록 하려면 PowerShell 언어 모드 설정 해야 합니다 **FullLanguageMode**합니다.  전체 관리자 권한 PowerShell 창을 열고 다음 PowerShell cmdlet을 실행 하려면 현재 언어 모드를 설정 되어 있는지 확인 합니다.
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -127,7 +127,7 @@ Run: Get-AzureStackStampInformation
 
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
-   ```PowerShell
+   ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
@@ -137,25 +137,25 @@ Run: Get-AzureStackStampInformation
 
 3. 여러 구독이 있는 경우 사용 하려는 것을 선택 하려면 다음 명령을 실행 합니다.  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Azure 구독에서 Azure Stack 리소스 공급자를 등록 하려면 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
 6. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인를 확인 합니다. 이 이전에 Azure Stack 리소스 공급자를 등록 하는 데 사용 된 Azure 계정입니다. Powershell 실행:
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
@@ -165,7 +165,7 @@ Run: Get-AzureStackStampInformation
 
 7. 동일한 PowerShell 세션에서 실행 합니다 **집합 AzsRegistration** cmdlet. PowerShell 실행:  
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -191,7 +191,7 @@ Run: Get-AzureStackStampInformation
 
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
@@ -201,19 +201,19 @@ Run: Get-AzureStackStampInformation
 
 3. 여러 구독이 있는 경우 사용 하려는 것을 선택 하려면 다음 명령을 실행 합니다.  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Azure 구독에서 Azure Stack 리소스 공급자를 등록 하려면 다음 명령을 실행 합니다.
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -236,7 +236,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 1. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** 모듈:  
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
@@ -257,7 +257,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 인터넷에 연결 되어 있는 컴퓨터에서 RegisterWithAzure.psm1 모듈을 가져올 올바른 Azure Powershell 컨텍스트를 로그인 하는 동일한 단계를 수행 합니다. 그런 다음 등록 AzsEnvironment를 호출 합니다. Azure를 사용 하 여 등록 하려면 등록 토큰을 지정 합니다. 동일한 Azure 구독 ID를 사용 하 여 Azure Stack의 둘 이상의 인스턴스를 등록 하는 경우 고유한 등록 이름을 지정 합니다. 다음 cmdlet을 실행합니다.
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
@@ -265,7 +265,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 필요에 따라 등록 토큰을 포함 하는 파일을 가리키도록 Get-content cmdlet을 사용할 수 있습니다.
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
@@ -347,7 +347,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 사용할 구독을 변경 하려는 경우, 먼저 실행 해야 합니다 **제거 AzsRegistration** cmdlet을 다음 올바른 Azure PowerShell 컨텍스트에 로그인을 확인 하 고 마지막으로 실행 **집합 AzsRegistration**  비롯 한 모든 변경 된 매개 변수를 사용 하 여 \<청구 모델\>:
 
-  ```PowerShell  
+  ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
@@ -357,7 +357,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 청구 모델 또는 설치를 위한 기능을 제공 하는 방법을 변경 하려는 경우에 새 값을 설정 하는 등록 함수를 호출할 수 있습니다. 현재 등록을 먼저 제거할 필요가 없습니다.
 
-  ```PowerShell  
+  ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
@@ -405,7 +405,7 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 
 #### <a name="with-a-connected-azure-stack"></a>연결 된 Azure Stack을 사용 하 여
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -443,7 +443,7 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
 - 모든 형식의 전역 Azure 구독입니다.
 - 하면 로그인 해야 합니다도 Azure PowerShell에 소유자 또는 참가자 해당 구독에 있는 계정으로 합니다.
 
-```PowerShell
+```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
@@ -467,7 +467,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성합니다.
 
-```PowerShell  
+```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]

@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882126"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
 
 **Face** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
-
-컨테이너 설정은 [계층 구조](#hierarchical-settings)이며 [환경 변수](#environment-variable-settings) 또는 Docker [명령줄 인수](#command-line-argument-settings)를 사용하여 설정할 수 있습니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
@@ -49,9 +47,9 @@ ms.locfileid: "56821562"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Face의** 개요(`Endpoint` 레이블이 지정됨)
+* Azure Portal: **얼굴의** 개요, 레이블이 지정 `Endpoint`
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -61,7 +59,7 @@ ms.locfileid: "56821562"
 
 `CloudAI` 섹션의 구성 설정은 컨테이너에 고유한 컨테이너 관련 옵션을 제공합니다. `CloudAI` 섹션에서 Face 컨테이너에 대해 지원되는 설정과 개체는 다음과 같습니다.
 
-| 이름 | 데이터 형식 | 설명 |
+| name | 데이터 형식 | 설명 |
 |------|-----------|-------------|
 | `Storage` | Object | Face 컨테이너에서 사용되는 스토리지 시나리오입니다. `Storage` 개체에 대한 스토리지 시나리오 및 관련 설정에 대한 자세한 내용은 [스토리지 시나리오 설정](#storage-scenario-settings)을 참조하세요. |
 
@@ -80,9 +78,9 @@ Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이
 
 스토리지 시나리오 및 관련 구성 설정은 `CloudAI` 구성 섹션의 `Storage` 개체에서 관리됩니다. `Storage` 개체에서 사용할 수 있는 구성 설정은 다음과 같습니다.
 
-| 이름 | 데이터 형식 | 설명 |
+| name | 데이터 형식 | 설명 |
 |------|-----------|-------------|
-| `StorageScenario` | 문자열 | 컨테이너에서 지원되는 스토리지 시나리오입니다. 사용할 수 있는 값은 다음과 같습니다.<br/>`Memory` - 기본값입니다. 일시적인 단일 노드 사용을 위해 컨테이너에서 비영구, 비분산 및 메모리 내 스토리지를 사용합니다. 컨테이너가 중지되거나 제거되면 해당 컨테이너의 스토리지가 삭제됩니다.<br/>`Azure` - 컨테이너에서 스토리지에 대한 Azure 리소스를 사용합니다. 컨테이너가 중지되거나 제거되더라도 해당 컨테이너의 스토리지가 유지됩니다.|
+| `StorageScenario` | 문자열 | 컨테이너에서 지원되는 스토리지 시나리오입니다. 사용할 수 있는 값은 다음과 같습니다.<br/>`Memory` 기본 값입니다. 일시적인 단일 노드 사용을 위해 컨테이너에서 비영구, 비분산 및 메모리 내 스토리지를 사용합니다. 컨테이너가 중지되거나 제거되면 해당 컨테이너의 스토리지가 삭제됩니다.<br/>`Azure` 컨테이너는 저장소에 대 한 Azure 리소스를 사용합니다. 컨테이너가 중지되거나 제거되더라도 해당 컨테이너의 스토리지가 유지됩니다.|
 | `ConnectionStringOfAzureStorage` | 문자열 | 컨테이너에서 사용되는 Azure Storage 리소스에 대한 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 | `ConnectionStringOfCosmosMongo` | 문자열 | 컨테이너에서 사용되는 Azure Cosmos DB 리소스에 대한 MongoDB 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 
@@ -122,14 +120,10 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](face-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| 이름 | 데이터 형식 | 설명 |
+|옵션| name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Face 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="hierarchical-settings"></a>계층 구조 설정
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
 
@@ -163,23 +157,13 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
   ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
+### <a name="logging-example"></a>로깅 예 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>다음 단계

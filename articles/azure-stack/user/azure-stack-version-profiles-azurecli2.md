@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975630"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487586"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -95,13 +95,13 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 2. PIP를 업그레이드 합니다. PIP는 Python에 대 한 패키지 관리자입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. 설치 합니다 **로** 모듈입니다. [로](https://pypi.org/project/certifi/) 모듈 및 TLS 호스트의 id를 확인 하는 동안 SSL 인증서를 신뢰할 수 있는지 유효성을 검사 하는 것에 대 한 루트 인증서의 컬렉션입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -211,7 +211,7 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
     | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | 스토리지 엔드포인트 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -277,7 +277,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -331,7 +331,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
     | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | 스토리지 엔드포인트 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -447,7 +447,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
     | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | 스토리지 엔드포인트 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
@@ -558,7 +558,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
     | --- | --- | --- |
     | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
     | Resource Manager 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
-    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | 스토리지 엔드포인트 | local.azurestack.external | `local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
     | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 

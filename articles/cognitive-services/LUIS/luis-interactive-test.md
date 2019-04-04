@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d8456595e244237a0fd92fae82a43a878ad41080
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857671"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893627"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 <a name="train-your-app"></a>
@@ -108,7 +108,7 @@ ms.locfileid: "55857671"
 3. **게시됨** 패널이 열리면 **[추가 설정](#additional-settings-in-test-panel)** 을 선택합니다.
 
 4. 팝업 대화 상자에서 **Bing Spell Check** 서비스 키를 입력합니다. 
-    ![Bing Spell Check 서비스 키 입력](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Bing Spell Check 서비스 키를 입력 합니다.](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. `book flite to seattle`과 같이 잘못된 맞춤법이 포함된 쿼리를 입력하고 Enter 키를 선택합니다. LUIS로 보낸 쿼리에서 단어 `flite`의 잘못된 철자가 바뀌고, 결과 JSON은 원래 쿼리를 `query`로, 해당 쿼리의 정정된 철자를 `alteredQuery`로 표시합니다.
 
@@ -132,5 +132,5 @@ ms.locfileid: "55857671"
 
 테스트에서 LUIS 앱이 올바른 의도와 엔터티를 인식하지 못하는 것으로 나타나면 추가 발화에 레이블을 지정하거나 기능을 추가하여 LUIS 앱의 정확도를 개선할 수 있습니다. 
 
-* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endoint-utt.md) 
+* [LUIS 사용 하 여 제안 된 길이 발언 레이블](luis-how-to-review-endpoint-utterances.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 

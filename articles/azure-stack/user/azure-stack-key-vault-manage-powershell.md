@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: HT
+ms.openlocfilehash: d2324f9538ce8079be5e660a1613c1c093ecc85a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258754"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484599"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에서 Key Vault 관리
 
@@ -45,7 +45,7 @@ PowerShell을 사용 하 여 Azure Stack의 주요 자격 증명 모음을 관�
 
 Key vault에 대 한 모든 작업을 실행할 수 있습니다, 전에 테 넌 트 구독의 자격 증명 모음 작업에 대해 설정 되어 있는지 확인 해야 합니다. 자격 증명 모음 작업 설정 되어 있는지를 확인 하려면 다음 명령을 실행 합니다.
 
-```PowerShell  
+```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
@@ -57,7 +57,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 자격 증명 모음 작업을 사용할 경우에 구독에서 Key Vault 서비스를 등록 하려면 다음 명령을 호출 합니다.
 
-```PowerShell
+```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
@@ -71,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Key vault를 만들려면 먼저 key vault와 관련 된 리소스의 모든 리소스 그룹에 존재 하는 리소스 그룹을 만듭니다. 다음 명령을 사용 하 여 새 리소스 그룹을 만듭니다.
 
-```PowerShell
+```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ```
@@ -84,7 +84,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 Key vault를 만들려면 다음 명령을 실행 합니다.
 
-```PowerShell
+```powershell
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
@@ -98,7 +98,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 AD FS 배포에서이 경고가 표시 될 수 있습니다. "액세스 정책이 설정 되지 않았습니다. 응용 프로그램 없거나 사용자에 게 액세스 권한이이 자격 증명이 모음을 사용 하 합니다. " 이 문제를 해결 하려면 자격 증명 모음의 액세스 정책을 사용 하 여 설정 합니다 [Set-azurermkeyvaultaccesspolicy](#authorize-an-application-to-use-a-key-or-secret) 명령:
 
-```PowerShell
+```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
@@ -115,7 +115,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName
 
 사용 된 **Add-azurekeyvaultkey** 만들거나 key vault에 소프트웨어 보호 키를 가져오는 명령입니다.
 
-```PowerShell
+```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
@@ -134,7 +134,7 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 사용 된 **Get-azurekeyvaultkey** 명령 키를 읽고 해당 세부 정보입니다.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
@@ -142,7 +142,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 사용 된 **Set-azurekeyvaultsecret** 만들거나 자격 증명 모음에 비밀을 업데이트 하는 명령입니다. 암호는 존재 하지 않는 경우 만들어집니다. 암호의 새 버전이 이미 있는 경우에 생성 됩니다.
 
-```PowerShell
+```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 사용 된 **Get-azurekeyvaultsecret** key vault에서 비밀을 읽도록 명령입니다. 이 명령은 모든 반환할 수 있습니다 또는 특정 버전의 비밀입니다.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
@@ -166,13 +166,13 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 사용 된 **Set-azurermkeyvaultaccesspolicy** 키 또는 key vault의 비밀에 액세스 하는 응용 프로그램 권한을 부여 하는 명령입니다.
 다음 예제에서는 자격 증명 모음 이름은 *ContosoKeyVault* 권한을 부여 하려는 응용 프로그램의 클라이언트 ID 있고 *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*합니다. 응용 프로그램에 권한을 부여 하려면 다음 명령을 실행 합니다. 선택적으로 지정할 수는 **PermissionsToKeys** 사용자, 응용 프로그램 또는 보안 그룹에 대 한 사용 권한을 설정 하려면 매개 변수입니다.
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 자격 증명 모음에서 비밀을 읽도록 동일한 응용 프로그램에 권한을 부여 하려는 경우 다음 cmdlet을 실행 합니다.
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 

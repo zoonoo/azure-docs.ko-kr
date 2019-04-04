@@ -15,12 +15,12 @@ ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: ceb092192924b79f1584d72b307e3bc3512c0025
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226405"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484172"
 ---
 # <a name="manage-azure-stack-storage-accounts"></a>Azure Stack 저장소 계정 관리
 
@@ -136,7 +136,7 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 > [!NOTE]  
 > 이러한 cmdlet을 실행 하는 계정 및 해당 콘텐츠가 영구적으로 삭제 합니다. 복구할 수는 없습니다. 이 사용 하 여 주의 해야 합니다.
 
-```PowerShell  
+```powershell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```

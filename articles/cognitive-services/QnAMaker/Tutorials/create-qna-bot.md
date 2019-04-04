@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095214"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879613"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>자습서: Azure Bot Service v3로 QnA 봇 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "58095214"
 > [!Note] 
 > 이 항목은 Bot SDK 버전 3에 대한 내용을 다룹니다. 버전 4는 [여기](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)에서 찾을 수 있습니다. 
 
-**이 자습서에서 학습할 내용은 다음과 같습니다.**
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -105,6 +105,12 @@ Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스�
 
 QnA 봇이 기술 자료를 기준으로 응답합니다.
 
+## <a name="related-to-qna-maker-bots"></a>QnA Maker 봇을 관련
+
+* QnA Maker 포털에 사용 되는 QnA Maker 도움말 봇, 수를 [bot 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot)합니다.
+    ![QnA Maker 도움말 봇 아이콘은 빨간색 로봇](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [의료 분쟁 야 기자가](https://docs.microsoft.com/HealthBot/qna_model_howto) 중 하나로 QnA Maker를 사용 하 여 해당 [언어 모델](https://docs.microsoft.com/HealthBot/qna_model_howto)합니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서의 봇 작업이 완료되면 Azure Portal에서 해당 봇을 제거합니다. 봇 서비스는 다음을 포함합니다.
@@ -122,5 +128,5 @@ QnA 봇이 기술 자료를 기준으로 응답합니다.
 
 ## <a name="see-also"></a>참고 항목
 
-- [Manage your knowledge base](https://qnamaker.ai)(기술 자료 관리)
-- [Enable your bot in different channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)(다양한 채널에서 봇 사용)
+- [기술 자료 관리](https://qnamaker.ai)
+- [다른 채널에서 봇을 사용 하도록 설정](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bdb46a5e11b26f04d008160fa5a782050211b56e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122946"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484376"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory Federated Services를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -85,7 +85,7 @@ Id 솔루션으로 AD FS를 사용 하는 경우 서비스 주체를 설정 하 
 
    - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-     ```PowerShell  
+   ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
        $subscriptionId="<Your Subscription ID>"
        $username="<your user name >"
@@ -126,7 +126,7 @@ Id 솔루션으로 AD FS를 사용 하는 경우 서비스 주체를 설정 하 
 
    - 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 하 고 [Azure Stack에 연결](azure-stack-powershell-configure-user.md#connect-with-ad-fs)합니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
-     ```PowerShell  
+    ```powershell
         
      # upload the pfx to key vault
      $tempPFXFilePath = "<certificate path>"

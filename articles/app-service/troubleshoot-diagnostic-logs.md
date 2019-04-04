@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339638"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894921"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -36,10 +36,10 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 
 * **자세한 오류 로깅** -HTTP 상태 코드 400 이상에 모든 요청에 대 한 정보를 자세히 설명 합니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다. HTML 파일은 앱의 파일 시스템에 50 오류 (파일)까지 각 오류에 대 한 생성 하나 유지 됩니다. HTML 파일 수가 50을 초과 하는 경우 가장 오래 된 26 파일 자동으로 삭제 됩니다.
 * **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 폴더는 앱의 파일 시스템에서 각 오류에 대해 생성 됩니다. 파일 보존 정책 위에 로깅의 자세한 오류와 동일 합니다.
-* **웹 서버 로깅** - [W3C 확장 로그 파일 형식](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 처리된 요청 수 또는 특정 IP 주소의 요청 수와 같은 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
+* **웹 서버 로깅** - [W3C 확장 로그 파일 형식](/windows/desktop/Http/w3c-logging)을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 처리된 요청 수 또는 특정 IP 주소의 요청 수와 같은 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 ### <a name="application-diagnostics"></a>애플리케이션 진단
-애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -61,7 +61,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 |**오류** | 오류, 위험 |
 |**Warning** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
-|**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
+|**자세한 정보 표시** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 |-|-|
 
 **애플리케이션 로깅**의 경우 디버그를 위해 파일 시스템 옵션을 일시적으로 켤 수 있습니다. 이 옵션은 12시간 후에 자동으로 꺼집니다. 또한 Blob Storage 옵션을 켜서 로그를 쓸 Blob 컨테이너를 선택할 수도 있습니다.
@@ -101,7 +101,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 * **애플리케이션 로그** - /LogFiles/Application/입니다. 이 폴더에는 애플리케이션 로깅으로 생성된 정보가 포함된 하나 이상의 텍스트 파일이 포함됩니다.
 * **실패한 요청 추적** - /LogFiles/W3SVC#########/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
-* **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
+* **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](/windows/desktop/Http/w3c-logging)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
 * **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure App Service에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다. D:\home\site\deployments에서 배포 로그를 찾을 수 있습니다.
 
 ### <a name="ftp"></a>FTP
@@ -126,13 +126,13 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
 
 1. Visual Studio의 프로젝트에 Application Insights SDK 추가
-   * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 인터페이스는 Application Insights 리소스를 만드는 방법을 포함한 단계를 설명합니다. [자세히 알아보기](../azure-monitor/app/asp-net.md)
+   * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 인터페이스는 Application Insights 리소스를 만드는 방법을 포함한 단계를 설명합니다. [자세한 정보](../azure-monitor/app/asp-net.md)
 2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
    * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. 자동으로 로그를 삭제하려면 `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](../azure-monitor/app/asp-net-trace-logs.md)
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
-4. [Azure Portal](https://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용량 및 다른 원격 분석과 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../azure-monitor/app/diagnostic-search.md)
+4. [Azure Portal](https://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용량 및 다른 원격 분석과 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세한 정보](../azure-monitor/app/diagnostic-search.md)
 
-[Application Insights로 추적되는 성능에 대해 알아보기](../azure-monitor/app/azure-web-apps.md)
+[Application Insights를 사용 하 여 추적 성능에 자세히 알아보기](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 방법: 로그 스트리밍
 애플리케이션을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure CLI를 개발 환경에 로깅 정보를 스트리밍할 수 있습니다.
@@ -183,7 +183,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 파일 시스템에 로깅하면 사용 가능한 세 가지 메서드의 가장 기본적인 정보를 제공하며 시간, 프로세스 ID, 이벤트 수준 및 메시지만 제공합니다.
 
-**Blob Storage**
+**Blob 저장소**
 
 Blob Storage에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
 
@@ -222,7 +222,7 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 자세한 오류 로그는 발생한 HTTP 오류에 대해 좀 더 자세한 정보를 제공하는 HTML 문서입니다. 이들은 단순한 HTML 문서이므로 웹 브라우저를 사용하여 볼 수 있습니다.
 
 ### <a name="web-server-logs"></a>웹 서버 로그
-웹 서버 로그는 [W3C 확장 로그 파일 형식](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
+웹 서버 로그는 [W3C 확장 로그 파일 형식](/windows/desktop/Http/w3c-logging)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
 > [!NOTE]
 > Azure App Service에서 생성된 로그는 **s-computername**, **s-ip** 또는 **cs-version** 필드를 지원하지 않습니다.
@@ -230,6 +230,6 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 >
 
 ## <a name="nextsteps"></a> 다음 단계
-* [Azure App Service에서 모니터링하는 방법](web-sites-monitor.md)
+* [Azure App Service를 모니터링 하는 방법](web-sites-monitor.md)
 * [Visual Studio에서 Azure App Service 문제 해결](troubleshoot-dotnet-visual-studio.md)
 * [HDInsight에서 앱 로그 분석](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack에 Kubernetes 배포 문제 해결 | Microsoft Docs
-description: Azure Stack에 Kubernetes 배포 문제를 해결 하는 방법을 알아봅니다.
+title: Azure Stack에서 Kubernetes 배포 문제 해결 | Microsoft Docs
+description: Azure Stack에서 Kubernetes 배포 문제를 해결 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361543"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878131"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
 > Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
 
 다음 문서는 Kubernetes 클러스터 문제 해결 살펴봅니다. 배포 경고를 검토 하 고 배포 하는 데 필요한 요소에 의해 배포의 상태를 검토할 수 있습니다. Azure Stack 또는 호스트 Kubernetes 사용 하는 Linux Vm에서 배포 로그를 수집 해야 합니다. 관리 끝점에서 로그를 검색 하 여 Azure Stack 관리자를 사용 하 여 작동 하도록 할 수도 있습니다.
 
-## <a name="overview-of-deployment"></a>배포 개요
+## <a name="overview-of-kubernetes-deployment"></a>Kubernetes 배포 개요
 
 클러스터 문제 해결을 시작 하기 전에 Azure Stack Kubernetes 클러스터 배포 프로세스를 검토 하는 것이 좋습니다. 배포는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 Vm을 만들고 클러스터에 대 한 ACS 엔진을 설치 합니다.
 
-### <a name="deployment-workflow"></a>배포 워크플로
+### <a name="kubernetes-deployment-workflow"></a>Kubernetes 배포 워크플로
 
 다음 다이어그램에서는 클러스터를 배포 하기 위한 일반적인 프로세스를 보여 줍니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "58361543"
 
 Kubernetes 클러스터를 지 원하는 Vm에서 로그를 수집할 수 있습니다. 또한 배포 로그를 검토할 수 있습니다. 를 사용 하 고 배포와 관련 된 Azure Stack에서 로그를 가져오려면 해야 하는 Azure Stack의 버전을 확인 하 여 Azure Stack 관리자에 게 문의 해야 합니다.
 
-1. 검토 합니다 [배포 상태](#review-deployment-status) 하 고 [로그를 검색할](#get-logs-from-a-vm) Kubernetes 클러스터의 마스터 노드를 통해.
+1. 검토 합니다 [배포 상태](#review-deployment-status) Kubernetes 클러스터의 마스터 노드를 통해 로그를 검색 합니다.
 2. Azure Stack의 최신 버전을 사용 하는 확인 해야 합니다. 사용 중인 버전 잘 모르는 경우 Azure Stack 관리자에 게 문의 합니다.
 3.  VM 생성 파일을 검토 합니다. 다음과 같은 문제를 미쳤을 수 있습니다.:  
     - 공개 키 잘못 되었을 수 있습니다. 사용자가 만든 키를 검토 합니다.  

@@ -13,16 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 651ae8ae8640a23ecaac734670e97678fe20c64c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314282"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903106"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 다음 스크립트를 사용하여 Service Manager 인스턴스에 대한 웹앱을 만듭니다. Service Manager 연결에 대한 자세한 내용은 여기에 나와 있습니다. [Service Manager 웹앱](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -38,6 +36,8 @@ ms.locfileid: "57314282"
 이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹앱 URL**, **클라이언트 ID** 및 **클라이언트 암호**를 생성합니다.
 
 이러한 값은 IT Service Management Cconnector와의 연결을 만들 때 필요하므로 저장합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -96,19 +96,19 @@ if(!(Get-PackageProvider -Name NuGet))
    Write-Host "Installing NuGet Package Provider..."
    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force -WarningAction SilentlyContinue
 }
-$module = Get-Module -ListAvailable -Name AzureRM
+$module = Get-Module -ListAvailable -Name Az
 
-if(!$module -or ($module[0].Version.Major -lt 4))
+if(!$module -or ($module[0].Version.Major -lt 1))
 {
-    Write-Host "Installing AzureRm Module..."  
+    Write-Host "Installing Az Module..."  
     try
     {
         # In case of Win 10 Anniversary update
-        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
+        Install-Module Az -MinimumVersion 1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
     }
     catch
     {
-        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
+        Install-Module Az -MinimumVersion 1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
     }
 
 }

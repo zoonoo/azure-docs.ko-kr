@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154612"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894859"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -46,7 +46,7 @@ ms.locfileid: "55154612"
 
 다음은 보호자 동의를 수집하는 사용자 흐름의 예입니다.
 
-1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
+1. [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
 
 2. 애플리케이션에서 JSON 토큰을 처리하고, 보호자의 동의가 필요하다고 알리고 온라인으로 보호자의 동의를 요청하는 화면을 미성년자에게 표시합니다. 
 

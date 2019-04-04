@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201673"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903305"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용
 Azure HDInsight에서 [Apache Phoenix](https://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)을 참조하세요.
@@ -34,20 +34,20 @@ SQLLine을 시작하려면 다음 항목이 있어야 합니다.
 
 HBase 클러스터에 연결할 때 [Apache ZooKeeper](https://zookeeper.apache.org/) VM 중 하나에 연결해야 합니다. 각 HDInsight 클러스터마다 세 개의 ZooKeeper VM이 있습니다.
 
-**ZooKeeper 호스트 이름을 확인하려면**
+**ZooKeeper 호스트 이름을 가져오려면**
 
 1. **https://\<cluster name\>.azurehdinsight.net**으로 이동하여 [Apache Ambari](https://ambari.apache.org/)를 엽니다.
 2. 로그인하려면 HTTP(클러스터) 사용자 이름 및 암호를 입력합니다.
 3. 왼쪽 메뉴에서 **ZooKeeper**를 선택합니다. 세 개의 **ZooKeeper Server** 인스턴스가 나열됩니다.
 4. **ZooKeeper Server** 인스턴스 중 하나를 선택합니다. **요약** 창에서 **호스트 이름**을 찾습니다. 이 이름은 *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*과 비슷합니다.
 
-**SQLLine을 사용하려면**
+**SQLLine을 사용**
 
 1. SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. SSH에서 다음 명령을 실행하여 SQLLine을 실행합니다.
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. HBase 테이블을 만들고 일부 데이터를 삽입하려면 다음 명령을 실행합니다.
 

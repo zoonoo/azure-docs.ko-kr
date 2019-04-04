@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804873"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891959"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
@@ -47,7 +47,7 @@ v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드�
 
 작업 표시 `x-ms-long-running-operation` Azure Media services에서 [swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) 긴 작업을 실행 합니다. 
 
-Azure 비동기 작업을 추적 하는 방법에 대 한 세부 정보를 참조 하세요. [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Azure 비동기 작업을 추적 하는 방법에 대 한 자세한 내용은 참조 하세요 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)합니다.
 
 Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
 
@@ -65,7 +65,6 @@ Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
 * StreamingEndpoint 시작
 * StreamingEndpoint 중지
 * StreamingEndpoint 크기 조정
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
@@ -356,4 +355,4 @@ REST 예제의 경우 [스트리밍 정책 - 목록](https://docs.microsoft.com/
 
 ## <a name="next-steps"></a>다음 단계
 
-[파일 스트리밍](stream-files-dotnet-quickstart.md)
+[Stream 파일](stream-files-dotnet-quickstart.md)

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125252"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891024"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -69,7 +69,7 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 Azure의 cloud-Init에 대한 자세한 정보
 
-- [Azure에서 Linux 가상 컴퓨터에 cloud-init 지원](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Azure에서 Linux 가상 머신에 대 한 cloud-init 지원](../articles/virtual-machines/linux/using-cloud-init.md)
 - [cloud-init를 사용한 자동화된 VM 구성에 대한 자습서 진행](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)
 
 
@@ -80,7 +80,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [기본 DSC 구성 만들기](https://msdn.microsoft.com/powershell/dsc/quickstart)
+- [기본 DSC 구성 만들기](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)
 - [DSC 풀 서버 구성](https://msdn.microsoft.com/powershell/dsc/pullserver)
 - [Linux용 DSC 사용](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)
 

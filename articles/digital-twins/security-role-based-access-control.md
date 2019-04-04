@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443684"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904273"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 
@@ -67,7 +67,7 @@ RBAC는 권한이 공간 그래프에서 상속된다는 점에서 고유합니�
 다음 참조 설명서 문서는 다음을 설명합니다.
 
 - [사용자에 대한 개체 ID를 쿼리하는](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0) 방법.
-- [서비스 주체에 대한 개체 ID를 가져오는](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal) 방법.
+- [서비스 주체에 대한 개체 ID를 가져오는](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal) 방법.
 - [Azure AD 테넌트에 대한 개체 ID를 검색하는](../active-directory/develop/quickstart-create-new-tenant.md) 방법.
 
 ## <a name="role-assignments"></a>역할 할당

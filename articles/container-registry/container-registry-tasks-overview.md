@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660723"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915928"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660723"
 * [빠른 작업](#quick-task): 로컬 Docker 엔진을 설치하지 않고도 Azure에서 요청 시 컨테이너 이미지를 빌드하고 푸시합니다. 클라우드의 `docker build`, `docker push`를 생각하면 됩니다. 로컬 소스 코드 또는 Git 리포지토리에서 빌드합니다.
 * [소스 코드 커밋 시 빌드](#automatic-build-on-source-code-commit): 코드가 Git 리포지토리에 커밋될 때 컨테이너 이미지 빌드를 자동으로 트리거합니다.
 * [기본 이미지 업데이트 시 빌드](#automate-os-and-framework-patching): 이미지의 기본 이미지가 업데이트되었을 때 컨테이너 이미지 빌드를 트리거합니다.
-* [다단계 작업](#multi-step-tasks-preview)(미리 보기): 이미지를 빌드하고, 컨테이너를 명령으로 실행하고, 이미지를 레지스트리로 푸시하는 다단계 작업을 정의합니다. ACR 작업의 이 미리 보기 기능은 주문형 작업 실행과 병렬 이미지 빌드, 테스트 및 푸시 작업을 지원합니다.
+* [다중 단계 작업](#multi-step-tasks): 이미지를 빌드하고, 컨테이너를 명령으로 실행하고, 이미지를 레지스트리로 푸시하는 다단계 작업을 정의합니다. ACR 작업은 요청 시 태스크 실행을 지원 하 고 병렬 이미지 빌드, 테스트 및 푸시 작업의이 기능입니다.
 
 ## <a name="quick-task"></a>빠른 작업
 
@@ -36,6 +36,8 @@ ms.locfileid: "55660723"
 첫 번째 코드 줄을 커밋하기 전에, ACR 작업의 빠른 [작업](container-registry-tutorial-quick-task.md) 기능은 컨테이너 이미지 빌드를 Azure에 오프로드하여 통합 개발 환경을 제공할 수 있습니다. 빠른 작업을 사용하면 코드를 커밋하기 전에 자동화된 빌드 정의를 확인하고 잠재적인 문제점을 발견할 수 있습니다.
 
 친숙한 `docker build` 형식을 사용하여 Azure CLI의 [az acr build][az-acr-build] 명령에서 *컨텍스트*(빌드할 파일 집합)를 사용하고, 이를 ACR 작업으로 보내고, 기본적으로 완료되면 빌드된 이미지를 해당 레지스트리에 푸시합니다.
+
+에 대 한 빠른 시작을 참조 하세요 [빌드하고 컨테이너 이미지 실행](container-registry-quickstart-task-cli.md) Azure Container Registry의 합니다.  
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
@@ -74,11 +76,11 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 세 번째 ACR 작업 자습서인 [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)에서 OS 및 프레임워크 패치에 대해 알아보세요.
 
 > [!NOTE]
-> 기본 이미지와 응용 프로그램 이미지가 모두 동일한 Azure 컨테이너 레지스트리 또는 공용 Docker 허브 리포지토리에 있는 경우에만 기본 이미지 업데이트에서 빌드를 트리거합니다.
+> 기본 이미지와 애플리케이션 이미지가 모두 동일한 Azure 컨테이너 레지스트리 또는 공용 Docker 허브 리포지토리에 있는 경우에만 기본 이미지 업데이트에서 빌드를 트리거합니다.
 
-## <a name="multi-step-tasks-preview"></a>다단계 작업(미리 보기)
+## <a name="multi-step-tasks"></a>다중 단계 작업
 
-ACR 작업의 미리 보기 기능인 다단계 작업은 클라우드에서 컨테이너 이미지를 빌드, 테스트 및 패치하기 위한 단계 기반 작업 정의 및 실행을 제공합니다. 작업 단계는 개별 컨테이너 이미지 빌드 및 푸시 작업을 정의합니다. 해당 실행 환경으로 컨테이너를 사용하여 각 단계로 하나 이상의 컨테이너 실행을 정의할 수도 있습니다.
+다중 단계 작업 단계 기반 작업 정의와 구축, 테스트 및 클라우드의 패치 컨테이너 이미지에 대 한 실행을 제공 합니다. 작업 단계는 개별 컨테이너 이미지 빌드 및 푸시 작업을 정의합니다. 해당 실행 환경으로 컨테이너를 사용하여 각 단계로 하나 이상의 컨테이너 실행을 정의할 수도 있습니다.
 
 예를 들어, 다음을 자동화하는 다단계 작업을 만들 수 있습니다.
 
@@ -93,15 +95,12 @@ ACR 작업의 미리 보기 기능인 다단계 작업은 클라우드에서 컨
 
 [ACR 작업에서 다단계 빌드, 테스트 및 패치 작업 실행](container-registry-tasks-multi-step.md)에서 다단계 작업에 대해 알아보세요.
 
-> [!IMPORTANT]
-> ACR 작업의 다단계 작업 기능은 현재 미리 보기로 제공되고 있습니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 클라우드에서 컨테이너 이미지를 빌드하여 OS 및 프레임워크 패치를 자동화할 준비가 되면 세 부분으로 구성된 ACR 작업 자습서 시리즈를 확인합니다.
 
 > [!div class="nextstepaction"]
-> [자습서 - Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드](container-registry-tutorial-quick-task.md)
+> [Azure 컨테이너 레지스트리 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

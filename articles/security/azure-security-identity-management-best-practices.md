@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112107"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895689"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -116,7 +116,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 **옵션 1**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-userstates.md).   
 **혜택**: 2단계 인증을 요구하는 기존 메서드입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](../active-directory/authentication/concept-mfa-whichversion.md)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 조건부 액세스 정책을 재정의합니다.
 
-**옵션 2**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**옵션 2**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-getstarted.md).
 **혜택**: 이 옵션을 사용하면 [조건부 액세스](../active-directory/active-directory-conditional-access-azure-portal.md)를 사용하여 특정 조건에서 2단계 인증을 묻는 메시지를 표시할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 디바이스 또는 애플리케이션에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
 
 이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure Multi-Factor Authentication에서만 가능하며, Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](../active-directory/authentication/howto-mfa-getstarted.md)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
@@ -181,23 +181,23 @@ Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) �
 **모범 사례**: 가장 많이 사용되는 공격 기술을 완화하는 단계를 수행합니다.  
 **세부 정보**: [직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
-[글로벌 관리자 계정에 대해 별도의 사용자 계정 및 메일 전달 보장](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[전역 관리자 계정에 대해 별도의 사용자 계정 및 메일 전달 보장](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
-[관리 계정의 암호가 최근에 변경되었는지 확인](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[관리 계정의 암호가 최근에 변경 있는지 확인 합니다.](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[암호 해시 동기화 설정](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[암호 해시 동기화 켜기](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
 
-[모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 Multi-Factor Authentication 요구](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[노출 된 사용자 뿐만 아니라 모든 권한 있는 역할의 사용자에 대 한 Multi-factor Authentication 필요](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
 [Office 365 보안 점수 가져오기(Office 365를 사용하는 경우)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
 
 [Office 365 보안 및 규정 준수 지침 검토(Office 365를 사용하는 경우)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Office 365 작업 모니터링 구성(Office 365를 사용하는 경우)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Office 365 활동 모니터링 구성(Office365를 사용하는 경우)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [인시던트/비상 대응 계획 소유자 설정](../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
 
-[권한 있는 온-프레미스 관리 계정 보호](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[안전한 온-프레미스에 권한 있는 관리자 계정](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
 
 권한 있는 액세스를 보호하지 않는 경우 권한이 높은 역할에 너무 많은 사용자가 포함되면 공격에 더 취약할 수 있습니다. 사이버 공격자를 포함한 악의적인 행위자는 자격 증명 도난을 사용하여 중요한 데이터 및 시스템에 대해 액세스하는 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 지정하는 경우가 많습니다.
 

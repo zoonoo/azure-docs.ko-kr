@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088012"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891483"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -27,12 +27,12 @@ ms.locfileid: "58088012"
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portal에서 Custom Vision 리소스 만들기
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 사용자 지정 비전 리소스 만들기
 Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. 이렇게 하면 학습 및 예측 리소스가 둘 다 생성됩니다. 
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동하여 __로그인__을 선택합니다. Azure Portal에 로그인하는 데 사용한 계정과 동일한 계정으로 로그인합니다.
+웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동하여 __로그인__을 선택합니다. Azure portal에 로그인 할 때 사용한 동일한 계정으로 로그인 합니다.
 
 ![로그인 페이지 이미지](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
 
 1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
 
-> [!NOTE]
-> 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
+   > [!NOTE]
+   > 사용 가능한 리소스 그룹이 없는 경우의에 로그인 했는지 확인 하십시오 [customvision.ai](https://customvision.ai) 에 로그인 할 때 동일한 계정을 사용 합니다 [Azure portal](https://portal.azure.com/)합니다. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __분류__를 선택합니다. 그런 다음 __분류 유형__ 아래에서 사용 사례에 따라 **다중 레이블** 또는 **다중 클래스**를 선택합니다. 다중 레이블 분류에서는 0개 이상의 태그가 이미지에 적용되는 반면 다중 클래스 분류에서는 이미지가 단일 범주로 정렬됩니다. 즉, 제출하는 모든 이미지가 가장 적합한 태그로 정렬됩니다. 원하는 경우 나중에 분류 유형을 변경할 수 있습니다.
 
@@ -53,11 +53,11 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
     |도메인|목적|
     |---|---|
     |__일반__| 광범위한 이미지 분류 작업에 최적화되었습니다. 다른 도메인이 적절하지 않거나 선택할 도메인을 잘 모르겠으면 일반 도메인을 선택합니다. |
-    |__음식__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|
+    |__Food__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|
     |__랜드마크__|인식 가능한 자연적 및 인공적인 랜드마크에 최적화되었습니다. 이 도메인은 랜드마크가 사진에서 명확하게 표시될 때 가장 효과적입니다. 앞에 서 있는 사람이 랜드마크를 약간 가리고 있는 경우에도 도메인이 작동합니다.|
     |__소매__|쇼핑 카탈로그 또는 쇼핑 웹 사이트에 있는 이미지에 최적화되었습니다. 드레스, 바지 및 셔츠를 높은 정밀도로 분류하려는 경우 이 도메인을 사용합니다.|
     |__성인__|성인 콘텐츠와 비성인 콘텐츠 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.|
-    |__압축 도메인__| 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
+    |__Compact 도메인__| 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
     
 1. 마지막으로 __프로젝트 만들기__를 선택합니다.
 
@@ -96,12 +96,7 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
 
     ![진행 표시줄에 완료된 작업이 모두 표시됩니다.](./media/getting-started-build-a-classifier/add-images04.png)
 
-다른 이미지 세트를 업로드하려면 이 섹션의 맨 위로 돌아가서 해당 단계를 반복합니다. 프로젝트에서 일정 시점이 되면 분류자의 정확도를 높이기 위해 _부정 샘플_을 추가해야 할 수도 있습니다. 부정 샘플은 다른 어떤 태그와도 일치하지 않는 샘플입니다. 이러한 이미지를 업로드할 때는 특수 **부정** 레이블을 적용합니다.
-
-> [!NOTE]
-> Custom Vision Service는 몇 가지 자동 음화 이미지 처리를 지원합니다. 예를 들어 사과와 바나나 분류자를 빌드 중이며 예측을 위해 신발 이미지를 제출하는 경우, 분류자는 해당 이미지의 점수를 사과와 바나나 둘 다에 대해 0%에 가깝게 지정해야 합니다.
-> 
-> 반면에 부정 이미지가 학습에 사용된 이미지 변형에 불과한 경우, 모델이 뛰어난 유사성 때문에 부정 이미지를 레이블이 지정된 클래스로 분류할 수 있습니다. 예를 들어, 오렌지와 포도 분류자가 있으며 귤 이미지를 제공하는 경우 귤의 많은 특징이 오렌지와 유사하기 때문에 귤이 오렌지로 점수가 매겨질 수 있습니다. 부정 이미지가 이러한 특성을 가질 경우, 학습 중에 하나 이상의 추가 태그(예: **기타**)를 만들고 부정 이미지에 이 태그를 레이블로 지정하여 모델이 이러한 클래스를 보다 잘 구분하도록 할 수 있습니다.
+다른 이미지 세트를 업로드하려면 이 섹션의 맨 위로 돌아가서 해당 단계를 반복합니다.
 
 ## <a name="train-the-classifier"></a>분류자 학습
 
@@ -130,13 +125,11 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
 
 ## <a name="manage-training-iterations"></a>학습 반복 관리
 
-분류자를 학습시킬 때마다 업데이트된 고유 성능 메트릭을 사용하여 새로운 _반복_이 생성됩니다. **성능** 탭의 왼쪽 창에서 모든 반복을 확인할 수 있습니다. 반복 하나를 선택한 다음 위쪽의 **기본값으로** 단추를 클릭하여 해당 반복을 _기본 반복_으로 지정할 수 있습니다. _기본 반복_은 예를 들어 앱에서 예측 API를 통해 모델을 쿼리하면 기본적으로 사용되는 모델입니다. _기본 반복_을 업데이트하지 않으려는 경우에는 앱의 현재 동작을 그대로 유지하면서 모델을 계속 학습시킬 수 있습니다. 그런 후에 모델이 원하는 수준으로 개선되면 기본값을 업데이트할 수 있습니다.
-
-왼쪽 창에는 사용하지 않는 반복을 삭제하는 데 사용할 수 있는 **삭제** 단추도 있습니다. 반복을 삭제하면 해당 반복에 고유하게 연결된 이미지도 모두 삭제됩니다.
+분류자를 학습시킬 때마다 업데이트된 고유 성능 메트릭을 사용하여 새로운 _반복_이 생성됩니다. **성능** 탭의 왼쪽 창에서 모든 반복을 확인할 수 있습니다. 왼쪽 창에는 사용하지 않는 반복을 삭제하는 데 사용할 수 있는 **삭제** 단추도 있습니다. 반복을 삭제하면 해당 반복에 고유하게 연결된 이미지도 모두 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만들고 학습시키는 방법을 알아보았습니다. 다음으로는 모델을 개선하는 반복 프로세스에 대해 자세히 알아봅니다.
 
-[모델 테스트 및 재교육](test-your-model.md)
+[모델 재 학습 및 테스트](test-your-model.md)
 

@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: ab23013d8de61e13013aa4cd735be04e1e3213c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f2e3ebfa7187b6695fbd291c7baf0a9ba3b712
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119941"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485784"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>사용자로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -50,7 +50,7 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
 
 ## <a name="connect-with-azure-ad"></a>Azure AD를 사용 하 여 연결
 
-```PowerShell  
+```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
@@ -64,7 +64,7 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
 
 ## <a name="connect-with-ad-fs"></a>AD FS를 사용 하 여 연결
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
@@ -76,7 +76,7 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
 
 리소스 공급자는 포털을 통해 배포 된 리소스가 없는 새 사용자 구독에 대 한 자동으로 등록 되지 않습니다. 다음 스크립트를 실행 하 여 명시적으로 리소스 공급자를 등록할 수 있습니다.
 
-```PowerShell  
+```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -88,7 +88,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 설정 모두 감안 하면, Azure Stack에서 리소스를 만들려면 PowerShell을 사용 하 여 연결을 테스트 합니다. 테스트로 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 컴퓨터를 추가 합니다. "Myresourcegroup 이라는" 이름의 리소스 그룹을 만들려면 다음 명령을 실행 합니다.
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

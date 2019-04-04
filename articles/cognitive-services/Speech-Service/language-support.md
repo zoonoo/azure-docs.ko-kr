@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225436"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803107"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -55,7 +55,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  ru-RU | 러시아어(러시아) | 예 | 예 | 아닙니다.
  sv-SE | 스웨덴어(스웨덴) | 아닙니다. | 아니요 | 아닙니다.
  zh-CN | 중국어(북경어, 간체) | 예 | 예 | 아닙니다.
- zh-HK | 중국어(북경어, 번체) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
+ zh-HK | 중국어 (광동어, 번체) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
  zh-TW | 중국어(대만어) | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
  th-TH | 태국어(태국) | 아닙니다. | 아니요 | 아닙니다.
 

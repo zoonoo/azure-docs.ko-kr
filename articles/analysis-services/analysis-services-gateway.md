@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630974"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896026"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이를 사용하면 온-프레미스 데이터 원본과 클라우드의 Azure Analysis Services 서버 사이에서 데이터를 안전하게 전송할 수 있습니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 구독과 지역에서 여러 서비스를 연결할 수 있습니다. 
 
 처음으로 게이트웨이 설치하기는 네 부분으로 이루어진 프로세스입니다.
 
-- **설치 프로그램 다운로드 및 실행** - 이 단계는 조직의 컴퓨터에 게이트웨이 서비스를 설치합니다. 또한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD의 계정을 사용하여 Azure에 로그인합니다. Azure B2B(게스트) 계정은 지원되지 않습니다.
+- **설치 프로그램 다운로드 및 실행** - 이 단계는 조직의 컴퓨터에 게이트웨이 서비스를 설치합니다. 또한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD의 계정을 사용하여 Azure에 로그인합니다. Azure B2B(게스트) 계정은 지원되지 않습니다.
 
 - **게이트웨이 등록** - 이 단계에서는 게이트웨이에 대한 이름 및 복구 키를 지정하고 게이트웨이 클라우드 서비스로 게이트웨이를 등록한 지역을 선택합니다. 게이트웨이 리소스를 Analysis Services 서버와 동일한 지역에 등록할 수 있습니다. 
 
@@ -93,11 +93,11 @@ ms.locfileid: "53630974"
 
 ### <a name="general"></a>일반
 
-**Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요하나요? <br/>
-**A**:  아니요. 게이트웨이는 온-프레미스 데이터 원본에 연결하는 데만 필요합니다.
+**Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요한가요? <br/>
+**A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에 연결하는 데만 필요합니다.
 
 **Q**: 데이터 원본과 동일한 머신에 게이트웨이를 설치해야 하나요? <br/>
-**A**:  아니요. 게이트웨이는 일반적으로 동일한 네트워크에서 서버에 연결할 수 있는 기능이 필요합니다.
+**A**: 아니요. 게이트웨이는 일반적으로 동일한 네트워크에서 서버에 연결할 수 있는 기능이 필요합니다.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -118,7 +118,7 @@ ms.locfileid: "53630974"
 **A**: Azure Service Bus를 통해 결과가 전송됩니다.
 
 **Q**: 클라우드에서 게이트웨이로의 인바운드 연결이 있나요? <br/>
-**A**:  아니요. 게이트웨이는 Azure Service Bus에 대해 아웃바운드 연결을 사용합니다.
+**A**: 아니요. 게이트웨이는 Azure Service Bus에 대해 아웃바운드 연결을 사용합니다.
 
 **Q**: 아웃바운드 연결을 차단하면 어떻게 되나요? 이러한 연결을 열려면 무엇이 필요한가요? <br/>
 **A**: 게이트웨이가 사용하는 포트 및 호스트를 참조하세요.
@@ -127,7 +127,7 @@ ms.locfileid: "53630974"
 **A**: 서비스에서 게이트웨이를 온-프레미스 데이터 게이트웨이 서비스라고 합니다.
 
 **Q**: Azure Active Directory 계정으로 게이트웨이 Windows 서비스를 실행할 수 있나요? <br/>
-**A**:  아니요. Windows 서비스에는 유효한 Windows 계정이 있어야 합니다. 기본적으로 서비스는 서비스 SID, NT SERVICE\PBIEgwService를 사용하여 실행됩니다.
+**A**: 아니요. Windows 서비스에는 유효한 Windows 계정이 있어야 합니다. 기본적으로 서비스는 서비스 SID, NT SERVICE\PBIEgwService를 사용하여 실행됩니다.
 
 **Q**: 게이트웨이를 인수하려면 어떻게 할까요? <br/>
 **A**: 게이트웨이를 인수하려면(제어판 > 프로그램에서 설치/변경 실행) Azure에서 게이트웨이 리소스의 소유자여야 하고 복구 키가 필요합니다. 게이트웨이 리소스 소유자는 액세스 제어에서 구성할 수 있습니다.
@@ -149,7 +149,7 @@ ms.locfileid: "53630974"
 **A**: 가능한 두 가지 이유가 있습니다. 첫째, 현재 또는 다른 구독에서 게이트웨이에 대한 리소스가 이미 만들어진 것일 수 있습니다. 이 가능성을 없애려면 포털에서 **온-프레미스 데이터 게이트웨이** 형식의 리소스를 나열합니다. 모든 리소스를 열거할 때 모든 구독을 선택해야 합니다. 리소스가 만들어지면 게이트웨이 리소스 만들기 포털 환경의 게이트웨이 인스턴스 목록에 해당 게이트웨이가 나타나지 않습니다. 두 번째 가능성은 게이트웨이 설치한 사용자의 Azure AD ID가 Azure Portal에 로그인한 사용자의 ID와 다른 경우입니다. 이를 해결하려면 게이트웨이 설치한 사용자와 동일한 계정을 사용하여 포털에 로그인합니다.
 
 **Q**: 온-프레미스 데이터 원본으로 어떤 쿼리가 전송되고 있는지를 어떻게 알 수 있나요? <br/>
-**A**: 전송 중인 쿼리를 포함하는 쿼리 추적을 사용하도록 설정할 수 있습니다. 문제 해결이 끝나면 쿼리 추적을 원래 값으로 다시 변경해야 합니다. 쿼리 추적 기능을 그대로 두면 큰 로그가 만들어집니다.
+**A**: 전송되는 쿼리를 포함하는 쿼리 추적을 사용하도록 설정할 수 있습니다. 문제 해결이 끝나면 쿼리 추적을 원래 값으로 다시 변경해야 합니다. 쿼리 추적 기능을 그대로 두면 큰 로그가 만들어집니다.
 
 또한 추적 쿼리를 위해 데이터 원본이 포함하는 도구를 살펴볼 수도 있습니다. 예를 들어 SQL Server 및 Analysis Services의 경우 확장 이벤트 또는 SQL 프로파일러를 사용할 수 있습니다.
 

@@ -10,193 +10,185 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883443"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894237"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 
-논리 앱을 만든 후 Azure Resource Manager 템플릿으로 만들 수 있습니다.
-이 방식을 사용하면 필요에 따라 어떤 환경이나 리소스 그룹에도 논리 앱을 손쉽게 배포할 수 있습니다.
-Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 작성](../azure-resource-manager/resource-group-authoring-templates.md) 및 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)를 확인하세요.
+논리 앱을 만들 때 논리 앱 정의를 확장할 수 있습니다는 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md)합니다. 이 템플릿은 리소스를 정의 하 여 배포를 자동화 하는 데 사용할 수 있습니다 하 고 배포 및 통해 매개 변수 값을 제공 하는 데 사용 하려는 매개 변수를 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)합니다.
+이런 방식으로 논리 앱을 더 쉽게 배포할 수 있으며 어떤 환경이 나 Azure 리소스 그룹에 있습니다. 
 
-## <a name="logic-app-deployment-template"></a>논리 앱 배포 템플릿
+Azure Logic Apps는 제공을 [미리 만들어진된 논리 앱 Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 는 다시 사용할 수 있습니다, logic apps 만들기에 대 한 뿐만 아니라 뿐만 아니라 리소스 및 배포에 사용할 매개 변수를 정의 합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. 에 대해 자세히 알아보세요 [Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)합니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
 
-논리 앱은 세 가지 기본 구성 요소가 있습니다.
+Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음이 문서를 참조 합니다.
 
-* **논리 앱 리소스**: 가격 책정 계획, 위치, 워크플로 정의 등의 정보가 포함됩니다.
-* **워크플로 정의**: 논리 앱 워크플로 단계 및 Logic Apps 엔진이 워크플로를 실행하는 방법을 설명합니다.
-논리 앱의 **코드 보기** 창에서 이 정의를 볼 수 있습니다.
-논리 앱 리소스의 `definition` 속성에서 이 정의를 찾을 수 있습니다.
-* **연결**: 연결 문자열 및 액세스 토큰과 같은 커넥터 연결과 관련된 메타데이터를 안전하게 보관하는 별도의 리소스입니다.
-논리 앱 리소스에서 논리 앱은 `parameters` 섹션의 이러한 리소스를 참조합니다.
+* [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates-cloud-consistency.md)
 
-[Azure Resource Explorer](http://resources.azure.com)와 같은 도구를 사용하여 기존 Logic Apps에 대한 이런 모든 내용을 볼 수 있습니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
+## <a name="logic-app-structure"></a>논리 앱 구조
 
-리소스 그룹 배포에 사용할 수 있는 논리 앱 템플릿을 만들려면 리소스를 정의하고 필요에 따라 매개 변수화해야 합니다.
-예를 들어, 개발, 테스트 및 프로덕션 환경에 배포하는 경우 각 환경에서 SQL Database에 대해 다른 연결 문자열을 사용할 수 있습니다.
-또는, 다른 구독이나 리소스 그룹 내에 배포할 수 있습니다.  
+"코드 보기"와 같은 도구를 사용 하 여 논리 앱 정의 "디자이너 보기"에서 전환 하 여 볼 수 있는 이러한 기본 섹션이 [Azure Resource Explorer](http://resources.azure.com)합니다. 논리 앱 정의 개체 JSON (Javascript Notation)을 사용 하므로 JSON 구문 및 속성에 대 한 자세한 내용은 참조 하십시오 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)합니다.
 
-## <a name="create-a-logic-app-deployment-template"></a>논리 앱 배포 템플릿 만들기
+* **논리 앱 리소스**: 가격 책정 계획 및 워크플로 정의 논리 앱의 위치 또는 지역 같은 정보를 설명 합니다.
 
-유효한 논리 앱 배포 템플릿을 생성하는 가장 쉬운 방법은 [Logic Apps용 Visual Studio Tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)를 사용하는 것입니다.
-Visual Studio Tools는 구독 또는 위치에서 사용할 수 있는 올바른 배포 템플릿을 생성합니다.
+* **워크플로 정의**: 논리 앱 트리거 및 작업 및 Azure Logic Apps 서비스에서 워크플로 실행 하는 방법을 설명 합니다. 코드 보기에서의 워크플로 정의 찾을 수 있습니다는 `definition` 섹션입니다.
 
-논리 앱 배포 템플릿을 만들 때 도움을 받을 수 있는 다른 몇 가지 도구가 있습니다.
-템플릿은 손으로 작성할 수 있습니다. 즉, 여기서 논의했던 리소스를 사용하여 필요에 따라 매개 변수를 만듭니다.
-[논리 앱 템플릿 작성기](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell 모듈을 활용하는 옵션도 있습니다. 이 오픈 소스 모듈은 논리 앱과 논리 앱에서 사용하는 모든 연결을 평가하고, 배포에 필요한 매개 변수와 함께 템플릿 리소스를 생성합니다.
-예를 들어, Azure Service Bus 큐에서 메시지를 수신하고 Azure SQL Database에 데이터를 추가하는 논리 앱이 있는 경우 이 도구는 모든 오케스트레이션 논리를 보존하고 SQL 및 Service Bus 연결 문자열을 매개 변수화하여 배포 시 설정할 수 있도록 합니다.
+* **연결**: 논리 앱에서 관리 되는 커넥터를 사용 하는 경우는 `$connections` 섹션 논리 앱 및 다른 시스템이 나 연결 문자열 및 액세스 토큰 등의 서비스 간에 이러한 연결에 대 한 메타 데이터를 안전 하 게 저장 하는 다른 리소스를 참조 합니다. 논리 앱 정의 내에서 이러한 연결에 대 한 참조, 논리 앱 정의 내에서 표시 `parameters` 섹션입니다.
 
-> [!NOTE]
-> 연결은 논리 앱과 동일한 리소스 그룹 내에 있어야 합니다.
->
->
+Azure 리소스 그룹 배포를 사용 하 여 사용할 수 있는 논리 앱 템플릿을 만들려면 리소스를 정의 하 고 필요에 따라 매개 변수화 해야 합니다. 예를 들어, 개발, 테스트 및 프로덕션 환경에 배포하는 경우 각 환경에서 SQL Database에 대해 다른 연결 문자열을 사용할 수 있습니다.
+또는, 다른 구독이나 리소스 그룹 내에 배포할 수 있습니다.
 
-### <a name="install-the-logic-app-template-powershell-module"></a>논리 앱 템플릿 PowerShell 모듈 설치
-가장 쉬운 설치 방법은 `Install-Module -Name LogicAppTemplate` 명령을 사용하여 [PowerShell 갤러리](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1)를 통하는 것입니다.  
+## <a name="create-logic-app-deployment-templates"></a>논리 앱 배포 템플릿 만들기
 
-또한, PowerShell 모듈을 수동으로 설치할 수 있습니다.
+유효한 논리 앱 배포 템플릿 만들기에 사용 되는 가장 쉬운 방법은에 대 한 Visual Studio 확장에 대 한 Visual Studio 및 Azure Logic Apps 도구를 사용 합니다. Azure portal에서 Visual Studio로 논리 앱을 다운로드 하 여 다른 Azure 구독 및 위치를 사용 하 여 사용할 수 있는 올바른 배포 템플릿을 가져올 수 있습니다. 또한 논리 앱을 자동으로 다운로드 템플릿에 포함 된 논리 앱 정의 매개 변수화 합니다.
+Visual Studio에서 논리 앱 만들기 및 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [Visual Studio를 사용 하 여 논리 앱을 만들려면](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 하 고 [Visual Studio를 사용 하 여 logic apps 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)합니다.
 
-1. [논리 앱 템플릿 작성기](https://github.com/jeffhollan/LogicAppTemplateCreator/releases)의 최신 릴리스를 다운로드합니다.  
-2. PowerShell 모듈 폴더에 폴더를 추출합니다(일반적으로 `%UserProfile%\Documents\WindowsPowerShell\Modules`).
+Visual Studio 또는 수동으로 만들고 템플릿에 필요한 매개 변수를이 항목의 지침에 따라 이외의 사용할 수도 있습니다는 [논리 앱 템플릿 만들기에 대 한 PowerShell 모듈](https://github.com/jeffhollan/LogicAppTemplateCreator)합니다. 이 오픈 소스 모듈에는 먼저 논리 앱과 논리 앱을 사용 하는 모든 연결 평가 합니다. 그러면 모듈 배포에 필요한 매개 변수와 함께 템플릿 리소스를 생성합니다. 예를 들어, Azure Service Bus 큐에서 메시지를 받고 Azure SQL database에 데이터를 추가 하는 논리 앱이 있다고 가정 합니다. 모든 오케스트레이션 논리를 유지 하 고 배포 시 이러한 값을 설정할 수 있도록 SQL 및 Service Bus 연결 문자열을 매개 변수화 하는 모듈 도구.
 
-모듈에서 모든 테넌트 및 구독 액세스 토큰에 대한 작업을 하려면 [ARMClient](https://github.com/projectkudu/ARMClient) 명령줄 도구로 사용하는 것이 좋습니다.  이 [블로그 게시물](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)은 ARMClient에 대해 자세히 설명 합니다.
+> [!IMPORTANT]
+> 연결 논리 앱과 같은 Azure 리소스 그룹에 있어야 합니다.
+> 모든 Azure 테 넌 트 및 구독 액세스 토큰을 사용 하 여 모듈을 사용 하는 PowerShell 모듈에 대 한 합니다 [Azure Resource Manager 클라이언트 도구](https://github.com/projectkudu/ARMClient)합니다. 자세한 내용은 참조 [Azure Resource Manager 클라이언트 도구에 대 한 문서](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient에에서 자세히 설명 합니다.
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>PowerShell을 사용하여 논리 앱 템플릿 생성
+### <a name="install-powershell-module-for-logic-app-templates"></a>논리 앱 템플릿 용 PowerShell 모듈 설치
+
+모듈을 설치 하는 가장 쉬운 방법은 대 한 합니다 [PowerShell 갤러리](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1),이 명령을 사용 하 여:
+
+`Install-Module -Name LogicAppTemplate`
+
+PowerShell 모듈을 수동으로 설치할 수 있습니다.
+
+1. 최신 다운로드 [논리 앱 템플릿 작성기](https://github.com/jeffhollan/LogicAppTemplateCreator/releases)합니다.
+
+1. 일반적으로 PowerShell 모듈 폴더에 폴더를 추출 `%UserProfile%\Documents\WindowsPowerShell\Modules`합니다.
+
+### <a name="generate-logic-app-template---powershell"></a>논리 앱 템플릿 PowerShell 생성
+
 PowerShell을 설치한 후 다음 명령을 사용하여 템플릿을 생성합니다.
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId` 은(는) Azure 구독 ID입니다. 이 줄은 ARMClient를 통해 액세스 토큰을 가져온 다음 PowerShell 스크립트로 실행시키고, JSON 파일로 템플릿을 만듭니다.
+`$SubscriptionId` Azure 구독 ID입니다. 이 줄은 ARMClient를 통해 액세스 토큰을 가져온 다음 PowerShell 스크립트로 실행시키고, JSON 파일로 템플릿을 만듭니다.
 
-## <a name="add-parameters-to-a-logic-app-template"></a>논리 앱 템플릿에 매개 변수 추가
-논리 앱 템플릿을 만든 다음 필요한 매개 변수를 추가하거나 수정할 수 있습니다. 예를 들어 정의에 단일 배포로 배포할 계획인 중첩된 워크플로 또는 Azure Function에 대한 리소스 ID가 포함된 경우, 템플릿에 추가 리소스를 추가하고 필요에 따라 ID를 매개 변수화할 수 있습니다. 각 리소스 그룹과 함께 배포할 예정인 Swagger 엔드포인트 또는 사용자 지정 API에 대한 참조도 마찬가지입니다.
+## <a name="parameters-in-logic-app-templates"></a>논리 앱 템플릿에 매개 변수
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Visual Studio 배포 템플릿에 종속 리소스에 대한 참조 추가
+논리 앱 템플릿을 만든 후 추가 수 있으며 모든 필요한 매개 변수를 편집할 수 있습니다. 서식 파일에 둘 이상의 `parameters` 섹션 예를 들어: 
 
-논리 앱에서 종속 리소스를 참조하려는 경우 논리 앱 배포 템플릿에서 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 사용할 수 있습니다. 예를 들어, 논리 앱에서 논리 앱과 함께 배포하려는 Azure Function 또는 통합 계정을 참조하려고 합니다. Logic App Designer가 올바르게 렌더링하도록 배포 템플릿에서 매개 변수를 사용하는 방법에 대한 다음 지침을 따르세요. 
+* 논리 앱 워크플로 정의는 자체 [ `parameters` 섹션](../logic-apps/logic-apps-workflow-definition-language.md#parameters) 논리 앱 배포 시 입력을 수락 하기 위해 사용 하는 모든 매개 변수를 정의할 수 있습니다.
 
-이러한 종류의 트리거 및 작업에서 논리 앱 매개 변수를 사용할 수 있습니다.
+* Resource Manager 템플릿에서는 자체 [ `parameters` 구역](../azure-resource-manager/resource-group-authoring-templates.md#parameters)논리 앱에서 별도 `parameters` 섹션입니다. 예를 들면 다음과 같습니다.
 
-*   하위 워크플로
-*   함수 앱
-*   APIM 호출
-*   API 연결 런타임 URL
-*   API 연결 경로
+  [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사용할 수 있습니다. 예를 들어, Azure Function 리소스 ID를 대체하는 방법은 다음과 같습니다.
+예를 들어, Azure 함수 또는 중첩 된 논리 앱 워크플로 나타내는 리소스 ID를 참조 하는 논리 앱 정의 및 해당 리소스 ID를 단일 배포로 논리 앱과 함께 배포. 추가할 수 있습니다 템플릿에서 리소스 ID는 해당 ID를 매개 변수화 이와 동일한 방법을 사용 하 여 사용자 지정 Api 또는 OpenAPI 끝점에 대 한 참조 (이전의 "Swagger") 각 Azure 리소스 그룹을 사용 하 여 배포 하려는 합니다.
 
-```
-"parameters":{
-    "functionName": {
+배포 템플릿에서 매개 변수를 사용 하는 경우 Logic Apps 디자이너 이러한 매개 변수를 올바르게 표시할 수 있도록이 지침을 따르세요.
+
+* 이러한 트리거 및 작업에만 매개 변수를 사용 합니다.
+
+  * Azure Functions 앱
+  * 중첩 또는 자식 논리 앱 워크플로
+  * API Management 호출
+  * API 연결 런타임 URL
+  * API 연결 경로
+
+* 매개 변수를 정의할 때 사용 하 여 기본값을 제공 하 고 있는지 확인 합니다 `defaultValue` 예를 들어 속성 값:
+
+  ```json
+  "parameters": {
+     "IntegrationAccount": {
         "type":"string",
-        "minLength":1,
-        "defaultValue":"<FunctionName>"
-    }
+        "minLength": 1,
+        "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource=group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+     }
+  },
+  ```
+
+* 을 보호 하거나 템플릿에서 중요 한 정보를 숨기려면 매개 변수를 보호 합니다. 에 대해 자세히 알아보세요 [보안된 매개 변수를 사용 하는 방법을](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)합니다.
+
+Azure Service Bus "메시지 보내기" 작업을 매개 변수화 하는 방법을 보여 주는 예제는 다음과 같습니다.
+
+```json
+"Send_message": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['servicebus']['connectionId']"
+         },
+         // If the `host.runtimeUrl` property appears in your template, 
+         // you can remove this property, which is optional, for example:
+         "runtimeUrl": {}
+      },
+      "method": "POST",
+      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
+      "body": {
+         "ContentData": "@{base64(triggerBody())}"
+      },
+      "queries": {
+         "systemProperties": "None"
+      }
+   },
+   "runAfter": {}
 },
 ```
 
-그리고 매개 변수를 사용하는 위치는 다음과 같습니다.
+### <a name="reference-dependent-resources"></a>종속 리소스 참조
 
+논리 앱에서 종속 리소스에 대 한 참조에 필요한 경우 사용할 수 있습니다 [Azure Resource Manager 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md) 논리 앱의 배포 템플릿에서 합니다. 예를 들어, Azure 함수 또는 파트너, 규약 및 논리 앱과 함께 배포 하려는 다른 아티팩트에 대 한 정의 사용 하 여 통합 계정 참조 하도록 논리 앱에 만든다고 가정 합니다.
+와 같은 Resource Manager 템플릿 함수를 사용할 수 있습니다 `parameters`, `variables`를 `resourceId`, `concat`등입니다.
+
+이러한 매개 변수를 정의 하 여 Azure 함수에 대 한 리소스 ID를 바꿀 수는 방법을 보여 주는 예제는 다음과 같습니다.
+
+``` json
+"parameters": {
+   "<Azure-function-name>": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<Azure-function-name>"
+   }
+},
 ```
+
+Azure 함수를 참조할 때 이러한 매개 변수를 사용 하는 방법을 다음과 같습니다.
+
+```json
 "MyFunction": {
-    "type": "Function",
-    "inputs": {
-        "body":{},
-        "function":{
-            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-        }
-    },
-    "runAfter":{}
-}
+   "type": "Function",
+   "inputs": {
+      "body": {},
+      "function": {
+         "id":"[resourceid('Microsoft.Web/sites/functions','<Azure-Functions-app-name>', parameters('<Azure-function-name>'))]"
+      }
+   },
+   "runAfter": {}
+},
 ```
-또 다른 예로, Service Bus 메시지 전송 작업을 매개 변수화할 수 있습니다.
 
-```
-"Send_message": {
-    "type": "ApiConnection",
-        "inputs": {
-            "host": {
-                "connection": {
-                    "name": "@parameters('$connections')['servicebus']['connectionId']"
-                }
-            },
-            "method": "post",
-            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
-            "body": {
-                "ContentData": "@{base64(triggerBody())}"
-            },
-            "queries": {
-                "systemProperties": "None"
-            }
-        },
-        "runAfter": {}
-    }
-```
-> [!NOTE] 
-> host.runtimeUrl은 선택 사항이며 있는 경우 템플릿에서 제거할 수 있습니다.
-> 
+## <a name="add-logic-app-to-resource-group-project"></a>논리 앱 리소스 그룹 프로젝트에 추가
 
+기존 Azure 리소스 그룹 프로젝트에 있는 경우 JSON 개요 창을 사용 하 여 해당 프로젝트에 논리 앱을 추가할 수 있습니다. 이전에 만든 앱과 함께 다른 논리 앱을 추가할 수도 있습니다.
 
-> [!NOTE] 
-> 매개 변수를 사용할 때 Logic App Designer를 작동시키려면 다음과 같은 기본값을 제공해야 합니다.
-> 
-> ```
-> "parameters": {
->     "IntegrationAccount": {
->     "type":"string",
->     "minLength":1,
->     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
->     }
-> },
-> ```
+1. 솔루션 탐색기에서 `<template>.json` 파일을 엽니다.
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>논리 앱을 기존 리소스 그룹 프로젝트에 추가
+2. **뷰** 메뉴에서 **기타 Windows** > **JSON 개요**합니다.
 
-기존 리소스 그룹 프로젝트가 있는 경우 JSON 개요 창에서 해당 프로젝트에 논리 앱을 추가할 수 있습니다. 이전에 만든 앱과 함께 다른 논리 앱을 추가할 수도 있습니다.
+3. 템플릿 파일에 리소스를 추가 하려면 **리소스 추가** JSON 개요 창의 맨 위에 있는 합니다. 또는 JSON 개요 창에서 **리소스**를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가**를 선택합니다.
 
-1. `<template>.json` 파일을 엽니다.
+   ![JSON 개요 창](./media/logic-apps-create-deploy-template/jsonoutline.png)
 
-2. JSON 개요 창을 열려면 **보기** > **다른 창** > **JSON 개요**로 이동합니다.
-
-3. 템플릿 파일에 리소스를 추가하려면 JSON 개요 창의 위쪽에서 **리소스 추가**를 클릭합니다. 또는 JSON 개요 창에서 **리소스**를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가**를 선택합니다.
-
-    ![JSON 개요 창](./media/logic-apps-create-deploy-template/jsonoutline.png)
-    
 4. **리소스 추가** 대화 상자에서 **Logic App**을 찾고 선택합니다. 논리 앱의 이름을 지정하고 **추가**를 선택합니다.
 
-    ![리소스 추가](./media/logic-apps-create-deploy-template/addresource.png)
+   ![리소스 추가](./media/logic-apps-create-deploy-template/addresource.png)
 
+## <a name="get-support"></a>지원 받기
 
-## <a name="deploy-a-logic-app-template"></a>논리 앱 템플릿 배포
+질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
-PowerShell, REST API, [Azure DevOps Azure Pipelines](#team-services), Azure Portal을 통한 템플릿 배포와 같은 여러 도구를 사용하여 템플릿을 배포할 수 있습니다.
-또한, 매개 변수 값을 저장할 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)을 만드는 것이 좋습니다.
-[Azure Resource Manager 템플릿 및 PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 또는 [Azure Resource Manager 템플릿 및 Azure Portal로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md) 방법을 알아봅니다.
+## <a name="next-steps"></a>다음 단계
 
-### <a name="authorize-oauth-connections"></a>OAuth 연결 권한 부여
-
-배포 후 논리 앱은 유효한 매개 변수와 함께 종단 간에 적용됩니다.
-그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다.
-OAuth 연결에 권한을 부여하려면 Logic Apps Designer에서 논리 앱을 열고 이러한 연결에 권한을 부여합니다. 또는, 자동화 배포의 경우 스크립트를 사용하여 각 OAuth 연결을 승인할 수 있습니다.
-GitHub에 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 프로젝트라는 예시가 있습니다.
-
-<a name="team-services"></a>
-## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
-
-환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Azure Pipelines와 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
-
-1. Azure Pipelines에서 빈 파이프라인을 생성할 수 있도록 **비어 있음**을 선택합니다.
-
-    ![빈 파이프라인 만들기][1]
-
-2. 수동으로 또는 빌드 프로세스의 일부로 생성된 논리 앱 템플릿을 포함할 가능성이 높은 필요한 리소스를 선택합니다.
-3. **Azure 리소스 그룹 배포** 작업을 추가합니다.
-4. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)로 구성하고 템플릿 및 템플릿 매개 변수 파일을 참조합니다.
-5. 릴리스 프로세스에서 다른 환경, 자동화된 테스트 또는 승인자에 대한 단계를 필요에 따라 계속 작성합니다.
-
-<!-- Image References -->
-[1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
+> [!div class="nextstepaction"]
+> [논리 앱 템플릿 배포](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)

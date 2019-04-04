@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: bc7a49aa143400387afcd59d5b9307d82a028486
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098664"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903678"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -151,7 +151,7 @@ identityProviders 아래의 텍스트가 제대로 정렬되어 있는지 확인
 
 모든 마스터 노드에서 OpenShift 마스터 서비스를 다시 시작합니다.
 
-**여러 마스터가 있는 OCP(OpenShift Container Platform)**
+**여러 마스터가 있는 OpenShift Container Platform (OCP)**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
@@ -184,7 +184,7 @@ OpenShift 콘솔에 htpasswd_auth 및 [앱 등록]이라는 두 가지 인증 �
 OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 - 각 OpenShift 노드에 직접 Linux용 Log Analytics 에이전트 설치
 - 각 OpenShift 노드에서 Azure 모니터 VM 확장을 사용 하도록 설정
-- OpenShift 디먼 집합으로 Log Analytics 에이전트 설치
+- OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치 합니다.
 
 전체 지침은 https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift에 나와 있습니다.
 
@@ -251,7 +251,7 @@ OpenShift Container 템플릿 및 Marketplace 제품의 경우 인벤토리 파�
 
 배포 중에 제공된 자격 증명을 사용하여 bastion 노드 또는 첫 번째 마스터 노드(사용 중인 템플릿 및 분기에 따라)에 대해 SSH를 수행합니다. 다음 명령을 실행합니다.
 
-**OpenShift Container Platform 3.7 이하**
+**OpenShift Container Platform 3.7 및 이전 버전**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -275,7 +275,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-**OKD 3.7 이하**
+**OKD 3.7 및 이전 버전**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -304,7 +304,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 배포 중에 제공된 자격 증명을 사용하여 bastion 노드 또는 첫 번째 마스터 노드(사용 중인 템플릿 및 분기에 따라)에 대해 SSH를 수행합니다. 다음 명령을 실행합니다.
 
 
-**OpenShift Container Platform 3.7 이하**
+**OpenShift Container Platform 3.7 및 이전 버전**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.7 이하**
+**OKD 3.7 및 이전 버전**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e8f7c18c50085d6baf17cc0c9103b2c4bcacbaf
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58052175"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671815"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -89,9 +89,6 @@ curl -v -X POST
 이 C# 클래스는 액세스 토큰을 가져오는 방법을 설명합니다. 이 클래스를 인스턴스화할 때 Speech Service 구독 키를 전달합니다. 구독이 미국 서부 지역이 아닌 경우 `FetchTokenUri`의 값을 구독의 지역과 일치하도록 변경합니다.
 
 ```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =

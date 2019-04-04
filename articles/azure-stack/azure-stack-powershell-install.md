@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e631281405b173405f28c134432e870c757b3da
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109868"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648405"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -46,7 +46,6 @@ Azure Stack 및 PowerShell을 사용 하 여 시작 하기 전에 다음 필수 
 
 - **PowerShell 갤러리 액세스** 에 액세스 해야 합니다 [PowerShell 갤러리](https://www.powershellgallery.com)합니다. 갤러리는 PowerShell 콘텐츠에 대 한 중앙 리포지토리입니다. 합니다 **PowerShellGet** 모듈 검색, 설치, 업데이트 및 모듈, DSC 리소스, 역할 기능 및 PowerShell 갤러리 및 다른 개인에서 스크립트와 같은 PowerShell 아티팩트를 게시에 대 한 cmdlet 포함 되어 있습니다. 리포지토리입니다. 연결이 끊긴된 시나리오의 PowerShell을 사용 하는 경우에 인터넷에 연결 된 컴퓨터에서 리소스를 검색 하 고 연결이 끊어진된 컴퓨터에 액세스할 수 있는 위치에 저장 해야 합니다.
 
-
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. PowerShell 갤러리 내게 필요한 옵션 유효성 검사
 
 PSGallery 리포지토리로 등록 된 경우의 유효성을 검사 합니다.
@@ -56,7 +55,7 @@ PSGallery 리포지토리로 등록 된 경우의 유효성을 검사 합니다.
 
 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-```PowerShell
+```powershell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -64,7 +63,7 @@ Get-PSRepository -Name "PSGallery"
 
 리포지토리 등록 되지 않은 경우 관리자 권한 PowerShell 세션을 열고 다음 명령을 실행 합니다.
 
-```PowerShell
+```powershell
 Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
@@ -75,17 +74,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 1. 기존 AzureRM PowerShell 모듈을 제거 하려면 모든 활성 PowerShell 세션을 닫고 다음 cmdlet을 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
+
     오류가 발생 하는 경우와 같은 '모듈을 이미 사용 중인', 모듈을 사용 하는 위의 스크립트를 다시 실행 하 여 PowerShell 세션을 닫으십시오.
 
 2. 로 시작 하는 모든 폴더를 삭제 `Azure` 나 `Azs.` 에서 합니다 `C:\Program Files\WindowsPowerShell\Modules` 및 `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` 폴더입니다. 이러한 폴더를 삭제 하면 모든 기존 PowerShell 모듈을 제거 합니다.
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. 연결: 인터넷에 연결 된 Azure Stack 용 PowerShell 설치
 
-Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 이후 버전에 대 한 API 버전 프로필입니다. 설치 하 여 프로필을 사용할 수는 **AzureRM.Bootstrapper** 모듈입니다. 또한 AzureRM 모듈에도 설치 해야 Azure Stack 관련 PowerShell 모듈. API 버전 프로필 및 필요한 Azure Stack PowerShell 모듈에 따라 달라 집니다 Azure Stack의 버전에는 실행 합니다.
+Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 이후 버전에 대 한 API 버전 프로필입니다. 설치 하 여 프로필을 사용할 수는 **AzureRM.BootStrapper** 모듈입니다. 또한 AzureRM 모듈에도 설치 해야 Azure Stack 관련 PowerShell 모듈. API 버전 프로필 및 필요한 Azure Stack PowerShell 모듈에 따라 달라 집니다 Azure Stack의 버전에는 실행 합니다.
 
 설치에는 세 가지 단계가 있습니다.
 
@@ -99,20 +99,22 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
 
 - Azure Stack 1901 이상:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 모듈 1.7.0 버전이 중요 변경 릴리스입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
-    > AzureRm 모듈 버전 2.4.0 Remove-azurermstorageaccount cmdlet에 대 한 주요 변경 내용 포함 되어 있습니다. 이 cmdlet에-Force prameter 확인 하지 않고 저장소 계정을 제거 지정 되어야 합니다.
+    > Azure Stack 모듈 버전 1.7.1은 중요 변경 릴리스입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration171)합니다.
+    > AzureRm 모듈 버전 2.4.0 Remove-azurermstorageaccount cmdlet에 대 한 주요 변경 내용 포함 되어 있습니다. 이 cmdlet에-Force 매개 변수를 확인 하지 않고 저장소 계정을 제거에 대해 지정할 수 있습니다.
+
 - Azure Stack 1811:
 
-    ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    ```powershell
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -122,9 +124,9 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
 
 - Azure Stack 1810 또는 이전 버전:
 
-    ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    ```powershell
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -139,7 +141,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
 
 사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
 
-```PowerShell
+```powershell
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
@@ -158,7 +160,7 @@ Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
 
 다음 명령을 실행 하 여 설치를 확인 합니다.
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -178,27 +180,25 @@ Get-Module -Name "Azs*" -ListAvailable
 3. 연결이 끊어진된 워크스테이션에 PowerShell 패키지를 전송 합니다.
 4. PowerShell의 설치를 확인 합니다.
 
-
 ### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
 
 - Azure Stack 1901 이상입니다.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. AzureStack 마이그레이션할 1.6.0 하세요 합니다 [마이그레이션 가이드](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)합니다.
-
+    > Azure Stack 모듈 버전 1.7.1은 크게 변경 되었습니다. AzureStack 마이그레이션할 1.6.0 하세요 합니다 [마이그레이션 가이드](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)합니다.
 
   - Azure Stack 1811 또는 이전 버전입니다.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -209,7 +209,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
   - Azure Stack 1809 또는 이전 버전입니다.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -219,8 +219,8 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!NOTE]
-    > 인터넷 연결 없이 컴퓨터에서 원격 분석 데이터 수집을 사용 하지 않도록 설정 하는 다음 cmdlet을 실행 하는 것이 좋습니다. 원격 분석 데이터 수집을 사용 하지 않도록 설정 하지 않고는 cmldets의 성능 저하를 발생할 수 있습니다. 이 인터넷에 연결 되지 않은 컴퓨터에만 적용 됩니다.
-    > ```PowerShell
+    > 인터넷 연결 없이 컴퓨터에서 원격 분석 데이터 수집을 사용 하지 않도록 설정 하는 다음 cmdlet을 실행 하는 것이 좋습니다. 원격 분석 데이터 수집을 사용 하지 않도록 설정 하지 않고 cmdlet 성능 저하를 발생할 수 있습니다. 이 인터넷에 연결 되지 않은 컴퓨터에만 적용 됩니다.
+    > ```powershell
     > Disable-AzureRmDataCollection
     > ```
 
@@ -228,7 +228,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
 
-```PowerShell
+```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
@@ -242,7 +242,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 이제이 위치를 기본 저장소로 등록 하 고이 리포지토리에서 AzureRM 및 azurestack의 경우 모듈을 설치 합니다.
 
-   ```PowerShell
+   ```powershell
    #requires -Version 5
    #requires -RunAsAdministrator
    #requires -Module PowerShellGet
@@ -262,7 +262,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 다음 명령을 실행 하 여 설치를 확인 합니다.
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -274,7 +274,7 @@ Get-Module -Name "Azs*" -ListAvailable
 1. 관리자 권한 PowerShell 프롬프트를 엽니다.
 2. 다음 명령을 실행합니다.
 
-   ```PowerShell
+   ```powershell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
@@ -284,7 +284,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="next-steps"></a>다음 단계
 
- - [GitHub에서 Azure Stack 도구 다운로드](azure-stack-powershell-download.md)
- - [Azure Stack 사용자의 PowerShell 환경 구성](user/azure-stack-powershell-configure-user.md)
- - [Azure Stack 운영자의 PowerShell 환경 구성](azure-stack-powershell-configure-admin.md)
- - [Azure Stack에서 API 버전 프로필 관리](user/azure-stack-version-profiles.md)
+- [GitHub에서 Azure Stack 도구 다운로드](azure-stack-powershell-download.md)
+- [Azure Stack 사용자의 PowerShell 환경 구성](user/azure-stack-powershell-configure-user.md)
+- [Azure Stack 운영자의 PowerShell 환경 구성](azure-stack-powershell-configure-admin.md)
+- [Azure Stack의 API 버전 프로필 관리](user/azure-stack-version-profiles.md)

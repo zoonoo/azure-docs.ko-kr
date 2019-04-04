@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090970"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483151"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -85,7 +85,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 중지 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
  
 시작 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 드레이닝 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 다시 시작 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 복구 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 종료 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

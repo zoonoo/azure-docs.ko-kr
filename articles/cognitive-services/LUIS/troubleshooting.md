@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369720"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894460"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -88,7 +88,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 
 예기치 않은 쿼리 예측 결과는 게시된 모델의 상태를 기반으로 합니다. 모델을 수정하려면 모델을 변경하고, 학습하고, 다시 게시해야 할 수도 있습니다. 
 
-모델 수정은 [활성 학습](luis-how-to-review-endoint-utt.md)으로 시작합니다.
+모델 수정은 [활성 학습](luis-how-to-review-endpoint-utterances.md)으로 시작합니다.
 
 모든 학습 데이터를 사용하기 위해 [애플리케이션 버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 업데이트하여 비결정적 학습을 제거할 수 있습니다.
 
@@ -240,7 +240,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 #### <a name="resolve-issue-in-luis"></a>LUIS의 문제 해결
 [LUIS 엔드포인트](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)에서 LUIS로 동일한 발화를 전달합니다. 오류가 표시되면, 오류가 더 이상 반환되지 않을 때까지 LUIS의 문제를 해결합니다. 일반적인 오류는 다음과 같습니다.
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - 이 문제는 작성 키에서 [엔드포인트 키](luis-how-to-azure-subscription.md)로 변경해야 하거나, [서비스 계층](luis-how-to-azure-subscription.md#change-pricing-tier)을 변경해야 함을 나타냅니다. 
+* `Out of call volume quota. Quota will be replenished in <time>.` -이 문제를 제작 키에서 변경 해야 하거나 나타냅니다는 [끝점 키](luis-how-to-azure-subscription.md) 변경 해야 하거나 [서비스 계층](luis-how-to-azure-subscription.md#change-pricing-tier)합니다. 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Azure Bot Service의 문제 해결
 
@@ -286,7 +286,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 
-|이름|Content|
+|name|Content|
 |--|--|
 |향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
 |패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|
@@ -296,10 +296,10 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 추가적인 작성 [API 경로](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)가 포함되었습니다.
 
 비디오:
-* [Azure Friday(빌드 2018): Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Language Understanding Service의 새로운 기능](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - 봇 인텔리전스, 음성 기능 및 NLU 모범 사례](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS 업데이트](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday At Build 2018: Cognitive Services-언어 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [빌드 2018 AI Show-Language Understanding Service를 사용 하 여 새로운 기능](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 세션-봇 인텔리전스, 음성 기능 및 NLU 모범 사례](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018-LUIS 업데이트](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 프로젝트:
 * [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - GitHub의 소스 코드
@@ -307,5 +307,5 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 ## <a name="next-steps"></a>다음 단계
 
 LUIS에 대한 자세한 내용은 다음 리소스를 참조하세요.
-* [LUIS로 태그가 지정된 스택 오버플로 질문](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN LUIS(Language Understanding Intelligent Services) 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [LUIS를 사용 하 여 태그가 지정 된 스택 오버플로 질문](https://stackoverflow.com/questions/tagged/luis)
+* [MSDN Language Understanding Intelligent Services (LUIS) 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

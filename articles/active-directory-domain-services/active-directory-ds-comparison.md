@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152168"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892299"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
 Azure AD Domain Services를 사용하면 Azure에서 ID 인프라 유지 관리에 대해 걱정할 필요없이 Azure 인프라 서비스에서 워크로드를 배포할 수 있습니다. 이 관리되는 서비스는 고유한 서비스에 배포하고 관리하는 일반적인 Windows Server Active Directory 배포와 다릅니다. 서비스는 쉽게 배포할 수 있으며 자동화된 상태 모니터링 및 업데이트 관리를 제공합니다. 서비스를 지속적으로 개발하여 일반적인 배포 시나리오에 대한 지원을 추가할 예정입니다.
@@ -39,18 +39,18 @@ Azure AD Domain Services를 사용할 것인지를 결정하려면 다음 자료
 | [**관리되는 서비스**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**보안 배포**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |관리자는 배포를 보호해야 합니다. |
 | [**DNS 서버**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(관리되는 서비스) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**도메인 또는 엔터프라이즈 관리자 권한**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**도메인 가입**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**NTLM 및 Kerberos를 사용하여 도메인 인증**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos 제한 위임**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|리소스 기반|리소스 기반 및 계정 기반|
 | [**사용자 지정 OU 구조**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**스키마 확장**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD 도메인/포리스트 트러스트**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**보안 LDAP(LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**지리적으로 분산된 배포**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
+| [**LDAP 읽기**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**보안 LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP 쓰기**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**그룹 정책**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**지리적으로 분산 된 배포**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>관리되는 서비스
 Azure AD Domain Services 도메인은 Microsoft에서 관리합니다. 패치, 업데이트, 모니터링, 백업 그리고 도메인의 가용성 보장을 걱정할 필요가 없습니다. 이러한 관리 태스크는 Microsoft Azure에서 관리되는 도메인에 대해 서비스로 제공합니다.
@@ -115,9 +115,9 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 >
 >
 
-[Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
+[Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [기능 - Azure AD Domain Services](active-directory-ds-features.md)
-* [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [기능-Azure AD Domain Services](active-directory-ds-features.md)
+* [배포 시나리오-Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Azure Virtual Machines에서 Windows Server Active Directory를 배포 하기 위한 지침](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

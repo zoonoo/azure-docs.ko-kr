@@ -3,27 +3,31 @@ title: 릴리스 정보 - Face API 서비스
 titleSuffix: Azure Cognitive Services
 description: Face API 서비스의 릴리스 정보에는 다양한 버전에 대한 릴리스 변경 기록이 포함됩니다.
 services: cognitive-services
-author: SteveMSFT
+author: yluiu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 1af699a4b28309e7b004ed1eedf339e142065e50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.author: yluiu
+ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878462"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862032"
 ---
 # <a name="face-api-release-notes"></a>Face API 릴리스 정보
 
 이 문서는 Face API 서비스 버전 1.0에 적용됩니다.
 
+### <a name="release-changes-in-march-2019"></a>변경 내용을 2019 년 3 월 릴리스
+
+* 향상 된 정확도 사용 하 여 새 얼굴 인식 모델을 추가 합니다. 통해 사용할 [직면-검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList-만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList-만듭니다](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [PersonGroup-만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 및 [ LargePersonGroup-만드는](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) 새 얼굴 인식 모델 이름을 지정 하 여 `recognition_02` 에서 `recognitionModel` 매개 변수입니다. 자세한 내용은 [인식 모델을 지정 하는 방법을](Face-API-How-to-Topics/specify-recognition-model.md)합니다.
+
 ### <a name="release-changes-in-january-2019"></a>2019년 1월 릴리스 변경 내용
 
-* 여러 구독 간 데이터 마이그레이션 기능을 지원하는 스냅숏 기능([스냅숏](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot))이 추가되었습니다.
+* 여러 구독 간 데이터 마이그레이션 기능을 지원하는 스냅숏 기능([스냅숏](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot))이 추가되었습니다. 자세한 내용은 [얼굴 데이터 다른 얼굴 구독으로 마이그레이션하는 방법](Face-API-How-to-Topics/how-to-migrate-face-data.md)합니다.
 
 ### <a name="release-changes-in-october-2018"></a>2018년 10월 릴리스 변경 내용
 

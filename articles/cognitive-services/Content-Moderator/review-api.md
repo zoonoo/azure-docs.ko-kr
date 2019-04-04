@@ -1,186 +1,76 @@
 ---
-title: 조정 작업 및 사람이 참여하는 검토 - Content Moderator
+title: 검토, 워크플로 및 작업 개념-Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Azure Content Moderator 검토 API를 사용하여 사람이 참여하는 기능과 기계 지원 조정을 결합하면 업무를 가장 효율적으로 완료할 수 있습니다.
+description: 검토, 워크플로 및 작업에 알아봅니다
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862703"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756302"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>콘텐츠 조정 작업 및 검토
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 조정 검토, 워크플로 및 작업
 
-사용자 비즈니스를 위한 최상의 결과를 얻기 위해 Azure Content Moderator [검토 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)를 사용하여 사람이 참여하는 기능과 기계 지원 조정을 결합합니다.
+Content Moderator는 기계 지원 조정 실제 시나리오에 대 한 최적의 조정 프로세스를 만들려는 사람이 루프 기능을 사용 하 여 결합 합니다. 클라우드 기반를 통해 이렇게 [검토 도구](https://contentmoderator.cognitive.microsoft.com)합니다. 검토 도구의 핵심 개념에 대해 배웁니다이 가이드에서는: 검토, 워크플로 및 작업.
 
-검토 API는 사람의 감독을 콘텐츠 조정 프로세스에 포함시키는 다음과 같은 방법을 제공합니다.
+## <a name="reviews"></a>검토
 
-* `Job` 작업은 한 단계로 기계 지원 조정과 사용자 검토 생성을 시작하는 데 사용됩니다.
-* `Review` 작업은 조정 단계 외에 사용자 검토 만들기에 사용됩니다.
-* `Workflow` 작업은 검토 만들기에 대한 임계값을 사용하여 검사를 자동화하는 워크플로를 관리하는 데 사용됩니다.
+검토, 콘텐츠 검토 도구에 업로드 되 고 아래에 표시 됩니다는 **검토** 탭 합니다. 여기에서 사용자가 적용 된 태그를 변경 하 고 적절 하 게 자신의 사용자 지정 태그를 적용할 수 있습니다. 사용자가 검토를 전송 하는 경우 결과 지정 된 콜백 끝점으로 전송 됩니다 하 고 콘텐츠는 사이트에서 제거 됩니다.
 
-`Job` 및 `Review` 작업은 상태 및 결과를 받기 위한 콜백 엔드포인트를 수락합니다.
+![브라우저에서의 검토 탭에서 검토 도구 웹 사이트 열기](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-이 문서에는 `Job` 및 `Review` 작업이 포함됩니다. 워크플로 정의를 만들고, 편집하고, 가져오는 방법에 대한 내용은 [워크플로 개요](workflow-api.md)를 읽어보세요.
+참조를 [검토 도구 가이드](./review-tool-user-guide/review-moderated-images.md) 검토, 만들기를 시작 하거나 참조를 [REST API 가이드](./try-review-api-review.md) 를 프로그래밍 방식으로 수행 하는 방법에 알아봅니다.
 
-## <a name="job-operations"></a>업무 작업
+## <a name="workflows"></a>워크플로
 
-### <a name="start-a-job"></a>작업 시작
-`Job.Create` 작업을 사용하여 조정 및 사용자 검토 만들기 작업을 시작합니다. Content Moderator는 콘텐츠를 검사하고 지정된 워크플로를 평가합니다. 워크플로 결과에 따라 검토를 만들거나 단계를 건너뜁니다. 또한 이후 조정 및 사후 검토 태그를 콜백 엔드포인트에 제출합니다.
+워크플로 콘텐츠에 대 한 클라우드 기반 사용자 지정 된 필터입니다. 워크플로 다양 한 가지 방법으로 콘텐츠를 필터링 하 고 적절 한 조치를 취할를 서비스에 연결할 수 있습니다. Content Moderator 커넥터를 사용 하 여 워크플로 수 자동으로 조정 태그를 적용 고 제출 된 콘텐츠를 사용 하 여 검토를 만듭니다.
 
-입력에는 다음 정보가 포함됩니다.
+### <a name="view-workflows"></a>워크플로 보기
 
-- 검토 팀 ID.
-- 중재할 콘텐츠.
-- 워크플로 이름. (기본값은 “default” 워크플로.)
-- 알림에 대한 API 콜백 지점.
- 
-다음과 같은 응답은 시작된 작업의 식별자를 보여 줍니다. 작업 식별자를 사용하여 작업 상태를 가져오고 세부 정보를 수신합니다.
+기존 워크플로 보려면로 이동 합니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 선택한 **설정** > **워크플로**합니다.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![기본 워크플로](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>작업 상태 가져오기
+워크플로는 프로그래밍 방식으로 액세스할 수 있도록 JSON 문자열로 완전히 설명할 수 있습니다. 선택 하는 경우는 **편집** 워크플로에 대 한 옵션을 선택 합니다 **JSON** 탭 다음과 같은 JSON 식을 표시:
 
-`Job.Get` 작업 및 작업 식별자를 사용하여 실행 중이거나 완료된 작업의 세부 정보를 가져옵니다. 작업은 조정 작업이 비동기로 실행하는 동안 즉시 반환됩니다. 결과는 콜백 엔드포인트를 통해 반환됩니다.
-
-입력에는 다음 정보가 포함됩니다.
-
-- 검토 팀 ID: 이전 작업에서 반환된 검토 식별자
-
-응답에는 다음과 같은 정보가 포함됩니다.
-
-- 만든 검토의 식별자. (최종적 검토 결과를 얻으려면 이 ID를 사용합니다.)
-- 작업의 상태(완료 또는 진행 중): 할당된 조정 태그(키-값 쌍)
-- 작업 실행 보고서입니다.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![사용자 중재자를 위한 이미지 검토](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>검토 작업
-
-### <a name="create-reviews"></a>검토 만들기
-
-`Review.Create` 작업을 사용하여 사용자 검토를 만듭니다. 다른 곳에서 조정하거나 사용자 지정 논리를 사용하여 조정 태그를 할당합니다.
-
-이 작업에 대한 입력은 다음을 포함합니다.
-
-- 중재할 콘텐츠.
-- 사용자 중재자에 의해 할당된 검토용 태그(키 값 쌍).
-
-다음과 같은 응답은 검토 식별자를 보여 줍니다.
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>검토 상태 가져오기
-`Review.Get` 작업을 사용하여 조정된 이미지의 사용자 검토를 완료한 후 결과를 가져옵니다. 제공된 콜백 엔드포인트를 통해 알림을 받습니다. 
-
-작업은 두 가지 태그 집합을 반환합니다. 
-
-* 조정 서비스에 의해 할당된 태그
-* 사용자 검토가 완료된 후 태그
-
-입력에는 최소한 다음이 포함됩니다.
-
-- 검토 팀 이름
-- 이전 작업에서 반환되는 검토 식별자
-
-응답에는 다음과 같은 정보가 포함됩니다.
-
-- 검토 상태
-- 사용자 검토자가 확인하는 태그(키-값 쌍)
-- 조정 서비스에 의해 할당된 태그(키-값 쌍)
-
-두 검토자 할당 태그(**reviewerResultTags**) 및 초기 태그(**metadata**)를 다음 샘플 응답에서 확인합니다.
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+참조를 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 만들기 및 워크플로 사용 하 여 시작 하거나 참조를 [REST API 가이드](./try-review-api-workflow.md) 를 프로그래밍 방식으로 수행 하는 방법에 알아봅니다.
+
+## <a name="jobs"></a>교육
+
+조정 작업은 특정 유형의 콘텐츠 조정, 워크플로 및 검토의 기능에 대 한 래퍼 역할도합니다. 작업은 Content Moderator 이미지 조정 API 또는 텍스트 조정 API를 사용 하 여 콘텐츠를 검색 하 고 지정 된 워크플로에 대해 확인 합니다. 워크플로 결과 따라 그렇지의 콘텐츠에 대해 검토를 만들 수 없습니다는 [검토 도구](./review-tool-user-guide/human-in-the-loop.md)합니다. 검토 및 워크플로 모두 만들고 수는 해당 Api를 사용 하 여 구성, 하는 동안 작업 API를 사용 하면 (지정 된 콜백 끝점으로 전송 가능)는 전체 프로세스의 자세한 보고서를 가져올 수 있습니다.
+
+참조 된 [REST API 가이드](./try-review-api-job.md) 작업을 사용 하 여 시작 하려면.
 
 ## <a name="next-steps"></a>다음 단계
 

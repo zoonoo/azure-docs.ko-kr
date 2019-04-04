@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873202"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893438"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>주체 도메인, 의도 및 엔터티를 사용하여 LUIS 앱 계획
 
@@ -49,7 +49,7 @@ LUIS 앱은 도메인 특정 항목을 중심으로 합니다.  예를 들어, �
 
 ## <a name="next-steps"></a>다음 단계
 
-앱에서 엔드포인트 발화를 학습, 게시 및 가져온 후에는 [능동적 학습](luis-how-to-review-endoint-utt.md), [구 목록](luis-concept-feature.md) 및 [패턴](luis-concept-patterns.md)을 사용하여 예측 기능 향상을 구현하도록 계획합니다. 
+앱에서 엔드포인트 발화를 학습, 게시 및 가져온 후에는 [능동적 학습](luis-how-to-review-endpoint-utterances.md), [구 목록](luis-concept-feature.md) 및 [패턴](luis-concept-patterns.md)을 사용하여 예측 기능 향상을 구현하도록 계획합니다. 
 
 
 * LUIS 앱을 만드는 방법에 대한 간단한 연습은 [Create your first Language Understanding Intelligent Services (LUIS) app](luis-get-started-create-app.md)(첫 번째 LUIS(Language Understanding Intelligent Services) 앱 만들기)을 참조하세요.

@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769219"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482932"
 ---
 # <a name="deploy-the-local-agent"></a>로컬 에이전트를 배포 합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "57769219"
 1. 테스트를 실행 하는 데 사용할 컴퓨터에서 관리자 권한 프롬프트에서 Windows PowerShell을 엽니다.
 2. 로컬 에이전트를 다운로드 하려면 다음 명령을 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -65,7 +65,7 @@ ms.locfileid: "57769219"
 
 3. 로컬 에이전트 종속성을 설치 하려면 다음 명령을 실행 합니다.
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -113,14 +113,15 @@ ms.locfileid: "57769219"
 
 2. 다음 명령 실행:
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **매개 변수**  
+
     | 매개 변수 | 설명 |
     | --- | --- |
-    | VaaSUserId | VaaS 포털에 로그인 할 때 사용한 사용자 ID (예를 들어 UserName@Contoso.com) |
+    | VaaSUserId | VaaS 포털에 로그인 할 때 사용한 사용자 ID (예를 들어, 사용자 이름\@Contoso.com) |
     | VaaSTenantId | Azure 계정에 대 한 azure AD 테 넌 트 ID를 서비스로 유효성 검사를 사용 하 여 등록 합니다. |
 
     > [!Note]  

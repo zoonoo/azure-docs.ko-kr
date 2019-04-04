@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: e6afea414ed632dead97a4b9adc7c623e48bd7ef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e93a8fbcd603e5c52141a2a883bd7371ee50221
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766702"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445381"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -384,7 +384,7 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-가상 컴퓨터를 배포한 후 가상 컴퓨터에 SSH 연결을 구성 합니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
+가상 컴퓨터를 배포한 후 가상 컴퓨터에 SSH 연결을 구성 합니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -420,7 +420,7 @@ NGINX를 설치 및 포트 80 열어서 가상 머신에서 사용 하 여 가�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 하지 않은 리소스를 정리 합니다. 사용할 수는 [Remove-azurermresourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 이러한 리소스를 제거 하는 명령입니다. 리소스 그룹 및 모든 해당 리소스를 삭제 하려면 다음 명령을 실행 합니다.
+더 이상 필요 하지 않은 리소스를 정리 합니다. 사용할 수는 [Remove-azurermresourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 이러한 리소스를 제거 하는 명령입니다. 리소스 그룹 및 모든 해당 리소스를 삭제 하려면 다음 명령을 실행 합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

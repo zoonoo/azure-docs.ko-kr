@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101876"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499780"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -90,16 +90,19 @@ SKU 용량 및 성능과 같은 서버 기능을 설명 하는 SKU 이름을 사
 
 Sku는 특정 사용자 또는 그룹에 할당할 수 없습니다.
 
-Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
+SKU를 편집 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 
 
-SKU를 편집 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
 
-> [!TIP]
-> 편집 하거나 동일한 위치에 MySQL 리소스 공급자 할당량을 삭제할 수 있습니다.
+> [!IMPORTANT]
+> 사용자 포털에서 사용할 수 있도록 새 Sku에 대 한 1 시간까지 걸릴 수 있으므로 합니다.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>사용자에 게 MySQL 데이터베이스 서버를 사용할 수 있도록
 
 계획 및 제품은 사용자를 MySQL 데이터베이스 서버를 사용할 수 있도록 만듭니다. Microsoft.MySqlAdapter 서비스 계획에 추가 하 고 새 할당량을 만듭니다. MySQL은 데이터베이스의 크기를 제한 하는 것을 허용 하지 않습니다.
+
+> [!IMPORTANT]
+> 사용자 포털에서 또는 변경 된 할당량을 적용 하기 전에 사용할 수 있는 새 할당량에 대 한 최대 2 시간이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

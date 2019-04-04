@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854325"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895452"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -32,8 +32,6 @@ ms.locfileid: "51854325"
 
 모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 계산 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 정보는 [Azure Container Registry pricing][pricing]의 **Container Build** 섹션을 참조하세요.
 
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="common-task-scenarios"></a>일반 작업 시나리오
 
@@ -49,14 +47,14 @@ ms.locfileid: "51854325"
 
 ACR 작업의 다단계 작업은 YAML 파일 내에서 일련의 단계로 정의됩니다. 각 단계는 이전 단계 하나 이상의 정상 완료에 따른 종속성을 지정할 수 있습니다. 사용 가능한 작업 단계 유형은 다음과 같습니다.
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): 익숙한 `docker build` 구문을 사용하여 하나 이상의 컨테이너 이미지를 차례로 또는 병렬로 작성합니다.
-* [`push`](container-registry-tasks-reference-yaml.md#push): 작성한 이미지를 컨테이너 레지스트리에 푸시합니다. Azure Container Registry 등의 개인 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
+* [`build`](container-registry-tasks-reference-yaml.md#build): 친숙 한를 사용 하 여 하나 이상의 컨테이너 이미지 빌드 `docker build` 시리즈 또는 병렬로 구문입니다.
+* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리로 푸시하십시오. Azure Container Registry 등의 개인 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행 합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
 
 다음 코드 조각은 이러한 작업 단계 형식을 결합하는 방법을 보여줍니다. 다중 단계 작업은 다음과 유사한 YAML 파일을 사용하여 Dockerfile에서 단일 이미지를 빌드하고 레지스트리에 푸시하는 방법처럼 간단할 수 있습니다.
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 더 복잡한 경우 이 가상의 다단계 정의에는 Helm을 빌드하고, 테스트하고, 패키징하고, 배포하기 위한 단계가 포함됩니다(컨테이너 레지스트리 및 Helm 리포지토리 구성이 표시되지 않음).
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작업에 대한 자세한 내용은 [이미지 작성 자동화](container-registry-tutorial-build-task.md) 및 [기본 이미지 업데이트 작성](container-registry-tutorial-base-image-update.md) 자습서 문서를 참조하세요.
-
-## <a name="preview-feedback"></a>미리 보기 피드백
-
-ACR 작업의 다단계 작업 기능은 미리 보기 상태이므로 피드백을 많이 제공해 주시기 바랍니다. 여러 피드백 채널을 사용할 수 있습니다.
-
-* [문제](https://aka.ms/acr/issues) - 기존 버그 및 문제를 확인하고 새 버그/문제를 기록할 수 있습니다.
-* [UserVoice](https://aka.ms/acr/uservoice) - 기존 기능 요청에 투표를 하거나 새 요청을 작성할 수 있습니다.
-* [토론](https://aka.ms/acr/feedback) - Stack Overflow 커뮤니티에서 Azure Container Registry 관련 토론에 참여할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

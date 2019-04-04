@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860364"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894938"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 
@@ -55,9 +55,12 @@ NSG 규칙은 가상 네트워크를 사용하여 서브넷 간의 연결을 제
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>모든 VNet에서 서비스 엔드포인트를 사용할 수 있나요?
 아니요, Azure Resource Manager 가상 네트워크만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 클래식 가상 네트워크는 서비스 엔드포인트를 지원하지 않습니다.
 
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Azure Cosmos DB에 대해 서비스 엔드포인트 액세스가 가능하면 "공용 Azure 데이터 센터 내에서 연결을 허용"해도 되나요?  
+이는 Azure Data Factory, Azure Search 또는 주어진 Azure 지역에 배포되는 다른 서비스와 같이 다른 Azure 자사 서비스에서 Azure Cosmos DB 계정에 액세스하려는 경우에만 필요합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가상 네트워크 내의 서브넷에 대한 Azure Cosmos 계정 액세스를 제한하는 방법](how-to-configure-vnet-service-endpoint.md)
-* [Azure Cosmos 계정에 대해 IP 방화벽을 구성하는 방법](how-to-configure-firewall.md)
+* [가상 네트워크 내의 서브넷에 대 한 Azure Cosmos 계정 액세스를 제한 하는 방법](how-to-configure-vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대 한 IP 방화벽을 구성 하는 방법](how-to-configure-firewall.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552183"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892829"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
 논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.
@@ -34,9 +34,10 @@ ms.locfileid: "57552183"
 논리 앱에서 요처 및 응답 작업 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="use-the-http-request-trigger"></a>HTTP 요청 트리거 사용
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
+트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 
+[트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
 
-논리 앱 디자이너에서 HTTP 요청을 설정하는 방법의 예제 시퀀스는 다음과 같습니다.
+논리 앱 디자이너에서 HTTP 요청을 설정 하는 방법의 예제 시퀀스는 다음과 같습니다.
 
 1. 논리 앱에서 **요청 - HTTP 요청을 받은 경우** 트리거를 추가합니다. 요청 본문에 대해 JSON 스키마를 선택적으로 제공할 수 있습니다( [JSONSchema.net](https://jsonschema.net)과 같은 도구 사용). 이렇게 하면 디자이너가 HTTP 요청에서 속성에 대한 토큰을 생성할 수 있습니다.
 2. 논리 앱을 저장할 수 있도록 다른 작업을 추가합니다.

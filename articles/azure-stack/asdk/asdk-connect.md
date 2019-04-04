@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31025582516198bdfe9da9312bae33852986a423
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206475"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884859"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK에 연결
 
@@ -69,7 +69,7 @@ ASDK 대 한 VPN 연결을 설정 하기 전에 다음 필수 조건을 충족 �
 
 ASDK 대 한 VPN 연결을 만들려면 로컬 Windows 기반 컴퓨터에서 관리자 권한으로 PowerShell을 엽니다. 그런 다음 다음 스크립트 (사용자 환경에 대 한 IP 주소 및 암호 값 업데이트)를 실행 합니다.
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -109,9 +109,9 @@ Add-AzsVpnConnection `
 
   다음 방법 중 하나를 사용 하 여 Azure Stack 인스턴스에 연결 합니다.  
 
-  * 사용 된 `Connect-AzsVpn ` 명령:
+  * 사용 된 `Connect-AzsVpn` 명령:
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```

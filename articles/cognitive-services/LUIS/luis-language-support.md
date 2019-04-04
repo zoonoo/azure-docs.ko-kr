@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339519"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757651"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -105,10 +105,10 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 |독일어<br>`de-de`|1.0.1|공간에 분할 하 여 단어를 토큰화 합니다.<br> 사용자가 입력 `Ich fahre einen krankenwagen` 단일 토큰을 utterance로 유지 합니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>토크 나이저 버전 간의 마이그레이션
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-토크 나이저 버전 앱 파일에서을 변경 하려면 첫 번째 선택은 다음 버전을 가져옵니다. 이 작업 대상이 눈에 띄도록 토큰화 되는 방법을 변경 하지만 동일한 앱 ID를 유지할 수 있습니다. 
-
-1.0.0에 대 한 JSON 토크 나이저입니다. 속성 값이 표시 `tokenizerVersion`합니다. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 }
 ```
 
-버전 1.0.1에 대 한 JSON 토크 나이저입니다. 속성 값이 표시 `tokenizerVersion`합니다. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
     "settings": []
 }
 ```
+-->
 
-두 번째 옵션은 것 [새 앱으로 파일을 가져올](luis-how-to-start-new-app.md#import-an-app-from-file), 버전 대신 합니다. 이 작업에는 새 앱에 다양 한 앱 ID가 있지만 파일에 지정 된 토크 나이저 버전을 사용 하 여 의미 합니다. 
+토큰화 앱 수준에서 발생합니다. 버전 수준 토큰화에 대 한 지원은 없습니다. 
+
+[새 앱으로 파일을 가져올](luis-how-to-start-new-app.md#import-an-app-from-file), 버전을 대신 합니다. 이 작업에는 새 앱에 다양 한 앱 ID가 있지만 파일에 지정 된 토크 나이저 버전을 사용 하 여 의미 합니다. 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861998"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918521"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -80,9 +80,9 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 -   [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Microsoft에서 모든 Azure 리소스의 비용 및 사용량 정보를 가져옵니다. 정보는 하루에 미터당 한 번씩 보내지는 사용량 세부 정보 레코드 형식으로 제공됩니다. 이 정보를 사용하여 모든 리소스에 걸쳐 비용을 합산하거나 특정 리소스에 대한 비용/사용량을 조사할 수 있습니다.
 
--   [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx): Web Direct 고객인 경우 요금제 요율을 가져옵니다. 그런 다음, 해당 리소스 사용 정보를 반환된 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다. 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Web Direct 고객인 경우 요금제 요율을 가져옵니다. 그런 다음, 해당 리소스 사용 정보를 반환된 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다. 
 
--   [요금 미지정 사용량 API](https://msdn.microsoft.com/library/azure/mt219003.aspx): Azure가 계량/청구를 수행하기 이전의 원시 사용량 정보를 가져옵니다.
+-   [요금 미지정 사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure가 계량/청구를 수행하기 이전의 원시 사용량 정보를 가져옵니다.
 
 ### <a name="billing"></a>결제
 -   [청구 기간 API](https://docs.microsoft.com/rest/api/billing/billingperiods): 해당 기간의 청구서 ID와 함께 분석할 청구 기간을 결정합니다. 청구서 API와 청구서 ID를 사용할 수 있습니다.
@@ -121,7 +121,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
    - 선불된 현금 약정 금액의 사용을 위한 계정 변경
    - Azure에서 검색된 사용량 불일치에 대한 계정 변경
 
-- [사용량 API](https://msdn.microsoft.com/library/Mt219003.aspx)는 Azure의 비용 계량 시스템을 통과하기 전에 원시 Azure 사용량 정보를 제공합니다. 이 데이터는 Azure 요금 계량 시스템 후에 표시되는 사용량 또는 요금량과 상관 관계가 없을 수 있습니다.
+- [사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100))는 Azure의 비용 계량 시스템을 통과하기 전에 원시 Azure 사용량 정보를 제공합니다. 이 데이터는 Azure 요금 계량 시스템 후에 표시되는 사용량 또는 요금량과 상관 관계가 없을 수 있습니다.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>청구서 API와 사용량 세부 정보 API 간의 차이는 무엇인가요?
 이러한 API는 동일한 데이터의 다른 보기를 제공합니다.
@@ -135,7 +135,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 - [가격표 API](https://docs.microsoft.com/rest/api/consumption/pricesheet)는 Enterprise 고객에 대해 협상된 사용자 지정 가격을 제공합니다.
 
-- [RateCard API](https://msdn.microsoft.com/library/mt219005.aspx)는 Web Direct 고객에게 적용되는 공개 가격을 제공합니다.
+- [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100))는 Web Direct 고객에게 적용되는 공개 가격을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

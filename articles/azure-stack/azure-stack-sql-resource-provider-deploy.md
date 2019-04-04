@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: a2f1321e5c6774c585353b9bd7602ecc1ccb8c5e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee64106c97a07e1b3ceb84c4ca932b19bc6d83b8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652606"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack에 SQL Server 리소스 공급자 배포
 
@@ -47,7 +47,7 @@ Azure Stack SQL 리소스 공급자를 배포 하기 전에 준비에서 되어�
 
 - 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
 
-    |필수 구성 요소|참조|
+    |필수 요소|참조|
     |-----|-----|
     |조건부 DNS 전달이 올바르게 설정 됩니다.|[Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)|
     |리소스 공급자에 대 한 인바운드 포트가 열려 있습니다.|[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -94,8 +94,8 @@ SQL 리소스 공급자를 배포 하려면 엽니다는 **새** 관리자 권�
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |
-| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 |
-| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 SQL 리소스 공급자 배포
 
@@ -105,7 +105,11 @@ Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니
 
 
 ```powershell
-# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Note that this might not be the most currently available version of Azure Stack PowerShell
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

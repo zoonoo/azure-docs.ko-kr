@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403394"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891806"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>데이터 상자에 지 보안 및 데이터 보호
 
@@ -35,6 +35,7 @@ Azure 데이터 가장자리가 상자의 솔루션은 서로 상호 작용 하�
 
 - 데이터 상자 Edge/데이터 상자 게이트웨이 서비스에 대 한 액세스는 EA (기업 계약) 또는 클라우드 솔루션 공급자 (CSP) 구독을 조직에 필요 합니다. 자세한 내용은 [Azure 구독에 대 한 등록](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - 관리 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호 됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)로 이동합니다.
+- SDK 관리 작업에 대 한 암호화 키가 제공 하 여 Data Box Edge에 대 한 / 데이터 상자 게이트웨이 리소스 **장치 속성**합니다. 리소스 Graph API에 대 한 권한이 있는 경우에 암호화 키를 볼 수 있습니다.
 
 ## <a name="data-box-edge-device-protection"></a>데이터 상자에 지 장치 보호
 
@@ -44,7 +45,8 @@ Azure 데이터 가장자리가 상자의 솔루션은 서로 상호 작용 하�
 - 항상 장치 암호로 보호 합니다.
 - 잠긴 장치가입니다. 장치 BMC 및 BIOS가 BIOS에 대 한 제한 된 사용자 액세스를 사용 하 여 암호로 보호 합니다.
 - 보안 부팅이 있었습니다.
-- Windows Defender Device Guard를 실행합니다. Device Guard를 사용 하면 코드 무결성 정책에서 정의 하는 신뢰할 수 있는 응용 프로그램만 실행할 수 있습니다. 
+- Windows Defender Device Guard를 실행합니다. Device Guard를 사용 하면 코드 무결성 정책에서 정의 하는 신뢰할 수 있는 응용 프로그램만 실행할 수 있습니다.
+- 장치를 잠그는 데 사용할 수 있는 표지 내에서 키를 있습니다. 에서는 장치를 구성한 후에 덮개를 열면 하는 것이 좋습니다. 키를 찾아서 장치 앞에 있는 데이터 디스크에 대 한 모든 무단된 액세스를 방지 하기 위해 커버 잠금이 합니다.
 
 ### <a name="protect-the-device-via-activation-key"></a>정품 인증 키를 통해 장치를 보호 합니다.
 

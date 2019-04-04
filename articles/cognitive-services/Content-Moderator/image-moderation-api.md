@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079722"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756041"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
@@ -66,7 +66,7 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
 
 ## <a name="detecting-faces"></a>얼굴 감지
 
-얼굴 감지는 이미지에 포함된 얼굴과 같은 PII(개인 식별 정보)를 검색하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
+얼굴을 감지 하는 작업은 이미지에서 얼굴 등의 개인 데이터를 검색할 수 있습니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
 
 응답에는 다음 정보가 포함됩니다.
 

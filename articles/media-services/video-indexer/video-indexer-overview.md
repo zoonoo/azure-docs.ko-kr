@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890793"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895971"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -23,15 +23,17 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 ## <a name="video-insights"></a>비디오 인사이트
 
 - **얼굴 감지**: 비디오에 표시되는 얼굴을 감지하고 그룹화합니다.
-- **유명인 식별**: Video Indexer는 전 세계의 리더, 배우, 운동 선수, 연구원, 비즈니스 및 기술 리더와 같은 100만 명 이상의 유명인을 자동으로 식별합니다. 이러한 유명인에 대한 데이터는 다양한 유명 웹사이트(예: IMDB 및 Wikipedia)에서도 찾아볼 수 있습니다.
+- **유명인 식별**: Video Indexer는 전 세계에 걸쳐는 세계 선두, 행위자, 여배우, 선수, 연구원, 비즈니스 및 기술 리더와 같은 1 백만 개 유명인 – 자동으로 식별합니다. 이러한 유명인에 대한 데이터는 다양한 유명 웹사이트(예: IMDB 및 Wikipedia)에서도 찾아볼 수 있습니다.
 - **계정 기반 얼굴 인식**: Video Indexer는 특정 계정에 대한 모델을 학습합니다. 그런 다음 학습 된 모델을 기반으로 비디오에서 얼굴 인식 합니다. 자세한 내용은 [Video Indexer 웹 사이트에서 사용자 모델을 사용자 지정](customize-person-model-with-website.md) 하 고 [Video Indexer API를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-api.md)합니다.
 - **얼굴의 썸네일 추출**(“최적 얼굴”): 각 얼굴 그룹에서 가장 잘 캡처된 얼굴을 자동으로 식별하고(품질, 크기 및 정면 위치 기준) 이미지 자산으로 추출합니다.
 - **시각적 텍스트 인식**(OCR): 비디오에서 시각적으로 표시되는 텍스트를 추출합니다.
 - **시각적 콘텐츠 조정**: 성인 및/또는 외설 시각적 개체를 검색합니다.
 - **레이블 식별**: 표시되는 시각적 개체 및 작업을 식별합니다.
-- **샷 감지**: 비디오의 장면이 변경되는 경우를 결정합니다.
+- **장면 조각화**: 시각 신호에 따라 비디오에서 장면 변경 하는 경우를 결정 합니다. 장면 단일 이벤트를 보여 주며 의미 체계가 관련이 있는 연속 샷 시리즈에서 구성 됩니다. 
+- **샷 감지**: 샷의 비디오 시각 신호에 따라 변경 하는 경우를 결정 합니다. 샷의 일련의 동일한 영화를 수행 하는 프레임입니다. 자세한 내용은 [장면, 샷과 키프레임을](scenes-shots-keyframes.md)합니다.
 - **검정 프레임 감지**: 비디오에 표시되는 검은색 프레임을 식별합니다.
 - **키 프레임 추출**: 비디오에서 안정적인 키 프레임을 검색합니다.
+- **크레딧 롤링**: TV 쇼 및 동영상의 끝에서 롤링 크레딧의 시작과 끝을 식별 합니다.
 
 ## <a name="audio-insights"></a>오디오 인사이트
 
@@ -69,9 +71,8 @@ Video Indexer의 처리 및 분석이 완료되면 비디오 인사이트를 검
 Video Indexer가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
 
 - 검색 – 비디오에서 추출된 인사이트를 사용하여 비디오 라이브러리 전체에서 검색 환경을 향상시킬 수 있습니다. 예를 들어 음성 단어와 얼굴을 인덱싱하면 비디오에서 특정 사람이 특정 단어를 말했거나 두 사람이 함께 본 시점을 찾는 검색 환경을 사용할 수 있습니다. 비디오에서 이러한 인사이트에 기반한 검색은 뉴스 기관, 교육 기관, 방송사, 엔터테인먼트 콘텐츠 소유자, 엔터프라이즈 LOB 앱 및 일반적으로 사용자가 검색해야 하는 비디오 라이브러리가 있는 모든 산업에 적용됩니다.
-
+- 콘텐츠 만들기 – insights 비디오에서 추출 하 고 효과적으로 만들기 위해 트레일러, 소셜 미디어 콘텐츠, 뉴스 등의 콘텐츠 클립 등 조직 보관 파일에 있는 기존 콘텐츠에서 
 - 수익 창출 – Video Indexer는 비디오의 가치를 향상시킬 수 있습니다. 예를 들어 광고 수입에 의존하는 산업(예: 뉴스 미디어, 소셜 미디어 등)은 추출된 인사이트를 광고 서버에 대한 추가 신호로 사용하여 관련성이 더 높은 광고를 제공할 수 있습니다(스포츠화는 축구 경기와 수영 경기의 중간에 광고하는 것이 더 적절함).
-
 - 사용자 참여 – 비디오 인사이트는 사용자에게 관련 비디오 시점을 배치하여 사용자 참여를 향상시키는 데 사용할 수 있습니다. 예를 들어 처음 30분 동안 구에 대해 설명하고 다음 30분 동안 각뿔에 대해 설명하는 교육용 비디오를 생각해 보세요. 각뿔을 참조하려는 학생의 경우 비디오가 30분 표식에서 시작하도록 배치되면 더 많은 이점을 누릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -79,5 +80,5 @@ Video Indexer가 유용할 수 있는 몇 가지 시나리오는 다음과 같�
 Video Indexer를 시작할 준비가 되었습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Video Indexer 웹 사이트 시작](video-indexer-get-started.md)
-- [Video Indexer REST API를 사용하여 콘텐츠 처리](video-indexer-use-apis.md)
-- [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)
+- [Video Indexer REST API를 사용 하 여 프로세스 콘텐츠](video-indexer-use-apis.md)
+- [응용 프로그램에서 시각적 위젯 포함](video-indexer-embed-widgets.md)

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518833"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895210"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -80,7 +80,7 @@ static void Main(string[] args)
 
 | 자산 | 개발 설정 |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | 로그 출력을 최대화하는 `TraceLevel.Verbose`. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 에 로그 출력을 최대화 합니다. |
 | `Queues.MaxPollingInterval`  | 값이 작으면 큐 메서드가 즉시 트리거됩니다.  |
 | `Singleton.ListenerLockPeriod` | 신속한 반복 개발에 도움이 되는 시간은 15초입니다. |
 
@@ -130,7 +130,7 @@ static void Main()
 
 버전 3입니다. *x*, 무한 연결에 기본 연결 제한 값입니다. 어떤 이유로이 제한을 변경 해야 하는 경우 사용할 수 있습니다 합니다 [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 의 속성을 [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) 클래스입니다.
 
-버전 2입니다. *x*를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. 2. *x*, WebJobs 호스트를 시작 하기 전에 기본값인 2에서이 값을 늘려야 합니다.
+버전 2입니다. *x*를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, WebJobs 호스트를 시작 하기 전에 기본값인 2에서이 값을 늘려야 합니다.
 
 사용 하 여 함수에서 수행한 모든 나가는 HTTP 요청 `HttpClient` 통과 `ServicePointManager`합니다. 에 설정 된 값에 도달 하면 `DefaultConnectionLimit`, `ServicePointManager` 보내기 전에 큐 요청을 시작 합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, 프로그램 `HttpClient` 요청 보낸 적 OS 대상 서버에 있지만 요청 된 표시 되기 때문에 시간 초과 될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
@@ -849,7 +849,7 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 사용 하는 것이 좋
 
 버전 3입니다. *x* SDK의.NET Core로 빌드되는 필터링에 의존 합니다. `LogCategories` 클래스를 사용하여 특정 함수, 트리거 또는 사용자의 범주를 정의할 수 있습니다. 또한 정의 특정 호스트 상태에 대 한 필터와 같은 `Startup` 고 `Results`입니다. 이 옵션을 사용 하면 로깅 출력을 미세 조정할 수 있습니다. 정의된 범주 내에 일치 항목이 없는 경우 메시지를 필터링할 것인지 결정할 때 필터가 `Default` 값으로 대체됩니다.
 
-`LogCategories`에는 다음 using 문이 필요합니다.
+`LogCategories` 다음이 필요 합니다 문을 사용 하 여:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 

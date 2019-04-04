@@ -1,6 +1,6 @@
 ---
 title: Azure Stack에서 지원 되는 가상 머신 크기 | Microsoft Docs
-description: Azure Stack에서 지원 되는 VM 크기에 대 한 참조입니다.
+description: Azure Stack에서 지원 되는 가상 머신 크기에 대 한 참조입니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176262"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886474"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack에서 지원 되는 가상 머신 크기
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-이 문서에서는 Azure Stack에서 사용할 수 있는 VM (가상 머신) 크기를 나열 합니다.
+이 문서에서는 Azure Stack에서 사용할 수 있는 가상 머신 크기를 나열 합니다.
 
-디스크 IOPS (입/출력 작업 수 / 초) Azure Stack에는 디스크 형식 대신 VM 크기의 함수입니다. 즉, 디스크 형식에 대 한 SSD 또는 HDD 선택 되는 여부에 관계 없이 Standard_Fs 시리즈 VM에 대 한 IOPS 제한은 단일 추가 데이터 디스크는 2300 IOPS. IOPS 제한은 노이즈가 많은 주변 환경 방지 하기 위해 한도 (최대 수)입니다. 특정 VM 크기에서 얻을 수 있는 iops 보증 아닙니다.
+디스크 IOPS (입/출력 작업 수 / 초) Azure Stack에는 디스크 형식 대신 VM (가상 머신) 크기의 함수입니다. 즉, 디스크 형식에 대 한 SSD 또는 HDD 선택 되는 여부에 관계 없이 Standard_Fs 시리즈 VM에 대 한 IOPS 제한은 단일 추가 데이터 디스크는 2300 IOPS. IOPS 제한은 노이즈가 많은 주변 환경 방지 하기 위해 한도 (최대 수)입니다. 특정 VM 크기에서 얻을 수 있는 iops 보증 아닙니다.
 
-## <a name="general-purpose"></a>범용
+## <a name="virtual-machine-general-purpose"></a>가상 컴퓨터에 대 한 범용 정보
 
 범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다. 각 데이터 디스크는 기본 A 시리즈를 제외한 프리미엄 VM 크기에 대 한 IOPS는 2300까지. 기본 A에 대 한 데이터 디스크 크기는 500 IOPS.
 
@@ -107,7 +107,7 @@ ms.locfileid: "58176262"
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>컴퓨팅 최적화
+## <a name="compute-optimized"></a>Compute에 최적화
 ### <a name="f-series"></a>F 시리즈
 *Azure Stack 버전 1804 이상이 필요합니다.*
 

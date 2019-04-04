@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539635"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918164"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트**라고 하고, 내부 연결을 **내부 엔드포인트**라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 
 ## <a name="input-endpoint"></a>입력 엔드포인트
-입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
+입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
 
 입력 엔드포인트는 **http, https, tcp, udp**와 같은 프로토콜을 사용할 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure Managed Library는 역할 인스턴스에 대한 메서드를 제공하여
 > 
 > 
 
-[인스턴스](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) 속성을 사용하여 역할의 인스턴스를 검색할 수 있습니다. 먼저 [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx)를 사용하여 현재 역할 인스턴스에 참조를 반환한 다음 [역할](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) 속성을 사용하여 역할 자체에 참조를 반환합니다.
+[인스턴스](/previous-versions/azure/reference/ee741904(v=azure.100)) 속성을 사용하여 역할의 인스턴스를 검색할 수 있습니다. 먼저 [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100))를 사용하여 현재 역할 인스턴스에 참조를 반환한 다음 [역할](/previous-versions/azure/reference/ee741918(v=azure.100)) 속성을 사용하여 역할 자체에 참조를 반환합니다.
 
 .NET SDK를 통해 프로그래밍 방식으로 역할 인스턴스에 연결하면 비교적 쉽게 엔드포인트 정보에 액세스할 수 있습니다. 예를 들어 특정 역할 환경에 이미 연결한 후에 이 코드를 사용하여 특정 엔드포인트의 포트를 가져올 수 있습니다.
 
@@ -111,7 +111,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 > 
 > 
 
-역할 인스턴스의 내부 엔드포인트에서 포트 번호를 확인하려면 [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) 속성을 사용하여 엔드포인트 이름과 해당 IP 주소 및 포트를 포함하는 Dictionary 개체를 반환합니다. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) 속성은 엔드포인트를 지정한 IP 주소 및 포트를 반환합니다. **PublicIPEndpoint** 속성은 엔드포인트를 분산한 부하에 포트를 반환합니다. **PublicIPEndpoint** 속성의 IP 주소 부분을 사용하지 않습니다.
+역할 인스턴스의 내부 엔드포인트에서 포트 번호를 확인하려면 [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) 속성을 사용하여 엔드포인트 이름과 해당 IP 주소 및 포트를 포함하는 Dictionary 개체를 반환합니다. [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) 속성은 엔드포인트를 지정한 IP 주소 및 포트를 반환합니다. **PublicIPEndpoint** 속성은 엔드포인트를 분산한 부하에 포트를 반환합니다. **PublicIPEndpoint** 속성의 IP 주소 부분을 사용하지 않습니다.
 
 역할 인스턴스를 반복하는 예는 다음과 같습니다.
 
@@ -368,7 +368,7 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-위의 사용 되는 요소에 대한 XML 스키마 참조를 [여기](https://msdn.microsoft.com/library/azure/gg557551.aspx)서 찾을 수 있습니다.
+위의 사용 되는 요소에 대한 XML 스키마 참조를 [여기](/previous-versions/azure/reference/gg557551(v=azure.100))서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.

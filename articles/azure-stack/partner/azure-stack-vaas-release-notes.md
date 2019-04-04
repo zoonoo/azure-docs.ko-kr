@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091990"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486940"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 
@@ -61,7 +61,7 @@ Azure Stack 월별 업데이트 확인 워크플로 실행 중인 경우 OEM 업
 
     `Install-VaaSPrerequisites` 클라우드 관리자 자격 증명을 더 이상 필요합니다. 이 cmdlet의 최신 버전을 실행 하는 경우 참조 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 필수 구성 요소 설치에 대 한 수정 된 명령에 대 한 합니다. 명령은 다음과 같습니다.
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ Azure Stack 월별 업데이트 확인 워크플로 실행 중인 경우 OEM 업
 
     `Install-VaaSPrerequisites` 이제 패키지 유효성 검사 중 문제를 해결 하려면 클라우드 관리자 자격 증명이 필요 합니다. 설명서 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 다음을 사용 하 여 업데이트 되었습니다.
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

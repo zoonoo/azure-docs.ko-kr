@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: e0556eb5cc3d0f140067a4e3b4a9054a47b91417
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649730"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481489"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 인증서 서명 요청 만들기
 
@@ -50,13 +50,13 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
 1. (5.1 이상) PowerShell 프롬프트에서 다음 cmdlet을 실행 하 여 AzsReadinessChecker를 설치 합니다.
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
 2. 선언 된 **주체** 정렬된 된 사전을으로 합니다. 예를 들면 다음과 같습니다.
 
-    ```PowerShell  
+    ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
 
@@ -65,7 +65,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
 3. 이미 존재 하는 출력 디렉터리를 선언 합니다. 예를 들면 다음과 같습니다.
 
-    ```PowerShell  
+    ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
@@ -73,19 +73,19 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
     Azure Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "AAD"
     ```
 
     Active Directory Federation Services
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "ADFS"
     ```
 
 5. 선언 **지역 이름** 와 **외부 FQDN** Azure Stack 배포를 위해 사용 합니다.
 
-    ```PowerShell
+    ```powershell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ```
@@ -95,7 +95,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
 6. 각 DNS 이름에 대 한 요청을 서명 인증서를 생성 합니다.
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -103,7 +103,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
 7. 또는 개발/테스트 환경을 생성 하는 단일 인증서 요청을 여러 주체 대체 이름 추가 **-RequestType SingleCSR** 매개 변수 및 값 (**하지** 권장 프로덕션 환경):
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -111,7 +111,7 @@ Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들�
 
 8. 출력을 검토 합니다.
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
 
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont

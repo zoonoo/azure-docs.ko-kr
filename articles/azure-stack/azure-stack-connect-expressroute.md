@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339604"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486702"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -108,7 +108,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
    |필드  |값  |
    |---------|---------|
-   |이름     |Tenant1VNet1         |
+   |name     |Tenant1VNet1         |
    |주소 공간     |10.1.0.0/16|
    |서브넷 이름     |Sub1 Tenant1|
    |서브넷 주소 범위     |10.1.1.0/24|
@@ -232,7 +232,7 @@ Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트�
 1. 관리자 계정으로 Azure Stack 호스트 컴퓨터에 로그인 합니다.
 1. 복사 하 고 다음 PowerShell 스크립트를 편집 합니다. 대체 `your administrator password` 관리자 암호와 다음을 관리자 권한으로 PowerShell ISE에서 스크립트를 실행 합니다. 이 스크립트를 반환 하면 **외부 BGPNAT 주소**합니다.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ Azure Stack 개발 키트 독립적 이며 실제 호스트를 배포할 네트�
 
    관리자 권한으로 PowerShell ISE에서 다음 스크립트를 실행 합니다.
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ route-map VNET-ONLY permit 10
 
 기본적으로 Windows Server 2016에는 방화벽을 통해 들어오는 ICMP 패킷을 허용 하지 않습니다. Ping 테스트에 사용 하는 모든 가상 컴퓨터에 대 한 들어오는 ICMP 패킷을 허용 해야 합니다. ICMP에 대 한 방화벽 규칙을 만들려면 관리자 권한 PowerShell 창에서 다음 cmdlet을 실행 합니다.
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

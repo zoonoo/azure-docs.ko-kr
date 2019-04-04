@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850708"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904120"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
@@ -22,8 +22,8 @@ Azure Storage에 대 한 advanced Threat Protection 제공를 액세스 하거�
 비정상 활동에서 발생 하는 경우 보안 경고가 트리거됩니다.  이러한 보안 경고와 통합 되어 [Azure Security Center](https://azure.microsoft.com/services/security-center/), 의심 스러운 활동을 조사 및 위협을 해결 하는 방법에 대 한 권장 사항 세부 정보를 사용 하 여 구독 관리자에 게 전자 메일을 통해도 전송 됩니다.
 
 > [!NOTE]
-> * Azure Storage에 대 한 advanced Threat Protection은 현재 Blob 저장소에 대해서만 사용할 수 있습니다. 
-> * 새 가격 책정에 대 한 세부 정보에서 사용할 수는 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) 가격 책정 페이지, 요금 없이 처음 30 일 평가판 기간에 대 한 옵션을 포함 합니다. 
+> * Azure Storage에 대 한 advanced Threat Protection은 현재 Blob 저장소에 대해서만 사용할 수 있습니다.
+> * 세부 정보를 30 일 무료 평가판을 비롯 한 가격 책정에 대 한 참조를 [Azure Security Center 가격 책정 페이지]( https://azure.microsoft.com/en-us/pricing/details/security-center/)합니다.
 > * Azure storage 기능에 대 한 ATP는 현재 소 버린 클라우드 지역 및 Azure government에서 사용할 수 없습니다.
 
 Azure Storage에 대 한 advanced Threat Protection 읽기, 쓰기 및 삭제 요청 위협 요소 탐지에 대 한 Blob storage로의 진단 로그를 수집합니다. Advanced Threat Protection에서 경고를 조사 하려면 저장소 분석 로깅을 사용 하 여 관련된 저장소 작업을 볼 수 있습니다. 자세한 내용은 참조 하는 방법 [저장소 분석 로깅을 구성](storage-monitor-storage-account.md#configure-logging)합니다.
@@ -80,8 +80,8 @@ Rest API 명령을 사용 하 여 만들기, 업데이트 또는 특정 저장�
 
 다음 PowerShell cmdlet을 사용 합니다.
 
-  * [Advanced Threat Protection을 사용 하도록 설정](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-  * [Advanced Threat Protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Advanced Threat Protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Get Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Advanced Threat Protection을 사용 하지 않도록 설정](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## <a name="explore-security-anomalies"></a>보안 문제를 탐색 합니다.

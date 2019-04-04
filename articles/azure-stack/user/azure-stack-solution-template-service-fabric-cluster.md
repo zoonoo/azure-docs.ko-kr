@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098011"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482267"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -61,7 +61,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 > [!TIP]  
 > 스크립트가 성공 하려면 계산, 네트워크, 저장소 및 key Vault에 대 한 서비스를 포함 하는 공개 제공 되어야 합니다. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -211,7 +211,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
 1. 환경 변수의 순서를 변경한 후 PowerShell을 다시 시작 하 고 Service Fabric 클러스터에 액세스 하려면 다음 PowerShell 스크립트를 실행 하십시오.
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

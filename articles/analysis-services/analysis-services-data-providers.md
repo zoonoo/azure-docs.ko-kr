@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfd488828d9c96461cb371b35bb0a0cb24fff373
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897421"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891942"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
@@ -23,8 +23,8 @@ ms.locfileid: "57897421"
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |
 |[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.15.0.0    |
 |[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.15.0.0     |
 
@@ -66,7 +66,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
 
  ADOMD.NET은 Analysis Services 데이터를 쿼리하는 데 사용되는 관리되는 데이터 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 
   
- 데이터베이스에 연결하는 경우 세 라이브러리에 대한 연결 문자열 속성이 모두 비슷합니다. [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx)을 사용하여 ADOMD.NET에 대해 정의한 거의 모든 연결 문자열이 AMO 및 Analysis Services OLE DB Provider(MSOLAP)에도 작동합니다. 자세한 내용은 [연결 문자열 속성&#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)를 참조하세요.  
+ 데이터베이스에 연결하는 경우 세 라이브러리에 대한 연결 문자열 속성이 모두 비슷합니다. [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString)을 사용하여 ADOMD.NET에 대해 정의한 거의 모든 연결 문자열이 AMO 및 Analysis Services OLE DB Provider(MSOLAP)에도 작동합니다. 자세한 내용은 [연결 문자열 속성&#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)를 참조하세요.  
 
   
 ##  <a name="bkmk_LibUpdate"></a> 클라이언트 라이브러리 버전을 확인하는 방법   
@@ -93,4 +93,4 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
 
 ## <a name="next-steps"></a>다음 단계
 [Excel로 연결](analysis-services-connect-excel.md)    
-[Power BI와 연결](analysis-services-connect-pbi.md)
+[Power BI로 연결](analysis-services-connect-pbi.md)

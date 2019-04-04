@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499899"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893395"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -80,7 +80,7 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 있습니다. 자세한 내용은 [사용자 마이그레이션 가이드](active-directory-b2c-user-migration.md)를 참조하세요.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C의 로컬 계정에 사용되는 암호 사용자 흐름은 무엇인가요?
-로컬 계정에 대한 Azure AD B2C 암호 사용자 흐름은 Azure AD 정책을 기반으로 합니다. Azure AD B2C의 가입, 가입 또는 로그인 및 암호 재설정 사용자 흐름은 "강력한" 암호 강도를 사용하며 어떠한 암호도 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](https://msdn.microsoft.com/library/azure/jj943764.aspx)을 참조하세요. 계정 잠금 및 암호에 대한 자세한 내용은 [Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리](active-directory-b2c-reference-threat-management.md)를 참조하세요.
+로컬 계정에 대한 Azure AD B2C 암호 사용자 흐름은 Azure AD 정책을 기반으로 합니다. Azure AD B2C의 가입, 가입 또는 로그인 및 암호 재설정 사용자 흐름은 "강력한" 암호 강도를 사용하며 어떠한 암호도 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](/previous-versions/azure/jj943764(v=azure.100))을 참조하세요. 계정 잠금 및 암호에 대한 자세한 내용은 [Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리](active-directory-b2c-reference-threat-management.md)를 참조하세요.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Azure AD Connect를 사용하여 온-프레미스 Active Directory에 저장된 소비자 ID를 Azure AD B2C에 마이그레이션할 수 있나요?
 아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용자 마이그레이션에 사용하는 것이 좋습니다.  자세한 내용은 [사용자 마이그레이션 가이드](active-directory-b2c-user-migration.md)를 참조하세요.

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 845bd7a6ad690288585418a42e5706fdbebbf143
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505685"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891015"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Azure Resource Manager 마이그레이션에 대한 클래식 중 일반 오류
 이 문서에는 Azure 클래식 배포 모델에서 Azure Resource Manager 스택으로의 IaaS 리소스 마이그레이션 중에 가장 일반적인 오류 및 해결 방법이 포함됩니다.
@@ -34,7 +34,7 @@ ms.locfileid: "58505685"
 | HostedService {hosted-service-name}의 Deployment {deployment-name}은 물리적 블록 크기 {size-of-the-vhd-blob-backing-the-data-disk} 바이트가 VM 데이터 디스크 논리적 크기 {size-of-the-data-disk-specified-in-the-vm-api} 바이트와 일치하지 않는 데이터 디스크 {data-disk-name}을 포함합니다. 마이그레이션에는 Azure Resource Manager VM에 대한 데이터 디스크 크기를 지정하지 않고 계속 진행됩니다. | 이 오류는 VM API 모델의 크기를 업데이트하지 않고 VHD blob 크기를 조정할 경우에 발생합니다. 자세한 마이그레이션 단계는 [다음](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes)과 같습니다.|
 | 클라우드 서비스 {클라우드 서비스 이름}에서 {VM 이름} VM에 대해 미디어 링크 {데이터 디스크 URI}를 사용하여 데이터 디스크 {데이터 디스크 이름}에 대해 유효성 검사를 수행하는 동안 저장소 예외가 발생합니다. 이 가상 머신에 대해 VHD 미디어 링크에 액세스할 수 있는지 확인하세요. | 이 오류는 VM의 디스크가 삭제되었거나 더 이상 액세스할 수 없는 경우에 발생할 수 있습니다. VM에 대한 디스크가 있는지 확인합니다.|
 | HostedService {cloud-service-name}의 VM {vm-name}에는 Azure Resource Manager에서 지원되지 않는 BLOB 이름 {vhd-blob-name}의 MediaLink {vhd-uri}가 있는 디스크가 포함되어 있습니다. | 이 오류는 Blob의 이름에 현재 Compute 리소스 공급자에서 지원되지 않는 "/"가 있어 발생합니다. |
-| HostedService {cloud-service-name}의 Depoyment {deployment-name}은 지역 범위에 없으므로 마이그레이션이 허용되지 않습니다. Http를 참조 하십시오:\//aka.ms/regionalscope가이 배포를 지역 범위로 이동 합니다. | 2014년, Azure에서는 네트워킹 리소스가 클러스터 수준 범위에서 지역 범위로 이동할 것이라고 발표했습니다. 참조 [ http://aka.ms/regionalscope ](http://aka.ms/regionalscope) 대 한 자세한 내용은 합니다. 이 오류는 마이그레이션 중인 배포에서 지역 범위로 자동으로 이동하는 업데이트 작업이 없을 때 발생합니다. 가장 좋은 해결 방법은 VM에 엔드포인트 또는 데이터 디스크를 추가한 다음 마이그레이션을 다시 시도하는 것입니다. <br> [Azure에서 클래식 Windows 가상 머신에 엔드포인트를 설정하는 방법](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) 또는 [클래식 배포 모델을 사용하여 만든 Windows 가상 머신에 데이터 디스크 연결](../articles/virtual-machines/windows/classic/attach-disk.md)를 참조하세요.|
+| HostedService {cloud-service-name}의 Depoyment {deployment-name}은 지역 범위에 없으므로 마이그레이션이 허용되지 않습니다. Https를 참조 하십시오:\//aka.ms/regionalscope가이 배포를 지역 범위로 이동 합니다. | 2014년, Azure에서는 네트워킹 리소스가 클러스터 수준 범위에서 지역 범위로 이동할 것이라고 발표했습니다. 참조 [ https://aka.ms/regionalscope ](https://aka.ms/regionalscope) 대 한 자세한 내용은 합니다. 이 오류는 마이그레이션 중인 배포에서 지역 범위로 자동으로 이동하는 업데이트 작업이 없을 때 발생합니다. 가장 좋은 해결 방법은 VM에 엔드포인트 또는 데이터 디스크를 추가한 다음 마이그레이션을 다시 시도하는 것입니다. <br> [Azure에서 클래식 Windows 가상 머신에 엔드포인트를 설정하는 방법](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) 또는 [클래식 배포 모델을 사용하여 만든 Windows 가상 머신에 데이터 디스크 연결](../articles/virtual-machines/windows/classic/attach-disk.md)를 참조하세요.|
 | 비게이트웨이 PaaS 배포가 있으므로 가상 네트워크{vnet-name}에 대한 마이그레이션이 지원되지 않습니다. | 이 오류는 가상 네트워크에 연결된 Application Gateway 또는 API Management 서비스 같은 비게이트웨이 PaaS 배포가 있는 경우 발생 합니다.|
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack에 Kubernetes 배포 | Microsoft Docs
-description: Kubernetes Azure Stack에 배포 하는 방법에 알아봅니다.
+title: Azure Stack 컨테이너를 사용 하는 Kubernetes 배포 | Microsoft Docs
+description: Kubernetes에서 컨테이너를 사용 하 여 Azure Stack을 사용 하 여 배포 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986246"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877196"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Azure Stack을 사용 하 여 컨테이너를 사용 하는 Kubernetes 배포
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 현재 미리 보기에서 지원 되지 않습니다.
 
 배포 및 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 설정 하려면이 문서의 단계를 수행할 수 있습니다. Azure Resource Manager 솔루션 템플릿을 사용 하는 단계입니다. 에서는 필요한 Azure Stack 설치에 대 한 필수 정보를 수집 하 템플릿을 생성을 클라우드에 배포 합니다. Azure Stack 템플릿 글로벌 Azure에서 제공 되는 동일한 관리 되는 AKS 서비스를 사용 하지 않습니다.
 
@@ -43,7 +43,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 만 노드에서 클러스터를 지 원하는 데 필요한 계산 사용량에 대해 부과 됩니다. 자세한 내용은 [사용 및 Azure Stack에서 청구](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback)합니다.
 
-## <a name="deploy-kubernetes"></a>Kubernetes 배포
+## <a name="deploy-kubernetes-to-use-containers"></a>컨테이너를 사용 하는 Kubernetes 배포
 
 Azure Stack에서 Kubernetes 클러스터를 배포 하는 단계 id 관리 서비스에 따라 달라 집니다. Azure Stack의 설치에서 사용 하는 id 관리 솔루션을 확인 합니다. 사용자 id 관리 서비스를 확인 하려면 Azure Stack 관리자에 게 문의 합니다.
 

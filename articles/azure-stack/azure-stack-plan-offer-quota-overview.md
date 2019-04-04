@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763455"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497860"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
@@ -47,11 +47,14 @@ ms.locfileid: "57763455"
 
 ## <a name="plans"></a>요금제
 
-계획은 하나 이상의 서비스가 모인 그룹입니다. Azure Stack 운영자 있습니다 [계획을 만들고](azure-stack-create-plan.md) 사용자에 게 제공 합니다. 차례로 사용자 계획 및 포함 하는 서비스를 사용 하 여 제품을 구독 합니다. 계획을 만들면, 할당량 설정, 기본 계획을 정의 및 선택적 추가 기능 계획을 포함 하는 것이 좋습니다에 있는지 확인 합니다.
+계획은 하나 이상의 서비스가 모인 그룹입니다. Azure Stack 운영자 있습니다 [계획을 만들고](azure-stack-create-plan.md) 사용자에 게 제공 합니다. 차례로 사용자는 제안을 구독하여 여기에 포함된 계획 및 서비스를 사용합니다. 계획을 만들면, 할당량 설정, 기본 계획을 정의 및 선택적 추가 기능 계획을 포함 하는 것이 좋습니다에 있는지 확인 합니다.
 
 ### <a name="quotas"></a>할당량
 
 을 클라우드 용량을 관리할 수 있도록 하려면 사용할 수 있습니다 미리 구성 된 *할당량*, 계획의 각 서비스에 대 한 새 할당량을 만들거나 합니다. 할당량은 사용자 구독 프로 비전 하거나 사용할 수 있는 상위 리소스 한도 정의 합니다. 예를 들어 할당량 사용자 최대 5 개의 Vm (가상 머신)을 만들 수 있습니다.
+
+> [!IMPORTANT]
+> 사용자 포털에서 또는 변경 된 할당량을 적용 하기 전에 사용할 수 있는 새 할당량에 대 한 최대 2 시간이 걸릴 수 있습니다.
 
 지역에서 할당량을 구성할 수 있습니다. 예를 들어 지역 A에 대 한 계산 서비스를 제공 하는 계획을 두 Vm의 할당량이 없습니다.
 

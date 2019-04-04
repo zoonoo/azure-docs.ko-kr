@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089848"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894186"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
@@ -35,7 +35,7 @@ ms.locfileid: "58089848"
 |앱 공개|앱이 공용이면 작성 또는 엔드포인트 키가 있는 모든 사용자가 앱을 쿼리할 수 있습니다.|
 |모델 수정|
 |게시|
-|[활성 학습](luis-how-to-review-endoint-utt.md)의 엔드포인트 발화 검토|
+|[활성 학습](luis-how-to-review-endpoint-utterances.md)의 엔드포인트 발화 검토|
 |학습|
 
 ## <a name="access-to-endpoint"></a>엔드포인트에 대한 액세스
@@ -44,7 +44,7 @@ ms.locfileid: "58089848"
 
 ![앱을 공용으로 설정](./media/luis-concept-security/set-application-as-public.png)
 
-|[개인 엔드포인트](#private-app-endpoint-security)|[공용 엔드포인트](#public-app-endpoint-access)|
+|[개인 끝점](#private-app-endpoint-security)|[공용 끝점](#public-app-endpoint-access)|
 |:--|:--|
 |소유자 및 협력자에게 제공|소유자, 협력자 및 앱 ID를 아는 그 밖의 모든 사람에게 제공|
 

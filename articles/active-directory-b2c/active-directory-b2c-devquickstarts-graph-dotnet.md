@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075904"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895057"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
 >[!NOTE]
-> Azure AD B2C 디렉터리에서 사용자를 관리하려면 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396)를 사용해야 합니다. 이것이 Microsoft Graph API와 다릅니다. [여기](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)를 참조하세요.
+> Azure AD B2C 디렉터리에서 사용자를 관리하려면 [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview)를 사용해야 합니다. 이것이 Microsoft Graph API와 다릅니다. [여기](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)를 참조하세요.
 
 Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주요 예제는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션해야 할 수 있습니다. 고유한 페이지에서 사용자 등록을 호스팅하고 백그라운드에서 Azure AD B2C 디렉터리에 사용자 계정을 만들려고 할 수 있습니다. 이러한 형식의 태스크는 사용자 계정을 만들고 읽고 업데이트 및 삭제하는 기능이 필요합니다. Azure AD Graph API를 사용하여 이 태스크를 수행할 수 있습니다.
 
@@ -126,7 +126,7 @@ B2C Help
 각 명령에 대한 간략한 설명을 표시합니다. 이 명령 중 하나를 호출할 때마다 `B2CGraphClient` 은 Azure AD Graph API에 요청합니다.
 
 ### <a name="get-an-access-token"></a>액세스 토큰 가져오기
-Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니다. `B2CGraphClient` 은 오픈 소스 ADAL(Active Directory 인증 라이브러리)를 사용하여 액세스 토큰을 획득할 수 있도록 합니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다. 그러나 ADAL을 사용하여 토큰을 가져올 필요가 없습니다. HTTP 요청을 선별하여 토큰을 가져올 수도 있습니다.
+Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니다. `B2CGraphClient` 오픈 소스 Active Directory 인증 라이브러리 (ADAL)를 사용 하 여 액세스 토큰을 획득할 수 있도록 합니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다. 그러나 ADAL을 사용하여 토큰을 가져올 필요가 없습니다. HTTP 요청을 선별하여 토큰을 가져올 수도 있습니다.
 
 > [!NOTE]
 > 이 코드 샘플에서는 Graph API와 통신하기 위해 ADAL v2를 사용합니다.  Azure AD Graph API와 함께 사용할 수 있는 액세스 토큰을 가져오기 위해 ADAL v2 또는 v3를 사용해야 합니다.
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-이 요청의 이러한 대부분의 속성은 소비자 사용자를 만드는 데 필요합니다. 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)를 클릭하세요. `//` 메모는 그림에 포함되었습니다. 실제 요청에 포함되지 않습니다.
+이 요청의 이러한 대부분의 속성은 소비자 사용자를 만드는 데 필요합니다. 자세히 알아보려면 [여기](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)를 클릭하세요. `//` 메모는 그림에 포함되었습니다. 실제 요청에 포함되지 않습니다.
 
 요청을 확인하려면 다음 명령 중 하나를 실행합니다.
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`과 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity)에서 찾을 수 있습니다.
+`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`과 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity)에서 찾을 수 있습니다.
 
 이 POST 요청이 `B2CGraphClient.SendGraphPostRequest(...)`에서 생성되는 방법을 확인할 수 있습니다.
 
@@ -257,7 +257,7 @@ B2C Create-User ..\..\..\usertemplate-username.json
 * 요청 본문에 JSON 사용자 개체를 포함합니다.
 
 > [!NOTE]
-> 기존 사용자 저장소에서 마이그레이션하려는 계정에 [Azure AD B2C에 의해 적용되는 강력한 암호 강도](https://msdn.microsoft.com/library/azure/jj943764.aspx)보다 낮은 강도의 암호가 지정되어 있으면 `passwordPolicies` 속성의 `DisableStrongPassword` 값을 사용하여 강력한 암호 요구 사항을 사용하지 않도록 설정할 수 있습니다. 예를 들어 다음과 같이 위에 제공된 사용자 만들기 요청을 수정할 수 있습니다. `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> 기존 사용자 저장소에서 마이그레이션하려는 계정에 [Azure AD B2C에 의해 적용되는 강력한 암호 강도](/previous-versions/azure/jj943764(v=azure.100))보다 낮은 강도의 암호가 지정되어 있으면 `passwordPolicies` 속성의 `DisableStrongPassword` 값을 사용하여 강력한 암호 요구 사항을 사용하지 않도록 설정할 수 있습니다. 예를 들어 다음과 같이 위에 제공된 사용자 만들기 요청을 수정할 수 있습니다. `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 이 요청을 보내는 방법에 대한 세부 정보는 `B2CGraphClient.SendGraphDeleteRequest(...)` 메서드를 검사합니다.
 
-사용자 관리 외에도 Azure AD Graph API를 사용하여 다른 많은 작업을 수행할 수 있습니다. [Azure AD Graph API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 는 샘플 요청과 함께 각 작업의 세부 정보를 제공합니다.
+사용자 관리 외에도 Azure AD Graph API를 사용하여 다른 많은 작업을 수행할 수 있습니다. [Azure AD Graph API 참조](/previous-versions/azure/ad/graph/api/api-catalog) 는 샘플 요청과 함께 각 작업의 세부 정보를 제공합니다.
 
 ## <a name="use-custom-attributes"></a>사용자 지정 특성 사용
 많은 소비자 애플리케이션은 특정 유형의 사용자 지정 사용자 프로필 정보를 저장해야 합니다. 이렇게 할 수 있는 한 가지 방법은 B2C 테넌트의 사용자 지정 특성을 정의하는 것입니다. 그런 다음 해당 특성을 사용자 개체의 다른 속성을 다룰 경우와 동일한 방식으로 다룰 수 있습니다. 특성을 업데이트 및 삭제하고 특성으로 쿼리하며 특성을 로그인 토큰에서 클레임으로 보낼 수 있습니다.
@@ -355,7 +355,7 @@ B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 애플리케이션이 있습니다. `B2CGraphClient`는 고유한 애플리케이션 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
+`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 애플리케이션이 있습니다. `B2CGraphClient` 자체 응용 프로그램 id를 사용 하 여 Azure AD Graph API에 인증할 수 있습니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
 
 * 테넌트에서 애플리케이션에 적절한 권한을 부여해야 합니다.
 * 이제 ADAL(MSAL 아님)을 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)

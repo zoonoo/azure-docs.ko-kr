@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864301"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757751"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -26,7 +26,7 @@ Content Moderator의 기계 지원 텍스트 조정 및 [사용자 검토](Revie
 
 - 욕설: 다양한 언어의 기본 제공 욕설 목록을 사용하는 용어 기반 일치
 - 분류: 세 가지 범주의 기계 지원 분류
-- PII(개인 식별 정보)
+- 개인 데이터
 - 자동 수정된 텍스트
 - 원래 텍스트
 - 언어
@@ -75,7 +75,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 - `Score`는 0에서 1 사이입니다. 점수가 높을수록 모델이 예측하는 범주에 해당할 가능성이 높아집니다. 이 기능은 수동으로 코딩된 결과가 아닌 통계 모델을 사용합니다. 고유한 콘텐츠로 테스트하여 각 범주가 요구 사항과 얼마나 일치하는지 확인하는 것이 좋습니다.
 - `ReviewRecommended`는 내부 점수 임계값에 따라 true 또는 false입니다. 고객은 이 값을 사용할지 또는 콘텐츠 정책에 따라 사용자 지정 임계값을 결정할지를 평가해야 합니다.
 
-## <a name="personally-identifiable-information-pii"></a>PII(개인 식별 정보)
+## <a name="personal-data"></a>개인 데이터
 
 PII 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니다.
 

@@ -2,19 +2,19 @@
 title: 데이터 필터링 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 시스템을 학습하는 데 사용할 문서를 제출하면 문서는 일련의 처리 및 필터링 단계를 거쳐 학습을 준비합니다.
-author: jann-skotdal
+author: v-pawal
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 195c39562e36000597d04bb760741ec7f40203c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844676"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916113"
 ---
 # <a name="data-filtering"></a>데이터 필터링
 
@@ -49,9 +49,9 @@ Custom Translator는 학습 데이터에서 테스트 및 튜닝 문서에 제�
 
 ## <a name="unescaped-xml-tags"></a>이스케이프되지 않은 XML 태그
 필터링은 이스케이프되지 않은 태그를 이스케이프된 태그로 변환합니다.
-* `&lt;`는 `&amp;lt;`가 됩니다.
-* `&gt;`는 `&amp;gt;`가 됩니다.
-* `&amp;`는 `&amp;amp;`가 됩니다.
+* `&lt;` 됩니다. `&amp;lt;`
+* `&gt;` 됩니다. `&amp;gt;`
+* `&amp;` 됩니다. `&amp;amp;`
 
 ## <a name="invalid-characters"></a>잘못된 문자
 Custom Translator는 유니코드 문자 U+FFFD가 포함된 문장을 제거합니다. 문자 U+FFFD는 실패한 인코딩 변환을 나타냅니다.

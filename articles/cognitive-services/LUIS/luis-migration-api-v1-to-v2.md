@@ -1,7 +1,7 @@
 ---
 title: v1에서 v2 API 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 버전 1 끝점 및 언어 이해 Api 제작 사용 되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
+description: 버전 1 끝점 및 Language Understanding Api 제작 사용 되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087927"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894084"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
@@ -134,7 +134,7 @@ LUIS 메타데이터를 반환하는 여러 API에 새 이름이 사용됩니다
 
 
 ## <a name="sample-renamed-to-suggest"></a>“Sample”에서 “suggest”로 이름이 바뀜
-LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-how-to-review-endoint-utt.md)를 기반으로 발화를 제안합니다. 이전 버전에서는 이것을 **sample**이라고 했습니다. 새 버전에서는 이름이 sample에서 **suggest**로 변경됩니다. LUIS 웹 사이트에서는 이를 **[엔드포인트 발화 검토](luis-how-to-review-endoint-utt.md)** 라고 합니다.
+LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-how-to-review-endpoint-utterances.md)를 기반으로 발화를 제안합니다. 이전 버전에서는 이것을 **sample**이라고 했습니다. 새 버전에서는 이름이 sample에서 **suggest**로 변경됩니다. LUIS 웹 사이트에서는 이를 **[엔드포인트 발화 검토](luis-how-to-review-endpoint-utterances.md)** 라고 합니다.
 
 | 버전 | 경로 |
 |--|--|

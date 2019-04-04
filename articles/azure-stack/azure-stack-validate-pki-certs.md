@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 06cb29d6d04fb314f9eefa63d7a2b628a2af846b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769382"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481123"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
@@ -67,12 +67,12 @@ ms.locfileid: "57769382"
 
 1. 설치할 **AzsReadinessChecker** PowerShell 프롬프트에서 (5.1 이상)에서 다음 cmdlet을 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
 2. 인증서 디렉터리 구조를 만듭니다. 아래 예제에서는 변경할 수 있습니다 `<c:\certificates>` 를 새 디렉터리 경로로 세요.
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
     $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
@@ -85,7 +85,7 @@ ms.locfileid: "57769382"
     > [!Note]  
     > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다. 예를 들면 다음과 같습니다.
     >
-    > ```PowerShell  
+    > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
@@ -96,7 +96,7 @@ ms.locfileid: "57769382"
 
 3. PowerShell 창에서 값을 변경할 **RegionName** 하 고 **FQDN** Azure Stack 환경에 적합 하 고 다음을 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
@@ -104,7 +104,7 @@ ms.locfileid: "57769382"
 
 4. 모든 테스트를 통과 하는 출력 및 모든 인증서를 확인 합니다. 예를 들면 다음과 같습니다.
 
-```PowerShell
+```powershell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
 Testing: ARM Public\ssl.pfx
 Thumbprint: 7F6B27****************************E9C35A
@@ -156,7 +156,7 @@ Invoke-AzsCertificateValidation Completed
 
  - 다른 인증서는 인증서 체인에서 실패할 경우 건너뜁니다.
 
-    ```PowerShell  
+    ```powershell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -185,13 +185,13 @@ SQL/MySQL 또는 App Services 배포 계획 된 경우 준비 하 고 플랫폼�
 
 1.  설치할 **AzsReadinessChecker** PowerShell 프롬프트에서 (5.1 이상)에서 다음 cmdlet을 실행 합니다.
 
-    ```PowerShell  
+    ```powershell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
     ```
 
 2.  경로 및 각 PaaS 인증서 유효성 검사를 필요로 하는 데 암호를 포함 하는 중첩 된 해시 테이블을 만듭니다. PowerShell 창의 실행:
 
-    ```PowerShell  
+    ```powershell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -203,12 +203,12 @@ SQL/MySQL 또는 App Services 배포 계획 된 경우 준비 하 고 플랫폼�
 
 3.  값을 변경할 **RegionName** 하 고 **FQDN** 유효성 검사를 시작 하려면 Azure Stack 환경과 일치 하도록 합니다. 그런 후 다음을 실행합니다.
 
-    ```PowerShell  
+    ```powershell  
     Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  출력 하 고 있는 모든 인증서 모든 테스트를 통과 하는 확인 합니다.
 
-    ```PowerShell
+    ```powershell
     Invoke-AzsCertificateValidation v1.0 started.
     Thumbprint: 95A50B****************************FA6DDA
         Signature Algorithm: OK

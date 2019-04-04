@@ -8,21 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5adb2a3c2a443e6c77c315935e0729cf8728e8cd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308794"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877128"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
 `docker run` 명령 인수를 사용하여 **텍스트 인식** 컨테이너 런타임 환경을 구성합니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
-
-컨테이너 설정은 [계층 구조](#hierarchical-settings)이며 [환경 변수](#environment-variable-settings) 또는 Docker [명령줄 인수](#command-line-argument-settings)를 사용하여 설정할 수 있습니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
@@ -49,9 +47,9 @@ ms.locfileid: "56308794"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Computer Vision** 개요(레이블: `Endpoint`)
+* Azure Portal: **Computer Vision** 개요, 레이블이 지정 `Endpoint`
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -79,14 +77,10 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| Name | 데이터 형식 | 설명 |
+|옵션| name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Computer Vision 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="hierarchical-settings"></a>계층 구조 설정
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
 
@@ -120,7 +114,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
   ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
+### <a name="logging-example"></a>로깅 예 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -128,18 +122,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} \
   ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>다음 단계

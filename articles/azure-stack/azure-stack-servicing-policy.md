@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8abbf3a9db02fda0c92485ef75a12d82f4e8c8e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400543"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903950"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 
@@ -53,10 +53,10 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 
 를 다운로드 하는 방법을 비롯 한 특정 업데이트에 대 한 정보 업데이트에 대 한 릴리스 정보를 참조 하세요.
 
+- [Azure Stack 1903 업데이트](azure-stack-update-1903.md)
 - [Azure Stack 1902 업데이트](azure-stack-update-1902.md)
 - [Azure Stack 1901 업데이트](azure-stack-update-1901.md)
 - [Azure Stack 1811 업데이트](azure-stack-update-1811.md)
-- [Azure Stack 1809 업데이트](azure-stack-update-1809.md)
 
 ## <a name="hotfixes"></a>핫픽스
 

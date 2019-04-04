@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082112"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892418"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -216,9 +216,9 @@ public class Order
 
 `#load` 지시문으로 상대 경로를 사용할 수 있습니다.
 
-* `#load "mylogger.csx"` 는 함수 폴더에 있는 파일을 로드합니다.
-* `#load "loadedfiles\mylogger.csx"` 는 함수 폴더의 폴더에 있는 파일을 로드합니다.
-* `#load "..\shared\mylogger.csx"` 는 함수 폴더와 동일한 수준의 폴더 즉, *wwwroot*에 있는 파일을 로드합니다.
+* `#load "mylogger.csx"` 함수 폴더에 있는 파일을 로드 합니다.
+* `#load "loadedfiles\mylogger.csx"` 함수 폴더의 폴더에 있는 파일을 로드 합니다.
+* `#load "..\shared\mylogger.csx"` 즉, 함수 폴더와 동일한 수준의 폴더에 있는 파일을 로드 바로 아래 *wwwroot*합니다.
 
 `#load` 지시문은 *.cs* 파일이 아닌 *.csx* 파일에서만 작동합니다.
 
@@ -274,7 +274,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>취소 토큰
 
-함수는 함수가 종료될 때 운영 체제가 코드에 알릴 수 있게 해주는 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 매개 변수를 사용할 수 있습니다. 이 알림을 통해 함수가 예기치 않게 종료되어 데이터가 일관되지 않은 상태가 되는 것을 방지할 수 있습니다.
+함수는 함수가 종료될 때 운영 체제가 코드에 알릴 수 있게 해주는 [CancellationToken](/dotnet/api/system.threading.cancellationtoken) 매개 변수를 사용할 수 있습니다. 이 알림을 통해 함수가 예기치 않게 종료되어 데이터가 일관되지 않은 상태가 되는 것을 방지할 수 있습니다.
 
 다음 예제에서는 임박한 함수 종료를 확인하는 방법을 보여 줍니다.
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 `T`에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
+`BindingTypeAttribute` 바인딩을 정의 하는.NET 특성이 며 및 `T` 는 해당 바인딩 형식에서 지원 되는 입력 또는 출력 형식입니다. `T` 일 수 없습니다는 `out` 매개 변수 형식 (같은 `out JObject`). 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 `T`에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)는 지원되는 출력 바인딩 형식입니다.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](/dotnet/api/system.io.textwriter)는 지원되는 출력 바인딩 형식입니다.
 
 ### <a name="multiple-attribute-example"></a>다중 특성 예제
 
@@ -527,7 +527,7 @@ public static async Task Run(string input, Binder binder)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [트리거 및 바인딩에 대해 자세히 알아보기](functions-triggers-bindings.md)
+> [트리거 및 바인딩에 자세히 알아보기](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions에 대한 모범 사례에 대해 자세히 알아보기](functions-best-practices.md)
+> [Azure Functions에 대 한 모범 사례 자세히 알아보기](functions-best-practices.md)

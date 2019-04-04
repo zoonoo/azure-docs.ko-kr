@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a6d356bcf65cdb59e84b34cf2a7478de796e61a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473443"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619518"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>빠른 시작: 비정상 탐지기 REST API 및 Java를 사용 하 여 시계열 데이터에서 변칙을 검색 합니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "58473443"
 
 2. 만들기는 `CloseableHttpClient` API에 요청을 보낼 수 있는 개체입니다. 요청을 보낼는 `HttpPost` 끝점에 및 비정상 탐지기 URL을 결합 하 여 요청 개체입니다.
 
-3. 요청을 사용 하 여 `setHeader()` 함수를 설정 합니다 `Content-Type` 에 헤더를 `application/json`, 구독 키를 추가 하 고는 `Ocp-Apim-Subscription-Key` 헤더.
+3. 요청을 사용 하 여 `setHeader()` 함수를 설정 합니다 `Content-Type` 헤더를 `application/json`, 구독 키를 추가 하 고는 `Ocp-Apim-Subscription-Key` 헤더.
 
 4. 요청을 사용 하 여 `setEntity()` 데이터 전송에 함수입니다.   
 

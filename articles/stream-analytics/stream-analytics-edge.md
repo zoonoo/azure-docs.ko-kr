@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994983"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892231"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -44,12 +44,14 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 
 ### <a name="installation-instructions"></a>설치 지침
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
+
 |      |단계   | 메모   |
 | ---   | ---   |  ---      |
 | 1   | **저장소 컨테이너 만들기**   | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
-| 2   | **ASA Edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
-| 3   | **디바이스에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
-| 4   | **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
+| 2   | **ASA edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
+| 3   | **장치에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
+| 4   | **IoT Edge 장치에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
+
 [이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 디바이스에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
 
 
@@ -58,7 +60,7 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 #### <a name="create-a-storage-container"></a>저장소 컨테이너 만들기
 ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이너가 필요합니다. 특정 쿼리로 ASA Docker 이미지를 구성하는 데 사용됩니다. 
 1. [이러한 지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 Azure Portal에서 저장소 계정을 만듭니다. ASA에서 이 계정을 사용하기 위해 모든 기본 옵션을 유지할 수 있습니다.
-2. 새로 만든 저장소 계정에서 Blob Storage 컨테이너를 만듭니다.
+2. 새로 만든 스토리지 계정에서 Blob Storage 컨테이너를 만듭니다.
     1. **Blobs**을 클릭한 다음, **+ 컨테이너**를 클릭합니다. 
     2. 이름을 입력하고 컨테이너를 **비공개**로 유지합니다.
 
@@ -104,7 +106,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있�
 - Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 디바이스를 클릭합니다.
 - **모듈 설정**을 선택한 다음, **+ 추가**를 선택하고 **Azure Stream Analytics 모듈**을 선택합니다.
 - 구독 및 사용자가 만든 ASA Edge 작업을 선택합니다. 저장을 클릭합니다.
-![모듈에 ASA 배포 추가](media/stream-analytics-edge/add-stream-analytics-module.png)
+![배포에 ASA 모듈을 추가 합니다.](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -123,16 +125,16 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 
 ```json
 {
-"routes": {                                              
-    "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
-    "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream", 
-    "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")" 
+    "routes": {
+        "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
+        "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream",
+        "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")"
+    }
 }
-}   
 
 ```
 이 예제에서는 다음 그림에 설명된 시나리오에 대한 경로를 보여 줍니다. 여기에는 이름이 "**ASA**"이고, 입력 "**temperature**"와 출력"**alert**"를 포함하는 Edge 작업이 포함되어 있습니다.
-![메시지 라우팅 다이어그램 예](media/stream-analytics-edge/edge-message-routing-example.png)
+![메시지 라우팅 다이어그램 예제](media/stream-analytics-edge/edge-message-routing-example.png)
 
 이 예제에서는 다음 경로를 정의합니다.
 - **tempSensor**의 모든 메시지는 **temperature**라는 입력에 대해 **ASA** 모듈로 전송됩니다.
@@ -142,7 +144,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 
 ## <a name="technical-information"></a>기술 정보
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>클라우드 작업 대비 IoT Edge 작업의 현재 제한 사항
-목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. SQL 쿼리 언어 기능의 대부분은 이미 지원됩니다.
+목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. 클라우드 및 IoT Edge를 둘 다에서 동일한 논리를 실행 하려면 사용 하도록 설정 하면 대부분의 SQL 쿼리 언어 기능이 지원 됩니다.
 그러나 다음 기능이 Edge 작업에서는 아직 지원되지 않습니다.
 * JavaScript의 UDF(사용자 정의 함수). UDF는 [IoT Edge 작업용 C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf)(미리 보기)에서 사용할 수 있습니다.
 * UDA(사용자 정의 집계).
@@ -150,14 +152,6 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 * 한 번에 15개 이상의 집계 사용
 * AVRO 형식의 입/출력 현재 CSV 및 JSON만 지원됩니다.
 * 다음 SQL 연산자:
-    * 지리 공간적 연산자:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * PARTITION BY
     * GetMetadataPropertyValue
 
@@ -215,10 +209,10 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Iot Edge에 대한 추가 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [IoT Edge의 ASA 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Azure Iot Edge에 대 한 자세한 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [IoT Edge 자습서에는 ASA](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
-* [API를 사용하여 Stream Analytics를 위한 CI/CD 구현](stream-analytics-cicd-api.md)
+* [API를 사용하여 Stream Analytics에 대한 CI/CD 구현](stream-analytics-cicd-api.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

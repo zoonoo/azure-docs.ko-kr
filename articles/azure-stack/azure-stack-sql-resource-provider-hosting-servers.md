@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210529"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499236"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -186,14 +186,19 @@ Sku는 특정 사용자 또는 그룹에 할당할 수 없습니다.
 
 Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
 
-SKU를 편집 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+SKU를 편집 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 
 
-> [!TIP]
-> 편집 하거나 동일한 위치에 SQL 리소스 공급자 할당량을 삭제할 수 있습니다.
+더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+
+> [!IMPORTANT]
+> 사용자 포털에서 사용할 수 있도록 새 Sku에 대 한 1 시간까지 걸릴 수 있으므로 합니다.
 
 ## <a name="make-sql-databases-available-to-users"></a>사용자에 게 SQL database를 사용할 수 있도록
 
 계획 및 제품은 사용자에 대 한 SQL database에서 사용할 수 있도록 만듭니다. 추가 합니다 **Microsoft.SqlAdapter** 새 할당량을 만들고 서비스를 계획 합니다.
+
+> [!IMPORTANT]
+> 사용자 포털에서 또는 변경 된 할당량을 적용 하기 전에 사용할 수 있는 새 할당량에 대 한 최대 2 시간이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

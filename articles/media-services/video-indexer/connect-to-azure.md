@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763676"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894220"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -60,7 +60,7 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
 
-2. **Azure에 연결** 단추를 클릭합니다.
+2. 클릭 합니다 **새 계정 만들기** 단추:
 
     ![Azure에 연결](./media/create-account/connect-to-azure.png)
 
@@ -90,9 +90,7 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
     ![새 계정](./media/create-account/new-account.png)
 
-7. 새 계정으로 이동합니다.
-
-    ![Video Indexer 계정](./media/create-account/vi-account.png)
+7. 새 계정으로 이동
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Azure에 수동으로 연결(고급 옵션)
 

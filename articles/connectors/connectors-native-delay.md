@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963675"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893727"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>지연 및 다음 기간까지 지연 동작 시작
 지연 및 다음 기간까지 지연 동작을 사용하여 워크플로 시나리오를 완료할 수 있습니다.
@@ -33,9 +33,11 @@ ms.locfileid: "27963675"
 논리 앱에서 지연 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="use-the-delay-actions"></a>지연 작업 사용
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다](connectors-overview.md).
 
-논리 앱에서 지연 단계는 사용하는 방법의 예제 시퀀스는 다음과 같습니다.
+동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. 
+[작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
+
+논리 앱에서 지연 단계를 사용 하는 방법의 예제 시퀀스는 다음과 같습니다.
 
 1. 트리거를 추가한 후 **새 단계** 를 클릭하여 동작을 추가합니다.
 2. **delay** 를 검색하여 지연 동작을 불러옵니다. 이 예제에서는 **지연**을 선택합니다.
@@ -56,7 +58,7 @@ A*는 필수 필드 임을 의미합니다.
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
 | Count* |count |지연할 시간 단위 수 |
-| Unit* |단위 |시간 단위: `Second`, `Minute`, `Hour` 또는 `Day` |
+| Unit* |단위 |시간 단위: `Second`하십시오 `Minute`, `Hour`, 또는 `Day` |
 
 <br>
 

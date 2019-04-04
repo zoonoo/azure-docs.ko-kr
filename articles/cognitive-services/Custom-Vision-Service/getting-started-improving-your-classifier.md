@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351442"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883076"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -72,6 +72,15 @@ ms.locfileid: "58351442"
 * __스타일:__ 동일한 클래스의 다양한 스타일을 갖는 이미지를 제공합니다(예: 같은 과일의 다른 품종). 단, 개체가 완전히 다른 스타일을 갖는 경우(즉, 미키마우스와 실제 쥐) 별도 클래스로 레이블을 지정하여 고유한 대상을 대표하도록 하는 것이 좋습니다.
 
     ![스타일 샘플 이미지](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="negative-images"></a>음수 이미지
+
+프로젝트에서 일정 시점이 되면 분류자의 정확도를 높이기 위해 _부정 샘플_을 추가해야 할 수도 있습니다. 부정 샘플은 다른 어떤 태그와도 일치하지 않는 샘플입니다. 이러한 이미지를 업로드할 때는 특수 **부정** 레이블을 적용합니다.
+
+> [!NOTE]
+> Custom Vision Service는 몇 가지 자동 음화 이미지 처리를 지원합니다. 예를 들어 사과와 바나나 분류자를 빌드 중이며 예측을 위해 신발 이미지를 제출하는 경우, 분류자는 해당 이미지의 점수를 사과와 바나나 둘 다에 대해 0%에 가깝게 지정해야 합니다.
+> 
+> 반면에 부정 이미지가 학습에 사용된 이미지 변형에 불과한 경우, 모델이 뛰어난 유사성 때문에 부정 이미지를 레이블이 지정된 클래스로 분류할 수 있습니다. 예를 들어, 오렌지와 포도 분류자가 있으며 귤 이미지를 제공하는 경우 귤의 많은 특징이 오렌지와 유사하기 때문에 귤이 오렌지로 점수가 매겨질 수 있습니다. 부정 이미지가 이러한 특성을 가질 경우, 학습 중에 하나 이상의 추가 태그(예: **기타**)를 만들고 부정 이미지에 이 태그를 레이블로 지정하여 모델이 이러한 클래스를 보다 잘 구분하도록 할 수 있습니다.
 
 ## <a name="use-prediction-images-for-further-training"></a>추가 학습에 예측 이미지 사용
 

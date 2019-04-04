@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243337"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879355"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 리소스 공급자 1.1.33.0 릴리스 정보
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 이러한 릴리스 향상 된 기능 및 SQL 리소스 공급자 버전 1.1.33.0의에서 알려진된 문제에 설명 합니다.
 
@@ -50,7 +50,8 @@ ms.locfileid: "55243337"
 
 - **이전 SQL 리소스 공급자 (1.1.30.0) 배포는 TLS 1.2를 사용 하지 않는 경우 실패할 수 있습니다**합니다. 리소스 공급자를 업데이트 하거나 암호를 회전 하면 리소스 공급자를 배포 하는 경우 TLS 1.2를 사용 하도록 설정 하려면 SQL 리소스 공급자 1.1.33.0를 업데이트 합니다. 
 
-- **SQL 리소스 공급자에 대 한 비밀 회전 실패**합니다. 암호를 회전 하는 경우 다음 오류 코드 생성 문제 해결된: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **SQL 리소스 공급자에 대 한 비밀 회전 실패**합니다. 암호를 회전 하는 경우 다음 오류 코드 생성 문제 해결된:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>알려진 문제 
 

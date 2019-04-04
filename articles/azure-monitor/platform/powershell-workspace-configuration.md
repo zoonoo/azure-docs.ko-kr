@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539380"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903406"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-사용할 수는 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) Log Analytics 작업 영역에서 Azure Monitor의 명령줄 또는 스크립트의 일부로 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
+사용할 수는 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) Log Analytics 작업 영역에서 Azure Monitor의 명령줄 또는 스크립트의 일부로 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
 * 작업 영역 만들기
 * 솔루션 추가 또는 제거
@@ -33,10 +31,12 @@ ms.locfileid: "58539380"
 * Azure 가상 머신에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
-이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 를 참조할 수 있습니다.
+이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 를 참조할 수 있습니다.
 
 > [!NOTE]
 > Log Analytics는 이전에 Operational Insights라고 했기 때문에 cmdlet에서는 Operational Insights라고 합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이러한 예제 Az.OperationalInsights 모듈 또는 나중에 버전 1.0.0 사용 하 여 작동합니다.
@@ -272,5 +272,5 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics PowerShell Cmdlet 검토](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 를 참조하세요.
+* [Log Analytics PowerShell Cmdlet 검토](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 를 참조하세요.
 

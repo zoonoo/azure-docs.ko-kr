@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ff5aeddbf05011f7c7d105e6c48552bca81580c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770189"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483286"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 구성 설정
 
@@ -38,7 +38,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 가상 네트워크 게이트웨이 만들 때 게이트웨이 유형이 구성에 대해 올바른지 확인 해야 합니다. VPN 게이트웨이 필요는 `-GatewayType Vpn`플래그; 예를 들어:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
 -VpnType RouteBased
@@ -72,7 +72,7 @@ Azure Stack 포털을 사용 하 여 Resource Manager 가상 네트워크 게이
 
 다음 PowerShell 예에서는 지정 된 **-GatewaySku** 으로 `VpnGw1`:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
 -GatewayType Vpn -VpnType RouteBased
@@ -86,7 +86,7 @@ Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상
 
    다음 PowerShell 예제에서는 IPsec 연결 유형이 필요한 S2S 연결을 만들어집니다.
 
-   ```PowerShell
+   ```powershell
    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
    -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -110,7 +110,7 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 
 다음 PowerShell 예에서는 지정 된 **-VpnType** 으로 **RouteBased**합니다. 게이트웨이 만들 때 해야 하는 **-vpntype은** 구성에 대 한 올바른 합니다.
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig
 -GatewayType Vpn -VpnType RouteBased
@@ -140,7 +140,7 @@ VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니
 
 다음 Resource Manager PowerShell 예제에서는 명명 된 게이트웨이 서브넷 **GatewaySubnet**합니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
-```PowerShell
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -155,7 +155,7 @@ Azure에서 VPN gateway 구성을 만들 때 로컬 네트워크 게이트웨이
 
 다음 PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
 
-```PowerShell
+```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

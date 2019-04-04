@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0c89ed34b21ca0c41d4f7765d99d8fe8bf7c647d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891026"
 ---
 ## <a name="preparing-for-updates"></a>업데이트 준비
 업데이트를 스캔하고 적용하기 전에 다음 단계를 수행해야 합니다.
@@ -17,9 +17,9 @@ ms.locfileid: "55888863"
 1. 디바이스 데이터의 클라우드 스냅숏을 만듭니다.
 2. 컨트롤러 고정 IP가 라우팅할 수 있으며 인터넷에 연결할 수 있는지 확인합니다. 이러한 고정된 IP는 디바이스를 서비스 업데이트하는 데 사용됩니다. 디바이스의 Windows PowerShell 인터페이스에서 다음 cmdlet을 실행하여 이를 테스트할 수 있습니다.
    
-     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
-    **고정된 IP가 인터넷에 연결할 수 있는 경우 테스트 연결에 대한 샘플 출력**
+    **고정된 Ip는 인터넷에 연결할 수 경우 테스트 연결에 대 한 샘플 출력**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 

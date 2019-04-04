@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537904"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918538"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
@@ -89,7 +89,7 @@ expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄�
 * `stats` expand 문자열 예제는 목록에서 각 항목에 대해 반환되어야 하는 통계 정보를 지정하고 있습니다.
 
 > [!NOTE]
-> 세 가지 쿼리 문자열 형식(filter, select 및 expand) 중 하나를 구성할 때 속성 이름 및 사례가 해당 REST API 요소와 일치해야 합니다. 예를 들어 .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) 클래스를 사용하는 경우 .NET 속성이 [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state)이더라도 **State** 대신 **state**를 지정해야 합니다. .NET 및 REST API 간의 속성 매핑은 아래 표를 참조하세요.
+> 세 가지 쿼리 문자열 형식(filter, select 및 expand) 중 하나를 구성할 때 속성 이름 및 사례가 해당 REST API 요소와 일치해야 합니다. 예를 들어 .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) 클래스를 사용하는 경우 .NET 속성이 [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state)이더라도 **State** 대신 **state**를 지정해야 합니다. .NET 및 REST API 간의 속성 매핑은 아래 표를 참조하세요.
 > 
 > 
 
@@ -110,7 +110,7 @@ expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄�
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: 각 항목에 반환되는 속성 값을 지정합니다.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: 각 항목의 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
 
-다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
+다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Select 및 Expand 절로 구성된 [ODATADetailLevel][odata]의 인스턴스는 반환되는 데이터의 양을 제한하기 위해 [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx)과 같은 적절한 Get 메서드에 전달할 수도 있습니다.
+> Select 및 Expand 절로 구성된 [ODATADetailLevel][odata]의 인스턴스는 반환되는 데이터의 양을 제한하기 위해 [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__)과 같은 적절한 Get 메서드에 전달할 수도 있습니다.
 > 
 > 
 
@@ -179,7 +179,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 ## <a name="example-construct-a-filter-string"></a>예: filter 문자열 구성
 [ODATADetailLevel.FilterClause][odata_filter]에 대한 filter 문자열을 구성할 때는 "filter 문자열에 대한 매핑"에서 위의 표를 참조하여 수행하려는 목록 작업에 해당하는 REST API 설명서 페이지를 찾을 수 있습니다. 해당 페이지의 첫 번째 다중 행 표에 필터링 가능한 속성과 지원되는 연산자가 있습니다. 예를 들어, 종료 코드가 0이 아닌 모든 태스크를 검색하려는 경우 [작업과 연결된 태스크 목록][rest_list_tasks]의 이 행은 적용 가능한 속성 문자열과 허용 가능한 연산자를 지정합니다.
 
-| 자산 | 허용되는 연산 | type |
+| 자산 | 허용되는 연산 | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 ## <a name="example-construct-a-select-string"></a>예: select 문자열 구성
 [ODATADetailLevel.SelectClause][odata_select]를 구성하려면 "select 문자열에 대한 매핑"에서 위의 표를 참조하고 나열하는 엔터티 형식에 해당하는 REST API 페이지로 이동합니다. 해당 페이지의 첫 번째 다중 행 표에 선택 가능한 속성과 지원되는 연산자가 있습니다. 목록의 각 태스크에 대해 ID와 명령줄만 검색하려면 [태스크 관련 정보 가져오기][rest_get_task]의 해당하는 표에서 이 행을 찾을 수 있습니다.
 
-| 자산 | type | 메모 |
+| 자산 | Type | 메모 |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [동시 노드 작업으로 Azure Batch 계산 리소스 사용 극대화](batch-parallel-node-tasks.md)는 배치 애플리케이션 성능과 관련된 다른 문서입니다. 일부 유형의 작업은 더 크지만 더 적은 계산 노드에서의 병렬 작업 실행에서 이점을 얻을 수 있습니다. 이러한 시나리오에 대한 자세한 내용은 문서의 [예제 시나리오](batch-parallel-node-tasks.md#example-scenario) 를 확인하세요.
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

@@ -7,21 +7,26 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/19/2019
 ms.author: anzaman
-ms.openlocfilehash: 073cff22f17f496c2ff85cfbf716751dfea1e03e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: b491120639421d85d2fbb1a0efb2b6dd09ec1d4c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283239"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893897"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Video Indexer에서 개인 모델 사용자 지정
 
+Video Indexer에서 비디오의 유명인 인식을 지원합니다. 유명인 인식 기능은 IMDB, Wikipedia, 상위 LinkedIn 영향력 행사자 등 일반적으로 요청되는 데이터 원본을 기준으로 하는 약 백만 개의 얼굴을 처리합니다. Video Indexer에서 인식 되지 않는 얼굴 여전히 검색 됩니다 있지만 명명 되지 않은 합니다. 고객은 사용자 지정 사용자 모델을 빌드할 수 있으며 기본적으로 인식 되지 않는 얼굴 인식 하도록 Video Indexer를 사용 하도록 설정 됩니다. 고객의 개인의 얼굴 이미지 파일을 사용 하 여 사람의 이름을 연결 하 여 이러한 사용자 모델을 빌드할 수 있습니다.  
 
-Video Indexer는 비디오 콘텐츠에 대해 얼굴 감지 및 유명인 인식 기능을 지원합니다. 유명인 인식 기능은 IMDB, Wikipedia, 상위 LinkedIn 영향력 행사자 등 일반적으로 요청되는 데이터 원본을 기준으로 하는 약 1,000,000개의 얼굴을 처리합니다. 유명인 인식 기능으로 인식되지 않는 얼굴은 감지되지만 이름 없이 유지됩니다. Video Indexer에 비디오를 업로드하고 결과를 얻은 후 돌아가서 인식되지 않은 얼굴에 이름을 지정할 수 있습니다. 얼굴에 이름 레이블을 지정하면 얼굴과 이름이 계정의 개인 모델에 추가됩니다. 그러면 Video Indexer가 향후 비디오 및 이전 비디오에서 이 얼굴을 인식합니다.
+계정에 다른 사용 사례에 맞는, 계정당 여러 개인 모델을 만들 수 없도록 얻을 수 있습니다. 예를 들어 계정에 콘텐츠를 다른 채널에 정렬 되어야 하는 경우 각 채널에 대 한 별도 사용자 모델을 만드는 것이 좋습니다. 
 
-Video Indexer 웹 사이트 또는 API를 사용하여 다음 항목에 설명된 대로 계정의 비디오에서 감지된 얼굴을 편집할 수 있습니다.
+> [!NOTE]
+> 각 사용자 모델은 최대 1 백만 사용자를 지원 하며 계정 마다 사용자 모델 50 개로 제한 합니다. 
 
-- [API를 사용하여 개인 모델 사용자 지정](customize-person-model-with-api.md)
-- [를 사용하여 개인 모델 사용자 지정](customize-person-model-with-website.md)
+모델이 생성되면, 비디오를 업로드/인덱싱하거나 다시 인덱싱할 때 특정 개인 모델의 모델 ID를 제공하여 모델을 사용할 수 있습니다. 비디오에 대 한 새 얼굴 교육 비디오와 연결 된 특정 사용자 지정 모델을 업데이트 합니다. 
+
+다중 개인 모델 지원이 필요하지 않은 경우, 업로드/인덱싱하거나 다시 인덱싱할 때 비디오에 개인 모델 ID를 할당하지 마세요. 이 경우 Video Indexer 계정에서 기본 사용자 모델을 사용 됩니다. 
+
+에 설명 된 대로 비디오에서 검색 된 얼굴을 편집 하 고 관리 계정에 여러 사용자 지정 사용자 모델 Video Indexer 웹 사이트를 사용할 수 있습니다 합니다 [웹 사이트를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-website.md) 항목입니다. 에 설명 된 대로 API를 사용할 수도 있습니다 [Api를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-api.md)합니다.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433113"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578631"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -32,7 +32,11 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
-모든 데이터 원본에 대해 공용 URL만 유효합니다. 인증을 요구하는 데이터 원본을 제출하지 마십시오. 인증된 사이트에서 파일을 다운로드한 다음, 파일 업로드 옵션을 사용하여 질문과 답변을 추출할 수 있습니다.
+대부분의 데이터 원본 위치는 공용 Url 또는 인증을 요구 하지 않는 파일을 제공 해야 합니다. 
+
+[Sharepoint 데이터 원본 위치](../How-to/add-sharepoint-datasources.md) 인증된 파일을 제공할 수 있습니다. Sharepoint 리소스 파일을 웹 페이지 하지 해야 합니다. 
+
+로컬에서 다른 옵션은 로컬 컴퓨터에 인증된 된 사이트에서 파일을 다운로드 하는 인증 된 파일 또는 URL에 있는 경우 다음 파일을 추가 기술 자료에는 컴퓨터입니다. 
 
 ## <a name="faq-urls"></a>FAQ URL
 

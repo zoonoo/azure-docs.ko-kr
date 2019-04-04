@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403190"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486685"
 ---
 # <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다
 
@@ -85,7 +85,7 @@ Azure Stack 준비 상태 검사기 도구를 사용 (**AzsReadinessChecker**) A
 
 4. 도구를 실행 한 후 출력을 검토 합니다. 상태 확인 **확인** 설치 요구 사항에 대 한 합니다. 다음 이미지와 같이 유효성 검사를 성공적으로 표시 됩니다.
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Azure Stack 준비 상태 검사기 도구를 사용 (**AzsReadinessChecker**) A
 
 ### <a name="expired-or-temporary-password"></a>만료 된 또는 임시 암호
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 또는에 로그인 하는 [Azure portal](https://portal.azure.com) 암호를 변경 하려면 계정 소유자 및 사용자를 적용할 수 됩니다.
 
-### <a name="unknown-user-type"></a>알 수 없는 사용자 유형
-
-```shell
+### <a name="unknown-user-type"></a>알 수 없는 사용자 유형 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>계정은 관리자가 아닙니다.
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -197,6 +197,6 @@ Azure Stack 도메인 이름을 주 도메인 이름이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 등록 유효성 검사](azure-stack-validate-registration.md)  
+[Azure 등록의 유효성 검사](azure-stack-validate-registration.md)  
 [준비 보고서를 보려면](azure-stack-validation-report.md)  
 [일반 Azure Stack 통합 고려 사항](azure-stack-datacenter-integration.md)  

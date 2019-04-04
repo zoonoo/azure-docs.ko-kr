@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818705"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918266"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -59,8 +59,8 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 
 | SKU 제품군 | ACU/코어 |
 | --- | --- |
-| [ExtraSmall](#a-series) |50 |
-| [Small-ExtraLarge](#a-series) |100 |
+| [매우 작음](#a-series) |50 |
+| [작은 ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [A v2](#av2-series) |100 |
@@ -213,7 +213,7 @@ H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 �
 >
 
 ## <a name="get-a-list-of-sizes"></a>크기 목록 가져오기
-PowerShell 또는 REST API를 사용하여 크기 목록을 가져올 수 있습니다. REST API는 [여기](https://msdn.microsoft.com/library/azure/dn469422.aspx)에 기록되어 있습니다. 다음 코드는 Cloud Services에 사용할 수 있는 모든 크기를 나열하는 PowerShell 명령입니다. 
+PowerShell 또는 REST API를 사용하여 크기 목록을 가져올 수 있습니다. REST API는 [여기](/previous-versions/azure/reference/dn469422(v=azure.100))에 기록되어 있습니다. 다음 코드는 Cloud Services에 사용할 수 있는 모든 크기를 나열하는 PowerShell 명령입니다. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에서 Azure Resource Manager 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
+title: Azure Resource Manager 템플릿-Azure Logic Apps를 사용 하 여 논리 앱 배포
+description: Azure Resource Manager 템플릿을 사용 하 여 논리 앱 배포
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,92 +10,32 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 7543859a916de97d471db2894887e640db51dfc2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652487"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893427"
 ---
-# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
+# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용 하 여 논리 앱 배포
 
-Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제공하여 워크플로를 자동화하기 위한 논리 앱을 만들 뿐만 아니라 배포에 사용되는 리소스 및 매개 변수를 정의합니다.
-이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. [논리 앱의 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 및 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
+논리 앱을 배포 하기 위한 Azure Resource Manager 템플릿을 만들면 다음과 같은이 방법으로 템플릿을 배포할 수 있습니다.
 
-## <a name="define-the-logic-app"></a>논리 앱 정의
-이 예제 논리 앱 정의는 한 시간에 한 번 실행되며, `testUri` 매개 변수에서 지정된 위치를 ping합니다.
-템플릿은 논리 앱 이름(```logicAppName```) 및 테스트할 ping 위치(```testUri```)에 매개 변수 값을 사용합니다. [템플릿에서 이러한 매개 변수를 정의](#define-parameters)하는 방법에 대해 자세히 알아봅니다.
-또한 템플릿은 논리 앱의 위치를 Azure 리소스 그룹과 같은 위치로 설정합니다.
+* [Azure portal](#portal)
+* [Azure PowerShell](#powershell)
+* [Azure CLI](#cli)
+* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure DevOps Azure Pipelines](#azure-pipelines)
 
-```json
-{
-   "type": "Microsoft.Logic/workflows",
-   "apiVersion": "2016-06-01",
-   "name": "[parameters('logicAppName')]",
-   "location": "[resourceGroup().location]",
-   "tags": {
-      "displayName": "LogicApp"
-   },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-            "testURI": {
-               "type": "string",
-               "defaultValue": "[parameters('testUri')]"
-            }
-         },
-         "triggers": {
-            "Recurrence": {
-               "type": "Recurrence",
-               "recurrence": {
-                  "frequency": "Hour",
-                  "interval": 1
-               }
-            }
-         },
-         "actions": {
-            "Http": {
-              "type": "Http",
-              "inputs": {
-                  "method": "GET",
-                  "uri": "@parameters('testUri')"
-              },
-              "runAfter": {}
-           }
-         },
-         "outputs": {}
-      },
-      "parameters": {}
-   }
-}
-```
+<a name="portal"></a>
 
-<a name="define-parameters"></a>
+## <a name="deploy-through-azure-portal"></a>Azure portal을 통해 배포
 
-### <a name="define-parameters"></a>매개 변수 정의
+논리 앱 템플릿을 Azure에 자동으로 배포 하려면 다음을 선택할 수 있습니다 **Azure에 배포** 단추를 Azure portal에 로그인 하 고 논리 앱에 대 한 정보에 대 한 라는 메시지가 표시 됩니다. 그런 다음 논리 앱 템플릿 또는 매개 변수에 필요한 내용을 가능 합니다.
 
-[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+[![DAzure에 eploy](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-템플릿에서 매개 변수에 대한 설명은 다음과 같습니다.
-
-| 매개 변수 | 설명 | JSON 정의 예제 |
-| --------- | ----------- | ----------------------- |
-| `logicAppName` | 템플릿에서 만든 논리 앱의 이름을 정의합니다. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | 테스트를 위해 ping할 위치를 정의합니다. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
-||||
-
-[Logic Apps 워크플로 정의 및 속성에 대한 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 및 [JSON으로 논리 앱 정의에 대한 빌드](logic-apps-author-definitions.md)에 대해 자세히 알아봅니다.
-
-## <a name="deploy-logic-apps-automatically"></a>자동으로 논리 앱 배포
-
-논리 앱을 만들고 자동으로 Azure에 배포하려면 여기에서 **Azure에 배포**를 선택합니다.
-
-[![Azure에 배포](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
-
-이 작업을 통해 논리 앱의 세부 정보를 제공하고 템플릿 또는 매개 변수를 변경할 수 있는 Azure Portal에 로그인합니다.
-예를 들어 Azure Portal에서는 다음과 같은 세부 정보를 묻는 메시지를 표시합니다.
+예를 들어 묻는이 정보에 대 한 Azure portal에 로그인 한 후:
 
 * Azure 구독 이름
 * 사용하려는 리소스 그룹
@@ -104,28 +44,80 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
 * 테스트 URI
 * 지정된 사용 약관 동의 여부
 
-## <a name="deploy-logic-apps-with-commands"></a>명령을 사용하여 논리 앱 배포
+자세한 내용은 [Azure Resource Manager 템플릿 및 Azure portal을 사용 하 여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)합니다.
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+## <a name="authorize-oauth-connections"></a>OAuth 연결 권한 부여
 
-### <a name="powershell"></a>PowerShell
+배포 후 논리 앱은 유효한 매개 변수와 함께 종단 간에 적용됩니다. 그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다. 자동화 된 배포의 경우 이와 같은 각 OAuth 연결에 동의 하는 스크립트를 사용할 수 있습니다 [예제 프로젝트의에서 스크립트는 GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth)합니다. Logic Apps 디자이너에서 논리 앱을 열어도 Visual Studio 또는 Azure portal을 통해 OAuth 연결 권한을 부여할 수 있습니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<a name="powershell"></a>
+
+## <a name="deploy-with-azure-powershell"></a>Azure PowerShell을 사용하여 배포
+
+특정 배포 *Azure 리소스 그룹*,이 명령을 사용 합니다.
 
 ```powershell
-New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+특정 Azure 구독에 배포 하려면이 명령을 사용 합니다.
+
+```powershell
+New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
+```
+
+* [리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azdeployment)
+
+<a name="cli"></a>
+
+## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
+
+특정 배포 *Azure 리소스 그룹*,이 명령을 사용 합니다.
 
 ```azurecli
-azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
+az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
+
+특정 Azure 구독에 배포 하려면이 명령을 사용 합니다.
+
+```azurecli
+az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+```
+
+자세한 내용은 다음 항목을 참조하세요. 
+
+* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
+
+<a name="azure-pipelines"></a>
+
+## <a name="deploy-with-azure-devops"></a>Azure DevOps를 사용 하 여 배포
+
+논리 앱 템플릿을 배포 하 고 환경 관리, 팀은 일반적으로 도구를 사용과 같은 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) 에 [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services)합니다. Azure 파이프라인 제공을 [Azure 리소스 그룹 배포 작업](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 모든 빌드에 추가 하거나 릴리스 파이프라인 수 있습니다.
+배포 및 릴리스 파이프라인을 생성 하는 권한 부여를 위해 또한 Azure Active Directory (AD)가 필요한 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)합니다. 에 대해 자세히 알아보세요 [서비스 주체를 사용 하 여 Azure 파이프라인과](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure)합니다. 
+
+Azure 파이프라인을 사용 하 여 일반 대략적인 단계는 다음과 같습니다.
+
+1. Azure 파이프라인에서 빈 파이프라인을 만듭니다.
+
+1. 논리 앱 템플릿 및 수동으로 또는 빌드 프로세스의 일부로 생성 하는 템플릿 매개 변수 파일을 같은 파이프라인에 필요한 리소스를 선택 합니다.
+
+1. 에이전트 작업에 대해 찾기 및 추가 합니다 **Azure 리소스 그룹 배포** 작업 합니다.
+
+   !["Azure 리소스 그룹 배포" 작업 추가](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
+
+1. 사용 하 여 구성 된 [서비스 주체](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure)합니다. 
+
+1. 논리 앱 템플릿 및 템플릿 매개 변수 파일에 대 한 참조를 추가 합니다.
+
+1. 릴리스 프로세스에서 다른 환경, 자동화된 테스트 또는 승인자에 대한 단계를 필요에 따라 계속 작성합니다.
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

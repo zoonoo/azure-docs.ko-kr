@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286383"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895752"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -56,7 +56,7 @@ ms.locfileid: "58286383"
 최대 폴링 지연은 통해 구성할 수 있습니다 합니다 `maxQueuePollingInterval` 에서 속성을 [host.json 파일](../functions-host-json.md#durabletask)합니다. 이 값을 더 높게 설정 높은 메시지 대기 시간을 처리 될 수 있습니다. 대기 시간이 높기 비활성 기간 후에 정상적입니다. 증가 된 저장소 트랜잭션 인해 저장소 비용 더 높음 낮은 값으로 설정 될 수 있습니다.
 
 > [!NOTE]
-> Azure Functions 소비 및 Premium 계획에서 실행 하는 경우는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-plan-works) 10 초 마다 한 번씩 각 제어 및 작업 항목 큐를 폴링하고 됩니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 조정 결정을 내릴 때를 결정 하는 데 필요한입니다. 작성 시이 10 초 간격 상수 이며 구성할 수 없습니다.
+> Azure Functions 소비 및 Premium 계획에서 실행 하는 경우는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 10 초 마다 한 번씩 각 제어 및 작업 항목 큐를 폴링하고 됩니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 조정 결정을 내릴 때를 결정 하는 데 필요한입니다. 작성 시이 10 초 간격 상수 이며 구성할 수 없습니다.
 
 ## <a name="storage-account-selection"></a>저장소 계정 선택
 
@@ -244,4 +244,4 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [C#로 첫 번째 지속형 함수 만들기](durable-functions-create-first-csharp.md)
+> [첫 번째 지 속성 함수 만들기C#](durable-functions-create-first-csharp.md)
