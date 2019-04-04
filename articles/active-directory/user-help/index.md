@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: '인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs'
-description: '사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.'
+title: 인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs
+description: 사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,8 +11,13 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338108"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
 이 콘텐츠는 보안 정보, 2단계 인증의 설정 및 사용, 자신의 암호 재설정 방법 학습, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.

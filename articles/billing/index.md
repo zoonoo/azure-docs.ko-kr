@@ -5,15 +5,20 @@ description: Azure 청구를 이해하고 사용량 및 비용을 관리하고 �
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446718"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
 Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 및 구독을 관리하는 방법에 대해 알아봅니다.

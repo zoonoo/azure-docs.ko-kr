@@ -1,7 +1,7 @@
 ---
 layout: HubPage
 title: Azure Cognitive Services 설명서
-description: '사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 API를 사용하는 방법을 보여줍니다.'
+description: 사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,8 +9,13 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 02/21/2019
 ms.topic: hub-page
+ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472925"
 ---
-
 <div id="main" class="v2">
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>

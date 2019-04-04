@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box 설명서
-description: 'Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.'
+description: Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.
 services: databox
 author: alkohli
 manager: twooley
@@ -11,6 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
+ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417703"
 ---
 <div id="main" class="v2">
 <h1>Azure Data Box</h1>

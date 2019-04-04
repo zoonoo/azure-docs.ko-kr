@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: false
-title: 'Azure 사물 인터넷 설명서 - 자습서, API 참조 | Microsoft Docs'
-description: 'Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터링 및 제어하는 Microsoft 관리 클라우드 서비스의 모음입니다. 간단히 말해, IoT 솔루션은 하나 이상의 IoT 디바이스 및 서로 통신하는 클라우드에서 실행되는 하나 이상의 백 엔드 서비스로 구성됩니다.'
+title: Azure 사물 인터넷 설명서 - 자습서, API 참조 | Microsoft Docs
+description: Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터링 및 제어하는 Microsoft 관리 클라우드 서비스의 모음입니다. 간단히 말해, IoT 솔루션은 하나 이상의 IoT 디바이스 및 서로 통신하는 클라우드에서 실행되는 하나 이상의 백 엔드 서비스로 구성됩니다.
 services: azure-iot
 author: dsk-2015
 manager: philmea
@@ -10,8 +10,13 @@ ms.service: azure-iot
 ms.topic: landing-page
 ms.date: 02/12/2019
 ms.author: dkshir
+ms.openlocfilehash: d19b6fff3bf2b43ecb692bd8d8e33a202e969570
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343900"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure 사물 인터넷 설명서</h1>

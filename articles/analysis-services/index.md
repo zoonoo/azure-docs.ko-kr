@@ -1,5 +1,5 @@
 ---
-title: 'Azure Analysis Services 설명서 - 자습서, API 참조'
+title: Azure Analysis Services 설명서 - 자습서, API 참조
 description: 클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터를 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여 줍니다.
 services: analysis-services
 author: minewiskan
@@ -8,6 +8,12 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
+ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106970"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 설명서
 
