@@ -1,19 +1,18 @@
 ---
-title: 변화하는 요구를 수용하기 위해 Azure 데이터 탐색기 클러스터 크기 조정
+title: 변화 하는 요구를 수용 하기 위해 Azure 데이터 탐색기 클러스터 확장
 description: 이 문서는 수직 확장 및 수요 변화에 따라 Azure 데이터 탐색기 클러스터를 축소 하는 단계를 설명 합니다.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 565953c8e0c6f9765d5eeb16a9fa18c3e79b8370
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756338"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044936"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>변화하는 요구를 수용하도록 클러스터 확장 관리
 

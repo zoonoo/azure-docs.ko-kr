@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224208"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044983"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -40,8 +40,8 @@ HDInsight 템플릿 샘플을 찾을 수 있습니다 [Azure 빠른 시작 템�
 
 Resource Manager 템플릿에 대한 자세한 내용은 다음 문서와 예제를 참조하세요.
 
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 템플릿 사용 하 여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 템플릿 참조
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 

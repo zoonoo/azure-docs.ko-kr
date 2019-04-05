@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578580"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045460"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -37,7 +37,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [Azure portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
@@ -52,7 +52,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [Azure portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
@@ -67,7 +67,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure App Service용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -93,7 +93,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -107,7 +107,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
 - [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
@@ -119,10 +119,10 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 사용 가능한 지역에서 Azure Data Factory V2용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST (영문)](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [SDK)](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Azure API Management
 
@@ -177,7 +177,7 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Germany |  `https://vault.microsoftazure.de` | 사용 가능 |
 | Azure China 21Vianet | `https://vault.azure.cn` | 사용 가능 |
 
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake 
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL 
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|--------|
@@ -195,7 +195,7 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Germany | `https://database.cloudapi.de/` | 사용 가능 |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | 사용 가능 |
 
-## <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|--------|
@@ -204,7 +204,7 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Azure Service Bus
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|--------|
@@ -213,7 +213,7 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
 
-## <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Storage
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|--------|

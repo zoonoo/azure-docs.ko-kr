@@ -1,19 +1,18 @@
 ---
 title: Azure 데이터 탐색기용 쿼리 작성
 description: 이 방법 문서에서는 Azure 데이터 탐색기에 대해 기본 쿼리와 고급 쿼리를 수행하는 방법을 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758699"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048489"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 데이터 탐색기용 쿼리 작성
 
@@ -902,7 +901,7 @@ StormEvents
 
 [**funnel_sequence_completion 플러그 인**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): 서로 다른 기간 내에서 완료된 시퀀스 단계의 경로를 계산합니다.
 
-다음 쿼리는 1시간/4시간/1일의 “전체” 시간(`[1h, 4h, 1d]`) 동안  `Hail -> Tornado -> Thunderstorm -> Wind` 시퀀스의 완료 경로를 확인합니다.
+다음 쿼리는 시퀀스의 완료 깔때기형 차트를 확인 합니다. `Hail -> Tornado -> Thunderstorm -> Wind` "전체" 시간 1, 4 시간 및 1 일에 (`[1h, 4h, 1d]`).
 
 **\[**[**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
