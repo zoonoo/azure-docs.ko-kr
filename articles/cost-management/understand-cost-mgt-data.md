@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: ca0d77ba2d1968d49e8ac556d42137cdc4c81e53
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879440"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046789"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -27,18 +27,20 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 
 | Category  | **Offer name** | **ID 할당** | **제품 번호** |
 | --- | --- | --- | --- |
-| **Azure Germany** | [Azure Germany 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Germany** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **EA(기업 계약)** | 엔터프라이즈 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft 고객 계약** | [Microsoft Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
+| **Microsoft 고객 계약** | [개발/테스트용 Microsoft Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
 | **Microsoft Developer Network (MSDN)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
-| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
-| **Pay-As-You-Go** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
-| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **Pay-As-You-Go** | [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
-| **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **Pay-As-You-Go** | [학생용 Azure](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay-As-You-Go** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
+| **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **종량제** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **종량제** | [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **종량제** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **종량제** | [학생용 Azure](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **종량제** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
@@ -52,15 +54,15 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay-As-You-Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go**                 | [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
-| **지원 요금제** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
-| **지원 요금제** | Professional Direct 지원         | Default_2014-09-01 | MS-AZR-0042P |
-| **지원 요금제** | 개발자 지원                   | Default_2014-09-01 | MS-AZR-0043P |
-| **지원 요금제** | 독일 지원 플랜                | Default_2014-09-01 | MS-AZR-DE-0043P |
-| **지원 요금제** | Azure Government 표준 지원   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
-| **지원 요금제** | Azure Government Pro-Direct 지원 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
-| **지원 요금제** | Azure Government 개발자 지원  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
+| **종량제**                 | 학생용 Azure Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **종량제**                 | [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **지원 계획** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
+| **지원 계획** | Professional Direct 지원         | Default_2014-09-01 | MS-AZR-0042P |
+| **지원 계획** | 개발자 지원                   | Default_2014-09-01 | MS-AZR-0043P |
+| **지원 계획** | 독일 지원 플랜                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **지원 계획** | Azure Government 표준 지원   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **지원 계획** | Azure Government Pro-Direct 지원 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **지원 계획** | Azure Government 개발자 지원  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 종량제, MSDN 및 Visual Studio 제품 분류가 있는 고객의 경우 2018년 10월 2일부터 Cost Management에서 데이터를 사용할 수 있습니다. 2018 년 10 월 02 하기 전에 구독에 대 한 데이터에 액세스 하려면 사용할 수 있습니다 합니다 [Azure 계정 센터](https://account.azure.com/subscriptions) CSV 파일의 세부 정보 사용 현황을 다운로드 하거나 사용할 수 있습니다 합니다 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)합니다.
 

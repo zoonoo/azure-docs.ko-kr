@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917563"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050257"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -63,13 +63,13 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 
 |설치 된 CA 인증|CA를 회전 하려면|지원됨|지원 되는 azure Stack 버전|
 |-----|-----|-----|-----|
-|자체 서명 된|Enterprise|지원되지 않음||
+|자체 서명 된|Enterprise|지원됨|1903 & 이상|
 |자체 서명 된|자체 서명 된를|지원되지 않음||
 |자체 서명 된|공용<sup>*</sup>|지원됨|1803 & 이상|
-|엔터프라이즈에서|Enterprise|고객은 동일한 엔터프라이즈 배포에 사용 되는 CA를 사용 하도록 지원|1803 & 이상|
+|엔터프라이즈에서|Enterprise| 지원됩니다. 1803 1903에서: 고객은 동일한 엔터프라이즈 배포에 사용 되는 CA를 사용 하도록 지원|1803 & 이상|
 |엔터프라이즈에서|자체 서명 된를|지원되지 않음||
 |엔터프라이즈에서|공용<sup>*</sup>|지원됨|1803 & 이상|
-|공용에서<sup>*</sup>|Enterprise|지원되지 않음|1803 & 이상|
+|공용에서<sup>*</sup>|Enterprise|지원됨|1903 & 이상|
 |공용에서<sup>*</sup>|자체 서명 된를|지원되지 않음||
 |공용에서<sup>*</sup>|공용<sup>*</sup>|지원됨|1803 & 이상|
 

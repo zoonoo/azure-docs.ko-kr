@@ -1,21 +1,20 @@
 ---
-title: Jupyter Notebook 및 Kqlmagic을 사용하여 데이터 분석
-description: 이 항목에서는 Jupyter Notebook 및 KQLmagic을 사용하여 데이터를 분석하는 방법을 보여 줍니다.
-services: data-explorer
+title: Jupyter Notebook을 사용 하 여 Azure 데이터 탐색기에서 데이터를 분석 하려면
+description: 이 항목에서는 Azure 데이터 탐색기에서 데이터를 분석 하는 방법을 Kqlmagic 확장 및 Jupyter Notebook을 사용 하 여 합니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e7d6148297dd4208374d9900e10564ac4052c67
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756205"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045068"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Jupyter Notebook 및 KQL 매직을 사용하여 데이터 분석
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 데이터를 분석 하는 Jupyter Notebook Kqlmagic 확장 사용
 
 Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스트를 포함하는 문서를 만들고 공유할 수 있는 오픈 소스 웹 애플리케이션입니다. 사용에는 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링, 데이터 시각화 및 기계 학습이 포함됩니다.
 [Jupyter Notebook](https://jupyter.org/)은 추가 명령을 지원하여 커널의 기능을 확장하는 매직 함수를 지원합니다. KQL 매직은 Jupyter Notebook에서 Python 커널의 기능을 확장하는 명령이므로 Kusto 언어 쿼리를 기본적으로 실행할 수 있습니다. Python 및 Kusto 쿼리 언어를 쉽게 결합하여 `render` 명령과 통합된 서식 있는 Plot.ly 라이브러리를 통해 데이터를 쿼리하고 시각화할 수 있습니다. 쿼리 실행을 위한 데이터 원본이 지원됩니다. 이러한 데이터 원본에는 Azure 데이터 탐색기, 로그 및 원격 분석 데이터 뿐만 아니라 Azure Monitor 로그에 대 한 빠르고 확장성이 높은 데이터 탐색 서비스 및 Application Insights 포함 됩니다. KQL 매직은 Azure Notebooks, Jupyter Lab 및 Visual Studio Code Jupyter 확장에서도 작동합니다.
@@ -169,8 +168,8 @@ df.head(10)
 ## <a name="next-steps"></a>다음 단계
 
 help 명령을 실행하여 지원되는 모든 기능을 포함하는 다음 샘플 Notebook을 탐색합니다.
-- [Azure Data Explorer용 KQL 매직 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
-- [Application Insights용 KQL 매직 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
+- [시작 KQL magic Azure 데이터 탐색기](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
+- [KQL 매직에 대 한 시작 Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
 - [Azure Monitor 로그에 대 한 KQL 매직을 사용 하 여 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
-- [Python을 사용하여 KQL 매직 쿼리 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
-- [KQL 매직 쿼리 차트 결과에 대한 색상표 선택](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+- [하기 위해 매개 변수화 KQL magic 쿼리 Python 사용 하 여](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+- [KQL magic 쿼리 차트 결과 대 한 색상표를 선택 합니다.](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

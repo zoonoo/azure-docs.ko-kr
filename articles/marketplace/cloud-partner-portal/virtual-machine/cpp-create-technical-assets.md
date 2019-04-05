@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639383"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050104"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>가상 머신 제안에 대한 기술 자산 만들기
 
@@ -35,14 +35,15 @@ VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디�
 > 사용 중인 운영 체제에 상관없이 SKU에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다. 
 
 > [!IMPORTANT]
-> *새 이미지 버전에서 디스크 수를 변경하지 마세요.* 이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 크기 조정 시의 새 이미지 버전에 기반한 새 배포, Azure Resource Manager 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오가 중단될 수 있습니다.
+> *새 이미지 버전에서 디스크 수를 변경 하지 마세요.*  이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 크기 조정 시의 새 이미지 버전에 기반한 새 배포, Azure Resource Manager 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오가 중단될 수 있습니다.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
 이러한 자산을 설계, 구축 및 테스트하려면 시간이 걸리고 Azure 플랫폼과 제안을 작성하는 데 사용되는 기술에 대한 기술적 지식이 모두 필요합니다. 엔지니어링 팀은 솔루션 영역 외에도 다음 Microsoft 기술에 대한 지식을 갖추고 있어야 합니다. 
 -   [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해 
--   [Azure 응용 프로그램을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
+-   [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 -   [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
 -   [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에 대한 실무 지식
 -   [JSON](https://www.json.org/)에 대한 실무 지식
@@ -57,8 +58,8 @@ VHD 및 VM을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 �
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다. 
 
 -   [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+-   [Visual Studio 코드](https://code.visualstudio.com/)
+    *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 

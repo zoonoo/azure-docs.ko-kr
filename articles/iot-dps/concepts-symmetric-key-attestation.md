@@ -3,23 +3,23 @@ title: Azure IoT Hub Device Provisioning Service - 대칭 키 증명
 description: 이 문서에서는 IoT Device Provisioning Service를 사용하여 대칭 키 증명에 대한 개념적 개요를 제공합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971793"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050947"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
 
 이 문서에서는 Device Provisioning Service에서 대칭 키를 사용하는 경우 ID 증명 프로세스에 대해 설명합니다. 
 
-대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-security.md#x509-certificates)를 사용하는 장치 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
+대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-security.md#x509-certificates)를 사용하는 디바이스 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
 
 대칭 키 등록은 레거시 디바이스에 대한 유용한 방법을 제공하며 Azure IoT를 통해 클라우드로 부트스트랩할 수 있는 보안 기능이 제한됩니다. 레거시 디바이스에서 대칭 키 증명에 대한 자세한 내용은 [레거시 디바이스에서 대칭 키를 사용하는 방법](how-to-legacy-device-symm-key.md)을 참조하세요.
 
@@ -48,8 +48,8 @@ SAS 토큰은 다음과 같은 형식입니다.
 
 | 값 | 설명 |
 | --- | --- |
-| {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: 키는 HMAC-SHA256 계산을 수행하는 데 사용되기 전에 base64에서 디코딩되어야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
-| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들어 `{Scope ID}/registrations/{Registration ID}` |
+| {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: HMAC-SHA256 계산을 수행 하는 사용 하기 전에 키 base64에서 디코딩할 수 해야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
+| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들면 다음과 같습니다. `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 대칭 키 증명이 있는 프로비저닝이 **등록**인 경우 사용되는 정책 이름입니다. |
@@ -114,6 +114,6 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 
 대칭 키 증명에 대해 이해했으면, 다음 문서에서 자세한 내용을 확인해보십시오.
 
-* [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 장치 프로비전](quick-create-simulated-device-symm-key.md)
-* [자동 프로비전의 개념에 대해 알아보기](./concepts-auto-provisioning.md)
-* [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 
+* [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
+* [자동 프로 비전 개념](./concepts-auto-provisioning.md)
+* [자동 프로 비전을 사용 하 여 시작](./quick-setup-auto-provision.md) 

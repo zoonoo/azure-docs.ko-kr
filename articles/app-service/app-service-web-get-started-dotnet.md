@@ -138,7 +138,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 </div>
 ```
 
-Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 게시 요약 페이지에서 **게시**를 선택합니다.
 ![Visual Studio 게시 요약 페이지](./media/app-service-web-get-started-dotnet/publish-summary-page.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759537"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047265"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>기존 프로젝트에 OPC 쌍 배포
 
@@ -30,10 +30,7 @@ OPC UA 장치 레지스트리 마이크로 서비스는 등록 된 OPC UA 응용
 
 ## <a name="prerequisites"></a>필수 조건
 
-> [!NOTE]
-> 참고: AzureRM 모듈에 대 한 종속성으로 인해 배포 현재 에서만 Windows.
-
-PowerShell이 있는지 확인 하 고 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) 확장을 설치 합니다.   하지 않았으면 지금 아직, 경우에이 GitHub 리포지토리를 복제 합니다.  명령 프롬프트 또는 터미널을 열고 실행 합니다.
+PowerShell이 있는지 확인 하 고 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 확장을 설치 합니다.   하지 않았으면 지금 아직, 경우에이 GitHub 리포지토리를 복제 합니다.  명령 프롬프트 또는 터미널을 열고 실행 합니다.
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ AAD 테 넌 트를 사용 합니다.
 이제 OPC 쌍 기존 프로젝트를 배포 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [OPC 클라이언트 및 OPC PLC 보안 통신 ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [OPC 클라이언트 및 OPC PLC 통신 보안 ](howto-opc-vault-deploy-existing-client-plc-communication.md)

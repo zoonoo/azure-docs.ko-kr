@@ -1,21 +1,20 @@
 ---
-title: Azure 데이터 탐색기에서 클러스터를 만들지 못함
+title: Azure 데이터 탐색기 클러스터 만들기의 오류 문제 해결
 description: 이 문서에서는 Azure 데이터 탐색기에서 클러스터를 만들기 위한 문제 해결 단계에 대해 설명합니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b95dabbdecd98902da3bf8217a14f41019c31e82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757688"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044118"
 ---
-# <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기에서 클러스터를 만들지 못함
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기의 실패 한 클러스터 만들기
 
 예상치 않게 Azure 데이터 탐색기에서 클러스터를 만들지 못한 경우에는 다음 단계를 수행합니다.
 

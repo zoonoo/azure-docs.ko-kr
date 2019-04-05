@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665324"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045801"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
 Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여러 가지 자주 묻는 질문이 있습니다. 이 문서에서는 자주 묻는 질문 및 그에 대한 답변을 설명합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>클러스터 설정 및 관리
 
@@ -108,13 +111,13 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 
-| **바이러스 백신 제외된 디렉터리** |
+| **바이러스 백신 제외 된 디렉터리** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot(클러스터 구성에서) |
 | FabricLogRoot(클러스터 구성에서) |
 
-| **바이러스 백신 제외된 프로세스** |
+| **바이러스 백신 제외 된 프로세스** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |
@@ -133,7 +136,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
 a. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)할 수 있습니다.
+B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)할 수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 
@@ -189,4 +192,4 @@ Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md)에 대해 알아보기
+에 대 한 자세한 [core Service Fabric 개념](service-fabric-technical-overview.md) 하 고 [모범 사례](service-fabric-best-practices-overview.md) Fabric concepts](service-fabric-technical-overview.md) 얼음 및 [모범 사례](service-fabric-best-practices-overview.md)

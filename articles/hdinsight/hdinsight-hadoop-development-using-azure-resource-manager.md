@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361866"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048922"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
@@ -32,54 +32,54 @@ HDInsight에서는 HDInsight용 ASM(Azure 서비스 관리자) 기반 도구를 
 
 다음은 Azure 클래식 CLI를 통해 HDInsight를 사용하기 위한 기본 명령입니다.
 
-* `azure hdinsight cluster create` - 새 HDInsight 클러스터를 만듭니다.
-* `azure hdinsight cluster delete` - 새 HDInsight 클러스터를 삭제합니다.
-* `azure hdinsight cluster show` - 기존 클러스터에 대한 정보를 표시합니다.
-* `azure hdinsight cluster list` - Azure 구독에 대한 HDInsight 클러스터를 나열합니다.
+* `azure hdinsight cluster create` -새 HDInsight 클러스터를 만듭니다
+* `azure hdinsight cluster delete` -기존 HDInsight 클러스터를 삭제 합니다.
+* `azure hdinsight cluster show` -기존 클러스터에 대 한 정보를 표시 합니다.
+* `azure hdinsight cluster list` -Azure 구독에 대 한 HDInsight 클러스터를 나열 합니다.
 
 `-h` 을 사용하여 각 명령에 사용할 수 있는 매개 변수와 스위치를 검사합니다.
 
 ### <a name="new-commands"></a>새 명령
 Azure Resource Manager로 사용할 수 있는 새 명령은 다음과 같습니다.
 
-* `azure hdinsight cluster resize` - 클러스터에서 작업자 노드 수를 동적으로 변경합니다.
-* `azure hdinsight cluster enable-http-access` - 클러스터에 대한 HTTPs 액세스를 사용합니다(기본적으로).
-* `azure hdinsight cluster disable-http-access` - 클러스터에 대한 HTTPs 액세스를 사용하지 않습니다.
-* `azure hdinsight script-action` - 클러스터에서 스크립트 작업을 만들기/관리하기 위한 명령을 제공합니다.
-* `azure hdinsight config` - `hdinsight cluster create` 명령으로 사용할 수 있는 구성 파일을 만들기 위한 명령을 제공하여 구성 정보를 제공합니다.
+* `azure hdinsight cluster resize` -클러스터의 작업자 노드 수를 동적으로 변경
+* `azure hdinsight cluster enable-http-access` -클러스터에 대 한 HTTPs 액세스를 사용 하도록 설정 (에서 기본적으로)
+* `azure hdinsight cluster disable-http-access` -클러스터에 대 한 HTTPs 액세스를 사용 하지 않도록 설정
+* `azure hdinsight script-action` -만들기/관리 스크립트 작업 클러스터에 대 한 명령을 제공
+* `azure hdinsight config` -사용 하 여 사용할 수 있는 구성 파일을 만들기 위한 명령을 제공 합니다 `hdinsight cluster create` 구성 정보를 제공 하는 명령입니다.
 
 ### <a name="deprecated-commands"></a>사용되지 않는 명령
 `azure hdinsight job` 명령을 사용하여 HDInsight 클러스터에 작업을 제출하는 경우 이러한 명령은 Resource Manager 명령을 통해 사용할 수 없습니다. 프로그래밍 방식으로 스크립트에서 HDInsight로 작업을 제출해야 하는 경우 HDInsight에서 제공하는 REST API를 대신 사용해야 합니다. REST API를 사용하여 작업을 제출하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [cURL을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [cURL을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-curl.md)
-* [cURL을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-curl.md)
+* [CURL을 사용 하 여 HDInsight에서 Hadoop과 MapReduce 작업 실행](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [CURL을 사용 하 여 HDInsight에서 Apache Hadoop을 사용 하 여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-curl.md)
+* [CURL을 사용 하 여 HDInsight에서 Apache Hadoop과 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-curl.md)
 
 Apache Hadoop MapReduce, Apache Hive 및 Apache Pig를 대화형으로 실행하는 다른 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md), [HDInsight에서 Hadoop과 Apache Hive 사용](hadoop/hdinsight-use-hive.md) 및 [HDInsight에서 Apache Hadoop과 Apache Pig 사용](hadoop/hdinsight-use-pig.md)을 참조하세요.
 
 ### <a name="examples"></a>예
 **클러스터 만들기**
 
-* 이전 명령(ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* 새 명령 - `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* 이전 명령 (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* 새 명령- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **클러스터 삭제**
 
-* 이전 명령(ASM) - `azure hdinsight cluster delete myhdicluster`
-* 새 명령 - `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* 이전 명령 (ASM)- `azure hdinsight cluster delete myhdicluster`
+* 새 명령- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **클러스터 나열**
 
-* 이전 명령(ASM) - `azure hdinsight cluster list`
-* 새 명령 - `azure hdinsight cluster list`
+* 이전 명령 (ASM)- `azure hdinsight cluster list`
+* 새 명령- `azure hdinsight cluster list`
 
 > [!NOTE]  
 > 나열 명령의 경우 `-g`을 사용하여 리소스 그룹을 지정하면 지정된 리소스 그룹에 클러스터만을 반환합니다.
 
-**클러스터 정보 표시**
+**클러스터 정보를 표시 합니다.**
 
-* 이전 명령(ASM) - `azure hdinsight cluster show myhdicluster`
-* 새 명령 - `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* 이전 명령 (ASM)- `azure hdinsight cluster show myhdicluster`
+* 새 명령- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Azure Resource Manager로 Azure PowerShell 마이그레이션
 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)에서 Azure Resource Manager 모드인 Azure PowerShell에 대한 일반 정보를 찾을 수 있습니다.
@@ -88,13 +88,13 @@ Azure PowerShell Resource Manager cmdlet은 ASM cmdlet과 나란히 설치될 �
 
 HDInsight cmdlet를 사용하기 전에 Azure 계정에 연결하고 새 리소스 그룹을 만들어야 합니다.
 
-* [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
+* [연결 AzAccount](/powershell/module/az.accounts/connect-azaccount)
 * [New-AzResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>이름이 바뀐 cmdlet
 Windows PowerShell 콘솔에서 HDInsight ASM cmdlet을 나열하려면:
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 다음 테이블에서 ASM cmdlet 및 Resource Manager 모드인 해당 이름을 나열합니다.
 
@@ -141,7 +141,7 @@ Resource Manager 모드에서만 사용할 수 있는 새 cmdlet은 다음과 �
 
 추가 사용 정보는 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-**클러스터 ID 관련 cmdlet:**
+**클러스터 id 관련 cmdlet:**
 
 * **Add-AzHDInsightClusterIdentity**: HDInsight 클러스터가 Azure Data Lake Storage에 액세스할 수 있도록 클러스터 구성 개체에 클러스터 ID를 추가합니다. [Azure PowerShell을 사용하여 Data Lake Storage로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
 
@@ -190,7 +190,7 @@ Resource Manager 모드에서만 사용할 수 있는 새 cmdlet은 다음과 �
 
     Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
 
-**클러스터 나열**
+**클러스터 목록**
 
 이전 명령(ASM):
 

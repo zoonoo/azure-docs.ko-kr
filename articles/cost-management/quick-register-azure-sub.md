@@ -23,7 +23,7 @@ Azure 구독을 사용하여 Cloudyn에 등록합니다. 등록하면 Cloudyn �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 

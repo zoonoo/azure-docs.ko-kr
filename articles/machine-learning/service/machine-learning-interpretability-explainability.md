@@ -1,5 +1,5 @@
 ---
-title: 모델 interpretability
+title: 모델 해석력
 titleSuffix: Azure Machine Learning service
 description: 모델에서 예측을 수행 하는 이유를 설명 하기 위해 Azure Machine Learning Interpretability SDK를 사용 하는 방법에 알아봅니다. 모델에서 예측을 수행 하는 방법을 이해 하려면 학습 및 추론 하는 동안 사용할 수 있습니다.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919727"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051804"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
-모델 예측 도착 하는 이유를 설명 하는 방법을 알아봅니다 수 있습니다. Azure Machine Learning Interpretability SDK를 사용 하면 다음과 같은 이유로 중요 한 상태인 모델 설명 수 있습니다.
+이 문서에서는 모델의 예측을 수행 하는 이유를 설명 하는 방법을 배우게 됩니다 Azure Machine Learning Interpretability SDK를 사용 하 여 만든 것입니다. 모델 설명 수은 다음과 같은 이유로 중요 합니다.
 
 * 고객 및 관련자 알아야 **에 모델을 사용 하면 예측을 신뢰할 수 있는 경우**합니다.
 * 데이터 과학자를 파악 하려는 **파악 하도록 모델을 쿼리 하는 방법을**합니다. 또한에서 합리적인된 결정을 내릴 수 있는 도구가 필요 **모델을 향상 시킬 방법**합니다.
@@ -27,18 +27,12 @@ ms.locfileid: "58919727"
 
 Machine learning interpretability은 두 단계의 기계 학습 개발 주기에서 중요: **교육** 시간 및 **추론** 시간:
 
-* 하는 동안 **교육**: 모델 디자이너 및 계산기 interpretability 도구 신뢰를 구축 하기 이해 관계자에 게 모델의 출력을 설명 하기 위해 필요 합니다. 또한 interpretability 도구를 사용 모델을 디버깅할 수 있습니다.
-
-    * 해당 동작 목적 및 목표와 일치 합니까?
-    * 해당 편향 되어 있습니까?
-
+* 하는 동안 **교육**: 모델 디자이너 및 계산기 interpretability 도구 신뢰를 구축 하기 이해 관계자에 게 모델의 출력을 설명 하기 위해 필요 합니다. 또한 모델에 대 한 정보는 모델을 디버그 하 고 동작 해당 목표를 일치 하는지 여부를 결정을 내릴 수 있도록 해야 합니다. 마지막으로, 모델이 없습니다 편향 되어 있는지 확인 해야 합니다.
 * 하는 동안 **추론**: 예측 모델을 사용 하는 사람들에 게 설명할 수 있기 때문 되도록 해야 합니다. 예를 들어, 이유 모델 담보 대출, 거부 또는 않은 투자 포트폴리오를 위험이 높은 예측?
 
-Azure Machine Learning Interpretability SDK 통합 기술을 Microsoft에서 개발한 및 타사 라이브러리 (예: SHAP 및 라임)를 입증 합니다. 공통 API 통합된 라이브러리에서 제공 하 고 Azure Machine Learning 서비스와 통합 됩니다. 
+Azure Machine Learning Interpretability SDK 통합 기술을 Microsoft에서 개발한 및 타사 라이브러리 (예: SHAP 및 라임)를 입증 합니다. SDK 통합된 라이브러리 간에 공통 API를 만들고 Azure Machine Learning 서비스를 통합 합니다. 이 SDK를 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에 대해 전 세계**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
 
-이 SDK를 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에 대해 전 세계**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
-
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>어떻게 작동합니까?
 
 모델의 전역 동작이 나 특정 예측을 이해 하려면 azure Machine Learning Interpretability는 적용할 수 있습니다. 전자는 전역 설명 호출 되 고 후자는 로컬 설명 호출 됩니다.
 
@@ -48,11 +42,7 @@ Azure Machine Learning Interpretability 모델에서 해당 예측을 사용 하
 
 * 글로벌/로컬 상대적 기능 중요도
 * 글로벌/로컬 기능과 예측 관계
-* 에 대 한 대화형 시각화 합니다.
-
-    * 예측
-    * 기능 및 예측 관계
-    * 전 세계 및 상대적 기능 중요도 값
+* 예측을 보여 주는 대화형 시각화, 기능 및 예측 관계 상대적 기능 중요도 값 전역 및 로컬
 
 ## <a name="architecture"></a>아키텍처
 
@@ -114,11 +104,7 @@ Python의 데이터 집합에서 학습 된 모델 `numpy.array`, `pandas.DataFr
 
 ### <a name="local-and-remote-compute-target"></a>로컬 및 원격 계산 대상
 
-Machine Learning Interpretability SDK는 모두 로컬 및 원격 계산 대상으로 작동 하도록 설계 되었습니다. 
-
-* 실행 하는 경우 **로컬로**, SDK는 모든 Azure 서비스에 연결 하지 않습니다.
-
-* 실행 하는 경우 **원격으로**를 실행 하는 방법에 대 한 정보는 Azure Machine Learning 실행 기록 서비스에 기록 됩니다. 이 정보를 로그인 후 보고서 및 시각화 설명에서 사용자 분석에 대 한 Azure Machine Learning 작업 영역 포털에 쉽게 나와 있습니다.
+Machine Learning Interpretability SDK는 모두 로컬 및 원격 계산 대상으로 작동 하도록 설계 되었습니다. 를 로컬로 실행 하는 경우 SDK 함수는 모든 Azure 서비스 연락 하지 않습니다. Azure Machine Learning Compute에서 설명을 원격으로 실행할 수 있으며 설명 정보를 Azure Machine Learning 실행 기록 서비스에 로그인 할 수 있습니다. 이 정보를 로그인 후 보고서 및 시각화 설명에서 사용자 분석에 대 한 Azure Machine Learning 작업 영역 포털에 쉽게 나와 있습니다.
 
 ## <a name="train-and-explain-locally"></a>학습 하 고 로컬로 설명
 
@@ -138,9 +124,7 @@ Machine Learning Interpretability SDK는 모두 로컬 및 원격 계산 대상�
     model = clf.fit(x_train, y_train)
     ```
 
-2. 호출을 설명 합니다. 설명 개체를 인스턴스화한 경우 모델과 학습 데이터를 전달 합니다. 필요에 따라 관심 특징을 전달할 수 있습니다. 분류를 사용 하는 경우 출력 클래스 이름을 전달 합니다.
-
-    다음 예제에 사용 하는 설명 개체를 만드는 방법을 보여 줍니다 [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py)하십시오 [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), 및 `LimeExplainer` 로컬로 합니다. `TabularExplainer` 아래 세 가지 explainers 중 하나를 호출 하는 (`TreeExplainer`, `DeepExplainer`, 또는 `KernelExplainer`)은 자동으로 가장 적절 한 사용 사례에 대 한 선택 하 고 있습니다. 그러나 각각의 세 가지 기본 explainers의 직접 호출 합니다.
+2. 설명을 호출 합니다. 설명 개체를 시작 하려면 모델, 학습 데이터, 출력 클래스 이름과 원하는 (선택 사항)의 기능을 전달 해야 (경우 분류)를 설명 합니다. 사용 하는 설명 개체를 인스턴스화하는 방법은 다음과 같습니다 [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py)를 [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), 및 `LimeExplainer` 로컬로 합니다. `TabularExplainer` 아래 세 가지 explainers 중 하나를 호출 하는 (`TreeExplainer`, `DeepExplainer`, 또는 `KernelExplainer`)은 자동으로 가장 적절 한 사용 사례에 대 한 선택 하 고 있습니다. 그러나 각각의 세 가지 기본 explainers의 직접 호출 합니다.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Azure Machine Learning 서비스에서 지 원하는 다양 한 계산 대상에
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. 실행 하는 교육을 제출 하려면의 단계를 수행 합니다 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md#amlcompute) 문서. Azure Machine Learning Compute 대상을 만드는 단계를 사용 하 여 한 후 학습 실행을 제출 합니다.
+2. 지침에 따라 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md#amlcompute) 하는 Azure Machine Learning Compute 계산 대상으로 설정 하 고 학습 실행을 제출 하는 방법을 알아봅니다.
 
 3. 로컬 Jupyter notebook에 설명이 다운로드 합니다. 
 
