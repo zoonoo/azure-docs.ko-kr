@@ -69,7 +69,7 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 되려�
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
+- [https://autologon.microsoftazuread-sso.com](https://autologon.microsoftazuread-sso.com)(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
 
 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우, Windows 10 1709부터 [GPO(그룹 정책 개체)를 사용하여 컴퓨터에서 프록시 설정을 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)할 수 있습니다. 컴퓨터에서 Windows 10 1709 이전 버전이 실행 중인 경우 WPAD(웹 프록시 자동 검색)을 구현하여 Windows 10 컴퓨터가 Azure AD에 장치를 등록하도록 해야 합니다. 
 

@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* https://developer.android.com/studio/의 Android Studio. Android Studio 설치에 대한 자세한 내용은 [android-installation](https://developer.android.com/studio/install)을 참조하세요. 
+* [https://developer.android.com/studio/](https://developer.android.com/studio/)의 Android Studio. Android Studio 설치에 대한 자세한 내용은 [android-installation](https://developer.android.com/studio/install)을 참조하세요. 
 
 * 이 문서의 샘플에서는 Android SDK 27을 사용합니다. 
 
