@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
-ms.openlocfilehash: f201ac1f0ea5a4bc07e8c052e7653194140e8759
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669370"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049184"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -27,6 +27,9 @@ ms.locfileid: "58669370"
 > 이 섹션을 읽어보고 크기 조정
 
 애플리케이션 워크로드에서 의도적인 계획이 필요한 원본에 대한 계산 리소스 크기 조정은 프로덕션 작업을 완료하는 데 항상 거의 한 시간 이상이 걸리며, 워크로드 및 비즈니스 컨텍스트를 이해해야 합니다. 사실상 이 작업을 전에 수행한 적이 없는 경우 이 문서의 나머지 부분을 계속하기 전에 [Service Fabric 클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 읽고 이해하여 시작하는 것이 좋습니다. 이 권장 사항은 의도하지 않은 LiveSite 문제를 방지하기 위한 것이며, 비 프로덕션 환경에 대해 수행하려는 작업을 성공적으로 테스트하는 것이 좋습니다. 언제든지 [프로덕션 문제를 보고하거나 Azure에 대한 유료 지원을 요청](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure)할 수 있습니다. 적절한 컨텍스트를 소유하는 이러한 작업을 수행하도록 할당된 엔지니어의 경우 이 문서는 크기 조정 작업을 설명하지만 크기 조정할 리소스(CPU, 저장소, 메모리), 크기 조정할 방향(세로 또는 가로로) 및 수행할 작업(리소스 템플릿 배포, 포털, PowerShell/CLI)과 같은 사용 사례에 적절한 작업을 결정하고 이해해야 합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>자동 크기 조정 규칙을 사용하거나 수동으로 Service Fabric 클러스터 크기 조정
 가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 머신 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 에 대 한 자세한 내용은 합니다 [Service Fabric 노드 형식은](service-fabric-cluster-nodetypes.md) 문서. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합 구성 되므로, 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 해야 합니다.
@@ -42,9 +45,9 @@ ms.locfileid: "58669370"
 클러스터를 구성하는 가상 머신 확장 집합 목록을 가져오려면 다음 cmdlet을 실행합니다.
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
+Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
 
-Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
+Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙 설정
@@ -79,10 +82,10 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine sca
 다음 코드는 이름별로 확장 집합을 가져오고 확장 집합의 **용량**을 1단위로 늘립니다.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 이 코드는 용량을 6으로 설정합니다.
@@ -192,7 +195,7 @@ else
 }
 ```
 
-아래 **sfctl** 코드에서 `sfctl node list --query "sort_by(items[*], &name)[-1].name"` 명령을 사용하여 마지막으로 만든 노드의 **node-name** 값을 가져옵니다.
+에 **sfctl** 아래 코드를 가져오려면 다음 명령을 사용 하는 합니다 **-node-name** 마지막으로 만든 노드의 값: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -220,10 +223,10 @@ sfctl node remove-state --node-name _nt1vm_5
 이제 클러스터에서 Service Fabric 노드가 제거되었으며 가상 머신 확장 집합의 규모를 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity -= 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
 이 코드는 용량을 5로 설정합니다.

@@ -8,17 +8,16 @@ ms.service: site-recovery
 ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4888d019065e557cb49574e2268515323b3fd005
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310713"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047180"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
 이 문서에서는 온-프레미스 Hyper-V VM을 Azure로 복제할 때 표시되는 일반적인 질문에 대한 대답을 제공합니다. 
-
 
 ## <a name="general"></a>일반
 
@@ -90,8 +89,8 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>SDK와 함께 Site Recovery 시나리오를 자동화할 수 있습니까?
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. PowerShell을 사용하여 Hyper-V를 Azure로 복제하기 위한 현재 지원되는 시나리오:
 
-- [PowerShell을 사용하여 VMM 없이 Hyper-V 복제](hyper-v-azure-powershell-resource-manager.md)
-- [Powershell을 사용하여 VMM으로 Hyper-V 복제](hyper-v-vmm-powershell-resource-manager.md)
+- [PowerShell을 사용 하 여 VMM 없이 Hyper-v 복제](hyper-v-azure-powershell-resource-manager.md)
+- [Powershell을 사용 하 여 VMM 사용 하 여 Hyper-v를 복제 합니다.](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>복제
 
@@ -182,13 +181,13 @@ Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
-장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세한 정보](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치된 데이터는 복원되나요?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/azurerm.siterecovery) 장애 조치를 트리거할 수 있습니다.
+[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/az.siterecovery) 장애 조치를 트리거할 수 있습니다.
 
 ### <a name="how-do-i-fail-back"></a>장애 복구(Failback)하려면 어떻게 하나요?
 

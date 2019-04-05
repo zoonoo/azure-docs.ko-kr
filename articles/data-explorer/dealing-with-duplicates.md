@@ -1,21 +1,20 @@
 ---
-title: 중복 데이터 처리
-description: 이 항목에서는 중복 데이터를 처리하는 다양한 방법을 보여줍니다.
-services: data-explorer
+title: Azure 데이터 탐색기에서 중복 된 데이터를 처리 합니다.
+description: 이 항목에서는 Azure 데이터 탐색기를 사용 하는 경우 중복 데이터를 처리 하는 다양 한 방법 표시 됩니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756368"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045784"
 ---
-# <a name="deal-with-duplicate-data"></a>중복 데이터 처리
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 중복 된 데이터를 처리 합니다.
 
 클라우드로 데이터를 전송하는 디바이스는 데이터의 로컬 캐시를 유지 관리합니다. 데이터 크기에 따라 로컬 캐시는 데이터를 수일 동안 저장하거나 수 개월 동안 저장할 수도 있습니다. 디바이스 오작동으로 인해 캐시된 데이터가 다시 전송되어 분석 데이터베이스에 데이터 중복이 발생하지 않도록 분석 데이터를 보호하는 것이 좋습니다. 이 항목에서는 이러한 종류의 시나리오에서 중복 데이터를 처리하는 방법에 대한 모범 사례를 간략하게 설명합니다.
 

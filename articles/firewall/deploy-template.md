@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038962"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046277"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
 
@@ -25,11 +25,14 @@ ms.locfileid: "54038962"
 
 Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Firewall 배포 및 구성](tutorial-firewall-deploy-portal.md)을 참조하세요.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>템플릿을 사용하여 Azure Firewall 배포
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-**템플릿을 사용하여 Azure Firewall을 설치 및 배포하려면**
+**설치 하는 템플릿을 사용 하 여 Azure 방화벽을 배포 합니다.**
 
 1. [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)에서 템플릿에 액세스합니다.
    
@@ -56,10 +59,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell 명령을 실행하여 리소스 그룹, 방화벽 및 모든 관련 리소스를 제거할 수 있습니다. *MyResourceGroup*이라는 리소스 그룹을 제거하려면 다음을 실행합니다. 
+실행 하 여 리소스 그룹, 방화벽 및 모든 관련된 리소스 더 이상 필요할 때를 제거할 수 없습니다 합니다 [제거 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell 명령입니다. *MyResourceGroup*이라는 리소스 그룹을 제거하려면 다음을 실행합니다. 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 방화벽 모니터링 자습서를 계속 진행하려면 아직 리소스 그룹과 방화벽을 제거하지 마세요. 
 
@@ -68,4 +71,4 @@ Remove-AzureRmResourceGroup -Name MyResourceGroup
 다음으로, Azure Firewall 로그를 모니터링할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)
+> [자습서: Azure 방화벽 로그 모니터링](./tutorial-diagnostics.md)

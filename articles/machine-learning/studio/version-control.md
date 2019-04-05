@@ -9,15 +9,17 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: ff7aa1ab8972b6cbb891a67b1065044b48f1cfa3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 046afaa0e83fa572d6cd43a3717707892b25af69
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446213"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051872"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 애플리케이션 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(애플리케이션 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="versioning-experiment"></a>실험 버전 관리
 실험의 버전을 관리하는 두 가지 권장 방법이 있습니다. 기본 제공 실행 기록에 의존하거나 외부에서 관리하도록 JSON 형식으로 실험을 내보낼 수 있습니다. 각 접근 방식에는 장단점이 있습니다.
@@ -73,7 +75,7 @@ Azure Machine Learning Studio에서 학습 된 모델은 iLearner 파일 이라�
 또한 여러 동일한 웹 서비스 엔드포인트를 만든 다음, 비슷한 효과를 달성하기 위해 엔드포인트에 iLearner 파일의 다른 버전을 패치할 수 있습니다. [이 문서](create-models-and-endpoints-with-powershell.md)에서는 이 작업을 수행하는 방법에 대해 자세히 설명합니다.
 
 ### <a name="new-web-service"></a>새 웹 서비스
-새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신 배포된 Resource Manager 기반 웹 서비스의 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 또는 [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) PowerShell commandlet을 사용하여 예측 실험의 WSD(웹 서비스 정의) 파일을 JSON 형식으로 생성할 수 있습니다.
+새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신에서 생성할 수 있습니다 웹 서비스 정의 (WSD) 파일을 JSON 형식으로 사용 하 여 예측 실험을 [Export-amlwebservicedefinitionfromexperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 또는 사용 하 여는 [ *내보내기 AzMlWebservice* ](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell commandlet 배포 된 Resource Manager 기반 웹 서비스입니다.
 
 내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 저장소 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 

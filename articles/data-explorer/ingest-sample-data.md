@@ -1,19 +1,18 @@
 ---
 title: Azure 데이터 탐색기로 샘플 데이터 수집
 description: Azure 데이터 탐색기로 날씨 관련 샘플 데이터를 수집(로드)하는 방법을 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ebbe3434f032b38c33ec7b82e445532836f78c9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758471"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050631"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Azure 데이터 탐색기로 샘플 데이터 수집
 
@@ -24,7 +23,7 @@ ms.locfileid: "58758471"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
+[데이터베이스를 테스트 클러스터](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>데이터 수집
 
@@ -61,7 +60,7 @@ ms.locfileid: "58758471"
 > [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
 
 > [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+> [쿼리 쓰기](write-queries.md)
 
 > [!div class="nextstepaction"]
 > [Azure 데이터 탐색기 데이터 수집](ingest-data-overview.md)

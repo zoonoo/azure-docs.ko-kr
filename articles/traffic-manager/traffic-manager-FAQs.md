@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009937"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046311"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -309,7 +309,7 @@ Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>각 엔드포인트의 현재 상태를 확인하려면 어떻게 해야 하나요?
 
-각 엔드포인트의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
+각 엔드포인트의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
 
 Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)를 참조하세요.
 
@@ -344,10 +344,10 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형|  제공된 응답|
 |--|--|--|
 |모두 |  A / AAAA / CNAME |  대상 엔드포인트| 
-|A |    A / CNAME | 대상 엔드포인트|
-|A |    AAAA |  NODATA |
+|변수를 잠그기 위한 |    A / CNAME | 대상 엔드포인트|
+|변수를 잠그기 위한 |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  대상 엔드포인트|
-|AAAA | A | NODATA |
+|AAAA | 변수를 잠그기 위한 | NODATA |
 |CNAME |    CNAME | 대상 엔드포인트|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -357,7 +357,7 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형 | 제공된 응답|
 |--|--|--|
 |모두 |  A와 AAAA의 혼합 | 대상 엔드포인트|
-|A |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
+|변수를 잠그기 위한 |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
 |AAAA   |A와 AAAA의 혼합|     형식 AAAA의 유일한 대상 엔드포인트|
 |CNAME |    A와 AAAA의 혼합 | NODATA |
 

@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010993"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049975"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID를 관리합니다.
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>IoT Hub 장치 id 대량에서 가져오기 및 내보내기
 
 각 IoT Hub에는 서비스에서 장치마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
@@ -255,13 +255,13 @@ JobProperties importJob =
 
 | importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정된 **ID**를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **create** |지정된 **ID**를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **update** |지정된 **ID**를 가진 디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** |지정된 **ID**를 가진 디바이스가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정된 **ID**를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **delete** |지정된 **ID**를 가진 디바이스가 이미 존재하는 경우, **ETag** 값과 관계 없이 삭제됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** |지정된 **ID**를 가진 디바이스가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **만들기** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **업데이트** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 제공된 된 입력된 데이터를 사용 하 여 기존 정보를 덮어씁니다를 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **updateIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 제공 된 입력된 데이터가 기존 정보를 덮어씁니다를 **ETag** 일치 합니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **삭제** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 삭제 됩니다 합니다 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **deleteIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 삭제 되는 **ETag** 일치 합니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
 > 직렬화 데이터가 디바이스에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.
@@ -425,7 +425,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용 하 여 AI를에 지 장치로 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

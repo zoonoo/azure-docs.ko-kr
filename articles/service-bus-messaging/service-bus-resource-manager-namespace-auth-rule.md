@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 491c9f83767867daeef78138f52d815203b4290a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855842"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048005"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
@@ -33,13 +33,13 @@ ms.locfileid: "54855842"
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 > 
 > * [Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
-> * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
-> * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
-> * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [큐와 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
+> * [토픽 및 구독이 있는 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
+> * [토픽, 구독 및 규칙이 있는 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 최신 템플릿을 확인하려면 [Azure 퀵 스타트 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 **Service Bus**를 검색합니다.
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
 
@@ -49,7 +49,7 @@ ms.locfileid: "54855842"
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![DAzure에 eploy](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>매개 변수
 
@@ -156,7 +156,7 @@ JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI

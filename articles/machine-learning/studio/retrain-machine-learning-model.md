@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108123"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051634"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
@@ -28,6 +28,8 @@ ms.locfileid: "58108123"
 1. **재학습 웹 서비스** 배포
 1. **재학습 웹 서비스**를 사용하여 새 모델 학습
 1. 새 모델을 사용하도록 기존 **예측 실험** 업데이트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>재학습 웹 서비스 배포
 
@@ -130,15 +132,15 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Azure Resource Manager로 로그인
 
-먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인합니다.
+먼저 사용 하 여 PowerShell 환경 내에서 Azure 계정에 로그인 합니다 [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
 
 ### <a name="get-the-web-service-definition-object"></a>웹 서비스 정의 개체 가져오기
 
-다음으로 [Get AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet을 호출하여 웹 서비스 정의 개체를 가져옵니다.
+다음으로 호출 하 여 웹 서비스 정의 개체를 가져올는 [Get AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
 
-    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-기존 웹 서비스의 리소스 그룹 이름을 결정하려면 구독 중인 웹 서비스를 표시하도록 매개 변수 없이 Get-AzureRmMlWebService cmdlet을 실행합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
+기존 웹 서비스의 리소스 그룹 이름을 확인 하려면 구독에서 웹 서비스를 표시 하려면 매개 변수 없이 Get AzMlWebService cmdlet을 실행 합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -153,9 +155,9 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>JSON으로 웹 서비스 정의 개체 내보내기
 
-새로 학습된 모델을 사용하여 새로 학습된 모델에 대한 정의를 수정하려면 먼저 [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) cmdlet을 사용하여 JSON 형식 파일에 내보내기해야 합니다.
+새로 학습 된 모델을 사용 하도록 학습된 된 모델의 정의 수정 하려면 먼저 사용 해야 합니다 [내보내기 AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet은 JSON 형식의 파일로 내보내야 합니다.
 
-    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>ilearner blob에 대한 참조 업데이트
 
@@ -176,15 +178,15 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>JSON을 웹 서비스 정의 개체로 가져오기
 
-수정된 JSON 파일을 예측 실험을 업데이트하는 데 사용할 수 있는 웹 서비스 정의 개체로 변환하려면 [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) cmdlet을 사용합니다.
+사용 된 [가져오기-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) 수정 된 JSON 파일을 예측 실험을 업데이트 하는 데 사용할 수 있는 웹 서비스 정의 개체로 다시 변환 하는 cmdlet입니다.
 
-    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>웹 서비스 업데이트
 
-마지막으로, [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) cmdlet를 사용하여 예측 실험을 업데이트합니다.
+마지막으로 사용 합니다 [업데이트 AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) 예측 실험을 업데이트 하는 cmdlet입니다.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 ## <a name="next-steps"></a>다음 단계
 

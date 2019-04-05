@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315278"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050240"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -33,6 +33,9 @@ Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>포털을 사용하여 보조 클러스터 인증서 추가
 Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. Azure Powershell을 사용합니다. 이 프로세스는 이 문서의 뒷부분에서 설명합니다.
 
@@ -45,7 +48,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
 > [!TIP]
-> 이제 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet을 사용하여 보조 인증서를 추가하는 더 쉽고 편리한 방법이 있습니다. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet을 사용할 때 원래 클러스터를 배포하는 데 사용했던 템플릿은 필요하지 않습니다.
+> 아니며 이제 더 쉽고 편리한 방식으로 사용 하 여 보조 인증서를 추가 하는 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 않아도 원래 만들기 및 사용 하는 경우 클러스터를 배포 하는 데 사용할 템플릿을 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
@@ -58,7 +61,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 사용할 수 있습니다.
 
-**모든 단계를 수행해야 합니다.**
+**모든 단계를 수행 해야 합니다.**
 
 1. 클러스터를 배포하는 데 사용한 Resource Manager 템플릿을 엽니다. (이전 리포지토리에서 샘플을 다운로드한 경우 5-VM-1-NodeTypes-Secure_Step1.JSON을 사용하여 보안 클러스터를 배포한 다음, 해당 템플릿을 엽니다.)
 
@@ -195,19 +198,19 @@ Resource Manager 템플릿 매개 변수 파일을 편집하고 secCertificateTh
 - Azure 계정에 로그인하고 특정 Azure 구독을 선택합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 템플릿을 배포하기 전에 테스트합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. New-AzureRmResourceGroupDeployment 명령을 실행합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
+리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. 새로 만들기-AzResourceGroupDeployment 명령을 실행 합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
 
 > [!NOTE]
 > Mode를 Complete로 설정하면 템플릿에 없는 리소스를 실수로 삭제할 수 있습니다. 따라서 이러한 경우에는 사용하지 않도록 합니다.
@@ -215,7 +218,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 다음은 동일한 powershell의 작성된 예제입니다.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 
@@ -288,8 +291,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="next-steps"></a>다음 단계
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
 
-* [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [클라이언트에 대한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)
+* [Service Fabric 클러스터 업그레이드 프로세스 및 사용자 요구 사항](service-fabric-cluster-upgrade.md)
+* [클라이언트에 대 한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

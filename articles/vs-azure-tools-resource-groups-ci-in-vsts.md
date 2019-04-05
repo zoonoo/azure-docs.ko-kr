@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894152"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047328"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
 Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합니다. Azure에 빌드, 테스트, 복사 ("스테이징" 라고도 함) 및 템플릿을 배포 합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
@@ -28,6 +28,8 @@ Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합
 2. 각각 단계 작업을 수행하는 여러 Azure DevOps Services 빌드 단계를 추가합니다.
 
 이 문서에서는 두 옵션 모두를 보여 줍니다. 첫 번째 옵션은 Visual Studio에서 개발자가 사용하는 것과 동일한 스크립트를 사용하고 전체 수명 주기 동안 일관성을 제공한다는 이점이 있습니다. 두 번째 옵션은 기본 제공 스크립트보다 편리한 대안을 제공합니다. 두 절차에서는 이미 Azure DevOps Services에 Visual Studio 배포 프로젝트를 체크인했다고 가정합니다.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>아티팩트를 Azure로 복사
 시나리오에 관계없이 템플릿 배포에 필요한 아티팩트가 있을 경우 해당 항목에 대한 액세스 권한을 Azure Resource Manager에 부여해야 합니다. 이러한 아티팩트에는 다음과 같은 파일이 포함될 수 있습니다.
@@ -53,7 +55,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하고 Azure PowerShell 빌드 단계를 추가합니다. **빌드 파이프라인** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 파이프라인 편집][0]
-2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다.  단추를 선택합니다.
+2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다. 단추를 선택합니다.
    
    ![빌드 단계 추가][1]
 3. **배포 작업** 범주를 선택한 다음 **Azure PowerShell** 작업을 선택하고 해당 항목의 **추가** 버튼을 선택합니다.
@@ -87,7 +89,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
       
       PowerShell 스크립트의 경우 
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Azure CLI의 경우 
       
@@ -137,7 +139,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하여 두 개의 새 빌드 단계를 추가합니다. **빌드 정의** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 정의 편집][12]
-2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다.  단추를 선택합니다.
+2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다. 단추를 선택합니다.
    
    ![빌드 단계 추가][13]
 3. **배포** 작업 범주를 선택한 다음 **Azure File Copy** 작업을 선택하고 해당 항목의 **추가** 단추를 선택합니다.

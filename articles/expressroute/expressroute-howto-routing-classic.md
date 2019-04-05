@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103828"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045716"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [비디오 - 개인 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [비디오-개인 피어 링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [비디오-공용 피어 링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [비디오-Microsoft 피어 링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
@@ -32,9 +32,12 @@ ms.locfileid: "58103828"
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Azure 배포 모델 정보**
+**Azure 배포 모델에 대 한**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
@@ -59,17 +62,17 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. 계정에 대한 구독을 확인합니다.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. 다음 cmdlet을 사용하여 클래식 배포 모델용 PowerShell에 Azure 구독을 추가합니다.
@@ -87,7 +90,7 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
 1. **ExpressRoute 회로를 만듭니다.**
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
-2. **ExpressRoute 회로를 확인하여 프로비전되도록 합니다.**
+2. **ExpressRoute 회로를 프로 비전 했는지 확인 합니다.**
    
    ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다.
 
@@ -120,9 +123,9 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
    
    * 기본 링크에 대한 /30 서브넷입니다. 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
    * 보조 링크에 대한 /30 서브넷입니다. 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
-   * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
+   * 이 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
-   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항**입니다.
+   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **옵션**.
      
    다음 예제를 사용하여 회로에 Azure 개인 피어링을 구성합니다.
 
@@ -190,7 +193,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 1. **ExpressRoute 회로 만들기**
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
-2. **ExpressRoute 회로를 확인하여 프로비전되는지 확인합니다.**
+2. **ExpressRoute 회로 사용 하 여 프로 비전 되었는지 확인 합니다.**
 
    먼저 ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다.
 
@@ -217,15 +220,15 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **회로에 Azure 공용 피어링 구성**
+4. **Azure 공용 피어 링 회로 대 한 구성**
    
    진행하기 전에 다음 정보가 있는지 확인합니다.
    
    * 기본 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
    * 보조 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
-   * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
+   * 이 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
-   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항**입니다.
+   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **옵션**.
 
    > [!IMPORTANT]
    > 고객 ASN이 아닌 피어링 ASN으로 AS 번호를 지정했는지 확인합니다.
@@ -294,7 +297,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
 1. **ExpressRoute 회로 만들기**
   
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
-2. **ExpressRoute 회로를 확인하여 프로비전되는지 확인합니다.**
+2. **ExpressRoute 회로 사용 하 여 프로 비전 되었는지 확인 합니다.**
 
    회로가 프로비전 및 사용 가능으로 표시되는지 확인합니다. 
    
@@ -321,18 +324,18 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **회로에 Microsoft 피어링 구성**
+3. **회로에 Microsoft 피어 링 구성**
    
     진행하기 전에 다음 정보가 있는지 확인합니다.
    
    * 기본 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
    * 보조 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
-   * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
+   * 이 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
    * 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우 쉼표로 구분된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
-   * 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **선택 사항**입니다.
+   * 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **옵션**.
    * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
-   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택**
+   * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다.**
      
    다음 cmdlet을 실행하여 회로에 Microsoft 피어링을 구성합니다.
  

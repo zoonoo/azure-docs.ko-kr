@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d70f2b2f0afb99263eaefe1122dba565231d978c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226338"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046931"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
@@ -28,32 +28,35 @@ ms.locfileid: "58226338"
 > - 복제 데이터를 저장할 저장소 계정을 만들고 VM을 복제합니다.
 > - 장애 조치(failover)를 수행합니다. 장애 조치 설정을 구성 하 고 가상 머신을 복제 하는 것에 대 한 설정을 수행 하십시오.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 수행합니다.
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
-- 버전 5.0.1 이상의 AzureRm PowerShell 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+- Azure PowerShell을 사용할 `Az` 모듈입니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-into-azure"></a>Azure에 로그인
 
-Connect-AzureRmAccount cmdlet을 사용하여 Azure 구독에 로그인합니다.
+Connect AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
-VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzureRmSubscription cmdlet을 사용하여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Select-AzureRmSubscription cmdlet을 사용하여 작업에 사용할 Azure 구독을 선택합니다.
+VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet를 사용 하 여에 대 한 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Azure 구독 선택 AzSubscription cmdlet을 사용 하 여 작업을 선택 합니다.
 
 ```azurepowershell
-Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
+Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 설정
 
 1. Recovery Services 자격 증명 모음을 만들 리소스 그룹을 만듭니다. 아래 예에서 리소스 그룹의 이름이 VMwareDRtoAzurePS로 지정되고 동아시아 지역에 생성되었습니다.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
+   New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
    ```
    ```
    ResourceGroupName : VMwareDRtoAzurePS
@@ -66,7 +69,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 2. Recovery Services 자격 증명 모음을 만듭니다. 아래 예에서 Recovery Services 자격 증명 모음의 이름은 VMwareDRToAzurePs로 지정되고 동아시아 지역 및 이전 단계에서 만든 리소스 그룹에 생성되었습니다.
 
    ```azurepowershell
-   New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
+   New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
    ```
    ```
    Name              : VMwareDRToAzurePs
@@ -82,10 +85,10 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
-   $vault = Get-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
+   $vault = Get-AzRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
 
    #Download vault registration key to the path C:\Work
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    ```
    ```
    FilePath
@@ -102,7 +105,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
 > [!TIP]
-> Azure Site Recovery PowerShell 모듈(AzureRm.RecoveryServices.SiteRecovery 모듈)에는 대부분의 cmdlet에 사용하기 쉬운 별칭이 제공됩니다. 모듈의 cmdlet은 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 형식이며 *\<Operation>-**ASR**\<Object>* 형식의 별칭이 있습니다. 이 문서에서는 읽기 쉽도록 cmdlet 별칭을 사용합니다.
+> 대부분의 cmdlet에 대 한 편리한 별칭을 사용 하 여 Azure Site Recovery PowerShell 모듈 (Az.RecoveryServices 모듈)에 제공 됩니다. 모듈의 cmdlet 형태가  *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 형식의 별칭이 고  *\< 작업 >-**ASR**\<개체 >* 합니다. 이 문서에서는 읽기 쉽도록 cmdlet 별칭을 사용합니다.
 
 아래 예에서 $vault 변수의 자격 증명 모음 세부 정보가 PowerShell 세션의 자격 증명 모음 컨텍스트를 지정하는 데 사용됩니다.
 
@@ -115,11 +118,11 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-ASRVaultContext cmdlet 대신, Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. 자격 증명 모음 등록 키가 있는 경로를 Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet에 대한 -path 매개 변수로 지정합니다. 예를 들면 다음과 같습니다.
+Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용할 수도 하나입니다. 경로는 자격 증명 모음 등록 키 파일을 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet-path 매개 변수로 지정 합니다. 예를 들면 다음과 같습니다.
 
    ```azurepowershell
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
-   Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
 이 문서의 다음 섹션에서는 Azure Site Recovery 작업에 대한 자격 증명 모음 컨텍스트가 설정되었다고 가정합니다.
 
@@ -321,11 +324,11 @@ Errors           : {}
 
 ```azurepowershell
 
-$PremiumStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
+$PremiumStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
 
-$LogStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$LogStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 
-$ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 ```
 
 ## <a name="replicate-vmware-vms"></a>VMware VM 복제
@@ -355,10 +358,10 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 ```azurepowershell
 
 #Get the target resource group to be used
-$ResourceGroup = Get-AzureRmResourceGroup -Name "VMwareToAzureDrPs"
+$ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzureRmVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -444,7 +447,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -487,4 +490,4 @@ Errors           : {}
 2. 장애 조치(failover)가 완료되면 장애 조치(failover) 작업을 커밋하고 Azure에서 온-프레미스 VMware 사이트로 역방향 복제를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다 합니다 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)합니다.
+사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다 합니다 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)합니다.

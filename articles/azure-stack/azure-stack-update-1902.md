@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862083"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051685"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 업데이트
 
-*적용 대상 Azure Stack 통합 시스템*
+*적용 대상: Azure Stack 통합 시스템*
 
 이 문서에서는 1902 업데이트 패키지의 내용을 설명 합니다. 업데이트는 향상 된 기능, 수정 및 Azure Stack의이 버전에 대 한 새로운 기능을 포함합니다. 또한이 문서는이 릴리스의 알려진된 문제를 설명 하 고 업데이트를 다운로드 하려면 링크를 포함 합니다. 알려진된 문제는 업데이트 프로세스를 직접 관련 된 문제 및 문제 (설치 후) 빌드를 사용 하 여으로 구분 됩니다.
 
@@ -64,6 +64,8 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  경우는 `AzsControlPlane` 매개 변수는 포함 **테스트 AzureStack** 가 실행에서 다음 오류를 표시 됩니다는 **테스트 AzureStack** 출력: **실패 Azure Stack 제어 평면 Websites 요약**합니다. 이 특정 오류를 안전 하 게 무시할 수 있습니다.
 
 - Azure Stack에서 System Center Operations Manager (SCOM)을 관리 되는 경우 업데이트 해야 합니다 [Microsoft Azure Stack 용 관리 팩](https://www.microsoft.com/download/details.aspx?id=55184) 1902 적용 하기 전에 1.0.3.11 버전으로 합니다.
 

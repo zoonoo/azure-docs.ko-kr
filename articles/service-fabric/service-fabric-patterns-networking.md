@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670254"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049900"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -34,6 +34,9 @@ Service Fabric은 표준 가상 머신 확장 집합에서 실행됩니다. 가�
 Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 Service Fabric 리소스 공급자를 사용하여 노드 및 애플리케이션에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 엔드포인트에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 엔드포인트를 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
 Service Fabric 리소스 공급자에서 포트 19080에 액세스할 수 없으면 포털에 *노드를 찾을 수 없음* 메시지가 표시되고 노드 및 애플리케이션 목록이 빈 상태로 나타납니다. Azure Portal에서 클러스터를 보려는 경우 부하 분산 장치가 공용 IP 주소를 노출해야 하고 네트워크 보안 그룹은 들어오는 포트 19080 트래픽을 허용해야 합니다. 설정이 이러한 요구 사항을 충족하지 않는 경우 Azure Portal에 클러스터의 상태가 표시되지 않습니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>템플릿
 
@@ -51,7 +54,7 @@ Service Fabric 템플릿은 모두 [GitHub](https://github.com/Azure/service-fab
 고정 공용 IP 주소는 일반적으로 할당된 VM과는 별도로 관리되는 전용 리소스입니다. Service Fabric 클러스터 리소스 그룹 자체와는 달리 전용 네트워킹 리소스 그룹에 프로비전됩니다. Azure Portal 또는 Powershell을 통해 동일한 ExistingRG 리소스 그룹에 이름이 staticIP1인 고정 공용 IP 주소를 만듭니다.
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ DnsSettings              : {
 6. 템플릿 배포
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     배포 후 가상 네트워크에는 새 확장 집합 VM이 포함됩니다. 가상 머신 확장 집합 노드 형식은 기존 가상 네트워크 및 서브넷을 표시합니다. 또한 RDP(원격 데스크톱 프로토콜 )를 사용하여 가상 네트워크에 이미 있던 VM에 액세스하고 새 확장 집합 VM을 Ping할 수도 있습니다.
@@ -276,13 +279,13 @@ DnsSettings              : {
 8. 템플릿 배포
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 배포 후에는 부하 분산 장치가 다른 리소스 그룹의 공용 고정 IP 주소에 바인딩된 것을 볼 수 있습니다. Service Fabric 클라이언트 연결 엔드포인트 및 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트는 고정 IP 주소의 DNS FQDN을 가리킵니다.
@@ -346,7 +349,7 @@ DnsSettings              : {
                 ],
     ```
 
-5. 부하 분산 장치의 `frontendIPConfigurations` 설정을 `publicIPAddress`를 사용하는 방식에서 서브넷 및 `privateIPAddress`를 사용하는 방식으로 변경합니다. `privateIPAddress`에서는 미리 정의된 고정 내부 IP 주소를 사용합니다. 동적 IP 주소를 사용하려면 `privateIPAddress` 요소를 제거한 다음 `privateIPAllocationMethod`를 **Dynamic**으로 변경합니다.
+5. 부하 분산 장치의 `frontendIPConfigurations` 설정을 `publicIPAddress`를 사용하는 방식에서 서브넷 및 `privateIPAddress`를 사용하는 방식으로 변경합니다. `privateIPAddress` 미리 정의 된 고정 내부 IP 주소를 사용합니다. 동적 IP 주소를 사용하려면 `privateIPAddress` 요소를 제거한 다음 `privateIPAllocationMethod`를 **Dynamic**으로 변경합니다.
 
     ```json
                 "frontendIPConfigurations": [
@@ -378,9 +381,9 @@ DnsSettings              : {
 7. 템플릿 배포
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 배포 후에 부하 분산 장치는 개인 정적 10.0.0.250 IP 주소를 사용합니다. 동일한 가상 네트워크에 다른 컴퓨터가 있는 경우 내부 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트로 이동할 수 있습니다. 부하 분산 장치 뒤의 노드 중 하나로 연결됩니다.
@@ -595,9 +598,15 @@ DnsSettings              : {
 7. 템플릿 배포
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
+
+## <a name="next-steps"></a>다음 단계
+[클러스터를 만드는](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.

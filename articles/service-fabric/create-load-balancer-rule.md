@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660938"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051668"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.
 
 Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>Service Fabric 구성
 
@@ -82,14 +85,14 @@ PowerShell은 Azure CLI보다 약간 더 복잡합니다. 규칙을 만드는 �
 >[!NOTE]
 >부하 분산 장치의 이름을 확인해야 할 경우 다음 명령을 사용하여 모든 부하 분산 장치 및 연결된 리소스 그룹의 목록을 빠르게 표시합니다.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-`New-AzureRmLoadBalancerRuleConfig` 명령과 관련해서 `-FrontendPort`는 부하 분산 장치가 외부 연결을 위해 노출하는 포트이고 `-BackendPort`는 Service Fabric 앱이 수신 대기하는 포트입니다.
+`New-AzLoadBalancerRuleConfig` 명령과 관련해서 `-FrontendPort`는 부하 분산 장치가 외부 연결을 위해 노출하는 포트이고 `-BackendPort`는 Service Fabric 앱이 수신 대기하는 포트입니다.
 
 >[!NOTE]
 >PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Service Fabric의 네트워킹](service-fabric-patterns-networking.md)에 대해 자세히 알아봅니다.
+에 대해 자세히 알아보세요 [Service Fabric의 네트워킹](service-fabric-patterns-networking.md).rvice fabric-패턴 networking.md).

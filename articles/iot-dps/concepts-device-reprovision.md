@@ -3,29 +3,29 @@ title: Azure IoT Hub Device Provisioning Service를 다시 프로비전하기 �
 description: Azure IoT Hub Device Provisioning Service와 관련된 디바이스 다시 프로비전 개념에 대해 설명합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712282"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050852"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IoT Hub 디바이스 다시 프로비전 개념
 
 IoT 솔루션의 수명 주기 동안 IoT Hub 간에 디바이스를 이동하는 것이 일반적입니다. 이러한 이동의 이유에는 다음과 같은 시나리오가 포함될 수 있습니다.
 
-* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 장치를 이동함으로써 장치가 더 가까운 IoT Hub로 마이그레이션되면 네트워크 대기 시간이 짧아집니다.
+* **지리적 위치/지리적 대기 시간**: 장치 함으로써 네트워크 대기 시간이 향상 됩니다 장치 위치 사이 이동, 좀 더 자세히 IoT hub에 마이그레이션.
 
-* **다중 테넌트**: 장치 하나를 같은 IoT 솔루션 내에서 사용하고 새 고객 또는 고객 사이트에 다시 할당할 수 있습니다. 이 새 고객에게는 다른 IoT Hub를 사용하여 서비스를 제공할 수 있습니다.
+* **다중 테넌트**: 장치를 동일한 IoT 솔루션 내에서 사용 하 고 신규 고객 또는 고객 사이트에 재할당할 수 있습니다. 이러한 새 고객은 별도의 IoT 허브를 사용하여 서비스를 제공받을 수 있습니다.
 
-* **솔루션 변경**: 장치는 새롭거나 업데이트된 IoT 솔루션으로 이동할 수 있습니다. 이와 같이 디바이스를 다시 할당할 때는 디바이스가 다른 백 엔드 구성 요소에 연결된 새 IoT Hub와 통신해야 할 수 있습니다.
+* **솔루션 변경**: 새롭거나 업데이트 된 IoT 솔루션에 장치를 이동할 수 없습니다. 이와 같이 디바이스를 다시 할당할 때는 디바이스가 다른 백 엔드 구성 요소에 연결된 새 IoT Hub와 통신해야 할 수 있습니다.
 
-* **격리**: 솔루션 변경과 비슷합니다. 제대로 작동하지 않거나 손상되었거나 오래된 디바이스는 IoT Hub에 다시 할당할 수 있습니다. IoT Hub에서는 이러한 모든 디바이스를 업데이트하여 규정 준수 상태로 다시 되돌릴 수 있습니다. 디바이스가 정상적으로 작동하면 해당 주 허브로 다시 마이그레이션됩니다.
+* **격리**: 솔루션 변경 비슷합니다. 제대로 작동하지 않거나 손상되었거나 오래된 디바이스는 IoT Hub에 다시 할당할 수 있습니다. IoT Hub에서는 이러한 모든 디바이스를 업데이트하여 규정 준수 상태로 다시 되돌릴 수 있습니다. 디바이스가 정상적으로 작동하면 해당 주 허브로 다시 마이그레이션됩니다.
 
 Device Provisioning Service 내에서는 다시 프로비전이 지원되므로 이러한 요구를 충족할 수 있습니다. 디바이스의 등록 항목에 구성된 다시 프로비전 정책에 따라 새 IoT Hub에 디바이스를 자동으로 다시 할당할 수 있습니다.
 
@@ -51,17 +51,17 @@ Device Provisioning Service 인스턴스를 사용하여 디바이스를 처음 
 
 시나리오에 따라 디바이스는 일반적으로 다시 부팅 시 프로비저닝 서비스 인스턴스에 요청을 보냅니다. 또한 요청 시 수동으로 프로비전을 트리거하는 메서드를 지원합니다. 등록 항목에 대한 다시 프로비전 정책은 디바이스 프로비저닝 서비스 인스턴스에서 이러한 프로비전 요청을 처리하는 방식을 결정합니다. 또한 프로비전 중에 디바이스 상태 데이터를 마이그레이션해야 하는지 여부를 결정합니다. 개별 등록 및 등록 그룹에 대해 동일하ㄴ 정책을 사용할 수 있습니다.
 
-* **다시 프로비전하고 데이터 마이그레이션**: 새 등록 항목의 기본 정책입니다. 이 정책은 등록 항목과 연결된 디바이스가 새 요청을 제출(1)하면 작업을 수행합니다. 등록 항목 구성에 따라 디바이스가 다른 IoT 허브에 다시 할당될 수 있습니다. 디바이스의 IoT Hub가 변경되는 경우 초기 IoT Hub에 대한 디바이스 등록은 제거됩니다. 그러면 초기 IoT Hub에서 업데이트된 디바이스 상태 정보는 새 IoT Hub로 마이그레이션됩니다(2). 마이그레이션 중에 디바이스의 상태는 **할당 중**으로 보고됩니다.
+* **다시 프로 비전 하 고 데이터를 마이그레이션할**: 이 정책에는 새 등록 항목에 대 한 기본값입니다. 이 정책은 등록 항목과 연결된 디바이스가 새 요청을 제출(1)하면 작업을 수행합니다. 등록 항목 구성에 따라 디바이스가 다른 IoT 허브에 다시 할당될 수 있습니다. 디바이스의 IoT Hub가 변경되는 경우 초기 IoT Hub에 대한 디바이스 등록은 제거됩니다. 그러면 초기 IoT Hub에서 업데이트된 디바이스 상태 정보는 새 IoT Hub로 마이그레이션됩니다(2). 마이그레이션 중에 디바이스의 상태는 **할당 중**으로 보고됩니다.
 
     ![Device Provisioning Service를 사용한 프로비전](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **다시 프로비전하고 초기 구성으로 다시 설정**: 이 정책은 등록 항목과 연결된 장치가 새 프로비전 요청을 제출(1)하면 작업을 수행합니다. 등록 항목 구성에 따라 디바이스가 다른 IoT Hub에 다시 할당될 수 있습니다. 디바이스의 IoT Hub가 변경되는 경우 초기 IoT Hub에 대한 디바이스 등록은 제거됩니다. 디바이스를 프로비전할 때 Provisioning Service 인스턴스가 받은 초기 구성 데이터가 새 IoT Hub에 제공됩니다(2). 마이그레이션 중에 디바이스의 상태는 **할당 중**으로 보고됩니다.
+* **다시 프로 비전 및 초기 구성으로 다시 설정**: 이 정책은 등록 항목과 연결된 디바이스가 새 프로비전 요청을 제출(1)하면 작업을 수행합니다. 등록 항목 구성에 따라 디바이스가 다른 IoT Hub에 다시 할당될 수 있습니다. 디바이스의 IoT Hub가 변경되는 경우 초기 IoT Hub에 대한 디바이스 등록은 제거됩니다. 디바이스를 프로비전할 때 Provisioning Service 인스턴스가 받은 초기 구성 데이터가 새 IoT Hub에 제공됩니다(2). 마이그레이션 중에 디바이스의 상태는 **할당 중**으로 보고됩니다.
 
     이 정책은 IoT Hub를 변경하지 않는 초기화에 사용되는 경우가 많습니다.
 
     ![Device Provisioning Service를 사용한 프로비전](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **다시 프로비전하지 않음**: 장치가 다른 허브에 다시 할당되지 않습니다. 이 정책은 이전 버전과 호환성을 관리하기 위한 용도로 제공됩니다.
+* **다시 프로 비전 하지 않습니다**: 장치를 다른 허브를 다시 할당 되지는 않습니다. 이 정책은 이전 버전과 호환성을 관리하기 위한 용도로 제공됩니다.
 
 ### <a name="managing-backwards-compatibility"></a>이전 버전과의 호환성 관리
 
@@ -83,7 +83,7 @@ Device Provisioning Service 인스턴스를 사용하여 디바이스를 처음 
 
 | REST API | C SDK | Python SDK |  Node SDK | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 이하](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 이하](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 이하](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 이하](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 이하](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 이하](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 및 이전 버전](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 및 이전 버전](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 및 이전 버전](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 또는 이전 버전](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 또는 이전 버전](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 이하의](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > 이러한 값과 링크는 변경될 수 있습니다. 이 정보는 고객이 버전을 확인할 수 있는 위치와 필요한 버전을 표시하기 위한 자리 표시자로만 사용됩니다.

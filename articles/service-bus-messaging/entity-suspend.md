@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436751"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047350"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 
@@ -34,6 +34,8 @@ ms.locfileid: "57436751"
 
 포털에서는 큐를 완전히 사용하지 않도록 설정하는 것만 허용합니다. .NET Framework SDK의 Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API를 사용하거나 Azure CLI 또는 Azure PowerShell을 통해 Azure Resource Manager 템플릿을 사용하여 송신 및 수신 작업을 별도로 사용하지 않도록 설정할 수도 있습니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="suspension-states"></a>일시 중단 상태
 
 큐에 대해 설정할 수 있는 상태는 다음과 같습니다.
@@ -48,11 +50,11 @@ ms.locfileid: "57436751"
 [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) 열거형은 시스템에 의해서만 설정될 수 있는 전환 상태 집합도 정의합니다. 큐를 사용하지 않도록 설정하는 PowerShell 명령은 다음 예제에 나와 있습니다. 재활성화 명령은 동일하게 `Status`를 **Active**로 설정합니다.
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>다음 단계

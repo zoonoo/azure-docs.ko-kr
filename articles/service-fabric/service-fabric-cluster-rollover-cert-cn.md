@@ -14,15 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: e60eb33403b9c38972087706b9e62bc3578b97bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663879"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046362"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 수동으로 롤오버
 Service Fabric 클러스터 인증서가 만료될 시간이 다가오면 인증서를 업데이트해야 합니다.  클러스터가 지문 대신 [일반 이름을 기준으로 인증서를 사용하도록 설정](service-fabric-cluster-change-cert-thumbprint-to-cn.md)된 경우 인증서를 롤오버하는 방법은 간단합니다.  인증 기관에서 새 만료 날짜와 함께 새 인증서를 얻습니다.  자체 서명된 인증서를 사용하면 프로덕션 Service Fabric 클러스터가 Azure Portal 클러스터 만들기 워크플로 중에 생성된 인증서를 포함하는 기능이 지원되지 않습니다. 새 인증서의 일반 이름이 이전 인증서와 동일해야 합니다. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 호스트에 유효한 인증서가 두 개 이상 설치된 경우 Service Fabric 클러스터는 만료 날짜가 가장 많이 남은 선언된 인증서를 자동으로 사용합니다. 모범 사례는 Resource Manager 템플릿을 사용하여 Azure 리소스를 프로비전하는 것입니다. 비 프로덕션 환경의 경우 다음 스크립트를 사용하여 새 인증서를 키 자격 증명 모음에 업로드한 다음, 가상 머신 확장 집합에 인증서를 설치할 수 있습니다. 
 
@@ -32,7 +34,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  <subscription ID>
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "keyvaultgroup"
@@ -44,10 +46,10 @@ $VmssResourceGroupName     = "sfclustertutorialgroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Get the key vault.  The key vault must be enabled for deployment.
-$keyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
+$keyVault = Get-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
 $resourceId = $keyVault.ResourceId  
 
 # Add the certificate to the key vault.
@@ -67,16 +69,16 @@ Write-Host "Common Name              :"  $CommName
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
-$certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
 
 # Get current VM scale set 
-$vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
 >[!NOTE]

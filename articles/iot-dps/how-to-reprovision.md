@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service에서 디바이스를 다시 �
 description: 디바이스 프로비저닝 서비스 인스턴스를 사용하여 디바이스를 프로비전하는 방법입니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869074"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046840"
 ---
 # <a name="how-to-reprovision-devices"></a>디바이스를 다시 프로비전하는 방법
 
@@ -42,7 +42,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
 
 3. **허브에 디바이스를 할당할 방법 선택** 아래에서 다음 할당 정책 중 하나를 선택합니다.
 
-    * **대기 시간이 가장 짧은**: 이 정책은 장치와 IoT Hub 간에 최저 대기 시간 통신 하면 연결 된 IoT Hub에 장치를 할당 합니다. 이 정책을 사용하면 디바이스가 위치에 따라 가장 가까운 IoT 허브와 통신할 수 있습니다. 
+    * **최소 대기 시간**: 이 정책은 장치와 IoT Hub 간에 최저 대기 시간 통신 하면 연결 된 IoT Hub에 장치를 할당 합니다. 이 정책을 사용하면 디바이스가 위치에 따라 가장 가까운 IoT 허브와 통신할 수 있습니다. 
     
     * **균등 가중치 배포**: 이 정책은 각 연결 된 IoT hub에 할당 된 할당 가중치에 따라 연결 된 IoT 허브에서 장치를 배포 합니다. 이 정책을 사용하면 연결된 허브에 설정된 할당 가중치에 따라 이러한 허브 그룹 전체에서 디바이스의 부하를 분산할 수 있습니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려면 이 설정을 사용하는 것이 좋습니다. 이 설정은 기본값입니다. 
     

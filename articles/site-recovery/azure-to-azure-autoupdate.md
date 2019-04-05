@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6e1a9b2fd34d915716225c6a1bda6e0371a510a9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438838"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049237"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제의 모바일 서비스의 자동 업데이트
 
@@ -21,6 +21,9 @@ Azure Site Recovery는 월별 릴리스 주기를 사용 하 여 문제를 해�
 
 설명 했 듯이 [Azure 간 재해 복구 아키텍처](azure-to-azure-architecture.md), 모든 Azure Vm (가상 머신) 복제를 사용할 수 있는, 다른 Azure 지역 간에 Vm을 복제 하는 동안에 모바일 서비스가 설치 됩니다. 자동 업데이트를 사용 하면 새 릴리스가 나올 때마다 모바일 서비스 확장을 업데이트 합니다.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="how-automatic-updates-work"></a>어떻게 자동 업데이트 작업
 
 Site Recovery를 사용 하 여 업데이트를 관리할 때 자격 증명 모음과 동일한 구독에서 만든 automation 계정을 통해 (Azure 서비스에서 사용) 글로벌 runbook을 배포 합니다. 각 자격 증명 모음에는 하나의 automation 계정만을 사용합니다. Runbook active 자동 업데이트에 대 한 자격 증명 모음에 각 VM에 대해 확인 하 고 최신 버전을 사용할 수 있는 경우 모바일 서비스 확장을 업그레이드 합니다.
@@ -342,7 +345,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 

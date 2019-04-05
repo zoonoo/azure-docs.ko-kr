@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883126"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006672"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
@@ -264,7 +264,6 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,7 +276,7 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
 
 1. Azure Stack에 대 한 사용자 지정 vhd를 만들 때 2.2.20 2.2.35.1 (모두 제외) 사이 WALinuxAgent 버전이 1903 하기 전에 빌드를 실행 하는 Azure Stack 환경에서 작동 하지 않는 염두에 둡니다. 이 해결 하려면 1901/1902 핫픽스를 적용 하거나이 부분의 지침의 나머지 절반을 따릅니다. 
 
-1903 Azure Stack 빌드를 실행 하는 경우 (또는 위에서) 1901/1902 핫픽스, Redhat extras 리포지토리에서 WALinuxAgent 패키지를 다운로드 하거나 다음과 같이 합니다.
+    1903 Azure Stack 빌드를 실행 하는 경우 (또는 위에서) 1901/1902 핫픽스, Redhat extras 리포지토리에서 WALinuxAgent 패키지를 다운로드 하거나 다음과 같이 합니다.
     
    WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행 하 여 기타 리포지토리를 사용 합니다.
 
@@ -298,7 +297,7 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     ```
     
     
-1903 하기 전에 Azure Stack 빌드를 실행 하 고이 정보를 1901/1902 핫픽스를 적용 하지 않은, 경우를 WALinuxAgent를 다운로드 하려면 이러한 지침을 따릅니다.
+    1903 하기 전에 Azure Stack 빌드를 실행 하 고이 정보를 1901/1902 핫픽스를 적용 하지 않은, 경우를 WALinuxAgent를 다운로드 하려면 이러한 지침을 따릅니다.
     
    a.   Setuptools 다운로드
     ```bash
@@ -312,15 +311,15 @@ Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stac
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    다. Setup.py를 설치 합니다.
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. Waagent를 다시 시작
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. 에이전트 버전이 일치 하는 한 다운로드 한 경우를 테스트 합니다. 예를 들어 2.2.36 여야 합니다.
     
     ```bash
     waagent -version

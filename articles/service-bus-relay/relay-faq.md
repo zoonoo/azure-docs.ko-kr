@@ -14,23 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695900"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045580"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
 이 문서에서는 [Azure Relay](https://azure.microsoft.com/services/service-bus/)에 대해 자주 묻는 일부 질문에 답변합니다. 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-relay"></a>Azure 릴레이란?
-[Azure Relay 서비스](relay-what-is-it.md)는 회사 엔터프라이즈 네트워크 내에 있는 서비스를 공용 클라우드에 더 안전하게 노출하여 하이브리드 응용 프로그램을 간편하게 만듭니다. 방화벽 연결을 열지 않고 회사 네트워크 인프라를 방해하는 변경 사항 없이 서비스를 노출할 수 있습니다.
+[Azure Relay 서비스](relay-what-is-it.md)는 회사 엔터프라이즈 네트워크 내에 있는 서비스를 공용 클라우드에 더 안전하게 노출하여 하이브리드 애플리케이션을 간편하게 만듭니다. 방화벽 연결을 열지 않고 회사 네트워크 인프라를 방해하는 변경 사항 없이 서비스를 노출할 수 있습니다.
 
 ### <a name="what-is-a-relay-namespace"></a>릴레이 네임스페이스란?
-[네임스페이스](relay-create-namespace-portal.md)는 응용 프로그램 내에서 Relay 리소스를 확인하는 데 사용할 수 있는 범위 지정 컨테이너입니다. Relay를 사용하는 네임스페이스를 만들어야 합니다. 시작하는 첫 번째 단계 중 하나입니다.
+[네임스페이스](relay-create-namespace-portal.md)는 애플리케이션 내에서 Relay 리소스를 확인하는 데 사용할 수 있는 범위 지정 컨테이너입니다. Relay를 사용하는 네임스페이스를 만들어야 합니다. 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Service Bus Relay 서비스는 어떻게 되나요?
 이전의 Service Bus Relay 서비스를 이제 [WCF Relay](relay-wcf-dotnet-get-started.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
@@ -111,13 +114,13 @@ PowerShell을 사용하여 Azure 구독 간에 네임스페이스를 이동하�
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>문제 해결

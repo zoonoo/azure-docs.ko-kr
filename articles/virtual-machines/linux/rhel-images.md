@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011671"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045425"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>현재 명명 규칙
 현재 게시된 모든 RHEL 이미지는 종량제 모델을 사용하며 [Azure의 RHUI(Red Hat 업데이트 인프라)](https://aka.ms/rhui-update)에 연결되어 있습니다. RHUI의 디자인 제한으로 인해 RHEL 7 제품군 이미지에 대해 새 명명 규칙이 채택되었습니다. RHEL 6 제품군 명명은 현재 변경되지 않았습니다.
 
-사실상 제한은 비 선택적 `yum update`가 RHUI에 연결된 VM에 대해 실행될 때 RHEL 버전이 현재 제품군의 최신 버전으로 업데이트됩니다. 자세한 내용은 [이 링크](https://aka.ms/rhui-udate)를 참조하세요. 이로 인해 프로비전된 RHEL 7.2 이미지가 업데이트 후 RHEL 7.6이 되면 혼동될 수 있습니다. 필요한 버전을 명시적으로 지정하여 위의 예제에 설명된 대로 이전 이미지에서 여전히 프로비전할 수 있습니다. 새 RHEL 7 이미지를 프로비전하는 동안 필요한 버전을 지정하지 않는 경우 최신 이미지가 프로비전됩니다.
+사실상 제한은 비 선택적 `yum update`가 RHUI에 연결된 VM에 대해 실행될 때 RHEL 버전이 현재 제품군의 최신 버전으로 업데이트됩니다. 자세한 내용은 [이 링크](https://aka.ms/rhui-update)를 참조하세요. 이로 인해 프로비전된 RHEL 7.2 이미지가 업데이트 후 RHEL 7.6이 되면 혼동될 수 있습니다. 필요한 버전을 명시적으로 지정하여 위의 예제에 설명된 대로 이전 이미지에서 여전히 프로비전할 수 있습니다. 새 RHEL 7 이미지를 프로비전하는 동안 필요한 버전을 지정하지 않는 경우 최신 이미지가 프로비전됩니다.
 
 >[!NOTE]
 > SAP 이미지 세트에 대한 RHEL에서 RHEL 버전은 고정으로 유지됩니다. 따라서 해당 명명 규칙은 SKU에서 특정 버전을 포함합니다.

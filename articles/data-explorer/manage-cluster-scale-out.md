@@ -1,19 +1,18 @@
 ---
-title: 변화하는 요구를 수용하기 위해 Azure 데이터 탐색기 클러스터 크기 조정
+title: 변화 하는 요구를 수용 하기 위해 Azure 데이터 탐색기 클러스터 확장
 description: 이 문서에서는 규모 확장 및 크기를 조정 하는 단계를 설명 요청을 변화에 따라 Azure 데이터 탐색기 클러스터에서.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755081"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044237"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>변화하는 요구를 수용하도록 클러스터 스케일 아웃 관리
 
@@ -51,12 +50,12 @@ ms.locfileid: "58755081"
     | **기간(분)** | 시스템이 메트릭을 계산하는 경우에 다시 확인하는 적절한 기간을 선택합니다. 처음에는 기본값 10분으로 시작합니다. |
     |  |  |
 
-    **작업**
+    **조치**
 
     | 설정 | 설명 및 값 |
     | --- | --- |
-    | **작업** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
-    | **인스턴스 수** | 메트릭 조건을 충족할 경우 추가하거나 제거할 노드 또는 인스턴스 수를 선택합니다. |
+    | **작업(Operation)** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
+    | **인스턴트 수** | 메트릭 조건을 충족할 경우 추가하거나 제거할 노드 또는 인스턴스 수를 선택합니다. |
     | **정지(분)** | 크기 조정 작업 간의 적절한 시간 간격을 선택합니다. 기본값 5분으로 시작합니다. |
     |  |  |
 
@@ -67,7 +66,7 @@ ms.locfileid: "58755081"
     | 설정 | 설명 및 값 |
     | --- | --- |
     | **최소** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 낮게 줄이지 않습니다. |
-    | **최댓값** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 높게 늘리지 않습니다. |
+    | **최대** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 높게 늘리지 않습니다. |
     | **기본값** | 인스턴스의 기본 수입니다. 이 설정은 사용 하 여 리소스 메트릭을 읽는 데 문제가 있으면 됩니다. |
     |  |  |
 

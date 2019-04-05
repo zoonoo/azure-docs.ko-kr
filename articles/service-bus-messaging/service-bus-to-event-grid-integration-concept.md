@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 8c33418a8de4510bd8e45487c2f97bd204750dec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485102"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049849"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -34,6 +34,9 @@ Azure Service Bus가 Azure Event Grid와의 새로운 통합을 시작했습니�
 * 또한 Service Bus 네임스페이스에 대한 Event Grid 구독이 필요합니다. 이 구독은 Event Grid에서 선택할 메시지가 있다는 알림을 수신합니다. 일반적으로 구독자는 Azure App Service의 Logic Apps 기능, Azure Functions 또는 웹앱에 연결한 웹 후크일 수 있습니다. 그런 다음, 구독자는 메시지를 처리합니다. 
 
 ![19][]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>참가자 액세스 권한이 있는지 확인
 Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, **역할 할당**을 차례로 선택합니다. 네임스페이스에 대한 기여자 액세스 권한이 있는지 확인합니다. 
@@ -152,20 +155,20 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 
-Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/powershell/azure/install-Az-ps). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 ```powershell-interactive
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
+Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
 # This might be installed already
-Install-Module AzureRM.ServiceBus
+Install-Module Az.ServiceBus
 
-$NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
+$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
 여기서 다른 설치 옵션을 살펴볼 수도 있고 해당 이벤트가 흐르고 있는지 테스트할 수도 있습니다.

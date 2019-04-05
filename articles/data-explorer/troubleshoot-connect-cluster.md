@@ -1,19 +1,18 @@
 ---
-title: Azure 데이터 탐색기에서 클러스터에 연결하지 못함
-description: 이 문서에서는 Azure 데이터 탐색기에서 클러스터에 연결하는 데 관한 문제 해결 단계를 설명합니다.
+title: Azure 데이터 탐색기 클러스터 연결 오류 문제 해결
+description: 이 문서에서는 Azure 데이터 탐색기에서 클러스터에 연결 하기 위한 문제 해결 단계를 설명 합니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 66d77a11f0f68a2dc48802ed21acca8420012207
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758553"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044628"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기에서 클러스터에 연결하지 못함
 

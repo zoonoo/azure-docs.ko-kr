@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486065"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051192"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -22,6 +22,9 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조치(미리 보기)를 지원합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다. 장애 조치(failover)는 스토리지 계정의 기본 엔드포인트가 되도록 보조 엔드포인트를 업데이트합니다. 장애 조치(failover)가 완료되면 클라이언트는 새 기본 엔드포인트에 쓰기 시작할 수 있습니다.
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치(failover)를 시작하는 방법을 알아보려면 [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)을 참조하세요.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>적절한 중복 옵션 선택
 
@@ -122,21 +125,21 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 미리 보기에 등록하려면 PowerShell에서 다음 명령을 실행합니다. 대괄호 안의 자리 표시자를 사용자 고유의 구독 ID로 바꾸어야 합니다.
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 미리 보기에 대한 승인을 받으려면 1-2일 정도 걸릴 수 있습니다. 등록이 승인되었는지 확인하려면 다음 명령을 실행합니다.
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>추가 고려 사항 
 
 미리 보기 기간 동안 강제 장애 조치(failover)를 수행할 경우 애플리케이션 및 서비스가 어떤 영향을 받을 수 있는지를 이해하려면 이 섹션에 설명된 추가 고려 사항을 검토합니다.
 
-#### <a name="azure-virtual-machines"></a>Azure 가상 머신
+#### <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
 
 Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 
 
@@ -176,6 +179,6 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 ## <a name="see-also"></a>참고 항목
 
-* [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)
-* [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)
+* [(미리 보기) 계정은 장애 조치의 시작](storage-initiate-account-failover.md)
+* [RA-GRS를 사용하여 고가용성 애플리케이션 설계](storage-designing-ha-apps-with-ragrs.md)
 * [자습서: Blob Storage에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md) 

@@ -5,24 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b22d98c079a87943d3078fbe41e76074543c260a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f63293900e116fd3175b0ea6d704993a2dcf591
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002612"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051396"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform 계정 연결
 
 기존 Google Cloud Platform 계정을 Cloudyn에 연결할 수 있습니다. 사용자 계정을 Cloudyn에 연결하면 Cloudyn 보고서에서 비용 및 사용량 데이터를 볼 수 있습니다. 이 문서에서는 Cloudyn을 사용하여 Google 계정을 구성 및 연결하는 방법을 설명합니다.
 
-> [!NOTE]
-> Google이 계정 보안을 수정함에 따라 Cloudyn과 Google 간에 새 연결을 설정할 수 없게 되었습니다. Cloudyn은 이미 Google에 Cloudyn을 연결한 사용자의 Google 데이터를 계속 수집합니다. 하지만 현재 Cloudyn에 새 Google 계정을 추가할 수는 없습니다. 새 Google 계정을 Cloudyn에 추가하기 위한 지원이 재개될 시기는 Cloudyn 팀에서도 확인할 수 없는 상황입니다. 지원이 재개되면 이 참고 사항은 제거될 예정입니다.
 
 ## <a name="collect-project-information"></a>프로젝트 정보 수집
 
@@ -30,7 +28,7 @@ ms.locfileid: "58002612"
 
 1. [https://console.cloud.google.com](https://console.cloud.google.com)에서 Google Cloud Platform 콘솔에 로그인합니다.
 2. Cloudyn에 등록할 프로젝트 정보를 검토하고 **프로젝트 이름**과 **프로젝트 ID**를 적어 둡니다. 이후 단계를 위해 이 정보를 보관합니다.  
-    ![Google Cloud Platform 콘솔에 표시된 프로젝트 이름 및 프로젝트 ID](./media/connect-google-account/gcp-console01.png)
+    ![프로젝트 이름 및 Google Cloud Platform 콘솔에 표시 된 프로젝트 ID](./media/connect-google-account/gcp-console01.png)
 3. 청구가 사용하도록 설정 및 프로젝트에 연결되지 않은 경우 청구 계정을 만듭니다. 자세한 내용은 [새 청구 계정 만들기](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account)를 참조하세요.
 
 ## <a name="enable-storage-bucket-billing-export"></a>저장소 버킷 청구 내보내기 사용
@@ -41,7 +39,7 @@ Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최
 
 1. 파일로 청구 내보내기를 사용하도록 설정하지 않은 경우 [파일로 청구 내보내기를 사용하도록 설정하는 방법](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)의 지침을 따르세요. JSON 또는 CSV 청구 내보내기 형식을 사용할 수 있습니다.
 2. 사용하도록 설정한 경우에는 Google Cloud Platform 콘솔에서 **청구** > **청구 내보내기**로 이동합니다. 청구 **버킷 이름** 및 **보고서 접두사**를 적어둡니다.  
-    ![청구 내보내기 페이지에 표시되는 청구 내보내기 정보](./media/connect-google-account/billing-export.png)
+    ![청구 내보내기 페이지에 표시 되는 청구 내보내기 정보](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Google Cloud Platform API 사용
 

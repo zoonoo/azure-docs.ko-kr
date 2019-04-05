@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 56de300a95d750957494865f9871127b2a9c8283
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980369"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047367"
 ---
 # <a name="prepare-your-container-technical-assets"></a>컨테이너 기술 자산 준비
 
@@ -36,7 +36,7 @@ ms.locfileid: "50980369"
 엔지니어링 팀은 솔루션 영역 외에도 다음 Microsoft 기술에 대한 지식을 갖추고 있어야 합니다.
 
 -   [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해 
--   [Azure 응용 프로그램을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
+-   [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 -   [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
 -   [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에 대한 실무 지식
 -   [JSON](https://www.json.org/)에 대한 실무 지식
@@ -51,8 +51,8 @@ ms.locfileid: "50980369"
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
 -   [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+-   [Visual Studio 코드](https://code.visualstudio.com/)
+    *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 

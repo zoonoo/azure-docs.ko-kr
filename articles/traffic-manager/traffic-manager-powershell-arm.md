@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442106"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045750"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
 
 Azure의 서비스용 관리 인터페이스로는 기본적으로 Azure Resource Manager가 사용됩니다. Azure Resource Manager 기반 API 및 도구를 사용하여 Azure Traffic Manager 프로파일을 관리할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-model"></a>리소스 모델
 
@@ -36,7 +38,7 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 
 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. 다음 문서는 Azure PowerShell 설치 및 구성하는 방법을 설명합니다.
 
-* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)
 
 이 문서의 예제에서는 기존 리소스 그룹이 있다고 가정합니다. 다음 명령을 사용하여 리소스 그룹을 만들 수 있습니다.
 
@@ -59,7 +61,7 @@ $profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| 이름 |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
+| name |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
 | ResourceGroupName |프로필 리소스가 포함된 리소스 그룹의 이름. |
 | TrafficRoutingMethod |DNS 쿼리에 대한 응답으로 반환되는 엔드포인트를 결정하는 데 사용되는 트래픽 라우팅 메서드를 지정합니다. 가능한 값은 '성능', '가중' 또는 '우선 순위'입니다. |
 | RelativeDnsName |이 Traffic Manager 프로필을 통해 제공되는 DNS 이름의 호스트 이름 부분을 지정합니다. 이 값은 프로필의 FQDN(정규화된 도메인 이름)을 형성하여 Azure Traffic Manager가 사용하는 DNS 도메인 이름과 결합됩니다. 예를 들어 'contoso'의 값이 'contoso.trafficmanager.net.'이 되도록 설정합니다. |
@@ -253,10 +255,10 @@ Traffic Manager는 전체 프로필의 활성화 및 비활성화를 허용할 �
 
 ### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>예제 1: Traffic Manager 프로필 활성화 및 비활성화
 
-Traffic Manager 프로필을 사용하도록 설정하려면 `Enable-AzureRmTrafficManagerProfile` cmdlet를 사용합니다. 프로필은 프로필 개체를 사용하여 지정할 수 있습니다. 프로필 개체를 파이프라인을 통해 또는 '-TrafficManagerProfile' 매개 변수를 사용하여 전달할 수 있습니다. 이 예제에서는 프로필 개체 및 리소스 그룹 이름을 사용하여 프로필을 지정합니다.
+Traffic Manager 프로필을 사용하도록 설정하려면 `Enable-AzTrafficManagerProfile` cmdlet를 사용합니다. 프로필은 프로필 개체를 사용하여 지정할 수 있습니다. 프로필 개체를 파이프라인을 통해 또는 '-TrafficManagerProfile' 매개 변수를 사용하여 전달할 수 있습니다. 이 예제에서는 프로필 개체 및 리소스 그룹 이름을 사용하여 프로필을 지정합니다.
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 Traffic Manager 프로필을 비활성화하려면:
@@ -269,13 +271,13 @@ Disable-AzTrafficManagerProfile cmdlet은 확인 프롬프트를 표시합니다
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>예 2: Traffic Manager 엔드포인트 활성화 및 비활성화
 
-Traffic Manager 엔드포인트를 활성화하려면 `Enable-AzureRmTrafficManagerEndpoint`을 사용합니다. 엔드포인트를 지정하는 방법은 두 가지입니다
+Traffic Manager 엔드포인트를 활성화하려면 `Enable-AzTrafficManagerEndpoint`을 사용합니다. 엔드포인트를 지정하는 방법은 두 가지입니다
 
 1. 파이프라인을 통해 전달되는 TrafficManagerEndpoint 개체를 사용하거나 '-TrafficManagerEndpoint' 매개 변수를 사용합니다.
 2. 엔드포인트 이름, 엔드포인트 형식, 프로필 이름 및 리소스 그룹 이름 사용:
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 마찬가지로 Traffic Manager 엔드포인트를 비활성화하려면:

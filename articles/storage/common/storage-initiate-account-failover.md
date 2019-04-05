@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668567"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044966"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
 
@@ -23,6 +23,8 @@ ms.locfileid: "56668567"
 
 > [!WARNING]
 > 일반적으로 계정 장애 조치(failover)를 수행하면 일부 데이터가 손실됩니다. 계정 장애 조치(failover)의 의미를 파악하고 데이터 손실에 대비하려면 [계정 장애 조치(failover) 프로세스 이해](storage-disaster-recovery-guidance.md#understand-the-account-failover-process)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,7 +37,7 @@ ms.locfileid: "56668567"
 
 스토리지 계정에 대해 계정 장애 조치(failover)를 시작하면 보조 엔드포인트가 기본 엔드포인트가 되도록 보조 엔드포인트에 대한 DNS 레코드가 업데이트됩니다. 장애 조치(failover)를 시작하기 전에 스토리지 계정에 대한 잠재적 영향을 파악해야 합니다.
 
-장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 `Get-AzureRmStorageAccount` PowerShell cmdlet을 사용하여 **마지막 동기화 시간** 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. 
+장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 `Get-AzStorageAccount` PowerShell cmdlet을 사용하여 **마지막 동기화 시간** 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. 
 
 장애 조치(failover) 후에는 새로운 주 지역에서 스토리지 계정 유형이 LRS(로컬 중복 스토리지)로 자동 변환됩니다. 계정에 대해 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 다시 사용할 수 있습니다. LRS에서 GRS 또는 RA-GRS로 변환하는 경우 추가 비용이 발생합니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요. 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Storage의 재해 복구 및 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)
-- [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)
+- [재해 복구 및 계정에서에서 장애 조치 (미리 보기) Azure Storage](storage-disaster-recovery-guidance.md)
+- [RA-GRS를 사용하여 고가용성 애플리케이션 설계](storage-designing-ha-apps-with-ragrs.md)
 - [자습서: Blob Storage에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md) 

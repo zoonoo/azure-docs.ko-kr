@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793614"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049475"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
 이 문서에서는 StorSimple 디바이스에 RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 간략히 설명합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 이 문서는 Azure Portal에서 실행되는 업데이트 3.0 이상을 실행하는 StorSimple 8000 시리즈 디바이스에 적용됩니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>StorSimple에 대한 RBAC 역할
 
@@ -46,14 +48,14 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
 2. Azure에 로그인합니다.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Reader 역할을 컴퓨터에서 JSON 템플릿으로 내보냅니다.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Visual Studio에서 JSON 파일을 엽니다. 일반적인 RBAC 역할은 세 가지 주요 섹션, 즉, **Actions**, **NotActions**, **AssignableScopes**으로 구성되어 있습니다.
@@ -62,7 +64,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
     구독에 등록되어 있고 사용 가능한 모든 리소스 공급자를 보려면 PowerShell을 사용합니다.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     또한 리소스 공급자를 관리하려면 사용 가능한 모든 PowerShell cmdlet을 확인할 수 있습니다.
 
@@ -102,7 +104,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
 6. 사용자 지정 RBAC 역할을 다시 환경으로 가져옵니다.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 이 역할은 이제 **액세스 제어** 블레이드의 역할 목록에 나타납니다.
@@ -114,7 +116,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>PowerShell을 통해 사용자 지정 역할 생성을 위한 샘플 출력
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

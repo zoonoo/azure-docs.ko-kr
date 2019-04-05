@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871065"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045767"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>관리 그룹
 Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 효율적으로 관리하는 기능을 제공하고 루트 관리 그룹에서 작업을 수행하여 전체 Azure 공간을 효율적으로 관리합니다. 각 Azure AD 테넌트에는 루트 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. 
@@ -47,7 +50,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![생성](./media/security-center-management-groups/create_context_menu.png)  
+      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
@@ -191,5 +194,5 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 > [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
+> [관리 및 Azure Security Center에서 보안 경고에 대응](security-center-managing-and-responding-alerts.md)
 

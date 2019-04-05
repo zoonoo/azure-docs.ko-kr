@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service의 서비스 개념 | Microsoft
 description: Device Provisioning 서비스 및 IoT Hub를 사용하는 디바이스에 해당하는 서비스 프로비전 개념을 설명합니다.
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144917"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047486"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service 개념
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 
 디바이스 프로비전 엔드포인트는 모든 디바이스가 자동 프로비전에 사용하는 단일 엔드포인트입니다. URL은 공급 체인 시나리오에서 새 연결 정보를 사용하여 디바이스를 새로 고쳐야 하는 필요성을 경감하기 위해 모든 프로비전 서비스 인스턴스에 대해 동일합니다. ID 범위는 테넌트 격리를 보장합니다.
 
-## <a name="linked-iot-hubs"></a>연결된 IoT 허브
+## <a name="linked-iot-hubs"></a>연결된 IoT Hub
 
 Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 허브에만 프로비전할 수 있습니다. IoT 허브를 Device Provisioning 서비스 인스턴스에 연결하면 서비스에 IoT 허브의 디바이스 레지스트리에 대한 읽기/쓰기 권한을 부여합니다. 링크를 사용하면 Device Provisioning 서비스는 디바이스 ID를 등록하고 디바이스 쌍에서 초기 구성을 설정할 수 있습니다. 연결된 IoT 허브는 모든 Azure 지역에 있을 수 있습니다. 다른 구독의 허브를 프로비전 서비스에 연결할 수 있습니다.
 
@@ -39,9 +39,9 @@ Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 
 
 서비스 수준 설정은 Device Provisioning Service에서 IoT 허브에 디바이스를 할당하는 방법을 결정합니다. 세 가지의 지원되는 할당 정책이 있습니다.
 
-* **균등하게 가중치 적용 배포**: 연결된 IoT 허브는 장치를 동일하게 프로비전했을 가능성이 있습니다. 기본 설정 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다.
+* **균등하게 가중치 적용 배포**: 연결된 IoT 허브는 디바이스를 동일하게 프로비전했을 가능성이 있습니다. 기본 설정 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다.
 
-* **최소 대기 시간**: 장치가 장치에 대한 최소 대기 시간으로 IoT 허브에 프로비전됩니다. 연결된 여러 IoT 허브가 동일한 최소 대기 시간을 제공하는 경우 프로비전 서비스는 이러한 허브에서 디바이스를 해싱합니다.
+* **최소 대기 시간**: 디바이스가 디바이스에 대한 최소 대기 시간으로 IoT 허브에 프로비전됩니다. 연결된 여러 IoT 허브가 동일한 최소 대기 시간을 제공하는 경우 프로비전 서비스는 이러한 허브에서 디바이스를 해싱합니다.
 
 * **등록 목록을 통한 고정 구성**: 등록 목록에서 원하는 IoT Hub의 사양을 서비스 수준 할당 정책보다 우선합니다.
 

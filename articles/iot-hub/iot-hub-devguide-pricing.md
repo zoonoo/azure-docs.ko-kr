@@ -3,17 +3,17 @@ title: Azure IoT Hub 가격 책정 이해 | Microsoft Docs
 description: 개발자 가이드 - 작동 예제를 비롯하여 IoT Hub에서 측정 및 가격 책정이 진행되는 방식에 대한 정보를 제공합니다.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769747"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049645"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "57769747"
 
 ## <a name="charges-per-operation"></a>작업당 요금
 
-| 작업(Operation) | 대금 청구 정보 | 
+| 작업 | 대금 청구 정보 | 
 | --------- | ------------------- |
 | ID 레지스트리 작업 <br/> (만들기, 검색, 목록, 업데이트, 삭제) | 요금이 부과되지 않습니다. |
 | 디바이스-클라우드 메시지 | IoT Hub에 수신 시, 성공적으로 전송된 메시지는 4KB 청크 단위로 요금이 청구됩니다.  예를 들어 6KB 메시지에는 2개 메시지로 요금이 청구됩니다. |

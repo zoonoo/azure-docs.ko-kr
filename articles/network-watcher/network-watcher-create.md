@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615220"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051566"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
 Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. 시나리오 수준 모니터링을 사용하면 종단 간 네트워크 수준 보기에서 문제를 진단할 수 있습니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다. Network Watcher는 Network Watcher 리소스 만들기를 통해 사용하도록 설정됩니다. 이 리소스에서는 Network Watcher 기능을 활용하도록 허용합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher가 자동으로 사용하도록 설정됨
 구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용하도록 설정되어도 리소스에 영향을 주지 않으며 관련된 요금도 없습니다.
@@ -35,8 +38,8 @@ Network Watcher 자동 사용을 옵트아웃하려면 다음 명령을 실행�
 > Network Watcher 자동 사용 옵트아웃은 영구적 변경입니다. 옵트아웃한 후에는 [고객 지원에 문의](https://azure.microsoft.com/support/options/)하지 않고는 옵트인할 수 없습니다.
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Network Watcher 인스턴스와 이 인스턴스가 배치된 리소스 그룹�
 Network Watcher의 인스턴스를 만들려면 다음 예제를 실행합니다.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Azure CLI를 사용하여 Network Watcher 만들기
@@ -110,6 +113,6 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 * [다음 홉](network-watcher-next-hop-overview.md)
 * [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 * [NSG 흐름 로깅](network-watcher-nsg-flow-logging-overview.md)
-* [Virtual Network 게이트웨이 문제 해결](network-watcher-troubleshoot-overview.md)
+* [가상 네트워크 게이트웨이 문제 해결](network-watcher-troubleshoot-overview.md)
 
 Network Watcher 인스턴스가 있으면 가상 머신 내에서 패킷 캡처를 사용하도록 설정할 수 있습니다. 방법을 알아보려면 [경고가 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 참조하세요.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116710"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046022"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio 웹 서비스: 배포 및 사용
 
@@ -37,7 +37,7 @@ Studio 포털 및 Microsoft Azure Machine Learning 웹 서비스 포털에서 �
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
   * [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
-  * [여러 지역에 웹 서비스를 배포하는 방법](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [여러 지역에 웹 서비스를 배포 하는 방법](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
 
@@ -49,7 +49,7 @@ Studio 포털 및 Microsoft Azure Machine Learning 웹 서비스 포털에서 �
 
 웹 서비스용 Azure Machine Learning Studio 리소스 공급자를 사용하면 PowerShell cmdlet을 통해 웹 서비스를 배포하고 관리할 수 있습니다.
 
-cmdlet을 사용하려면 먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/manage-resources-powershell.md)을 참조하세요.
+Cmdlet을 사용 하려면 먼저 등록 해야 PowerShell 환경 내에서 Azure 계정에 사용 하 여 합니다 [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/manage-resources-powershell.md)을 참조하세요.
 
 예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 
@@ -78,7 +78,7 @@ cmdlet을 사용하려면 먼저 [Connect-AzureRmAccount](/powershell/module/azu
 
 추가 세부 정보는 다음 문서 및 샘플 코드를 참조하세요.
 
-* MSDN의 [Azure Machine Learning Studio Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) 참조
+* MSDN의 [Azure Machine Learning Studio Cmdlet](https://docs.microsoft.com/powershell/module/az.machinelearning) 참조
 * GitHub의 샘플 [연습](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt)
 
 ## <a name="consume-the-web-services"></a>웹 서비스 사용
@@ -96,7 +96,7 @@ Azure Machine Learning 웹 서비스 포털에서 웹 서비스를 테스트할 
 웹 서비스를 사용하는 Excel 템플릿을 다운로드할 수 있습니다.
 
 * [Excel에서 Azure Machine Learning 웹 서비스 사용](consuming-from-excel.md)
-* [Azure Machine Learning 웹 서비스용 Excel 추가 기능](excel-add-in-for-web-services.md)
+* [Excel 용 추가 기능에서 Azure Machine Learning 웹 서비스](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>REST 기반 클라이언트에서
 

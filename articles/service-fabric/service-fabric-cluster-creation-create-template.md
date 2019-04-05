@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665511"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046188"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 
@@ -28,6 +28,9 @@ ms.locfileid: "58665511"
 클러스터 보안은 클러스터가 먼저 설정된 후에 구성되며 나중에 변경할 수 없습니다. 클러스터를 설정하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 읽어 보세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. Azure AD 테넌트 및 사용자는 클러스터를 만들기 전에 생성되어야 합니다.  자세한 내용을 보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어 보세요.
 
 프로덕션 워크로드를 실행할 프로덕션 클러스터를 배포하기 전에 먼저 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 읽어 보세요.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates)에서 사용할 수 있습니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
@@ -242,13 +245,13 @@ RM 모듈에는 Azure AD 구성을 생성하는 기능이 없으므로 클라이
 매개 변수 파일로 Resource Manager 템플릿을 테스트하려면 다음 PowerShell 명령을 사용합니다.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 문제가 발생하고 복잡한 메시지가 표시된 경우에 "-Debug"를 옵션으로 사용합니다.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 다음 다이어그램은 Key Vault 및 Azure AD 구성이 Resource Manager 템플릿 어디에 적합한지 보여 줍니다.

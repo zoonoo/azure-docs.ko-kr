@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805060"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051889"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -28,6 +28,9 @@ ms.locfileid: "58805060"
 - 열린 포트, 인터넷 액세스를 시도하는 애플리케이션, 불량 네트워크에 연결하는 VM(가상 머신) 같은 정보를 통해 네트워크에 대한 위협을 식별하고 네트워크를 보호합니다.
 - Azure 지역 및 인터넷의 트래픽 흐름 패턴을 파악하여 네트워크 성능 및 용량에 맞게 네트워크 배포를 최적화합니다.
 - 네트워크에서 연결 실패의 원인이 되는 네트워크 구성 오류를 정확히 파악합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>트래픽 분석이란?
 
@@ -66,7 +69,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 미국 서부 2
 * 프랑스 중부
 * 서유럽
-* 북유럽
+* 유럽 북부
 * 브라질 남부
 * 영국 서부
 * 영국 남부
@@ -75,11 +78,11 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 동아시아
 * 동남아시아
 * 한국 중부
-* 인도 중부
+* 중앙 인도
 * 인도 남부
 * 일본 동부 
 * 일본 서부
-* 미국 정부 버지니아
+* US Gov 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 캐나다 중부
@@ -92,9 +95,9 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 오스트레일리아 남동부
 * 동남아시아
 * 한국 중부
-* 인도 중부
+* 중앙 인도
 * 일본 동부
-* 미국 정부 버지니아
+* US Gov 버지니아
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -104,9 +107,9 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |
-|리소스 관리자   | 소유자                  |
+|Resource Manager   | 소유자                  |
 |                   | 참가자            |
-|                   | 판독기                 |
+|                   | 구독자                 |
 |                   | 네트워크 참가자    |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
@@ -133,7 +136,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 트래픽 분석을 사용하려면 네트워크 리소스 공급자를 다시 등록해야 합니다. 다음 코드 상자에서 **시도**를 클릭하여 Azure Cloud Shell을 엽니다. Cloud Shell이 자동으로 Azure 구독에 로그인합니다. Cloud Shell이 열리면 다음 명령을 입력하여 네트워크 리소스 공급자를 다시 등록합니다.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>네트워크 보안 그룹 선택
@@ -153,13 +156,13 @@ Azure Portal의 왼쪽에서 **모니터**, **Network Watcher**, **NSG 흐름 �
 아직 Azure Insights 공급자를 구독에 등록하지 않은 경우 지금 등록합니다.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 NSG 흐름을 저장할 Azure Storage 계정이 아직 없으면 지금 스토리지 계정을 만듭니다. 다음에 나오는 명령을 사용하여 저장소 계정을 만들 수 있습니다. 명령은 실행하기 전에 `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3-24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다. 필요한 경우 리소스 그룹 이름을 변경할 수도 있습니다.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ New-AzureRmStorageAccount `
 
 트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송되므로 작업 영역이 있는 지역에 데이터를 저장하는 것을 현지 법률 및 규정에서 허용하는지 확인해야 합니다.
 
-AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet을 사용하여 트래픽 분석을 구성할 수도 있습니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+사용 하 여 트래픽 분석을 구성할 수도 있습니다는 [집합 AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell의 PowerShell cmdlet. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
@@ -198,7 +201,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 ### <a name="find-traffic-hotspots"></a>트래픽 핫스폿 찾기
 
-**검색**
+**찾으세요**
 
 - 최대 악성 트래픽을 트래버스하고 상당한 흐름을 차단하는 대부분의 트래픽을 전송하거나 수신하는 호스트, 서브넷 및 가상 네트워크는 무엇인가요?
     - 호스트, 서브넷 및 가상 네트워크에 대한 비교 차트를 확인합니다. 어떤 호스트, 서브넷 및 가상 네트워크가 트래픽을 가장 많이 전송 또는 수신하는지 파악하면 가장 많은 트래픽을 처리하는 호스트를 식별하고, 트래픽 배포가 적절하게 수행되는지 여부를 확인하는 데 도움이 될 수 있습니다.
@@ -218,7 +221,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![통신 양이 가장 많은 상위 5개 호스트 추세](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
-**검색**
+**찾으세요**
 
 - 가장 대화가 많은 호스트 쌍
     - 프런트 엔드 또는 백 엔드 통신과 같은 예상된 동작 또는 백 엔드 인터넷 트래픽과 같은 비정상 동작.
@@ -234,7 +237,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![대화가 많은 상위 5개의 세부 정보 및 추세](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
-**검색**
+**찾으세요**
 
 - 환경에서 가장 많이 사용되는 애플리케이션 프로토콜 및 애플리케이션 프로토콜을 가장 많이 사용하는 호스트 쌍
     - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
@@ -248,7 +251,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![로그 검색의 애플리케이션 프로토콜에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
-**검색**
+**찾으세요**
 
 - 환경 내 VPN 게이트웨이의 용량 사용률 추세.
     - 각 VPN SKU는 일정량의 대역폭을 허용합니다. VPN 게이트웨이 사용률이 낮습니까?
@@ -264,7 +267,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>지리별로 트래픽 분포 시각화
 
-**검색**
+**찾으세요**
 
 - 데이터 센터 상위 트래픽 소스, 데이터 센터와의 상위 불량 네트워크 대화, 상위 대화 애플리케이션 프로토콜 같은 데이터 센터별 트래픽 분포.
   - 데이터 센터에서 더 많은 부하가 목격되는 경우 효율적인 트래픽 분포를 계획할 수 있습니다.
@@ -286,7 +289,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>가상 네트워크별로 트래픽 분포 시각화
 
-**검색**
+**찾으세요**
 
 - 가상 네트워크, 토폴로지, 가상 네트워크로 가는 상위 트래픽 소스, 가상 네트워크와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
   - 어떤 가상 네트워크가 어떤 가상 네트워크와 대화하는지 파악. 대화가 예상되지 않는 경우 수정할 수 있습니다.
@@ -306,7 +309,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![로그 검색의 가상 네트워크 트래픽 분포에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
-**검색**
+**찾으세요**
 
 - 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
@@ -316,7 +319,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![흐름과 관련하여 가상 네트워크 서브넷의 트래픽 분포를 보여주는 서브넷 토폴로지](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
-**검색**
+**찾으세요**
 
 애플리케이션 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 애플리케이션 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포. 
     
@@ -327,7 +330,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>인터넷에서 트래픽을 수신하는 포트 및 가상 머신 보기
 
-**검색**
+**찾으세요**
 
 - 인터넷을 통해 대화하는 열린 포트
   - 예상치 않은 포트가 열려 있는 것이 발견되면 구성을 수정할 수 있습니다.
@@ -336,7 +339,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
     ![Azure 대상 포트 및 호스트 세부 정보](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
-**검색**
+**찾으세요**
 
 환경 내 악성 트래픽의 존재 여부 악성 트래픽의 출처 악성 트래픽의 목적지
 
@@ -345,7 +348,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>NSG/NSG 규칙 적중의 추세 시각화
 
-**검색**
+**찾으세요**
 
 - 흐름 분포와 비교 차트에서 대부분 적중하는 NSG/NSG 규칙은 무엇인가요?
 - NSG/NSG 규칙당 최상위 원본 및 대상 대화 쌍

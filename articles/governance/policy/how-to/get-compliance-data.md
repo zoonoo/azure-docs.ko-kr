@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802959"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048712"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -30,7 +30,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 > [!WARNING]
 > 으로 준수 상태로 보고 되는 경우 **등록 되어 있지**, 되어 있는지 확인 합니다 **Microsoft.PolicyInsights** 리소스 공급자가 등록 되어 있고 사용자는 적절 한 역할 기반 액세스 제어 ( 에 설명 된 대로 RBAC) 사용 권한 [Azure Policy에 대 한 RBAC](../overview.md#rbac-permissions-in-azure-policy)합니다.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
@@ -56,8 +56,8 @@ REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourRG}` - 사용자의 리소스 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
+- `{YourRG}` -리소스 그룹의 이름으로 대체 합니다.
+- `{subscriptionId}` -구독 ID로 대체 합니다.
 
 검사는 구독 또는 리소스 그룹에서 리소스의 평가를 지원합니다. 다음 URI 구조를 사용하여 REST API **POST** 명령으로 범위별 검사를 시작합니다.
 
@@ -79,7 +79,7 @@ REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}`는 요청한 범위에 대해 정적으로 생성됩니다. 범위가 이미 주문형 검사를 실행하고 있는 경우 새 검사는 시작되지 않습니다. 대신, 새 요청은 상태에 대해 동일한 `{ResourceContainerGUID}` **위치** URI가 제공됩니다. 평가가 진행되는 동안 **위치** URI에 대한 REST API **GET** 명령은 **202 수락됨**을 반환합니다. 평가 검사가 완료되면 **200 확인** 상태를 반환합니다. 완성된 검사의 본문은 다음 상태가 포함된 JSON 응답입니다.
+`{ResourceContainerGUID}` 요청한 범위에 대 한 정적으로 생성 됩니다. 범위가 이미 주문형 검사를 실행하고 있는 경우 새 검사는 시작되지 않습니다. 대신, 새 요청은 상태에 대해 동일한 `{ResourceContainerGUID}` **위치** URI가 제공됩니다. 평가가 진행되는 동안 **위치** URI에 대한 REST API **GET** 명령은 **202 수락됨**을 반환합니다. 평가 검사가 완료되면 **200 확인** 상태를 반환합니다. 완성된 검사의 본문은 다음 상태가 포함된 JSON 응답입니다.
 
 ```json
 {

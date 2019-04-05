@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service의 보안 개념 | Microsoft Do
 description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 보안 프로비전 개념 설명
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946564"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046901"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -83,7 +83,7 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 프로비전 서비스는 X.509 증명 메커니즘을 사용하는 디바이스에 대한 액세스를 제어하는 데 사용할 수 있는 두 가지 유형의 등록 항목을 공개합니다.  
 
-- [개별 등록](./concepts-service.md#individual-enrollment) 항목은 특정 장치와 연결된 장치 인증서로 구성됩니다. 이러한 항목은 특정 디바이스에 대한 등록을 제어합니다.
+- [개별 등록](./concepts-service.md#individual-enrollment) 항목은 특정 디바이스와 연결된 디바이스 인증서로 구성됩니다. 이러한 항목은 특정 디바이스에 대한 등록을 제어합니다.
 - [등록 그룹](./concepts-service.md#enrollment-group) 항목은 특정 중간 또는 루트 CA 인증서와 연결됩니다. 이러한 항목은 인증서 체인에 해당 중간 또는 루트 인증서가 있는 모든 디바이스에 대한 등록을 제어합니다. 
 
 디바이스가 프로비전 서비스에 연결되면 이 서비스에서 덜 구체적인 등록 항목보다 높은 우선 순위를 더 구체적인 등록 항목에 지정합니다. 즉 디바이스에 대한 개별 등록이 있으면 프로비전 서비스에서 해당 항목을 적용합니다. 디바이스에 대한 개별 등록이 없고 디바이스의 인증서 체인에 있는 첫 번째 중간 인증서에 대한 등록 그룹이 있으면, 서비스에서 체인의 해당 항목, 그 다음 우선 순위의 항목 등등으로 적용하면서 루트까지 연결합니다. 이 서비스는 적용 가능한 첫 번째 항목을 다음과 같이 적용합니다.
@@ -94,10 +94,10 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 이 메커니즘과 인증서 체인의 계층 구조는 개별 디바이스 및 디바이스 그룹에 대한 액세스를 제어하는 방법에 강력한 유연성을 제공합니다. 예를 들어 다음과 같은 인증서 체인이 있는 5개의 디바이스를 가정합니다. 
 
-- *장치 1*: 루트 인증서 -> 인증서 A -> 장치 1 인증서
-- *장치 2*: 루트 인증서 -> 인증서 A -> 장치 2 인증서
-- *장치 3*: 루트 인증서 -> 인증서 A -> 장치 3 인증서
-- *장치 4*: 루트 인증서 -> 인증서 B -> 장치 4 인증서
-- *장치 5*: 루트 인증서 -> 인증서 B -> 장치 5 인증서
+- *디바이스 1*: 루트 인증서 -&gt; 인증서 A -&gt; 디바이스 1 인증서
+- *디바이스 2*: 루트 인증서 -&gt; 인증서 A -&gt; 디바이스 2 인증서
+- *디바이스 3*: 루트 인증서 -&gt; 인증서 A -&gt; 디바이스 3 인증서
+- *디바이스 4*: 루트 인증서 -&gt; 인증서 B -&gt; 디바이스 4 인증서
+- *디바이스 5*: 루트 인증서 -&gt; 인증서 B -&gt; 디바이스 5 인증서
 
 처음에는 루트 인증서에 대해 사용할 수 있는 단일 그룹 등록 항목을 만들어 5개 디바이스 모두에 대한 액세스를 사용하도록 설정할 수 있습니다. 나중에 인증서 B가 손상되는 경우 *디바이스 4* 및 *디바이스 5*가 등록되지 않도록 인증서 B에 대해 사용할 수 없는 등록 그룹 항목을 만들 수 있습니다. 나중에 *디바이스 3*이 여전히 손상되는 경우 해당 인증서에 대해 사용할 수 없는 개별 등록 항목을 만들 수 있습니다. 이렇게 하면 *디바이스 3*에 대한 액세스가 취소되지만, *디바이스 1* 및 *디바이스 2*는 등록할 수 있습니다.

@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c19d41cee55a309b5345af4f811c60b82a613
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178977"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046498"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 공동 작업 초대 상환
 
@@ -56,14 +56,14 @@ Azure AD(Azure Active Directory) B2B 공동 작업을 통해 파트너 조직의
 
 ## <a name="terms-of-use"></a>사용 약관
 
-Azure AD 사용 약관 기능을 사용하여 초기 상환 프로세스 동안 게스트 사용자에게 사용 약관을 제공할 수 있습니다. Azure Active Directory의 **관리** > **조직 관계** > **사용 약관** 또는 **보안** > **조건부 액세스** > **사용 약관**에서 이 기능에 액세스할 수 있습니다. 자세한 내용은 [Azure AD 사용 약관 기능](../governance/active-directory-tou.md)을 참조하세요.
+Azure AD 사용 약관 기능을 사용하여 초기 상환 프로세스 동안 게스트 사용자에게 사용 약관을 제공할 수 있습니다. Azure Active Directory의 **관리** > **조직 관계** > **사용 약관** 또는 **보안** > **조건부 액세스** > **사용 약관**에서 이 기능에 액세스할 수 있습니다. 자세한 내용은 [Azure AD 사용 약관 기능](../conditional-access/terms-of-use.md)을 참조하세요.
 
 ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)
+- [Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가](add-users-administrator.md)
 - [정보 근로자가 Azure Active Directory에 B2B 공동 작업 사용자를 추가하는 방법](add-users-information-worker.md)
-- [PowerShell을 사용하여 Azure Active Directory B2B 공동 작업 사용자 추가](customize-invitation-api.md#powershell)
+- [PowerShell을 사용 하 여 Azure Active Directory B2B 공동 작업 사용자 추가](customize-invitation-api.md#powershell)
 - [게스트 사용자로써 조직 나가기](leave-the-organization.md)

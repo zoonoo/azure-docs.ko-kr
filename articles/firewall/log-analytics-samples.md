@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534006"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051821"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 log analytics 샘플
 
@@ -40,7 +40,7 @@ Log Analytics 작업 영역에 뷰를 추가 하려면 다음 단계를 실행 �
 
 ![네트워크 규칙 로그 데이터]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall은 범주를 사용하여 AzureDiagnostics 아래에 데이터를 **AzureFirewallApplicationRule** 또는 **AzureFirewallApplicationRule**로 기록합니다. 세부 정보가 포함된 데이터는 msg_s 필드에 저장됩니다. [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) 연산자를 사용하면 msg_s 필드에서 다양한 흥미로운 속성을 추출할 수 있습니다. 아래 쿼리는 두 범주에 대한 정보를 추출합니다.
+Azure 방화벽 로그 데이터를 AzureDiagnostics 아래 범주 중 하나로 **AzureFirewallApplicationRule** 하거나 **AzureFirewallNetworkRule**합니다. 세부 정보가 포함된 데이터는 msg_s 필드에 저장됩니다. [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) 연산자를 사용하면 msg_s 필드에서 다양한 흥미로운 속성을 추출할 수 있습니다. 아래 쿼리는 두 범주에 대한 정보를 추출합니다.
 
 ## <a name="application-rules-log-data-query"></a>애플리케이션 규칙 로그 데이터 쿼리
 

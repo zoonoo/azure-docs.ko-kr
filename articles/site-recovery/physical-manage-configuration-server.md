@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878709"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050138"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
 Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용할 경우 온-프레미스 구성 서버를 설정합니다. 구성 서버는 온-프레미스 컴퓨터와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. 이 문서에서는 배포된 구성 서버를 관리하기 위한 일반적인 작업을 요약합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -265,28 +267,28 @@ ProxyPassword="Password"
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>구성 서버 삭제 또는 등록 취소(PowerShell)
 
-1. Azure PowerShell 모듈 [설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
+1. Azure PowerShell 모듈 [설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. 다음 명령을 사용하여 Azure 계정에 로그인
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. 자격 증명 모음이 있는 구독 선택
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  자격 증명 모음 컨텍스트 설정
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. 구성 서버 선택
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 구성 서버 삭제
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Remove-AzureRmSiteRecoveryFabric의 **-Force** 옵션은 구성 서버를 강제로 제거/삭제하는 데 사용할 수 있습니다.
+> 합니다 **-강제로** 제거/삭제 구성 서버의 강제 제거-AzSiteRecoveryFabric에서 옵션을 사용할 수 있습니다.
 
 ## <a name="renew-ssl-certificates"></a>SSL 인증서 갱신
 구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.

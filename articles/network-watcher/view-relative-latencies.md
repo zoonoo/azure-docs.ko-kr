@@ -16,29 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117866"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050495"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
 이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 애플리케이션 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 이 서비스를 사용하여 Azure에 대한 서비스 공급자 연결을 평가할 수 있습니다.  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-a-network-watcher"></a>네트워크 감시자 만들기
 
 하나 이상의 Azure [지역](https://azure.microsoft.com/regions)에 네트워크 감시자가 이미 있는 경우 이 섹션의 작업을 건너뛰어도 됩니다. 네트워크 감시자에 대한 리소스 그룹을 만듭니다. 이 예제에서는 리소스 그룹이 미국 동부 지역에서 만들어지지만 어떤 Azure 지역에서도 리소스 그룹을 만들 수 있습니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 네트워크 감시자를 만듭니다. 하나 이상의 Azure 지역에서 만든 네트워크 감시자가 있어야 합니다. 이 예제에서는 미국 동부 Azure 지역에 네트워크 감시자가 만들어집니다.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>특정 위치에서 단일 Azure 지역에 연결할 때의 상대적 네트워크 대기 시간 비교
@@ -46,7 +49,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 서비스 공급자를 평가하거나, 특정 위치에서 서비스가 배포된 Azure 지역에 연결할 때 "사이트가 느림"과 같은 문제를 해결합니다. 예를 들어, 다음 명령은 2017년 12월 13~15일 동안 미국 워싱턴주와 미국 서부 2 Azure 지역 간의 평균 상대 인터넷 서비스 공급자 대기 시간을 반환합니다.
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -109,7 +112,7 @@ ReachabilityReport : [
 `-Location`을 사용하여 특정 위치와 특정 Azure 지역 간의 상대적 대기 시간을 지정하는 대신, 특정 물리적 위치에서 모든 Azure 지역에 연결할 때의 상대적 대기 시간을 확인하려는 경우에도 이 작업을 수행할 수 있습니다. 예를 들어, 다음 명령은 기본 사용자가 워싱턴주에 있는 Comcast 사용자인 경우 서비스를 배포할 Azure 지역을 평가하는 데 도움이 됩니다.
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -127,7 +130,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 특정 인터넷 서비스 공급자, 국가, 시/도 및 구/군/시에 대한 데이터를 사용할 수 있습니다. 데이터를 볼 수 있는 모든 인터넷 서비스 공급자, 국가, 시/도 및 구/군/시 목록을 보려면 다음 명령을 입력합니다.
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 이전 명령에 의해 반환된 국가, 시/도 및 구/군/시에 대한 데이터만 사용할 수 있습니다. 이전 명령에서는 기존 네트워크 감시자를 지정해야 합니다. 이 예제에서는 *NetworkWatcherRG*라는 리소스 그룹에 *NetworkWatcher_eastus* 네트워크 감시자를 지정했지만, 기존의 어떤 네트워크 감시자도 지정할 수 있습니다. 기존 네트워크 감시자가 없는 경우 [네트워크 감시자 만들기](#create-a-network-watcher)의 작업을 완료하여 만듭니다. 
@@ -135,7 +138,7 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWa
 이전 명령을 실행한 후에 **국가**, **시/도** 및 **구/군/시**에 대해 유효한 값을 지정하여 반환된 출력을 필터링할 수 있습니다(원할 경우).  예를 들어, 미국, 워싱턴주, 시애틀에서 사용할 수 있는 인터넷 서비스 공급자의 목록을 보려면 다음 명령을 입력합니다.
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

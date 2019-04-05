@@ -1,19 +1,18 @@
 ---
-title: Azure 데이터 탐색기 데이터베이스 권한 관리
+title: Azure 데이터 탐색기에서 데이터베이스 권한 관리
 description: 이 문서에서는 Azure 데이터 탐색기의 데이터베이스 및 테이블에 대한 역할 기반 액세스 제어에 대해 설명합니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3f5f174f5f5e8aa122ab9c280cc812dd64b0b425
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756484"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045671"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure 데이터 탐색기 데이터베이스 권한 관리
 
@@ -77,4 +76,4 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[쿼리 작성](write-queries.md)
+[쿼리 쓰기](write-queries.md)

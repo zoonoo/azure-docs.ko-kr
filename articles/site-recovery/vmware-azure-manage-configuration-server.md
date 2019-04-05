@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877230"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049700"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구용 구성 서버 관리
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 설정합니다. 구성 서버는 온-프레미스 VMware 및 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다. 이 문서에서는 배포된 후에 구성 서버를 관리하기 위한 일반 태스크를 요약합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="access-configuration-server"></a>구성 서버 액세스
 
@@ -234,28 +237,28 @@ ProxyPassword="Password"
 
 필요에 따라 PowerShell을 사용하여 구성 서버를 삭제할 수 있습니다.
 
-1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)합니다.
+1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. 자격 증명 모음 구독을 선택합니다.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  자격 증명 모음 컨텍스트를 설정합니다.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. 구성 서버를 검색합니다.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 구성 서버를 삭제합니다.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> 구성 서버의 강제 삭제를 위해서는 Remove-AzureRmSiteRecoveryFabric에 **-Force** 옵션을 사용할 수 있습니다.
+> 사용할 수는 **-Force** 옵션 제거 AzSiteRecoveryFabric에서 구성 서버의 강제 삭제 합니다.
 
 ## <a name="generate-configuration-server-passphrase"></a>구성 서버 암호 생성
 

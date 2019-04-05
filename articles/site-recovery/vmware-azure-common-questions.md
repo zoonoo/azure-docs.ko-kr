@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418795"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051923"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
 이 문서에서는 온-프레미스 VMware VM의 재해 복구를 Azure로 배포할 때 표시되는 일반적인 질문에 대한 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
-
 
 ## <a name="general"></a>일반
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 비용은 어떻게 책정하는가요?
@@ -41,7 +40,7 @@ Azure 구독, Recovery Services 자격 증명 모음, 캐시 저장소 계정, �
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Azure에서 게스트 OS 서버 라이선스를 사용할 수 있나요?
 예, Microsoft Software Assurance 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 활용해서 Azure로 마이그레이션되는 **Windows Server 머신**에 대한 라이선스 비용을 절감하거나 재해 복구에 Azure를 사용할 수 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>장애 조치(failover) 후 복제 중에 라이선스 요금은 어떻게 처리되나요?
 
@@ -284,8 +283,8 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 ### <a name="what-access-does-site-recovery-need-to-vmware-servers"></a>Site Recovery에서 VMware 서버에 액세스하는 데 필요한 권한은 무엇인가요?
 Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 합니다.
 
-- 구성 서버 및 다른 온-프레미스 Site Recovery 구성 요소를 실행하는 VMware VM을 설정합니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md)
-- 복제할 VM을 자동으로 검색합니다. 자동 검색을 위한 계정을 준비하는 방법을 알아봅니다. [자세히 알아보기](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)
+- 구성 서버 및 다른 온-프레미스 Site Recovery 구성 요소를 실행하는 VMware VM을 설정합니다. [자세한 정보](vmware-azure-deploy-configuration-server.md)
+- 복제할 VM을 자동으로 검색합니다. 자동 검색을 위한 계정을 준비하는 방법을 알아봅니다. [자세한 정보](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)
 
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-vms"></a>Site Recovery에서 VMware VM에 액세스하는 데 필요한 권한은 무엇인가요?
@@ -317,13 +316,13 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 VMware에서 Azure로 복구하는 경우 사용할 수 있는 가장 오래된 복구 지점은 72시간입니다.
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
-장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세한 정보](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치된 데이터는 복원되나요?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/azurerm.siterecovery) 장애 조치를 트리거할 수 있습니다.
+[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/az.recoveryservices) 장애 조치를 트리거할 수 있습니다.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
 예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).

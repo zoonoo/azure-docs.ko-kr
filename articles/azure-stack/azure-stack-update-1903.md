@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917688"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048812"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 업데이트
 
-*적용 대상 Azure Stack 통합 시스템*
+*적용 대상: Azure Stack 통합 시스템*
 
 이 문서에서는 1903 업데이트 패키지의 내용을 설명 합니다. 업데이트는 향상 된 기능, 수정 및 Azure Stack의이 버전에 대 한 새로운 기능을 포함합니다. 또한이 문서는이 릴리스의 알려진된 문제를 설명 하 고 업데이트를 다운로드 하려면 링크를 포함 합니다. 알려진된 문제는 업데이트 프로세스를 직접 관련 된 문제 및 문제 (설치 후) 빌드를 사용 하 여으로 구분 됩니다.
 
@@ -64,6 +64,12 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 검색 및 디스크 공간 부족 조건의 업데이트 관리 향상 되었습니다.
 
+### <a name="secret-management"></a>비밀 관리
+
+- 이제 azure Stack 외부 비밀 회전에 대 한 인증서로 사용 된 루트 인증서의 회전을 지원 합니다. 자세한 내용은 [이 문서를 참조 하세요.](azure-stack-rotate-secrets.md)합니다.
+
+- 1903 내부 비밀 회전을 실행 하는 데 걸리는 시간을 줄이는 비밀 회전에 대 한 성능 향상을 포함 합니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
@@ -91,7 +97,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 실행할 때 [테스트 AzureStack](azure-stack-diagnostic-test.md), 베이스 보드 관리 컨트롤러 (BMC)에서 경고 메시지가 표시 됩니다. 이 경고를 안전 하 게 무시할 수 있습니다.
 
-- <!-- 2468613 - IS --> 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 `Error – Template for FaultType UserAccounts.New is missing.` 이러한 경고를 안전 하 게 무시할 수 있습니다. 이 업데이트의 설치가 완료 된 후 경고를 자동으로 닫습니다.
+- <!-- 2468613 - IS --> 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 **오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.** 이러한 경고를 안전 하 게 무시할 수 있습니다. 이 업데이트의 설치가 완료 된 후 경고를 자동으로 닫습니다.
 
 ## <a name="post-update-steps"></a>업데이트 후 단계
 
@@ -151,9 +157,9 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM는 SSH 키를 사용 하 여 로그인 할 수 없습니다. 이 문제를 해결 하려면 Linux 확장에 대 한 VM 액세스 프로 비전 한 후 SSH 키를 구현 하는 데 또는 암호 기반 인증을 사용 합니다.
 
-- 하드웨어 수명 주기 호스트 (HLH) 없는 경우 1902 빌드 전에 그룹 정책 설정 해야 *컴퓨터 구성 설정 \ 보안 설정 \ 로컬 정책 \ 보안 옵션* 에 **lm NTLM –협상하는경우NTLMv2세션보안사용**. 1902 빌드 후 두어야 그대로 **정의 되지 않은** 로 설정 하거나 **NTLMv2 응답만 보내기** (값인 기본). 그렇지 않으면 PowerShell 원격 세션을 설정할 수 없습니다 하 고 받을 수 있습니다는 *액세스가 거부 되었습니다.* 오류:
+- 하드웨어 수명 주기 호스트 (HLH) 없는 경우: 1902 빌드 전에 그룹 정책 설정 해야 **컴퓨터 구성 설정 \ 보안 설정 \ 로컬 정책 \ 보안 옵션** 에 **lm NTLM – 협상 하는 경우 NTLMv2 세션 보안을 사용 하 여**입니다. 1902 빌드 후 두어야 그대로 **정의 되어 있지** 로 설정 하거나 **NTLMv2 응답만 보내기** (기본값은)는입니다. 그렇지 않으면 PowerShell 원격 세션을 설정할 수 없습니다 하 고 표시 됩니다는 **액세스가 거부 되었습니다.** 오류:
 
-   ```PowerShell
+   ```shell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
@@ -169,7 +175,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 <!-- 3239127 - IS, ASDK -->
 - Azure Stack 포털에 VM 인스턴스에 연결 된 네트워크 어댑터에 바인딩되어 있는 IP 구성에 대 한 고정 IP 주소를 변경 하면 나타납니다 없다는 경고 메시지 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     이 메시지를 안전 하 게 무시할 수 있습니다. IP 주소는 VM 인스턴스 다시 시작 하지 않습니다 하는 경우에 변경 됩니다.
 
@@ -193,7 +199,6 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 <!-- 2352906 - IS ASDK --> 
 - 구독에서 첫 번째 Azure Function을 만들기 전에 저장소 리소스 공급자를 등록 해야 합니다.
-
 
 <!-- ### Usage -->
 

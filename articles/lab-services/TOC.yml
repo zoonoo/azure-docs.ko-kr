@@ -137,6 +137,8 @@ items:
         href: devtest-lab-add-claimable-vm.md
       - name: Azure CLI를 사용하여 VM 만들기 및 관리
         href: devtest-lab-vmcli.md
+      - name: Azure PowerShell을 사용하여 VM 만들기
+        href: devtest-lab-vm-powershell.md
       - name: Resource Manager 템플릿에서 VM 만들기
         href: devtest-lab-use-resource-manager-template.md
       - name: VM 다시 시작
@@ -277,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: 질문과 대답
       href: devtest-lab-faq.md
-ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886678"
+ms.locfileid: "58894443"

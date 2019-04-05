@@ -3,17 +3,17 @@ title: Azure 디바이스 프로비저닝에서 디바이스 개념 | Microsoft 
 description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 디바이스 프로비저닝 개념 설명
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 354ef48f7935536864cde9dc0d9a130fa5aeb865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972864"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049089"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub Device Provisioning Service 디바이스 개념
 
@@ -51,7 +51,7 @@ Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 
 
 ## <a name="device-id"></a>디바이스 ID
 
-디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 장치 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
+디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
 
 ## <a name="id-scope"></a>ID 범위
 

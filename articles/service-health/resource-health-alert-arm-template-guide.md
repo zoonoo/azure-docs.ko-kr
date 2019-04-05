@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663437"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047520"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -22,30 +22,32 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 > [!NOTE]
 > 리소스 상태 경고는 현재 미리 보기에 있습니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
-1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)(`AzureRm`)을 설치해야 합니다.
+1. 설치 해야 합니다 [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
 ## <a name="instructions"></a>지침
 1. PowerShell을 사용하여 계정으로 Azure에 로그인하고 상호 작용하려는 구독을 선택합니다.
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > `Get-AzureRmSubscription`을 사용하면 액세스 권한이 있는 구독을 나열할 수 있습니다.
+    > `Get-AzSubscription`을 사용하면 액세스 권한이 있는 구독을 나열할 수 있습니다.
 
 2. 작업 그룹에 대한 전체 Azure Resource Manager ID 찾기 및 저장
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Resource Health 경고를 위한 Resource Manager 템플릿을 만들고 `resourcehealthalert.json`으로 저장([아래 세부 정보 참조](#resource-manager-template-for-resource-health-alerts))
 
 4. 이 템플릿을 사용하여 Azure Resource Manager 배포 새로 만들기
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. 앞에서 복사한 경고 이름 및 작업 그룹 리소스 ID를 입력하라는 메시지가 나타납니다.
 
@@ -162,7 +164,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ],
 ```
 
-예: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+예를 들면 다음과 같습니다. `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portal로 이동하여 Azure 리소스를 볼 때 URL을 살펴보면 이 문자열을 얻을 수 있습니다.
 
@@ -430,4 +432,4 @@ Resource Health에 대해 알아봅니다.
 -  [Azure Resource Health를 통해 사용할 수 있는 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
 
 Service Health 경고 만들기:
--  [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [서비스 상태에 대 한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

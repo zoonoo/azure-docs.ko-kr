@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803221"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046993"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
 이 문서는 Azure Network Watcher의 트래픽 분석에 대한 많은 질문과 대답을 한 곳에서 수집합니다.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>트래픽 분석을 사용하기 위한 필수 구성 요소는 무엇인가요?
 
@@ -51,11 +54,11 @@ ms.locfileid: "58803221"
         
 구독에 대해 사용자에게 할당된 역할을 확인하려면:
 
-1. **Login-AzureRmAccount**를 사용하여 Azure에 로그인합니다. 
+1. 사용 하 여 Azure에 로그인 **로그인 AzAccount**합니다. 
 
-2. **Select-AzureRmSubscription**을 사용하여 필요한 구독을 선택합니다. 
+2. 사용 하 여 필요한 구독 선택 **선택 AzSubscription**합니다. 
 
-3. 지정된 사용자에게 할당된 모든 역할을 나열하려면 **Get-AzureRmRoleAssignment -SignInName [사용자 메일] -IncludeClassicAdministrators**를 사용합니다. 
+3. 지정된 된 사용자에 게 할당 된 모든 역할을 나열 하려면 사용 하 여 **AzRoleAssignment Get-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**합니다. 
 
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
@@ -74,7 +77,7 @@ ms.locfileid: "58803221"
 - 미국 서부 2
 - 프랑스 중부
 - 서유럽
-- 북유럽
+- 유럽 북부
 - 브라질 남부
 - 영국 서부
 - 영국 남부
@@ -83,11 +86,11 @@ ms.locfileid: "58803221"
 - 동아시아
 - 동남아시아
 - 한국 중부
-- 인도 중부
+- 중앙 인도
 - 인도 남부
 - 일본 동부
 - 일본 서부
-- 미국 정부 버지니아
+- US Gov 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
@@ -100,9 +103,9 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 오스트레일리아 남동부
 - 동남아시아 
 - 한국 중부
-- 인도 중부
+- 중앙 인도
 - 일본 동부
-- 미국 정부 버지니아
+- US Gov 버지니아
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -139,8 +142,8 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 흐름 로깅이 제대로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 등록되어 있는지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>솔루션을 구성했습니다. 그런데 왜 대시보드에 아무 것도 표시되지 않나요?
@@ -170,13 +173,13 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell 또는 Azure Resource Manager 템플릿 또는 클라이언트를 사용하여 트래픽 분석을 구성할 수 있나요?
 
-버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용하여 특정 NSG에 대한 흐름 로깅 및 트래픽 분석을 구성하려면 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog)를 참조하세요. 특정 NSG에 대한 흐름 로깅 및 트래픽 분석 상태를 가져오려면 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus)를 참조하세요.
+버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용 하 여 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석을 구성, 참조 [집합 AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)합니다. 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석 상태를 가져오려면를 참조 하세요 [Get AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)합니다.
 
 현재 트래픽 분석을 구성하는 데는 Azure Resource Manager 템플릿을 사용할 수 없습니다.
 
 Azure Resource Manager 클라이언트를 사용하여 트래픽 분석을 구성하려면 다음 예제를 참조하세요.
 
-**Set cmdlet 예제:**
+**Cmdlet 예제를 설정 합니다.**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -217,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Get cmdlet 예제:**
+**Cmdlet 예제를 가져옵니다.**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -269,7 +272,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
         
 ### <a name="keyboard-navigation-at-any-stage"></a>모든 단계에서 키보드 탐색
     
-- `Esc` 키는 확장된 선택 영역을 축소합니다.
+- `Esc` 확장된 된 선택 영역을 축소합니다.
 - `Up arrow` 키는 `Esc` 키와 동일한 작업을 수행합니다. `Down arrow` 키는 `Enter` 키와 동일한 작업을 수행합니다.
 - `Shift+Plus` 키로 확대, `Shift+Minus` 키로 축소할 수 있습니다.
 

@@ -1,19 +1,18 @@
 ---
-title: Azure 데이터 탐색기 시계열 분석
-description: 'Azure 데이터 탐색기에서 시계열 분석에 대해 알아보기 '
-services: data-explorer
+title: Azure 데이터 탐색기를 사용 하 여 시계열 데이터 분석
+description: Azure 데이터 탐색기를 사용 하 여 클라우드의 시계열 데이터를 분석 하는 방법에 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756776"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051498"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
 
@@ -37,15 +36,15 @@ demo_make_series1 | take 10
 | --- | --- | --- | --- | --- |
 |   | TimeStamp | BrowserVer | OsVer | 국가 |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 영국 |
-|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | 윈도우 10 |   |
+|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 영국 |
-|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | 윈도우 10 | 영국 |
-|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | 윈도우 10 | 리투아니아 |
+|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | 영국 |
+|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | 리투아니아 |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | 인도 |
-|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | 윈도우 10 | 영국 |
+|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | 영국 |
 |   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | 네덜란드 |
-|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | 윈도우 10 | 영국 |
-|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | 윈도우 10 | 인도 |
+|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | 영국 |
+|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | 인도 |
 
 메트릭이 없으므로 다음과 같은 쿼리를 사용하여 OS로 분할된 트래픽 개수 자체를 나타내는 시계열 집합만 빌드할 수 있습니다.
 
@@ -59,9 +58,9 @@ demo_make_series1
 
 - 다음과 같은 경우 [`make-series`](/azure/kusto/query/make-seriesoperator) 연산자를 사용하여 세 개의 시계열 집합을 만듭니다.
     - `num=count()`: 트래픽의 시계열
-    - `range(min_t, max_t, 1h)`: 시계열은 시간 범위에서 1시간 bin 단위로 만들어짐(가장 오래되고 최신의 테이블 레코드의 타임 스탬프)
-    - `default=0`: 기본 시계열을 만들려면 누락된 bin에 대한 채우기 메서드를 지정합니다. 또는 변경을 위해 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 사용
-    - `byOsVer`: OS별 파티션
+    - `range(min_t, max_t, 1h)`: 시계열 시간 범위 (가장 오래 된 및 최신 타임 스탬프 테이블 레코드의)에서 1 시간 bin에 만들어집니다.
+    - `default=0`: 일반 시계열을 만들려면 누락 된 bin에 대 한 fill 메서드를 지정 합니다. 또는 변경을 위해 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 사용
+    - `byOsVer`: os 파티션
 - 실제 시계열 데이터 구조는 각 시간 bin 단위당 집계된 값의 숫자형 배열입니다. 시각화를 위해 `render timechart`를 사용합니다.
 
 위의 테이블에는 3개의 파티션이 있습니다. 다음과 같은 별도의 시계열을 만들 수 있습니다. 그래프에 표시된 대로 각 OS 버전에 대해 Windows 10(빨간색), Windows 7(파란색) 및 Windows 8.1(녹색)
@@ -79,7 +78,7 @@ demo_make_series1
 - 일반 필터링 함수에는 다음과 같은 두 가지가 있습니다.
     - [`series_fir()`](/azure/kusto/query/series-firfunction): FIR 필터를 적용합니다. 이동 평균의 간단한 계산 및 변경 내용 검색에 대한 시계열 차별화에 사용합니다.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): IIR 필터를 적용합니다. 지수 평활법 및 누적 합계에 사용합니다.
-- `Extend` 5개 bin 크기의 새 이동 평균 계열(*ma_num*이라고 함)을 쿼리에 추가하여 설정한 시계열.
+- `Extend` 새 이동 평균 시리즈를 추가 하 여 시계열 5 개의 bin 크기 (이라는 *ma_num*) 쿼리에:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -143,7 +142,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | 기간 | 점수 | days |
+|   | 기간 | 점수 | 일 |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 

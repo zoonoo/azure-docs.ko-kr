@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749712"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045988"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
 ## <a name="introduction"></a>소개
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 애플리케이션에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. Key vault를 사용 하면 다양 한 키 및 비밀 관리 가능성 열리는 프로그램의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있습니다.
 
@@ -39,6 +37,8 @@ Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있�
 
 > [!NOTE]
 > 이 문서에서는 key vault의 초기 설정을 자세히 설명 하지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [Azure CLI를 사용 하 여 Key Vault 관리](key-vault-manage-with-cli2.md)합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
 
@@ -166,6 +166,9 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 ## <a name="key-rotation-using-azure-automation"></a>Azure Automation을 사용하여 키 회전
 
+> [!IMPORTANT]
+> Azure Automation runbook은 계속 사용 해야는 `AzureRM` 모듈입니다.
+
 Key Vault 비밀로 저장 하는 값을 위한 회전 전략을 설정할 준비가 되었습니다. 여러 가지 방법으로 암호를 회전할 수 있습니다.
 
 - 수동 프로세스의 일부로
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 편집기 창에서 선택 **테스트 창** 스크립트를 테스트 합니다. 스크립트가 오류 없이 실행 한 후 선택할 수 있습니다 **게시**, 그런 다음 runbook 구성 창에서 runbook에 대 한 일정을 적용할 수 있습니다.

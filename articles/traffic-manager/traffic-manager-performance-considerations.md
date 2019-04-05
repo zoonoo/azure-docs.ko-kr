@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007954"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048302"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
 
@@ -66,7 +66,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
     이 도구는 웹 페이지의 각 요소에 대한 성능 통계를 제공합니다. Page Analysis 탭은 DNS 조회에 소요된 시간의 백분율을 보여줍니다.
 
-* [Azure DNS란?](https://www.whatsmydns.net/)
+* [내 DNS 란?](https://www.whatsmydns.net/)
 
     이 사이트는 20곳의 서로 다른 위치에서 DNS 조회를 수행하여 지도에 결과를 표시합니다.
 
@@ -76,11 +76,11 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 ## <a name="next-steps"></a>다음 단계
 
-[Traffic Manager 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)
+[Traffic Manager 트래픽 라우팅 방법에 대 한](traffic-manager-routing-methods.md)
 
 [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)
 
-[Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Traffic Manager (REST API 참조) 작업](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Azure Traffic Manager Cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 
