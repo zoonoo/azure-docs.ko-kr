@@ -3,17 +3,17 @@ title: Azure IoT Hub 용어집 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT Hub와 관련된 일반적인 용어집
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551673"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045971"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -220,7 +220,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 ## <a name="retry-policy"></a>다시 시도 정책
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 
-## <a name="routing-rules"></a>라우팅 규칙
+## <a name="routing-rules"></a>회람 규칙
 IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 디바이스-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
