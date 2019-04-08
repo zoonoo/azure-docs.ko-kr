@@ -1,6 +1,6 @@
 ---
-title: Compare Azure Data Factory with Data Factory version 1 | Microsoft Docs
-description: This article compares Azure Data Factory with Azure Data Factory version 1.
+title: Data Factory 버전 1과 Azure Data Factory 비교 | Microsoft Docs
+description: 이 아티클에서는 Azure Data Factory 버전 1과 Azure Data Factory를 비교합니다.
 services: data-factory
 documentationcenter: ''
 author: kromerm
@@ -18,132 +18,132 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57432705"
 ---
-# <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Compare Azure Data Factory with Data Factory version 1
-This article compares Data Factory with Data Factory version 1. For an introduction to Data Factory, see [Introduction to Data Factory](introduction.md).For an introduction to Data Factory version 1, see [Introduction to Azure Data Factory](v1/data-factory-introduction.md). 
+# <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
+이 아티클에서는 Data Factory 버전 1과 Data Factory를 비교합니다. Data Factory에 대한 소개는 [Data Factory 소개](introduction.md)를 참조하세요. 데이터 팩터리 버전 1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. 
 
-## <a name="feature-comparison"></a>Feature comparison
-The following table compares the features of Data Factory with the features of Data Factory version 1. 
+## <a name="feature-comparison"></a>기능 비교
+다음 표에서는 Data Factory 버전 1의 기능과 Data Factory의 기능을 비교합니다. 
 
-| Feature | Version 1 | Current version | 
+| 기능 | 버전 1 | 현재 버전 | 
 | ------- | --------- | --------- | 
-| Datasets | A named view of data that references the data that you want to use in your activities as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Azure Blob storage from which the activity should read the data.<br/><br/>**Availability** defines the processing window slicing model for the dataset (for example, hourly, daily, and so on). | Datasets are the same in the current version. However, you do not need to define **availability** schedules for datasets. You can define a trigger resource that can schedule pipelines from a clock scheduler paradigm. For more information, see [Triggers](concepts-pipeline-execution-triggers.md#triggers) and [Datasets](concepts-datasets-linked-services.md). | 
-| Linked services | Linked services are much like connection strings, which define the connection information that's necessary for Data Factory to connect to external resources. | Linked services are the same as in Data Factory V1, but with a new **connectVia** property to utilize the Integration Runtime compute environment of the current version of Data Factory. For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md) and [Linked service properties for Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties). |
-| Pipelines | A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. You use startTime, endTime, and isPaused to schedule and run pipelines. | Pipelines are groups of activities that are performed on data. However, the scheduling of activities in the pipeline has been separated into new trigger resources. You can think of pipelines in the current version of Data Factory more as “workflow units” that you schedule separately via triggers. <br/><br/>Pipelines do not have “windows” of time execution in the current version of Data Factory. The Data Factory V1 concepts of startTime, endTime, and isPaused are no longer present in the current version of Data Factory. For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) and [Pipelines and activities](concepts-pipelines-activities.md). |
-| Activities | Activities define actions to perform on your data within a pipeline. Data movement (copy activity) and data transformation activities (such as Hive, Pig, and MapReduce) are supported. | In the current version of Data Factory, activities still are defined actions within a pipelineThe current version of Data Factory introduces new [control flow activities](concepts-pipelines-activities.md#control-activities). You use these activities in a control flow (looping and branching). Data movement and data transformation activities that were supported in V1 are supported in the current version. You can define transformation activities without using datasets in the current version. |
-| Hybrid data movement and activity dispatch | Now called Integration Runtime, [Data Management Gateway](v1/data-factory-data-management-gateway.md) supported moving data between on-premises and cloud.| Data Management Gateway is now called Self-Hosted Integration Runtime. It provides the same capability as it did in V1. <br/><br/> The Azure-SSIS Integration Runtime in the current version of Data Factory also supports deploying and running SQL Server Integration Services (SSIS) packages in the cloud. For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).|
-| Parameters | NA | Parameters are key-value pairs of read-only configuration settings that are defined in pipelines. You can pass arguments for the parameters when you are manually running the pipeline. If you are using a scheduler trigger, the trigger can pass values for the parameters too. Activities within the pipeline consume the parameter values.  |
-| Expressions | Data Factory V1 allows you to use functions and system variables in data selection queries and activity/dataset properties. | In the current version of Data Factory, you can use expressions anywhere in a JSON string value. For more information, see [Expressions and functions in the current version of Data Factory](control-flow-expression-language-functions.md).|
-| Pipeline runs | NA | A single instance of a pipeline execution. For example, say you have a pipeline that executes at 8 AM, 9 AM, and 10 AM. There would be three separate runs of the pipeline (pipeline runs) in this case. Each pipeline run has a unique pipeline run ID. The pipeline run ID is a GUID that uniquely defines that particular pipeline run. Pipeline runs are typically instantiated by passing arguments to parameters that are defined in the pipelines. |
-| Activity runs | NA | An instance of an activity execution within a pipeline. | 
-| Trigger runs | NA | An instance of a trigger execution. For more information, see [Triggers](concepts-pipeline-execution-triggers.md). |
-| Scheduling | Scheduling is based on pipeline start/end times and dataset availability. | Scheduler trigger or execution via external scheduler. For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md). |
+| 데이터 세트 | 활동에서 입력 및 출력으로 사용하려는 데이터를 참조하는 데이터의 명명된 보기입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 집합은 활동에서 데이터를 읽어 들여야 하는 Azure Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.<br/><br/>**가용성**은 데이터 세트에 대한 처리 기간 조각화 모델을 정의합니다(예: 매시간, 매일 등). | 데이터 세트는 현재 버전에서 동일합니다. 하지만 데이터 세트에 대한 **가용성** 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md#triggers) 및 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. | 
+| 연결된 서비스 | 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. | 연결된 서비스는 Data Factory V1에서와 동일하지만 현재 버전의 Data Factory에 포함된 Integration Runtime 컴퓨팅 환경을 활용하는 새로운 **connectVia** 속성이 있습니다. 자세한 내용은 [Azure Data Factory의 통합 런타임](concepts-integration-runtime.md) 및 [Azure Blob Storage의 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)을 참조하세요. |
+| 파이프라인 | 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. startTime, endTime 및 isPaused를 사용하여 파이프라인을 예약하고 실행합니다. | 파이프라인은 데이터에 수행되는 활동의 그룹입니다. 단, 파이프 라인에서 활동의 일정 계획이 새로운 트리거 리소스로 분리되었습니다. 현재 버전의 Data Factory에 포함된 파이프라인이 트리거를 통해 개별적으로 예약하는 "워크플로 단위"라고 생각할 수 있습니다. <br/><br/>현재 버전의 Data Factory에서는 파이프라인에 시간 실행의 "기간"이 없습니다. Data Factory V1의 startTime, endTime, isPaused 개념은 현재 버전의 Data Factory에 더 이상 존재하지 않습니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)와 [파이프라인 및 활동](concepts-pipelines-activities.md)을 참조하세요. |
+| 활동 | 활동은 파이프라인 내에서 데이터에 수행할 동작을 정의합니다. 데이터 이동(복사 활동) 및 데이터 변환 활동(예: Hive, Pig 및 MapReduce)이 지원됩니다. | 현재 버전의 데이터 팩터리에서 작업은 파이프라인 내에 정의된 작업입니다. 현재 버전의 Data Factory에서는 새로운 [제어 흐름 작업](concepts-pipelines-activities.md#control-activities)을 도입합니다. 이러한 활동은 제어 흐름(루핑 및 분기)에서 사용합니다. V1에서 지원되었던 데이터 이동 및 데이터 변환 활동이 현재 버전에서 지원됩니다. 현재 버전에서는 데이터 세트를 사용하지 않고 변환 활동을 정의할 수 있습니다. |
+| 하이브리드 데이터 이동 및 활동 디스패치 | 이제 Integration Runtime이라고 하는 [데이터 관리 게이트웨이](v1/data-factory-data-management-gateway.md)는 온-프레미스와 클라우드 간에 데이터 이동을 지원했습니다.| 데이터 관리 게이트웨이를 이제 자체 호스팅 Integration Runtime이라고 합니다. V1에서와 동일한 기능을 제공합니다. <br/><br/> 또한 현재 버전의 Data Factory에 포함된 Azure-SSIS Integration Runtime은 클라우드에서 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행하도록 지원합니다. 자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)을 참조하세요.|
+| 매개 변수 | 해당 없음 | 매개 변수는 파이프라인에 정의된 읽기 전용 구성 설정의 키-값 쌍입니다. 파이프라인을 수동으로 실행할 때 매개 변수에 대한 인수를 전달할 수 있습니다. 스케줄러 트리거를 사용하는 경우 트리거가 매개 변수에 대한 값을 전달할 수도 있습니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.  |
+| 식 | Data Factory V1을 사용하면 데이터 선택 쿼리 및 활동/데이터 집합 속성에 함수 및 시스템 변수를 사용할 수 있습니다. | 현재 버전의 Data Factory에서는 JSON 문자열 값의 아무 곳에나 식을 사용할 수 있습니다. 자세한 내용은 [현재 버전의 Data Factory에 포함된 식 및 함수](control-flow-expression-language-functions.md)를 참조하세요.|
+| 파이프라인 실행 | 해당 없음 | 파이프라인 실행의 단일 인스턴스입니다. 예를 들어 오전 8시, 오전 9시 및 오전 10시에 실행하는 파이프라인이 있다고 합시다. 이 경우 파이프라인의 별도 실행(파이프라인 실행) 3개가 있습니다. 각 파이프라인 실행에는 고유한 파이프라인 실행 ID가 있습니다. 파이프라인 실행 ID는 특정 파이프 라인 실행을 고유하게 정의하는 GUID입니다. 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화됩니다. |
+| 작업 실행 | 해당 없음 | 파이프라인 내의 활동 실행 인스턴스입니다. | 
+| 트리거 실행 | 해당 없음 | 트리거 실행 인스턴스입니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md)를 참조하세요. |
+| 일정 계획 | 일정 예약은 파이프라인 시작/종료 시간 및 데이터 세트 가용성을 기반으로 합니다. | 외부 스케줄러를 통한 Scheduler 트리거 또는 실행입니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요. |
 
-The following sections provide more information about the capabilities of the current version. 
+다음 섹션에서는 현재 버전의 기능에 대한 자세한 정보를 제공합니다. 
 
-## <a name="control-flow"></a>Control flow  
-To support diverse integration flows and patterns in the modern data warehouse, the current version of Data Factory has enabled a new flexible data pipeline model that is no longer tied to time-series data. A few common flows that were previously not possible are now enabled. They are described in the following sections.   
+## <a name="control-flow"></a>흐름 제어  
+최신 데이터 웨어하우스의 다양한 통합 흐름 및 패턴을 지원하기 위해 현재 버전의 Data Factory는 더 이상 시계열 데이터에 연결되지 않는 유연한 새 데이터 파이프라인 모델을 구현했습니다. 이전에는 불가능했던 몇 가지 일반적인 흐름이 가능해졌습니다. 이 내용은 다음 섹션에 설명되어 있습니다.   
 
-### <a name="chaining-activities"></a>Chaining activities
-In V1, you had to configure the output of an activity as an input of another activity to chain them. in the current version, you can chain activities in a sequence within a pipeline. You can use the **dependsOn** property in an activity definition to chain it with an upstream activity. For more information and an example, see [Pipelines and activities](concepts-pipelines-activities.md#multiple-activities-in-a-pipeline) and [Branching and chaining activities](tutorial-control-flow.md). 
+### <a name="chaining-activities"></a>활동 연결
+V1에서는 활동을 연결하기 위해 한 활동의 출력을 다른 활동의 입력으로 구성해야 했습니다. 현재 버전에서는 파이프라인 내의 시퀀스에서 작업을 연결할 수 있습니다. 활동 정의에 **dependsOn** 속성을 사용하여 업스트림 활동과 연결할 수 있습니다. 자세한 내용과 예제는 [파이프라인 및 활동](concepts-pipelines-activities.md#multiple-activities-in-a-pipeline)과 [분기 및 연결 활동](tutorial-control-flow.md)을 참조하세요. 
 
-### <a name="branching-activities"></a>Branching activities
-in the current version, you can branch activities within a pipeline. The [If-condition activity](control-flow-if-condition-activity.md) provides the same functionality that an `if` statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`. For examples of branching activities, see the [Branching and chaining activities](tutorial-control-flow.md) tutorial.
+### <a name="branching-activities"></a>분기 활동
+현재 버전에서는 파이프라인 내에서 작업을 분기할 수 있습니다. [If 조건 활동](control-flow-if-condition-activity.md)은 `if` 문이 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 분기 활동에 대한 예제는 [분기 및 연결 활동](tutorial-control-flow.md) 자습서를 참조하세요.
 
-### <a name="parameters"></a>Parameters 
-You can define parameters at the pipeline level and pass arguments while you're invoking the pipeline on-demand or from a trigger. Activities can consume the arguments that are passed to the pipeline. For more information, see [Pipelines and triggers](concepts-pipeline-execution-triggers.md). 
+### <a name="parameters"></a>매개 변수 
+파이프라인 수준에서 매개 변수를 정의하고 요청 시 또는 트리거에서 파이프라인을 호출하는 동안 인수를 전달할 수 있습니다. 파이프라인에 전달되는 인수를 작업에 사용할 수 있습니다. 자세한 내용은 [파이프라인 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요. 
 
-### <a name="custom-state-passing"></a>Custom state passing
-Activity outputs including state can be consumed by a subsequent activity in the pipeline. For example, in the JSON definition of an activity, you can access the output of the previous activity by using the following syntax: `@activity('NameofPreviousActivity').output.value`. By using this feature, you can build workflows where values can pass through activities.
+### <a name="custom-state-passing"></a>사용자 지정 상태 전달
+상태를 포함한 작업 출력을 파이프라인의 이후 작업에서 사용할 수 있습니다. 예를 들어, 활동의 JSON 정의에서 다음 구문을 사용하여 이전 활동의 출력에 액세스 할 수 있습니다. `@activity('NameofPreviousActivity').output.value`. 이 기능을 사용하면 값이 활동을 통과할 수 있는 워크플로를 만들 수 있습니다.
 
-### <a name="looping-containers"></a>Looping containers
-The [ForEach activity](control-flow-for-each-activity.md) defines a repeating control flow in your pipeline. This activity iterates over a collection and runs specified activities in a loop. The loop implementation of this activity is similar to the Foreach looping structure in programming languages. 
+### <a name="looping-containers"></a>컨테이너 루프화
+[ForEach 활동](control-flow-for-each-activity.md)은 파이프라인의 반복 제어 흐름을 정의합니다. 이 활동은 컬렉션을 반복하고 루프의 지정된 활동을 실행합니다. 이 활동의 루프 구현은 프로그래밍 언어의 Foreach 반복 구조와 비슷합니다. 
 
-The [Until](control-flow-until-activity.md) activity provides the same functionality that a do-until looping structure provides in programming languages. It runs a set of activities in a loop until the condition that's associated with the activity evaluates to `true`. You can specify a timeout value for the until activity in Data Factory.  
+[Until](control-flow-until-activity.md) 활동은 do-until 루핑 구조가 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 활동과 연결된 조건이 `true`로 평가될 때까지 반복에서 일련의 활동을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.  
 
-### <a name="trigger-based-flows"></a>Trigger-based flows
-Pipelines can be triggered by on-demand (event-based, i.e. blob post) or wall-clock time. The [pipelines and triggers](concepts-pipeline-execution-triggers.md) article has detailed information about triggers. 
+### <a name="trigger-based-flows"></a>트리거 기반 흐름
+요청 시(blob 게시물과 같은 이벤트 기반) 또는 벽시계 시간에 의해 파이프라인을 트리거할 수 있습니다. [파이프라인 및 트리거](concepts-pipeline-execution-triggers.md) 문서에 트리거에 대한 자세한 내용이 있습니다. 
 
-### <a name="invoking-a-pipeline-from-another-pipeline"></a>Invoking a pipeline from another pipeline
-The [Execute Pipeline activity](control-flow-execute-pipeline-activity.md) allows a Data Factory pipeline to invoke another pipeline.
+### <a name="invoking-a-pipeline-from-another-pipeline"></a>다른 파이프라인에서 파이프라인 호출
+[파이프라인 실행 활동](control-flow-execute-pipeline-activity.md)을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
 
-### <a name="delta-flows"></a>Delta flows
-A key use case in ETL patterns is “delta loads,” in which only data that has changed since the last iteration of a pipeline is loaded. New capabilities in the current version, such as [lookup activity](control-flow-lookup-activity.md), flexible scheduling, and control flow, enable this use case in a natural way. For a tutorial with step-by-step instructions, see [Tutorial: Incremental copy](tutorial-incremental-copy-powershell.md).
+### <a name="delta-flows"></a>델타 흐름
+ETL 패턴의 주요 사용 사례는 "델타 로드" 즉, 파이프라인의 마지막 반복 이후 변경된 데이터만 로드하는 것입니다. [조회 활동](control-flow-lookup-activity.md), 유연한 일정 계획 및 제어 흐름과 같은 현재 버전의 새로운 기능을 통해 이러한 사용 사례를 자연스럽게 사용할 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: 증분 복사](tutorial-incremental-copy-powershell.md)를 참조하세요.
 
-### <a name="other-control-flow-activities"></a>Other control flow activities
-Following are a few more control flow activities that are supported by the current version of Data Factory. 
+### <a name="other-control-flow-activities"></a>다은 제어 흐름 활동
+현재 버전의 Data Factory에서 지원하는 몇 가지 제어 흐름 작업은 다음과 같습니다. 
 
-Control activity | Description
+제어 작업 | 설명
 ---------------- | -----------
-[ForEach activity](control-flow-for-each-activity.md) | Defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and runs specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
-[Web activity](control-flow-web-activity.md) | Calls a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity. 
-[Lookup activity](control-flow-lookup-activity.md) | Reads or looks up a record or table name value from any external source. This output can further be referenced by succeeding activities. 
-[Get metadata activity](control-flow-get-metadata-activity.md) | Retrieves the metadata of any data in Azure Data Factory. 
-[Wait activity](control-flow-wait-activity.md) | Pauses the pipeline for a specified period of time.
+[ForEach 작업](control-flow-for-each-activity.md) | 파이프라인의 반복 제어 흐름을 정의합니다. 이 활동을 사용하여 컬렉션을 반복하고 루프의 지정된 활동을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
+[웹 작업](control-flow-web-activity.md) | Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출합니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다. 
+[조회 작업](control-flow-lookup-activity.md) | 외부 소스에서 레코드 또는 테이블 이름 값을 읽거나 조회합니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
+[메타데이터 가져오기 작업](control-flow-get-metadata-activity.md) | Azure Data Factory에서 데이터의 메타 데이터를 검색합니다. 
+[대기 작업](control-flow-wait-activity.md) | 지정된 기간 동안 파이프라인을 일시 중지합니다.
 
-## <a name="deploy-ssis-packages-to-azure"></a>Deploy SSIS packages to Azure 
-You use Azure-SSIS if you want to move your SSIS workloads to the cloud, create a data factory by using the current version, and provision an Azure-SSIS Integration Runtime.
+## <a name="deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지 배포 
+SSIS 워크로드를 클라우드로 이동하고 현재 버전을 사용하여 데이터 팩터리를 만들고 Azure-SSIS Integration Runtime을 프로비전하려면 Azure-SSIS를 사용합니다.
 
-The Azure-SSIS Integration Runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to running your SSIS packages in the cloud. After you provision Azure-SSIS Integration Runtime, you can use the same tools that you have been using to deploy SSIS packages to an on-premises SSIS environment. 
+Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. Azure-SSIS Integration Runtime을 프로비전한 후에 온-프레미스 SSIS 환경에 SSIS 패키지를 배포하는 데 사용한 것과 동일한 도구를 사용할 수 있습니다. 
 
-For example, you can use SQL Server Data Tools or SQL Server Management Studio to deploy SSIS packages to this runtime on Azure. For step-by-step instructions, see the tutorial [Deploy SQL Server integration services packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+예를 들어 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS 패키지를 배포할 수 있습니다. 단계별 지침은 자습서 [Azure에 SQL Server 통합 서비스 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)를 참조하세요. 
 
-## <a name="flexible-scheduling"></a>Flexible scheduling
-In the current version of Data Factory, you do not need to define dataset availability schedules. You can define a trigger resource that can schedule pipelines from a clock scheduler paradigm. You can also pass parameters to pipelines from a trigger for a flexible scheduling and execution model. 
+## <a name="flexible-scheduling"></a>유연한 일정 계획
+현재 버전의 Data Factory에서는 데이터 세트 가용성 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 유연한 일정 예약/실행 모델을 위해 트리거에서 파이프라인으로 매개 변수를 전달할 수도 있습니다. 
 
-Pipelines do not have “windows” of time execution in the current version of Data Factory. The Data Factory V1 concepts of startTime, endTime, and isPaused don't exist in the current version of Data Factory. For more information about how to build and then schedule a pipeline in the current version of Data Factory, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+현재 버전의 Data Factory에서는 파이프라인에 시간 실행의 "기간"이 없습니다. startTime, endTime, isPaused라는 Data Factory V1 개념은 현재 버전의 Data Factory에 존재하지 않습니다. 현재 버전의 Data Factory에서 파이프라인을 빌드하고 일정을 예약하는 방법에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
 
-## <a name="support-for-more-data-stores"></a>Support for more data stores
-The current version supports the copying of data to and from more data stores than V1. For a list of supported data stores, see the following articles:
+## <a name="support-for-more-data-stores"></a>더 많은 데이터 저장소 지원
+현재 버전은 V1보다 많은 데이터 저장소 간에 데이터를 복사하도록 지원합니다. 지원되는 데이터 저장소 목록은 다음 문서를 참조하세요.
 
-- [Version 1 - supported data stores](v1/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
-- [Current version - supported data stores](copy-activity-overview.md#supported-data-stores-and-formats)
+- [버전 1 - 지원되는 데이터 저장소](v1/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
+- [ - 지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)
 
-## <a name="support-for-on-demand-spark-cluster"></a>Support for on-demand Spark cluster
-The current version supports the creation of an on-demand Azure HDInsight Spark cluster. To create an on-demand Spark cluster, specify the cluster type as Spark in your on-demand, HDInsight linked service definition. Then you can configure the Spark activity in your pipeline to use this linked service. 
+## <a name="support-for-on-demand-spark-cluster"></a>주문형 Spark 클러스터에 대한 지원
+현재 버전은 주문형 HDInsight Spark 클러스터 만들도록 지원합니다. 주문형 Spark 클러스터를 만들려면 주문형 HDInsight 연결된 서비스 정의에 클러스터 유형을 Spark로 지정합니다. 그런 다음 파이프라인에서 Spark 작업이 이 연결된 서비스를 사용하도록 정의합니다. 
 
-At runtime, when the activity is executed, the Data Factory service automatically creates the Spark cluster for you. For more information, see the following articles:
+런타임 시 활동이 실행되면 Data Factory 서비스에서 Spark 클러스터가 자동으로 만들어집니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Spark Activity in the current version of Data Factory](transform-data-using-spark.md)
-- [Azure HDInsight on-demand linked service](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)
+- [현재 버전의 Data Factory에서 Spark 작업](transform-data-using-spark.md)
+- [Azure HDInsight 주문형 연결된 서비스](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)
 
-## <a name="custom-activities"></a>Custom activities
-In V1, you implement (custom) DotNet activity code by creating a .NET class library project with a class that implements the Execute method of the IDotNetActivity interface. Therefore, you need to write your custom code in .NET Framework 4.5.2 and run it on Windows-based Azure Batch Pool nodes. 
+## <a name="custom-activities"></a>사용자 지정 활동
+V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는 클래스를 통해 .NET 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업 코드를 구현합니다. 따라서 사용자 지정 코드를 .NET Framework 4.5.2에서 작성하고 Windows 기반 Azure Batch 풀 노드에서 실행해야 합니다. 
 
-In a custom activity in the current version, you don't have to implement a .NET interface. You can directly run commands, scripts, and your own custom code compiled as an executable. 
+현재 버전의 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 없습니다. 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 
 
-For more information, see [Difference between custom activity in Data Factory and version 1](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
+자세한 내용은 [Data Factory와 버전 1에서 사용자 지정 작업의 차이](transform-data-using-dotnet-custom-activity.md#compare-v2-v1)를 참조하세요.
 
-## <a name="sdks"></a>SDKs
- the current version of Data Factory provides a richer set of SDKs that can be used to author, manage, and monitor pipelines.
+## <a name="sdks"></a>SDK
+ 현재 버전의 Data Factory는 파이프라인을 작성, 관리 및 모니터링하는 데 사용할 수 있는 다양한 SDK 집합을 제공합니다.
 
-- **.NET SDK**: The .NET SDK is updated in the current version.
+- **.NET SDK**: .NET SDK가 현재 버전에서 업데이트되었습니다.
 
-- **PowerShell**: The PowerShell cmdlets are updated in the current version. The cmdlets for the current version have **DataFactoryV2** in the name, for example: Get-AzDataFactoryV2. 
+- **PowerShell**: PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2**가 포함됩니다. 예를 들면 Get-AzDataFactoryV2. 
 
-- **Python SDK**: This SDK is new in the current version.
+- **Python SDK**: 이 SDK는 현재 버전의 새로운 기능입니다.
 
-- **REST API**: The REST API is updated in the current version. 
+- **REST API**: REST API가 현재 버전에서 업데이트되었습니다. 
 
-The SDKs that are updated in the current version are not backward-compatible with V1 clients. 
+현재 버전에서 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니다. 
 
-## <a name="authoring-experience"></a>Authoring experience
+## <a name="authoring-experience"></a>작성 환경
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure portal | [Yes](quickstart-create-data-factory-portal.md) | [Yes](data-factory-build-your-first-pipeline-using-editor.md) |
-| Azure PowerShell | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
-| .NET SDK | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
-| REST API | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
-| Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
+| Azure portal | [예](quickstart-create-data-factory-portal.md) | [예](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [예](quickstart-create-data-factory-python.md) | 아니요 |
+| Resource Manager 템플릿 | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
 
-## <a name="roles-and-permissions"></a>Roles and permissions
+## <a name="roles-and-permissions"></a>역할 및 권한
 
-The Data Factory version 1 Contributor role can be used to create and manage the current version of Data Factory resources. For more info, see [Data Factory Contributor](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+Data Factory 버전 1 기여자 역할을 사용하여 현재 버전의 Data Factory 리소스를 만들고 관리할 수 있습니다. 자세한 내용은 [Data Factory 기여자](../role-based-access-control/built-in-roles.md#data-factory-contributor)를 참조하세요.
 
-## <a name="monitoring-experience"></a>Monitoring experience
-in the current version, you can also monitor data factories by using [Azure Monitor](monitor-using-azure-monitor.md). The new PowerShell cmdlets support monitoring of [integration runtimes](monitor-integration-runtime.md). Both V1 and V2 support visual monitoring via a monitoring application that can be launched from the Azure portal.
+## <a name="monitoring-experience"></a>모니터링 환경
+현재 버전에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 애플리케이션을 통해 시각적인 모니터링을 지원합니다.
 
 
-## <a name="next-steps"></a>Next steps
-Learn how to create a data factory by following step-by-step instructions in the following quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 
+## <a name="next-steps"></a>다음 단계
+다음 빠른 시작의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아보기: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 

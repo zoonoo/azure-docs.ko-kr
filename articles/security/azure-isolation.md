@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f5d1c66cb049ab9ec52db619d55a4bb3e485e4b2
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56109846"
@@ -124,7 +124,7 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://microsoft.com/trustcenter/privacy/you-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
 
 ## <a name="compute-isolation"></a>Compute 격리
-Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
+Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 컴퓨팅 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
 ### <a name="isolated-virtual-machine-sizes"></a>격리 가상 머신 크기
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
@@ -141,7 +141,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
-Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
+Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 머신 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
 
 
 ![루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리](./media/azure-isolation/azure-isolation-fig4.jpg)
@@ -165,7 +165,7 @@ Azure 하이퍼바이저는 가상 머신 간의 메모리 및 프로세스 분�
 
 Azure에서 루트 VM은 FA(패브릭 에이전트)를 호스팅하는 루트 OS라고 하는 확정된 운영 체제를 실행하기 때문에 특별합니다. 이에 따라 FA는 고객 VM의 게스트 OS 내에서 GA(게스트 에이전트)를 관리합니다. FA는 저장소 노드도 관리합니다.
 
-Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노드를 구성합니다. FA는 계산 및 저장소 노드 외부에 있는 FC(패브릭 컨트롤러)로 관리됩니다(계산 및 저장소 클러스터는 별도의 FC로 관리됨). 고객이 실행 중인 애플리케이션의 구성 파일을 업데이트하는 경우 FC는 FA와 통신한 다음, GA에 접속하여 애플리케이션에 구성 변경 내용을 알립니다. 하드웨어 장애가 발생하면 FC에서 자동으로 사용 가능한 하드웨어를 찾아 이 하드웨어에서 VM을 다시 시작합니다.
+Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노드를 구성합니다. FA는 계산 및 스토리지 노드 외부에 있는 FC(패브릭 컨트롤러)로 관리됩니다(컴퓨팅 및 스토리지 클러스터는 별도의 FC로 관리됨). 고객이 실행 중인 애플리케이션의 구성 파일을 업데이트하는 경우 FC는 FA와 통신한 다음, GA에 접속하여 애플리케이션에 구성 변경 내용을 알립니다. 하드웨어 장애가 발생하면 FC에서 자동으로 사용 가능한 하드웨어를 찾아 이 하드웨어에서 VM을 다시 시작합니다.
 
 ![Azure 패브릭 컨트롤러](./media/azure-isolation/azure-isolation-fig6.jpg)
 
@@ -174,7 +174,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 ![패브릭 컨트롤러](./media/azure-isolation/azure-isolation-fig7.png)
 
-격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 Compute 노드는 보호를 강화하기 위해 저장소 노드로부터 격리됩니다.
+격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 Compute 노드는 보호를 강화하기 위해 스토리지 노드로부터 격리됩니다.
 
 
 하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 머신에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 엔드포인트로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
@@ -204,7 +204,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 디바이스 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 디바이스 VLAN의 노드는 공격할 수 없습니다.
 
 ## <a name="storage-isolation"></a>저장소 격리
-### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 저장소 간의 논리적 격리
+### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 스토리지 간의 논리적 격리
 기본 설계의 일부로 Microsoft Azure는 VM 기반 계산을 저장소로부터 분리합니다. 이러한 분리를 통해 계산 및 저장소를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다.
 
 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. [이](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)는 가상 디스크를 만들 때 디스크 공간이 전체 용량으로 할당되지 않음을 의미합니다. 대신 가상 디스크의 주소를 실제 디스크의 영역에 매핑하는 테이블이 만들어지며, 이 테이블은 처음에는 비어 있습니다. **고객이 처음으로 가상 디스크에 데이터를 쓰면 실제 디스크의 공간이 할당되고 해당 공간에 대한 포인터가 테이블에 배치됩니다.**

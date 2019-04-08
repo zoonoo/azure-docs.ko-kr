@@ -17,7 +17,7 @@ ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
 ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56454245"
@@ -52,7 +52,7 @@ App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화
 
 ## <a name="dedicated-compute-resources"></a>전용 Compute 리소스
 
-App Service Environment의 모든 컴퓨터 리소스는 전적으로 단일 구독 전용이며 App Service Environment는 단일 애플리케이션 전용으로 최대 50개 계산 리소스로 구성될 수 있습니다.
+App Service Environment의 모든 계산 리소스는 전적으로 단일 구독 전용이며 App Service Environment는 단일 애플리케이션 전용으로 최대 50개 계산 리소스로 구성될 수 있습니다.
 
 App Service Environment는 1~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다.
 

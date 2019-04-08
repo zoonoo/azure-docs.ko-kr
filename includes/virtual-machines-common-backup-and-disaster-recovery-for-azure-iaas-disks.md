@@ -10,7 +10,7 @@ ms.author: luywang
 ms.custom: include file
 ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
 ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56443406"
@@ -168,7 +168,7 @@ VM을 복구하거나 다시 작성해야 하는 경우 자격 증명 모음의 
 
 -   디스크를 복원한 다음 VM에 대한 템플릿을 사용하여 복원된 VM을 사용자 지정하고 다시 작성할 수 있습니다.
 
-자세한 내용은 [Azure Portal을 사용하여 가상 머신 복원](../articles/backup/backup-azure-arm-restore-vms.md)에 대한 지침을 참조하세요. 또한 이 문서는 기본 데이터 센터에서 재해가 발생한 경우 지역 중복 백업 자격 증명 모음을 사용하여 쌍으로 연결된 데이터 센터에 백업된 VM을 복원하는 특정 단계에 대해 설명하고 있습니다. 이 경우 Azure Backup은 보조 지역의 Compute 서비스를 사용하여 복원된 가상 머신을 만듭니다.
+자세한 내용은 [Azure Portal을 사용하여 가상 머신 복원](../articles/backup/backup-azure-arm-restore-vms.md)에 대한 지침을 참조하세요. 또한 이 문서는 기본 데이터 센터에서 재해가 발생한 경우 지역 중복 백업 자격 증명 모음을 사용하여 쌍으로 연결된 데이터 센터에 백업된 VM을 복원하는 특정 단계에 대해 설명하고 있습니다. 이 경우 Azure Backup은 보조 지역의 컴퓨팅 서비스를 사용하여 복원된 가상 머신을 만듭니다.
 
 PowerShell을 사용하여 [복원된 디스크에서 새 VM을 만들](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 수도 있습니다.
 

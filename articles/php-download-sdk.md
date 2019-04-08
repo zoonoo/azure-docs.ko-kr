@@ -16,7 +16,7 @@ ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: 4f2c242e27d8a0ed6687eb4a3510bbce6e07694f
 ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52421490"
@@ -30,7 +30,7 @@ PHP용 Azure SDK에는 Azure용 PHP 애플리케이션을 개발, 배포 및 관
 * **Azure용 PHP 클라이언트 라이브러리**. 이러한 클래스 라이브러리는 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다.
 * **Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)**. Azure Websites 및 Azure Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI는 Mac, Linux 및 Windows를 포함한 모든 플랫폼에서 작동합니다.
 * **Azure PowerShell(Windows에만 해당)**. Cloud Services 및 Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다.
-* **Azure 에뮬레이터(Windows에만 해당)**. 계산 및 스토리지 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
+* **Azure 에뮬레이터(Windows에만 해당)**. 컴퓨팅 및 스토리지 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
 
 아래 섹션에서는 위에서 언급한 구성 요소를 다운로드하고 설치하는 방법에 대해 설명합니다.
 

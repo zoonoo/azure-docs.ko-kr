@@ -18,7 +18,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
 ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54330793"
@@ -85,7 +85,7 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> 포털에서 SQL Server 가상 머신을 만들 때 **크기 선택** 창에 예상 비용이 표시됩니다. 이 추정치는 Windows 또는 타사 Linux 운영 체제의 모든 OS 라이선싱 비용과 함께 VM을 실행하는 비용만 산출한 것입니다.
+> 포털에서 SQL Server 가상 머신을 만들 때 **크기 선택** 창에 예상 비용이 표시됩니다. 이 추정치는 Windows 또는 타사 Linux 운영 체제의 모든 OS 라이선싱 비용과 함께 VM을 실행하는 계산 비용만 산출한 것입니다.
 >
 > ![VM 크기 선택 블레이드](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >

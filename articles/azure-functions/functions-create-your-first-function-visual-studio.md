@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple

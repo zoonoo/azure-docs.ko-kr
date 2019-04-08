@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM 크기 - Compute에 최적화 | Microsoft Docs
-description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 Compute에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+title: Azure Windows VM 크기 - 컴퓨팅 최적화 | Microsoft Docs
+description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 컴퓨팅 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -17,12 +17,12 @@ ms.date: 07/06/2018
 ms.author: jonbeck
 ms.openlocfilehash: 8d28fd5c01e91c4af9c8eeea4a3f342b57468ddc
 ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/07/2018
 ms.locfileid: "37901870"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>계산 최적화 가상 머신 크기
+# <a name="compute-optimized-virtual-machine-sizes"></a>컴퓨팅 최적화 가상 머신 크기
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 

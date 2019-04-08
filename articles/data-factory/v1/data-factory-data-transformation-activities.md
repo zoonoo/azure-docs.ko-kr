@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022447"
@@ -77,18 +77,18 @@ Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 �
 
 R이 설치된 HDInsight 클러스터에서 R 스크립트를 실행하는 사용자 지정 작업을 만들 수 있습니다. [Azure Data Factory를 사용하여 R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)을 참조하세요. 
 
-## <a name="compute-environments"></a>Compute 환경
+## <a name="compute-environments"></a>컴퓨팅 환경
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다. 
 
 1. **주문형**:  이 경우 Data Factory에서 완전히 컴퓨팅 환경을 관리합니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 주문형 컴퓨팅 환경의 세부적인 설정을 구성 및 제어할 수 있습니다. 
 2. **자체 환경 사용**: 이 경우 사용자 고유의 컴퓨팅 환경(예: HDInsight 클러스터)을 Data Factory에 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다. 
 
-데이터 팩터리에서 지원하는 계산 서비스에 대한 자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요. 
+데이터 팩터리에서 지원하는 컴퓨팅 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요. 
 
 ## <a name="summary"></a>요약
 Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨팅 환경을 지원합니다. 변환 작업은 개별적 또는 다른 작업과 연계하여 파이프라인에 추가될 수 있습니다.
 
-| 데이터 변환 작업 | Compute 환경 |
+| 데이터 변환 작업 | 컴퓨팅 환경 |
 |:--- |:--- |
 | [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |

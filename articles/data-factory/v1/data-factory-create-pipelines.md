@@ -139,7 +139,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | 형식 | 활동의 형식입니다. 다른 형식의 활동에 대해서는 [데이터 이동 활동](#data-movement-activities) 및 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |예 |
-| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 작업 및 Azure Machine Learning Batch 평가 작업의 경우 예  <br/><br/>다른 모든 사용자의 경우 아니요 |
+| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 작업 및 Azure Machine Learning Batch 평가 작업의 경우 예  <br/><br/>다른 모든 사용자의 경우 아니요 |
 | typeProperties |**typeProperties** 섹션의 속성은 활동의 형식에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아닙니다. |
 | policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |아닙니다. |
 | scheduler | "scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |아닙니다. |

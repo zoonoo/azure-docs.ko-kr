@@ -11,7 +11,7 @@ ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53608803"
@@ -106,7 +106,7 @@ ms.locfileid: "53608803"
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. 그러면 `LogLine` 클래스에는 로그 항목에 오류 코드가 있는지 여부를 반환하는 `is_error()`와(과) 같은 몇 가지 유용한 메서드가 있습니다. 이를 사용하여 추출된 로그 줄의 오류의 수를 계산한 다음 다른 파일에 모든 오류를 기록합니다.
+3. 그러면 `LogLine` 클래스에는 로그 항목에 오류 코드가 있는지 여부를 반환하는 `is_error()`와(과) 같은 몇 가지 유용한 메서드가 있습니다. 이를 사용하여 추출된 로그 줄의 오류의 수를 계산한 다음, 다른 파일에 모든 오류를 기록합니다.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()

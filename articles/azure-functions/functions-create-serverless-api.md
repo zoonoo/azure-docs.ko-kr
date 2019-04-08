@@ -19,7 +19,7 @@ ms.locfileid: "55698258"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
-이 자습서에서는 Azure Functions를 사용하여 확장성이 뛰어난 API를 빌드하는 방법을 알아봅니다. Azure Functions에는 Node.JS, C# 등을 비롯한 다양한 언어로 쉽게 엔드포인트를 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션이 제공됩니다. 이 자습서에서는 API 디자인의 특정 작업을 처리하도록 HTTP 트리거를 사용자 지정합니다. 또한 Azure Functions 프록시와 통합하고 모의 API를 설정하여 API를 확장할 준비를 진행합니다. 이러한 모든 작업은 Functions의 서버 없는 Compute 환경에서 수행되므로 리소스 확장 문제를 걱정할 필요가 없으며 API 논리에만 집중하면 됩니다.
+이 자습서에서는 Azure Functions를 사용하여 확장성이 뛰어난 API를 빌드하는 방법을 알아봅니다. Azure Functions에는 Node.JS, C# 등을 비롯한 다양한 언어로 쉽게 엔드포인트를 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션이 제공됩니다. 이 자습서에서는 API 디자인의 특정 작업을 처리하도록 HTTP 트리거를 사용자 지정합니다. 또한 Azure Functions 프록시와 통합하고 모의 API를 설정하여 API를 확장할 준비를 진행합니다. 이러한 모든 작업은 Functions의 서버리스 컴퓨팅 환경에서 수행되므로 리소스 확장 문제를 걱정할 필요가 없으며 API 논리에만 집중하면 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -182,7 +182,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Functions에서 API를 빌드하고 사용자 지정하는 방법을 배웠습니다. 또한 모의 API를 비롯한 여러 API를 하나의 통합 API 화면에 표시하는 방법도 알아보았습니다. 이러한 기법을 사용하여 복잡성에 관계없이 Azure Functions에서 제공하는 서버 없는 Compute 모델에서 실행되는 API를 빌드할 수 있습니다.
+이 자습서에서는 Azure Functions에서 API를 빌드하고 사용자 지정하는 방법을 배웠습니다. 또한 모의 API를 비롯한 여러 API를 하나의 통합 API 화면에 표시하는 방법도 알아보았습니다. 이러한 기법을 사용하여 복잡성에 관계없이 Azure Functions에서 제공하는 서버리스 컴퓨팅 모델에서 실행되는 API를 빌드할 수 있습니다.
 
 다음 참조는 API를 추가로 개발하는 경우 유용할 수 있습니다.
 

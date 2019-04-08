@@ -17,7 +17,7 @@ ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
 ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53274174"
@@ -57,7 +57,7 @@ App Service Environment가 아웃바운드를 호출하는 경우, IP 주소는 
 
 App Service Environment에서 앱을 만든 다음 앱 주소에 대해 *nslookup* 을 수행하여 공용 VIP만 있는 ASE에 대해 이 주소를 확인할 수도 있습니다. 결과 IP 주소는 공용 VIP, App Service Environment의 아웃바운드 NAT 주소 둘 다 해당됩니다.
 
-엔드포인트가 가상 네트워크 토폴리지 **내** 에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다.  그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다.  앱은 다른 계산 리소스에 걸쳐 이동할 수 있고, App Service Environment의 사용 가능한 계산 리소스의 풀은 크기 조정 때문에 변경됩니다.
+엔드포인트가 가상 네트워크 토폴리지 **내**에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다.  그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다.  앱은 다른 계산 리소스에 걸쳐 이동할 수 있고, App Service Environment의 사용 가능한 계산 리소스의 풀은 크기 조정 때문에 변경됩니다.
 
 그러나 App Service Environment는 항상 서브넷 내에 위치하므로, 앱을 실행하는 계산 리소스의 내부 IP 주소가 서브넷의 CIDR 범위에 놓인다는 점을 보장 받을 수 있습니다.  결과적으로 세분화 된 ACL 또는 네트워크 보안 그룹은 가상 네트워크 내의 다른 엔드포인트의 액세스를 보호하는 데 사용되고, App Service Environment에 대한 서브넷 범위 조정은 액세스 권한을 부여해야 합니다.
 

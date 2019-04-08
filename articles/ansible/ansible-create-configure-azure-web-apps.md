@@ -94,7 +94,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)를 사용하면 웹 클라이언트의 요청을 Azure App Service의 앱에 분산하는 방법을 제어할 수 있습니다. App Service 엔드포인트가 Azure Traffic Manager 프로필에 추가되면 Traffic Manager는 App Service 앱의 상태를 추적합니다. 상태에는 실행 중, 중지됨 및 삭제됨이 있습니다. 그런 다음, Traffic Manager는 트래픽을 수신할 엔드포인트를 결정할 수 있습니다.
 
 App Service의 앱은 [App Service 계획](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
-)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 다른 그룹에서 App Service 계획 및 웹앱을 관리할 수 있습니다.
+)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 세트를 정의합니다. 다른 그룹에서 App Service 계획 및 웹앱을 관리할 수 있습니다.
 
 이 섹션에서는 다음 리소스를 정의하는 샘플 Ansible 플레이북을 제공합니다.
 - 리소스 그룹, App Service 계획을 배포할 위치

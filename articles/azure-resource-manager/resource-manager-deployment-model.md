@@ -83,8 +83,8 @@ Get-AzVM -ResourceGroupName ExampleGroup
 
 리소스 관리자를 통해 만든 리소스만이 태그를 지원합니다. 클래식 리소스에 태그를 적용할 수 없습니다.
 
-## <a name="changes-for-compute-network-and-storage"></a>계산, 네트워크 및 저장소에 대한 변경
-다음 그림에서는 Resource Manager를 통해 배포되는 계산, 네트워크 및 저장소 리소스를 보여 줍니다.
+## <a name="changes-for-compute-network-and-storage"></a>계산, 네트워크 및 스토리지에 대한 변경 내용
+다음 그림에서는 Resource Manager를 통해 배포되는 계산, 네트워크 및 스토리지 리소스를 보여 줍니다.
 
 ![Resource Manager 아키텍처](./media/resource-manager-deployment-model/arm_arch3.png)
 
@@ -92,7 +92,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 
 * 모든 리소스는 리소스 그룹 내에 존재합니다.
 * 가상 컴퓨터는 SRP(스토리지 리소스 공급자)에서 Blob 스토리지(필수)에 디스크를 저장하도록 정의된 특정 Storage 계정에 따라 달라집니다.
-* 가상 머신은 NRP(네트워크 리소스 공급)(필수)에서 정의된 특정 NIC 및 CRP(Compute 리소스 공급자)(선택)에서 정의된 가용성 집합을 참조합니다.
+* 가상 머신은 네트워크 리소스 공급자(필수)에서 정의된 특정 NIC 및 Compute 리소스 공급자(선택 사항)에서 정의된 가용성 집합을 참조합니다.
 * NIC는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 NSG(네트워크 보안 그룹)(선택)를 참조합니다.
 * 가상 네트워크의 서브넷은 NSG(선택)를 참조합니다.
 * 부하 분산 장치 인스턴스는 가상 머신의 NIC(선택)를 포함하는 IP 주소의 백 엔드 풀을 참조하며, 로드 분산 장치 공용 또는 개인 IP 주소(선택)를 참조합니다.

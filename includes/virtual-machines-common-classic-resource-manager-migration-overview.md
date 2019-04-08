@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
 ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/03/2018
 ms.locfileid: "37780675"
@@ -19,9 +19,9 @@ ms.locfileid: "37780675"
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
 ## <a name="goal-for-migration"></a>마이그레이션 목표
-Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 저장소의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
+Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 스토리지의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
 
-클래식 배포 모델의 거의 모든 기능이 Azure Resource Manager의 계산, 네트워크 및 저장소에 대해 지원됩니다. Azure Resource Manager의 새로운 기능을 제대로 활용하려는 경우 클래식 배포 모델에서 기존 배포를 마이그레이션할 수 있습니다.
+클래식 배포 모델의 거의 모든 기능이 Azure Resource Manager의 계산, 네트워크 및 스토리지에 대해 지원됩니다. Azure Resource Manager의 새로운 기능을 제대로 활용하려는 경우 클래식 배포 모델에서 기존 배포를 마이그레이션할 수 있습니다.
 
 ## <a name="supported-resources-for-migration"></a>마이그레이션에 지원되는 리소스
 이들 클래식 IaaS 리소스는 마이그레이션 시 지원됩니다.
@@ -38,7 +38,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 * 예약된 IP
 
 ## <a name="supported-scopes-of-migration"></a>지원되는 마이그레이션 범위
-계산, 네트워크 및 저장소 리소스의 마이그레이션을 완료하는 데는 다음 4가지 방법이 있습니다.
+계산, 네트워크 및 스토리지 리소스의 마이그레이션을 완료하는 데는 다음 4가지 방법이 있습니다.
 
 * [가상 머신 마이그레이션(가상 네트워크가 아님)](#migration-of-virtual-machines-not-in-a-virtual-network)
 * [가상 머신 마이그레이션(가상 네트워크에서)](#migration-of-virtual-machines-in-a-virtual-network)
@@ -68,7 +68,7 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
 >
 
 ### <a name="migration-of-storage-accounts"></a>저장소 계정 마이그레이션
-원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
+원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 스토리지 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
 
 저장소 계정에 연결된 디스크 또는 Virtual Machines 데이터가 없고 Blob, 파일, 테이블 및 큐만 있는 경우, Azure Resource Manager로의 마이그레이션을 종속성 없는 독립형 마이그레이션으로 수행할 수 있습니다.
 

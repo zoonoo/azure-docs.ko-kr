@@ -18,16 +18,16 @@ ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53730620"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
-App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 이러한 계산 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
+App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 세트를 정의합니다. 이러한 계산 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
 
-특정 영역(예: 유럽 서부)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 계산 리소스 집합을 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 계산 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
+특정 영역(예: 서유럽)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 계산 리소스 세트를 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 계산 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
 
 - 지역(미국 서부, 미국 동부 등)
 - VM 인스턴스 수

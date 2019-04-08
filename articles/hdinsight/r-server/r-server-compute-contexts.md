@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
 ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52494463"
@@ -26,7 +26,7 @@ Azure HDInsight의 ML Services는 계산 컨텍스트를 설정하여 호출을 
 [Azure HDInsight의 ML Services](r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") 스토리지 계정, Data Lake Store 또는 로컬 Linux 파일 시스템에 있는 Apache Hadoop HDFS 컨테이너에 저장된 데이터를 사용할 수 있습니다. ML Services가 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. ML Services에 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)의 루틴을 사용할 수도 있습니다.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>에지 노드에 대한 Compute 컨텍스트
-일반적으로 에지 노드의 ML Services에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 RevoScaleR 함수를 호출하는 단계입니다. RevoScaleR 호출은 RevoScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.
+일반적으로 에지 노드의 ML Services에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 RevoScaleR 함수를 호출하는 단계입니다. RevoScaleR 호출은 RevoScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 컴퓨팅 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.
 
 - 로컬 순차(*local*)
 - 로컬 병렬(*localpar*)
@@ -61,7 +61,7 @@ Azure HDInsight의 ML Services는 계산 컨텍스트를 설정하여 호출을 
 * 분석할 데이터의 양이 적거나 중간 크기이고 반복 분석이 필요한 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *local* 또는 *localpar*를 통해 분석합니다.
 
 ### <a name="apache-spark"></a>Apache Spark
-* 분석할 데이터 양이 많은 경우 **RxHiveData** 또는 **RxParquetData**를 사용하여 Spark DataFrame으로 가져오거나 저장소 문제가 아닌 한 HDFS의 XDF로 가져와서 Spark 계산 컨텍스트를 사용하여 분석합니다.
+* 분석할 데이터 양이 많은 경우 **RxHiveData** 또는 **RxParquetData**를 사용하여 Spark DataFrame으로 가져오거나 스토리지 문제가 아닌 한 HDFS의 XDF로 가져와서 Spark 계산 컨텍스트를 사용하여 분석합니다.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Map Reduce
 * 일반적으로 느려질 수 있기 때문에 Spark 계산 컨텍스트를 사용하여 대처할 수 없는 문제가 발생하는 경우에만 Map Reduce 계산 컨텍스트를 사용합니다.  

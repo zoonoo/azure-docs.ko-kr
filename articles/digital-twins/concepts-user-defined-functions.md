@@ -21,7 +21,7 @@ Azure Digital Twins는 고급 계산 기능을 제공합니다. 개발자는 들
 
 ## <a name="data-processing-flow"></a>데이터 처리 흐름
 
-디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *계산* 및 *디스패치*라는 네 가지 단계로 데이터를 처리할 수 있습니다.
+디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *계산* 및 *디스패치*의 네 가지 단계로 데이터를 처리할 수 있습니다.
 
 ![Azure Digital Twins 데이터 처리 흐름][1]
 

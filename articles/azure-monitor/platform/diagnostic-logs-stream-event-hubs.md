@@ -44,7 +44,7 @@ Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용�
 프로그래밍 방식으로 포털을 통하거나 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)를 사용하여 진단 로그의 스트리밍을 사용하도록 설정할 수 있습니다. 어느 쪽이든 Event Hubs 네임스페이스를 지정하는 로그 설정과 네임스페이스로 전송하려는 로그 범주 및 메트릭을 만듭니다. 이벤트 허브는 활성화한 각 로그 범주에 대한 네임스페이스에서 생성됩니다. 진단 **로그 범주**는 리소스가 수집할 수 있는 로그 형식입니다.
 
 > [!WARNING]
-> Compute 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
+> Compute 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 세트를 거쳐야 합니다](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 리소스를 내보내는 로그와 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트의 일부입니다.
 

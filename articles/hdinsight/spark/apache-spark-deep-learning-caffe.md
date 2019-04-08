@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/17/2017
 ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55891082"
@@ -287,7 +287,7 @@ SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델�
 
 ## <a name="conclusion"></a>결론
 
-이 설명서에서는 간단한 예를 실행하여 CaffeOnSpark를 설치하려고 시도했습니다. HDInsight는 완전히 관리되는 클라우드 분산된 계산 플랫폼으로, 분산 심층 학습을 위해 대규모 데이터 집합에 대해 Machine Learning 및 고급 분석 워크로드를 실행하기 위한 최적의 장소이며 HDInsight Spark에서 Caffe를 사용하여 심층 학습 작업을 수행할 수 있습니다.
+이 설명서에서는 간단한 예를 실행하여 CaffeOnSpark를 설치하려고 시도했습니다. HDInsight는 완전히 관리되는 클라우드 분산된 계산 플랫폼으로, 분산 딥 러닝을 위해 대규모 데이터 세트에 대해 Machine Learning 및 고급 분석 워크로드를 실행하기 위한 최적의 장소이며 HDInsight Spark에서 Caffe를 사용하여 딥 러닝 작업을 수행할 수 있습니다.
 
 
 ## <a name="seealso"></a>참고 항목

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory에서 지원하는 Compute 환경 | Microsoft Docs
-description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다.'
+title: Azure Data Factory에서 지원하는 컴퓨팅 환경 | Microsoft Docs
+description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 컴퓨팅 환경을 알아봅니다.'
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -20,15 +20,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57545166"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
+# <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 > [!NOTE]
-> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [연결된 서비스 계산](../compute-linked-services.md)를 참조하세요.
+> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [컴퓨팅 연결 서비스](../compute-linked-services.md)를 참조하세요.
 
-이 문서에서는 데이터를 처리하거나 변환하는 데 사용할 수 있는 계산 환경에 대해 설명합니다. 또한 이런 계산 환경을 Azure 데이터 팩터리로 연결하는 연결된 서비스를 구성할 때 Data Factory에서 지원하는 다양한 구성(on-demand 및 bring-your-own)에 대한 세부 정보를 제공합니다.
+이 문서에서는 데이터를 처리하거나 변환하는 데 사용할 수 있는 컴퓨팅 환경에 대해 설명합니다. 또한 이러한 컴퓨팅 환경을 Azure 데이터 팩터리로 연결하는 연결된 서비스를 구성할 때 Data Factory에서 지원하는 다양한 구성(on-demand 및 bring-your-own)에 대한 세부 정보를 제공합니다.
 
-다음 테이블에는 Data Factory에서 지원하는 계산 환경 목록과 여기서 실행할 수 있는 작업이 제공됩니다. 
+다음 테이블에는 Data Factory에서 지원하는 컴퓨팅 환경 목록과 여기서 실행할 수 있는 작업이 제공됩니다. 
 
-| Compute 환경                      | 활동                               |
+| 컴퓨팅 환경                      | 활동                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [주문형 Azure HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 자신의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
@@ -71,10 +71,10 @@ Microsoft는 지원되는 HDInsight 버전 목록을 최신 Hadoop 에코시스�
 > 
 
 
-## <a name="on-demand-compute-environment"></a>주문형 계산 환경
-주문형 구성에서는 Data Factory가 계산 환경을 완벽하게 관리합니다. 데이터 처리를 위해 작업을 제출하기 전에 Data Factory가 계산 환경을 자동으로 생성합니다. 작업을 마치면 Data Factory가 계산 환경을 제거합니다. 
+## <a name="on-demand-compute-environment"></a>주문형 컴퓨팅 환경
+주문형 구성에서는 Data Factory가 컴퓨팅 환경을 완벽하게 관리합니다. 데이터 처리를 위해 작업을 제출하기 전에 Data Factory가 컴퓨팅 환경을 자동으로 생성합니다. 작업을 마치면 Data Factory가 컴퓨팅 환경을 제거합니다. 
 
-주문형 계산 환경에 대해 연결된 서비스를 만들 수 있습니다. 연결된 서비스를 사용하여 계산 환경을 구성하고 작업 실행, 클러스터 관리 및 부트스트랩 작업에 대한 세부적인 설정을 제어합니다.
+주문형 컴퓨팅 환경에 대해 연결된 서비스를 만들 수 있습니다. 연결된 서비스를 사용하여 컴퓨팅 환경을 구성하고 작업 실행, 클러스터 관리 및 부트스트랩 작업에 대한 세부적인 설정을 제어합니다.
 
 > [!NOTE]
 > 주문형 구성은 현재 HDInsight 클러스터에 대해서만 지원됩니다.
@@ -225,10 +225,10 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 **headNod
 > 
 
 
-## <a name="bring-your-own-compute-environment"></a>사용자의 자체 계산 환경
-기존 계산 환경을 Data Factory에서 연결된 서비스로 등록할 수 있습니다. 계산 환경은 사용자가 관리합니다. Data Factory 서비스는 계산 환경을 사용하여 활동을 실행합니다.
+## <a name="bring-your-own-compute-environment"></a>사용자 고유의 컴퓨팅 환경 가져오기
+기존 컴퓨팅 환경을 Data Factory에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 사용자가 관리합니다. Data Factory 서비스는 컴퓨팅 환경을 사용하여 활동을 실행합니다.
 
-이 구성의 형식은 다음의 계산 환경에 대해 지원됩니다.
+이 구성의 형식은 다음의 컴퓨팅 환경에 대해 지원됩니다.
 
 * Azure HDInsight
 * Azure Batch
@@ -339,7 +339,7 @@ Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처
 | apiKey     | 게시된 작업 영역 모델의 API입니다.     | 예      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
-Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 연결된 서비스를 Azure 데이터 팩터리에 연결할 수 있습니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
+Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 컴퓨팅 서비스를 Azure 데이터 팩터리에 연결할 수 있습니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
 
 다음 표에서는 JSON 정의에서 사용되는 일반 속성을 설명합니다.
 

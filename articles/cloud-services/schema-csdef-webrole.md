@@ -15,7 +15,7 @@ ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
 ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54331948"
@@ -393,7 +393,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | 특성 | type | 설명 |  
 | --------- | ---- | ----------- |  
 |이름|string|필수 사항입니다. 가상 애플리케이션을 식별하는 이름을 지정합니다.|  
-|physicalDirectory|string|필수 사항입니다. 가상 애플리케이션을 포함하는 개발 컴퓨터의 경로를 지정합니다. 계산 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
+|physicalDirectory|string|필수 사항입니다. 가상 애플리케이션을 포함하는 개발 컴퓨터의 경로를 지정합니다. 컴퓨팅 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
 
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
 `VirtualDirectory` 요소는 IIS에서 지정하고 로컬 또는 원격 서버에서 실제 디렉터리에 매핑하는 디렉터리 이름(경로라고도 함)을 지정합니다.
@@ -405,7 +405,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | 특성 | type | 설명 |  
 | --------- | ---- | ----------- |  
 |이름|string|필수 사항입니다. 가상 디렉터리를 식별하는 이름을 지정합니다.|  
-|값|physicalDirectory|필수 사항입니다. 웹 사이트 또는 가상 디렉터리 콘텐츠를 포함하는 개발 컴퓨터의 경로를 지정합니다. 계산 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
+|값|physicalDirectory|필수 사항입니다. 웹 사이트 또는 가상 디렉터리 콘텐츠를 포함하는 개발 컴퓨터의 경로를 지정합니다. 컴퓨팅 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
 
 ##  <a name="Bindings"></a> Bindings  
 `Bindings` 요소는 웹 사이트에 대한 바인딩의 컬렉션을 설명합니다. `Binding` 요소의 부모 요소입니다. 요소는 모든 `Site` 요소에 필요합니다. 엔드포인트 구성에 대한 자세한 내용은 [역할 인스턴스에 통신 사용](cloud-services-enable-communication-role-instances.md)을 참조하세요.

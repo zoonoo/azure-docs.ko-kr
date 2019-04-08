@@ -18,7 +18,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
 ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50418265"
@@ -36,7 +36,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 1. 포털에서 VM의 상태를 확인합니다.
    [Azure Portal](https://portal.azure.com)에서 **가상 머신** > *VM 이름*을 선택합니다.
 
-   VM에 대한 상태 창에 **실행 중**이 표시되어야 합니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
+   VM에 대한 상태 창에 **실행 중**이 표시되어야 합니다. 아래로 스크롤하여 계산, 스토리지 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
 
 2. **설정** 을 선택하여 엔드포인트, IP 주소, 네트워크 보안 그룹 및 기타 설정을 검토합니다.
 

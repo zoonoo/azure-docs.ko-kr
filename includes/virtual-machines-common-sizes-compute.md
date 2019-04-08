@@ -10,18 +10,18 @@ ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 5a4495dd675b662273715b5c13a5594adc87fceb
 ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/16/2019
 ms.locfileid: "56333904"
 ---
 <!-- F-series, Fs-series* -->
 
-계산 최적화된 VM 크기는 높은 CPU 대 메모리 비율을 가지며 중간 규모의 트래픽 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+컴퓨팅 최적화 VM 크기는 높은 CPU 대 메모리 비율을 가지며 중간 규모의 트래픽 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
 Fsv2 시리즈는 Intel® Xeon® Platinum 8168 프로세서를 기반으로 하며, 3.4GHz의 일관적인 올 코어 터보 클록 속도와 최대 3.7GHz의 싱글 코어 터보 주파수를 제공합니다. Intel 확장 가능한 프로세서에서 새로 도입된 Intel® AVX-512 지침은 단일 및 이중 정밀도 부동 소수점 연산에서 벡터 처리 워크로드에 대한 성능을 최대 2배로 향상시킵니다. 즉, 계산 워크로드를 빠르게 처리합니다. 
 
-시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure Compute 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 
+시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 
 
 F 시리즈는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고, Intel Turbo Boost Technology 2.0을 채택하여 최대 3.1GHz의 클럭 속도를 달성할 수 있습니다. Dv2 시리즈의 VM과 동일한 CPU 성능입니다.  
 

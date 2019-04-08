@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56162801"
@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 애플리케이션이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 애플리케이션에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 
 ## <a name="assertion-format"></a>어설션 형식
-어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/)(영문) 라이브러리 중 하나를 사용할 수 있습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
+어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/) 라이브러리 중 하나를 사용할 수 있습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
 
 ### <a name="header"></a>헤더
 

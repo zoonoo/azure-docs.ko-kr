@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
 ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55958493"
@@ -100,5 +100,5 @@ vCore 기반 구매 모델의 서비스 계층은 80%까지 비용을 절감할 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.

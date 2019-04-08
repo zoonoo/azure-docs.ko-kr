@@ -246,7 +246,7 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 
 아니요. Azure는 현재 IPv4 PublicIpAddress 리소스 및 Cloud Services에 대해서만 역방향 DNS를 지원합니다.
 
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure Compute 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure Compute 서비스에서 외부 도메인으로 이메일을 보낼 수 있나요?
 
 Azure 배포에서 직접 이메일을 전송하는 기술 능력은 구독 유형에 따라 다릅니다. 구독 유형에 관계 없이 Microsoft는 신뢰할 수 있는 메일 릴레이 서비스를 사용하여 나가는 메일을 전송할 것을 권장합니다. 자세한 내용은 [이메일 전송을 위해 향상된 Azure 보안 – 2017년 11월 업데이트](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/)를 참조합니다.
 

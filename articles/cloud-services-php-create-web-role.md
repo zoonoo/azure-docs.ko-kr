@@ -15,7 +15,7 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
 ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52425679"
@@ -186,11 +186,11 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 5. 애플리케이션 파일을 작업자 역할의 루트 디렉터리에 추가합니다.
 6. 아래 [애플리케이션 게시](#publish-your-application) 섹션에 설명된 대로 애플리케이션을 게시합니다.
 
-## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>계산 및 스토리지 에뮬레이터에서 애플리케이션 실행
+## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>컴퓨팅 및 스토리지 에뮬레이터에서 애플리케이션 실행
 
 Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케이션을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
-계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 애플리케이션을 실행합니다.
+컴퓨팅 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 컴퓨팅 에뮬레이터는 로컬 PHP 설치를 사용하여 애플리케이션을 실행합니다.
 
 에뮬레이터에서 프로젝트를 실행하려면 프로젝트의 루트 디렉터리에서 다음 명령을 실행합니다.
 

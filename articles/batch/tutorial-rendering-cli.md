@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-태스크는 계산 노드에서 *dragon0001.jpg*를 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 스토리지에서 로컬 컴퓨터로 다운로드합니다.
+태스크는 계산 노드에서 *dragon0001.jpg*를 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 스토리지에서 로컬 컴퓨터로 다운로드합니다.
 
 ```azurecli-interactive
 az storage blob download \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예를 들면 다음과 같습니다.
+태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az storage blob download-batch \

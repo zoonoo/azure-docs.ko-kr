@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55470266"
@@ -34,7 +34,7 @@ ms.locfileid: "55470266"
 테이블 및 테이블 변수 행뿐만 아니라 인덱스가 최대 사용자 데이터 크기를 계산합니다. 또한 ALTER TABLE은 전체 테이블 및 인덱스의 새 버전을 만들기 위해 충분한 공간이 필요합니다.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
-메모리 내 저장소 사용량을 [Azure Portal](https://portal.azure.com/)에서 계산 크기에 대한 저장소 용량 비율로 모니터링할 수 있습니다. 
+메모리 내 스토리지 사용량을 [Azure Portal](https://portal.azure.com/)에서 계산 크기에 대한 스토리지 용량 비율로 모니터링할 수 있습니다. 
 
 1. 데이터베이스 블레이드에서 리소스 사용률 상자를 찾고 편집을 클릭합니다.
 2. 메트릭 `In-Memory OLTP Storage percentage`을 참조하세요.

@@ -17,7 +17,7 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
 ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/16/2019
 ms.locfileid: "56327513"
@@ -120,7 +120,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. ACU에 따라 비슷한 VM 시리즈로 VM 크기 미세 조정
 
-VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요구 사항에 더 적합한 ACU 값에 따라 다른 VM을 선택할 수도 있습니다. 자세한 내용은 [ACU(Azure Compute 단위)](https://docs.microsoft.com/azure/virtual-machines/windows/acu)를 참조하세요.
+VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요구 사항에 더 적합한 ACU 값에 따라 다른 VM을 선택할 수도 있습니다. 자세한 내용은 [Azure 컴퓨팅 단위](https://docs.microsoft.com/azure/virtual-machines/windows/acu)를 참조하세요.
 
 ![ACU 단위 페이지의 스크린샷](./media/oracle-design/acu_units.png)
 

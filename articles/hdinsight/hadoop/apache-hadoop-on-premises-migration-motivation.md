@@ -34,7 +34,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 ## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>온-프레미스 Hadoop에 비해 Azure HDInsight의 이점
 
-- **저렴한 비용** - [주문형 클러스터를 만들고](../hdinsight-hadoop-create-linux-clusters-adf.md) 사용한 만큼만 지불하여 비용을 줄일 수 있습니다. 계산과 저장소가 분리되어 클러스터 크기에 관계 없이 데이터 볼륨이 유지되므로 유연성이 우수합니다.
+- **저렴한 비용** - [주문형 클러스터를 만들고](../hdinsight-hadoop-create-linux-clusters-adf.md) 사용한 만큼만 지불하여 비용을 줄일 수 있습니다. 계산과 스토리지가 분리되어 클러스터 크기에 관계없이 데이터 볼륨이 유지되므로 유연성이 우수합니다.
 
 - **클러스터 만들기 자동화** - 클러스터 만들기를 자동화하려면 최소한의 설치 및 구성이 필요합니다. 주문형 클러스터에 자동화를 사용할 수 있습니다.
 

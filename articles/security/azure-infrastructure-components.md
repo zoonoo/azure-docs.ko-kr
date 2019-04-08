@@ -16,7 +16,7 @@ ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56118142"
@@ -62,7 +62,7 @@ FC는 부트스트랩 구성 프로세스 중 Azure 하드웨어 및 네트워�
 
 #### <a name="host-and-native-operating-systems"></a>호스트 및 원시 운영 체제
 
-호스트 및 원시는 패브릭 에이전트를 호스팅하고 계산 노드(노드에서 첫 번째 VM으로 실행) 및 저장소 노드에서 실행되는 강화된 운영 체제 이미지입니다. 최적화된 호스트 및 원시 기본 이미지를 사용하는 이점은 API 또는 사용하지 않는 구성 요소에서 공개하는 노출 영역이 줄어든다는 것입니다. 또한 높은 보안 위험을 제공하고 운영 체제의 사용 공간을 늘릴 수 있습니다. 사용 공간이 줄어든 운영 체제에는 Azure에 필요한 구성 요소만 포함됩니다.
+호스트 및 원시는 패브릭 에이전트를 호스팅하고 계산 노드(노드에서 첫 번째 VM으로 실행) 및 스토리지 노드에서 실행되는 강화된 운영 체제 이미지입니다. 최적화된 호스트 및 원시 기본 이미지를 사용하는 이점은 API 또는 사용하지 않는 구성 요소에서 공개하는 노출 영역이 줄어든다는 것입니다. 또한 높은 보안 위험을 제공하고 운영 체제의 사용 공간을 늘릴 수 있습니다. 사용 공간이 줄어든 운영 체제에는 Azure에 필요한 구성 요소만 포함됩니다.
 
 #### <a name="guest-operating-system"></a>게스트 운영 체제
 

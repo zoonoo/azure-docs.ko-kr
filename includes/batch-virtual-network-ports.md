@@ -17,7 +17,7 @@ ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 9246dea7fa12e5ac9378203e96352e917679525b
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49312612"
@@ -50,7 +50,7 @@ ms.locfileid: "49312612"
 
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 
-서브넷에서는 컴퓨터 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다. Virtual Machine 구성의 풀에서 Batch는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
+서브넷에서는 계산 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다. Virtual Machine 구성의 풀에서 Batch는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
 * 29876 및 29877 포트에서 Batch 서비스 역할 IP 주소로부터의 인바운드 TCP 트래픽  
 * 원격 액세스 허용을 위한 포트 22(Linux 노드) 또는 포트 3389(Windows 노드) 인바운드 TCP 트래픽
@@ -89,7 +89,7 @@ Batch 구성에는 자체 NSG가 있으므로 서브넷 수준에서 NSG를 지�
 
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 
-서브넷에서는 컴퓨터 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다.
+서브넷에서는 계산 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다.
 
 Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 구성하므로 NSG를 지정할 필요가 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 다음 표에서처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. 지정된 서브넷에서 계산 노드와의 통신을 NSG에서 거부한 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다.
 

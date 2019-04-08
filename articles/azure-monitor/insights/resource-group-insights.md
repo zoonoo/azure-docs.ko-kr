@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55997026"
@@ -42,7 +42,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 ![리소스 상태 그래프가 추가된 스크린샷](./media/resource-group-insights/0003-overview.png)
 
-기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 계산 인프라, 네트워킹, 저장소 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
+기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 계산 인프라, 네트워킹, 스토리지 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
 
 ## <a name="diagnose-issues-in-your-resource-group"></a>리소스 그룹의 문제 진단
 

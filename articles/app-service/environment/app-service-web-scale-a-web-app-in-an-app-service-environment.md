@@ -17,7 +17,7 @@ ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6e683eb07b690d7d5680b7a4d429d1150f22f67e
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53717845"
@@ -45,7 +45,7 @@ ASP가 있는 작업자 풀의 사용 가능한 계산 리소스 수를 초과�
 다양한 작업자 풀의 계산 리소스를 사용하여 여러 앱 서비스 계획을 만들거나, 동일한 작업자 풀을 사용할 수 있습니다.  예를 들어 작업자 풀 1에 사용 가능한 계산 리소스 10개가 있는 경우 6개의 계산 리소스를 사용하여 하나의 앱 서비스 계획을 만들고 나머지 4개의 계산 리소스를 사용하는 두 번째 앱 서비스를 만들 수 있습니다.
 
 ### <a name="scaling-the-number-of-instances"></a>인스턴스 수 확장
-App Service Environment에서 웹앱을 처음 만드는 경우 1개의 인스턴스로 시작합니다.  그런 다음 앱에 대한 추가 계산 리소스를 제공하기 위해 추가 인스턴스로 확장할 수 있습니다.   
+App Service Environment에서 웹앱을 처음 만드는 경우 1개의 인스턴스로 시작합니다.  그런 다음, 앱에 대한 추가 계산 리소스를 제공하기 위해 추가 인스턴스로 확장할 수 있습니다.   
 
 ASE의 용량이 충분한 경우에는 매우 간단합니다.  확장할 사이트를 유지하는 App Service 계획으로 이동하여 크기 조정을 선택합니다.  그러면 수동으로 ASP 프로그램에 대한 확장을 설정하거나 ASP에 대한 자동 크기 조정 규칙을 구성하는 UI가 열립니다.  수동으로 앱을 확장하려면 ***확장 기준***을 ***수동으로 입력한 인스턴스 수***로 설정하기면 하면 됩니다.  여기에서 원하는 수량으로 슬라이더를 끌거나 슬라이더 옆에 있는 상자에 입력합니다.  
 

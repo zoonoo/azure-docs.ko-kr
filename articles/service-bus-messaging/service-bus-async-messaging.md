@@ -16,7 +16,7 @@ ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
 ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56301573"
@@ -39,7 +39,7 @@ ms.locfileid: "56301573"
 ## <a name="reliability-in-service-bus"></a>Service Bus의 안정성
 메시지와 엔터티 문제를 처리하는 여러 방법이 있고 이러한 완화 방법을 적절하게 사용하도록 관리하는 지침이 있습니다. 지침을 이해하려면 먼저 Service Bus에서 무엇이 실패할 수 있는지 이해해야 합니다. Azure 시스템의 설계로 인해 이러한 문제는 모두 수명이 짧은 경향이 있습니다. 높은 수준에서 사용할 수 없는 다른 원인은 다음과 같이 나타납니다.
 
-* Service Bus가 의존하는 외부 시스템에서 제한합니다. 제한은 계산 및 저장소 리소스와의 상호작용에서 발생합니다.
+* Service Bus가 의존하는 외부 시스템에서 제한합니다. 제한은 계산 및 스토리지 리소스와의 상호작용에서 발생합니다.
 * Service Bus가 의존하는 시스템에서 발생하는 문제입니다. 예를 들어 저장소의 특정 부분에 문제가 발생할 수 있습니다.
 * 단일 하위 시스템에서 Service Bus의 오류입니다. 이 상황에서 계산 노드는 일관성이 없는 상태일 수 있으며 자체를 다시 시작해야 하며 이는 부하를 다른 노드로 분산하는 모든 엔터티를 발생시킵니다. 단기간 동안 차례로 메시지 처리 속도가 느려질 수 있습니다.
 * Azure 데이터 센터 내에서 Service Bus의 오류입니다. 몇 분 또는 몇 시간 동안 시스템에 연결할 수 없는 "치명적 오류"입니다.

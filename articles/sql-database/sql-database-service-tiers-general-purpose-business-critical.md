@@ -63,5 +63,5 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-- 범용 및 중요 비즈니스용 서비스 계층의 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 사항에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
-- 범용 및 중요 비즈니스용 서비스 계층의 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 사항에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 범용 및 중요 비즈니스용 서비스 계층의 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 범용 및 중요 비즈니스용 서비스 계층의 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.

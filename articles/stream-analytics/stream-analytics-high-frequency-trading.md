@@ -11,7 +11,7 @@ ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
 ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53087970"
@@ -122,7 +122,7 @@ shiftedquotes AS (
 ),
 ```
 
-그런 다음 VOI 값을 계산할 수 있습니다. 이전 틱이 존재하지 않는 경우 null 값을 필터링합니다.
+그런 다음, VOI 값을 계산할 수 있습니다. 이전 틱이 존재하지 않는 경우 null 값을 필터링합니다.
 
 ```SQL
 currentPriceAndVOI AS (

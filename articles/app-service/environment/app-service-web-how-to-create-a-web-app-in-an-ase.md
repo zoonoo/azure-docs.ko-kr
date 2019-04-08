@@ -17,7 +17,7 @@ ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53718098"
@@ -51,7 +51,7 @@ ms.locfileid: "53718098"
     *리소스 그룹*을 통해 관련 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대해 *역할 기반 액세스 제어*(RBAC) 규칙을 설정할 때 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
 4. App Service 계획을 선택하거나 만듭니다.
    
-    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 계산 인스턴스가 아니라 ASE에 할당된 계산 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md)를 참조하세요.
+    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md)를 참조하세요.
    
     계획 이름에서 설명한 위치를 확인하여 ASE의 App Service 계획을 식별할 수 있습니다.  
    
@@ -86,7 +86,7 @@ App Service Environment에서 호스팅되는 App Service 계획의 또 다른 �
 ### <a name="selecting-a-worker-pool"></a>작업자 풀 선택
 일반적으로 Azure App Service 내부와 App Service Environment 외부에는 전용 가격 계획을 선택할 때 사용할 수 있는 3가지 계산 크기가 있습니다.  마찬가지로 ASE의 경우 최대 3개의 작업자 풀을 정의하고 해당 작업자 풀에 사용되는 계산 크기를 지정할 수 있습니다.  ASE의 테넌트와 관련하여 App Service 계획에 대해 가격 책정 계획을 계산 크기로 선택하는 대신 *작업자 풀*이라는 것을 선택합니다.  
 
-작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 계산 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 계산 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 계산 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
+작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 계산 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 컴퓨팅 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 계산 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
 
 ![][4]
 

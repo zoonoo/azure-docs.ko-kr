@@ -73,7 +73,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | 이름              | 작업의 이름                     | 예      |
 | description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다.       |
 | 형식              | Hadoop 스트리밍 작업의 경우 작업 유형은 HDInsightStreaming입니다. | 예      |
-| linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
+| linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | mapper            | mapper 실행 파일의 이름을 지정합니다. | 예      |
 | reducer           | reducer 실행 파일의 이름을 지정합니다. | 예      |
 | combiner          | combiner 실행 파일의 이름을 지정합니다. | 아닙니다.       |

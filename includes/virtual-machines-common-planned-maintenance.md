@@ -10,7 +10,7 @@ ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/27/2018
 ms.locfileid: "53805727"
@@ -64,6 +64,6 @@ Azure VM에서 워크로드를 배포할 때 애플리케이션에 고가용성�
 
 가용성 집합 내에서 개별 VM은 최대 20개의 UD(업데이트 도메인)에 걸쳐 분산됩니다. 예약된 유지 관리 중에는 항상 단일 업데이트 도메인만 업데이트됩니다. 업데이트 도메인이 반드시 순차적으로 업데이트되는 것은 아닙니다. 
 
-가상 머신 확장 집합은 동일한 VM 집합을 단일 리소스로 배포하고 관리할 수 있게 하는 Azure 계산 리소스입니다. 확장 집합은 가용성 집합의 VM과 같은 업데이트 도메인에 걸쳐 자동으로 배포됩니다. 가용성 집합과 마찬가지로 확장 집합에서도, 예약된 유지 관리 중에 항상 단일 업데이트 도메인만 업데이트됩니다.
+가상 머신 확장 집합은 동일한 VM 세트를 단일 리소스로 배포하고 관리할 수 있게 하는 Azure 계산 리소스입니다. 확장 집합은 가용성 집합의 VM과 같은 업데이트 도메인에 걸쳐 자동으로 배포됩니다. 가용성 집합과 마찬가지로 확장 집합에서도, 예약된 유지 관리 중에 항상 단일 업데이트 도메인만 업데이트됩니다.
 
 고가용성을 위해 VM을 구성하는 방법에 대한 자세한 내용은 [Windows](../articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)용 가상 머신의 가용성 관리를 참조하세요.

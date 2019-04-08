@@ -114,7 +114,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 
-배포하려는 특정 연결 서비스의 JSON 속성과 관련한 자세한 내용은 [저장소 연결 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [Compute 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리의 이름을 지정합니다. Azure Storage의 연결 서비스 정의 예제는 다음 JSON 정의에 나와 있습니다.
+배포하려는 특정 연결 서비스의 JSON 속성과 관련한 자세한 내용은 [스토리지 연결 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [Compute 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리의 이름을 지정합니다. Azure Storage의 연결 서비스 정의 예제는 다음 JSON 정의에 나와 있습니다.
 
 ### <a name="define-datasets"></a>데이터 세트 정의
 

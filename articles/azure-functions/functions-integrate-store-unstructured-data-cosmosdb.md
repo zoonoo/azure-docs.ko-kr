@@ -5,7 +5,7 @@ services: functions
 documentationcenter: functions
 author: ggailey777
 manager: jeconnoc
-keywords: Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버가 없는 아키텍처
+keywords: Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버리스 아키텍처
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: csharp

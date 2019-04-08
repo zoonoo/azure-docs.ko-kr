@@ -8,7 +8,7 @@ ms.date: 12/23/2018
 ms.author: raynew
 ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/27/2018
 ms.locfileid: "53792323"
@@ -62,7 +62,7 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍에서 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 애플리케이션에 대한 최적 가용성을 보장하고 재해 발생 시 복구 시간을 최소화할 수 있습니다. 
 
 ## <a name="an-example-of-paired-regions"></a>쌍을 이루는 지역의 예
-아래 그림 2는 재해 복구에 지역 쌍을 사용하는 가상 애플리케이션을 보여줍니다. 녹색 숫자는 세 개의 Azure 서비스(Azure 계산, 저장소 및 데이터베이스)의 지역 간 활동 및 지역 간에 복제하도록 구성된 방식을 강조합니다. 쌍을 이루는 지역에 걸친 배포의 고유한 이점은 주황색 숫자로 강조 표시되어 있습니다.
+아래 그림 2는 재해 복구에 지역 쌍을 사용하는 가상 애플리케이션을 보여줍니다. 녹색 숫자는 세 개의 Azure 서비스(Azure 계산, 스토리지 및 데이터베이스)의 지역 간 활동 및 지역 간에 복제하도록 구성된 방식을 강조합니다. 쌍을 이루는 지역에 걸친 배포의 고유한 이점은 주황색 숫자로 강조 표시되어 있습니다.
 
 ![쌍을 이루는 지역의 이점 개요](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 

@@ -17,12 +17,12 @@ ms.date: 10/12/2018
 ms.author: jonbeck
 ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
 ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/16/2018
 ms.locfileid: "49344492"
 ---
-# <a name="high-performance-compute-virtual-machine-sizes"></a>고성능 계산 가상 컴퓨터 크기
+# <a name="high-performance-compute-virtual-machine-sizes"></a>고성능 계산 가상 머신 크기
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
 

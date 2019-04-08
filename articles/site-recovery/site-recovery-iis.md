@@ -9,7 +9,7 @@ ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
 ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/15/2019
 ms.locfileid: "54320500"
@@ -71,7 +71,7 @@ Azure|해당 없음|예
 
 고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > **대상 IP**로 차례로 이동합니다.
 
-![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여 주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
+![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 복구 계획은 장애 조치(failover) 시에 다중 계층 애플리케이션에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 애플리케이션에 대한 복구 계획을 생성할 때는 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명하는 단계를 수행합니다.

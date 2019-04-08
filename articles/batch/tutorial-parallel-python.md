@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>입력 파일 업로드
 
-이 앱은 `blob_client` 참조를 사용하여 입력된 MP4 파일을 위한 저장소 컨테이너와 태스크 출력을 위한 컨테이너를 만듭니다. 그런 다음 `upload_file_to_container` 함수를 호출하여 로컬 `InputFiles` 디렉터리의 MP4 파일을 컨테이너에 업로드합니다. 저장소의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
+이 앱은 `blob_client` 참조를 사용하여 입력된 MP4 파일을 위한 저장소 컨테이너와 태스크 출력을 위한 컨테이너를 만듭니다. 그런 다음 `upload_file_to_container` 함수를 호출하여 로컬 `InputFiles` 디렉터리의 MP4 파일을 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -164,7 +164,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
-그런 다음, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
+다음으로, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다. 
 
@@ -216,7 +216,7 @@ batch_service_client.job.add(job)
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다.
 
-그런 다음 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
+그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
 
 ```python
 tasks = list()

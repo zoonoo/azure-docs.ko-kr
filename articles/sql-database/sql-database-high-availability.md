@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55892833"
@@ -27,31 +27,31 @@ Azure 플랫폼은 모든 Azure SQL Database를 완전하게 관리하고 데이
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 두 가지 고가용성 아키텍처 모델이 있습니다(둘 다 99.99% 가용성 보장).
 
-- 계산과 저장소 분리를 기반으로 하는 표준/범용 서비스 계층 모델. 이 아키텍처 모델은 저장소 계층의 고가용성 및 안정성에 의존하지만 유지 보수 작업 중 약간의 잠재적인 성능 저하가 있을 수 있습니다.
+- 계산과 스토리지 분리를 기반으로 하는 표준/범용 서비스 계층 모델. 이 아키텍처 모델은 저장소 계층의 고가용성 및 안정성에 의존하지만 유지 보수 작업 중 약간의 잠재적인 성능 저하가 있을 수 있습니다.
 - 데이터베이스 엔진 프로세스의 클러스터를 기반으로 하는 프리미엄/중요 비즈니스용 서비스 계층 모델. 이 아키텍처 모델은 항상 사용 가능한 데이터베이스 엔진 노드의 쿼럼이 있다는 사실에 의존하며 유지 보수 작업 중에도 워크로드에 최소한의 성능 영향을 줍니다.
 
 Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 드라이버 및 SQL Server 데이터베이스 엔진을 업그레이드하고 패치를 적용합니다. Azure SQL Database는 안정적인 최신 버전의 SQL Server 데이터베이스 엔진 및 Windows OS에서 실행되며 대부분의 사용자는 업그레이드가 지속적으로 수행되는 것을 알아채지 못합니다.
 
 ## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>기본, 표준 및 범용 서비스 계층 가용성
 
-표준 가용성은 기본, 표준 및 범용 서비스 계층에서 적용되는 99.99% SLA를 말합니다. 이 아키텍처 모델의 고가용성은 계산 및 저장소 레이어의 분리 및 저장소 계층에서 데이터의 복제로 이루어집니다.
+표준 가용성은 기본, 표준 및 범용 서비스 계층에서 적용되는 99.99% SLA를 말합니다. 이 아키텍처 모델의 고가용성은 계산 및 스토리지 레이어의 분리 및 스토리지 계층에서 데이터의 복제로 이루어집니다.
 
-다음 그림은 분리된 계산 및 저장소 레이어가 있는 표준 아키텍처 모델의 4개 노드를 보여줍니다.
+다음 그림은 분리된 계산 및 스토리지 레이어가 있는 표준 아키텍처 모델의 4개 노드를 보여줍니다.
 
-![계산과 저장소의 분리](media/sql-database-managed-instance/general-purpose-service-tier.png)
+![계산과 스토리지의 분리](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
 표준 가용성 모델에는 두 가지 레이어가 있습니다.
 
 - 상태 비저장 계산 레이어는 `sqlserver.exe` 프로세스를 실행하고 일시적인 데이터와 캐시된 데이터(예: 계획 캐시, 버퍼 풀, 열 저장 풀)만 포함합니다. 상태 비저장 SQL Server 노드는 프로세스를 초기화하고 노드의 상태를 제어하며 필요한 경우 다른 위치로 장애 조치(failover)를 수행하는 Azure Service Fabric에서 운영됩니다.
 - 상태 저장 데이터 레이어에는 데이터베이스 파일(.mdf/.ldf)이 있으며 Azure Blob Storage에 저장됩니다. Azure Blob Storage는 데이터베이스 파일에 배치된 모든 레코드의 데이터가 손실되지 않도록 보장합니다. Azure Blob Storage에는 SQL Server 프로세스가 중단되더라도 로그 파일의 모든 레코드나 데이터 파일의 페이지가 보존되도록 하는 데이터 가용성/백업 기능이 기본 제공됩니다.
 
-데이터베이스 엔진이나 운영 체제가 업그레이드되고, 기본 인프라의 일부 부분은 실패하거나 SQL Server 프로세스에서 심각한 문제가 감지될 때마다, Azure Service Fabric은 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 옮깁니다. 장애 조치(failover) 시간을 최소화하기 위해 장애 조치(failover) 시 새 계산 서비스를 실행하려고 대기하는 예비 노드 집합이 있습니다. Azure Blob Storage의 데이터는 영향을 받지 않으며 데이터/로그 파일은 새로 초기화된 SQL Server 프로세스에 연결됩니다. 이 프로세스는 99.99%의 가용성을 보장하지만 전환 시간 및 새 SQL Server 노드가 콜드 캐시로 시작된다는 사실로 인해 실행 중인 과도한 워크로드의 성능에 영향을 미칠 수 있습니다.
+데이터베이스 엔진이나 운영 체제가 업그레이드되고, 기본 인프라의 일부 부분은 실패하거나 SQL Server 프로세스에서 심각한 문제가 감지될 때마다, Azure Service Fabric은 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 옮깁니다. 장애 조치(failover) 시간을 최소화하기 위해 장애 조치(failover) 시 새 컴퓨팅 서비스를 실행하려고 대기하는 예비 노드 세트가 있습니다. Azure Blob Storage의 데이터는 영향을 받지 않으며 데이터/로그 파일은 새로 초기화된 SQL Server 프로세스에 연결됩니다. 이 프로세스는 99.99%의 가용성을 보장하지만 전환 시간 및 새 SQL Server 노드가 콜드 캐시로 시작된다는 사실로 인해 실행 중인 과도한 워크로드의 성능에 영향을 미칠 수 있습니다.
 
 ## <a name="premium-and-business-critical-service-tier-availability"></a>프리미엄 및 중요 비즈니스용 서비스 계층 가용성
 
 프리미엄 가용성은 Azure SQL Database의 프리미엄 및 중요 비즈니스용 서비스 계층에서 사용할 수 있으며 지속적인 유지 관리 작업으로 인해 성능에 미치는 영향을 감당할 수 없는 집약적인 워크로드에 맞게 설계되었습니다.
 
-프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 저장소를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 4노드 클러스터에 배포된 계산(SQL Server 데이터베이스 엔진 프로세스) 및 저장소(로컬로 연결된 SSD)의 복제를 통해 이루어집니다.
+프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 스토리지를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 4노드 클러스터에 배포된 계산(SQL Server 데이터베이스 엔진 프로세스) 및 스토리지(로컬로 연결된 SSD)의 복제를 통해 이루어집니다.
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 

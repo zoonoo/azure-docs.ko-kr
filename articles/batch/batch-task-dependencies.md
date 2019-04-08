@@ -17,7 +17,7 @@ ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca6918b809a9b4ede3fffb151c7fa5183ae03b47
 ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2019
 ms.locfileid: "55730802"
@@ -208,7 +208,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 
 - 작업에 대한 태스크 종속성을 사용하는 방법
 - 다른 태스크에 종속된 태스크를 만드는 방법
-- 계산 노드의 풀에서 해당 태스크를 실행하는 방법
+- 계산 노드의 풀에서 해당 태스크를 실행하는 방법.
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="application-deployment"></a>애플리케이션 배포

@@ -10,7 +10,7 @@ ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
 ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/15/2019
 ms.locfileid: "54320284"
@@ -24,22 +24,22 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 ![비용 예측 요약](media/hyper-v-azure-deployment-planner-cost-estimation/cost-estimation-summary-h2a.png)
 
-이 요약을 사용하면 Azure Site Recovery를 사용하여 호환되는 VM을 보호하는 경우 저장소, 계산, 네트워크 및 라이선스에 대해 지불해야 하는 비용을 파악할 수 있습니다. 비용은 호환되는 VM에 대해 계산되며, 프로파일링된 모든 VM에 대해서는 계산되지 않습니다. 
+이 요약을 사용하면 Azure Site Recovery를 사용하여 호환되는 VM을 보호하는 경우 스토리지, 계산, 네트워크 및 라이선스에 대해 지불해야 하는 비용을 파악할 수 있습니다. 비용은 호환되는 VM에 대해 계산되며, 프로파일링된 모든 VM에 대해서는 계산되지 않습니다. 
  
 월별 또는 연도별 비용을 볼 수 있습니다. [지원되는 대상 지역](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) 및 [지원되는 통화](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies)에 대해 자세히 알아보세요.
 
-**구성 요소별 비용**: 총 DR 비용은 컴퓨팅, 스토리지, 네트워크 및 Site Recovery 라이선스 비용의 4가지 구성 요소로 구분됩니다. 비용은 복제 및 DR 드릴 시간에 발생하는 사용량을 기준으로 계산됩니다. 계산에는 계산, 저장소(프리미엄 및 표준), 온-프레미스 사이트와 Azure 간에 구성된 ExpressRoute/VPN 및 Site Recovery 라이선스가 사용됩니다.
+**구성 요소별 비용**: 총 DR 비용은 컴퓨팅, 스토리지, 네트워크 및 Site Recovery 라이선스 비용의 4가지 구성 요소로 구분됩니다. 비용은 복제 및 DR 드릴 시간에 발생하는 사용량을 기준으로 계산됩니다. 계산에는 계산, 스토리지(프리미엄 및 표준), 온-프레미스 사이트와 Azure 간에 구성된 ExpressRoute/VPN 및 Site Recovery 라이선스가 사용됩니다.
 
 **상태별 비용**: 총 재해 복구(DR) 비용 범주는 복제 및 DR 드릴이라는 서로 다른 두 가지 상태를 기반으로 합니다. 
 
 **복제 비용**: 복제 중에 발생하는 비용입니다. 저장소, 네트워크 및 Site Recovery 라이선스 비용이 포함됩니다. 
 
-**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Site Recovery는 테스트 장애 조치 시 VM을 작동합니다. DR 드릴 비용에는 실행되는 VM의 계산 및 저장소 비용이 포함됩니다. 
+**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Site Recovery는 테스트 장애 조치 시 VM을 작동합니다. DR 드릴 비용에는 실행되는 VM의 계산 및 스토리지 비용이 포함됩니다. 
 
 **월간/연간 Azure Storage 비용**: 복제 및 DR 드릴에 대한 프리미엄 및 표준 스토리지에 발생하는 총 스토리지 비용입니다.
 
 ## <a name="detailed-cost-analysis"></a>자세한 비용 분석
-계산, 저장소 및 네트워크에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제안 및 지정된 대상 Azure 지역에 기반한 최신 Azure 가격을 사용하여 지정된 통화 단위의 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용하는 경우 다음 번에 구독 ID, 제안 ID, 대상 지역 및 통화가 없는 보고서를 생성하면, 도구에서 마지막으로 사용한 대상 지역과 통화를 사용하여 비용을 예측합니다.
+계산, 스토리지 및 네트워크에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제안 및 지정된 대상 Azure 지역에 기반한 최신 Azure 가격을 사용하여 지정된 통화 단위의 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용하는 경우 다음 번에 구독 ID, 제안 ID, 대상 지역 및 통화가 없는 보고서를 생성하면, 도구에서 마지막으로 사용한 대상 지역과 통화를 사용하여 비용을 예측합니다.
 
 이 섹션에는 보고서 생성에 사용한 구독 ID 및 제안 ID가 표시됩니다. 사용하지 않으면 비어 있습니다.
 
@@ -63,7 +63,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **복제**: 복제 시 발생하는 비용입니다. 저장소, 네트워크 및 Site Recovery 라이선스 비용이 포함됩니다. 
 
-**DR 드릴**: DR 드릴 시 발생하는 비용입니다. Site Recovery는 DR 드릴 시 VM을 작동합니다. DR 드릴 비용에는 실행되는 VM의 계산 및 저장소 비용이 포함됩니다.
+**DR 드릴**: DR 드릴 시 발생하는 비용입니다. Site Recovery는 DR 드릴 시 VM을 작동합니다. DR 드릴 비용에는 실행되는 VM의 계산 및 스토리지 비용이 포함됩니다.
 
 * 연간 총 DR 드릴 기간 = DR 드릴 횟수 x 각 DR 드릴 기간(일)
 * 평균 DR 드릴 비용(월간) = 총 DR 드릴 비용/12
@@ -78,7 +78,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **VPN Gateway 유형**: 사용자 환경에 Azure VPN Gateway가 있는 경우 선택합니다. 기본값은 NA입니다.
 
-**대상 지역**: DR에 대해 지정된 Azure 지역입니다. 계산, 저장소, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
+**대상 지역**: DR에 대해 지정된 Azure 지역입니다. 계산, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
 
 ### <a name="vm-running-on-azure"></a>Azure에서 실행 중인 VM
 DR을 위해 Azure에서 실행되는 Always On 가용성 그룹이 있는 도메인 컨트롤러, DNS VM 또는 SQL Server VM이 있을 수 있습니다. 총 DR 비용에서 컴퓨팅 비용을 고려한 VM 수와 크기를 제공할 수 있습니다. 

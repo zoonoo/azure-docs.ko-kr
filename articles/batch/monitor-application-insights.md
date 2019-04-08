@@ -13,7 +13,7 @@ ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55473465"
@@ -24,7 +24,7 @@ ms.locfileid: "55473465"
 
 이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
 
-이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 BLOB 집합을 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
+이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
 > [!TIP]
 > 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 

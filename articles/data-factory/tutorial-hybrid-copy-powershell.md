@@ -313,7 +313,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     이전 값은 모두 나중에 이 자습서에서 사용합니다.
     
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 저장소 및 계산 서비스를 데이터 팩터리에 연결하려면 데이터 팩터리에서 연결된 서비스를 만듭니다. 이 자습서에서는 Azure Storage 계정 및 온-프레미스 SQL Server 인스턴스를 데이터 저장소에 연결합니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다. 
+데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결하려면 데이터 팩터리에서 연결된 서비스를 만듭니다. 이 자습서에서는 Azure Storage 계정 및 온-프레미스 SQL Server 인스턴스를 데이터 저장소에 연결합니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다. 
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Azure Storage 연결된 서비스(대상/싱크) 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.

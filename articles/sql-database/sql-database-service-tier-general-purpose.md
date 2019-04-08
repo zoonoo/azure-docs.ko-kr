@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55997365"
@@ -32,9 +32,9 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 
 범용 서비스 계층의 아키텍처 모델은 컴퓨팅과 스토리지 분리를 기반으로 합니다. 이 아키텍처 모델은 데이터베이스 파일을 확실하게 복제하고 내부 인프라 오류가 발생하는 경우에도 데이터 무손실을 보장하는 Azure Blob Storage의 고가용성 및 안정성을 기반으로 합니다.
 
-다음 그림은 분리된 계산 및 저장소 레이어가 있는 표준 아키텍처 모델의 4개 노드를 보여줍니다.
+다음 그림은 분리된 계산 및 스토리지 레이어가 있는 표준 아키텍처 모델의 4개 노드를 보여줍니다.
 
-![계산과 저장소의 분리](media/sql-database-managed-instance/general-purpose-service-tier.png)
+![계산과 스토리지의 분리](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
 범용 서비스 계층의 아키텍처 모델에는 두 개의 계층이 있습니다.
 

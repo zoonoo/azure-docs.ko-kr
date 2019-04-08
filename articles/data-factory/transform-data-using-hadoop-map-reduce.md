@@ -65,7 +65,7 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스
 | 이름              | 작업의 이름                     | 예      |
 | description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다.       |
 | 형식              | MapReduce 작업의 경우 작업 유형은 HDinsightMapReduce입니다. | 예      |
-| linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
+| linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | className         | 실행할 클래스의 이름         | 예      |
 | jarLinkedService  | Jar 파일을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아닙니다.       |
 | jarFilePath        | jarLinkedService에서 참조하는 Azure Storage에 저장된 Jar 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 예      |

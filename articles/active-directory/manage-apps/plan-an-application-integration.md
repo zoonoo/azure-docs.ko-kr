@@ -17,7 +17,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1223c96bffdf125da0c47fc932d46cfa84fa45c8
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56187783"
@@ -36,7 +36,7 @@ ms.locfileid: "56187783"
 * 애플리케이션에 어떤 종류의 인증이 필요합니까?
 * 누가 어떤 애플리케이션에 액세스하려 합니까?
 * 새 애플리케이션을 배포하시겠습니까?
-  * 사내에 구축하고 Azure 계산 인스턴스에 배포하시겠습니까?
+  * 사내에 구축하고 Azure 컴퓨팅 인스턴스에 배포하시겠습니까?
   * Azure 애플리케이션 갤러리에서 사용할 수 있는 애플리케이션을 사용하시겠습니까?
 
 ### <a name="user-and-group-inventory"></a>사용자 및 그룹 인벤토리

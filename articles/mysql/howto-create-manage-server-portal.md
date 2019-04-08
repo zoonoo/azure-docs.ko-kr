@@ -26,7 +26,7 @@ ms.locfileid: "57528681"
 
 2. 새로 만들기 페이지에서 **데이터베이스**를 선택하고 데이터베이스 페이지에서 **MySQL용 Azure Database**를 선택합니다.
 
-    > MySQL용 Azure Database 서버는 일련의 정의된 [계산 및 저장소](./concepts-pricing-tiers.md) 리소스를 사용하여 만들어집니다. 데이터베이스는 Azure 리소스 그룹 및 MySQL용 Azure Database 서버에서 만들어집니다.
+    > MySQL용 Azure Database 서버는 정의된 [계산 및 스토리지 리소스](./concepts-pricing-tiers.md) 세트를 사용하여 만들어집니다. 데이터베이스는 Azure 리소스 그룹 및 MySQL용 Azure Database 서버에서 만들어집니다.
 
    ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 

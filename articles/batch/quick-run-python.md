@@ -19,7 +19,7 @@ ms.locfileid: "55754424"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
-이 빠른 시작에서는 Azure Batch Python API를 기반으로 하여 빌드된 애플리케이션에서 Azure Batch 작업을 실행합니다. 응용 프로그램은 여러 개의 입력 데이터 파일을 Azure 저장소에 업로드한 다음, Batch 계산 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+이 빠른 시작에서는 Azure Batch Python API를 기반으로 하여 빌드된 애플리케이션에서 Azure Batch 작업을 실행합니다. 앱은 여러 개의 입력 데이터 파일을 Azure 스토리지에 업로드한 다음, Batch 계산 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
  
 ![빠른 시작 앱 워크플로](./media/quick-run-python/sampleapp.png)
 
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-앱은 `blob_client` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 저장소의 파일은 나중에 Batch에서 계산 노드에 다운로드할 수 있는 [ResourceFile](/python/api/azure.batch.models.resourcefile) Batch 개체로 정의됩니다.
+앱은 `blob_client` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
 
 ```python
 input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 앱에서 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체의 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 `resource_files` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `cat` Bash 셸 명령을 실행하여 텍스트 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
-그런 다음 앱은 계산 노드에서 실행되도록 큐에 넣는 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가합니다. 
+그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
 
 ```python
 tasks = list()

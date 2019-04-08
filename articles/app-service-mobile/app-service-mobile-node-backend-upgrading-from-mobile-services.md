@@ -16,7 +16,7 @@ ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53726683"
@@ -99,7 +99,7 @@ ZIP 형식의 스크립트를 다운로드합니다.  로컬 컴퓨터에 새 �
 3. **리소스 그룹**에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(앱과 같은 이름 사용).
 
     다른 App Service 계획을 선택하거나 새 App Service 계획을 만들 수 있습니다. App Services 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure App Service 계획의 포괄 개요](../app-service/overview-hosting-plans.md)를 참조하세요.
-4. **App Service 계획**에 대해서는 기본 계획( [표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/) 가 결정됩니다.
+4. **App Service 계획**에 대해서는 기본 계획( [표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/)가 결정됩니다.
 
     계획을 결정한 다음 **만들기**를 클릭합니다. 이렇게 모바일 앱 백 엔드를 만듭니다.
 

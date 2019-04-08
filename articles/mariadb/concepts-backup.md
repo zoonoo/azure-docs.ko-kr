@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56233543"
@@ -56,7 +56,7 @@ Azure Database for MariaDB에서 복원을 수행하면 원래 서버의 백업�
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 
-백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 세대 계산, vCore 수, 저장소 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
+백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 세대 계산, vCore 수, 스토리지 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
 
 특정 시점 복원은 여러 시나리오에서 유용합니다. 예를 들어 사용자가 실수로 데이터를 삭제하거나 중요한 테이블 또는 데이터베이스를 삭제하는 경우, 또는 애플리케이션의 결함으로 인해 우연히 적절한 데이터를 잘못된 데이터로 덮어쓰는 경우가 있습니다.
 

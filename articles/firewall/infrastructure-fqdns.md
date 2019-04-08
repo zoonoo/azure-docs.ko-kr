@@ -9,7 +9,7 @@ ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: 1369a82829b2c80768d746ba92daf2482c1fd7f8
 ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46994142"
@@ -20,7 +20,7 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 다음 서비스는 기본 제공 규칙 컬렉션에 포함됩니다.
 
-- 저장소 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 계산합니다.
+- 스토리지 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 계산합니다.
 - 관리 디스크 상태 저장소 액세스.
 - Azure 진단 및 로깅(MDS)
 - Azure Active Directory

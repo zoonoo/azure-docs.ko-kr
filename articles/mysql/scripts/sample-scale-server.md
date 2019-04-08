@@ -42,4 +42,4 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
 - 추가 스크립트 시도: [MySQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
-- 확장에 대한 자세한 내용은 [서비스 계층](../concepts-service-tiers.md) 및 [Compute 단위 및 저장 단위](../concepts-compute-unit-and-storage.md)를 참조하세요.
+- 확장에 대한 자세한 내용은 [서비스 계층](../concepts-service-tiers.md) 및 [컴퓨팅 단위 및 스토리지 단위](../concepts-compute-unit-and-storage.md)를 참조하세요.

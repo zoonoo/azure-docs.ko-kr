@@ -16,7 +16,7 @@ ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
 ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56448129"
@@ -63,7 +63,7 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 | S768m 확장 가능 | Azure S768xm에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  24.0TB |  56TB | 사용 가능 |
 
 - CPU 코어 = 서버 단위 프로세서 합계의 비하이퍼 스레드 CPU 코어 합계
-- CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 계산 스레드 합계 대부분의 단위는 기본적으로 하이퍼 스레딩 기술을 사용하도록 구성됩니다.
+- CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 컴퓨팅 스레드 합계. 대부분의 단위는 기본적으로 하이퍼 스레딩 기술을 사용하도록 구성됩니다.
 - 공급업체 권고에 따라 S768m, S768xm 및 S960m은 SAP HANA 실행에 하이퍼 스레딩을 사용하도록 구성되지 않았습니다.
 
 
@@ -74,7 +74,7 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 - SKU의 '유형 I 클래스': S72, S72m, S96, S144, S144m, S192, S192m 및 S192xm
 - SKU의 '유형 II 클래스': S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm 및 S960m
 
-HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 계산 및 저장소 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
+HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 계산 및 스토리지 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
 - **네트워크**: HANA 대규모 인스턴스 스탬프 내에서 가상 네트워크를 통해 격리됩니다.
 - **저장소**: 스토리지 볼륨을 할당하고 테넌트 간 스토리지 볼륨을 격리하는 스토리지 가상 머신을 통해 격리됩니다.

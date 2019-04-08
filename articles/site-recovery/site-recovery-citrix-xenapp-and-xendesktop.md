@@ -9,7 +9,7 @@ ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
 ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53310524"
@@ -102,7 +102,7 @@ SQL Server 보호를 위한 권장 옵션에 대한 자세한 기술 지침은 [
 
 **Compute 및 네트워크 설정**
 
-컴퓨터를 보호(복제된 항목 아래에 상태가 "보호됨"으로 표시됨)한 후에는 Compute 및 네트워크 설정을 구성해야 합니다.
+머신을 보호(복제된 항목 아래에 상태가 "보호됨"으로 표시됨)한 후에는 Compute 및 네트워크 설정을 구성해야 합니다.
 Compute 및 네트워크 > Compute 속성에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다.
 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 추가할 수 있습니다.
 

@@ -155,7 +155,7 @@ items:
       href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
     - name: Azure Analysis Services에서 모델 다시 처리
       href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
-    - name: Compute 연결된 서비스
+    - name: 컴퓨팅 연결 서비스
       href: data-factory-compute-linked-services.md
   - name: 개발
     items:

@@ -38,7 +38,7 @@ ms.locfileid: "54014933"
 
 그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure SQL Data Warehouse와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
 
-회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 계산 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
+회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 컴퓨팅 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
 
 ![데이터 팩터리 개요](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
@@ -46,11 +46,11 @@ Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니
 
 - 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약합니다.
 
-- Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리하고 변환합니다.
+- Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하고 변환합니다.
 
 -  사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.  
 
-기존의 ETL(추출 및 변환 및 로드) 플랫폼이 아닌 EL(추출 및 로드) 및 TL(변환 및 로드) 플랫폼이 지지를 얻고 있습니다. 변환은 파생된 열을 추가하고, 행의 수를 계산하고, 데이터를 정렬하는 등 대신 계산 서비스를 사용하여 데이터를 처리합니다. 
+기존의 ETL(추출 및 변환 및 로드) 플랫폼이 아닌 EL(추출 및 로드) 및 TL(변환 및 로드) 플랫폼이 지지를 얻고 있습니다. 변환은 파생된 열을 추가하고, 행의 수를 계산하고, 데이터를 정렬하는 등 대신 컴퓨팅 서비스를 사용하여 데이터를 처리합니다. 
 
 현재 Azure Data Factory에서 워크플로가 사용하고 생성하는 데이터는 *시간 조각화 데이터*(매시간, 매일, 매주 등)입니다. 예를 들어, 파이프라인은 하루에 한 번 입력 데이터를 읽고, 데이터를 처리하고 출력 데이터를 생성할 수 있습니다. 또한 워크플로를 한 번만 실행할 수 있습니다.  
   
@@ -67,10 +67,10 @@ Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반�
 
 Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파이프라인에서 복사 작업을 사용하여 온-프레미스 및 클라우드 원본 데이터 저장소에서 클라우드의 중앙 데이터 저장소로 데이터를 이동할 수 있습니다. 
 
-예를 들어, Azure Data Lake Store에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 계산 서비스를 사용하여 데이터를 변환할 수 있습니다. 또는 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob 저장소에서 데이터를 수집하고 나중에 변환합니다.
+예를 들어, Azure Data Lake Store에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또는 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob 저장소에서 데이터를 수집하고 나중에 변환합니다.
 
 ### <a name="transform-and-enrich"></a>변환 및 보강
-데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 또는 Machine Learning과 같은 계산 서비스를 사용하여 이를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다. 
+데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 또는 Machine Learning과 같은 컴퓨팅 서비스를 사용하여 이를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다. 
 
 ### <a name="publish"></a>게시 
 클라우드에서 SQL Server와 같은 온-프레미스 원본에 변환된 데이터를 제공합니다. 또는 이를 BI, 분석 도구 및 기타 애플리케이션에 의한 소비를 위해 클라우드 스토리지 원본에 유지합니다.
@@ -115,20 +115,20 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 * 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 저장소 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
 
-* 활동의 실행을 호스팅할 수 있는 *계산 리소스* 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
+* 활동의 실행을 호스팅할 수 있는 *계산 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 
 ![다이어그램: Data Factory, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
-현재 미국 서부, 미국 동부 및 북유럽 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
+현재 미국 서부, 미국 동부 및 북유럽 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다.
 
-Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지원되는 데이터 저장소](#data-movement-activities) 간에 데이터 이동을 오케스트레이션하는 데이터 기반 워크플로를 만들 수 있습니다. 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](#data-transformation-activities)를 사용하여 데이터를 처리할 수도 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 [워크플로를 모니터링하고 관리](data-factory-monitor-manage-pipelines.md)할 수 있습니다.
+Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지원되는 데이터 저장소](#data-movement-activities) 간에 데이터 이동을 오케스트레이션하는 데이터 기반 워크플로를 만들 수 있습니다. 다른 지역 또는 온-프레미스 환경에서 [컴퓨팅 서비스](#data-transformation-activities)를 사용하여 데이터를 처리할 수도 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 [워크플로를 모니터링하고 관리](data-factory-monitor-manage-pipelines.md)할 수 있습니다.
 
 데이터 팩터리는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있습니다. 그러나 데이터 팩터리에서 데이터 이동을 구동하는 서비스를 여러 지역에서 [전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 [데이터 관리 게이트웨이](data-factory-move-data-between-onprem-and-cloud.md)가 대신 데이터를 이동시킵니다.
 
-예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역에 있다고 가정해보겠습니다. 북유럽에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있습니다. 그런 다음 유럽 서부의 계산 환경에서 작업을 예약하는 데 사용할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
+예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 컴퓨팅 환경이 서유럽 지역에 있다고 가정해보겠습니다. 북유럽에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있습니다. 그런 다음, 서유럽의 컴퓨팅 환경에서 작업을 예약하는 데 사용할 수 있습니다. 데이터 팩터리가 컴퓨팅 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 컴퓨팅 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>파이프라인 만들기 시작
 이러한 도구 또는 API 중 하나를 사용하여 Azure Data Factory에서 데이터 파이프라인을 만들 수 있습니다. 

@@ -11,7 +11,7 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
 ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/15/2019
 ms.locfileid: "54321571"
@@ -201,7 +201,7 @@ ms.locfileid: "54321571"
 ## <a name="report-total-time-for-each-car"></a>각 자동차에 대한 총 시간 보고
 자동차가 요금소를 통과하는 데 필요한 평균 시간은 프로세스의 효율성과 고객 경험을 평가하는 데 도움이 됩니다.
 
-총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. 또한 **DATEDIFF** 함수를 진출 시간과 진입 시간에 적용하여 차량 요금소에서 소요된 실제 시간을 계산합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
+총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 계산합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -303,7 +303,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 3. 스트리밍 작업의 CONFIGURE 제목 아래에서 **크기 조정**을 선택합니다.
 
-4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 사용할 수 있는 계산 능력의 크기를 정의합니다. **저장**을 선택합니다.
+4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 검색할 수 있는 계산 능력의 크기를 정의합니다. **저장**을 선택합니다.
 
 5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 계산 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
 

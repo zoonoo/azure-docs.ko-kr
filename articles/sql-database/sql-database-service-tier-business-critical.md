@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 2f18b51a07bb58f13673427f0acadb6b80d7a1c8
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56005321"
@@ -35,7 +35,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 프리미엄 가용성은 Azure SQL Database의 프리미엄 및 중요 비즈니스용 서비스 계층에서 사용할 수 있으며 지속적인 유지 관리 작업으로 인해 성능에 미치는 영향을 감당할 수 없는 집약적인 워크로드에 맞게 설계되었습니다.
 
-프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 저장소를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 네 개의 노드 클러스터에 배포된 컴퓨팅(SQL Server 데이터베이스 엔진 프로세스) 및 스토리지(로컬로 장착된 SSD)의 복제를 통해 이루어집니다.
+프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 스토리지를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 네 개의 노드 클러스터에 배포된 컴퓨팅(SQL Server 데이터베이스 엔진 프로세스) 및 스토리지(로컬로 장착된 SSD)의 복제를 통해 이루어집니다.
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 
