@@ -1,70 +1,64 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ca77662e7756d74f8f939e78af626b7f2da2a3c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792721"
 documentType: LandingData
 title: Azure의 Ansible 설명서
 metadata:
-  title: Azure의 Ansible 설명서 - 자습서, 샘플, 참조 및 리소스
-  description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 알아봅니다.
+  title: 'Azure의 Ansible 설명서 - 자습서, 샘플, 참조 및 리소스'
+  description: 'Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 알아봅니다.'
   ms.service: azure
-  keywords: ansible, azure, devops, 자습서, 샘플, 참조
+  keywords: 'ansible, azure, devops, 자습서, 샘플, 참조'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/27/2018
 abstract:
-  description: <a href="https://www.ansible.com">Ansible</a>을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화합니다.
+  description: '<a href="https://www.ansible.com">Ansible</a>을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화합니다.'
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Ansible을 설치하고 사용하여 Azure에서 Linux 가상 머신을 만들고 관리합니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: /azure/media/index/azure_dev-9.svg
-      text: Ansible 설치
-      href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-    - image:
-        src: /azure/media/index/VirtualMachine.svg
-      text: Linux VM 만들기
-      href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-    - image:
-        src: /azure/media/index/VirtualMachine.svg
-      text: Linux VM 관리
-      href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Ansible를 사용하여 Azure 계산, 네트워크 및 저장소 인프라를 만들고 관리하는 방법에 대해 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Ansible을 설치하고 사용하여 Azure에서 Linux 가상 머신을 만들고 관리합니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/azure_dev-9.svg
+            text: Ansible 설치
+            href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          - image:
+              src: /azure/media/index/VirtualMachine.svg
+            text: Linux VM 만들기
+            href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          - image:
+              src: /azure/media/index/VirtualMachine.svg
+            text: Linux VM 관리
+            href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">가상 네트워크, 공용 IP 주소 및 가상 네트워크 인터페이스 카드를 비롯한 Linux 가상 머신을 만듭니다.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Azure Cloud Shell에서 Bash를 사용하여 Ansible을 실행합니다.</a>
-    - html: <a href="./ansible-manage-azure-dynamic-inventories">Azure 리소스의 동적 인벤토리를 만들고 관리합니다.</a>
-    - html: <a href="./ansible-create-configure-vmss">Azure에서 가상 머신 확장 집합을 만들고 관리합니다.</a>
-    - html: <a href="./ansible-deploy-app-vmss">Azure에서 가상 머신 확장 집합에 애플리케이션을 배포합니다.</a>
-    - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service 클러스터를 만들고 관리합니다.</a>
-    - html: <a href="./ansible-create-configure-application-gateway">Azure 애플리케이션 게이트웨이를 사용하여 웹 트래픽을 관리합니다.</a>
-    - html: <a href="./ansible-auto-scale-vmss">Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정합니다.</a>
-    - html: <a href="./ansible-scale-azure-web-apps">Ansible을 사용하여 Azure App Service 웹앱 크기를 조정합니다.</a>
-    - html: <a href="./ansible-create-configure-route-table">Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제합니다.</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Ansible를 사용하여 Azure 계산, 네트워크 및 스토리지 인프라를 만들고 관리하는 방법에 대해 알아봅니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">가상 네트워크, 공용 IP 주소 및 가상 네트워크 인터페이스 카드를 비롯한 Linux 가상 머신을 만듭니다.</a>'
+          - html: <a href="./ansible-run-playbook-in-cloudshell">Azure Cloud Shell에서 Bash를 사용하여 Ansible을 실행합니다.</a>
+          - html: <a href="./ansible-manage-azure-dynamic-inventories">Azure 리소스의 동적 인벤토리를 만들고 관리합니다.</a>
+          - html: <a href="./ansible-create-configure-vmss">Azure에서 가상 머신 확장 집합을 만들고 관리합니다.</a>
+          - html: <a href="./ansible-deploy-app-vmss">Azure에서 가상 머신 확장 집합에 애플리케이션을 배포합니다.</a>
+          - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service 클러스터를 만들고 관리합니다.</a>
+          - html: <a href="./ansible-create-configure-application-gateway">Azure 애플리케이션 게이트웨이를 사용하여 웹 트래픽을 관리합니다.</a>
+          - html: <a href="./ansible-auto-scale-vmss">Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정합니다.</a>
+          - html: <a href="./ansible-scale-azure-web-apps">Ansible을 사용하여 Azure App Service 웹앱 크기를 조정합니다.</a>
+          - html: '<a href="./ansible-create-configure-route-table">Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제합니다.</a>'
+  - title: 참고 자료
     items:
-    - title: 플레이 북 역할
-      html: <p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>
-    - title: 릴리스 및 기능
-      html: <p><a href="./ansible-matrix.md">모듈 및 역할을 위한 기능 매트릭스</a></p>
-    - title: 도구
-      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Ansible용 Visual Studio Code 확장</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 플레이 북 역할
+            html: '<p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>'
+          - title: 릴리스 및 기능
+            html: <p><a href="./ansible-matrix.md">모듈 및 역할을 위한 기능 매트릭스</a></p>
+          - title: 도구
+            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Ansible용 Visual Studio Code 확장</a></p>'

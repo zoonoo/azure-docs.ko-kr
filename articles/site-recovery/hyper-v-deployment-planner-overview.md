@@ -9,7 +9,7 @@ ms.date: 11/27/2018
 ms.author: nisoneji
 ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
 ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55207397"
@@ -58,7 +58,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 * 각 일괄 처리에 대한 초기 복제 완료 예상 시간
 
 **Azure로 DR에 대한 예상 비용**
-* Azure로 DR에 대한 총 예상 비용: 계산, 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용
+* Azure로 DR에 대한 총 예상 비용: 계산, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용
 * VM별 자세한 비용 분석
 
 

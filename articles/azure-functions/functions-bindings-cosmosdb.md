@@ -5,7 +5,7 @@ services: functions
 author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
-keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017

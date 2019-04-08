@@ -15,7 +15,7 @@ ms.date: 08/09/2018
 ms.author: magoedte
 ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56003859"
@@ -63,7 +63,7 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 논리 앱을 저장하고 테스트를 진행합니다.
 
 ## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>XML, CSV 또는 다른 형식의 데이터를 수집합니다.
-현재 논리 앱에는 쉽게 XML, CSV 또는 다른 형식을 JSON 형식으로 변환할 기본 제공 기능이 없습니다. 따라서 다른 수단을 사용하여 이 변환을 완료해야 합니다. 이 아티클에서는 Azure Functions의 서버를 사용하지 않는 계산 기능을 매우 간단하고 저렴한 방법으로 사용합니다. 
+현재 논리 앱에는 쉽게 XML, CSV 또는 다른 형식을 JSON 형식으로 변환할 기본 제공 기능이 없습니다. 따라서 다른 수단을 사용하여 이 변환을 완료해야 합니다. 이 문서에서는 Azure Functions의 서버리스 계산 기능을 매우 간단하고 저렴한 방법으로 사용합니다. 
 
 이 예제에서는 CSV 파일을 구문 분석하지만 다른 파일 형식은 마찬가지로 처리될 수 있습니다. 특정 데이터 형식에 대해 올바른 논리를 반영하도록 Azure Function의 역직렬화 부분을 수정하면 됩니다.
 

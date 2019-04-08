@@ -103,7 +103,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 
 ## <a name="deploy-a-function-app-on-the-consumption-plan"></a>소비 계획의 함수 앱 배포
 
-함수 앱은 두 가지 모드 즉, 소비 계획 및 App Service 계획으로 실행할 수 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음 코드가 실행되지 않을 때 축소합니다. 따라서 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 호스팅 계획에 대해 자세히 알아보려면 [Azure Functions 소비 및 App Service 계획](functions-scale.md)을 참조하세요.
+함수 앱은 두 가지 모드 즉, 소비 계획 및 App Service 계획으로 실행할 수 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음, 코드가 실행되지 않을 때 축소합니다. 따라서 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 호스팅 계획에 대해 자세히 알아보려면 [Azure Functions 소비 및 App Service 계획](functions-scale.md)을 참조하세요.
 
 샘플 Azure Resource Manager 템플릿은 [소비 계획의 함수 앱]을 참조하세요.
 
