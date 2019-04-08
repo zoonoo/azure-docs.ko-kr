@@ -26,7 +26,7 @@ ms.locfileid: "57766532"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조에 대 한 모든 v3 virtual machines는 중첩 된 가상화를 지원합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure Compute 단위 문서](acu.md)를 참조하세요.
+새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조에 대 한 모든 v3 virtual machines는 중첩 된 가상화를 지원합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
 
 게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 

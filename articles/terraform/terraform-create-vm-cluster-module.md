@@ -18,7 +18,7 @@ ms.locfileid: "57776277"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
 
-이 문서에서는 Terraform [Azure 계산 모듈](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2)로 소형 VM 클러스터를 만드는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
+이 문서에서는 Terraform [Azure 컴퓨팅 모듈](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2)로 소형 VM 클러스터를 만드는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
 > * Azure로 인증 설정
