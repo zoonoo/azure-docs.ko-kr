@@ -4,14 +4,14 @@ description: Azure에 Avere vFXT 클러스터를 배포하는 단계입니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409689"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056608"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -31,18 +31,17 @@ ms.locfileid: "57409689"
 1. [새 구독](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [구독 소유자 권한](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [사용자 지정 액세스 역할](avere-vfxt-prereqs.md#create-access-roles) - 클러스터 노드에 할당할 역할 기반 액세스 제어 역할을 만들어야 합니다. 클러스터 컨트롤러용 사용자 지정 액세스 역할도 만들 수 있습니다. 하지만 대부분의 사용자에게는 기본 소유자 역할이 있으므로 리소스 그룹 소유자에 해당하는 컨트롤러 권한이 제공됩니다. 자세한 내용은 [Azure 리소스용 기본 제공 역할](../role-based-access-control/built-in-roles.md#owner)을 참조하세요.
 1. [저장소 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) 필요-blob 저장소를 만들고 기존 가상 네트워크를 사용 하 여 배포
 
 클러스터 배포 단계 및 계획에 대한 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md) 및 [배포 개요](avere-vfxt-deploy-overview.md)를 참조하세요.
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Avere vFXT for Azure 만들기
 
-Avere를 검색한 다음, "Avere vFXT ARM 배포"를 선택하여 Azure Portal에서 만들기 템플릿에 액세스합니다. 
+Avere 검색 하 고 "Azure ARM 템플릿에 대 한 Avere vFXT"를 선택 하 여 Azure portal에서 생성 템플릿에 액세스 합니다. 
 
-![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모두 페이지의 검색 필드에 검색어 "avere"가 표시되고 두 번째 결과 "Avere vFXT ARM 배포"의 외곽선이 빨간색으로 강조 표시됩니다.](media/avere-vfxt-template-choose.png)
+![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모두 페이지, 검색 필드에 용어 "avere" 및 "Azure ARM 템플릿에 대 한 Avere vFXT" 두 번째 결과 빨간색으로 강조 표시에 설명 된 합니다.](media/avere-vfxt-template-choose.png)
 
-Avere vFXT ARM 배포 페이지의 세부 정보를 읽은 후 **만들기**를 클릭하여 시작합니다. 
+Avere vFXT Azure ARM 템플릿 페이지에 대 한 세부 정보를 읽은 후 다음 클릭 **만들기** 시작 합니다. 
 
 ![배포 템플릿의 첫 페이지가 표시된 Azure Marketplace](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Avere vFXT ARM 배포 페이지의 세부 정보를 읽은 후 **만들기**를 
 
 * **암호** 또는 **SSH 공개 키** - 선택한 인증 유형에 따라 다음 필드에 RSA 공개 키 또는 암호를 입력해야 합니다. 앞에서 입력한 사용자 이름과 함께 이 자격 증명을 사용합니다.
 
-* **Avere 클러스터 만들기 역할 ID** - 이 필드에서 클러스터 컨트롤러의 액세스 제어 역할을 지정합니다. 기본값은 기본 제공 역할인 [소유자](../role-based-access-control/built-in-roles.md#owner)입니다. 클러스터 컨트롤러의 소유자 권한 범위는 클러스터 리소스 그룹으로 제한됩니다. 
-
-  역할에 해당하는 GUID(Globally Unique Identifier)를 사용해야 합니다. 기본값(소유자)의 GUID는 8e3af657-a8ff-443c-a75c-2fe8c4bcb635입니다. 사용자 지정 역할의 GUID를 확인하려면 다음 명령을 사용합니다. 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **구독** - Avere vFXT의 구독을 선택합니다. 
 
 * **리소스 그룹** - 기존의 빈 Avere vFXT 클러스터용 리소스 그룹을 선택하거나 "새로 만들기"를 클릭하고 새 리소스 그룹 이름을 입력합니다. 
@@ -97,10 +88,6 @@ Avere vFXT ARM 배포 페이지의 세부 정보를 읽은 후 **만들기**를 
 * **Avere vFXT 클러스터 노드 수** - 클러스터에서 사용할 노드 수를 선택합니다. 최소값은 노드 3개, 최대값은 12개입니다. 
 
 * **클러스터 관리 암호** - 클러스터 관리용 암호를 만듭니다. 이 암호와 사용자 이름 ```admin```을 사용하여 클러스터 제어판에 로그인해 클러스터를 모니터링하고 설정을 구성합니다.
-
-* **Avere 클러스터 작업 역할** - 클러스터 노드의 액세스 제어 역할 이름을 지정합니다. 이 역할은 필수 구성 요소 단계에서 생성된 사용자 지정 역할입니다. 
-
-  [클러스터 노드 액세스 역할 만들기](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)에 설명되어 있는 예제에서는 파일을 ```avere-operator.json```으로 저장하며, 해당 역할 이름은 ```avere-operator```입니다.
 
 * **Avere vFXT 클러스터 이름** - 클러스터에 고유한 이름을 지정합니다. 
 
@@ -138,7 +125,7 @@ Avere vFXT ARM 배포 페이지의 세부 정보를 읽은 후 **만들기**를 
 
 ![배포 템플릿 3페이지 - 유효성 검사](media/avere-vfxt-deploy-3.png)
 
-4페이지에서는 **만들기** 단추를 클릭하여 약관에 동의하고 Avere vFXT for Azure 클러스터를 만듭니다. 
+4 페이지에서 필요한 모든 연락처 정보를 입력 하 고 클릭 합니다 **만들기** 단추 Azure 클러스터에 대 한 Avere vFXT을 만들고 약관에 동의 합니다. 
 
 ![배포 템플릿 4페이지 - 약관, 만들기 단추](media/avere-vfxt-deploy-4.png)
 

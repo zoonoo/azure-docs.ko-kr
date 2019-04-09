@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: wesmc7777
 manager: jeconnoc
-keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
+keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.devlang: multiple

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: d18a33b7eeb1e3708b4e657180421bd97dc268b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764340"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276884"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>노트 내에서 패키지 설치
 
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
+- [방법: 구성 및 프로젝트 관리](configure-manage-azure-notebooks-projects.md)
 - [방법: 슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)

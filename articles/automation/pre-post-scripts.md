@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793661"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056680"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -67,6 +67,23 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 다른 개체 형식이 필요한 경우 Runbook에서 사용자 고유의 논리를 사용하여 다른 형식으로 캐스트할 수 있습니다.
 
 표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열이며, 사전 또는 사후 스크립트에 매개 변수가 정의되면 업데이트 배포에서 자동으로 전달됩니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여줍니다.
+
+## <a name="stopping-a-deployment"></a>배포 중지
+
+수행 해야 하는 사전 스크립트 기반 배포를 중지 하려는 경우 [throw](automation-runbook-execution.md#throw) 예외입니다. 예외를 throw 하지 않습니다, 배포 및 사후 스크립트를 계속 실행 됩니다. 합니다 [예제 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) 갤러리에서이 수행할 수는 방법을 보여 줍니다. 다음은 해당 runbook에서 코드 조각을 합니다.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>패치 배포를 중단 합니다.
+
+사전 스크립트가 오류를 반환 하는 경우에 배포를 중단 하는 것이 좋습니다. 이 작업을 수행 해야 합니다 [throw](/powershell/module/microsoft.powershell.core/about/about_throw) 오류가 증가로 모든 논리에 대 한 스크립트에 오류가 발생 합니다.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>알려진 문제
 
 * 사전 및 사후 스크립트를 사용하는 경우 개체 또는 배열을 매개 변수에 전달할 수 없습니다. Runbook이 실패합니다.

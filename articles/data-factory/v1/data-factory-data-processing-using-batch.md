@@ -549,7 +549,7 @@ test custom activity Microsoft test custom activity Microsoft
    ![Data Factory 페이지](./media/data-factory-data-processing-using-batch/image6.png)
 
 #### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Data Factory에 연결합니다. 이 단계에서는 저장소 계정 및 Batch 계정을 Data Factory에 연결합니다.
+연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Data Factory에 연결합니다. 이 단계에서는 저장소 계정 및 Batch 계정을 Data Factory에 연결합니다.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포** 타일을 선택합니다. Data Factory 편집기가 표시됩니다.

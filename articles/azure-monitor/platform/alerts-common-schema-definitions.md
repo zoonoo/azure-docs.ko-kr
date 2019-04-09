@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 1a55fa4f39f2ebc2cdcc421eb6d7fecc62277f90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851800"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010399"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -152,6 +152,9 @@ ms.locfileid: "58851800"
 ```
 
 ### <a name="log-alerts"></a>로그 경고
+
+> [!NOTE]
+> 사용자 지정 JSON 옵션을 사용 하 여 기존 로그 경고에 대 한 공통 스키마에서 사용자 지정 유지 되지 않습니다.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 

@@ -504,12 +504,12 @@ Azure Migrate 평가에는 Azure와의 온-프레미스 호환성, Azure VM에 �
 
 #### <a name="review-monthly-cost-estimates"></a>월별 예상 비용 검토
 
-이 보기에서는 Azure에서 VM을 실행하는 데 소요되는 총 계산 및 저장소 비용을 표시합니다. 또한 각 머신에 대한 세부 정보도 표시합니다.
+이 보기에서는 Azure에서 VM을 실행하는 데 소요되는 총 계산 및 스토리지 비용을 표시합니다. 또한 각 머신에 대한 세부 정보도 표시합니다.
 
 ![Azure Migrate - Azure 비용](./media/contoso-migration-assessment/azure-costs.png)
 
 - 예상 비용은 머신에 대한 크기 권장 사항을 사용하여 계산됩니다.
-- 계산 및 저장소에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다.
+- 계산 및 스토리지에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다.
 
 ## <a name="clean-up-after-assessment"></a>평가 후 정리
 

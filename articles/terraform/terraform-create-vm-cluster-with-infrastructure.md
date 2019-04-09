@@ -18,7 +18,7 @@ ms.locfileid: "58077839"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 
-이 자습서에서는 [HCL(Hashicorp Configuration Language)](https://www.terraform.io/docs/configuration/syntax.html)을 사용하여 작은 계산 클러스터를 만드는 방법을 보여줍니다. 구성은 부하 분산 장치, [가용성 집합](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)의 Linux VM 두 개 및 필요한 모든 네트워킹 리소스를 만듭니다.
+이 자습서에서는 [HCL(HashiCorp Configuration Language)](https://www.terraform.io/docs/configuration/syntax.html)을 사용하여 작은 컴퓨팅 클러스터를 만드는 방법을 보여줍니다. 구성은 부하 분산 장치, [가용성 집합](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)의 Linux VM 두 개 및 필요한 모든 네트워킹 리소스를 만듭니다.
 
 이 자습서에서는 다음을 수행했습니다.
 

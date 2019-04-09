@@ -27,7 +27,7 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 
 ## <a name="environment-variable-visibility"></a>환경 변수 이름 표시
 
-이러한 환경 변수는 **태스크 사용자**, 즉 태스크가 실행되는 노드의 사용자 계정의 컨텍스트에서만 표시됩니다. RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 통해 계산 노드에 [원격으로 연결](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes)하고 환경 변수를 나열하는 경우 이를 확인할 수 *없습니다*. 원격 연결에 사용되는 사용자 계정이 태스크에서 사용하는 계정과 동일하지 않기 때문입니다.
+이러한 환경 변수는 **태스크 사용자**, 즉 태스크가 실행되는 노드의 사용자 계정의 컨텍스트에서만 표시됩니다. RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 통해 계산 노드에 *원격으로 연결*하고 환경 변수를 나열하는 경우 이를 확인할 수 [없습니다](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) . 원격 연결에 사용되는 사용자 계정이 태스크에서 사용하는 계정과 동일하지 않기 때문입니다.
 
 ## <a name="command-line-expansion-of-environment-variables"></a>환경 변수의 명령줄 확장
 

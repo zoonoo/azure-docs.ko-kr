@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447217"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006090"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor의 로그 경고 쿼리
 [Azure Monitor 로그를 기반으로 하는 경고 규칙](alerts-unified-log.md)은 일정한 간격으로 실행되므로 오버헤드와 대기 시간을 최소화할 수 있도록 규칙을 작성해야 합니다. 이 문서에서는 로그 경고용으로 효율적인 쿼리를 작성하는 방법과 관련된 권장 사항과 기존 쿼리를 변환하는 프로세스를 제공합니다. 
 
 ## <a name="types-of-log-queries"></a>로그 쿼리의 유형
-[Log Analytics의 쿼리](../log-query/log-query-overview.md)는 테이블이나 [search](/azure/kusto/query/searchoperator) 또는 [union](/azure/kusto/query/unionoperator) 연산자로 시작됩니다.
+[Azure Monitor에서 로그 쿼리](../log-query/log-query-overview.md) 테이블을 사용 하 여 시작 또는 [검색](/azure/kusto/query/searchoperator) 하거나 [union](/azure/kusto/query/unionoperator) 연산자입니다.
 
 예를 들어 범위가 _SecurityEvent_ 테이블로 지정된 다음 쿼리는 특정 이벤트 ID를 검색합니다. 쿼리는 이 테이블만 처리하면 됩니다.
 

@@ -149,7 +149,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 ```
 
 ### <a name="master-node"></a>마스터 노드
-다중 인스턴스 작업을 제출할 때 Batch 서비스는 계산 노드 중 하나를 “마스터” 노드로 지정하고 주 작업이 마스터 노드에서 실행되도록 예약합니다. 하위 작업은 다중 인스턴스 작업에 할당된 노드의 나머지 부분에서 실행되도록 예약됩니다.
+다중 인스턴스 작업을 제출할 때 Batch 서비스는 계산 노드 중 하나를 "마스터" 노드로 지정하고 주 작업이 마스터 노드에서 실행되도록 예약합니다. 하위 작업은 다중 인스턴스 작업에 할당된 노드의 나머지 부분에서 실행되도록 예약됩니다.
 
 ## <a name="coordination-command"></a>조정 명령
 **조정 명령**은 주 및 하위 작업에서 실행됩니다.

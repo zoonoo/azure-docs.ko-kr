@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893064"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010603"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -288,10 +288,9 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
     - 큐 판독기는 지원되지 않습니다.  
     - 명령 셸은 아직 지원되지 않습니다.
   - Managed Instance는 외부 리소스(예: robocopy를 통한 네트워크 공유)에 액세스할 수 없습니다.  
-  - PowerShell은 아직 지원되지 않습니다.
   - Analysis Services는 지원되지 않습니다.
 - 알림은 부분적으로 지원됩니다.
-- 이메일 알림이 지원되며, 데이터베이스 메일 프로필을 구성해야 합니다. 데이터베이스 메일 프로필은 하나만 있을 수 있으며, 공개 미리 보기에서는 `AzureManagedInstance_dbmail_profile`이라고 해야 합니다(임시 제한).  
+- 이메일 알림이 지원되며, 데이터베이스 메일 프로필을 구성해야 합니다. SQL 에이전트는 하나의 데이터베이스 메일 프로필을 사용할 수 있으며 호출 해야 `AzureManagedInstance_dbmail_profile`합니다.  
   - 호출기는 지원되지 않습니다.  
   - NetSend는 지원되지 않습니다.
   - 경고는 아직 지원되지 않습니다.
@@ -432,10 +431,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 - `.BAK` 여러 백업 세트를 포함 하는 파일을 복원할 수 없습니다.
 - `.BAK` 여러 로그 파일이 포함 된 파일을 복원할 수 없습니다.
 - .bak에 `FILESTREAM` 데이터가 포함되어 있으면 복원에 실패합니다.
-- 활성 메모리 내 개체가 있는 데이터베이스를 포함한 백업은 현재 복원할 수 없습니다.  
-- 특정 시점에 메모리 내 개체가 있었던 데이터베이스를 포함한 백업은 현재 복원할 수 없습니다.
-- 읽기 전용 모드의 데이터베이스를 포함한 백업은 현재 복원할 수 없습니다. 이 제한은 곧 제거될 예정입니다.
-
+- 일반 목적 인스턴스의 활성 메모리 내 개체에 있는 데이터베이스를 포함 하는 백업은 복원할 수 없습니다.  
 복원 명령문에 대한 자세한 내용은 [RESTORE 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)을 참조하세요.
 
 ### <a name="service-broker"></a>Service Broker
@@ -485,6 +481,8 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
 
+`CREATE DATABASE `하십시오 `ALTER DATABASE ADD FILE`, 및 `RESTORE DATABASE` 인스턴스는 Azure 저장소 용량 한도 도달 수 있기 때문에 문이 실패할 수 있습니다.
+
 각 일반 용도 관리 되는 인스턴스가 최대 35TB의 저장소가 Azure Premium 디스크 공간을 예약 하 고 각 데이터베이스 파일은 별도 물리적 디스크에 배치 합니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 Managed Instance는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다.
 
 예를 들어, 일반 용도 관리 되는 인스턴스 하나가 있을 수 있습니다 1.2TB 4TB 디스크에 배치 되는 크기의 248 개의 파일 (각 크기가 1GB) 별도 128GB 디스크에 배치 되는 파일입니다. 이 예제에서:
@@ -514,9 +512,13 @@ Managed Instance에 액세스하는 동안 SSMS(SQL Server Management Studio) �
 
 몇 가지 시스템 뷰, 성능 카운터, 오류 메시지, XEvent 및 오류 로그 항목에는 실제 데이터베이스 이름 대신 GUID 데이터베이스 식별자가 표시됩니다. 이러한 GUID 식별자는 나중에 실제 데이터베이스 이름으로 바뀔 수 있으므로 사용하지 마세요.
 
+### <a name="database-mail"></a>데이터베이스 메일
+
+`@query` 매개 변수 [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 프로시저 작동 하지 않습니다.
+
 ### <a name="database-mail-profile"></a>데이터베이스 메일 프로필
 
-SQL 에이전트에서 사용 하는 데이터베이스 메일 프로필을 호출 해야 `AzureManagedInstance_dbmail_profile`합니다.
+SQL 에이전트에서 사용 하는 데이터베이스 메일 프로필을 호출 해야 `AzureManagedInstance_dbmail_profile`합니다. 다른 데이터베이스 메일 프로필 이름에 대 한 제한이 있습니다.
 
 ### <a name="error-logs-are-not-persisted"></a>오류 로그가 유지되지 않음
 

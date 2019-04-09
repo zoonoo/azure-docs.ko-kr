@@ -20,7 +20,7 @@ ms.locfileid: "58004066"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 PyTorch 모델 학습
 
-PyTorch를 사용 하 여 심층 신경망 (DNN) 교육에 대 한 Azure Machine Learning은 사용자 지정 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 의 클래스는 `Estimator`합니다. Azure SDK의 `PyTorch` Estimator를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 PyTorch 학습 작업을 쉽게 제출할 수 있습니다.
+PyTorch를 사용 하 여 심층 신경망 (DNN) 교육에 대 한 Azure Machine Learning은 사용자 지정 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 의 클래스는 `Estimator`합니다. Azure SDK의 `PyTorch` 평가기를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 PyTorch 학습 작업을 쉽게 제출할 수 있습니다.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 `PyTorch` Estimator를 사용하는 학습은 [기본 `Estimator`](how-to-train-ml-models.md)를 사용하는 방식과 비슷하므로 먼저 방법 문서를 확인하고 이 문서에서 소개하는 개념을 이해해야 합니다.
@@ -45,7 +45,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 
 매개 변수 | 설명
 --|--
-`source_directory` |  학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 컴퓨터로 복사됩니다.
+`source_directory` |  학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 머신에서 원격 컴퓨팅으로 복사됩니다.
 `script_params` |  <명령줄 인수, 값> 쌍 형식으로 학습 스크립트 `entry_script`에 대한 명령줄 인수를 지정하는 사전입니다.
 `compute_target` |  이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상
 `entry_script` |  원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.

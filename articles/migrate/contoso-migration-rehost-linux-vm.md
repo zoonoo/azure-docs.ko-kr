@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 200f9c5df0d4165341e38ca9d4dd85ad75c8403c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103488"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010365"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso 마이그레이션: Azure VM에 온-프레미스 Linux 앱 다시 호스트
 
@@ -30,11 +30,11 @@ ms.locfileid: "58103488"
 [문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
 [문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능 
 문서 7: Azure VM에서 Linux 앱 다시 호스트 | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 이 문서의 내용
-[문서 8: Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 9: Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 8: Linux 앱을 Azure VM 및 Azure MySQL에 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL database에서 응용 프로그램을 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
 [문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능 
-[문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
+[문서 11: Azure DevOps 서비스에서 TFS를 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
 [문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel 앱을 다시 빌드합니다. | 사용 가능
 [문서 14: Azure로의 마이그레이션 확장](contoso-migration-scale.md) | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 사용 가능
 
@@ -89,7 +89,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 
 **고려 사항** | **세부 정보**
 --- | ---
-**장점** | 두 앱 VM이 변경 없이 Azure로 이동되므로 마이그레이션이 간단합니다.<br/><br/> Contoso는 두 앱에 리프트 앤 시프트 방법을 사용하므로 앱 데이터베이스에 특별한 구성 또는 마이그레이션 도구가 필요 없습니다.<br/><br/> Contoso는 Azure에서 앱 VM의 모든 제어 권한을 유지합니다. </br>/br> 앱 VM은 보증된 Linux 배포판인 Ubuntu 16.04-TLS를 실행합니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**장점** | 두 앱 VM이 변경 없이 Azure로 이동되므로 마이그레이션이 간단합니다.<br/><br/> Contoso는 두 앱에 리프트 앤 시프트 방법을 사용하므로 앱 데이터베이스에 특별한 구성 또는 마이그레이션 도구가 필요 없습니다.<br/><br/> Contoso는 Azure에서 앱 VM의 모든 제어 권한을 유지합니다. </br>/ b r > 앱 Vm 실행 Ubuntu 16.04-TLS는 보증된 Linux 배포판입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **단점** | 앱의 웹 및 데이터 계층은 단일 장애 조치(failover) 지점을 유지합니다. <br/><br/> Contoso는 앱을 Azure App Service 및 Azure Database for MySQL 같은 관리되는 서비스로 이동하지 말고 계속해서 Azure VM으로 지원해야 합니다.<br/><br/> Contoso는 간단한 리프트 앤 시프트 VM 마이그레이션을 사용하면 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)에서 제공하는 기능(기본 제공 고가용성, 예측 가능한 성능, 간단한 크기 조정, 자동 백업 및 기본 제공 보안)을 최대로 활용할 수 없다는 사실을 알고 있습니다.
 
 ### <a name="migration-process"></a>마이그레이션 프로세스
@@ -118,7 +118,7 @@ Contoso의 마이그레이션 과정은 다음과 같습니다.
 **Azure 구독** | Contoso는 이 시리즈의 전반부 문서에서 구독을 만들었습니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.<br/><br/> 체험 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> 보다 세부적인 권한이 필요한 경우 [이 문서](../site-recovery/site-recovery-role-based-linked-access-control.md)를 검토합니다. 
 **Azure 인프라** | Contoso는 [마이그레이션을 위한 Azure 인프라](contoso-migration-infrastructure.md)에 설명된 대로 Azure 인프라를 설정합니다.<br/><br/> Site Recovery 고유의 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 요구 사항에 대해 자세히 알아보세요.
 **온-프레미스 서버** | 온-프레미스 vCenter 서버에서 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM
-**온-프레미스 VM** | Site Recovery를 사용한 마이그레이션에 대해 지원되는 [Linux 머신을 검토](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)합니다.<br/><br/> 지원되는 [Linux 파일 및 저장소 시스템](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage)을 확인합니다.<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
+**온-프레미스 Vm** | Site Recovery를 사용한 마이그레이션에 대해 지원되는 [Linux 머신을 검토](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)합니다.<br/><br/> 지원되는 [Linux 파일 및 저장소 시스템](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage)을 확인합니다.<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
 
 
 ## <a name="scenario-steps"></a>시나리오 단계
@@ -201,7 +201,7 @@ Azure로 장애 조치되면 Contoso는 Azure에서 복제된 VM에 연결하려
 
 **도움이 더 필요하세요?**
 
-- 자동 검색을 위한 역할 만들기와 할당에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery).
+- 자동 검색을 위한 역할을 만들고 할당하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery).
 - 모바일 서비스 강제 설치를 위한 계정을 만드는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation).
 
 
@@ -212,7 +212,7 @@ Azure로 장애 조치되면 Contoso는 Azure에서 복제된 VM에 연결하려
 ### <a name="set-a-protection-goal"></a>보호 목표 설정
 
 1. 자격 증명 모음의 자격 증명 모음 이름(ContosoVMVault) 아래에서 복제 목표를 설정합니다(**시작** > **Site Recovery** > **인프라 준비**).
-2. 해당 머신이 온-프레미스에 있고, VMware VM이며, Azure에 복제하려 한다고 지정합니다.
+2. 자체 컴퓨터가 온-프레미스에 있고, VMware VM이며, Azure로 복제하려고 한다고 지정합니다.
     ![복제 목표](./media/contoso-migration-rehost-linux-vm/replication-goal.png)
 
 ### <a name="confirm-deployment-planning"></a>배포 계획 확인
@@ -418,11 +418,11 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 2. **OSTICKETWEB** VM이 **OSTICKETMYSQL** VM과 통신할 수 있는지 확인해야 합니다. 현재 구성은 온-프레미스 IP 주소 172.16.0.43으로 하드 코드되어 있습니다.
 
-    **업데이트 이전**
+    **업데이트 전에**
     
     ![IP 업데이트](./media/contoso-migration-rehost-linux-vm/update-ip1.png)  
 
-    **업데이트 이후**
+    **업데이트 후**
     
     ![IP 업데이트](./media/contoso-migration-rehost-linux-vm/update-ip2.png) 
     

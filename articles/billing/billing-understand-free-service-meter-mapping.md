@@ -29,8 +29,8 @@ ms.locfileid: "57889814"
 
 |    서비스   | Azure Portal에서 미터 이름 | 사용량 파일/API에서 미터 이름 | 측정기 ID |
 | ------------ | -------------------------- | -------------------------| -------- |
-| B1S Linux VM | 계산 시간 - Standard_B1 VM | 계산 시간 - 무료 | 8260cba2-4437-47d1-a31e-2561cd370f50
-| B1S Windows VM | 계산 시간 - Standard_B1 VM(Windows) | 계산 시간 - 무료 | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
+| B1S Linux VM | 컴퓨팅 시간 - Standard_B1 VM | 컴퓨팅 시간 - 무료 | 8260cba2-4437-47d1-a31e-2561cd370f50
+| B1S Windows VM | 컴퓨팅 시간 - Standard_B1 VM(Windows) | 컴퓨팅 시간 - 무료 | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | B1S VM - 공용 IP 주소  | IP 주소 시간 - 공용 IP 주소 | IP 주소 시간 - 무료 | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | 저장소(GB) - Cosmos DB | 저장소(GB) - 무료 | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 요청 단위(시간) - Cosmos DB | 100 요청 단위(시간) - 무료 | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 

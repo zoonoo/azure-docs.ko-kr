@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417485"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006344"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -107,6 +107,8 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
 
+- 웹앱을 VNet/서브넷의 개인 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. VNet 방화벽 규칙이 있는 서버에 웹 앱에서 연결을 사용 하려면 허용 Azure 서비스가 서버에서 서버에 액세스 해야 합니다.
+
 - Azure Database for PostgreSQL에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이렇게 참조된 모든 서브넷은 Azure Database for PostgreSQL을 호스팅하는 동일한 지리적 위치에서 호스팅되어야 합니다.
 
 - 각 Azure Database for PostgreSQL 서버에는 특정 가상 네트워크에 대해 최대 128개 ACL 항목이 포함될 수 있습니다.
@@ -139,8 +141,8 @@ Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** �
 
 ## <a name="next-steps"></a>다음 단계
 VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
-- [Azure Portal을 사용한 Azure Database for PostgreSQL VNet 규칙 만들기 및 관리](howto-manage-vnet-using-portal.md).
-- [Azure CLI를 사용하여 Azure Database for PostgreSQL VNet 규칙 만들기 및 관리](howto-manage-vnet-using-cli.md)
+- [Azure portal을 사용 하 여 PostgreSQL VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-using-portal.md)
+- [Azure CLI를 사용 하 여 PostgreSQL VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

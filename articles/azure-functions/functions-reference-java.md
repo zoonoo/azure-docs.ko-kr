@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버를 사용하지 않는 아키텍처, Java
+keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버리스 아키텍처, Java
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual

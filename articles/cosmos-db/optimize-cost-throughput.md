@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877829"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009770"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -33,7 +33,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 1. Azure Cosmos 컨테이너가 몇십 개 정도 있으며 일부 또는 전체에서 처리량을 공유하려고 합니다. 
 
-2. IaaS 호스팅된 VM 또는 온-프레미스(예를 들어, NoSQL 또는 관계형 데이터베이스)에서 실행되도록 설계된 단일 테넌트 데이터베이스에서 Azure Cosmos DB로 마이그레이션하려고 합니다. 컬렉션/테이블/그래프가 많이 있으며 데이터 모델을 절대 변경하고 싶지 않습니다. Note 하지 업데이트 하는 경우 데이터 모델에서 온-프레미스 데이터베이스를 마이그레이션하는 경우 Azure Cosmos DB에서 제공 하는 이점 중 일부를 손상 할 수 있습니다. 최대의 성능을 얻고 비용 최적화를 이루려면 항상 데이터 모델에 다시 액세스하는 것이 좋습니다. 
+2. IaaS 호스팅된 VM 또는 온-프레미스(예를 들어, NoSQL 또는 관계형 데이터베이스)에서 실행되도록 설계된 단일 테넌트 데이터베이스에서 Azure Cosmos DB로 마이그레이션하려고 합니다. 많은 컬렉션/테이블/그래프 및 있는지 및 하지 않으려는 데이터 모델을 변경 합니다. Note 하지 업데이트 하는 경우 데이터 모델에서 온-프레미스 데이터베이스를 마이그레이션하는 경우 Azure Cosmos DB에서 제공 하는 이점 중 일부를 손상 할 수 있습니다. 최대의 성능을 얻고 비용 최적화를 이루려면 항상 데이터 모델에 다시 액세스하는 것이 좋습니다. 
 
 3. 데이터베이스 수준에서 풀링되는 처리량으로 예기치 않은 워크로드 급증을 완화하려고 합니다. 
 

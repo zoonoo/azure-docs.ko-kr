@@ -50,6 +50,8 @@ items:
     href: require-managed-devices.md
   - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
     href: untrusted-networks.md
+  - name: 사용 약관 필요
+    href: terms-of-use.md
   expanded: true
 - name: 참고 자료
   items:
@@ -69,9 +71,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: b665cf26d5f292f560ef8b169f970071c9021a7e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b100d4b05e3131e4a891715b87c804d60d23f389
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006148"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047044"

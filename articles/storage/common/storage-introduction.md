@@ -85,7 +85,7 @@ Table Storage에 대한 자세한 내용은 [Azure Table Storage 개요](../tabl
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [컴퓨팅 서비스 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 

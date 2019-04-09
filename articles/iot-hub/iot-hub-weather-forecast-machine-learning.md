@@ -1,21 +1,21 @@
 ---
 title: Azure Machine Learning을 사용하여 IoT Hub 데이터로 일기 예보 | Microsoft Docs
 description: Azure Machine Learning을 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
-author: rangv
-manager: ''
+author: robinsh
+manager: philmea
 keywords: 일기 예보 기계 학습
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: robinsh
+ms.openlocfilehash: a203018cb1a27c17b9c7162b50a380f9edae2e60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534262"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273195"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
@@ -51,11 +51,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
 1. [날씨 예측 모델 페이지](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1)로 이동합니다.
 1. Microsoft Azure Machine Learning Studio에서 **Studio에서 열기**를 클릭합니다.
-   ![Cortana Intelligence 갤러리에서 날씨 예측 모델 페이지 열기](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
+   ![Cortana Intelligence 갤러리에서 날씨 예측 모델 페이지를 열려면](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. **실행**을 클릭하여 모델의 단계에 대한 유효성을 검사합니다. 이 단계를 완료하는 데 2분 정도 걸릴 수 있습니다.
-   ![Azure Machine Learning Studio에서 날씨 예측 모델 열기](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Azure Machine Learning Studio에서 날씨 예측 모델을 열려면](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. **웹 서비스 설정** > **예측형 웹 서비스**를 클릭합니다.
-   ![Azure Machine Learning Studio에 날씨 예측 모델 배포](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Azure Machine Learning Studio에 일기 예보 모델 배포](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. 다이어그램에서 **웹 서비스 입력** 모듈을 **모델 점수 매기기** 모듈 근처로 끌어갑니다.
 1. **웹 서비스 입력** 모듈을 **모델 점수 매기기** 모듈에 연결합니다.
    ![Azure Machine Learning Studio에서 두 모듈 연결](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)

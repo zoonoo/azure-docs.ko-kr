@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: d7f44ace1625b9859eb8914f15526cf98fe883bc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 74b22f194e7af000dbd8b53ec95dbbff2c5c588a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878369"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010535"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>데이터 흐름 데이터 변환 식 매핑
 
@@ -509,7 +509,7 @@ CumeDist 함수는 파티션의 모든 값을 기준으로 값의 위치를 계�
 <code>log</code>
 ==============================
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-로그 값을 계산합니다. 선택적인 기본 수 있습니다. 제공 된 다른 euler 숫자로 사용 하는 경우
+로그 값을 계산합니다. 선택적인 기본 수 있습니다. 제공 된 다른 오일러 번호를 사용 하는 경우
 * ``log(100, 10) -> 2``
 *********************************
 <code>log10</code>

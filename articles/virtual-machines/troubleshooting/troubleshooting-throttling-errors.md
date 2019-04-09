@@ -22,7 +22,7 @@ ms.locfileid: "58880715"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
-Azure Compute 요청은 서비스의 전반적인 성능에 도움이 되도록 지역별로 및 구독에서 제한이 있을 수 있습니다. Microsoft.Compute 네임스페이스에서 리소스를 관리하는 Azure CRP(Compute 리소스 공급자)에 대한 모든 호출이 허용되는 최대 API 요청 속도를 초과하지 않도록 합니다. 이 문서에서는 제한받지 않도록 API 제한, 제한 문제를 해결하는 방법 및 모범 사례에 대해 설명합니다.  
+Azure 컴퓨팅 요청은 서비스의 전반적인 성능에 도움이 되도록 지역별로 및 구독에서 제한이 있을 수 있습니다. Microsoft.Compute 네임스페이스에서 리소스를 관리하는 Azure CRP(Compute 리소스 공급자)에 대한 모든 호출이 허용되는 최대 API 요청 속도를 초과하지 않도록 합니다. 이 문서에서는 제한받지 않도록 API 제한, 제한 문제를 해결하는 방법 및 모범 사례에 대해 설명합니다.  
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Azure Resource Manager 대 리소스 공급자에 의한 제한  
 

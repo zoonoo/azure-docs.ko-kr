@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452133"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006757"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -59,7 +59,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-[Azure Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md) 및 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에 나와 있는 기본 프로세스에 따라 에이전트를 설치합니다.
+기본 프로세스에서 에이전트를 설치 하는 데 [Azure Monitor에 연결 하는 Windows 컴퓨터](../platform/agent-windows.md) 하 고 [Azure Monitor에 Operations Manager 연결](../platform/om-agents.md)합니다.
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
@@ -101,7 +101,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. 에 설명 된 프로세스를 사용할 수도 있습니다 [솔루션 갤러리에서 Azure Monitor 추가 솔루션](../../azure-monitor/insights/solutions.md)합니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3. 솔 *루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 
@@ -151,7 +151,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 원하는 기능 구성:
 
-- [성능 모니터](network-performance-monitor-performance-monitor.md#configuration)
+- [성능 모니터링](network-performance-monitor-performance-monitor.md#configuration)
 - [서비스 엔드포인트 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute 모니터](network-performance-monitor-expressroute.md#configuration)
 
@@ -168,7 +168,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
  
 
  
-이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터가 Log Analytics 서비스에 업로드되기 전에 에이전트가 약 3분간 데이터를 집계합니다.
+이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터는 Azure Monitor에서 Log Analytics 작업 영역에 업로드 되기 전에 에이전트가 약 3 분 동안 집계 됩니다.
 
 
 
@@ -241,9 +241,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 ![토폴로지 맵](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Log Analytics 검색 
+## <a name="log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리
 
-네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [Log Analytics 검색](../../azure-monitor/log-query/log-query-overview.md)에서도 기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
+모든 데이터는 네트워크 성능 모니터 대시보드를 통해 그래픽으로 노출 하 고 드릴 다운 페이지를 고유 하 게 제공 됩니다 [쿼리를 로깅](../log-query/log-query-overview.md)합니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
 
 ## <a name="alerts"></a>경고
 
@@ -251,7 +251,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
 
-Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
+LAzure Monitor를 통해 경고를 만드는 NPM 사용자 인 경우: 
 1. Azure Portal로 리디렉션하는 링크가 보입니다. 이 링크를 클릭하여 포털에 액세스합니다.
 2. 네트워크 성능 모니터 솔루션 타일을 클릭합니다. 
 3. [구성]으로 이동합니다.  

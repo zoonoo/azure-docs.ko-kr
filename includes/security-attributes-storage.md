@@ -1,15 +1,15 @@
 ---
 author: msmbaldwin
-ms.service: key-vault
+ms.service: storage
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8e33113ca9f0886a4cef1c8f9acb855b32c2973
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b242bda524c747b28453061c797afde02cf6f455
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58116046"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007564"
 ---
 ## <a name="preventative"></a>예방
 
@@ -34,7 +34,7 @@ ms.locfileid: "58116046"
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| Azure 모니터링 지원(Log Analytics, App insights 등)| 예 | 사용 가능한 azure Monitor 메트릭 시작 미리 보기를 이제 로그 |
+| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | 사용 가능한 azure Monitor 메트릭 시작 미리 보기를 이제 로그 |
 
 ## <a name="iam-support"></a>IAM 지원
 
@@ -55,4 +55,4 @@ ms.locfileid: "58116046"
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 구성 관리 지원(구성 버전 관리 등)| 예 | Azure Resource Manager Api를 통해 리소스 공급자 버전 관리를 지원 합니다. |
+| 구성 관리 지원 (구성 등의 버전 관리 합니다.)| 예 | Azure Resource Manager Api를 통해 리소스 공급자 버전 관리를 지원 합니다. |

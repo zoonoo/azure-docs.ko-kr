@@ -5,7 +5,7 @@ services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버가 없는 아키텍처, F#
+keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버리스 아키텍처, F#
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp

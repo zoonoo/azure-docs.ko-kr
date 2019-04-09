@@ -40,7 +40,7 @@ Azure에 등록 하는 경우 몇 가지 방법으로의 지출을 보다 명확
 
 ![가격 계산기 메뉴의 스크린샷](./media/billing-getting-started/pricing-calc.png)
 
-예를 들어 A1 Windows VM(Virtual Machine)은 계속 실행 상태를 유지할 경우 월별 계산 시간이 $66.96로 예측됩니다.
+예를 들어 A1 Windows VM(Virtual Machine)은 계속 실행 상태를 유지할 경우 월별 컴퓨팅 시간이 $66.96 USD로 예측됩니다.
 
 ![A1 Windows VM이 예상 월별 비용이 $66.96 USD임을 보여 주는 가격 계산기 스크린샷](./media/billing-getting-started/pricing-calcVM.png)
 
@@ -48,7 +48,7 @@ Azure에 등록 하는 경우 몇 가지 방법으로의 지출을 보다 명확
 
 ### <a name="review-the-estimated-cost-in-the-azure-portal"></a>Azure Portal에서 예상 비용 검토
 
-일반적으로 Azure Portal에서 서비스를 추가하는 경우 유사한 월별 예상 비용이 표시되는 보기가 제공됩니다. 예를 들어 Windows VM의 크기를 선택하는 경우 계산 시간에 대해 예상되는 월별 비용이 표시됩니다.
+일반적으로 Azure Portal에서 서비스를 추가하는 경우 유사한 월별 예상 비용이 표시되는 보기가 제공됩니다. 예를 들어 Windows VM의 크기를 선택하는 경우 컴퓨팅 시간에 대해 예상되는 월별 비용이 표시됩니다.
 
 ![예제: A1 Windows VM의 월별 비용이 $66.96 USD로 예측됨](./media/billing-getting-started/vm-size-cost.PNG)
 
